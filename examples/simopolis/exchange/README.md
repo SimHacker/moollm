@@ -10,7 +10,7 @@ The Exchange is Simopolis's import/export hub — a reimagining of The Sims Exch
 
 Drop a `.FAM` or `.iff` save file into `imports/`. The Uplift pipeline reads it:
 
-1. **SimObliterator** parses the binary (PersonData: 88 shorts per Sim)
+1. **SimObliterator** parses the binary (PersonData per Sim)
 2. **Extraction**: traits, skills, needs, career, relationships, appearance
 3. **Mapping**: Sims traits → `sims:` block, synthesize `mind_mirror:` from personality
 4. **Enrichment**: LLM generates soul_philosophy, emoji_identity, description

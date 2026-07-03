@@ -24,7 +24,7 @@ This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.co
 
 ## Why It's Trivial
 
-MOOLLM already has [`sims_traits`](https://github.com/SimHacker/moollm/tree/main/skills/character) as a native personality system — the **same 5 traits**, same 25-point budget as The Sims. [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) already parses all 88 `person_data` fields from save files. The bridge is a `to_moollm_yaml()` method. The reverse is `set_sim_skill()`. See [BRIDGE.md](BRIDGE.md) for the complete field mapping.
+MOOLLM already has [`sims_traits`](https://github.com/SimHacker/moollm/tree/main/skills/character) as a native personality system — the **same 5 traits**, same 25-point budget as The Sims. [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) already parses the full `person_data` array from save files. The bridge is a `to_moollm_yaml()` method. The reverse is `set_sim_skill()`. See [BRIDGE.md](BRIDGE.md) for the complete field mapping.
 
 ## Literary Precedent
 

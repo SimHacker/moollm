@@ -18,7 +18,7 @@ The experience this creates is inherently cinematic — it could be a short film
 
 ```mermaid
 flowchart TD
-    USB["💾 USB Stick<br/>save file from 2001"] --> SO["🔬 SimObliterator<br/>parses binary<br/>88 shorts → personality"]
+    USB["💾 USB Stick<br/>save file from 2001"] --> SO["🔬 SimObliterator<br/>parses PersonData<br/>integers → personality"]
     SO --> YAML["📄 CHARACTER.yml<br/>neat:8, outgoing:2<br/>playful:6, nice:9"]
     YAML --> LLM["🧠 LLM Enrichment<br/>emoji identity<br/>mind mirror<br/>dialogue patterns"]
     LLM --> MOOLLM["🌍 MOOLLM<br/>rooms · conversations<br/>adventures · love"]
@@ -34,7 +34,7 @@ flowchart TD
 
 ### Act 1: The Thaw
 
-An old lonely Sim saved on a novelty USB stick from someone's childhood. Alone. Frozen in time since 2001. The USB stick gets plugged in. [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) parses the binary — 88 shorts in a `person_data` array become a person. The LLM reads: neat 8, outgoing 2, playful 6, nice 9. Shy. Kind. Lonely. The character wakes up.
+An old lonely Sim saved on a novelty USB stick from someone's childhood. Alone. Frozen in time since 2001. The USB stick gets plugged in. [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) parses the binary — the `person_data` array becomes a person. The LLM reads: neat 8, outgoing 2, playful 6, nice 9. Shy. Kind. Lonely. The character wakes up.
 
 They remember fragments: a house, a kitchen, making dinner alone. The relationship array is empty. Reincarnated as a full MOOLLM citizen with a [CHARACTER.yml](https://github.com/SimHacker/moollm/tree/main/skills/character).
 
@@ -97,7 +97,7 @@ MOOLLM is not a replacement for The Sims — it's **another place**. Just like S
 
 | Aspect | The Sims (26-year-old VM) | MOOLLM (LLM-powered) |
 |--------|--------------------------|----------------------|
-| Personality | 88 shorts in an array | Narrative traits, mind mirror, emoji identity |
+| Personality | PersonData integers in a save file | Narrative traits, mind mirror, emoji identity |
 | Relationships | `daily: -80, lifetime: -45` | "Bob and Bella are bitter rivals since the kitchen fire" |
 | Communication | Simlish gestures | Natural language dialogue |
 | Agency | Behavioral scripts (BHAVs) | LLM-driven choices with incarnation ethics |

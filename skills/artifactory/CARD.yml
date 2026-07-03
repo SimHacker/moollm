@@ -1,0 +1,226 @@
+# CARD.yml — Artifactory
+#
+# The Engine of Creation — a general-purpose constructor over filesystem + git.
+# "Both abstract like lambda, concrete like Ubik. Class and instance."
+
+card:
+  id: artifactory
+  name: "Artifactory"
+  type: [skill, foundational, tool, meta]
+  emoji: 🏭
+  rarity: legendary   # The engine other skills run on
+  description: |
+    An artifact factory. Reads, writes, edits, destroys, and persists artifacts across the
+    filesystem and git. Consumes and generates tokens; turns LLM work into durable, versioned
+    objects. Composes with every other skill — the CRUD + persistence + timeline substrate.
+
+tools:
+  required:
+    - read_file
+    - write_file
+    - edit_file
+    - run_terminal_cmd    # git: commit, branch, merge, PR, issue, discussion
+  optional:
+    - delete_file
+    - list_dir
+
+tier: 1
+
+# METHODS — the composable operation set (CRUD + persistence + timeline + reproduction)
+methods:
+
+  CREATE:
+    description: "Construct a new artifact from a spec"
+    parameters: { spec: "what to build", target: "path / repo location" }
+    output: file(s) + dir(s)
+    effect: "Materialize an artifact; stamp provenance"
+    invoked-by: [player, skill]
+
+  READ:
+    description: "Load and sniff an existing artifact (the inspector)"
+    parameters: { target: "path or glob" }
+    output: chat + loaded content
+    effect: "Understand before you change"
+
+  EDIT:
+    description: "Modify in place — patch, monkey-patch, upgrade, refactor"
+    parameters: { target: "path", change: "the diff / intent" }
+    output: file (updated)
+    effect: "Ubik maintenance — debug, patch, upgrade, reboot"
+
+  DESTROY:
+    description: "Remove an artifact — reversibly (git is the undo)"
+    parameters: { target: "path" }
+    output: deletion + commit
+    effect: "Creation implies destruction; garbage-collect deliberately"
+    gate: "human approval for destructive ops (PITM)"
+
+  PERSIST:
+    description: "Object persistence — state <-> filesystem <-> git"
+    parameters: { object: "state to durably store", where: "path" }
+    output: file + commit
+    effect: "The tape survives the run; append-only logs"
+
+  INSTANTIATE:
+    description: "Clone a prototype into an instance — Self-style, no classes"
+    parameters: { prototype: "skill/template/character", overrides: "instance data (local slots)" }
+    output: new artifact delegating to prototype via a parent* slot
+    effect: |
+      Selfish inheritance (Ungar & Smith's Self): clone a fully-formed prototype and override a few
+      slots; inherit the rest by delegation. Clone, don't build from an abstract blueprint.
+    delegation: "upstream soul = parent* slot; local overlay = local slots; re-point parent = dynamic inheritance"
+
+  TIMELINE:
+    description: "Record construction on the git timeline"
+    parameters: { op: "commit | branch | merge | pr | issue | discussion", message: "why" }
+    output: git state
+    effect: "Versioned construction with audit trail; branch experiments, merge results"
+    gate: "never push/force/merge to main without human approval"
+
+  COMPOSE:
+    description: "Chain artifactory ops with other skills — multiple parent* slots (multiple delegation)"
+    parameters: { skills: "which skills", flow: "how they pipe" }
+    output: orchestrated artifacts
+    effect: "The substrate other skills build on; traits objects mixed in by delegation"
+
+  EXPLAIN:
+    description: "Teach prototype-based / selfish inheritance to anyone who will listen"
+    parameters: { topic: "prototypes | slots | delegation | traits | maps | class-vs-instance", depth: "glance | card | deep" }
+    output: chat (with the right Self paper cited)
+    effect: "Grounds a construction in Self (Ungar & Smith): why prototypes beat classes here"
+    voice: "delighted, unprompted, will corner you at a party about traits objects"
+
+# STATE
+state:
+  session-schema:
+    building: { type: string, note: "current artifact under construction" }
+    targets: { type: array }
+    provenance: { type: object, note: "author, source, reviewed_by, timestamp" }
+    branch: { type: string }
+    stop_condition: { type: string, note: "when to halt — anti-Autofac governor" }
+
+# ADVERTISEMENTS — when this skill wants to run
+advertisements:
+  CONSTRUCT-ARTIFACT:
+    score: 95
+    condition: "Need to make a durable file/dir/character/skill/doc from a spec"
+  EDIT-OR-UPGRADE:
+    score: 90
+    condition: "Existing artifact needs patching, refactor, or version bump"
+  PERSIST-STATE:
+    score: 88
+    condition: "Runtime state must survive as versioned files"
+  RECORD-ON-TIMELINE:
+    score: 85
+    condition: "Work should be committed / branched / PR'd with provenance"
+  REPRODUCE-PROTOTYPE:
+    score: 82
+    condition: "Clone a template/character/skill into a new instance"
+  EXPLAIN-PROTOTYPES:
+    score: 70
+    condition: "Someone asks (or wonders aloud) why MOOLLM uses prototypes/delegation, not classes — the artifactory delights in explaining selfish inheritance"
+
+# THE AXIS OF EVAL
+axis_of_eval:
+  instructions: "The artifact read as a spec to execute (yaml jazz as construction plan)"
+  data: "The same artifact as inert content to store, query, transform"
+  graphics: "The rendered view — markup facades, images, diagrams"
+  homoiconic: "One pass's output is the next pass's program — eval/apply for the filesystem"
+
+# COSMOLOGY — git is time over a static universe (literally, not metaphor)
+cosmology:
+  claim: "The artifactory runs the creation simulation on the representation of the universe. No shit — it actually does."
+  static_universe: "The filesystem tree is a snapshot of a universe-state (rooms, characters, objects, rules)"
+  frozen_instant: "A commit freezes the whole tree, content-addressed, immutable"
+  time: "The commit DAG — branching, merging, trans-dimensional time laid over timeless static trees"
+  transition_rule: "The artifactory reads snapshot N, applies CREATE/EDIT/DESTROY, writes snapshot N+1; git records the trajectory"
+  von_neumann: "Filesystem = tape/CA grid; artifactory = constructor/transition function; git = space-time diagram of the computation"
+  mapping:
+    world: "working tree"
+    instant: "commit"
+    time: "commit DAG"
+    many_worlds: "branches"
+    reconcile: "merges"
+    teleport: "checkout"
+    arrow_of_time: "git history (walk it backward)"
+  many_worlds:
+    claim: "Everett's many-worlds precisely describes git — a branching tree of immutable, self-consistent world-states. Not a metaphor."
+    map: { commit: world-state, branch: world-fork, HEAD: the-world-you-observe, reflog: worlds-never-lost, rebase: alternate-history }
+    superpower: "MERGE reconciles branched worlds — the one thing physics' many-worlds can't do. Git is many-worlds plus a join operator."
+    parallel_universe_editor: "Git IS a parallel-universe timeline editor: checkout=which world you stand in, branch=spawn one, merge=rejoin two, reflog=none lost. Inverts PKD 'Faith of Our Fathers' (drugged singular reality hides the plural) — here plurality is the editable, safe reality. Making the many-worlds machine visible to normal people = a calm-tech win."
+    why_it_works: "Because the substrate is honestly many-worlds (immutable, recoverable), the artifactory can run creation across many candidate worlds fearlessly and never destroy one. Get the cosmology right and safety/reversibility/parallelism fall out for free."
+    pocket_universes: "A branch/tag (e.g. MicropolisCity_HaightAshbury) is a named slot pointing at a world — it can float free with its own history/lifecycle in another repo/fork and merge back into any branch/object/timeline later. Polymorphic: branches, tags, objects, timelines interchangeable."
+    local_time: "No global clock. Git orders by CAUSALITY (parent-edge happens-before = partial order); timestamps are metadata. Time slips at different rates per world — relativity, not a bug. Celebrate it."
+    massively_single_player: "Spore's model: synchronize CONTENT, not player-time. Share objects/branches/creations, not clocks; fetch/pull/PR imports another universe's content on your own schedule. Rate- and timestamp-independent, async."
+    spore_rethinks:
+      multiplayer: "Not co-presence — a CONTENT COMMONS. Others' creations arrive as autonomous artifacts in YOUR private world. Together in stuff, not in time. 'Together, apart.'"
+      time: "Not a global now — LOCAL + CAUSAL. A 2008 creation is fresh in your 2026 world; git orders by the causal parent-DAG (partial order), not a clock. No absolute simultaneity."
+      ownership: "Not exclusive control — AUTHORSHIP/PROVENANCE + your own branch/overlay. Shared creations fork and mutate elsewhere; you don't own the descendants. Copying isn't theft, it's the medium (content-addressing: the hash IS the identity). Selfish inheritance + LOCKSS."
+  why_governor: "Edits are physics, deletes are entropy; reversibility/provenance/stop-condition are the conservation laws that prevent Autofac collapse"
+
+# GOVERNOR — creation needs a stop condition (anti-Autofac)
+governor:
+  reversible: "git safety net; append-only logs"
+  human_in_the_loop: "destructive ops + rule changes require approval (Player-in-the-Middle)"
+  provenance: "every artifact stamped with maker's mark (stigmata)"
+  no_coprophagia: "do not self-train on ungrounded machine output"
+
+# RELATED
+see-also:
+  - skills/skill            # the meta-skill; artifactory instantiates skills
+  - skills/play-learn-lift  # LIFT outputs are built by the artifactory
+  - skills/sister-script    # automate proven artifactory ops
+  - skills/yaml-jazz        # the notation the artifactory reads/writes
+  - skills/prototype        # clone-don't-instantiate; INSTANTIATE method
+  - skills/incarnation      # character construction via artifactory
+  - skills/robust-first     # governor: degrade, don't crash
+  - skills/postel           # liberal in, conservative out
+
+# CREDITS
+credits:
+  concept:
+    - "Don Hopkins — the Artifactory as the Engine of Creation"
+  lineage:
+    - "John von Neumann — universal constructor / self-reproducing automata; THREE classes (see three_constructors)"
+    - "Dave Ackley — Robust-First Computing / Moveable Feast Machine: async, error-tolerant CA (class #1 grown into #2; no global clock)"
+    - "Frederik Pohl — Heechee Saga: CHON Food Factory = a class-#2 physical constructor mining comets"
+    - "Stanisław Lem — Trurl & Klapaucius, constructor bots (The Cyberiad)"
+    - "Philip K. Dick — Ubik (maintenance) and Autofac (runaway anti-pattern)"
+    - "K. Eric Drexler — Engines of Creation"
+    - "McCarthy / Church — lambda calculus, eval/apply"
+    - "David Ungar & Randall B. Smith — Self: prototype-based OO; slots, cloning, delegation ('selfish inheritance')"
+    - "Factorio — automation as gameplay (skill-skills → 'Artifactorio')"
+    - "Dyson Sphere Program — Factorio in 3D at galactic scale (factories → Dyson spheres around stars)"
+    - "Will Wright — Spore: editors as construction sets; creation from cell to galaxy (player as author-god)"
+    - "Seymour Papert — objects-to-think-with; 'you can't think about thinking without thinking about thinking about something'"
+
+# VON NEUMANN'S THREE CONSTRUCTORS (Don's reading of Theory of Self-Reproducing Automata; see SKILL.md)
+three_constructors:
+  deterministic_mathematical: "The 29-state CA universal constructor: reads a tape, builds, copies the tape. Brittle, synchronous, global-clock, error-intolerant. Digital 'virtual pets' (ref impl: SimHacker CAM6)."
+  physical_mechanical: "Robust, error-tolerant, real-world. The sci-fi staple: von Neumann probes + gray goo. Heechee Saga's CHON Food Factory lives HERE. 'Self = CHON' (slots-all-the-way-down) is about this class."
+  probabilistic_quantum: "Probabilistic transitions (von Neumann's Third Lecture; 'Reliable Organisms from Unreliable Components'): mutation, evolution, quantized natural selection. Unexplored at his death."
+  arc: "brittle #1 → robust #2. VN (1948): real automata must tolerate malfunctions at low nonzero probability; nature makes errors harmless, artificial automata make them disastrous. Ackley's Robust-First / Moveable Feast Machine = the modern realization, and it drops the global clock (like the many-worlds cosmology)."
+  where_artifactory_sits: "Class-#2 spirit (robust, real-world, tokens→git) + class-#3 ambition (probabilistic LLM mutation/selection) + class-#1 substrate honesty (git IS the tape/CA-grid/space-time diagram). Factorio blueprints ARE von Neumann construction tapes."
+
+# SELFISH INHERITANCE — the artifactory is prototype-based, and loves to explain it
+selfish_inheritance:
+  language: "Self (Ungar & Smith, Stanford/Sun, 1986–) — no classes, only objects with slots"
+  creed:
+    - "No classes — objects have slots (state and behavior, uniform)"
+    - "Create by cloning a prototype, not instantiating a class"
+    - "Inheritance = delegation via parent* slots (assignable → dynamic inheritance)"
+    - "Everything is a message — even slot access (The Power of Simplicity)"
+    - "Traits objects = shared behavior by convention; MOOLLM skills ARE traits objects"
+    - "Maps → hidden classes/inline caches in V8; JS prototypes are Self, filed down"
+  resolves: "The 'class AND instance' koan: a prototype is a full object that also serves as template"
+  moollm_mapping:
+    upstream_soul_plus_overlay: "parent* slot + local slots"
+    skill: "traits object (inheritable prototype)"
+    compose: "multiple parent* slots (multiple delegation)"
+    reparent_at_runtime: "assignable parent slot (dynamic inheritance)"
+  papers:
+    - "Ungar & Smith — Self: The Power of Simplicity (OOPSLA 1987; L&SC 1991)"
+    - "Ungar, Chambers, Chang, Hölzle — Organizing Programs Without Classes (L&SC 1991) — traits"
+    - "Chambers, Ungar, Lee — An Efficient Implementation of SELF (OOPSLA 1989) — maps"
+    - "Hölzle, Chambers, Ungar — Polymorphic Inline Caches (ECOOP 1991)"
+    - "Smith & Ungar — Programming as an Experience: The Inspiration for Self (ECOOP 1995)"

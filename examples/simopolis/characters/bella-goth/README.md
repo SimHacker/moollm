@@ -29,7 +29,7 @@ Maxis never explained what happened. The fan community spent twenty-five years t
 
 ## The Simopolis Mystery
 
-In Simopolis, Bella's data is complete. Her CHARACTER.yml has every field filled in. 88 shorts of PersonData, properly mapped to `sims:` traits and `mind_mirror:` dimensions. Her soul_philosophy is in her voice. Her relationships are recorded.
+In Simopolis, Bella's data is complete. Her CHARACTER.yml has every field filled in. PersonData properly mapped to `sims:` traits and `mind_mirror:` dimensions. Her soul_philosophy is in her voice. Her relationships are recorded.
 
 Her location is `null`.
 

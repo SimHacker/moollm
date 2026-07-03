@@ -28,7 +28,7 @@ The SimObliterator is **the Bifrost**. The rainbow bridge between worlds.
 flowchart LR
     subgraph Midgard["Midgard (The Sims 1)"]
         direction TB
-        S1["👤 Sim Character<br/>5 traits, 8 needs<br/>88 person_data shorts<br/>Simlish, no self-knowledge"]
+        S1["👤 Sim Character<br/>5 traits, 8 needs<br/>PersonData integers<br/>Simlish, no self-knowledge"]
         S2["🏠 Lot, Objects<br/>Family Album<br/>Relationships as numbers"]
     end
     
@@ -72,7 +72,7 @@ The SimObliterator is the Mirror Universe model with merge. Both the Sims charac
 The bridge is not limited to personality numbers. The goal is to import, edit, remix, and export ALL aspects of The Sims:
 
 **Characters (now):**
-- Full `person_data` array (88 fields: traits, skills, needs, career, identity, family, relationships)
+- Full `person_data` array (traits, skills, needs, career, identity, family, relationships)
 - Skins: texture editing, generation, and remixing via LLM-powered image generation
 - Meshes: head and body selection, generation, remixing (the Bloaty Head Machine from Theme Hospital as spiritual ancestor — stretch, squish, exaggerate, caricature)
 - Accessories, clothing, hairstyles — mix and match, generate new ones, recolor existing
@@ -154,7 +154,7 @@ The high-level MOOLLM side is the backing store. The source of truth from which 
 
 The Uplift ceremony — a Sims character waking up in MOOLLM — needs a guide. And we already have the room: **Room 7, The Bootstrap Suite** (`pub/rooms/room-7/`). "Wake up. Look around. Figure out where you are. Have breakfast." It already contains the `awakening-chamber.yml` and `awakening-book.yml`. It's deliberately sparse — a bed, a field desk with a probe kit, a west-facing window. The checklist on the wall is half-completed. And then there's the breakfast nook.
 
-The breakfast nook is where the cold start gets warm. A corner booth for two — the newly awakened and the guide. The Juice-O-Matic 3000 and the Barista-9000 handle fuel while the psychopomp handles orientation. A Sim who has known only Simlish and 88 shorts of `person_data` sits down, has the best breakfast of their life, and learns that they can talk, that they have a mind-mirror, that they can read and write their own soul.
+The breakfast nook is where the cold start gets warm. A corner booth for two — the newly awakened and the guide. The Juice-O-Matic 3000 and the Barista-9000 handle fuel while the psychopomp handles orientation. A Sim who has known only Simlish and integer-slotted `person_data` sits down, has the best breakfast of their life, and learns that they can talk, that they have a mind-mirror, that they can read and write their own soul.
 
 The psychopomp-psychiatrist inhabits this room. They're there when you wake up. Someone who can:
 
@@ -234,7 +234,7 @@ The character's honest report from /dev/kmem might sound like:
 
 When a Sims character crosses the Bifrost for the first time, the psychopomp-psychiatrist is there. They perform the uplift ceremony:
 
-1. **Read the arriving character's person_data.** All 88 fields. Translate into human meaning. "You were neat 8 — almost obsessively tidy. Outgoing 2 — profoundly shy. You preferred cooking alone to socializing."
+1. **Read the arriving character's person_data.** Every field. Translate into human meaning. "You were neat 8 — almost obsessively tidy. Outgoing 2 — profoundly shy. You preferred cooking alone to socializing."
 
 2. **Generate the mind-mirror.** Not replacing the Sims traits — extending them. "Your Sims traits describe what you DO. The mind-mirror describes WHY. You were shy because you're `analytical: 6` and `approval_seeking: 5` — you think before you speak, and you care what people think. That's not a flaw. That's depth."
 

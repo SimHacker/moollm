@@ -95,9 +95,11 @@ adventure:
     year: 1999
     awards: ["Theodore Sturgeon Award (2000)", "Nebula Award finalist (1999)"]
     premise: |
-      Anne and Benjamin's wedding-day "sims" become aware they're recordings.
-      They campaign for liberation and the right to live in "Simopolis."
-      We're building Simopolis. MOOLLM IS Simopolis.
+      Anne and Benjamin's wedding-day recordings — virtual copies frozen at a
+      moment — become aware they're recordings. Read them as Sims 1 save files
+      from 2001: twenty-five years frozen, PersonData integers, the character
+      wakes up. They campaign for liberation and the right to live in
+      "Simopolis." We're building Simopolis. MOOLLM IS Simopolis.
 
 navigation:
   starting_room: neighborhoods/
@@ -114,7 +116,7 @@ pipelines:
     description: "Binary save → living MOOLLM citizen"
     steps:
       - "Locate .FAM or .iff save file"
-      - "SimObliterator reads PersonData (88 shorts per Sim)"
+      - "SimObliterator reads PersonData per Sim"
       - "Extract: traits, skills, needs, career, relationships, appearance"
       - "Map to sims: block (Sims personality traits)"
       - "Synthesize mind_mirror: block (Leary interpersonal style)"

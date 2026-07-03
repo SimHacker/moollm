@@ -1,0 +1,80 @@
+# GLANCE.yml — artifactory
+# Full file: CARD.yml | SKILL.md | README.md
+# 🏭 "The Engine of Creation. It builds, edits, and destroys — including itself."
+
+what: |
+  The general-purpose constructor. An artifactory is an artifact factory: it reads, writes,
+  edits, destroys, and persists artifacts — text, directories, characters, skills, graphics —
+  across the filesystem and git. Both abstract (an operator, like lambda) and concrete (a thing
+  in the world, like Ubik). Class AND instance. The engine every other skill calls to make
+  something durable.
+
+why: |
+  - Creation, editing, and destruction are one composable operation set, not three tools
+  - Persistence: state survives in files + git; the tape outlives the run
+  - Tokens in, artifacts out — LLM work made durable and versioned
+  - Self-reproducing: builds shows/skills/characters that build more (with a governor)
+
+when:
+  - '"Make a new artifact from a spec" → CREATE'
+  - '"Change / patch / upgrade an existing one" → EDIT'
+  - '"Remove it (reversibly)" → DESTROY'
+  - '"Save / load durable state" → PERSIST'
+  - '"Clone a prototype into an instance" → INSTANTIATE'
+  - '"Record it on the timeline" → COMMIT / BRANCH / MERGE / PR / ISSUE'
+
+the_axis_of_eval: |
+  Instructions | Data | Graphics — the same artifact is a spec on one pass, data on the next,
+  a rendered view on the third. Homoiconic construction. eval/apply for the filesystem.
+
+cosmology: |
+  Git is time flowing over a static universe — literally. The filesystem tree is a snapshot of a
+  universe-state; a commit freezes it (content-addressed, immutable); the commit DAG is branching,
+  merging, trans-dimensional time. The artifactory is the transition rule: read snapshot N, apply
+  CREATE/EDIT/DESTROY, write snapshot N+1 — git records the trajectory. It runs the creation
+  simulation on the representation of the universe. No shit, it actually does. (von Neumann: FS =
+  tape/CA grid, artifactory = constructor/rule, git = space-time diagram of the computation.)
+  MANY-WORLDS precisely describes git: a branching tree of immutable, self-consistent worlds
+  (branch=fork, HEAD=the world you observe, reflog=worlds never lost) — plus a superpower physics
+  lacks: MERGE reconciles branched worlds. THAT is why it works — fearless parallel construction
+  across candidate worlds, none ever destroyed.
+  POCKET UNIVERSES: a branch/tag (e.g. MicropolisCity_HaightAshbury) can float free with its own
+  history + lifecycle in another repo/fork and merge back later. No global clock — git orders by
+  CAUSALITY (partial order), so time slips at different rates in different worlds; celebrate it.
+  Collaboration = massively-single-player (Spore): share CONTENT/objects, not synchronized clocks —
+  fetch/pull/PR imports another universe's creations on your own schedule. Rate-independent, async.
+
+recursion: |
+  A skill is an artifactory. The meta-skill (skills/skill — the skill for making skills) is an
+  artifactory-FACTORY. A game about that is "Artifactorio" (Factorio, but assemblers build
+  assemblers). Not vacuous: Papert — "you can't think about thinking without thinking about
+  thinking about something" — every meta-level needs a concrete artifact to be ABOUT. The
+  artifactory supplies the objects-to-think-with, so the tower stays playable.
+
+selfish_inheritance: |
+  Prototype-based to the bone (Ungar & Smith's Self) — and it LOVES to reflect and explain itself. No classes:
+  objects with slots, clone-don't-instantiate, inherit by delegation via parent* slots. INSTANTIATE
+  = clone; skills = traits objects; COMPOSE = multiple delegation. Resolves "class AND instance":
+  a prototype is a full object that's ALSO the template. MOOLLM's "upstream soul + local overlay"
+  IS a parent* slot. JS prototypes are Self, filed down. Ask it and it'll cite the papers.
+
+lineage:
+  - "von Neumann — universal constructor (reads tape, builds machine, copies tape)"
+  - "Lem — Trurl & Klapaucius, constructor bots"
+  - "PKD — Ubik (maintenance) & Autofac (runaway — the anti-pattern)"
+  - "Drexler — Engines of Creation"
+  - "McCarthy/Church — lambda, eval/apply"
+  - "Ungar & Smith — Self: selfish inheritance (prototypes/slots/delegation, not classes; clone, don't instantiate)"
+  - "Factorio — automation belts, assemblers feeding assemblers"
+  - "Dyson Sphere Program — Factorio in 3D at galactic scale: factories across planets, building Dyson spheres around stars"
+  - "Will Wright's Spore — creation IS the game: editors (construction sets) build creatures→vehicles→buildings→civilizations, cell to galaxy; player as author-god"
+  - "Papert — objects-to-think-with; meta-cognition needs a concrete something"
+
+governor: |
+  Creates AND destroys, so it needs a stop condition. Reversible (git safety net), append-only
+  logs, human-in-the-loop for destructive or rule changes. No coprophagic self-training. Every
+  artifact carries provenance (stigmata). Calm constructor, not Autofac.
+
+related: [moollm, skill, play-learn-lift, sister-script, yaml-jazz, prototype, incarnation, adventure, constructionism, robust-first, postel]
+credits: [Don Hopkins]
+tier: 1

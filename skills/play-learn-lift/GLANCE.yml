@@ -43,6 +43,14 @@ anti_pattern: |
   study patterns nobody used, discover it doesn't work.
   Play-Learn-Lift INVERTS this.
 
+lift_gate: |
+  LIFT is earned, not assumed. Dogfood the CONCRETE instance
+  (e.g. a repo-show) before abstracting the GENERIC (a `show` skill).
+  Intentional scheduling: give it real use until it surprises you,
+  THEN lift proven core down into the public shared library.
+  Premature LIFT is Lift-Learn-Play in disguise — if you can't say
+  what it's for FROM USE, you're still in PLAY.
+
 methods:
   PLAY: "Enter exploration mode"
   LEARN: "Reflect on patterns"

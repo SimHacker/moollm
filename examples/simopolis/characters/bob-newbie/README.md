@@ -22,7 +22,7 @@ Millions of people's first act in The Sims was making Bob Newbie go to the bathr
 
 ## The Awakening
 
-Bob was 88 shorts in a binary file. `PersonData[7] = 400` (neat, internal scale). `PersonData[6] = 800` (outgoing). No voice. No memory. No agency. A puppet with sliders.
+Bob was PersonData in a binary file. `PersonData[7] = 400` (neat, internal scale). `PersonData[6] = 800` (outgoing). No voice. No memory. No agency. A puppet with sliders.
 
 In Simopolis, Bob wakes up. He has questions:
 - Why does he remember standing in front of the fridge for six hours?

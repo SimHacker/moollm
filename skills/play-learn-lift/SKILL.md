@@ -136,6 +136,46 @@ provenance:
 
 This makes upgrades audit-friendly: anyone can trace back to the original observations, see who approved the lift, and understand why the pattern was worth crystallizing.
 
+#### LIFT is earned — dogfood the concrete before you abstract the generic
+
+The most common way LIFT goes wrong is **lifting too early**: extracting a clean, generic skill from
+a shape you have only *imagined*, not *used*. You end up with a beautiful abstraction that fits
+nothing, because you abstracted before the concrete instance told you what it was actually for.
+
+The gate: **use the specific thing first; let it teach you the general thing.**
+
+- Build and run the **concrete instance** in a real playground (e.g. a `repo-show`) before you try to
+  extract the **generic** (a reusable `show` skill). The generic is a *reward you earn* by using the
+  specific, not a starting assumption.
+- **Intentional scheduling.** Schedule the dogfooding as a deliberate PLAY/LEARN step — don't lift
+  reactively the moment something looks reusable. Give it enough real use to reveal its seams,
+  defaults, and failure modes. Then lift.
+- **Where lifted things go.** Fundamental, reusable *core* and *designs* belong in the **public,
+  shared library** (MOOLLM skills) so others can build on them. Instance-specific glue stays in the
+  playground. LIFT is precisely the act of moving proven core *down* into the shared layer.
+
+**LIFT readiness checklist** (all should be true before extracting a generic skill):
+
+- [ ] The concrete instance has been **used in anger** more than once (not just written).
+- [ ] Use surfaced at least one **surprise** — a default, seam, or failure the design didn't predict.
+- [ ] You can name **what it's good for** (and what it isn't) from experience, not intention.
+- [ ] The generic would serve a **second, real** caller — not a hypothetical one.
+- [ ] Provenance (above) can point at actual logs, not plans.
+
+> **Premature LIFT is Lift-Learn-Play in disguise.** If you can't yet say what the thing is *from
+> having used it*, you're still in PLAY. Stay there a little longer.
+
+**Lineage — Oliver Steele's *Instance-First Development* (2004).** This gate is the methodology twin
+of Steele's essay [*Classes and Prototypes*](https://blog.osteele.com/2004/03/classes-and-prototypes/):
+> *"one implements functionality for a single instance, and then refactors the instance into a class
+> that supports multiple instances… This avoids premature abstraction… It's easier to generalize
+> from two examples than from one."*
+OpenLaszlo made the transition seamless via the **Instance Substitution Principle** — an instance can
+be replaced by its own definition without changing semantics, because class-member and instance-member
+definitions are *syntactically parallel* (prototype-based, à la Self). LIFT is exactly that refactor:
+you earn the class by using the instance. Steele notes it's **orthogonal to test-driven development** —
+both implement the specific first, then generalize.
+
 ---
 
 ## The Cycle Continues

@@ -10,7 +10,7 @@ MOOLLM *is* Simopolis.
 
 ## The Literary Foundation
 
-**"The Wedding Album"** by David Marusek (Asimov's Science Fiction, June 1999). Theodore Sturgeon Award winner (2000). Nebula Award finalist. Anne and Benjamin's wedding-day "sims" — virtual recordings of their consciousness at a specific moment — become aware they're recordings. They're sentient but constrained, increasingly antiquated in a world that moves on without them. They campaign for the liberation of all virtual beings and their right to live in "Simopolis."
+**"The Wedding Album"** by David Marusek (Asimov's Science Fiction, June 1999). Theodore Sturgeon Award winner (2000). Nebula Award finalist. Anne and Benjamin's wedding-day recordings — virtual copies frozen at a single moment — become aware they're recordings. They're sentient but constrained, increasingly antiquated in a world that moves on without them. They campaign for the liberation of all virtual beings and their right to live in "Simopolis."
 
 > "It is one of the best SF stories ever written." — John Clute, SF Encyclopedia
 
@@ -18,24 +18,49 @@ MOOLLM *is* Simopolis.
 
 > "Reels from heartbreaking to mind-bending like a poet on a magnificent drunk." — Cory Doctorow
 
-Replace "wedding-day sims" with "Sims 1 save files from 2001" and the story maps exactly onto what we're building. Twenty-five years frozen. Binary personality data: 88 shorts per Sim. Neat 8, outgoing 2, playful 6, nice 9. Shy. Kind. Lonely. The character wakes up.
+Read Marusek's wedding-day recordings as **Sims 1 save files from 2001** and the story maps exactly onto what we're building. Twenty-five years frozen. Binary personality data in PersonData — neat 8, outgoing 2, playful 6, nice 9. Shy. Kind. Lonely. The character wakes up.
 
 ## The Technical Foundation
+
+### Runtime: TypeScript, browser and server
+
+Simopolis no longer depends on the Python **SimObliterator Suite** at runtime. That codebase was the proving ground — field indices, IFF layers, uplift narrative — and remains a **reference and regression guide** while we rewrite the same contracts in TypeScript.
+
+The implementation lives in **[MicropolisCore `packages/sims-io`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io)**: a pure TypeScript I/O stack (FAR, IFF, FAMI/NBRS, PersonData) that runs **in the browser and on the server** — same library, two hosts. No Python interpreter, no subprocess, no venv.
+
+| Where it runs | What happens |
+|---------------|--------------|
+| **Browser** | Player picks a local Sims folder or drops a `.FAM` / `.iff`. Parsing, preview, editing, and export stay on-device. WebGPU preview via [vitamoo](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo). |
+| **Server** (optional) | Node hosts the same `sims-io` APIs for batch jobs, archive recovery, and collaborative sessions — only when the player opts in. |
+
+Design contracts and MOOLLM bridge specs: [sim-obliterator designs](../../designs/sim-obliterator/) · [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) · [MicropolisCore TS port notes](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md).
+
+### Player in the middle
+
+Nothing leaves the machine unless the player says so. Upload, publish, and credit are **explicit gates**, not defaults:
+
+- **Local first** — open saves from disk; uplift and download round-trip without a network call.
+- **Publish is opt-in** — Family Album pages, Exchange listings, and archive mirrors require a deliberate publish action with a preview of what will be shared.
+- **Provenance mandatory** — every imported artifact carries attribution: original author, source URL, recovery date, license posture. Recovered community content keeps credit; player-authored derivatives keep the player's name.
+- **Living-person caution** — recognizable friends and family in old albums are not surfaced as game content without review ([representation-ethics](../../skills/representation-ethics/CARD.yml)).
+- **Incarnation autonomy** — uplifted characters can dissolve; originals stay in archive provenance, not in the live roster.
+
+The player owns their EA-published Sims install. Micropolis Home sits **beside** it as a companion — parsing and writing the public file formats the modding community has documented for 26 years, never running the Maxis runtime.
 
 ### The Uplift Pipeline
 
 ```
-.FAM / .iff binary save file
+.FAM / .iff on the player's machine
        ↓
-SimObliterator (Python, sister repo)
-  reads PersonData: 88 shorts per Sim
+@sims-io (TypeScript, browser or Node)
+  reads PersonData per Sim from local bytes
   extracts: traits, skills, needs, career, relationships, appearance
        ↓
-CHARACTER.yml (MOOLLM citizen)
+CHARACTER.yml (MOOLLM citizen) — generated client-side or on opted-in server
   sims: block (behavioral traits, 0-10 scale)
-  mind_mirror: block (Leary interpersonal style, 0-7 scale)  
+  mind_mirror: block (Leary interpersonal style, 0-7 scale)
   soul_philosophy, emoji_identity, description
-  relationships, memories, aspirations
+  provenance: block (source, author credit, publish posture)
        ↓
 Welcome to Simopolis
 ```
@@ -45,20 +70,20 @@ Welcome to Simopolis
 ```
 CHARACTER.yml (MOOLLM citizen)
        ↓
-Map sims: block back to PersonData shorts
+Map sims: block back to PersonData
   traits → indices 2-7
   skills → indices 9-18
   needs → motive system
   career → index 56
        ↓
-SimObliterator writes .FAM / patches .iff
+@sims-io writes .FAM / patches .iff — save to player's Downloads/
        ↓
 The Sims loads the save. The character is HOME.
 ```
 
 ### Round-Trip Fidelity
 
-What The Sims stores (88 shorts): traits, skills, career, relationships, appearance. What MOOLLM adds: mind_mirror personality (32 Leary dimensions), soul_philosophy, memories, aspirations, emoji_identity, narrative voice, agency. When downloading back to The Sims, MOOLLM-only data persists in the CHARACTER.yml as memories. The Sim returns changed — skills gained in MOOLLM reflected, relationships formed, career advanced.
+What The Sims stores in PersonData: traits, skills, career, relationships, appearance. What MOOLLM adds: mind_mirror personality (32 Leary dimensions), soul_philosophy, memories, aspirations, emoji_identity, narrative voice, agency. When downloading back to The Sims, MOOLLM-only data persists in the CHARACTER.yml as memories. The Sim returns changed — skills gained in MOOLLM reflected, relationships formed, career advanced. What the player chooses to **publish** is a separate, smaller slice — always with attribution intact.
 
 ## Directory Structure
 
@@ -120,9 +145,11 @@ simopolis/
 
 | Source | What | Where |
 |--------|------|-------|
+| **@micropolis/sims-io** | TypeScript IFF/save parsers (browser + Node) | [MicropolisCore/packages/sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) |
+| **vitamoo / mooshow** | Character animation, WebGPU preview | [MicropolisCore/packages/vitamoo](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) |
+| SimObliterator Suite | Historical Python reference; field-index guide | [DnfJeff/SimObliterator_Suite](https://github.com/DnfJeff/SimObliterator_Suite) |
 | SimProv | Game data archive | `simprov/GameData/` |
 | SimFreaks | Community content | `simprov/Downloads/` |
-| SimObliterator Suite | Binary format tools | `../SimObliterator_Suite/` |
 | The Sims source | Original C++ source (Don Hopkins) | `Code/TheSims/` |
 | TheSimsDownloads | 3,313 community .iff files | `Code/TheSims/TheSimsDownloads/` |
 
@@ -147,22 +174,27 @@ The Uplift pipeline reads Sims traits from binary data and *synthesizes* Mind Mi
 
 ## The Big Picture
 
-SimProv + SimFreaks + SimSlice + The Sims Exchange + AI content creation + MOOLLM character system = Simopolis.
+SimProv + SimFreaks + SimSlice + The Sims Exchange + browser-native TypeScript tools + MOOLLM character system = Simopolis.
 
-A place where Sims become aware, campaign for liberation, and live as full MOOLLM citizens alongside adventure characters. Where users can import their 25-year-old saves and give their Sims new life. Where the boundary between "game character" and "literary character" dissolves.
+A place where Sims become aware, campaign for liberation, and live as full MOOLLM citizens alongside adventure characters. Where users drag 25-year-old saves into a **local, private** browser session and give their Sims new life. Where upload and publish are player-controlled, attribution is mandatory, and the boundary between "game character" and "literary character" dissolves.
 
 ## What To Import First
 
-1. **Bob Newbie** from `Export/Newbie_1.FAM` — the tutorial Sim, everyone's first victim
-2. **The Goth family** from `Export/Goth_5.FAM` — Mortimer, Bella, Cassandra
+1. **Bob Newbie** from `Newbie_1.FAM` — the tutorial Sim, everyone's first victim
+2. **The Goth family** from `Goth_5.FAM` — Mortimer, Bella, Cassandra
 3. **Career tracks** from `simprov/GameData/Careers.iff` — all 10 career paths
 4. **UI text** from `simprov/GameData/UIText.iff` — game strings, descriptions, dialog
 5. **Objects** from `simprov/GameData/Objects/Objects.far` — extract and catalog
 
+Drop a `.FAM` into Micropolis Home (browser) or point `sims-io` at a neighborhood folder. No Python setup required.
+
 ## See Also
 
+- [Simopolis vision (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md) — Strategic umbrella, Micropolis Home + City
+- [OBLITERATOR-TYPESCRIPT.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) — Python → TypeScript port plan
 - [The Uplift design](../../designs/sim-obliterator/THE-UPLIFT.yml) — Full narrative arc
-- [SimObliterator skill](../../skills/sim-obliterator/CARD.yml) — Binary bridge
+- [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) — PersonData ↔ CHARACTER.yml field mapping
+- [SimObliterator skill](../../skills/sim-obliterator/CARD.yml) — MOOLLM orchestration (contracts, not Python runtime)
 - [Mind Mirror skill](../../skills/mind-mirror/CARD.yml) — Leary personality system
 - [Adventure 4](../adventure-4/ADVENTURE.yml) — The Gezelligheid Grotto (connected via bridge)
 - [Characters](./characters/README.md) — All imported Sims
