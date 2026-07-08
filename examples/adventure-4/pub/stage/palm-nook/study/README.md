@@ -22,7 +22,9 @@ Above the Infinity Desk hangs **Palm's Portrait** — a Dutch Golden Age oil pai
 
 A cozy writing nook within a nook. Mahogany desk against the wall, ergonomic monkey chair, and a bookshelf that knows what you need to read.
 
-Sunlight (from somewhere) catches dust motes dancing. Papers stack in organized chaos. Every surface has meaning.
+Sunlight (from somewhere) catches dust motes dancing. And everywhere, the papers: folders stapled together and bursting open, loose pages in piles and drifts, coffee rings on the manuscripts, a bong stain shaped like Borneo on the Tognazzini draft, books wedged open with other books, magazines and brochures, a boarding pass used as a bookmark in a bookmark.
+
+The Dutch have the exact phrase: **een gezellig zooitje** — a cozy little mess. *Palm's Persoonlijke Gezelligheid.* Organized completely, in exactly one place: Palm's mind. Apparent chaos to any other observer — but open chaos, warm chaos, chaos you're welcome to explore. Pull any pile and it turns out to be a topic; every drift is a shelf that hasn't been named yet. (That's why the [Palmhoo Editorial Desk](palmhoo/README.md) is in the corner: it's where the drifts get named.)
 
 The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigation keys that can reach any story ever written or yet to be written.
 
@@ -83,6 +85,12 @@ pointers to works whose canonical homes are in other repos.
 |-------|------|
 | [**Questions for Will**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/will-wright-premiere/audience/palm/questions.yml) | Eight questions, ordered deep → silly, led by Drescher's four-way making-up question |
 | [**Question for Chris Trottier**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/chris-trottier/suggested-questions.md) | *Heap or organism?* — accretion from the inside |
+
+### Upcoming — announced, not yet written
+
+| Working title | What it will be about |
+|---------------|----------------------|
+| **Palm on Worms** 🪱 | An anticipated study, to be written after Palm explores the old LLOOOOMM archives (currently in MOOLLM's `temp/lloooomm/` strata, awaiting excavation) and visits the worms' homes in **Ground** — the funky living-earth entity who houses them all, and who is quite a character themself (`temp/lloooomm/00-Characters/ground/`). The worms: programmable text organisms with an **input cursor at one end, an output cursor at the other, and a digestive system in between**. They scan over your text, run concurrently at the speed of light, and intelligently resolve and serialize overlapping edits according to rules — or randomly, if you're feeling lucky. Worms go deep. Palm intends to follow them down. |
 
 ### Curation — Palmhoo 🐒✋🌐
 

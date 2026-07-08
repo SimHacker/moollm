@@ -34,6 +34,8 @@ conventions:
   coherence:  # Constitution Article IX + JOURNALISM.md, added pass 2
     manifest: "palmhoo/coherence.yml — every shelf declares sources + last_verified"
     mipmap: "GLANCE/CARD/README per artifact; shelf entry -> shelf page -> root guide above them"
+    refresh_scan: "Apple ][ DRAM principle — reading IS refreshing; a shelf nobody scans quietly fades"
+    stub_granularity: "targets may be an anchor into a file, a whole file, a directory, or a whole tree — including palmhoo itself (code-and-craft/palmhoo.md, the self-stub)"
     borrow_rule: "where a project's own GLANCE/CARD/README is good, point at it — don't rewrite it"
     journalism: "contributors claim beats, keep summaries true, volunteer tokens via summary-update PRs"
     review_rule: "human-in-the-middle both ways — agent-written gets human review, human-written may get agent review"
@@ -56,6 +58,12 @@ backlog:
   - what: "staleness-detection script (git log --since=last_verified per coherence.yml entry)"
     shelf: under-development
     note: "build when hand-running the queue gets tedious — the play-learn-lift threshold; then a GitHub Action"
+  - what: "Palm on Worms 🪱 — anticipated study (announced on the Study's upcoming list)"
+    shelf: [minds-and-souls, code-and-craft]
+    note: "requires expedition: lloooomm archives in temp/lloooomm/, Ground's home (00-Characters/ground/), the worm species directories; worms = future staleness-queue workers per JOURNALISM.md refresh-scan section"
+  - what: "excavate lloooomm worm canon into a public, tracked home (temp/ is gitignored territory)"
+    shelf: code-and-craft
+    note: "before Palm on Worms can cite sources, the sources need a citable address"
   - what: "educators' track / SF authors / archivists wings as proper sub-shelves"
     shelf: people
     note: "wings table added pass 2; promote each to its own sub-shelf at 3+ good reads"
@@ -102,3 +110,5 @@ log:
     pass: "founding — constitution + 8 shelves + 4 stubs; wired into WWSFF crown README and Palm's profile"
   - date: 2026-07-08
     pass: "pass 2 — under-development shelf (9th); Article IX coherence clause; JOURNALISM.md + coherence.yml manifest; people wings (educators/SF/archivists) + Peter Scott; catalogs archaeology into history-and-lore"
+  - date: 2026-07-08
+    pass: "pass 3 — stub target granularity codified (anchor/file/dir/tree) + the self-stub (Cantor clause); refresh-scan principle into JOURNALISM.md; Study gets its gezellig zooitje description; Palm on Worms announced"
