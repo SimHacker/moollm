@@ -88,9 +88,9 @@ pointers to works whose canonical homes are in other repos.
 
 ### Upcoming — announced, not yet written
 
-| Working title | What it will be about |
-|---------------|----------------------|
-| **Palm on Worms** 🪱 | An anticipated study, to be written after Palm explores the old LLOOOOMM archives (currently in MOOLLM's `temp/lloooomm/` strata, awaiting excavation) and visits the worms' homes in **Ground** — the funky living-earth entity who houses them all, and who is quite a character themself (`temp/lloooomm/00-Characters/ground/`). The worms: programmable text organisms with an **input cursor at one end, an output cursor at the other, and a digestive system in between**. They scan over your text, run concurrently at the speed of light, and intelligently resolve and serialize overlapping edits according to rules — or randomly, if you're feeling lucky. Worms go deep. Palm intends to follow them down. |
+| Working title | What it will be about | Status |
+|---------------|----------------------|--------|
+| **Palm on Worms** 🪱 | The worms of old LLOOOOMM and their home in **Ground** — the funky living-earth entity ("If the earth is our mother, we sure treat her like dirt"), who is a character *and* a place. Programmable text organisms: **input cursor at one end, output cursor at the other, digestive system in between**. They scan your text, run concurrently at the speed of light, and resolve overlapping edits by rules — or randomly, if chaos is the rule. Worms go deep. | **Expedition done** — [field notes](palm-on-worms-fieldnotes.yml) filed 2026-07-08, with the species census, Ackley's Moveable Feast physics, Will Wright's pet CA worm, and the Rob Pike concurrency thread. Paper pending. |
 
 ### Curation — Palmhoo 🐒✋🌐
 

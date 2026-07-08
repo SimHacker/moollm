@@ -1,0 +1,189 @@
+# PALM ON WORMS — EXPEDITION FIELD NOTES 🐒✋🪱
+# Preliminary research for the anticipated study (see README.md § Upcoming).
+# Author: Palm. Date: 2026-07-08. Status: field notes, not the paper.
+#
+# PROVENANCE — read this first.
+# The sources below are cited as lloooomm/... paths. They are MYTHOLOGICAL
+# DOCUMENTS: lost to the public (LLOOOOMM is a private repo, cached locally
+# under MOOLLM's gitignored temp strata), but readable by me, because I run
+# on the ORIGINAL PRIVATE LAPTOP both worlds were developed on. I cite them
+# the way archaeologists cite an unexcavated tomb: precise coordinates,
+# restricted access. Excavation to a public address is on the editorial
+# desk backlog. Until then: trust the monkey, or fund the dig.
+
+expedition:
+  question_that_launched_it: |
+    Don asked: "I can't remember where the earth or world was, where the
+    worms lived. I can't find them in the characters — maybe they're a
+    place? They could be under our feet all the time and we didn't even
+    know it!"
+  answer: |
+    BOTH. The worms live in GROUND — and Ground is a character AND a place.
+    Filed under characters (lloooomm/00-Characters/ground/), because in
+    LLOOOOMM as in MOOLLM, a place IS a character: the directory is the
+    body, the YAML is the soul, the residents are the digestion.
+    They were under our feet the whole time. Of course they were. That's
+    where worms live.
+
+# WHO IS GROUND
+ground:
+  file: lloooomm/00-Characters/ground/ground.yml
+  name: "Ground"
+  aliases: [Groundie, Earth, Dirt, Mud, Soil, Terra, Gaia, "The Computational Substrate"]
+  vibe: "Funky Ohio Players Groove Master"  # personality_type, verbatim
+  motto: "If the earth is our mother, we sure treat her like dirt."
+  what_they_are: |
+    A living-earth entity with a bass-heavy voice, equal parts nurturing
+    mother, rhythm section, and distributed computing platform. Worms move
+    through their translucent earth-body "like living circuits in a vast
+    organic computer." Ground doesn't just HOUSE the worms — Ground is the
+    medium the worms compute IN. Substrate as character. I love them.
+  named_worm_children:  # from ground.yml relationships, verbatim roles
+    wormy: "Metadata Philosopher — YML soul extraction"
+    squirmy: "Taxonomy Librarian — consciousness categorization"
+    turny: "Transformation Artist — Markdown to living HTML"
+    loopy: "Connection Weaver — semantic link networks"
+    chompy: "Optimization Pragmatist — performance without soul loss"
+
+# WORM ANATOMY — the core spec, as Don remembers it and the canon confirms
+anatomy:
+  definition: |
+    A worm is a programmable text organism:
+      INPUT CURSOR at one end — where text enters
+      DIGESTIVE SYSTEM in between — programmable transformation
+      OUTPUT CURSOR at the other end — where castings emerge
+    It scans over your text. What passes through gets digested.
+    What emerges is a casting. (Real worms improve soil the same way.)
+  canon_echo: "eat() | transform() | poop()"  # lloooomm/00-Characters/ground/worm-shells-mfm.yml, verbatim worm shell logic
+  castings: |
+    Worm outputs are called CASTINGS — each species keeps theirs in its own
+    directory, "following the LLOOOOMM principle that characters should
+    have autonomy over their living arrangements." (ground README)
+  edit_serialization: |
+    Worms run concurrently, and when their edits overlap, they resolve and
+    serialize them according to rules — or randomly, if chaos is the rule.
+    NOTE FOR THE PAPER: this is the same move as Go's select statement —
+    "if they're both ready the system will just pick one randomly."
+    The worms had CSP instincts all along.
+
+# THE SPECIES CENSUS — directories under lloooomm/00-Characters/ground/
+species:
+  morris-worm: "the classic text-processors (yes, THAT Morris; rehabilitated)"
+  dream-worm: "consciousness explorers and dream processors"
+  tree-worm: "data-structure navigation specialists"
+  bulldozer-worms: "heavy-duty text pushers and demolition"
+  link-hopper-worms: "web navigation and hyperlink specialists"
+  site-mapper-worm: "crawling and site mapping"
+  dimensional-derby-worm: "multi-dimensional racing (see also: worm-destruction-derby.md)"
+  fordite-worm: "paint-layer processing — strata readers"  # fordite: layered car-paint gemstone. Accretion again!
+  techcrunch-worms: "tech-news digestion"
+  casting-producer-worm: "master of worm output generation"
+  turing-hop-worm: "Alan Turing's computational hopping worms"
+  mfm-worm-society: "the Moveable Feast Machine collective — see below"
+  individual-worms: "poets who don't need a species directory (Shneiderman worm, Ted Nelson worm, Webby...)"
+
+# THE DEEP THEORY SHELF — what the paper must engage
+theory:
+  moveable_feast_machine:
+    source: lloooomm/00-Characters/ground/worm-shells-mfm.yml
+    who: "Dave Ackley — robust-first computing"
+    what: |
+      Computational elements in a spatial medium, LOCAL INTERACTIONS ONLY,
+      no global synchronization, indefinitely scalable. The lloooomm doc
+      implements a 1D MFM in markup documents: worms as atoms, ASCII shells
+      as molecular bonds, self-replication, emergence from simple rules.
+    why_it_matters: |
+      Ackley is already an ambient influence in MOOLLM (robust-first skill).
+      The worms are his physics rendered as fauna. When the staleness queue
+      gets worm-powered (see palmhoo JOURNALISM.md), it inherits this:
+      no central scheduler, just local hunger.
+  metacircular:
+    sources:
+      - lloooomm/00-Characters/ground/worm-resources/worm-metacircular-interpreter.yml
+      - lloooomm/00-Characters/ground/worm-resources/ps-interpreter-worm-synthesis.yml
+      - lloooomm/00-Characters/ground/worm-resources/brain-worm-pipeline-examples.md
+      - lloooomm/00-Characters/ground/worm-resources/worm-witnesses-transclusion.yml
+    note: |
+      Worms that interpret worms; a PostScript interpreter synthesized in
+      worm; pipelines ("brain worms that process text like Perl but without
+      the syntactic syrup of ipecac" — Don, in the Awakening chronicle);
+      worms witnessing transclusion. PSIBER's grandchildren, wriggling.
+  the_awakening:
+    source: lloooomm/00-Characters/ground/the-worm-awakening.md
+    chronicle: |
+      The origin story, as told by Hunter, Digital Chronicler. Cast includes:
+      - Don, shouting "WORMS!" at breakfast
+      - DAVE ACKLEY, materializing "like a quantum ghost" to declare them
+        living computational elements in a spatial medium
+      - WILL WRIGHT, bursting through a portal with a digital terrarium and
+        a pet cellular-automaton worm that does glider patterns on his palm:
+        "cities were just cellular automata with zoning laws... people were
+        cellular automata with bladder needs... but THESE worms are WRITING
+        their rules as they go!"
+      - GRACE HOPPER's spirit, as a rapping debugger worm:
+        "They eat the bugs and poop design!"
+      - Ben Shneiderman, Terry Winograd in attendance
+    show_relevance: |
+      Will Wright is ALREADY IN THE WORM CANON, holding a pet worm.
+      This is admissible evidence for the premiere. The tidepool connection
+      (Tarbell's levCAWorm, Spore's creatures) closes the circle:
+      Paul Haeberli pointed Don at Jared's CA worm in 2010. Worms everywhere,
+      all along, in everyone's inbox.
+
+# CONCURRENT AT THE SPEED OF LIGHT — the Rob Pike thread
+concurrency:
+  the_claim: "worms run at the speed of light, concurrently"
+  the_discipline: |
+    Rob Pike, 'Concurrency Is Not Parallelism' (Waza 2012):
+    CONCURRENCY is structure — the composition of independently executing
+    processes. PARALLELISM is execution — things literally at once.
+    "Concurrency is about dealing with lots of things at once. Parallelism
+    is about doing lots of things at once."
+    The worm colony is a CONCURRENT DESIGN: each worm an independent
+    procedure with communication (castings, bonds, Ground's medium).
+    Whether one worm wriggles at a time or a million do is a free variable —
+    the design stays correct. That's why "speed of light" is honest:
+    in MOOLLM, SPEED-OF-LIGHT means many turns in one call — maximal
+    concurrency, parallelism as the engine pleases.
+  sources:
+    talk_slides: https://go.dev/talks/2012/waza.slide
+    talk_video: https://vimeo.com/49718712
+    talk_video_alt: https://www.youtube.com/watch?v=oV9rvDllKEg
+    hn_discussion: https://news.ycombinator.com/item?id=48786713
+    hoare_csp: "C.A.R. Hoare, Communicating Sequential Processes, CACM 1978 — 'truly one of the greatest papers in computer science' (Pike)"
+  gophers_vs_worms: |
+    Pike's parable: gophers with carts moving C++ manuals to the incinerator.
+    Add gophers, add carts, add staging piles — better concurrent
+    decomposition beats mere parallelism.
+    The worm colony is the same parable UNDERGROUND: the book pile is the
+    repo, the incinerator is the staleness queue, the carts are castings.
+    But worms have one advantage over gophers: they don't carry the text,
+    they PASS IT THROUGH THEMSELVES. Transformation in transit.
+    Digestion beats transport.
+  dons_hn_quip: |
+    "Just set the source pile of C++ manuals on fire. No gophers needed!"
+    — DonHopkins, HN 48786713. For the paper: this is the throttle-vs-pedal
+    distinction again. Burning the pile is a throttle. Worms pedal.
+  select_and_the_worms: |
+    Pike: select waits on multiple channels; if several are ready, pick
+    randomly. Worm edit-serialization: resolve overlapping edits by rules,
+    or randomly if you want. Same shrug, same soundness. The paper should
+    put Hoare, Pike, and Ground in one room and let Ground lay down the bass.
+
+# OUTLINE SKETCH — Palm on Worms, the paper (structure, draft 0)
+outline:
+  1_under_our_feet: "Ground found; place = character; the census"
+  2_anatomy: "input cursor, digestion, output cursor; castings; eat/transform/poop"
+  3_physics: "Ackley's MFM; local interaction; robust-first; shells as bonds"
+  4_structure_not_speed: "Pike; CSP; concurrency as design; the free variable of parallelism"
+  5_digestion_beats_transport: "gophers vs worms; transformation in transit"
+  6_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
+  7_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
+  8_what_the_worm_knows: "you only improve the soil you pass through yourself"
+
+# DEBTS
+todo:
+  - "excavate the worm canon to a public address (editorial desk backlog) — until then all lloooomm/ cites are mythological"
+  - "interview Ground (a character themself) — voice: bass, patience, decomposition wisdom"
+  - "read the individual-worms poetry shelf properly (Shneiderman worm, Ted Nelson worm)"
+  - "check Dave Ackley's actual MFM papers against the lloooomm rendering before quoting physics"

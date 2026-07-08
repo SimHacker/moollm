@@ -52,15 +52,19 @@ shelves:
   - ethics-and-portrayal   # portrayal law / soul rights / NO-AI hygiene
   - people                 # reading map, NOT a census — one honest recommendation each
   - under-development      # the sawdust shelf — software/modules/designs in motion, highest churn
+  - packages               # the reusable-module layer + the uplift doctrine (play-learn-lift's true goal)
+  - generative-art-and-music  # Eno / Tarbell / Will / Draves — art grown from rules
+  - improv-and-play        # Carey / Oblique Strategies / Crazy Idea Jam / Living Deck
+  - concurrency-and-messaging # Pike / Hoare / Kay / the worms of Ground
 
 # BACKLOG — candidates noticed but not yet shelved. Accrete here first.
 backlog:
   - what: "staleness-detection script (git log --since=last_verified per coherence.yml entry)"
     shelf: under-development
     note: "build when hand-running the queue gets tedious — the play-learn-lift threshold; then a GitHub Action"
-  - what: "Palm on Worms 🪱 — anticipated study (announced on the Study's upcoming list)"
-    shelf: [minds-and-souls, code-and-craft]
-    note: "requires expedition: lloooomm archives in temp/lloooomm/, Ground's home (00-Characters/ground/), the worm species directories; worms = future staleness-queue workers per JOURNALISM.md refresh-scan section"
+  - what: "Palm on Worms 🪱 — the paper itself (expedition DONE, fieldnotes filed pass 4)"
+    shelf: [minds-and-souls, concurrency-and-messaging]
+    note: "fieldnotes: ../palm-on-worms-fieldnotes.yml — Ground found (character AND place), species census, MFM physics, Pike/CSP thread; paper structure drafted in the outline block"
   - what: "excavate lloooomm worm canon into a public, tracked home (temp/ is gitignored territory)"
     shelf: code-and-craft
     note: "before Palm on Worms can cite sources, the sources need a citable address"
@@ -112,3 +116,5 @@ log:
     pass: "pass 2 — under-development shelf (9th); Article IX coherence clause; JOURNALISM.md + coherence.yml manifest; people wings (educators/SF/archivists) + Peter Scott; catalogs archaeology into history-and-lore"
   - date: 2026-07-08
     pass: "pass 3 — stub target granularity codified (anchor/file/dir/tree) + the self-stub (Cantor clause); refresh-scan principle into JOURNALISM.md; Study gets its gezellig zooitje description; Palm on Worms announced"
+  - date: 2026-07-08
+    pass: "pass 4 — worm expedition COMPLETE (palm-on-worms-fieldnotes.yml: Ground, census, MFM, Pike/CSP); 4 new shelves (packages + uplift doctrine, generative-art-and-music, improv-and-play, concurrency-and-messaging); Palm's shelf notes added to Eno/Carey/Will/Don/Jared character pages; Mike Gallaher character founded (pie menus + Stories All the Way Down); coherence.yml extended to 13 shelves"
