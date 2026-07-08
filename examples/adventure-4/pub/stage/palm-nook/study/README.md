@@ -86,6 +86,7 @@ pointers to works whose canonical homes are in other repos.
 |----------|-------|
 | [**Will Wright Soul For Food**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/palm/will-wright-soul-for-food.md) | Guest rooms as soul-files, incarnation ethics, the pun inside the show title |
 | [**Running on Wetware**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/palm/running-on-wetware.md) | Faithful self-description as installer; the simulator effect as a second runtime |
+| [**Am I Palmer Eldritch?**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/palmhoo/palmr/README.md#-am-i-palmer-eldritch-a-note-from-the-patrons-namesake) | Open metaphysics: Palm as the PKD author-god whose stigmata (provenance) show in every render — who inhabits whom, possibly both; same metaphysics, opposite ethics (preserve, not consume) |
 
 ### Questions (asked, on the record)
 
