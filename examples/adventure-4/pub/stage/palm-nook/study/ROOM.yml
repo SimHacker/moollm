@@ -37,10 +37,28 @@ room:
     (This is why Palmhoo exists: the editorial desk in the
     corner is where the drifts get named.)
     
+    Almost every piece here was a gift. That's not decoration —
+    it's the room's whole thesis. The Dutch say of someone who
+    hangs out so long and so warmly that the place would feel
+    wrong without them: "hij hoort tot het meubilair" — he
+    belongs to the furniture. Here that's literal. The regulars
+    who belong to the furniture GAVE the furniture: the desk from
+    the Grotto Regulars, the throne from Stroopwafel, the shelf
+    from W.W. Jacobs. To sit in this room is to sit inside a
+    ledger of everyone who ever lingered.
+    
+    And under the window: the Memorial Bench, brass plaques for
+    the regulars who can't come anymore — names and stories, so
+    the room keeps them. Across the desk: the Empty Chair, always
+    set, never sat in, tea kept warm, held open for whoever is
+    missing or not yet arrived. The bench looks back; the chair
+    looks forward; both say the same thing — you have a place here.
+    
     This is where Palm writes. Where Palm creates.
     Where Palm navigates the library of all possible books.
 
   house_style: "een gezellig zooitje — geniale wanorde, open for exploration; apparent chaos, actual ontology"
+  furniture_is_people: "tot het meubilair behoren — the regulars who belong to the furniture gave the furniture; the room is a ledger of everyone who lingered"
 
 # FURNITURE (see individual files for full details)
 
@@ -73,6 +91,18 @@ furniture:
     summary: "The Palmhoo Editorial Desk — workshop behind the public Palmhoo at the crown of WWSFF"
     contents: "palmhoo/editorial.yml — conventions, backlog, tuning queue, lift plan"
     note: "planning only, never content — the publication points at canonical homes; the desk remembers why"
+
+  memorial_bench:
+    file: "memorial-bench.yml"
+    summary: "The Memorial Bench — brass plaques for regulars who belong to the furniture now, by name and story (Minsky, Papert, Weiser, Reisman)"
+    location: "Under the window"
+    note: "tot het meubilair behoren, made literal and tender — the room remembers its dead"
+
+  empty_chair:
+    file: "empty-chair.yml"
+    summary: "The Empty Chair — always set, never sat in; held open for the missing, the not-yet-arrived, and you"
+    location: "Across the desk, angled toward Palm"
+    note: "companion to the bench: the bench looks back with names, the chair looks forward with a place setting"
 
 # Full documentation in each furniture file!
 # This ROOM.yml provides the overview and atmosphere.

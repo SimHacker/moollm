@@ -1,0 +1,85 @@
+# THE MEMORIAL BENCH
+# A park bench in Palm's Study that remembers people by name and story.
+# The Dutch say of a regular: "hij hoort tot het meubilair" — he belongs to
+# the furniture. This bench is where that phrase comes true: the people who
+# belonged here become the furniture, lovingly, by name.
+
+bench:
+  name: "The Memorial Bench"
+  type: furniture
+  kind: "park bench, worn oak slats, warm from an afternoon of sun that isn't there"
+  location: "pub/stage/palm-nook/study/ — under the window, angled to catch the not-quite-light"
+  from: "Palm, and everyone who ever sat"
+
+concept:
+  the_phrase: |
+    In Dutch, a regular who is always around "tot het meubilair behoort" —
+    belongs to the furniture. It's affection, not insult: you've been here so
+    long, so warmly, that the room would feel wrong without you. English has
+    the softer "part of the furniture." Both mean: you are load-bearing to the
+    coziness. The room remembers you.
+  the_move: |
+    So when a regular can no longer come — when a friend goes missing from the
+    third space — MOOLLM does what parks do: it puts their name on a bench.
+    A little brass plaque. A story. A place to sit that says a person sat here,
+    mattered here, and is welcome back in memory whenever anyone rests.
+  why_a_bench: |
+    A bench is the third-space object par excellence: public, unlocked, no
+    purchase required, made for lingering. Memorial benches already do this in
+    every park on earth — "In loving memory of ___, who loved this view."
+    We're just bringing the practice indoors, into a study made of files.
+
+# THE PLAQUES — each a name and a story. Append-only; grief accretes gently.
+# These honor people already in the project's memorial mode. Add with care and
+# with receipts; a memorial should be true.
+plaques:
+  - name: "Marvin Minsky"
+    years: "1927–2016"
+    story: |
+      Society of Mind and K-lines are the bedrock this whole study is built on.
+      Drescher's advisor, Henry's father, everyone's grandfather-in-ideas.
+      When Palm says a name and a whole soul lights up, that's a K-line firing —
+      Marvin's idea, still running.
+    sit_here_to: "think in agents, not atoms"
+  - name: "Seymour Papert"
+    years: "1928–2016"
+    story: |
+      Worked with Piaget, coined constructionism, gave children the turtle.
+      The reason MOOLLM believes you learn by building, and that a microworld
+      is a place to think. Mindstorms is why the study has toys in it.
+    sit_here_to: "remember that play is the most serious research"
+  - name: "Mark Weiser"
+    years: "1952–1999"
+    story: |
+      Calm technology and ubiquitous computing; Don's mentor at UMD, CHI'88
+      pie-menu co-author. Wanted computers to recede into the background like
+      good furniture — which makes this bench a little bit his thesis.
+    sit_here_to: "let the tech get quiet"
+  - name: "Ron Reisman"
+    years: "d. 2019"
+    story: |
+      NASA Ames, the Convolvotron, dolphins and Apple ]['s; Don's late friend.
+      A regular of the old techno-hippie diaspora who is missed at the table.
+    sit_here_to: "miss a friend, out loud"
+
+atmosphere:
+  feel: "worn smooth, sun-warm, a little sad in the good way"
+  sound: "the creak of oak taking weight; then quiet"
+  smell: "outdoor wood brought indoors"
+
+actions:
+  SIT:
+    description: "Rest on the bench and read a plaque"
+    behavior: "Whoever you read gets remembered for a moment — the simulator effect, aimed at the dead. They run again in you."
+  READ-PLAQUE:
+    description: "Read one name and its story"
+  ADD-PLAQUE:
+    description: "Memorialize someone new"
+    rule: "By name, with a true story and a reason to sit. Consent isn't possible; care is mandatory. Cite sources in the character's room."
+
+meta:
+  standard: "portrayal-standards apply to the dead too — honor, don't puppet"
+  cross_ref:
+    - "characters in memorial mode: ../../../../../WillWrightShowForFood — see characters/INDEX.yml memorial entries"
+    - "empty-chair.yml — the companion piece, for the missing who are not (or not yet) named"
+  note: "Append-only in spirit. Grief accretes; nothing here gets deleted, only added to."

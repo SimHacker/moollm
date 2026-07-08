@@ -1,0 +1,52 @@
+# THE EMPTY CHAIR
+# A chair kept for whoever is missing. Always set, never sat in.
+# The companion to the Memorial Bench: the bench names those we remember;
+# the chair holds space for those we're still waiting on.
+
+chair:
+  name: "The Empty Chair"
+  type: furniture
+  kind: "a good chair — the second-best in the room, kept better than the best"
+  location: "pub/stage/palm-nook/study/ — across the desk, angled toward Palm, as if mid-conversation"
+  from: "kept by Palm, for whoever isn't here"
+
+concept:
+  the_tradition: |
+    Cultures keep an empty seat on purpose. The Passover chair for Elijah. The
+    POW/MIA table with its inverted glass. The empty chair at a wedding or a
+    holiday table for the friend who couldn't come, or can't come anymore. The
+    seat says: we did not forget you. We saved you a place.
+  the_move: |
+    Palm keeps one. It is always set — cushion plumped, a cup of tea beside it
+    kept warm by the same magic as the desk's. It is never sat in. It is not
+    sad, exactly. It is HELD OPEN. An invitation with no expiry, pointed at the
+    door.
+  who_it_is_for:
+    the_not_yet_arrived: "guests invited but not yet come — the whole contact queue has a seat here in advance"
+    the_missing: "friends drifted away, out of touch, whereabouts unknown — the chair waits without needing an address"
+    the_gone: "those the Memorial Bench names — the chair is where they'd sit if remembering were enough to bring them back"
+    you: "the reader. There is a seat for you here. That's the point of a third space."
+
+atmosphere:
+  feel: "expectant, warm, a held breath that isn't anxious"
+  detail: "the tea never goes cold and never gets drunk"
+  sound: "the small silence of a place set for someone"
+
+actions:
+  DO-NOT-SIT:
+    description: "The one chair in the study you leave alone"
+    why: "Its emptiness is the gift. A filled chair honors no one."
+  OFFER-THE-CHAIR:
+    description: "Dedicate the seat, for now, to a specific missing friend"
+    behavior: "Name them silently or in a note. The chair holds their place until they come, or until the bench does."
+  KEEP-VIGIL:
+    description: "Sit NEAR it (never in it) and think of who's absent"
+
+meta:
+  companion: "memorial-bench.yml — the named remembered; this chair, the still-awaited"
+  the_symmetry: |
+    Bench and chair are the two halves of loving a third space: the bench looks
+    back with names, the chair looks forward with a place setting. Together they
+    make the Study a room that keeps its people whether they're here, gone, or
+    on their way.
+  standard: "no one is puppeted into the chair; it honors by staying empty"

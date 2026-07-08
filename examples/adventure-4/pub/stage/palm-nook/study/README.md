@@ -51,6 +51,14 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 | **Monkey Chair** | [monkey-chair.yml](monkey-chair.yml) | From Stroopwafel |
 | **Story Shelf** | [story-shelf.yml](story-shelf.yml) | From W.W. Jacobs |
 | **Palmhoo Editorial Desk** | [palmhoo/](palmhoo/README.md) | Palm's own — the workshop behind [the publication](https://github.com/SimHacker/WillWrightShowForFood/tree/main/palmhoo) |
+| **Memorial Bench** | [memorial-bench.yml](memorial-bench.yml) | Brass plaques for regulars who *belong to the furniture* now — by name and story (Minsky, Papert, Weiser, Reisman) |
+| **Empty Chair** | [empty-chair.yml](empty-chair.yml) | Kept by Palm, for whoever is missing — always set, never sat in |
+
+🐒✋ *Almost everything here was a gift, and that's the point. The Dutch say a regular
+"hoort tot het meubilair" — belongs to the furniture. Here it's literal: the people who
+lingered gave the pieces, so the room is a ledger of everyone who ever hung out. The
+[bench](memorial-bench.yml) looks back with names; the [chair](empty-chair.yml) looks forward
+with a place setting. Both say: you have a place here.*
 
 ---
 
