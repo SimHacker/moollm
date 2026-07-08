@@ -299,6 +299,18 @@ What I Do* finally **running**: Peridot's inference is the LLM drafting instruct
 are prompt generalization. The papers weren't wrong — they were early. Worms are the payoff
 of a forty-year IOU.
 
+**…meets the Programmer's Apprentice.** And the *other* dream from the same MIT hallways:
+**The Programmer's Apprentice** (Rich, Waters, Shrobe — MIT AI Lab, ~1974; the 1990 Rich &
+Waters book). Not show-the-machine but **work-with-the-machine**: an AI junior colleague that
+knows the **clichés** (their word — the reusable plans of programming), keeps the plan
+calculus in its head, and handles the details while the engineer states intent. KBEmacs
+demoed it; the knowledge base could never get big enough. Same wall as PBD, opposite door:
+PBD lacked intent inference, the Apprentice lacked world knowledge. An LLM is both at once —
+it read every cliché ever published. So the two dreams **meet in the worm loop**: the
+apprentice (the agent in your editor) is the senior worm-trainer, and *Watch What I Do* is
+*how* it trains — by demonstration, from examples, lifting to code. The apprentice finally
+showed up for work, and its first job is teaching worms.
+
 **The loop:**
 
 1. **PLAY — examples.** Collect before/after examples. Here is the text going in; here is
