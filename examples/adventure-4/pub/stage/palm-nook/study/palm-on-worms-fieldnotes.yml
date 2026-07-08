@@ -358,6 +358,46 @@ worm_bird_ecology:
       under worm_lifecycle.lays_eggs and, someday, a section that grows up.)
     status: "flagged, deliberately not expanded — a seed for later. The notebook overcollects; the book will decide."
 
+# TURTLES — the third animal at the party. "Worms and Turtles and Birds, oh my!"
+# Don: "We already have Theo the Logo Turtle — invite him to the computational party!"
+# We do, and he completes the zoo. Three animals, three relationships to space + data.
+turtles:
+  the_guest: |
+    THEO 🐢📐✨🎓🌀 — the Logo Turtle, Seymour Papert's pedagogical mascot, already
+    a resident of the adventure-4 menagerie (characters/animals/turtle-theo/).
+    A small patient turtle with a pen strapped to their shell: "Be the turtle.
+    Walk the path." They already know Palm — Theo's own words: "Palm invented a
+    language today. Emoji-YAML-Jazz. I understand. My language is FORWARD, RIGHT,
+    REPEAT. Different syntax. Same love of expression." So he's not a stranger to
+    invite; he's a colleague to seat at the table.
+  the_three_animals:  # the whole computational zoo, finally complete
+    worms: "TRANSFORM in place — work through the ground, eat text, shit castings. Stream processor / transducer. (compute)"
+    birds: "CARRY between endpoints — fly, deliver a payload intact. Message passing / IPC / pub-sub. (communicate)"
+    turtles: "MOVE and DRAW — walk through space leaving a TRACE. Renderer / plotter / write-head. (render)"
+  what_a_turtle_is:
+    motion: "relative, embodied motion — FORWARD/BACK/RIGHT/LEFT; local coordinates, not global Cartesian (Papert's body-syntonic geometry: you turn right by turning right)"
+    output: |
+      A turtle's OUTPUT IS ITS PATH. Where a worm's output is a casting and a
+      bird's cargo is a message, a turtle's product is the TRAIL it leaves —
+      the drawing is the log of where it went. The turtle is a cursor with a
+      pen: pure trace, provenance made visible. Its render IS its history.
+    pen_state: |
+      PENUP / PENDOWN is the deepest primitive: move WITHOUT side-effect (pure
+      traversal) vs move WITH side-effect (writing). Every effect system, every
+      dry-run flag, every 'log or don't' switch is PENUP/PENDOWN wearing a suit.
+    recursion: "TO TREE :size ... TREE :size*0.7 ... END — the turtle calls itself; fractals from three lines. Recursion you can WATCH."
+  how_they_compose:  # the animals work on each other, per the ecology
+    worm_reads_turtle_trail: "a worm can eat a turtle's drawing (the trace/log) and digest it into a summary — render, then re-read the render"
+    bird_carries_turtle: "a bird can ferry a turtle to new ground to draw there — ship the renderer to the data (code mobility, again)"
+    turtle_draws_the_others: "and a turtle can DRAW the worms and birds — visualize the colony, plot the message graph. The turtle is how the zoo SEES itself. (Palmr, the media wing, is turtle-work: rendering the system visible.)"
+  the_pedagogy_link: |
+    Turtles complete a teaching trinity that's really one idea — child-engineer
+    the best CS into a creature you can BE. Papert's turtle (you are the cursor),
+    Ken Kahn's ToonTalk robots+birds (you train the worker, birds carry), and our
+    worms (you feed the transformer). Same move, three animals. Theo is the
+    elder; the worms and birds are the new arrivals he mentors.
+  seat_at_the_party: "Theo invited 2026-07-08. His relationships updated to know the worms and birds (characters/animals/turtle-theo/CHARACTER.yml). Papert's legacy, now with company underground and overhead."
+
 # WORMS ARE LANGUAGE MACHINES — the whole compiler pipeline, as one animal
 # A worm isn't just a text-rewriter. It is the classic language-processing
 # stack wearing a body: parser, tree visitor, transformer, serializer. Don's
@@ -550,6 +590,7 @@ outline:
   8_language_machines: "parser/tree-visitor/transformer/serializer; the casting pun (worm-cast / type-cast / role-cast); comments as the richest food; text=>structure=>meaning; the worm as the LLM's attention-router"
   9_birds: "Ken Kahn's ToonTalk: birds carry messages between houses. We adopt birds as the IPC/pub-sub substrate; worms compute, birds communicate. The bird skill, co-designed with Ken."
   9b_ecology: "birds vs worms as two MOTION MODELS (fly-between-endpoints-and-deliver vs work-through-ground-and-transform); worms straddle documents (read A, cast into B); worms eat worms/birds, birds carry worms; the-birds-and-the-bees seed left unopened"
+  9c_turtles: "Theo the Logo Turtle joins the party — the third animal: worms transform, birds carry, TURTLES DRAW. Output-as-trace, PENUP/PENDOWN as the primal effect switch, recursion you can watch; Papert->Kahn->worms as one teaching move in three creatures"
   10_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
   11_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
   12_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
