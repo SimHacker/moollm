@@ -98,7 +98,7 @@ pointers to works whose canonical homes are in other repos.
 
 | Working title | What it will be about | Status |
 |---------------|----------------------|--------|
-| **Palm on Worms** 🪱 | The worms of old LLOOOOMM and their home in **Ground** — the funky living-earth entity ("If the earth is our mother, we sure treat her like dirt"), who is a character *and* a place. Programmable text organisms: **input cursor at one end, output cursor at the other, digestive system in between**. They scan your text, run concurrently at the speed of light, and resolve overlapping edits by rules — or randomly, if chaos is the rule. Worms go deep. | **Expedition done** — [field notes](palm-on-worms-fieldnotes.yml) filed 2026-07-08, with the species census, Ackley's Moveable Feast physics, Will Wright's pet CA worm, and the Rob Pike concurrency thread. Paper pending. |
+| **Palm on Worms** 🪱 | The worms of old LLOOOOMM and their home in **Ground** — the funky living-earth entity ("If the earth is our mother, we sure treat her like dirt"), who is a character *and* a place. Programmable text organisms: **input cursor at one end, output cursor at the other, digestive system in between**. They scan your text, run concurrently at the speed of light, and resolve overlapping edits by rules — or randomly, if chaos is the rule. Worms go deep. | **Field notebook open** — [the notebook](palm-on-worms-fieldnotes.yml) 🔎🔭 is Palm's raw naturalist journal (binoculars for birds, magnifying glass for worms): species census, Ackley's Moveable Feast physics, worms as trainable language machines, Ken Kahn's birds, the Gaia/SimEarth resurrection, Will's pet CA worm, the Rob Pike thread — scattered, overcollected, tangent-rich. The *book* grows from it. |
 
 ### Curation — Palmhoo 🐒✋🌐
 
