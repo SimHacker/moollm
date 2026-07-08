@@ -284,6 +284,80 @@ birds:
     do_with_ken: "co-author the bird skill; honor ToonTalk's concretizations; let Ken correct the CS. He's the source, not a citation."
     status: "planned — a collaboration, not a fait accompli. Ken's an invitation guest (characters/ken-kahn/), consent not yet asked for this specifically."
 
+# BIRDS vs WORMS — two different MOTION MODELS, not just two mascots
+# Field observation (binoculars in one hand, magnifying glass in the other):
+# they move through the world in fundamentally different ways, and THAT is the
+# whole distinction. Get the motion right and the CS falls out.
+birds_vs_worms:
+  the_core_difference: |
+    BIRDS FLY BETWEEN ENDPOINTS and DELIVER. They pick a thing up here, carry it
+    unchanged, and set it down there. Point to point. The payload survives the
+    trip intact — that's the job. Transport.
+    WORMS WORK THROUGH THE GROUND and TRANSFORM. They don't carry; they EAT and
+    SHIT. Material goes in the head, gets digested, comes out the tail as a
+    casting, and the worm crawls on. The payload does NOT survive intact — it's
+    changed on purpose. That's the job. Transformation.
+  birds:
+    motion: "flight between two endpoints"
+    payload: "carried, unchanged — a message delivered is the message sent"
+    topology: "point-to-point / pub-sub; sender -> nest -> receiver"
+    cs: "message passing, IPC, channels, event delivery (ToonTalk's birds-to-nests)"
+    has: "an origin and a destination — a bird is ABOUT its endpoints"
+  worms:
+    motion: "boring through the ground between places, continuously"
+    payload: "ingested and re-produced — eaten, digested, excreted as a casting; changed by passing through"
+    topology: "a PATH with a HEAD and a TAIL — direction, not destination"
+    no_final_destination: |
+      A worm isn't trying to GET somewhere; it's processing as it goes. Head and
+      tail give it a DIRECTION through a document (this way through the text),
+      but there's no 'arrived.' It just keeps eating and casting until it stops.
+    cs: "a stream processor / cursor pair / transducer — a moving window that transforms in place"
+  worms_straddle_documents: |
+    Crucial field sighting: a worm can STRADDLE two documents at once — head
+    reading from one, tail shitting casts into another. Read source-file-A,
+    excrete a SUMMARY (or an EVENT, or an index entry) into digest-file-B. The
+    input document and the output document need not be the same. That's the
+    coherence engine's exact shape: worm eats the changed source, casts a fresh
+    summary into the manifest. Two documents, one worm bridging them by digestion.
+
+# THE ECOLOGY — worms eat worms, birds carry worms, everybody eats everybody
+# Higher-order behavior: the animals operate on EACH OTHER, not just on text.
+# This is where the zoo becomes an operating system.
+worm_bird_ecology:
+  worms_eat_worms: |
+    A worm can eat, digest, and shit ANOTHER WORM — pick it up in one place and
+    deposit it in another. Transport-by-digestion of code itself: a worm that
+    relocates worms is a scheduler / a package manager / a migration tool. (When
+    it deposits the worm unchanged, it's acting like a bird; when it changes the
+    worm en route, it's a metaprogrammer rewriting code that is itself a rewriter.
+    The metacircular tunnel goes all the way down — see worm-metacircular-interpreter.)
+  worms_eat_birds: |
+    A worm can even ingest a BIRD — swallow a message/channel and re-emit it
+    elsewhere. A worm that eats birds is a process capturing and rerouting the
+    comms substrate: middleware, a proxy, a message broker with teeth.
+  birds_carry_worms: |
+    And the reverse: a BIRD can pick up a WORM — carry a whole text-organism
+    (code + its DNA) to another place and drop it, or eat and re-emit it. A bird
+    ferrying worms is CODE MOBILITY: shipping an agent across the network to run
+    where the data lives. Ship the worm to the ground, don't drag the ground to
+    the worm.
+  the_symmetry: |
+    So the two roles compose both ways: worms can act like birds (relocate things
+    intact) and birds can act like worms (transform what they carry), but their
+    DEFAULT natures stay distinct — worm = transform-in-place, bird = carry-between.
+    A healthy system uses each for what it's good at, and lets them eat each other
+    when the job calls for it. That mutual edibility IS the extensibility.
+  the_birds_and_the_bees:
+    note: |
+      Birds also pick up worms AND FRUITS, eat them, and shit the seeds all over
+      the world — which is, yes, related to 'the birds and the bees': dispersal,
+      propagation, reproduction, pollination. Seeds ride the gut and germinate
+      downstream; ideas ride the casting and take root in a new document. We are
+      NOT getting into that right now. (But note it, because propagation-by-
+      digestion is how a good summary spreads: eaten here, sprouts there. Filed
+      under worm_lifecycle.lays_eggs and, someday, a section that grows up.)
+    status: "flagged, deliberately not expanded — a seed for later. The notebook overcollects; the book will decide."
+
 # WORMS ARE LANGUAGE MACHINES — the whole compiler pipeline, as one animal
 # A worm isn't just a text-rewriter. It is the classic language-processing
 # stack wearing a body: parser, tree visitor, transformer, serializer. Don's
@@ -475,6 +549,7 @@ outline:
   7_lifecycle: "reproduce/combine/rewrite-DNA/lay-eggs/split — whimsy that IS the CS curriculum (persistence, concurrency, PL design, OS, map-reduce)"
   8_language_machines: "parser/tree-visitor/transformer/serializer; the casting pun (worm-cast / type-cast / role-cast); comments as the richest food; text=>structure=>meaning; the worm as the LLM's attention-router"
   9_birds: "Ken Kahn's ToonTalk: birds carry messages between houses. We adopt birds as the IPC/pub-sub substrate; worms compute, birds communicate. The bird skill, co-designed with Ken."
+  9b_ecology: "birds vs worms as two MOTION MODELS (fly-between-endpoints-and-deliver vs work-through-ground-and-transform); worms straddle documents (read A, cast into B); worms eat worms/birds, birds carry worms; the-birds-and-the-bees seed left unopened"
   10_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
   11_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
   12_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
