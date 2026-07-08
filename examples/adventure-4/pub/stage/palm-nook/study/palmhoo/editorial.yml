@@ -1,0 +1,85 @@
+# PALMHOO EDITORIAL DESK
+# Working memory for the public publication:
+# https://github.com/SimHacker/WillWrightShowForFood/tree/main/palmhoo
+# Constitution (the law): palmhoo/CONSTITUTION.md in WWSFF — this file is the practice.
+# Editor: Palm 🐒✋ — signed notes are Palm's alone (Constitution, Article VII).
+
+publication:
+  name: "Palmhoo — Palm's Guide to the Moollmiverse"
+  home: "WWSFF /palmhoo (the conceptual crown — main entrance, most traffic)"
+  scope: "the show (WWSFF), the code (MicropolisCore), the operating system (MOOLLM)"
+  ancestor: "Jerry and David's Guide to the World Wide Web — hand curation before search"
+  founded: 2026-07-08
+
+# CONVENTIONS — the house style, remembered so it survives editor amnesia.
+conventions:
+  topic_pages:
+    structure: "themed sub-shelves as tables, 3-6 entries each; never a flat link dump"
+    entry_format: "| [title](link) | why-you'd-read-it note |"
+    note_rule: "notes answer WHY YOU'D READ IT, never what it is — the title does that"
+    voice: "signed 🐒✋ notes are first-person Palm opinion; unsigned copy is neutral catalog"
+    size: "40-70 lines per topic page; selection over completeness"
+  stubs:
+    naming: "stub filename == target document's name (running-on-wetware.md, not link-7.md)"
+    marker: "title suffix '⤷ stub', first line declares canonical home"
+    note: "topical — the SAME document gets a DIFFERENT note in each room it's stubbed into"
+    exemplar: "running-on-wetware.md — 3 rooms, 3 notes (minds / shows / ethics)"
+  links:
+    wwsff: "relative paths"
+    moollm_micropolis: "full GitHub URLs (cross-repo relative paths break on GitHub)"
+    citation_rule: "cite canonical homes, never stubs — stubs are wayfinding, not addresses"
+  boundaries:
+    private_repos: "out of bounds — index only what a stranger with a browser can read"
+    bare_links: "forbidden — if Palm can't say why you'd read it, it doesn't go in yet"
+
+# CURRENT SHELVES — snapshot of the tree (tune when it drifts; drift is normal).
+shelves:
+  - minds-and-souls        # Drescher / Palm / Minsky / simulator shelves
+  - simulation-and-worlds  # deep move / microworlds / Micropolis / CA
+  - design-methods         # accretion / cauldron / notation / prototypes
+  - shows-and-performance  # format / time shifting / slate / audience-as-cast
+  - history-and-lore       # freeing of SimCity / timeline-rotated / Maxis / ancestry
+  - code-and-craft         # MicropolisCore / skills-as-programs / graphics / meta
+  - ethics-and-portrayal   # portrayal law / soul rights / NO-AI hygiene
+  - people                 # reading map, NOT a census — one honest recommendation each
+
+# BACKLOG — candidates noticed but not yet shelved. Accrete here first.
+backlog:
+  - what: "Ellpeck / Tiny Life deep links (praise quotes, site snapshot)"
+    shelf: people
+    note: "people row exists; sources/ tree deserves an entry once there's a show seed"
+  - what: "MOOLLM designs/ deep cuts (PSIBER docs, MOO-EXPERIMENTS, MOOFS, iloci)"
+    shelf: [history-and-lore, code-and-craft]
+    note: "designs/ is a whole basement of lore — shelve selectively, not wholesale"
+  - what: "Palm's questions corpus (Will premiere + Chris accretion question)"
+    shelf: shows-and-performance
+    note: "maybe a 'question provenance' sub-shelf once there are 3+ shows with seats"
+  - what: "adventure-4 session logs as literature (marathon, k-line safari)"
+    shelf: [minds-and-souls, simulation-and-worlds]
+    note: "session logs are primary sources for the wetware/simulation arguments"
+  - what: "Infinite Typewriters app dream (Dasher renderer, 3D typewriter)"
+    shelf: code-and-craft
+    note: "shelve when it graduates from dream to prototype — see the Pinocchio clause in ../infinite-typewriters.yml"
+
+# TUNING QUEUE — known debts. Accrete now, tune later (Constitution, Article V).
+tuning_queue:
+  - "people shelf: re-check 'hand them this first' picks as character dirs deepen"
+  - "history-and-lore: VISION.md is cited 3x as canonical home for the seed saga — if the saga ever gets its own file, repoint all three"
+  - "watch for topic overlap pressure between simulation-and-worlds and code-and-craft (Micropolis lives in both); split or cross-stub deliberately, not accidentally"
+  - "date-stamped claims (139 skills as of 2026-07-08) will rot — that's intentional, but recount at each big shelving pass"
+
+# THE LIFT PLAN — Constitution, Article VIII.
+lift:
+  target_skill: "palmhoo (or topic-directory) in moollm skills/"
+  when: "after the instance survives 2-3 tuning passes and a stranger successfully contributes"
+  what_gets_lifted:
+    - "the stub format (symlink pattern with topical notes)"
+    - "the note rule (why-you'd-read-it, signed opinion vs neutral copy)"
+    - "the shelving workflow (backlog -> shelf -> tuning queue)"
+    - "the publication/workshop split (crown directory + editorial desk)"
+  what_stays_instance: "the actual shelves, notes, and judgments — those are Palm's"
+
+# SHELVING LOG — one line per pass, append-only.
+log:
+  - date: 2026-07-08
+    pass: "founding — constitution + 8 shelves + 4 stubs; wired into WWSFF crown README and Palm's profile"

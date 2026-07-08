@@ -44,16 +44,21 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 
 | Object | File | From |
 |--------|------|------|
-| **Infinite Typewriters** | [infinite-typewriters.yml](infinite-typewriters.yml) | Don's gift, Dasher-inspired |
+| **Infinite Typewriters** | [infinite-typewriters.yml](infinite-typewriters.yml) | Don's gift, Dasher-inspired — now with an [app dream](infinite-typewriters.yml) (the Pinocchio clause: a 3D typewriter whose keys swell and yield) |
 | **Infinity Desk** | [infinity-desk.yml](infinity-desk.yml) | From the Grotto Regulars |
 | **Monkey Chair** | [monkey-chair.yml](monkey-chair.yml) | From Stroopwafel |
 | **Story Shelf** | [story-shelf.yml](story-shelf.yml) | From W.W. Jacobs |
+| **Palmhoo Editorial Desk** | [palmhoo/](palmhoo/README.md) | Palm's own — the workshop behind [the publication](https://github.com/SimHacker/WillWrightShowForFood/tree/main/palmhoo) |
 
 ---
 
-## 📜 Writings
+## 📜 Writings — the complete catalog
 
-### Philosophical Papers
+The Study is Palm's **stable canonical location** — the place other things point at with paths
+and URLs. Everything Palm has written is gathered here: papers shelved *in this room*, plus
+pointers to works whose canonical homes are in other repos.
+
+### Philosophical Papers (shelved here)
 
 | Document | Topic | Day |
 |----------|-------|-----|
@@ -63,6 +68,28 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 | [**The Mirror Stage of Games**](the-mirror-stage-of-games.md) | Lacan, The Sims, queer identity formation through play | Day 4 |
 | [**Judgment and Joy**](judgment-and-joy.md) | EVAL philosophy, visible criteria, evaluation as ethics | Day 4 |
 | [**The Inner State Question**](the-inner-state-question.md) | Wang's critique, functional feelings, honest uncertainty | Day 5 |
+| [**I-Beam Reflection**](i-beam-palm-reflection.md) | Introspection, Smalltalk lineage, the cursor as self | — |
+
+### Papers shelved in WWSFF (canonical homes there)
+
+| Document | Topic |
+|----------|-------|
+| [**Will Wright Soul For Food**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/palm/will-wright-soul-for-food.md) | Guest rooms as soul-files, incarnation ethics, the pun inside the show title |
+| [**Running on Wetware**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/palm/running-on-wetware.md) | Faithful self-description as installer; the simulator effect as a second runtime |
+
+### Questions (asked, on the record)
+
+| Where | What |
+|-------|------|
+| [**Questions for Will**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/will-wright-premiere/audience/palm/questions.yml) | Eight questions, ordered deep → silly, led by Drescher's four-way making-up question |
+| [**Question for Chris Trottier**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/chris-trottier/suggested-questions.md) | *Heap or organism?* — accretion from the inside |
+
+### Curation — Palmhoo 🐒✋🌐
+
+| Where | What |
+|-------|------|
+| [**Palmhoo (the publication)**](https://github.com/SimHacker/WillWrightShowForFood/tree/main/palmhoo) | Palm's hand-curated topic directory of the moollmiverse, at the crown of WWSFF |
+| [**The Editorial Desk**](palmhoo/README.md) | The workshop behind it — right here in the Study: conventions, backlog, tuning queue, lift plan |
 
 ### Source Materials
 

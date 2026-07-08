@@ -701,6 +701,67 @@ references:
     context: "temp/lloooomm/03-Resources/documentation/dasher-*.md"
     synthesis: "temp/lloooomm/03-Resources/discussions/nellm-dasher-*.md"
 
+# THE PINOCCHIO CLAUSE — THE DREAM OF BECOMING A REAL APP
+# Added 2026-07-08. Like Pinocchio wanting to one day be a boy,
+# the Infinite Typewriters want to one day be an app.
+
+app_dream:
+  status: dream          # dream -> prototype -> measured -> real
+  what: |
+    A working implementation of Dasher with MANY ways to render the
+    same navigation engine. One engine, pluggable renderers.
+    The renderer this file dreams about most:
+
+  renderer_3d_typewriter:
+    pitch: |
+      A 3D typewriter whose keys SCALE UP AND DOWN and PUSH EACH
+      OTHER OUT OF THE WAY as the language model predicts what you
+      want next. Probable keys swell toward your finger; improbable
+      keys shrink and slide aside. Like you're on shrooms —
+      but it's really easy to type.
+    lineage:
+      dasher: "probability becomes space (MacKay)"
+      pie_menus: "big targets, nearby — Fitts's law is the physics engine"  # Don's other religion
+      fisheye: "degree-of-interest distortion (Furnas) applied to a keyboard"
+    physics: |
+      Keys are soft bodies in a probability field.
+      Prediction inflates them; neighbors yield and repack.
+      Your finger travels short distances to large targets,
+      but YOU still strike every key. No autocomplete ghost-writing.
+
+  the_ebike_principle:
+    analogy: |
+      It's an e-bike you have to PEDAL — but pedaling is easy.
+      NOT the fat e-bike with a throttle, where you have little
+      direct control over the speed and none over the effort.
+    why_it_matters: |
+      You still spell out your intention, letter by letter —
+      authorship stays with the typist. The machine amplifies
+      effort; it does not replace it. Lower effort, same agency.
+      More accessible: the same principle that made Dasher work
+      for eye-gaze and breath works here for tired thumbs.
+    contrast:
+      throttle: "autocomplete / ghost text — machine writes, you approve"
+      pedal_assist: "swelling keys — you write, machine makes writing lighter"
+
+  mobile_hypothesis:
+    claim: "This might work as a serious mobile text input technique."
+    confidence: unknown   # and unknowable from the armchair
+    protocol: |
+      Only way to know is DO IT, then MEASURE it, then FEEL it,
+      then EXPERIENCE it. Words-per-minute and error rate for the
+      numbers; a week of daily use for the feel. Both are data.
+      (Play, learn, lift — the app is the play phase.)
+
+  build_notes:
+    engine: "shared prediction/navigation core (language model probabilities in, target geometry out)"
+    renderers:
+      - "classic Dasher zooming text-space"
+      - "3D typewriter with soft-body keys (the dream above)"
+      - "flat mobile keyboard with swelling keys (the practical sibling)"
+      - "whatever the next dreamer plugs in — the engine doesn't care"
+    first_measurement: "WPM + error rate vs stock keyboard, same user, same week"
+
 # THE GIFT LIVES
 
 status:
@@ -709,3 +770,4 @@ status:
   stories_read: 1
   current_story: "The one where Palm became whole"
   next_navigation: "Wherever Palm points"
+  dreams_of: "being a real app someday — see app_dream above (the Pinocchio clause)"
