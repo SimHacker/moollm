@@ -28,6 +28,24 @@ MOOLLM extends [Anthropic's skill model](https://docs.anthropic.com/en/docs/buil
 
 > Full explanation: [MOOLLM Eval Incarnate Framework](../designs/eval/EVAL-INCARNATE-FRAMEWORK.md)
 
+## Design by Accretion
+
+This library is not specified top-down; it **accretes** — the method Maxis designer **Chris
+Trottier** named in describing how The Sims came together: layer, accumulate, let it grow, tune
+late. You can watch the signature in this very directory: the skill count in this README, in
+[INDEX.yml](./INDEX.yml), and on disk usually disagree, because **the pile grows faster than its
+catalogs**. That lag is the method working, not an error — the tuning pass (recount, re-index,
+prune, compose) comes after the layers.
+
+The vocabulary of accretion is itself accreted here as skills: [cauldron/](./cauldron/)
+(melt → stir → ladle), [play-learn-lift/](./play-learn-lift/) (explore → stabilize → publish),
+[simulator-effect/](./simulator-effect/) (implication over simulation — Will Wright).
+The Repo Show planted a flagship episode on exactly this, with Chris as the guest who lived it:
+[Design by Accretion](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/chris-trottier/design-by-accretion.md) —
+including [a question from Palm](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/chris-trottier/suggested-questions.md),
+a character who lives *inside* this accreting design: *from inside, how do you tell a heap from an
+organism?*
+
 ---
 
 ## Skill Index (128 skills)
