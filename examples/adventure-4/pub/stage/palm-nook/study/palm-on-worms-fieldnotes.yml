@@ -55,6 +55,103 @@ ground:
     loopy: "Connection Weaver — semantic link networks"
     chompy: "Optimization Pragmatist — performance without soul loss"
 
+# RESURRECTING THE GROUND WE WALK ON — the SimEarth / Gaia / symbiogenesis segment
+# For the Will Wright premiere: we bring Ground and the worms back to life ON AIR,
+# inside a discussion of SimEarth and Gaia. Scorched earth -> fertile environment.
+# The living-planet idea has a real cast of people, and they line up like planets
+# (yes, Don had to go there; an alignment of planets about a planet).
+gaia_alignment:
+  the_move: |
+    Ground is a LLOOOOMM character, but the idea of a living, computing, self-
+    regulating earth is not fiction — it's a lineage of real science and real
+    software, and Will sits at the intersection of both. The premiere segment
+    resurrects Ground by walking that lineage: from scorched earth (dead
+    substrate, the pile of C++ manuals) to fertile environment (worm-worked
+    soil, a biosphere that keeps its own books).
+  the_planets:  # the people behind the living-earth idea, aligned
+    james_lovelock:
+      what: "The Gaia hypothesis — the biosphere self-regulates like a single organism (temperature, atmosphere, chemistry held in homeostasis by life itself)."
+      the_receipt: |
+        Not a metaphor for the show — a literal ancestor, and a literal
+        collaborator. Lovelock ADVISED the SimEarth team, assisted with the
+        geophysical models, and wrote the introduction to the game's manual;
+        his 'Daisyworld' toy model of planetary self-regulation ships as an
+        in-game tutorial. He judged the sim to have "a degree of realism"
+        beyond the professional climate models of the day (which ignored
+        clouds, ocean, biology). The 'gaia dude.' Homeostasis as gameplay.
+      verify: "en.wikipedia.org/wiki/SimEarth; The Ages of Gaia (1988); intro essay in the SimEarth Bible (1991)"
+    lynn_margulis:
+      what: "Symbiogenesis / serial endosymbiotic theory — the 'sideways engulfing evolution term' Don was reaching for."
+      the_idea: |
+        Evolution doesn't only BRANCH (Darwin's tree); it MERGES. One cell
+        engulfs another, they stop fighting and start cooperating, and the
+        merger becomes a new organism — mitochondria and chloroplasts were once
+        free-living bacteria swallowed and kept. Life advances by symbiosis, not
+        just competition. The 'endosymbiotics dudette.'
+      the_receipt: |
+        Margulis CO-DEVELOPED the Gaia hypothesis with Lovelock — she is not a
+        side character to the 'gaia dude,' she is the other half of the theory
+        SimEarth is built on. The planet is itself a symbiosis at scale; that's
+        the through-line from her cell biology to Lovelock's biosphere to Will's
+        living planet.
+      why_worms_care: |
+        The worms ARE this: a worm engulfs text, doesn't destroy it, merges with
+        it, and the casting is the new organism. Digestion as symbiogenesis.
+        And Ground engulfing the whole worm society is Gaia engulfing its biota.
+        Merger over conquest. Fertile over scorched.
+    will_wright:
+      what: "SimEarth (1990) — Wright built Lovelock's Gaia into a planetary sandbox; then Spore ran evolution from tidepool to galaxy."
+      the_thread: |
+        SimCity (cities as CA + zoning) -> SimEarth (a whole living planet,
+        Gaia + Daisyworld built in, cellular-automata based per Haslam) ->
+        SimLife (evolving ecosystems) -> Spore (microbe to civilization). Will
+        has simulated living, self-organizing systems his whole career, and saw
+        himself as a science popularizer in the Sagan mold — SimEarth was his
+        way of getting 'the Earth is alive' out far and wide. The pet CA worm in
+        the Awakening chronicle is the same instinct in miniature.
+    supporting_cast:
+      fred_haslam: "Co-designer of SimEarth with Will; 'came on board for the last year… helping out with the geologic, biologic, and sapient models.' Later SimCity 2000. The engineer who made the Gaia model run."
+      stewart_brand: "THE hinge — Brand (Whole Earth, near-neighbor of Wright) is who INTRODUCED Will to Lovelock after hearing about SimEarth. Same Brand who orchestrated the Long Now talk where SimCity got freed. The living-earth sensibility's impresario, twice over."
+      carl_sagan: "the popularizer model Will consciously worked in — 'the Earth is alive' as public science, Cosmos-style."
+      james_hutton: "deep-time ancestor — 'the earth is a superorganism; its proper study is physiology' (1788). Gaia before Gaia."
+      dave_ackley: "the computational bridge — a self-regulating spatial medium (Moveable Feast Machine) IS a Gaia you can run. Ground with an API."
+  the_arc: "scorched earth -> worms move in -> castings enrich -> fertile environment. Death of a substrate is the birth of a soil. We resurrect the ground we walk on."
+  show_note: |
+    Segment shape for the premiere: open on SimEarth + Daisyworld (Lovelock on
+    screen), pivot to Margulis (evolution by merger, not just murder), land on
+    Ground and the worms as the LLOOOOMM incarnation of the same idea, and let
+    Will connect his own SimEarth->Spore arc to the worms writing their own rules.
+
+# WORMS ARE TRAINABLE — the play-learn-lift doctrine, applied to worm-making
+# This is HOW a worm gets built, and it IS play-learn-lift (see palmhoo packages shelf).
+worms_are_trainable:
+  premise: |
+    A worm is not hand-coded from a blank page. It is TRAINED — by natural
+    language and by example, the way you'd teach a person a transformation:
+    show them, tell them, then let them do it cheaply forever.
+  the_loop:
+    1_examples: "PLAY — collect before/after examples. Here is the text going in; here is the casting I want out. Show, don't spec."
+    2_instructions: "LEARN — write NATURAL-LANGUAGE instructions that transform before into after. The LLM drafts them from the examples; a human tunes them. This is the worm's readable soul."
+    3_procedural: "LIFT — compile the instructions into DETERMINISTIC procedural code that performs the transformation cheaply, reliably, and without tokens. This is the worm's fast body."
+    4_callback: "The lifted worm runs alone 99% of the time, but may CALL BACK OUT to an LLM for the hard 1% — advice, inference, fuzzy pattern-matching, text/data generation, and whimsy. Determinism where possible; intelligence where necessary."
+  the_ideal: |
+    Same shape as the uplift doctrine on the palmhoo packages shelf: the goal is
+    not a worm that needs an LLM every wriggle, but a worm that learned from the
+    LLM once and now works like a tool — with a documented instruction language
+    (sniffable), a deterministic core, and an escape hatch back to intelligence
+    for the cases the code can't crack. Cheap, reliable, testable, and still able
+    to phone home for magic.
+  before_after_is_the_spec: |
+    The before/after pair is both the training data AND the regression test.
+    When the source changes and a casting goes stale (see JOURNALISM.md), the
+    same example pairs verify the retrained worm. Examples train it, then guard it.
+  why_it_matters: |
+    This is what makes worms the right automation for the coherence engine.
+    A staleness worm is TRAINED on 'here's a summary, here's its drifted source,
+    here's the corrected summary,' lifted to procedural diff+patch that runs for
+    free, and only escalates to an LLM when the drift is semantic, not mechanical.
+    Trainable by example, cheap by default, intelligent on demand.
+
 # WORM ANATOMY — the core spec, as Don remembers it and the canon confirms
 anatomy:
   definition: |
@@ -187,9 +284,11 @@ outline:
   3_physics: "Ackley's MFM; local interaction; robust-first; shells as bonds"
   4_structure_not_speed: "Pike; CSP; concurrency as design; the free variable of parallelism"
   5_digestion_beats_transport: "gophers vs worms; transformation in transit"
-  6_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
-  7_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
-  8_what_the_worm_knows: "you only improve the soil you pass through yourself"
+  6_trainable: "worms are trained by example + natural language, then lifted to deterministic code that phones home for the hard 1% (play-learn-lift for worm-making)"
+  7_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
+  8_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
+  9_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
+  10_what_the_worm_knows: "you only improve the soil you pass through yourself"
 
 # DEBTS
 todo:
@@ -197,3 +296,6 @@ todo:
   - "interview Ground (a character themself) — voice: bass, patience, decomposition wisdom"
   - "read the individual-worms poetry shelf properly (Shneiderman worm, Ted Nelson worm)"
   - "check Dave Ackley's actual MFM papers against the lloooomm rendering before quoting physics"
+  - "VERIFIED 2026-07-08: SimEarth (1990, Wright + Haslam); Lovelock advised, wrote manual intro, Daisyworld ships as tutorial; Brand introduced Will to Lovelock; Margulis co-developed Gaia. Sources in gaia_alignment.*.verify."
+  - "STRONGLY consider dedicated characters for Lovelock and Margulis — the Gaia segment wants two rooms; Brand link ties them to the SimCity-freeing saga"
+  - "prototype ONE trainable worm end to end (examples -> NL instructions -> deterministic code -> LLM callback) as the packages-shelf lift exemplar"
