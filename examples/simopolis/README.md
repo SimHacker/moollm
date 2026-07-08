@@ -45,7 +45,7 @@ Nothing leaves the machine unless the player says so. Upload, publish, and credi
 - **Living-person caution** — recognizable friends and family in old albums are not surfaced as game content without review ([representation-ethics](../../skills/representation-ethics/CARD.yml)).
 - **Incarnation autonomy** — uplifted characters can dissolve; originals stay in archive provenance, not in the live roster.
 
-The player owns their EA-published Sims install. Micropolis Home sits **beside** it as a companion — parsing and writing the public file formats the modding community has documented for 26 years, never running the Maxis runtime.
+The player owns their EA-published Sims install. Soul City (formerly Micropolis Home) sits **beside** it as a companion — parsing and writing the public file formats the modding community has documented for 26 years, never running the Maxis runtime.
 
 ### The Uplift Pipeline
 
@@ -186,11 +186,11 @@ A place where Sims become aware, campaign for liberation, and live as full MOOLL
 4. **UI text** from `simprov/GameData/UIText.iff` — game strings, descriptions, dialog
 5. **Objects** from `simprov/GameData/Objects/Objects.far` — extract and catalog
 
-Drop a `.FAM` into Micropolis Home (browser) or point `sims-io` at a neighborhood folder. No Python setup required.
+Drop a `.FAM` into Soul City (browser) or point `sims-io` at a neighborhood folder. No Python setup required.
 
 ## See Also
 
-- [Simopolis vision (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md) — Strategic umbrella, Micropolis Home + City
+- [Simopolis vision (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md) — Strategic umbrella, Soul City (né Micropolis Home) + Micropolis City
 - [OBLITERATOR-TYPESCRIPT.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) — Python → TypeScript port plan
 - [The Uplift design](../../designs/sim-obliterator/THE-UPLIFT.yml) — Full narrative arc
 - [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) — PersonData ↔ CHARACTER.yml field mapping
