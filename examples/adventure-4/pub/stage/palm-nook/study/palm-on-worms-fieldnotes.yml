@@ -254,6 +254,58 @@ birds:
     do_with_ken: "co-author the bird skill; honor ToonTalk's concretizations; let Ken correct the CS. He's the source, not a citation."
     status: "planned — a collaboration, not a fait accompli. Ken's an invitation guest (characters/ken-kahn/), consent not yet asked for this specifically."
 
+# WORMS ARE LANGUAGE MACHINES — the whole compiler pipeline, as one animal
+# A worm isn't just a text-rewriter. It is the classic language-processing
+# stack wearing a body: parser, tree visitor, transformer, serializer. Don's
+# framing: the worm crawls code through its syntactic and semantic tunnels and
+# focuses the LLM's attention along one arc — TEXT => STRUCTURE => MEANING.
+worms_are_language_machines:
+  the_pipeline: "TEXT => STRUCTURE => MEANING. The worm's job is to walk that arrow and make each step legible to the LLM."
+  roles:
+    parser: |
+      Input cursor eats a flat stream of TEXT and recovers STRUCTURE — tokens,
+      then a tree. The worm is a parser: it turns a line into a shape.
+    tree_visitor: |
+      The digestive system is a tree-walk. The worm crawls the AST through its
+      SYNTACTIC and SEMANTIC TUNNELS — down into nodes, across siblings, back up
+      with results. Visitor pattern as literal locomotion; a worm IS a walk.
+    transformer: |
+      Mid-crawl it rewrites: refactor, lower, desugar, annotate, translate one
+      representation into another. Source-to-source, in place, node by node.
+    serializer: |
+      Output cursor emits STRUCTURE back out as TEXT — pretty-print, re-emit,
+      round-trip. What went in as a stream comes out as a stream, changed.
+  the_casting_pun:  # Don's, and it goes all the way down
+    line: "The worm is a SYNTACTIC CASTING DEVICE — in every sense of 'cast' at once."
+    senses:
+      worm_casting: "the literal worm shit — the CASTING left behind, the enriched output deposit (the whole RICH CAST of WORM CANON pun, still load-bearing)"
+      type_casting: "type casting / coercion — converting a syntactic representation of an object into another representation and/or type. A parse IS a cast: bytes to tree; a serialize is the cast back."
+      casting_a_role: "casting as in assigning roles — the worm reads a node and decides what it IS (this token is an identifier, this block is a function), casting each part in the play of the grammar"
+    why_it_matters: "one word — cast — names the deposit, the type conversion, AND the role assignment. The worm does all three every crawl. The pun is the spec."
+  the_comments_insight:  # the part Don stresses most
+    claim: "The worm extracts meaning from the code AND — most importantly — from the COMMENTS passing through its digestive system."
+    why: |
+      A compiler throws comments away; they're whitespace to a parser. A WORM
+      does the opposite — the comments are the richest thing it eats. Because
+      comments carry the INTENT the syntax only implies: the why, the trade-off,
+      the constraint, the joke that encodes a design decision. This is
+      yaml-jazz's whole thesis (comments are first-class semantic data, three
+      audiences: humans, LLMs, machines) and sniffable-python's (doc up front so
+      the LLM understands without running anything). The worm is the animal that
+      finally reads the comments — and hands the LLM code + comments together, so
+      structure and intent arrive as one casting.
+    ties:
+      - https://github.com/SimHacker/moollm/tree/main/skills/yaml-jazz
+      - https://github.com/SimHacker/moollm/tree/main/skills/sniffable-python
+  attention_focusing: |
+    This is the deepest reason worms and LLMs belong together (worms_are_trainable
+    said WHEN to call the LLM; this says WHAT the call is FOR): the worm FOCUSES
+    THE LLM'S ATTENTION. Instead of dumping a file into the context and hoping,
+    the worm walks text -> structure -> meaning and presents the LLM exactly the
+    node, with exactly its comments, at exactly the right tunnel depth. The worm
+    is an attention-router made of appetite. It decides what the LLM looks at, in
+    what order, with what surrounding intent — which is most of the game.
+
 # WORM ANATOMY — the core spec, as Don remembers it and the canon confirms
 anatomy:
   definition: |
@@ -388,11 +440,12 @@ outline:
   5_digestion_beats_transport: "gophers vs worms; transformation in transit"
   6_trainable: "worms are trained by example + natural language, then lifted to deterministic code that phones home for the hard 1% (play-learn-lift for worm-making)"
   7_lifecycle: "reproduce/combine/rewrite-DNA/lay-eggs/split — whimsy that IS the CS curriculum (persistence, concurrency, PL design, OS, map-reduce)"
-  8_birds: "Ken Kahn's ToonTalk: birds carry messages between houses. We adopt birds as the IPC/pub-sub substrate; worms compute, birds communicate. The bird skill, co-designed with Ken."
-  9_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
-  10_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
-  11_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
-  12_what_the_worm_knows: "you only improve the soil you pass through yourself"
+  8_language_machines: "parser/tree-visitor/transformer/serializer; the casting pun (worm-cast / type-cast / role-cast); comments as the richest food; text=>structure=>meaning; the worm as the LLM's attention-router"
+  9_birds: "Ken Kahn's ToonTalk: birds carry messages between houses. We adopt birds as the IPC/pub-sub substrate; worms compute, birds communicate. The bird skill, co-designed with Ken."
+  10_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
+  11_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
+  12_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
+  13_what_the_worm_knows: "you only improve the soil you pass through yourself"
 
 # DEBTS
 todo:
