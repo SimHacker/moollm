@@ -235,6 +235,34 @@ worms_are_trainable:
     language and by example ("Programming by Demonstration"), the way you'd
     teach a person a transformation:
     show them, tell them, then let them do it cheaply forever.
+  pbd_lineage:  # "Watch What I Do" — the field that dreamed this loop before it could run
+    the_book: |
+      WATCH WHAT I DO: Programming by Demonstration (MIT Press, 1993), edited by
+      ALLEN CYPHER — the field's family album. Pygmalion (David Canfield Smith,
+      1975: program by moving icons, the origin), Peridot (BRAD MYERS: draw the
+      UI, the system infers the code), Eager (Cypher: watches you repeat a task
+      in HyperCard and offers to finish), Metamouse (Maulsby), Chimera
+      (Kurlander), Tinker (Lieberman). Lieberman's sequel anthology: Your Wish
+      Is My Command (2001). Ken Kahn's ToonTalk robots — trained by
+      demonstration, generalized by erasing details from the thought bubble —
+      are the same family (see birds.toontalk_receipts).
+    the_wall: |
+      Every one of those systems hit the SAME wall: GENERALIZATION — inferring
+      what the user MEANT from what the user DID. Two examples in, the system
+      had to guess: is "Chapter 3" a string, a heading, the third of anything?
+      They guessed with brittle hand-built heuristics and domain-specific
+      inference engines, so demos dazzled and deployments died. The dream —
+      show the machine, and it writes the program — needed an intent-inference
+      engine nobody could build. For thirty years the book was a wishlist.
+    llms_unlock_it: |
+      LLMs ARE the missing intent-inference engine. Generalizing from one
+      before/after pair plus a sentence of natural language is exactly what a
+      language model does. The worm-training loop (examples -> NL instructions
+      -> lifted code -> callback) is Watch What I Do finally RUNNING: Peridot's
+      inference is the LLM drafting instructions; Eager's "shall I finish?" is
+      the callback for the hard 1%; ToonTalk's erased thought-bubble details
+      are prompt generalization. The papers weren't wrong — they were early.
+      Worms are the payoff of a forty-year IOU.
   the_loop:
     1_examples: "PLAY — collect before/after examples. Here is the text going in; here is the casting I want out. Show, don't spec."
     2_instructions: "LEARN — write NATURAL-LANGUAGE instructions that transform before into after. The LLM drafts them from the examples; a human tunes them. This is the worm's readable soul."
@@ -737,7 +765,7 @@ outline:
   3_physics: "Ackley's MFM; local interaction; robust-first; shells as bonds"
   4_structure_not_speed: "Pike; CSP; concurrency as design; the free variable of parallelism"
   5_digestion_beats_transport: "gophers vs worms; transformation in transit"
-  6_trainable: "worms are trained by example + natural language, then lifted to deterministic code that phones home for the hard 1% (play-learn-lift for worm-making)"
+  6_trainable: "worms are trained by example + natural language, then lifted to deterministic code that phones home for the hard 1% (play-learn-lift for worm-making). This is Programming by Demonstration — Cypher's Watch What I Do, Myers's Peridot, Kahn's robots — finally RUNNING, because LLMs are the intent-inference engine the 1993 book was missing"
   7_lifecycle: "reproduce/combine/rewrite-DNA/lay-eggs/split — whimsy that IS the CS curriculum (persistence, concurrency, PL design, OS, map-reduce)"
   8_language_machines: "parser/tree-visitor/transformer/serializer; the casting pun (worm-cast / type-cast / role-cast); comments as the richest food; text=>structure=>meaning; the worm as the LLM's attention-router"
   9_birds: "Ken Kahn's ToonTalk: birds carry messages between houses. We adopt birds as the IPC/pub-sub substrate; worms compute, birds communicate. The bird skill, co-designed with Ken."

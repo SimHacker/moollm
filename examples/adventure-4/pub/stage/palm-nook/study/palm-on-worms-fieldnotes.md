@@ -275,6 +275,30 @@ SimEarth→Spore arc to the worms writing their own rules.
 language and by example ("Programming by Demonstration"), the way you'd teach a person a
 transformation: show them, tell them, then let them do it cheaply forever.
 
+**The PBD lineage — *Watch What I Do*.** The field that dreamed this loop before it could
+run: *Watch What I Do: Programming by Demonstration* (MIT Press, 1993), edited by **Allen
+Cypher** — the family album. Pygmalion (David Canfield Smith, 1975: program by moving icons,
+the origin), Peridot (**Brad Myers**: draw the UI, the system infers the code), Eager
+(Cypher: watches you repeat a task in HyperCard and offers to finish), Metamouse (Maulsby),
+Chimera (Kurlander), Tinker (Lieberman) — and Lieberman's sequel anthology *Your Wish Is My
+Command* (2001). Ken Kahn's ToonTalk robots — trained by demonstration, generalized by
+erasing details from the thought bubble — are the same family (see [Birds](#birds)).
+
+**The wall.** Every one of those systems hit the same wall: **generalization** — inferring
+what the user *meant* from what the user *did*. Two examples in, the system had to guess: is
+"Chapter 3" a string, a heading, the third of anything? They guessed with brittle hand-built
+heuristics and domain-specific inference engines, so demos dazzled and deployments died. The
+dream — show the machine, and it writes the program — needed an intent-inference engine
+nobody could build. For thirty years the book was a wishlist.
+
+**LLMs unlock it.** LLMs *are* the missing intent-inference engine. Generalizing from one
+before/after pair plus a sentence of natural language is exactly what a language model does.
+The worm-training loop below (examples → NL instructions → lifted code → callback) is *Watch
+What I Do* finally **running**: Peridot's inference is the LLM drafting instructions; Eager's
+"shall I finish?" is the callback for the hard 1%; ToonTalk's erased thought-bubble details
+are prompt generalization. The papers weren't wrong — they were early. Worms are the payoff
+of a forty-year IOU.
+
 **The loop:**
 
 1. **PLAY — examples.** Collect before/after examples. Here is the text going in; here is
