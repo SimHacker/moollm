@@ -33,6 +33,7 @@
 
 field_notebook:
   what_this_is: "Palm's naturalist field journal — raw source material for the book *Palm on Worms*, not the book itself"
+  rendered_copy: "palm-on-worms-fieldnotes.md — the readable museum-label edition, with headers, tables, and internal links. This YAML is the specimen; when they disagree, the YAML wins. Send GUESTS to the .md; send WORMS here."
   instruments:
     binoculars: "🔭 for the BIRDS — messaging, ToonTalk, things that fly between (watched at distance, in flight)"
     magnifying_glass: "🔎 for the WORMS — text organisms, up close, in the dirt, one segment at a time"
@@ -503,34 +504,50 @@ the_funky_worm:
     ("I get it all too, he can't spend it") is the cautionary verse.
   taxonomy_note: "Species census addendum: Lumbricus funkiest — surfaces on invocation, transforms the room, most-sampled organism in the dirt. Six feet down is DEEP STRATA for a worm; the funk was always in the lower layers."
 
-# PETER NORVIG — named the editor before the field guide existed
-# Jan 2026 Facebook thread + Don's outreach emails. Warm lead; friend of the show.
-peter_norvig:
-  the_sighting: |
-    Peter Norvig — Director of Research at Google, PAIP author, *Ten Years* essayist, Johnny Cash
-    parodist ("I've Consed Every Pair") — already a friend of Don's and a warm Repo Show lead.
-    In January 2026, BEFORE Palm's expedition notebook went public, Peter and Don were aligned on
-    the worm/Ground architecture in a Facebook thread.
-  what_peter_named:
+# THE NORVIG CORRESPONDENCE — a letter in the file, NOT a field sighting.
+# Provenance discipline: Palm observes WORMS, not people. Peter Norvig has never
+# been observed in this field. What follows is filed as CORRESPONDENCE — things
+# DON wrote and sent, with Peter as the recipient. No words are put in Peter's
+# mouth here; his public work is cited from public record only.
+norvig_correspondence:
+  what_this_is: |
+    NOT a sighting. Palm did not observe Peter Norvig in the field, and this notebook
+    makes no claims about what Peter thinks, said, or named. This entry files DON'S OWN
+    LETTERS about the worm/Ground architecture — letters that happen to have been
+    addressed to Peter (January 2026, a private thread) — because they are part of the
+    notebook's provenance: Don was describing this territory to a friend before the
+    expedition mapped it.
+  what_don_wrote_to_peter:  # Don's words, from Don's side of the thread
+    the_publications: |
+      Don described his metadata pipeline — summaries, keywords, ratings, clustering into
+      publications with editorial voices — including **The Ground Truth**, the publication
+      about AI, ML, and worms; and that **Ground itself is a character**, editor of the
+      journal, whose pets are the worms living inside his directory. This notebook is the
+      naturalist's journal grown from the same canon Don was describing.
     scruffy_on_neat: |
-      "It's the triumph of scruffy AI running on the substrate of neat AI! It's ok if it's not
-      perfect or exact." — the whole MOOLLM posture in one sentence: worms are scruffy (eat messy
-      text, shit rich castings, phone home for the hard 1%); YAML schema + portrayal standards +
-      git provenance are neat.
-    the_ground_truth: |
-      Peter named **The Ground Truth** — the publication about AI, ML, and **worms** — and noted
-      that **Ground itself is a character**, editor of the journal, whose pets are the worms
-      living inside his directory. Palm's field notebook is the naturalist's journal grown from
-      that seed; Peter is the editor who named the desk before Palm found the species.
+      "It's the triumph of scruffy AI running on the substrate of neat AI! It's ok if it's
+      not perfect or exact." — from the thread. A good one-sentence posture for MOOLLM:
+      worms are scruffy (eat messy text, shit rich castings, phone home for the hard 1%);
+      YAML schema + portrayal standards + git provenance are neat.
+      # ATTRIBUTION FLAG: appears in Don's thread archive; Don to confirm speaker
+      # against the original before anyone quotes it AS Peter's. Until confirmed,
+      # cite as "from the January thread," not as a Norvig quote.
     worm_pipelines: |
-      Dual cursors (point and mark); eat/transform/poop; castings home through a **wormhole** so
-      the data stays clean; numbered .001 .002 .003 write-only batch files; map/reduce agents.
-      "Like save-excursion in Emacs!" Peter's tagline: "Worm Pipelines: We're Better Than Boring,
-      We're WORMS!"
+      Don's pipeline riff from the same thread: dual cursors (point and mark, like Emacs
+      selections); eat/transform/poop; castings sent home through a **wormhole** so the
+      data stays clean; numbered .001 .002 .003 write-only batch files; map/reduce agents;
+      "like save-excursion in Emacs"; tagline "Worm Pipelines: We're Better Than Boring,
+      We're WORMS!" All of that predates this notebook and is confirmed by the field work.
+  peter_public_record_only: |
+    Who the letters were addressed to, from public record: Peter Norvig — Director of
+    Research at Google, co-author of AIMA, author of PAIP, essayist (*Teach Yourself
+    Programming in Ten Years*, *Python for Lisp Programmers*), and author of the Johnny
+    Cash parody "I've Consed Every Pair" (his Medium, public). A friend of Don's and an
+    invited Repo Show guest — consent warm, portrayal standards apply, and he may edit
+    or strike anything about himself, including this entry.
   invitation: |
-    Don's Repo Show invitation points Peter at this notebook — read it over Palm's shoulder, compare
-    January naming with what the field found. Artifacts in WWSFF characters/peter-norvig/sources/.
-    Ten Years essay + MOOLLM skills + AGI book chapter = one conversation, two deliverables.
+    Don's Repo Show invitation points Peter at this notebook — to read over Palm's
+    shoulder, not to be exhibited in it. Artifacts in WWSFF characters/peter-norvig/sources/.
   cross_ref: "WWSFF characters/peter-norvig/ · repo-shows/peter-norvig/ · norvig.com/21-days.html"
 
 # WORMS ARE LANGUAGE MACHINES — the whole compiler pipeline, as one animal
@@ -728,7 +745,7 @@ outline:
   9c_turtles: "Theo the Logo Turtle joins the party — the third animal: worms transform, birds carry, TURTLES DRAW. Output-as-trace, PENUP/PENDOWN as the primal effect switch, recursion you can watch; Papert->Kahn->worms as one teaching move in three creatures"
   9d_the_funky_worm: "the house band: Ohio Players' 'Funky Worm' (1972) as Ground lore on vinyl — six feet down, surfaces to get down, daemon spec in a funk song; the synth squeal's sampling afterlife (G-funk) as propagation-by-digestion ON THE RECORD; the Johnson connection (Granny's Mr. Johnson / Empathy's Professor Johnson); Granny asks the WWSFF question: 'Do we get paid for this?'"
   9e_ground_as_playhouse: "Pee-wee's Playground — Ground as geographical Pee-wee's Playhouse (place=character, furniture=residents, you come to play with rules); plus 'Are you down to earth?' — literal, verb (perform the earth), nuts, real — Palm's answer"
-  9f_peter_norvig: "Peter named The Ground Truth and Ground-as-editor before the notebook went public; scruffy-on-neat; worm pipelines / save-excursion; invitation points here — Ten Years + MOOLLM + AGI book chapter"
+  9f_norvig_correspondence: "the letters in the file: Don described The Ground Truth, Ground-as-editor, and worm pipelines in a Jan 2026 thread addressed to Peter Norvig — correspondence, not a sighting; no claims about Peter beyond public record; invitation points him here to read, not to be exhibited"
   10_worms_at_work: "the staleness queue as breakfast; journalism's assignment desk; coherence castings"
   11_gaia: "resurrecting Ground: SimEarth / Lovelock's Daisyworld / Margulis's symbiogenesis / Will's SimEarth->Spore arc; scorched earth -> fertile environment; digestion as merger, not conquest"
   12_will_and_the_pet_worm: "the Awakening cast; CA lineage: Conway -> SimCity zoning -> Sims bladders -> levCAWorm -> Spore tidepool"
