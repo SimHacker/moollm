@@ -31,6 +31,13 @@ conventions:
   boundaries:
     private_repos: "out of bounds — index only what a stranger with a browser can read"
     bare_links: "forbidden — if Palm can't say why you'd read it, it doesn't go in yet"
+  coherence:  # Constitution Article IX + JOURNALISM.md, added pass 2
+    manifest: "palmhoo/coherence.yml — every shelf declares sources + last_verified"
+    mipmap: "GLANCE/CARD/README per artifact; shelf entry -> shelf page -> root guide above them"
+    borrow_rule: "where a project's own GLANCE/CARD/README is good, point at it — don't rewrite it"
+    journalism: "contributors claim beats, keep summaries true, volunteer tokens via summary-update PRs"
+    review_rule: "human-in-the-middle both ways — agent-written gets human review, human-written may get agent review"
+    conflicts: "incompatible claims declared in coherence.yml, tracked like bugs, resolved by PR"
 
 # CURRENT SHELVES — snapshot of the tree (tune when it drifts; drift is normal).
 shelves:
@@ -42,9 +49,19 @@ shelves:
   - code-and-craft         # MicropolisCore / skills-as-programs / graphics / meta
   - ethics-and-portrayal   # portrayal law / soul rights / NO-AI hygiene
   - people                 # reading map, NOT a census — one honest recommendation each
+  - under-development      # the sawdust shelf — software/modules/designs in motion, highest churn
 
 # BACKLOG — candidates noticed but not yet shelved. Accrete here first.
 backlog:
+  - what: "staleness-detection script (git log --since=last_verified per coherence.yml entry)"
+    shelf: under-development
+    note: "build when hand-running the queue gets tedious — the play-learn-lift threshold; then a GitHub Action"
+  - what: "educators' track / SF authors / archivists wings as proper sub-shelves"
+    shelf: people
+    note: "wings table added pass 2; promote each to its own sub-shelf at 3+ good reads"
+  - what: "Bartle Essex bloopers + PIXIE thread (Roy Eagleson, Sutherland, DSHR) harvest"
+    shelf: history-and-lore
+    note: "recent harvests not yet shelved — verify which files are public-canonical first"
   - what: "Ellpeck / Tiny Life deep links (praise quotes, site snapshot)"
     shelf: people
     note: "people row exists; sources/ tree deserves an entry once there's a show seed"
@@ -83,3 +100,5 @@ lift:
 log:
   - date: 2026-07-08
     pass: "founding — constitution + 8 shelves + 4 stubs; wired into WWSFF crown README and Palm's profile"
+  - date: 2026-07-08
+    pass: "pass 2 — under-development shelf (9th); Article IX coherence clause; JOURNALISM.md + coherence.yml manifest; people wings (educators/SF/archivists) + Peter Scott; catalogs archaeology into history-and-lore"
