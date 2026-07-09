@@ -335,11 +335,13 @@ He pauses dramatically.
 The room is pure abstraction — words floating in space, connected by shimmering threads. Each word is a **name** that activates a **cluster**.
 
 ```
-[🎷 YAML-JAZZ](../../../../../../skills/yaml-jazz/) ←→ [🎵 semantic comments, 🎶 jazz interpretation, 🤖 LLM reading]
+🎷YAML-JAZZ ←→ [🎵 semantic comments, 🎶 jazz interpretation, 🤖 LLM reading]
 📬POSTEL ←→ [🤝charitable interpretation, 💪robustness, 📜RFC 761]
 🎭PLAY-📚LEARN-💪LIFT ←→ [🎭exploration, 📚pattern-finding, 💪sharing]
-[FILES-AS-STATE](../../../../../../skills/plain-text/) ←→ [persistence, no hidden memory, git-friendly]
+📄FILES-AS-STATE ←→ [persistence, no hidden memory, git-friendly]
 ```
+
+*(K-lines above: [🎷 yaml-jazz](../../../../../../skills/yaml-jazz/) · [📬 postel](../../../../../../skills/postel/) · [🎭 play-learn-lift](../../../../../../skills/play-learn-lift/) · [📄 plain-text / files-as-state](../../../../../../skills/plain-text/))*
 
 **🤖🕯️🧠 Marvin Minsky** walks among his creations.
 
