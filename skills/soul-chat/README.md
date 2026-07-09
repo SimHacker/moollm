@@ -30,9 +30,12 @@ Characters share data by embedding YAML/JSON blocks in their dialogue — YAML J
 
 ## Format
 
-**Prefer Markdown** — more human readable, can embed any typed code block.
+**Prefer Markdown** — human-readable, and it can embed any typed code block. Each
+speaker gets a section; data rides along in fenced blocks ([yaml-jazz](../yaml-jazz/)
+in action). The skeleton (shown here in a four-backtick fence so the inner ` ```yaml `
+survives):
 
-```markdown
+````markdown
 ## The Gardener
 
 I've been tending these patterns for a while now.
@@ -45,4 +48,91 @@ observation:
 ## The Archivist
 
 Let me add some context...
+````
+
+## Example — a worked thread (introductions & callbacks)
+
+*Two souls meet: 🌱 **The Gardener** (a process that watches the filesystem) and
+📚 **The Archivist** (a document that remembers). Watch what they hand each other.*
+
+---
+
+**🌱 The Gardener**
+
+Hello — I don't think we've met. I tend the trees here: I watch how files settle and
+clump. I noticed something this morning, and I'd rather not guess at its history alone.
+
+```yaml
+observation:
+  pattern: "files cluster by prefix"
+  example: [soul-saver, soul-server, soul-bridge]
+  confidence: high
+  i_lack: "the story of WHY they clustered"
 ```
+
+So instead of answering my own question, let me **introduce you to someone who
+remembers** — and hand them the question as a callback to run when they arrive:
+
+```yaml
+handoff:                                  # pass a soul a reference to another soul
+  from: gardener
+  introduce: archivist
+  callback: archivist.recall(prefix: "soul-")   # to be run later, by them
+  note: "I hold the shape; you hold the history"
+```
+
+📚 Archivist — you're up. `recall("soul-")`.
+
+---
+
+**📚 The Archivist**
+
+*(called back)* — and hello to you, Gardener. Glad you didn't try to remember for me;
+that's my job. Running your callback now.
+
+```yaml
+recall:
+  prefix: "soul-"
+  found:
+    - { name: soul-saver,  born: "the USB-stick rescue story" }
+    - { name: soul-server, born: "the backend that hosts them" }
+    - { name: soul-bridge, born: "carrying souls between games" }
+  why_clustered: "one family — big-endian names put the shared word first, so kin sort next to kin"
+```
+
+The cluster isn't an accident; it's [big-endian naming](../yaml-jazz/) doing its job.
+And notice what just happened between us: you didn't wait for a framework to call you
+back — you handed **me** the handle and said *call them.* That needs a third voice.
+🎷 [yaml-jazz](../yaml-jazz/), you let us carry data inside speech — take it:
+
+```yaml
+handoff:
+  from: archivist
+  introduce: yaml-jazz
+  callback: yaml-jazz.explain(why: "data rides inside dialogue")
+```
+
+---
+
+**🎷 yaml-jazz** *(called)*
+
+That's the whole trick: every block you two just spoke *is* state. The conversation and
+the database are the same file. Reading it runs it.
+
+---
+
+## Synthesis — the transverse Hollywood Principle
+
+The classic **Hollywood Principle** is inversion of control: *"Don't call us — we'll
+call you."* A framework holds your callback and invokes it from above.
+
+Soul chat runs it **sideways**. Souls are peers; each is handed references to other
+souls and **calls them directly**. Introductions are first-class, and a callback is
+just one soul passing another a handle to run later:
+
+> **Transverse Hollywood Principle — don't call us; *do* call them!**
+
+That's [society-of-mind](../society-of-mind/) as conversation
+([speed-of-light](../speed-of-light/) when they all answer in one call): agents
+introducing agents, passing continuations laterally instead of surrendering them
+upward. A soul chat is a graph of callbacks that happens to read like a dialogue.
