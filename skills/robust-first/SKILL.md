@@ -131,6 +131,19 @@ addressed by **URL pointers** that drill directory → file → structure *insid
   package/unbundle archives, drive git, run scripts, compose skills) — but pointing is cheaper
   and more robust than moving.
 
+The **neighborhood** is laid out by `yaml-jazz` convention, not left to chance:
+
+- **Big-endian naming** (most-significant-part-first: `2026-07-09-pixie-thread`,
+  `cam6-dendrite-heat-01`) makes the *sorted directory listing itself the locality* — related
+  samples become adjacent neighbors, so the head lands where the meaning already clusters. This
+  is the MFM's spatial locality, reconstructed from lexical order.
+- **Grouping conventions** — directories as advertisements, filenames as K-lines — decide which
+  samples share a neighborhood. A directory listing *is* the index the head reads on arrival.
+- The neighborhood is then read at multiple resolutions via the **Semantic Image Pyramid**:
+  `GLANCE.yml → CARD.yml → SKILL.md → README.md`. It's a mipmap for text — coarse before fine,
+  and never load a lower level without first loading the level above it. The moving feast zooms
+  in only as far as the task needs.
+
 `palmhoo` is the clearest specimen: a directory that contextualizes internal and external
 objects at many granularities, continuously refactored and rearranged as it grows on demand —
 robust-first computing applied to a knowledge base instead of a chip.
