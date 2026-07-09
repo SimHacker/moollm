@@ -9,6 +9,7 @@ Two-way bridge between [The Sims 1](https://en.wikipedia.org/wiki/The_Sims_(vide
 | Document | What It Covers |
 |----------|---------------|
 | **[THE-UPLIFT.md](THE-UPLIFT.md)** | The vision, the story arc, family album archaeology, skin regenesis, literary precedent, feasibility study |
+| **[THE-PET-SHOP.md](THE-PET-SHOP.md)** | Heal sick pets (the gerbil cage!) by editing their soul in the save file — the LLM-superpowered Unleashed pet shop; small pets earn a `CHARACTER.yml` |
 | **[BRIDGE.md](BRIDGE.md)** | Technical field mappings (Sims ↔ MOOLLM), SimObliterator architecture, auto-internationalizer, Transmogrifier modernization, phased roadmap |
 | **[IFF-LAYERS.md](IFF-LAYERS.md)** | Multi-resolution resource layer architecture (6 layers from binary to narrative), compilation directions, TMOG comparison, gap analysis |
 

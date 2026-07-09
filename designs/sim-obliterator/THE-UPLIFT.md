@@ -185,6 +185,7 @@ Characters browse archived fan sites ([SimFreaks](https://web.archive.org/web/*/
 | **Painting Studio** | Wall art from prompts or photos | Generate paintings from any description | Wall hanging object IFF |
 | **Mesh Lab** | 3D object editing and composition | Mesh generation/modification | [glTF](https://en.wikipedia.org/wiki/GlTF) ↔ SKN/BMF via [mesh pipeline](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/mesh) |
 | **Photo Book Press** | Pageable in-game photo albums | Layout slideshows into book pages | Multi-page book object IFF |
+| **[Pet Shop / Vet](THE-PET-SHOP.md)** | Heal, adopt, train, revive pets — the living counterpart of the Tombstone Studio | Diagnose *why* a caged pet is sick from its history; dream new companions | Edited pet `person_data` + cage object attributes in the save |
 
 The **Photo Book Press** is the key integration: take a character's MOOLLM slideshow, lay out the pages with AI-generated captions, compile it into a Sims object that you can actually *page through* in-game. The character's MOOLLM adventure becomes a coffee table book in their Sims living room. This is the [SimProv](https://github.com/SimHacker/moollm/tree/main/skills/adventure) vision made real — all the interactive storytelling tools we designed, now buildable because [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) provides the IFF generation pipeline and AI provides the content generation.
 
