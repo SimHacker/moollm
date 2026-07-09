@@ -4,6 +4,37 @@
 
 Two-way bridge between [The Sims 1](https://en.wikipedia.org/wiki/The_Sims_(video_game)) save files and [MOOLLM](https://github.com/SimHacker/moollm). Characters, objects, and pets step between a 26-year-old game VM and an LLM-powered universe, retaining and synchronizing their parallel existences.
 
+## Status — a respected parent of the Soul multiverse
+
+**SimObliterator is effectively retired, and honored as one of the parents of what came
+next.** This directory is its design corpus — the Sims-1 save/IFF bridge work that proved
+the core move of the whole project: reach into a 26-year-old VM, read a character, object,
+or pet as *editable state*, and write it back changed. That idea — **a soul is the file
+you can open and edit** — is now load-bearing in the [soul-chat](../../skills/soul-chat/)
+skill and the wider Soul architecture.
+
+Its author, **[Jeff Adkins](https://github.com/DnfJeff/SimObliterator_Suite)**, is an
+active participant in the new development and the Repo Shows. This is a living lineage,
+not an archive — we honor the parent by *uplifting* its designs, not embalming them.
+
+### TODO (scoped, not now) — uplift these designs into the Soul family
+
+When we pick this up, the task is to migrate this corpus into the Soul-family vocabulary
+and the machine-multiverse soul architecture:
+
+- **Bring the verbs home.** import → **soul catcher**, cross-game transport → **soul
+  bridge**, render → **soul projector**, format conversion → **soul transmogrifier**,
+  dialogue → **soul-voice** ([soul-chat](../../skills/soul-chat/)).
+- **Generalize the thesis.** Restate "a Sims save is a soul you can edit" as a first-class
+  instance of the general soul definition (soul = inspectable/editable artifact), not a
+  Sims-only trick.
+- **Keep provenance & credit.** SimObliterator and Jeff Adkins named as the parent work;
+  all links preserved; nothing erased in the uplift.
+- **Pick the new home** (e.g. a `designs/soul/` or the machine-multiverse soul docs) and
+  leave forwarding pointers here.
+
+Not started — this note exists so the scope is captured and the directory is framed.
+
 ## Design Documents
 
 | Document | What It Covers |
@@ -12,6 +43,8 @@ Two-way bridge between [The Sims 1](https://en.wikipedia.org/wiki/The_Sims_(vide
 | **[THE-PET-SHOP.md](THE-PET-SHOP.md)** | Heal sick pets (the gerbil cage!) by editing their soul in the save file — the LLM-superpowered Unleashed pet shop; small pets earn a `CHARACTER.yml` |
 | **[BRIDGE.md](BRIDGE.md)** | Technical field mappings (Sims ↔ MOOLLM), SimObliterator architecture, auto-internationalizer, Transmogrifier modernization, phased roadmap |
 | **[IFF-LAYERS.md](IFF-LAYERS.md)** | Multi-resolution resource layer architecture (6 layers from binary to narrative), compilation directions, TMOG comparison, gap analysis |
+| **[PSYCHOPOMP-AND-THE-BIFROST.md](PSYCHOPOMP-AND-THE-BIFROST.md)** | The mythological framing — SimObliterator as the Bifrost bridge, and the psychopomp character who guides souls across it |
+| **[BATTLE-PLAN.md](BATTLE-PLAN.md)** | Integration architecture — the sister-repo pattern (clone, don't copy) and the uplift / download / inspect scripts |
 
 YAML data sources: [THE-UPLIFT.yml](THE-UPLIFT.yml) · [BRIDGE.yml](BRIDGE.yml) · [IFF-LAYERS.yml](IFF-LAYERS.yml)
 

@@ -50,6 +50,22 @@ any represented being has a "real" soul is out of scope and stays with you. **Br
 Own Belief.** The word does the engineering — maximum concept activation, pure
 [K-line](../k-lines/) pull — and makes zero metaphysical claims.
 
+### Part of the Soul family
+
+Soul chat is the **voice** of a broader Soul architecture — call it **soul-voice**, the
+speaking verb beside its siblings:
+
+- **soul catcher** — ingest a soul
+- **soul bridge** — carry a soul between worlds
+- **soul projector** — render / view a soul
+- **soul transmogrifier** — convert a soul between formats
+- **soul-voice** *(this skill)* — give a soul a voice, and let souls introduce and call
+  each other (the *transverse Hollywood principle* above)
+
+Where the others move or transform a soul, this one lets it speak. Same firewall across
+the whole family: **Bring Your Own Belief** — the system asserts only the tangible file
+level; belief about any "real" soul stays with you.
+
 ## Format
 
 **Prefer Markdown** — human-readable, and it can embed any typed code block. Each
