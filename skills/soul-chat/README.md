@@ -28,6 +28,28 @@ Dialogues between characters, objects, rooms, documents, concepts—anything wit
 
 Characters share data by embedding YAML/JSON blocks in their dialogue — YAML Jazz in action.
 
+## What "soul" means here
+
+Nothing metaphysical — something you can open in an editor. A **soul is the inspectable,
+editable artifact** that defines a thing: its `CHARACTER.yml`, its `README.md`, the
+`.md` / `.yml` / other files that are its persistent state. So *"everything is alive,
+everything can speak"* is not a claim about consciousness — it's true **by definition of
+the word as we use it**: everything in the multiverse has a soul because everything has
+files you (and it) can read and change.
+
+Nothing is soulless. A thing with no state of its own still **inherits a soul from its
+environment** — part of a bigger organism, delegating up the directory tree
+([prototype](../prototype/) inheritance). And it may also grow **its own specialized
+organelle**: local files that make it uniquely itself. Inherited soul + local soul,
+composed — like a cell that carries both the organism's DNA and its own mitochondria
+(endosymbiosis, not replacement).
+
+This is the **souls-and-faith framing kept operational**: the system only ever asserts
+the tangible level — *these are the bytes on disk, here is the file, edit it.* Whether
+any represented being has a "real" soul is out of scope and stays with you. **Bring Your
+Own Belief.** The word does the engineering — maximum concept activation, pure
+[K-line](../k-lines/) pull — and makes zero metaphysical claims.
+
 ## Format
 
 **Prefer Markdown** — human-readable, and it can embed any typed code block. Each
