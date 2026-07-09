@@ -40,7 +40,7 @@ Not started — this note exists so the scope is captured and the directory is f
 | Document | What It Covers |
 |----------|---------------|
 | **[THE-UPLIFT.md](THE-UPLIFT.md)** | The vision, the story arc, family album archaeology, skin regenesis, literary precedent, feasibility study |
-| **[THE-PET-SHOP.md](THE-PET-SHOP.md)** | Heal sick pets (the gerbil cage!) by editing their soul in the save file — the LLM-superpowered Unleashed pet shop; small pets earn a `CHARACTER.yml` |
+| **[THE-PET-SHOP.md](THE-PET-SHOP.md)** | Heal the sick guinea pig (and you!) by editing their soul in the save file — the LLM-superpowered Unleashed pet shop; names your pet, hands you a coffee-table maintenance book, and (audaciously) can generate a bespoke named guinea pig object and hot-patch it in — the polymorphic-inline-cache trick on a save file |
 | **[BRIDGE.md](BRIDGE.md)** | Technical field mappings (Sims ↔ MOOLLM), SimObliterator architecture, auto-internationalizer, Transmogrifier modernization, phased roadmap |
 | **[IFF-LAYERS.md](IFF-LAYERS.md)** | Multi-resolution resource layer architecture (6 layers from binary to narrative), compilation directions, TMOG comparison, gap analysis |
 | **[PSYCHOPOMP-AND-THE-BIFROST.md](PSYCHOPOMP-AND-THE-BIFROST.md)** | The mythological framing — SimObliterator as the Bifrost bridge, and the psychopomp character who guides souls across it |
