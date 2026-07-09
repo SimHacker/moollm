@@ -41,11 +41,19 @@ The water sprites went on strike. Now it's decorative only.
 
 ## Storefronts
 
+*Planned Soul Plaza overlay — [SOUL-PLAZA-SHOPS.md](../SOUL-PLAZA-SHOPS.md). Fills these
+lots **in place**; no new street segments until the center is dense enough.*
+
 | Address | Name | Status |
 |---------|------|--------|
-| 12 | Former Bakery | Closed (smell lingers) |
-| 14 | Curiosity Shop | Open ("hours: whenever") |
-| 16 | Unknown | Shuttered (light flickers inside) |
+| 10 (south) | MOOLLM Milk Bar | Planned — kid-friendly, Clockwork Orange wink |
+| 12 (south) | Pet Shop / Vet | Planned — heal Nibbles ([THE-PET-SHOP](../../../designs/sim-obliterator/THE-PET-SHOP.md)) |
+| 14 (north) | Wig-O-Rama | Planned — Wig-O-Matic machines |
+| 16 (north) | Rug-O-Porium | Planned — Rug-O-Matic machines |
+| 18 (north) | Transmogrifier World HQ | Planned — conglomerate HQ |
+| — | Former Bakery (12 north) | Closed (smell lingers) → may become Head Shop |
+| — | Curiosity Shop (14) | Open → becomes Wig-O-Rama |
+| — | Unknown (16) | Shuttered → becomes Rug-O-Porium |
 
 ---
 

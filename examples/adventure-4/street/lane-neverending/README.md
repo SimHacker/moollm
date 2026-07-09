@@ -6,6 +6,10 @@
 
 The street runs east and west... and then loops back on itself. Walk far enough in either direction and you'll end up where you started. That's not a bug. That's the point.
 
+**Splice rule (Don, 2026-07-09):** you *can* add more blocks anytime — `w4`, `e4`, whole new districts — as long as the ring **stays closed**. The lane is a loop; splicing is surgery on the loop, not breaking it. **For now: don't.** Keep the **center dense** — walkable, intense, colorful — before stretching the circumference. Soul Plaza shops land in **existing** e2 storefronts, not new segments ([SOUL-PLAZA-SHOPS.md](SOUL-PLAZA-SHOPS.md)).
+
+**Someday:** a pair of **Möbius Streets** — one street that loops *twice* before you realize you're on the same cobblestone twice. ;) Habitat geometry with a topology joke.
+
 ---
 
 ## Street Map
@@ -60,7 +64,7 @@ flowchart TB
 | [w1](w1/) | **[ACME Surplus](acme-surplus/)** (closed, locked, trapped) | **[Leela Manufacturing](leela-manufacturing/)** (thriving) |
 | [center](center/) | — | **The Pub**, Origin Plaza |
 | [e1](e1/) | — | Sleeping Figure, Glitch Memorial |
-| [e2](e2/) | Market Square | Fountain of Infinite Loops |
+| [e2](e2/) | Soul Plaza (planned) — Milk Bar, Transmogrifier chain | Fountain of Infinite Loops |
 | [e3](e3/) | Loop point | → connects to w3 |
 
 ---
@@ -270,6 +274,39 @@ The street loops, so you can always get anywhere:
 | Center | → e1 → e2 → e3 → w3 → w2 → w1 → center | → w1 → w2 → w3 → e3 → e2 → e1 → center |
 
 It doesn't matter which way you go. You'll get there.
+
+---
+
+## Splice topology (how the loop grows)
+
+```mermaid
+flowchart LR
+    subgraph Today["Today — 7 segments, one ring"]
+        W3 --> W2 --> W1 --> C["center"] --> E1 --> E2 --> E3
+        E3 -->|"loops"| W3
+    end
+
+    subgraph Future["Future — splice more blocks, keep closed"]
+        W3 --> W2 --> W1 --> C --> E1 --> E2 --> E3 --> E4["e4?"] --> W4["w4?"]
+        W4 --> W3
+    end
+
+    subgraph Mobius["Someday — Möbius Street"]
+        M1["same cobblestones"] --> M2["walk again"]
+        M2 --> M1
+        note["one street, two loops — you feel the twist before you see it"]
+    end
+```
+
+| Rule | What it means |
+|------|----------------|
+| **The loop is sacred** | East meets west. `e3` connects to `w3`. Never a dead end on the street itself. |
+| **Splicing adds circumference** | Insert `w4`/`e4`/… between existing segments; rewire exits; ring stays closed. |
+| **Don't splice yet** | Center (`w1`–`e2`) should stay **dense** — short walks, intense color, many doors. Expand when the core feels *full*, not when the map feels *empty*. |
+| **Vertical beats horizontal** | Go **north/south** into buildings (pub, Leela, ACME, churches, shops) before adding another block east/west. |
+| **Möbius Street** | Future pair of lanes: one physical street, two logical loops. A Habitat/GNE love letter with a topology pun. |
+
+Ben Cerveny's [Game Neverending → Habitat](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-cerveny/moollm-lane-neverending-habitat.yml) lineage: spliceable worlds, YAML/md as paper, circular streets.
 
 ---
 
