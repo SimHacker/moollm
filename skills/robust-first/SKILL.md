@@ -117,6 +117,24 @@ MOOLLM inherits this:
 - Context can overflow — summarize and continue
 - Tools can fail — retry or work around
 
+### MOOLLM *is* a Movable Feast Machine for text
+
+More than an analogy — it's the architecture. MOOLLM is a robust, non-deterministic,
+LLM-driven MFM whose substrate is a **hierarchical filesystem of 1-D text samples**,
+addressed by **URL pointers** that drill directory → file → structure *inside* a file.
+
+- The LLM is the moving feast: it lands, reads its neighborhood, acts.
+- The MFM diffuses atoms across a grid; MOOLLM diffuses attention and edits across a repo.
+- The git log is the clock. State lives in files, redundantly — a crashed run resumes.
+- The default gesture is to **refer, not move**: add a pointer plus metadata, tagged as
+  many times as useful, rather than relocating. It *can* move (rename/reorganize dirs,
+  package/unbundle archives, drive git, run scripts, compose skills) — but pointing is cheaper
+  and more robust than moving.
+
+`palmhoo` is the clearest specimen: a directory that contextualizes internal and external
+objects at many granularities, continuously refactored and rearranged as it grows on demand —
+robust-first computing applied to a knowledge base instead of a chip.
+
 ---
 
 ## Anti-Fragility
