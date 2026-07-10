@@ -7,6 +7,10 @@
 publicly in June 2023 ([*I was a transgender child.*](https://www.youtube.com/watch?v=a4r0CoXsGmk)).
 This essay was published January 2023; channel credit remains Alexander Avila.
 
+**Companion (May 2026):** [*Looksmaxxing and the Rise of Male-to-Male Transsexuals*](https://www.youtube.com/watch?v=uox4OMC50-4) —
+body politics sequel; personal transition vs Clavicular/looksmaxxing (*"trans people transition to live"*).
+Repo: `WillWrightShowForFood/characters/alexander-avila/`.
+
 ---
 
 ## Summary
@@ -15,7 +19,7 @@ This document analyzes Alexander Avila's 2023 video essay "Did The Sims Make You
 
 The essay draws on Judith Butler (performativity), Louis Althusser (ideological state apparatuses), Slavoj Žižek (ideology in everyday objects), Michel Foucault (power and identity), and Jacques Lacan (mirror stage) to analyze how The Sims simultaneously liberates and constructs queer subjects.
 
-**Video:** [Did The Sims make you gay? - a video essay](https://www.youtube.com/watch?v=Xi-HWyh0Ybk) by Alexander Avila (607k subscribers, 415k+ views)  
+**Video:** [Did The Sims make you gay? - a video essay](https://www.youtube.com/watch?v=Xi-HWyh0Ybk) by Alexander Avila (~638k subscribers, 420k+ views, 1,720+ comments)  
 **Published:** January 13, 2023
 
 ---
