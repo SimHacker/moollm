@@ -3,6 +3,10 @@
 > *"When you play The Sims, do you queer The Sims — or does The Sims queer you?"*
 > — Alexander Avila
 
+**Creator note:** Alexander Avila is openly **trans masc** (transgender man; he/him). He came out
+publicly in June 2023 ([*I was a transgender child.*](https://www.youtube.com/watch?v=a4r0CoXsGmk)).
+This essay was published January 2023; channel credit remains Alexander Avila.
+
 ---
 
 ## Summary

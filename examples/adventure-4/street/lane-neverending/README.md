@@ -64,7 +64,7 @@ flowchart TB
 | [w1](w1/) | **[ACME Surplus](acme-surplus/)** (closed, locked, trapped) | **[Leela Manufacturing](leela-manufacturing/)** (thriving) |
 | [center](center/) | — | **The Pub**, Origin Plaza |
 | [e1](e1/) | — | Sleeping Figure, Glitch Memorial |
-| [e2](e2/) | Soul Plaza (planned) — Milk Bar, Transmogrifier chain | Fountain of Infinite Loops |
+| [e2](e2/) | Soul Plaza (planned) — Milk Bar, Transmogrifier chain; **Zach Mama** on fountain corner | Fountain of Infinite Loops |
 | [e3](e3/) | Loop point | → connects to w3 |
 
 ---

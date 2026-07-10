@@ -1,0 +1,50 @@
+# SERVICE-ALLEY — undergrid main (e2)
+
+room:
+  id: service-alley
+  name: "Service Alley (Undergrid)"
+  type: tunnel
+  district: soul-plaza
+
+  lighting: dim
+  grue_safe: true
+
+  description: |
+    Brick archway, low ceiling, steam pipes along the wall. A cart track worn into
+    the floor. Smell of warm milk from the left (Milk Bar cellar) and sawdust from
+    ahead (north loading court, eventually). Someone chalked on the wall:
+
+    "DON'T CALL US — DO CALL THEM! — Transmogrifier Facilities"
+
+  examine: |
+    CHALK MARKS: GUID arrows pointing east toward a maintenance hatch.
+    A guinea-pig-shaped stain on the floor (marshmallow incident, 2026).
+
+    This tunnel is the **spine** of Soul Plaza's undergrid. More spurs as shops gain cellars.
+
+  exits:
+    up-south:
+      to: ../../ROOM.yml
+      description: "Ladder to Market Square (south sidewalk)"
+      hidden: true
+      aliases: [up, street]
+
+    milk-bar-cellar:
+      to: ../shops/milk-bar/cellar/
+      description: "Warm light, smell of steamed milk plus imagination"
+      status: planned
+      aliases: [milk, left, west]
+
+    pet-shop-cellar:
+      to: ../shops/pet-shop-vet/cellar/
+      description: "Quiet squeaking. Nibbles referral pipe."
+      status: planned
+      aliases: [pet, vet, nibbles]
+
+    steam-junction:
+      to: STEAM-JUNCTION.yml
+      description: "Pipes converge. Deeper under the north lots."
+      status: planned
+      aliases: [north, junction, steam]
+
+  objects: []

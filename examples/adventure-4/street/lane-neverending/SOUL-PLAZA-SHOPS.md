@@ -126,12 +126,14 @@ cadence-heavy storytelling** with a disarming, self-deprecating innocence — he
 like someone who genuinely does not know he is in trouble until the audience is already
 laughing.
 
-His most famous bit: the **only white person** at a comedy show in a predominantly Black
-audience. Everyone keeps calling him the N-word. Because of his **thick French accent**
-and complete cultural naivety, he genuinely thinks they are **misgendering him** and
-calling him **"Monica."** He is confused, not offended — and the confusion is sincere.
-When someone finally explains, he flips the script with the tag line people quote forever:
-*"If you don't get this joke, you don't have any Black friends. I do."*
+His most famous bit — the **Monica** joke — is a **life story**, not crowd abuse. Living
+in North Philadelphia among Black friends and neighbors, he heard people call each other
+cordially **"my [n-word]"** — an affectionate greeting on the street. He **picked it up
+there**, with his thick French accent mishearing it as **"Monica"** (misgendering). That
+sincere confusion is what he **tells on stage**, often to **primarily Black audiences**
+who are not calling him anything; they **laugh hard when they get it**. The tag flips
+who is outside the joke: *"If you don't get this joke, you don't have any Black friends.
+I do."* He has many other routines that do not ride that gate.
 
 What is breathtakingly beautiful about it — and why a Black audience (and every other
 race in the room) roars — is that the comedy is **racial but not racist**:
@@ -145,7 +147,9 @@ race in the room) roars — is that the comedy is **racial but not racist**:
   who misheard a word and committed to the wrong story. His version is just the most
   high-stakes version of that human failure mode.
 
-Find him as [@zach_mama](https://www.instagram.com/zach_mama/) — the "Monica" bit is the one to watch first.
+Find him as [@zachmama on YouTube](https://www.youtube.com/@zachmama) — the "Monica" bit is the one to watch first.
+
+**In-world NPC:** default stand on [e2 northeast corner](../../characters/real-people/zach-mama/) by the Fountain of Infinite Loops; may relocate to this pub's stage when invited or when conversation hits a topic in [`routines.yml`](../../characters/real-people/zach-mama/routines.yml) — the **Annie Hall effect** (expert materializes; no quoted bits). Full tribute: [zach-mama/README.md](../../characters/real-people/zach-mama/README.md).
 
 His own caption on the bit (the meta-joke is part of the joke):
 

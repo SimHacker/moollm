@@ -1,0 +1,36 @@
+# Northeast corner — e2 Market Square (Zach Mama's default stand)
+
+corner:
+  id: corner-fountain-ne
+  name: "Northeast corner, Fountain of Infinite Loops"
+  type: street_corner
+  address: "e2 Market Square (northeast), Lane Neverending"
+
+  occupant:
+    character: ../../../../characters/real-people/zach-mama/
+    default: true
+
+  description: |
+    The northeast corner of the dry fountain plaza. A sandwich board leans against
+    the stone basin — hand-lettered, slightly crooked. Someone is usually here
+    working the foot traffic: crowdwork warmups, drumsticks in a back pocket, the
+    energy of a comic who has played rooms where you earn every laugh.
+
+  examine: |
+    ZACH MAMA'S CORNER:
+    Default post for the tribute NPC. Not a shop — a **stance**. He may follow you
+    to the Gezelligheid Grotto when invited, when he feels like performing, or when
+    pub conversation hits a topic in his [routines.yml](../../../../characters/real-people/zach-mama/routines.yml)
+    (Annie Hall effect).
+
+    Sandwich board points to [@zachmama](https://www.youtube.com/@zachmama).
+    Full tribute: [zach-mama/README.md](../../../../characters/real-people/zach-mama/README.md).
+
+  exits:
+    south: ../ROOM.yml
+    west: ../ROOM.yml
+    pub: ../../../../pub/  # when he relocates with you
+
+  links:
+    fountain: ../ROOM.yml#fountain-of-infinite-loops
+    soul_plaza: ../SOUL-PLAZA-SHOPS.md

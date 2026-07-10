@@ -62,6 +62,13 @@ room:
     A small stage platform that's seen better days. Community events
     happened here, once. They could again.
     
+    NORTHEAST CORNER — ZACH MAMA'S STAND:
+    By the fountain basin, a sandwich board and a comic working foot traffic.
+    Default home of the tribute NPC 🎤 Zach Mama — crowdwork warmups, drumsticks
+    in a back pocket. He may follow you to the Gezelligheid Grotto when invited
+    or when pub talk hits a topic in his routine catalog (Annie Hall effect).
+    See: characters/real-people/zach-mama/
+    
   exits:
     west:
       to: ../e1/
@@ -129,9 +136,18 @@ room:
         You can hear... singing?
       aliases: [seymour, flowers, blooms, shop]
       side: north
+
+    corner-fountain-ne:
+      to: corner-fountain-ne.yml
+      description: |
+        The northeast corner of the fountain plaza. A comic's sandwich board,
+        crowdwork in progress. Home base of 🎤 Zach Mama (tribute NPC).
+      aliases: [corner, zach, zach-mama, comedian, fountain-corner]
+      side: northeast
       
   objects:
     - infinite-fountain.yml
+    - corner-fountain-ne.yml
     
   buildings:
     north:

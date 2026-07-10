@@ -663,6 +663,7 @@ We make no secret of our inheritance:
 | Short Duration Personal Saviors | Short Duration Personal Evaluators | The theology |
 | Ivan Stang | The First Auditor | The founder figure |
 | Pamphlet #1 | Scat #1 | The founding document |
+| HTML `<input type="submit">` | **EVALUATE** / **APPLY** / **RELEASE** | Don Hopkins's diatribe — SUB ⇒ EVAL at the button layer too ([witty-diatribes.yml](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/witty-diatribes.yml)) |
 
 ---
 

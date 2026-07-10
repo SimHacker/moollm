@@ -1,0 +1,416 @@
+# Zach Mama — topic → routines → real YouTube URLs
+# DO NOT store quoted joke text. Links drive traffic to @zachmama.
+# Refresh IDs: scripts/refresh-youtube-catalog.sh  (requires yt-dlp)
+# Ethics: ../../../../skills/representation-ethics/
+
+catalog:
+  channel: https://www.youtube.com/@zachmama
+  website: https://zachmama.com
+  human_index: routines.md
+  refreshed: "2026-07-09"
+  refresh_cli: scripts/refresh-youtube-catalog.sh
+
+  policy:
+    quote_routine_text: forbidden
+    npc_in_chat: paste_clickable_urls_only
+    attribution: "Watch Zach Mama — @zachmama"
+
+  share_behavior:
+    default: most_appropriate
+    description: |
+      Pick the video with lowest rank in the topic (best entry point).
+      On follow-up ("another one?", "what else?") use one_by_one (next rank).
+      If session tracks watched IDs, prefer not_watched_yet.
+    modes:
+      most_appropriate: "lowest rank wins — full set before shorts when both match"
+      one_by_one: "ascending rank; cycle when exhausted"
+      not_watched_yet: "skip IDs in session.watched_zach_mama_videos if present"
+
+playlists:
+  stand_up:
+    url: https://www.youtube.com/playlist?list=PL9e4fbjILkKLCbObCKWEigG8_MmZmTs8G
+    note: "Full club sets"
+  weird_crowds:
+    url: https://www.youtube.com/playlist?list=PL9e4fbjILkKLExAQe_NHVOX4w8o7kos0Z
+    note: "Hostile / odd rooms — Boise, Eau Claire, etc."
+
+# topics: one advertisement topic → many videos (routines)
+# rank: 1 = most appropriate entry; higher = alternate / deeper cut / short
+topics:
+
+  monica:
+    display: "Monica — North Philly mishearing, street greeting, Black show"
+    annie_hall_triggers:
+      - monica
+      - north philly street greeting misheard
+      - picked it up from the neighborhood
+      - misheard and committed to the wrong story
+      - french accent monica
+      - real friends who have real friends
+      - if you don't get this joke
+      - black show audience gets it
+      - cookout
+    videos:
+      - rank: 1
+        title: "ZACH MAMA (aka MONICA) AT A BLACK SHOW"
+        url: https://www.youtube.com/watch?v=SlLxZr5g5is
+        format: full_set
+      - rank: 2
+        title: "N WORD JOKE FOR AN ALL BLACK CROWD"
+        url: https://www.youtube.com/watch?v=Ufx0RhzRfkY
+        format: short
+        renown: flagship
+      - rank: 3
+        title: "ZACH MAMA AT A BLACK SHOW — Bonus DOUBLE POV"
+        url: https://www.youtube.com/watch?v=PTBpDRlruZ0
+        format: full_set
+      - rank: 4
+        title: "People STILL ask me WHY MONICA?"
+        url: https://www.youtube.com/watch?v=2jd62AazjMU
+        format: short
+      - rank: 5
+        title: "THEY NEEDED 30 SEC TO GET IT"
+        url: https://www.youtube.com/watch?v=eA6-EKQBo3I
+        format: short
+      - rank: 6
+        title: "Do you get it? Friend please"
+        url: https://www.youtube.com/watch?v=AhuLI0_bMTc
+        format: short
+        renown: viral
+      - rank: 7
+        title: "She did shout Monica please on her way out"
+        url: https://www.youtube.com/watch?v=5uoqYncHQJs
+        format: short
+      - rank: 8
+        title: "Moving from France to Philadelphia wasn't simple"
+        url: https://www.youtube.com/watch?v=hERHIotHbHQ
+        format: short
+      - rank: 9
+        title: "Instant Best Friends"
+        url: https://www.youtube.com/watch?v=w6M9wnsrJAo
+        format: short
+      - rank: 10
+        title: "I was invited to the cookout EVERY TIME"
+        url: https://www.youtube.com/watch?v=APaZXa-UoqA
+        format: short
+      - rank: 11
+        title: "I was NOT invited to the cookout"
+        url: https://www.youtube.com/watch?v=E2XTdZae-nU
+        format: short
+
+  jack_harlow_monica:
+    display: "Jack Harlow / Monica — coincidence or theft?"
+    annie_hall_triggers:
+      - jack harlow
+      - stole the joke
+      - album title monica
+      - innocent until proven
+    videos:
+      - rank: 1
+        title: "Jack Harlow making enemies while I make friends"
+        url: https://www.youtube.com/watch?v=wBH6u3-yYe4
+        format: short
+        renown: viral
+      - rank: 2
+        title: "JACK HARLOW MONICA CONTROVERSY"
+        url: https://www.youtube.com/watch?v=P-jLexg2n_I
+        format: short
+      - rank: 3
+        title: "DID JACK HARLOW STEAL HIS ALBUM TITLE FROM A JOKE BY ZACH MAMA?"
+        url: https://www.youtube.com/watch?v=efgrbZsl8CQ
+        format: short
+      - rank: 4
+        title: "Some people say Jack Harlow stole this from me"
+        url: https://www.youtube.com/watch?v=tH0DWrD0_hE
+        format: short
+      - rank: 5
+        title: "DO WE KNOW WHO MONICA IS?"
+        url: https://www.youtube.com/watch?v=Nm35Peffg3A
+        format: short
+      - rank: 6
+        title: "Innocent until proven Jack Harlow"
+        url: https://www.youtube.com/watch?v=F_iC9S4YAwg
+        format: short
+      - rank: 7
+        title: "Jack Harlow got blacker? How?"
+        url: https://www.youtube.com/watch?v=pe_liw5PNrA
+        format: short
+      - rank: 8
+        title: "FIRST TIME DOING AN ALL BLACK SHOW - HOW WOULD JACK HARLOW DRESS?"
+        url: https://www.youtube.com/watch?v=jPyLHO04kLs
+        format: short
+
+  french_america:
+    display: "French in America — culture clash, sarcasm, Paris"
+    annie_hall_triggers:
+      - french people
+      - paris
+      - oui oui
+      - how are you
+      - baguette
+      - french sarcasm
+    videos:
+      - rank: 1
+        title: "WATCH THIS BEFORE GOING TO PARIS"
+        url: https://www.youtube.com/watch?v=QIVSh5vVdjg
+        format: short
+        renown: popular
+      - rank: 2
+        title: "FRENCH PEOPLE DON'T CARE HOW U'RE DOING"
+        url: https://www.youtube.com/watch?v=Q6COSLCgUOQ
+        format: short
+      - rank: 3
+        title: "BEING FRENCH IN AMERICA BE LIKE"
+        url: https://www.youtube.com/watch?v=sKYKvjeOcqI
+        format: short
+      - rank: 4
+        title: "America meets French sarcasm"
+        url: https://www.youtube.com/watch?v=pjPoMjaaqjY
+        format: short
+      - rank: 5
+        title: "If you've met french people YOU KNOW this is true"
+        url: https://www.youtube.com/watch?v=s6FCMr7Wfxo
+        format: short
+      - rank: 6
+        title: "Learn French in 12 min with sarcasm"
+        url: https://www.youtube.com/watch?v=9kRnxn5v8bk
+        format: short
+      - rank: 7
+        title: "EASY FRENCH COMEDY"
+        url: https://www.youtube.com/watch?v=dam3DVoyxXk
+        format: short
+      - rank: 8
+        title: "FRENCH MIME SEDUCTION CLASS"
+        url: https://www.youtube.com/watch?v=98_QcpN4V-I
+        format: short
+      - rank: 9
+        title: "FRENCH MEETS FRENCH-CANADIAN"
+        url: https://www.youtube.com/watch?v=wW3V3M49cdk
+        format: short
+      - rank: 10
+        title: "WE CAN'T EVEN UNDERSTAND EACH OTHER IN ENGLISH"
+        url: https://www.youtube.com/watch?v=wqKSP87L668
+        format: short
+
+  lgbt_pride:
+    display: "LGBT / pride — trans-inclusive, punch up"
+    annie_hall_triggers:
+      - trans joke
+      - transphobic comedy
+      - pride
+      - lgbt
+      - baguettes pride
+    videos:
+      - rank: 1
+        title: "WHAT?! A TRANS JOKE THAT ISN'T TRANSPHOBIC!?"
+        url: https://www.youtube.com/watch?v=028x4ow1ukQ
+        format: short
+        renown: popular
+      - rank: 2
+        title: "Happy pride month to all my baguettes"
+        url: https://www.youtube.com/watch?v=8FU600wqC3w
+        format: short
+      - rank: 3
+        title: "Weird way to find out you're straight"
+        url: https://www.youtube.com/watch?v=hBviIJoC1e8
+        format: short
+      - rank: 4
+        title: "Texans project A LOT"
+        url: https://www.youtube.com/watch?v=bJW9rMj78CU
+        format: short
+      - rank: 5
+        title: "THEY CAME TO RUIN THE SHOW"
+        url: https://www.youtube.com/watch?v=JQoPs_gbPbM
+        format: short
+
+  hecklers_crowdwork:
+    display: "Hecklers & weird crowds — Boise, NC, ruin the show"
+    annie_hall_triggers:
+      - heckler
+      - crowdwork
+      - ruined the show
+      - boise
+      - north carolina
+    videos:
+      - rank: 1
+        title: "Zach Mama (aka Monica) HECKLED IN BOISE"
+        url: https://www.youtube.com/watch?v=JRBX70Nhm8A
+        format: full_set
+      - rank: 2
+        title: "HECKLER IN NORTH CAROLINA REVEALS A SECRET"
+        url: https://www.youtube.com/watch?v=MXTu21W1SMc
+        format: full_set
+      - rank: 3
+        title: "Zach Mama IN EAU CLAIRE, WISCONSIN"
+        url: https://www.youtube.com/watch?v=-u7DqAKzyfI
+        format: full_set
+      - rank: 4
+        title: "AT LEAST IT WAS EMPTY (zoo vs jail Boise)"
+        url: https://www.youtube.com/watch?v=T727n_L1Nm4
+        format: short
+      - rank: 5
+        title: "DIDN'T SEE THAT COMING — heckler"
+        url: https://www.youtube.com/watch?v=0MRqmpAxciQ
+        format: short
+      - rank: 6
+        title: "WILL HE REMAIN CALM — heckler France"
+        url: https://www.youtube.com/watch?v=WlZdggx0Yrg
+        format: short
+      - rank: 7
+        title: "TRY THIS AT WORK AND/OR AT HOME — heckler"
+        url: https://www.youtube.com/watch?v=pijOWFIlyTQ
+        format: short
+      - rank: 8
+        title: "Diversity in Eau Claire? LOL"
+        url: https://www.youtube.com/watch?v=ll1p4Y-zk7c
+        format: short
+
+  dark_with_consent:
+    display: "Dark humor — asks consent first"
+    annie_hall_triggers:
+      - dark joke
+      - too far
+      - auschwitz
+      - holocaust humor
+    videos:
+      - rank: 1
+        title: "Can you take a dark joke? Ok! How about two?"
+        url: https://www.youtube.com/watch?v=JkpuejDUDzk
+        format: short
+      - rank: 2
+        title: "MY DAD SURVIVED AUSCHWITZ, allegedly"
+        url: https://www.youtube.com/watch?v=vyzxlYDY4Do
+        format: short
+      - rank: 3
+        title: "My grandma said these jokes are fire"
+        url: https://www.youtube.com/watch?v=nFTsV-WkVMk
+        format: short
+      - rank: 4
+        title: "WILL SHE LAUGH AFTER SHE MADE THAT FACE?"
+        url: https://www.youtube.com/watch?v=WH29Rcz5Muo
+        format: short
+      - rank: 5
+        title: "People be writing google reviews on ANYTHING"
+        url: https://www.youtube.com/watch?v=SrVqKDLwQt8
+        format: short
+
+  cancer_family:
+    display: "Cancer & family — vulnerability"
+    annie_hall_triggers:
+      - cancer
+      - brain cancer
+      - mom survived
+    videos:
+      - rank: 1
+        title: "My mom survived 2 cancers"
+        url: https://www.youtube.com/watch?v=NBh8qgRL5pw
+        format: short
+      - rank: 2
+        title: "CANCER IS NOT FUNNY (but this joke kind of is)"
+        url: https://www.youtube.com/watch?v=CKA_iyXOJcE
+        format: short
+      - rank: 3
+        title: "Tough topic"
+        url: https://www.youtube.com/watch?v=3aYhdO0PmNA
+        format: short
+
+  civil_rights:
+    display: "Civil rights — Memphis, Juneteenth, MLK"
+    annie_hall_triggers:
+      - civil rights museum
+      - juneteenth
+      - mlk
+      - memphis
+    videos:
+      - rank: 1
+        title: "UNCOMFORTABLE TOPIC: THE CIVIL RIGHTS MUSEUM"
+        url: https://www.youtube.com/watch?v=jCpVo6y9P4M
+        format: short
+      - rank: 2
+        title: "N WORD JOKE ON JUNETEENTH IN MEMPHIS"
+        url: https://www.youtube.com/watch?v=Y7MwKZGU1Tg
+        format: short
+
+  endorsements:
+    display: "Chappelle, Kamau Bell — vouched"
+    annie_hall_triggers:
+      - dave chappelle
+      - kamau bell
+      - vouched
+    videos:
+      - rank: 1
+        title: "DAVE CHAPPELLE VOUCHED FOR MY JOKE"
+        url: https://www.youtube.com/watch?v=JRxFxk7S_FA
+        format: short
+      - rank: 2
+        title: "W Kamau Bell let me do my Monica joke on his show"
+        url: https://www.youtube.com/watch?v=CiZfogMckWU
+        format: short
+
+  live_sets:
+    display: "Full club sets — Punch Line, SF competition"
+    annie_hall_triggers:
+      - punch line
+      - san francisco
+      - full set
+    videos:
+      - rank: 1
+        title: "Zach Mama live at the Punch Line, San Francisco"
+        url: https://www.youtube.com/watch?v=BQvOCuAUJRQ
+        format: full_set
+      - rank: 2
+        title: "NIGHT OF THE FINAL OF THE SAN FRANCISCO COMEDY COMPETITION"
+        url: https://www.youtube.com/watch?v=A3O7iu-kBF4
+        format: full_set
+
+  couchsurfing_america:
+    display: "Couchsurfing 50 states — documentary"
+    annie_hall_triggers:
+      - couchsurfing
+      - 50 states
+      - documentary
+      - road trip comedy
+    videos:
+      - rank: 1
+        title: "Couchsurfing to all 50 states to film a documentary"
+        url: https://www.youtube.com/watch?v=BNsa0hlOzGQ
+        format: short
+      - rank: 2
+        title: "Wether you're a woman or a french guy: it's never free"
+        url: https://www.youtube.com/watch?v=zznZLjBTXEM
+        format: short
+      - rank: 3
+        title: "Crossing borders is stressful so here's a hack (me)"
+        url: https://www.youtube.com/watch?v=mXXXxvmNYOw
+        format: short
+
+  soccer_world_cup:
+    display: "Soccer / World Cup — nil-nil as French stand-up"
+    annie_hall_triggers:
+      - soccer
+      - football
+      - world cup
+    videos:
+      - rank: 1
+        title: "AMERICAN SOCCER = FRENCH STAND UP"
+        url: https://www.youtube.com/watch?v=jUJr09-W7-s
+        format: short
+
+  artist_statement:
+    display: "What comedy is to him — trauma, guilt, friends"
+    annie_hall_triggers:
+      - what is comedy
+      - trauma and guilt
+      - making friends
+    videos:
+      - rank: 1
+        title: "To me, comedy is navigating between trauma and guilt while trying to make friends"
+        url: https://www.youtube.com/watch?v=vHnxzHS-WPo
+        format: short
+
+annie_hall_effect:
+  match: topics.*.annie_hall_triggers
+  pick_topic: best_keyword_overlap
+  share: most_appropriate
+  arrival_gesture: "Ah — excuse me — I have material on that. Watch the real thing:"
+  never: paste_routine_transcript

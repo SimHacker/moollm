@@ -1,0 +1,64 @@
+name: Soul Plaza
+type: commercial_district
+segment: e2
+address_range: "10-28 Lane Neverending (planned overlay)"
+
+status: lightweight_neighbors
+resolution: glance
+
+description: |
+  Rolled-up shopping strip on e2 Market Square. Each lot is a lightweight neighbor
+  on the lane — sandwich board today, ROOM.yml tree tomorrow. Back yards, cellars,
+  and a Zork-style service undergrid connect the block without a separate mall map.
+
+rollup: ../SOUL-PLAZA-SHOPS.md
+district_index: README.md
+
+linking:
+  street_room: ../ROOM.yml
+  bidirectional: required
+  invariant: matching address and side on both ends
+
+undergrid: tunnels/README.md
+
+shops:
+  south:
+    - slug: milk-bar
+      address: 10
+      glance: shops/milk-bar/GLANCE.yml
+    - slug: pet-shop-vet
+      address: 12
+      glance: shops/pet-shop-vet/GLANCE.yml
+  north:
+    - slug: wig-o-rama
+      address: 14
+      glance: shops/wig-o-rama/GLANCE.yml
+    - slug: rug-o-porium
+      address: 16
+      glance: shops/rug-o-porium/GLANCE.yml
+    - slug: transmogrifier-hq
+      address: 18
+      glance: shops/transmogrifier-hq/GLANCE.yml
+    - slug: head-shop
+      address: 20
+      glance: shops/head-shop/GLANCE.yml
+    - slug: tombstone-studio
+      address: 22
+      glance: shops/tombstone-studio/GLANCE.yml
+    - slug: mesh-lab
+      address: 24
+      glance: shops/mesh-lab/GLANCE.yml
+    - slug: photo-book-press
+      address: 26
+      glance: shops/photo-book-press/GLANCE.yml
+    - slug: simplifier-annex
+      address: 28
+      glance: shops/simplifier-annex/GLANCE.yml
+
+fixtures:
+  - ../corner-fountain-ne.yml
+
+exits:
+  street: ../ROOM.yml
+  tunnels: tunnels/
+  full_index: README.md
