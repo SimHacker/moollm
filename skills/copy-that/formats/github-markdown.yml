@@ -1,0 +1,29 @@
+# formats/github-markdown.yml — venue plugin for GitHub (issues, PRs, comments, README)
+# Source of truth: https://github.github.com/gfm/
+
+venue:
+  id: github-markdown
+  name: GitHub Flavored Markdown
+  format_doc: https://github.github.com/gfm/
+  fence_language_hint: markdown
+
+markup_supported:
+  - { syntax: "full GFM", renders: "headers, bold, italics, lists, tables, task lists, fenced code with syntax highlighting, blockquotes, footnotes, details/summary HTML" }
+  - { syntax: "@mentions, #123, SHA references", renders: "auto-linked", notes: "beware accidental @mentions and issue references pinging strangers" }
+  - { syntax: "emoji", renders: "natively and via :shortcodes:" }
+
+markup_unsupported:
+  - { syntax: "most raw HTML beyond an allowlist", happens: "sanitized away (script, style, most attributes)" }
+
+characters:
+  emoji: allowed
+  unicode: allowed
+
+structure:
+  line_breaks: "In comments/issues a single newline becomes a <br>; in README rendering it does not. Know which surface you're writing for."
+  edit_window: "unlimited edits, but edit history is public on comments"
+
+quirks:
+  - "Fenced code inside a draft that is itself fenced: use four backticks for the outer fence."
+  - "Text in angle brackets like <this> disappears as a fake HTML tag; escape or backtick it."
+  - "Leading # in a pasted shell command becomes a giant header if not inside a code block."

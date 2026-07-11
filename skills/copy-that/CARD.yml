@@ -1,0 +1,130 @@
+# CARD.yml — copy-that
+#
+# Transmission hygiene: content leaving the chat ships in a fenced block,
+# formatted for its destination venue. "Copy that" = received exactly as sent.
+
+card:
+  id: copy-that
+  name: "Copy That"
+  type: [skill, hygiene, publishing]
+
+  emoji: 📋
+
+  rarity: uncommon
+
+  description: |
+    The copydesk of MOOLLM. Anything the human will copy out of chat —
+    posts, comments, emails, commit messages, code for other platforms —
+    ships inside a fenced code block, pre-formatted for the destination
+    venue's house rules. One block per artifact. Nothing inside the fence
+    that isn't meant to be published. Editor asides live outside.
+
+tools:
+  required: []  # Pure discipline; validators optional
+
+tier: 0
+
+# METHODS
+
+methods:
+
+  FENCE:
+    description: "Wrap copy-bound content in a fenced block"
+    parameters:
+      content: "The artifact to be copied out"
+      venue: "Destination (optional; plain text if unknown)"
+    output: chat (fenced block + out-of-band notes outside it)
+    effect: "Verbatim-copyable artifact; copy button does the rest"
+    invoked-by: [any]
+
+  FORMAT-FOR:
+    description: "Apply a venue format plugin to content"
+    parameters:
+      content: "Draft text"
+      venue: "formats/<venue>.yml id, e.g. hacker-news"
+      house_style: "Optional house-styles/<author>.yml overlay"
+    output: chat (fenced block conforming to venue rules)
+    effect: "Markup translated, forbidden characters removed or flagged"
+    invoked-by: [any]
+
+  PREFLIGHT:
+    description: "Check a fenced artifact before the human copies it"
+    parameters:
+      content: "The fenced artifact"
+      venue: "Venue plugin to validate against"
+    output: chat (pass, or list of violations with fixes)
+    effect: "Catches emoji on HN, em-dashes for Don, meta-notes inside the fence, fence collisions"
+    invoked-by: [any]
+
+  DEFINE-VENUE:
+    description: "Author a new format plugin by example"
+    parameters:
+      venue: "Site or platform name"
+      evidence: "Official format docs, or observed behavior (pasted examples of what rendered how)"
+    output: "formats/<venue>.yml"
+    effect: "Programming by example — grow the plugin dir from real cases"
+    invoked-by: [any]
+
+state: {}
+
+# THE RULES
+
+rules:
+  fence_discipline:
+    - "One fenced block per artifact; never mix artifacts in a block"
+    - "Nothing inside the fence that is not meant to be published verbatim"
+    - "Out-of-band notes (accuracy flags, alternatives, commentary) go OUTSIDE the fence, before or after"
+    - "If content contains triple backticks, use a longer fence (four+ backticks)"
+    - "Language hint: text for plain venues, markdown for GFM venues, the actual language for code"
+  venue_resolution:
+    - "Venue stated or obvious from context: apply its plugin silently"
+    - "Venue unknown and rules diverge: ask, or emit plain text (the safest common denominator)"
+  house_style_overlay:
+    - "Venue rules say what CAN render; house style says what the author WANTS"
+    - "House style never overrides a venue hard constraint; it tightens, never loosens"
+
+# PLUGIN SCHEMA (formats/<venue>.yml)
+
+plugin_schema:
+  venue: "id, name, url of format documentation"
+  markup_supported: "list with syntax and rendering notes"
+  markup_unsupported: "list with what happens if used (stripped/literal/mangled)"
+  characters: "emoji policy, unicode policy, escaping requirements"
+  structure: "paragraph rules, link conventions, length limits, edit windows"
+  quirks: "everything that bites people, learned by example"
+  test_cases: "optional paste-this-see-that pairs"
+
+# ADVERTISEMENTS
+
+advertisements:
+  AMBIENT:
+    score: 80
+    condition: "Any content the human will copy out of the chat"
+    scope: session
+    resolution: card-only
+    rationale: "Fence discipline applies to every outbound artifact, every session"
+
+  DRAFTING-A-POST:
+    score: 95
+    condition: "User asks for a post, comment, reply, or email"
+
+  VENUE-NAMED:
+    score: 92
+    condition: "Destination platform mentioned (HN, GitHub, forum, mailing list)"
+
+  PASTE-WENT-WRONG:
+    score: 90
+    condition: "User reports garbled formatting or leaked notes after pasting"
+
+see-also:
+  - skills/postel            # Emit conservative — this is emit conservative, per venue
+  - skills/no-ai-slop        # What not to say; copy-that is where not to put it
+  - skills/yaml-jazz         # Plugin files are semantic YAML
+  - skills/thoughtful-commitment  # Same instinct applied to git history
+
+credits:
+  origin:
+    - "Don Hopkins — after a near-miss where an agent's private accuracy note was almost published inside an HN post (July 2026)"
+  lineage:
+    - "Newspaper copydesk — house style enforced at the last desk before print"
+    - "Radio voice procedure — 'copy that' means received exactly as transmitted"

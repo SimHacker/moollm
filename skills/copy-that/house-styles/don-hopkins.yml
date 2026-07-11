@@ -1,0 +1,32 @@
+# house-styles/don-hopkins.yml — author overlay, applied on top of any venue plugin
+# Venue rules say what CAN render; this says what Don WANTS. Tightens, never loosens.
+
+author: don-hopkins
+
+hard_rules:
+  - id: no-emdashes
+    rule: "Never an em-dash or en-dash. Two ASCII dashes if a dash is truly needed; usually restructure the sentence instead."
+    why: "Em-dashes read as AI slop signal; also personal taste predating LLMs."
+  - id: links-on-own-line
+    rule: "Every URL on its own line, preceded by a description line ending with a colon, blank lines before and after the pair."
+    example: |
+      An Account of the Tcl War, by Thomas Lord:
+
+      https://web.archive.org/web/20110102015130/http://basiscraft.com/0800-0100-the-tcl-war.html
+  - id: no-ai-vocabulary
+    rule: "No 'delve', no 'tapestry', no puffery adjectives. Facts instead of adjectives. See skills/no-ai-slop word lists."
+  - id: verbatim-is-sacred
+    rule: "Historical quotes (own old emails, others' posts) are preserved typos and all. Never silently clean a quote."
+
+voice:
+  - "Wall of text is a feature, not a bug, but every paragraph makes one move."
+  - "Direct address to other participants by handle, woven into narrative, never a roll call."
+  - "Receipts: strong claims get a primary source link, formatted per links-on-own-line."
+  - "Profanity is in-character in informal venues but never in memorial or invitation contexts."
+
+venue_overrides:
+  hacker-news:
+    - "No emojis in drafts even though HN would strip them anyway; their presence means the draft wasn't preflighted."
+    - "Quoting: >text on its own line, reply after a blank line."
+  wwsff-repo:
+    - "Portrayal standards govern: no private contact info, no unsourced claims about real people, memorial mode rules for the deceased."

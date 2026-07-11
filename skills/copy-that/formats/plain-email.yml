@@ -1,0 +1,28 @@
+# formats/plain-email.yml — venue plugin for plain-text email
+# The zero-markup baseline. When the venue is unknown, format like this.
+
+venue:
+  id: plain-email
+  name: Plain-text email
+  format_doc: null  # convention, not specification
+  fence_language_hint: text
+
+markup_supported:
+  - { syntax: "blank lines", renders: "paragraph breaks" }
+  - { syntax: "> quoting", renders: "by convention in the reader's client" }
+  - { syntax: "bare URLs", renders: "auto-linked by most clients" }
+
+markup_unsupported:
+  - { syntax: "any markdown or HTML", happens: "literal characters; assume nothing renders" }
+
+characters:
+  emoji: allowed_but_audience_dependent
+  unicode: "UTF-8 safe in 2026; stick to ASCII for maximum-compatibility audiences"
+
+structure:
+  line_length: "Hard-wrap at ~72 columns only for old-school technical lists (LKML style); otherwise let lines flow"
+  subject: "Deliver the subject line as a separate fenced artifact, labeled outside the fence"
+
+quirks:
+  - "Signature separator is dash-dash-space on its own line: '-- '"
+  - "Top-post for business audiences, interleave for technical lists; ask if unclear"

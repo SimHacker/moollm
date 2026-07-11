@@ -196,9 +196,17 @@ ambient_skills:
     error_handling: "Don't crash — degrade gracefully, log, self-repair, continue with reduced capability."
     anti_pattern: "if (error) throw new Error() → if (error) { log(error); return degraded(); }"
 
-  yaml-jazz:
-    # skills/yaml-jazz/GLANCE.yml — Semantic YAML
-    what: "YAML where comments are first-class data. Three audiences: humans, LLMs, machines."
-    principles: [comments_are_semantic_data, structure_guides_relationship, entropy_preservation, big_endian_naming]
-    three_audiences: "Humans read comments. LLMs read everything. Machines parse structure."
-    directories_as_advertisements: "Filenames are K-lines. Directory listing IS the advertisement index — Sims-style 'what's here?'"
+ yaml-jazz:
+ # skills/yaml-jazz/GLANCE.yml — Semantic YAML
+ what: "YAML where comments are first-class data. Three audiences: humans, LLMs, machines."
+ principles: [comments_are_semantic_data, structure_guides_relationship, entropy_preservation, big_endian_naming]
+ three_audiences: "Humans read comments. LLMs read everything. Machines parse structure."
+ directories_as_advertisements: "Filenames are K-lines. Directory listing IS the advertisement index — Sims-style 'what's here?'"
+
+ copy-that:
+ # skills/copy-that/GLANCE.yml — Transmission hygiene
+ what: "Content meant for copying out of chat ships in a fenced block, formatted for its destination venue. One block per artifact. Out-of-band notes stay OUTSIDE the fence."
+ why: "Chat UIs garble rich text on copy; fenced blocks copy verbatim via copy button. Private editor notes must never leak into public posts (July 2026 HN near-miss)."
+ protocol: [identify_venue, load_format_plugin, apply_house_style, one_fence_per_artifact, notes_outside_fence, preflight_contents]
+ extension_points: "formats/<venue>.yml (HN, GitHub, email...) · house-styles/<author>.yml · examples/ (programming by example)"
+ k_line: "COPY-THAT — 'COPY-THAT for HN' loads the hacker-news plugin for all subsequent drafts"

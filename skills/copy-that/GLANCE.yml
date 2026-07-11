@@ -1,0 +1,45 @@
+# GLANCE.yml — copy-that
+# Full file: CARD.yml | SKILL.md
+# 📋 "Copy that." — transmission hygiene for content leaving the chat
+
+what: |
+  Content meant for copying out of chat ships in a fenced block, formatted
+  for its destination venue. One block per artifact. Nothing in the block
+  you wouldn't publish. Out-of-band notes stay outside the fence.
+
+why: |
+  - Chat UIs garble rich text on copy; fenced blocks have a copy button and copy verbatim
+  - Out-of-band notes (accuracy flags, editor asides) must never leak into public posts
+  - Every venue has house rules: HN strips emojis, GitHub renders GFM, email wants plain text
+  - The agent knows the venue rules; the human just presses copy
+
+when:
+  - '"Write me a post/comment/email/reply" -- FENCE IT'
+  - '"Format this for <venue>" -- APPLY FORMAT PLUGIN'
+  - '"I pasted it and it looked wrong" -- CHECK VENUE RULES'
+
+the_incident: |
+  July 2026: an agent's private accuracy note, placed after a drafted HN post,
+  got copied into the live post. Caught in the edit window. This skill exists
+  so fence boundaries do that job instead of luck.
+
+protocol:
+  1: "Identify destination venue (ask if unclear and it matters)"
+  2: "Load formats/<venue>.yml; apply house-styles/<author>.yml overlay if present"
+  3: "Emit one fenced block per artifact; language hint text/markdown as appropriate"
+  4: "Out-of-band commentary goes before or after the fence, never inside"
+  5: "Preflight inside the fence: encoding, forbidden characters, fence collisions, nothing private"
+
+extension_points:
+  formats: "formats/<venue>.yml — supported/unsupported markup, characters, encodings, quirks"
+  house_styles: "house-styles/<author>.yml — personal voice rules layered over venue rules"
+  examples: "examples/ — programming by example, real before/after cases"
+
+go_deeper:
+  CARD.yml: "Methods, advertisements, plugin schema"
+  SKILL.md: "Full protocol, preflight checklist, venue plugin authoring guide"
+
+related: [postel, no-ai-slop, yaml-jazz, thoughtful-commitment]
+lineage: [newspaper copydesk, radio voice procedure]
+tier: 0
+ambient: true

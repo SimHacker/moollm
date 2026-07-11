@@ -1,0 +1,67 @@
+# formats/hacker-news.yml — venue plugin for news.ycombinator.com
+# Source of truth: https://news.ycombinator.com/formatdoc plus observed behavior.
+# HN is the most constrained major venue: treat this file as the reference plugin.
+
+venue:
+  id: hacker-news
+  name: Hacker News
+  format_doc: https://news.ycombinator.com/formatdoc
+  fence_language_hint: text  # HN takes plain text; never draft HN posts as markdown
+
+markup_supported:
+  - syntax: "*single asterisks*"
+    renders: italics
+    notes: "The ONLY inline styling. Asterisk inside a word doesn't trigger it."
+  - syntax: "blank line between paragraphs"
+    renders: paragraph break
+    notes: "Single newlines collapse into the same paragraph."
+  - syntax: "bare URL starting with http:// or https://"
+    renders: clickable link
+    notes: "Auto-linked only. Long URLs display truncated with an ellipsis but link fully."
+  - syntax: "two or more leading spaces"
+    renders: monospace code block
+    notes: "Typewriter font, no wrapping (long lines force horizontal scroll), no highlighting. Also usable for tables and ASCII art. Renders literally: markup inside is not processed."
+
+markup_unsupported:
+  - { syntax: "**bold** or __bold__", happens: "renders literally with the asterisks/underscores" }
+  - { syntax: "# headers", happens: "literal hash marks" }
+  - { syntax: "[markdown](links)", happens: "literal brackets; only the bare URL part may auto-link" }
+  - { syntax: "- or * bullet lists", happens: "literal characters; lines collapse unless blank-line separated" }
+  - { syntax: "> blockquote", happens: "literal > character; it is a social convention, not markup" }
+  - { syntax: "HTML tags", happens: "escaped and shown literally" }
+  - { syntax: "images", happens: "no image support at all; post the URL" }
+
+characters:
+  emoji: stripped_silently  # emojis vanish from the posted comment; do not rely on them
+  unicode: mostly_allowed   # accented latin, CJK, arrows, math symbols generally survive
+  notes:
+    - "Some exotic/astral-plane characters are stripped like emoji; when in doubt, preflight with a test comment or stick to ASCII."
+    - "Smart quotes survive but ASCII quotes are safer for code."
+
+structure:
+  paragraphs: "Blank line between every paragraph. This is the whole layout system."
+  quoting_convention: "Leading > then the quoted text, often italicized with asterisks: >*quoted line*. Blank line before your reply."
+  links_convention: "No inline anchors exist, so put URLs on their own line."
+  length_limit: "Very long comments may be truncated by readers' patience, not the software."
+  edit_window: "~2 hours to edit or delete your comment."
+  title_limit: "80 characters for story titles."
+
+quirks:
+  - "Code blocks don't wrap: keep indented lines under ~80 chars or mobile readers suffer."
+  - "An asterisk meant literally (e.g. glob patterns) can accidentally open italics; put it in a two-space code block."
+  - "New accounts and fast repeat posts get rate-limited; drafts should be ready to post in one shot."
+  - "Flagged/dead posts can be deleted and reposted once, but repeated reposting looks like spam."
+
+house_style_note: >
+  Don Hopkins overlay (house-styles/don-hopkins.yml) adds: links each on their own line,
+  preceded by a description line ending with a colon, blank lines before and after;
+  no em-dashes, two ASCII dashes or restructure; no emojis in HN drafts (venue strips
+  them anyway, so their presence in a draft signals it wasn't preflighted).
+
+test_cases:
+  - paste: "**bold** and *ital*"
+    renders: "**bold** and ital (italics only)"
+  - paste: "line one\nline two"
+    renders: "line one line two (collapsed)"
+  - paste: "🔥 hot take"
+    renders: " hot take (emoji stripped)"
