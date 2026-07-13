@@ -9,7 +9,7 @@ tier: 1
 protocol: ADVENTURE
 lineage: "Colossal Cave, Zork, MUD, LambdaMOO"
 inherits: simulation
-related: [room, character, incarnation, simulation, card, memory-palace, world-generation, debugging, sniffable-python]
+related: [room, character, incarnation, simulation, card, memory-palace, world-generation, debugging, sniffable-python, exit, time, speech]
 tags: [moollm, exploration, narrative, investigation, game, interactive-fiction]
 templates:
   - file: ADVENTURE.yml.tmpl
@@ -425,6 +425,25 @@ graph LR
 
 ---
 
+## Temporal abstraction (Sutton one-step trap)
+
+Adventure commands are **options** in Sutton's sense — semi-MDP macros, not iterated micro-transitions.
+
+- `GO north` jumps to an abstract room; the DM does not simulate every footstep.
+- `LOOK` / `EXAMINE` use [pickDescription LOD](CARD.yml#runtime-descriptions) — detail on demand.
+- [exit](../exit/) edges connect graph nodes; guards are option preconditions.
+- [time](../time/) `TICK` fires on meaningful moves, not every chat line.
+
+**Anti-pattern:** rolling out N implicit one-step predictions to answer "what happens if I keep going?"
+
+**Field case:** [Urban eBike Safari](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml) — voice options ("next Invader") then `SET DESTINATION`; Bosch turn-by-turn is micro layer only.
+
+Full treatment: [simulation/ONE-STEP-TRAP.md](../simulation/ONE-STEP-TRAP.md) · [examples/one-step-trap.yml](../simulation/examples/one-step-trap.yml)
+
+**Field ride game:** continuous AI guess/suggest; pie-menu network by biking; VoyStick + steering law — [urban-safari-ride-game.yml](../simulation/examples/urban-safari-ride-game.yml) · [WWSFF room](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md)
+
+---
+
 ## Future Vision
 
 > **CLI Uplift Plan, Browser Compilation, Scott Adams History, Owl Simulation**
@@ -434,12 +453,12 @@ graph LR
 
 ### Sister Skills
 - [simulation/](../simulation/) — Base class (adventure inherits this)
-- [room/](../room/) — Navigation
-- [party/](../party/) — Multi-character
-- [character/](../character/) — Player/NPC definitions
-- [card/](../card/) — Companions on the quest
-- [debugging/](../debugging/) — Debugging IS investigation quest
-- [session-log/](../session-log/) — Adventure LOG.md is session-log variant
+- [simulation/ONE-STEP-TRAP.md](../simulation/ONE-STEP-TRAP.md) — Options vs one-step rollout
+- [exit](../exit/) — Graph edges between rooms
+- [time](../time/) — Turns vs LLM iterations
+- [memory-palace/](../memory-palace/) — Method of loci (iLoci / spatial safari)
+- [speech/](../speech/) — Voice command parser; field STT
+- [simulator-effect/](../simulator-effect/) — Implication beats simulation
 
 ### Kernel
 - [kernel/context-assembly-protocol.md](../../kernel/context-assembly-protocol.md) — Working set loading

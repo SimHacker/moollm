@@ -16,9 +16,13 @@
 | [action-queue/](../action-queue/) | Task scheduling |
 | [prototype/](../prototype/) | Concrete types inherit from abstract |
 | [speed-of-light/](../speed-of-light/) | Many turns in one call |
+| [ONE-STEP-TRAP.md](ONE-STEP-TRAP.md) | Sutton options vs micro-rollout; bike safari field case |
+| [examples/urban-safari-ride-game.yml](examples/urban-safari-ride-game.yml) | Guess/suggest game; pie network; VoyStick |
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
+- [One-Step Trap](ONE-STEP-TRAP.md) — temporal abstraction
+- [Ride game](examples/urban-safari-ride-game.yml) — steering + pie + VoyStick
 
 ## Overview
 

@@ -97,6 +97,11 @@ distinction:
     "Until morning" — LLM advances appropriately.
     Natural language durations work.
 
+  temporal_abstraction: |
+    Turns are game-time options, not physics integrator steps.
+    Do not iterate one-step micro-predictions across N turns to plan ahead.
+    See skills/simulation/ONE-STEP-TRAP.md (Sutton; ssivark tyranny of the specific).
+
 # ADVERTISEMENTS
 
 advertisements:
@@ -110,6 +115,7 @@ see-also:
   - skills/simulation  # Central state
   - skills/buff        # Time-based decay
   - skills/needs       # Time-based decay
+  - skills/simulation/ONE-STEP-TRAP.md
 
 # CREDITS
 

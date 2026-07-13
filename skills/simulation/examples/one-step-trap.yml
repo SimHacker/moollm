@@ -1,0 +1,68 @@
+# Machine-readable cross-links — Sutton one-step trap ↔ MOOLLM ↔ Urban Safari
+topic:
+  id: one-step-trap
+  essay: http://incompleteideas.net/IncIdeas/OneStepTrap.html
+  hn_thread: 48883415
+  doc: ../ONE-STEP-TRAP.md
+
+sutton:
+  trap: "Iterating f(t+1) to obtain f(t+N) — compounding error, exponential trees"
+  fix: [options, gvfs, temporal_abstraction]
+
+moollm_skills:
+  hub: simulation
+  primary:
+    - id: simulation
+      role: "Turn-based state hub — TICK is a game turn, not a physics integrator"
+      path: ../SKILL.md
+    - id: adventure
+      role: "Options as verbs on rooms — semi-MDP reference implementation"
+      path: ../../adventure/SKILL.md
+    - id: time
+      role: "Simulation turn ≠ LLM iteration; narrative duration is abstracted"
+      path: ../../time/CARD.yml
+    - id: exit
+      role: "Graph edges between abstract locations"
+      path: ../../exit/CARD.yml
+  allied:
+    - id: memory-palace
+      role: "Method of loci — spatial options (iLoci lineage)"
+      path: ../../memory-palace/GLANCE.yml
+    - id: simulator-effect
+      role: "Implication beats simulation — don't render what imagination fills"
+      path: ../../simulator-effect/CARD.yml
+    - id: speech
+      role: "Voice parser = option interface; field STT on bike safaris"
+      path: ../../speech/CARD.yml
+    - id: object
+      role: "Interactable atoms at stops — not rolled-out physics"
+      path: ../../object/CARD.yml
+
+external:
+  willwrightshowforfood:
+    sutton_room: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/sutton-one-step-trap.md
+    steering_pie_room: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md
+    urban_ebike_safari: https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml
+    storymaker: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/media/storymaker-urban-safari/storymaker-urban-safari.yml
+    iloci_jam: https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/crazy-idea-jam.yml
+
+hn_frames:
+  tyranny_of_the_specific:
+    author: ssivark
+    gist: "Flight legs + duration, not every turn to airport — hierarchical zoom"
+    safari_mapping: "Voice story legs; Bosch turn-by-turn only after set destination"
+  llm_self_correct:
+    author: mxwsn
+    gist: "More tokens can recover language reasoning — not one-step world models"
+    safari_mapping: "Field narration may re-ground; navigation stays options + graph"
+
+anti_patterns:
+  - "Roll out N micro-transitions to plan long horizon"
+  - "Each LLM response token = simulation timestep"
+  - "Turn-by-turn map as primary UX while riding"
+
+good_patterns:
+  - "Verb + target commands (adventure options)"
+  - "TICK on meaningful state change only"
+  - "pickDescription(lod) — detail on demand"
+  - "SET DESTINATION then delegate micro routing"

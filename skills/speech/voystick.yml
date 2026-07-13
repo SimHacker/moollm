@@ -1,0 +1,92 @@
+# VoyStick — vocal joystick (pitch=Y, vowel=X) · parallel to STT
+# Homomorphic bidirectional medium — NOT provided by SpeechAnalyzer
+
+id: voystick
+coined: "1991-06 — Don Hopkins, homomorphic vocoder research"
+also_spelled: [Voistick, VoyStar]
+
+axes:
+  pitch: Y  # voicebox — harder to track reliably than formants (Evan Balster)
+  vowel: X  # F1/F2 projection or diphthong-rail interpolation
+  rounding: pressure  # optional third DOF — lip rounding
+  consonant: click  # delimiter — less reliable than sustained vowels
+
+homomorphic: |
+  Computer synthesizes the same vocal gestures it recognizes.
+  User sings along; harmonic blend = on target, clash = off.
+  Pink Trombone / Praat / Phoneloper pitch envelopes for output side.
+
+dual_channel_with_stt:
+  words: SpeechTranscriber  # commands, Q&A, guess/suggest game
+  gesture: voystick_stream  # pie wedge pointing — no hands
+
+vowel_space:
+  spec: platforms/vowel-space.yml
+  acoustic: "F1 vertical × F2 horizontal — continuous like color space"
+  not: "Jones tongue quadrilateral (articulatory guesswork)"
+  projection:
+    front_rail: [i, e, ɛ, a]
+    back_rail: [u, o, ɔ, ɑ]
+    skip: [ə, ɨ]
+  video: https://www.youtube.com/watch?v=FdldD0-kEcc
+
+pie_menu_integration:
+  pop: "Steady vowel tap → menu at voice-space coordinates"
+  self_revealing: "Sing each slice label as its vocal gesture"
+  voice_ahead: "Expert path — sing stroke without pausing (mouse-ahead)"
+  fitts: "Wedges are large targets; outdoor warble allows sloppy fast traces"
+  evan_horseshoe: "English vowels ring F1/F2 periphery — may simplify to 1D + timing"
+  guitar_pie_combo: "GuitarPie fretboard pies + Voystick voice — UIST 2025"
+
+lineage:
+  - voystick-correspondence-lineage.md (WWSFF — full email arc 1991–2025)
+  - 1991 homomorphic vocoder email (Oppenheim DSP)
+  - Mark Weiser → Siskind limited phonology (orthogonal approach)
+  - Phoneloper — Flite + Tk pitch envelope editor + phonoscope
+  - CMU 2019 Brad Myers lecture — Ben Shneiderman "what is Voystick?"
+  - James Landay Vocal Joystick UIST 2005 (recognition only)
+  - Evan Balster imitone formant tracker Apr 2023
+  - Zack Qattan Pink Trombone + Vocap Apr 2023
+  - Geoff Lindsey The Vowel Space Apr 2023
+  - GuitarPie Andreas Fender UIST 2025
+  - PieCraft RELATED-PROJECTS.md
+  - Slats SAPI — output pitch only, not input analysis
+  - aQuery — overlay platform for arbitrary app integration
+
+correspondents:
+  evan_balster: { email: evan@imitone.com, demo: "https://www.youtube.com/watch?v=-EtLzXRnx7s" }
+  zack_qattan: { focus: Vocap, phonts }
+  paul_boersma: { tool: Praat }
+  james_landay: { gap: "no bidirectional synthesis in UW work" }
+
+implementation:
+  probe_y: scripts/voystick_probe.py
+  probe_x: planned  # F1/F2 via imitone-style bands or praat bindings
+  production:
+    analysis: "AVAudioEngine + Accelerate / aubio YIN + formant resonator"
+    synthesis: "Pink Trombone WASM or LPC stub matched to user calibration"
+    browser: "WebAssembly target — Don 2020 email to Landay"
+  map_to_pie: |
+    Calibrate user F1/F2 envelope + pitch range
+    Project to (x,y) via diphthong rails or direct F1/F2 normalize
+    Hysteresis + Fitts minimum wedge size
+    Pair with SpeechTranscriber timestamps for word+gesture commands
+
+design_tensions:
+  singing_vs_monotone: "Evan: many users self-conscious singing — support quiet phonetic mode"
+  formant_vs_classifier: "Direct F1/F2 > MFCC/KNN (information loss)"
+  vocoder_trap: "Telephony LPC discontinuities cancel on decode — bad for live control"
+  vocoder_not_fft: "Evan: formants are stripes through harmonics — need band resonators"
+
+outdoor_affordance: |
+  Urban eBike Safari: warble musically on canal loops — nobody to bother.
+  Hands on Koga handlebars. Bosch moves bike; voice skips pie network layers.
+
+refs:
+  ride_game: ../simulation/examples/urban-safari-ride-game.yml
+  wwsff_lineage: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/voystick-correspondence-lineage.md
+  wwsff_steering: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md
+  gesture_space: https://donhopkins.medium.com/gesture-space-842e3cdc7102
+  pink_trombone: https://dood.al/pinktrombone/
+  mypystick: https://github.com/elisaoh/mypystick
+  guitar_pie_hn: https://news.ycombinator.com/item?id=45250328

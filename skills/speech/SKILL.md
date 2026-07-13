@@ -198,9 +198,16 @@ The JS code is generated from this YAML. To update voice classification, edit th
 
 ## Speech Recognition
 
-### Browser (SpeechRecognitionSystem)
+### Browser (SpeechRecognitionSystem) — **shipped**
 
-See `skills/adventure/dist/recognition.js` for full implementation.
+Implementation lives in adventure `dist/` (canonical); speech skill owns protocol + native bridges.
+
+| File | Role |
+|------|------|
+| [recognition.js](../adventure/dist/recognition.js) | Web Speech API wrapper |
+| [adventure-recognition.js](../adventure/dist/adventure-recognition.js) | Mic UI + engine hookup |
+
+See [STT-STACK.md](./STT-STACK.md) for full audit (Apple SpeechAnalyzer, SAPI, VoyStick).
 
 ```javascript
 // Initialize
@@ -249,18 +256,32 @@ if (result.command) {
 | iOS | 🎤 on keyboard | Dictation |
 | Android | 🎤 on keyboard | Voice Typing |
 
-### Whisper (OpenAI)
+### Whisper (OpenAI / whisper.cpp)
 
 ```bash
 # Using whisper.cpp (local)
 whisper --model base.en audio.wav
 
-# Using OpenAI API
-curl https://api.openai.com/v1/audio/transcriptions \
-  -H "Authorization: Bearer $OPENAI_API_KEY" \
-  -F model="whisper-1" \
-  -F file="@audio.mp3"
+# MOOLLM wrapper (JSON stdout)
+python3 skills/speech/scripts/stt_whisper.py audio.wav --json
+
+# List all STT backends
+python3 skills/speech/scripts/stt_dispatch.py --list
 ```
+
+### Apple SpeechAnalyzer (macOS/iOS 26+)
+
+On-device streaming STT with **word timestamps** — Swift only; planned `moollm-speech` CLI.
+
+- `SpeechTranscriber` + `attributeOptions: [.audioTimeRange]`
+- Partial/final via `isFinal`; confidence per result
+- **No pitch/vowel** — VoyStick uses parallel [voystick_probe.py](./scripts/voystick_probe.py)
+
+See [platforms/apple-speech-analyzer.yml](./platforms/apple-speech-analyzer.yml) · [native/README.md](./native/README.md)
+
+### VoyStick (gesture channel, not STT)
+
+Pitch=Y, vowel=X vocal joystick for pie wedges — [voystick.yml](./voystick.yml). Phoneloper lineage.
 
 ---
 
@@ -329,6 +350,9 @@ This skill is part of extracting **aQuery** (jQuery for Accessibility) into MOOL
 
 ## See Also
 
+- **[STT-STACK.md](./STT-STACK.md)** — TTS/STT audit, Apple vs SAPI, integration tiers
+- **[voystick.yml](./voystick.yml)** — pitch/vowel gesture channel (parallel to STT)
+- **[scripts/README.md](./scripts/README.md)** — `say.sh`, `stt_dispatch.py`, `voystick_probe.py`
 - **[voices/browser-voices.yml](./voices/browser-voices.yml)** — Single source of truth for voice data
 - [speech.js](../adventure/dist/speech.js) — Browser implementation
 - [adventure-speech.js](../adventure/dist/adventure-speech.js) — Adventure integration

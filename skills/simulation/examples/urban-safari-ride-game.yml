@@ -1,0 +1,53 @@
+# Urban eBike Safari — steering pie ride game (MOOLLM cross-links)
+topic:
+  id: urban-safari-ride-game
+  doc_wwsff: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md
+  product: https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml
+
+continuous_game:
+  players: [rider, ai]
+  moves:
+    rider: [pedal, steer, voice, voystar_warble, set_destination, veto_guess]
+    ai: [guess_where_going, suggest_poi, narrate_on_proximity, answer_questions]
+  never_stops: true
+
+pie_menu_network:
+  lineage: [iLoci, MediaGraph, MOOLLM_exit_graph]
+  iloci_video: https://www.youtube.com/watch?v=03ddG3jWF98
+  model: "POI = hub; wedges = cards/links; physical approach opens menu"
+
+steering_law:
+  manifest: "Handlebar arc + pie wedge selection + path curvature — same gesture family"
+  fitts: "Big nearby wedges; outdoor allows wide fast sloppy traces"
+  incremental_lod: "pedal past → pickDescription glance→look→examine"
+
+voystick:
+  axes: { pitch: Y, vowel: X }
+  homomorphic: "Synthesize same gestures mic tracks — harmonic feedback"
+  vowel_space: F1/F2 acoustic (not tongue quadrilateral)
+  diphthong_rails:
+    front: [i, e, ɛ, a]
+    back: [u, o, ɔ, ɑ]
+  outdoor: "Warble musically — nobody to bother; hands stay on bars"
+  pairs_with: [pie_menus, SpeechAnalyzer, GuitarPie]
+  refs:
+    - https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/voystick-correspondence-lineage.md
+    - https://github.com/SimHacker/moollm/blob/main/skills/speech/platforms/vowel-space.yml
+    - https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/RELATED-PROJECTS.md
+    - https://news.ycombinator.com/item?id=45250328
+
+ai_memory_loop: [remember, lookup, organize, project_interests, speak, answer]
+
+moollm_skills:
+  - simulation/ONE-STEP-TRAP.md
+  - adventure/SKILL.md
+  - adventure/CARD.yml  # pickDescription LOD
+  - exit/CARD.yml
+  - memory-palace/GLANCE.yml
+  - speech/CARD.yml
+  - simulator-effect/CARD.yml
+  - examples/one-step-trap.yml
+
+related_examples:
+  - examples/adventure-4/pub/stage/palm-nook/study/infinite-typewriters.yml  # steering through literature
+  - process/crazy-idea-jam.yml#iloci_memory_palace

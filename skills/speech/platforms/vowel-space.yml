@@ -1,0 +1,62 @@
+# Acoustic vowel space (F1/F2) — NOT the Jones tongue quadrilateral
+# Geoff Lindsey + Evan Balster + Don's diphthong-rail projection for VoyStick X axis
+
+id: vowel-space
+video: https://www.youtube.com/watch?v=FdldD0-kEcc
+hn: https://news.ycombinator.com/item?id=35701116
+clickable_chart: https://www.englishspeechservices.com/ipa-vowels/
+praat: https://www.fon.hum.uva.nl/praat/
+
+why_not_tongue_chart: |
+  IPA quadrilateral maps guessed tongue position. Same tongue pose + different lip rounding
+  = different vowels. HCI needs measured acoustics (formants), not articulatory theatre.
+
+axes:
+  F1:
+    axis: vertical
+    meaning: vowel height / openness
+    low_hz: "open (ah)"
+    high_hz: "close (ee)"
+  F2:
+    axis: horizontal
+    meaning: front ↔ back
+    low_hz: "back (oo)"
+    high_hz: "front (ee)"
+  F3:
+    axis: depth_optional
+    meaning: rhotic /ɚ/, some contrasts
+  rounding:
+    axis: pressure_optional
+    meaning: third dimension — protruded vs compressed lips
+
+continuous_like_color: |
+  Vowels glide like CIE chromaticity — no discrete cells. Praat vowel editor plays any (F1,F2) point.
+
+voystick_projection:
+  problem: "Humans control 3–4 formant DOF; VoyStick needs 2D for pie wedges"
+  don_rails:
+    front: [i, e, ɛ, a]
+    back: [u, o, ɔ, ɑ]
+    skip_central: [ə, ɨ]
+    note: "Interpolate along periphery; avoid ambiguous schwa interior"
+  discrete_bit: "Front vs back extreme → mouse down/up (press/release)"
+  evan_note: "English vowels horseshoe on F1/F2 — pie analog may be 1D vowel + timing, not full 2D"
+
+measurement:
+  preferred: "Direct formant bands (Evan imitone resonator)"
+  avoid_for_control: "LPC/vocoder telephony — decode symmetry hides tracking jitter"
+  ml_fallback: "MFCC + classifier (Zack) — continuous regression better than KNN buckets"
+  pitch: "aubio YIN / imitone — harder than formants per Evan"
+
+synthesis:
+  pink_trombone: https://dood.al/pinktrombone/
+  praat_editor: vowel synthesis from F1/F2 targets
+  homomorphic: "Synthesize same (pitch, F1, F2) the tracker reports — harmonic blend feedback"
+
+calibration:
+  required: true
+  reason: "Individual ranges + dialect; per-user normative envelope before pie mapping"
+
+refs:
+  lineage: ../../../../WillWrightShowForFood/characters/don-hopkins/sources/voystick-correspondence-lineage.md
+  voystick: ../voystick.yml

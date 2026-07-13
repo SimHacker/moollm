@@ -176,6 +176,26 @@ implementations:
         - RecognitionUI (microphone button + config panel)
         - Listening indicator with waveform
         - Platform-specific help
+
+  python_scripts:
+    path: skills/speech/scripts/
+    files:
+      say.sh: macOS TTS wrapper
+      stt_dispatch.py: Backend router — JSON
+      stt_whisper.py: File transcription via whisper CLI
+      voystick_probe.py: Live pitch Hz → JSON (VoyStick Y axis)
+    audit: STT-STACK.md
+
+  apple_speech_analyzer:
+    spec: platforms/apple-speech-analyzer.yml
+    native_cli: native/README.md
+    status: planned
+
+  voystick:
+    spec: voystick.yml
+    vowel_space: platforms/vowel-space.yml
+    lineage: WillWrightShowForFood/characters/don-hopkins/sources/voystick-correspondence-lineage.md
+    note: Pitch/vowel NOT in SpeechTranscriber — parallel F1/F2 + YIN stream
       
   macos_shell:
     command: "say"
@@ -223,25 +243,33 @@ todo:
       - Create voice-cloning-guide.md
       
   - id: speech-recognition-integration
-    status: pending
-    priority: medium
+    status: partial
+    shipped: skills/adventure/dist/recognition.js
+    gap: [apple_speech_analyzer_cli, voystick_stream, windows_sapi_python]
+    priority: high
     description: |
-      Add speech recognition (STT) capabilities.
-      
-      Platforms to support:
-      - Web Speech API (browser)
-      - Whisper (local or API)
-      - macOS Dictation
-      
-      Use cases:
-      - Voice commands in adventure games
-      - Transcription of audio content
-      - Real-time dictation
+      Browser STT shipped in adventure dist. Remaining: Swift moollm-speech CLI (SpeechAnalyzer
+      timestamps), VoyStick pitch parallel stream, optional Windows SAPI for Slats parity.
 
 # SEE ALSO
 
 see_also:
   - skills/adventure/dist/speech.js        # Browser implementation
   - skills/adventure/dist/adventure-speech.js  # Adventure integration
+  - skills/simulation/ONE-STEP-TRAP.md     # Voice as option interface (bike safari)
+  - skills/simulation/examples/urban-safari-ride-game.yml  # VoyStick + guess/suggest game
   - temp/lloooomm/03-Resources/documentation/voice-system-integration-guide.md
   - temp/lloooomm/03-Resources/code/character-voice-tutorial.sh
+
+field_stt:
+  apple_speech_analyzer: |
+    On-device STT for hands-free adventure / Urban eBike Safari.
+    Voice commands are Sutton options ("next Invader", "set destination") — not turn-by-turn rollout.
+  voystick_outdoor: |
+    VoyStick — pitch=Y, vowel=X continuous trace steers pie wedges; warble outdoors on bike.
+    Dual channel: SpeechAnalyzer words + voystick gesture. MicropolisCore PieCraft RELATED-PROJECTS.
+  refs:
+    - https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml
+    - https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md
+    - https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/RELATED-PROJECTS.md
+    - https://news.ycombinator.com/item?id=48894752

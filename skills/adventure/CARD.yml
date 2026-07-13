@@ -499,6 +499,7 @@ pointer_syntax:
     - "skills/inventory/ — Full pointer/boxing protocol"
     - "PSIBER-PROTOCOL.md — Data as navigable room"
     - "SUMMON-PROTOCOL.md — Prototype instantiation"
+    - "skills/simulation/ONE-STEP-TRAP.md — Options vs micro-rollout"
 
 # STATE SCHEMA (brief — see SKILL.md)
 
@@ -529,6 +530,7 @@ documentation:
   SKILL.md:
     - "§ Lifecycle Methods (START, RESUME, ENSURE-CHARACTER)"
     - "§ Exploration Methods (GO, LOOK, TAKE, USE)"
+    - "§ Temporal abstraction (Sutton one-step trap)"
     - "§ Debug Mode (collapsible technical logs)"
     - "§ State Schema (full player/flags/output)"
     - "§ Multi-User (participants and control)"

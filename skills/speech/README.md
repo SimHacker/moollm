@@ -70,9 +70,11 @@ From lloooomm research — proven character/voice combinations:
 
 ## TODO
 
-- [ ] **User-defined voices** — Research Personal Voice creation on macOS
-- [ ] **Speech recognition** — Integrate Web Speech API and Whisper
-- [ ] **Voice registries** — Document all platform voices in YAML
+- [x] **Browser STT** — `recognition.js` in adventure dist (skill docs now point here)
+- [ ] **Swift moollm-speech** — SpeechAnalyzer CLI with timestamps ([native/README.md](native/README.md))
+- [ ] **VoyStick stream** — pitch/vowel parallel to STT ([voystick.yml](voystick.yml))
+- [ ] **User-defined voices** — Personal Voice on macOS
+- [ ] **Windows SAPI module** — Slats parity (pywin32)
 
 ## aQuery Heritage
 

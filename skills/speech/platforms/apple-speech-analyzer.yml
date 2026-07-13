@@ -1,0 +1,57 @@
+# Apple Speech framework — SpeechAnalyzer era (WWDC 2025)
+# iOS 26 / macOS 26+ · on-device · replaces SFSpeechRecognizer for new apps
+
+platform: apple
+api_generation: speech_analyzer
+min_os: { ios: 26, macos: 26 }
+wwdc: https://developer.apple.com/videos/play/wwdc2025/277/
+docs: https://developer.apple.com/documentation/speech/speechtranscriber
+
+modules:
+  SpeechAnalyzer:
+    role: Session coordinator; routes audio buffers to modules
+    swift_only: true
+  SpeechTranscriber:
+    role: Long-form STT — lectures, meetings, safari narration
+    results: async_sequence
+    streaming: true
+  DictationTranscriber:
+    role: Short utterances — command words, adventure verbs
+  SpeechDetector:
+    role: Voice activity detection
+    note: Must pair with a transcriber module
+
+metadata_available:
+  audioTimeRange:
+    how: "SpeechTranscriber attributeOptions: [.audioTimeRange]"
+    gives: Per-run/word segment start/end for click-to-seek, caption sync
+  isFinal:
+    gives: Partial hypothesis vs committed text
+  confidence:
+    gives: Per-result confidence scores
+  locales:
+    gives: installedLocales, supportedLocales, downloadable assets
+
+metadata_not_in_stt:
+  pitch_hz: "Use AVAudioEngine tap + YIN/aubio/Accelerate — VoyStick channel"
+  vowel_formants: "LPC/formant tracker — Phoneloper phonoscope lineage"
+  custom_vocabulary: "Legacy SFSpeechRecognizer only (as of WWDC 2025 framing)"
+
+lifecycle_gotchas:
+  - Drain transcriber.results concurrently while feeding analyzeSequence
+  - Call finalizeAndFinishThroughEndOfInput or session hangs
+  - First locale use — AssetInventory download; show progress
+
+integration:
+  moollm_cli: skills/speech/native/README.md  # planned moollm-speech
+  safari: https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml
+  benchmark: https://get-inscribe.com/blog/apple-speech-api-benchmark.html
+  hn: https://news.ycombinator.com/item?id=48894752
+
+legacy:
+  SFSpeechRecognizer:
+    status: still_shipped_not_deprecated
+    keep_for: custom_vocabulary, older_os
+  say_command:
+    status: tts_only
+    path: skills/speech/scripts/say.sh

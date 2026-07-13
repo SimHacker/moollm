@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [adventure, society-of-mind, time, party, character, needs, buff, action-queue, prototype, speed-of-light]
+related: [adventure, society-of-mind, time, party, character, needs, buff, action-queue, prototype, speed-of-light, exit, memory-palace, simulator-effect]
 tags: [moollm, runtime, state, turns, engine]
 ---
 
@@ -155,6 +155,8 @@ Turn 49: Pet Terpie (+Serenity buff)
 
 ## See Also
 
+- [ONE-STEP-TRAP.md](ONE-STEP-TRAP.md) — Sutton temporal abstraction vs micro-rollout; Urban Safari field case
+- [examples/one-step-trap.yml](examples/one-step-trap.yml) — machine-readable skill cross-links
 - [time](../time/) — Turn tracking, duration
 - [party](../party/) — Party and selection
 - [buff](../buff/) — Active effects
