@@ -56,9 +56,9 @@ project name and a different invented language — most recently Skillscript (Sh
 2026), an agent-workflow DSL with good security instincts, steelmanned below. Synthesized here
 so the next recurrence takes one K-line, not another thread.
 
-**Nobody can decree their way into the corpus.** You cannot force the world's LLM developers to
-include your new language in their training data — so lean into the training that already
-exists and the languages everyone knows. Invent a new language for LLMs and you sign up to
+**Nobody can decree their way into the corpus.** Unless you're Elon Musk or Hitler and can
+force the world's LLM developers to include your new language in their training data, lean
+into the training that already exists and the languages everyone knows. Invent a new language for LLMs and you sign up to
 include the entire language definition, the tutorials, the examples, and the fictional
 StackOverflow discussions in every single prompt — blowing away your context window
 humansplaining your invented language, over and over and over, to an LLM that knows Python
