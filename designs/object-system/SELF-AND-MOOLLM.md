@@ -122,6 +122,57 @@ Anti-taxonomy ([prototype GLANCE](../../skills/prototype/GLANCE.yml)): not trees
 abstract — until you need an abstract parent, and then you name one from latent space
 ([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)).
 
+## The Drescher lineage — schemas, and the grounding that finally arrived
+
+The learning-engine side of the heritage runs Piaget → Minsky → Drescher → Leela AI → MOOLLM,
+and it's inherited the same way as everything else here: by invoking it in latent space, then
+refining and adapting it to the LLM mooniverse as skills.
+
+**Gary Drescher** wrote his PhD under Marvin Minsky at MIT — *Made-Up Minds: A Constructivist
+Approach to Artificial Intelligence* (MIT Press, 1991; preceded by *Genetic AI: Translating
+Piaget into Lisp*, 1986). The **schema mechanism**: Context → Action → Result units discovered
+from experience; **marginal attribution** (does the result follow the action more than chance?);
+**spinoff schemas** (add context when a schema is unreliable); **synthetic items** (invent a
+hidden-state hypothesis when no observable context explains the pattern — the mechanism
+*postulating objects* it cannot see); schema chaining as planning. A robot hand and eye in a
+Lisp microworld, learning Piagetian object permanence from scratch.
+
+**Henry Minsky** — Marvin's son — reimplemented the mechanism in Python at **Leela AI**
+(co-founded with Cyrus Shaoul and Milan Minsky; *Leela* is Sanskrit for divine play), driving it
+into neurosymbolic manufacturing intelligence: ConvNet perception feeding a symbolic schema
+core. The full chain is documented in this repo at
+[skills/leela-ai/reference/drescher-lineage.yml](../../skills/leela-ai/reference/drescher-lineage.yml).
+
+**What neither generation had: grounding.** Drescher's items were bit-vectors; the symbol
+grounding problem was the wall his Lisp — and any pre-LLM reimplementation — ran into. The
+LLM removes the wall: contexts, actions, and results can be natural-language propositions whose
+*meaning* the coherence engine evaluates. Marginal attribution over meaning instead of bits.
+That's exactly the extension list on
+[schema-mechanism](../../skills/schema-mechanism/GLANCE.yml): `symbol_grounding: "Items mean
+something"`, `causal_reasoning: "Why patterns hold"`, `natural_explanation: "Communicate
+discoveries"` — with lineage line `Piaget → Minsky → Drescher → MOOLLM` and Henry Minsky's
+`pyleela.brain` in the credits. This was not possible when Drescher was writing his thesis code,
+and not possible when Henry was reimplementing it — the resolver that grounds the symbols didn't
+exist yet.
+
+The skills inherit **directly from the thesis in latent space**: "Drescher's schema mechanism"
+and "Made-Up Minds" are parent names the LLM resolves richly, refined in-repo rather than
+respelled. [schema-factory](../../skills/schema-factory/) is the disciplined half of the hybrid —
+deterministic Python (lint, ingest, compose, context bundles) before LLM synthesis, with
+[Henry Minsky's blocksworld](../../skills/schema-factory/examples/henry-minsky-blocksworld.yml)
+as a worked example and a SCHEMA-SCHEMA that evolves via the same loop it governs. The
+[schema](../../skills/schema/) skill's schemapedia files the mechanism alongside JSON-Schema and
+Zod as one more schema tradition
+([mechanisms/drescher/](../../skills/schema/schemas/mechanisms/drescher/)).
+
+And the Minsky inheritance is doubled, the "Bester" pattern from
+[LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md): through Drescher's thesis advisor we
+inherit **K-lines** ([skills/k-lines/](../../skills/k-lines/)) — the activation mechanism this
+whole object system runs on — and **Society of Mind**
+([skills/society-of-mind/](../../skills/society-of-mind/)) — agencies of simple agents, which is
+what a MOOLLM session full of skills, characters, and ambient constraints *is*. Marvin's
+concepts organize the inheritance system that inherits from him.
+
 ## What MOOLLM adds to Anthropic's skill model
 
 Anthropic Skills are documentation-first tool definitions — a solid foundation MOOLLM
