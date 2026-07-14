@@ -204,6 +204,16 @@ composition with readable names instead of UUIDs, `ls` as the free type-checker,
 OLE's insight rides along: objects embed in other objects' containers and stay live, the way a
 skill instance lives inside another skill's directory.
 
+Why COM needed GUIDs and MOOLLM doesn't: COM's interface names lived in one **flat global
+namespace** (the registry), so uniqueness had to be manufactured — 128 random bits, opaque to
+every reader, resolvable only through regsvr32 ceremony. MOOLLM's names are **scoped by path**:
+`skills/cauldron/CARD.yml` collides with nothing, and git remotes supply the global identity
+GUIDs were invented to fake. So the names get to be readable — and readable pays twice. For
+humans, `CHARACTER.yml` in a listing needs no lookup. For the LLM, it's the difference between
+a K-line and a cache miss: `{F37C775C-...}` activates nothing, while `CHARACTER.yml` pulls in
+the entire tradition of what character sheets are. COM's identifiers were hostile to both of its
+audiences; the filesystem's namespace discipline lets MOOLLM serve both with one name.
+
 **Interface composition makes new kinds of objects.** Because interfaces are files, dropping one
 file into a directory *adds a facet to a live object*. The canonical example: a directory with
 `ROOM.yml` is a place; add `CHARACTER.yml` **to the same directory** and it becomes a **character
