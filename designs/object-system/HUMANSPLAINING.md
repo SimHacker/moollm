@@ -51,11 +51,13 @@ cache miss you *chose*.
 
 ## The manifesto: lean into the training data
 
-The occasion that crystallized all of this was a Show HN in July 2026 for Skillscript — a small
-declarative language designed for agents to write and humans to approve, with genuinely good
-security instincts (steelmanned below). The discussion that followed produced the argument in
-full, synthesized here so nobody has to go read a comment thread. The mountain has come to
-Mohammed; this document is self-contained.
+This argument crystallized long ago; only the sin's *name* is new. It's a recurring discussion
+that returns every week wearing a different project name and a different invented language —
+the latest occasion being a Show HN in July 2026 for Skillscript, a small declarative language
+designed for agents to write and humans to approve, with genuinely good security instincts
+(steelmanned below). That discussion is synthesized here, in full, so nobody has to go read a
+comment thread — the mountain has come to Mohammed; this document is self-contained — and so
+the *next* weekly recurrence can be answered with one K-line instead of another thread.
 
 **Nobody can decree their way into the corpus.** You cannot force the world's LLM developers to
 include your new language in their training data — so lean into the training that already
@@ -75,6 +77,17 @@ time, and when the context compacts, the definition distorts — so the "same" l
 drifts between sessions. Give the model the *prompt that generated* the language instead of the
 language, and you get a different language every time. There is no clever hack around
 statelessness; there is only the corpus.
+
+The mistake is forgivable, because the chat products work hard to sell the opposite illusion.
+ChatGPT appears to remember what you said — but underneath it is just **compounding and
+appending** your turns into one ever-growing prompt, then **summarizing, degrading, and
+ungracefully forgetting** when the window fills. Your prompts have *no effect on the model*;
+the product bends over backwards to make you believe they do. Anyone living under that
+illusion will reasonably conclude that a model can be *taught* a new language by talking to
+it — and every week, someone does. (MOOLLM's answer to the forgetting half is the
+[honest-forget](../../skills/honest-forget/) skill: never pretend to remember — summarize
+before forgetting and leave a tombstone pointing to where the full version lives. Forgetting
+is inevitable; lying about it is a choice.)
 
 **A language is an ecosystem and a community, not a grammar.** Python isn't valuable because of
 its syntax; it's valuable because of PyPI, Stack Overflow, decades of manuals, courseware,
