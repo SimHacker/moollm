@@ -26,8 +26,9 @@ launched in 1969 and, in one of history's stranger ironies, bankrolled by the Ni
 administration: a $14 million HUD loan guarantee under Nixon's "Black capitalism" program,
 after McKissick crossed party lines to endorse him. Jesse Helms and hostile audits starved it,
 HUD foreclosed in 1979, and the dream was buried before it could prove itself. Building a city
-of souls on top of SimCity — the game about what cities could be — is a small way of keeping
-that name alive and unfinished business open.
+of souls on top of and starting with Will Wright's legacies — SimCity, The Sims, Spore, Proxi —
+and then other soulful games by other people too, is a small way of keeping that name alive
+and its unfinished business open.
 
 ### Souls: bringing game characters to life as objects
 
