@@ -87,6 +87,22 @@ Field-proven patterns, all currently in production in this repo:
   Alfred Bester the author and the B5 character named after him — one token, two lineages, and
   the LLM holds both.
 
+## Inheriting whole systems by name
+
+The parent list isn't limited to characters and aesthetics. It resolves **languages, object
+systems, protocols, interfaces, APIs, function signatures, calling conventions** — anything with
+deep training-data presence. Say "Smalltalk-80" and you inherit message sends and metaclasses.
+Say "NeWS TNT" and you inherit dict-stack delegation with ordered `/Parents` multiple
+inheritance. Say **"US Patent 5187786A"** and you inherit Densmore and Rosenthal's
+filesystem-as-class-hierarchy, `SEND` via shell and all. The reflective tower bootstraps by
+*describing itself in terms the LLM already knows* — we aren't inventing these capabilities and
+defining them from scratch; we're addressing them where they already live.
+
+This is what makes the Self core a practical machine language for other object systems: hybrids,
+adaptors, bridges, emulators, and CLI/programmatic drivers get built by pointing at the target
+system's name rather than reimplementing it. Worked through concretely against a real database in
+[YOUTRACKDB-VS-MOOLLM.md §10](YOUTRACKDB-VS-MOOLLM.md#10-inheriting-from-youtrackdb--the-machine-language-move).
+
 ## The naming discipline this imposes
 
 If names are pointers into latent space, then **naming is API design**:

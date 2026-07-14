@@ -9,6 +9,15 @@ and Andrii Lomakin's manifesto
 compared against MOOLLM's stack: LLM as coherence/execution engine, filesystem + YAML + git/GitHub
 as representation/publishing/collaboration/data platform, Self-style prototypes as object model.
 
+**Why compare at all.** Not to rank them — the goals and substrates are so different that
+"better" is meaningless, and MOOLLM is in no way a replacement for YouTrackDB. The comparison is
+an act of respect for the work and experience embodied in it, and its purpose is **inheritance**:
+find the ideas YouTrackDB is great at so MOOLLM can adopt, integrate, and build on them — the way
+its Self-ish core was designed to be built on (see
+[§10](#10-inheriting-from-youtrackdb--the-machine-language-move)). There are things MOOLLM does
+that YTDB can't (mostly LLM-shaped), and things YTDB does that MOOLLM should deeply consider
+growing into. Both lists are below.
+
 Part of the [object-system](README.md) series — see
 [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) and
 [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md).
@@ -172,6 +181,64 @@ from a MOOLLM corpus as a **materialized view** — grep is fine until it isn't,
 index over `ties:` / exits / K-line references is a cache, not a source of truth. The inverse
 hybrid already exists: YTDB's own development needed a MOOLLM-shaped layer the moment agents
 joined the team.
+
+### 10. Inheriting from YouTrackDB — the machine-language move
+
+Self's designers called it the power of simplicity because the minimal core — objects, slots,
+delegation — is a **machine language for implementing other object systems**. That is how MOOLLM
+should relate to YouTrackDB: not compete with it, not copy it, but *inherit from it* — build
+hybrids, adaptors, bridges, emulators, and drivers on top of the simple selfish core, without
+making the core less simple. The kernel stays microcode; other object systems become libraries.
+
+And here is the move no previous object system could make: **MOOLLM doesn't have to implement
+what it inherits, because the LLM already knows it.** These capabilities and this knowledge
+already exist in the model. Latent-space inheritance
+([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)) isn't limited to characters and
+aesthetics — it works for **languages, object systems, protocols, interfaces, APIs, function
+signatures, calling conventions, wire formats**. A parent slot can name any of them:
+
+```yaml
+# A skill that speaks other object systems, by pointing at them:
+parents:
+  - ../../skills/object                                  # concrete — follow the file
+  - "Smalltalk-80 object model"                          # latent — message send, metaclasses
+  - "Self prototypal inheritance"                        # latent — the microcode itself
+  - "NeWS object-oriented PostScript, TNT class system"  # latent — dict-stack delegation, /Parents MI
+  - "US Patent 5187786A"                                 # latent — Densmore-Rosenthal: the Unix
+                                                         #   filesystem-as-class-hierarchy, SEND via shell
+  - "YouTrackDB YQL and schema DDL"                      # latent-ish — SQL + dots, CREATE CLASS,
+                                                         #   EXTENDS, ALTER CLASS
+  - "Gremlin/TinkerPop traversal API"                    # latent — g.V().out('owns')
+  - "COM IUnknown/QueryInterface calling convention"     # latent — interface negotiation
+```
+
+You bootstrap the reflective tower **by describing it in terms the LLM already knows**. Pull in
+Rosenthal and Densmore's shell-path object system by *saying the patent number*. Pull in NeWS,
+Smalltalk, and Self by *saying their names*. The kernel definition takes advantage of its own
+powers: we are not inventing these systems and defining them from scratch — we are addressing
+them where they already live, in the training corpus, and mixing them in as parents.
+
+What this makes cheap, concretely:
+
+- **Adaptors and drivers.** A `youtrackdb-driver` skill whose parents are the YTDB docs URL, "YQL",
+  and "JDBC-ish embedded database lifecycle" can emit correct `CREATE CLASS` DDL and YQL queries
+  from MOOLLM YAML — a CLI/programmatic driver written mostly by *pointing*.
+- **Materialized-view bridges.** The §9 hybrid — compile a MOOLLM corpus's `ties:`/exits/K-lines
+  into a YTDB graph for O(1) traversal — is an emitter skill inheriting from both "MOOLLM
+  file-system-object grammar" (concrete) and "property graph vertex/edge model" (latent).
+- **Emulators.** Want to *think in* YTDB's schema discipline inside MOOLLM — declared classes,
+  typed properties, subsumption checks as a validation pass? That's a lint skill with
+  "YouTrackDB schema semantics" as a parent. The discipline is inherited, not reimplemented; the
+  core stays schema-optional.
+- **What to actually adopt.** The things YTDB is better at are real: enforced invariants where
+  meaning-preservation isn't enough (ids, referential integrity), O(1) indexes as caches over
+  grep-scale corpora, schema-mixed as a formal notion of "these slots are checked, those are
+  jazz", and Lomakin's discipline of *narrowing a model that has grown a zoo*. Each is worth
+  inheriting as a skill on top of the core — none requires changing the core.
+
+This is the respect the comparison is for: YouTrackDB represents decades of hard-won experience
+(OrientDB → YTDB) about what breaks when object graphs meet production. MOOLLM's way of honoring
+that experience is characteristic of it: **add the experience to the parent list.**
 
 ## One-line summary
 
