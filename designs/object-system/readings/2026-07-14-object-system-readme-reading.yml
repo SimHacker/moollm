@@ -1,0 +1,316 @@
+# Overlay track for the 2026-07-14 object-system README reading.
+# Parallel prose transcript: 2026-07-14-object-system-readme-reading.md
+# This file models the multimedia data stream: what to inject, and when.
+# media_events are aspirational — a spec for a synchronized player that can
+# follow the video and fire links, definitions, and preconfigured simulations
+# at the right timestamps. The player doesn't exist yet; the schema is being
+# played-learned here, to be lifted later (play-learn-lift).
+
+reading:
+  title: "MOOLLM Designs: Object System README"
+  speaker: don-hopkins
+  date: 2026-07-14
+  video: https://www.youtube.com/watch?v=0uBO6ZAcVTE
+  duration: "~33:20"
+  text_read: designs/object-system/README.md
+  transcript: 2026-07-14-object-system-readme-reading.md   # corrected prose, chapter headings match this file
+  raw_source: youtube-asr    # noisy auto-captions; corrections ledger below
+
+timing:
+  status: pre-trim           # timestamps below reflect the ORIGINAL upload
+  edit: "~1s of incomplete speech cut from the start on 2026-07-14"
+  shift: unknown             # measure against fresh auto-captions once YouTube regenerates them
+  todo: >
+    When the new caption track lands, diff first-segment onsets against the raw
+    pre-trim captions to get the exact shift, subtract it from every chapter t
+    and from the youtube_description chapter list, then flip status to synced.
+
+corrections:
+  # ASR damage -> what was actually said. Kept here so the raw captions can be
+  # diffed against the fix, and so the next reading's proofread goes faster.
+  proper_nouns:
+    "Paval Curtis / powell Curtis": "Pavel Curtis"
+    "lambdaoo": "LambdaMOO"
+    "Xerox Park": "Xerox PARC"
+    "M / moom / W / mum": "MOOLLM"
+    "Gary Dresser": "Gary Drescher"
+    "Pjot": "Piaget"
+    "Owen Dinsmore / Dinssworth": "Owen Densmore"
+    "Arthur Vanhoff": "Arthur van Hoff"
+    "Hyperard": "HyperCard"
+    "news": "NeWS"
+    "Jamie Dornboss": "Jamie Doornbos"
+    "UTRA DB / chatb brains": "YouTrackDB / JetBrains"
+    "clots": "CLOS"
+    "Dave's sore small talk on risk": "Dave Ungar's SOAR (Smalltalk On A RISC)"
+    "a riskerson pattern berkeley": "Ungar and Patterson, Berkeley"
+    "self and smith 1987": "Ungar and Smith, 1987"
+    "Howard canon moon Bob kick sales": "Howard Cannon, David Moon, Gregor Kiczales"  # best reconstruction; verify
+    "Brad Meyer": "Brad Myers"
+    "open low / Open LLO": "OpenLaszlo"
+    "spelt / Selt": "Svelte"
+    "John Waro": "John Warnock"
+    "BOA": "MOA"                       # Macromedia's COM clone; verify spelling
+    "made up minds": "Made-Up Minds (Drescher, 1991)"
+    "Loom LLOOOM": "LLOOOOMM"
+  terms:
+    "kines": "K-lines"
+    "big Indian": "big-endian"
+    "greable": "greppable"
+    "peewee's playhouse": "Pee-wee's Playhouse"
+    "schemaedia / scheopedia": "schemapedia"
+    "porter duff": "Porter-Duff"
+    "DOM shadow / shadow DOM": "virtual DOM"   # author's own pinned-comment correction
+    "US patent number one 12345": "US Patent 5,187,786"  # said as placeholder; real number substituted
+    "GPU new memory": "GPU memory"
+
+chapters:
+  # YouTube chapter format: paste-ready list lives in youtube-description block below.
+  - t: "0:00"
+    title: "MOO for LLMs — LambdaMOO, Xerox PARC"
+    media_events:
+      - inject: link
+        target: https://en.wikipedia.org/wiki/LambdaMOO
+        why: "Viewers who never dialed into a MOO need the prototype loaded."
+      - inject: definition
+        term: MOOLLM
+        text: "MOO for LLMs: a microworld OS where the filesystem is navigable space."
+
+  - t: "0:35"
+    title: "The stack: filesystem, git, GitHub"
+    media_events:
+      - inject: definition
+        term: "parallel universes"
+        text: "Git branches: cheap alternate timelines with merge as reconciliation."
+
+  - t: "1:18"
+    title: "Self-style prototypes; the LLM as universal resolver"
+    media_events:
+      - inject: link
+        target: ../SELF-AND-MOOLLM.md
+      - inject: link
+        target: ../../../skills/cauldron/META-PLAN.md
+
+  - t: "2:05"
+    title: "Heritage: SOAR, Flavors, CLOS, and the MOP"
+    media_events:
+      - inject: link
+        target: https://bibliography.selflanguage.org/   # Self papers incl. Ungar & Smith 1987
+      - inject: definition
+        term: "reflective tower"
+        text: "An object system implemented in itself, all the way down (the MOP move)."
+
+  - t: "2:59"
+    title: "Piaget → Minsky → Drescher → Leela AI: the grounding wall"
+    media_events:
+      - inject: link
+        target: ../../../skills/leela-ai/reference/drescher-lineage.yml
+      - inject: link
+        target: ../../../skills/schema-mechanism/GLANCE.yml
+
+  - t: "3:44"
+    title: "NeWS, TNT, HyperLook, and the Densmore–Rosenthal patent"
+    media_events:
+      - inject: link
+        target: https://patents.google.com/patent/US5187786A
+        why: "THE patent. Expired. Inheritable by K-line."
+      - inject: gallery
+        note: "HyperLook / TNT screenshots — 'I have really cool pictures.'"
+
+  - t: "4:19"
+    title: "From LLOOOOMM to Anthropic skills — and the extensions"
+  - t: "5:12"
+    title: "COM/OLE/ActiveX, XPCOM: there is something to it"
+  - t: "5:40"
+    title: "Character rooms — Pee-wee's Playhouse"
+    media_events:
+      - inject: link
+        target: ../../DIRECTORY-AS-IUNKNOWN.md
+
+  - t: "6:13"
+    title: "Naming and structure as reflection; K-lines"
+    media_events:
+      - inject: definition
+        term: K-line
+        text: "Minsky: a token that reactivates the whole cloud of concepts around an idea."
+
+  - t: "7:36"
+    title: "The Sims' advertisements (Will Wright & Jamie Doornbos)"
+    media_events:
+      - inject: link
+        target: ../../sims/sims-object-model.md
+      - inject: link
+        target: ../../sims/sims-find-best-action.md
+      - inject: simulation      # the dream: fire up an actual Sims-style scoring demo
+        engine: advertisement-scoring-demo
+        note: "Show a stove, a toilet, a bed; sliders for hunger/bladder/energy; watch scores reweight."
+
+  - t: "9:19"
+    title: "The LLM program counter; K-lines are greppable"
+  - t: "9:58"
+    title: "Latent-space inheritance — tacos, IUnknown, patents by number"
+    media_events:
+      - inject: link
+        target: ../LATENT-SPACE-INHERITANCE.md
+
+  - t: "12:46"
+    title: "YouTrackDB: inherit, don't 'versus'"
+    media_events:
+      - inject: link
+        target: ../YOUTRACKDB-VS-MOOLLM.md
+
+  - t: "13:20"
+    title: "The machine-language move: adapters, bridges, emulators"
+  - t: "14:25"
+    title: "Live objects in public: Soul City and adventure-4"
+    media_events:
+      - inject: link
+        target: ../LIVE-OBJECTS-EXAMPLES.md
+      - inject: simulation
+        engine: micropolis-web
+        # The flagship injection: a preconfigured SimCity session.
+        load_city: soul-city
+        zoom_to: {x: 60, y: 42}          # placeholder coords; pick the civic center
+        open_views: [population-history, land-value-map, crime-heatmap]
+        advisor_chat:
+          system: vitamoo                 # MOOLLM character simulation puppeteering
+          character: city-planning-advisor  # avatar + body + animation + dialog
+          opening_line: "Welcome to Soul City. Floyd McKissick had a plan; let me show you the data."
+        note: >
+          Long-term plan, and the reason everything is built flexibly and
+          extensibly on general principles: the video player pauses, the
+          simulation opens at these coordinates with these views, and a VitaMOO
+          animated advisor — a MOOLLM character driving avatar, body, animation,
+          and dialog — walks you through it.
+
+  - t: "14:50"
+    title: "Dublin Core, the adventure compiler, the good Scott Adams"
+    media_events:
+      - inject: link
+        target: ../DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md
+
+  - t: "15:16"
+    title: "Humansplaining — AI slop's mirror image"
+    media_events:
+      - inject: link
+        target: ../HUMANSPLAINING.md
+      - inject: link
+        target: ../../../skills/no-ai-humansplaining/SKILL.md
+
+  - t: "15:43"
+    title: "The annotated bibliography — one ladle of cream"
+    media_events:
+      - inject: link
+        target: ../ANNOTATED-BIBLIOGRAPHY.md
+
+  - t: "16:02"
+    title: "The heritage table, one line each"
+  - t: "16:57"
+    title: "NeWS shipped it: TNT, HyperLook, SimCity"
+    media_events:
+      - inject: video
+        note: "Cut in the HyperLook SimCity demo footage here."
+
+  - t: "17:43"
+    title: "The patent: dictionary stack ≅ shell paths"
+    media_events:
+      - inject: link
+        target: https://patents.google.com/patent/US5187786A
+      - inject: definition
+        term: "dictionary stack"
+        text: "PostScript name lookup walks a stack of dicts — isomorphic to $PATH walking directories. Multiple inheritance falls out."
+
+  - t: "18:36"
+    title: "Society of Mind: colocated agents, not carrier pigeons"
+    media_events:
+      - inject: definition
+        term: "carrier-pigeon architecture"
+        text: "Multi-agent systems that serialize/deserialize per token between calls, paying distortion + cost, instead of colocating agents in one context."
+
+  - t: "21:09"
+    title: "QueryInterface: COM vtables → FOO.yml"
+  - t: "22:57"
+    title: "The constructor stack: prototype, artifactory, skill skill"
+    media_events:
+      - inject: link
+        target: ../../../skills/prototype/CARD.yml
+      - inject: link
+        target: ../../../skills/skill/CARD.yml
+
+  - t: "24:31"
+    title: "Schemapedia — a circle drawn around schema"
+  - t: "25:58"
+    title: "YAML jazz — comments are precious"
+    media_events:
+      - inject: link
+        target: ../../../skills/yaml-jazz/GLANCE.yml
+
+  - t: "28:00"
+    title: "Leela AI: neurosymbolic; neat vs. fuzzy (physics vs. biology)"
+    media_events:
+      - inject: link
+        target: https://leela.ai
+
+  - t: "29:05"
+    title: "The kernel constitution: lean into the training data"
+  - t: "29:22"
+    title: "Garnet, Amulet, OpenLaszlo — real reactive programming"
+    media_events:
+      - inject: correction
+        text: "Author said 'shadow DOM', meant 'virtual DOM' — corrected per his pinned comment."
+      - inject: definition
+        term: "pull vs push constraints"
+        text: "Garnet pulled (recompute on read if stale); OpenLaszlo pushed (propagate on write — cheaper in Flash). Svelte 5 ships the spirit of both."
+
+  - t: "30:32"
+    title: "The linguistic motherboard: Warnock, Densmore, Gosling"
+    media_events:
+      - inject: definition
+        term: "linguistic motherboard"
+        text: "Warnock's framing of PostScript: a language as a motherboard; graphics was just the first card. Networking was NeWS's card; LLM inference is ours."
+      - inject: gallery
+        note: "The one-page Smalltalk-in-PostScript class system; HyperLook running on the printer."
+
+  - t: "33:02"
+    title: "Wrap-up — the rest of the series next"
+
+youtube_description: |
+  After a fresh cup of coffee, I read and explain "moollm/designs/object-system/README.md",
+  but I digress...
+
+  The README: https://github.com/SimHacker/moollm/blob/main/designs/object-system/README.md
+  Corrected transcript: https://github.com/SimHacker/moollm/blob/main/designs/object-system/readings/2026-07-14-object-system-readme-reading.md
+
+  Chapters:
+  0:00 MOO for LLMs — LambdaMOO, Xerox PARC
+  0:35 The stack: filesystem, git, GitHub
+  1:18 Self-style prototypes; the LLM as universal resolver
+  2:05 Heritage: SOAR, Flavors, CLOS, and the MOP
+  2:59 Piaget → Minsky → Drescher → Leela AI: the grounding wall
+  3:44 NeWS, TNT, HyperLook, and the Densmore–Rosenthal patent
+  4:19 From LLOOOOMM to Anthropic skills — and the extensions
+  5:12 COM/OLE/ActiveX, XPCOM: there is something to it
+  5:40 Character rooms — Pee-wee's Playhouse
+  6:13 Naming and structure as reflection; K-lines
+  7:36 The Sims' advertisements (Will Wright & Jamie Doornbos)
+  9:19 The LLM program counter; K-lines are greppable
+  9:58 Latent-space inheritance — tacos, IUnknown, patents by number
+  12:46 YouTrackDB: inherit, don't "versus"
+  13:20 The machine-language move: adapters, bridges, emulators
+  14:25 Live objects in public: Soul City and adventure-4
+  14:50 Dublin Core, the adventure compiler, the good Scott Adams
+  15:16 Humansplaining — AI slop's mirror image
+  15:43 The annotated bibliography — one ladle of cream
+  16:02 The heritage table, one line each
+  16:57 NeWS shipped it: TNT, HyperLook, SimCity
+  17:43 The patent: dictionary stack ≅ shell paths
+  18:36 Society of Mind: colocated agents, not carrier pigeons
+  21:09 QueryInterface: COM vtables → FOO.yml
+  22:57 The constructor stack: prototype, artifactory, skill skill
+  24:31 Schemapedia — a circle drawn around schema
+  25:58 YAML jazz — comments are precious
+  28:00 Leela AI: neurosymbolic; neat vs. fuzzy
+  29:05 The kernel constitution: lean into the training data
+  29:22 Garnet, Amulet, OpenLaszlo — real reactive programming
+  30:32 The linguistic motherboard: Warnock, Densmore, Gosling
+  33:02 Wrap-up — the rest of the series next

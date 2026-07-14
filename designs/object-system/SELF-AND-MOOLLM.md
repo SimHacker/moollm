@@ -328,6 +328,43 @@ through the corpus guided entirely by names, listings, and mip levels — which 
 needs no registry, no index server, and no schema catalog. The structure is the schema; the
 names are the query planner; the pyramid is the LOD system.
 
+**`goto` for attention: `lookto` and `thinkto`.** In a von Neumann machine, `goto` transfers
+control. In a machine whose interpreter is a reader, the transferable resource is attention —
+so the jump instructions are different. A **`lookto`** is an attention jump with I/O: a name,
+listing, or advertisement moves the program counter to a file or directory and pages content
+in. A **`thinkto`** is the latent-space jump, no I/O at all: a K-line — "Self's object
+system," "US5187786A," "a taco, overflowing" — lands the program counter somewhere in the
+training data instead of somewhere on disk. Every convention in this section compiles down to
+one or the other: big-endian names and marker files emit `lookto`s; K-lines emit `thinkto`s;
+the pyramid decides how *far* a `lookto` pages in. Dijkstra taught that `goto` is harmful
+because unstructured control flow can't be audited — the conventions here are exactly the
+structured-programming discipline for attention jumps: named, sorted, levelled, greppable.
+And The Sims' advertisements are the missing third instruction, the one INTERCAL proposed as
+a joke: **`COMEFROM`**. An advertisement is control transfer declared at the *destination* —
+the stove announces "come to me when hungry" and the scheduler decides who actually comes.
+`COMEFROM` is madness in deterministic code, which is why INTERCAL had it; with procedural
+scoring arbitrating the candidates it becomes the right primitive for an attention economy —
+a *weighted* `COMEFROM`, which is what a directory listing full of well-named files is. The
+gradient all three instructions follow has an established name: **information scent**, from
+Pirolli and Card's information-foraging theory — developed at Xerox PARC, the same building
+as LambdaMOO. Foragers follow scent cues toward information patches; well-named K-lines are
+concentrated scent.
+
+**The meta-programming ladder — and what its upper rungs emit.** Classic metaprogramming
+(Lisp macros, the MOP, C++ templates) emits *code*, executed by a deterministic machine.
+MOOLLM's generator stack — [cauldron](../../skills/cauldron/) plans,
+[artifactory](../../skills/artifactory/) protocols, [prototype](../../skills/prototype/)
+instantiation, the naming conventions above — climbs one rung higher: tools that generate
+code, then **tools that generate the instructions and structures that guide code-generating
+tools**. What the upper rungs emit is not an instruction stream but *attention guidance* —
+plans, names, listings, pyramids, advertisements: `lookto`s, `thinkto`s, and weighted
+`COMEFROM`s laid down in advance. The artifact is a bias on the object-tool's search through
+latent space, which is why a well-named directory listing is metaprogramming in this system,
+and why the MOP move (an object system for designing object systems) reappears here as a
+plan system for designing plan-following systems. The hedge against the meta-tower failure
+mode is the same as everywhere else in MOOLLM: instance-first, play-learn-lift — every rung
+up must be lifted from something running below it.
+
 ## The NeWS lineage — parents MOOLLM inherits from literally
 
 MOOLLM doesn't just cite this prior art; it delegates to it, in the Self-reflective sense. The
