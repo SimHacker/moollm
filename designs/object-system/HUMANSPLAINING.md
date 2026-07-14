@@ -85,8 +85,8 @@ nobody has reified in the corpus). Legitimate spelling-out:
   has the *traditions* these descend from, not your specifics.
 - **Disambiguation** — "Mercury the Roman god" costs one clause and prevents a wrong-parent bind.
 - **Post-cutoff and fast-moving facts** — new APIs, current versions, yesterday's HN thread.
-  (YouTrackDB's own docs URL belongs in a driver skill's parents *before* the name, for exactly
-  this reason — [YOUTRACKDB-VS-MOOLLM §10](YOUTRACKDB-VS-MOOLLM.md).)
+  (The `youtrackdb-driver` sketch in [YOUTRACKDB-VS-MOOLLM](YOUTRACKDB-VS-MOOLLM.md) puts the
+  docs URL in the parents alongside the name for exactly this reason.)
 - **Anchored evidence** — quoting the three lines of source you're arguing about is grounding,
   not humansplaining. Quoting the file is.
 
