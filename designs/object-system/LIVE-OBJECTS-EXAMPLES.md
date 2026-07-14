@@ -7,7 +7,8 @@ moves — objects as directories, template objects instantiating other objects, 
 inheritance that mixes concrete prototypes with named concepts from latent space
 ([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)).
 
-Index: [README.md](README.md) · mechanism: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md)
+Index: [README.md](README.md) · mechanism: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) ·
+cited YAML rendered: [CREAM.md](CREAM.md)
 
 ---
 

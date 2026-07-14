@@ -11,9 +11,11 @@ This is the discovery we've been dogfooding since cauldron, promoted from
 most novel thing in cauldron's docs and the thing least specific to cauldron… generalizes
 MOOLLM's inheritance model to use the LLM as a universal resolver."
 
-Siblings: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) (the delegation mechanism) ·
-[YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) (contrast with engine-enforced classes) ·
-[README.md](README.md).
+Siblings: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) (the delegation mechanism, and the
+heritage this move inherits: SOAR/RISC, Flavors/CLOS/MOP, Drescher/Leela, NeWS/HyperLook) ·
+[YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) (comparison-for-inheritance with
+engine-enforced classes) · [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) (the system
+running) · [CREAM.md](CREAM.md) (cited YAML rendered for humans) · [README.md](README.md).
 
 ## The canonical example
 
@@ -71,7 +73,8 @@ Field-proven patterns, all currently in production in this repo:
 - **Character incarnation.** The bartender in adventure-4 declares `PRIMARY INHERITANCES
   (k-lines): Quark (DS9), James (Bar Karma), Guinan, Sam Malone` — a personality assembled by
   naming four traditions
-  ([the-bartender/CHARACTER.yml](../../examples/adventure-4/characters/fictional/the-bartender/CHARACTER.yml)).
+  ([the-bartender/CHARACTER.yml](../../examples/adventure-4/characters/fictional/the-bartender/CHARACTER.yml);
+  rendered in [CREAM.md](CREAM.md#the-bartender-character--four-traditions-one-personality)).
 - **Real people, safely.** Pets and familiars inherit a named person's *expertise* by reference
   ("wrapping a raw pointer in a safe handle") without impersonating them — the ethics live in
   [incarnation](../../skills/incarnation/) and hero-story gating; see

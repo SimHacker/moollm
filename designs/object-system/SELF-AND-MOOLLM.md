@@ -5,8 +5,11 @@ of Simplicity*): no classes, no constructors — **objects, slots, and delegatio
 prototype, override what's different, delegate everything else up an **ordered list of multiple
 parents**, first-match-wins.
 
-Sibling doc: [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) — where the parent list
-goes beyond the filesystem. Index: [README.md](README.md).
+Siblings: [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) — where the parent list
+goes beyond the filesystem · [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) —
+comparison-for-inheritance case study · [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) —
+the system running in public · [CREAM.md](CREAM.md) — every YAML file cited below, rendered as
+prose · Index: [README.md](README.md).
 
 ## The mapping
 
@@ -141,7 +144,8 @@ Lisp microworld, learning Piagetian object permanence from scratch.
 (co-founded with Cyrus Shaoul and Milan Minsky; *Leela* is Sanskrit for divine play), driving it
 into neurosymbolic manufacturing intelligence: ConvNet perception feeding a symbolic schema
 core. The full chain is documented in this repo at
-[skills/leela-ai/reference/drescher-lineage.yml](../../skills/leela-ai/reference/drescher-lineage.yml).
+[skills/leela-ai/reference/drescher-lineage.yml](../../skills/leela-ai/reference/drescher-lineage.yml)
+(rendered in [CREAM.md](CREAM.md#drescher-lineage--the-piaget-to-leela-chain-with-sources)).
 
 **What neither generation had: grounding.** Drescher's items were bit-vectors; the symbol
 grounding problem was the wall his Lisp — and any pre-LLM reimplementation — ran into. The
