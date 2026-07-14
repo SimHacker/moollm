@@ -121,6 +121,35 @@ reliability 0.76 from 38 successes / 12 failures, with the honest note "reach is
 proximity sensors are noisy." This is what the schema-factory lints, ingests, and composes —
 the deterministic half of the hybrid, before LLM synthesis.
 
+## skill CARD — directories as interests, and the eight extensions
+
+Source: [skills/skill/CARD.yml](../../skills/skill/CARD.yml) (deeper:
+[SKILL.md](../../skills/skill/SKILL.md) · [GLANCE.yml](../../skills/skill/GLANCE.yml))
+
+The meta-skill's CARD carries two slots this series cites. **`innovations`** — the eight MOOLLM
+extensions to Anthropic's skill model: instantiation (skills as prototypes that create
+instances), three-tier persistence (platform → narrative → state), K-lines, empathic templates
+(semantic expansion, not string substitution), speed-of-light (many agents, many turns, one LLM
+call), CARD.yml with advertisements, ethical framing (room-based inheritance of performance
+context), and ambient skills. **`directories_as_interests`** — directory listings are *virtual
+interests* for the LLM: well-written filenames are recognizable K-lines, `ls` output IS the
+semantic index, and **big-endian naming** puts the most significant component first
+(`2026-01-24-description.yml`, `RUN-001-name.yml`, `CARD.yml`) so sorted listings read as
+outlines. With anti-examples: `example1.yml` says nothing; `fluxx-amsterdam-001.yml` buries the
+key.
+
+## yaml-jazz GLANCE — comments as data, directories as advertisements
+
+Source: [skills/yaml-jazz/GLANCE.yml](../../skills/yaml-jazz/GLANCE.yml) (deeper:
+[CARD.yml](../../skills/yaml-jazz/CARD.yml) · [SKILL.md](../../skills/yaml-jazz/SKILL.md))
+
+Semantic YAML for three audiences: humans read the comments, LLMs read everything, machines
+parse the structure. Comments are first-class data — entropy YAML preserves that JSON collapses.
+The slot cited by the
+[naming section](SELF-AND-MOOLLM.md#naming-and-structure-as-reflection--guiding-the-llms-program-counter):
+`directories_as_advertisements` — "Filenames are K-lines. Directory listing IS the advertisement
+index — Sims-style 'what's available here?'"
+
 ## soul-angel — the Soul City app object (external, MicropolisCore)
 
 Sources:

@@ -227,6 +227,48 @@ cheap, it actually happens. See the constellation model in
 [cauldron META-PLAN §1](../../skills/cauldron/META-PLAN.md): reify what's there; absence is
 honesty, not a gap.
 
+## Naming and structure as reflection — guiding the LLM's program counter
+
+The conventions aren't housekeeping; they're the **self-describing interface, property, and
+capability mechanism**. In a system whose interpreter is a reader, *what things are named and
+where they sit* is the dispatch table. Every convention below answers the same question: **what
+should the LLM look at next?**
+
+**The hierarchy is the object graph.** Directories nest the way objects contain: repo → area →
+skill/room/character → instances → sessions. Containment doubles as inheritance scope — a room's
+contents perform in its context, a skill's `examples/` inherit its discipline. The path IS the
+identity ([cauldron's `identity_through_location`](CREAM.md#cauldron-card--identity-through-location-and-the-patron)),
+so the hierarchy is also the namespace, the ownership model, and the cd-able world.
+
+**Filenames are K-lines.** From [yaml-jazz](../../skills/yaml-jazz/GLANCE.yml): well-written
+filenames are LLM-recognizable activation keys, and **the directory listing IS the advertisement
+index — Sims-style "what's available here?"**. `ls` is reflection (the slot dump), but it's also
+*attention guidance*: like a Sims object advertising "I satisfy hunger" to passing Sims, a
+well-named file advertises what reading it will satisfy. Will Wright was right in 1996 —
+advertisement-based dispatch scales, and here the advertisements are free because the names had
+to exist anyway.
+
+**Big-endian naming** ([skills/skill CARD, `directories_as_interests`](../../skills/skill/CARD.yml)):
+most significant component first — `2026-01-24-description.yml` groups by time, `RUN-001-name.yml`
+by sequence, `CARD.yml` by type. Sorted `ls` output becomes a semantic outline for free. The
+counter-examples are instructive: `example1.yml` advertises nothing; `fluxx-amsterdam-001.yml`
+buries the identifier.
+
+**UPPERCASE is interface, lowercase is content.** The casing convention is the type system:
+`SKILL.md`, `CARD.yml`, `GLANCE.yml`, `ROOM.yml`, `CHARACTER.yml` declare *what this directory
+responds to* (the QueryInterface reading above); lowercase files are the stuff itself. Duck
+typing by filename — [file-system-object](../../skills/file-system-object/SKILL.md) calls it
+quack-quack typing: a directory is an object to the degree its marker files quack, and a bare
+`CARD.yml` alone is already dispatchable (methods, advertisements, k-lines, navigation all work).
+
+**The pyramid is the reading order — and reading order is method dispatch.** GLANCE (is this
+relevant?) → CARD (what can it do?) → SKILL (how does it work?) → README (why was it built?),
+never loading a lower level without the one above. This is the attention-budget analog of
+first-match-wins delegation: most queries resolve at GLANCE depth and never page in the rest.
+The LLM's "program counter" moves through the corpus guided entirely by names, listings, and
+pyramid levels — which is why MOOLLM needs no registry, no index server, and no schema catalog.
+The structure is the schema; the names are the query planner.
+
 ## The NeWS lineage — parents MOOLLM inherits from literally
 
 MOOLLM doesn't just cite this prior art; it delegates to it, in the Self-reflective sense. The
