@@ -377,6 +377,24 @@ Adjacent threads: [GARNET-AMULET-PROTOTYPE-SYSTEM](../GARNET-AMULET-PROTOTYPE-SY
 (Myers/Hopkins at CMU — constraints + prototypes in Lisp) and [MOO-HERITAGE](../MOO-HERITAGE.md)
 (LambdaMOO: live objects, in-world building, delegation).
 
+**OpenLaszlo and instance-first programming (Laszlo Systems, 2001→).** The thread continues past
+NeWS: at Laszlo Systems, Don worked with **Oliver Steele** and **Henry Minsky** (the same Henry
+of the Drescher lineage above — the parents keep reappearing) on OpenLaszlo, prototype-based
+LZX with push constraints. Steele's
+[*Classes and Prototypes*](https://blog.osteele.com/2004/03/classes-and-prototypes/) (2004)
+named the methodology this whole object system practices: **instance-first development** —
+"implement functionality for a single instance, then refactor the instance into a class… This
+avoids premature abstraction… It's easier to generalize from two examples than from one." The
+**Instance Substitution Principle** made the refactor free: an instance can be replaced by its
+own class definition without changing semantics, because instance-member and class-member
+definitions are syntactically parallel — prototype-based, à la Self. **Defer abstraction until
+the problem's shape is known and you have working instance prototypes in hand.** MOOLLM
+institutionalized this as [play-learn-lift](../../skills/play-learn-lift/SKILL.md) (PLAY with a
+concrete instance, LEARN its seams, LIFT it into a skill only when a second real caller exists),
+and the Garnet doc draws the full line:
+[Sketchpad → Garnet → OpenLaszlo → Svelte → MOOLLM](../GARNET-AMULET-PROTOTYPE-SYSTEM.md).
+Anti-taxonomy above is the same law stated statically; instance-first is its process form.
+
 The reflexive kicker: the patent's co-author has a character directory in WillWrightShowForFood
 (`characters/david-rosenthal/`), and Don Hopkins has one in
 [adventure-4](../../examples/adventure-4/characters/real-people/don-hopkins/). The system whose
