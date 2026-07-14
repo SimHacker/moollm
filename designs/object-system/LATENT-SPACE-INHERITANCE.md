@@ -113,6 +113,34 @@ adaptors, bridges, emulators, and CLI/programmatic drivers get built by pointing
 system's name rather than reimplementing it. Worked through concretely against a real database in
 [YOUTRACKDB-VS-MOOLLM.md §10](YOUTRACKDB-VS-MOOLLM.md#10-inheriting-from-youtrackdb--the-machine-language-move).
 
+## Pointing is not copying: filter, refine, modulate, transform
+
+Inheritance — from latent space or from concrete files — is not verbatim inclusion. You point
+at a parent and then **filter, refine, modulate, and transform** what flows in. The pointer is
+an oscillator; the child's slots are the envelope and filter bank. This is where the leverage
+lives: the parent costs one name, the transformation costs one line, and the LLM applies it to
+the *entire* inherited constellation.
+
+The knobs, all in production here:
+
+- **Theme-polymorphism.** The bartender inherits four traditions, then each theme filters the
+  blend — same knowledge, refracted through `space_cantina` or `victorian_parlor`.
+- **Bias as a signed dial.** The archetype system's modes — *overdrive*, *zero*, *inverted* —
+  are modulation applied to an inherited voice, and no-ai-bias's Drax Point marks the zero
+  crossing: at bias = 0 the concept doesn't exist at all. Which means the dial keeps going:
+  inherit [no-ai-joking](../../skills/no-ai-joking/) with **intensity at −200% and you get
+  HILARIOUS JOKES ALL THE TIME** — the suppression skill, driven past zero, flips into a
+  comedy engine. One parent, one signed scalar, opposite behavior.
+- **Buffs and effective values.** The adventure runtime's `modify_effective` /
+  `multiply_effective` are the same idea made mechanical: base value inherited, modifiers
+  stacked, effective value computed at read time.
+- **Safe handles on real people.** "Inherit the expertise, not the person" is a filter:
+  the pointer is raw, the handle admits only what the ethics gate allows.
+
+This is why pointing beats pasting even when you *don't* want the parent as-is: a pointer plus
+a transform is still two lines, while a hand-edited copy of the parent is a fork you now
+maintain forever. Clone-and-modulate, not copy-and-diverge.
+
 ## The naming discipline this imposes
 
 If names are pointers into latent space, then **naming is API design**:

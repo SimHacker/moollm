@@ -132,7 +132,11 @@ machine authors, because the net doesn't care who was bouncing.
 
 The test is always the same: **is the pointee in latent space?** If yes, point. If no, spell it
 — once, in a file, where the resolver can find it (the filesystem is the cache for prototypes
-nobody has reified in the corpus). Legitimate spelling-out:
+nobody has reified in the corpus). And pointing is not all-or-nothing: you can point and then
+**filter, refine, modulate, and transform** what you inherit — one name plus one dial, like
+inheriting no-ai-joking with intensity at −200% to get hilarious jokes all the time
+([LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) works the knobs). Legitimate
+spelling-out:
 
 - **Project-local conventions** — your CARD.yml layout rule, your naming scheme. Latent space
 has the *traditions* these descend from, not your specifics.
