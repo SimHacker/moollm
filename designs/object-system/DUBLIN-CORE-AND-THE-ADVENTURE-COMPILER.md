@@ -164,18 +164,31 @@ the prerequisite code lands; the reward is the pointer to what's now buildable. 
 semantic mipmap extended in time: the pyramid gates reading depth by relevance, the tech tree
 gates it by progress — and every gamer, human or LLM, already knows exactly how to read one.
 
-## Lineage: the (good) Scott Adams
+## Lineage: the (good) Scott Adams — convergent evolution
 
-The application space is no accident. The adventure compiler descends from a conversation with
+The application space is no accident, but the lineage isn't descent — it's **convergent
+evolution**. The adventure compiler was already underway when Don reached out to
 **Scott Adams of Adventureland** (1978, the first commercial text adventure — the good Scott
-Adams) on Hacker News in November 2021, continued on Facebook, documented in the
-[letter to Scott Adams](../email/letter-to-scott-adams.md) and the
-[PR vision doc](../pr/PR-ADVENTURE-COMPILER-VISION.md): adventure games as Memory Palaces
-(the Method of Loci, computerized), pie menus as room navigation, code as buildings — and the
-shared ambition of publishing both men's papers, articles, and biographies as *explorable
-adventures* rather than linear archives. Rooms of ideas; characters you can question; objects
-you can examine. The strict core is what lets those archives run deterministically in anyone's
-browser; the overlay is what keeps them alive to the LLM and legible to the reader.
+Adams), continuing a conversation begun on Hacker News in November 2021 and picked up on
+Facebook (documented in the [letter to Scott Adams](../email/letter-to-scott-adams.md) and the
+[PR vision doc](../pr/PR-ADVENTURE-COMPILER-VISION.md)). Out of the blue, Scott revealed he was
+building something remarkably similar: a **playable adventure made from his life's work** — the
+collection of data, documents, and code he's saved and accumulated over a career — rooms and
+objects instead of (or in addition to, drawing from, and linking to) a blog, a Medium page, a
+Wikipedia entry, or (god forbid) a LinkedIn profile.
+
+Which was *exactly* the project on this end: the same explorable-archive treatment for Don's
+own life's work, and a parallel private project giving Will Wright's the same treatment. Two
+builders who started from the same 1978 algorithm arrived independently at the same
+destination — the personal archive as adventure: rooms of ideas, characters you can question,
+objects you can examine — and are now excited to collaborate and openly share ideas and code
+rather than argue precedence. Scott is enthusiastically working in AI himself these days, with
+a company he's started/joined; an interview and a proper design discussion are on the docket.
+
+The shared conceptual ground from the original conversation still anchors it all: adventure
+games as Memory Palaces (the Method of Loci, computerized), pie menus as room navigation, code
+as buildings. The strict core is what lets those life's-work archives run deterministically in
+anyone's browser; the overlay is what keeps them alive to the LLM and legible to the reader.
 
 ---
 
