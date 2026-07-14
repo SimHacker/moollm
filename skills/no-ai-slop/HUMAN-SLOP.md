@@ -11,7 +11,7 @@ substitutes for thought. Point here the next time it happens; it will happen nex
 
 ## The by-definition argument
 
-Credit where due — a HN commenter (horsawlarway, July 2026) stated the core problem exactly:
+Credit where due — an HN commenter (horsawlarway, July 2026) stated the core problem exactly:
 an LLM is a machine that generates content statistically similar to what it was trained on,
 and it was trained on forums like this one. **The content here will look like AI-generated
 content, and AI-generated content will look like the content here. By definition.** So the
@@ -87,7 +87,8 @@ If you must accuse, do the work. Paste the suspect text into an LLM and have it 
 *specific* critique of how and why it fails — if you can't write anything more interesting
 than that, your comment wasn't worth posting. The bar for calling something slop is the same
 bar no-ai-slop sets for the model: **name the sin, quote the evidence, or hold your squawk.**
-A complaint that isn't even good enough to be a prompt is human slop.
+A complaint that isn't even good enough to be a prompt is human slop — and if you can't clear
+that bar, sit on your hands, however many fingers they have.
 
 The claim-ledger discipline applies to accusations too: CONFIRM with evidence, DISPUTE with
 specifics, or ASK. "I can tell" is none of these.
@@ -96,6 +97,8 @@ specifics, or ASK. "I can tell" is none of these.
 
 Say **HUMAN-SLOP** (or just **SQUAWK**) to invoke this: the by-definition argument, the
 witch-hunt mechanics, what the Parrot Paper actually says, and the price of admission.
+
+Vote on the content. Do the work. Or hold your squawk.
 
 ---
 

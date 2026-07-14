@@ -15,9 +15,9 @@ point into.
 The two layers have a contract:
 
 - **Strip the overlay** and the world still runs — the core is sufficient for deterministic
-  execution.
+execution.
 - **Strip the core** and the LLM can regenerate it from the overlay — the natural language is
-  the specification, so compilation is recoverable.
+the specification, so compilation is recoverable.
 
 That round trip is what makes the overlay refinement rather than decoration, and the core
 compilation rather than transcription.
@@ -125,14 +125,16 @@ Knuth couldn't mechanize in 1984: prose that the toolchain holds the code accoun
 The strict core isn't designed yet — but pieces of it have *precipitated* from play, which is
 exactly how instance-first says fields should be discovered:
 
-| Emerged convention | Where it lives |
-|---|---|
-| Closure signature `(world, subject, verb, object)`, parallel-safe, `world` never null | [engine.js](../../skills/adventure/engine.js) `compileJs` |
-| Subjective runtime vocabulary: `i_have`, `i_am`, `i_say`, `emit`, `go`, `flag`, buffs, effective values | `runtime_context.available_functions` in every compile event |
-| Dual-runtime rule: every expression compiles to both `_js` and `_py` | [COMPILE_EXPRESSION handler](../../skills/adventure/events/COMPILE_EXPRESSION.yml.tmpl) |
-| Flat collections + ID references, never object pointers — serialization is trivial | [dist/README](../../skills/adventure/dist/README.md) object-modeling rules |
-| Path identity: every object IS its path; `moollm://` names it globally, with git refs | [dist/README](../../skills/adventure/dist/README.md) namespace |
-| Typed linter events as the compilation interface | [events/INDEX.yml](../../skills/adventure/events/INDEX.yml), [LINTER.yml](../../examples/adventure-4/LINTER.yml) |
+
+| Emerged convention                                                                                      | Where it lives                                                                                                   |
+| ------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Closure signature `(world, subject, verb, object)`, parallel-safe, `world` never null                   | [engine.js](../../skills/adventure/engine.js) `compileJs`                                                        |
+| Subjective runtime vocabulary: `i_have`, `i_am`, `i_say`, `emit`, `go`, `flag`, buffs, effective values | `runtime_context.available_functions` in every compile event                                                     |
+| Dual-runtime rule: every expression compiles to both `_js` and `_py`                                    | [COMPILE_EXPRESSION handler](../../skills/adventure/events/COMPILE_EXPRESSION.yml.tmpl)                          |
+| Flat collections + ID references, never object pointers — serialization is trivial                      | [dist/README](../../skills/adventure/dist/README.md) object-modeling rules                                       |
+| Path identity: every object IS its path; `moollm://` names it globally, with git refs                   | [dist/README](../../skills/adventure/dist/README.md) namespace                                                   |
+| Typed linter events as the compilation interface                                                        | [events/INDEX.yml](../../skills/adventure/events/INDEX.yml), [LINTER.yml](../../examples/adventure-4/LINTER.yml) |
+
 
 When enough compiled worlds exist, LIFT means writing these down as the strict schema — a
 handful of required, validated, executable fields (the Dublin Core), with everything else
@@ -177,18 +179,9 @@ collection of data, documents, and code he's saved and accumulated over a career
 objects instead of (or in addition to, drawing from, and linking to) a blog, a Medium page, a
 Wikipedia entry, or (god forbid) a LinkedIn profile.
 
-Which was *exactly* the project on this end: the same explorable-archive treatment for Don's
-own life's work, and a parallel private project giving Will Wright's the same treatment. Two
-builders who started from the same 1978 algorithm arrived independently at the same
-destination — the personal archive as adventure: rooms of ideas, characters you can question,
-objects you can examine — and are now excited to collaborate and openly share ideas and code
-rather than argue precedence. Scott is enthusiastically working in AI himself these days, with
-a company he's started/joined; an interview and a proper design discussion are on the docket.
+Which was *exactly* the project on this end: the same explorable-archive treatment for Don's own life's work, and a parallel private project giving Will Wright's the same treatment. Two builders who started from the same 1978 algorithm arrived independently at the same destination — the personal archive as adventure: rooms of ideas, characters you can question, objects you can examine — and are now excited to collaborate and openly share ideas and code rather than argue precedence. Scott is enthusiastically working in AI himself these days, with a company he's started; an interview and a proper design discussion are on the docket.
 
-The shared conceptual ground from the original conversation still anchors it all: adventure
-games as Memory Palaces (the Method of Loci, computerized), pie menus as room navigation, code
-as buildings. The strict core is what lets those life's-work archives run deterministically in
-anyone's browser; the overlay is what keeps them alive to the LLM and legible to the reader.
+The shared conceptual ground from the original conversation still anchors it all: adventure games as Memory Palaces (the Method of Loci, computerized), pie menus as room navigation and command dispatchers, code as buildings and architecture. The strict core is what lets those historical life's-work archives run deterministically in anyone's browser; the overlay is what keeps them alive to the LLM and legible to the reader.
 
 ---
 

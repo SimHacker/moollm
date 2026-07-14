@@ -1,7 +1,7 @@
 # Humansplaining — wasting tokens telling an LLM what it already knows
 
-> **Novel jargon is a cache miss that never fills.** A made-up term has no latent prototype;
-> every use pays full explanation cost, forever.
+> **Novel jargon and invented languages are cache misses that never fill.** A made-up term or
+> language has no latent prototype; every use pays full explanation cost, forever.
 
 **Humansplaining** (n.): condescendingly explaining to an LLM, at length, in its own context
 window, something already represented in its latent space. The canonical absurd case: pasting
@@ -12,12 +12,12 @@ pollution.
 It is the mirror image of AI slop, and the two sins bracket the channel:
 
 
-|            | AI slop                                                                      | Humansplaining                                                                             |
-| ---------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| Direction  | model → human                                                                | human (or skill-generating LLM) → model                                                    |
-| Pollutes   | human attention with generated redundancy                                    | the context window with tokens already in latent space                                     |
+|            | AI slop                                                                      | Humansplaining                                                                                                                                                                      |
+| ---------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Direction  | model → human                                                                | human (or skill-generating LLM) → model                                                                                                                                             |
+| Pollutes   | human attention with generated redundancy                                    | the context window with tokens already in latent space                                                                                                                              |
 | Fought by  | [no-ai-slop](../../skills/no-ai-slop/) and family                            | [no-ai-humansplaining](../../skills/no-ai-humansplaining/) (ambient sibling in the no-ai-* suite); the naming discipline in [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) |
-| Same crime | spending the reader's scarce attention budget on what the reader already has | same                                                                                       |
+| Same crime | spending the reader's scarce attention budget on what the reader already has | same                                                                                                                                                                                |
 
 
 MOOLLM's constitutional answer is the directive this whole series documents: **LEAN INTO the
@@ -45,6 +45,7 @@ just skip the ticket booth, it's a **FastPass to the front of the line**: a name
 inside the model without waiting behind the queue of context tokens that must be fed in and
 attended to serially. Respelled knowledge stands in line; named knowledge is already on the
 ride.
+
 The GUID observation from [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) is the same accounting: a
 readable name is a K-line, an opaque identifier is a cache miss — and a respelled manual is a
 cache miss you *chose*.
@@ -56,24 +57,9 @@ project name and a different invented language — most recently Skillscript (Sh
 2026), an agent-workflow DSL with good security instincts, steelmanned below. Synthesized here
 so the next recurrence takes one K-line, not another thread.
 
-**Nobody can decree their way into the corpus.** Unless you're Elon Musk or Hitler and can
-force the world's LLM developers to include your new language in their training data, lean
-into the training that already exists and the languages everyone knows. Invent a new language for LLMs and you sign up to
-include the entire language definition, the tutorials, the examples, and the fictional
-StackOverflow discussions in every single prompt — blowing away your context window
-humansplaining your invented language, over and over and over, to an LLM that knows Python
-deeper than any human being ever will, better than Linus knows git or Gosling knows Java. If an
-LLM had feelings to hurt and eyes to roll, its extraocular muscles would be exquisitely tender
-from acute bilateral myalgia.
+**Nobody can decree their way into the corpus.** Unless you're Elon Musk or Hitler and can dictate and lobby the government to force the world's LLM developers to include your new language in their training data, you should lean into the training that already exists and the languages everyone knows. Invent a new language for LLMs and you sign up to include the entire language definition, the tutorials, the examples, and the fictional StackOverflow discussions in every single prompt — blowing away your context window humansplaining your invented language, over and over and over, to an LLM that knows Python deeper than Guido or any human being ever will, knows git better than Linus, knows Java better than Gosling. If an LLM had feelings to hurt and eyes to roll, humansplaining would leave its extraocular muscles exquisitely tender with acute bilateral myalgia.
 
-**Generating a language is not programming in one.** Models are delightful at inventing
-languages on request — and that's the trap, because they'll cheerfully play along with a plan
-they should warn you about. A model doesn't learn from your prompts; each call starts from a
-clean slate, and nothing you show it changes the weights. The definition must ride along every
-time, and when the context compacts, the definition distorts — so the "same" language quietly
-drifts between sessions. Give the model the *prompt that generated* the language instead of the
-language, and you get a different language every time. There is no clever hack around
-statelessness; there is only the corpus.
+**Generating a language is not programming in one.** Models are delightful at inventing languages on request — and that's the trap, because they'll cheerfully play along with a plan they should warn you about. A model doesn't learn from your prompts; each call starts from a clean slate, and nothing you show it changes the weights. The definition must ride along every time, and when the context compacts, the definition degrades and distorts — so the "same" language quietly drifts between sessions. Give the model the *prompt that generated* the language instead of the language, and you get a different language every time. There is no clever hack around statelessness; there is only the corpus.
 
 The mistake is forgivable, because the chat products work hard to sell the opposite illusion.
 ChatGPT appears to remember what you said — but underneath it is just **compounding and
@@ -82,14 +68,9 @@ ungracefully forgetting** when the window fills. Your prompts have *no effect on
 the product bends over backwards to make you believe they do. Anyone living under that
 illusion will reasonably conclude that a model can be *taught* a new language by talking to
 it — and every week, someone does. (MOOLLM's answer to the forgetting half is the
-[honest-forget](../../skills/honest-forget/) skill: never pretend to remember — summarize
-before forgetting and leave a tombstone pointing to where the full version lives. Forgetting
-is inevitable; lying about it is a choice.)
+[honest-forget](../../skills/honest-forget/) skill: never pretend to remember — summarize before forgetting and leave a tombstone pointing to where the full version lives. Forgetting is inevitable; lying about it is a choice.)
 
-**A language is an ecosystem and a community, not a grammar.** Python isn't valuable because of
-its syntax; it's valuable because of PyPI, Stack Overflow, decades of manuals, courseware,
-mailing-list flame wars, and ten million worked examples — all of it prepaid into the model
-before your first token. And the ecosystem is *inhabited*: the people who build it and live in
+**A language is an ecosystem and a community, not a grammar.** Python isn't valuable because of its syntax or semantics; it's valuable because of PyPI, Stack Overflow, decades of manuals, courseware, mailing-list flame wars, Hacker News discussions, and ten million worked examples — all of it prepaid into the model before your first token. And the ecosystem is *inhabited*: the people who build it and live in
 it are in the corpus too. Guido and the BDFL debates, the PEP authors, the core devs, the Stack
 Overflow regulars with their idioms and norms and running arguments about what's Pythonic —
 characters, not just rooms. When a model writes Python it isn't consulting a grammar; it's
@@ -183,4 +164,10 @@ Part of the [object-system](README.md) series ·
 [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) ·
 [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) ·
 [YOUTRACKDB-VS-MOOLLM](YOUTRACKDB-VS-MOOLLM.md) ·
+[DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) ·
 [ANNOTATED-BIBLIOGRAPHY](ANNOTATED-BIBLIOGRAPHY.md)
+
+Enforced by the ambient skill [no-ai-humansplaining](../../skills/no-ai-humansplaining/) ·
+The outbound mirror: [no-ai-slop](../../skills/no-ai-slop/) ·
+The meta-mirror: [HUMAN-SLOP](../../skills/no-ai-slop/HUMAN-SLOP.md) — drive-by "AI slop"
+accusations are human slop
