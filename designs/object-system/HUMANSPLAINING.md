@@ -154,7 +154,12 @@ test. One word; the rest is in latent space now — or will be, once this file h
 
 Yes, the term is itself a coinage — but it's not a cache miss, and the difference is the whole
 lesson. It's a **portmanteau of two latent prototypes that means what it sounds like**:
-*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. That's the naming discipline applied to naming itself: good coinages are latent-space arithmetic (mansplaining − man + human, queen = king - man + woman); bad coinages are opaque handles that must be humansplained forever.
+*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. That's the naming discipline applied to naming itself: good coinages are latent-space
+arithmetic — literally the word2vec move. Just as *king − man + woman = queen*, so
+*mansplaining − man + human = humansplaining*. The embedding geometry that made Mikolov's
+party trick work is the same geometry that makes the coinage decompress: the vector from
+*man* to *human* carries the meaning across, no explanation required. Bad coinages are opaque
+handles with no vector to anywhere — they must be humansplained forever.
 
 It's also the natural sibling of **slop** — the one-syllable name for unwanted AI output that
 Simon Willison championed into common usage on exactly this argument: pick a word whose

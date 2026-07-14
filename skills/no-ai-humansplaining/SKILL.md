@@ -103,9 +103,10 @@ the full file is humansplaining.
 Coining opaque handles with no latent prototype. Novel jargon is a cache miss
 that never fills — every use pays full explanation cost, forever.
 
-**Fix:** Good coinages are latent-space arithmetic (human × mansplaining);
-bad coinages must be humansplained forever. Does the name decompress on
-first sight?
+**Fix:** Good coinages are latent-space arithmetic — the word2vec move:
+*king − man + woman = queen*, so *mansplaining − man + human = humansplaining*.
+Bad coinages have no vector to anywhere and must be humansplained forever.
+Does the name decompress on first sight?
 
 ---
 
