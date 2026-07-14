@@ -51,13 +51,10 @@ cache miss you *chose*.
 
 ## The manifesto: lean into the training data
 
-This argument crystallized long ago; only the sin's *name* is new. It's a recurring discussion
-that returns every week wearing a different project name and a different invented language —
-the latest occasion being a Show HN in July 2026 for Skillscript, a small declarative language
-designed for agents to write and humans to approve, with genuinely good security instincts
-(steelmanned below). That discussion is synthesized here, in full, so nobody has to go read a
-comment thread — the mountain has come to Mohammed; this document is self-contained — and so
-the *next* weekly recurrence can be answered with one K-line instead of another thread.
+The argument is old; only the name is new. The same discussion recurs weekly under a different
+project name and a different invented language — most recently Skillscript (Show HN, July
+2026), an agent-workflow DSL with good security instincts, steelmanned below. Synthesized here
+so the next recurrence takes one K-line, not another thread.
 
 **Nobody can decree their way into the corpus.** You cannot force the world's LLM developers to
 include your new language in their training data — so lean into the training that already
