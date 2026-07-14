@@ -314,11 +314,19 @@ quack-quack typing: a directory is an object to the degree its marker files quac
 
 **The pyramid is the reading order — and reading order is method dispatch.** GLANCE (is this
 relevant?) → CARD (what can it do?) → SKILL (how does it work?) → README (why was it built?),
-never loading a lower level without the one above. This is the attention-budget analog of
-first-match-wins delegation: most queries resolve at GLANCE depth and never page in the rest.
-The LLM's "program counter" moves through the corpus guided entirely by names, listings, and
-pyramid levels — which is why MOOLLM needs no registry, no index server, and no schema catalog.
-The structure is the schema; the names are the query planner.
+never loading a lower level without the one above. This is a **semantic mipmap**: the same
+object pre-rendered at every level of detail, exactly as graphics hardware stores a texture at
+1×1, 2×2, 4×4… so a distant surface never pays for texels it can't resolve. A skill glimpsed
+from across the corpus samples the 70-line GLANCE; walk right up to it and you page in the
+1000-line SKILL — and like GPU mip selection, the level is chosen by *distance to the object*
+(how central it is to the current task), not by what happens to be loaded. The pyramid is
+designed to guide LLMs exactly as much as people, because both readers share the same
+constraint: a limited token-and-attention budget that must never be spent rendering detail the
+query can't see. It's also the attention-budget analog of first-match-wins delegation: most
+queries resolve at GLANCE depth and never page in the rest. The LLM's "program counter" moves
+through the corpus guided entirely by names, listings, and mip levels — which is why MOOLLM
+needs no registry, no index server, and no schema catalog. The structure is the schema; the
+names are the query planner; the pyramid is the LOD system.
 
 ## The NeWS lineage — parents MOOLLM inherits from literally
 
