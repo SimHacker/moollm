@@ -99,12 +99,18 @@ Say **HUMANSPLAINING** to invoke all of this: the sin, the economics, the Skills
 test. One word; the rest is in latent space now — or will be, once this file has done its work.
 
 Yes, the term is itself a coinage — but it's not a cache miss, and the difference is the whole
-lesson. It's a **compound of two latent prototypes**: *mansplaining* (Solnit's essay, a decade of
-usage, the full semantics of condescending redundant explanation prepaid) times the human→AI
-direction flip. The word decompresses on first sight with zero explanation tokens. That's the
-naming discipline applied to naming itself: good coinages are latent-space arithmetic
-(mansplaining − man + human, aimed at a machine); bad coinages are opaque handles that must be
-humansplained forever.
+lesson. It's a **portmanteau of two latent prototypes that means what it sounds like**:
+*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of
+condescending redundant explanation prepaid), aimed at a machine. The word decompresses on
+first sight with zero explanation tokens. That's the naming discipline applied to naming
+itself: good coinages are latent-space arithmetic (mansplaining − man + human); bad coinages
+are opaque handles that must be humansplained forever.
+
+It's also the natural sibling of **slop** — the one-syllable name for unwanted AI output that
+Simon Willison championed into common usage on exactly this argument: pick a word whose
+existing connotations do all the work, the way "spam" did for unsolicited email. *Slop* names
+the pollution flowing model→human; *humansplaining* names the pollution flowing human→model.
+Two self-decompressing words, one for each direction of the channel.
 
 ---
 
