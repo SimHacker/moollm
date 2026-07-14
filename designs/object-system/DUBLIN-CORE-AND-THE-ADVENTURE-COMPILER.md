@@ -91,6 +91,35 @@ The LLM's role is symmetric and total: it assisted in writing the engine, it wri
 the engine executes, and it reads the linter's complaints about the gap between them. Human
 intent enters once, in natural language, on the object it governs.
 
+## The diff is the review: Knuth's literate programming, realized
+
+That two-line guard/guard_js pair **shows up as a reviewable diff in a PR** — the compiled
+code lands in the trampoline net like every other change. And it's an unusually easy review,
+because of **colocation**: the generated code sits directly under the natural-language
+definition that specified it, on the object that owns it, in the room where that object lives,
+among the other objects and characters it interlocks and dovetails with. A reviewer — human or
+LLM — has the spec and the implementation in the same glance and the whole activation context
+one directory listing away. Syncing code with intent stops being archaeology; it's a two-line
+comparison.
+
+The English is the durable half. When the adventure compiler's runtime model, API, or naming
+conventions change, the compiled `_js`/`_py` fields are **invalidated and regenerated** against
+the new contract — build artifacts refreshed from source, where the source is the sentence.
+The intent survives every engine migration untouched.
+
+And because the substrate is YAML jazz, the intent channel has unlimited bandwidth: an
+end-of-line comment when a phrase is enough; block comments of any depth when the author's
+reasoning needs paragraphs; and, accumulating in place, the **history of the collaboration
+itself** — edits, transformations, LLM-assisted generations, and the back-and-forth dialog
+where humans and LLMs asked and answered questions, discussed the design, and resolved the
+ambiguities. This is **Knuth's literate programming, realized**: the program as an explanation
+addressed to human beings, with executable code interleaved. Knuth needed WEB to tangle code
+one way and weave documentation the other; here the weave is the English and the comments, the
+tangle is the compiled expression, and they never separate — same file, same object, same
+line of sight. The compiler even reads the *documentation* (that's what the natural-language
+guard is) and complains when the code drifts from it, which is the literate-programming dream
+Knuth couldn't mechanize in 1984: prose that the toolchain holds the code accountable to.
+
 ## The Dublin Core that has already precipitated
 
 The strict core isn't designed yet — but pieces of it have *precipitated* from play, which is
