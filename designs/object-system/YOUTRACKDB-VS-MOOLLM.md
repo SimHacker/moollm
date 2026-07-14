@@ -185,10 +185,12 @@ joined the team.
 ### 10. Inheriting from YouTrackDB — the machine-language move
 
 Self's designers called it the power of simplicity because the minimal core — objects, slots,
-delegation — is a **machine language for implementing other object systems**. That is how MOOLLM
-should relate to YouTrackDB: not compete with it, not copy it, but *inherit from it* — build
-hybrids, adaptors, bridges, emulators, and drivers on top of the simple selfish core, without
-making the core less simple. The kernel stays microcode; other object systems become libraries.
+delegation — is an **object-oriented RISC instruction set for implementing other object
+systems**: three orthogonal instructions (clone, override, delegate) that any CISC object model
+lowers to. That is how MOOLLM should relate to YouTrackDB: not compete with it, not copy it, but
+*inherit from it* — build hybrids, adaptors, bridges, emulators, and drivers on top of the simple
+selfish core, without making the core less simple. The kernel stays RISC; other object systems
+become compiled libraries.
 
 And here is the move no previous object system could make: **MOOLLM doesn't have to implement
 what it inherits, because the LLM already knows it.** These capabilities and this knowledge
@@ -202,7 +204,7 @@ signatures, calling conventions, wire formats**. A parent slot can name any of t
 parents:
   - ../../skills/object                                  # concrete — follow the file
   - "Smalltalk-80 object model"                          # latent — message send, metaclasses
-  - "Self prototypal inheritance"                        # latent — the microcode itself
+  - "Self prototypal inheritance"                        # latent — the RISC core itself
   - "NeWS object-oriented PostScript, TNT class system"  # latent — dict-stack delegation, /Parents MI
   - "US Patent 5187786A"                                 # latent — Densmore-Rosenthal: the Unix
                                                          #   filesystem-as-class-hierarchy, SEND via shell

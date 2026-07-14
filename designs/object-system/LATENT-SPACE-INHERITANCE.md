@@ -98,7 +98,8 @@ filesystem-as-class-hierarchy, `SEND` via shell and all. The reflective tower bo
 *describing itself in terms the LLM already knows* — we aren't inventing these capabilities and
 defining them from scratch; we're addressing them where they already live.
 
-This is what makes the Self core a practical machine language for other object systems: hybrids,
+This is what makes the Self core a practical object-oriented RISC instruction set for other
+object systems: hybrids,
 adaptors, bridges, emulators, and CLI/programmatic drivers get built by pointing at the target
 system's name rather than reimplementing it. Worked through concretely against a real database in
 [YOUTRACKDB-VS-MOOLLM.md §10](YOUTRACKDB-VS-MOOLLM.md#10-inheriting-from-youtrackdb--the-machine-language-move).

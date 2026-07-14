@@ -33,9 +33,23 @@ instance; copying it instantiates a sibling
 
 ## Why Self and not any of its descendants
 
-Self is **microcode for object-oriented programming** — simpler than every descendant, powerful
-enough to express all of them. The LLM has seen all the descendants extensively in training data,
-and Self's clone/override/delegate is the substrate that unifies them
+Self is an **object-oriented RISC instruction set** — a small, orthogonal core (clone, override,
+delegate) that every CISC-y descendant compiles down to. Simpler than all of them, powerful
+enough to express all of them, fast *because* it's minimal — the same bet RISC made against
+microcoded instruction sets.
+
+And that's not our metaphor — it's Self's actual parentage, and we inherit the heritage. Before
+Self, Ungar was an architect of **SOAR — Smalltalk On A RISC** (Berkeley, 1983–85): David
+Patterson and Carlo Séquin's RISC I/II project turned toward running Smalltalk-80 on a reduced
+instruction set, with Ungar's thesis (*The Design and Evaluation of a High Performance Smalltalk
+System*, 1986 ACM Doctoral Dissertation Award) contributing generation scavenging and the
+measurement discipline — find the small set of primitives that carries the whole dynamic object
+system, and make those fast. Self is SOAR's lesson applied to language design: strip the object
+model itself down to its RISC core. MOOLLM's `parents:` list pulls in that whole tradition —
+Patterson, Séquin, Ungar, the SOAR team — by name.
+
+The LLM has seen all the descendants extensively in training data,
+and Self's three instructions are the target they all lower to
 (from [SKILL-SECURITY-ARCHITECTURE](../SKILL-SECURITY-ARCHITECTURE.md)):
 
 - **Java / modern JS class syntax** — prototype becomes the class, clones become instances
@@ -62,11 +76,92 @@ prototypes"*) and `PROTOTYPES.yml` define ordered multiple parents with first-ma
 A skill can inherit from a character prototype and a room prototype simultaneously. Flavors-style
 mixins with none of the MRO metaphysics: sweep the list left to right, first slot found wins.
 
+## The Lisp lineage — Flavors, CLOS, and the MOP
+
+The other heritage we inherit by name is the Lisp Machine line — the gloriously CISC end of the
+spectrum whose lessons Self's RISC core was partly a reaction to, and which MOOLLM gets back as
+*libraries* over that core:
+
+- **Lisp Machine Flavors** (Howard Cannon, MIT, ~1979, named for the mix-in flavors at Steve's
+  Ice Cream near MIT) — invented **mixins** and method combination: `:before`/`:after`/`:around`
+  daemons composing behavior from multiple parents. MOOLLM's ordered `parents:` list is Flavors'
+  mixin list; MOOLLM's ambient skills (no-ai-slop et al., always-on constraints wrapping every
+  response) are `:around` methods in everything's combination.
+- **New Flavors** (David A. Moon, Symbolics, 1986) and **CommonLoops** (Bobrow, Kiczales et al.,
+  Xerox PARC) merged into **CLOS** (Bobrow, DeMichiel, Gabriel, Keene, Kiczales, Moon) — generic
+  functions and **multiple dispatch**: methods live outside classes and specialize on *all* their
+  arguments. MOOLLM's dispatch is the limit case: the LLM specializes on the entire context —
+  every argument, the room, the reading order, the ambient constraints — a generic function over
+  the whole world-state.
+- **Class precedence lists** — CLOS linearizes the diamond (later refined as Dylan's C3, now in
+  Python). MOOLLM keeps the *ordered-parents* idea but drops the linearization metaphysics:
+  first-match-wins left to right, and where slots genuinely blend, the reader reconciles in
+  context instead of an algorithm picking one ancestor.
+- **The MOP** (Kiczales, des Rivières, Bobrow — *The Art of the Metaobject Protocol*, 1991) —
+  the object system implemented *in itself*, its classes and dispatch reified as objects you can
+  subclass to change how the system works. MOOLLM has an implicit MOP, documented in
+  [DIRECTORY-AS-IUNKNOWN §Meta-Object Protocol](../DIRECTORY-AS-IUNKNOWN.md): how interfaces are
+  found (file patterns), how inheritance resolves (`inherits:`/`parents:` in YAML), how dispatch
+  works (skill loading and composition), how to extend (drop files in extension directories).
+  The kernel is the metaobject layer — and it's made of the same stuff as everything else:
+  editable files in the same repo, no privileged meta-level substrate. AMOP's dream of an "open
+  implementation" arrives trivially when the implementation is prose the interpreter reads.
+
+The same move as everywhere else in this series: we don't reimplement method combination,
+multiple dispatch, or metaobject protocols — we **inherit that heritage by saying the names**
+(Cannon, Moon, Bobrow, Kiczales; "Flavors mixins", "CLOS generic functions", "AMOP"), and the
+latent prototypes come in carrying their whole tradition
+([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)). ScriptX (Kaleida's CLOS-descended
+multimedia language) rides the same K-line.
+
+## Anti-taxonomy
+
 Anti-taxonomy ([prototype GLANCE](../../skills/prototype/GLANCE.yml)): not trees
 (`Thing → Animal → Dog → Labrador`) but graphs
 (`biscuit ←→ labrador-traits ←→ friendly-traits ←→ palm`). Everything is concrete. Nothing is
 abstract — until you need an abstract parent, and then you name one from latent space
 ([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)).
+
+## What MOOLLM adds to Anthropic's skill model
+
+Anthropic Skills are documentation-first tool definitions — a solid foundation MOOLLM
+gratefully builds on ([skills/skill/](../../skills/skill/SKILL.md) §"Foundation: What We Share
+with Anthropic" lists all eight extensions). The ones that matter for the object system:
+
+**Instantiation.** An Anthropic skill is instructions; a MOOLLM skill is a **prototype that
+creates instances**. `INSTANTIATE` = clone: `skills/experiment/` carries templates and an
+`experiments/` directory of living instances; each run is an object with its own state files,
+history, and overrides. The skill is class AND instance the Self way — a full working object
+that is also the template ([artifactory](../../skills/artifactory/)).
+
+**Multiple inheritance.** Skills declare ordered `parents:`/`inherits:` (concrete paths and
+latent-space names alike) instead of standing alone — the whole subject of
+[LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md).
+
+**Multiple interfaces per directory — the COM/OLE/ActiveX reading.** The UPPERCASE marker files
+in a directory are its exported interfaces, and checking for one is `QueryInterface`:
+`test -e <dir>/CHARACTER.yml` is `QueryInterface(IID_ICharacter, &ptr)`
+([file-system-object](../../skills/file-system-object/SKILL.md),
+[DIRECTORY-AS-IUNKNOWN](../DIRECTORY-AS-IUNKNOWN.md)). One directory exports SKILL + CARD +
+GLANCE + README + CHARACTER + PROTOTYPES simultaneously — classic COM multiple-interface
+composition with readable names instead of UUIDs, `ls` as the free type-checker, no registry.
+OLE's insight rides along: objects embed in other objects' containers and stay live, the way a
+skill instance lives inside another skill's directory.
+
+**Interface composition makes new kinds of objects.** Because interfaces are files, dropping one
+file into a directory *adds a facet to a live object*. The canonical example: a directory with
+`ROOM.yml` is a place; add `CHARACTER.yml` **to the same directory** and it becomes a **character
+room** — a room that is somebody. A living room in the Pee-wee's Playhouse sense: like Chairry,
+Magic Screen, and Conky, the room itself is a character you can talk to, and it **watches and
+remembers what goes on inside it** — its state files (guestbook, photos, session logs, LOG.md)
+are its memory slots, appended as the world plays out inside it. Adventure-4's pub is exactly
+this: a room-object with a personality interface, whose subdirectories (guestbook, photos,
+rooms) are the things it remembers. Aggregation COM never made easy is one `cp` here.
+
+**State files as first-class slots.** Anthropic skills are stateless instructions; MOOLLM
+objects persist — `ROOM.yml`, `CHARACTER.yml`, `RUN.yml`, `RELATIONSHIPS.yml`, session logs.
+The three-tier split (platform skill → narrative instance → state persistence) means the
+prototype, the story, and the memory are separate files with separate lifecycles, all in git.
 
 ## Reflection is cheap, and that changes behavior
 
