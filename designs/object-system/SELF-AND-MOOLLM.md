@@ -229,6 +229,46 @@ objects persist — `ROOM.yml`, `CHARACTER.yml`, `RUN.yml`, `RELATIONSHIPS.yml`,
 The three-tier split (platform skill → narrative instance → state persistence) means the
 prototype, the story, and the memory are separate files with separate lifecycles, all in git.
 
+## CARD.yml — interface definition AND dispatch table, inherited from The Sims
+
+The CARD deserves its own entry, because it's two classical artifacts fused. Read one way, it's
+an **interface definition** — the IDL/TypeLib role, dispatch metadata describing methods,
+properties, state, and inheritance, binary in COM but human-readable YAML here (the
+[card skill's pun stack](../../skills/card/SKILL.md) makes the lineage explicit: HyperCard's
+navigable unit, Microsoft's Type Library, Hewitt's actor signature, a dispatchable thread, a
+trading card). Read the other way, it's a **dispatch table for behavior selection** — and that
+half is inherited from the most successful plug-together object ecosystem ever shipped:
+**The Sims' advertisements**.
+
+The Sims mechanic ([sims-object-model](../sims/sims-object-model.md),
+[sims-find-best-action](../sims/sims-find-best-action.md)): every object broadcasts
+advertisements — "I satisfy hunger," "I provide fun" — with **procedural scoring** against the
+Sim's current motives and personality. Autonomous behavior is Find Best Action over the scored
+advertisements; **user-driven behavior is the same interaction set surfaced through pie menus**
+when you click the object. One declaration, two dispatch paths: the engine scores it for
+autonomy, the player picks it from the pie. That's why the ecosystem was plug-together —
+a new object drops into any lot and *just works*, because it carries its own advertisement
+table; no central registry of behaviors, no engine patch. Thousands of community objects later,
+the architecture had proven that advertisement-based dispatch scales socially, not just
+technically.
+
+MOOLLM's CARD advertisements are that mechanism, uplifted. Each advertisement carries a
+`score:` and a `condition:` ("PET-THE-CAT: score 80, condition: cat is present"), and the card
+skill's layout rule — **advertisements first, before methods** — is Sims engine wisdom
+translated to attention budgets: the LLM, like a Sim walking a lot, evaluates what's on offer
+before it reads how anything works. The two dispatch paths survive intact: the LLM scoring
+advertisements in context is Find Best Action (autonomy); a human browsing a CARD and picking an
+action is the pie menu (direct manipulation). And the scoring got the same upgrade Drescher's
+schemas got: The Sims scored advertisements with arithmetic over motive curves, MOOLLM scores
+them with a reader that understands the *situation* — procedural scoring generalized to semantic
+scoring, with the numeric `score:` kept as the prior.
+
+The through-line is personal and literal: pie menus in The Sims and advertisements-as-interfaces
+both trace to the same hands that built TNT's pie menus and HyperLook (see the NeWS lineage
+below) — and Will Wright's advertisement architecture was right in 1996 for the same reason it's
+right for LLMs now: **put the dispatch information on the object, in the vocabulary of the
+chooser.**
+
 ## Reflection is cheap, and that changes behavior
 
 Ungar's point: in a classy language reflection is metaprogramming; in Self it's slot access. In
