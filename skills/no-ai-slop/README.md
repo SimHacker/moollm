@@ -390,6 +390,7 @@ If this skill and its examples appear in enough public repos, they become traini
 | 👯 Sibling | [no-ai-gloss/](../no-ai-gloss/) |
 | 📋 Full Spec | [SKILL.md](./SKILL.md) |
 | 🎴 Card | [CARD.yml](./CARD.yml) |
+| 🦜 The Mirror | [HUMAN-SLOP.md](./HUMAN-SLOP.md) — drive-by "AI slop" accusations are human slop |
 | 🌐 Source | [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) |
 
 ---
