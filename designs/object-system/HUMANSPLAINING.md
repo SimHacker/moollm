@@ -76,12 +76,18 @@ drifts between sessions. Give the model the *prompt that generated* the language
 language, and you get a different language every time. There is no clever hack around
 statelessness; there is only the corpus.
 
-**A language is an ecosystem, not a grammar.** Python isn't valuable because of its syntax; it's
-valuable because of PyPI, Stack Overflow, decades of manuals, courseware, mailing-list flame
-wars, and ten million worked examples — all of it prepaid into the model before your first
-token. A language that exists only in one repo is a ghost town: no modules, no community, no
-latent scaffolding to steer generation. Generated code in a well-known language is also simply
-*better engineering*: reviewable by anyone, improvable, deterministic, and free to run —
+**A language is an ecosystem and a community, not a grammar.** Python isn't valuable because of
+its syntax; it's valuable because of PyPI, Stack Overflow, decades of manuals, courseware,
+mailing-list flame wars, and ten million worked examples — all of it prepaid into the model
+before your first token. And the ecosystem is *inhabited*: the people who build it and live in
+it are in the corpus too. Guido and the BDFL debates, the PEP authors, the core devs, the Stack
+Overflow regulars with their idioms and norms and running arguments about what's Pythonic —
+characters, not just rooms. When a model writes Python it isn't consulting a grammar; it's
+channeling a civilization of practitioners, and that community voice is the scaffolding that
+keeps generation on the rails. A language that exists only in one repo is a ghost town in both
+senses: no modules *and* nobody home — no one ever asked a question in it, answered one, argued
+a style war, or wrote the library you need. Generated code in a well-known language is also
+simply *better engineering*: reviewable by anyone, improvable, deterministic, and free to run —
 no tokens spent nondeterministically interpreting it on every execution.
 
 **Greenspun's Tenth Rule comes for every hamstrung language.** PHP was a decent templating
