@@ -140,6 +140,30 @@ handful of required, validated, executable fields (the Dublin Core), with everyt
 as overlay. The linter then enforces the core mechanically and hands the overlay to the LLM,
 which is the division of labor the pipeline already practices informally.
 
+## The core speaks gamer: borrow words that are already load-bearing
+
+Look at that vocabulary row again. **Buff. Room. Inventory. Guard. Advertisement.** None of
+these words were invented here, and that's the design: the strict core's keywords are borrowed
+from fields — gaming above all — where decades of play have already defined them with
+precision. Say "buff" and you inherit stacking rules, durations, expiry, dispelling, stat
+modifiers, and every argument about them from D&D to World of Warcraft; the adventure runtime's
+`modify_effective`/`multiply_effective` machinery is just that inheritance made mechanical.
+Say "room" and you inherit forty years of adventure and MUD semantics; say "advertisement" and
+you inherit The Sims' entire dispatch architecture. Each Dublin Core keyword is therefore
+**dual-audience by construction**: the validating engine sees a reserved word with a schema,
+and the LLM sees a genre. The strict core stays strict *and* latent-activated — no
+humansplaining tax on the core itself. (This is the naming discipline from
+[LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) applied to schema design: never mint a
+GUID where a well-worn gaming term already carries the semantics.)
+
+The borrow that shapes the plan itself: the **technology tree**. The lift-phase design
+documents shouldn't be a flat folder; they should be a tech tree of **unlockable runbooks** —
+a dependency network where each design node points to the next layers of the plan, and
+*implementing* a lower level is what unlocks the documents above it. Research completes when
+the prerequisite code lands; the reward is the pointer to what's now buildable. That's the
+semantic mipmap extended in time: the pyramid gates reading depth by relevance, the tech tree
+gates it by progress — and every gamer, human or LLM, already knows exactly how to read one.
+
 ## Lineage: the (good) Scott Adams
 
 The application space is no accident. The adventure compiler descends from a conversation with
