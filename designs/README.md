@@ -92,6 +92,7 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [object-system/SELF-AND-MOOLLM.md](./object-system/SELF-AND-MOOLLM.md) | Self prototypes over the filesystem; Self as microcode for every OO descendant |
 | [object-system/LATENT-SPACE-INHERITANCE.md](./object-system/LATENT-SPACE-INHERITANCE.md) | **Core discovery:** multiple inheritance from named concepts in training data — the LLM as universal resolver |
 | [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB vs prototype/latent object model |
+| [object-system/LIVE-OBJECTS-EXAMPLES.md](./object-system/LIVE-OBJECTS-EXAMPLES.md) | The system running: Soul City / MicropolisCore + adventure-4 |
 
 ---
 

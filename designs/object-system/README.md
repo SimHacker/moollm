@@ -14,6 +14,7 @@ the most novel thing… and the thing least specific to cauldron."
 | [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) | The Self lineage — objects, slots, delegation; filesystem as object graph; the NeWS/TNT/HyperLook/Densmore–Rosenthal-patent parents MOOLLM literally inherits from |
 | [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) | **The core discovery** — multiple inheritance from concrete files AND named concepts in training data; the name is the activation |
 | [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) | Case study — JetBrains' class-based OO graph DB vs MOOLLM's prototype/latent object model |
+| [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) | The system running in public — Soul City / [MicropolisCore](https://github.com/SimHacker/MicropolisCore) (souls, content, human+LLM collaboration) and adventure-4 (built-in world) |
 
 Skills implementing this: [prototype](../../skills/prototype/) · [object](../../skills/object/) ·
 [k-lines](../../skills/k-lines/) · [incarnation](../../skills/incarnation/) ·
