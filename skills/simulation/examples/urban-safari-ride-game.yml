@@ -1,13 +1,13 @@
 # Urban eBike Safari — steering pie ride game (MOOLLM cross-links)
 topic:
   id: urban-safari-ride-game
-  doc_wwsff: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md
+  doc_wwsff: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystick-pie-network.md
   product: https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/ideas/urban-ebike-safari.yml
 
 continuous_game:
   players: [rider, ai]
   moves:
-    rider: [pedal, steer, voice, voystar_warble, set_destination, veto_guess]
+    rider: [pedal, steer, voice, voystick_warble, set_destination, veto_guess]
     ai: [guess_where_going, suggest_poi, narrate_on_proximity, answer_questions]
   never_stops: true
 

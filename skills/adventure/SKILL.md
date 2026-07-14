@@ -440,7 +440,7 @@ Adventure commands are **options** in Sutton's sense — semi-MDP macros, not it
 
 Full treatment: [simulation/ONE-STEP-TRAP.md](../simulation/ONE-STEP-TRAP.md) · [examples/one-step-trap.yml](../simulation/examples/one-step-trap.yml)
 
-**Field ride game:** continuous AI guess/suggest; pie-menu network by biking; VoyStick + steering law — [urban-safari-ride-game.yml](../simulation/examples/urban-safari-ride-game.yml) · [WWSFF room](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md)
+**Field ride game:** continuous AI guess/suggest; pie-menu network by biking; VoyStick + steering law — [urban-safari-ride-game.yml](../simulation/examples/urban-safari-ride-game.yml) · [WWSFF room](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystick-pie-network.md)
 
 ---
 

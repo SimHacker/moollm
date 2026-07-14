@@ -82,6 +82,19 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 
 ---
 
+### Object System (Self, latent-space inheritance)
+
+The **[object-system/](./object-system/)** subdirectory documents MOOLLM's object model:
+
+| Document | Description |
+|----------|-------------|
+| [object-system/README.md](./object-system/README.md) | Index + skill/kernel cross-references |
+| [object-system/SELF-AND-MOOLLM.md](./object-system/SELF-AND-MOOLLM.md) | Self prototypes over the filesystem; Self as microcode for every OO descendant |
+| [object-system/LATENT-SPACE-INHERITANCE.md](./object-system/LATENT-SPACE-INHERITANCE.md) | **Core discovery:** multiple inheritance from named concepts in training data — the LLM as universal resolver |
+| [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB vs prototype/latent object model |
+
+---
+
 ### MOOCO — MOO Custom Orchestrator (runtime layer)
 
 | Document | Description |

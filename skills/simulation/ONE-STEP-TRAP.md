@@ -60,7 +60,7 @@ Don Hopkins source room: [sutton-one-step-trap.md](https://github.com/SimHacker/
 - Virtual focus hops graph without exposing structure
 - StoryMaker / iLoci / DreamScape lineage = options on places, not tile physics
 
-**Ride game (steering + pie + VoyStick):** [urban-safari-steering-voystar-pie-network.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystar-pie-network.md) · [examples/urban-safari-ride-game.yml](examples/urban-safari-ride-game.yml)
+**Ride game (steering + pie + VoyStick):** [urban-safari-steering-voystick-pie-network.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/urban-safari-steering-voystick-pie-network.md) · [examples/urban-safari-ride-game.yml](examples/urban-safari-ride-game.yml)
 
 Continuous AI guess/suggest; pie-menu network navigated by biking; handlebar steering = steering law; VoyStick warble for wedge selection outdoors.
 
