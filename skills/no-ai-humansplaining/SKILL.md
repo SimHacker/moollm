@@ -148,11 +148,11 @@ CATCH "attaching the file" → ANCHOR [the three lines]
 Skillscript (Show HN, July 2026): a small declarative language designed for
 agents to write and humans to approve. Legitimate security goals — but the
 language move pays the humansplaining tax forever: no training-data presence,
-no ecosystem, definition riding along in every prompt. The critique that named
-the sin: *"...blowing away your context window with mansplaining your invented
-language over and over and over again to an LLM who knows Python deeper than
-any human being ever will."* Full analysis with the steelman:
-[HUMANSPLAINING.md](../../designs/object-system/HUMANSPLAINING.md).
+no ecosystem, the entire language definition, tutorials, examples, and
+fictional StackOverflow discussions riding along in every prompt, humansplained
+over and over to a model that knows Python deeper than any human ever will,
+better than Linus knows git or Gosling knows Java. Full manifesto with the
+steelman: [HUMANSPLAINING.md](../../designs/object-system/HUMANSPLAINING.md).
 
 ---
 

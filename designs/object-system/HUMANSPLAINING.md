@@ -49,37 +49,68 @@ The GUID observation from [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) is the same acco
 readable name is a K-line, an opaque identifier is a cache miss — and a respelled manual is a
 cache miss you *chose*.
 
-## Case study: inventing languages for LLMs (Skillscript, HN, July 2026)
+## The manifesto: lean into the training data
 
-[Show HN: Skillscript](https://github.com/sshwarts/skillscript) — a small declarative language
-designed for agents to write and humans to approve. The security goals are legitimate (see
-below). But the language-design move triggers the humansplaining tax, and the HN thread
-captured the argument in the wild:
+The occasion that crystallized all of this was a Show HN in July 2026 for Skillscript — a small
+declarative language designed for agents to write and humans to approve, with genuinely good
+security instincts (steelmanned below). The discussion that followed produced the argument in
+full, synthesized here so nobody has to go read a comment thread. The mountain has come to
+Mohammed; this document is self-contained.
 
-> "Unless you're Elon Musk or Hitler and can force all LLM developers to include your new language in their training data, it's always much better to lean into the existing training and well known languages. … Inventing a new language means now you have to include the entire language definition, tutorials, examples, and fictional StackOverflow discussions in every prompt, blowing away your context window with humansplaining your invented language over and over and over again to an LLM who knows Python deeper than any human being ever will, better than Linus knows git, or Gosling knows Java." — Don Hopkins, in the thread
+**Nobody can decree their way into the corpus.** You cannot force the world's LLM developers to
+include your new language in their training data — so lean into the training that already
+exists and the languages everyone knows. Invent a new language for LLMs and you sign up to
+include the entire language definition, the tutorials, the examples, and the fictional
+StackOverflow discussions in every single prompt — blowing away your context window
+humansplaining your invented language, over and over and over, to an LLM that knows Python
+deeper than any human being ever will, better than Linus knows git or Gosling knows Java. If an
+LLM had feelings to hurt and eyes to roll, its extraocular muscles would be exquisitely tender
+from acute bilateral myalgia.
 
-(The coinage sharpened afterward: not mansplaining — **humansplaining**.)
+**Generating a language is not programming in one.** Models are delightful at inventing
+languages on request — and that's the trap, because they'll cheerfully play along with a plan
+they should warn you about. A model doesn't learn from your prompts; each call starts from a
+clean slate, and nothing you show it changes the weights. The definition must ride along every
+time, and when the context compacts, the definition distorts — so the "same" language quietly
+drifts between sessions. Give the model the *prompt that generated* the language instead of the
+language, and you get a different language every time. There is no clever hack around
+statelessness; there is only the corpus.
 
-The supporting points from the same thread, kept because they generalize:
+**A language is an ecosystem, not a grammar.** Python isn't valuable because of its syntax; it's
+valuable because of PyPI, Stack Overflow, decades of manuals, courseware, mailing-list flame
+wars, and ten million worked examples — all of it prepaid into the model before your first
+token. A language that exists only in one repo is a ghost town: no modules, no community, no
+latent scaffolding to steer generation. Generated code in a well-known language is also simply
+*better engineering*: reviewable by anyone, improvable, deterministic, and free to run —
+no tokens spent nondeterministically interpreting it on every execution.
 
-- **No ecosystem or community.** A language that exists only in your repo has no PyPI, no Stack Overflow, no ten thousand worked examples — none of the latent scaffolding that makes LLM codegen reliable.
-- **Models don't learn from your prompts.** Each call starts cold. The language definition must
-ride along every time, and when the context compacts, the definition distorts — so the "same"
-language drifts between sessions. You can't wish your way out of statelessness.
-- **Greenspun's Tenth Rule, LLM edition.** The PHP/Smarty parable: hamstring a capable language to protect users from power, then watch the users hack the power back in as an ad hoc, informally-specified, bug-ridden dialect. Any sufficiently complicated agent DSL contains a slow implementation of half of Common Lisp / Python.
-- **Design for humans; the training data follows.** New languages for *people* are fine — if
-they're good, they get written about, discussed, taught, and eventually land in the corpus.
-A language designed *only for LLMs* can never take that path; it is structurally condemned to
-be humansplained forever.
+**Greenspun's Tenth Rule comes for every hamstrung language.** PHP was a decent templating
+language, and none of its flaws had to do with templating. But the industry decided designers
+couldn't be trusted with foreach loops, invented deliberately weakened template languages like
+Smarty inside it — and then the designers needed variables, macros, conditionals, and functions
+anyway, so those were hacked back in with quirky syntax nothing like the host language.
+Greenspun's Tenth Rule on steroids, a swarm of locusts sent to smite the sinners: any
+sufficiently complicated agent DSL will grow an ad hoc, informally-specified, bug-ridden, slow
+implementation of half of Python. Constraining the grammar doesn't remove the need for power;
+it just guarantees the power comes back ugly.
+
+**Design for humans; the training data follows.** This is not an argument against new
+programming languages — the world should keep making those, for *people*. If a language is good
+enough to catch on, it gets written in, asked about, taught, flamed about on Hacker News, and
+eventually lands in the corpus, where every future model knows it for free. That is the one
+road into latent space, and a language designed only for LLMs structurally cannot take it: it
+is condemned to be humansplained in every prompt, forever — a recurring bill in money,
+electricity, and carbon that no other design decision can claw back.
 
 **The steelman, honestly.** Skillscript's real goals — default-deny allowlists,
 connector-mediated credentials, an effect surface a non-programmer can approve, deterministic
-replay — are good goals. The critique is not "sandboxing is bad"; it's that **capability
-confinement belongs in the runtime, not the grammar**. MOOLLM's split: the languages stay
-latent (Python, bash, YAML, English — maximally represented, zero respelling), while permissions
-live in a policy layer ([MOOAM](../MOOAM.md), reviewed diffs, git as the audit log). Confine
-what code *may touch*, not what the model *may say*. You get the approval surface without
-paying the per-prompt language tax.
+replay — are good goals, and the builder deserves credit for taking agent safety seriously. The
+disagreement is about *where the constraint lives*: **capability confinement belongs in the
+runtime, not the grammar**. MOOLLM's split: the languages stay latent (Python, bash, YAML,
+English — maximally represented, zero respelling), while permissions live in a policy layer
+([MOOAM](../MOOAM.md), reviewed diffs, git as the audit log). Confine what code *may touch*,
+not what the model *may say*. You get the approval surface without paying the per-prompt
+language tax.
 
 ## What is NOT humansplaining
 
