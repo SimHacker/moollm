@@ -94,6 +94,7 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB, compared in order to inherit from it |
 | [object-system/LIVE-OBJECTS-EXAMPLES.md](./object-system/LIVE-OBJECTS-EXAMPLES.md) | The system running: Soul City / MicropolisCore + adventure-4 |
 | [object-system/HUMANSPLAINING.md](./object-system/HUMANSPLAINING.md) | The anti-pattern: wasting tokens telling an LLM what it already knows |
+| [object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](./object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) | Strict executable core + rich overlay; the adventure compiler as the leading instance |
 | [object-system/ANNOTATED-BIBLIOGRAPHY.md](./object-system/ANNOTATED-BIBLIOGRAPHY.md) | Cited YAML sources annotated as human-readable prose |
 
 ---

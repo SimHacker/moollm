@@ -141,7 +141,10 @@ If names are pointers into latent space, then **naming is API design**:
   the K-line ("Mercury the Roman messenger god") — one clause, still cheaper than an essay.
 - **Not portable to non-LLM readers.** A human can follow a path; a name asks the human to know
   the reference too. That's a feature in practice (the docs read like culture, not boilerplate)
-  but it's a real cost for outsiders.
+  but it's a real cost for outsiders — and for deterministic engines, which can't resolve names
+  at all. The planned answer is the Dublin Core move: a strict machine-executable core under
+  the rich overlay, being discovered instance-first through the adventure compiler
+  ([DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md)).
 
 ## Why this is the load-bearing concept
 
