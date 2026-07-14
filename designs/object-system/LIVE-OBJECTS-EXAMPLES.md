@@ -19,6 +19,16 @@ MOOLLM's object system meets running games: the open-source Micropolis (SimCity)
 TypeScript/SvelteKit stack, and the Soul City project. One application, three layers of the
 object system at work.
 
+The name is an homage to the historic
+[Soul City, North Carolina](https://en.wikipedia.org/wiki/Soul_City,_North_Carolina) — civil
+rights leader Floyd McKissick's planned community in Warren County, a Black-built new town
+launched in 1969 and, in one of history's stranger ironies, bankrolled by the Nixon
+administration: a $14 million HUD loan guarantee under Nixon's "Black capitalism" program,
+after McKissick crossed party lines to endorse him. Jesse Helms and hostile audits starved it,
+HUD foreclosed in 1979, and the dream was buried before it could prove itself. Building a city
+of souls on top of SimCity — the game about what cities could be — is a small way of keeping
+that name alive and unfinished business open.
+
 ### Souls: bringing game characters to life as objects
 
 [`apps/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/soul-angel) is
