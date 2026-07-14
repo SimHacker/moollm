@@ -58,6 +58,10 @@ mechanism, an ordered parent list; no separate machinery for "formal" vs "inspir
 
 **Don't respell what the LLM already knows.** A parent slot is a pointer. If the pointee is in
 the filesystem, follow it. If it's in latent space — also a pointer. The name is the activation.
+The anti-pattern has a name now: **[HUMANSPLAINING](HUMANSPLAINING.md)** — wasting context
+tokens telling an LLM what its training already contains. It's AI slop's mirror image: slop
+pollutes human attention on the way out; humansplaining pollutes the context window on the way
+in.
 
 ## Multiple inheritance of abstract concepts
 
