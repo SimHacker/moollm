@@ -1,5 +1,8 @@
 # Humansplaining — wasting tokens telling an LLM what it already knows
 
+> **Novel jargon is a cache miss that never fills.** A made-up term has no latent prototype;
+> every use pays full explanation cost, forever.
+
 **Humansplaining** (n.): condescendingly explaining to an LLM, at length, in its own context
 window, something already represented in its latent space. The canonical absurd case: pasting
 the Python manual and the CPython interpreter source into a prompt asking about Python syntax
@@ -94,6 +97,14 @@ nobody has reified in the corpus). Legitimate spelling-out:
 
 Say **HUMANSPLAINING** to invoke all of this: the sin, the economics, the Skillscript case, the
 test. One word; the rest is in latent space now — or will be, once this file has done its work.
+
+Yes, the term is itself a coinage — but it's not a cache miss, and the difference is the whole
+lesson. It's a **compound of two latent prototypes**: *mansplaining* (Solnit's essay, a decade of
+usage, the full semantics of condescending redundant explanation prepaid) times the human→AI
+direction flip. The word decompresses on first sight with zero explanation tokens. That's the
+naming discipline applied to naming itself: good coinages are latent-space arithmetic
+(mansplaining − man + human, aimed at a machine); bad coinages are opaque handles that must be
+humansplained forever.
 
 ---
 
