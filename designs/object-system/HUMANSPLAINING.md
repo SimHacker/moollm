@@ -118,6 +118,16 @@ English — maximally represented, zero respelling), while permissions live in a
 not what the model *may say*. You get the approval surface without paying the per-prompt
 language tax.
 
+And the safety layer you already have is better than any grammar: the git repo, GitHub, and
+the PR code-review workflow are a **trampoline net** under everyone who jumps — catching your
+mistakes, your contributors' mistakes, and the LLM's, whether the failure is malicious intent,
+stupid unintentional error, hallucination, a brain fart, or the cat walking across the
+keyboard. Every change is a diff someone can read, a commit someone can revert, a branch that
+never touched main, a review that caught it at the boundary. A constrained language tries to
+make mistakes *inexpressible* and fails (Greenspun, above); the net makes them *survivable and
+reversible*, which is the property you actually need — and it works identically for human and
+machine authors, because the net doesn't care who was bouncing.
+
 ## What is NOT humansplaining
 
 The test is always the same: **is the pointee in latent space?** If yes, point. If no, spell it
