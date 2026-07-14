@@ -11,7 +11,7 @@ the most novel thing… and the thing least specific to cauldron."
 
 | Doc | What |
 |-----|------|
-| [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) | The Self lineage — objects, slots, delegation; filesystem as object graph; why Self is the microcode |
+| [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) | The Self lineage — objects, slots, delegation; filesystem as object graph; the NeWS/TNT/HyperLook/Densmore–Rosenthal-patent parents MOOLLM literally inherits from |
 | [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) | **The core discovery** — multiple inheritance from concrete files AND named concepts in training data; the name is the activation |
 | [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) | Case study — JetBrains' class-based OO graph DB vs MOOLLM's prototype/latent object model |
 

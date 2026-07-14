@@ -41,6 +41,8 @@ and Self's clone/override/delegate is the substrate that unifies them
 - **Java / modern JS class syntax** — prototype becomes the class, clones become instances
 - **Original JS prototype chain** — `Object.create()` is literally Self delegation (Eich took
   Self's core idea and crippled it: single parent, `new`, `this` confusion)
+- **NeWS object-oriented PostScript / TNT** — dict-stack delegation, ordered `/Parents` lists,
+  multiple inheritance in production window-system code (see the lineage section below)
 - **HyperCard** — button → card → stack delegation; MOOLLM object → room → parent directory
 - **CLOS / ScriptX generics** — multiple dispatch falls out of multiple parent slots
 - **Lisp Machine Flavors** — mixins are just multiple parents
@@ -75,13 +77,60 @@ cheap, it actually happens. See the constellation model in
 [cauldron META-PLAN §1](../../skills/cauldron/META-PLAN.md): reify what's there; absence is
 honesty, not a gap.
 
-## Prior art in the filesystem-as-object-graph
+## The NeWS lineage — parents MOOLLM inherits from literally
 
-[DIRECTORY-AS-OBJECT](../../kernel/DIRECTORY-AS-OBJECT.md) cites the Densmore–Rosenthal patent
-([US5187786A, 1991](https://patents.google.com/patent/US5187786A/en)) — NeWS-era proof the shape
-works. [GARNET-AMULET-PROTOTYPE-SYSTEM](../GARNET-AMULET-PROTOTYPE-SYSTEM.md) traces the
-constraint/prototype lineage through Garnet and Amulet. [MOO-HERITAGE](../MOO-HERITAGE.md) traces
-the LambdaMOO thread: live objects, in-world building, delegation.
+MOOLLM doesn't just cite this prior art; it delegates to it, in the Self-reflective sense. The
+people are named parents in the `parents:` sense — and two of them (Don Hopkins, David
+Rosenthal) are incarnated characters in the very repos that run on this object model.
+
+**The Densmore–Rosenthal patent
+([US5187786A, 1991](https://patents.google.com/patent/US5187786A/en))** — *"Method and apparatus
+for implementing a class hierarchy of objects in a hierarchical file system"* (Sun). Owen
+Densmore and David Rosenthal proved in 1991 that the Unix filesystem IS a class hierarchy:
+directories as classes and instances, PATH files encoding inheritance chains, message sends via
+shell (`SEND aF001 methodA args`). This is the direct ancestor of
+[DIRECTORY-AS-OBJECT](../../kernel/DIRECTORY-AS-OBJECT.md) and the
+[file-system-object](../../skills/file-system-object/SKILL.md) grammar — not an analogy MOOLLM
+discovered, but a shape it inherited.
+
+**NeWS object-oriented PostScript (Densmore, Sun, 1986→).** Owen Densmore built the class system
+for NeWS (Gosling & Rosenthal's PostScript window system): class dictionaries on the dict stack,
+method lookup walking the chain, instance dicts holding per-object state. NeWS 1.0 delegated
+through a single `ParentDict`; TNT later added ordered `/Parents` lists and **multiple
+inheritance** with flatten caches — ordered multiple parents, first-match-wins, the exact shape
+of MOOLLM's `PROTOTYPES.yml`
+([LINGUISTIC-MOTHERBOARD](../postscript/LINGUISTIC-MOTHERBOARD.md) §"Owen Densmore";
+[Densmore's 1986 Monterey paper](https://donhopkins.com/home/monterey86.pdf);
+[The NeWS Book](https://donhopkins.com/home/The_NeWS_Book_1989.pdf), ch. 6).
+
+**TNT — The NeWS Toolkit (Densmore, Gosling, Hopkins et al., Sun, 1988→).** A full UI toolkit
+built in that object system: windows, buttons, menus, canvases, pie menus, an X11 window manager.
+Proof that prototype/multiple-inheritance PostScript wasn't a curiosity — it shipped system
+software.
+
+**HyperLook (Arthur van Hoff & Don Hopkins, Turing Institute, Glasgow, 1989–92).** Van Hoff's PdB
+compiled C to object-oriented PostScript (subclass PostScript classes from C and vice versa);
+with TNT it became HyperLook, née HyperNeWS née GoodNeWS — a HyperCard-like editable, scriptable,
+**networked** UI environment
+([Hopkins' HyperLook history](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4)).
+HyperCard's button→card→stack delegation, but with real multiple-inheritance objects and
+PostScript graphics underneath.
+
+**SimCity for HyperLook (Hopkins, 1990–92).** Don dogfooded HyperLook by porting Will Wright's
+SimCity to it — the game as a stack of live, editable, scriptable objects. The thread runs
+straight through: NeWS objects → HyperLook cards → The Sims' object advertisements → MOOLLM
+directories advertising slots ([don-hopkins-projects](../don-hopkins-projects.md);
+[VISUAL-PROGRAMMING-LINEAGE](../VISUAL-PROGRAMMING-LINEAGE.md)).
+
+Adjacent threads: [GARNET-AMULET-PROTOTYPE-SYSTEM](../GARNET-AMULET-PROTOTYPE-SYSTEM.md)
+(Myers/Hopkins at CMU — constraints + prototypes in Lisp) and [MOO-HERITAGE](../MOO-HERITAGE.md)
+(LambdaMOO: live objects, in-world building, delegation).
+
+The reflexive kicker: the patent's co-author has a character directory in WillWrightShowForFood
+(`characters/david-rosenthal/`), and Don Hopkins has one in
+[adventure-4](../../examples/adventure-4/characters/real-people/don-hopkins/). The system whose
+object model descends from their work now instantiates them as objects in it. Inheritance in the
+Self-reflective sense: the parents are in the world.
 
 ## The one-line summary
 
