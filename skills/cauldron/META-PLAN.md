@@ -82,7 +82,7 @@ parents:
   - "Self prototypal inheritance model"    # latent-space K-line — LLM fills it in
   - "javascript"                           # latent-space K-line — LLM already knows
   - "The Weird Sisters from Macbeth"       # latent-space K-line — patron-as-prototype
-  - "a taco — crisp shell, warm filling, salsa, fold in half"  # natural-language prototype
+  - "a taco — crisp shell, warm filling, overflowing with cheese, fresh vegetables and sauces"  # natural-language prototype
 ```
 
 The mechanism doesn't distinguish. First-match-wins sweeps left to right. A concrete path resolves by file lookup. A latent-space name resolves by the LLM recognizing it (the whole of its training *is* the prototype store). A natural-language sketch resolves by the LLM interpreting the sketch as a loose-but-sufficient prototype.

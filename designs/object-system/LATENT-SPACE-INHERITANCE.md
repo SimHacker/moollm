@@ -29,7 +29,7 @@ parents:
   - "Self prototypal inheritance model"    # latent-space K-line — LLM fills it in
   - "javascript"                           # latent-space K-line — LLM already knows
   - "The Weird Sisters from Macbeth"       # latent-space K-line — patron-as-prototype
-  - "a taco — crisp shell, warm filling, salsa, fold in half"  # natural-language prototype
+  - "a taco — crisp shell, warm filling, overflowing with cheese, fresh vegetables and sauces"  # natural-language prototype
 ```
 
 First-match-wins sweeps left to right. Formal discipline first, aesthetic influences after.
@@ -125,8 +125,8 @@ If names are pointers into latent space, then **naming is API design**:
    every use pays full explanation cost, forever.
 3. **Filenames are K-lines.** The directory listing is the advertisement index (yaml-jazz);
    a well-named file is a pullable string.
-4. **Sketches work when no name exists.** "A taco — crisp shell, warm filling, fold in half" is
-   a valid prototype. The LLM interprets loose-but-sufficient specifications (Postel: accept
+4. **Sketches work when no name exists.** "A taco — crisp shell, warm filling, overflowing with
+   cheese, fresh vegetables and sauces" is a valid prototype. The LLM interprets loose-but-sufficient specifications (Postel: accept
    liberally).
 
 ## Failure modes, honestly
