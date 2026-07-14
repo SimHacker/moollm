@@ -17,10 +17,11 @@ the most novel thing… and the thing least specific to cauldron."
 | [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) | **The core discovery** — multiple inheritance from concrete files AND named concepts in training data; inherit whole languages, protocols, and object systems by saying their names (or patent numbers); the naming discipline; failure modes |
 | [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) | Case study — JetBrains' class-based OO graph DB, compared *in order to inherit from it*: what each is better at, and the machine-language move (adaptors, bridges, emulators, drivers on the Self core) |
 | [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) | The system running in public — Soul City / [MicropolisCore](https://github.com/SimHacker/MicropolisCore) (souls, content, human+LLM collaboration) and adventure-4 (built-in world) |
-| [CREAM.md](CREAM.md) | The cream layer — every YAML source cited by this series, rendered as human-readable prose with links back to the live files |
+| [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md) | Every YAML source cited by this series, annotated as human-readable prose with links back to the live files — one ladle from the repo's cream layer |
 
-Reading order: SELF-AND-MOOLLM → LATENT-SPACE-INHERITANCE → the case studies. CREAM is the
-side-table: consult it when a citation points into YAML you don't want to context-switch into.
+Reading order: SELF-AND-MOOLLM → LATENT-SPACE-INHERITANCE → the case studies. The annotated
+bibliography is the side-table: consult it when a citation points into YAML you don't want to
+context-switch into.
 
 ## The heritage, one line each
 

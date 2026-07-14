@@ -1,10 +1,14 @@
-# The Cream Layer — cited YAML sources, rendered for humans
+# Annotated Bibliography — the YAML sources this series cites, in prose
 
 Every doc in this series cites live YAML files — GLANCEs, CARDs, CHARACTER sheets, lineage
-references. YAML Jazz makes them readable, but a human skimming the series shouldn't have to
-context-switch into eight files to follow the argument. This page renders each cited source as
-prose, with a link to the live file (always authoritative — these digests are the cream, the
-YAML is the milk).
+references. This page is an annotated bibliography of those sources: one prose annotation per
+file, saying what it contains and why the series leans on it, with a link to the live file
+(always authoritative).
+
+The larger point: the whole repo has a **cream layer** that rises naturally over the protein
+YAML — every GLANCE, README, and design doc is cream, skimmed for humans who want the taste
+without the curds. This page is one **ladle-full**, scoped to the object-system series, for
+taking the bitter edge off the citations. Don't mistake the ladle for the layer.
 
 Cited by: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) ·
 [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) ·
@@ -168,5 +172,5 @@ game's own names."
 
 ---
 
-*Rule of the pyramid: these digests are GLANCE-level. When a detail matters, open the YAML — it
-is the source of truth, and its comments carry meaning these summaries compress away.*
+*Rule of the pyramid: these annotations are GLANCE-level. When a detail matters, open the YAML —
+it is the source of truth, and its comments carry meaning these summaries compress away.*

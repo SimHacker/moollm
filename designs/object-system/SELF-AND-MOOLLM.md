@@ -8,8 +8,8 @@ parents**, first-match-wins.
 Siblings: [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) — where the parent list
 goes beyond the filesystem · [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) —
 comparison-for-inheritance case study · [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) —
-the system running in public · [CREAM.md](CREAM.md) — every YAML file cited below, rendered as
-prose · Index: [README.md](README.md).
+the system running in public · [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md) — every
+YAML file cited below, annotated as prose · Index: [README.md](README.md).
 
 ## The mapping
 
@@ -145,7 +145,8 @@ Lisp microworld, learning Piagetian object permanence from scratch.
 into neurosymbolic manufacturing intelligence: ConvNet perception feeding a symbolic schema
 core. The full chain is documented in this repo at
 [skills/leela-ai/reference/drescher-lineage.yml](../../skills/leela-ai/reference/drescher-lineage.yml)
-(rendered in [CREAM.md](CREAM.md#drescher-lineage--the-piaget-to-leela-chain-with-sources)).
+(annotated in
+[ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md#drescher-lineage--the-piaget-to-leela-chain-with-sources)).
 
 **What neither generation had: grounding.** Drescher's items were bit-vectors; the symbol
 grounding problem was the wall his Lisp — and any pre-LLM reimplementation — ran into. The
@@ -237,7 +238,7 @@ should the LLM look at next?**
 **The hierarchy is the object graph.** Directories nest the way objects contain: repo → area →
 skill/room/character → instances → sessions. Containment doubles as inheritance scope — a room's
 contents perform in its context, a skill's `examples/` inherit its discipline. The path IS the
-identity ([cauldron's `identity_through_location`](CREAM.md#cauldron-card--identity-through-location-and-the-patron)),
+identity ([cauldron's `identity_through_location`](ANNOTATED-BIBLIOGRAPHY.md#cauldron-card--identity-through-location-and-the-patron)),
 so the hierarchy is also the namespace, the ownership model, and the cd-able world.
 
 **Filenames are K-lines.** From [yaml-jazz](../../skills/yaml-jazz/GLANCE.yml): well-written

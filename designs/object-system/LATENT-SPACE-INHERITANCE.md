@@ -15,7 +15,8 @@ Siblings: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) (the delegation mechanism, an
 heritage this move inherits: SOAR/RISC, Flavors/CLOS/MOP, Drescher/Leela, NeWS/HyperLook) ·
 [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) (comparison-for-inheritance with
 engine-enforced classes) · [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) (the system
-running) · [CREAM.md](CREAM.md) (cited YAML rendered for humans) · [README.md](README.md).
+running) · [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md) (cited YAML annotated for
+humans) · [README.md](README.md).
 
 ## The canonical example
 
@@ -74,7 +75,8 @@ Field-proven patterns, all currently in production in this repo:
   (k-lines): Quark (DS9), James (Bar Karma), Guinan, Sam Malone` — a personality assembled by
   naming four traditions
   ([the-bartender/CHARACTER.yml](../../examples/adventure-4/characters/fictional/the-bartender/CHARACTER.yml);
-  rendered in [CREAM.md](CREAM.md#the-bartender-character--four-traditions-one-personality)).
+  annotated in
+  [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md#the-bartender-character--four-traditions-one-personality)).
 - **Real people, safely.** Pets and familiars inherit a named person's *expertise* by reference
   ("wrapping a raw pointer in a safe handle") without impersonating them — the ethics live in
   [incarnation](../../skills/incarnation/) and hero-story gating; see

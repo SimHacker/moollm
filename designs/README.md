@@ -93,7 +93,7 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [object-system/LATENT-SPACE-INHERITANCE.md](./object-system/LATENT-SPACE-INHERITANCE.md) | **Core discovery:** multiple inheritance from named concepts in training data — the LLM as universal resolver; inherit whole systems by name |
 | [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB, compared in order to inherit from it |
 | [object-system/LIVE-OBJECTS-EXAMPLES.md](./object-system/LIVE-OBJECTS-EXAMPLES.md) | The system running: Soul City / MicropolisCore + adventure-4 |
-| [object-system/CREAM.md](./object-system/CREAM.md) | Cited YAML sources rendered as human-readable prose |
+| [object-system/ANNOTATED-BIBLIOGRAPHY.md](./object-system/ANNOTATED-BIBLIOGRAPHY.md) | Cited YAML sources annotated as human-readable prose |
 
 ---
 
