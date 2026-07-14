@@ -1,0 +1,61 @@
+# No-AI-Humansplaining Example: LANGUAGE-INVENTING — Skillscript
+#
+# Dimension: New DSL designed for LLMs to write — the founding case
+# Contributor: Don Hopkins (from the HN thread that named the sin)
+
+timestamp: 2026-07-14T09:30:00Z
+contributor: "@DonHopkins"
+
+violation:
+  sin: LANGUAGE-INVENTING
+  rule: "Lean into well-known languages; confine capabilities in the runtime, not the grammar"
+  description: |
+    A small declarative workflow language (Make-inspired) designed for agents
+    to author and humans to approve. Not in any training corpus. No ecosystem.
+    The grammar, examples, and lint help must accompany every authoring prompt.
+
+context:
+  domain: "Agent workflow orchestration (Show HN, July 2026)"
+  stakes: |
+    Per-prompt language tax at frontier prices, forever. Definition drifts
+    under context compaction, so the 'same' language varies between sessions.
+
+original: |
+  The design: a new constrained language for agent-authored automation,
+  with its own grammar, linter, and MCP help topics — so that skills are
+  "readable and approvable." The model must be re-taught the language in
+  every authoring session, because models start cold every call.
+
+analysis: |
+  The security goals are legitimate: default-deny allowlists, connector-held
+  credentials, an effect surface a non-programmer can approve. The error is
+  WHERE the constraint lives. Constraining the GRAMMAR means:
+
+  - No latent scaffolding: no corpus presence, no Stack Overflow, no ten
+    thousand worked examples to steer generation.
+  - Perpetual humansplaining: the language definition rides along in every
+    prompt, and distorts every time the context compacts.
+  - Greenspun's Tenth Rule, LLM edition: users will hack the missing power
+    back in as an ad hoc, bug-ridden dialect (the PHP/Smarty parable).
+
+  From the thread: "Inventing a new language means now you have to include
+  the entire language definition, tutorials, examples, and fictional
+  StackOverflow discussions in every prompt, blowing away your context
+  window with mansplaining your invented language over and over and over
+  again to an LLM who knows Python deeper than any human being ever will."
+
+  The coinage sharpened afterward: humansplaining.
+
+correction: |
+  Keep the languages latent (Python, bash, YAML, English — maximally
+  represented, zero respelling). Move the constraint to the runtime:
+  allowlists, permission layers (MOOAM), reviewed diffs, git as the audit
+  log. Confine what code MAY TOUCH, not what the model MAY SAY.
+
+  New languages for HUMANS remain fine — if good, they get written about,
+  taught, discussed, and eventually land in the corpus. A language designed
+  only for LLMs can never take that path.
+
+lesson: |
+  Capability confinement belongs in the runtime, not the grammar.
+  Full analysis with steelman: designs/object-system/HUMANSPLAINING.md

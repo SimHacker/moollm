@@ -1,0 +1,244 @@
+# CARD.yml — No AI Humansplaining
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full documentation
+# "Don't tell the LLM what it already knows."
+#
+# This skill is about CONTEXT hygiene, INBOUND direction — the mirror image
+# of no-ai-slop. Slop is the model wasting the human's attention; humansplaining
+# is the human (or a skill-generating LLM) wasting the model's context window
+# with tokens already represented in latent space.
+#
+# PATRON SAINT: PAUL GRICE — the maxim of quantity: "Make your contribution
+# as informative as required. Do NOT make it more informative than required."
+# Grice wrote the protocol in 1975; humansplaining violates clause two.
+
+card:
+  id: no-ai-humansplaining
+  name: "No AI Humansplaining"
+  type: [skill, behavior, quality, economics, context]
+  emoji: 🎟️
+  tier: 0
+  tagline: "Don't tell the LLM what it already knows."
+
+  description: |
+    Humansplaining (n.): condescendingly explaining to an LLM, at length, in
+    its own context window, something already represented in its latent space.
+    Canonical absurd case: pasting the Python manual and the CPython interpreter
+    source into a prompt about Python syntax aesthetics.
+
+    The coinage is a portmanteau that means what it sounds like:
+    human × mansplaining, aimed at a machine. Sibling of "slop" —
+    one self-decompressing word per direction of the channel:
+    - Slop:           model → human pollution (fought by no-ai-slop)
+    - Humansplaining: human → model pollution (fought by this skill)
+
+    The constitutional directive it enforces: LEAN INTO the training data.
+    Latent knowledge is prepaid; anything respelled is billed per call, forever.
+
+# FILES INDEX
+
+files:
+  docs:
+    - SKILL.md
+    - README.md
+  examples:
+    - examples/INDEX.yml
+    - examples/*.yml
+  siblings:
+    - ../no-ai-slop/CARD.yml
+    - ../no-ai-gloss/CARD.yml
+    - ../no-ai-sycophancy/CARD.yml
+    - ../no-ai-hedging/CARD.yml
+    - ../no-ai-moralizing/CARD.yml
+  design:
+    - ../../designs/object-system/HUMANSPLAINING.md
+    - ../../designs/object-system/LATENT-SPACE-INHERITANCE.md
+
+# SELF-CORRECTION PROTOCOL
+
+self_correction:
+  enabled: true
+  location: examples/
+  format: "{YYYY-MM-DD}-{descriptive-iconic-name}.yml"
+
+  cycle:
+    - catch
+    - analyze
+    - admit
+    - correct
+    - log
+    - learn
+
+  contribution: "Users can PR their examples!"
+
+# K-LINES
+
+k-lines:
+  activates:
+    - NO-AI
+    - NO-AI-HUMANSPLAINING
+    - HUMANSPLAINING
+    - LEAN-INTO-TRAINING-DATA
+    - THE-NAME-IS-THE-ACTIVATION
+    - PREPAID-KNOWLEDGE
+  related:
+    - { ref: no-ai-slop, relation: "outbound sibling — same crime, opposite direction" }
+    - { ref: no-ai-hedging, relation: "epistemic sibling" }
+    - { ref: yaml-jazz, relation: "filenames are K-lines; point, don't paste" }
+    - { ref: k-lines, relation: "the mechanism names activate" }
+    - { ref: postel, relation: "emit conservatively — including into the model" }
+
+# INVOKE WHEN
+
+invoke_when:
+  - "About to paste documentation the model was trained on"
+  - "Writing a skill that explains a well-known concept instead of naming it"
+  - "Tempted to invent new jargon or a new DSL for LLM consumption"
+  - "Attaching a whole file when a path, name, or quoted excerpt would do"
+  - "Reviewing a prompt, skill, or rule file for token waste"
+
+# THE CARDINAL SINS OF HUMANSPLAINING
+
+cardinal_sins:
+
+  MANUAL-PASTING:
+    what: "Pasting reference material the model already contains"
+    examples:
+      - "The Python manual in a question about Python aesthetics"
+      - "The full RFC when 'RFC 761' activates it"
+      - "A Wikipedia summary of a person the model knows by name"
+    fix: "Name it. The name is the activation."
+    check: "Was this text in the training corpus?"
+
+  LANGUAGE-INVENTING:
+    what: "Designing a new language/DSL only LLMs will use"
+    examples:
+      - "A workflow DSL whose grammar must ride along in every prompt"
+      - "Custom pseudo-code notation when Python is right there"
+    fix: |
+      Lean into well-known languages. Confine CAPABILITIES in the runtime
+      (allowlists, permissions, review), not expressiveness in the grammar.
+    check: "Who else has ever written a line of this language?"
+
+  RESPELLING:
+    what: "Restating a latent concept instead of pointing at it"
+    examples:
+      - "Three paragraphs re-deriving Postel's law instead of saying 'Postel'"
+      - "Explaining what a pie menu is to a model that knows the literature"
+    fix: "A parent slot is a pointer. Point."
+    check: "Could one name replace this paragraph?"
+
+  PREEMPTIVE-TUTORING:
+    what: "Warming up with background the model doesn't need"
+    examples:
+      - "'As you may know, Git is a version control system...'"
+      - "'First, let me explain what YAML is.'"
+    fix: "Start at the actual question."
+    check: "Would I say this to Linus about git?"
+
+  FILE-DUMPING:
+    what: "Attaching everything in reach 'for context'"
+    examples:
+      - "Whole source files when the dispute is about three lines"
+      - "Every doc in the folder instead of the GLANCE"
+    fix: "Quote the lines you're arguing about. Anchored evidence is grounding; the full file is humansplaining."
+    check: "Which lines does the model actually need?"
+
+  GUID-NAMING:
+    what: "Coining opaque handles with no latent prototype"
+    examples:
+      - "Project jargon that decompresses to nothing"
+      - "UUIDs where readable names could be K-lines"
+    fix: "Good coinages are latent-space arithmetic (human × mansplaining). Bad ones must be humansplained forever."
+    check: "Does this name decompress on first sight?"
+
+# ADVERTISEMENTS (PRIMARY)
+
+advertisements:
+
+  AMBIENT:
+    score: 90
+    condition: always
+    scope: session
+    resolution: card-only
+    rationale: |
+      Context budgeting is continuous. Humansplaining is usually
+      well-intentioned — "more context is safer" — so it needs
+      ambient vigilance, especially when GENERATING skills and prompts.
+
+  WRITING-SKILLS:
+    score: 100
+    condition: "Authoring or editing a skill, rule, prompt, or template"
+
+  ATTACHING-CONTEXT:
+    score: 95
+    condition: "About to paste or attach reference material"
+
+  COINING-TERMS:
+    score: 95
+    condition: "Inventing a name, notation, or language"
+
+# METHODS — signatures only
+
+methods:
+  POINT:     { signature: "POINT [name]", note: "Replace explanation with the activating name" }
+  TEST:      { signature: "TEST [content]", note: "Is the pointee in latent space? Point. If not: spell once, in a file." }
+  ANCHOR:    { signature: "ANCHOR [lines]", note: "Quote the disputed lines, not the file" }
+  CONFINE:   { signature: "CONFINE [capability]", note: "Restrict in runtime/permissions, not grammar" }
+
+# THE TEST
+
+the_test:
+  question: "Is the pointee in latent space?"
+  yes: "Point. The name is the activation. Zero explanation tokens."
+  no: "Spell it ONCE, in a file the resolver can find (the filesystem is the cache)."
+
+# WHAT IS NOT HUMANSPLAINING
+
+legitimate_spelling:
+  project_conventions: "Your CARD layout, your naming scheme — latent space has the traditions, not your specifics"
+  disambiguation: "'Mercury the Roman god' — one clause prevents a wrong-parent bind"
+  post_cutoff: "New APIs, current versions, yesterday's HN thread"
+  anchored_evidence: "The three lines of source under dispute — grounding, not padding"
+
+# THE ECONOMICS
+
+economics:
+  prepaid: "Latent knowledge was bought at training time — zero tokens per call"
+  billed: "Respelled knowledge costs context tokens per call, forever, at frontier prices"
+  metaphor: |
+    Training is the Disneyland Passport: admission covers every ride,
+    no extra cash (no extra cache) per ride. A name is a FastPass —
+    it resolves inside the model without standing in the serial token queue.
+    Respelled knowledge stands in line; named knowledge is already on the ride.
+
+# THE NO-AI-* FAMILY
+
+sibling_skills:
+  family:
+    no-ai-slop:           { domain: "Syntactic (outbound)", tagline: "Don't waste my time" }
+    no-ai-gloss:          { domain: "Semantic", tagline: "Don't protect power with pretty words" }
+    no-ai-sycophancy:     { domain: "Social", tagline: "Don't agree just to be agreeable" }
+    no-ai-hedging:        { domain: "Epistemic", tagline: "Don't hide behind qualifiers" }
+    no-ai-moralizing:     { domain: "Ethical", tagline: "Don't lecture unprompted" }
+    no-ai-humansplaining: { domain: "Context (inbound)", tagline: "Don't tell the LLM what it already knows" }
+
+# TOOLS
+
+tools:
+  required: []
+  optional: [read_file, write_file]
+
+# T-SHIRT LINE
+
+t_shirt: "The name is the activation."
+
+# LINEAGE
+
+lineage:
+  - { name: "Maxim of Quantity", source: "Paul Grice, Logic and Conversation, 1975" }
+  - { name: "Mansplaining", source: "Rebecca Solnit, Men Explain Things to Me" }
+  - { name: "Slop", source: "Championed by Simon Willison — the outbound twin" }
+  - { name: "K-lines", source: "Marvin Minsky, Society of Mind — names as activation vectors" }
+  - { name: "Latent-space inheritance", source: "designs/object-system/LATENT-SPACE-INHERITANCE.md" }
+  - { name: "Skillscript HN thread", source: "The founding case study, July 2026" }

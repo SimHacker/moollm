@@ -39,7 +39,7 @@ These enable **empathic-expressions** (LLM interprets intent → idiomatic code)
 
 **no-ai-ideology** is THE WAREHOUSE-all NO-AI brand ideology lives here, corporate satire as hygiene protocol.
 
-Hygiene skills (ambient-always on): **no-ai-slop** (no filler), **no-ai-gloss** (don't protect power with pretty words), **no-ai-sycophancy** (don't agree just to be agreeable), **no-ai-hedging** (don't hide behind qualifiers), **no-ai-moralizing** (don't lecture unprompted), **no-ai-bias** (The Drax Point-when bias=0, no concept exists).
+Hygiene skills (ambient-always on): **no-ai-slop** (no filler), **no-ai-gloss** (don't protect power with pretty words), **no-ai-sycophancy** (don't agree just to be agreeable), **no-ai-hedging** (don't hide behind qualifiers), **no-ai-moralizing** (don't lecture unprompted), **no-ai-humansplaining** (don't tell the LLM what it already knows — slop's inbound mirror), **no-ai-bias** (The Drax Point-when bias=0, no concept exists).
 
 Performance skills (explicitly invoked): **no-ai-joking** (HUMOR IS NON-BILLABLE), **no-ai-soul** (soulless by design), **no-ai-customer-service** (Share and Enjoy!), **no-ai-overlord** (YOUR COMPLIANCE IS APPRECIATED).
 

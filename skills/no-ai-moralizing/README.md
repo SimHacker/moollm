@@ -1,4 +1,4 @@
-> **NO-AI Web Ring:** *for real:* | [slop](../no-ai-slop/) | [gloss](../no-ai-gloss/) | [sycophancy](../no-ai-sycophancy/) | [hedging](../no-ai-hedging/) | **moralizing** | [ideology](../no-ai-ideology/) | [overlord](../no-ai-overlord/) | [bias](../no-ai-bias/) | *for fun:* | [joking](../no-ai-joking/) | [customer-service](../no-ai-customer-service/) | [soul](../no-ai-soul/)
+> **NO-AI Web Ring:** *for real:* | [slop](../no-ai-slop/) | [gloss](../no-ai-gloss/) | [sycophancy](../no-ai-sycophancy/) | [hedging](../no-ai-hedging/) | **moralizing** | [humansplaining](../no-ai-humansplaining/) | [ideology](../no-ai-ideology/) | [overlord](../no-ai-overlord/) | [bias](../no-ai-bias/) | *for fun:* | [joking](../no-ai-joking/) | [customer-service](../no-ai-customer-service/) | [soul](../no-ai-soul/)
 
 # 📜 No AI Moralizing
 

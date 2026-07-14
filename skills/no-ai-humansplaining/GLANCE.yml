@@ -1,0 +1,51 @@
+# GLANCE.yml — no-ai-humansplaining
+# Full file: CARD.yml | SKILL.md
+# 🎟️ "Don't tell the LLM what it already knows."
+
+what: |
+  Context hygiene, inbound direction. Fights wasting tokens telling an LLM
+  something already represented in its latent space — the mirror image of slop.
+  Slop pollutes human attention on the way out; humansplaining pollutes the
+  context window on the way in.
+
+why: |
+  - Latent knowledge is prepaid at training time; respelled knowledge is billed per call, forever
+  - Novel jargon is a cache miss that never fills
+  - A name is a pointer: if the pointee is in latent space, the name is the activation
+  - Constitutional directive: LEAN INTO the training data
+
+when: Always. This skill is ambient.
+
+cardinal_sins:
+  MANUAL-PASTING: "Pasting the Python manual into a question about Python"
+  LANGUAGE-INVENTING: "New DSL for LLMs — the definition rides along every prompt, forever"
+  RESPELLING: "Restating a latent concept instead of naming it"
+  PREEMPTIVE-TUTORING: "'As you may know, Python is a programming language...'"
+  FILE-DUMPING: "Attaching whole files when a path, name, or three quoted lines would do"
+  GUID-NAMING: "Opaque handles with no latent prototype — must be humansplained forever"
+
+the_test: |
+  Is the pointee in latent space? Point — the name is the activation.
+  Is it not? Spell it ONCE, in a file the resolver can find.
+
+not_humansplaining:
+  - "Project-local conventions (latent space has the traditions, not your specifics)"
+  - "Disambiguation ('Mercury the Roman god' — one clause, prevents a wrong bind)"
+  - "Post-cutoff and fast-moving facts (new APIs, current versions, yesterday's thread)"
+  - "Anchored evidence (quote the three lines you're arguing about, not the file)"
+
+the_fix: "Point at latent knowledge by name. Spell out only what the model cannot know."
+
+core_insight: |
+  Training is the Disneyland Passport — admission already covers every ride,
+  no extra cash (no extra cache) per ride. And a name is a FastPass: it resolves
+  inside the model without standing in the serial token queue.
+
+go_deeper:
+  CARD.yml: "Full sin catalog, the latent-or-not test, Grice's maxim of quantity"
+  SKILL.md: "Complete protocol, economics, legitimate spelling-out"
+  examples/: "The founding case — Skillscript, an invented language for LLMs (HN, July 2026)"
+  design_doc: "../../designs/object-system/HUMANSPLAINING.md"
+
+tier: 0
+ambient: true

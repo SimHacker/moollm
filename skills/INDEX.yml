@@ -3,7 +3,7 @@
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 132
+skill_count: 133
 last_updated: 2026-07-11
 
 # FOUNDATION — Load These First
@@ -140,6 +140,10 @@ no_ai_suite:
     - id: no-ai-moralizing
       tagline: "Ethical hygiene"
       why: "Don't lecture unprompted"
+      
+    - id: no-ai-humansplaining
+      tagline: "Context hygiene (inbound)"
+      why: "Don't tell the LLM what it already knows — slop's mirror image"
       
     - id: no-ai-bias
       tagline: "Cognitive hygiene"
@@ -696,6 +700,7 @@ all_skills:
   - no-ai-customer-service
   - no-ai-gloss
   - no-ai-hedging
+  - no-ai-humansplaining
   - no-ai-ideology
   - no-ai-joking
   - no-ai-moralizing

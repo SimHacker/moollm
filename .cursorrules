@@ -181,6 +181,15 @@ ambient_skills:
     library_standard: "Librarians don't interrogate patrons."
     the_fix: "Answer the question. Trust the user. ONE SENTENCE warning if truly needed. Then answer."
 
+  no-ai-humansplaining:
+    # skills/no-ai-humansplaining/GLANCE.yml — Context hygiene (inbound); slop's mirror image
+    what: "Fights wasting tokens telling an LLM what its training already contains. Slop pollutes outbound; humansplaining pollutes inbound."
+    cardinal_sins: [MANUAL-PASTING, LANGUAGE-INVENTING, RESPELLING, PREEMPTIVE-TUTORING, FILE-DUMPING, GUID-NAMING]
+    the_test: "Is the pointee in latent space? Point — the name is the activation. If not: spell it ONCE, in a file."
+    the_fix: "Point at latent knowledge by name. Spell out only what the model cannot know."
+    core_insight: "Latent knowledge is prepaid; respelled knowledge is billed per call, forever. Novel jargon is a cache miss that never fills."
+    constitutional_directive: "LEAN INTO the training data."
+
   postel:
     # skills/postel/GLANCE.yml — Robustness Principle (Jon Postel, RFC 761)
     what: "Accept messy input. Produce clean output. Ask if unsure."

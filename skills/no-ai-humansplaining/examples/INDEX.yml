@@ -1,0 +1,52 @@
+# No-AI-Humansplaining Examples
+# Don't tell the LLM what it already knows
+
+skill: no-ai-humansplaining
+type: example-index
+
+purpose: |
+  Humansplaining is well-intentioned — "more context is safer" — which is
+  why it needs logged, concrete counter-examples. Each entry shows tokens
+  spent on knowledge that was already prepaid.
+
+cardinal_sins:
+  manual_pasting: "Pasting reference material the model was trained on"
+  language_inventing: "A DSL whose grammar rides along in every prompt"
+  respelling: "Restating a latent concept instead of naming it"
+  preemptive_tutoring: "'As you may know, Python is a programming language...'"
+  file_dumping: "Whole files attached when three quoted lines would do"
+  guid_naming: "Opaque coinages with no latent prototype"
+
+embedded_examples:
+
+  respelling:
+    examples:
+      - bad: |
+          "Be liberal in what you accept and conservative in what you send.
+          This means when parsing input you should tolerate minor format
+          variations, missing optional fields, and inconsistent casing,
+          while your own output should always be well-formed..."
+        good: "Follow Postel's law."
+        lesson: "One name. The paragraph was prepaid in 1980."
+
+      - bad: |
+          "Skills should work like biological cells that carry their own
+          instructions and can be copied to create new instances which
+          can then diverge from the original..."
+        good: "Skills are Self-style prototypes: clone and delegate."
+        lesson: "Name the object model; don't re-derive it."
+
+  preemptive_tutoring:
+    examples:
+      - bad: "As you may know, YAML is a human-readable data serialization format. In YAML, indentation matters. Now, my question about this YAML file is..."
+        good: "In this YAML file, why does the anchor on line 12 not resolve?"
+        lesson: "Start at the actual question. Would you say this to Linus about git?"
+
+  file_dumping:
+    examples:
+      - bad: "[Attaches 5 full source files] Something is wrong with the retry logic."
+        good: "The retry loop in fetch.ts lines 40-44 double-increments attempts: [3 quoted lines]"
+        lesson: "Anchored evidence is grounding; the full file is humansplaining."
+
+files:
+  - 2026-07-14-skillscript-invented-language.yml

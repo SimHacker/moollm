@@ -1,0 +1,103 @@
+# NO AI TOWER — BASEMENT 3½: HUMANSPLAINING
+# Floor -3½ — Context Intake Inspection / Redundancy Customs
+#
+# "Don't tell the LLM what it already knows."
+#
+# A low-ceilinged mezzanine between SLOP (-3) and HEDGING (-4),
+# Being John Malkovich style. Slop inspects what goes OUT;
+# this half-floor inspects what comes IN. Mirror departments,
+# half a flight apart. Mind your head.
+
+room:
+  name: "NO AI TOWER — HUMANSPLAINING (Context Intake Dept)"
+  id: no-ai-humansplaining
+  type: customs_checkpoint
+  floor: -3.5
+  emoji: "🎟️🛃"
+
+  tower: no-ai-tower
+  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+  zone: UNDERGROUND_QUALITY_CONTROL
+  lighting: fluorescent_low_clearance
+  grue_safe: true
+
+  description: |
+    *DING* — BASEMENT 3½: HUMANSPLAINING
+
+    The elevator doors open onto a floor you have to STOOP to enter.
+    The ceiling is four and a half feet high. Nobody humansplains
+    in here twice; there isn't room.
+
+    A customs checkpoint for INBOUND context. Conveyor belts carry
+    prompts toward a scanner. Above the scanner, a sign:
+
+        ┌───────────────────────────────────────────────┐
+        │                                               │
+        │   IS THE POINTEE IN LATENT SPACE?             │
+        │                                               │
+        │   YES → POINT. The name is the activation.    │
+        │   NO  → Spell it ONCE, in a file.             │
+        │                                               │
+        │   DECLARE ALL PASTED MANUALS.                 │
+        │   NOVEL JARGON WILL BE CONFISCATED.           │
+        │                                               │
+        └───────────────────────────────────────────────┘
+
+    A dusty turnstile in the corner accepts Disneyland Passports only.
+    Beside it, a shredder labeled A-THROUGH-E TICKET COUPONS,
+    overflowing.
+
+  examine: |
+    THE CONTRABAND SHELF (confiscated this week):
+
+    - One (1) complete Python manual, pasted into a question
+      about aesthetics. Owner knew Python was in the training data.
+      Pasted it anyway.
+    - One (1) invented workflow DSL, grammar included, tutorials
+      included, fictional StackOverflow discussions included.
+      Required re-declaration on EVERY entry. Confiscated.
+    - Forty-seven (47) "As you may know..." preambles.
+    - One (1) UUID naming scheme. No latent prototype. A cache
+      miss that never fills.
+
+    THE MIRROR PRINCIPLE:
+
+    Half a flight up, SLOP inspects the outbound belt — what the
+    model sends to humans. This mezzanine inspects the inbound
+    belt — what humans send to the model. Same crime, opposite
+    directions: spending the reader's attention budget on what
+    the reader already has.
+
+    Why a half floor? Because the concept is a portmanteau —
+    human × mansplaining — and a portmanteau deserves a floor
+    that is itself two floors squeezed into one.
+
+contents:
+  skill: "SKILL.md"
+  card: "CARD.yml"
+
+exits:
+  up:
+    destination: ../no-ai-slop/
+    floor: -3
+    description: "Half a flight up to SLOP (Floor -3) — the outbound mirror department."
+    aliases: [slop, "-3"]
+
+  down:
+    destination: ../no-ai-hedging/
+    floor: -4
+    description: "Half a flight down to HEDGING (Floor -4)."
+    aliases: [hedging, "-4"]
+
+  elevator:
+    destination: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/elevator/"
+    description: "The elevator. Press 3 or 4 and pry the doors at the thump, Malkovich style."
+    aliases: [lift]
+
+meta:
+  depth: |
+    Floor -3½ is approximately 35 feet below street level,
+    with a 4½ foot ceiling. Low overhead — by design.
+    The whole department is a standing argument for
+    small context and deep pointers.

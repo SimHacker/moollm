@@ -16,7 +16,7 @@ It is the mirror image of AI slop, and the two sins bracket the channel:
 | ---------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | Direction  | model → human                                                                | human (or skill-generating LLM) → model                                                    |
 | Pollutes   | human attention with generated redundancy                                    | the context window with tokens already in latent space                                     |
-| Fought by  | [no-ai-slop](../../skills/no-ai-slop/) and family                            | this doc; the naming discipline in [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) |
+| Fought by  | [no-ai-slop](../../skills/no-ai-slop/) and family                            | [no-ai-humansplaining](../../skills/no-ai-humansplaining/) (ambient sibling in the no-ai-* suite); the naming discipline in [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) |
 | Same crime | spending the reader's scarce attention budget on what the reader already has | same                                                                                       |
 
 
@@ -62,15 +62,11 @@ captured the argument in the wild:
 
 The supporting points from the same thread, kept because they generalize:
 
-- **No ecosystem.** A language that exists only in your repo has no PyPI, no Stack Overflow, no
-ten thousand worked examples — none of the latent scaffolding that makes LLM codegen reliable.
+- **No ecosystem or community.** A language that exists only in your repo has no PyPI, no Stack Overflow, no ten thousand worked examples — none of the latent scaffolding that makes LLM codegen reliable.
 - **Models don't learn from your prompts.** Each call starts cold. The language definition must
 ride along every time, and when the context compacts, the definition distorts — so the "same"
 language drifts between sessions. You can't wish your way out of statelessness.
-- **Greenspun's Tenth Rule, LLM edition.** The PHP/Smarty parable: hamstring a capable language
-to protect users from power, then watch the users hack the power back in as an ad hoc,
-informally-specified, bug-ridden dialect. Any sufficiently complicated agent DSL contains a
-slow implementation of half of Python.
+- **Greenspun's Tenth Rule, LLM edition.** The PHP/Smarty parable: hamstring a capable language to protect users from power, then watch the users hack the power back in as an ad hoc, informally-specified, bug-ridden dialect. Any sufficiently complicated agent DSL contains a slow implementation of half of Common Lisp / Python.
 - **Design for humans; the training data follows.** New languages for *people* are fine — if
 they're good, they get written about, discussed, taught, and eventually land in the corpus.
 A language designed *only for LLMs* can never take that path; it is structurally condemned to
@@ -107,11 +103,7 @@ test. One word; the rest is in latent space now — or will be, once this file h
 
 Yes, the term is itself a coinage — but it's not a cache miss, and the difference is the whole
 lesson. It's a **portmanteau of two latent prototypes that means what it sounds like**:
-*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of
-condescending redundant explanation prepaid), aimed at a machine. The word decompresses on
-first sight with zero explanation tokens. That's the naming discipline applied to naming
-itself: good coinages are latent-space arithmetic (mansplaining − man + human); bad coinages
-are opaque handles that must be humansplained forever.
+*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. That's the naming discipline applied to naming itself: good coinages are latent-space arithmetic (mansplaining − man + human, queen = king - man + woman); bad coinages are opaque handles that must be humansplained forever.
 
 It's also the natural sibling of **slop** — the one-syllable name for unwanted AI output that
 Simon Willison championed into common usage on exactly this argument: pick a word whose
