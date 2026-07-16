@@ -97,7 +97,7 @@ Where to look:
 
 ## MOOLLM Integration
 
-### Simopolis World
+### Soul City World
 - [ ] Wire sync command into adventure engine (auto-sync on room entry)
 - [ ] Add ROOM.yml files to neighborhoods so they're walkable
 - [ ] Add portal ROOM.yml for the bridge to adventure-4
@@ -332,7 +332,7 @@ Renders characters from the same mesh/skin/skeleton data:
 - BMP/PNG skin textures
 
 Used by: Statue-O-Matic (pose + render + material), browser character
-preview, Simopolis web viewer, family album illustration, VitaMoo +
+preview, Soul City web viewer, family album illustration, VitaMoo +
 UV template = character-on-any-surface (t-shirts, posters, paintings).
 
 ### Jukebox / Stereo with Custom Audio

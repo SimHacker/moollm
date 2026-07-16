@@ -115,8 +115,8 @@ fast, aimed at making a virtual pet *specifically yours*.
 
 - **Pets are save-file citizens.** Per the uplift templates, pets are stored as neighbors
   with `person_data`, most fields repurposed for the species
-  ([uplift-cat.yml](https://github.com/SimHacker/moollm/blob/main/examples/simopolis/exchange/templates/uplift-cat.yml),
-  [uplift-dog.yml](https://github.com/SimHacker/moollm/blob/main/examples/simopolis/exchange/templates/uplift-dog.yml)).
+  ([uplift-cat.yml](https://github.com/SimHacker/moollm/blob/main/examples/soul-city/exchange/templates/uplift-cat.yml),
+  [uplift-dog.yml](https://github.com/SimHacker/moollm/blob/main/examples/soul-city/exchange/templates/uplift-dog.yml)).
 - **The cage is an object with attributes.** Object instances carry their current semantic
   attribute values in the lot; [objd.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/iff/chunks/objd.py)
   defines the fields, the [save editor](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/save_editor)

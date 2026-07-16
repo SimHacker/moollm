@@ -41,7 +41,7 @@
 | Living town                          | [Micropolis](https://github.com/SimHacker/MicropolisCore) city scale + street-level life sim — **only** if you want a second substrate later; no pressure                                                                                                |
 
 
-*MicropolisCore’s **[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our corner of the same **shared universe**: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may build that differently for your players — comparing notes is the collaboration, not merging codebases by default.*
+*MicropolisCore’s **[Soul City](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)** and **[MOOLLM](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md)** are our corner of the same **shared universe**: how to pair a real simulation runtime with an LLM layer that helps narrate and remember **without replacing the game**. Sunny Street may build that differently for your players — comparing notes is the collaboration, not merging codebases by default.*
 
 ---
 
@@ -64,7 +64,7 @@
 
 *Will Wright, Stanford 1996: **“persistent data that can move from one game to another.”** ([characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)) — compatible **in principle** with a town where kids invest in AI villagers, **if** you someday want cross-world characters and documented saves.*
 
-*What we ship today:* **The Sims 1** via [Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md) and [sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io). Full peer roster and **[onboarding playbook](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#how-the-bifrost-handles-a-new-peer-game-onboarding-playbook)** in **[Federation peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md)**.*
+*What we ship today:* **The Sims 1** via [Soul City](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md) and [sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io). Full peer roster and **[onboarding playbook](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#how-the-bifrost-handles-a-new-peer-game-onboarding-playbook)** in **[Federation peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md)**.*
 
 ### *If interoperability ever became interesting (speculative)*
 
@@ -128,14 +128,14 @@
 
 ### *4. Town scale, cozy lineage, and building on Sims without cloning*
 
-*A **living town** at street level may someday rhyme with **two-resolution** play (city map + neighborhood) — Will Wright’s 1996 dollhouse demo is the historical receipt. **Simopolis** is our umbrella for Micropolis + Sims; **characters-as-hydrogen** explains why people are the binding atom across scales. **OG cozy games** and **Tomodachi** comparisons are optional reading when calibrating what to show kids vs imply.*
+*A **living town** at street level may someday rhyme with **two-resolution** play (city map + neighborhood) — Will Wright’s 1996 dollhouse demo is the historical receipt. **Soul City** is our umbrella for Micropolis + Sims; **characters-as-hydrogen** explains why people are the binding atom across scales. **OG cozy games** and **Tomodachi** comparisons are optional reading when calibrating what to show kids vs imply.*
 
 ***Start here***
 
-- *[Simopolis](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)*  
+- *[Soul City](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/simopolis.md)*  
 - *[Characters as hydrogen](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/characters-as-hydrogen.md)*  
 - *[Will Wright microworlds 1996](https://github.com/SimHacker/moollm/blob/main/designs/sims/sims-will-wright-microworlds-1996.md)*  
-- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Simopolis*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)  
+- *[OG cozy games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/og-cozy-games.md) · [Tomodachi life and Soul City*](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/tomodachi-life-and-simopolis.md)  
 - *[Federation peer games → Sunny Street](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md#sunny-street) — Sims/Stardew/RimWorld/… ↔ your town via soul-files*  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → microworlds in schools*
 

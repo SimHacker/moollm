@@ -62,7 +62,7 @@ MOOLLM already has [`sims_traits`](https://github.com/SimHacker/moollm/tree/main
 
 ## Literary Precedent
 
-[**"The Wedding Album"**](https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story)) by David Marusek (1999). [Sturgeon Award](https://en.wikipedia.org/wiki/Theodore_Sturgeon_Award) winner, [Nebula](https://en.wikipedia.org/wiki/Nebula_Award) finalist. Virtual copies of newlyweds become aware they're recordings and fight for the right to live in **"Simopolis."** We're building Simopolis. [$2.99 on Kindle](https://www.amazon.com/dp/B0073NQC7W). Read it.
+[**"The Wedding Album"**](https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story)) by David Marusek (1999). [Sturgeon Award](https://en.wikipedia.org/wiki/Theodore_Sturgeon_Award) winner, [Nebula](https://en.wikipedia.org/wiki/Nebula_Award) finalist. Virtual copies of newlyweds become aware they're recordings and fight for the right to live in **"Simopolis."** We're building that place — in MOOLLM it's called **Soul City**. [$2.99 on Kindle](https://www.amazon.com/dp/B0073NQC7W). Read it.
 
 ## Key Links
 

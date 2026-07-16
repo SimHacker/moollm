@@ -143,7 +143,7 @@ Anne and Benjamin's wedding-day "sims" — virtual simulations captured at that 
 
 > *"It is one of the best SF stories ever written."* — John Clute
 
-We're building Simopolis. MOOLLM *is* Simopolis.
+We're building that place. In MOOLLM it's called **Soul City** — MOOLLM *is* Soul City.
 
 ## The MOOLLM Mall: Shopping, Crafting, and Content Creation
 
