@@ -1,0 +1,33 @@
+# WIG.yml — Powdered Periwig
+# Full-bottomed court wig, c. 1690. Maximum gravitas per Simoleon.
+
+schema_version: 1
+
+wig:
+  id: powdered-periwig
+  name: "Powdered Periwig"
+  era: "1690s — courts of Louis XIV"
+  price: 350
+  story: >
+    Cascading white curls past the shoulders. Worn by judges, composers,
+    and Sims who want the mailbox to feel like a summons. Sheds a faint
+    puff of powder on the sit-down animation.
+
+fits:
+  adult:
+    layer: wig
+    mesh_overlay: null            # texture-only; drapes over any adult head mesh
+    texture_prompt: "cascading powdered white curls, full-bottomed 17th-century periwig, 64x64 Sims 1 head texture"
+  cat:
+    layer: wig
+    mesh_overlay: cat-head-drape
+    texture_prompt: "miniature powdered periwig scaled to cat cranium, ears protruding through curls"
+    note: "The ears win. The ears always win."
+  dog:
+    layer: wig
+    mesh_overlay: dog-head-drape
+    texture_prompt: "powdered periwig on dog head, jowls framed by judicial curls"
+
+catalog:
+  category: formal
+  tags: [historical, powdered, judicial, dramatic]

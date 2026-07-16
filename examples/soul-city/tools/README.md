@@ -15,6 +15,7 @@ Soul City reimagines these tools with AI assistance. Instead of manually editing
 | [Body Editor](./body-editor/) | Mesh vertex manipulation | Body type generation from personality |
 | [House Builder](./house-builder/) | Grid-based lot editor | AI-assisted lot layout from descriptions |
 | [Family Album Maker](./family-album-maker/) | HTML template system | Markdown generation from CHARACTER.yml data |
+| [Wig-O-Rama](./wig-o-rama/) | Rug-O-Matic ("-O-Matic" family) | Wig shop + Wig-O-Matic applicator — Sims, cats, dogs |
 
 ## The Original Transmogrifier
 

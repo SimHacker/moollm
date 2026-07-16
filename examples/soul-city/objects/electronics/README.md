@@ -13,6 +13,7 @@ TVs, computers, phones, stereos, and the tools of modern Sim life.
 | Stereo | Fun | +25 Fun, +5 Social (dancing) | §100-2,500 |
 | Fire Alarm | Safety | Auto-calls firefighters on fire | §50 |
 | Burglar Alarm | Safety | Auto-calls police on burglary | §250 |
+| [Wig-O-Matic](wig-o-matic.IFF-OBJECT.yml) | Fun | +15 Fun (try on wig), +20 Fun (wig your pet) | §1,200 |
 
 ## The TV Problem
 

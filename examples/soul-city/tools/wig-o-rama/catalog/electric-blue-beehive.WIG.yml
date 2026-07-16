@@ -1,0 +1,33 @@
+# WIG.yml — Electric Blue Beehive
+# Tower of teased hair in impossible blue. Structural engineering, but make it hair.
+
+schema_version: 1
+
+wig:
+  id: electric-blue-beehive
+  name: "Electric Blue Beehive"
+  era: "1962, via a paint store"
+  price: 175
+  story: >
+    A foot of vertical confidence in a blue no follicle has ever produced.
+    Clips through low doorways in the tool preview; the game politely
+    pretends not to notice.
+
+fits:
+  adult:
+    layer: wig
+    mesh_overlay: tall-updo
+    texture_prompt: "towering teased beehive hairdo, saturated electric blue, 64x64 Sims 1 head texture"
+  child:
+    layer: wig
+    mesh_overlay: tall-updo-child
+    texture_prompt: "child-scale electric blue beehive, slightly askew"
+  cat:
+    layer: wig
+    mesh_overlay: cat-updo
+    texture_prompt: "small electric blue beehive perched between cat ears"
+    note: "Adds +5 Room to any lot it appears on. This is not negotiable."
+
+catalog:
+  category: statement
+  tags: [retro, blue, tall, fun]

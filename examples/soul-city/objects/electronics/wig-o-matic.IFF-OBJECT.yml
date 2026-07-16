@@ -1,0 +1,409 @@
+# IFF-OBJECT.yml — Wig-O-Matic
+# Salon-chair wig applicator from the Wig-O-Rama shop.
+# Sims try on wigs from their collection; pets can be wigged too.
+# Shop and catalog: ../../tools/wig-o-rama/README.md
+
+schema_version: 1
+
+object:
+  name: "Wig-O-Matic"
+  guid: "0x57160D0A"
+  price: 1200
+  type: normal
+
+symbols:
+  bhav:
+    256: try-on-wig
+    257: init
+    258: remove-wig
+    259: wig-pet
+    260: restock-carousel
+    4096: can-use
+    4097: has-wigs
+    4098: pet-nearby
+  str:
+    200: catalog-strings
+  slot:
+    0: sit-slot
+    1: pet-slot
+  ttab:
+    0: wig-menu
+
+definition:
+  stack_size: 2
+  base_graphic_id: 1
+  num_graphics: 4
+  tile_width: 1
+  front_direction: 0
+  events:
+    main: try-on-wig
+    init: init
+  strings:
+    catalog: catalog-strings
+  slots: sit-slot
+  interaction_table: wig-menu
+  ratings:
+    fun: 5
+    room: 2
+
+strings:
+  catalog-strings:
+    id: 200
+    entries:
+      - index: 0
+        purpose: "Object name"
+        text:
+          en_us: "Wig-O-Matic"
+          fr: "Perruc-O-Matic"
+          de: "Perücken-O-Mat"
+          nl: "Pruik-O-Maat"
+          es: "Peluc-O-Mática"
+          it: "Parrucc-O-Matic"
+          ja: "ウィッグ・オ・マチック"
+          pt: "Peruc-O-Mática"
+          sv: "Peruk-O-Mat"
+      - index: 1
+        purpose: "Object description"
+        text:
+          en_us: "Pneumatic fitting dome, mannequin-head carousel, unflinching mirror. Applies any wig in your collection to any head in the household — species notwithstanding."
+          fr: "Dôme pneumatique, carrousel de têtes, miroir sans pitié. Applique toute perruque de votre collection à toute tête du foyer — espèce comprise."
+          de: "Pneumatische Anpasskuppel, Perückenkarussell, gnadenloser Spiegel. Setzt jede Perücke Ihrer Sammlung auf jeden Kopf im Haushalt — Spezies egal."
+
+behaviors:
+  try-on-wig:
+    id: 256
+    label: "Try On Wig"
+    args: 0
+    locals: 1
+    instructions:
+      - label: route_to_chair
+        opcode: find_best_route
+        operands:
+          slot: { scope: literal, value: 0 }
+        on_true: snap_to_slot
+        on_false: cant_reach
+
+      - label: snap_to_slot
+        opcode: snap_to_grid
+        operands:
+          slot: { scope: literal, value: 0 }
+        on_true: play_sit_anim
+        on_false: error
+
+      - label: play_sit_anim
+        opcode: animate
+        operands:
+          animation: "a2o-sit-start"
+          priority: 100
+        on_true: lower_dome
+        on_false: error
+
+      - label: lower_dome
+        opcode: animate
+        operands:
+          animation: "wigomatic-dome-lower"
+          priority: 100
+        on_true: fit_wig
+        on_false: error
+
+      - label: fit_wig
+        opcode: set_appearance_overlay
+        operands:
+          layer: wig
+          source: { scope: inventory, category: wigs, selection: browse }
+        on_true: reveal
+        on_false: no_wigs
+
+      - label: reveal
+        opcode: animate
+        operands:
+          animation: "wigomatic-dome-raise"
+          priority: 100
+        on_true: add_fun
+        on_false: done
+
+      - label: add_fun
+        opcode: motive
+        operands:
+          target: { scope: stack, index: 0 }
+          motive: fun
+          delta: 15
+        on_true: done
+        on_false: done
+
+      - label: no_wigs
+        opcode: dialog
+        operands:
+          message: "The carousel spins, empty. Collect wigs at Wig-O-Rama first."
+        on_true: done
+        on_false: done
+
+      - label: cant_reach
+        opcode: return
+        operands: { value: false }
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+      - label: error
+        opcode: return
+        operands: { value: false }
+
+  wig-pet:
+    id: 259
+    label: "Wig Your Pet"
+    args: 0
+    locals: 1
+    instructions:
+      - label: call_pet
+        opcode: find_best_route
+        operands:
+          slot: { scope: literal, value: 1 }
+          target: { scope: stack, index: 0 }   # the pet
+        on_true: pet_on_stand
+        on_false: pet_declines
+
+      - label: pet_on_stand
+        opcode: animate
+        operands:
+          animation: "wigomatic-pet-fit"
+          priority: 100
+        on_true: fit_pet_wig
+        on_false: error
+
+      - label: fit_pet_wig
+        opcode: set_appearance_overlay
+        operands:
+          layer: wig
+          target: { scope: stack, index: 0 }
+          source: { scope: inventory, category: wigs, selection: browse, species_filter: target }
+        on_true: owner_fun
+        on_false: no_fit
+
+      - label: owner_fun
+        opcode: motive
+        operands:
+          target: { scope: me }
+          motive: fun
+          delta: 20
+        on_true: done
+        on_false: done
+
+      - label: no_fit
+        opcode: dialog
+        operands:
+          message: "No wig in the collection fits this head. Even Wig-O-Rama has limits."
+        on_true: done
+        on_false: done
+
+      - label: pet_declines
+        opcode: return
+        operands: { value: false }
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+      - label: error
+        opcode: return
+        operands: { value: false }
+
+  remove-wig:
+    id: 258
+    label: "Remove Wig"
+    args: 0
+    locals: 0
+    instructions:
+      - label: clear_overlay
+        opcode: set_appearance_overlay
+        operands:
+          layer: wig
+          source: { scope: literal, value: null }
+        on_true: done
+        on_false: done
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+  restock-carousel:
+    id: 260
+    label: "Restock Carousel"
+    args: 0
+    locals: 0
+    instructions:
+      - label: sync_catalog
+        opcode: sync_inventory
+        operands:
+          category: wigs
+          source: catalog
+        on_true: done
+        on_false: done
+
+      - label: done
+        opcode: return
+        operands: { value: true }
+
+  init:
+    id: 257
+    label: "Wig-O-Matic Initialization"
+    args: 0
+    locals: 0
+    instructions:
+      - label: start
+        opcode: return
+        operands: { value: true }
+
+  can-use:
+    id: 4096
+    label: "Test: Is Chair Free?"
+    args: 0
+    locals: 0
+    instructions:
+      - label: check_occupied
+        opcode: expression
+        operands:
+          lhs: { scope: my_data, field: occupied }
+          rhs: { scope: literal, value: 0 }
+          operator: equals
+        on_true: available
+        on_false: occupied
+
+      - label: available
+        opcode: return
+        operands: { value: true }
+
+      - label: occupied
+        opcode: return
+        operands: { value: false }
+
+  has-wigs:
+    id: 4097
+    label: "Test: Any Wigs Collected?"
+    args: 0
+    locals: 0
+    instructions:
+      - label: check_inventory
+        opcode: expression
+        operands:
+          lhs: { scope: inventory, category: wigs, field: count }
+          rhs: { scope: literal, value: 0 }
+          operator: greater_than
+        on_true: wigs_found
+        on_false: none_found
+
+      - label: wigs_found
+        opcode: return
+        operands: { value: true }
+
+      - label: none_found
+        opcode: return
+        operands: { value: false }
+
+  pet-nearby:
+    id: 4098
+    label: "Test: Household Pet on Lot?"
+    args: 0
+    locals: 0
+    instructions:
+      - label: find_pet
+        opcode: expression
+        operands:
+          lhs: { scope: lot, filter: { species: [cat, dog], household: mine }, field: count }
+          rhs: { scope: literal, value: 0 }
+          operator: greater_than
+        on_true: pet_found
+        on_false: no_pet
+
+      - label: pet_found
+        opcode: return
+        operands: { value: true }
+
+      - label: no_pet
+        opcode: return
+        operands: { value: false }
+
+interactions:
+  wig-menu:
+    id: 0
+    entries:
+      - index: 0
+        action: try-on-wig
+        test: can-use
+        menu_string: 0
+        flags: []
+        autonomy:
+          attenuation: 40
+          threshold: 0
+        motive_effects:
+          - motive: fun
+            min: 10
+            delta: 15
+      - index: 1
+        action: wig-pet
+        test: pet-nearby
+        menu_string: 1
+        flags: []
+        autonomy:
+          attenuation: 20
+          threshold: 30
+        motive_effects:
+          - motive: fun
+            min: 10
+            delta: 20
+      - index: 2
+        action: remove-wig
+        test: null
+        menu_string: 2
+        flags: []
+        autonomy:
+          attenuation: 0
+          threshold: 100    # player-directed only; Sims don't autonomously de-wig
+      - index: 3
+        action: restock-carousel
+        test: has-wigs
+        menu_string: 3
+        flags: []
+        autonomy:
+          attenuation: 0
+          threshold: 100
+
+slots:
+  sit-slot:
+    id: 0
+    entries:
+      - type: 0
+        position: { x: 0.0, y: 0.0, z: 0.4 }
+        scores:
+          standing: 0
+          sitting: 9
+          ground: 0
+        facing: towards_object
+        proximity:
+          optimal: 0
+  pet-slot:
+    id: 1
+    entries:
+      - type: 0
+        position: { x: 0.0, y: 1.0, z: 0.0 }
+        scores:
+          standing: 5
+          sitting: 0
+          ground: 9
+        facing: towards_object
+        proximity:
+          optimal: 0
+
+functions:
+  - event: init
+    guard: null
+    action: init
+  - event: main
+    guard: can-use
+    action: try-on-wig
+
+sprites:
+  base_graphic_id: 1
+  num_graphics: 4
+  description: "4 rotation frames — barber chair with chrome fitting dome and mannequin-head wig carousel"
