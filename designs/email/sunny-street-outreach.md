@@ -164,7 +164,7 @@
 ***Start here***
 
 - *[GitHub as MMORPG (moollm)](https://github.com/SimHacker/moollm/blob/main/designs/GITHUB-AS-MMORPG.md) — branches as universes, issues as objects, social dynamics as rhetoric*  
-- *[GitHub as MMORPG multiverse (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/github-as-mmorpg-multiverse.md) — MicropolisHub mapping: orgs, teams, issues, Pages*  
+- *[GitHub as MMORPG multiverse (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/github-as-mmorpg-multiverse.md) — Soul City mapping: orgs, teams, issues, Pages*  
 - *[Command timeline and git branches](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/command-timeline-git-branches.md) — the branch is the universe; commands are leaves*  
 - *[MOOLLM–Micropolis integration](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-micropolis-integration.md) — Observe → Propose → Approve → Execute → **commit***  
 - *[Constructionist index](https://github.com/SimHacker/moollm/blob/main/designs/indexes/CONSTRUCTIONIST-INDEX.md) — Papert → Wright → school-owned repos; GitHub as educational platform*  

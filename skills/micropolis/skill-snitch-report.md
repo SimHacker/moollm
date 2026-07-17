@@ -10,9 +10,9 @@
 
 ## EXECUTIVE SUMMARY
 
-The most ambitious skill in MOOLLM, and the one that doesn't exist yet. Micropolis is the design specification for turning open source SimCity into a constructionist educational platform. The vision: MicropolisHub — Micropolis engine (C++/WebAssembly) + MOOLLM characters as AI tutors + mooco orchestrator (SvelteKit) + GitHub-as-MMORPG. All game state in git-controlled files. Branches are alternate timelines. Schools fork and own their instances.
+The most ambitious skill in MOOLLM, and the one that doesn't exist yet. Micropolis is the design specification for turning open source SimCity into a constructionist educational platform. The vision: Soul City — Micropolis engine (C++/WebAssembly) + MOOLLM characters as AI tutors + mooco orchestrator (SvelteKit) + GitHub-as-MMORPG. All game state in git-controlled files. Branches are alternate timelines. Schools fork and own their instances.
 
-The skill directory is currently a 12-file artifact archive documenting 35 years of SimCity heritage (1989-2026), from Will Wright's original through Don Hopkins's HyperLook/SimCityNet/OLPC ports to the MicropolisHub vision. Eight artifact files organize history, people, education philosophy, technical specs, connections to other ideas, plans, and unfulfilled dreams.
+The skill directory is currently a 12-file artifact archive documenting 35 years of SimCity heritage (1989-2026), from Will Wright's original through Don Hopkins's HyperLook/SimCityNet/OLPC ports to the Soul City vision. Eight artifact files organize history, people, education philosophy, technical specs, connections to other ideas, plans, and unfulfilled dreams.
 
 This is the design document for the platform that MOOLLM was built to enable.
 
@@ -45,7 +45,7 @@ This is the design document for the platform that MOOLLM was built to enable.
 
 ## WHAT IT DOES (OR WILL DO)
 
-### MicropolisHub Vision
+### Soul City Vision
 
 ```
 Micropolis Engine (C++/Emscripten/WebAssembly)
@@ -133,7 +133,7 @@ Piaget (children construct knowledge), Papert (Logo, Mindstorms), Kay (Dynabook)
 | File | Consistent | Notes |
 |------|------------|-------|
 | GLANCE.yml | YES | Status "designing" matches CARD and SKILL |
-| CARD.yml | YES | MicropolisHub vision consistent across all files |
+| CARD.yml | YES | Soul City vision consistent across all files |
 | SKILL.md | YES | Detailed spec matches CARD summary |
 | README.md | YES | Mermaid diagrams visualize SKILL.md architecture |
 | artifacts/ | YES | INDEX.yml matches actual files, links verified |

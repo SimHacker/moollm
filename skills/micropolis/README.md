@@ -1,6 +1,6 @@
 # 🏙️ Micropolis
 
-> **Engine: RUNNING** | **Web UI: IN PROGRESS** | **MicropolisHub: DESIGNING**
+> **Engine: RUNNING** | **Web UI: IN PROGRESS** | **Soul City: DESIGNING**
 >
 > *"The filesystem is the city. Git is the multiverse."*
 
@@ -8,13 +8,13 @@
 
 ---
 
-## MicropolisHub: The Vision
+## Soul City: The Vision
 
-**MicropolisHub** is the complete vision:
+**Soul City** is the complete vision:
 
 ```mermaid
 flowchart LR
-    subgraph hub["🏙️ MicropolisHub"]
+    subgraph hub["🏙️ Soul City"]
         MP["Micropolis Engine
         C++/WebAssembly
         City simulation"]
@@ -209,7 +209,7 @@ flowchart LR
 | **How** | All game state in files under git. Branches are timelines. AI tutors are characters. |
 | **Why** | Schools own their repos. Students learn by building. |
 | **Heritage** | [Logo Adventure (1984)](https://donhopkins.medium.com/logo-adventure-for-c64-terrapin-logo-b1f240ef498f), DreamScape (1995), iLoci (2009), MediaGraph (2010) — spatial thinking as cognitive infrastructure |
-| **Status** | Engine running, web UI in progress, MicropolisHub designing |
+| **Status** | Engine running, web UI in progress, Soul City designing |
 
 ---
 
@@ -509,7 +509,7 @@ it's all here.
 **[PLAN.txt](https://github.com/SimHacker/MicropolisCore/blob/main/notes/PLAN.txt)**
 Master development plan with unfulfilled dreams: Logo turtles as programmable agents,
 Robot Odyssey-style visual programming, KidSim/StageCraft programming by example,
-urban sprawl development-bots, luddite roomba-bots. MicropolisHub targets these!
+urban sprawl development-bots, luddite roomba-bots. Soul City targets these!
 
 **[OLPC-notes.txt](https://github.com/SimHacker/MicropolisCore/blob/main/notes/OLPC-notes.txt)**
 Why Micropolis is perfect for constructionist education, Sugar integration, mesh
@@ -518,7 +518,7 @@ networking for multiplayer, journaling and checkpointing, view source for educat
 **[Chaim Gingold's Reverse Diagrams](https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/static/pdf/SimCityReverseDiagrams.pdf)**
 Beautiful diagrams showing how SimCity's simulation works — main loop, map data flow,
 scanning algorithms, traffic, sprites. These inspire the interactive Bret Victor-style
-explorations planned for MicropolisHub.
+explorations planned for Soul City.
 
 **[OpenLaszlo Assets](https://github.com/SimHacker/MicropolisCore/tree/main/laszlo/micropolis)**
 The beautiful but unfulfilled TurboGears/OpenLaszlo web multiplayer version:
@@ -665,7 +665,7 @@ The code was released under GPL-3 in 2008.
 | Space Inventory | Working |
 | Cellular automata modes | Working |
 
-### Planned (MicropolisHub)
+### Planned (Soul City)
 
 | Component | Description |
 |-----------|-------------|

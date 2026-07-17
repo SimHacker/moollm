@@ -4,9 +4,9 @@
 >
 > *"The filesystem is the city. Git is the multiverse."*
 
-## MicropolisHub
+## Soul City
 
-**MicropolisHub** is the complete vision — not just a simulation engine, but an integrated platform:
+**Soul City** is the complete vision — not just a simulation engine, but an integrated platform:
 
 | Component | Role |
 |-----------|------|
@@ -52,7 +52,7 @@ See: [WWDC 1995 DreamScape Demo](https://donhopkins.medium.com/1995-apple-world-
 
 ## Index
 
-- [MicropolisHub](#micropolishub) — The complete vision
+- [Soul City](#soul-city) — The complete vision
 - [The Vision](#the-vision)
 - [The DreamScape Heritage](#the-dreamscape-heritage)
 - [The Lineage](#the-lineage)

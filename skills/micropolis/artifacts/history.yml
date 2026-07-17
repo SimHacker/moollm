@@ -42,11 +42,13 @@ demo_videos:
     stack: "WebAssembly/SvelteKit"
     note: "Current stack"
 
-# TIMELINE# Each entry represents a major version/port of the simulation
+# TIMELINE
+# Each entry represents a major version/port of the simulation
 
 timeline:
 
-  # 1989: Original SimCity  simcity_original:
+  # 1989: Original SimCity
+  simcity_original:
     year: 1989
     creator: "Will Wright"
     platform: "Various (Mac, PC, C64, Amiga, etc.)"
@@ -137,7 +139,7 @@ timeline:
     significance: |
       Origin of "nurturing environment, not killer app" philosophy.
       Demonstrated rooms, objects, MacHTTP web integration,
-      dynamic extensibility — all concepts in MicropolisHub.
+      dynamic extensibility — all concepts in Soul City.
     method_of_loci: true
     
   # 2000: The Sims  # Will Wright's next simulation — Don Hopkins contributed
@@ -180,7 +182,8 @@ timeline:
       HISTORIC: SimCity source code released under GPL!
       This made everything that followed possible.
       
-  # 2008+: C++/Python/SWIG  cpp_python:
+  # 2008+: C++/Python/SWIG
+  cpp_python:
     year: "2008+"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-cpp-python.md"
@@ -195,7 +198,8 @@ timeline:
       - Python
     significance: "Foundation for all subsequent versions"
     
-  # 2008+: PyGTK/Cairo (Deprecated)  pygtk_cairo:
+  # 2008+: PyGTK/Cairo (Deprecated)
+  pygtk_cairo:
     year: "2008+"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-linux-pygtk.md"
@@ -239,7 +243,8 @@ timeline:
       are still there. This was web multiplayer before
       WebAssembly made it possible natively.
       
-  # 2020s: WebAssembly/SvelteKit (Current)  wasm_sveltekit:
+  # 2020s: WebAssembly/SvelteKit (Current)
+  wasm_sveltekit:
     year: "2020s"
     creator: "Don Hopkins"
     url: "https://github.com/SimHacker/MicropolisCore/blob/main/micropolis/website/pages/about/don-hopkins/micropolis-web-wasm-webgl-sveltekit.md"
@@ -273,7 +278,8 @@ timeline:
       - wild-west
       - motherboard
       
-  # 2026+: MicropolisHub (Designing)  micropolishub:
+  # 2026+: Soul City (Designing)
+  soul_city:
     year: "2026+"
     status: "Designing"
     skill: "skills/micropolis/"
@@ -286,11 +292,12 @@ timeline:
       - "Character simulation"
       - "Human-AI interaction via GitHub + web app"
     vision: |
-      The complete MicropolisHub platform:
+      The complete Soul City platform:
       Micropolis engine + MOOLLM + mooco + GitHub-as-MMORPG.
       Finally fulfilling the 1990s vision with 2020s technology.
 
-# METHOD OF LOCI THREAD# DreamScape → iLoci → MediaGraph → Bar Karma
+# METHOD OF LOCI THREAD
+# DreamScape → iLoci → MediaGraph → Bar Karma
 method_of_loci_lineage:
   dreamscape:
     year: 1995
