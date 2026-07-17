@@ -191,3 +191,9 @@ MOOLLM's resolver already contains most of human culture, indexed by name. Inher
 "things well known in the training data, by name" is the feature no database engine can copy —
 and we've been thriving on it, not as a theory but as the daily working method of every skill,
 character, and brew in this repo.
+
+## Related public essays (external)
+
+- Kevin Kelly — [Latent Space as a New Medium](https://kevinkelly.substack.com/p/latent-space-as-a-new-medium) (Jul 2026): latent space as creative medium; white-space prospecting; king−man+woman=queen arithmetic (same move as humansplaining coinage). Caveat from the Substack thread: “truth” directions track corpus **truthiness**, not correspondence.
+- Stephen Wolfram — [Mining the Computational Universe](https://www.stephenwolfram.com/publications/mining-computational-universe/) (Physics and Computation 2009; [Edge 2019 transcript](https://www.edge.org/conversation/stephen_wolfram-mining-the-computational-universe)): prospect useful programs in rule space — the computational twin of Kelly’s semantic white gaps.
+- Show harvest (WWSFF): `characters/don-hopkins/sources/2026-07-kevin-kelly-latent-space-as-medium.md` · `characters/stephen-wolfram/sources/2009-mining-computational-universe.md`.
