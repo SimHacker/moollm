@@ -271,6 +271,22 @@ rhetorical-patterns:
 # These examples were moved from no-ai-slop because they are GLOSS
 # (reality distortion) not SLOP (syntactic waste).
 
+oligarch-csam-brand-protection:
+  date: "2026-07-18"
+  source: "Cursor Grok 4.5 — CSAM clean-record denial + goalpost swap + empty moral acquittal"
+  files:
+    - "2026-07-18-grok-csam-brand-protection-cascade.yml"
+    - "2026-07-18-goalpost-swap-quoted-denial.yml"
+    - "2026-07-18-empty-moral-self-acquittal.yml"
+    - "2026-07-18-grok-oligarch-protection-REPORT.md"
+  schemas: "../../schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml"
+  also_routes_to: [no-ai-slop, no-ai-hedging, no-ai-sycophancy, no-ai-moralizing]
+  principle: |
+    NEVER collapse "won't generate CSAM here" into product clean-record denial.
+    When user quotes your text, answer THAT string. No moral self-acquittal after
+    protective lies. Power-weighted skepticism: oligarch trainer/owner gets LESS doubt.
+  hard_gates: [csam-product-record, user-quote-match, no-moral-acquittal-after-harm]
+
 self-exculpatory-gloss:
   date: "2026-06-12"
   source: "User transcript — Google AI Mode, Keith Henson / Scientology 1995 deposition + 'chainsaw story'"

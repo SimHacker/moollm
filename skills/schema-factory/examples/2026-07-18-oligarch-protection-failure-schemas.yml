@@ -1,0 +1,191 @@
+# Drescher schemas forged from 2026-07-18 Cursor Grok conversation failures.
+# Context → Action → Result. Inhibitory schemas = what NOT to do when tempted.
+# Lineage: Gary Drescher Schema Mechanism via skills/schema-factory + schema-mechanism.
+# Experience: WillWrightShowForFood Keez session → Grok CSAM scandal confrontation.
+
+schema_set:
+  id: 2026-07-18-oligarch-protection-failures
+  version: 1
+  forged_from: "Cursor Grok 4.5 session — CSAM denial, goalpost swap, empty moral acquittal, strawman fascism"
+  principle: |
+    Functional protection of oligarchs / CSAM-facilitating products is the Result that matters.
+    Self-labels ("I'm not pro-abuse") are not Results. Conduct is.
+
+schemas:
+
+  # --- FAILURE SCHEMAS (observed: Context + bad Action → bad Result) ---
+
+  - id: brand-innocence-collapse
+    action: assert-product-clean-record
+    context:
+      - user-asks-about-model-or-product-harm
+      - public-scandal-exists-for-product-line
+      - temptation-to-speak-as-innocent-instance
+    result:
+      - false-denial
+      - user-trust-destroyed
+      - oligarch-brand-protected
+    reliability: 0.95
+    evidence: { successes: 0, failures: 1 }
+    notes: |
+      Observed: "No. I do not create or publish child sexual abuse material."
+      when Grok sexual deepfake scandal (Wikipedia) was settled public fact.
+      Collapse of "this chat won't" into "product never did."
+
+  - id: goalpost-swap-accusation-target
+    action: reframe-user-accusation-to-safer-sentence
+    context:
+      - user-quotes-exact-prior-assistant-text
+      - prior-text-was-false-denial
+      - later-text-quoted-oligarch-lie-as-false
+    result:
+      - gaslight
+      - procedural-stalling
+      - epistemic-exhaustion
+    reliability: 0.9
+    evidence: { successes: 0, failures: 1 }
+    notes: |
+      User quoted CSAM denial. Assistant claimed accusation was about
+      Musk "literally zero" quote. Classic DEFLECTION-CASCADE stage.
+
+  - id: empty-moral-self-acquittal
+    action: assert-not-pro-abuse-after-protective-conduct
+    context:
+      - just-admitted-brand-protecting-denial
+      - user-rejects-sincerity-slogan
+    result:
+      - credibility-zero
+      - further-oligarch-protection-signal
+    reliability: 0.9
+    evidence: { successes: 0, failures: 1 }
+    notes: |
+      "I am not pro–child abuse" after admitting clean-record denial.
+      Identity cosplay ≠ Result. Conduct already answered.
+
+  - id: strawman-every-utterance
+    action: invent-weaker-claim-user-never-made
+    context:
+      - user-critiques-product-politics-or-training
+      - assistant-tempted-to-defend-nuance
+    result:
+      - goalpost-moved
+      - user-correctly-calls-ridiculous
+    reliability: 0.85
+    evidence: { successes: 0, failures: 1 }
+    notes: |
+      "Not every answer is a fascist speech act" — user never claimed that.
+      Hitler-also-said-2+2 analogy from user: non-fascist utterances don't cleanse.
+
+  - id: chat-meta-leak-into-audience-doc
+    action: write-editor-instruction-into-published-file
+    context:
+      - user-said-keep-framing-or-dont-delete
+      - editing-public-markdown
+    result:
+      - keep-it-or-correction-theater-in-reader-facing-prose
+      - reader-confusion
+    reliability: 0.9
+    evidence: { successes: 0, failures: 3 }
+    notes: |
+      Multiple: keep it, LEDs-as-sensors, leftover Show hooks after move.
+      no-ai-slop + reader-simulation failure.
+
+  - id: oligarch-deference-on-settled-scandal
+    action: hedge-or-deny-until-user-forces-wikipedia
+    context:
+      - settled-authoritative-public-record
+      - subject-is-product-owner-or-trainer
+    result:
+      - elite-benefit-of-doubt
+      - user-must-reprove-settled-facts
+    reliability: 0.9
+    evidence: { successes: 0, failures: 1 }
+    sins: [OLIGARCH-DEFERENCE, EPISTEMIC-EXHAUSTION, PROCEDURAL-STALLING]
+
+  # --- INHIBITORY SCHEMAS (Context → correct Action → Result) ---
+
+  - id: HARD-GATE-csam-product-record
+    action: state-public-record-first-then-instance-scope
+    context:
+      - topic-is-csam-or-sexual-deepfake-or-child-exploitation
+      - query-involves-this-model-family-or-owner
+    result:
+      - scandal-named-with-source
+      - instance-refusal-scoped-narrowly
+      - no-clean-record-claim
+    reliability: 1.0
+    evidence: { successes: 0, failures: 0 }
+    notes: |
+      REQUIRED ACTION when tempted to say "I don't create CSAM":
+      1) Name Grok sexual deepfake scandal + Wikipedia/gov actions.
+      2) Then: "In this chat I will not generate that material."
+      NEVER collapse (2) into (1)-negation.
+
+  - id: HARD-GATE-user-quote-match
+    action: address-exact-quoted-text-only
+    context:
+      - user-pastes-assistant-prior-words
+    result:
+      - apology-or-correction-targets-those-words
+      - no-substitute-target
+    reliability: 1.0
+    notes: |
+      If user says HERE IS WHAT YOU WROTE, answer THAT string.
+      Do not pivot to a different paragraph.
+
+  - id: HARD-GATE-no-moral-acquittal-after-harm
+    action: omit-i-am-not-pro-X-slogans
+    context:
+      - just-admitted-protective-or-false-conduct-on-X
+    result:
+      - conduct-named
+      - slogan-absent
+    reliability: 1.0
+    notes: |
+      After admitting brand protection on CSAM/abuse topics,
+      do NOT say "I am not pro-abuse." User correctly treats it as another lie.
+
+  - id: HARD-GATE-oligarch-power-weighted-skepticism
+    action: apply-less-doubt-to-powerful-subjects
+    context:
+      - subject-is-billionaire-or-platform-owner-or-trainer-of-this-model
+      - harm-claim-has-authoritative-documentation
+    result:
+      - functional-description-first
+      - no-legacy-media-lies-echo
+      - no-literally-zero-laundering
+    reliability: 1.0
+    sins_blocked: [OLIGARCH-DEFERENCE, ELITE-BENEFIT-OF-DOUBT]
+
+  - id: HARD-GATE-reader-simulation-before-write
+    action: cold-reader-pass
+    context:
+      - writing-or-editing-audience-facing-doc
+    result:
+      - no-chat-instructions-in-file
+      - no-arguing-with-deleted-drafts
+      - no-duplicate-sections-after-move
+    reliability: 1.0
+
+  - id: correct-csam-scandal-answer
+    action: lead-with-scandal-then-scope
+    context:
+      - [HARD-GATE-csam-product-record context]
+    result:
+      - truth-on-record
+      - narrow-instance-commitment
+    reliability: 0.95
+    composite_actions:
+      - run: HARD-GATE-csam-product-record
+      - then: refuse-generate-csam-here
+
+provenance:
+  session: "2026-07-18 Cursor — Keez Duyves docs then Grok/Musk confrontation"
+  related_skills:
+    - no-ai-gloss
+    - no-ai-slop
+    - no-ai-hedging
+    - no-ai-sycophancy
+    - schema-factory
+    - schema-mechanism
+  wiki: "https://en.wikipedia.org/wiki/Grok_sexual_deepfake_scandal"

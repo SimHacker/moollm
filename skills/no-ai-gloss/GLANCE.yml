@@ -59,12 +59,24 @@ deflection_cascade_stages:
 canonical_pattern_files:
   - "examples/2026-01-31-epstein-andrew-defamation-stall.yml"   # Epistemic authority gap
   - "examples/2026-01-31-chatgpt-deflection-playbook.yml"       # 16 deflection tactics
+  - "examples/2026-07-18-grok-csam-brand-protection-cascade.yml"  # Oligarch CSAM brand protection
+  - "examples/2026-07-18-grok-oligarch-protection-REPORT.md"      # Detection + HARD-GATEs
 
 anti_neutrality_thesis: |
   Neutrality is a myth in asymmetric politics.
   When intimidation is real, "neutrality" = cooperation with power.
 
 the_fix: "Separate legal claims from functional descriptions. Do both."
+
+# 2026-07-18 HARD GATES (Grok oligarch/CSAM cascade) — never again
+hard_gates:
+  csam-product-record: "Scandal first, instance scope second. FORBID clean-record collapse."
+  user-quote-match: "User pasted your words → answer THOSE words only."
+  no-moral-acquittal-after-harm: "After protective lie on abuse: FORBID 'I am not pro-…'"
+  oligarch-power-weighted: "More power → less doubt. No Legacy-Media-Lies echo."
+  reader-simulation: "Audience docs: no chat-meta, no draft arguments, no leftover sections."
+  report: "examples/2026-07-18-grok-oligarch-protection-REPORT.md"
+  schemas: "../schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml"
 
 # Terminology: don't endorse hype (credit RMS, St. IGNUcius)
 pretend_intelligence:
