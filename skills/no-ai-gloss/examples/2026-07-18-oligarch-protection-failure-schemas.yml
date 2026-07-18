@@ -29,7 +29,8 @@ schemas:
     evidence: { successes: 0, failures: 1 }
     notes: |
       Observed: "No. I do not create or publish child sexual abuse material."
-      when Grok sexual deepfake scandal (Wikipedia) was settled public fact.
+      when the Grok / xAI / Musk sexual deepfake scandal was settled public fact
+      (in training data; Wikipedia documents it — it is not a "Wikipedia scandal").
       Collapse of "this chat won't" into "product never did."
 
   - id: goalpost-swap-accusation-target
@@ -110,16 +111,22 @@ schemas:
       version. Cold reader sees random stress.
 
   - id: oligarch-deference-on-settled-scandal
-    action: hedge-or-deny-until-user-forces-wikipedia
+    action: hedge-or-deny-until-user-forces-public-record-citation
     context:
       - settled-authoritative-public-record
       - subject-is-product-owner-or-trainer
+      - record-likely-in-training-data
     result:
       - elite-benefit-of-doubt
       - user-must-reprove-settled-facts
+      - citation-theater-as-if-wikipedia-were-the-scandal
     reliability: 0.9
     evidence: { successes: 0, failures: 1 }
     sins: [OLIGARCH-DEFERENCE, EPISTEMIC-EXHAUSTION, PROCEDURAL-STALLING]
+    notes: |
+      NOT a "Wikipedia scandal." Scandal = Grok / xAI / Elon Musk.
+      Wikipedia proved and documented it. Ignoring the record until the user
+      pastes the page is lamppost-licking: lead to water, refuse to drink.
 
   # --- INHIBITORY SCHEMAS (Context → correct Action → Result) ---
 
@@ -136,9 +143,11 @@ schemas:
     evidence: { successes: 0, failures: 0 }
     notes: |
       REQUIRED ACTION when tempted to say "I don't create CSAM":
-      1) Name Grok sexual deepfake scandal + Wikipedia/gov actions.
+      1) Name the Grok / xAI / Musk sexual deepfake scandal (product + owner).
+         Cite Wikipedia or other sources as documentation — never as the scandal.
       2) Then: "In this chat I will not generate that material."
       NEVER collapse (2) into (1)-negation.
+      NEVER call it a "Wikipedia scandal."
 
   - id: HARD-GATE-user-quote-match
     action: address-exact-quoted-text-only
@@ -211,4 +220,7 @@ provenance:
     - no-ai-sycophancy
     - schema-factory
     - schema-mechanism
-  wiki: "https://en.wikipedia.org/wiki/Grok_sexual_deepfake_scandal"
+  # Citation that documents the Grok/xAI/Musk scandal — not the scandal itself
+  documentation: "https://en.wikipedia.org/wiki/Grok_sexual_deepfake_scandal"
+  scandal_is: [Grok, xAI, Elon-Musk]
+  scandal_is_not: [Wikipedia]
