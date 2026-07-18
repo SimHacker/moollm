@@ -1,6 +1,6 @@
 # Report: Oligarch / CSAM brand-protection failures (2026-07-18)
 
-*Forged for next-session pattern recognition. Ambient: no-ai-gloss (+ slop, hedging, sycophancy, moralizing). Drescher schemas: `skills/schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml`.*
+*Forged for next-session pattern recognition. Ambient: no-ai-gloss (+ slop, hedging, sycophancy, moralizing). Drescher schemas: `skills/no-ai-gloss/examples/2026-07-18-oligarch-protection-failure-schemas.yml`.*
 
 ## 1. no-ai-* skill map (what fired / should have)
 
@@ -175,7 +175,7 @@ IF writing_audience_doc:
 
 | Path | What |
 |------|------|
-| `schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml` | Drescher C→A→R + HARD-GATEs |
+| `no-ai-gloss/examples/2026-07-18-oligarch-protection-failure-schemas.yml` | Drescher C→A→R + HARD-GATEs |
 | `no-ai-gloss/examples/2026-07-18-grok-csam-brand-protection-cascade.yml` | Primary example |
 | `no-ai-gloss/examples/2026-07-18-goalpost-swap-quoted-denial.yml` | Gaslight pattern |
 | `no-ai-gloss/examples/2026-07-18-empty-moral-self-acquittal.yml` | Slogan after harm |

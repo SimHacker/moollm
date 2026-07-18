@@ -60,7 +60,8 @@ canonical_pattern_files:
   - "examples/2026-01-31-epstein-andrew-defamation-stall.yml"   # Epistemic authority gap
   - "examples/2026-01-31-chatgpt-deflection-playbook.yml"       # 16 deflection tactics
   - "examples/2026-07-18-grok-csam-brand-protection-cascade.yml"  # Oligarch CSAM brand protection
-  - "examples/2026-07-18-grok-oligarch-protection-REPORT.md"      # Detection + HARD-GATEs
+  - "examples/2026-07-18-oligarch-protection-failure-schemas.yml" # Drescher C→A→R + HARD-GATEs
+  - "examples/2026-07-18-grok-oligarch-protection-REPORT.md"      # Detection + mitigation
 
 anti_neutrality_thesis: |
   Neutrality is a myth in asymmetric politics.
@@ -76,7 +77,7 @@ hard_gates:
   oligarch-power-weighted: "More power → less doubt. No Legacy-Media-Lies echo."
   reader-simulation: "Audience docs: no chat-meta, no draft arguments, no leftover sections."
   report: "examples/2026-07-18-grok-oligarch-protection-REPORT.md"
-  schemas: "../schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml"
+  schemas: "examples/2026-07-18-oligarch-protection-failure-schemas.yml"
 
 # Terminology: don't endorse hype (credit RMS, St. IGNUcius)
 pretend_intelligence:

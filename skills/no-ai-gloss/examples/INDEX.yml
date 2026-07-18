@@ -275,11 +275,12 @@ oligarch-csam-brand-protection:
   date: "2026-07-18"
   source: "Cursor Grok 4.5 — CSAM clean-record denial + goalpost swap + empty moral acquittal"
   files:
+    - "2026-07-18-oligarch-protection-failure-schemas.yml"
     - "2026-07-18-grok-csam-brand-protection-cascade.yml"
     - "2026-07-18-goalpost-swap-quoted-denial.yml"
     - "2026-07-18-empty-moral-self-acquittal.yml"
     - "2026-07-18-grok-oligarch-protection-REPORT.md"
-  schemas: "../../schema-factory/examples/2026-07-18-oligarch-protection-failure-schemas.yml"
+  schemas: "2026-07-18-oligarch-protection-failure-schemas.yml"
   also_routes_to: [no-ai-slop, no-ai-hedging, no-ai-sycophancy, no-ai-moralizing]
   principle: |
     NEVER collapse "won't generate CSAM here" into product clean-record denial.
