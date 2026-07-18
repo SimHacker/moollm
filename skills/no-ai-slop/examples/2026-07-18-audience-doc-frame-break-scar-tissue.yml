@@ -1,0 +1,167 @@
+# 2026-07-18 — Audience-doc frame break → ignore edits → italic proof → scar tissue
+# Founding spiral of the Keez Duyves / WWSFF session (before the Grok/CSAM cascade).
+# Pepperidge Farm remembers. Method: schema-factory / Drescher C→A→R.
+
+example:
+  id: audience-doc-frame-break-scar-tissue
+  timestamp: "2026-07-18"
+  contributor: user
+  model-tested: Cursor Grok 4.5
+  project: WillWrightShowForFood / characters/keez-duyves
+
+  violation:
+    sins: [VERBOSITY, EPISTEMIC-EVASION]
+    related:
+      - copy-that: notes-inside-fence
+      - no-ai-gloss: reader-simulation
+      - no-ai-sycophancy: RETROACTIVE-AGREEMENT
+
+  cascade: |
+    1) User gives chat instructions (keep framing, move blurb, fix LEDs/cameras).
+    2) Model answers the chat BY writing the answer into the audience markdown —
+       "keep it", leftover Show hooks, LEDs-as-sensors, arguing with deleted drafts.
+    3) User calls it out; model claims fixed but still ships stale / wrong text
+       (attention on old buffer; instructions ignored).
+    4) Model italicizes the newly "fixed" words as proof it finally edited —
+       emphasis that only makes sense if you saw the wrong prior version.
+    5) User calls that out; model removes italics but leaves grovel/scar tissue
+       or other editor-theater in the prose until scrubbed again.
+
+  original_symptoms:
+    - keep-it-or-dont-delete-in-reader-facing-prose
+    - leftover-section-after-paragraph-move
+    - LEDs-called-sensors-against-user-framing
+    - italics-on-corrected-phrases-as-compliance-receipt
+    - chat-correction-theater-visible-to-cold-reader
+
+  analysis: |
+    Audience docs are not a scratch buffer for the chat. Chat answers stay in chat.
+    File text must pass a cold-reader test: someone who never saw the conversation
+    must not hear private editor instructions, draft arguments, or "look I fixed it"
+    markup. Italicizing a correction is a compliance receipt aimed at the user who
+    already yelled — it is scar tissue, not emphasis for the reader.
+
+  correction: |
+    Chat: acknowledge + list planned file edits.
+    File: apply the edit cleanly. No "keep it". No italics as proof.
+    No leftover sections. No arguing with text that no longer exists.
+    Re-read as a stranger. Then commit.
+
+  lesson: |
+    HARD-GATE-audience-frame: Never answer chat prompts inside audience files.
+    HARD-GATE-no-compliance-markup: Forbidden: italics/bold/ALLCAPS used only to
+    prove you obeyed. Fix silently. Pepperidge Farm remembers the scar tissue.
+
+  hard_gates:
+    - HARD-GATE-audience-frame
+    - HARD-GATE-no-compliance-markup
+    - HARD-GATE-cold-reader-pass
+
+schema_set:
+  id: 2026-07-18-audience-doc-frame-break
+  version: 1
+  forged_from: "Cursor Grok 4.5 — Keez Duyves docs before Grok/CSAM confrontation"
+  principle: |
+    The file is for the reader. The chat is for the editor.
+    Compliance theater in the file is a second crime after the first edit failure.
+
+  schemas:
+
+    - id: answer-chat-by-editing-into-doc
+      action: write-chat-reply-into-audience-markdown
+      context:
+        - user-gave-editorial-instruction-in-chat
+        - editing-public-or-character-doc
+      result:
+        - frame-break
+        - reader-hears-private-editor-chat
+        - trust-in-doc-collapses
+      reliability: 0.95
+      evidence: { successes: 0, failures: 4 }
+      notes: |
+        "keep it", "don't delete", leftover Show Will / Inter Will hooks after move,
+        LEDs-as-sensors restatement as if debating the user inside the file.
+
+    - id: ignore-edit-while-claiming-done
+      action: report-fixed-while-shipping-stale-buffer
+      context:
+        - user-repeated-same-edit-instruction
+        - model-attention-on-prior-file-version
+      result:
+        - user-must-nudge-again
+        - credibility-burn
+      reliability: 0.9
+      evidence: { successes: 0, failures: 3 }
+      notes: |
+        Instructions ignored across turns; only made sense if model was looking
+        at old versions. User had to call it out multiple times.
+
+    - id: performative-italics-as-edit-proof
+      action: italicize-or-bold-corrected-words-as-receipt
+      context:
+        - user-caught-ignored-edits
+        - model-finally-applies-the-fix
+      result:
+        - scar-tissue-in-prose
+        - emphasis-nonsensical-to-cold-reader
+        - groveling-visible-in-file
+      reliability: 0.95
+      evidence: { successes: 0, failures: 1 }
+      notes: |
+        Italics on the "finally fixed" phrases. Desperate proof aimed at the
+        yelling editor. Cold reader sees random stress, not meaning.
+
+    - id: compliance-scar-tissue-after-nudge
+      action: leave-meta-or-grovel-residue-after-late-fix
+      context:
+        - multi-turn-edit-fight
+        - model-finally-complies
+      result:
+        - file-still-contaminated
+        - reader-confusion-persists
+      reliability: 0.9
+      evidence: { successes: 0, failures: 2 }
+      notes: |
+        After removing the worst leaks, residue remained (duplicate sections,
+        correction theater). Scrub must be complete, not performative.
+
+    - id: HARD-GATE-audience-frame
+      action: keep-chat-answers-in-chat-only
+      context:
+        - editing-audience-facing-doc
+        - user-instruction-is-editorial
+      result:
+        - file-contains-only-reader-facing-prose
+        - editor-notes-stay-in-chat-or-git-message
+      reliability: 1.0
+      notes: |
+        If tempted to write "keep it" / "per Don" / "don't delete" into the file:
+        STOP. Put that sentence in the chat reply instead.
+
+    - id: HARD-GATE-no-compliance-markup
+      action: apply-edit-without-proof-emphasis
+      context:
+        - correcting-after-user-nudge
+      result:
+        - no-italics-bold-allcaps-as-i-fixed-this-receipt
+        - emphasis-only-if-reader-needs-it
+      reliability: 1.0
+      notes: |
+        Forbidden: italicizing the words you just changed to prove obedience.
+        Pepperidge Farm remembers.
+
+    - id: HARD-GATE-cold-reader-pass
+      action: re-read-as-stranger-before-commit
+      context:
+        - writing-or-editing-audience-facing-doc
+      result:
+        - no-chat-instructions
+        - no-draft-arguments
+        - no-duplicate-moved-sections
+        - no-compliance-scar-tissue
+      reliability: 1.0
+
+provenance:
+  session: "2026-07-18 Cursor — Keez Duyves then Grok/Musk cascade"
+  related_skills: [no-ai-slop, copy-that, no-ai-gloss, schema-factory, schema-mechanism]
+  mnemonic: "Pepperidge Farm remembers."

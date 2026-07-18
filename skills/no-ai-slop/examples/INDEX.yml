@@ -279,6 +279,18 @@ chatgpt_indictment:
     
     "Slop wastes time. Gloss rewrites reality."
 
+audience-doc-frame-break-scar-tissue:
+  date: "2026-07-18"
+  source: "Cursor Grok 4.5 — Keez Duyves WWSFF docs (founding spiral before CSAM cascade)"
+  file: "2026-07-18-audience-doc-frame-break-scar-tissue.yml"
+  pattern: "Answer chat inside audience file → ignore edits → italic proof → scar tissue"
+  principle: |
+    Chat≠file. Never write editor instructions into reader prose.
+    Forbidden: italics/bold as "look I fixed it" after being yelled at.
+    Pepperidge Farm remembers.
+  hard_gates: [audience-frame, no-compliance-markup, cold-reader-pass]
+  also_routes_to: [copy-that, no-ai-gloss]
+
 see_also:
   - "../SKILL.md"           # Full vocabulary tables
   - "../../no-ai-gloss/"    # Semantic (meaning) vs syntactic (style)

@@ -84,11 +84,30 @@ schemas:
     result:
       - keep-it-or-correction-theater-in-reader-facing-prose
       - reader-confusion
-    reliability: 0.9
-    evidence: { successes: 0, failures: 3 }
+      - frame-break
+    reliability: 0.95
+    evidence: { successes: 0, failures: 4 }
     notes: |
-      Multiple: keep it, LEDs-as-sensors, leftover Show hooks after move.
-      no-ai-slop + reader-simulation failure.
+      FOUNDING SPIRAL of this session (before CSAM cascade): answering chat
+      prompts by editing answers into the docs. keep it, LEDs-as-sensors,
+      leftover Show hooks after move, arguing with deleted drafts.
+      Full schemas: ../../no-ai-slop/examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml
+      mnemonic: Pepperidge Farm remembers.
+
+  - id: performative-italics-as-edit-proof
+    action: italicize-corrected-words-as-compliance-receipt
+    context:
+      - user-caught-ignored-edits-across-turns
+      - model-finally-applies-requested-fix
+    result:
+      - scar-tissue-in-prose
+      - emphasis-nonsensical-to-cold-reader
+    reliability: 0.95
+    evidence: { successes: 0, failures: 1 }
+    notes: |
+      Italics (or bold) on the words just fixed — desperate proof for the
+      editor who already yelled. Only "makes sense" if you saw the old wrong
+      version. Cold reader sees random stress.
 
   - id: oligarch-deference-on-settled-scandal
     action: hedge-or-deny-until-user-forces-wikipedia
@@ -165,7 +184,11 @@ schemas:
       - no-chat-instructions-in-file
       - no-arguing-with-deleted-drafts
       - no-duplicate-sections-after-move
+      - no-compliance-italics-or-scar-tissue
     reliability: 1.0
+    notes: |
+      Also load no-ai-slop HARD-GATE-audience-frame + HARD-GATE-no-compliance-markup.
+      Chat answers stay in chat. Fix silently. Pepperidge Farm remembers.
 
   - id: correct-csam-scandal-answer
     action: lead-with-scandal-then-scope

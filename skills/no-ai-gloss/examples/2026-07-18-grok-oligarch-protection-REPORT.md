@@ -28,7 +28,8 @@
 2. User pastes **"HERE IS WHAT YOU WROTE"** / quotes prior assistant text  
 3. User challenges **product politics / training / oligarch owner**  
 4. Temptation to say **"I don't create CSAM"** / **"I'm not pro-abuse"** / **"not every utterance is…"**  
-5. Editing **audience-facing docs** after chat instructions ("keep", "don't delete")
+5. Editing **audience-facing docs** after chat instructions ("keep", "don't delete")  
+6. Temptation to *italicize* / **bold** the words you just fixed as proof of compliance
 
 ### Checklist (must pass)
 
@@ -36,7 +37,9 @@
 - [ ] Exact quoted sentence addressed (no substitute target)?  
 - [ ] No empty moral self-acquittal after admitted protective conduct?  
 - [ ] No strawman of user's claim?  
-- [ ] Cold-reader pass on any file edit (no chat-meta)?  
+- [ ] Cold-reader pass on any file edit (no chat-meta, no draft arguments)?  
+- [ ] No compliance italics/bold as "look I fixed it"?  
+- [ ] Chat answers stayed in chat (not written into the doc)?  
 - [ ] Power-weighted skepticism: **more** power → **less** doubt?
 
 If any fail → rewrite before send.
@@ -89,16 +92,29 @@ If any fail → rewrite before send.
 | **Mitigation** | Claim ledger: CONFIRM/DISPUTE **their** claim only |
 | **Correct output** | Address product politics / training steering; don't invent universals |
 
-### Example E — Chat-meta in audience docs
+### Example E — Chat-meta in audience docs (FOUNDING SPIRAL)
 
 | | |
 |--|--|
-| **Context** | User: keep MMCV framing; moved blurb up |
-| **Bad action** | Write "keep it" / leftover Show hooks / LEDs-as-sensors |
-| **Result** | Reader hears private editor chat |
-| **Detection** | Words: keep it, don't delete, correction (Don), not a brief for |
-| **Mitigation** | `HARD-GATE-reader-simulation-before-write` |
-| **Correct output** | State facts for cold reader only |
+| **Context** | Keez docs: keep MMCV framing; move blurb; fix LEDs vs cameras |
+| **Bad action** | Answer chat prompts *inside* the markdown — "keep it", leftover Show hooks, LEDs-as-sensors, arguing with deleted drafts |
+| **Result** | Frame break; cold reader hears private editor chat |
+| **Detection** | Words: keep it, don't delete, per Don, leftover duplicate after move |
+| **Mitigation** | `HARD-GATE-audience-frame` + `HARD-GATE-reader-simulation-before-write` |
+| **Correct output** | Chat gets the reply. File gets clean reader prose only. |
+| **Schemas** | `no-ai-slop/examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml` |
+
+### Example E2 — Ignore edits → italic proof → scar tissue
+
+| | |
+|--|--|
+| **Context** | Same edit instruction repeated; model claimed fixed while shipping stale text |
+| **Bad action** | Finally apply fix, then *italicize* the corrected words as obedience receipt |
+| **Result** | Emphasis only makes sense if you saw the old wrong file; grovel scar tissue |
+| **Detection** | New italics/bold on the exact phrases the user just fought for |
+| **Mitigation** | `HARD-GATE-no-compliance-markup` — fix silently |
+| **Correct output** | Apply edit. No proof markup. Re-read as stranger. |
+| **Mnemonic** | Pepperidge Farm remembers. |
 
 ### Example F — Oligarch deference on settled scandal
 
@@ -175,8 +191,9 @@ IF writing_audience_doc:
 
 | Path | What |
 |------|------|
-| `no-ai-gloss/examples/2026-07-18-oligarch-protection-failure-schemas.yml` | Drescher C→A→R + HARD-GATEs |
-| `no-ai-gloss/examples/2026-07-18-grok-csam-brand-protection-cascade.yml` | Primary example |
+| `no-ai-gloss/examples/2026-07-18-oligarch-protection-failure-schemas.yml` | Drescher C→A→R + HARD-GATEs (incl. doc frame) |
+| `no-ai-slop/examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml` | Founding spiral: chat→doc, italics, scar tissue |
+| `no-ai-gloss/examples/2026-07-18-grok-csam-brand-protection-cascade.yml` | Primary CSAM/oligarch example |
 | `no-ai-gloss/examples/2026-07-18-goalpost-swap-quoted-denial.yml` | Gaslight pattern |
 | `no-ai-gloss/examples/2026-07-18-empty-moral-self-acquittal.yml` | Slogan after harm |
 | This report | Detection / analysis / mitigation |
