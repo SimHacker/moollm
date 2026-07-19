@@ -83,7 +83,7 @@ Don tells Palm the story of David MacKay:
 
 ## New Files
 
-### `pub/stage/palm-nook/study/infinite-typewriters.yml`
+### `pub/stage/palm-nook/study/infinite-typewriters.md` (+ `.yml` skeleton)
 
 Complete documentation of the gift:
 - Philosophy and origin (David MacKay)

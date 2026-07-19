@@ -46,7 +46,7 @@ The infinite typewriters hum in harmony — Don's gift, Dasher-inspired navigati
 
 | Object | File | From |
 |--------|------|------|
-| **Infinite Typewriters** | [infinite-typewriters.yml](infinite-typewriters.yml) | Don's gift, Dasher-inspired — now with an [app dream](infinite-typewriters.yml) (the Pinocchio clause: a 3D typewriter whose keys swell and yield) |
+| **Infinite Typewriters** | [infinite-typewriters.md](infinite-typewriters.md) · [`.yml` skeleton](infinite-typewriters.yml) | Don's gift, Dasher-inspired — Pinocchio app dream in the skeleton |
 | **Infinity Desk** | [infinity-desk.yml](infinity-desk.yml) | From the Grotto Regulars |
 | **Monkey Chair** | [monkey-chair.yml](monkey-chair.yml) | From Stroopwafel |
 | **Story Shelf** | [story-shelf.yml](story-shelf.yml) | From W.W. Jacobs |

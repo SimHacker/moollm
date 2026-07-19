@@ -3,22 +3,23 @@
 # 🎟️ "Don't tell the LLM what it already knows."
 
 what: |
-  Context hygiene, inbound direction. Fights wasting tokens telling an LLM
-  something already represented in its latent space — the mirror image of slop.
-  Slop pollutes human attention on the way out; humansplaining pollutes the
-  context window on the way in.
+  Context hygiene, inbound direction. Fights wasting tokens that should have been
+  a K-line — either respelling prepaid knowledge, or inventing a private language
+  when a latent equivalent already exists. Mirror image of slop. One brand, two
+  mechanisms; do not fork "humanspamming."
 
 why: |
-  - Latent knowledge is prepaid at training time; respelled knowledge is billed per call, forever
-  - Novel jargon is a cache miss that never fills
+  - Latent knowledge is prepaid; respell *or* substitute-language tax is billed per call, forever
+  - Novel jargon / LLM-only DSLs are cache misses that never fill
   - A name is a pointer: if the pointee is in latent space, the name is the activation
+  - Models should warn before inventing LLM-specific languages on demand
   - Constitutional directive: LEAN INTO the training data
 
 when: Always. This skill is ambient.
 
 cardinal_sins:
   MANUAL-PASTING: "Pasting the Python manual into a question about Python"
-  LANGUAGE-INVENTING: "New DSL for LLMs — the definition rides along every prompt, forever"
+  LANGUAGE-INVENTING: "New DSL for LLMs when latent equivalents exist — grammar tax forever (still humansplaining)"
   RESPELLING: "Restating a latent concept instead of naming it"
   PREEMPTIVE-TUTORING: "'As you may know, Python is a programming language...'"
   FILE-DUMPING: "Attaching whole files when a path, name, or three quoted lines would do"
@@ -26,7 +27,8 @@ cardinal_sins:
 
 the_test: |
   Is the pointee in latent space? Point — the name is the activation.
-  Is it not? Spell it ONCE, in a file the resolver can find.
+  If inventing a language: does a latent equivalent already cover the job? If yes, lean in (warn).
+  If truly novel: spell it ONCE, in a file the resolver can find.
 
 not_humansplaining:
   - "Project-local conventions (latent space has the traditions, not your specifics)"

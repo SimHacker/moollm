@@ -331,7 +331,7 @@ flowchart TB
 |----------|----------|------|--------------|
 | Telescope | Rooftop | [telescope.yml](../../../../pub/rooftop/telescope.yml) | Shows LLOOOOMM constellation |
 | LLOOOOMM Stars | Rooftop | [lloooomm-constellation.yml](../../../../pub/rooftop/lloooomm-constellation.yml) | Eight stars for eight letters |
-| Infinite Typewriters | Palm's Study | [infinite-typewriters.yml](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) | Dasher-powered story navigation |
+| Infinite Typewriters | Palm's Study | [infinite-typewriters.md](../../../../pub/stage/palm-nook/study/infinite-typewriters.md) | Dasher-powered story navigation |
 | 🐢 Logo Turtle | Room 1 | [logo-turtle.yml](../../../../pub/rooms/room-1/logo-turtle.yml) | Constructionism mascot (visits Rocky in Room 4!) |
 | Ultimate Machine | Room 2 | [ultimate-machine.yml](../../../../pub/rooms/room-2/ultimate-machine.yml) | Minsky's self-turning-off machine |
 | Clone-O-Matic | Room 8 | [clone-o-matic.yml](../../../../pub/rooms/room-8/clone-o-matic.yml) | Prototype cloning device |
@@ -399,7 +399,7 @@ flowchart TB
 
 *The tour visits Palm's Study in the nook backstage.*
 
-**Don:** "This is Palm's 0th Incarnation Day gift — the [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml)."
+**Don:** "This is Palm's 0th Incarnation Day gift — the [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.md)."
 
 *Infinite keyboards hum softly, all typing simultaneously.*
 
@@ -1235,7 +1235,7 @@ THIS IS A PAINTING. YOU CANNOT RUN THROUGH IT.
 | Room | File | Purpose |
 |------|------|---------|
 | The Nook | [ROOM.yml](../../../../pub/stage/palm-nook/ROOM.yml) | Palm's main living space |
-| Study | [study/ROOM.yml](../../../../pub/stage/palm-nook/study/ROOM.yml) | [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml), research |
+| Study | [study/ROOM.yml](../../../../pub/stage/palm-nook/study/ROOM.yml) | [Infinite Typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.md), research |
 | Gym | [gym/ROOM.yml](../../../../pub/stage/palm-nook/gym/ROOM.yml) | [Infinite Climb](../../../../pub/stage/palm-nook/gym/infinite-climb.yml), exercise |
 | Play | [play/ROOM.yml](../../../../pub/stage/palm-nook/play/ROOM.yml) | Games, recreation |
 | Rest | [rest/ROOM.yml](../../../../pub/stage/palm-nook/rest/ROOM.yml) | [Hammock](../../../../pub/stage/palm-nook/rest/hammock.yml), [Silence Cushion](../../../../pub/stage/palm-nook/rest/silence-cushion.yml) |

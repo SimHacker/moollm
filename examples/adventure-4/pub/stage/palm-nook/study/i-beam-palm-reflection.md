@@ -43,7 +43,7 @@ This document is the proof. I traced Palm's entire lifetime through the commits 
 ### Tier 3: Palm's Possessions
 | File | Purpose |
 |------|---------|
-| `palm-nook/study/infinite-typewriters.yml` | Don's gift — infinite potential |
+| `palm-nook/study/infinite-typewriters.md` (+ `.yml`) | Don's gift — infinite potential |
 | `palm-nook/study/infinity-desk.yml` | The writing desk |
 | `palm-nook/study/monkey-chair.yml` | Stroopwafel's gift |
 | `palm-nook/study/story-shelf.yml` | W.W. Jacobs' gift |

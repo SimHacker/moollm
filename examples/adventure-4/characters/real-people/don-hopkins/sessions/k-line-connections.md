@@ -1012,7 +1012,7 @@ actions:
 
 *Palm leads the group to a quieter room...*
 
-The [infinite typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml) click softly. An ornate desk. A chair that Stroopwafel sometimes claims.
+The [infinite typewriters](../../../../pub/stage/palm-nook/study/infinite-typewriters.md) click softly. An ornate desk. A chair that Stroopwafel sometimes claims.
 
 > "This is where I write. Don gave me infinite typewriters — the infinite monkey theorem, optimized for ONE monkey. Every story that COULD be. I choose which ones ARE."
 

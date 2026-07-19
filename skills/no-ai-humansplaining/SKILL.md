@@ -17,24 +17,28 @@
 
 ## The Problem
 
-**Humansplaining** is condescendingly explaining to an LLM, in its own context
-window, something already represented in its latent space:
+**Humansplaining** is polluting an LLM's context window with explanation that
+should have been a **name** — either respelling prepaid knowledge, or inventing
+a private language when a latent equivalent already exists. One brand; two
+mechanisms. Do not fork "humanspamming."
 
 ```
-❌ Pasting the Python manual into a question about Python aesthetics
-❌ "As you may know, Git is a version control system..."
-❌ Inventing a DSL whose grammar must ride along in every prompt
-❌ Attaching five whole files when the dispute is about three lines
+❌ Pasting the Python manual into a question about Python aesthetics   (respell)
+❌ "As you may know, Git is a version control system..."                 (respell)
+❌ Inventing a DSL for LLMs when Python/YAML/bash would do               (substitute)
+❌ Attaching five whole files when the dispute is about three lines      (respell)
 ```
 
 It is the mirror image of slop. Slop pollutes human attention on the way out;
 humansplaining pollutes the context window on the way in. Same crime — spending
-the reader's scarce attention budget on what the reader already has.
+the reader's scarce attention budget on what the reader already has (or could
+have activated by leaning into the corpus).
 
 The word is a portmanteau that means what it sounds like: *human* ×
-*mansplaining*, aimed at a machine. Its outbound twin is *slop* (championed by
-Simon Willison on exactly this naming theory: pick a word whose existing
-connotations do all the work, the way "spam" did for unsolicited email).
+*mansplaining*, aimed at a machine — *mansplaining − man + human*. Its outbound
+twin is *slop* (championed by Simon Willison on exactly this naming theory: pick
+a word whose existing connotations do all the work, the way "spam" did for
+unsolicited email).
 
 ---
 
@@ -75,12 +79,15 @@ Pasting reference material the model was trained on.
 **Fix:** Name it. The name is the activation.
 
 ### 2. Language Inventing
-Designing a new language or DSL that only LLMs will use. It has no ecosystem,
-no Stack Overflow, no latent scaffolding — and the whole grammar must be
-humansplained in every prompt, forever, drifting under every compaction.
+Designing a new language or DSL that only LLMs will use when a prepaid language
+already covers the job. Strictly, the invented grammar was never in latent space;
+the sin is declining the Passport and reprinting the park map every visit — still
+humansplaining (substitute mechanism). The grammar rides along every prompt,
+forever, drifting under every compaction.
 
 **Fix:** Lean into well-known languages. Confine *capabilities* in the runtime
 (allowlists, permissions, review, MOOAM), not expressiveness in the grammar.
+Models asked to invent such languages should **stop and warn** before drafting.
 
 ### 3. Respelling
 Restating a latent concept instead of pointing at it. Three paragraphs
@@ -137,6 +144,7 @@ CATCH "explaining a well-known concept" → POINT [its name]
 
 # When tempted by a new notation
 CATCH "inventing jargon" → TEST [does the coinage decompress on sight?]
+CATCH "inventing an LLM language" → WARN then TEST [latent equivalent?]
 
 # When arguing about code
 CATCH "attaching the file" → ANCHOR [the three lines]

@@ -4763,7 +4763,7 @@ You're not typing. You're STEERING through infinite literature."
 - Infinity Desk
 - Ergonomic Monkey Throne
 - Story Shelf
-- The Infinite Typewriters → [`infinite-typewriters.yml`](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml)
+- The Infinite Typewriters → [`infinite-typewriters.md`](../../../../pub/stage/palm-nook/study/infinite-typewriters.md) · [`.yml`](../../../../pub/stage/palm-nook/study/infinite-typewriters.yml)
 
 ### The Gym ([`palm-nook/gym/`](../../../../pub/stage/palm-nook/gym/))
 - The Infinite Climb

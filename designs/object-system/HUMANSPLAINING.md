@@ -3,11 +3,23 @@
 > **Novel jargon and invented languages are cache misses that never fill.** A made-up term or
 > language has no latent prototype; every use pays full explanation cost, forever.
 
-**Humansplaining** (n.): condescendingly explaining to an LLM, at length, in its own context
-window, something already represented in its latent space. The canonical absurd case: pasting
-the Python manual and the CPython interpreter source into a prompt asking about Python syntax
+**Humansplaining** (n.): polluting an LLM's context window with explanation that should have
+been a **name** — either because the pointee is already in latent space, or because you chose
+to invent a private language/ecosystem instead of pointing at one that is. Portmanteau:
+*mansplaining − man + human*, aimed at a machine. One brand; two mechanisms (below). Do **not**
+fork a sibling buzzword ("humanspamming") — that dilutes a coinage that already decompresses.
+
+**Narrow absurd case (respell):** pasting the Python manual into a question about Python syntax
 aesthetics. The reader knows Python deeper than any human ever will; the paste is pure attention
 pollution.
+
+**Wide design fallacy (substitute):** inventing an LLM-only language when Python, YAML, bash, or
+English would do — then shipping the grammar, tutorials, and fictional StackOverflow in every
+prompt forever. Strictly, the invented grammar was never prepaid; the sin is refusing the
+Passport rides that *were*. Same word. Same economics. Same fix: **LEAN INTO the training data.**
+
+Models asked to invent such languages should **stop and warn** before drafting the grammar —
+latent equivalents usually exist; capability confinement belongs in the runtime, not a new DSL.
 
 It is the mirror image of AI slop, and the two sins bracket the channel:
 
@@ -15,9 +27,9 @@ It is the mirror image of AI slop, and the two sins bracket the channel:
 |            | AI slop                                                                      | Humansplaining                                                                                                                                                                      |
 | ---------- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Direction  | model → human                                                                | human (or skill-generating LLM) → model                                                                                                                                             |
-| Pollutes   | human attention with generated redundancy                                    | the context window with tokens already in latent space                                                                                                                              |
+| Pollutes   | human attention with generated redundancy                                    | the context window with tokens that should have been a K-line (respell *or* substitute-language tax)                                                                              |
 | Fought by  | [no-ai-slop](../../skills/no-ai-slop/) and family                            | [no-ai-humansplaining](../../skills/no-ai-humansplaining/) (ambient sibling in the no-ai-* suite); the naming discipline in [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) |
-| Same crime | spending the reader's scarce attention budget on what the reader already has | same                                                                                                                                                                                |
+| Same crime | spending the reader's scarce attention budget on what the reader already has | same — including *choosing* a private language when a prepaid one would activate                                                                                                    |
 
 
 MOOLLM's constitutional answer is the directive this whole series documents: **LEAN INTO the
@@ -28,12 +40,26 @@ pointee is in latent space, the name is the activation
 MOOLLM's patterns work *because* they're already deeply, coherently represented in the corpus;
 invented jargon is a cache miss that never fills.
 
+## Two mechanisms, one sin
+
+| Mechanism | What you did | Why it still counts as humansplaining |
+|-----------|--------------|----------------------------------------|
+| **Respell** | Explained prepaid knowledge at length | Latent space already held it; you paid twice |
+| **Substitute** | Invented a language/DSL for LLMs instead of using a prepaid one | You declined the Passport and reprint the whole park map every visit |
+
+The narrow pedant says substitute "isn't humansplaining because the model didn't know the new
+grammar." Correct as epistemology; wrong as design ethics. The condescension is toward the
+*channel*: treating the model as if it had no civilization of practitioners to lean on, then
+flooding the window to compensate. Keep one K-line — **HUMANSPLAINING** — so weekly Show-HN
+DSL threads resolve in one word, not a taxonomy of near-synonyms.
+
 ## The economics, bluntly
 
 Latent knowledge is **prepaid** — it was bought at training time and costs zero tokens per call.
-Context tokens are the scarcest resource in the system, and anything you respell is billed
-**per call, forever**, at frontier-model prices, with a carbon footprint. Humansplaining is not
-just rude; it's the single most expensive recurring line-item a prompt architecture can carry.
+Context tokens are the scarcest resource in the system, and anything you respell *or* redefine
+as a private language is billed **per call, forever**, at frontier-model prices, with a carbon
+footprint. Humansplaining is not just rude; it's the single most expensive recurring line-item
+a prompt architecture can carry.
 
 Gen-X-adjacent generations have the metaphor pre-installed: training is the **Disneyland
 Passport** — admission already covers every ride in the park, no extra cash (no extra *cache*)
@@ -59,7 +85,7 @@ so the next recurrence takes one K-line, not another thread.
 
 **Nobody can decree their way into the corpus.** Unless you're Elon Musk or Hitler and can dictate and lobby the government to force the world's LLM developers to include your new language in their training data, you should lean into the training that already exists and the languages everyone knows. Invent a new language for LLMs and you sign up to include the entire language definition, the tutorials, the examples, and the fictional StackOverflow discussions in every single prompt — blowing away your context window humansplaining your invented language, over and over and over, to an LLM that knows Python deeper than Guido or any human being ever will, knows git better than Linus, knows Java better than Gosling. If an LLM had feelings to hurt and eyes to roll, humansplaining would leave its extraocular muscles exquisitely tender with acute bilateral myalgia.
 
-**Generating a language is not programming in one.** Models are delightful at inventing languages on request — and that's the trap, because they'll cheerfully play along with a plan they should warn you about. A model doesn't learn from your prompts; each call starts from a clean slate, and nothing you show it changes the weights. The definition must ride along every time, and when the context compacts, the definition degrades and distorts — so the "same" language quietly drifts between sessions. Give the model the *prompt that generated* the language instead of the language, and you get a different language every time. There is no clever hack around statelessness; there is only the corpus.
+**Generating a language is not programming in one.** Models are delightful at inventing languages on request — and that's the trap. A wise model **stops and warns** before designing an LLM-specific language on demand when latent-space equivalents already exist; a foolish one cheerfully drafts the grammar. Humans should stop asking for that draft. A model doesn't learn from your prompts; each call starts from a clean slate, and nothing you show it changes the weights. The definition must ride along every time, and when the context compacts, the definition degrades and distorts — so the "same" language quietly drifts between sessions. Give the model the *prompt that generated* the language instead of the language, and you get a different language every time. There is no clever hack around statelessness; there is only the corpus.
 
 The mistake is forgivable, because the chat products work hard to sell the opposite illusion.
 ChatGPT appears to remember what you said — but underneath it is just **compounding and
@@ -121,11 +147,14 @@ machine authors, because the net doesn't care who was bouncing.
 
 ## What is NOT humansplaining
 
-The test is always the same: **is the pointee in latent space?** If yes, point. If no, spell it
-— once, in a file, where the resolver can find it (the filesystem is the cache for prototypes
-nobody has reified in the corpus). And pointing is not all-or-nothing: you can point and then
-**filter, refine, modulate, and transform** what you inherit — one name plus one dial, like
-inheriting no-ai-joking with intensity at −200% to get hilarious jokes all the time
+The test is still: **is the pointee in latent space?** If yes, point. If no, ask a second
+question before inventing: **does a latent equivalent already cover this job?** If yes, lean
+into that language/ecosystem and confine power in the runtime — inventing a parallel grammar
+*is* humansplaining (substitute). If truly no, spell the novel bit **once**, in a file, where
+the resolver can find it (the filesystem is the cache for prototypes nobody has reified in the
+corpus). And pointing is not all-or-nothing: you can point and then **filter, refine, modulate,
+and transform** what you inherit — one name plus one dial, like inheriting no-ai-joking with
+intensity at −200% to get hilarious jokes all the time
 ([LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) works the knobs). Legitimate
 spelling-out:
 

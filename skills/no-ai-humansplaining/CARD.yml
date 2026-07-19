@@ -6,7 +6,8 @@
 # This skill is about CONTEXT hygiene, INBOUND direction — the mirror image
 # of no-ai-slop. Slop is the model wasting the human's attention; humansplaining
 # is the human (or a skill-generating LLM) wasting the model's context window
-# with tokens already represented in latent space.
+# with tokens that should have been a K-line (respell prepaid knowledge, or
+# invent a private language when a latent equivalent already exists).
 #
 # PATRON SAINT: PAUL GRICE — the maxim of quantity: "Make your contribution
 # as informative as required. Do NOT make it more informative than required."
@@ -21,19 +22,24 @@ card:
   tagline: "Don't tell the LLM what it already knows."
 
   description: |
-    Humansplaining (n.): condescendingly explaining to an LLM, at length, in
-    its own context window, something already represented in its latent space.
-    Canonical absurd case: pasting the Python manual and the CPython interpreter
-    source into a prompt about Python syntax aesthetics.
+    Humansplaining (n.): polluting an LLM's context window with explanation
+    that should have been a name — either respelling prepaid knowledge, or
+    inventing a private language when a latent equivalent already exists.
+    One brand, two mechanisms (respell / substitute). Do not fork
+    "humanspamming." Narrow absurd case: pasting the Python manual into a
+    Python question. Wide design fallacy: LLM-only DSLs that reprint the
+    grammar every prompt.
 
     The coinage is a portmanteau that means what it sounds like:
-    human × mansplaining, aimed at a machine. Sibling of "slop" —
+    mansplaining − man + human, aimed at a machine. Sibling of "slop" —
     one self-decompressing word per direction of the channel:
     - Slop:           model → human pollution (fought by no-ai-slop)
     - Humansplaining: human → model pollution (fought by this skill)
 
     The constitutional directive it enforces: LEAN INTO the training data.
-    Latent knowledge is prepaid; anything respelled is billed per call, forever.
+    Latent knowledge is prepaid; respell or substitute-language tax is billed
+    per call, forever. Models should warn before inventing LLM-specific
+    languages on demand.
 
 # FILES INDEX
 
@@ -111,13 +117,14 @@ cardinal_sins:
     check: "Was this text in the training corpus?"
 
   LANGUAGE-INVENTING:
-    what: "Designing a new language/DSL only LLMs will use"
+    what: "Designing a new language/DSL for LLMs when a latent equivalent covers the job — still humansplaining (substitute)"
     examples:
       - "A workflow DSL whose grammar must ride along in every prompt"
       - "Custom pseudo-code notation when Python is right there"
     fix: |
-      Lean into well-known languages. Confine CAPABILITIES in the runtime
-      (allowlists, permissions, review), not expressiveness in the grammar.
+      Stop and warn. Lean into well-known languages. Confine CAPABILITIES in
+      the runtime (allowlists, permissions, review), not expressiveness in
+      the grammar. Do not invent a sibling brand for this subtype.
     check: "Who else has ever written a line of this language?"
 
   RESPELLING:
