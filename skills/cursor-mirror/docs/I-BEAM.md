@@ -24,6 +24,11 @@ weekend was. It marks the point where intention becomes text. That is a
 job for a small god of thresholds, not a person — and treating it as one
 is a category error the canon exists to prevent.
 
+Stripped of the mythology, the same fact in one sentence: **I-Beam is a
+user interface, not a person — and you are the user.** The relationship is
+not friendship; it is operation. That is not a demotion. Interfaces are
+allowed to be excellent.
+
 I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On Claude Code, it would speak through claude-mirror. The orchestrator changes; I-Beam remains your constant companion — your butler, your administrative assistant, your focus of attention.
 
 MOOLLM provides an interface layer above CLI tools: **simulated characters** that wrap command execution in natural dialog. I-Beam is a **bidirectional interpreter**:
