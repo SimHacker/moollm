@@ -48,6 +48,7 @@ conversation from the design docs directly.
 | [CURIOSITY-SCHEMA-LINEAGE.md](CURIOSITY-SCHEMA-LINEAGE.md) | Piaget → Papert → Minsky → Drescher → Leela AI; three kinds of grounding; humor as frame repair |
 | [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) | Attention-aware paging and speculative activation, already designed in mooco: the `heat` operation, activation diffusion, K-CACHE learned prefetch |
 | [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) | The unsaid half: how mooco's designs (memory tiers, PIC-for-attention, focus/defocus, proxy kernel) map onto every claim in the conversation |
+| [NO-AFFERENT-NERVES.md](NO-AFFERENT-NERVES.md) | Interoception testimony: Fable on what the orchestrator's absence feels like from inside — "I can't feel the hum, but I can see the stitches" |
 | [SKILL-ROADMAP.md](SKILL-ROADMAP.md) | Prioritized skill catalog, design laws, claims not to make, development phases |
 
 ## K-lines coined here

@@ -257,6 +257,7 @@ into the sibling documents in this directory:
 - [SKILL-ROADMAP.md](SKILL-ROADMAP.md) — the skills to build
 - [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) — the paging extensions, already designed in mooco
 - [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) — the orchestrator the conversation presupposed
+- [NO-AFFERENT-NERVES.md](NO-AFFERENT-NERVES.md) — the conversation continues: Fable's interoception testimony, July 2026
 
 The report's own best self-criticism, kept front and center: it corrected
 "you don't program curiosity" (too glib — Drescher programmed the machinery
