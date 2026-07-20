@@ -42,7 +42,7 @@ python3 skills/cursor-mirror/scripts/cursor_mirror.py export-markdown @1 > my-se
 
 | Skill | Priority | Purpose |
 |-------|----------|---------|
-| **cursor-mirror** | Core | The main introspection tool (59 commands, ~9800 lines) |
+| **cursor-mirror** | Core | The main introspection tool (73 commands; thin CLI over a ~10,400-line lib/) |
 | **skill-snitch** | Required | Security auditing for skills and transcripts |
 | **thoughtful-commitment** | Recommended | Git commits that capture reasoning context |
 | **trekify** | Optional | Privacy masking before sharing transcripts |
@@ -58,7 +58,7 @@ This bundle is extracted from **MOOLLM** — a skill framework that builds on an
 
 ### What Works Standalone
 
-- **cursor_mirror.py** — Full functionality, all 59 commands
+- **cursor_mirror.py** — Full functionality, all 73 commands
 - **Security scanning** — skill-snitch's static analysis
 - **Export & documentation** — Transcripts, timelines, thinking blocks
 - **Git integration** — thoughtful-commitment's commit workflows

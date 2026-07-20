@@ -139,7 +139,7 @@ advertisements:
 script:
   name: scripts/cursor_mirror.py
   language: python3
-  lines: ~9800
+  lines: "~700 CLI + ~10,400 lib"
   commands: 59
   output_formats: [text, json, jsonl, yaml, csv, md]
 
@@ -301,7 +301,7 @@ files:
     
   # Scripts directory
   scripts/:
-    - cursor_mirror.py  # 59 commands, ~9800 lines, Python 3.8+
+    - cursor_mirror.py  # 73 commands; thin CLI over lib/ (~10,400 lines), Python 3.8+
     - bundle.sh         # Creates distribution bundle
     
   # Reference docs — reverse-engineered schemas and catalogs (all under reference/reverse-engineered/)

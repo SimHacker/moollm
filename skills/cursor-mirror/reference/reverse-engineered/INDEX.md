@@ -41,7 +41,7 @@ All canonical reverse-engineered and reference material lives **inside this skil
 | Location | Contents |
 |----------|----------|
 | **CARD.yml, SKILL.md, README.md, GLANCE.yml** | Skill interface and protocol. |
-| **scripts/cursor_mirror.py** | CLI; 59 commands. |
+| **scripts/cursor_mirror.py** | CLI; 73 commands. |
 | **templates/**, **examples/**, **characters/** | Config templates, patterns, I-Beam character. |
 
 ---

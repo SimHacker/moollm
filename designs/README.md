@@ -147,6 +147,7 @@ How MOOLLM builds on Anthropic's skill model as its compatibility ABI and extend
 | [prestoration/alignment-and-forgery.md](./prestoration/alignment-and-forgery.md) | Head-on ethics: forgery vs. conservation, standing, the five-condition test |
 | [prestoration/play-by-play.md](./prestoration/play-by-play.md) | Sportscaster's blow-by-blow of every command, error, and red herring |
 | [prestoration/name-change-toolkit.md](./prestoration/name-change-toolkit.md) | Skill seed: free shippable toolkit for anyone whose name has changed |
+| [skills/change-name/](../skills/change-name/) | **The skill it grew into**: SCAN/DISCUSS/EDIT/VERIFY/PUBLISH protocol, working PDF scanner, pdf-prestoration playbook |
 | [vanessa-freudenberg-philosophy.md](./vanessa-freudenberg-philosophy.md) | Companion tribute: her target-JS-not-WASM philosophy and GC design |
 
 ### The Sims → MOOLLM Documents

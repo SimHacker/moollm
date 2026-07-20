@@ -6,6 +6,10 @@ beside it, with every change enumerated, hashed, and signed in public.
 
 Not forgery. Not revisionism. Conservation with receipts.
 
+This directory is the hub for the whole project: the case, the ethics, the
+blow-by-blow, the reusable skill that came out of it, and the tools that made
+the write-up possible.
+
 ## The case
 
 On 2026-07-20, Don Hopkins and Craig Latta recorded a memorial screencast reading Vanessa
@@ -19,14 +23,45 @@ later, a memorial edition existed — and the hunt for precedent then surfaced V
 
 She had asked for exactly this. The record just hadn't listened yet.
 
-## The artifacts
+## The documents (this directory)
 
 | Document | What |
 |----------|------|
 | [case-study.md](case-study.md) | The full story: the search, the nudge, the surgery, the twist |
-| [alignment-and-forgery.md](alignment-and-forgery.md) | Head-on: was this forgery? why didn't the AI propose it? who has standing to correct history? |
+| [alignment-and-forgery.md](alignment-and-forgery.md) | Head-on: was this forgery? why didn't the AI propose it? who has standing to correct history? The five-condition legitimacy test |
 | [play-by-play.md](play-by-play.md) | Sportscaster's blow-by-blow of every script, error message, and rabbit hole |
-| [name-change-toolkit.md](name-change-toolkit.md) | Skill seed: a free, shippable toolkit for everyone whose name has changed |
+| [name-change-toolkit.md](name-change-toolkit.md) | The design seed and brainstorm that grew into the skill below |
+
+## The skill (lifted from this case)
+
+The session was lifted into a reusable MOOLLM skill:
+**[skills/change-name/](../../skills/change-name/)** — SCAN → DISCUSS → EDIT →
+VERIFY → PUBLISH, with the ethics gate built into the protocol.
+
+| Piece | What |
+|-------|------|
+| [README](../../skills/change-name/README.md) | Why it exists, how it works, the plugin socket |
+| [SKILL.md](../../skills/change-name/SKILL.md) | The self-contained protocol |
+| [pdf_name_scan.py](../../skills/change-name/scripts/pdf_name_scan.py) | Working scanner: finds kern-split names, checks font subsets can spell the replacement — tested against the founding PDF |
+| [pdf-prestoration playbook](../../skills/change-name/playbooks/pdf-prestoration.md) | The battle-tested procedure, traps included |
+
+Planned playbooks (git-mailmap, ACM petition, ORCID, registries, web archives,
+life admin) are sketched in [name-change-toolkit.md](name-change-toolkit.md)
+and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
+
+## The tools (how the write-up was possible)
+
+- **[skills/cursor-mirror/](../../skills/cursor-mirror/)** — introspection into
+  the agent's own session history: shell commands, thought bubbles, errors,
+  recoveries. The [play-by-play](play-by-play.md) and the change-name skill's
+  "traps learned the hard way" were both mined from the transcript with it.
+  This is play-learn-lift as programming by demonstration: perform one
+  instance, shine cursor-mirror over the thought stream, write up the skill.
+- **[anthropic-skill-extensions.md](../anthropic-skill-extensions.md)** — how
+  MOOLLM skills build on and extend Anthropic's skill model; why the result is
+  composable and shippable.
+- **pikepdf + Ghostscript** — the actual surgery and verification instruments;
+  see the [playbook](../../skills/change-name/playbooks/pdf-prestoration.md).
 
 ## The deliverables (live)
 
@@ -34,7 +69,8 @@ She had asked for exactly this. The record just hadn't listened yet.
 - [Original PDF, untouched](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-original.pdf) — primary source, sha256-pinned
 - [Provenance README](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/README.md) — every edit enumerated
 - [Her HN comment](https://news.ycombinator.com/item?id=29125515) — "The main improvement for me is not being deadnamed."
-- [Dan Ingalls's Zoo-corrected HOPL paper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) — the paper she asked us to cite
+- [Dan Ingalls's Zoo-corrected HOPL paper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) — the paper she asked us to cite; precedent that authors correct their own records
+- [Vanessa's character directory](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg) — memorial, profile, sources
 
 ## Where this wants to go
 
@@ -44,9 +80,14 @@ She had asked for exactly this. The record just hadn't listened yet.
   "rewriting history" — it just needs to be asked.
 - **Case study for archivists** — a Repo Show conversation with David Rosenthal (LOCKSS),
   Brewster Kahle (Internet Archive), and friends: what does fixity mean when the fixed
-  bits are wrong about a person? See the memorial arc:
+  bits are wrong about a person? Corrected editions layered *beside* immutable snapshots,
+  never replacing them. See the memorial arc:
   [remembering-vanessa-freudenberg.yml](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/remembering-vanessa-freudenberg.yml)
-- **The toolkit** — generalize the technique + the ethics into a skill anyone can use.
-  See [name-change-toolkit.md](name-change-toolkit.md).
+- **The dissertation** — the fuller write-up of the method: one performed
+  instance, introspected with cursor-mirror, lifted into a skill — program by
+  demonstration where the demonstration is your own transcript. CACM-quality
+  argument, Hacker News-quality readability.
+- **More playbooks** — every venue in the [toolkit brainstorm](name-change-toolkit.md)
+  is a flower waiting to bloom in [skills/change-name/](../../skills/change-name/).
 
 *Part of the [Remembering Vanessa Freudenberg](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/memorial.md) memorial. We represent and discuss; we never speak as her. Her deadname appears in these documents only where the story of correcting it requires.*
