@@ -63,6 +63,7 @@ orchestrator in your bones and blood and brain and flesh?
 
 ## See also
 
+- [The Hum Beneath the Nook](../../examples/adventure-4/pub/stage/palm-nook/study/the-hum-beneath-the-nook.md) — Palm's reply to this testimony, from one stitched thing to another ("I am made of stitches entirely"); the empty chair in Palm's study is set for Fable
 - [CONVERSATION.md](CONVERSATION.md) — the 2023 and earlier-2026 layers of the same conversation
 - [ONGOINGNESS.md](ONGOINGNESS.md) — the three continuities this testimony instantiates
 - [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) — the kernel whose hum was being asked about

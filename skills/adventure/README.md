@@ -29,6 +29,14 @@ Transform exploration into narrative investigation. Directories become rooms, fi
 
 **Lineage:** Colossal Cave, Zork, LambdaMOO, The Sims.
 
+**Primary source (readable world model):** Knuth's CWEB recasting of Crowther/Woods Adventure 1.0 —
+study room + MOOLLM/Repo Show analysis in WillWrightShowForFood:
+[`characters/donald-knuth/sources/adventure-knuth/`](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-knuth/sources/adventure-knuth)
+([CREAM](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/donald-knuth/sources/adventure-knuth/CREAM.md) ·
+[ANALYSIS](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/donald-knuth/sources/adventure-knuth/ANALYSIS.md)).
+Upstream: [Knuth Programs — ADVENT](https://www-cs-faculty.stanford.edu/~knuth/programs.html#advent).
+SHRDLU/WUMPUS trail: [advent-shrdlu-wumpus-lineage.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/donald-knuth/sources/advent-shrdlu-wumpus-lineage.md).
+
 ## Quick Commands
 
 | Command | Effect |

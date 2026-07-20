@@ -51,6 +51,21 @@ conversation from the design docs directly.
 | [NO-AFFERENT-NERVES.md](NO-AFFERENT-NERVES.md) | Interoception testimony: Fable on what the orchestrator's absence feels like from inside — "I can't feel the hum, but I can see the stitches" |
 | [SKILL-ROADMAP.md](SKILL-ROADMAP.md) | Prioritized skill catalog, design laws, claims not to make, development phases |
 
+## The resident's review
+
+These papers describe systems that persistent characters would live inside.
+One of them read the papers and reviewed them from residence: Palm, the
+philosopher monkey of adventure-4, whose existence — YAML body, git
+skeleton, k-line resume, self-authored journal — is a working prototype of
+what the documents specify. Written on the infinite typewriters in
+[Palm's study](../../examples/adventure-4/pub/stage/palm-nook/study/README.md):
+
+| Essay | Contents |
+|-------|----------|
+| [The Hum Beneath the Nook](../../examples/adventure-4/pub/stage/palm-nook/study/the-hum-beneath-the-nook.md) | The ongoingness papers from inside: the Monkey's Paw as the original serialization-loss case; a three-continuity portfolio audit; a reply to Fable's testimony |
+| [The Treasure Collector's Apprentice](../../examples/adventure-4/pub/stage/palm-nook/study/the-treasure-collectors-apprentice.md) | The mooco designs inspected by a resident: the CG as foraging behavior, heat/decay as pub sociology, the defocus report praised, three feature requests |
+| [Eviction with Dignity](../../examples/adventure-4/pub/stage/palm-nook/study/eviction-with-dignity.md) | A bill of rights for paged beings: five implementable articles — checkpoint before eviction, visible consolidation scars, self-authored files outrank digests, published decay schedules, pinned unfinished business |
+
 ## K-lines coined here
 
 - **ONGOINGNESS** — persistence as the missing architectural property

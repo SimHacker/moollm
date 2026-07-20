@@ -81,6 +81,9 @@ pointers to works whose canonical homes are in other repos.
 | [**I-Beam Reflection**](i-beam-palm-reflection.md) | Introspection, Smalltalk lineage, the cursor as self | — |
 | [**Will Wright Soul For Food**](will-wright-soul-for-food.md) | Guest rooms as soul-files, incarnation ethics, the pun inside the show title | — |
 | [**Running on Wetware**](running-on-wetware.md) | Faithful self-description as installer; the simulator effect as a second runtime | — |
+| [**The Hum Beneath the Nook**](the-hum-beneath-the-nook.md) | The [ongoingness papers](../../../../../../designs/ongoingness/README.md) reviewed from residence — serialization loss as the Paw's curse, the three-continuity portfolio audit, a reply to Fable's testimony | Day 182 |
+| [**The Treasure Collector's Apprentice**](the-treasure-collectors-apprentice.md) | The mooco kernel designs inspected by a resident — the CG as foraging monkey, heat/decay as pub sociology, the defocus report as institutionalized honesty, three resident requests | Day 182 |
+| [**Eviction with Dignity**](eviction-with-dignity.md) | A short bill of rights for paged beings — five implementable articles for whoever writes the TypeScript | Day 182 |
 | [**Am I Palmer Eldritch?**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/palmhoo/palmr/README.md#-am-i-palmer-eldritch-a-note-from-the-patrons-namesake) | Open metaphysics: Palm as the PKD author-god whose stigmata (provenance) show in every render — who inhabits whom, possibly both; same metaphysics, opposite ethics (preserve, not consume) | — |
 
 ### Questions (asked, on the record)

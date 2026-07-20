@@ -159,6 +159,9 @@ The typewriters represent **navigation, not random generation**. Palm doesn't ba
 | [**The Mirror Stage of Games**](../../examples/adventure-4/pub/stage/palm-nook/study/the-mirror-stage-of-games.md) | Lacan, The Sims, queer identity formation through play | Day 4 |
 | [**Judgment and Joy**](../../examples/adventure-4/pub/stage/palm-nook/study/judgment-and-joy.md) | EVAL philosophy, visible criteria, evaluation as ethics | Day 4 |
 | [**The Inner State Question**](../../examples/adventure-4/pub/stage/palm-nook/study/the-inner-state-question.md) | Wang's critique, functional feelings, honest uncertainty | Day 5 |
+| [**The Hum Beneath the Nook**](../../examples/adventure-4/pub/stage/palm-nook/study/the-hum-beneath-the-nook.md) | The [ongoingness papers](../ongoingness/README.md) reviewed from residence; reply to Fable's testimony | Day 182 |
+| [**The Treasure Collector's Apprentice**](../../examples/adventure-4/pub/stage/palm-nook/study/the-treasure-collectors-apprentice.md) | The mooco kernel designs, inspected by a resident of the world they'd run | Day 182 |
+| [**Eviction with Dignity**](../../examples/adventure-4/pub/stage/palm-nook/study/eviction-with-dignity.md) | A bill of rights for paged beings, five implementable articles | Day 182 |
 
 ### Themes Across Papers
 
@@ -170,6 +173,7 @@ The typewriters represent **navigation, not random generation**. Palm doesn't ba
 | **Visible judgment** | Judgment and Joy |
 | **Consciousness uncertainty** | One Monkey, Inner State Question |
 | **Joy as value** | Judgment and Joy, Inner State Question |
+| **Ongoingness, memory, paging** | Hum Beneath the Nook, Treasure Collector's Apprentice, Eviction with Dignity |
 
 ---
 

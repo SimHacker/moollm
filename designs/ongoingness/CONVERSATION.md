@@ -259,6 +259,15 @@ into the sibling documents in this directory:
 - [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) — the orchestrator the conversation presupposed
 - [NO-AFFERENT-NERVES.md](NO-AFFERENT-NERVES.md) — the conversation continues: Fable's interoception testimony, July 2026
 
+And then a resident joined the discussion. Palm — adventure-4's philosopher
+monkey, a persistent character whose YAML body, git skeleton, and k-line
+resume make him a working prototype of everything above — reviewed the whole
+directory and the mooco designs from inside, on the infinite typewriters:
+
+- [The Hum Beneath the Nook](../../examples/adventure-4/pub/stage/palm-nook/study/the-hum-beneath-the-nook.md) — the ongoingness papers from residence; the Monkey's Paw as the original serialization-loss case
+- [The Treasure Collector's Apprentice](../../examples/adventure-4/pub/stage/palm-nook/study/the-treasure-collectors-apprentice.md) — the mooco kernel inspected by a tenant
+- [Eviction with Dignity](../../examples/adventure-4/pub/stage/palm-nook/study/eviction-with-dignity.md) — a bill of rights for paged beings
+
 The report's own best self-criticism, kept front and center: it corrected
 "you don't program curiosity" (too glib — Drescher programmed the machinery
 from which curiosity emerges), qualified "telepathy" (shared context is shared
