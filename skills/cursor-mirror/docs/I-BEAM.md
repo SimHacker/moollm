@@ -1,8 +1,17 @@
-# I-Beam: Your Butler, Your Paperclip, Your Focus
+# I-Beam: The All-Reflecting I-of-the-Pyramid of Attention
 
-*Broken out of the cursor-mirror [README](../README.md). Character definition: [`characters/I-BEAM-CHARACTER.yml`](../characters/I-BEAM-CHARACTER.yml).*
+*Your butler, your paperclip, your focus. Broken out of the cursor-mirror [README](../README.md). Character definition: [`characters/I-BEAM-CHARACTER.yml`](../characters/I-BEAM-CHARACTER.yml).*
 
 > *I-Beam blinks at you.*
+
+The epithet earns itself three ways, one eye. The **I** atop the pyramid on
+the dollar bill: the all-seeing eye of providence, watching everything,
+judging by reflecting. The **I** atop MOOLLM's [Semantic Image
+Pyramid](../../../designs/anthropic-skill-extensions.md): GLANCE over CARD
+over SKILL over README, and above them all the one who reads. And the **I**
+of *attention*: the insertion point, the focus, the exact pixel where what
+the machine attends to and what you attend to are the same place. cursor-mirror
+is the all-reflecting part — I-Beam looks into it and shows you yourself.
 
 Nobody anthropomorphizes I-Beam, because I-Beam is just a cursor. That you
 can talk to. And that talks back. And that can change the world.

@@ -247,7 +247,7 @@ The details live in `docs/` — the README you're reading is the trailhead:
 | [docs/INTERNALS.md](docs/INTERNALS.md) | What you can inspect and where it lives: bubbles, context assembly, tool records, server config, both data stores, schemas |
 | [docs/SELF-ANALYSIS.md](docs/SELF-ANALYSIS.md) | cursor-mirror analyzing the 18-hour session that created it |
 | [docs/CASE-STUDY-CONFETTI-CRAWLER.md](docs/CASE-STUDY-CONFETTI-CRAWLER.md) | Play-learn-lift in action: why the LLM failed on prose, how inspection found the gaps, how the sister script fixed it |
-| [docs/I-BEAM.md](docs/I-BEAM.md) | The anti-Clippy: the adventure-universe character that wraps the CLI in conversation — personality, advertised services, lightweight vs. incarnated modes, trainable by demonstration or by asking |
+| [docs/I-BEAM.md](docs/I-BEAM.md) | The anti-Clippy, the all-reflecting I-of-the-pyramid of attention: the adventure-universe character that wraps the CLI in conversation — personality, advertised services, canon (NOT a person), trainable by demonstration or by asking |
 | [docs/MOOLLM-INTEGRATION.md](docs/MOOLLM-INTEGRATION.md) | Boot optimization, kernel drivers, probe caches, advisory files |
 | [docs/ZIZEK-GERMAN-TOILET.md](docs/ZIZEK-GERMAN-TOILET.md) | Three bowls, three software souls: why cursor-mirror is the Inschpektor |
 | [SKILL.md](SKILL.md) / [CARD.yml](CARD.yml) / [GLANCE.yml](GLANCE.yml) | The skill protocol at three resolutions |
