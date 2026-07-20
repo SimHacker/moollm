@@ -72,6 +72,8 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
 - [Her HN comment](https://news.ycombinator.com/item?id=29125515) — "The main improvement for me is not being deadnamed."
 - [The complete 2021 HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2021-squeakjs.md) — including Don's two parent comments she was replying to (the hybrid-GC appreciation and the Ingalls HOPL quote), parentage verified against the HN API
 - [Dan Ingalls's Zoo-corrected HOPL paper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) — the paper she asked us to cite; precedent that authors correct their own records
+- [The 2023 Croquet Jasmine HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) — her VM philosophy in her own words: JavaScript over WASM ("to be honest, fun"), Self's dynamic deoptimization, the Lars Bak lineage to V8
+- [Her JIT brain dumps, preserved](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) — the SqueakJS performance notes and runnable mockups she pointed HN at, in original Markdeep and extracted Markdown
 - [Vanessa's character directory](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg) — memorial, profile, sources
 
 ## Where this wants to go
