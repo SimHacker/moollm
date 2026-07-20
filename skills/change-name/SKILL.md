@@ -136,5 +136,6 @@ it in CARD.yml, and this skill grows a new flower.
 
 This skill lives in [MOOLLM](../../README.md) — see [skills/README.md](../README.md)
 for the ecosystem. Founding case study: [designs/prestoration/](../../designs/prestoration/).
+Companion tribute: [Vanessa's philosophy](../../designs/vanessa-freudenberg-philosophy.md).
 Works standalone: the protocol above and the script in `scripts/` need only python3,
 ghostscript, and pikepdf.

@@ -32,6 +32,7 @@ She had asked for exactly this. The record just hadn't listened yet.
 | [play-by-play.md](play-by-play.md) | Sportscaster's blow-by-blow of every script, error message, and rabbit hole |
 | [screenshots.md](screenshots.md) | **The illustrated version**: five screen snapshots of the agent thinking — glyph inventories, kerning arithmetic, the kern-split grep evidence, the finished byline — with commentary |
 | [name-change-toolkit.md](name-change-toolkit.md) | The design seed and brainstorm that grew into the skill below |
+| [../vanessa-freudenberg-philosophy.md](../vanessa-freudenberg-philosophy.md) | Companion tribute: target JS not WASM, hybrid GC, Self→V8 lineage, MOOLLM relevance |
 
 ## The skill (lifted from this case)
 
@@ -75,6 +76,7 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
 - [The 2023 Croquet Jasmine HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) — her VM philosophy in her own words: JavaScript over WASM ("to be honest, fun"), Self's dynamic deoptimization, the Lars Bak lineage to V8
 - [Her JIT brain dumps, preserved](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) — the SqueakJS performance notes and runnable mockups she pointed HN at, in original Markdeep and extracted Markdown
 - [Vanessa's character directory](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg) — memorial, profile, sources
+- [Vanessa's philosophy: target JS, not WASM](../vanessa-freudenberg-philosophy.md) — technical tribute with memorial edition links and preserved primary sources
 
 ## Where this wants to go
 

@@ -149,7 +149,7 @@ How MOOLLM builds on Anthropic's skill model as its compatibility ABI and extend
 | [prestoration/screenshots.md](./prestoration/screenshots.md) | Illustrated: five screen snapshots of the agent's thinking and shell forensics, with commentary |
 | [prestoration/name-change-toolkit.md](./prestoration/name-change-toolkit.md) | Skill seed: free shippable toolkit for anyone whose name has changed |
 | [skills/change-name/](../skills/change-name/) | **The skill it grew into**: SCAN/DISCUSS/EDIT/VERIFY/PUBLISH protocol, working PDF scanner, pdf-prestoration playbook |
-| [vanessa-freudenberg-philosophy.md](./vanessa-freudenberg-philosophy.md) | Companion tribute: her target-JS-not-WASM philosophy and GC design |
+| [vanessa-freudenberg-philosophy.md](./vanessa-freudenberg-philosophy.md) | **Companion tribute.** Target JS not WASM, hybrid GC, Self→V8 lineage; links memorial edition, preserved HN threads, jit-notes |
 
 ### The Sims → MOOLLM Documents
 

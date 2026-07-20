@@ -283,6 +283,7 @@ Result` schemas. cursor-mirror provides exactly those triples, from life.
 ## See Also
 
 - [Prestoration](../../designs/prestoration/) — the founding worked example: memorial edition, ethics, play-by-play
+- [Vanessa's philosophy](../../designs/vanessa-freudenberg-philosophy.md) — why her SqueakJS work matters: JS not WASM, hybrid GC, MOOLLM parallels
 - [change-name](../change-name/) — the skill lifted from that session's transcript
 - [Anthropic Skill Extensions](../../designs/anthropic-skill-extensions.md) — how MOOLLM skills extend Anthropic's model
 - [Skill Ecosystem](../../designs/SKILL-ECOSYSTEM.md) — trust tiers and curation via cursor-mirror + skill-snitch
