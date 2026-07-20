@@ -33,6 +33,62 @@ embeddings, because the transformer already did the semantic search when it
 emitted the token. That is correct and cheap, and it is the **symbolic and
 contextual layer** of a larger reinstatement mechanism, not the whole thing.
 
+## Two kinds of k-lines: abstract and snapshot
+
+Henry's correction does not abolish the simple reading; it splits k-lines
+into two tools with different lifecycles:
+
+- **Abstract k-lines** — LOVE, IUNKNOWN, SECURITY. Concepts with no
+  particular trajectory attached; the training data *is* the surrounding
+  mental state. Pure activation handles into latent space: the name is the
+  whole payload, resolution is dictionary lookup against the resident
+  overlay, and what comes back is whatever the model's priors plus the skill
+  graph associate. Cheap, timeless, shared across every session.
+- **Snapshot k-lines** — minted at a moment, naming a particular mental
+  state that existed once: trajectory, stakes, hypotheses, unfinished
+  business. These need a schema (the capsule below) and an **address**.
+
+**Minting.** When a state is worth keeping, write the capsule to a file and
+bind a fresh k-line to it — a gensym (`K-7F3A`) at minimum, better a
+descriptive big-endian name carrying a timestamp and a unique suffix:
+
+```
+VAULT-HEIST-PLANNING-2026-07-20T1842Z-7F3A
+```
+
+Big-endian so related snapshots sort and group; timestamped because a
+snapshot k-line, unlike an abstract one, refers to a *moment*.
+
+**Addressing.** The binding is a pointer that drills down like a URL:
+through the directory tree, into a file, into the file's structure via
+`#fragment` or path. Such pointers are a well-established "thing" — URL
+fragments, JSON Pointer, XPath, `file:line:col`, `repo@commit:path#L10` —
+and moo already speaks `moollm://` URLs, so snapshot k-lines ride the same
+scheme:
+
+```
+moollm://SimHacker/moollm/main/.moollm/snapshots/VAULT-HEIST-PLANNING-2026-07-20T1842Z-7F3A.yml#hypotheses
+```
+
+Commit the snapshot and git's content addressing makes the moment immutable
+for free.
+
+The resolution paths differ accordingly: an abstract k-line resolves through
+the overlay to skills and advertisements; a snapshot k-line resolves through
+its address to a capsule, whose procedural layer then takes over — refresh
+hooks, invalidators, resumption instructions.
+
+## A string you pull
+
+> In a delightful sense a k-line is a "string" you "pull", in both senses of
+> a "string" of characters and a "string" of threads. — Don
+
+The character-string is the address; the thread-string is what it is tied
+to. Pull the name and the whole coalition unspools out of storage — capsule,
+working set, agencies, unfinished business — the way one loose thread brings
+the whole sweater. Ariadne's thread, `git pull`, and Minsky's original
+image all in one word.
+
 ## The state-of-mind capsule
 
 What a practical capsule preserves:

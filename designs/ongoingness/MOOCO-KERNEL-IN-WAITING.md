@@ -55,6 +55,16 @@ unbuilt. MOOCO-MEMORY.md is the build plan for the second:
   mooco-mirror reads MOOCO's own. `getKLineActivations()`,
   `getRoomHistory()`, semantic search over past thought via pgvector.
 
+The symmetry: **PostgreSQL serves MOOCO the way SQLite serves Cursor** — the
+substrate a mirror reads. cursor-mirror reads Cursor's `state.vscdb` from
+outside, third-person; mooco-mirror reads MOOCO's Postgres from inside,
+first-person — moo worlds get full visibility into their own episodic minds
+(PG) and their persistent microworlds and mental states (git). And the
+substrate has pedigree: Postgres is Stonebraker's UC Berkeley project, so the
+reflective tier rides on four decades of UCB systems research plus its
+time-series and vector extensions. (Go Bears — apparently a popular
+sportsball team.)
+
 The reflective tier is what makes "discover unfinished business" — the
 conversation's definition of how curiosity emerges from persistence — an
 implementable query rather than a metaphor. A system that can grep its own
