@@ -139,8 +139,17 @@ extraction shows **thirteen mentions of Vanessa Freudenberg** in the prose … a
 old name still sitting in the reference list, because citations follow ACM's uncorrected
 version of record. The gap the whole afternoon was about, visible in a single document.
 
-**Minute 98.** Even the stadium got cleaned mid-match — `/tmp` swept the downloaded PDFs
-between sessions, forcing a re-download (same bytes, same size, no harm). The Zoo paper
+**Minute 97. THE FLOODLIGHTS GO OUT.** Match forensics (run afterward, from the system
+logs) can time this one to the second: at **14:10:46 the entire Mac froze and rebooted**.
+No clean-shutdown record in the login log, a reset counter logged at 14:11, no panic
+report, no known cause — Macs just freeze sometimes, and you reboot. Nothing was lost:
+everything that mattered was already committed and pushed (the memorial edition had been
+safe on GitHub since 13:27), because the paperwork discipline that makes prestoration
+honest also happens to make it crash-proof. Cursor came back up; the manager and the
+agent picked up mid-sentence.
+
+**Minute 98.** The reboot's only casualty: `/tmp` swept the downloaded PDFs, forcing a
+re-download of the Zoo paper at 14:18 (same bytes, same size, no harm). The Zoo paper
 is filed in her sources directory with her comment quoted in the README.
 
 **FULL TIME.** The screencast has its paper. The original has its fixity. Vanessa has
