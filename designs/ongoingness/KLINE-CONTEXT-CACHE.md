@@ -139,6 +139,35 @@ decay counters and `page_out` action (MOOCO-SKILL-MANAGER.md) are the
 mechanics; the resident overlay is what makes eviction *predictive* rather
 than merely reactive to context pressure.
 
+### GC ☯ CG: one algorithm, two readings
+
+The lexical mirror (mooco's naming joke: GC finds dead and removes; CG finds
+live and promotes) hides a literal identity. Classic GC is **mark and
+sweep**: trace reachability from roots, mark what you reach, sweep the rest.
+The CG's diffusion pass *is* a mark phase — spreading activation from hot
+k-lines along weighted edges is reachability tracing — and the flush *is*
+the sweep. One traversal, opposite value signs:
+
+| | GC | CG |
+|---|----|----|
+| Roots | Live pointers | Hot k-lines |
+| Reachability | Binary | Weighted, directional |
+| The reached are | Overhead to keep | Treasure to page in |
+| The unreached are | Garbage to free | Cold pages to flush |
+| Product | Freed memory | Filled attention |
+
+And each contains the seed of the other — the dot of the opposite color in
+each fish. Inside the CG's treasure map sits the eviction test ("nothing hot
+points here"): the garbage collector living inside the treasure collector.
+Inside the GC's mark phase sits spreading activation from live roots: a GC
+cannot find garbage except by first finding treasure.
+
+Together they are one breath, not two systems. CG inhales (fill attention);
+GC exhales (free it). A memory that only does one dies either way — all-GC
+is amnesia, all-CG is hoarding until the context thrashes. Sleep
+consolidation does both in one pass: forgetting is not memory failing but
+memory working. Systole and diastole of the working set.
+
 ## The correspondence table
 
 | NeLLM review (runtime signals) | MOOCO k-line context cache (emitted signals) |
