@@ -126,6 +126,29 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [MEMGPT-ANALYSIS.md](./MEMGPT-ANALYSIS.md) | OS-inspired context management, comparison with MemGPT paper |
 | [stanza-notes.md](./stanza-notes.md) | Linguistic motherboard philosophy, HN discussion synthesis |
 
+### Anthropic Agent Skills Interop
+
+How MOOLLM builds on Anthropic's skill model as its compatibility ABI and extends it:
+
+| Document | Description |
+|----------|-------------|
+| [anthropic-skill-extensions.md](./anthropic-skill-extensions.md) | **Start here.** How and why MOOLLM extends Anthropic skills: rationale, ~13 optional frontmatter fields, structural extensions (pyramid, prototype, mounting, ambient, snitch) |
+| [SKILL-PUBLISHING-POLICY.md](./SKILL-PUBLISHING-POLICY.md) | Normative SKILL.md metadata standard, self-containment policy, Part-of-MOOLLM blurb |
+| [MOOAM.md](./MOOAM.md) | IAM-style permission model: principals, resources, permissions, grants, virtual tools |
+| [anthropic-skill-upgrades.md](./anthropic-skill-upgrades.md) | Upgrade catalog: applying MOOLLM extensions to Anthropic's own skill library |
+| [anthropic-import-plan.md](./anthropic-import-plan.md) | Import strategy for Anthropic's skills |
+
+### Prestoration — Archival Correction with Provenance
+
+| Document | Description |
+|----------|-------------|
+| [prestoration/README.md](./prestoration/README.md) | **Start here.** Prestoration = preservation + restoration. The Vanessa Freudenberg SqueakJS paper case: byline corrected, original preserved, everything disclosed |
+| [prestoration/case-study.md](./prestoration/case-study.md) | Full narrative: the search, the nudge, the typographic surgery, her own 2021 request found |
+| [prestoration/alignment-and-forgery.md](./prestoration/alignment-and-forgery.md) | Head-on ethics: forgery vs. conservation, standing, the five-condition test |
+| [prestoration/play-by-play.md](./prestoration/play-by-play.md) | Sportscaster's blow-by-blow of every command, error, and red herring |
+| [prestoration/name-change-toolkit.md](./prestoration/name-change-toolkit.md) | Skill seed: free shippable toolkit for anyone whose name has changed |
+| [vanessa-freudenberg-philosophy.md](./vanessa-freudenberg-philosophy.md) | Companion tribute: her target-JS-not-WASM philosophy and GC design |
+
 ### The Sims → MOOLLM Documents
 
 **Master Index:**
