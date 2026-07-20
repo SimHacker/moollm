@@ -1,0 +1,126 @@
+# CARD.yml — change-name
+#
+# Change a name across the artifacts where it lives, with provenance.
+# First implemented capability: PDF prestoration (scan → discuss → edit → verify → publish).
+# Founding case: designs/prestoration/ — Vanessa Freudenberg's SqueakJS paper.
+
+card:
+  id: change-name
+  name: "Change Name"
+  type: [skill, toolkit, document-surgery, identity]
+
+  emoji: 🦋
+
+  rarity: uncommon
+
+  description: |
+    Audit, plan, and execute a name change (or email, phone number, handle,
+    affiliation — any identifying string) across documents and records.
+    Originals preserved bit-for-bit, every change enumerated and disclosed,
+    institutional corrections pursued alongside community-scale fixes.
+
+    One concrete task shipped: ninja-editing PDFs. Look inside the file,
+    describe what's found, discuss what should change, then perform it —
+    kerning-correct, font-aware, hash-pinned. More playbooks plug in later.
+
+# TOOLS REQUIRED
+
+tools:
+  required: [run_terminal_cmd, read_file, write_file]
+  binaries: [python3, gs]           # ghostscript for render/extract verify
+  python: [pikepdf]                 # pip install pikepdf; scan degrades to stdlib without it
+  optional: [git]                   # provenance commits
+
+tier: 2
+
+# METHODS
+
+methods:
+
+  SCAN:
+    description: "Look inside artifacts and report every occurrence of the target string"
+    parameters:
+      target: "Name/email/phone/handle to find (old identity)"
+      paths: "PDF file(s) or corpus directory"
+    output: "Report: docinfo, XMP, content streams (incl. kern-split text), link annotations, font subsets + glyph coverage for the replacement"
+    effect: "No changes. Evidence ledger for discussion."
+    invoked-by: [any]
+    script: scripts/pdf_name_scan.py
+
+  DISCUSS:
+    description: "Present findings, propose edits, agree scope with the human"
+    parameters:
+      report: "SCAN output"
+      wish: "Documented wish or standing (who asked, where recorded)"
+    output: "Agreed edit plan: which occurrences, replacement text, fonts, labeling"
+    effect: "The ethics gate lives here. No plan without standing."
+    invoked-by: [any]
+
+  EDIT:
+    description: "Perform the agreed edits surgically"
+    parameters:
+      plan: "Agreed edit plan"
+    output: "New labeled file (never overwrite the original)"
+    effect: "Content streams, annotations, metadata edited; kerning recomputed; provenance note embedded in the artifact"
+    invoked-by: [any]
+
+  VERIFY:
+    description: "Prove the edit did what was agreed and nothing else"
+    output: "Render pages (vision check), extract text (old name count must be 0 in agreed scope), hash both files"
+    effect: "Evidence attached to the provenance record"
+    invoked-by: [EDIT]
+
+  PUBLISH:
+    description: "File original + edition + provenance README side by side; commit"
+    output: "Directory with both files sha256-pinned and every edit enumerated"
+    effect: "Honest labeling; public history"
+    invoked-by: [any]
+
+  PLAN:
+    description: "Map a whole name change across venues; sequence the playbooks"
+    parameters:
+      venues: "Where the old name lives (papers, git, profiles, registries...)"
+    output: "Ledger: venue, artifact, correction path, canonical-fix status"
+    invoked-by: [any]
+
+# PLAYBOOKS — the plugin socket
+
+playbooks:
+  implemented:
+    - id: pdf-prestoration
+      file: playbooks/pdf-prestoration.md
+      what: "Byline/email/URL/metadata surgery in PDFs, kerning-correct, with provenance"
+  planned:
+    - { id: git-mailmap,     what: ".mailmap attribution correction without history rewrite" }
+    - { id: acm-petition,    what: "ACM name-change policy option 3 — corrected version of record" }
+    - { id: orcid,           what: "Identity layer citations should have used all along" }
+    - { id: registries,      what: "dblp, Semantic Scholar, Google Scholar, Wikidata" }
+    - { id: web-archives,    what: "Layer corrected editions beside immutable snapshots" }
+    - { id: life-admin,      what: "The non-document chores: accounts, directories, correspondence" }
+
+# ETHICS GATE — all five or it's forgery
+
+ethics:
+  five_conditions:
+    - "Documented wish or clear standing (self > subject's request > family/co-authors > community)"
+    - "Original preserved bit-for-bit, hash-pinned, adjacent"
+    - "Total disclosure: every change enumerated, in the artifact and beside it"
+    - "Honest labeling: the filename says what the file is"
+    - "Canonical fix pursued: the derivative is a bridge, not a substitute"
+  never: "Out anyone. Auditing exposure is also auditing safety."
+
+# STATE
+
+state:
+  ledger: "Per-job evidence ledger (SCAN reports, hashes, agreed plans)"
+
+# LINEAGE
+
+lineage:
+  founding_case: ../../designs/prestoration/
+  her_words: "https://news.ycombinator.com/item?id=29125515 — 'The main improvement for me is not being deadnamed.'"
+
+advertisements:
+  - "📄 I can read inside a PDF and tell you everywhere your old name hides — even split around kern pairs"
+  - "🔤 I check the embedded fonts can spell your new name before promising anything"
+  - "🕯️ I did this for Vanessa. Original preserved, every change disclosed."

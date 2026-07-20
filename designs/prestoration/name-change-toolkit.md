@@ -1,5 +1,11 @@
 # Name Change Toolkit — Skill Seed
 
+> **Status: sprouted.** First cut implemented as the
+> [`change-name`](../../skills/change-name/SKILL.md) skill — SCAN/DISCUSS/EDIT/VERIFY/PUBLISH
+> protocol, working [`pdf_name_scan.py`](../../skills/change-name/scripts/pdf_name_scan.py)
+> scanner, and the [pdf-prestoration playbook](../../skills/change-name/playbooks/pdf-prestoration.md).
+> This document remains the design rationale and brainstorm.
+
 *A shippable, free product: everything the prestoration taught us, generalized for
 everyone whose name has changed — transition, marriage, divorce, religious conversion,
 transliteration, stage names, safety. One founding case: Vanessa Freudenberg, who asked

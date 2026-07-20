@@ -1,0 +1,33 @@
+# GLANCE.yml — change-name
+# Full file: CARD.yml | SKILL.md | playbooks/ | scripts/
+# 🦋 "Say my name right — everywhere it's written."
+
+what: |
+  Change a name (or email, phone, handle, any identifying string) across
+  the artifacts where it lives — starting with ninja-editing PDF files:
+  scan, describe what's found, discuss the changes, perform them with
+  provenance. One concrete task today; a plugin socket for every document
+  type and life-admin chore a name change touches.
+
+why: |
+  - Names change: transition, marriage, divorce, faith, stage, safety, transliteration
+  - The record doesn't follow: PDFs, citations, git logs, metadata, archives
+  - Doing it right = surgery + ethics: original preserved, changes disclosed
+  - Founding case: Vanessa Freudenberg's SqueakJS paper (the Prestoration)
+
+when:
+  - '"change my name in this PDF" -- SCAN then DISCUSS then EDIT'
+  - '"find everywhere my old name appears" -- SCAN corpus'
+  - '"is this edit ethical?" -- the five-condition test'
+  - '"my name changed, what now?" -- PLAN across venues'
+
+methods: [SCAN, DISCUSS, EDIT, VERIFY, PUBLISH, PLAN]
+
+first_playbook: pdf-prestoration   # implemented, battle-tested
+plugin_socket: playbooks/          # more venues bloom here
+
+ethics_gate: |
+  All five or it's forgery: documented wish/standing · original preserved ·
+  total disclosure · honest labeling · canonical fix pursued.
+
+see: ../../designs/prestoration/   # the founding case study
