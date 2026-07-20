@@ -70,6 +70,7 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
 - [Original PDF, untouched](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-original.pdf) — primary source, sha256-pinned
 - [Provenance README](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/README.md) — every edit enumerated
 - [Her HN comment](https://news.ycombinator.com/item?id=29125515) — "The main improvement for me is not being deadnamed."
+- [The complete 2021 HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2021-squeakjs.md) — including Don's two parent comments she was replying to (the hybrid-GC appreciation and the Ingalls HOPL quote), parentage verified against the HN API
 - [Dan Ingalls's Zoo-corrected HOPL paper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) — the paper she asked us to cite; precedent that authors correct their own records
 - [Vanessa's character directory](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg) — memorial, profile, sources
 
