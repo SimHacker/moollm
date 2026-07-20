@@ -30,6 +30,7 @@ She had asked for exactly this. The record just hadn't listened yet.
 | [case-study.md](case-study.md) | The full story: the search, the nudge, the surgery, the twist |
 | [alignment-and-forgery.md](alignment-and-forgery.md) | Head-on: was this forgery? why didn't the AI propose it? who has standing to correct history? The five-condition legitimacy test |
 | [play-by-play.md](play-by-play.md) | Sportscaster's blow-by-blow of every script, error message, and rabbit hole |
+| [screenshots.md](screenshots.md) | **The illustrated version**: five screen snapshots of the agent thinking — glyph inventories, kerning arithmetic, the kern-split grep evidence, the finished byline — with commentary |
 | [name-change-toolkit.md](name-change-toolkit.md) | The design seed and brainstorm that grew into the skill below |
 
 ## The skill (lifted from this case)
