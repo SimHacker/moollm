@@ -151,6 +151,19 @@ MOOLLM object encapsulated in a directory — a character, a room, a reference
 model. `ls` is the object browser. It's not profound, and that's the point:
 the normalcy is what makes it calm but powerful to work with.
 
+There's prior art with a good pedigree: Owen Densmore and David S. H.
+Rosenthal — both of NeWS, where Densmore's `object.ps` made PostScript
+dictionaries Smalltalk-shaped — patented implementing a class hierarchy of
+objects directly in a hierarchical file system
+([US 5,187,786](https://patents.google.com/patent/US5187786A), 1993):
+directories as classes and instances, files as methods, inheritance by path.
+MOOLLM skills are that idea running on an LLM instead of a shell. And the
+layers above it come for free: **git is the multiverse layer** — every branch
+a timeline, every commit a saved world-state, checkouts as travel between
+them — and **GitHub is the social networking layer**, where the objects get
+identities, followers, issues, and pull requests. Skills inherit all of it
+just by being directories.
+
 Skills that already compose with this one:
 [skill-snitch](../skill-snitch/) (runtime security surveillance),
 [thoughtful-commitment](../thoughtful-commitment/) (commit messages mined from
