@@ -1,10 +1,18 @@
 # Vanessa Freudenberg's Philosophy: Target JavaScript, Not WebAssembly
 
-*A technical tribute and design philosophy document*
+**Author:** [Don Hopkins](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/don-hopkins) — this is Don's tribute and exposition, **not** Vanessa speaking.
 
-You nailed it -- the tech enabling JS to match native speed was Self research from the 80s, adapted two decades later. Let me fill in some specifics from people whose papers I highly recommend, and who I've asked questions of and had interesting discussions with!
+**Subject:** Vanessa Freudenberg's technical philosophy (target JavaScript, not WebAssembly; hybrid GC; ride the host JIT).
 
-Vanessa Freudenberg [1], Craig Latta [2], Dave Ungar [3], Dan Ingalls, and Alan Kay had some great historical and fresh insights. Vanessa passed recently — the exchange where she said this in her own words is preserved in the [2023 Croquet Jasmine HN thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) (Don's [2024 recap on HN](https://news.ycombinator.com/item?id=40917424) keeps it circulating).
+**Voice rules:** We *represent and discuss* her work ([memorial mode](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/memorial.md)). **Vanessa's words** appear only in blockquotes, verbatim from [preserved primary sources](#memorial--primary-sources). Everything else is Don Hopkins narrating, interpreting, or editorializing (including the Brendan Eich / JavaScript prototype critique).
+
+*Written for Alan Kay, Dan Ingalls, Craig Latta, David Rosenthal, and friends — July 2026.*
+
+---
+
+The tech enabling JS to match native speed was Self research from the 80s, adapted two decades later. Below: context from people whose papers I highly recommend, and whom I've asked questions of and had interesting discussions with.
+
+Vanessa Freudenberg [1], Craig Latta [2], Dave Ungar [3], Dan Ingalls, and Alan Kay had some great historical and fresh insights. Vanessa passed recently — the exchange where **she** said this in **her own words** is preserved in the [2023 Croquet Jasmine HN thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) (my [2024 recap on HN](https://news.ycombinator.com/item?id=40917424) keeps it circulating).
 
 Vanessa had this exactly right. I asked her what she thought of using WASM with its new GC support for her SqueakJS [1] Smalltalk VM.
 
@@ -32,19 +40,23 @@ SqueakJS [7] was her masterpiece -- a bit-compatible Squeak/Smalltalk VM written
 
 The genius of her approach was the garbage collection integration. It amazed me how she pulled a rabbit out of a hat -- representing Squeak objects as plain JavaScript objects and cooperating with the host GC instead of fighting it. Most VM implementations end up with two garbage collectors in a knife fight over the heap. She made them cooperate through a hybrid scheme that allowed Squeak object enumeration without a dedicated object table. No dueling collectors. Just leverage the machinery you've already paid for.
 
-But it wasn't just technical cleverness -- it was philosophy. In the [December 2023 thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md), she wrote:
+But it wasn't just technical cleverness — it was philosophy. In the [December 2023 thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md), **Vanessa wrote**:
 
 > "I just love coding and debugging in a dynamic high-level language. The only thing we could potentially gain from WASM is speed, but we would lose a lot in readability, flexibility, and to be honest, fun."
+>
+> — Vanessa Freudenberg, HN, December 2023
 
 > "I'd much rather make the SqueakJS JIT produce code that the JavaScript JIT can optimize well. That would potentially give us more speed than even WASM."
+>
+> — Vanessa Freudenberg, HN, December 2023
 
-Her guiding principle: do as little as necessary to leverage the enormous engineering achievements in modern JS runtimes [8]. Structure your generated code so the host JIT can optimize it. Don't fight the platform -- ride it. The preserved [JIT brain dumps](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) show how she planned to do that.
+**Don interprets:** her guiding principle was to do as little as necessary to leverage the enormous engineering achievements in modern JS runtimes [8] — structure generated code so the host JIT can optimize it; don't fight the platform, ride it. The preserved [JIT brain dumps](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) show how she planned to do that.
 
-She was clear-eyed about WASM: yes, it helps for tight inner loops like BitBlt. But for the VM as a whole? You gain some speed and lose readability, flexibility, debuggability, and joy. Bad trade.
+She was clear-eyed about WASM: yes, it helps for tight inner loops like BitBlt. But for the VM as a whole? You gain some speed and lose readability, flexibility, debuggability, and joy. Bad trade — **Don's summary of her position**, not a direct quote.
 
-This wasn't conservatism. It was confidence.
+This wasn't conservatism. It was confidence — **Don's read** on why her stance mattered.
 
-Vanessa understood that JS-the-engine isn't the enemy -- it's the substrate. Work with it instead of against it, and you can go faster than "native" while keeping the system alive and humane. Keep the debugger working. Keep the image snapshotable. Keep programming joyful. Vanessa knew that, and proved it!
+Vanessa understood that JS-the-engine isn't the enemy — it's the substrate. Work with it instead of against it, and you can go faster than "native" while keeping the system alive and humane. Keep the debugger working. Keep the image snapshotable. Keep programming joyful. **That closing paragraph is Don Hopkins**, synthesizing what her work and her quoted words imply — Vanessa knew that, and proved it.
 
 ---
 
@@ -79,7 +91,7 @@ Vanessa understood that JS-the-engine isn't the enemy -- it's the substrate. Wor
 
 ## MOOLLM Relevance
 
-Vanessa's philosophy directly informs MOOLLM's approach:
+**Don Hopkins:** Vanessa's philosophy directly informs MOOLLM's approach:
 
 | Vanessa's Principle | MOOLLM Application |
 |---------------------|-------------------|
