@@ -82,6 +82,46 @@ Don Hopkins worked on NeWS at Sun Microsystems. The pattern is the same, 35 year
 
 The same architectural insight: move computation closer to the hardware that needs it. Don't serialize everything through a network bottleneck when the interesting feedback loop is between two things on the same machine.
 
+## The Family: NeWS, NeFS, NeLLM
+
+NeWS had a sibling that history mostly forgot. Around 1990 Sun's NFS group
+(Brent Callaghan's spec) proposed **NeFS — the Network Extensible File
+System** — as the successor to NFS: instead of a fixed menu of chatty RPC
+operations, the client sends **PostScript programs to the file server**,
+which executes them next to the disks — inside the kernel-resident file
+service, and over the net. One round trip could walk a directory tree,
+filter by pattern, stat the survivors, and return exactly the answer.
+Send the program to the data, not the data to the program.
+
+| | NeWS (1986) | NeFS (~1990) | NeLLM (202x) |
+|---|---|---|---|
+| Interpreter lives | In the display server | In the file server, in the kernel | In the inference server, in the token loop |
+| Next to | The framebuffer | The disks | The GPU / KV cache |
+| Client sends | UI programs, not pixel requests | File programs, not file RPCs | Skills and k-lines, not prompts |
+| Round trips eliminated | Server↔client per input event | Client↔server per file op | Orchestrator↔model per tool call |
+| Feedback loop rate | Display refresh | Disk service time | Token generation |
+| Fate | Lost to X11's fixed protocol | Rejected; NFSv4 COMPOUND is its watered-down ghost | Open |
+
+Three interpreters, three decades, one insight: **make the boundary
+programmable instead of chatty.** The industry chose the fixed protocol all
+three times it was offered the programmable one — X11 over NeWS, NFSv3 over
+NeFS, and today's tool-call APIs are the fixed protocol of inference:
+enumerated operations, one round trip each, computation exiled from the
+place where the state lives.
+
+NeFS also previewed the objection NeLLM will face: running client programs
+inside the kernel alarmed people — security, complexity, trust. The answer
+then was interpreter sandboxing; the answer now is the same, spelled
+MOOLLM's permission declarations enforced by the orchestrator
+([MOOLLM-PERMISSIONS-ARCHITECTURE.md](MOOLLM-PERMISSIONS-ARCHITECTURE.md),
+skill-snitch). A kernel that accepts programs needs a doorman, not a locked
+door.
+
+And the ring metaphor runs the right direction: NeWS ran in userspace beside
+the framebuffer; NeFS moved the interpreter to ring 0. That is exactly the
+[MOOCO → NeLLM gradient](ongoingness/KLINE-CONTEXT-CACHE.md) — same
+programmable boundary, sliding toward the silicon.
+
 ## What Would MOOLLM Look Like on NeLLM
 
 **speed-of-light** becomes real, not simulated. Multiple entities genuinely running concurrently in the GPU, blocking on I/O that resolves in microseconds.

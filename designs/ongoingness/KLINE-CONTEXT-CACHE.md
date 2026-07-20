@@ -200,6 +200,14 @@ the diffusion graph, focus/defocus, the TypeScript/LLM division of labor.
 Only sensor resolution and actuation latency improve. **NeLLM is MOOCO at
 ring 0; MOOCO is NeLLM in userspace.**
 
+The same ladder was climbed twice before, in PostScript: NeWS put the
+interpreter in the display server (userspace, beside the framebuffer); NeFS
+— Sun's proposed NFS successor — put it in the file server, inside the
+kernel and on the net, executing client programs next to the disks. See
+[the NeWS / NeFS / NeLLM comparison](../nellm.md#the-family-news-nefs-nellm):
+three interpreters, one insight — make the boundary programmable instead of
+chatty.
+
 ## Upgrade path
 
 The two designs compose rather than compete:
