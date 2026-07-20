@@ -145,6 +145,12 @@ system and operating system: it gains an interface (CARD), inheritance
 (`permissions`, skill-snitch), and discoverability (advertisements) — while
 remaining a plain script anyone can run.
 
+None of which is exotic. In MOOLLM, directories are membranes; a skill is
+just a directory with a known membrane protocol, and the same is true of any
+MOOLLM object encapsulated in a directory — a character, a room, a reference
+model. `ls` is the object browser. It's not profound, and that's the point:
+the normalcy is what makes it calm to work with.
+
 Skills that already compose with this one:
 [skill-snitch](../skill-snitch/) (runtime security surveillance),
 [thoughtful-commitment](../thoughtful-commitment/) (commit messages mined from
