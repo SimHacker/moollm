@@ -42,7 +42,12 @@ the design mistake is arguing about the third while the first two remain
 unbuilt. MOOCO-MEMORY.md is the build plan for the second:
 
 - **Ephemeral** (PostgreSQL) — the chat log: messages, thinking blocks, tool
-  calls. Working memory, preserved indefinitely rather than discarded.
+  calls. Working memory, preserved indefinitely rather than discarded. The
+  name describes authority, not durability: the storage is fully persistent,
+  but the content is ephemera in the archivist's sense — process, drafts,
+  the trace of thought — and nothing rebuilds from it. "Episodic" would be
+  the less misleading label: a durable record of what happened, as opposed
+  to git's canonical statement of what is.
 - **Persistent** (git) — the single source of truth: skills, characters,
   world state, code. The microworld itself. Sessions load from git and commit
   decisions back to git.
