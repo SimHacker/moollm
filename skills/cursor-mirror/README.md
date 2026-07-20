@@ -149,7 +149,7 @@ None of which is exotic. In MOOLLM, directories are membranes; a skill is
 just a directory with a known membrane protocol, and the same is true of any
 MOOLLM object encapsulated in a directory — a character, a room, a reference
 model. `ls` is the object browser. It's not profound, and that's the point:
-the normalcy is what makes it calm to work with.
+the normalcy is what makes it calm but powerful to work with.
 
 Skills that already compose with this one:
 [skill-snitch](../skill-snitch/) (runtime security surveillance),
@@ -181,6 +181,29 @@ feeds back into Cursor and benefits its users, including us.
 | "Can I recover that chat?" | `export-chat @1 --yaml` → full transcript |
 | "What did I do last night?" | `grep`, `thinking`, `tools` → write it up as a skill |
 
+## I-Beam: Ask Those Questions in Chat
+
+You don't have to learn the commands. cursor-mirror is integrated into the
+MOOLLM adventure universe through **[I-Beam](docs/I-BEAM.md)** — a character
+(a tall, blinking text cursor embodied; every platform has one) who provides
+the natural-language interface. Ask the left column of that table in plain
+chat, and I-Beam performs the right column for you: composing the queries,
+eliding the boring, highlighting what matters, and remembering your goals
+across questions.
+
+I-Beam has a personality and is the **anti-Clippy**: it never interrupts, it
+only answers when summoned, and it shows its work — every answer comes with
+the commands it ran, so you learn the CLI by watching. It advertises its
+services the way Sims objects do, so the right capability surfaces when you
+need it, including compositions of cursor-mirror with other skills and tools.
+And it's easily extensible: teach it new tricks by **programming by
+demonstration** (do the thing once; it watches its own transcript with
+cursor-mirror and lifts the procedure) or by natural-language "just asking"
+training — tell it what you want it to remember, and it does.
+
+Full character, methods, incarnation modes, and dialog examples:
+[docs/I-BEAM.md](docs/I-BEAM.md).
+
 ## Installation
 
 ```bash
@@ -209,7 +232,7 @@ The details live in `docs/` — the README you're reading is the trailhead:
 | [docs/INTERNALS.md](docs/INTERNALS.md) | What you can inspect and where it lives: bubbles, context assembly, tool records, server config, both data stores, schemas |
 | [docs/SELF-ANALYSIS.md](docs/SELF-ANALYSIS.md) | cursor-mirror analyzing the 18-hour session that created it |
 | [docs/CASE-STUDY-CONFETTI-CRAWLER.md](docs/CASE-STUDY-CONFETTI-CRAWLER.md) | Play-learn-lift in action: why the LLM failed on prose, how inspection found the gaps, how the sister script fixed it |
-| [docs/I-BEAM.md](docs/I-BEAM.md) | The character interface: a spirit familiar that wraps the CLI in conversation, elides the boring, highlights the important |
+| [docs/I-BEAM.md](docs/I-BEAM.md) | The anti-Clippy: the adventure-universe character that wraps the CLI in conversation — personality, advertised services, lightweight vs. incarnated modes, trainable by demonstration or by asking |
 | [docs/MOOLLM-INTEGRATION.md](docs/MOOLLM-INTEGRATION.md) | Boot optimization, kernel drivers, probe caches, advisory files |
 | [docs/ZIZEK-GERMAN-TOILET.md](docs/ZIZEK-GERMAN-TOILET.md) | Three bowls, three software souls: why cursor-mirror is the Inschpektor |
 | [SKILL.md](SKILL.md) / [CARD.yml](CARD.yml) / [GLANCE.yml](GLANCE.yml) | The skill protocol at three resolutions |
