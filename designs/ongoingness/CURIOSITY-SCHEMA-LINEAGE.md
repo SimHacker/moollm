@@ -5,7 +5,7 @@
 "You don't program curiosity" is too glib. Programming curiosity is exactly
 what Gary Drescher attempted in his PhD thesis with Minsky and in *Made-Up
 Minds* (1991) — operationalizing Piaget's and Papert's developmental
-philosophy. Not as:
+philosophy. Not as (note: when ChatGPT originally rendered the following Python code fragment as a markdown block, it had a "Run" button on it, and pressing it would dramatically prove how futile that Python statement "curiosity = True" was by actually running it in a Python interpreter. I see beauty in that inadvertently self aware improvisational executable performance art!):
 
 ```python
 curiosity = True

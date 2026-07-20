@@ -130,6 +130,8 @@ k-line correction, the Drescher curiosity correction — into design doctrine:
 | [ongoingness/SERIALIZATION-LOSS.md](./ongoingness/SERIALIZATION-LOSS.md) | **The testable thesis.** Agencies inside, agents at boundaries; the seven-condition benchmark |
 | [ongoingness/KLINE-STATE-OF-MIND.md](./ongoingness/KLINE-STATE-OF-MIND.md) | K-lines restore dispositions, not topics; state-of-mind capsules; the 10-question fidelity test |
 | [ongoingness/CURIOSITY-SCHEMA-LINEAGE.md](./ongoingness/CURIOSITY-SCHEMA-LINEAGE.md) | Piaget → Papert → Minsky → Drescher → Leela AI; three kinds of grounding; humor as frame repair |
+| [ongoingness/KLINE-CONTEXT-CACHE.md](./ongoingness/KLINE-CONTEXT-CACHE.md) | Attention-aware paging + speculative activation, already designed in mooco as the k-line context cache |
+| [ongoingness/MOOCO-KERNEL-IN-WAITING.md](./ongoingness/MOOCO-KERNEL-IN-WAITING.md) | The unsaid half of the conversation: mooco's designs mapped onto every ongoingness claim |
 | [ongoingness/SKILL-ROADMAP.md](./ongoingness/SKILL-ROADMAP.md) | Prioritized skill catalog, 12 claims not to make, 15 design laws, 5 development phases |
 
 > *"The thing current LLMs arguably lack isn't primarily intelligence. It's ongoingness."*

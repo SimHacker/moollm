@@ -93,7 +93,11 @@ portable vanilla skills.
 
 1. **Prove the architecture with ordinary LLM calls.** Shared-context
    agencies, k-line registries, state capsules, schema traces, advertisements,
-   the two benchmarks. No modified runtime required.
+   the two benchmarks. No modified runtime required. Not greenfield: the CG
+   engine, heat operation, K-CACHE format, and focus/defocus protocol are
+   already specified in the mooco repo — see
+   [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) and
+   [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md).
 2. **Make the microworld persistent.** Event loop, clock, transactional state,
    permissions, working-set manager, consolidation, interruption/resume,
    Git-backed provenance. "Learning" changes world state and skills, not

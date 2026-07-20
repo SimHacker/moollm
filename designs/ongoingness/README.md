@@ -15,6 +15,14 @@ This directory synthesizes a three-layer conversation into MOOLLM design doctrin
    distilled here into separate documents with the marketing stripped and the
    falsifiable claims kept.
 
+There is a fourth layer the conversation never saw: **MOOCO**, the orchestrator
+in the sibling repo whose design docs already specify the kernel the
+conversation kept presupposing — attention-aware paging, speculative
+activation, memory tiers, agency over attention. Don didn't have the bandwidth
+to tell ChatGPT about it; [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md)
+and [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) supply that half of the
+conversation from the design docs directly.
+
 ## The one-sentence takeaways
 
 - **Ongoingness**: current chatbots are pathologically episodic — remarkable
@@ -38,6 +46,8 @@ This directory synthesizes a three-layer conversation into MOOLLM design doctrin
 | [SERIALIZATION-LOSS.md](SERIALIZATION-LOSS.md) | The central technical thesis and the benchmark that tests it |
 | [KLINE-STATE-OF-MIND.md](KLINE-STATE-OF-MIND.md) | Henry Minsky's k-line correction; state-of-mind capsules; reinstatement fidelity |
 | [CURIOSITY-SCHEMA-LINEAGE.md](CURIOSITY-SCHEMA-LINEAGE.md) | Piaget → Papert → Minsky → Drescher → Leela AI; three kinds of grounding; humor as frame repair |
+| [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) | Attention-aware paging and speculative activation, already designed in mooco: the `heat` operation, activation diffusion, K-CACHE learned prefetch |
+| [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) | The unsaid half: how mooco's designs (memory tiers, PIC-for-attention, focus/defocus, proxy kernel) map onto every claim in the conversation |
 | [SKILL-ROADMAP.md](SKILL-ROADMAP.md) | Prioritized skill catalog, design laws, claims not to make, development phases |
 
 ## K-lines coined here
@@ -59,6 +69,7 @@ This directory synthesizes a three-layer conversation into MOOLLM design doctrin
 | [gastown/](../gastown/) | The token-maximalist counterexample ("maximize THOUGHT, not TOKENS") |
 | [object-system/](../object-system/) | The video whose transcript carries the Society of Mind riff |
 | [SKILLS-CONSTITUTION-AND-PLAN.md](../SKILLS-CONSTITUTION-AND-PLAN.md) | Where declaration-driven k-line diffusion is specified |
+| mooco repo `designs/` (sibling of moollm) | The orchestrator: CG/Treasure Collector, `heat` operation, K-CACHE.yml, three-tier memory, MOOCO-in-the-middle |
 
 ## Credits
 

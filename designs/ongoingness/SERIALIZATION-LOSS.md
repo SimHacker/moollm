@@ -61,6 +61,12 @@ latency explodes). Co-located agencies are a shared-memory multiprocessor: the
 attention mechanism itself determines what information flows where, with no
 decision overhead about *whether* to communicate.
 
+MOOCO's core architectural split applies this rule between model and
+orchestrator: TypeScript does mechanical tracking (k-line network, heat
+diffusion, paging execution); the LLM does fuzzy judgment (relevance, focus,
+what worked). They exchange compact activations and reports, not essays. See
+[MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md).
+
 ## The honest qualification
 
 "Telepathy" is a metaphor. Several roles in one prompt still communicate

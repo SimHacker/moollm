@@ -11,6 +11,12 @@ Who is speaking:
 - **Don** — Don Hopkins, in the 2026 continuation
 - **ChatGPT** — both eras; the 2023 model hedges more, the 2026 one argues better
 
+One party is present but silent throughout: **MOOCO**, the orchestrator whose
+design documents already specified much of what the conversation treats as
+future work. Don never had the bandwidth to tell ChatGPT about it. The unsaid
+half is reconstructed in
+[MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md).
+
 ---
 
 ## Part 1 — RWK's sentience session (November 25, 2023)
@@ -57,7 +63,11 @@ more cycles. Do you have a good bread-machine recipe to recommend?
 
 ---
 
+
+
 ## Part 2 — Don's continuation (2026)
+
+
 
 ### The consciousness-stream question
 
@@ -88,6 +98,8 @@ And the connection back to RWK's HAL observation:
 
 > HAL's curiosity, in Clarke's novels, comes largely from persistence. He has
 > idle time. Humans have idle time. Current LLMs generally do not.
+
+
 
 ### The NeLLM review
 
@@ -125,11 +137,15 @@ Don pointed at [designs/nellm.md](../nellm.md). ChatGPT's review, distilled:
 Two suggested extensions worth keeping:
 
 - **Attention-aware paging** — attention weights as page reference bits; the
-  replacement algorithm is neither LRU nor CLOCK but what the model is
-  actually attending to.
+replacement algorithm is neither LRU nor CLOCK but what the model is
+actually attending to.
 - **Speculative activation** — watch entropy, oscillating logits, repeated
-  references; start paging SECURITY in before the model asks for it.
-  Branch prediction for cognition.
+references; start paging SECURITY in before the model asks for it.
+Branch prediction for cognition.
+
+Both extensions turn out to already exist as API-level designs in the mooco
+repo — the k-line context cache. See
+[KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) for the correspondence.
 
 ### The Society of Mind riff (Don, from the Object System video)
 
@@ -168,6 +184,8 @@ Don's operationalization of Minsky and Drescher, transcribed from
 > cognitive fragments. That's much closer to Minsky's vision than today's
 > "crew of GPTs talking over Slack."
 
+
+
 ### Henry Minsky's k-line correction
 
 **Don:** "Most people read Minsky's k-lines psychologically." I work with Henry
@@ -196,9 +214,12 @@ And the tightened hurricane metaphor:
 > That is the actual technical objection. Not merely token cost. **Cognitive
 > destruction through compulsory serialization.**
 
+
+
 ### The Drescher correction
 
-**Don:** "You don't program curiosity" — that is what Gary Drescher was TRYING
+**Don:** Responding to ChatGPT saying "You don't program curiosity":
+that is what Gary Drescher was TRYING
 to do in his PhD thesis with Minsky and his book Made-Up Minds, his application
 of Papert's and Piaget's philosophy, which was just waiting for LLMs to come
 along and provide the grounding of the symbols in the schemas, plus a dash of
@@ -221,6 +242,8 @@ Unconscious" comes to mind).
 
 ---
 
+
+
 ## Part 3 — What came out of it
 
 Don asked for a "no ai slop, no ai sycophancy" comprehensive report. The result
@@ -232,6 +255,8 @@ into the sibling documents in this directory:
 - [KLINE-STATE-OF-MIND.md](KLINE-STATE-OF-MIND.md) — the k-line design
 - [CURIOSITY-SCHEMA-LINEAGE.md](CURIOSITY-SCHEMA-LINEAGE.md) — the lineage
 - [SKILL-ROADMAP.md](SKILL-ROADMAP.md) — the skills to build
+- [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md) — the paging extensions, already designed in mooco
+- [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) — the orchestrator the conversation presupposed
 
 The report's own best self-criticism, kept front and center: it corrected
 "you don't program curiosity" (too glib — Drescher programmed the machinery

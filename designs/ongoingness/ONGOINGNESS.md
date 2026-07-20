@@ -46,6 +46,11 @@ almost automatically. The fourth — attentional policy when no user tokens are
 arriving — is where the research is. "What gets paged in next?" stops being
 scheduling and starts being curiosity.
 
+The fourth prerequisite already has a specified mechanism at the API level:
+MOOCO's focus lock / defocus protocol and LLM-driven paging, where the model
+chooses what to attend to and reports what was worth attending to. See
+[MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md).
+
 A process that runs for 20 seconds has almost no opportunity to become curious.
 A process that runs for six months might. You don't program curiosity as a
 module; you give a system enough persistence that it can **discover unfinished

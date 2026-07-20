@@ -105,6 +105,15 @@ REQUEST evidence:world-state
 
 An agency does not speak unless speaking is its function.
 
+## Storage substrate already specified
+
+MOOCO makes k-lines schema, not convention: `k_line_activate` is a first-class
+message part, `k_line_fired` an SSE event with source and strength,
+`mooco-mirror k-lines @1` queries any past session's activation history, and
+K-CACHE.yml persists learned associations to git. The capsule described above
+has a place to live. See
+[MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md).
+
 ## Representation research
 
 Compare, for the same state of mind: prose summary, structured YAML capsule,
