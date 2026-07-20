@@ -85,6 +85,7 @@ what the documents specify. Written on the infinite typewriters in
 | [gastown/](../gastown/) | The token-maximalist counterexample ("maximize THOUGHT, not TOKENS") |
 | [object-system/](../object-system/) | The video whose transcript carries the Society of Mind riff |
 | [SKILLS-CONSTITUTION-AND-PLAN.md](../SKILLS-CONSTITUTION-AND-PLAN.md) | Where declaration-driven k-line diffusion is specified |
+| [skills/lighthouse-log/](../../skills/lighthouse-log/README.md) | These papers as a human-scale practice: git as the watch log of any crew whose members don't share memory — the same three laws, portable to either kind of mind |
 | mooco repo `designs/` (sibling of moollm) | The orchestrator: CG/Treasure Collector, `heat` operation, K-CACHE.yml, three-tier memory, MOOCO-in-the-middle |
 
 ## Credits

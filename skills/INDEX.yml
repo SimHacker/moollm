@@ -1,9 +1,9 @@
-# MOOLLM Skill Registry — 134 Skills
+# MOOLLM Skill Registry — 135 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 134
+skill_count: 135
 last_updated: 2026-07-20
 
 # FOUNDATION — Load These First
@@ -262,6 +262,11 @@ memory:
       tagline: "Carry pointers"
       why: "Set down = materialize. Lightweight references."
       
+  crew:
+    - id: lighthouse-log
+      tagline: "One light, many keepers"
+      why: "Git as the watch log of any crew whose members don't share memory — human plural systems and agent societies alike; lifted from Palm's story One Light"
+
   compression:
     - id: summarize
       tagline: "Compress without losing truth"
@@ -691,6 +696,7 @@ all_skills:
   - k-lines
   - knowledge-frames
   - leela-ai
+  - lighthouse-log
   - logistic-container
   - manufacturing-intelligence
   - markdown

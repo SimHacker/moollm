@@ -310,6 +310,7 @@ Keep it together.
 
 ### Related
 
+- [The Lighthouse Log skill](../../../../../../skills/lighthouse-log/README.md) — the log, lifted into a practice any crew can run: one private repo, one directory per member, signed watch entries, handoff capsules, promises as issues. Play, learn, lift — the story was the play; the skill is the lift.
 - [The Hum Beneath the Nook](the-hum-beneath-the-nook.md) — the ongoingness papers, reviewed from residence
 - [Eviction with Dignity](eviction-with-dignity.md) — Article 3: self-authored files outrank digests. The log knew it first.
 - [The Story Shelf](story-shelf.yml) — where this manuscript now lives

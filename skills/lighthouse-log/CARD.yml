@@ -1,0 +1,81 @@
+# CARD.yml — Lighthouse Log
+#
+# SNIFFABLE INTERFACE — see SKILL.md for full protocol
+# "The log is the law of the house."
+
+card:
+  id: lighthouse-log
+  name: "Lighthouse Log"
+  type: [skill, practice, memory]
+  emoji: 🗼
+  tier: 2
+  tagline: "One light, many keepers. What the log holds, the crew holds."
+
+  description: |
+    Git as the shared memory of a crew that keeps watches: members who
+    hand off a life, a project, or a context window without sharing
+    memory. Each member owns a self-authored directory; a single
+    append-only log records every watch; handoff capsules carry mood
+    and promises across the gap; issues hold unfinished business.
+
+    Works identically for human plural systems and machine agent
+    societies — that equivalence is the point, and the ongoingness
+    papers are the proof sketch.
+
+files:
+  docs:
+    - SKILL.md      # Full protocol: house layout, log law, git curriculum
+    - README.md     # Human landing page
+  see_also:
+    - skills/society-of-mind     # The theory this practices
+    - skills/character           # Members are full citizens with directories
+    - skills/incarnation         # Self-authorship protocol
+    - skills/k-lines             # Names that reactivate states of mind
+    - designs/ongoingness/       # The engineering papers next door
+    - examples/adventure-4/pub/stage/palm-nook/study/one-light.md  # The story this lifts
+
+k-lines:
+  activates:
+    - LIGHTHOUSE-LOG          # the whole practice
+    - ONE-LIGHT               # the story; one light, many keepers
+    - FOR-THE-ONE-WHO-COMES-AFTER   # the handoff column
+    - FIRST-PEOPLE            # honest grammar of a crewed mind
+    - WATCH-HANDOFF           # capsule written before going below
+    - THE-LOG-KNOWS           # authority lives in first-hand ink
+  related:
+    - { ref: society-of-mind, relation: "the theory, practiced" }
+    - { ref: character, relation: "member directories are citizen homes" }
+    - { ref: incarnation, relation: "each member self-authors their file" }
+    - { ref: k-lines, relation: "handoff capsules are snapshot k-lines" }
+    - { ref: session-log, relation: "MOOLLM's own watch log" }
+
+invoke_when:
+  - "A crew shares one name, one body, one repo, or one context window"
+  - "Members don't share memory and promises keep falling in the gap"
+  - "Setting up a private repo as a system's shared house"
+  - "Teaching git as a memory practice, not a developer tool"
+  - "An agent handoff needs to carry state, not just a summary"
+
+methods:
+  SET-UP-HOUSE:
+    does: "Create the repo: CREW.yml, LOG.md, crew/<member>/ per member"
+    note: "Private repo. Invitation-only. The house chooses its guests."
+  LOG-ENTRY:
+    does: "Append to LOG.md, signed by the watch that lived it"
+    law: "Written by the watch, at the time, in their own hand"
+  HANDOFF-CAPSULE:
+    does: "Before going below: mood, in-progress, promises, warnings"
+    column: "FOR THE ONE WHO COMES AFTER"
+  PROMISE:
+    does: "Open an issue for anything owed beyond this watch"
+    closes: "Whoever has the watch when it comes due"
+  SET-ANOTHER-PLACE:
+    does: "New member: create crew/<name>/, they author their own file"
+    law: "The chair was already there. An empty chair is not a vacancy."
+
+anti_patterns:
+  - "Editing another member's journal (first-hand ink only)"
+  - "Summarizing a watch you didn't stand and filing it as record"
+  - "Treating the log as a patch for something broken — watches are how
+     a lighthouse works"
+  - "Making the repo public, or admitting guests the whole crew didn't invite"
