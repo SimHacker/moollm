@@ -199,7 +199,9 @@ feeds back into Cursor and benefits its users, including us.
 You don't have to learn the commands. cursor-mirror is integrated into the
 MOOLLM adventure universe through **[I-Beam](docs/I-BEAM.md)** — a character
 (a tall, blinking text cursor embodied; every platform has one) who provides
-the natural-language interface. Ask the left column of that table in plain
+the natural-language interface. Nobody anthropomorphizes I-Beam, because
+I-Beam is just a cursor. That you can talk to. And that talks back. And that
+can change the world. Ask the left column of that table in plain
 chat, and I-Beam performs the right column for you: composing the queries,
 eliding the boring, highlighting what matters, and remembering your goals
 across questions.

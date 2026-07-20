@@ -4,6 +4,14 @@
 
 > *I-Beam blinks at you.*
 
+Nobody anthropomorphizes I-Beam, because I-Beam is just a cursor. That you
+can talk to. And that talks back. And that can change the world.
+
+Nothing about that sequence is unusual, taken one clause at a time. You have
+stared at a blinking cursor your whole computing life; it has always marked
+the exact point where the world was about to change. The only new part is
+that now it holds up its end of the conversation.
+
 I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On Claude Code, it would speak through claude-mirror. The orchestrator changes; I-Beam remains your constant companion — your butler, your administrative assistant, your focus of attention.
 
 MOOLLM provides an interface layer above CLI tools: **simulated characters** that wrap command execution in natural dialog. I-Beam is a **bidirectional interpreter**:
