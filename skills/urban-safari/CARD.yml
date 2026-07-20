@@ -1,0 +1,62 @@
+# URBAN-SAFARI SKILL — Quick Reference Card
+
+skill:
+  name: urban-safari
+  version: 0.1.0
+  type: mobility-content-pipeline
+
+glance: |
+  FIT rides → web map JSON → video sync with frame paths over the track.
+  Urban safari: all rides together, clips scrubbed against GPS.
+
+provides:
+  - FIT ingest (Bosch Flow iPhone sync, any .fit on disk)
+  - Bosch duplicate-record merge (read-only)
+  - Web data contract (manifest, geojson, series, meta)
+  - Video sync via ffprobe + GPS interpolation
+  - Device adapter socket (XOSS G, GPX future)
+
+requires:
+  - pip install fitparse
+  - Optional: pymobiledevice3 (Flow iPhone sync)
+  - ffprobe for video sync
+
+quick_start:
+  build: "python scripts/build_web_assets.py --trips-dir ./rides --out ./web/data"
+  sync_phone: "python scripts/sync_flow_trips.py --dest ./rides"
+  pipeline: "python scripts/pipeline.py --sync --trips-dir ./rides --out ./web/data"
+  video: "python scripts/sync_video.py --videos-dir ./videos --data-dir ./web/data"
+  inspect: "python scripts/inspect_fit.py ride.fit"
+
+scripts:
+  pipeline.py: orchestration
+  build_web_assets.py: FIT → GeoJSON + series
+  sync_flow_trips.py: iPhone Flow → rides/
+  sync_video.py: video → keyframes + track geojson
+  inspect_fit.py: diagnose FIT quirks
+  fit_io.py: shared FIT read/merge
+  video_io.py: ffprobe + interpolation
+
+adapters:
+  bosch_flow: scripts/sync_flow_trips.py
+  xoss_g: https://github.com/molleraj/enhanced_xoss_sync (external, Abraham)
+  gopro_gpmf: planned
+
+privacy: |
+  Raw FIT and video contain exact GPS. Keep local or private repo.
+  Public demo: examples/demo/ (synthetic track only).
+
+related:
+  - simulation/examples/urban-safari-ride-game.yml
+  - change-name (play-learn-lift pattern)
+
+references:
+  flowfit: https://github.com/hacdias/flowfit
+  xoss_sync: https://github.com/molleraj/enhanced_xoss_sync
+
+file_structure:
+  scripts/: CLI pipeline
+  DATA-CONTRACT.md: web app integration
+  adapters/: device ingest notes
+  examples/demo/: synthetic public demo data
+  bosch-fit-quirks.md: FIT format detail

@@ -1,0 +1,19 @@
+# GLANCE.yml — urban-safari
+# Full file: CARD.yml | SKILL.md | DATA-CONTRACT.md | scripts/
+
+what: |
+  Urban safari content pipeline: FIT rides → map JSON → video sync.
+  All rides on one map; video keyframes as paths over the track.
+  Device adapters: Bosch Flow (done), XOSS G (Abraham plug-in).
+
+when:
+  - "map all my bike rides together"
+  - "sync video to GPS track"
+  - "show video frame path on map"
+  - "pull FIT from Flow iPhone app"
+
+methods: [SYNC, BUILD, INSPECT, SYNC_VIDEO, MATCH]
+
+stack: [fitparse, ffprobe, GeoJSON, OSM tiles, argparse CLI]
+
+see: DATA-CONTRACT.md | adapters/README.md | examples/demo/
