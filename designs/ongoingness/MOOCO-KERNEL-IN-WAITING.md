@@ -146,7 +146,9 @@ ongoingness argument:
 
 - **A kernel is defined by its position, not its cleverness.** The NeLLM
   kernel manages the model from inside the token loop; MOOCO manages it from
-  the protocol loop. Same role, different granularity of interrupt.
+  the protocol loop. Same role, different granularity of interrupt. The
+  closer you move MOOCO toward the GPU, the more it becomes NeLLM — see the
+  gradient table in [KLINE-CONTEXT-CACHE.md](KLINE-CONTEXT-CACHE.md).
 - **Cheap background cognition already has a home.** The design runs a local
   model (Ollama-class) over the stream continuously: summarizing intention,
   annotating tool calls, diffing declared versus actual behavior. That is

@@ -115,6 +115,27 @@ log.
 | (not proposed) | Cache-miss learning: misses update prefetch lists, shared via git |
 | Requires owning the inference loop | Works over any provider API today |
 
+## The gradient: distance from the GPU
+
+> The closer you move MOOCO toward the GPU, the more it becomes NeLLM.
+> — Don
+
+They are not two systems but one kernel at different distances from the
+silicon. The variable is **interrupt granularity**, a function of that
+distance:
+
+| Rung | Kernel position | Interrupt granularity | Sensors | Actuation |
+|------|-----------------|----------------------|---------|-----------|
+| MOOCO as poller | Filesystem (state.vscdb after the fact) | Turn | Committed tokens only | Append via RPC |
+| MOOCO as proxy | Protocol loop (MOOCO-in-the-middle) | Message / tool call | Full wire stream | Gate, inject, block |
+| MOOCO over local runtime | API of a machine it owns (Ollama, vLLM) | Request, with logprobs | Entropy starts leaking through | Prefix caching becomes real |
+| NeLLM | Inside the token loop | Token boundary | Attention weights, entropy, direct | Live KV-cache extension |
+
+What stays invariant down the whole ladder: the k-line page table, K-CACHE,
+the diffusion graph, focus/defocus, the TypeScript/LLM division of labor.
+Only sensor resolution and actuation latency improve. **NeLLM is MOOCO at
+ring 0; MOOCO is NeLLM in userspace.**
+
 ## Upgrade path
 
 The two designs compose rather than compete:
