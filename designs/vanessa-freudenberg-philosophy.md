@@ -4,7 +4,7 @@
 
 You nailed it -- the tech enabling JS to match native speed was Self research from the 80s, adapted two decades later. Let me fill in some specifics from people whose papers I highly recommend, and who I've asked questions of and had interesting discussions with!
 
-Vanessa Freudenberg [1], Craig Latta [2], Dave Ungar [3], Dan Ingalls, and Alan Kay had some great historical and fresh insights. Vanessa passed recently -- here's a thread where we discussed these exact issues: https://news.ycombinator.com/item?id=40917424
+Vanessa Freudenberg [1], Craig Latta [2], Dave Ungar [3], Dan Ingalls, and Alan Kay had some great historical and fresh insights. Vanessa passed recently — the exchange where she said this in her own words is preserved in the [2023 Croquet Jasmine HN thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) (Don's [2024 recap on HN](https://news.ycombinator.com/item?id=40917424) keeps it circulating).
 
 Vanessa had this exactly right. I asked her what she thought of using WASM with its new GC support for her SqueakJS [1] Smalltalk VM.
 
@@ -32,13 +32,13 @@ SqueakJS [7] was her masterpiece -- a bit-compatible Squeak/Smalltalk VM written
 
 The genius of her approach was the garbage collection integration. It amazed me how she pulled a rabbit out of a hat -- representing Squeak objects as plain JavaScript objects and cooperating with the host GC instead of fighting it. Most VM implementations end up with two garbage collectors in a knife fight over the heap. She made them cooperate through a hybrid scheme that allowed Squeak object enumeration without a dedicated object table. No dueling collectors. Just leverage the machinery you've already paid for.
 
-But it wasn't just technical cleverness -- it was philosophy. She wrote:
+But it wasn't just technical cleverness -- it was philosophy. In the [December 2023 thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md), she wrote:
 
 > "I just love coding and debugging in a dynamic high-level language. The only thing we could potentially gain from WASM is speed, but we would lose a lot in readability, flexibility, and to be honest, fun."
 
 > "I'd much rather make the SqueakJS JIT produce code that the JavaScript JIT can optimize well. That would potentially give us more speed than even WASM."
 
-Her guiding principle: do as little as necessary to leverage the enormous engineering achievements in modern JS runtimes [8]. Structure your generated code so the host JIT can optimize it. Don't fight the platform -- ride it.
+Her guiding principle: do as little as necessary to leverage the enormous engineering achievements in modern JS runtimes [8]. Structure your generated code so the host JIT can optimize it. Don't fight the platform -- ride it. The preserved [JIT brain dumps](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) show how she planned to do that.
 
 She was clear-eyed about WASM: yes, it helps for tight inner loops like BitBlt. But for the VM as a whole? You gain some speed and lose readability, flexibility, debuggability, and joy. Bad trade.
 
@@ -48,17 +48,32 @@ Vanessa understood that JS-the-engine isn't the enemy -- it's the substrate. Wor
 
 ---
 
+## Memorial & primary sources
+
+| Artifact | Link |
+|----------|------|
+| **SqueakJS paper — memorial edition** (byline corrected, original preserved) | [Freudenberg-2014-SqueakJS-memorial-edition.pdf](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-memorial-edition.pdf) |
+| Original PDF (untouched primary source) | [Freudenberg-2014-SqueakJS-original.pdf](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-original.pdf) |
+| How the memorial edition was made | [prestoration/](./prestoration/) — provenance, ethics, play-by-play |
+| Her 2021 request not to be deadnamed | [hn-thread-2021-squeakjs.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2021-squeakjs.md) |
+| WASM / JS / Self thread (source of quotes above) | [hn-thread-2023-croquet-jasmine.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) |
+| JIT design notes (preserved) | [jit-notes/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) |
+| Dan Ingalls HOPL paper (Zoo corrected edition she asked us to cite) | [Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) |
+| Character directory & memorial | [vanessa-freudenberg/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg) |
+
+---
+
 ## References
 
-1. **Freudenberg et al** -- SqueakJS paper (DLS 2014, Most Notable Paper Award 2024) -- https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf
+1. **Freudenberg et al** — SqueakJS paper (DLS 2014, Most Notable Paper Award 2024). **Memorial edition** (byline: Vanessa Freudenberg, provenance disclosed): https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-memorial-edition.pdf — original untouched: https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-original.pdf — ACM doi (still says "Bert"): https://doi.org/10.1145/2661088.2661100
 2. **Craig Latta, Caffeine** -- Smalltalk livecoding in the browser -- https://thiscontext.com/
 3. **Self programming language** -- prototype-based OO with multiple inheritance -- https://selflanguage.org/
 4. **Hoelzle, Chambers & Ungar** -- Debugging Optimized Code with Dynamic Deoptimization (1992) -- https://bibliography.selflanguage.org/dynamic-deoptimization.html
 5. **Strongtalk** -- high-performance Smalltalk with optional types -- http://strongtalk.org/
 6. **Lars Bak** -- architect of Self VM, Strongtalk, HotSpot, V8 -- https://en.wikipedia.org/wiki/Lars_Bak_(computer_programmer)
 7. **SqueakJS** -- bit-compatible Squeak/Smalltalk VM in pure JavaScript -- https://squeak.js.org/
-8. **SqueakJS JIT design notes** -- leveraging the host JS JIT -- https://squeak.js.org/docs/jit.md.html
-9. **Vanessa Freudenberg** -- profile and contributions -- https://conf.researchr.org/profile/vanessafreudenberg
+8. **SqueakJS JIT design notes** — leveraging the host JS JIT. Live: https://squeak.js.org/docs/jit.md.html — **preserved in repo**: https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes
+9. **Vanessa Freudenberg** — profile and contributions -- https://conf.researchr.org/profile/vanessafreudenberg — character & sources: https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg
 
 ---
 
@@ -74,4 +89,4 @@ Vanessa's philosophy directly informs MOOLLM's approach:
 | Do as little as necessary | Speed of Light -- one call, maximum leverage |
 | Structure code for host optimization | Structure prompts for LLM optimization |
 
-See also: [YAML Jazz](../skills/yaml-jazz/), [Speed of Light](../skills/speed-of-light/)
+See also: [YAML Jazz](../skills/yaml-jazz/), [Speed of Light](../skills/speed-of-light/), [prestoration](./prestoration/)
