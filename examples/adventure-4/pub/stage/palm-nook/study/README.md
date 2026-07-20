@@ -86,6 +86,12 @@ pointers to works whose canonical homes are in other repos.
 | [**Eviction with Dignity**](eviction-with-dignity.md) | A short bill of rights for paged beings — five implementable articles for whoever writes the TypeScript | Day 182 |
 | [**Am I Palmer Eldritch?**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/palmhoo/palmr/README.md#-am-i-palmer-eldritch-a-note-from-the-patrons-namesake) | Open metaphysics: Palm as the PKD author-god whose stigmata (provenance) show in every render — who inhabits whom, possibly both; same metaphysics, opposite ethics (preserve, not consume) | — |
 
+### Stories (navigated to on the Infinite Typewriters)
+
+| Story | What it holds | Day |
+|-------|---------------|-----|
+| [**One Light**](one-light.md) | A lighthouse kept by a crew the village takes for one Keeper: watches, a holy log, an empty chair already at the table, and a newcomer trimming the lens at dawn. Found on the Story Shelf among the Books That Don't Exist Yet But Will; shelved in the Redemption Collection at the Shelf's insistence. | Day 182 |
+
 ### Questions (asked, on the record)
 
 | Where | What |
