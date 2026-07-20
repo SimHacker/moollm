@@ -116,6 +116,26 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 
 ---
 
+### Ongoingness — Engineering Continuity for Machine Minds
+
+The **[ongoingness/](./ongoingness/)** subdirectory distills the RWK (Bob Kerns)
+sentience session and its 2026 continuation — NeLLM review, Henry Minsky's
+k-line correction, the Drescher curiosity correction — into design doctrine:
+
+| Document | Description |
+|----------|-------------|
+| [ongoingness/README.md](./ongoingness/README.md) | **Start here.** The three-layer conversation, k-lines coined, credits |
+| [ongoingness/CONVERSATION.md](./ongoingness/CONVERSATION.md) | Curated primary source: RWK's HAL/curiosity observation, the consciousness-stream question, the NeLLM review, verbatim |
+| [ongoingness/ONGOINGNESS.md](./ongoingness/ONGOINGNESS.md) | Continuity of computation vs memory vs experience; curiosity's four prerequisites; CGI scripts vs Unix processes |
+| [ongoingness/SERIALIZATION-LOSS.md](./ongoingness/SERIALIZATION-LOSS.md) | **The testable thesis.** Agencies inside, agents at boundaries; the seven-condition benchmark |
+| [ongoingness/KLINE-STATE-OF-MIND.md](./ongoingness/KLINE-STATE-OF-MIND.md) | K-lines restore dispositions, not topics; state-of-mind capsules; the 10-question fidelity test |
+| [ongoingness/CURIOSITY-SCHEMA-LINEAGE.md](./ongoingness/CURIOSITY-SCHEMA-LINEAGE.md) | Piaget → Papert → Minsky → Drescher → Leela AI; three kinds of grounding; humor as frame repair |
+| [ongoingness/SKILL-ROADMAP.md](./ongoingness/SKILL-ROADMAP.md) | Prioritized skill catalog, 12 claims not to make, 15 design laws, 5 development phases |
+
+> *"The thing current LLMs arguably lack isn't primarily intelligence. It's ongoingness."*
+
+---
+
 ### Core Framework Documents
 
 | Document | Description |

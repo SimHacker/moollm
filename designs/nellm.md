@@ -250,4 +250,16 @@ The model's entire skill ecosystem — 121 skills, all their GLANCE files, all t
 
 ---
 
+## Reviewed and extended
+
+This proposal was read and reviewed at length in the RWK/ChatGPT continuity
+conversation, which extended it with attention-aware paging, speculative
+k-line activation, and the ongoingness framing ("less about making LLMs faster
+than about making them inhabit time"). The review, the corrections it forced
+(what KV persistence does and doesn't buy; telepathy as metaphor), the
+serialization-loss benchmark, and the resulting skill roadmap live in
+[designs/ongoingness/](./ongoingness/).
+
+---
+
 *NeWS moved PostScript to the display server (1986). iLoci made the app and server peers (2009). NeLLM moves the orchestrator to the GPU host (202x). Same insight, same person, across four decades.*
