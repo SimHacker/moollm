@@ -104,6 +104,41 @@ checked in, so the learning is shared: one user's cache misses become every
 user's prefetch hits. A learning branch predictor with git as its training
 log.
 
+## The resident overlay: cards as the in-RAM page table
+
+The reason any of this is tractable: the metadata layer is **tiny relative to
+what it indexes**. INDEX one-liners, GLANCE files, CARD interfaces,
+advertisements, k-line declarations, K-CACHE edge lists — kilobytes of YAML
+per skill, overlaying every directory in every repo (and spanning repos via
+moo/MOOT mounts). The content those cards point to — SKILLs, READMEs,
+examples, scripts, data — is orders of magnitude larger and stays on disk.
+
+So the orchestrator keeps the **entire overlay network resident**: every
+advertisement, every k-line edge, every prefetch hint, across all mounted
+repos, loaded into RAM at once. That resident graph is its page table and
+TLB. The filesystem is backing store. The context window is physical memory.
+Diffusion over the resident graph is the reference-prediction hardware —
+and it runs in the orchestrator for free, spending no tokens, between every
+turn.
+
+**And it predicts in both directions.** The same diffusion that says what to
+preload says what to flush:
+
+- **Prefetch** — hot k-lines diffuse outward along learned directed edges;
+  whatever accumulates heat gets paged in (or kept warm) before the model
+  asks.
+- **Flush** — a loaded item is evictable when its own k-lines have decayed
+  cold *and* no currently-hot k-line has a strong directed edge toward it.
+  Not just "least recently used" but "nothing hot points here": negative
+  prediction, the eviction counterpart of speculative activation.
+
+This is where the CG meets the GC it was named against: the Treasure
+Collector fills attention, and the same graph — read for absence of inbound
+heat instead of presence — identifies the garbage. The `heat` operation's
+decay counters and `page_out` action (MOOCO-SKILL-MANAGER.md) are the
+mechanics; the resident overlay is what makes eviction *predictive* rather
+than merely reactive to context pressure.
+
 ## The correspondence table
 
 | NeLLM review (runtime signals) | MOOCO k-line context cache (emitted signals) |
