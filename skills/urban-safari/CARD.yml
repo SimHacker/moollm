@@ -26,6 +26,7 @@ quick_start:
   sync_phone: "python scripts/sync_flow_trips.py --dest ./rides"
   pipeline: "python scripts/pipeline.py --sync --trips-dir ./rides --out ./web/data"
   video: "python scripts/sync_video.py --videos-dir ./videos --data-dir ./web/data"
+  transcript: "python scripts/map_transcript.py --video-id CLIP --video FILE --data-dir ./web/data"
   inspect: "python scripts/inspect_fit.py ride.fit"
 
 scripts:
@@ -33,6 +34,7 @@ scripts:
   build_web_assets.py: FIT → GeoJSON + series
   sync_flow_trips.py: iPhone Flow → rides/
   sync_video.py: video → keyframes + track geojson
+  map_transcript.py: Whisper → words on map with clustering
   inspect_fit.py: diagnose FIT quirks
   fit_io.py: shared FIT read/merge
   video_io.py: ffprobe + interpolation

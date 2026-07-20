@@ -34,6 +34,10 @@ def main() -> int:
     parser.add_argument("--trips-dir", type=Path, default=Path("rides"))
     parser.add_argument("--out", type=Path, default=Path("web/data"))
     parser.add_argument("--videos-dir", type=Path, help="Sync videos in this dir to trips")
+    parser.add_argument("--map-transcripts", action="store_true", help="Whisper + map transcript clusters")
+    parser.add_argument("--whisper-model", default="base")
+    parser.add_argument("--cluster-radius-m", type=float, default=40.0)
+    parser.add_argument("--cluster-gap-s", type=float, default=20.0)
     parser.add_argument("--home-label", default="Home")
     parser.add_argument("--home-lat", type=float, default=52.0)
     parser.add_argument("--home-lon", type=float, default=5.0)
@@ -75,7 +79,37 @@ def main() -> int:
             "--data-dir",
             str(args.out.resolve()),
         ]
-        return run(video_cmd)
+        code = run(video_cmd)
+        if code != 0:
+            return code
+
+        if args.map_transcripts:
+            import json
+            manifest = json.loads((args.out / "manifest.json").read_text())
+            for entry in manifest.get("videos", []):
+                if entry.get("status") == "pending_trip" or not entry.get("track"):
+                    continue
+                vid = entry["id"]
+                video_file = entry.get("file")
+                if not video_file or not Path(video_file).is_file():
+                    continue
+                map_cmd = [
+                    sys.executable,
+                    str(SCRIPT_DIR / "map_transcript.py"),
+                    "--video-id",
+                    vid,
+                    "--data-dir",
+                    str(args.out.resolve()),
+                    "--video",
+                    video_file,
+                    "--model",
+                    args.whisper_model,
+                    "--cluster-radius-m",
+                    str(args.cluster_radius_m),
+                    "--cluster-gap-s",
+                    str(args.cluster_gap_s),
+                ]
+                run(map_cmd)
 
     return 0
 

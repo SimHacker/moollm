@@ -116,6 +116,63 @@ After `sync_video.py`, each clip gets a **track** sampled along wall-clock time:
 Multi-rider: each clip gets its own track on the same trip map (or different trips on one
 overview map via `manifest.trips[]` bounds union).
 
+## Transcript on the map (clustered)
+
+After `sync_video.py`, run `map_transcript.py` to place spoken words on the route and
+**cluster** nearby segments for readable labels.
+
+```bash
+python scripts/map_transcript.py --video-id img-0679 --data-dir ./web/data \\
+  --video /path/to/IMG_0679.MOV --cluster-radius-m 40 --cluster-gap-s 20
+```
+
+### videos/{id}.transcript.json
+
+```json
+{
+  "id": "img-0679",
+  "trip_id": "badhoevedorp-roundtrip-…",
+  "cluster_params": { "radius_m": 40, "max_gap_s": 20, "min_words": 3 },
+  "segment_count": 842,
+  "cluster_count": 67,
+  "clusters": [
+    {
+      "video_s_start": 120.5,
+      "video_s_end": 138.2,
+      "duration_s": 17.7,
+      "lat": 52.338,
+      "lon": 4.785,
+      "text": "look at that bridge over the canal …",
+      "word_count": 24,
+      "segment_count": 3,
+      "span_m": 12.4
+    }
+  ],
+  "geojson": "videos/img-0679.transcript.geojson"
+}
+```
+
+### Clustering rules
+
+Segments merge into one map label when **both**:
+
+- **Distance** ≤ `cluster_radius_m` (default 40 m) between segment midpoints
+- **Time gap** ≤ `cluster_gap_s` (default 20 s) between consecutive segments
+
+Clusters with fewer than `min_words` (default 3) are dropped unless they contain 2+
+segments. Centroid is the mean lat/lon of member segments; `text` is joined utterance.
+
+### videos/{id}.transcript.geojson
+
+Point features (`kind: transcript_cluster`) with `text`, `video_s_start`, `video_s_end`,
+`word_count`. Map UI tips:
+
+- Show clusters when zoom ≥ 14; hide individual words until zoom ≥ 17
+- Highlight active cluster when `video_s` is within `[start, end]`
+- Offset label anchor by `bearing_deg` from video track so text sits beside the path
+
+Whisper JSON is cached under `web/data/cache/{video-stem}.whisper.json`.
+
 ## Device adapters
 
 | Source | Ingest script | Status |

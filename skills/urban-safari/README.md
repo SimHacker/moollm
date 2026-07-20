@@ -19,6 +19,7 @@ pip install pymobiledevice3   # optional: Bosch Flow iPhone sync
 python scripts/build_web_assets.py --trips-dir ./rides --out ./web/data
 python scripts/pipeline.py --sync --trips-dir ./rides --out ./web/data
 python scripts/sync_video.py --videos-dir ./videos --data-dir ./web/data
+python scripts/map_transcript.py --video-id CLIP --video FILE --data-dir ./web/data
 python scripts/inspect_fit.py ride.fit
 ```
 
@@ -30,6 +31,8 @@ web/data/
   trips/{id}.geojson     # ride track
   trips/{id}.series.json # speed, power, cadence vs time
   videos/{id}.track.json # video keyframes on the ride
+  videos/{id}.transcript.json  # clustered speech labels
+  videos/{id}.transcript.geojson  # Point features for map
   videos/{id}.geojson    # path of video frames over the map
 ```
 

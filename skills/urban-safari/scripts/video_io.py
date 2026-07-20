@@ -17,6 +17,62 @@ def parse_iso(s: str) -> datetime:
     return dt.astimezone(timezone.utc)
 
 
+def register_pending_video(
+    video_id: str,
+    probe: dict[str, Any],
+    data_dir: Path,
+    youtube_url: str | None = None,
+) -> dict:
+    """Register a video awaiting a matching FIT trip."""
+    entry = {
+        "id": video_id,
+        "status": "pending_trip",
+        "trip_id": None,
+        "file": probe.get("path") or probe.get("file"),
+        "duration_s": probe.get("duration_s"),
+        "creation_time": probe.get("creation_time"),
+        "youtube_url": youtube_url or probe.get("youtube_url"),
+        "title": probe.get("title") or probe.get("file"),
+        "track": None,
+        "geojson": None,
+        "note": "Re-run sync_video.py after FIT tracks cover this time range",
+    }
+    pending_path = data_dir / "videos" / f"{video_id}.pending.json"
+    pending_path.parent.mkdir(parents=True, exist_ok=True)
+    pending_path.write_text(json.dumps({"probe": probe, **entry}, indent=2), encoding="utf-8")
+    return entry
+
+
+def probe_youtube(url: str) -> dict[str, Any]:
+    """Fetch title, duration, upload date from YouTube via yt-dlp."""
+    cmd = ["yt-dlp", "-j", "--no-download", url]
+    try:
+        raw = subprocess.check_output(cmd, text=True, stderr=subprocess.DEVNULL)
+    except FileNotFoundError as exc:
+        raise SystemExit("yt-dlp not found — pip install yt-dlp") from exc
+    except subprocess.CalledProcessError as exc:
+        raise SystemExit(f"yt-dlp failed for {url}") from exc
+
+    data = json.loads(raw)
+    upload_date = data.get("upload_date")
+    creation_time = None
+    if upload_date and len(upload_date) == 8:
+        creation_time = parse_iso(
+            f"{upload_date[:4]}-{upload_date[4:6]}-{upload_date[6:8]}T12:00:00+00:00"
+        ).isoformat()
+
+    return {
+        "file": data.get("title", "youtube"),
+        "youtube_url": url,
+        "youtube_id": data.get("id"),
+        "creation_time": creation_time,
+        "duration_s": round(float(data.get("duration") or 0), 3),
+        "title": data.get("title"),
+        "upload_date": upload_date,
+        "note": "upload_date is not recording time — prefer local file creation_time or --start-time",
+    }
+
+
 def probe_video(path: Path) -> dict[str, Any]:
     """Read creation_time and duration via ffprobe."""
     cmd = [

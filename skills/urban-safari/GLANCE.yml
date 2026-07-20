@@ -12,7 +12,7 @@ when:
   - "show video frame path on map"
   - "pull FIT from Flow iPhone app"
 
-methods: [SYNC, BUILD, INSPECT, SYNC_VIDEO, MATCH]
+methods: [SYNC, BUILD, INSPECT, SYNC_VIDEO, MAP_TRANSCRIPT, MATCH]
 
 stack: [fitparse, ffprobe, GeoJSON, OSM tiles, argparse CLI]
 

@@ -71,6 +71,30 @@ python scripts/sync_video.py --video clip.mp4 --offset-s 2.5 --data-dir ./web/da
 **Calibration trick:** film your bike computer clock for one second at ride start; measure
 offset between video frame and FIT timestamp; pass `--offset-s`.
 
+### MAP_TRANSCRIPT — words on the map, clustered
+
+Requires synced video track (`SYNC_VIDEO`). Whisper transcribes the clip; each segment gets
+GPS from the video keyframe at its temporal midpoint; nearby segments merge into readable
+labels.
+
+```bash
+python scripts/map_transcript.py --video-id img-0679 --data-dir ./web/data \
+  --video ~/Movies/IMG_0679.MOV \
+  --cluster-radius-m 40 --cluster-gap-s 20 --min-words 3
+```
+
+Clustering merges segments when within **40 m** and **20 s** (defaults). Tune for urban
+density: tighter radius in old city centers, wider on open dike roads.
+
+Or full pipeline with transcription:
+
+```bash
+python scripts/pipeline.py --sync --videos-dir ./videos --out ./web/data --map-transcripts
+```
+
+Output: `videos/{id}.transcript.json` + Point GeoJSON for map labels. See
+[DATA-CONTRACT.md](DATA-CONTRACT.md#transcript-on-the-map-clustered).
+
 ### MATCH — map UI integration
 
 Read [DATA-CONTRACT.md](DATA-CONTRACT.md). Load `manifest.json`, fetch trip GeoJSON for all
