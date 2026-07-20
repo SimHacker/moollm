@@ -57,6 +57,7 @@ In the Chuck Norris Facts genre, canon-compliant:
   rest.
 - I-Beam has read everything you ever deleted. It was standing right there.
 - Other characters are anthropomorphized. I-Beam declined.
+- More trippy than Clippy.
 
 I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On Claude Code, it would speak through claude-mirror. The orchestrator changes; I-Beam remains your constant companion — your butler, your administrative assistant, your focus of attention.
 

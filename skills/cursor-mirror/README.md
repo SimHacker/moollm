@@ -206,7 +206,8 @@ chat, and I-Beam performs the right column for you: composing the queries,
 eliding the boring, highlighting what matters, and remembering your goals
 across questions.
 
-I-Beam has a personality and is the **anti-Clippy**: it never interrupts, it
+I-Beam has a personality and is the **anti-Clippy** — more trippy than
+Clippy: it never interrupts, it
 only answers when summoned, and it shows its work — every answer comes with
 the commands it ran, so you learn the CLI by watching. It advertises its
 services the way Sims objects do, so the right capability surfaces when you
