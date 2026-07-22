@@ -444,6 +444,8 @@ Apply it recursively and the whole stack unrolls: galaxy cluster → galaxy → 
 
 The Eameses filmed this schema in 1977 (*Powers of Ten*: one zoom axis, same framing rules at every decade), Feynman pointed down the stack in 1959 ("there's plenty of room at the bottom"), and Ackley's indefinitely scalable machines demand it upward. The design consequence for MOOLLM is one sentence: **there is no top level and no bottom level — there is one container schema, applied at every altitude, with a port on every body.** A quark trades with its hadron under declared rules, and a galaxy trades with its cluster the same way; the only thing that changes per level is the price of the warper.
 
+The schema has a name now: **the Spore file system.** 😉 Will Wright already shipped the UI for it — cell → creature → tribe → civilization → space, one game, one zoom axis, editors at every altitude — and a filesystem with no top and no bottom, containers all the way in both directions, is that game played on directories. Spore's zoom is `cd`.
+
 The factory must grow. Then it must launch. Then it must orbit.
 
 ---

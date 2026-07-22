@@ -160,6 +160,9 @@ left-child/right-sibling tree encoding this is literally the other pointer —
 submenu follows `first_child`, sibmenu follows `next_sibling` — and a pie
 menu network that navigates both pointers stops being a tree and becomes a
 navigable graph. The deeper identity: **a chain of sibmenus IS a hall.**
+Seen from the menu side: a hall is a pie menu **pull-out slice** — direction
+picks the slice, distance walks the items pulled out along it — the milepost
+float-enum selector made gestural.
 Siblings are items that vary along their parent's dimension; sliding
 laterally through them is walking that dimension milepost by milepost, and
 opening a submenu is stepping through a side-door into a nested room.
@@ -177,10 +180,23 @@ is exactly what a milepost with side-doors looks like when you stand on it
 and open your eyes: you at the head, everything that leads in on one wing,
 everything that leads out on the other.
 
-*(Attribution flag: the Brian Silverman connection to butterfly outlines is
-unverified — the documented Butterfly is Mackinlay/Rao/Card at PARC. If
-Brian had a butterfly-shaped outliner in the Logo world, his room in WWSFF
-is the place to ask him; if confirmed, it belongs in this lineage.)*
+*(Attribution, resolved: **Strassmann, not Silverman** — Don confirmed it,
+and the [Dylan manual's own acknowledgments](https://en.wikipedia.org/wiki/History_of_the_Dylan_programming_language)
+close the case with a flourish. Don's
+[2007 OLPC post](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/will-wright/sources/2007-11-16-olpc-visual-programming-psiber/article.md)
+and his [MediaFlow design comments](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/mediaflow-design-comments.md)
+credit **Steve Strassmann** with "butterfly diagrams" in Mac Common Lisp or
+Dylan — incoming links branching left, outgoing right — and call for a
+general "butterfly editor" instead of a mere tree editor. The Dylan
+connection turns out to be a nest of this file's own cast: Strassmann did
+additional design work on Dylan; **Oliver Steele** was a primary language
+design contributor (and built its IDE work); the manual was designed by
+**Scott Kim** *and Strassmann together*, with the cover by Scott Kim; and
+**Alan Kay** is in the feedback acknowledgments — consistent with Don's
+memory of first hearing the term in an email from Alan praising it. One
+book, four threads of this palace. The published Butterfly citation
+browser remains Mackinlay/Rao/Card, PARC, CHI '95; whether Strassmann's
+diagrams influenced it is the remaining open question for Alan's room.)*
 
 ## Lights, fog of war, and dimmers
 
@@ -211,6 +227,99 @@ are the detents on the dimmer. Turning up a room's light and descending its
 pyramid are the same gesture. Fog of war is the palace-wide statement of the
 mipmap rule: never illuminate a lower level than the attention you've
 actually got.
+
+### Indoor light, outdoor light, and the lighting budget
+
+Lights have **scope**. Indoor lights stay inside — but leak out through
+windows, doors, and skylights, so a lit room advertises itself to the
+street without spending the street's budget. Outdoor lights illuminate the
+local area: brightly and directionally (a spotlight), or dimly and diffuse
+(a porch lamp), or both at once. Any number of lights, each with its own
+throw and falloff — **like a Blender scene**, not like a window manager's
+one-bit focus.
+
+That gives exploration a rhythm any stagehand knows: floodlight the local
+area to see what's there → swing a spotlight onto the interesting thing to
+examine it from where you stand → travel there and turn on its inside and
+outside lights → and **turn off the lights behind you**, in the places you
+no longer inhabit. Because attention has a cost and lighting does too: you
+only get so many lumens for your working set, and every room left burning
+is a room's worth of budget you can't spend at the frontier. (The leak
+through the skylight is the cheap tier: awareness that a place exists,
+priced below actually lighting it.)
+
+Follow this all the way and it stops being a metaphor for a window manager
+and becomes the thing a window manager should have been: a **user-driven
+attention manager** — focusing, transformation, and transportation in one
+instrument — that can take over the whole screen and manage everything, so
+you never have to leave it. The pieces have prior art with receipts:
+[aQuery](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/aquery-programmable-accessibility.md)
+(jQuery for the accessibility tree — selectors and plugins over every app
+on the machine), Morgan Dixon's
+[Prefab](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/prefab-pixel-reverse-engineering.md)
+(reconstruct any app's widget tree from pixels, so even the unlit rooms
+have doors), and Simon Schneegans'
+[Kando](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/kando-cross-platform-pie-menu.md)
+(cross-platform pie menus as an OS-level overlay — the junction gesture,
+already shipping). Don has carried this instrument in his head for decades,
+fully tangible; it is finally tractable.
+
+### The full light model: polarization, modulation, doors, and the torch
+
+The axiom first, crisply: **light intensity is the semantic mipmap index.**
+Everything else is generalization along the other axes of light.
+
+**Polarization.** Light isn't just bright and colored — it's *filterable*.
+Wear the right polarizer and a whole class of light vanishes, leaving only
+the signal you tuned for: show me only the error light, only the questions,
+only what my collaborator lit. The rigorous precedent is Paul Debevec's
+[Light Stage](https://vgl.ict.usc.edu/Research/LightStages/): polarized
+spherical gradient illumination separates **specular reflectance from
+subsurface scattering** — the same scene, decomposed into surface shine and
+what glows from within, by filtering alone. That's the attention move
+exactly: one palace, decomposed into overlays by what kind of light you
+admit. And physics itself blesses evocative-arbitrary channel naming:
+quantum chromodynamics calls its unseeable quantum numbers **color** and
+**charm** — abstract but... appropriate? evocative? confusing? artistic? —
+proof that a well-chosen wrong word can carry a formalism.
+
+**Modulation.** Generalize over time and you get the whole disreputable
+lineage: the `<BLINK>` tag, strobe lights, and Flash. The progression is
+honest — Flash *was* the blink tag generalized: RGB-value-over-time-per-
+pixel control, plus input handling, plus Turing completeness — a full
+simulation-and-feedback engine grown from one blinking word.
+`<BLINK>` ⇒ `<EMBED src="player.swf">`. Bring it back with intent: a
+room's light can pulse (heartbeat = health check), sweep (scanning),
+flicker (unstable), or **disco-ball** — the designated party room throwing
+moving colored dots on every wall around it. Modulation is the fourth
+channel after intensity, color, and polarization.
+
+**Doors conduct light.** Open a door and light spills into the hallway —
+attention spreading through the network, fading with distance. Close it
+and the spill stops. The spill is overridable at every point: turn the
+next room's own light on, dim it, place floor lamps in corners or along
+the hall by the signposts — each lamp with its own hue, persuasion,
+luminosity, and modulation. Spotlights and diffuse lights compose; the
+lighting rig is the attention policy, written in fixtures.
+
+**Automatic lights.** Motion-activated: a room lights when something
+happens in it and fades a set time after the last event — the working set
+that maintains itself. Follow lights: the lamp that tracks you as you
+float through the space station, local context that never needs asking.
+And **cursor as flashlight**: light pools where you point, the way The
+Sims drops the walls of the room you're pointing into. The deluxe version
+is Dungeon Keeper's cursor-as-torch: a flickering, wavering light source
+that throws your minions' shadows on the walls — and the *wiggle is
+functional*. A wiggling light source means wiggling shadows clutching the
+shapes of the objects, scanning out surface geometry, elaborating the
+sensory 3-D perception of the room and everything in it. Jitter as active
+sensing: the torch doesn't just show the room, it *feels* it.
+
+(House style, stated once: this file draws delightedly on the games that
+already solved these problems — Dungeon Keeper, Black & White, Populous,
+The Sims, Factorio, Dyson Sphere Program, RTS and simulation games in
+general. They are the richest UI research corpus that never wrote itself
+up.)
 
 ## Addendum: the overlay, the colors, and the form
 
@@ -319,6 +428,15 @@ hierarchy — each tier bigger, slower, and farther from the hands:
 | trunk | disk | park and fetch |
 | trailers | cold storage / archive | hitch, haul, rarely open |
 
+And the hierarchy doesn't stop at trailers — vehicles nest into bigger
+vehicles: ferries and cargo ships, rockets and spaceships, space stations,
+giant AI ships that are themselves characters (Iain M. Banks' Culture
+Minds — the vehicle *is* the smartest member of the party), space cities,
+worlds, whole cultures, and Special Circumstances. A **party** — characters
+in a vehicle or room, traveling together, splitting off and rejoining — is
+the tangible object a kid already holds from every road trip; the tiers
+above it just keep answering "and what does *that* ride in?"
+
 MOOLLM already speaks every row: INVENTORY (what a character has on hand),
 CONTAINER (objects hold objects all the way down, like directories), VEHICLE
 (extends PORTABLE-ROOM; characters embark and disembark), and the hierarchy's
@@ -349,6 +467,22 @@ were always the same artifact — rooms/scopes, exits/calls, items/values,
 inventory/environment — and the LLM is what finally lets one artifact hold
 both readings at once without a compiler ever noticing it's in a dungeon.
 
+The thesis has been run past the source. In [Scott Adams' 2021 Hacker News
+AMA](https://news.ycombinator.com/item?id=29330120), Don asked the
+adventure-game pioneer whether adventure games are memory palaces —
+geographic retrieval for vast information — and laid out the lineage from
+reverse-engineering the "Adventure Algorithm" through DreamScape,
+MediaGraph, and iLoci, including the pie menu identity ("4-item and 8-item
+pie menus are the essential elements of an Adventure map, as long as you
+think of menus as rooms with two-way links... instead of a hierarchal tree
+of menus with one-way exits"). Scott: "OK, I am blown away at your
+creativity and ideas. I am aware of Memory Palaces and you certainly make
+an excellent tie-in with adventure game handling." The same thread carries
+Don's reading of the Nassi-Shneiderman diagram as a map of a building —
+front entrance at the top, exit at the bottom, branch arms as *The Price is
+Right* doors that reconverge at the back-stage loading dock — geographic
+visual programming, spotted in a 1973 flowchart notation.
+
 ## Proposed methods (extensions to CARD.yml, sketch)
 
 - **WALK** `(character, hall, steps)` — move a trait along its dimension;
@@ -357,6 +491,11 @@ both readings at once without a compiler ever noticing it's in a dungeon.
   returns the interior point as prose (the unnameable mood, described).
 - **PROJECT** `(character, plane)` — render a thought plane as a pie menu /
   circumplex chart; distance = intensity, angle = octant.
+- **GO** `(direction)` — the only navigation command: forward/back along any
+  dimension, or any see-also / also-seen link (reverse pointers, two-way à la
+  Ted Nelson). Climbing a parent hierarchy is not a special key — objects
+  live in many hierarchy networks at once, so up/down in each is just one
+  more pair of doors at the junction.
 - **NAME-THE-HALL** `(room_a, room_b)` — given two words, name the dimension
   they span and propose mileposts (the goto/eval move, as an operator).
 - **SURVEY** `(room)` — given one word, list the halls it opens onto: its
@@ -371,6 +510,10 @@ both readings at once without a compiler ever noticing it's in a dungeon.
   the left wing, outbound on the right; click a vein to metamorphose there.
 - **DIM** `(room, level)` — set activation on the dark→README dimmer; the
   layout engine shrinks, fades, expands, and labels accordingly.
+- **SPOTLIGHT** `(target, throw)` — directional outdoor light: examine a
+  room from where you stand without traveling. **FLOODLIGHT** is the
+  diffuse variant for surveying a neighborhood; **DOUSE** turns off the
+  lights behind you. All draw on the same lumen budget.
 - **OPEN** `(view_path, projection)` — disclose a node in the overlay tree,
   keyed by path so cycles can be open in several places at once; projection
   carries local scale and facet state. **CLOSE** keeps the state, dark.
@@ -392,12 +535,16 @@ both readings at once without a compiler ever noticing it's in a dungeon.
 - Mikolov et al., word2vec difference vectors (king − man + woman ≈ queen)
 - Lotfi Zadeh, fuzzy linguistic variables (1973) — milepost semantics made rigorous
 - Mackinlay, Rao & Card, "Butterfly" citation browser (PARC, CHI '95) — head, wings, veins: the side-door renderer
+- Steve Strassmann, "butterfly diagrams" (Mac Common Lisp/Dylan; confirmed by Don, July 2026) — incoming links on the left, outgoing on the right; Strassmann also co-designed the Dylan manual with Scott Kim (cover: Kim), on the language Oliver Steele helped design, with Alan Kay in the acknowledgments — one book, four threads of this palace
 - George Furnas, generalized fisheye views (CHI '86) — degree-of-interest as dimmer
 - Fog of war — Clausewitz by way of Warcraft: darkness as free storage
 - Don Hopkins, PSIBER Space Deck (NeWS, 1988) — data as spatial, editable-in-place view networks
 - DreamScape (Kaleida Labs, 1995) — the smooching UI: kiss to connect; reborn in iLoci and MediaGraph
 - Doug Engelbart, NLS view specs (1968) — the overlay-of-opened-views, at the source
 - Crowther & Woods, Adventure (1976) — rooms, exits, inventory: the type system in costume
+- Scott Adams, Adventureland (1978) and the [2021 HN AMA](https://news.ycombinator.com/item?id=29330120) — the Adventure Algorithm on microcomputers; endorsed the memory-palace tie-in on the record
+- Isaac Nassi & Ben Shneiderman, structured flowchart diagrams (1973) — a program that was always a building map
+- Iain M. Banks, the Culture — vehicles as characters: the top of the party's memory hierarchy
 - Will Wright, "compilers for the mental model" (Stanford HCI seminar, 2004 — source in WWSFF: characters/will-wright/sources/2004-01-12-winograd-ui-simulation-games/)
 - Alonzo Church, λ — patron saint of the eval end of the goto/eval hall
 

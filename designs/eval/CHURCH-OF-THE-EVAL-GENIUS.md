@@ -729,6 +729,7 @@ The Church of the Eval Genius adds:
 - [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) — Theological underpinnings
 - [SCATS-DESIGN.md](./SCATS-DESIGN.md) — Holy expressions
 - [SHORT-DURATION-PERSONAL-EVALUATORS.md](./SHORT-DURATION-PERSONAL-EVALUATORS.md) — ShorDurPerEval doctrine
+- [CHURCH-OF-PACMANIA.md](./CHURCH-OF-PACMANIA.md) — the nested sub-church that actually shipped: PacBot gods eating their congregation in Micropolis
 - [THE-EVALS-DESIGN.md](./THE-EVALS-DESIGN.md) — In-game representation
 
 ---

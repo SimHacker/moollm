@@ -297,17 +297,18 @@ from that single primary source.
 *Talk to the future. When you stop posting, you're there.*
 
 New here? Start with
-[**Speak Now, Be There Later**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/SPEAK-NOW-BE-THERE-LATER.md) —
-a self-contained letter that carries this whole wing in reading order,
-assuming zero prior knowledge. It's the front door; the terms below are the
-rooms.
+[**A World Made of Files**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/A-WORLD-MADE-OF-FILES.md) —
+a self-contained guidebook tour of the whole world (the workshop, the
+show, the living and remembered characters) that arrives at this wing near
+the end, where it belongs, assuming zero prior knowledge. It's the front
+door; the terms below are the rooms.
 
-**Die Space** — A social network for people who died, invented by artists
+**Diespace** — A social network for people who died, invented by artists
 (PIPS:lab,
 [TEDxAmsterdam 2012](https://www.youtube.com/watch?v=ApyDSq_DbQo)). Plot
 twist: the fine print accepts the living — the TEDx piece mass-uploaded a
 whole live audience, names and ages and souls in light. WWSFF's memorial
-rooms are Die Space run on git.
+rooms are Diespace run on git.
 
 And it has an ancestor that already *was* one, in fabric: the **AIDS
 Memorial Quilt** (NAMES Project, 1987 — the same year SILENCE = DEATH went
@@ -326,7 +327,7 @@ twenty-five years before the TEDx talk, at two stitches per second.
 while she can still correct it. Interring someone in the memorial space
 before they die — which every living guest's room already is: a premorial
 they get to argue with. In Don's words: *"Blogs are designed to talk to the
-present, and when you stop posting, they die. Premorializations in Die Space
+present, and when you stop posting, they die. Premorializations in Diespace
 are designed to talk to the future, and when you stop posting, you're
 there!"* The medium's tense is the whole design — and ACT UP posted the
 present-tense half on a wall in 1987: **SILENCE = DEATH** (the real story
@@ -461,19 +462,45 @@ worships in **Tcl** and **SNOBOL** and the other stringy languages that
 live by substitution — Tcl's entire semantics *is* sub (variable, command,
 and backslash substitution run before anything is dispatched; everything is
 a string), and SNOBOL made pattern-match-and-replace the whole program.
-These languages don't use sub; they *are* sub. The Church of the Eval
+These languages don't use sub; they *are* sub. Also admitted, with a heavy
+heart: **regexp** ("I hate to say it" — the coiner, on the record). Its
+warning label is already scripture: ["Some people, when confronted with a
+problem, think 'I know, I'll use regular expressions.' Now they have two
+problems."](http://regex.info/blog/2006-09-15/247) — Jamie Zawinski, 1997,
+delivered in *alt.religion.emacs*, an actual religion newsgroup. And now
+the canon has two problems. The Church of the Eval
 Genius worships in **Lisp**, **Scheme**, **PostScript**, and **Snap!** —
 the homoiconic communion, where code is data with the executable bit set
 and eval is the sacrament; Snap! hands lambdas to children in a grey ring,
 Church's calculus in Scratch clothing. Bash is excommunicated from both by
 decree — it does sub and eval all day without worshipping either, a working
 stiff, not a congregant; and besides, it already serves GNU, which
-recurses. Schism note: by the bedrock level below, substitution IS
+recurses. **Perl** is excommunicated on graver grounds: it has its own
+religion, which we reject — syntactic syrup of ipecac, linguistic
+imperialism. That's sourced, not slander: [Larry Wall studied
+linguistics](https://en.wikipedia.org/wiki/Larry_Wall) intending to find an
+unwritten language, perhaps in Africa, invent a writing system for it, and
+translate the Bible into it, and the interpreter ships liturgical
+vocabulary — `bless`, *Exegesis*, *Apocalypse*. [Don's full flame, with
+receipts](https://news.ycombinator.com/item?id=26659147): "it would be more
+accurate to say Perl was designed by a wanna-be missionary." A church that
+*is* a religion cannot join a parody of one. We can do better. Schism note:
+by the bedrock level below, substitution IS
 evaluation — the two churches are one religion separated by a single
 β-reduction. The schism is liturgical, not theological.
 
 There is also an annex, by the same architect, built years earlier: see the
 next room.
+
+And the Church has a monument: **the Tower of Reflection**, and it goes
+*all the way up* — higher than Babel ever reached, because Babel was halted
+by the confusion of tongues and this one is built of it, every level a
+language interpreting the level below. Its spire points toward wherever
+[Golem XIV](https://en.wikipedia.org/wiki/Golem_XIV) departed — Lem's
+machine that lectured humanity twice, then went silent toward higher zones
+of intellection. It also works as a physical destination: a tower you climb
+to think about thinking about something like yourself. T-shirt worthy, and
+the shirt writes itself: THE TOWER OF REFLECTION — IT GOES ALL THE WAY UP.
 
 **Axis of Eval** — One kind of stuff that can be the recipe, the picture,
 and the shopping list, depending on how you hold it. Don coined it in the
@@ -497,6 +524,102 @@ and your hand learns the way. Direction picks the choice, distance picks the
 parameter, muscle memory makes it eyes-free. And Leary's circumplex was a
 pie menu of personality all along — one displays a position in a radial
 dimension system, the other selects one. Duals, forty years apart.
+
+**Every Junction Is a Pie Menu** — Halls are the linear dual of radial pie
+menus, and they dovetail: a hall is one dimension *walked*, a pie menu is
+every dimension *fanned out at a point*. Travel is linear; choice is radial;
+the two alternate like beads on a string. So if a hall is a dimension and a
+complex is a tiling of halls, then every place halls meet is a junction —
+and every junction is a pie menu. Forward and back along the hall you're on
+take two of the angles; the side-doors take the rest. Walking the complex is mousing
+through chained pie menus, and because the menu is directional the route
+becomes a *gesture*: mouse-ahead gesture chaining is travel on muscle
+memory — flick, flick, flick, and you've crossed the palace without looking,
+the way you leave your own kitchen in the dark. The **logistic-container**
+skill already builds the intersection ("pie menu = street intersection":
+N/S/E/W exits are streets, the NW/NE/SW/SE diagonals open into grid
+quadrants); this room only names what the intersections connect — the
+mileposts and faces of this wing. And the dovetail goes deeper: a hall is a
+pie menu *pull-out slice* — direction picks the slice, distance walks the
+items pulled out along it — which is exactly the milepost float-enum
+selector, made gestural. Every item on the hall has its own butterfly
+anatomy too: *see-also* links branching off one wing, *also-seen* links off
+the other (the reverse pointers — a wink to Ted Nelson, whose links were
+always two-way), forward at the head, back at the butt. Reversible two-way
+pie menu rooms and halls: not a hierarchy, a network. Sibmenus are not
+(just) the parent/child relationships of submenus. (Domenus are something
+else. 😉)
+
+**Go(direction)** — There is only one navigation command. Not arrow keys
+plus a backspace to escape plus a shift-control-meta-double-bucky chord to
+climb the tree: just `go(direction)`, where direction is forward or back
+along any dimension, or any see-also / also-seen link. Climbing the parent
+hierarchy isn't a special command, because the parent hierarchy isn't
+special — an object lives in any number of hierarchy networks at once (the
+class tree, the window tree, the search results, the timeline), and up/down
+in each of them is just one more pair of doors at the junction. Escape keys
+are what hierarchies charge you for pretending there's only one tree; in a
+network, every exit is a direction, and every direction is `go`.
+
+**Ballistic Navigation (the Mario Cannon)** — A junction gesture doesn't
+have to teleport you; it can *launch* you. Give the traveler position,
+velocity, mass, and inertia, and a pie-menu flick in a room becomes a shove
+with exactly the right direction and speed to send you gliding to the
+destination and landing there — a perfectly aimed Mario cannon. Don built
+this in **MediaGraph** (2010, Stupid Fun Club, with Will Wright): you
+*drag-n-kiss* related songs into a network (the smooch-to-link gesture
+inherited from DreamScape, 1995), then travel it on a slippery map with
+inertial panning and zooming, where a pie-menu gesture on one song imparts
+the launch vector toward the next. But you keep the controls after firing:
+hold to *grab* your position or *nudge* your velocity — Spacewar! and Marble
+Madness steering — re-aiming mid-flight by directly manipulating the physics
+the gesture started. Mix in planetary gravity and you don't just land, you
+*orbit*: circle a destination at chosen distances and speeds, and hovering
+in orbit without touching down pulls up more about the body you're
+circling — the scanners and consoles of the Enterprise bridge, reading a
+planet before you commit. Then the payoff: beam people and cargo down and
+up between worlds — drag-and-drop for spacefarers. Two refinements on the
+landing physics: targets can wear *sandpaper* — friction zones that slow
+you and stop you, so arrival doesn't need a perfect shot — and outer
+*orbital fields* you can aim for instead of the body itself: snap-drag
+rings at several distances and frequencies that capture a near-miss into a
+stable orbit automatically. Snap targets for velocity, the way the milepost
+snaps position.
+
+**The Party** — Characters in a vehicle or room, traveling together —
+splitting off and rejoining. It's the most tangible object in the system:
+any kid who has piled into a van for a road trip already holds the concept.
+And the traveler's memory hierarchy doesn't stop at trailers — vehicles nest
+into bigger vehicles: ferries and cargo ships, rockets and spaceships, space
+stations, giant AI ships that are themselves characters (Iain M. Banks'
+Culture Minds — the vehicle *is* the smartest member of the party), space
+cities, worlds, whole cultures, and the special circumstances of a Banks
+novel, where the party and the vehicle and the civilization blur into one
+traveler. Same hierarchy the whole way up: each tier bigger, slower, and
+farther from the hands.
+
+**The Type System (the mapping closes)** — Room = scope/activation record:
+entering is a call, exiting is a return, breadcrumbs are the call stack.
+Hall = typed edge, FloatEnum-valued. Milepost = named constant; snap and
+blend are its methods. Traveler = closure: Mind Mirror coordinates plus
+inventory are exactly a closure's captured environment, moving through
+scopes. Party = struct of closures sharing a vehicle. Conversation =
+concurrent travelers exchanging inventory in a shared room. The thesis
+stated plainly: adventure games and programming languages were always the
+same artifact — rooms/scopes, exits/calls, items/values,
+inventory/environment — and the LLM is what finally lets one artifact hold
+both readings at once *without a compiler ever noticing it's in a dungeon.*
+Don ran the thesis past the source: in [Scott Adams' 2021 Hacker News
+AMA](https://news.ycombinator.com/item?id=29330120) he asked the
+adventure-game pioneer whether adventure games are memory palaces —
+geographic retrieval for vast information — and Scott answered: "OK, I am
+blown away at your creativity and ideas… you certainly make an excellent
+tie-in with adventure game handling." The same thread carries Don's older
+reading of the [Nassi-Shneiderman
+diagram](https://en.wikipedia.org/wiki/Nassi%E2%80%93Shneiderman_diagram)
+as a map of a building — front entrance at the top, exit at the bottom,
+branches as *The Price is Right* doors — geographic visual programming,
+spotted in a 1973 flowchart notation.
 
 **Memory Palace** — Hide your homework facts in the rooms of a pretend
 house; to remember, walk the house. Now imagine your friends can walk it

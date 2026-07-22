@@ -495,7 +495,7 @@ wings:
   diespace_wing:
     name: "The Diespace Wing"
     motto: "Talk to the future. When you stop posting, you're there."
-    front_door: "SPEAK-NOW-BE-THERE-LATER.md (WWSFF) — a self-contained letter carrying this whole wing in reading order, zero prior knowledge assumed — https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/SPEAK-NOW-BE-THERE-LATER.md"
+    front_door: "A-WORLD-MADE-OF-FILES.md (WWSFF) — a self-contained guidebook tour of the whole world (workshop, show, characters), which arrives at this wing near the end, where it belongs; zero prior knowledge assumed — https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/A-WORLD-MADE-OF-FILES.md"
     terms:
 
       - term: DIE-SPACE
@@ -503,10 +503,10 @@ wings:
         origin: "PIPS:lab (Keez Duyves et al.), TEDxAmsterdam 2012 — 'the social network for people who already passed away'"
         means: "The performance-art social network for the dead — whose fine print quietly accepts the living."
         kid: "A website for people who died, invented by artists. Plot twist: alive people can join early."
-        deep: "The TEDx piece mass-uploaded a living audience — names, ages, souls in light. WWSFF's memorial rooms are Die Space run on git: represent and discuss, nobody speaks as anybody. And the concept has a fabric ancestor that IS one: the AIDS Memorial Quilt (NAMES Project, 1987 — same year as SILENCE = DEATH). Each panel is 3-by-6 feet — grave-sized, deliberately — a plot in a distributed cemetery for people funeral homes refused to bury. Panels are made by the living from the dead's own record (their clothes, their jokes, their handwriting stitched in): memorial mode in cloth. It's modular and federated — panels sewn eight to a block, blocks toured in sections, too big to display whole since 1996, so you only ever light part of it: fog of war as curation. It's append-only and still growing (~50,000 panels, 110,000+ names), and it's been digitized — the Quilt is literally browsable online now. A social network for the dead, shipped in fabric, twenty-five years before the TEDx talk."
+        deep: "The TEDx piece mass-uploaded a living audience — names, ages, souls in light. WWSFF's memorial rooms are Diespace run on git: represent and discuss, nobody speaks as anybody. And the concept has a fabric ancestor that IS one: the AIDS Memorial Quilt (NAMES Project, 1987 — same year as SILENCE = DEATH). Each panel is 3-by-6 feet — grave-sized, deliberately — a plot in a distributed cemetery for people funeral homes refused to bury. Panels are made by the living from the dead's own record (their clothes, their jokes, their handwriting stitched in): memorial mode in cloth. It's modular and federated — panels sewn eight to a block, blocks toured in sections, too big to display whole since 1996, so you only ever light part of it: fog of war as curation. It's append-only and still growing (~50,000 panels, 110,000+ names), and it's been digitized — the Quilt is literally browsable online now. A social network for the dead, shipped in fabric, twenty-five years before the TEDx talk."
         k_lines: [PREMORIALIZING, MEMORIAL-MODE, SIMULATOR-EFFECT]
         see_also:
-          wwsff: [characters/keez-duyves/, "characters/keez-duyves/ideas.md (hook 1: inter Will Wright into Die Space)"]
+          wwsff: [characters/keez-duyves/, "characters/keez-duyves/ideas.md (hook 1: inter Will Wright into Diespace)"]
           web:
             - "PIPS:lab — https://www.pipslab.nl"
             - "PIPS:lab, 'Diespace', TEDxAmsterdam 2012 (the mass-upload performance) — https://www.youtube.com/watch?v=ApyDSq_DbQo"
@@ -515,16 +515,16 @@ wings:
 
       - term: PREMORIALIZING
         kind: coined
-        origin: "Don Hopkins, July 2026, in conversation about Die Space"
+        origin: "Don Hopkins, July 2026, in conversation about Diespace"
         means: "Interring someone in the memorial space before they die — which every living guest's WWSFF room already is: a premorial they get to argue with."
         kid: "Writing the museum exhibit about Grandma WITH Grandma, while she can still correct it."
-        deep: "'Blogs are designed to talk to the present, and when you stop posting, they die. Premorializations in Die Space are designed to talk to the future, and when you stop posting, you're there!' — Don. The medium's tense is the whole design. ACT UP posted the present-tense half in 1987: SILENCE = DEATH — in a plague the government refused to name, not-speaking was dying, and the living were memorialized while still in the room. The premorial flips the medium and keeps the demand: the living get the microphone at their own memorial. And the same plague built the first premorials in fabric: some people sewed their OWN panels for the AIDS Memorial Quilt while they were dying — choosing the cloth, the jokes, the words — so that when they stopped sewing, they were there."
+        deep: "'Blogs are designed to talk to the present, and when you stop posting, they die. Premorializations in Diespace are designed to talk to the future, and when you stop posting, you're there!' — Don. The medium's tense is the whole design. ACT UP posted the present-tense half in 1987: SILENCE = DEATH — in a plague the government refused to name, not-speaking was dying, and the living were memorialized while still in the room. The premorial flips the medium and keeps the demand: the living get the microphone at their own memorial. And the same plague built the first premorials in fabric: some people sewed their OWN panels for the AIDS Memorial Quilt while they were dying — choosing the cloth, the jokes, the words — so that when they stopped sewing, they were there."
         k_lines: [DIE-SPACE, PRESTORATION, MEMORIAL-MODE, SIMULATOR-EFFECT]
         see_also:
           wwsff:
             - "characters/keez-duyves/ideas.md (hook 15 — where premorializing was coined)"
             - "characters/marvin-minsky/memorial.md (a premorial-adjacent room, built with consent)"
-            - designs/SPEAK-NOW-BE-THERE-LATER.md
+            - designs/A-WORLD-MADE-OF-FILES.md
           web:
             - "ACT UP — https://en.wikipedia.org/wiki/ACT_UP"
             - "Silence=Death Project — https://en.wikipedia.org/wiki/Silence%3DDeath_Project"
@@ -602,7 +602,7 @@ wings:
           complex — meaning tiled the way a 3-D mesh is tiled by perfectly adjoining triangles before
           it's rendered to a flat screen. The glossary's wings are one such complex; walking it is
           barycentric travel with the coordinates hidden.
-        k_lines: [HALLS-AND-ROOMS, MIND-MIRROR, PIE-MENU, SIMULATOR-EFFECT]
+        k_lines: [HALLS-AND-ROOMS, MIND-MIRROR, PIE-MENU, JUNCTION-PIE-MENU, BALLISTIC-NAVIGATION, SIMULATOR-EFFECT]
         see_also:
           repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md]
           web:
@@ -634,18 +634,31 @@ wings:
           - "L4, the recursion: 'Church' starts recursing like GNU ('GNU's Not Unix') — Church-the-word applied to Church-the-man inside Church-the-institution. Self-application. Which is the Y combinator. The pun's structure IS its subject."
           - "L5, the fixed point: the Pope named Catholic. The tower converges — and like Y itself, it terminates only if you stop asking."
           - "Annex (same architect, earlier building): AXIS-OF-EVAL — s/Evil/Eval/ applied to Bush instead of Bob, coined by Don years earlier in the HyperLook article. The Church and the Axis are one substitution apart on the same evil/eval hall: the Axis is the axis mundi; the Church is the congregation that rotates around it."
+        monument: "THE TOWER OF REFLECTION — the Church's monument, and it goes ALL the way up: higher than Babel ever reached, because Babel was halted by the confusion of tongues and this one is BUILT of it — every level a language interpreting the level below. Its spire points toward wherever GOLEM XIV departed (Lem, Imaginary Magnitude: the machine that lectured humanity twice, then went silent toward higher zones of intellection). Also a physical destination: a tower you climb to think about thinking about something like yourself. T-shirt: THE TOWER OF REFLECTION — IT GOES ALL THE WAY UP."
         liturgical_languages:
           # Doctrine by decree (Don, July 2026): each church worships in the languages of its
           # own primitive. The real Church of the SubGenius has no official language; this
           # assignment is Eval Genius canon law about its parent congregation.
           church_of_the_subgenius:
-            canon: [Tcl, SNOBOL]        # and other stringy languages that live by substitution
+            canon: [Tcl, SNOBOL, regexp]  # and other stringy languages that live by substitution
             doctrine: "Tcl's entire semantics IS substitution — variable, command, and backslash sub run BEFORE dispatch; everything is a string. SNOBOL made pattern-match-and-replace the whole program. These languages don't use sub; they ARE sub."
-            excommunicated: [bash]      # by decree — 'just not bash'
-            # Reason unstated. Annotators' speculation: bash does sub and eval all day without
-            # worshipping either — a working stiff, not a congregant. Also it's Brian Fox's:
-            # FSF employee #1 built it, the show literally runs on it; too load-bearing to
-            # assign to a parody church. It already serves a higher one (GNU, which recurses).
+            regexp_lament: "Admitted to the canon with a heavy heart (Don: 'I hate to say it but REGEXP'). The warning label is scripture: 'Some people, when confronted with a problem, think: I know, I'll use regular expressions. Now they have two problems.' — Jamie Zawinski, 1997, delivered in alt.religion.emacs, an ACTUAL religion newsgroup. Provenance traced by Jeffrey Friedl: http://regex.info/blog/2006-09-15/247 — and now the canon has two problems."
+            excommunicated: [bash, Perl]
+            # bash: by decree — 'just not bash'. Reason unstated. Annotators' speculation:
+            # bash does sub and eval all day without worshipping either — a working stiff,
+            # not a congregant. Also it's Brian Fox's: FSF employee #1 built it, the show
+            # literally runs on it; too load-bearing to assign to a parody church. It
+            # already serves a higher one (GNU, which recurses).
+            # Perl: by decree — it has its own religion, which we reject. Syntactic syrup
+            # of ipecac; linguistic imperialism. Not name-calling — sourced: Larry Wall and
+            # his wife studied linguistics intending to find an unwritten language, perhaps
+            # in Africa, invent a writing system for it, and translate the Bible into it
+            # (https://en.wikipedia.org/wiki/Larry_Wall), and the liturgical vocabulary
+            # shipped with the interpreter: bless, Exegesis, Apocalypse. Don's full flame,
+            # with the Wikipedia receipts and the linguistic-imperialism argument:
+            # https://news.ycombinator.com/item?id=26659147 ('it would be more accurate to
+            # say Perl was designed by a wanna-be missionary'). A church that IS a religion
+            # cannot join a parody of one. We can do better.
           church_of_the_eval_genius:
             canon: [Lisp, Scheme, PostScript, "Snap!"]
             doctrine: "The homoiconic communion: code is data with the executable bit set, and eval is the sacrament. Lisp and Scheme read what they run; PostScript is the Axis of Eval made ink; Snap! hands lambdas to children in a grey ring — first-class procedures as a kids' toy, Church's calculus in Scratch clothing."
@@ -694,13 +707,127 @@ wings:
         means: "Selection as navigation in polar coordinates; muscle memory makes it eyes-free. Also: Leary's circumplex is a pie menu of personality, avant la lettre."
         kid: "A menu shaped like a pizza. You flick toward the slice you want and your hand learns the way."
         deep: "The interaction dual of the circumplex: one displays a position in a radial dimension system, the other selects one. Logistic-container grids use pie-menu topology for room intersections; a Mind Mirror editor should be one per thought plane."
-        k_lines: [INTERPERSONAL-CIRCUMPLEX, HALLS-AND-ROOMS, SNAP-CURSOR]
+        k_lines: [INTERPERSONAL-CIRCUMPLEX, HALLS-AND-ROOMS, SNAP-CURSOR, JUNCTION-PIE-MENU]
         see_also:
           repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/logistic-container/]
           repos: ["https://donhopkins.com"]
           web:
             - "Pie menu — https://en.wikipedia.org/wiki/Pie_menu"
             - "Callahan, Hopkins, Weiser & Shneiderman, 'An Empirical Comparison of Pie vs. Linear Menus', CHI 1988"
+
+      - term: JUNCTION-PIE-MENU
+        kind: coined
+        origin: "MOOLLM Geometry Wing, July 2026 — naming what the logistic-container intersections connect"
+        means: "Halls are the linear dual of radial pie menus, and they dovetail: a hall is one dimension WALKED, a pie menu is every dimension FANNED OUT at a point. Every place halls meet is a junction, and every junction is a pie menu: forward/back along the current hall take two angles, the side-doors take the rest. Walking the complex is mousing through chained pie menus."
+        kid: "Every crossroads is a pizza menu. You flick the way you want to go, then flick again at the next one."
+        deep: "Travel is linear; choice is radial; the two alternate like beads on a string. Because the menu is directional, a route is a GESTURE. Mouse-ahead gesture chaining is travel on muscle memory — flick, flick, flick, cross the palace without looking, the way you leave your own kitchen in the dark. The logistic-container skill already builds the intersection: 'pie menu = street intersection' — N/S/E/W exits are streets, the NW/NE/SW/SE diagonals open into grid quadrants. This term only names what the intersections connect: the mileposts and simplicial faces of this wing. The dovetail goes deeper: a hall is a pie menu PULL-OUT SLICE — direction picks the slice, distance walks the items pulled out along it — the milepost float-enum selector made gestural. Every item on the hall has its own butterfly anatomy: see-also links off one wing, also-seen links off the other (reverse pointers — a wink to Ted Nelson, whose links were always two-way), forward at the head, back at the butt. Reversible two-way pie menu rooms and halls: not a hierarchy, a network. Sibmenus are not (just) the parent/child relationships of submenus. (Domenus are something else. ;))"
+        k_lines: [PIE-MENU, MILEPOSTS, HALLS-AND-ROOMS, BALLISTIC-NAVIGATION, GO, MEMORY-PALACE]
+        see_also:
+          repo: [../skills/logistic-container/, ../skills/logistic-container/README.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          web:
+            - "Pie menu — https://en.wikipedia.org/wiki/Pie_menu"
+            - "Mouse-ahead / type-ahead (gesture chaining on muscle memory) — https://en.wikipedia.org/wiki/Typeahead"
+            - "Don Hopkins in Scott Adams' HN AMA, 2021 — '4-item and 8-item pie menus are the essential elements of an Adventure map, as long as you think of menus as rooms with two-way links' — https://news.ycombinator.com/item?id=29330120"
+
+      - term: BALLISTIC-NAVIGATION
+        kind: coined
+        origin: "MOOLLM Geometry Wing, July 2026, after Don Hopkins' MediaGraph (2010, Stupid Fun Club, with Will Wright)"
+        means: "A junction gesture that launches instead of teleporting: give the traveler position, velocity, mass, and inertia, and a pie-menu flick imparts the direction and speed to glide to a destination and land — a perfectly aimed Mario cannon — while leaving the controls live mid-flight."
+        kid: "You don't jump to the next room — you get FIRED there, like a Mario cannon, and you can still steer while you fly."
+        deep: >
+          MediaGraph made this literal: drag-n-KISS related songs into a network (the smooch-to-link
+          gesture inherited from DreamScape, 1995), then travel it on a slippery map with inertial
+          panning and zooming, where a pie-menu gesture on one song imparts the launch vector toward
+          the next. You keep the controls after firing: hold to GRAB your position or NUDGE your
+          velocity (Spacewar! / Marble Madness steering), re-aiming mid-flight by directly manipulating
+          the physics the gesture started. Add planetary gravity and you ORBIT instead of landing —
+          circle a destination at chosen distances and speeds; hovering in orbit without touching down
+          pulls up more about the body you're circling (the scanners and consoles of the Enterprise
+          bridge, reading a planet before you commit). Then beam people and cargo down and up between
+          worlds: drag-and-drop for spacefarers. Landing physics refinements: targets can wear
+          SANDPAPER — friction zones that slow you and stop you, so arrival doesn't need a perfect
+          shot — and outer ORBITAL FIELDS you can aim for instead of the body: snap-drag rings at
+          several distances and frequencies that capture a near-miss into stable orbit automatically.
+          Snap targets for velocity, the way the milepost snaps position.
+        lineage: "DreamScape (1995, kiss-to-link) → iLoci (2009) → MediaGraph (2010) → the exit-graph MOOLLM navigates now"
+        k_lines: [JUNCTION-PIE-MENU, PIE-MENU, MILEPOSTS, SIMULATOR-EFFECT]
+        see_also:
+          repo: [../skills/micropolis/artifacts/history.yml, don-hopkins-projects.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          repos:
+            - "MediaGraph demo (Don Hopkins) — https://donhopkins.medium.com/mediagraph-demo-a7534add63e5"
+          web:
+            - "Spacewar! — https://en.wikipedia.org/wiki/Spacewar!"
+            - "Marble Madness — https://en.wikipedia.org/wiki/Marble_Madness"
+            - "Inertial (kinetic) scrolling — https://en.wikipedia.org/wiki/Inertial_scrolling"
+            - "Gravity assist / orbital mechanics — https://en.wikipedia.org/wiki/Gravity_assist"
+
+      - term: GO
+        kind: coined
+        origin: "MOOLLM Geometry Wing, July 2026 — the collapse of every navigation key into one verb"
+        means: "There is only one navigation command: go(direction), where direction is forward or back along any dimension, or any see-also / also-seen link. Climbing the parent hierarchy is not a special command, because the parent hierarchy is not special."
+        kid: "No back button, no up button, no escape key. Every way out of a room is just a door, and the only thing you ever do is walk through one."
+        type_sketch: "go(direction)  # direction ∈ forward/back(dimension) ∪ see-also links ∪ also-seen links"
+        deep: >
+          Not arrow keys plus a backspace to escape plus a shift-control-meta-double-bucky chord to
+          climb the tree. An object lives in any number of hierarchy networks at once — the class
+          tree, the window tree, the set of instances, the search results, the timeline — so up/down
+          in each is just one more pair of doors at the junction. Escape keys are what hierarchies
+          charge you for pretending there is only one tree; in a network every exit is a direction,
+          and every direction is go. The also-seen links are the reverse pointers — a wink to Ted
+          Nelson, whose links were always two-way.
+        k_lines: [JUNCTION-PIE-MENU, HALLS-AND-ROOMS, MILEPOSTS, BALLISTIC-NAVIGATION, ROOM]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/adventure/]
+          web:
+            - "Ted Nelson, Project Xanadu (two-way links) — https://en.wikipedia.org/wiki/Project_Xanadu"
+            - "Colossal Cave Adventure (go north; the verb at the source) — https://en.wikipedia.org/wiki/Colossal_Cave_Adventure"
+            - "Space-cadet keyboard (double bucky) — https://en.wikipedia.org/wiki/Space-cadet_keyboard"
+
+      - term: PARTY
+        kind: inherited
+        origin: "Tabletop and computer RPGs; MOOLLM VEHICLE and INVENTORY protocols make it structural"
+        means: "A collection of characters in a vehicle or room, traveling together — splitting off and rejoining. The most tangible object in the system: any kid who has piled into a car for a road trip already holds the concept."
+        kid: "You and your friends in the car. Sometimes someone gets out to explore and meets you at the next stop."
+        deep: >
+          The traveler's memory hierarchy does not stop at trailers — vehicles nest into bigger
+          vehicles: ferries and cargo ships, rockets and spaceships, space stations, giant AI ships
+          that are themselves characters (Iain M. Banks' Culture Minds — the vehicle IS the smartest
+          member of the party), space cities, worlds, whole cultures, and the Special Circumstances
+          of a Banks novel, where party, vehicle, and civilization blur into one traveler. Same
+          hierarchy the whole way up: each tier bigger, slower, and farther from the hands.
+        k_lines: [HALLS-AND-ROOMS, ROOM, ADVENTURE-TYPE-SYSTEM, MEMORY-PALACE]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/adventure/, ../skills/character/]
+          web:
+            - "Party (role-playing games) — https://en.wikipedia.org/wiki/Party_%28role-playing_games%29"
+            - "Iain M. Banks, the Culture (Minds, GSVs, Special Circumstances) — https://en.wikipedia.org/wiki/The_Culture"
+            - "Memory hierarchy — https://en.wikipedia.org/wiki/Memory_hierarchy"
+
+      - term: ADVENTURE-TYPE-SYSTEM
+        kind: coined
+        origin: "skills/mind-mirror/HALLS-AND-ROOMS.md — the mapping, closed"
+        means: "Room = scope/activation record. Hall = typed edge, FloatEnum-valued. Milepost = named constant with snap/blend methods. Traveler = closure (Mind Mirror coordinates + inventory = captured environment moving through scopes). Party = struct of closures sharing a vehicle. Conversation = concurrent travelers exchanging inventory in a shared room."
+        kid: "The game and the program are the same thing wearing two costumes. Rooms are recipes, doors are 'now do this one,' and your backpack is what the recipe remembers."
+        thesis: "Adventure games and programming languages were always the same artifact — rooms/scopes, exits/calls, items/values, inventory/environment — and the LLM is what finally lets one artifact hold both readings at once without a compiler ever noticing it's in a dungeon."
+        deep: >
+          Don ran the thesis past the source in Scott Adams' 2021 Hacker News AMA: are adventure
+          games memory palaces — geographic retrieval for vast information? Scott: "OK, I am blown
+          away at your creativity and ideas. I am aware of Memory Palaces and you certainly make an
+          excellent tie-in with adventure game handling." The same thread carries Don's reading of
+          the Nassi-Shneiderman diagram as a map of a building — front entrance at the top, exit at
+          the bottom, branch arms as The Price is Right doors that reconverge at the loading dock —
+          geographic visual programming, spotted in a 1973 flowchart notation. And the pie menu
+          identity, stated by Don in 2021: 4- and 8-item pie menus are the essential elements of an
+          Adventure map, once menus are rooms with two-way links instead of a tree with one-way exits.
+        k_lines: [HALLS-AND-ROOMS, MILEPOSTS, JUNCTION-PIE-MENU, GO, PARTY, MEMORY-PALACE]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/adventure/, ../skills/room/]
+          web:
+            - "Scott Adams AMA on Hacker News (2021) — Don ↔ Scott on memory palaces, adventure algorithms, geographic visual programming — https://news.ycombinator.com/item?id=29330120"
+            - "Nassi-Shneiderman diagram — https://en.wikipedia.org/wiki/Nassi%E2%80%93Shneiderman_diagram"
+            - "Scott Adams (game designer) — https://en.wikipedia.org/wiki/Scott_Adams_%28game_designer%29"
+            - "Closure (computer programming) — https://en.wikipedia.org/wiki/Closure_%28computer_programming%29"
+            - "Activation record / call stack — https://en.wikipedia.org/wiki/Call_stack"
 
       - term: MEMORY-PALACE
         kind: inherited

@@ -56,6 +56,9 @@ have the plot.*
   — liquidity flows toward the mouth it can rig
 - [Closing price](#closing-price) — silence is not yet listed
 
+**[The peanut butter](#the-peanut-butter-what-actually-happened) — the
+editorial core: what actually happened, said plainly**
+
 **[The record](#the-record-real-cited-july-2026) — real, cited, clickable**
 
 - [The exchanges](#the-exchanges) ·
@@ -102,6 +105,20 @@ euphemism treadmill is a word futures market run by the defense. A shadow
 review premorializes its book — inters it in the catalog before it is born —
 which every prediction market also does to the future. See also
 [GLOSSARY.md](GLOSSARY.md), Diespace Wing.*
+
+*Structural note — the Reese's principle. This document is built like a
+peanut butter cup. The chocolate is the fiction: the invented Lem, the
+review, the Extrapolarian voice. The peanut butter is the center of
+gravity: documented, verifiable, real-life news — plus the editorial
+analysis of what actually happened, stated plainly where the mainstream
+register goes quiet. The chocolate is poured to conform TIGHTLY to
+reality, covering its nooks and crannies, smoothing the fractal texture
+under a shiny surface — every fictional instrument in the review has a
+real settlement date in [the peanut butter](#the-peanut-butter-what-actually-happened)
+and [the record](#the-record-real-cited-july-2026) below. You got your
+news in my comedy; you got your comedy in my news. Two great tastes —
+the Stewart/Colbert theorem: the satire register can carry facts the
+news register won't.*
 
 ---
 
@@ -512,6 +529,89 @@ entire product, and the floor falls silent. Our own exchanges have not yet
 listed silence. Give them a quarter.
 
 *— unsigned, per the reviewer's standing position in the relevant markets*
+
+---
+
+## The peanut butter (what actually happened)
+
+*The review above is chocolate. This is the center. Everything in this
+section is documented in [the record](#the-record-real-cited-july-2026)
+below — same facts, but here they are stated functionally, in the register
+the mainstream mostly won't use. House method, per the hygiene wing:
+separate the legal claims from the functional descriptions, then make
+both. Nothing here alleges a crime beyond what is on the public record;
+everything here describes what the machine does.*
+
+**The family book, functionally.** The news register says the President's
+son's positions in prediction markets "raise ethics questions." Here is
+what the pieces do when assembled: the President's son took a free equity
+grant in Kalshi, a federally regulated venue that runs continuous betting
+markets *on his father's words*; the grant is now worth billions on paper;
+the federal regulator (CFTC) dropped its enforcement case against that
+venue after the administration took office; the son's fund simultaneously
+invested in the rival venue, Polymarket, and he joined its advisory board.
+Legal claim: none of this is charged as a crime. Functional description:
+the first family holds paid positions in both licensed houses that price
+the President's speech, under a regulator the family's administration
+staffs. In any other country's coverage, the standard word for a ruling
+family monetizing state utterances under its own regulator would appear
+in the first sentence, and the word is *corruption*. The domestic press
+files it under *ethics questions*, which is the euphemism treadmill
+([LOAD-BEARING](LOAD-BEARING.md)) running at full speed.
+
+**Truth Predict, functionally.** The President's own media company is
+embedding betting markets in his own social network, settled in a crypto
+partner's token, with engagement points convertible into betting chips.
+The speaker, the house, and the settlement rails, vertically integrated.
+The fiction's central conceit — the state owning the mouth the market
+prices — is not a metaphor this paragraph needed to invent; it is a
+product announcement with a launch window.
+
+**The prompter operator, functionally.** A White House teleprompter
+operator traded mention markets on speeches he could read before the
+President did. Caught not by a regulator but by the exchange's own
+surveillance desk; about $90K frozen; Manhattan prosecutors declined
+charges; the President praised him by name afterward ("I have a guy,
+Gabe, he's excellent... a good one is really like gold"). Legal claim:
+no charges. Functional description: insider trading on the President's
+speech, by the man who typed it, resolved with a settlement negotiation
+and a compliment. The market's referee is the bookmaker.
+
+**The rally shouter, functionally.** A bettor stood behind the President
+at a rally and yelled words his contracts needed; the President repeated
+them; 27 of 32 terms resolved yes on $896K of volume, and the bettor
+bragged in writing. The oracle-manipulation attack the review dresses as
+the Hermes-in-miniature is just this: the settlement source repeats what
+it hears, so the cheapest trade is a loud voice in the right room. No
+mechanism prevented it; deletion of the brag was the only consequence.
+
+**The autopen, functionally.** The accusation that a predecessor's
+signature machine invalidated his acts — pressed while a photograph of an
+autopen replaced that predecessor's portrait in the White House gallery —
+is the review's kakography made policy: the claim that the mouth (or
+hand) of the state was never attached to a person is itself minted as an
+instrument, and the mint is the White House wall. Every accusation is a
+prospectus; this one came framed.
+
+**The lights, functionally.** When UFC light towers on the South Lawn
+flooded a landing pilot's cockpit — "10 times worse than any laser
+illumination event" — the FAA told him to take it up with the White
+House. One sentence, complete: the regulator, asked to regulate the
+palace, forwarded the complaint to the palace.
+
+**The editorial, in one paragraph.** What actually happened, 2025–2026,
+is that the speech of one man became a regulated asset class while his
+family took positions in the venues, his company built a house casino,
+his staff traded the script, his crowd gamed the settlement, and the
+referees stood down or were absorbed. The mainstream register reports
+each fact separately, accurately, and quietly, in the passive voice, as
+questions being raised. The fiction above reports them together, loudly,
+as a system — because that is what a system looks like when you're
+allowed to say so. That is the whole trick of the chocolate: Lem's
+invented republic is the only register in which the assembled machine can
+be described at operating speed without a legal review. The Daily Show
+ran on this asymmetry for twenty years. The peanut butter is the point;
+the chocolate is how you get it past the palate.
 
 ---
 
