@@ -40,8 +40,8 @@ which every prediction market also does to the future. See also
 
 **"Giełda słów" ("The Word Exchange"), in Stanisław Lem, *Przedsłowia*
 (Wydawnictwo Literackie, Kraków, 1976); English edition *Pre-Words*
-(Harcourt, 1984), translation credited, with suspicious modesty, only to
-"M.K."**
+(Harcourt, 1984), translated by Michael Kandel — credited on the title
+page, with characteristic modesty, only as "M.K."**
 
 Fifty years ago, in a collection nobody reads because it sits in the shadow of
 *A Perfect Vacuum* on one side and *Imaginary Magnitude* on the other,
@@ -78,6 +78,43 @@ begin minting slang *designed to bankrupt its adults*, abandoning each term
 the moment a position opens on it. Lem, who never met a system he could not
 weaponize against itself, gives the kids the story's moral high ground: they
 are the only participants honest about playing.
+
+Before the second movement, a word about the English edition, which is the
+anniversary's other miracle. *Pre-Words* is Michael Kandel's, and could be
+no one else's. Kandel is the Moses of Lem translation — the man who carried
+the *Cyberiad* down from the Polish Sinai on stone slabs: who, when Trurl's
+Electronic Bard was commanded to produce "a love poem, lyrical, pastoral,
+and expressed in the language of pure mathematics... with feeling, you
+understand, and in the cybernetic spirit," answered in *English rhyme* —
+"Come, let us hasten to a higher plane, / Where dyads tread the fairy
+fields of Venn" — a poem that is not a translation of the Polish but a
+second miracle performed to the same specification; and who survived the
+machine that could create anything starting with N being asked for
+Nothing — Polish *nic* also begins with n, which is grace, not luck,
+though the itemized inventory of annihilated n-things (nolars, nighzebs,
+nocs, gentle zits) he had to re-coin from bare vacuum. A story about a word
+market is a translator's gallows, and Kandel treats it as a trampoline.
+*Przedsłowia* he refused to render as *Forewords*, which is what the
+publisher wanted and what the word ordinarily means: a foreword comes
+before a book, he argued, but these words come before the *language* —
+so *Pre-Words*, hyphen load-bearing. Lem's *kakografia* he brought over as
+**kakography**, restoring the hard K to the long-attested English
+*cacography* "because the crime deserved the harder consonant." The
+traders' cant of adjacency — in the Polish a tissue of rhyme, diminutive,
+and folk-riddle — he re-voiced wholesale as Cockney rhyming slang, which
+is why the floor "sounds like a convention of Cockney mystics": the
+mysticism is Lem's, the Cockney is Kandel's, and both are correct. And the
+masterstroke is a refusal. The future words themselves he leaves
+untranslated — *grzybofon* stays *grzybofon* — with a translator's note
+that is the best sentence in the 1984 edition: *"To translate a word that
+does not yet exist is to coin it; the translator declines to trade on the
+author's inside information."* Utterance is settlement in every language,
+and Kandel is the one participant in this whole apparatus who saw the
+conflict of interest and recused himself. He broke his own rule exactly
+three times, in the children's chapter, where untranslated Polish would
+have killed the jokes — and all three of his English renderings have since
+been said aloud by actual children, decades later, which on the Exchange's
+own terms makes the 1984 edition not a translation but a leak.
 
 The second movement is where the anniversary reading becomes uncomfortable.
 The state, watching private houses profit from prophecy, wants in — but the
@@ -293,8 +330,32 @@ listed silence. Give them a quarter.
 - Stanisław Lem, *Fiasco* (1986; English 1987, tr. Michael Kandel) — real;
   his last major novel. First contact as the forced settlement of a
   contract on silence.
+- Michael Kandel — real, and this review's one understatement. The
+  *Cyberiad* miracles cited above are actual and verifiable: the Electronic
+  Bard's love poem "expressed in the language of pure mathematics... with
+  feeling... and in the cybernetic spirit" ("Come, let us hasten to a
+  higher plane / Where dyads tread the fairy fields of Venn"), and the
+  N-machine asked for Nothing — Polish *nic* does begin with n (checked in
+  public by, among others, Ken Kahn, in a comment on Don Hopkins' 2021
+  GPT-3/Cyberiad article: https://donhopkins.medium.com/gpt-3-riffs-on-stanislaw-lems-cyberiad-and-simcity-and-admits-it-s-an-evil-machine-d7d769d02c89 ).
+  The standing consensus that such translation is impossible survives only
+  because Kandel is filed as an exception rather than a counterexample.
+  *Pre-Words* (1984), its translator's note, and the three broken rules are
+  inventions; the conviction that nobody else could have translated it
+  is not.
+- Stanisław Lem, "137 sekund" — real, and the closest thing "Giełda słów"
+  has to a genuine sibling in the canon: a wire-service computer, its input
+  line cut, keeps printing accurate news for exactly 137 more seconds —
+  machine precognition of utterance, the premise of the invented story in
+  embryo. Rendered into English, with an essay on the translating of it, by
+  Marcin Wichary — the designer of Google's 2011 Lem doodle — who, asked in
+  2020 where the Electronic Bard's Polish original lived, produced the link
+  from memory. The wire ran through LinkedIn; the 137 seconds are Lem's.
 
 *The collection "Przedsłowia," the story "Giełda słów," the 1984 translation,
-the Kraków reviewer, and the Minister of Prognosis are inventions. Lem's
-actual reviews of nonexistent books are better than this one, which is the
-point of him.*
+its translator's note, the Kraków reviewer, and the Minister of Prognosis are
+inventions. Michael Kandel is not: attributing to him a translation he never
+made is this document's most honest gesture, since the genre of bitic
+apocrypha holds that the highest compliment a nonexistent book can pay is to
+insist on a real translator. Lem's actual reviews of nonexistent books are
+better than this one, which is the point of him.*
