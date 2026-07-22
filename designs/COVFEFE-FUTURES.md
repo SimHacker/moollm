@@ -256,7 +256,12 @@ the demand to speak is a weapon.
 
 ## The standings (July 2026)
 
-In 1976 this was philosophy. In 2026 it is compliance news.
+In 1976 this was philosophy. In 2026 it is compliance news. Nothing in this
+section is invented except the comparisons; every event, dollar figure, and
+quotation is sourced, with links, in
+[the record](#the-record-real-cited-july-2026) below. The reader who
+suspects the reviewer of exaggerating is invited to click through and
+discover the reverse.
 
 ### The spot market: DNS
 
@@ -299,9 +304,11 @@ will be uttered in specific speeches, with resolution rules — plurals count,
 compounds count if referential, video is the settlement source — that
 paraphrase Lem's Exchange bylaws closely enough to raise questions of shadow
 plagiarism. The flagship product is a recurring book titled, with no shame at
-all, *"What will Trump say this week?"* Bettors this spring wagered a quarter
-of a million dollars on whether the President would say "Hell" more than six
-times at a Cabinet meeting. (He would.)
+all, *"What will Trump say this week?"* The March Cabinet-meeting book
+carried a bracket on whether the President would say "Hell" six or more
+times — the market, not the reviewer, chose the denomination — and ahead of
+a single July address, bettors staked more than $800,000 on words like
+"Hormuz," "rigged election," and "fake news."
 
 ### The family book
 
@@ -323,9 +330,13 @@ cold." Of the casino. Where the chips are his sentences.
 And this month, the story's second movement arrived on schedule. Federal
 investigators found that the President's **teleprompter operator** — the
 man with final eyes on the prepared remarks — had made over $100,000 in the
-mention markets across more than a dozen speeches, and was observed *backing
-out of positions mid-speech* when the President skipped a paragraph
-containing a word he'd bet on.
+mention markets across more than a dozen speeches, caught not by any
+auditor of the state but by the exchange's own surveillance desk, which
+knows unusual conviction when it prices it. The President's own risk
+disclosure, delivered to the Detroit Economic Club: "I go off teleprompter
+about 80% of the time." The operator, in other words, was trading on a
+document his principal abandons four times out of five — and still won,
+which tells you what the other twenty percent is worth.
 
 Consider the tape: a man watches, live,
 scrolling text only he and one other person can see, hedging in real time
@@ -444,78 +455,168 @@ listed silence. Give them a quarter.
 
 ### The exchanges
 
-- Donald Trump Jr. named strategic adviser to Kalshi, Jan 13, 2025 (Axios,
-  CNBC); later granted equity ahead of a prospective IPO (Crypto Briefing).
-- Trump Jr.'s 1789 Capital made an eight-figure investment in rival
-  Polymarket, Aug 2025; he joined its advisory board (Front Office Sports).
-- Trump Organization developing its own prediction market, "Truth Predict"
-  (AP News); Trump in April 2026 on prediction markets: the U.S. risks being
-  "left out in the cold" (ABC News).
-- Mention markets on Trump speeches run weekly on Kalshi and Polymarket;
-  a March Cabinet-meeting market drew $250K+ including contracts on "Hell"
-  (>6 mentions: yes) (Daily Beast; defirate.com).
-- July 2026: White House teleprompter operator Gabriel Perez, per CFTC
-  investigators, made $100K+ across a dozen-plus speech mention markets,
-  sometimes exiting positions mid-speech when Trump skipped bet-on words
-  (ABC News; Ars Technica).
-- Dec 2025: an attendee affiliated with a Kalshi-ecosystem account shouted
-  mention-market words at a Trump rally to force resolution (The Event
-  Horizon, via defirate.com).
-- covfefe: May 31, 2017, 12:06 a.m. EDT. Still unresolved.
+- Donald Trump Jr. named strategic adviser to Kalshi, Jan 13, 2025
+  ([Axios](https://www.axios.com/2025/01/13/donald-trump-jr-kalshi),
+  [Forbes](https://www.forbes.com/sites/mollybohannon/2025/01/13/donald-trump-jr-joins-prediction-market-kalshi/),
+  [Kalshi's own announcement](https://news.kalshi.com/p/donald-trump-jr-strategic-advisor)).
+  He was granted roughly $300K in equity without investing a dollar; the
+  company's valuation has since run from under $2B to ~$22B, with a ~$40B
+  round in talks — the free stake is now worth billions on paper
+  ([FT via Yahoo Finance](https://finance.yahoo.com/markets/options/articles/donald-trump-jr-got-kalshi-220055638.html),
+  June 2026). The CFTC dropped its case against Kalshi in May 2025.
+- Trump Jr.'s 1789 Capital invested double-digit millions in rival
+  Polymarket, Aug 26, 2025, and he joined its advisory board — both houses
+  at once
+  ([CNBC](https://www.cnbc.com/2025/08/26/polymarket-secures-investment-from-trump-jr-backed-1789-capital.html),
+  [Axios](https://www.axios.com/2025/08/26/trump-jr-vc-fund-polymarket),
+  [Polymarket's press release](https://www.prnewswire.com/news-releases/polymarket-receives-strategic-investment-from-1789-capital-and-welcomes-donald-trump-jr-to-advisory-board-302538997.html)).
+- Trump Media announced "Truth Predict" — prediction markets embedded in
+  Truth Social, settled in crypto via Crypto.com's CFTC-registered
+  exchange — Oct 28, 2025
+  ([Crypto.com announcement](https://crypto.com/en/company-news/truth-social-to-become-worlds-first-social-media-platform-offering-prediction-markets-via-exclusive-partnership-with-cryptocom),
+  [CoinDesk](https://www.coindesk.com/markets/2025/10/28/trump-media-taps-crypto-com-to-launch-prediction-markets-on-truth-social)).
+- Trump on prediction markets, April 2026, two days apart: "the whole
+  world, unfortunately, has become somewhat of a casino... I was never much
+  in favor of it"
+  ([Front Office Sports](https://frontofficesports.com/trump-says-he-doesnt-like-prediction-markets/)),
+  then: "A lot of other countries are doing it, and when the other
+  countries do it, we get left out in the cold if we don't"
+  ([Decrypt](https://decrypt.co/365657/trump-prediction-markets-smart-people-like-them),
+  [Cointelegraph](https://cointelegraph.com/news/trump-changes-stance-after-saying-he-disliked-prediction-markets)).
+  The casino line is his; the review merely filed it.
+- Mention markets on Trump speeches run continuously on
+  [Kalshi](https://kalshi.com/markets/kxtrumpmention/what-will-trump-say/kxtrumpmention-26jan30)
+  and Polymarket
+  (["What will Trump say this week?"](https://polymarket.com/event/what-will-trump-say-this-week-may-31-963);
+  [the March 26, 2026 Cabinet-meeting book, "Hell 6+" bracket included](https://polymarket.com/event/what-will-trump-say-during-cabinet-meeting-on-march-26)).
+  The resolution rules quoted in the review — plurals count, compounds
+  count, video is the settlement source, AI-generated audio does not
+  count — are copied from the bylaws, not invented. Ahead of the July 16,
+  2026 address alone, traders wagered $800K+ on words like "Hormuz,"
+  "rigged election," and "fake news"
+  ([NPR](https://www.npr.org/2026/07/16/nx-s1-5896223/kalshi-trump-white-house-teleprompter-operator-bet)).
+- July 2026: Gabriel Perez, Trump's teleprompter operator since 2016, under
+  CFTC investigation for winning $100K+ across a dozen-plus speech mention
+  markets — flagged by Kalshi's own surveillance; ~$90K frozen; Manhattan
+  federal prosecutors declined criminal charges; settlement talks ongoing
+  ([ABC News](https://abcnews.com/US/white-house-teleprompter-operator-made-100k-betting-trumps/story?id=134764573),
+  [CNN](https://www.cnn.com/2026/07/16/politics/trump-speech-kalshi-bets),
+  [NPR](https://www.npr.org/2026/07/16/nx-s1-5896223/kalshi-trump-white-house-teleprompter-operator-bet),
+  [Axios](https://www.axios.com/2026/07/16/white-house-teleprompter-kalshi-investigation),
+  [The Verge](https://www.theverge.com/news/966676/trump-teleprompter-operator-kalshi-bets-mention-markets-investigation)).
+  In March 2026 the White House had circulated an internal memo warning
+  staff that betting on nonpublic information "is a very serious offence
+  and will not be tolerated" (NPR, above). Trump, on the record about his
+  operator: "I have a guy, Gabe, he's excellent... a good one is really
+  like gold" ([WLRN/NPR](https://www.wlrn.org/national-politics/2026-07-16/officials-probe-whether-white-house-teleprompter-operator-profited-off-trumps-words)) —
+  and, at the Detroit Economic Club: "I go off teleprompter about 80% of
+  the time" (ABC, above). The spread between the two sentences is the
+  entire market.
+- Dec 9, 2025: at a Pennsylvania rally, a self-identified trader with a
+  Kalshi-ecosystem badge shouted mention-market words from the front row;
+  Trump repeated several. The since-deleted post: "I was literally yelling
+  every single word right behind Trump and he'd just repeat what I say."
+  27 of the book's 32 terms resolved yes; ~$896K traded
+  ([The Event Horizon](https://nexteventhorizon.substack.com/p/trump-rally-mention-markets),
+  [CasinoBeats](https://casinobeats.com/2025/12/11/donald-trump-speech-manipulated-kalshi-trader-ensure-winning-bets/)).
+- The pattern beyond the prompter: a Google employee, campaign staff, a
+  U.S. soldier (indicted over $400K in Polymarket bets on the Maduro
+  operation), and George Santos have all been reported trading on inside
+  information in prediction markets
+  ([The Verge](https://www.theverge.com/news/966676/trump-teleprompter-operator-kalshi-bets-mention-markets-investigation),
+  [Front Office Sports](https://frontofficesports.com/trump-says-he-doesnt-like-prediction-markets/)).
+- covfefe: May 31, 2017, 12:06 a.m. EDT. Still unresolved
+  ([PolitiFact](https://www.politifact.com/article/2017/may/31/what-covfefe/) —
+  whose crack team's best guess was *coverage*).
 
 ### The instruments
 
 - March 17, 2025: Trump declared Biden's pardons "VOID, VACANT, AND OF NO
-  FURTHER FORCE OR EFFECT" on the ground that they were signed by autopen
-  (Truth Social; AP, Reuters). June 4, 2025: presidential memorandum
-  ordering an investigation into the Biden White House's autopen use
-  (whitehouse.gov; NYT).
+  FURTHER FORCE OR EFFECT" on the ground that "they were done by Autopen"
+  ([PolitiFact](https://www.politifact.com/factchecks/2025/mar/17/donald-trump/are-biden-pardons-void-because-he-used-an-autopen/),
+  [FactCheck.org](https://www.factcheck.org/2025/03/trumps-baseless-autopen-claim/)).
+  June 4, 2025: presidential memorandum ordering an investigation into the
+  Biden White House's autopen use
+  ([NPR](https://www.npr.org/2025/06/05/nx-s1-5424313/trump-investigation-biden-autopen-cognitive-decline)).
+  Dec 2, 2025: the claim escalated to *all* autopen-signed Biden documents
+  ("null, void, and of no further force or effect"), and by then a
+  photograph of an autopen had replaced Biden's portrait in the White House
+  presidential gallery
+  ([PolitiFact](https://www.politifact.com/factchecks/2025/dec/04/donald-trump/revoke-pardon-biden-autopen/)).
+  A machine's portrait, hung as a man: kakography's iconostasis.
 - Trump on his own autopen, March 2025: he uses one "only for very
-  unimportant papers" (press pool).
-- Trump mocked Obama's teleprompter dependence for years (tweets,
-  2012–2019: "Why does @BarackObama always have to rely on teleprompters?")
-  and now reads from teleprompters routinely — see the operator entry above
+  unimportant papers" (NPR, above).
+- March 19, 2012: "Why does @BarackObama always have to rely on
+  teleprompters?" ([Washington Post on the GOP's teleprompter
+  war](https://www.washingtonpost.com/blogs/the-fix/post/republicans-war-on-the-teleprompter--and-its-limits/2012/03/12/gIQAjuMV7R_blog.html));
+  October 2015: "I've always said, if you run for president, you shouldn't
+  be allowed to use teleprompters... Because you don't even know if the guy
+  is smart" ([The Daily
+  Beast](https://www.thedailybeast.com/trump-on-trump-i-dont-even-know-if-this-guys-smart/)).
+  He now reads from teleprompters routinely — see the operator entry above
   for who else reads them.
 - Live broadcast closed captions are generated by automatic speech
   recognition; mention-market resolution rules cite video as the
   settlement source. The two facts have not yet been introduced to each
   other by a regulator.
 - The photograph — fist, flag, blood, Butler, Pennsylvania, July 13,
-  2024 (Evan Vucci, AP) — is real. The tripod analysis is the reviewer's.
+  2024 ([Evan Vucci](https://en.wikipedia.org/wiki/Evan_Vucci), AP) — is
+  real. The tripod analysis is the reviewer's.
+- The era's stage lighting, for scale: in June 2026 a commercial pilot
+  filed FAA and NASA safety reports after the light towers of the UFC
+  Freedom 250 cage-fighting arena on the White House South Lawn — erected
+  for the President's 80th birthday and the semiquincentennial — flooded
+  the cockpit on final approach to Reagan National, "10 times worse than
+  any laser illumination event"; the local FAA office advised the pilot to
+  take it up with the White House
+  ([The Independent](https://www.independent.co.uk/news/world/americas/us-politics/trump-ufc-lights-dc-pilots-b2995207.html),
+  [Simple Flying](https://simpleflying.com/pilot-trump-white-house-ufc-lights-reagan-approach/)).
+  A government that blinds its own pilots with the floodlights of its own
+  spectacle has, at minimum, solved the problem of witnesses.
 
 ### The domain markets
 
-- Domain front running: ICANN SSAC advisory SAC 022 (Oct 2007); Network
+- Domain front running: [ICANN SSAC advisory SAC 022, Oct
+  2007](https://www.icann.org/en/committees/security/sac022.pdf); Network
   Solutions caught auto-registering names its customers searched, Jan 2008,
-  described by the company as a customer-protection measure (press, ICANN).
-- Domain tasting: at peak (2007), tens of millions of Add-Grace-Period
-  registrations per month with only a few percent retained; ended when ICANN
-  attached fees to the grace period (2008–09).
-- covfefe domain variants were mass-registered within hours of the tweet,
-  May 31, 2017 (domain-industry press).
+  described by the company as a customer-protection measure
+  ([Ars Technica](https://arstechnica.com/uncategorized/2008/02/icann-panel-questions-network-solutions-on-frontrunning/)).
+- [Domain tasting](https://en.wikipedia.org/wiki/Domain_tasting): at peak
+  (2007), tens of millions of Add-Grace-Period registrations per month with
+  only a few percent retained; ended when ICANN attached fees to the grace
+  period (2008–09).
+- covfefe.com was registered within minutes of the tweet; over a thousand
+  covfefe domains within the day
+  ([Boing Boing](https://boingboing.net/2017/05/30/the-best-trump-tweet-of-all-ti.html);
+  domain-industry press).
 
 ### The literature
 
-- Philip K. Dick, "Faith of Our Fathers," in Harlan Ellison (ed.),
-  *Dangerous Visions* (1967). Real, and worse than described.
-- Stanisław Lem, "Philip K. Dick: A Visionary Among the Charlatans"
-  (1975; English in *Science Fiction Studies*) — published the year before
-  the invented *Przedsłowia*.
-- Sept 1974: Dick wrote to the FBI alleging "Stanisław Lem" was a composite
-  committee operating under one name. The author being shadow-reviewed here
-  believed the shadow author did not exist. (PKD's letters; widely
-  documented.)
-- Stanisław Lem, *Fiasco* (1986; English 1987, tr. Michael Kandel) — real;
-  his last major novel. First contact as the forced settlement of a
-  contract on silence.
+- Philip K. Dick, ["Faith of Our
+  Fathers"](https://en.wikipedia.org/wiki/Faith_of_Our_Fathers_%28short_story%29),
+  in Harlan Ellison (ed.), *Dangerous Visions* (1967). Real, and worse than
+  described.
+- Stanisław Lem, ["Philip K. Dick: A Visionary Among the
+  Charlatans"](https://english.lem.pl/english/works/essays/science-fiction-and-futurology/110-a-look-inside-sf-and-futurology)
+  (1975; English in *Science Fiction Studies* No. 5, tr. Robert
+  Abernathy) — published the year before the invented *Przedsłowia*.
+- Sept 2, 1974: Dick wrote to the FBI alleging "Stanisław Lem" was
+  "probably a composite committee rather than an individual, since he
+  writes in several styles." The author being shadow-reviewed here believed
+  the shadow author did not exist. (Full text at
+  [lem.pl's own FAQ](https://www.english.lem.pl/faq), which files it, with
+  Polish patience, under frequently asked questions.)
+- Stanisław Lem, [*Fiasco*](https://en.wikipedia.org/wiki/Fiasco_%28novel%29)
+  (1986; English 1987, tr. Michael Kandel) — real; his last major novel.
+  First contact as the forced settlement of a contract on silence.
 - Michael Kandel — real, and this review's one understatement. The
   *Cyberiad* miracles cited above are actual and verifiable: the Electronic
   Bard's love poem "expressed in the language of pure mathematics... with
   feeling... and in the cybernetic spirit" ("Come, let us hasten to a
   higher plane / Where dyads tread the fairy fields of Venn"), and the
   N-machine asked for Nothing — Polish *nic* does begin with n (checked in
-  public by, among others, Ken Kahn, in a comment on Don Hopkins' 2021
-  GPT-3/Cyberiad article: https://donhopkins.medium.com/gpt-3-riffs-on-stanislaw-lems-cyberiad-and-simcity-and-admits-it-s-an-evil-machine-d7d769d02c89 ).
+  public by, among others, Ken Kahn, in a comment on
+  [Don Hopkins' 2021 GPT-3/Cyberiad article](https://donhopkins.medium.com/gpt-3-riffs-on-stanislaw-lems-cyberiad-and-simcity-and-admits-it-s-an-evil-machine-d7d769d02c89)).
   The standing consensus that such translation is impossible survives only
   because Kandel is filed as an exception rather than a counterexample.
   *Pre-Words* (1984), its translator's note, and the three broken rules are
@@ -525,10 +626,14 @@ listed silence. Give them a quarter.
   has to a genuine sibling in the canon: a wire-service computer, its input
   line cut, keeps printing accurate news for exactly 137 more seconds —
   machine precognition of utterance, the premise of the invented story in
-  embryo. Rendered into English, with an essay on the translating of it, by
-  Marcin Wichary — the designer of Google's 2011 Lem doodle — who, asked in
-  2020 where the Electronic Bard's Polish original lived, produced the link
-  from memory. The wire ran through LinkedIn; the 137 seconds are Lem's.
+  embryo. Rendered into English as
+  ["One hundred and thirty-seven seconds"](https://mwichary.medium.com/one-hundred-and-thirty-seven-seconds-2a0a3dfbc59e),
+  with [an essay on the translating of
+  it](https://mwichary.medium.com/one-hundred-and-thirty-seven-seconds-the-translation-process-bf93a76e9eaa),
+  by Marcin Wichary — the designer of Google's 2011 Lem doodle — who, asked
+  in 2020 where the Electronic Bard's Polish original lived, produced the
+  link from memory. The wire ran through LinkedIn; the 137 seconds are
+  Lem's.
 
 *The collection "Przedsłowia," the story "Giełda słów," the 1984 translation,
 its translator's note, the Kraków reviewer, the Minister of Prognosis, and
