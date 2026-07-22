@@ -15,6 +15,7 @@
 [mention markets](#the-derivatives-desk-mention-markets) ·
 [the family book](#the-family-book) ·
 [the prompter](#the-prompter-arrives) ·
+[the autopen confession](#the-autopen-confession) ·
 [the covfefe ledger](#the-covfefe-ledger) ·
 [what markets do](#what-the-market-does-to-what-it-prices) ·
 [closing price](#closing-price)) ·
@@ -183,6 +184,17 @@ and the speechwriting office becomes the mint. In the story's coldest line,
 the Minister of Prognosis explains why this is not corruption: *"Insider
 trading requires an inside and an outside. We have abolished the outside."*
 
+Lem gives the scheme its immune system in a single scene. An opposition
+deputy rises to accuse the Ministry of scripting the Leader's errors — and
+the Ministry does not deny it; it accuses the *previous* government of
+having let a mechanical hand sign its decrees, and the accusation settles
+three contracts the Ministry had quietly opened on the vocabulary of its
+own rebuttal. The narrator's gloss is the story's second-coldest line: *on
+the Exchange, every accusation is a prospectus.* You can only describe, in
+that much operational detail, a machine you have already priced — the
+deputy who cries "the signature is not his!" is disclosing which pen he
+has audited, and why.
+
 ### The dark twin: Faith of Our Fathers
 
 Readers with long memories will feel, at exactly this point in the story,
@@ -335,6 +347,51 @@ would have had him escorted out not for cheating but
 for amateurism: you never say the word yourself; you get the Leader to say
 it.
 
+### The autopen confession
+
+The second-coldest line has also arrived, and it arrived as an accusation.
+The President has declared his predecessor's pardons void on the ground
+that they were signed by **autopen** — a machine's hand, therefore someone
+else's will — and ordered an investigation into which aides operated the
+device. He spent the prior decade making the same charge against the
+**teleprompter**: that the previous Leader's speeches were a machine's
+reading, not a man's speaking. He now reads from teleprompters daily and
+signs, by his own cheerful admission, with an autopen of his own — "only
+for very unimportant papers." The deputy who cries *the signature is not
+his!* is disclosing which pen he has audited.
+
+Apply the narrator's gloss: every accusation is a prospectus, which is to
+say a shallow confession to a deeper crime. Read as a filing, the autopen
+charge inventories the whole apparatus of the modern Leader's mouth — the
+prompter upstream of the voice, the autopen downstream of the hand — and
+invites the auditor to notice the two channels nobody has thought to
+watch. First, the **automatically generated closed captions** of the live
+speeches: recall the bylaws — video is the settlement source — and then
+recall that the caption track is written by a speech-recognition machine
+nobody elected. The Leader says what he says; the record of what he said
+is typed by an algorithm; whoever tunes the algorithm edits the tape that
+the contracts settle against. Second, and more elegant, the **autocorrect
+dictionary of the Leader's own phone**. You do not need him to misspell
+anything. Hack the phone, poison the dictionary, and wait: he types a real
+word, correctly, unwitting — and the machine "corrects" it, live, into the
+neologism you bought last Tuesday. The mint operates from his pocket,
+settlement is minted in front of the whole republic, and the Leader is the
+one participant in the market who does not know the word he just coined.
+Kakography no longer even requires a speechwriter. Covfefe, reread under
+this rule, acquires a defense counsel: perhaps he spelled *coverage*
+perfectly, and the dictionary had been loaded for weeks.
+
+This is no longer predicting the frame; it is building the tripod — the
+way one might bet on the exact composition of a news photograph, plant
+the photographer in the right corner, and shoot the subject in the ear.
+The floor has a benediction for a scheme this complete, and it is —
+fittingly, in Kandel's Cockney — ***Bob's your uncle***: an idiom that is
+itself a fossilized insider-trading scandal, allegedly minted in 1887 when
+Prime Minister Robert "Bob" Cecil elevated his own nephew, an accusation
+of nepotism worn smooth into a phrase meaning *and it's that simple*. The
+family book, pre-confessed by the language, a century in advance. Uncles
+all the way down.
+
 ### The covfefe ledger
 
 Which brings us to the reviewer's duty of retrospection. If the mention
@@ -406,6 +463,26 @@ listed silence. Give them a quarter.
   Horizon, via defirate.com).
 - covfefe: May 31, 2017, 12:06 a.m. EDT. Still unresolved.
 
+### The instruments
+
+- March 17, 2025: Trump declared Biden's pardons "VOID, VACANT, AND OF NO
+  FURTHER FORCE OR EFFECT" on the ground that they were signed by autopen
+  (Truth Social; AP, Reuters). June 4, 2025: presidential memorandum
+  ordering an investigation into the Biden White House's autopen use
+  (whitehouse.gov; NYT).
+- Trump on his own autopen, March 2025: he uses one "only for very
+  unimportant papers" (press pool).
+- Trump mocked Obama's teleprompter dependence for years (tweets,
+  2012–2019: "Why does @BarackObama always have to rely on teleprompters?")
+  and now reads from teleprompters routinely — see the operator entry above
+  for who else reads them.
+- Live broadcast closed captions are generated by automatic speech
+  recognition; mention-market resolution rules cite video as the
+  settlement source. The two facts have not yet been introduced to each
+  other by a regulator.
+- The photograph — fist, flag, blood, Butler, Pennsylvania, July 13,
+  2024 (Evan Vucci, AP) — is real. The tripod analysis is the reviewer's.
+
 ### The domain markets
 
 - Domain front running: ICANN SSAC advisory SAC 022 (Oct 2007); Network
@@ -454,8 +531,11 @@ listed silence. Give them a quarter.
   from memory. The wire ran through LinkedIn; the 137 seconds are Lem's.
 
 *The collection "Przedsłowia," the story "Giełda słów," the 1984 translation,
-its translator's note, the Kraków reviewer, and the Minister of Prognosis are
-inventions. Michael Kandel is not: attributing to him a translation he never
+its translator's note, the Kraków reviewer, the Minister of Prognosis, and
+the opposition deputy are inventions. So — the reviewer is legally advised
+to add — are the poisoned autocorrect dictionary, the caption desk, and the
+photographer's tripod: accusations, and therefore, per the narrator's gloss,
+prospectuses. Michael Kandel is not: attributing to him a translation he never
 made is this document's most honest gesture, since the genre of bitic
 apocrypha holds that the highest compliment a nonexistent book can pay is to
 insist on a real translator. Lem's actual reviews of nonexistent books are
