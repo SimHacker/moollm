@@ -297,9 +297,11 @@ from that single primary source.
 *Talk to the future. When you stop posting, you're there.*
 
 **Die Space** — A social network for people who died, invented by artists
-(PIPS:lab, TEDxAmsterdam 2012). Plot twist: the fine print accepts the
-living — the TEDx piece mass-uploaded a whole live audience, names and ages
-and souls in light. WWSFF's memorial rooms are Die Space run on git.
+(PIPS:lab,
+[TEDxAmsterdam 2012](https://www.youtube.com/watch?v=ApyDSq_DbQo)). Plot
+twist: the fine print accepts the living — the TEDx piece mass-uploaded a
+whole live audience, names and ages and souls in light. WWSFF's memorial
+rooms are Die Space run on git.
 
 And it has an ancestor that already *was* one, in fabric: the **AIDS
 Memorial Quilt** (NAMES Project, 1987 — the same year SILENCE = DEATH went
@@ -321,13 +323,23 @@ they get to argue with. In Don's words: *"Blogs are designed to talk to the
 present, and when you stop posting, they die. Premorializations in Die Space
 are designed to talk to the future, and when you stop posting, you're
 there!"* The medium's tense is the whole design — and ACT UP posted the
-present-tense half on a wall in 1987: **SILENCE = DEATH**. In a plague the
-government refused to name, not-speaking was dying, and the living were
-being memorialized while still in the room. The premorial flips the medium
-and keeps the demand: the living get the microphone at their own memorial.
-The same plague sewed the first ones: some people made their *own* Quilt
-panels while they were dying — chose the cloth, the jokes, the words — so
-that when they stopped sewing, they were there.
+present-tense half on a wall in 1987: **SILENCE = DEATH** (the real story
+told in
+[*United in Anger: A History of ACT UP*](https://en.wikipedia.org/wiki/United_in_Anger),
+2012). In a plague the government refused to name, not-speaking was dying,
+and the living were being memorialized while still in the room. The
+premorial flips the medium and keeps the demand: the living get the
+microphone at their own memorial. The same plague sewed the first ones:
+some people made their *own* Quilt panels while they were dying — chose the
+cloth, the jokes, the words — so that when they stopped sewing, they were
+there. The term was coined in
+[keez-duyves/ideas.md, hook 15](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/keez-duyves/ideas.md);
+[Marvin's memorial room](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/marvin-minsky/memorial.md)
+is a premorial-adjacent build, made with the family's consent. All of it
+rests on Will Wright's principle that a simulation is *a compiler for the
+mental model* (see **Simulator Effect**, above) — the reason a folder full
+of files can install a world in your head, which is what this wing just
+tried to do.
 
 **Prestoration** — Fixing a name in an old book because the author asked, and
 keeping the old page safely beside it so nobody can say you hid anything.
