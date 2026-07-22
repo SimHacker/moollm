@@ -296,6 +296,12 @@ from that single primary source.
 
 *Talk to the future. When you stop posting, you're there.*
 
+New here? Start with
+[**Speak Now, Be There Later**](https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/SPEAK-NOW-BE-THERE-LATER.md) —
+a self-contained letter that carries this whole wing in reading order,
+assuming zero prior knowledge. It's the front door; the terms below are the
+rooms.
+
 **Die Space** — A social network for people who died, invented by artists
 (PIPS:lab,
 [TEDxAmsterdam 2012](https://www.youtube.com/watch?v=ApyDSq_DbQo)). Plot
