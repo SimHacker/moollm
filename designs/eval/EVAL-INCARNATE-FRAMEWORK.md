@@ -156,7 +156,7 @@ A skill becomes more "incarnate" as it adopts more extensions. Here's what to pr
 
 ## The Axis of Eval
 
-Don Hopkins coined this phrase to describe NeWS's and HyperLook's unification of three dimensions around PostScript.
+Don Hopkins coined this phrase to describe NeWS's and HyperLook's unification of three dimensions around PostScript — in ["SimCity, Cellular Automata, and Happy Tool for HyperLook (nee HyperNeWS (nee GoodNeWS))"](https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4), whose section "The Axis of Eval: Code, Graphics, and Data" is this document's founding text. (The name is `s/Evil/Eval/` on the Bush-era axis — the same substitution move that later produced the [Church of the Eval Genius](../GLOSSARY.md); the Axis is the axis mundi that congregation rotates around.)
 
 | Dimension | HyperLook (PostScript) | MOOLLM (YAML Jazz + Markdown) |
 |-----------|------------------------|-------------------------------|

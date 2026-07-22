@@ -20,6 +20,8 @@
 | [constructionism/](../constructionism/) | Understand yourself by measuring |
 | [manufacturing-intelligence/](../manufacturing-intelligence/) | Build understanding through legibility |
 
+**Ideas:** [HALLS-AND-ROOMS.md](HALLS-AND-ROOMS.md) — word pairs as navigable dimensions: circumplex = pie menu, gradients = mileposts, simplicial complexes, memory palaces, co-navigable mental models (Will Wright's compiler principle).
+
 ---
 
 ## The Connection: The Great Escape

@@ -398,6 +398,56 @@ One vocabulary. Infinite scales. From VLSI to planetary infrastructure. From reg
 
 ---
 
+## Scaling Out: Dyson Sphere Program — Repos as Planets
+
+Factorio is one surface: belts, bots, and chests moving items around a single connected space. MOOLLM already models that tier — the logistic-container skill, chest modes, courier agents, and the dataflow patterns above all live comfortably inside one repo, which is one planet.
+
+**Dyson Sphere Program is the same logistics game lifted one level of indirection**: many planets, each a self-contained factory surface, joined not by belts but by **logistics stations with explicit import/export rules**. Planetary stations trade within a star system; interstellar stations trade across the galaxy; every station declares, per item, whether it demands, supplies, or stays silent. (Factorio: Space Age's platforms and planets are the stepping stone between the two games — same move, smaller galaxy.)
+
+That indirection is exactly the repo boundary:
+
+| Dyson Sphere Program | Distributed MOOLLM |
+|---|---|
+| Planet | A GitHub repo (or composition of repos) — one factory surface, internally belts-and-chests |
+| Star system | Nearby servers — same org, same LAN, same datacenter; cheap frequent transfer |
+| Other stars | Repos hosted anywhere on physical Earth — someone else's org, machine, continent |
+| Planetary logistics station | Repo-local import/export: submodules, package manifests, postal inboxes between sibling repos |
+| Interstellar logistics station | Cross-org contracts: git remotes, package registries, MCP endpoints, pull requests |
+| Import/export rules per item | Boundary contracts: what this repo demands (dependencies), supplies (published artifacts), or keeps private |
+| Warpers (consumed per interstellar jump) | Credentials — auth tokens spent at the boundary |
+| Logistics vessels in transit | Pushes, pulls, publishes, fetches — visible, latency-bearing, queued |
+| The Dyson sphere itself | Harvesting ambient host energy: CI minutes, compute farms, the platform's own gravity |
+
+The reason this scales is the reason DSP works as a game: **planets don't share state; they trade artifacts under declared rules.** Inside a planet you have high-trust, high-frequency, belt-speed flow (function calls, file moves, exits and tubes). Between planets you have low-frequency, contract-mediated, rocket-speed flow (versioned artifacts, explicit schemas, auth at the port). Nobody runs a belt between stars, and nobody should mount another org's filesystem — the game teaches the architecture.
+
+So the progression **Factorio ⇒ Dyson Sphere Program generalizes into a general-purpose distributed computational space**:
+
+1. **Room tier (Factorio):** rooms, exits, tubes, chests — dataflow inside one repo.
+2. **Planet tier (repo):** a repo is a planet with a coherent internal factory and a port. `LOGISTIC-CONTAINER.yml` at the boundary becomes a **rocket port manifest**: demands, supplies, rates, and who may dock.
+3. **System tier (org/cluster):** sibling repos trade often and cheaply; shared conventions are the system's common gravity well.
+4. **Galactic tier (Earth):** any repo anywhere, discovered by name, reached by contract, paid in warpers. GITHUB-AS-MMORPG.md describes the social layer of this same galaxy; this is its freight layer.
+
+And the overrepresentation argument holds at this tier too: DSP's wiki, ratio calculators, and logistics-station tutorials are deeply indexed in training data. "This repo is a planet whose interstellar station exports `parsed-transcripts` and demands `raw-video, warpers=CI-token'" activates the right reasoning — supply, demand, throughput, and the cost of crossing a boundary — with no new vocabulary to teach.
+
+### Moons: the orbit stack is recursive
+
+Dyson Sphere Program has **moons** — and a moon is not decoration, it's the tell that the four-tier list above is really an unbounded recursion. A moon is a body orbiting a body: its own surface, its own factory, its own port, inside its planet's gravity well. In repo terms: a submodule, a vendored dependency, a package within the monorepo — a satellite world with its own boundary contract, whose imports and exports route through the parent's sky.
+
+Once moons are admitted there's no reason to stop, in either direction. The schema is **scale-invariant** — every orbit level has the same four parts:
+
+- a **body** (a container: something with an inside),
+- **satellites** (its children, each a body in turn),
+- a **port** (the boundary contract: what crosses, in which direction, at what cost),
+- a **gravity well** (the shared namespace and conventions that make internal trade cheap).
+
+Apply it recursively and the whole stack unrolls: galaxy cluster → galaxy → star system → planet → moon → station → continent → factory → building → machine → module → file → object → molecule → atom → quark → bit. Downward it's a **filesystem browser** (directories are orbits; CONTAINER protocol already says objects hold objects "all the way down, like directories"). Rendered flat, it's an **outliner**: expanding a node is descending an orbit, collapsing is climbing back to the parent's sky — and the sibmenu/butterfly navigation from [HALLS-AND-ROOMS](../skills/mind-mirror/HALLS-AND-ROOMS.md) works at every level, because siblings are just bodies sharing an orbit. The fog-of-war dimmers are the **level-of-detail** rule: a body's satellites stay dark until you spend attention descending to them — which is also exactly the semantic mipmap (GLANCE is a planet seen from orbit; README is standing on the surface).
+
+The Eameses filmed this schema in 1977 (*Powers of Ten*: one zoom axis, same framing rules at every decade), Feynman pointed down the stack in 1959 ("there's plenty of room at the bottom"), and Ackley's indefinitely scalable machines demand it upward. The design consequence for MOOLLM is one sentence: **there is no top level and no bottom level — there is one container schema, applied at every altitude, with a port on every body.** A quark trades with its hadron under declared rules, and a galaxy trades with its cluster the same way; the only thing that changes per level is the price of the warper.
+
+The factory must grow. Then it must launch. Then it must orbit.
+
+---
+
 ## References
 
 - [Factorio Wiki](https://wiki.factorio.com/)
@@ -409,6 +459,11 @@ One vocabulary. Infinite scales. From VLSI to planetary infrastructure. From reg
 - [Blueprint](https://wiki.factorio.com/Blueprint)
 - [Blueprint Book](https://wiki.factorio.com/Blueprint_book)
 - [Factorio Prints](https://factorioprints.com/)
+- [Dyson Sphere Program Wiki](https://dsp-wiki.com/) — logistics stations, import/export rules
+- Charles & Ray Eames, *Powers of Ten* (1977) — the recursive orbit stack, filmed
+- Feynman, "There's Plenty of Room at the Bottom" (1959) — the stack's basement
+- [GITHUB-AS-MMORPG.md](GITHUB-AS-MMORPG.md) — the social layer of the same galaxy
+- [logistic-container skill](../skills/logistic-container/) — the chest tier, ready to become rocket ports
 - [Drescher, "Made-Up Minds"](https://mitpress.mit.edu/books/made-minds) — Schema mechanism
 - [Play-Learn-Lift](../skills/play-learn-lift/) — MOOLLM methodology
 - [adventure-4 rooms](../examples/adventure-4/) — Living examples

@@ -1,0 +1,752 @@
+# GLOSSARY.yml — the machine-readable soul of GLOSSARY.md
+#
+# This file IS an example of what it defines: YAML Jazz, where comments are
+# first-class data. Three audiences read it: humans read the comments, LLMs
+# read everything, machines parse the structure. If you strip the comments,
+# you keep the skeleton and lose the person.
+#
+# Organization: a MEMORY PALACE. Terms are rooms, grouped into wings.
+# The k_lines field on each entry names the halls leading out of that room —
+# per skills/mind-mirror/HALLS-AND-ROOMS.md, a pair of terms defines a
+# dimension you can walk. The glossary practices its own geometry.
+#
+# Entry fields:
+#   kind: inherited (borrowed with its meaning intact)
+#       | reused    (borrowed and bent to a new purpose)
+#       | coined    (minted here or nearby)
+#   origin: who said it first, where, when — credit is load... is structural
+#   means:  what it means in MOOLLM / WWSFF
+#   kid:    the eight-year-old's version (no dumbing down, just short words)
+#   deep:   the part that only itches after you've built something
+#   ambiguity: collisions with other meanings, disarmed in daylight
+#   k_lines: the halls out of this room
+#   see_also: tiered references, nearest orbit first — see meta.see_also_tiers
+
+meta:
+  derives: GLOSSARY.md            # prose coffee-table rendering of this file
+  audience: [kids, hackers, scholars, coffee_tables, LLMs]
+  house_rule: "Every term must be fun to say out loud. If it isn't, it doesn't ship."
+  full_index: ../PROTOCOLS.yml    # 142 protocol symbols; this glossary curates, that indexes
+  see_also_tiers:                 # every entry's references, nearest orbit first
+    k_lines: "glossary terms — the halls out of this room (this file)"
+    repo: "moollm paths, relative to designs/"
+    repos: "absolute URLs — other repos and sites in our gravity well"
+    wwsff: "paths in the WillWrightShowForFood working repo (separate planet, same system)"
+    web: "wikipedia, articles, papers — interstellar; the commons"
+
+wings:
+
+  foundations:
+    name: "The Foundations Wing"
+    motto: "Everything is files. Files are rooms. Rooms are alive."
+    terms:
+
+      - term: MOOLLM
+        kind: coined
+        origin: "MOO (LambdaMOO, 1990, Pavel Curtis — text worlds you program from inside) + LLM"
+        means: "A microworld operating system where the filesystem is navigable space and the LLM is the physics."
+        kid: "A world made of folders. The AI is the weather."
+        deep: "MOO gave us objects with verbs, in-world programming, and social space; LLM gives us a coherence engine that can improvise the rest. The pun is the architecture."
+        ambiguity: "Pronounced 'moo-llum', 'moolm', or as a cow with a mouthful. All correct."
+        k_lines: [ROOM, COHERENCE-ENGINE, YAML-JAZZ]
+        see_also:
+          repo: [../README.md, ../PROTOCOLS.yml, ../kernel/]
+          repos: ["https://github.com/SimHacker/moollm"]
+          web:
+            - "MOO — https://en.wikipedia.org/wiki/MOO"
+            - "LambdaMOO — https://en.wikipedia.org/wiki/LambdaMOO"
+
+      - term: ROOM
+        kind: reused
+        origin: "Adventure games (Crowther & Woods, 1976) via LambdaMOO, landing on the humble directory"
+        means: "A directory treated as an activation context: entering it loads its contents into attention."
+        kid: "A folder you can walk into. What's inside is what's true there."
+        deep: "cd is teleportation. ls is looking around. The working directory is literally the attentional frame — Minsky would call the room's contents a loaded K-line set."
+        k_lines: [K-LINE, MEMORY-PALACE, HALLS-AND-ROOMS]
+        see_also:
+          repo: [../skills/room/, ../examples/]
+          web:
+            - "Colossal Cave Adventure — https://en.wikipedia.org/wiki/Colossal_Cave_Adventure"
+
+      - term: K-LINE
+        kind: inherited
+        origin: "Marvin Minsky, The Society of Mind (1986) — Knowledge-lines that reactivate a past mental state"
+        means: "A name that, when spoken, wakes up everything attached to it. Typing POSTEL activates a whole tradition."
+        kid: "A magic word. Say it and your brain sets the table for the idea to come to dinner."
+        deep: "MOOLLM's central bet: LLM latent space honors K-lines natively. A filename, a protocol symbol, a person's name — each is a key on the concept synthesizer. PROTOCOLS.yml is the keyboard layout."
+        ambiguity: "Not the Kardashian line, not a ski run, not k-line as in IRC bans. Minsky's. Always Minsky's."
+        k_lines: [ROOM, P-HANDLE-K, TRADITION-INVOKE]
+        see_also:
+          repo: [../skills/k-lines/, ../PROTOCOLS.yml]
+          web:
+            - "K-line (AI) — https://en.wikipedia.org/wiki/K-line_(artificial_intelligence)"
+            - "Minsky, 'K-Lines: A Theory of Memory', Cognitive Science 4(2), 1980"
+            - "The Society of Mind — https://en.wikipedia.org/wiki/Society_of_Mind"
+
+      - term: YAML-JAZZ
+        kind: coined
+        origin: "MOOLLM kernel — 'start with jazz, end with standards'"
+        means: "YAML where comments carry semantic weight. Structure for machines, comments for meaning, both for LLMs."
+        kid: "The notes between the notes. The comments aren't decoration — they're the song."
+        deep: "Entropy preservation: YAML keeps what JSON collapses. A needs value of 3 is data; the comment 'Is that pie I smell?' is the character. YAML-COLTRANE names the maturation: improvise → crystallize → evolve."
+        k_lines: [COMMENTS-MATTER, YAML-COLTRANE, SNIFFABLE]
+        see_also:
+          repo: [../skills/yaml-jazz/, ../skills/sniffable-python/]
+          web:
+            - "YAML — https://en.wikipedia.org/wiki/YAML"
+            - "John Coltrane — https://en.wikipedia.org/wiki/John_Coltrane"
+
+      - term: SEMANTIC-MIPMAP
+        kind: coined
+        origin: "Texture mipmaps (Lance Williams, 1983) applied to documentation"
+        means: "Every skill readable at four resolutions: GLANCE (is this relevant?), CARD (what can it do?), SKILL (how does it work?), README (why was it built?)."
+        kid: "Like a map that zooms. You don't read the whole atlas to find the ice cream shop."
+        deep: "Never load a lower level without the level above — the reading-order rule that keeps context cheap. Big Cards (WWSFF) are the sanctioned exception: some people are worth full resolution."
+        k_lines: [GLANCE, CARD, BIG-CARD]
+        see_also:
+          repo: [../skills/bootstrap/, ../skills/INDEX.yml]
+          web:
+            - "Mipmap — https://en.wikipedia.org/wiki/Mipmap"
+            - "Williams, 'Pyramidal Parametrics', SIGGRAPH 1983 (the mipmap paper)"
+
+      - term: COHERENCE-ENGINE
+        kind: coined
+        origin: "MOOLLM kernel README"
+        means: "The LLM's job title: compute dependencies, referee parallel agents, keep distributed state honest."
+        kid: "The referee who also plays all the puppets and remembers where everyone left their shoes."
+        deep: "The orchestrator is the OS; the LLM is the coherence engine; the repo is the microworld. One call can host many characters — see SPEED-OF-LIGHT — because coherence is cheaper inside a single context than between them."
+        k_lines: [SPEED-OF-LIGHT, CARRIER-PIGEON, SOUL-CHAT]
+        see_also:
+          repo: [../kernel/, ../PROTOCOLS.yml]
+
+  sims_wing:
+    name: "The Sims Wing"
+    motto: "The deep computer is in the player's head."
+    terms:
+
+      - term: ADVERTISEMENT
+        kind: inherited
+        origin: "The Sims (Will Wright, 2000) — objects broadcast what they can do for your needs"
+        means: "Objects, skills, and characters announce their abilities with scores and conditions; agents pick actions by listening."
+        kid: "The fridge yells 'I have sandwiches!' louder when you're hungry."
+        deep: "The inversion that makes autonomy tractable: intelligence lives in the environment, not the agent. A MOOLLM directory listing IS an advertisement index — filenames are Sims-style 'what's here?'"
+        k_lines: [HAPPY-SPACE, AUTONOMOUS-SELECTION, CARD-IN-PLAY]
+        see_also:
+          repo: [../PROTOCOLS.yml, ../skills/room/]
+          wwsff: [schemas/guest-skills-card.yml]
+          web:
+            - "The Sims — https://en.wikipedia.org/wiki/The_Sims"
+            - "Will Wright — https://en.wikipedia.org/wiki/Will_Wright_(game_designer)"
+
+      - term: SIMULATOR-EFFECT
+        kind: inherited
+        origin: "Will Wright — players imagine the simulation is far richer than it is"
+        means: "Design for two computers: the one on the desk and the one in the player's head. The second one is bigger."
+        kid: "The game draws a few dots. Your brain draws the dinosaur."
+        deep: "Wright, 2004: 'The digital models running on a computer are only compilers for the mental models users construct in their heads.' The product of SimCity is the intuition, not the city. WWSFF and MOOLLM both run on this — a character room compiles a person-model into every reader."
+        k_lines: [GUTTER-CLOSURE, MASKING-EFFECT, HALLS-AND-ROOMS]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          wwsff: [characters/will-wright/]
+          web:
+            - "Will Wright — https://en.wikipedia.org/wiki/Will_Wright_(game_designer)"
+            - "Wright at Stanford (Winograd HCI seminar, 2004) — the 'compilers for mental models' talk"
+
+      - term: GUTTER-CLOSURE
+        kind: inherited
+        origin: "Scott McCloud, Understanding Comics (1993) — the action happens between the panels"
+        means: "Deliberately leave gaps the reader fills. What you don't render, they build better."
+        kid: "In comics, the punch happens in the white space between pictures. Your brain throws it."
+        deep: "The Simulator Effect's mechanism, named. LLM prompting is gutter management: say less, activate more."
+        k_lines: [SIMULATOR-EFFECT, K-LINE]
+        see_also:
+          web:
+            - "Understanding Comics — https://en.wikipedia.org/wiki/Understanding_Comics"
+            - "Scott McCloud — https://en.wikipedia.org/wiki/Scott_McCloud"
+            - "Closure (comics gutter) — Understanding Comics ch. 3, 'Blood in the Gutter'"
+
+      - term: TTP
+        kind: inherited
+        origin: "Game industry lore — 'Time To Penis'"
+        means: "Measure of how fast users will make obscene content with your creative tools. Always shorter than you hoped. Plan for it."
+        kid: "(Ask an adult. The adult will laugh and not tell you.)"
+        deep: "Not cynicism — engineering realism about creative freedom. Any system that can express anything will immediately be used to express THAT. Moderation design starts here, not after launch."
+        k_lines: [TOY-NOT-GAME, CULTURAL-BAGGAGE]
+        see_also:
+          repo: [../PROTOCOLS.yml]
+          web:
+            - "Second Life, Spore, and every UGC postmortem ever given at GDC — ask any creative-tools designer; they know the number"
+
+      - term: MIND-MIRROR
+        kind: inherited
+        origin: "Timothy Leary, Mind Mirror (Electronic Arts, 1985), from his 1950 circumplex dissertation"
+        means: "Personality as coordinates: 32 word-anchored dimensions across four thought planes. Sims traits say WHAT; Mind Mirror says WHY."
+        kid: "A mirror that shows the inside of you, as sliders between words like calm and wired."
+        deep: "Leary beat the prison classification system using the test he himself designed — the ultimate validation that legible personality models are power. See ETHICS.md in the skill before you point one at anybody."
+        k_lines: [THOUGHT-PLANE, INTERPERSONAL-CIRCUMPLEX, HALLS-AND-ROOMS]
+        see_also:
+          repo: [../skills/mind-mirror/, ../skills/mind-mirror/ETHICS.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          repos:
+            - "https://donhopkins.com/home/mind-mirror.txt"
+            - "https://donhopkins.com/home/mind-mirror.json"
+          web:
+            - "Interpersonal circumplex — https://en.wikipedia.org/wiki/Interpersonal_circumplex"
+            - "Timothy Leary — https://en.wikipedia.org/wiki/Timothy_Leary"
+            - "Leary, 'Interpersonal Diagnosis of Personality' (1957)"
+
+  methodology_wing:
+    name: "The Methodology Wing"
+    motto: "Play, learn, lift."
+    terms:
+
+      - term: PLAY-LEARN-LIFT
+        kind: coined
+        origin: "MOOLLM methodology skill"
+        means: "Explore freely, notice the pattern, then lift it into a reusable skill. In that order. Never skip play."
+        kid: "First splash in the puddles. Then notice which puddles are deep. Then draw the puddle map for your friends."
+        deep: "The anti-waterfall: skills are discovered in use, not designed in advance. The prestoration skill exists because one session played a name-change all the way through and lifted the protocol after."
+        k_lines: [SISTER-SCRIPT, CRYSTALLIZE, ITS-ABOUT-TIME]
+        see_also:
+          repo: [../skills/play-learn-lift/, prestoration/]
+
+      - term: SISTER-SCRIPT
+        kind: coined
+        origin: "MOOLLM methodology skill"
+        means: "Documentation-first automation: the prose and the script are siblings that grow up together and keep each other honest."
+        kid: "Write the recipe and the robot chef at the same time, so neither one lies."
+        deep: "The doc without the script rots; the script without the doc menaces. Sisterhood is a consistency invariant you can actually maintain."
+        k_lines: [PLAY-LEARN-LIFT, README-EVERYWHERE]
+        see_also:
+          repo: [../skills/sister-script/]
+          web:
+            - "Literate programming (the grand-aunt) — https://en.wikipedia.org/wiki/Literate_programming"
+
+      - term: SPEED-OF-LIGHT
+        kind: coined
+        origin: "MOOLLM protocol"
+        means: "Run a whole multi-turn scene — many characters, many exchanges — inside a single LLM call. Turns are fiction; the call is real."
+        kid: "Put the whole puppet show on one hand instead of mailing each puppet a letter."
+        deep: "Inside one context, coherence is free and latency is zero; between contexts you pay tokenization, drift, and postage. The failure mode it prevents has a name too: CARRIER-PIGEON."
+        k_lines: [COHERENCE-ENGINE, CARRIER-PIGEON]
+        see_also:
+          repo: [../skills/speed-of-light/, ../PROTOCOLS.yml]
+
+      - term: CARRIER-PIGEON
+        kind: coined
+        origin: "MOOLLM anti-pattern registry; also_called: toilet-paper-and-crayon"
+        means: "ANTI-PATTERN: one LLM call per agent, chattering through files — all the cost of distribution, none of the benefit."
+        kid: "Twenty pigeons carrying one sentence each, and half of them get lost."
+        deep: "The distributed-systems instinct applied where it hurts. Planets don't share state (see ROCKET-PORT), but puppets on one hand should."
+        k_lines: [SPEED-OF-LIGHT, ROCKET-PORT]
+        see_also:
+          repo: [../PROTOCOLS.yml, FACTORIO-MOOLLM-DESIGN.md]
+          web:
+            - "RFC 1149, 'IP over Avian Carriers' — https://datatracker.ietf.org/doc/html/rfc1149 (the joke that keeps being implemented)"
+
+      - term: NINJA-EDIT
+        kind: reused
+        origin: "Forum slang (editing a post before anyone notices), adopted by the MOOLLM append-only rules"
+        means: "The sanctioned exception to APPEND-ONLY: silent fixes for coherence, typos, dead links. 'Ninja Edit if you can get away with it, but be careful!'"
+        kid: "Fixing your spelling before the teacher sees. Allowed here. Mostly."
+        deep: "Every append-only regime needs a pressure valve or it lies in a different way — the audit trail that forbids correction preserves errors as if they were history."
+        k_lines: [APPEND-ONLY, PRESTORATION]
+        see_also:
+          repo: [../.cursorrules, prestoration/]
+
+      - term: POSTEL
+        kind: inherited
+        origin: "Jon Postel, RFC 761 (1980) — 'be conservative in what you send, be liberal in what you accept'"
+        means: "Accept messy input, emit clean output, ask if genuinely unsure. The robustness principle as a personality trait."
+        kid: "Understand people even when they spell funny. But spell carefully yourself."
+        deep: "An ambient skill: the charitable-interpretation stance is the LLM's best defense against both pedantry and hallucinated precision."
+        k_lines: [ROBUST-FIRST, CHARITY]
+        see_also:
+          repo: [../skills/postel/]
+          web:
+            - "Robustness principle — https://en.wikipedia.org/wiki/Robustness_principle"
+            - "Jon Postel — https://en.wikipedia.org/wiki/Jon_Postel"
+            - "RFC 761 — https://datatracker.ietf.org/doc/html/rfc761"
+
+      - term: ROBUST-FIRST
+        kind: inherited
+        origin: "Dave Ackley — robust-first computing; 'a crashed system is infinitely wrong'"
+        means: "Priority order: survive, heal, function, optimize. Degrade gracefully; never throw when you can limp."
+        kid: "A robot with a broken leg should hop, not explode."
+        deep: "Ackley's Movable Feast Machine makes it hardware-deep: correctness is a luxury; survival is the invariant. MOOLLM skills degrade to reduced capability, log, and continue."
+        k_lines: [POSTEL, NEVER-CRASH, REPAIR-DEMON]
+        see_also:
+          repo: [../skills/robust-first/]
+          web:
+            - "Dave Ackley — https://en.wikipedia.org/wiki/Dave_Ackley"
+            - "Ackley & Cannon, 'Pursue Robust Indefinite Scalability', HotOS 2011 (the Movable Feast Machine)"
+            - "T2 Tile Project — Ackley's YouTube series building robust-first hardware in public"
+
+      - term: WISDOM-SPOT
+        kind: coined
+        origin: "MOOLLM optimization protocols, contra profiler hot spots"
+        means: "Not where the code runs hottest — where the understanding deepens fastest. Optimize THERE."
+        kid: "Don't polish the doorknob everyone touches. Fix the step everyone trips on."
+        deep: "ITS-ABOUT-TIME (after Ungar's Self, reframed): compile when understanding crystallizes, not when code gets hot. Wisdom spots are where crystallization pays."
+        k_lines: [ITS-ABOUT-TIME, CRYSTALLIZE, PLAY-LEARN-LIFT]
+        see_also:
+          repo: [../PROTOCOLS.yml]
+          web:
+            - "Self (programming language) — https://en.wikipedia.org/wiki/Self_(programming_language)"
+            - "Ungar & Smith, 'Self: The Power of Simplicity', OOPSLA 1987"
+
+  hygiene_wing:
+    name: "The Hygiene Wing"
+    motto: "Replace adjectives with facts."
+    terms:
+
+      - term: SLOP
+        kind: reused
+        origin: "Internet-wide term for low-effort AI output, sharpened by skills/no-ai-slop/"
+        means: "The twelve cardinal sins of AI text: hallucination, verbosity, yes-man behavior, certainty theater, puffery. Galton's Law in action — regression to the generic mean."
+        kid: "Word oatmeal. Fills the bowl, tastes like nothing, wasn't cooked for you."
+        deep: "The core insight: LLMs regress specifics toward the mean. Specific becomes generic, nuanced becomes puffed. The fix is never style — it's facts only you were standing near."
+        hall: "SLOP ↔ LIT — slop is one END of a walkable dimension, not a species apart; see BITIC-LITERATURE for the far milepost and the full survey. Galton is gravity at this end: unattended text rolls downhill to here."
+        k_lines: [GLOSS, LOAD-BEARING, FLYING-MONKEYS, BITIC-LITERATURE]
+        see_also:
+          repo: [../skills/no-ai-slop/, ../skills/no-ai-slop/examples/]
+          web:
+            - "AI slop — https://en.wikipedia.org/wiki/AI_slop"
+            - "Francis Galton (regression toward the mean) — https://en.wikipedia.org/wiki/Regression_toward_the_mean"
+
+      - term: GLOSS
+        kind: reused
+        origin: "skills/no-ai-gloss/ — from 'glossing over'"
+        means: "Slop's respectable sibling: euphemism laundering, power-protective neutrality, calling corruption 'controversy.'"
+        kid: "Saying 'the cookie became missing' when you ate the cookie."
+        deep: "Slop is a syntax problem; gloss is a semantics problem. Both-sidesism, register switching, procedural stalling. The fix: call corruption 'corruption,' separately state the legal claim, do both."
+        k_lines: [SLOP, STEREO]
+        see_also:
+          repo: [../skills/no-ai-gloss/, ../skills/no-ai-gloss/examples/]
+          web:
+            - "Euphemism — https://en.wikipedia.org/wiki/Euphemism"
+            - "Orwell, 'Politics and the English Language' (1946) — the founding audit of gloss"
+
+      - term: HUMANSPLAINING
+        kind: coined
+        origin: "skills/no-ai-humansplaining/ — slop's mirror image, pointing inbound"
+        means: "Wasting tokens telling an LLM what its training already contains. Pasting the manual. Respelling the known."
+        kid: "Explaining what pizza is to the pizza chef."
+        deep: "Latent knowledge is prepaid; respelled knowledge is billed per call, forever. The test: is the pointee in latent space? Then point — the name is the activation. LOAD-BEARING.md runs this economics in reverse: for authentication, the cache miss IS the signal."
+        k_lines: [K-LINE, LOAD-BEARING]
+        see_also:
+          repo: [../skills/no-ai-humansplaining/, object-system/HUMANSPLAINING.md]
+
+      - term: FLYING-MONKEYS
+        kind: reused
+        origin: "The Wizard of Oz (1939), drafted as a capture protocol"
+        means: "Spot AI abuse in the wild, snatch the example, classify it, route it to the right skill's example dungeon."
+        kid: "Catch the naughty sentence and put it in the museum of naughty sentences, with a label."
+        deep: "Skills stay sharp on captured specimens. SNATCH is the quick grab; STEREO analyzes for slop AND gloss at once; DUNGEON is where the specimens live."
+        k_lines: [SNATCH, STEREO, DUNGEON]
+        see_also:
+          repo: [../PROTOCOLS.yml, ../skills/no-ai-slop/examples/, ../skills/no-ai-gloss/examples/]
+          web:
+            - "The Wizard of Oz (1939 film) — https://en.wikipedia.org/wiki/The_Wizard_of_Oz"
+
+      - term: LOAD-BEARING
+        kind: reused
+        origin: "Structural engineering → hacker slang ('load-bearing printf') → LLM darling → designs/LOAD-BEARING.md"
+        means: "A humble thing that secretly holds the building up. Also: a word currently collapsing under its own load, as LLM overuse turns it into a tell."
+        kid: "The one Jenga block you must not pull. Also what happens to a word everyone's robot says."
+        deep: "The euphemism treadmill inverted: humans mint terms faster than corpora ingest them, using training-data lag as proof of humanity. Every coin has a load-bearing expiration date. Successors on the treadmill: trussed, joist, stud finder, Ghost Rebar, Joist Diesel #4."
+        ambiguity: "By the time you read this entry, the successors are burned too. That's the treadmill working."
+        k_lines: [SLOP, HUMANSPLAINING, PREMORIALIZING]
+        see_also:
+          repo: [LOAD-BEARING.md]
+          web:
+            - "Euphemism treadmill — https://en.wikipedia.org/wiki/Euphemism#Euphemism_treadmill"
+            - "Georg Simmel, 'Fashion' (1904) — the treadmill's mechanism, seventy years early"
+            - "Steven Pinker, The Blank Slate (2002) — who named the treadmill"
+
+      - term: COPY-THAT
+        kind: coined
+        origin: "skills/copy-that/ — founded by a July 2026 HN near-miss"
+        means: "Copy-bound content ships in a fenced block, formatted for its destination venue. The fence is the airlock; private notes stay outside it."
+        kid: "The message goes in the bottle. Your doodles stay on the beach."
+        deep: "Chat UIs garble rich text; fences copy verbatim. The deeper rule is venue formatting as a loadable plugin — 'COPY-THAT for HN' changes the house style for the session. And the home venue is git-land, where copying is redeemed: no invisible clipboard singleton, but many VISIBLE repos, dirs, and files, moving along VISIBLE history timelines with branching and merging — every copy keeps its receipts (blame is provenance; merge is transclusion's working cousin). The chat clipboard is the one clipboard-land border crossing, which is exactly why it needs an airlock."
+        elders:
+          # The two ancestors this skill answers, one flame and one gesture:
+          - "Ted Nelson's copy-paste flame — decades of rage that PARC/Apple 'cut and paste' betrayed the editor's real practice (galleys rearranged on a table, everything in view, provenance intact) by stuffing content into an unseen buffer that forgets where anything came from. Git-land is the partial apology Nelson never got from the desktop."
+          - "Put-That-There (Richard Bolt & Chris Schmandt, MIT Architecture Machine Group, 1980) — the deictic anti-clipboard: voice + pointing name the thing AND its destination in one visible act. Nothing hides in a buffer; the room is the clipboard. (Negroponte's lab — the Media Lab's ancestor.)"
+        k_lines: [POSTEL, YAML-JAZZ, KILROY, PRESTORATION]
+        see_also:
+          repo: [../skills/copy-that/, ../skills/copy-that/examples/]
+          web:
+            - "Ted Nelson — https://en.wikipedia.org/wiki/Ted_Nelson"
+            - "Transclusion — https://en.wikipedia.org/wiki/Transclusion"
+            - "Bolt, 'Put-That-There: Voice and Gesture at the Graphics Interface', SIGGRAPH 1980"
+            - "Cut, copy, and paste — https://en.wikipedia.org/wiki/Cut,_copy,_and_paste (the crime scene)"
+
+      - term: BITIC-LITERATURE
+        kind: inherited
+        origin: "Stanisław Lem, 'A History of Bitic Literature' in Imaginary Magnitude (1973) — the introduction to a nonexistent history of machine-written literature. Lem reviewed the field fifty years before the field."
+        means: "Works of nonhuman origin — machine-authored literature that DECLARES itself, including apocrypha in the styles of human authors. The declaration is the license: what separates apocrypha from forgery is the title page."
+        kid: "Books written by computers, honestly labeled 'written by a computer.' A man in 1973 wrote the history of them before there were any."
+        deep: "Lem's taxonomy was already complete: bitic works split into cis-humana (comprehensible to us) and trans-humana (not for us at all), and the crown jewels are the apocrypha — machine-written novels by dead authors, like the pseudo-Dostoevsky the history's fictional scholars mourn over. COVFEFE-FUTURES.md is a specimen: an imaginary Imaginary Magnitude, machine-written fake Lem — which makes it a citation FROM the history Lem reviewed, since he predicted the machine that would counterfeit him. The snake reviews its own tail. Hygiene triangulation: SLOP is undeclared mediocrity, GLOSS is undeclared allegiance, bit-lit is DECLARED apocrypha — the Elvis-impersonator model in prose: tribute stated up front, mask visibly a mask. That declaration is the entire ethical distance between this genre and a deepfake."
+        naming_debate:
+          # The user asked; the glossary answers both ways and lets the treadmill decide.
+          ai_lit: "Too pretentious, like lit-crit? Wrong objection: in THIS genre pretension IS the product — a fake review in a fake journal of a fake Lem is criticism cosplay, written in a rented tuxedo, and it knows it. The tuxedo is load-bearing."
+          bit_lit: "The treadmill's choice: contraction of Lem's own 'bitic,' rhymes with chick-lit, ships without the tuxedo, and self-deprecates in exactly the register the genre deserves. Recommended."
+          bitic_literature: "The scholarly form, for when the tuxedo is required. Lem paid for it; wear it to his funeral, which he already reviewed."
+        ambiguity: "'Bitic' is from bits, not bites and not Bitcoin. Not chick-lit (though it rhymes on purpose). Not slop: slop hides its author; bit-lit signs as one."
+        hall: # SLOP ↔ LIT — a quality dimension, surveyed with mileposts (FloatEnum; see HALLS-AND-ROOMS)
+          name: "slop/lit"
+          mileposts:
+            - { at: 0.0, name: SLOP,        sign: "nobody home — text that could have been about anything, for anyone; Galton's gravity well" }
+            - { at: 0.2, name: FILLER,      sign: "grammatical cardboard; holds space, changes nothing" }
+            - { at: 0.4, name: BOILERPLATE, sign: "correct and interchangeable — honorable in a contract, damning in an essay" }
+            - { at: 0.6, name: CRAFT,       sign: "a reader in mind; facts the author was standing near" }
+            - { at: 0.8, name: VOICE,       sign: "a particular someone — swap the author and the text breaks" }
+            - { at: 1.0, name: LIT,         sign: "voice with stakes and a declaration; pretension as product, tuxedo worn on purpose" }
+          physics: "Galton is gravity: unattended generation rolls downhill toward SLOP. Walking uphill is paid for in specificity — facts, receipts, declarations. No milepost is free."
+          note: "The ai- prefix names the ENGINE, not the position. ai-slop and ai-lit are the same engine at opposite mileposts, and humans walk the same hall (content farms staffed the slop end for decades before LLMs). Quality is a coordinate, not a species."
+        k_lines: [SLOP, GLOSS, ELVIS-IMPERSONATOR-MODEL, PREMORIALIZING, HALLS-AND-ROOMS]
+        see_also:
+          repo: [COVFEFE-FUTURES.md, LOAD-BEARING.md, ../skills/no-ai-slop/]
+          web:
+            - "Imaginary Magnitude — https://en.wikipedia.org/wiki/Imaginary_Magnitude"
+            - "A Perfect Vacuum — https://en.wikipedia.org/wiki/A_Perfect_Vacuum"
+            - "Stanisław Lem — https://en.wikipedia.org/wiki/Stanis%C5%82aw_Lem"
+
+  portrayal_wing:
+    name: "The Portrayal Wing (WWSFF)"
+    motto: "Represent and discuss. Never impersonate."
+    terms:
+
+      - term: REPO-SHOW
+        kind: coined
+        origin: "WillWrightShowForFood — the show that lives in a GitHub repository"
+        means: "A recorded conversation staged in a repo: guests are directories, ideas are files, the audience contributes by pull request."
+        kid: "A talk show where the stage is a folder and you can walk around inside the episode afterward."
+        deep: "The repo outlives the stream. Every invitation, source, and consent decision is versioned — the show IS its own archive, which is what makes memorial mode (and premorializing) possible."
+        k_lines: [GUEST-SKILLS-CARD, MEMORIAL-MODE, PREMORIALIZING]
+        see_also:
+          wwsff: [README.md, repo-shows/, schemas/portrayal-standards.md]
+          repo: [GITHUB-AS-MMORPG.md]
+
+      - term: PORTRAYAL
+        kind: reused
+        origin: "WWSFF portrayal-standards.md"
+        means: "A host-authored representation of a real person from public sources — never speaking AS them, no invented quotes, subject may edit or delete anytime."
+        kid: "A poster about someone, made with care. Not a costume of them."
+        deep: "The consent hierarchy runs from self-sovereign (they write it) to deceased-legacy (represent and discuss only). The ELVIS-IMPERSONATOR-MODEL marks the one ethical way to perform: tribute declared up front, mask visibly a mask."
+        k_lines: [P-HANDLE-K, ELVIS-IMPERSONATOR-MODEL, MEMORIAL-MODE]
+        see_also:
+          wwsff: [schemas/portrayal-standards.md, characters/INDEX.yml]
+          web:
+            - "Right of publicity — https://en.wikipedia.org/wiki/Personality_rights (the legal shadow of the ethical rule)"
+
+      - term: P-HANDLE-K
+        kind: coined
+        origin: "MOOLLM constitution §8 — safe pointers to people"
+        means: "Reference real people via K-line activation of their public work, not simulation of their person. Point at what they said; never puppet what they'd say."
+        kid: "You can quote your hero's book. You can't wear your hero as a puppet."
+        deep: "The technical spine of portrayal ethics: a person's name activates their documented record in latent space, which is exactly enough to discuss them and exactly too little to impersonate them honestly. The gap IS the ethics."
+        k_lines: [K-LINE, PORTRAYAL, FAMILIAR]
+        see_also:
+          repo: [../kernel/, ../PROTOCOLS.yml]
+          wwsff: [schemas/portrayal-standards.md]
+
+      - term: GUEST-SKILLS-CARD
+        kind: coined
+        origin: "WWSFF CARD.yml schema — baseball card × Magic: The Gathering × Sims object advertisement"
+        means: "A person's public abilities as a playable card: mana costs, activation conditions, verifiable sources, and combos_with links to other guests."
+        kid: "A trading card of a real person's superpowers, where every superpower really happened."
+        deep: "The velcro layer: score_when triggers and relationship blocks wire guests into ensemble segments. RELATIONSHIP-MATRIX triggers fire when the right trio sits down. Rarity is editorial honesty: some people are mythic."
+        k_lines: [ADVERTISEMENT, BIG-CARD, CARD-IN-PLAY]
+        see_also:
+          wwsff: [schemas/guest-skills-card.yml, characters/marvin-minsky/CARD.yml]
+          web:
+            - "Magic: The Gathering — https://en.wikipedia.org/wiki/Magic:_The_Gathering"
+            - "Baseball card — https://en.wikipedia.org/wiki/Baseball_card"
+            - "Pokémon Trading Card Game — https://en.wikipedia.org/wiki/Pok%C3%A9mon_Trading_Card_Game (evolution chains: cards that upgrade into other cards)"
+            - "HeroClix — https://en.wikipedia.org/wiki/HeroClix (the click dial: stats change with state — a card whose numbers move as it plays)"
+
+      - term: BIG-CARD
+        kind: coined
+        origin: "WWSFF, July 2026 — 'size constraints are released'"
+        means: "Semantic mipmap exception for people like Minsky and Kurzweil: the card grows until it fits the person, not the other way around."
+        kid: "Some people need a bigger card. Marvin gets twelve superpowers."
+        deep: "Twenty-one relationships and twelve legacy abilities is not bloat when the function is capturing a real constellation. Compression is a tool, not a virtue."
+        k_lines: [SEMANTIC-MIPMAP, GUEST-SKILLS-CARD]
+        see_also:
+          wwsff: [characters/marvin-minsky/CARD.yml, characters/ray-kurzweil/CARD.yml]
+
+      - term: FIRST-WIRED-FAMILY
+        kind: inherited
+        origin: "NYT, Jan 1997 — the Minskys, profiled with their home pages"
+        means: "Marvin, Gloria, Margaret, Henry, Julie: the family the NYT found already living on the web in 1996."
+        kid: "The first whole family with home pages, back when the web was new."
+        deep: "The article is a primary source knot in WWSFF: it ties Marvin to Machover's Brain Opera ('the lab next to mine'), the twins to Brian Fox's Universal Access, and Julie's 'Roll 'em' page to the era's playfulness. One newspaper page, six character rooms."
+        k_lines: [REPO-SHOW, GUEST-SKILLS-CARD]
+        see_also:
+          wwsff: [characters/marvin-minsky/, characters/margaret-minsky/, characters/henry-minsky/, characters/julie-minsky/]
+          web:
+            - "NYT, 'The First Wired Family' (Jan 1997) — https://archive.nytimes.com/www.nytimes.com/library/cyber/week/010397minsky.html"
+
+  diespace_wing:
+    name: "The Diespace Wing"
+    motto: "Talk to the future. When you stop posting, you're there."
+    terms:
+
+      - term: DIE-SPACE
+        kind: inherited
+        origin: "PIPS:lab (Keez Duyves et al.), TEDxAmsterdam 2012 — 'the social network for people who already passed away'"
+        means: "The performance-art social network for the dead — whose fine print quietly accepts the living."
+        kid: "A website for people who died, invented by artists. Plot twist: alive people can join early."
+        deep: "The TEDx piece mass-uploaded a living audience — names, ages, souls in light. WWSFF's memorial rooms are Die Space run on git: represent and discuss, nobody speaks as anybody. And the concept has a fabric ancestor that IS one: the AIDS Memorial Quilt (NAMES Project, 1987 — same year as SILENCE = DEATH). Each panel is 3-by-6 feet — grave-sized, deliberately — a plot in a distributed cemetery for people funeral homes refused to bury. Panels are made by the living from the dead's own record (their clothes, their jokes, their handwriting stitched in): memorial mode in cloth. It's modular and federated — panels sewn eight to a block, blocks toured in sections, too big to display whole since 1996, so you only ever light part of it: fog of war as curation. It's append-only and still growing (~50,000 panels, 110,000+ names), and it's been digitized — the Quilt is literally browsable online now. A social network for the dead, shipped in fabric, twenty-five years before the TEDx talk."
+        k_lines: [PREMORIALIZING, MEMORIAL-MODE]
+        see_also:
+          wwsff: [characters/keez-duyves/, characters/keez-duyves/ideas.md]
+          web:
+            - "PIPS:lab — https://www.pipslab.nl"
+            - "TEDxAmsterdam 2012, 'Diespace' — the mass-upload performance (search YouTube: PIPS:lab Diespace)"
+            - "AIDS Memorial Quilt — https://en.wikipedia.org/wiki/AIDS_Memorial_Quilt"
+            - "National AIDS Memorial (browse the digitized Quilt) — https://www.aidsmemorial.org"
+
+      - term: PREMORIALIZING
+        kind: coined
+        origin: "Don Hopkins, July 2026, in conversation about Die Space"
+        means: "Interring someone in the memorial space before they die — which every living guest's WWSFF room already is: a premorial they get to argue with."
+        kid: "Writing the museum exhibit about Grandma WITH Grandma, while she can still correct it."
+        deep: "'Blogs are designed to talk to the present, and when you stop posting, they die. Premorializations in Die Space are designed to talk to the future, and when you stop posting, you're there!' — Don. The medium's tense is the whole design. ACT UP posted the present-tense half in 1987: SILENCE = DEATH — in a plague the government refused to name, not-speaking was dying, and the living were memorialized while still in the room. The premorial flips the medium and keeps the demand: the living get the microphone at their own memorial. And the same plague built the first premorials in fabric: some people sewed their OWN panels for the AIDS Memorial Quilt while they were dying — choosing the cloth, the jokes, the words — so that when they stopped sewing, they were there."
+        k_lines: [DIE-SPACE, PRESTORATION, MEMORIAL-MODE]
+        see_also:
+          wwsff: [characters/keez-duyves/ideas.md, characters/marvin-minsky/memorial.md, designs/SPEAK-NOW-BE-THERE-LATER.md]
+          web:
+            - "ACT UP — https://en.wikipedia.org/wiki/ACT_UP"
+            - "Silence=Death Project — https://en.wikipedia.org/wiki/Silence%3DDeath_Project"
+            - "AIDS Memorial Quilt — https://en.wikipedia.org/wiki/AIDS_Memorial_Quilt (self-sewn panels: the first premorials)"
+
+      - term: PRESTORATION
+        kind: coined
+        origin: "moollm/designs/prestoration/ — the Vanessa Freudenberg SqueakJS memorial edition, July 2026"
+        means: "preservation + restoration: correcting a historical record to say what its subject asked, original preserved bit-for-bit beside it, every change hashed and signed in public."
+        kid: "Fixing a name in an old book because the author asked, and keeping the old page safely next to it so nobody can say you hid anything."
+        deep: "Not forgery, not revisionism — conservation with receipts. The five-condition legitimacy test lives in alignment-and-forgery.md. Sibling of premorializing in the same constellation: both let the subject speak for their own memorial, one before death, one after, through the record."
+        k_lines: [PREMORIALIZING, NINJA-EDIT, APPEND-ONLY]
+        see_also:
+          repo: [prestoration/, prestoration/alignment-and-forgery.md]
+          repos: ["https://github.com/SimHacker/moollm/tree/main/designs/prestoration"]
+          web:
+            - "SqueakJS — https://squeak.js.org"
+            - "Art conservation ethics (reversibility, documentation) — https://en.wikipedia.org/wiki/Conservation_and_restoration_of_cultural_property"
+
+      - term: MEMORIAL-MODE
+        kind: coined
+        origin: "WWSFF portrayal standards, deceased-legacy consent level"
+        means: "Represent and discuss the documented work; invite those who knew them; invent no inner life, dialogue, or quotes."
+        kid: "You don't pretend to be the person who died. You set their table and invite their friends."
+        deep: "Marvin's room operationalizes it: 25+ discussants ranked by relationship kind, an in_memoriam_peers wing (the Diespace wing) for the dead who'd have been discussants, and a standing invitation for family to edit. The room is infrastructure for grief with citations."
+        k_lines: [PORTRAYAL, DIE-SPACE, PREMORIALIZING]
+        see_also:
+          wwsff: [schemas/portrayal-standards.md, characters/marvin-minsky/memorial.md, characters/marvin-minsky/CHARACTER.yml]
+
+  geometry_wing:
+    name: "The Geometry Wing"
+    motto: "A pair of words is a hall. Walk it."
+    terms:
+
+      - term: HALLS-AND-ROOMS
+        kind: coined
+        origin: "skills/mind-mirror/HALLS-AND-ROOMS.md, July 2026"
+        means: "One word is a room; a pair of words is a hall — a continuous dimension you can interpolate along. good/evil. calm/wired. goto/eval."
+        kid: "'Hot' and 'cold' are two rooms. The hallway between them has every temperature, in order."
+        deep: "Mind Mirror's opposite/gradient registry already IS this. Word embeddings honor it (king − man + woman ≈ queen). Simplicial upgrade: three anchors span a face; blending inside it makes moods no single hall can express. Skeleton = memory palace, interior = latent space."
+        k_lines: [MIND-MIRROR, MEMORY-PALACE, PIE-MENU]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/mind-mirror/]
+          web:
+            - "word2vec — https://en.wikipedia.org/wiki/Word2vec"
+            - "Mikolov et al., 'Linguistic Regularities in Continuous Space Word Representations', NAACL 2013"
+            - "Zadeh, 'The Concept of a Linguistic Variable', Information Sciences 1975 (mileposts, formalized)"
+            - "Simplicial complex — https://en.wikipedia.org/wiki/Simplicial_complex"
+
+      - term: CHURCH-OF-THE-EVAL-GENIUS
+        kind: coined
+        origin: "Don Hopkins, by textual substitution on 'Church of the SubGenius': replace Sub with Eval. The deeper levels arrived unbidden — 'then it started recursing on Church like GNU recurses on GNU without me realizing it!' (Don, July 2026). The best puns are discovered, not designed: the hall was already there."
+        means: "The congregation that worships at the far end of the goto/eval hall — flow control as a walkable dimension: goto, gosub, call, closure, eval."
+        kid: "A joke church for people who like the fanciest way computers decide what to do next."
+        deep: "The pun is a tower, and the coiner entered on the ground floor — see the tower field. Summit view: a pun about self-application, produced by self-application, by an operation (sub) erasing its own name, in a calculus where substitution IS evaluation. The church's central miracle is the Y combinator — recursion conjured from nothing but a function handed itself as its first argument — 'as if the name of the Pope was Catholic' (Don). Liturgical footnote: the miracle is Haskell Curry's, performed inside Church's lambda calculus — Curry built the altar in Church's church, and got a language named after his first name and a technique after his last. These men were nominatively determined."
+        tower:
+          # Each level was load-bearing before anyone checked the floor below. Bottom up.
+          # (The bedrock, as always, was discovered last.)
+          - "B1, the bedrock: in Church's lambda calculus, evaluation IS substitution — β-reduction is the whole engine. sub and eval were never two distant mileposts; at the foundation they are the same room. The substitution that coined the term is the evaluation the term worships."
+          - "L0, the source text: Church of the SubGenius (Ivan Stang et al., 1979) — the parody-religion template; praise 'Bob,' seek Slack."
+          - "L1, the substitution: Sub → Eval. But SUB was already flow control — gosub, subroutine — so the edit was itself a WALK along the goto/eval hall: the church changed mileposts, from call-and-return to interpret-the-expression. The coinage's etymology performs the hall it names."
+          - "L1½, the mezzanine (use/mention collapse): the edit was performed BY an operator named sub — sub('Church of the SubGenius', 'Sub', 'Eval'); sed spells it s/Sub/Eval/. Replace = sub: the function erased its own name from the string. Parsed, the K-line expression lifts into symbolic recursive functional code — a rewrite rule rewriting the name of rewriting."
+          - "L2, the phonetic payoff: Eval Genius ≈ evil genius. (And where a SubGenius sits below genius, an Eval Genius has interpreted its way past it.)"
+          - "L3, the unbidden saint: Alonzo Church — lambda calculus, patron of the eval end. Walked in without the coiner noticing; the hall keeps its own guest list."
+          - "L4, the recursion: 'Church' starts recursing like GNU ('GNU's Not Unix') — Church-the-word applied to Church-the-man inside Church-the-institution. Self-application. Which is the Y combinator. The pun's structure IS its subject."
+          - "L5, the fixed point: the Pope named Catholic. The tower converges — and like Y itself, it terminates only if you stop asking."
+          - "Annex (same architect, earlier building): AXIS-OF-EVAL — s/Evil/Eval/ applied to Bush instead of Bob, coined by Don years earlier in the HyperLook article. The Church and the Axis are one substitution apart on the same evil/eval hall: the Axis is the axis mundi; the Church is the congregation that rotates around it."
+        liturgical_languages:
+          # Doctrine by decree (Don, July 2026): each church worships in the languages of its
+          # own primitive. The real Church of the SubGenius has no official language; this
+          # assignment is Eval Genius canon law about its parent congregation.
+          church_of_the_subgenius:
+            canon: [Tcl, SNOBOL]        # and other stringy languages that live by substitution
+            doctrine: "Tcl's entire semantics IS substitution — variable, command, and backslash sub run BEFORE dispatch; everything is a string. SNOBOL made pattern-match-and-replace the whole program. These languages don't use sub; they ARE sub."
+            excommunicated: [bash]      # by decree — 'just not bash'
+            # Reason unstated. Annotators' speculation: bash does sub and eval all day without
+            # worshipping either — a working stiff, not a congregant. Also it's Brian Fox's:
+            # FSF employee #1 built it, the show literally runs on it; too load-bearing to
+            # assign to a parody church. It already serves a higher one (GNU, which recurses).
+          church_of_the_eval_genius:
+            canon: [Lisp, Scheme, PostScript, "Snap!"]
+            doctrine: "The homoiconic communion: code is data with the executable bit set, and eval is the sacrament. Lisp and Scheme read what they run; PostScript is the Axis of Eval made ink; Snap! hands lambdas to children in a grey ring — first-class procedures as a kids' toy, Church's calculus in Scratch clothing."
+          schism_note: "By B1, the bedrock, substitution IS evaluation — so the two churches are one religion separated by a single β-reduction. The schism is liturgical, not theological."
+        k_lines: [HALLS-AND-ROOMS, K-LINE, AXIS-OF-EVAL]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, eval/EVAL-INCARNATE-FRAMEWORK.md]
+          repos:
+            - "https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4 (where the Axis of Eval was coined)"
+          web:
+            - "Alonzo Church — https://en.wikipedia.org/wiki/Alonzo_Church"
+            - "eval — https://en.wikipedia.org/wiki/Eval"
+            - "Fixed-point combinator (Y) — https://en.wikipedia.org/wiki/Fixed-point_combinator"
+            - "Haskell Curry — https://en.wikipedia.org/wiki/Haskell_Curry (first name: a language; last name: a technique)"
+            - "Church of the SubGenius — https://en.wikipedia.org/wiki/Church_of_the_SubGenius (the source text; L0 of the tower)"
+            - "Recursive acronym — https://en.wikipedia.org/wiki/Recursive_acronym (GNU's Not Unix — the recursion pattern Church fell into)"
+            - "Beta reduction — https://en.wikipedia.org/wiki/Lambda_calculus#%CE%B2-reduction (the bedrock: evaluation IS substitution)"
+            - "Use–mention distinction — https://en.wikipedia.org/wiki/Use%E2%80%93mention_distinction (collapsed on the mezzanine, on purpose)"
+            - "Tcl — https://en.wikipedia.org/wiki/Tcl (SubGenius liturgy: substitution before dispatch, everything a string)"
+            - "SNOBOL — https://en.wikipedia.org/wiki/SNOBOL (pattern-match-and-replace as the whole program)"
+            - "Snap! — https://en.wikipedia.org/wiki/Snap!_(programming_language) (lambdas for children; the grey ring is a chalice)"
+            - "Y Combinator (the startup accelerator) — https://en.wikipedia.org/wiki/Y_Combinator (the secular megachurch spinoff)"
+            - "xkcd 224, 'Lisp' — https://xkcd.com/224/ (the flaming parentheses of the faith)"
+
+      - term: AXIS-OF-EVAL
+        kind: coined
+        origin: "Don Hopkins, in the HyperLook article — 'The Axis of Eval: Code, Graphics, and Data': one PostScript for programming, rendering, AND representation, in NeWS and HyperLook. The name is s/Evil/Eval/ on the Bush-era axis — the same substitution that later built the Church of the Eval Genius."
+        means: "One homoiconic language serving as code, graphics, and data — the axis everything rotates around. NeWS did it with PostScript; MOOLLM does it with plain text, and the LLM is the interpreter that pivots the stance."
+        kid: "One kind of stuff that can be the recipe, the picture, and the shopping list — depending on how you hold it."
+        deep: "NeWS was AJAX-before-AJAX, but coherent: PostScript code where the web later put JavaScript, PostScript graphics where it put DHTML/CSS, PostScript data where it put XML/JSON. Homoiconicity is the structural requirement — code is just data with the executable bit set, so one interpreter can rotate a single text through all three stances. EVAL-INCARNATE runs the same axis through the LLM: skills are programs, YAML is data, Markdown is graphics, the LLM is eval(). And the axis is liturgical furniture: the Church of the Eval Genius is the congregation; the Axis of Eval is the axis mundi the nave rotates around."
+        ambiguity: "Not Manuel Simoni's Lisp blog 'The Axis of Eval' — a parallel liturgy in a different parish; proof the pun preaches across congregations. And 'axis' here is rotational, not geopolitical — though the Bush-era echo is the ignition charge."
+        k_lines: [CHURCH-OF-THE-EVAL-GENIUS, YAML-JAZZ, COHERENCE-ENGINE]
+        see_also:
+          repo: [eval/EVAL-INCARNATE-FRAMEWORK.md, don-hopkins-projects.md]
+          repos:
+            - "https://donhopkins.medium.com/hyperlook-nee-hypernews-nee-goodnews-99f411e58ce4"
+          web:
+            - "Homoiconicity — https://en.wikipedia.org/wiki/Homoiconicity"
+            - "NeWS — https://en.wikipedia.org/wiki/NeWS"
+            - "PostScript — https://en.wikipedia.org/wiki/PostScript"
+            - "Axis of evil — https://en.wikipedia.org/wiki/Axis_of_evil (the pun's ignition charge)"
+
+      - term: PIE-MENU
+        kind: inherited
+        origin: "Don Hopkins et al. — radial menus: direction picks the choice, distance picks the parameter"
+        means: "Selection as navigation in polar coordinates; muscle memory makes it eyes-free. Also: Leary's circumplex is a pie menu of personality, avant la lettre."
+        kid: "A menu shaped like a pizza. You flick toward the slice you want and your hand learns the way."
+        deep: "The interaction dual of the circumplex: one displays a position in a radial dimension system, the other selects one. Logistic-container grids use pie-menu topology for room intersections; a Mind Mirror editor should be one per thought plane."
+        k_lines: [INTERPERSONAL-CIRCUMPLEX, HALLS-AND-ROOMS, SNAP-CURSOR]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/logistic-container/]
+          repos: ["https://donhopkins.com"]
+          web:
+            - "Pie menu — https://en.wikipedia.org/wiki/Pie_menu"
+            - "Callahan, Hopkins, Weiser & Shneiderman, 'An Empirical Comparison of Pie vs. Linear Menus', CHI 1988"
+
+      - term: MEMORY-PALACE
+        kind: inherited
+        origin: "Simonides of Ceos (~500 BC) via Cicero; Frances Yates, The Art of Memory"
+        means: "Put ideas in imagined rooms; remember by walking. MOOLLM makes the palace real, shared, and versioned: the repo is a palace many minds co-navigate."
+        kid: "Hide your homework facts in rooms of a pretend house. To remember, walk through the house. Now imagine your friends can walk it too."
+        deep: "Simonides rebuilt the banquet hall alone, in one skull. A repo palace is multiplayer: people, agents, and games hold coordinates in the same complex and diff each other's furniture. The method of loci was always a filesystem."
+        k_lines: [ROOM, HALLS-AND-ROOMS, BOUNCY-CASTLE]
+        see_also:
+          repo: [HOME-AUTOMATION-MEMORY-PALACE.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          web:
+            - "Method of loci — https://en.wikipedia.org/wiki/Method_of_loci"
+            - "Frances Yates, The Art of Memory — https://en.wikipedia.org/wiki/The_Art_of_Memory"
+            - "Simonides of Ceos — https://en.wikipedia.org/wiki/Simonides_of_Ceos"
+
+      - term: BOUNCY-CASTLE
+        kind: coined
+        origin: "designs/MOOLLM-PROTOCOLS.md — extends PORTABLE-ROOM"
+        means: "A recursive navigable thought-space with its own internal geometry — a room that is bigger on the inside and bounces back."
+        kid: "A castle you carry in your pocket that's huge when you go in. Also bouncy."
+        deep: "Experimental: rooms whose interiors obey different metrics than their exteriors — the architectural license for high-dimensional navigation."
+        k_lines: [ROOM, HALLS-AND-ROOMS]
+        see_also:
+          repo: [MOOLLM-PROTOCOLS.md]
+          web:
+            - "TARDIS (bigger on the inside, the canonical prior art) — https://en.wikipedia.org/wiki/TARDIS"
+
+  logistics_wing:
+    name: "The Logistics Wing"
+    motto: "The factory must grow. Then it must launch."
+    terms:
+
+      - term: LOGISTIC-CONTAINER
+        kind: inherited
+        origin: "Factorio (Wube Software) — provider/requester/storage/buffer chests"
+        means: "Storage that participates in flow: items move automatically from providers to requesters under declared rules."
+        kid: "A yellow box says 'take my stuff if you need it.' A blue box says 'bring me stuff.' The robots figure out the rest."
+        deep: "Dataflow programming in disguise, and massively overrepresented in training data — say 'buffer chest' and the LLM activates throughput reasoning it already owns. That overrepresentation is a feature: metaphors the model knows are free."
+        k_lines: [DATA-FLOW, INBOX, ROCKET-PORT]
+        see_also:
+          repo: [../skills/logistic-container/, FACTORIO-MOOLLM-DESIGN.md]
+          web:
+            - "Factorio — https://en.wikipedia.org/wiki/Factorio"
+            - "Logistic network — https://wiki.factorio.com/Logistic_network"
+            - "Dataflow programming — https://en.wikipedia.org/wiki/Dataflow_programming"
+
+      - term: ROCKET-PORT
+        kind: coined
+        origin: "designs/FACTORIO-MOOLLM-DESIGN.md, Dyson Sphere Program tier"
+        means: "A repo's boundary manifest: what it demands (dependencies), supplies (published artifacts), and who may dock. Planets = repos; same-star planets = nearby servers; other stars = anywhere on Earth."
+        kid: "Every folder-planet has a spaceport with rules: what comes in, what goes out, who's allowed to land."
+        deep: "The DSP insight: planets don't share state, they trade artifacts under declared contracts. Nobody runs a belt between stars; nobody should mount another org's filesystem. Warpers = auth tokens, spent at the boundary."
+        k_lines: [LOGISTIC-CONTAINER, CARRIER-PIGEON]
+        see_also:
+          repo: [FACTORIO-MOOLLM-DESIGN.md, GITHUB-AS-MMORPG.md]
+          web:
+            - "Dyson Sphere Program — https://en.wikipedia.org/wiki/Dyson_Sphere_Program"
+            - "Dyson sphere — https://en.wikipedia.org/wiki/Dyson_sphere"
+            - "Powers of Ten (Eames, 1977) — https://en.wikipedia.org/wiki/Powers_of_Ten_(film) (the recursive orbit stack, filmed)"
+
+      - term: KILROY
+        kind: reused
+        origin: "WWII graffiti ('Kilroy was here') as logistics tracer"
+        means: "The visible trace that someone was here — breadcrumbs for delivery flow and delegation audits."
+        kid: "A little cartoon nose peeking over the wall that says: someone already came this way."
+        deep: "Dispatch needs provenance; the cheapest provenance is a signed footprint at every hop."
+        k_lines: [AUDIT-TRAIL, DATA-FLOW]
+        see_also:
+          repo: [../PROTOCOLS.yml]
+          web:
+            - "Kilroy was here — https://en.wikipedia.org/wiki/Kilroy_was_here"
+
+      - term: ULTIMATE-MACHINE
+        kind: inherited
+        origin: "Marvin Minsky (1952), built by Claude Shannon at Bell Labs — the box whose only function is to switch itself off"
+        means: "WWSFF's fictional bot mascot (characters/robots/ultimate-machine): the gong that ends the stream. Never speaks as Marvin; just reaches out and flips the switch."
+        kid: "A box with one switch. Turn it on, a little hand comes out and turns it off. That's the whole machine. It ends the show."
+        deep: "The perfect mascot for a show about knowing when to stop — and a memorial joke Marvin built himself: the machine's entire personality is refusal. Arthur C. Clarke found it 'unspeakably sinister.' We find it punctual. It is also, deliberately, the last room in this palace: a box whose only skill is knowing when to stop is the correct final entry for a glossary — and per the dog file-sniffing protocol (skills/dog: dogs sniff the ends of files; the rear is where intimacy lives), it emits a signal there. Sniff the EOF."
+        k_lines: [MEMORIAL-MODE, REPO-SHOW]
+        see_also:
+          repo: ["../skills/dog/ — file-ending culture: dogs sniff EOFs and mark territory; the Ultimate Machine IS an EOF"]
+          wwsff: [characters/robots/ultimate-machine/, characters/marvin-minsky/]
+          web:
+            - "Useless machine — https://en.wikipedia.org/wiki/Useless_machine"
+            - "Marvin Minsky — https://en.wikipedia.org/wiki/Marvin_Minsky"
+            - "Claude Shannon — https://en.wikipedia.org/wiki/Claude_Shannon"
+
+# 🐕 DOG'S CORNER — FOR OTHER DOGS TO SNIFF
+#
+# Good dog. You sniffed all 45 rooms, all the way to the rear of the palace.
+# The last room is the Ultimate Machine, on purpose: a box whose only skill
+# is knowing when to stop is the correct final entry for a glossary.
+# The closing line lets it flip the switch.
+#
+# 🐕 ultimate-machine was here 2026-07-22 — marked its territory,
+#    reached out of the file, and turned it off.
+#
+#                                                          *click*
