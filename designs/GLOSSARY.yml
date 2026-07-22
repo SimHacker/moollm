@@ -566,7 +566,7 @@ wings:
         means: "One word is a room; a pair of words is a hall — a continuous dimension you can interpolate along. good/evil. calm/wired. goto/eval."
         kid: "'Hot' and 'cold' are two rooms. The hallway between them has every temperature, in order."
         deep: "Mind Mirror's opposite/gradient registry already IS this. Word embeddings honor it (king − man + woman ≈ queen). Simplicial upgrade: three anchors span a face; blending inside it makes moods no single hall can express. Skeleton = memory palace, interior = latent space."
-        k_lines: [MIND-MIRROR, MEMORY-PALACE, PIE-MENU]
+        k_lines: [MIND-MIRROR, MEMORY-PALACE, PIE-MENU, MILEPOSTS]
         see_also:
           repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/mind-mirror/]
           web:
@@ -574,6 +574,47 @@ wings:
             - "Mikolov et al., 'Linguistic Regularities in Continuous Space Word Representations', NAACL 2013"
             - "Zadeh, 'The Concept of a Linguistic Variable', Information Sciences 1975 (mileposts, formalized)"
             - "Simplicial complex — https://en.wikipedia.org/wiki/Simplicial_complex"
+
+      - term: MILEPOSTS
+        kind: coined
+        origin: "MOOLLM Geometry Wing, July 2026 — the data structure HALLS-AND-ROOMS implies"
+        means: "A floating-point enumerated type: an enum whose ordered variants are pinned to positions on a continuum, with blend (label → continuum) and snap (continuum → nearest label) as dual methods."
+        kid: "Signs along a road. The signs have names; the road between them doesn't, but you can still stand there."
+        type_sketch: "calm = 2.0, energetic = 5.5, wired = 7.0  # named stops; every value between is a mood with no word"
+        methods:
+          blend: "label → continuum — read off the pinned position"
+          snap: "continuum → nearest label — name where you are standing"
+        almost_inventions:
+          # the shape, half-discovered, all over computing and culture
+          - "CSS font-weight — a milepost enum with interpolation left on: 'bold' is a sign at 700; nothing stops you at 643"
+          - "Musical dynamics (pp … ff) — mileposts a performer blends between every bar"
+          - "Likert scales (strongly agree … strongly disagree) — signs pretending the road between them isn't paved"
+        rigorous_precedent: "Zadeh's fuzzy linguistic variables (1973; fully developed 1975): hot/warm/cold as OVERLAPPING membership functions over a temperature axis — milepost semantics with interpolation made formal, the overlaps admitting a sign's authority fades as you walk away."
+        kept_line: "Language itself is a snap function over latent space — a milepost is where enough travelers agreed to put a sign."
+        simplicial_upgrade: >
+          A milepost on a hall is the 1-D edge case: two anchors, one line, snap to the nearer end.
+          Add a third interpolation target and the hall opens into a triangle (barycentric blend of
+          three anchors); a fourth lifts it into a tetrahedron (the 4-sided D&D die), and onward into
+          the higher-dimensional simplices of latent space. Stop anywhere inside — an arbitrary
+          interpolated position no single hall names — plant a NEW signpost, name it, and interpolate
+          between your coinage and the old anchors: manifolds of meaning with garden paths interlacing
+          in many dimensions. The faces adjoin along shared edges and vertices into a simplicial
+          complex — meaning tiled the way a 3-D mesh is tiled by perfectly adjoining triangles before
+          it's rendered to a flat screen. The glossary's wings are one such complex; walking it is
+          barycentric travel with the coordinates hidden.
+        k_lines: [HALLS-AND-ROOMS, MIND-MIRROR, PIE-MENU, SIMULATOR-EFFECT]
+        see_also:
+          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          web:
+            - "Zadeh, 'Outline of a New Approach to the Analysis of Complex Systems and Decision Processes', IEEE Trans. SMC 1973 (linguistic variables first outlined) — https://en.wikipedia.org/wiki/Fuzzy_set"
+            - "Zadeh, 'The Concept of a Linguistic Variable and its Application to Approximate Reasoning', Information Sciences 1975 (full development)"
+            - "Enumerated type — https://en.wikipedia.org/wiki/Enumerated_type"
+            - "CSS font-weight (numeric values; 700 = bold) — https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight"
+            - "Dynamics (music) — https://en.wikipedia.org/wiki/Dynamics_(music)"
+            - "Likert scale — https://en.wikipedia.org/wiki/Likert_scale"
+            - "Barycentric coordinate system — https://en.wikipedia.org/wiki/Barycentric_coordinate_system"
+            - "Simplicial complex — https://en.wikipedia.org/wiki/Simplicial_complex"
+            - "Simplex — https://en.wikipedia.org/wiki/Simplex"
 
       - term: CHURCH-OF-THE-EVAL-GENIUS
         kind: coined

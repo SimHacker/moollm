@@ -377,6 +377,47 @@ opposite/gradient registry already is this, and word embeddings already obey
 it (king − man + woman ≈ queen). Three anchor words span a face you can blend
 inside. The skeleton is the memory palace; the interior is the latent space.
 
+**Mileposts: the floating-point enumerated type** — The data structure a
+hall implies. An ordinary enum has named variants and nothing between them;
+a milepost enum pins each variant to a *position* on a continuum, so the
+labels become signs along a road you can stand between. Two dual methods
+fall out: **blend** (label → continuum: read off the number) and **snap**
+(continuum → nearest label: name where you are). A type sketch: `calm = 2.0,
+energetic = 5.5, wired = 7.0` — three named stops, and every real number
+between them a mood with no word of its own.
+
+Once you see the shape it is *everywhere*, half-invented. CSS `font-weight`
+is a milepost enum with the interpolation left on: `bold` is just a sign at
+700, and nothing stops you parking at 643. Musical dynamics (*pp* … *ff*)
+are mileposts a performer blends between every bar. Likert scales
+("strongly agree" … "strongly disagree") are five signs pretending the road
+between them isn't paved. The rigorous precedent is Lotfi Zadeh's **fuzzy
+linguistic variables** (1973): *hot*, *warm*, and *cold* as overlapping
+membership functions over a temperature axis — milepost semantics with the
+interpolation made formal, and the overlaps admitting that a sign's
+authority fades as you walk away from it.
+
+The line to keep if all else is cut: **language itself is a snap function
+over latent space — a milepost is where enough travelers agreed to put a
+sign.**
+
+*Off the path, into the simplex.* A milepost on a hall is the one-dimensional
+edge case: two anchors, one line, snap to the nearer end. But nothing
+confines you to the line between two signs. Add a third interpolation target
+and the hall opens into a **triangle** (barycentric coordinates: any blend
+of three anchors); a fourth lifts it into a **tetrahedron** (the four-sided
+D&D die), and onward into the higher-dimensional simplices of latent space.
+You can stop anywhere inside — an arbitrary interpolated position that no
+single hall names — plant a *new* signpost there, christen it, and then
+interpolate between your coinage and the old anchors, opening manifolds of
+meaning with garden paths interlacing in many dimensions at once. Signs beget
+halls beget faces beget solids; name a point and it becomes an anchor for the
+next blend. And the faces **adjoin**: shared edges and vertices stitch the
+simplices into a **simplicial complex** — meaning tiled the way a 3-D mesh is
+tiled by perfectly adjoining triangles before it's rendered to a flat screen.
+The glossary's wings are one such complex; walking it is barycentric travel
+with the coordinates hidden.
+
 **Church of the Eval Genius** — A joke church for people who like the
 fanciest way computers decide what to do next. The hall is real: walk
 goto → gosub → call → closure → eval and you traverse the history of
