@@ -1,25 +1,67 @@
 # COVFEFE FUTURES
 
-**Contents:** [Shadow literature](#shadow-literature) ·
-[Declaration of species](#declaration-of-species) ·
-[The review](#the-insider-traders-of-babel)
-([the book](#the-book-that-isnt) ·
-[first movement](#first-movement-the-reflexive-floor) ·
-[the Kandel edition](#the-kandel-edition) ·
-[second movement](#second-movement-kakography-or-rule-by-typo) ·
-[the dark twin](#the-dark-twin-faith-of-our-fathers) ·
-[third movement](#third-movement-the-unsaid-word) ·
-[Fiasco](#fiasco-the-theorem-proved-in-earnest)) ·
-[The standings](#the-standings-july-2026)
-([DNS](#the-spot-market-dns) ·
-[mention markets](#the-derivatives-desk-mention-markets) ·
-[the family book](#the-family-book) ·
-[the prompter](#the-prompter-arrives) ·
-[the autopen confession](#the-autopen-confession) ·
-[the covfefe ledger](#the-covfefe-ledger) ·
-[what markets do](#what-the-market-does-to-what-it-prices) ·
-[closing price](#closing-price)) ·
-[The record](#the-record-real-cited-july-2026)
+## Contents
+
+*Read the headers alone and you have the argument; read the glosses and you
+have the plot.*
+
+**Front matter**
+
+- [Shadow literature](#shadow-literature) — reviewing a book that doesn't
+  exist, one level up: a fake *Lem*
+- [Declaration of species](#declaration-of-species) — what bitic literature
+  is, and why this is apocrypha, not slop
+
+**The review — [The Insider Traders of Babel](#the-insider-traders-of-babel)**
+
+- [The book that isn't](#the-book-that-isnt) — Lem's 1976 story about a
+  futures market in words not yet spoken
+- [First movement: the reflexive floor](#first-movement-the-reflexive-floor)
+  — to say a future word aloud is to destroy it
+- [The Kandel edition](#the-kandel-edition) — the translator who recused
+  himself from the author's inside information
+- [Second movement: kakography, or rule by typo](#second-movement-kakography-or-rule-by-typo)
+  — the one word no one can front-run is the misspelling, and the state owns
+  the mouth that makes it
+- [The dark twin: Faith of Our Fathers](#the-dark-twin-faith-of-our-fathers)
+  — Dick abolishes the outside with a drug; Lem, with a spread
+- [Third movement: the unsaid word](#third-movement-the-unsaid-word) — the
+  only asset that appreciates forever is the one never uttered
+- [Fiasco: the theorem, proved in earnest](#fiasco-the-theorem-proved-in-earnest)
+  — the same silence, run once more at planetary scale
+
+**The standings — [July 2026](#the-standings-july-2026): the fiction becomes compliance news**
+
+- [The spot market: DNS](#the-spot-market-dns) — the word exchange already
+  shipped, at retail, decades ago
+- [The derivatives desk: mention markets](#the-derivatives-desk-mention-markets)
+  — you can now legally bet on what the President will say
+- [The family book](#the-family-book) — the first family holds paid seats in
+  every house at once
+- [The prompter arrives](#the-prompter-arrives) — the teleprompter operator
+  was trading his own script
+  - [The rally shouter](#the-rally-shouter) — forcing settlement from the
+    cheap seats
+- [The autopen confession](#the-autopen-confession) — every accusation is a
+  prospectus
+  - [The caption desk](#the-caption-desk) — the machine that types the record
+    the contracts settle against
+  - [The poisoned dictionary](#the-poisoned-dictionary) — mint a word from
+    the Leader's own pocket
+  - [Building the tripod: Bob's your uncle](#building-the-tripod-bobs-your-uncle)
+    — rig the frame first, then shoot
+- [The covfefe ledger](#the-covfefe-ledger) — the typos, reread as
+  settlements
+- [What the market does to what it prices](#what-the-market-does-to-what-it-prices)
+  — liquidity flows toward the mouth it can rig
+- [Closing price](#closing-price) — silence is not yet listed
+
+**[The record](#the-record-real-cited-july-2026) — real, cited, clickable**
+
+- [The exchanges](#the-exchanges) ·
+  [The instruments](#the-instruments) ·
+  [The domain markets](#the-domain-markets) ·
+  [The literature](#the-literature)
 
 ## Shadow literature
 
@@ -272,28 +314,31 @@ long position on any string not yet spoken for, and the aftermarket —
 cybersquatters, typosquatters, drop-catchers, tasting farms — is Lem's floor
 with worse manners. Every pathology in the story shipped.
 
-Reflexivity: in
-2008 it emerged that merely *asking* a registrar whether a name was
-available could cause the name to be taken — the industry called it **domain
-front running**, ICANN's security committee wrote it up, and Network
-Solutions, caught registering its customers' searches, explained with the
-Minister's exact syntax that it was doing so *for their protection*.
-Utterance is settlement; at the registrar, even the inquiry was. The cant of
-adjacency: domainers to this day discuss prospective names only by
-paraphrase and euphemism, for fear of the lookup that talks in its sleep.
-**Domain tasting**: for a few years the exchange offered five-day returns,
-so the houses registered words by the tens of millions a month, kept the
-ones strangers walked in off the street for, and refunded the silence. Even
-Lem's children have their desk: the brandable-name markets chase the slang
-of eleven-year-olds, who abandon each word the moment it resolves.
+*Reflexivity.* In 2008 it emerged that merely *asking* a registrar whether a
+name was available could cause the name to be taken — the industry called it
+**domain front running**, ICANN's security committee wrote it up, and
+Network Solutions, caught registering its customers' searches, explained
+with the Minister's exact syntax that it was doing so *for their
+protection*. Utterance is settlement; at the registrar, even the inquiry
+was.
 
-The
-relation to what follows is not analogy but corporate structure: DNS is the
-spot market for words; the mention book is its derivatives desk; kakography
-is the mint. And covfefe settled twice — once on the mention markets that
-did not yet exist, and once on the one that did: the registrations began
-before dawn on May 31, 2017, 12:06 a.m. plus the time it takes to type. The
-typo is the only word whose IPO you can watch live.
+*The cant of adjacency.* Domainers to this day discuss prospective names
+only by paraphrase and euphemism, for fear of the lookup that talks in its
+sleep.
+
+*Domain tasting.* For a few years the exchange offered five-day returns, so
+the houses registered words by the tens of millions a month, kept the ones
+strangers walked in off the street for, and refunded the silence.
+
+*Even the children have their desk.* The brandable-name markets chase the
+slang of eleven-year-olds, who abandon each word the moment it resolves.
+
+The relation to what follows is not analogy but corporate structure: DNS is
+the spot market for words; the mention book is its derivatives desk;
+kakography is the mint. And covfefe settled twice — once on the mention
+markets that did not yet exist, and once on the one that did: the
+registrations began before dawn on May 31, 2017, 12:06 a.m. plus the time it
+takes to type. The typo is the only word whose IPO you can watch live.
 
 ### The derivatives desk: mention markets
 
@@ -349,14 +394,16 @@ money lives. In Lem's version the Prompter (*Suflernia* — the prompting
 bureau) IS the exchange, and everyone has simply stopped pretending
 otherwise. We are one consolidation behind the fiction.
 
-Last December a person in one exchange's orbit attended
-a rally and *shouted mention-market words at the stage*, attempting to force
-settlement from the cheap seats — the reflexivity paradox performed as a
-heckle, and the Hermes of *Fiasco* in miniature: the demand to speak,
-deployed as a weapon, by a party too small to own a fleet. Lem's traders
-would have had him escorted out not for cheating but
-for amateurism: you never say the word yourself; you get the Leader to say
-it.
+#### The rally shouter
+
+Last December a person in one exchange's orbit attended a rally and
+*shouted mention-market words at the stage*, attempting to force settlement
+from the cheap seats — the reflexivity paradox performed as a heckle, and
+the Hermes of *Fiasco* in miniature: the demand to speak, deployed as a
+weapon, by a party too small to own a fleet.
+
+Lem's traders would have had him escorted out not for cheating but for
+amateurism: you never say the word yourself; you get the Leader to say it.
 
 ### The autopen confession
 
@@ -372,29 +419,46 @@ for very unimportant papers." The deputy who cries *the signature is not
 his!* is disclosing which pen he has audited.
 
 Apply the narrator's gloss: every accusation is a prospectus, which is to
-say a shallow confession to a deeper crime. Read as a filing, the autopen
-charge inventories the whole apparatus of the modern Leader's mouth — the
-prompter upstream of the voice, the autopen downstream of the hand — and
-invites the auditor to notice the two channels nobody has thought to
-watch. First, the **automatically generated closed captions** of the live
-speeches: recall the bylaws — video is the settlement source — and then
-recall that the caption track is written by a speech-recognition machine
-nobody elected. The Leader says what he says; the record of what he said
-is typed by an algorithm; whoever tunes the algorithm edits the tape that
-the contracts settle against. Second, and more elegant, the **autocorrect
-dictionary of the Leader's own phone**. You do not need him to misspell
-anything. Hack the phone, poison the dictionary, and wait: he types a real
-word, correctly, unwitting — and the machine "corrects" it, live, into the
-neologism you bought last Tuesday. The mint operates from his pocket,
-settlement is minted in front of the whole republic, and the Leader is the
-one participant in the market who does not know the word he just coined.
-Kakography no longer even requires a speechwriter. Covfefe, reread under
-this rule, acquires a defense counsel: perhaps he spelled *coverage*
-perfectly, and the dictionary had been loaded for weeks.
+say a shallow confession to a deeper crime.
 
-This is no longer predicting the frame; it is building the tripod — the
-way one might bet on the exact composition of a news photograph, plant
-the photographer in the right corner, and shoot the subject in the ear.
+Read as a filing, the autopen charge inventories the whole apparatus of the
+modern Leader's mouth — the prompter upstream of the voice, the autopen
+downstream of the hand — and invites the auditor to notice the two channels
+nobody has thought to watch.
+
+#### The caption desk
+
+The first channel is the **automatically generated closed captions** of the
+live speeches. Recall the bylaws — video is the settlement source — and then
+recall that the caption track is written by a speech-recognition machine
+nobody elected.
+
+The Leader says what he says; the record of what he said is typed by an
+algorithm; whoever tunes the algorithm edits the tape that the contracts
+settle against.
+
+#### The poisoned dictionary
+
+The second channel is more elegant: the **autocorrect dictionary of the
+Leader's own phone**. You do not need him to misspell anything. Hack the
+phone, poison the dictionary, and wait: he types a real word, correctly,
+unwitting — and the machine "corrects" it, live, into the neologism you
+bought last Tuesday.
+
+The mint operates from his pocket, settlement is minted in front of the
+whole republic, and the Leader is the one participant in the market who does
+not know the word he just coined. Kakography no longer even requires a
+speechwriter.
+
+Covfefe, reread under this rule, acquires a defense counsel: perhaps he
+spelled *coverage* perfectly, and the dictionary had been loaded for weeks.
+
+#### Building the tripod: Bob's your uncle
+
+This is no longer predicting the frame; it is building the tripod — the way
+one might bet on the exact composition of a news photograph, plant the
+photographer in the right corner, and shoot the subject in the ear.
+
 The floor has a benediction for a scheme this complete, and it is —
 fittingly, in Kandel's Cockney — ***Bob's your uncle***: an idiom that is
 itself a fossilized insider-trading scandal, allegedly minted in 1887 when
