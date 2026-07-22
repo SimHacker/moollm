@@ -88,11 +88,18 @@ the panels, and your brain throws it. Scott McCloud named it; prompt design
 inherits it: what you don't render, the reader builds better. Say less,
 activate more.
 
-**TTP** — *Time To Penis.* The game-industry measure of how fast users will
-make obscene content with your creative tools. Always shorter than you hoped.
-Kids: ask an adult; the adult will laugh and not tell you. Designers: this is
-not cynicism, it's the realistic starting point for moderation design —
-any system that can express anything will immediately be used to express THAT.
+**TTP** — *Time To Penis.* Coined by the Spore team at Maxis and popularized
+at [GDC 2009](https://gdcvault.com/play/1317/%28305%29-SPORE-s-Wake-What): the
+measure of how fast users will make obscene content with your creative
+tools. Always shorter than you hoped. Kids: ask an adult; the adult will
+laugh and not tell you. Designers: this is not cynicism, it's the realistic
+starting point for moderation design — any system that can express anything
+will immediately be used to express THAT. Spore's TTP was famously
+*negative*: players built penis-monsters in the Creature Creator before it
+shipped, because Chaim Gingold's editor tools were too good. As
+[*Mythic Quest*](https://www.youtube.com/watch?v=3_xqyIMwbew) puts it, give
+them a shovel, they dig dicks; give them a pen, they draw dicks.
+([Don Hopkins on the whole saga, HN 2024](https://news.ycombinator.com/item?id=40702137).)
 
 **Mind Mirror** — A mirror that shows the inside of you, as sliders between
 words like *calm* and *wired*. Timothy Leary's 1985 Electronic Arts software,
