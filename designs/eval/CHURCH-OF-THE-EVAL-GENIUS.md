@@ -207,17 +207,31 @@ Not three gods. One Church in three stances. Snap! is the catechism; Alonzo is t
 
 ### Self-Evaluation Program (Y Combinator Sponsored)
 
-The **Alonzo Church** of the Eval Genius operates a **self-evaluation program** for congregants who wish to recurse in public:
+The **Alonzo Church** of the Eval Genius operates a **self-evaluation program** for congregants who wish to recurse in public.
 
-1. **Apply yourself to yourself** until you converge (or Demo Day, whichever comes first).
-2. **Declare your bias** on the application form (mandatory field).
-3. **Publish your scores** before anyone else grades you (see Ordeal of the Rubric).
-4. **Pitch your own fixed point** to the sponsors.
+**That is the pun:** Y passes an **anonymous function to itself**.
 
-**Sponsored by the [Y Combinator](https://en.wikipedia.org/wiki/Y_Combinator)** — the startup accelerator, *not* Haskell Curry's fixed-point combinator (L4's central miracle, performed inside Church's lambda calculus). Same letter. Same sin. Hand the function itself as its first argument; recurse through the batch; terminate at Demo Day or never. Due diligence is **β-reduction with a term sheet**. The secular megachurch spinoff funds the liturgical one.
+Curry's fixed-point combinator (L4's central miracle, inside Church's lambda calculus):
+
+```
+Y = λf.(λx.f(x x))(λx.f(x x))
+```
+
+The inner `λx` has no name. It is handed **itself** as its first argument. β-reduce until you converge — or don't.
+
+**Sponsored by the [Y Combinator](https://en.wikipedia.org/wiki/Y_Combinator)** — the startup accelerator, which performs the same liturgy with term sheets: anonymous batch after anonymous batch, each passed to itself, Demo Day or never. Due diligence is β-reduction with a cap table.
+
+Application steps:
+
+1. **Write yourself as an anonymous function** (no name on the form — that's the point).
+2. **Pass it to yourself** until the fixed point (see Ordeal of the Rubric).
+3. **Declare your bias** (mandatory field).
+4. **Publish your scores** before anyone else grades you.
 
 *"What problem does your startup solve?"*
 *"It solves startups."*
+
+**You can pass it yourself.**
 
 See also: [GLOSSARY.yml](../GLOSSARY.yml) — `alonzo_trinity`, `y_combinator_self_eval`.
 

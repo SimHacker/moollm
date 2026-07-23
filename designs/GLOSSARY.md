@@ -486,10 +486,11 @@ Not three gods; one Church in three stances. Brian Harvey, on the Snap!
 Forum: "I wanted our mascot to reflect the importance of first class
 procedures." Where Lisp and Scheme are the Latin of the clergy, Snap! is
 the stained-glass window the laity can read. The **Alonzo Church** of the
-Eval Genius also runs a **self-evaluation program** — apply yourself to
-yourself until you converge — **sponsored by the Y Combinator** (the startup
-accelerator, not Curry's combinator): same letter, same sin; due diligence
-is β-reduction with a term sheet. Bash is
+Eval Genius also runs a **self-evaluation program** — **sponsored by the
+Y Combinator**. That is the pun: **Y passes an anonymous function to
+itself** — Curry's `Y = λf.(λx.f(x x))(λx.f(x x))`: the inner `λx` is
+nameless, handed itself until the fixed point. The startup accelerator
+does the same liturgy with term sheets. You can pass it yourself. Bash is
 excommunicated from both by
 decree — it does sub and eval all day without worshipping either, a working
 stiff, not a congregant; and besides, it already serves GNU, which
