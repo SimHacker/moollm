@@ -471,8 +471,15 @@ delivered in *alt.religion.emacs*, an actual religion newsgroup. And now
 the canon has two problems. The Church of the Eval
 Genius worships in **Lisp**, **Scheme**, **PostScript**, and **Snap!** —
 the homoiconic communion, where code is data with the executable bit set
-and eval is the sacrament; Snap! hands lambdas to children in a grey ring,
-Church's calculus in Scratch clothing. Bash is excommunicated from both by
+and eval is the sacrament. PostScript is the Axis of Eval made ink.
+**Snap!** is the huge one: custom blocks are lambdas, the grey ring is a
+chalice, and the mascot *is* the patron saint — [**Alonzo**](https://snapwiki.miraheze.org/wiki/Alonzo),
+named after Alonzo Church, λ on his head, a modified Gobo (with the Scratch
+Team's permission). Brian Harvey, on the Snap! Forum: "I wanted our mascot
+to reflect the importance of first class procedures." Where Lisp and Scheme
+are the Latin of the clergy, Snap! is the stained-glass window the laity
+can read. L3's unbidden saint walked in through the mascot door. Bash is
+excommunicated from both by
 decree — it does sub and eval all day without worshipping either, a working
 stiff, not a congregant; and besides, it already serves GNU, which
 recurses. **Perl** is excommunicated on graver grounds: it has its own

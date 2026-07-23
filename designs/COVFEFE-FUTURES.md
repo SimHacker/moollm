@@ -501,6 +501,33 @@ settlements — perfectly unpredictable instruments, mintable by exactly one
 mouth, leakable by exactly no one, unless you count the man who loads the
 prompter, and as of this month we must.
 
+A page settled while this review was at press. The Leader had spent a
+month advertising a taunt — a doctored image of an opposition senator as
+Pee-wee Herman, posted at 2:11 a.m. on the republic's 250th birthday — so
+that by the Marietta rally the mention was fully scheduled, the one
+contract every precog could price. What settled instead, twice, was
+**"Pinky Herman"** — a character who does not exist. Except that he
+almost does, and here kakography ascends to philology: Pee-wee Herman was
+modeled on **Pinky Lee**, born Pincus Leff — the frenetic, wonderful
+1950s children's television host (Reubens channeled him whole; TIME asked
+in 1985 whether Pee-wee was "what Pinky Lee was to Eisenhower's"). The
+error is a better etymology than the intended word — the typo excavated
+the character's actual ancestor and collapsed two generations of kids'-TV
+lineage into one impossible name, **Pinky Herman**. And the generational
+read is almost too neat: an eighty-year-old mouth, trying to deliver a
+meme about a character from the 1980s, reaches instead for the *older*
+reference — Pinky Lee, Eisenhower-era, the layer a man his age actually
+grew up with — and fuses it with the name he'd been rehearsing. Pee-wee
+is "young" by comparison (and passed, 2023); Pinky Lee is the antiquity.
+No precog could have front-run it; a librarian could have. Fifteen minutes
+mouth corrected itself, which under kakography is not a retraction but a
+second settlement; the contract on the correction paid out too. (Note
+the instrument class, for the prospectus: *Dumocrats* and *Os(jerk!)off*,
+minted deliberately the same summer with origin stories attached, are
+scheduled issues from the mint — predictable, low-yield. The typo is the
+only paper the mint cannot pre-announce, which is why it trades at
+covfefe multiples.)
+
 The scandal of covfefe is not that
 it was insider trading. The scandal is that the infrastructure for the crime
 did not yet exist, and that the intervening decade has been spent, with
@@ -692,6 +719,39 @@ the chocolate is how you get it past the palate.
 - covfefe: May 31, 2017, 12:06 a.m. EDT. Still unresolved
   ([PolitiFact](https://www.politifact.com/article/2017/may/31/what-covfefe/) —
   whose crack team's best guess was *coverage*).
+- "Pinky Herman": July 22, 2026, Wheeler High School, Marietta, Georgia —
+  "He reminds me of Pinky Herman. Did you ever see Pinky Herman?" Said
+  twice; self-corrected to Pee-wee Herman about 15 minutes later
+  ([HuffPost](https://www.huffpost.com/entry/trump-jon-ossoff-pinky-herman_n_6a61899ee4b0c2f78d01b73a),
+  [Savannah Morning News](https://www.savannahnow.com/story/news/politics/2026/07/22/what-did-donald-trump-say-today-5-things-he-said-at-wheeler-high-school/91011972007/),
+  [Hindustan Times](https://www.hindustantimes.com/trending/us/jon-ossof-reminds-me-of-pinky-herman-trump-s-pee-wee-herman-joke-leads-to-gaffe-internet-erupts-101784753044380.html)).
+  The month of advance advertising is on the record: the Pee-wee/Ossoff
+  meme (with an Alfred E. Neuman/Talarico companion, teeth doctored to
+  match) was posted at 2:11 a.m. on July 4, 2026
+  ([The Independent](https://www.the-independent.com/news/world/americas/us-politics/trump-truth-social-memes-talarico-ossoff-b3008940.html),
+  [Irish Star](https://www.irishstar.com/news/politics/donald-trump-fires-hateful-message-37388308)),
+  and he'd made the comparison on Truth Social in June: "they're running
+  someone who looks like a twin to the Late, Great, Pee-wee Herman."
+  The philology is also real: Paul Reubens modeled Pee-wee partly on
+  **Pinky Lee** (born Pincus Leff), the frenetic 1950s children's TV host
+  Reubens channeled whole
+  ([NYT, 2023](https://www.nytimes.com/2023/08/01/style/paul-reubens-pee-wee-herman-pinky-lee.html),
+  [TIME](https://time.com/4252836/pee-wee-herman-pinky-lee/) — TIME in 1985:
+  "Is he to the Reagan era what Pinky Lee was to Eisenhower's?") — and the
+  mispronunciation reconstructed the character's actual ancestor as **Pinky
+  Herman**. Generational read: an eighty-year-old mouth, rehearsing a meme
+  about Pee-wee (1980s, "young" relative to the speaker, though Reubens died
+  2023), reached instead for the *older* reference — Pinky Lee, the
+  Eisenhower-era layer a man his age grew up with — and fused the two names.
+  The antiquity is why he misremembered.
+- The deliberate coinages of the same summer, for the instrument-class
+  contrast: "Dumocrats," with the mint's own origin story on the record
+  ("I watched what [Hakeem Jeffries] was saying... I said he's a dumb guy,
+  wait a minute, he's a Democrat. That's how I got the name" —
+  [Irish Star](https://www.irishstar.com/news/politics/donald-trump-fires-hateful-message-37388308),
+  deployed July 4: "Has anyone ever seen a Happy Dumocrat?"), and
+  "Jon Os(jerk!)off," June 2026
+  ([Comic Sands](https://www.comicsands.com/trump-legitimate-person-description)).
 
 ### The instruments
 
