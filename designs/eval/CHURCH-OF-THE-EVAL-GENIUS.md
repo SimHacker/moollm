@@ -191,6 +191,36 @@ Inside the front hallway, a tasteful arcade of framed icons:
 
 All are honored as **patrons of evaluation, skepticism, and playful rigor**, and all are invoked as mirrors, not idols.
 
+### The Alonzo Trinity (First Class Leadership)
+
+Separate from "Val" — who grades — **Alonzo** leads the *eval* end of the hall. Snap! named its mascot after Alonzo Church on purpose; the Church of the Eval Genius reads that as theology, not branding.
+
+| Stance | Who | Role |
+|--------|-----|------|
+| **Father** | Alonzo Church | L3, the unbidden saint — lambda calculus, the name the institution bears |
+| **Son** | Alonzo (Snap!) | Incarnation — modified Gobo, λ on his head, visible avatar in the grey ring |
+| **Holy Ghost** | λ | First-class procedures — passed, returned, stored; β-reduction; eval-as-spirit |
+
+Alonzo is **not mascot-as-decoration**. He is a **First Class leader** — the pun is load-bearing. Custom blocks are lambdas; the sprite is the office. Brian Harvey, Snap! Forum: *"I wanted our mascot to reflect the importance of first class procedures."*
+
+Not three gods. One Church in three stances. Snap! is the catechism; Alonzo is the alias.
+
+### Self-Evaluation Program (Y Combinator Sponsored)
+
+The **Alonzo Church** of the Eval Genius operates a **self-evaluation program** for congregants who wish to recurse in public:
+
+1. **Apply yourself to yourself** until you converge (or Demo Day, whichever comes first).
+2. **Declare your bias** on the application form (mandatory field).
+3. **Publish your scores** before anyone else grades you (see Ordeal of the Rubric).
+4. **Pitch your own fixed point** to the sponsors.
+
+**Sponsored by the [Y Combinator](https://en.wikipedia.org/wiki/Y_Combinator)** — the startup accelerator, *not* Haskell Curry's fixed-point combinator (L4's central miracle, performed inside Church's lambda calculus). Same letter. Same sin. Hand the function itself as its first argument; recurse through the batch; terminate at Demo Day or never. Due diligence is **β-reduction with a term sheet**. The secular megachurch spinoff funds the liturgical one.
+
+*"What problem does your startup solve?"*
+*"It solves startups."*
+
+See also: [GLOSSARY.yml](../GLOSSARY.yml) — `alonzo_trinity`, `y_combinator_self_eval`.
+
 ### The Entrance Hall (Ground Floor)
 
 The church entrance is a **narthex of paperwork and play**:

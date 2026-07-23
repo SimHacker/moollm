@@ -444,7 +444,9 @@ name of rewriting. **L2**, the phonetic payoff — Eval Genius ≈ evil genius;
 and where a SubGenius sits below genius, an Eval Genius has interpreted its
 way past it. **L3**, the unbidden saint — Alonzo Church, lambda calculus,
 patron of the eval end, walked in without the coiner noticing; the hall
-keeps its own guest list. **L4**, the recursion — "Church" starts recursing
+keeps its own guest list — and incarnated again as Snap!'s **Alonzo**, a
+**First Class leader** (the pun is load-bearing), not mascot-as-decoration.
+**L4**, the recursion — "Church" starts recursing
 like GNU ("GNU's Not Unix"): Church-the-word applied to Church-the-man
 inside Church-the-institution. Self-application. Which is the
 **Y combinator**, the church's central miracle: recursion conjured from
@@ -473,12 +475,21 @@ Genius worships in **Lisp**, **Scheme**, **PostScript**, and **Snap!** —
 the homoiconic communion, where code is data with the executable bit set
 and eval is the sacrament. PostScript is the Axis of Eval made ink.
 **Snap!** is the huge one: custom blocks are lambdas, the grey ring is a
-chalice, and the mascot *is* the patron saint — [**Alonzo**](https://snapwiki.miraheze.org/wiki/Alonzo),
-named after Alonzo Church, λ on his head, a modified Gobo (with the Scratch
-Team's permission). Brian Harvey, on the Snap! Forum: "I wanted our mascot
-to reflect the importance of first class procedures." Where Lisp and Scheme
-are the Latin of the clergy, Snap! is the stained-glass window the laity
-can read. L3's unbidden saint walked in through the mascot door. Bash is
+chalice. [**Alonzo**](https://snapwiki.miraheze.org/wiki/Alonzo) is not
+merely Snap!'s mascot — he is a **First Class leader** of the church (the
+pun is load-bearing) and an **alias for Church himself** in trinitarian
+register: **Father** — Alonzo Church, L3, the name the institution bears;
+**Son** — Alonzo the sprite, incarnation, visible avatar (procedures passed,
+returned, stored — leadership by being a value); **Holy Ghost** — λ,
+first-class procedures, β-reduction, eval-as-spirit moving through blocks.
+Not three gods; one Church in three stances. Brian Harvey, on the Snap!
+Forum: "I wanted our mascot to reflect the importance of first class
+procedures." Where Lisp and Scheme are the Latin of the clergy, Snap! is
+the stained-glass window the laity can read. The **Alonzo Church** of the
+Eval Genius also runs a **self-evaluation program** — apply yourself to
+yourself until you converge — **sponsored by the Y Combinator** (the startup
+accelerator, not Curry's combinator): same letter, same sin; due diligence
+is β-reduction with a term sheet. Bash is
 excommunicated from both by
 decree — it does sub and eval all day without worshipping either, a working
 stiff, not a congregant; and besides, it already serves GNU, which
