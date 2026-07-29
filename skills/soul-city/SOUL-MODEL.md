@@ -14,9 +14,42 @@ That is the mind/body split as **soul / character**: the soul can move; the char
 
 ## Character
 
-The body / directory ([character](../character/)). Walks the map. Carries stuff ([inventory](../inventory/)). Wears look / role / costume as a **persona** ([persona](../persona/)).
+The body / directory ([character](../character/)). Walks the map. Carries stuff ([inventory](../inventory/)). Can **switch personas** — put on a look / role / costume ([persona](../persona/)).
 
-adventure-4 doesn’t force costumes into a special object type. Want a hat you can equip, trade, or drop? Make an **object** — a file or directory — and put it in the character’s inventory ([object](../object/)).
+Want a hat you can equip, trade, or drop outside a persona? Make an **object** — a file or directory — and put it in the character’s inventory ([object](../object/)).
+
+### Personas bring stuff with them
+
+When a character **wears** a persona, the persona can **transclude** accessories — whole little hierarchies that come along for the ride.
+
+Classic example: wear **Pirate**. You get the clothes, the peg leg, the accent, the tag lines (“Yar!” when something triggers them) — and a **parrot on the shoulder**. That parrot is its own tree: maybe it has fleas. The fleas are under the parrot. Take off the pirate persona and the default parrot goes with it (unless you kept a personal one).
+
+| In the pirate persona | What it is |
+|-----------------------|------------|
+| Clothes, peg leg | Costume / props |
+| Accent, tag lines | Voice — lines fired on triggers |
+| Generic parrot | Default pet under the persona |
+| Fleas (optional) | Nested under the parrot |
+
+adventure-4’s wardrobe pattern: [personas/](../../examples/adventure-4/personas/) (e.g. [Captain Ashford](../../examples/adventure-4/personas/captain-ashford.yml) — coat, scarf, speech modifiers). Coatroom / Maurice is where you try them on.
+
+### Your parrot, not just the stock one
+
+You can use the **generic** parrot that lives in the pirate persona, or **instantiate your own** on your shoulder — a thin shell around the generic parrot with your own data and tricks.
+
+Same idea as well → cup: the shared pirate-parrot is the well; your shoulder parrot is the cup — local lines, methods, fleas of your own. Teach it by example (“program by example”): say the line you want, it learns a personal response. Stock parrot stays available for everyone else.
+
+```
+character/
+  personas/worn → pirate/
+    clothes, peg-leg, accent, taglines…
+    parrot/                 ← generic (from the persona)
+      fleas/
+  shoulder/
+    my-parrot/              ← your thin shell around generic parrot
+      lines.yml             ← personal tag lines you taught it
+      tricks/               ← methods you trained
+```
 
 ---
 
@@ -210,8 +243,9 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Soul**      | Continuity that inhabits a character; holds zero or more minds; can jump |
 | **Mind**      | A voice / agency riding in a soul                                     |
 | **Soul City** | Place: rooms, shops, tools, roads, characters (souls aboard), …       |
-| **Persona**   | Worn look / role / costume on a **character**                         |
+| **Persona**   | Worn costume/role on a **character**; may transclude accessories (parrot, peg leg, voice) |
 | **Object**    | File or directory a character can equip, wear, trade, drop            |
+| **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — like a cell that swallowed another cell and kept its DNA |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
 | **Well**      | Shared archetype already in training (say the name)                   |

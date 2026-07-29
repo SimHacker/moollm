@@ -3,45 +3,47 @@
 # 🎭 "The costume you wear. The role you play."
 
 what: |
-  Identity layers that modify how a character presents.
-  Characters are BODIES. Personas are COSTUMES.
-  Same actor, different roles.
+  Identity layers a character WEARS. Character = body. Persona = costume.
+  Wearing can transclude accessories — whole hierarchies that ride along
+  (pirate clothes, peg leg, accent, shoulder parrot, maybe fleas).
 
 why: |
-  - Same character, multiple contexts
-  - Role-specific abilities don't persist
+  - Same character, switch roles
+  - Accessories and voice come with the costume
+  - Local shells (your parrot) over shared defaults
   - Clear who IS vs who is PLAYING
-  - Modular identity system
 
 when:
   - '"Present as someone different" → WEAR'
-  - '"Need persona abilities" → WEAR'
-  - '"Return to base identity" → REMOVE'
-  - '"Design new role" → CREATE'
+  - '"Pirate parrot on my shoulder" → WEAR + transclude'
+  - '"Teach my parrot a line" → local cup/shell by example'
+  - '"Return to base" → REMOVE'
 
 methods:
-  WEAR: "Put on a persona"
-  REMOVE: "Take off current persona"
+  WEAR: "Put on a persona (transclude its accessories)"
+  REMOVE: "Take off persona (stock accessories leave)"
   CREATE: "Design new persona"
   PREVIEW: "See how persona would change you"
+  INSTANTIATE-SHELL: "Local thin copy of a persona accessory (your parrot)"
 
 persona_schema:
   name: "Display name"
-  voice: "How to speak in this role"
-  trait_modifiers: "Sims trait adjustments"
+  voice: "Accent, tag lines, triggers"
+  trait_modifiers: "Sims / mind-mirror adjustments"
+  accessories: "Objects, pets, nested trees that transclude on WEAR"
   abilities: "What persona grants"
   constraints: "What persona forbids"
-  reputation: "How others perceive you"
 
 example: |
-  Palm (cat) + "bartender" = professional, mixes drinks
-  Palm (cat) + "musician" = artistic, plays piano
-  Palm (cat) + "detective" = cynical, investigates
+  Wear pirate → clothes + peg leg + "Yar!" lines + generic parrot (+ fleas?)
+  Your shoulder parrot = thin shell around generic; teach personal lines by example
+  adventure-4: personas/captain-ashford.yml · coatroom / Maurice
 
 body_costume_rule: |
-  CHARACTER = body (persists)
-  PERSONA = costume (changes)
-  Clear boundaries. Ethical by design.
+  CHARACTER = body (walks, inventory, hosts soul)
+  PERSONA = costume (changes; may carry accessory trees)
+  Soul / minds stay with the character unless the story jumps them
 
-related: [character, mind-mirror, coatroom, representation-ethics]
+related: [character, soul, inventory, object, mind-mirror, coatroom, representation-ethics]
+see: skills/soul-city/SOUL-MODEL.md   # Character · Personas bring stuff with them
 tier: 1

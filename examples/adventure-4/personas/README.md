@@ -19,9 +19,11 @@ Personas are **COSTUMES** — identity layers that can be worn and removed.
 | Ziggy Stardust | David Bowie |
 | Captain Ashford | Bumblewick |
 
-Personas **have**: reputation, voice patterns, trait modifiers, skills to grant.
+Personas **have**: reputation, voice patterns, trait modifiers, skills to grant — and may **transclude** accessories (clothes, peg leg, accent, shoulder parrot with its own nested tree).
 
-Personas **cannot**: move, carry, die, be hurt, have location.
+You can wear the stock accessories or keep a **local shell** (your parrot) — thin differential around the generic one; teach it lines by example. Grain: [SOUL-MODEL — Personas bring stuff with them](../../../skills/soul-city/SOUL-MODEL.md#personas-bring-stuff-with-them).
+
+Personas **cannot**: be the walking body (that’s the character); they don’t host the soul.
 
 **Why personas live here (not in rooms):**
 - Multiple characters can wear the same persona
