@@ -44,6 +44,7 @@ not persons.
 | Body / mascot | [character/ETHICS.md](../character/ETHICS.md) | Persona vs claim; patron-mascot; memorial dirs |
 | Agency | [mind/ETHICS.md](../mind/ETHICS.md) | Wells/cups; mute; displace; stubs; speaker id |
 | Place / venue | [room/ETHICS.md](../room/ETHICS.md) · [adventure](../adventure/) | Framing **inherits** down the tree; scopes performance |
+| Movable room | [vehicle/ETHICS.md](../vehicle/ETHICS.md) | DRIVE/land/crash have victims — Dorothy’s house |
 | Stage / tribute | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) · [`pub/stage/`](../../examples/adventure-4/pub/stage/) | `framing: performance` / tribute |
 | Personality organelle | [mind-mirror/ETHICS.md](../mind-mirror/ETHICS.md) | Model ≠ impersonation ≠ diagnosis |
 | Birth / grant / exit | [incarnation](../incarnation/) · [ETHICS](../incarnation/ETHICS.md) | Grant soul+minds; character authors architecture; George's Provision |

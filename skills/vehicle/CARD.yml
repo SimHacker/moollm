@@ -22,6 +22,13 @@ files:
   docs:
     - SKILL.md
     - GLANCE.yml
+    - ETHICS.md             # Dorothy's house — movable rooms can kill
+  ethics:
+    - ETHICS.md
+    - skills/room/ETHICS.md
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - skills/representation-ethics/ETHICS.md
   see_also:
     - skills/room                 # spatial base; vehicle is a room type
     - skills/mount                # DIFFERENT — skill/repo overlay (NFS metaphor)
@@ -49,6 +56,7 @@ k-lines:
     - { ref: inventory, relation: "cargo, packs, luggage" }
     - { ref: character, relation: "inhabitants / sometimes vehicle-as-character" }
     - { ref: soul, relation: "souls walk inside; vehicle relocates their pin" }
+    - { ref: room, relation: "ethics — framing at destination after DRIVE" }
 
 disambiguation:
   mount: |

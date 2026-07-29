@@ -18,6 +18,9 @@ says “mount a horse”; in MOOLLM that horse is a **vehicle** and you `EMBARK`
 
 Spatial base: [`room`](../room/) — vehicles are a room type (`is_vehicle: true`).
 
+Ethics: [ETHICS.md](ETHICS.md) — Dorothy’s house landed on a witch and killed her.
+Movable rooms are not morally null; name pilots, victims, and aftermath.
+
 ## Core operations
 
 | Method | Effect |
