@@ -336,7 +336,7 @@ An **organelle** is a folder that holds one game’s way of organizing a person 
 
 ### Universal sequence: album · blog · storybook · playlist
 
-Same membrane pattern everywhere people tell stories in order:
+Same membrane pattern everywhere people tell stories in order — and the same pattern for **any** series of objects:
 
 | Name people use | Same shape |
 |-----------------|------------|
@@ -347,23 +347,45 @@ Same membrane pattern everywhere people tell stories in order:
 | StoryMaker sequence | Beats / scenes |
 | Series of numbered folders | `01/`, `02/`, `03/`… |
 
-Each bubble is a subdirectory (or numbered prefix). Inside: `README.md` (the text), images, video links, metadata, pointers, whatever else belongs to that beat. The membrane between beats is the folder (or the `01-` / `02-` prefix). A line of bubbles = the album / the playlist / the story.
+**Naming convention**
+
+| On disk | Means |
+|---------|--------|
+| Prefixed index (`01-…`, `02-…`) | Ordered bubble in the line |
+| Name without index | The name says what it is |
+| **Plural** name (`photos/`, `posts/`, `playlists/`) | A **collection** of the singular type — often backed by a skill that knows that type |
+| Container directory | Conventionally the **plural** of what it holds |
+
+So `family-albums/`, `playlists/`, `storybooks/` are containers. Inside them: items (beats, tracks, pages) plus files that declare **interface, state, metadata, inherited behaviors** — not only the enumerated kids.
+
+**Collective views** — different ways to present the same collection:
+
+| File / skill | Role |
+|--------------|------|
+| `FAMILY-ALBUM.yml` / family-album skill | Import/export Sims Family Album; render as Markdown, web page, flip book, … |
+| `PLAYLIST.yml` / `STORYBOOK.yml` | Same series, different collective lens |
+| `RSS.yml` | Drop-in: how to publish this container as RSS |
+| `README.md` / rendered `.md` | Human view of the whole or of one beat |
+| Per-type handlers in the config | “If item is a photo… if item is a video link…” |
 
 ```
-album/   or   blog/   or   playlist/   or   story/
-  01-opening/
-    README.md              ← text for this beat
+family-albums/my-goths/          ← plural container
+  FAMILY-ALBUM.yml               ← interface + state + import/export how-to
+  RSS.yml                        ← optional publish view
+  README.md                      ← rendered collective view
+  01-wedding/
+    README.md
     photo.jpg
-    clip-link.yml          ← pointer to video / URL
-    meta.yml               ← dates, tags, credits…
-  02-picnic/
-    README.md
+    meta.yml
+  02-baby/
     …
-  03-credits/
-    README.md
 ```
 
-Same whether it’s a Sims family album organelle, a memorial storybook, or a YouTube playlist folder — endosymbiosis; don’t flatten the beats into one soup.
+A **family-album** skill can own Sims album bridges and render recipes. An **RSS** config rides along without the album skill needing to be an RSS expert. A **pdf** skill owns PDF guts; [change-name](../change-name/) (or anyone else) **composes** with it instead of swallowing PDF code forever.
+
+That composition — guest skill keeps its membrane; host uses it via bridges — **is endosymbiosis in action.**
+
+Same whether it’s a Sims family album organelle, a memorial storybook, or a YouTube playlist folder — don’t flatten the beats into one soup.
 
 Example sketch (minds + organelles):
 
