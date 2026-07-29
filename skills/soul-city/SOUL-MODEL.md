@@ -281,37 +281,53 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Object**    | Equip/wear/trade item — or a **group object** that seats several characters (hot tub, pool table, maze) |
 | **Role / slot** | Seat in a multi-person persona or group object; turn-taking allowed |
 | **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
-| **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — like a cell that swallowed another cell and kept its DNA |
+| **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — swallowed cell with its own DNA **and membranes** |
+| **Membrane** | Boundary that keeps insides inside: **directories** and **files** are membranes; they hold shape without mixing contents |
 | **Endosymbiosis** | Sideways inheritance — something moves in and keeps its own organization (mitochondria; Sims album inside a traveler) |
 | **Endowhatever** | Same move for *whatever* fits: games, minds, pets, fleas, front/back of a horse — swallow it as a folder, don’t flatten it |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
 
-### Organelles, minds, directories
+### Organelles, minds, membranes
 
-Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Same idea here for games — and for **endowhatever**: parrot, fleas, Sims sheet, horse back-end, anything you swallow as a folder without flattening.
+Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Not only DNA — **membranes** matter. Same for **endowhatever**: parrot, fleas, Sims sheet, horse back-end — swallow it as a folder without flattening.
 
 An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a Micropolis mayor sheet, a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
 
+**Membranes on disk:**
+
+| Membrane | What it does |
+|----------|----------------|
+| **Directory** | Hard membrane — inside stays inside; easy to nest |
+| **File** | Membrane around one blob of stuff |
+| **Shared filename prefix** among siblings | Lightweight local sub-membrane — `parrot-body.yml`, `parrot-lines.yml` group together in the tree, easy to “penetrate” (open one without crossing a new folder) |
+| **Enumerated prefixes** (`01-…`, `02-…`, …) | Membrane *between* each sequential item — a **line of bubbles**; each bubble is one slot. Arrays. |
+
 | Shape | On disk |
 |-------|---------|
-| Parallel minds (angel + devil, two agencies side by side) | **Sibling directories** under the soul |
-| Nested mind (a mind inside a mind) | **Subdirectory** of the outer mind |
-| Game / type as organelle (Sims mind, Micropolis mind, …) | **Directory** with that game’s files inside |
-| Parts of a mind, or several games inside one mind | **Nested organelle directories** — each game keeps its own representation and organization |
+| Parallel minds (angel + devil) | **Sibling directories** under the soul |
+| Nested mind | **Subdirectory** of the outer mind |
+| Game organelle | **Directory** — that game’s membrane |
+| Parts / several games in one mind | **Nested organelle directories** |
+| Soft group of related files | Same **prefix** in one directory |
+| Ordered list | Numbered prefixes — bubbles in a line |
 
 Example sketch (paths are illustrative):
 
 ```
 soul/
   minds/
-    angel/                 ← sibling mind
-    devil/                 ← sibling mind
+    angel/                 ← sibling membrane
+    devil/                 ← sibling membrane
     traveler/
-      sims/                ← organelle: Sims layout stays Sims
-      micropolis/          ← organelle: city-sim layout stays city-sim
-      dents/               ← nested mind (subdirectory)
+      sims/                ← organelle membrane: Sims stays Sims
+      micropolis/          ← organelle membrane: city-sim stays city-sim
+      dents/               ← nested mind
+      parrot-body.yml      ← prefix sub-membrane (soft group)
+      parrot-lines.yml
+      01-trick-speak.yml   ← bubbles in a line (array)
+      02-trick-wave.yml
 ```
 
 ---
