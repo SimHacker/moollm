@@ -312,8 +312,40 @@ An **organelle** is a folder that holds one game’s way of organizing a person 
 | Parts / several games in one mind | **Nested organelle directories** |
 | Soft group of related files | Same **prefix** in one directory |
 | Ordered list | Numbered prefixes — bubbles in a line |
+| Album / blog / playlist / story | Enumerated **subdirectories** — each bubble a beat |
 
-Example sketch (paths are illustrative):
+### Universal sequence: album · blog · storybook · playlist
+
+Same membrane pattern everywhere people tell stories in order:
+
+| Name people use | Same shape |
+|-----------------|------------|
+| Family album | Pages / photos in order |
+| Blog | Posts |
+| Storybook | Chapters / spreads |
+| YouTube playlist | Videos |
+| StoryMaker sequence | Beats / scenes |
+| Series of numbered folders | `01/`, `02/`, `03/`… |
+
+Each bubble is a subdirectory (or numbered prefix). Inside: `README.md` (the text), images, video links, metadata, pointers, whatever else belongs to that beat. The membrane between beats is the folder (or the `01-` / `02-` prefix). A line of bubbles = the album / the playlist / the story.
+
+```
+album/   or   blog/   or   playlist/   or   story/
+  01-opening/
+    README.md              ← text for this beat
+    photo.jpg
+    clip-link.yml          ← pointer to video / URL
+    meta.yml               ← dates, tags, credits…
+  02-picnic/
+    README.md
+    …
+  03-credits/
+    README.md
+```
+
+Same whether it’s a Sims family album organelle, a memorial storybook, or a YouTube playlist folder — endowhatever; don’t flatten the beats into one soup.
+
+Example sketch (minds + organelles):
 
 ```
 soul/
@@ -322,6 +354,9 @@ soul/
     devil/                 ← sibling membrane
     traveler/
       sims/                ← organelle membrane: Sims stays Sims
+        family-album/      ← sequence of bubbles
+          01-wedding/
+          02-baby/
       micropolis/          ← organelle membrane: city-sim stays city-sim
       dents/               ← nested mind
       parrot-body.yml      ← prefix sub-membrane (soft group)
