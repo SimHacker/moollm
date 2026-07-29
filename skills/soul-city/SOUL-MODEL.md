@@ -300,6 +300,8 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Gap junction** / **plasmodesmata** | Direct cell-to-cell pores | Mind↔mind or soul↔soul side channel while both stay intact |
 | **Membrane trafficking** | The whole logistics system | Bridges + sync + round-trip; don’t strip what you don’t understand |
 
+**Membrane trafficking** is the cell’s logistics network — belts, buffers, and handoffs that move cargo without destroying the packages. That’s what [Factorio](https://www.factorio.com/) and [Dyson Sphere Program](https://store.steampowered.com/app/1366780/Dyson_Sphere_Program/) are about: factories that ingest, route, transform, and spit out materials while each station keeps its own buffers. Same philosophy here — bridges and sync are your belts; JSON / YAML Jazz packets are the cargo; unknown fields ride through untouched (a belt that shreds mystery boxes is a broken factory).
+
 ### Organelles, minds, membranes
 
 **Endosymbiosis** — sideways inheritance: mitochondria weren’t born as you; they moved in and kept their own DNA and membranes. Same move for a parrot, fleas, Sims sheet, horse back-end, album beat — swallow it as a folder; **don’t flatten**.
