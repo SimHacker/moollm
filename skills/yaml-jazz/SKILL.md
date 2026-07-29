@@ -48,6 +48,19 @@ Schemapedia: `skills/schema/schemas/mechanisms/yaml-jazz/MECHANISM.yml` (`commen
 
 ---
 
+## Constitutional why (lifted)
+
+MOOLLM's constitution declares **three-axis accessibility**: maximize and balance access for
+**humans**, **LLMs**, and **programs** (`kernel/constitution-core.md` §3;
+protocol symbol `THREE-AXIS-ACCESSIBILITY`). YAML Jazz is not a taste preference — it is the
+default notation because it serves all three axes. Formats that favor only one axis (e.g. JSON
+for strict interchange) remain legitimate for their jobs; they are not where meaning lives by
+default. Comments: **respect**, **round-trip**, **generate** when appropriate.
+
+See: [PROTOCOLS.yml](../../PROTOCOLS.yml) (`YAML-JAZZ`, `THREE-AXIS-ACCESSIBILITY`, `COMMENTS-MATTER`).
+
+---
+
 ## Core Principles
 
 ### Comments Matter

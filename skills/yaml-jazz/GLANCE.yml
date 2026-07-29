@@ -42,6 +42,13 @@ three_audiences: |
   • LLMs — read everything, understand context
   • Machines — parse structure, execute logic
 
+constitutional_why: |
+  THREE-AXIS-ACCESSIBILITY (kernel/constitution-core.md §3): maximize and balance
+  human + LLM + program access. YAML Jazz is the house format because it scores
+  highly on all three. JSON still has jobs (strict interchange) but orphans the
+  comment channel. Comments: respect, round-trip, generate.
+  Protocol: THREE-AXIS-ACCESSIBILITY · YAML-JAZZ · COMMENTS-MATTER
+
 directories_as_advertisements: |
   Filenames are LLM-recognizable K-lines.
   Directory listing IS the advertisement index — Sims-style "what's available here?"

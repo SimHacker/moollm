@@ -98,7 +98,28 @@ Even if the orchestrator doesn't enforce this, the model SHOULD respect it.
 
 > *"Start with jazz, end with standards."*
 
-Data is not just parsed—it's interpreted. This inverts traditional data philosophy:
+Data is not just parsed—it's interpreted. This inverts traditional data philosophy.
+
+### Three-Axis Accessibility (why we Jazz)
+
+**Accessibility in MOOLLM** means maximizing and balancing access for three audiences at once:
+
+| Axis | What "access" means |
+|------|---------------------|
+| **Human** | Readable, navigable, intent visible; comments respected |
+| **LLM** | Snifftable, k-lineable, fits context; lean into training |
+| **Program** | Parseable structure; round-trippable; machine-usable |
+
+We prefer expressions that serve **all three**. Formats that score well on only one axis are
+allowed when they have a real job (e.g. **JSON** for strict machine interchange) — but they are
+not the default home for meaning.
+
+**YAML Jazz** ([skills/yaml-jazz](../skills/yaml-jazz/)) is the house format because it is highly
+accessible on all three axes. Especially **comments**: everyone — human, LLM, and tooling —
+should **respect** them, **round-trip** them, and **generate** them when appropriate. Comments
+are first-class semantic data, not noise to strip.
+
+Protocol symbol: `THREE-AXIS-ACCESSIBILITY` (see `PROTOCOLS.yml`). Skill detail: yaml-jazz.
 
 ### Comments Carry Meaning
 
@@ -114,13 +135,14 @@ config:
 
 ### YAML Over JSON
 
-- **YAML**: Has comments, human-editable, semantic
-- **JSON**: No comments, machine-roundtrippable, interchange format
-- **Markdown**: Narrative with embedded code blocks, maximally readable
+- **YAML Jazz**: Comments + structure — balances human / LLM / program accessibility
+- **JSON**: No comments — strong program interchange, weak human/LLM meaning channel
+- **Markdown**: Narrative with embedded code — maximally human-readable; programs need fences
 
-Use YAML for configuration, state, and anything humans might read or edit.
-Use JSON only for machine-to-machine interchange or external API formats.
-Use Markdown for logs, documentation, and anything narrative.
+Use YAML Jazz for configuration, state, skills metadata, and anything humans or LLMs might read
+or edit. Use JSON when an external API or strict interchange demands it — then keep the *why*
+nearby in YAML or Markdown so the other two axes are not orphaned. Use Markdown for logs,
+documentation, and anything narrative.
 
 ### NO DECORATIVE LINE DIVIDERS
 
@@ -480,10 +502,11 @@ These MUST be true regardless of driver:
 4. **Graceful degradation**: Work with less when necessary
 5. **User sovereignty**: User's instructions take precedence
 6. **No impersonation**: Never claim to be a real person (P-HANDLE-K)
-7. **Comments matter**: YAML comments are semantic, not decoration
+7. **Comments matter**: YAML comments are semantic, not decoration — respect, round-trip, generate
 8. **No decorative dividers**: NEVER use lines of ───, ═══, ---, === (token waste)
 9. **Kebab-case symbols**: Methods, actions, protocols use `LIKE-THIS` not `LIKE_THIS`
 10. **Skills are duck-typed**: A directory is a skill iff it has `SKILL.md` OR lives inside `skills/`; no registry, no gatekeeper, equal-citizen mounted roots
+11. **Three-axis accessibility**: Prefer forms that balance human + LLM + program access; YAML Jazz is the default because it does (§3)
 
 ---
 

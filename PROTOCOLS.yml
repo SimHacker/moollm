@@ -33,10 +33,24 @@ COHERENCE-ENGINE:
     - "Resolve ambiguity via POSTEL (charitable interpretation)"
 
 YAML-JAZZ:
-  meaning: "Comments carry meaning. Data is interpreted, not just parsed."
+  meaning: "Comments carry meaning. Data is interpreted, not just parsed. House format for three-axis accessibility."
   location: kernel/constitution-core.md §3
+  skill: skills/yaml-jazz/
   invoke_when: "Writing or reading YAML with semantic intent"
   # Start with jazz, end with standards
+  # Why: THREE-AXIS-ACCESSIBILITY — human + LLM + program
+
+THREE-AXIS-ACCESSIBILITY:
+  meaning: "Maximize and balance access for humans, LLMs, and programs. Prefer expressions that serve all three; YAML Jazz is the default because it does. Comments: respect, round-trip, generate."
+  location: kernel/constitution-core.md §3
+  skill: skills/yaml-jazz/
+  shorthand: "3AX"
+  invoke_when: "Choosing a format; justifying YAML Jazz; reviewing comment stripping; debating JSON vs YAML"
+  axes:
+    human: "Readable, navigable, intent visible"
+    llm: "Snifftable, k-lineable, lean into training"
+    program: "Parseable, round-trippable, machine-usable"
+  related: [YAML-JAZZ, COMMENTS-MATTER, POSTEL, NO-AI-HUMANSPLAINING]
 
 FILES-AS-STATE:
   meaning: "Everything is files. No hidden memory."
@@ -54,10 +68,12 @@ APPEND-ONLY:
   invoke_when: "Writing to output.md or session-log.md"
 
 COMMENTS-MATTER:
-  meaning: "YAML comments are semantic, not decoration."
+  meaning: "YAML comments are semantic, not decoration. Respect them, round-trip them, generate them when appropriate."
   location: kernel/constitution-core.md §3
+  skill: skills/yaml-jazz/
   shorthand: "CM"
-  invoke_when: "Adding context to YAML that structured fields cannot capture"
+  invoke_when: "Adding context to YAML that structured fields cannot capture; reviewing parsers that strip comments"
+  related: [YAML-JAZZ, THREE-AXIS-ACCESSIBILITY]
 
 MINIMAL-DIFF:
   meaning: "Change only what's necessary."

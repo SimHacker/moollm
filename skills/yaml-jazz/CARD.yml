@@ -35,13 +35,19 @@ methods:
 state: {}
 
 principles:
-  comments-matter: "# Comments are semantic data for the LLM"
+  three-axis-accessibility: "Maximize/balance human + LLM + program access (constitution §3)"
+  comments-matter: "# Comments are semantic data — respect, round-trip, generate"
   structure-guides: "Hierarchy implies relationship"
   flexibility: "Accept variations, emit consistency (Postel)"
   human-readable: "Optimize for understanding, not parsing"
   entropy-preservation: "YAML preserves generation entropy; JSON causes collapse"
   directories-as-advertisements: "Directory listings ARE the advertisement index"
   big-endian-naming: "Most significant first: 2026-01-24-description.yml"
+
+constitutional:
+  principle: THREE-AXIS-ACCESSIBILITY
+  location: kernel/constitution-core.md §3
+  why_yaml_jazz: "House format — high accessibility on all three axes; comments are the shared channel"
 
 # YAML JAZZ vs JSON
 # JSON gives you data. YAML Jazz gives you data + meaning + context.
