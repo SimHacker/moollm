@@ -51,6 +51,34 @@ character/
       tricks/               ← methods you trained
 ```
 
+### Multi-person personas (pantomime horse)
+
+Some costumes need more than one body. The **pantomime horse** is a two-person persona: a **front end** and a **back end**. Same horse, two roles. You can switch — “Why do I always have to be the back end? I want to try the front for once!”
+
+```
+persona/pantomime-horse/
+  roles/
+    front/     ← sees, steers, talks (maybe)
+    back/      ← walks the rear, trusts the front
+  slots: 2     ← two characters WEAR into the same persona object
+```
+
+Roles can take turns. The horse is one shared activity with seats.
+
+### Group objects (Sims-style orchestration)
+
+Same pattern as Sims objects that orchestrate several people at once: the hot tub, the pool table, the Sims Online maze puzzle. The **object** (or multi-person persona) owns the activity; characters claim **roles** / slots; they can rotate.
+
+On top of the group activity, social behavior **piggybacks** — talking, joking, bonding, or becoming bitter enemies — while you soak, shoot pool, or solve the maze. The friendship (or feud) is a side channel riding the shared activity, not a separate appointment.
+
+| Kind | Example | What it orchestrates |
+|------|---------|----------------------|
+| Multi-person persona | Pantomime horse | Front / back roles; turn-taking |
+| Group object | Hot tub, pool table, maze puzzle | Several Sims in slots; shared animation / puzzle state |
+| Piggyback social | Chat while soaking | Relationship deltas on top of the activity |
+
+Free form: invent the slots, the turns, the win conditions, the side chat.
+
 ---
 
 ## Soul
@@ -243,8 +271,9 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Soul**      | Continuity that inhabits a character; holds zero or more minds; can jump |
 | **Mind**      | A voice / agency riding in a soul                                     |
 | **Soul City** | Place: rooms, shops, tools, roads, characters (souls aboard), …       |
-| **Persona**   | Worn costume/role on a **character**; may transclude accessories (parrot, peg leg, voice) |
-| **Object**    | File or directory a character can equip, wear, trade, drop            |
+| **Persona**   | Worn costume/role on a **character**; may transclude accessories; may be multi-person (horse front/back) |
+| **Object**    | Equip/wear/trade item — or a **group object** that seats several characters (hot tub, pool table, maze) |
+| **Role / slot** | Seat in a multi-person persona or group object; turn-taking allowed |
 | **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — like a cell that swallowed another cell and kept its DNA |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
