@@ -119,6 +119,12 @@ Many cities. Bootstrap map: [adventure-4](../../examples/adventure-4/) · [Soul 
 
 A **soul** or a **mind** can **import** *pieces* of famous characters — Mickey Mouse, Donald Duck, Gandalf the Wizard — the hat, the mission, how a name sounds — and leave the rest. Real people, animals, abstract concepts like love itself: same move.
 
+```
+from love import trust, ambiguity
+```
+
+Not the whole of love — just those two facets. Leave the rest.
+
 **Scope** (where you put the import):
 
 | Import into… | Who sees it |
