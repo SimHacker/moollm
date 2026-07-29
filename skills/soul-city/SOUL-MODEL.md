@@ -283,8 +283,7 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — swallowed cell with its own DNA **and membranes** |
 | **Membrane** | Boundary that keeps insides inside: **directories** and **files** are membranes; they hold shape without mixing contents |
-| **Endosymbiosis** | Sideways inheritance — something moves in and keeps its own organization (mitochondria; Sims album inside a traveler) |
-| **Endowhatever** | Swallow *whatever* fits as a folder — games, minds, pets, fleas, horse ends — **don’t flatten**. Round-trip JSON; round-trip [YAML Jazz](../yaml-jazz/) **including comments**. Ignore what you don’t understand; **don’t strip it out**. Biological jazz. |
+| **Endosymbiosis** | Something moves in and keeps its own organization and membranes (mitochondria; a Sims album, mind, pet, or horse-end as a folder). **Don’t flatten.** Round-trip JSON; round-trip [YAML Jazz](../yaml-jazz/) **including comments**. Pass through what you don’t understand — **don’t strip it out**. |
 | **Bridge**    | Channel between minds, souls, characters, games — biology’s **membrane traffic** constellation (below) |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
@@ -303,14 +302,14 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 
 ### Organelles, minds, membranes
 
-Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Not only DNA — **membranes** matter. Same for **endowhatever**: parrot, fleas, Sims sheet, horse back-end — swallow it as a folder without flattening.
+**Endosymbiosis** — sideways inheritance: mitochondria weren’t born as you; they moved in and kept their own DNA and membranes. Same move for a parrot, fleas, Sims sheet, horse back-end, album beat — swallow it as a folder; **don’t flatten**.
 
-**Biological jazz** (how you treat the insides once swallowed):
+How you treat the guest once it’s inside:
 
 - Round-trip **JSON** — what goes in comes back out
 - Round-trip **YAML Jazz** — including the **comments** (comments are data; see [yaml-jazz](../yaml-jazz/))
-- Meet a field or file you don’t understand? **Leave it alone.** Don’t strip unknown keys, unknown files, or “extra” comments to “clean up”
-- Survive first; optimize later — same as a cell that doesn’t dissolve its guest’s membrane
+- Field or file you don’t understand? **Leave it alone.** Don’t strip unknown keys, unknown files, or “extra” comments to “clean up”
+- Survive first; optimize later — a cell that dissolves its guest’s membrane kills the guest
 
 An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a Micropolis mayor sheet, a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
 
@@ -362,7 +361,7 @@ album/   or   blog/   or   playlist/   or   story/
     README.md
 ```
 
-Same whether it’s a Sims family album organelle, a memorial storybook, or a YouTube playlist folder — endowhatever; don’t flatten the beats into one soup.
+Same whether it’s a Sims family album organelle, a memorial storybook, or a YouTube playlist folder — endosymbiosis; don’t flatten the beats into one soup.
 
 Example sketch (minds + organelles):
 
