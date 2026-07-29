@@ -53,17 +53,23 @@ character/
 
 ### Multi-person personas (pantomime horse)
 
-Some costumes need more than one body. The **pantomime horse** is a two-person persona: a **front end** and a **back end**. Same horse, two roles. You can switch — “Why do I always have to be the back end? I want to try the front for once!”
+The **pantomime horse** is one persona **and** a two-character [vehicle](../vehicle/) — a movable costume you both inhabit.
+
+- **Persona:** one horse look / gag / voice shared by whoever’s inside
+- **Vehicle:** two seats — **front end** and **back end** — that walk the map together
+- Switch roles — “Why do I always have to be the back end? I want to try the front for once!”
 
 ```
-persona/pantomime-horse/
+persona+vehicle/pantomime-horse/
+  persona:     one costume (the horse)
+  vehicle:     walks as one body on the map
   roles/
     front/     ← sees, steers, talks (maybe)
     back/      ← walks the rear, trusts the front
-  slots: 2     ← two characters WEAR into the same persona object
+  seats: 2     ← two characters EMBARK / WEAR into the same thing
 ```
 
-Roles can take turns. The horse is one shared activity with seats.
+Roles can take turns. One shared persona; one vehicle; two characters aboard.
 
 ### Group objects (Sims-style orchestration)
 
@@ -73,7 +79,7 @@ On top of the group activity, social behavior **piggybacks** — talking, joking
 
 | Kind | Example | What it orchestrates |
 |------|---------|----------------------|
-| Multi-person persona | Pantomime horse | Front / back roles; turn-taking |
+| Persona + vehicle | Pantomime horse | One costume, two seats (front/back); walks as one |
 | Group object | Hot tub, pool table, maze puzzle | Several Sims in slots; shared animation / puzzle state |
 | Piggyback social | Chat while soaking | Relationship deltas on top of the activity |
 
@@ -271,7 +277,7 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Soul**      | Continuity that inhabits a character; holds zero or more minds; can jump |
 | **Mind**      | A voice / agency riding in a soul                                     |
 | **Soul City** | Place: rooms, shops, tools, roads, characters (souls aboard), …       |
-| **Persona**   | Worn costume/role on a **character**; may transclude accessories; may be multi-person (horse front/back) |
+| **Persona**   | Worn costume/role on a **character**; may transclude accessories; may pair with a vehicle (pantomime horse = one persona + two seats) |
 | **Object**    | Equip/wear/trade item — or a **group object** that seats several characters (hot tub, pool table, maze) |
 | **Role / slot** | Seat in a multi-person persona or group object; turn-taking allowed |
 | **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
