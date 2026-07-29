@@ -285,9 +285,21 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Membrane** | Boundary that keeps insides inside: **directories** and **files** are membranes; they hold shape without mixing contents |
 | **Endosymbiosis** | Sideways inheritance — something moves in and keeps its own organization (mitochondria; Sims album inside a traveler) |
 | **Endowhatever** | Swallow *whatever* fits as a folder — games, minds, pets, fleas, horse ends — **don’t flatten**. Round-trip JSON; round-trip [YAML Jazz](../yaml-jazz/) **including comments**. Ignore what you don’t understand; **don’t strip it out**. Biological jazz. |
-| **Bridge**    | Channel between minds, souls, characters, games                       |
+| **Bridge**    | Channel between minds, souls, characters, games — biology’s **membrane traffic** constellation (below) |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
+
+**Bridge ≈ how cells move cargo across and between membranes** ([vesicle transport](https://en.wikipedia.org/wiki/Vesicle_%28biology_and_chemistry%29), [endocytosis / exocytosis](https://en.wikipedia.org/wiki/Endocytosis)):
+
+| Bio term | Plain | Here |
+|----------|-------|------|
+| **Vesicle** | Little membrane bubble carrying cargo | A package you copy / sync / ship (file, album page, save chunk) |
+| **Endocytosis** | Swallow in | Import into a soul / organelle / directory |
+| **Exocytosis** | Spit out | Export / publish / write back to a game |
+| **Transcytosis** | In one side, out the other | Through-traffic — e.g. Sims → Soul City → Micropolis without dissolving either |
+| **Channel / transporter / porin** | Selective pore in a membrane | Narrow bridge — only some fields pass |
+| **Gap junction** / **plasmodesmata** | Direct cell-to-cell pores | Mind↔mind or soul↔soul side channel while both stay intact |
+| **Membrane trafficking** | The whole logistics system | Bridges + sync + round-trip; don’t strip what you don’t understand |
 
 ### Organelles, minds, membranes
 
