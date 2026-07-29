@@ -284,7 +284,7 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — swallowed cell with its own DNA **and membranes** |
 | **Membrane** | Boundary that keeps insides inside: **directories** and **files** are membranes; they hold shape without mixing contents |
 | **Endosymbiosis** | Sideways inheritance — something moves in and keeps its own organization (mitochondria; Sims album inside a traveler) |
-| **Endowhatever** | Same move for *whatever* fits: games, minds, pets, fleas, front/back of a horse — swallow it as a folder, don’t flatten it |
+| **Endowhatever** | Swallow *whatever* fits as a folder — games, minds, pets, fleas, horse ends — **don’t flatten**. Round-trip JSON; round-trip [YAML Jazz](../yaml-jazz/) **including comments**. Ignore what you don’t understand; **don’t strip it out**. Biological jazz. |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
@@ -292,6 +292,13 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 ### Organelles, minds, membranes
 
 Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Not only DNA — **membranes** matter. Same for **endowhatever**: parrot, fleas, Sims sheet, horse back-end — swallow it as a folder without flattening.
+
+**Biological jazz** (how you treat the insides once swallowed):
+
+- Round-trip **JSON** — what goes in comes back out
+- Round-trip **YAML Jazz** — including the **comments** (comments are data; see [yaml-jazz](../yaml-jazz/))
+- Meet a field or file you don’t understand? **Leave it alone.** Don’t strip unknown keys, unknown files, or “extra” comments to “clean up”
+- Survive first; optimize later — same as a cell that doesn’t dissolve its guest’s membrane
 
 An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a Micropolis mayor sheet, a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
 
