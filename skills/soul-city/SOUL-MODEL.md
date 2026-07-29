@@ -1,6 +1,6 @@
 # Soul Model
 
-A **soul** is the thing that walks around with your stuff — one body, one backpack, zero or more minds arguing in your head.
+A **soul** is the thing that walks around with your stuff — one body, one backpack, zero or more minds riding along.
 
 **Soul City** is a place those souls can walk: rooms, shops, tools, roads, parties. Games keep their own rules; souls can still know people across games.
 
