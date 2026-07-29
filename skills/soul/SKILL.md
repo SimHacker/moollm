@@ -1,6 +1,6 @@
 ---
 name: soul
-description: Continuity body — one location, shared inventory, zero or more minds
+description: Continuity that inhabits a character — zero or more minds; can jump
 license: MIT
 tier: 1
 related:
@@ -23,26 +23,25 @@ tags: [moollm, soul, embodiment, soul-city, minds]
 
 # Soul
 
-Continuity body on the adventure map.
+Continuity that inhabits a [character](../character/). The character walks and carries; the soul holds minds and history — and can jump.
 
-See also / dependency grain: [CARD.yml](CARD.yml) · ethics: [ETHICS.md](ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md)
+See also / dependency grain: [CARD.yml](CARD.yml) · ethics: [ETHICS.md](ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md) · public grain: [soul-city/SOUL-MODEL.md](../soul-city/SOUL-MODEL.md)
 
-**Stance:** organizational / Self object-model — soul is a useful **container** for minds. Not a claim that souls are metaphysically real. Multiple minds are first-class. Default: soul contains zero or more minds. Nesting the other way (mind → sub-minds, sub-souls, intervening containers) is also valid under Self.
+**Stance:** organizational / Self object-model — soul is a useful **container** for minds inside a character. Not a claim that souls are metaphysically real. Multiple minds are first-class. Default: character ⊃ soul ⊃ minds. Nesting the other way (mind → sub-minds, sub-souls, intervening containers) is also valid under Self.
 
-| Owns | Notes |
-|------|--------|
-| location | One map pin |
-| inventory | Shared pockets (native + luggage) |
-| minds[] | Zero or more resident agencies |
-| history | Albums, journals, lived experience |
+| Layer | Owns |
+|-------|------|
+| Character | Location, inventory, personas |
+| Soul | minds[] (0..N), history; rides with (or leaves) the character |
+| Mind | Agency / voice / organelle |
 
-Minds share the soul's location. They do not each need a map pin.
+Minds share the soul; the soul shares the character’s map pin while inhabited. Minds do not each need a map pin.
 
 ## Mind cardinality (all valid)
 
 | Shape | `minds[]` | Notes |
 |-------|-----------|--------|
-| **Mindless soul** | `[]` | Location + inventory + history; no resident agency |
+| **Mindless soul** | `[]` | History with the character; no resident agency |
 | **Single-minded soul** | one | One cup / organelle / stub |
 | **Multi-minded soul** | two or more | Shoulders, parliament, B-brain + actors, … |
 
@@ -78,7 +77,7 @@ soul:
 |-------|----------|
 | [mind](../mind/) | Agencies inside (or beside) the soul |
 | [character](../character/) | Entity/directory pattern; may be or host a soul |
-| [inventory](../inventory/) | Protocol for the soul's shared pockets |
+| [inventory](../inventory/) | Protocol for the character's pockets |
 | [society-of-mind](../society-of-mind/) | Competition, K-lines, B-brain among minds |
 | [party](../party/) | Multiple *souls* traveling together; can split. A soul usually does not. |
 | [persona](../persona/) | Costume on a character body — not a mind |

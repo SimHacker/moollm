@@ -1,61 +1,57 @@
 # GLANCE.yml — soul
 # Full file: CARD.yml | SKILL.md
-# 🕯️ "One location. Shared inventory. Zero or more minds."
+# 🕯️ "Inhabits a character. Zero or more minds. Can jump."
 
 what: |
-  Continuity body on the adventure map: one location, shared inventory,
-  history, and zero or more minds. Organizational container — not a
-  metaphysical claim. Multiple minds are first-class. Nesting
-  (sub-minds, sub-souls, intervening containers) allowed under Self.
-  Minds ride with the soul; they do not each need a map pin.
+  Continuity that inhabits a character: history and zero or more minds.
+  Character walks, carries inventory, wears personas. Soul rides along
+  (or jumps bodies). Organizational container — not a metaphysical claim.
+  Multiple minds are first-class. Nesting allowed under Self.
 
 why: |
-  - Embodiment without forcing one psychology
-  - Inventory and location stay on the soul
-  - Multiple minds share the walk
+  - Character ≠ soul (body vs continuity)
+  - Minds ride in the soul; soul rides in the character
+  - Fiction: soul-jumping; usually one soul per character
   - Game organelles attach as minds with schemas
 
 when:
-  - '"One body, many agencies" → soul + minds'
-  - '"Walk the city" → MOVE soul (minds come along)'
-  - '"Shared pockets" → inventory on soul'
-  - '"Cross-game character" → organelle minds under soul'
+  - '"One body, many agencies" → character + soul + minds'
+  - '"Walk the city" → character moves; soul and minds come along'
+  - '"Shared pockets" → inventory on character'
+  - '"Cross-game" → organelle minds under soul'
 
 owns:
-  - location
-  - inventory
   - minds[]   # cardinality 0, 1, or N — all valid
   - history
+  # location/inventory usually on the hosting character while inhabited
 
 mind_cardinality:
-  mindless: "minds: [] — walks, carries, persists; no resident agency"
+  mindless: "minds: [] — persists with character; no resident agency"
   single_minded: "exactly one mind"
   multi_minded: "two or more minds (shoulders, parliament, …)"
 
 worked_cases:
-  zombiesims: "Replace human + other minds with one zombie mind (often single-minded after infection)"
+  zombiesims: "Replace human + other minds with one zombie mind"
   robot: "Robots have souls; may be mindless, single-, or multi-minded"
-  remote_control: "Remote-control robot → remote-control mind stub (thin agency; pilot elsewhere)"
+  remote_control: "Remote-control robot → remote-control mind stub"
 
 related_skills:
+  character: "Body that walks; inventory; personas; hosts soul(s)"
   mind: "Resident agencies — required before society-of-mind / mind-mirror"
-  character: "Directory / entity that is or hosts a soul"
-  inventory: "Soul's shared pockets"
+  inventory: "Character's pockets (soul rides along)"
+  persona: "Worn on character"
   society-of-mind: "Competition among minds (needs mind)"
   mind-mirror: "Personality organelle on a mind (needs mind)"
   soul-chat: "Voices — needs soul (often minds speaking)"
   incarnation: "Ethical birth / autonomy / exit"
-  adventure: "Map the soul walks — loci lineage"
-  party: "Multiple souls traveling together"
+  adventure: "Map the character walks — loci lineage"
+  party: "Multiple characters / souls traveling together"
+  soul-city: "Place characters walk with souls aboard"
 
 foundational_for: [soul-chat, incarnation]
-walks: skills/soul-city
+inhabits: skills/character
+walks_via: skills/soul-city
 
 examples: skills/soul-city/SOUL-MODEL.md
-ethics: ETHICS.md                             # container + stack hub · mind/ + character/ ETHICS
+ethics: ETHICS.md
 # see_also / dependency_grain / related → CARD.yml
-
-not:
-  - no-ai-soul   # dial on soul / YAML Jazz comment heat — not this container ontology
-
-tier: 1

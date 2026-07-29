@@ -1,5 +1,5 @@
 # CARD.yml — Soul
-# Continuity body: location + inventory + minds + history
+# Continuity in a character: minds + history; can jump
 
 card:
   id: soul
@@ -7,12 +7,12 @@ card:
   type: [skill, entity, ontology]
   emoji: 🕯️
   tier: 1
-  tagline: "One location. Shared inventory. Zero or more minds."
+  tagline: "Inhabits a character. Zero or more minds. Can jump."
 
   description: |
-    Continuity body — location, inventory, history, minds[] (0..N).
-    Free-form architecture. May walk Soul City (skills/soul-city) and
-    bridge to characters/personas/minds in other games.
+    Continuity that inhabits a character — history, minds[] (0..N).
+    Character walks, carries inventory, wears personas. Soul rides along
+    (or jumps). Free-form; bridges to other games OK.
 
 files:
   docs:
@@ -58,8 +58,8 @@ files:
 # Grain: character → soul → mind → (society-of-mind | mind-mirror …)
 #         soul → soul-chat | incarnation; soul walks soul-city
 dependency_grain:
-  - { skill: character, needs: null, offers: "entity / directory pattern" }
-  - { skill: soul, needs: character, offers: "continuity body; free-form minds[]; bridges" }
+  - { skill: character, needs: null, offers: "body; walk; inventory; personas; hosts soul(s)" }
+  - { skill: soul, needs: character, offers: "continuity; free-form minds[]; can jump; bridges" }
   - { skill: mind, needs: "soul (usual host)", offers: "agency; cups; organelles; stubs" }
   - { skill: soul-city, needs: null, offers: "liminal place: rooms/shops/tools/…" }
   - { skill: society-of-mind, needs: mind, offers: "how minds compete and counsel" }
@@ -76,7 +76,7 @@ k-lines:
     - { ref: mind, relation: "resident agencies; soul may contain 0+ minds" }
     - { ref: character, relation: "directory that is or hosts a soul" }
     - { ref: persona, relation: "costume layer; may relate across games" }
-    - { ref: inventory, relation: "shared pockets on the soul" }
+    - { ref: inventory, relation: "pockets on the character; soul rides along" }
     - { ref: society-of-mind, relation: "competition and counsel among minds (needs mind)" }
     - { ref: mind-mirror, relation: "personality organelle on a mind (needs mind)" }
     - { ref: soul-chat, relation: "voices under a soul" }

@@ -1,19 +1,33 @@
 # Soul Model
 
-A **soul** is the thing that walks around with your stuff — one body, one backpack, zero or more minds riding along.
+**Character** and **soul** are different levels.
 
-**Soul City** is a place those souls can walk: rooms, shops, tools, roads, parties. Games keep their own rules; souls can still know people across games.
+- A **character** is the body that walks around — backpack, hands, costume. It **wears personas** and holds **inventory**.
+- A **soul** is what inhabits that body — continuity, history, and **zero or more minds** riding along.
+- Usually one soul per character. Fiction is full of souls jumping bodies; theoretically a character could host more than one.
+
+That is the mind/body split as **soul / character**: the soul can move; the character is the vessel; the minds come along inside the soul.
+
+**Soul City** is a place characters walk (rooms, shops, tools, roads, parties) with their souls aboard. Games keep their own rules; souls can still know people across games.
+
+---
+
+## Character
+
+The body / directory ([character](../character/)). Walks the map. Carries stuff ([inventory](../inventory/)). Wears look / role / costume as a **persona** ([persona](../persona/)).
+
+adventure-4 doesn’t force costumes into a special object type. Want a hat you can equip, trade, or drop? Make an **object** — a file or directory — and put it in the character’s inventory ([object](../object/)).
 
 ---
 
 ## Soul
 
-One location. Shared inventory. **Zero or more minds.**
+What lives in the character — continuity and minds ([soul](../soul/)). **Zero or more minds.** The soul rides with the character’s location while inhabited; it can leave or jump in stories and models that allow it.
 
 
 | Minds | Shape                                               |
 | ----- | --------------------------------------------------- |
-| 0     | Mindless — walks, carries, persists                 |
+| 0     | Mindless — persists with the character; no resident agency |
 | 1     | Single-minded                                       |
 | N     | Multi-minded (angel/devil shoulders, committees, …) |
 
@@ -22,15 +36,11 @@ Robots can have souls. Zombies swap in a zombie mind. Remote-control is a mind s
 
 Souls can know characters, personas, and minds that live in *other* games. Free form.
 
-Characters can **wear personas** — that’s where you describe look / costume / role ([persona](../persona/)). adventure-4 doesn’t force costumes into a special object type. Want a hat you can equip, trade, or drop? Make an **object** — a file or directory — and put it in inventory. Same for anything wearable or tradable ([object](../object/) · [inventory](../inventory/)).
-
 ---
-
-
 
 ## Soul City
 
-The city: rooms, roads, plazas, shops, tools, objects, vehicles, parties — and souls hanging out in it.
+The city: rooms, roads, plazas, shops, tools, objects, vehicles, parties — characters walking it, souls aboard.
 
 Many cities. Bootstrap map: [adventure-4](../../examples/adventure-4/) · [Soul Plaza](../../examples/adventure-4/street/lane-neverending/e2/soul-plaza/) (create / publish / share shops).
 
@@ -45,7 +55,7 @@ A **soul** can borrow *pieces* of famous characters, like Mickey Mouse, Donald D
 
 | Who                           | Combination                                      | What was borrowed                                              | More                                                                                              |
 | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| **Jesus Mouse**               | **Jesus Christ + Mickey Mouse** (+ Wizard props) | One soul, one body — look, mission, mouse costume, wizard gear | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse)   |
+| **Jesus Mouse**               | **Jesus Christ + Mickey Mouse** (+ Wizard props) | One character, one soul — look, mission, mouse costume, wizard gear | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse)   |
 | **Duckmouse** (Donald Michie) | **Donald Duck + Mickey Mouse**                   | Name *sounds* only — nothing else from the cartoons            | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie) |
 
 
@@ -177,15 +187,15 @@ More: [Latent-Space Inheritance](../../designs/object-system/LATENT-SPACE-INHERI
 Organizational model — not a claim that souls are theologically “real.”
 
 
-| We mean                                                  | We don’t mean                             |
-| -------------------------------------------------------- | ----------------------------------------- |
-| Soul = useful container: place, backpack, history, minds | Souls are metaphysical fact               |
-| Multiple minds are first-class                           | Everyone has exactly one indivisible mind |
-| Zero or more minds                                       | Minds require a soul; nesting forbidden   |
-| Soul City = useful place                                 | Every game must become Soul City          |
+| We mean | We don’t mean |
+|---------|----------------|
+| Character = body that walks, carries, wears personas | Character and soul are the same thing |
+| Soul = continuity that inhabits a character; holds minds | Souls are metaphysical fact |
+| Usually one soul per character; jumps / multi-soul possible | Every being has exactly one fixed soul forever glued to one body |
+| Multiple minds are first-class | Everyone has exactly one indivisible mind |
+| Soul City = useful place | Every game must become Soul City |
 
-
-Default: soul contains minds. Also fine: nested minds, sub-souls, bridges into other games.
+Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridges into other games, soul moves between characters.
 
 ---
 
@@ -196,12 +206,12 @@ Default: soul contains minds. Also fine: nested minds, sub-souls, bridges into o
 
 | Term          | Meaning                                                               |
 | ------------- | --------------------------------------------------------------------- |
-| **Soul**      | Walks, carries stuff, holds minds                                     |
-| **Soul City** | Place: rooms, shops, tools, roads, souls, …                           |
-| **Mind**      | A voice / agency in (or beside) a soul                                |
-| **Character** | Body / directory; may host a soul; can wear personas                  |
-| **Persona**   | Worn look / role / costume description on a character                 |
-| **Object**    | File or directory you can equip, wear, trade, drop — invent as needed |
+| **Character** | Body that walks; inventory; wears personas; usually hosts one soul    |
+| **Soul**      | Continuity that inhabits a character; holds zero or more minds; can jump |
+| **Mind**      | A voice / agency riding in a soul                                     |
+| **Soul City** | Place: rooms, shops, tools, roads, characters (souls aboard), …       |
+| **Persona**   | Worn look / role / costume on a **character**                         |
+| **Object**    | File or directory a character can equip, wear, trade, drop            |
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — like a cell that swallowed another cell and kept its DNA |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
 | **Well**      | Shared archetype already in training (say the name)                   |
@@ -299,11 +309,11 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 
 ## Play
 
-1. Soul: `CHARACTER.yml` or template [player](characters/abstract/player/).
-2. Rooms; inventory on the soul.
-3. Mind = cup (subdirectory or co-located join).
-4. Forks: shoulders may speak.
-5. Game schema on a mind: **Import How…**, bridges, player-in-the-middle.
+1. Character: `CHARACTER.yml` or template — walks, inventory, persona.
+2. Soul inhabits the character; zero or more minds ride in the soul.
+3. Rooms on the map; stuff in the character’s backpack.
+4. Shoulders / other minds may speak.
+5. Game schema on a mind: bridges, player-in-the-middle.
 
 ---
 

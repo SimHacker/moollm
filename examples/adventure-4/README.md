@@ -4,7 +4,7 @@
 
 ## Soul City bootstrap
 
-adventure-4 is a **Soul City instance** (bootstrap map) — one soul walks with shared inventory; many minds ride along. Ontology lives in the skill: [`skills/soul-city/SOUL-MODEL.md`](../../skills/soul-city/SOUL-MODEL.md). **Skills:** [`soul`](../../skills/soul/) · [`mind`](../../skills/mind/) · [`room`](../../skills/room/) · [`vehicle`](../../skills/vehicle/). Soul Plaza: [`street/lane-neverending/e2/soul-plaza/`](street/lane-neverending/e2/soul-plaza/).
+adventure-4 is a **Soul City instance** (bootstrap map) — characters walk with inventory; a soul (zero or more minds) rides along. Ontology: [`skills/soul-city/SOUL-MODEL.md`](../../skills/soul-city/SOUL-MODEL.md). **Skills:** [`character`](../../skills/character/) · [`soul`](../../skills/soul/) · [`mind`](../../skills/mind/) · [`room`](../../skills/room/) · [`vehicle`](../../skills/vehicle/). Soul Plaza: [`street/lane-neverending/e2/soul-plaza/`](street/lane-neverending/e2/soul-plaza/).
 
 ## 🌍 Overview
 
