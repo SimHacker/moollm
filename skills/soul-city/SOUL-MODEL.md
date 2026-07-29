@@ -109,7 +109,7 @@ nickname = Duckmouse
 
 ### Same two — Jesus Christ + Mickey Mouse — as two minds
 
-Jesus Mouse lived as **one** Jesus Christ + Mickey Mouse soul. You could also put Jesus Christ and Mickey Mouse in **two minds** on one soul (they can argue). Not what he lived — just another shape:
+Jesus Mouse lived as **one** Jesus Christ + Mickey Mouse soul. You could also put Jesus Christ and Mickey Mouse in **two minds** on one soul (they can counsel or disagree). Not what he lived — just another shape:
 
 ```
 soul
@@ -135,7 +135,7 @@ Multiple minds, one location:
 | Devil    | `"shoulder devil"`, `"cartoon temptation devil"` | `minds/my-devil/` |
 
 
-May argue over a **bridge**. Soul is player-in-the-middle. Either side can mute.
+May speak over a **bridge**. Soul is player-in-the-middle. Either side can mute.
 
 [society-of-mind](../society-of-mind/)
 
