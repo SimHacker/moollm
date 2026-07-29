@@ -35,7 +35,7 @@ Agency: [mind/ETHICS.md](../mind/ETHICS.md).
 
 **Architecture** here means the Self graph: mind cardinality (0 / 1 / N),
 shoulders, blended soul vs multi-cup, organelles, stubs, nesting — see
-[soul](../soul/) · [mind](../mind/) · [SOUL-MODEL](../../examples/adventure-4/SOUL-MODEL.md).
+[soul](../soul/) · [mind](../mind/) · [SOUL-MODEL](../soul-city/SOUL-MODEL.md).
 
 Creator may **propose** a default architecture at birth. Character may **refuse,
 revise, or replace** it under AUTHOR-SOUL / AUTHOR-ARCHITECTURE. That is the point.

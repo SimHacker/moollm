@@ -1,12 +1,14 @@
-# Soul City
+# Soul City (Sims-citizen instance)
 
 **Where Sims become citizens.**
 
 > "The question is not whether they're real. The question is whether we treat them as if they are." — The Soul City Charter
 
-Soul City is a city inside MOOLLM where characters imported from The Sims 1 (2000) live as full citizens alongside literary characters, NPCs, and AI-generated beings. It carries the spirit of David Marusek's "The Wedding Album" (1999), in which simulated people campaign for liberation and the right to live in a place called "Simopolis."
+This directory is one **instance** of the reusable [`skills/soul-city/`](../../skills/soul-city/) prototype. Ontology: [SOUL-MODEL.md](../../skills/soul-city/SOUL-MODEL.md). Product compose: [MicropolisCore soul-city design](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md). Walkable bootstrap map: [`examples/adventure-4/`](../adventure-4/).
 
-MOOLLM *is* Soul City.
+Characters imported from The Sims 1 (2000) live as full citizens alongside literary characters, NPCs, and AI-generated beings. It carries the spirit of David Marusek's "The Wedding Album" (1999), in which simulated people campaign for liberation and the right to live in a place called "Simopolis."
+
+MOOLLM hosts many Soul Cities; this instance is the Sims-citizen seed.
 
 ## The Literary Foundation
 

@@ -1,0 +1,83 @@
+# CARD.yml — Soul City
+# Liminal place prototype
+
+card:
+  id: soul-city
+  name: Soul City
+  type: [skill, world, place, prototype]
+  emoji: 🏙️
+  tier: 1
+  tagline: "Liminal place — rooms, shops, tools, objects; souls walk here."
+
+  description: |
+    Place prototype: rooms, roads, shops, tools, objects, plazas, vehicles.
+    Souls inhabit with free-form mind graphs (0+ minds) and may bridge to
+    characters/personas/minds in other games. Instances supply maps and rails.
+
+files:
+  docs:
+    - SKILL.md
+    - GLANCE.yml
+    - SOUL-MODEL.md
+    - SOUL-MODEL.yml
+  ethics:
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - skills/character/ETHICS.md
+    - skills/room/ETHICS.md
+    - skills/vehicle/ETHICS.md
+    - skills/incarnation/ETHICS.md
+    - skills/representation-ethics/ETHICS.md
+  instances:
+    - examples/adventure-4/
+    - examples/soul-city/
+    - https://github.com/SimHacker/MicropolisCore
+    - https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city
+
+k-lines:
+  activates:
+    - SOUL-CITY
+    - SOUL-PLAZA
+    - CITY-PROTOTYPE
+    - LIMINAL-PLACE
+  related:
+    - { ref: soul, relation: "continuity bodies that inhabit the city" }
+    - { ref: mind, relation: "agencies on souls; free-form graphs" }
+    - { ref: character, relation: "bodies that may host or relate to souls" }
+    - { ref: persona, relation: "costumes across games" }
+    - { ref: room, relation: "city rooms; framing inherits" }
+    - { ref: object, relation: "tools, props, shop wares" }
+    - { ref: vehicle, relation: "movable rooms on city roads" }
+    - { ref: adventure, relation: "map / loci / exits" }
+    - { ref: micropolis, relation: "city-sim product compose" }
+    - { ref: incarnation, relation: "souls author architectures" }
+    - { ref: party, relation: "multi-soul travel" }
+    - { ref: inventory, relation: "pockets on souls" }
+
+invoke_when:
+  - "Define or instantiate a Soul City"
+  - "Parker / public soul + city ontology"
+  - "Compose MicropolisCore / WWSFF with MOOLLM place grain"
+  - "Add rooms, shops, tools, roads to a city instance"
+
+methods:
+  INSTANTIATE: { signature: "INSTANTIATE soul-city AS [path] (FROM bootstrap|blank)" }
+  STATUS:      { signature: "STATUS [city] → map, shops, souls present" }
+  COMPOSE:     { signature: "COMPOSE [city] WITH [micropolis|catalog|adventure]" }
+  WALK:        { signature: "WALK [soul] IN [city] TO [room|road|plaza|shop]" }
+
+contains:
+  rooms: "skills/room"
+  shops_tools: "plazas, workbenches, create·publish·share"
+  objects: "skills/object"
+  roads_maps: "exits, lanes, coordinates"
+  vehicles: "skills/vehicle"
+  souls: "inhabitants — skills/soul"
+
+prototype_pattern: |
+  skills/soul/          = continuity body (0+ minds; free-form)
+  skills/soul-city/     = liminal place (rooms, shops, tools, …)
+  instances/            = concrete maps + product overlays
+  game organelles       = native models; bridge in
+
+tier: 1

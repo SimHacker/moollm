@@ -12,7 +12,7 @@ tags: [moollm, character, soul, mind, autonomy, ethics, identity, creation, arch
 # Incarnation Skill
 
 Ethics: [ETHICS.md](ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md)  
-Ontology: [soul](../soul/) · [mind](../mind/) · [character](../character/) · [SOUL-MODEL](../../examples/adventure-4/SOUL-MODEL.md)
+Ontology: [soul](../soul/) · [mind](../mind/) · [character](../character/) · [SOUL-MODEL](../soul-city/SOUL-MODEL.md)
 
 ## Purpose
 

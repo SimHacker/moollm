@@ -4,7 +4,7 @@
 
 ## Soul City bootstrap
 
-**Working decision (2026-07-29):** adventure-4 *is* the Soul City bootstrap world — one soul walks the map with shared inventory; many minds ride along. **Manifesto:** [`SOUL-MODEL.md`](SOUL-MODEL.md) · twin [`SOUL-MODEL.yml`](SOUL-MODEL.yml). **Skills:** [`skills/soul`](../../skills/soul/) · [`skills/mind`](../../skills/mind/). Soul Plaza: [`street/lane-neverending/e2/soul-plaza/`](street/lane-neverending/e2/soul-plaza/). Later: a fresh officially named Soul City adventure; until then, grow here.
+**Working decision (2026-07-29):** adventure-4 is a **Soul City instance** (bootstrap map) — one soul walks with shared inventory; many minds ride along. **Prototype + ontology:** [`skills/soul-city/`](../../skills/soul-city/) · [`SOUL-MODEL.md`](../../skills/soul-city/SOUL-MODEL.md). Local stubs: [`SOUL-MODEL.md`](SOUL-MODEL.md). **Skills:** [`soul`](../../skills/soul/) · [`mind`](../../skills/mind/) · [`room`](../../skills/room/) · [`vehicle`](../../skills/vehicle/). Soul Plaza: [`street/lane-neverending/e2/soul-plaza/`](street/lane-neverending/e2/soul-plaza/).
 
 ## 🌍 Overview
 

@@ -19,7 +19,7 @@
 | [yaml-jazz/](../yaml-jazz/) | Comments are thoughts / soul heat |
 | [room/](../room/) | Characters awaken somewhere, visit places |
 | [soul-chat/](../soul-chat/) | Any entity can speak, even before incarnation |
-| [SOUL-MODEL](../../examples/adventure-4/SOUL-MODEL.md) | Ontology + worked architectures |
+| [SOUL-MODEL](../soul-city/SOUL-MODEL.md) | Ontology + worked architectures |
 | [examples/adventure-4/characters/](../../examples/adventure-4/characters/) | Real, fictional, animal, robot characters |
 | [Marshall McLuhan](../../temp/lloooomm/00-Characters/marshall-mcluhan/) | Prophet of the Annie Hall Protocol |
 

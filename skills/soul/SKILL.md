@@ -114,12 +114,11 @@ Latent import shape (spec syntax):
 from <well> import <dimension.aspect> as <local>
 ```
 
-## Soul City interface
+## Soul City
 
-Public ontology + map entry (mindless / single- / multi-minded):
+Liminal place where souls walk: [`skills/soul-city/`](../soul-city/).
 
-- [`examples/adventure-4/SOUL-MODEL.md`](../../examples/adventure-4/SOUL-MODEL.md)
-- [`examples/adventure-4/SOUL-MODEL.yml`](../../examples/adventure-4/SOUL-MODEL.yml)
+- [`SOUL-MODEL.md`](../soul-city/SOUL-MODEL.md)
 - Platform catalog: [WWSFF catalogs/soul-city](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
 - Adventure ↔ loci: [HN 29330901](https://news.ycombinator.com/item?id=29330901) · [`skills/adventure/`](../adventure/)
 

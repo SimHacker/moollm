@@ -16,7 +16,7 @@ tags: [moollm, meta, philosophy, minsky, emergence, agents, k-lines]
 ## Foundation
 
 Requires **[mind](../mind/)**. Usual host: **[soul](../soul/)** (`minds[]` compete and counsel).  
-See also: [soul/CARD.yml](../soul/CARD.yml) · ethics: [mind/ETHICS.md](../mind/ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · examples: [SOUL-MODEL.md](../../examples/adventure-4/SOUL-MODEL.md)
+See also: [soul/CARD.yml](../soul/CARD.yml) · ethics: [mind/ETHICS.md](../mind/ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · examples: [SOUL-MODEL.md](../soul-city/SOUL-MODEL.md)
 
 Agents here are the fine grain inside minds (or skills-as-agents). Multi-minded souls are the natural home for inner conflict and B-brain observation.
 

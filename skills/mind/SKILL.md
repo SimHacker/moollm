@@ -132,7 +132,7 @@ May argue over a **bridge**. Soul chooses (or mutes).
 | Two minds | Separate cups per well; may debate |
 
 Worked examples (Jesus Mouse / Duckmouse): Soul City manifesto
-[`examples/adventure-4/SOUL-MODEL.md`](../../examples/adventure-4/SOUL-MODEL.md)
+[`skills/soul-city/SOUL-MODEL.md`](../soul-city/SOUL-MODEL.md)
 
 ## Methods
 

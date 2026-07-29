@@ -1,0 +1,254 @@
+# SOUL MODEL — machine twin for SOUL-MODEL.md
+#
+# skills/soul      = continuity body (0+ minds; free-form)
+# skills/soul-city = liminal place (rooms, shops, tools, objects, …)
+# games            = native models; bridge / sync
+
+meta:
+  status: WORKING-DECISION
+  authored: 2026-07-29
+  relocated: 2026-07-29   # from examples/adventure-4/ → skills/soul-city/
+  audience: "Soul + Soul City — human doc + machine twin."
+  one_line: "Soul walks; Soul City is the place; games keep their models."
+  human_doc: SOUL-MODEL.md
+  skill: skills/soul-city/
+  soul_skill: skills/soul/
+  url: "https://github.com/SimHacker/moollm/blob/main/skills/soul-city/SOUL-MODEL.md"
+  skills:
+    soul_city: skills/soul-city/
+    soul: skills/soul/
+    mind: skills/mind/
+    character: skills/character/
+    room: skills/room/
+    vehicle: skills/vehicle/
+    robot: skills/robot/
+    society_of_mind: skills/society-of-mind/   # needs mind
+    mind_mirror: skills/mind-mirror/           # needs mind
+    soul_chat: skills/soul-chat/               # needs soul
+    incarnation: skills/incarnation/
+    micropolis: skills/micropolis/
+  see_also: skills/soul-city/CARD.yml
+  ethics: skills/soul/ETHICS.md
+  mind_cardinality:
+    mindless: "minds: []"
+    single_minded: "exactly one"
+    multi_minded: "two or more"
+  worked_cases:
+    - zombiesims   # replace minds with zombie mind
+    - robot        # soul ± minds
+    - remote_control  # mind stub → pilot
+
+bootstrap:
+  world: examples/adventure-4/
+  why_here: |
+    Richest existing adventure map. Soul Plaza already names the district.
+    Character + room + inventory + party skills already run. No greenfield tax.
+  later:
+    fresh_launch: "Officially named Soul City adventure (new tree, clean brand)."
+    until_then: "adventure-4 IS the bootstrap Soul City — evolve in place."
+
+# ── STANCE + ONTOLOGY ───────────────────────────────────────────────────────
+stance:
+  category: organizational_self_object_model
+  # Not a metaphysical claim that souls exist.
+  soul: "Useful container for organizing agencies (location, inventory, history, minds[])."
+  minds: "First-class — multiple minds are real as resident agencies (SoM grain)."
+  cardinality: "Soul holds zero or more minds."
+  nesting: |
+    Default: soul contains minds. Also valid: minds contain sub-minds, sub-souls,
+    or intervening nested containers of any type. Self makes arbitrary nesting natural.
+  not_claiming:
+    - "souls are ontologically/theologically real"
+    - "exactly one indivisible mind per being"
+    - "nesting is forbidden"
+
+ontology:
+  soul:
+    is: "The continuity body that has ONE location on the adventure map."
+    owns:
+      - location   # where the soul stands / walks
+      - inventory  # imported + native objects (luggage + local pickups)
+      - minds[]    # resident agencies (zero or more)
+      - history    # albums, journals, lived experience
+    walks: "Rooms of adventure-4 (garden → street → Soul Plaza → pub → …)."
+    not: "A metaphysical entity. Organizational / Self term for shared embodiment + continuity."
+  mind:
+    is: "A resident agency inside (or beside) a soul."
+    may_be:
+      - blank          # Self object that just is itself — no prototype required
+      - cloned         # copy of another mind
+      - inherited      # Self-style ordered parents / prototypes
+      - schema_bound   # organelle: Sims, Stardew, Mind Mirror, … import/export/sync
+      - made_up        # Drescher Made-Up Minds / invented from scratch
+      - imported       # from a game, person, story, or other ecosystem
+    need_not: "Own a separate map location. Default: co-located with the soul."
+  organelle:
+    is: "A mind (or mind-slot) that has adopted a schema with its own DNA."
+    usually: "A game or ecosystem membrane — optional specialization of mind."
+  bridge:
+    is: "Declared sync channel — mind↔mind, mind↔soul-file, or soul↔game."
+    also: "Inner communication between minds sharing one soul."
+
+# ── EMBODIMENT RULE ─────────────────────────────────────────────────────────
+embodiment:
+  rule: "Minds share one soul-location. The soul walks; minds travel with it."
+  inventory: |
+    Soul inventory holds native adventure objects AND imported luggage
+    (cross-game / cross-world metadata that round-trips). Minds may have
+    private pockets later; default is shared soul inventory (cf. party
+    shared_inventory — related, not identical).
+  party_vs_soul: |
+    party skill = multiple characters that may split locations.
+    soul+minds = one location by default; SPLIT would be an explicit
+    advanced move (mind briefly fronts elsewhere), not the default.
+  worked_seeds_in_this_world:
+    - path: characters/real-people/don-hopkins/
+      note: "Host soul-directory; dents/ + slats/ as nested minds/robots."
+    - path: street/lane-neverending/e2/soul-plaza/
+      note: "District already named Soul Plaza — shops as organelles of the city."
+    - path: characters/abstract/player/
+      note: "Blank-ish template soul; coatroom customizes; inventory starts empty."
+
+# ── TWO WAYS TO WALK WITH AN ARCHETYPE ──────────────────────────────────────
+# A good design sings. Spec as liturgy, not spreadsheet.
+archetype_inheritance:
+  lyric: |
+    You may drink from the well, or carry water home in your own cup.
+    The well is latent space — the whole training as prototype store.
+    The cup is a mind in your soul — reified, named, yours to reshape.
+  path_pure_latent:
+    name: "the pure feed"
+    what: |
+      Inherit directly from the archetypal name in latent space —
+      e.g. parents: ["biblical Jesus"] — no filesystem clone required.
+      The name is the activation. You get the full pure feed: gospel,
+      iconography, two thousand years of resonance the model already holds.
+    personal: false
+    cost: "Shared with everyone who names the same well. Not stamped with you."
+    mechanism: designs/object-system/LATENT-SPACE-INHERITANCE.md
+  path_personal_mind:
+    name: "your own cup"
+    what: |
+      Instantiate a mind inside your soul that inherits from the archetype
+      (latent, file, or both) and then becomes personal — voice, jokes,
+      doubts, favorite parables, sync habits, whatever you write into the delta.
+    personal: true
+    cost: "You keep it. It walks when you walk. It is not the well; it is yours."
+    where: "souls/<host>/minds/my-jesus/ (or any name)"
+  worked_example_jesus:
+    pure: 'parents: ["biblical Jesus"]  # full pure feed; not personal'
+    personal: |
+      parents:
+        - "biblical Jesus"                                    # latent well
+        - skills/no-ai-soul/representatives/  # optional file archetype (Soul Savior)
+      # then: your overrides — the cup's shape
+    same_pattern_for: [buddha, mary, satan, deepak, soul-man, angel, devil, any_named_archetype]
+  rules:
+    - "Both paths are legitimate. Pure is not better; personal is not lesser."
+    - "Archetype wells stay shared; personal cups never overwrite the well."
+    - "Blank minds OK — no parent required. Inheritance is optional power."
+    - "One-sided: your cup is yours; their cup is theirs."
+  self_line: "Everything is concrete. The name is the activation. Clone and change."
+
+# ── DIFFERENTLY ARCHITECTED EXAMPLES — same import grammar, different dimensions ─
+differently_architected_examples:
+  grammar: "from <latent_well> import <dimension.aspect> as <local_name>  # spec syntax"
+  see: "SOUL-MODEL.md#differently-architected-examples"
+  jesus_mouse:
+    architecture: blended_soul_lived_inventory
+    dimensions: [soul, costume, props, mission, praxis]
+    parents: [jesus_christ, mickey_mouse, the_wizard]
+    memorial_public: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse"
+    latent_imports: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jesus-mouse/sources/latent-imports.md"
+    story_public: "https://news.ycombinator.com/item?id=34398396"
+  duckmouse:
+    architecture: pronunciation_only
+    character: donald-michie
+    dimensions: [pronunciation]
+    parents: [donald_duck, mickey_mouse]
+    not: "Not soul blend; not costume — name-sounds + colleagues' nickname on the record"
+    memorial_public: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie"
+    pronunciation_record: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/donald-michie/sources/duckmouse-pronunciation-on-the-record.md"
+
+# ── JESUS MOUSE — blended soul vs two minds (worked example) ────────────────
+jesus_mouse:
+  lyric: |
+    He named the two biggest American archetypes out loud — Jesus and Mickey —
+    and walked as their combination. Everybody already knew the wells.
+  his_intention: "Invoke both; embody the combination; inherit from both. (Told Don explicitly.)"
+  variation_blended_soul:
+    what: "The SOUL inherits Jesus AND Mickey Mouse (+ wizard props) — one body, blended incarnation."
+    sketch: |
+      parents: ["Jesus", "Mickey Mouse", "Wizard"]
+    lived: true
+    latent_imports: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jesus-mouse/sources/latent-imports.md"
+  variation_two_minds:
+    what: "DIFFERENT: one soul, two minds — Jesus-cup and Mickey-cup that may argue."
+    sketch: |
+      minds: { jesus-mind: {parents: ["Jesus"]}, mouse-mind: {parents: ["Mickey Mouse"]} }
+    lived: false   # valid Self model; not what he performed
+  kin_opposite_axis: duckmouse  # pronunciation-only; see differently_architected_examples
+  more_ok: "personal cups of Jesus Mouse; latent 'Jesus Mouse' well; blend + shoulders; organelles…"
+  memorial_public: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse"
+  memorial_private_mirror: "DonHopkins/characters/jesus-mouse/ (points at WWSFF)"
+  story_public: "https://news.ycombinator.com/item?id=34398396"
+  see: "SOUL-MODEL.md#differently-architected-examples"
+
+# ── SHOULDERS — angel and devil as co-located minds ─────────────────────────
+shoulder_counsel:
+  lyric: |
+    Left shoulder, right shoulder — two minds, one neck.
+    They do not walk the city alone; they ride when you ride.
+    At every fork they may speak. You still choose.
+  what: |
+    The cartoon conscience pair is the canonical worked example of
+    MULTIPLE minds sharing one soul-location: angel and devil as resident
+    agencies, not separate map pins. Same well/cup choice as any archetype.
+  pair:
+    angel:
+      pure: 'parents: ["shoulder angel", "guardian angel", "cartoon conscience angel"]'
+      personal: "minds/my-angel/ — inherits the well; your mercy, your nag, your halo tilt"
+      role: "counsel toward care, restraint, long view — whatever YOUR angel means"
+    devil:
+      pure: 'parents: ["shoulder devil", "cartoon temptation devil", "Mephistophelean whisper"]'
+      personal: "minds/my-devil/ — inherits the well; your mischief, your dare, your pitchfork angle"
+      role: "counsel toward appetite, risk, short view — whatever YOUR devil means"
+  mechanics:
+    co_located: true   # share soul location + default inventory
+    speak_at: "decision points, Import How… customs, sync conflicts, moral forks, jokes"
+    bridge: "optional wire angel↔devil — they may argue; the soul is player-in-the-middle"
+    neither_wins_by_default: "AI proposes both voices; player disposes (PITM)."
+    may_mute: "Disable either cup; walk with one shoulder, or none."
+  not_required: "Blank souls need no shoulders. Optional drama engines."
+  kin: [archetype_inheritance, society-of-mind agencies, party without split location]
+
+# ── ORIGINS (inclusive) ─────────────────────────────────────────────────────
+origins:
+  principle: "Soul City does not police where minds come from."
+  ok:
+    - game_save_import
+    - clone_of_another_mind
+    - blank_then_grow
+    - inherit_prototypes
+    - made_up_from_scratch
+    - real_person_persona_import   # one-sided local model; see endosymbiosis
+    - community_or_religious_language_as_neighbor_terms  # not ontology
+  register_hygiene: |
+    Medical/community terms (system, alters, headmates, …) and religious
+    terms (soul, incarnation, psychopomp) are welcome NEIGHBOR vocabularies.
+    Soul City's own ontology stays: soul / mind / organelle / bridge.
+
+# ── HOW TO PLAY THIS (bootstrap) ────────────────────────────────────────────
+play:
+  enter: "Incarnate a soul (player or host CHARACTER.yml). Walk rooms."
+  add_mind: "Create a subdirectory mind under the soul, or JOIN as co-located."
+  sync: "Use Import How… / bridges when a mind wears a game schema."
+  district: "Soul Plaza shops are the city's organelles — create/publish/share."
+
+ties:
+  endosymbiosis: "DonHopkins process + WWSFF process/character-endosymbiosis (promote soon)"
+  skills: [character, party, inventory, room, adventure, incarnation, prototype, object]
+  plaza: street/lane-neverending/e2/soul-plaza/
+  object_system: designs/object-system/SELF-AND-MOOLLM.md
+  made_up_minds: "Gary Drescher — Made-Up Minds (1991)"
+  society_of_mind: skills/society-of-mind/

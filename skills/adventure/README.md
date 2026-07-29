@@ -174,7 +174,7 @@ compiled_behavior:
 
 ## Inspiration: Scott Adams, Don Hopkins & Memory Palaces
 
-This system is directly inspired by a [Hacker News exchange (Nov 2021)](https://news.ycombinator.com/item?id=29330901) ([AMA thread](https://news.ycombinator.com/item?id=29330120)) between **Scott Adams** (creator of *Adventureland*, 1978 — not the Dilbert cartoonist) and **Don Hopkins** (SimCity, The Sims, pie menus). Soul City interface: [`examples/adventure-4/SOUL-MODEL.md`](../../examples/adventure-4/SOUL-MODEL.md).
+This system is directly inspired by a [Hacker News exchange (Nov 2021)](https://news.ycombinator.com/item?id=29330901) ([AMA thread](https://news.ycombinator.com/item?id=29330120)) between **Scott Adams** (creator of *Adventureland*, 1978 — not the Dilbert cartoonist) and **Don Hopkins** (SimCity, The Sims, pie menus). Soul City interface: [`skills/soul-city/SOUL-MODEL.md`](../soul-city/SOUL-MODEL.md).
 
 ### The Method of Loci Connection
 

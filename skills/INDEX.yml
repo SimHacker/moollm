@@ -307,7 +307,7 @@ character:
     - id: mind-mirror
       tagline: "Personality modeling"
       why: "Needs mind — Leary Circumplex as organelle; not a diagnosis"
-      
+
   modification:
     - id: buff
       tagline: "Temporary effects"
@@ -338,11 +338,16 @@ world:
       why: "Turns, party, selection, flags — the game state"
       related: [adventure, time, exit, ONE-STEP-TRAP.md]
       
+    - id: soul-city
+      tagline: "Liminal place — rooms, shops, tools; souls walk here"
+      why: "Multi-instance cities; SOUL-MODEL ontology; compose with micropolis / WWSFF"
+      related: [soul, mind, character, persona, room, object, vehicle, adventure, micropolis, incarnation]
+
     - id: micropolis
       tagline: "City as filesystem, git as multiverse"
-      why: "Open source SimCity as constructionist education platform"
+      why: "Open source SimCity as constructionist education platform; composes soul-city"
       status: designing
-      related: [simulation, constructionism, sister-script]
+      related: [soul-city, simulation, constructionism, sister-script]
       
     - id: object
       tagline: "Interactable atoms"
@@ -783,6 +788,7 @@ all_skills:
   - society-of-mind
   - soul
   - soul-chat
+  - soul-city
   - speech
   - speed-of-light
   - storytelling-tools

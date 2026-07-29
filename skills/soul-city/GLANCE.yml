@@ -1,0 +1,42 @@
+# GLANCE.yml — soul-city
+# Full file: CARD.yml | SKILL.md | SOUL-MODEL.md
+# 🏙️ "Liminal place — rooms, shops, tools, objects; souls walk here."
+
+what: |
+  Reusable Soul City prototype: liminal place of rooms, roads, shops,
+  tools, objects, plazas, vehicles. Souls and other beings inhabit it.
+  Many instances compose.
+
+why: |
+  - Place grain reusable across instances
+  - Soul ontology in skills/soul; this skill is the city
+  - MicropolisCore / WWSFF / adventures compose
+  - Cross-game bridges; each game keeps its model
+
+when:
+  - '"Stand up a Soul City instance" → INSTANTIATE'
+  - '"Soul City / soul ontology" → SOUL-MODEL.md'
+  - '"Compose Micropolis + MOOLLM city" → micropolis + this'
+  - '"Parker / public entry" → SOUL-MODEL.md'
+
+contains:
+  - rooms
+  - shops_tools
+  - objects
+  - roads_maps
+  - vehicles
+  - souls
+  - parties
+
+instances:
+  bootstrap: examples/adventure-4/
+  sims_citizens: examples/soul-city/
+  product_vision: MicropolisCore designs
+  platform_catalog: WWSFF catalogs/soul-city
+
+ontology: SOUL-MODEL.md
+twin: SOUL-MODEL.yml
+soul_skill: ../soul/
+ethics_hub: ../soul/ETHICS.md
+related: [soul, mind, character, persona, room, object, vehicle, adventure, micropolis, incarnation, party, inventory]
+tier: 1

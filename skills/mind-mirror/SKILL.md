@@ -35,7 +35,7 @@ tags: [moollm, personality, traits, psychology, timothy-leary, sims, circumplex,
 
 Requires **[mind](../mind/)** — Mind Mirror is an **organelle schema** (game/ecosystem DNA) on a mind. Usual host: **[soul](../soul/)**.  
 Not a medical diagnosis. Consent and representation: [representation-ethics](../representation-ethics/) · [ETHICS.md](ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md).  
-See also: [soul/CARD.yml](../soul/CARD.yml) · [SOUL-MODEL.md](../../examples/adventure-4/SOUL-MODEL.md)
+See also: [soul/CARD.yml](../soul/CARD.yml) · [SOUL-MODEL.md](../soul-city/SOUL-MODEL.md)
 
 ## What It Is
 
