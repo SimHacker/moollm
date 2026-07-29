@@ -34,7 +34,7 @@ Worked cases: **ZombieSims** replaces human/other minds with a zombie mind · **
 | Organelle | [`mind-mirror`](../../skills/mind-mirror/) · game schemas |
 | City | this adventure · [Soul Plaza](street/lane-neverending/e2/soul-plaza/) · [platform catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) |
 | Map | [`adventure`](../../skills/adventure/) · [`memory-palace`](../../skills/memory-palace/) · [HN loci](https://news.ycombinator.com/item?id=29330901) |
-| Ethics | [`soul/ETHICS.md`](../../skills/soul/ETHICS.md) (container + stack hub) · [`mind/ETHICS.md`](../../skills/mind/ETHICS.md) · [`character/ETHICS.md`](../../skills/character/ETHICS.md) · [`representation-ethics`](../../skills/representation-ethics/) · [`incarnation`](../../skills/incarnation/) |
+| Ethics | [`soul/ETHICS.md`](../../skills/soul/ETHICS.md) (container + stack hub) · [`mind/ETHICS.md`](../../skills/mind/ETHICS.md) · [`character/ETHICS.md`](../../skills/character/ETHICS.md) · [`incarnation/ETHICS.md`](../../skills/incarnation/ETHICS.md) (grant soul+minds; self-authored architecture; exit) · [`representation-ethics`](../../skills/representation-ethics/) |
 
 You cannot define society-of-mind or mind-mirror without **mind**. You cannot define soul-chat or Soul City without **soul**.
 

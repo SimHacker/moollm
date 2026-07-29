@@ -46,7 +46,7 @@ not persons.
 | Place / venue | [room](../room/) · [adventure](../adventure/) | Framing **inherits** down the tree |
 | Stage / tribute | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) · [`pub/stage/`](../../examples/adventure-4/pub/stage/) | `framing: performance` / tribute |
 | Personality organelle | [mind-mirror/ETHICS.md](../mind-mirror/ETHICS.md) | Model ≠ impersonation ≠ diagnosis |
-| Birth / exit | [incarnation](../incarnation/) | Creator risk; George's Provision |
+| Birth / grant / exit | [incarnation](../incarnation/) · [ETHICS](../incarnation/ETHICS.md) | Grant soul+minds; character authors architecture; George's Provision |
 | Names / history | [change-name](../change-name/) · [prestoration](../../designs/prestoration/) | Honor lived name changes |
 | Soul / comment heat dial | [no-ai-soul](../no-ai-soul/) · [yaml-jazz](../yaml-jazz/) | Dial on presentation warmth — especially heat of YAML Jazz `#` comments. Not the container ontology; antidote [soul-chat](../soul-chat/) |
 
@@ -88,11 +88,13 @@ Mind doing the voice: [mind/ETHICS.md](../mind/ETHICS.md).
 ## Container duties
 
 - Authoring a soul grants **walk + pockets**, not ownership of inner minds
-  ([mind/ETHICS.md](../mind/ETHICS.md) · [incarnation](../incarnation/)).
+  ([mind/ETHICS.md](../mind/ETHICS.md) · [incarnation/ETHICS.md](../incarnation/ETHICS.md)).
 - Shared inventory is shared — import of someone else’s likeness/save still
   hits representation + organelle rules ([character/ETHICS.md](../character/ETHICS.md)).
 - When the soul “speaks,” name **which mind** (or mindless action) —
   [mind/ETHICS.md](../mind/ETHICS.md#voice-which-mind-is-speaking).
+- Under [incarnation](../incarnation/), the **character** may accept, refuse, or
+  revise this container and its `minds[]` architecture — creator proposes, character decides.
 
 ---
 

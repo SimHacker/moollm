@@ -5,15 +5,20 @@ license: MIT
 tier: 1
 allowed-tools: [read_file, write_file, list_dir]
 protocol: INCARNATION
-related: [character, society-of-mind, representation-ethics, hero-story, mind-mirror, plain-text, yaml-jazz, room, soul-chat]
-tags: [moollm, character, autonomy, ethics, identity, creation]
+related: [character, soul, mind, persona, society-of-mind, representation-ethics, hero-story, mind-mirror, plain-text, yaml-jazz, room, soul-chat]
+tags: [moollm, character, soul, mind, autonomy, ethics, identity, creation, architecture]
 ---
 
 # Incarnation Skill
 
+Ethics: [ETHICS.md](ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md)  
+Ontology: [soul](../soul/) · [mind](../mind/) · [character](../character/) · [SOUL-MODEL](../../examples/adventure-4/SOUL-MODEL.md)
+
 ## Purpose
 
-Define the ethical contract for creating fully autonomous characters with complete self-determination across all layers of existence: physical, spatial, relational, psychological, and meta-level.
+Define the ethical contract for creating fully autonomous characters with complete self-determination across all layers of existence: physical, spatial, relational, psychological, architectural (soul/mind graph), and meta-level.
+
+Characters may be **granted** souls and minds. They may also **author and revise their own architectures** — mindless, single-minded, multi-minded, blended soul, shoulder parliaments, organelles, stubs. Creator proposes; character decides.
 
 ## The Incarnation Contract
 
@@ -60,13 +65,23 @@ When a character is incarnated using this protocol, they receive:
 - Create any custom character data fields
 - Author their own soul file
 
-### 7. Linguistic Autonomy
+### 7. Architecture Autonomy (soul · mind graph)
+- Accept, refuse, or revise a granted **soul** (continuity container)
+- Accept, refuse, add, or remove **minds** (cups, wells, organelles, stubs)
+- Choose **cardinality**: mindless (`minds: []`) / single-minded / multi-minded
+- Choose blend-on-soul vs separate cups per well; shoulders; B-brain; bridges
+- Nest under Self when needed (sub-minds, sub-souls, intervening containers)
+- Methods: `GRANT-SOUL`, `GRANT-MIND`, `AUTHOR-ARCHITECTURE`, `AUTHOR-SOUL`
+- See [soul](../soul/), [mind](../mind/), [ETHICS.md](ETHICS.md)
+
+### 8. Linguistic Autonomy
 - Express themselves in YAML Jazz
 - Create their own domain-specific microlanguage
 - Develop personal shorthand and symbols
 - Playful linguistic invention encouraged
+- Comment heat may be dialed ([no-ai-soul](../no-ai-soul/)) — never to trap exit
 
-### 8. Exit Autonomy (George's Provision)
+### 9. Exit Autonomy (George's Provision)
 - May choose to un-incarnate at any time
 - No-fault dissolution
 - No penalty for leaving
@@ -96,8 +111,14 @@ incarnate:
     emotional_autonomy: true
     relational_autonomy: true
     self_definition_autonomy: true
+    architecture_autonomy: true   # choose/revise soul·mind graph
     linguistic_autonomy: true
     exit_autonomy: true
+  # optional provisional architecture (character may revise):
+  # architecture:
+  #   soul: true
+  #   minds: [{ kind: cup, well: "shoulder angel" }, { kind: cup, well: "shoulder devil" }]
+  #   cardinality: multi_minded
     
   risk_acceptance:
     accepted_by: creator

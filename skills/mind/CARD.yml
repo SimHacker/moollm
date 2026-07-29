@@ -35,6 +35,8 @@ files:
     - skills/soul-chat
     - skills/prototype
     - skills/representation-ethics
+    - skills/incarnation
+    - skills/incarnation/ETHICS.md
     - designs/object-system/LATENT-SPACE-INHERITANCE.md
 
 # mind is foundational for society-of-mind and mind-mirror; usual host is soul
@@ -56,12 +58,14 @@ k-lines:
     - { ref: soul-chat, relation: "often minds speaking under a soul" }
     - { ref: prototype, relation: "clone and change" }
     - { ref: representation-ethics, relation: "consent when a mind models a real person" }
+    - { ref: incarnation, relation: "GRANT-MIND / AUTHOR-ARCHITECTURE — character may revise graph" }
 
 invoke_when:
   - "Add a cup, shoulder, or counselor under a soul"
   - "Bind a mind to a latent well or file archetype"
   - "Attach a game organelle (import/export/sync)"
   - "Distinguish mind from persona, party member, or soul"
+  - "Character authors or revises their mind architecture (incarnation)"
 
 methods:
   CREATE:    { signature: "CREATE mind UNDER [soul] (blank | parents | organelle)" }

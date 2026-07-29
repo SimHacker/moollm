@@ -84,6 +84,15 @@ real person still needs framing. Outer soul walk ethics: [soul/ETHICS.md](../sou
 
 ---
 
+## Birth and architecture authorship
+
+Minds are often **granted** at incarnation (`GRANT-MIND`) or grown later by the
+character (`AUTHOR-ARCHITECTURE`). The character may choose mindless walk,
+single cup, multi-minded parliament, organelles, stubs — and revise later.
+Creator does not lock the graph. Full protocol: [incarnation/ETHICS.md](../incarnation/ETHICS.md).
+
+---
+
 ## Checklist (mind)
 
 1. [ ] Well vs cup vs impersonator vs stub — which is this?

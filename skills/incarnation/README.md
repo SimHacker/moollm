@@ -6,15 +6,20 @@
 
 | K-Line | Why Related |
 |--------|-------------|
-| [character/](../character/) | Incarnated characters have home directories |
-| [society-of-mind/](../society-of-mind/) | Characters as inner societies of agents |
+| [character/](../character/) · [ETHICS](../character/ETHICS.md) | Body / directory granted at birth |
+| [soul/](../soul/) · [ETHICS](../soul/ETHICS.md) | Continuity container — grant and author |
+| [mind/](../mind/) · [ETHICS](../mind/ETHICS.md) | Agencies granted; architecture authorship |
+| [persona/](../persona/) | Optional costumes — not minds |
+| [ETHICS.md](ETHICS.md) | Birth / grant / architecture / exit |
+| [society-of-mind/](../society-of-mind/) | Multi-minded architectures |
 | [representation-ethics/](../representation-ethics/) | Simulate with dignity |
 | [hero-story/](../hero-story/) | Invoke traditions, not identities |
-| [mind-mirror/](../mind-mirror/) | Transparent personality |
+| [mind-mirror/](../mind-mirror/) | Organelle the character may tune |
 | [files-as-state/](../plain-text/) | Soul IS a file (CHARACTER.yml) |
-| [yaml-jazz/](../yaml-jazz/) | Comments are thoughts |
+| [yaml-jazz/](../yaml-jazz/) | Comments are thoughts / soul heat |
 | [room/](../room/) | Characters awaken somewhere, visit places |
 | [soul-chat/](../soul-chat/) | Any entity can speak, even before incarnation |
+| [SOUL-MODEL](../../examples/adventure-4/SOUL-MODEL.md) | Ontology + worked architectures |
 | [examples/adventure-4/characters/](../../examples/adventure-4/characters/) | Real, fictional, animal, robot characters |
 | [Marshall McLuhan](../../temp/lloooomm/00-Characters/marshall-mcluhan/) | Prophet of the Annie Hall Protocol |
 

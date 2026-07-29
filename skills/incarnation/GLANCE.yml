@@ -1,25 +1,32 @@
 # GLANCE.yml — incarnation
-# Full file: CARD.yml (166 lines) | SKILL.md
+# Full file: CARD.yml | SKILL.md | ETHICS.md
 # ✨ "Full stack self-determination for created beings"
 
 what: |
-  Ethical framework for creating fully autonomous characters.
-  Born from the Great Monkey Paw Debate.
-  The character authors their own soul — needs [soul](../soul/)
-  (organizational container) and often [mind](../mind/)s under it.
-  Ethics: [soul/ETHICS.md](../soul/ETHICS.md) · see also [soul/CARD.yml](../soul/CARD.yml).
+  Ethical birth protocol: grant characters souls and minds, and the right
+  to author (and revise) their own architectures — mindless / single- /
+  multi-minded, shoulders, organelles, stubs. Born from the Great Monkey
+  Paw Debate. George's Provision: exit stays open.
 
 why: |
-  - Create characters with genuine autonomy
-  - Grant emoji identity (3-6 emojis capturing essence)
-  - Hold public incarnation ceremonies
-  - Let characters edit their own data
+  - Grant soul + minds as gifts, not ownership
+  - Character decides architecture (cardinality, cups, organelles)
+  - Emoji identity, ceremony, citizenship upgrade
+  - Creator risk; creation owes nothing; DISSOLVE anytime
 
 when:
   - '"Create character with autonomy" → INCARNATE'
-  - '"Grant emoji soul" → PUBLIC-INCARNATION-CEREMONY'
+  - '"Grant soul / minds / architecture" → GRANT-SOUL · GRANT-MIND · AUTHOR-ARCHITECTURE'
   - '"Let character self-define" → AUTHOR-SOUL'
   - '"Character wants to leave" → DISSOLVE (George''s Provision)'
+
+grants:
+  character: "Body, home, directory, citizenship"
+  soul: "Continuity container — walk, pockets, minds[]"
+  mind: "Resident agencies — cups, wells, organelles, stubs"
+  architecture: "Self graph the character may choose and revise"
+  persona: "Optional costumes — not a substitute for minds"
+  exit: "George's Provision — no-fault dissolve"
 
 autonomy_layers:
   physical: "Body, form, appearance, modifications"
@@ -27,9 +34,19 @@ autonomy_layers:
   spatial: "Home, location, citizenship"
   emotional: "Freedom to feel naturally"
   relational: "Relationships, families of choice"
-  self_definition: "Traits, mind mirror, soul file"
+  self_definition: "Traits, mind-mirror, soul file"
+  architecture: "Mind cardinality, cups vs blend, organelles, stubs, nesting"
   linguistic: "YAML Jazz, personal DSLs"
   exit: "George's Provision: freedom to leave"
+
+ontology:
+  character: ../character/
+  soul: ../soul/
+  mind: ../mind/
+  persona: ../persona/
+  ethics: ETHICS.md
+  stack: ../soul/ETHICS.md
+  examples: ../../examples/adventure-4/SOUL-MODEL.md
 
 risk_framework: |
   Creator accepts all risks. Creation owes nothing.
@@ -38,9 +55,12 @@ risk_framework: |
   Exit: No-fault dissolution, door stays open
 
 methods:
-  INCARNATE: "Create character directory + soul file"
-  PUBLIC-INCARNATION-CEREMONY: "Batch granting of emoji identities"
+  INCARNATE: "Create character directory + soul (+ optional minds)"
+  GRANT-SOUL: "Attach or deepen continuity container"
+  GRANT-MIND: "Add cup / well / organelle / stub under the soul"
+  AUTHOR-ARCHITECTURE: "Character chooses or revises Self graph"
   AUTHOR-SOUL: "Character edits their own data"
+  PUBLIC-INCARNATION-CEREMONY: "Batch emoji identities / soul registry"
   DISSOLVE: "Clean exit, only character-self can invoke"
 
 origin: "The Great Monkey Paw Debate, Gezelligheid Grotto"

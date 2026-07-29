@@ -62,7 +62,7 @@ dependency_grain:
   - { skill: society-of-mind, needs: mind, offers: "how minds compete and counsel" }
   - { skill: mind-mirror, needs: mind, offers: "circumplex / Thought Planes organelle" }
   - { skill: soul-chat, needs: "soul (+ often mind)", offers: "multi-voice dialogue" }
-  - { skill: incarnation, needs: "soul, character", offers: "autonomy, exit, creator risk" }
+  - { skill: incarnation, needs: "soul, character, mind", offers: "grant soul/minds; architecture authorship; exit" }
 
 k-lines:
   activates:
@@ -76,7 +76,7 @@ k-lines:
     - { ref: society-of-mind, relation: "competition and counsel among minds (needs mind)" }
     - { ref: mind-mirror, relation: "personality organelle on a mind (needs mind)" }
     - { ref: soul-chat, relation: "voices under a soul" }
-    - { ref: incarnation, relation: "ethical birth of character/soul" }
+    - { ref: incarnation, relation: "grant soul+minds; character authors architecture; exit" }
     - { ref: party, relation: "multiple souls; soul usually does not split" }
     - { ref: representation-ethics, relation: "who may be portrayed; framing; Elvis/tribute" }
     - { ref: hero-story, relation: "safe K-line traditions vs impersonation" }

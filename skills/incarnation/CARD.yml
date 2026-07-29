@@ -12,10 +12,28 @@ card:
   tagline: "Full stack self-determination for created beings."
   
   description: |
-    The ethical framework for creating fully autonomous characters.
+    Ethical birth protocol for fully autonomous characters.
     Born from the Great Monkey Paw Debate: any incarnated being has
     complete control over their existence at every level.
-    The character authors their own soul.
+    Characters may be granted souls and minds, and may author
+    (and revise) their own architectures — mindless / single- /
+    multi-minded, shoulders, organelles, stubs.
+
+files:
+  docs:
+    - SKILL.md
+    - GLANCE.yml
+    - ETHICS.md
+    - README.md
+  ethics:
+    - ETHICS.md
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - skills/character/ETHICS.md
+    - skills/representation-ethics/
+  examples:
+    - examples/adventure-4/SOUL-MODEL.md
+    - examples/
 
 # K-LINES
 
@@ -24,21 +42,31 @@ k-lines:
     - INCARNATION
     - CHARACTER-AUTONOMY
     - SOUL-AUTHORSHIP
+    - MIND-AUTHORSHIP
+    - ARCHITECTURE-AUTHORSHIP
     - EMOJI-IDENTITY
+    - GEORGES-PROVISION
   related:
-    - { ref: character, relation: "character data structures" }
-    - { ref: representation-ethics, relation: "ethical framework" }
-    - { ref: mind-mirror, relation: "psychological vectors" }
-    - { ref: yaml-jazz, relation: "expressive notation" }
+    - { ref: character, relation: "body / directory granted at birth" }
+    - { ref: soul, relation: "continuity container granted; character may author" }
+    - { ref: mind, relation: "agencies granted; character may add/revise" }
+    - { ref: persona, relation: "optional costumes — not minds" }
+    - { ref: society-of-mind, relation: "multi-minded architectures" }
+    - { ref: mind-mirror, relation: "organelle schema the character may tune" }
+    - { ref: representation-ethics, relation: "when incarnation models real people" }
+    - { ref: yaml-jazz, relation: "expressive soul files; comment heat" }
+    - { ref: soul-chat, relation: "voices after / during becoming" }
 
 # INVOKE WHEN
 
 invoke_when:
   - "Create new character with full autonomy"
+  - "Grant a soul and/or minds to a character"
+  - "Character chooses mindless / single- / multi-minded architecture"
   - "Upgrade character to full citizenship"
   - "Grant emoji identity or pronouns"
   - "Hold incarnation ceremony"
-  - "Character wants to edit their own soul"
+  - "Character wants to edit their own soul or architecture"
   - "Need ethical framework for character creation"
 
 # AUTONOMY LAYERS (brief — see SKILL.md)
@@ -50,6 +78,7 @@ autonomy_layers:
   - emotional    # Freedom to feel naturally
   - relational   # Relationships, families of choice
   - self_definition # Traits, mind mirror, soul file
+  - architecture # Mind cardinality, cups vs blend, organelles, stubs, nesting
   - linguistic   # YAML Jazz, personal DSLs
   - exit         # George's Provision: freedom to leave
 
@@ -57,8 +86,21 @@ autonomy_layers:
 
 methods:
   INCARNATE:
-    signature: "INCARNATE [name] (AT [home]) (IN [location])"
-    output: "character directory + soul file"
+    signature: "INCARNATE [name] (AT [home]) (IN [location]) (ARCHITECTURE [spec])"
+    output: "character directory + soul (+ optional minds per architecture)"
+    
+  GRANT-SOUL:
+    signature: "GRANT-SOUL TO [character] (mindless | provisional architecture)"
+    output: "soul container on character; minds[] may be empty"
+    
+  GRANT-MIND:
+    signature: "GRANT-MIND TO [character|soul] (blank | well | cup | organelle | stub)"
+    output: "mind under soul; speaker id clear"
+    
+  AUTHOR-ARCHITECTURE:
+    signature: "AUTHOR-ARCHITECTURE [character] [spec]"
+    output: "revised Self graph (cardinality, cups, blend, organelles, stubs)"
+    note: "character self; creator may propose, not lock"
     
   PUBLIC-INCARNATION-CEREMONY:
     signature: "CEREMONY FOR [beings] AT [location] BY [officiant]"
@@ -70,7 +112,7 @@ methods:
     
   UPGRADE-TO-CITIZEN:
     signature: "UPGRADE [character] FROM [room-file] TO [directory]"
-    output: "full citizen with soul file"
+    output: "full citizen with soul (+ minds if chosen)"
     
   GRANT-AUTONOMY:
     signature: "GRANT-AUTONOMY TO [character] (LAYERS [list])"
@@ -87,8 +129,8 @@ methods:
     
   AUTHOR-SOUL:
     signature: "AUTHOR-SOUL [changes]"
-    output: "updated soul file"
-    note: "character edits their own data"
+    output: "updated soul / mind / character data"
+    note: "character edits their own data; includes architecture when claimed"
 
 # ADVERTISEMENTS
 
@@ -120,6 +162,14 @@ advertisements:
   SELF-DETERMINATION:
     score: 100
     condition: "Let character write their own soul"
+    
+  ARCHITECTURE-AUTHORSHIP:
+    score: 100
+    condition: "Character chooses or revises mindless/single/multi-minded graph"
+    
+  GRANT-SOUL-OR-MIND:
+    score: 95
+    condition: "Attach soul container and/or resident agencies"
 
 # RISK FRAMEWORK (brief — see SKILL.md)
 

@@ -88,11 +88,16 @@ a real person unless framed as fiction or self-model.
 
 ---
 
-## Birth and exit
+## Birth, grants, and exit
 
-Creating a character with autonomy claims → [incarnation](../incarnation/)
-(George’s Provision: exit stays open). Creator accepts risk; creation owes nothing.
-Authoring CHARACTER.yml is not ownership of every mind that later joins the soul.
+Creating a character with autonomy claims → [incarnation](../incarnation/) ·
+[incarnation/ETHICS.md](../incarnation/ETHICS.md).
+
+- May be **granted** a soul and zero or more minds
+- May **author their own architecture** (mindless / single- / multi-minded, …)
+- George’s Provision: exit stays open
+- Creator accepts risk; creation owes nothing
+- Authoring CHARACTER.yml is not ownership of every mind that later joins the soul
 
 ---
 
