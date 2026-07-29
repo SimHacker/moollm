@@ -115,7 +115,7 @@ from <well> import <dimension.aspect> as <local>
 
 ## Soul City
 
-Liminal place where souls walk: [`skills/soul-city/`](../soul-city/).
+Liminal place where characters walk with souls aboard: [`skills/soul-city/`](../soul-city/).
 
 - [`SOUL-MODEL.md`](../soul-city/SOUL-MODEL.md)
 - Platform catalog: [WWSFF catalogs/soul-city](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
@@ -125,9 +125,9 @@ Liminal place where souls walk: [`skills/soul-city/`](../soul-city/).
 
 | Method | Effect |
 |--------|--------|
-| INCARNATE | Create/bind soul from `CHARACTER.yml` or directory |
-| STATUS | Location, inventory summary, mind list |
-| MOVE | Relocate soul; minds travel with it |
+| INCARNATE | Create/bind soul into a character |
+| STATUS | Host character, mind list, history |
+| MOVE / JUMP | Relocate with character, or change host character; minds come along |
 | ADD-MIND / REMOVE-MIND | Attach or detach a mind |
 | BRIDGE | Declare channel mind↔mind, mind↔soul, or soul↔game |
 
