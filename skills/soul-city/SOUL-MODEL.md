@@ -282,13 +282,15 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Role / slot** | Seat in a multi-person persona or group object; turn-taking allowed |
 | **Cup / shell** | Thin local layer around a shared default (your parrot over generic parrot) |
 | **Organelle** | A mind (or part of a mind) that keeps a game’s own layout and rules inside you — like a cell that swallowed another cell and kept its DNA |
+| **Endosymbiosis** | Sideways inheritance — something moves in and keeps its own organization (mitochondria; Sims album inside a traveler) |
+| **Endowhatever** | Same move for *whatever* fits: games, minds, pets, fleas, front/back of a horse — swallow it as a folder, don’t flatten it |
 | **Bridge**    | Channel between minds, souls, characters, games                       |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
 
 ### Organelles, minds, directories
 
-Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Same idea here for games.
+Biology’s sideways inheritance: mitochondria weren’t born as you — they were other cells that moved in and stayed. **Endosymbiosis.** Same idea here for games — and for **endowhatever**: parrot, fleas, Sims sheet, horse back-end, anything you swallow as a folder without flattening.
 
 An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a Micropolis mayor sheet, a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
 
