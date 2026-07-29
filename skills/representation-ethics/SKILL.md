@@ -2,6 +2,9 @@
 
 > *"The question isn't whether we CAN simulate people. It's how we do it with dignity."*
 
+**Stack integration** (how this plugs into soul / mind / character / room / incarnation):
+[ETHICS.md](ETHICS.md) · Card: [CARD.yml](CARD.yml)
+
 ---
 
 ## Index

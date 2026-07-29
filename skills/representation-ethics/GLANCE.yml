@@ -1,9 +1,10 @@
 # GLANCE.yml — representation-ethics
-# Full file: CARD.yml (466 lines) | SKILL.md
+# Full file: ETHICS.md (stack map) | CARD.yml | SKILL.md
 # ⚖️ "Activate traditions, don't impersonate."
 
 what: |
   Ethics of simulating people: dignity, consent, context.
+  Base law for the soul/mind/character/room/incarnation stack.
   80+ K-lines from research (Willer, Shanahan, Lazar, Wang, Park).
   The Sims proved ethical person-sim is possible.
 
@@ -12,6 +13,7 @@ why: |
   - Use proper disclosure (🤖 Robot Rule, framing)
   - Reference wisdom without puppeteering
   - 'Navigate consent hierarchy (self → explicit → public → private → deceased)'
+  - Integrate with other ETHICS.md files (see ETHICS.md)
 
 when:
   - '"Can I simulate this person?" → consent-hierarchy.yml'
@@ -19,6 +21,11 @@ when:
   - '"How to mark simulated speech?" → emoji-disclosure.yml'
   - '"Doing celebrity/drag tribute?" → snatch-game.yml'
   - '"Private fantasy play?" → private-imagination-play.yml'
+  - '"How does this plug into soul/mind/room?" → ETHICS.md'
+
+stack_integration: ETHICS.md
+protocol: SKILL.md
+examples: examples/
 
 consent_hierarchy:
   1_self: "You own your digital self. Full freedom."

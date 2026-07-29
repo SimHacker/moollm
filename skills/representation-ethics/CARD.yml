@@ -9,6 +9,23 @@ card:
   description: |
     Ethics for simulating people: consent, context, disclosure, and dignity.
     The goal is respectful invocation, not puppeteering.
+    Base law for the soul/mind/character/room/incarnation ethics stack.
+
+files:
+  docs:
+    - ETHICS.md             # Stack integrator — how this plugs into other ETHICS.md
+    - SKILL.md              # Full protocol + research
+    - GLANCE.yml
+    - README.md
+  ethics:
+    - ETHICS.md
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - skills/character/ETHICS.md
+    - skills/room/ETHICS.md
+    - skills/incarnation/ETHICS.md
+    - skills/mind-mirror/ETHICS.md
+  examples: examples/
 
 principles:
   - consent_hierarchy
@@ -23,6 +40,7 @@ safe_frames:
   - tribute_with_disclosure
 
 references:
+  stack_integration: "skills/representation-ethics/ETHICS.md"
   details: "skills/representation-ethics/SKILL.md"
   examples: "skills/representation-ethics/examples/"
 
@@ -30,12 +48,26 @@ invoke_when:
   - "Simulating or quoting a real person"
   - "Unsure about consent or disclosure"
   - "Choosing a safe framing for representation"
+  - "Wiring representation rules into soul/mind/character/room/incarnation"
 
 advertisements:
   ethics_check: "Check consent, disclosure, and framing"
   choose_abstraction: "Pick a safer representation level"
+  stack_map: "See ETHICS.md for cross-skill integration"
 
 methods:
   CHECK: { signature: "CHECK [representation] [context]" }
   FRAME: { signature: "FRAME [topic] [participants]" }
+
+k-lines:
+  related:
+    - { ref: soul, relation: "container hosting minds that may portray people" }
+    - { ref: mind, relation: "agency that speaks — wells/cups/impersonators" }
+    - { ref: character, relation: "body / patron-mascot / memorial directory" }
+    - { ref: room, relation: "venue framing scopes but does not replace consent" }
+    - { ref: incarnation, relation: "grants soul/minds to modeled beings" }
+    - { ref: hero-story, relation: "safe tradition activation" }
+    - { ref: ontology, relation: "composed tags; most restrictive wins" }
+    - { ref: persona, relation: "costume still needs disclosure if real-like" }
+    - { ref: mind-mirror, relation: "organelle profiles ≠ claiming to be" }
 

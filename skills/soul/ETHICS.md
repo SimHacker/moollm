@@ -38,7 +38,7 @@ not persons.
 
 | Layer | Locus | Governs |
 |-------|-------|---------|
-| Simulation of people | [representation-ethics](../representation-ethics/) | Consent hierarchy, disclosure, absolute nos |
+| Simulation of people | [representation-ethics/ETHICS.md](../representation-ethics/ETHICS.md) · [SKILL](../representation-ethics/SKILL.md) | Consent hierarchy, disclosure, absolute nos — base law |
 | Tradition vs person | [hero-story](../hero-story/) | Safe K-lines |
 | Being tags | [ontology](../ontology/) | Composed tags; **most restrictive wins** |
 | Body / mascot | [character/ETHICS.md](../character/ETHICS.md) | Persona vs claim; patron-mascot; memorial dirs |
