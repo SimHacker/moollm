@@ -117,16 +117,45 @@ Many cities. Bootstrap map: [adventure-4](../../examples/adventure-4/) · [Soul 
 
 ## Examples
 
-A **soul** can borrow *pieces* of famous characters, like Mickey Mouse, Donald Duck, Gandalf the Wizard — the hat, the mission, how a name sounds — and leave the rest. Different souls can borrow different pieces of multiple real and fictional people, animals, or abstract concepts like love itself.
+A **soul** or a **mind** can **import** *pieces* of famous characters — Mickey Mouse, Donald Duck, Gandalf the Wizard — the hat, the mission, how a name sounds — and leave the rest. Real people, animals, abstract concepts like love itself: same move.
 
+**Scope** (where you put the import):
+
+| Import into… | Who sees it |
+|--------------|-------------|
+| The **soul** | Shared by all minds on that soul |
+| A **mind** | Only that mind (and nested stuff under it) |
+
+Put common gear and shared mission on the soul. Put angel-only counsel on the angel mind, devil-only temptation on the devil mind.
+
+**Open mind** vs **closed mind** — same words as in programming languages:
+
+| Term | In languages | Here |
+|------|--------------|------|
+| **Open** | Module / class still accepts new imports, mixins, extensions | Mind (or soul) still allows new `from … import …` |
+| **Closed** / **sealed** | No further extension; API frozen | Mind sealed — no new imports; what it has is what it runs |
+
+Keep an open mind to learn; seal a mind when that agency should stay fixed (a finished stub, a locked organelle, a ritual voice that must not drift).
+
+### Same words as code
+
+This model is deliberately grounded in programming language ideas:
+
+| PL idea | Here |
+|---------|------|
+| **`import` / `from … import …`** | Pull a trait from a well into a soul or mind |
+| **Scope** | Soul scope (shared) vs mind scope (private to that agency) |
+| **Agent** | A mind — an autonomous little program with its own bindings |
+| **Closure** | A mind/cup that captured its imports and local state; carries that environment when it runs |
+| **Continuation** | Where control goes next — the next beat, the next room, the next thought after a bridge returns |
+| **`goto` / jump** | Soul jumps character; mind hands off; narrative teleport — same “transfer of control” instinct |
+
+Recipes below are not programs you run. Read a line as: from *this famous figure*, take *this one trait*, call it *this*.
 
 | Who                           | Combination                                      | What was borrowed                                              | More                                                                                              |
 | ----------------------------- | ------------------------------------------------ | -------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | **Jesus Mouse**               | **Jesus Christ + Mickey Mouse** (+ Wizard props) | One character, one soul — look, mission, mouse costume, wizard gear | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse)   |
 | **Duckmouse** (Donald Michie) | **Donald Duck + Mickey Mouse**                   | Name *sounds* only — nothing else from the cartoons            | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie) |
-
-
-Each list below is a recipe, not a program you run. Read a line as: from *this famous figure*, take *this one trait*, call it *this*.
 
 ### Jesus Mouse — Jesus Christ + Mickey Mouse soul
 
@@ -222,7 +251,7 @@ May speak over a **bridge**. Soul is player-in-the-middle. Either side can mute.
 
 ## Inheritance (optional depth)
 
-
+Imports land on a **soul** (shared scope) or a **mind** (agency scope). Open minds accept more imports; closed/sealed minds do not.
 
 ### Pure well
 
@@ -287,6 +316,14 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Bridge**    | Channel between minds, souls, characters, games — biology’s **membrane traffic** constellation (below) |
 | **Well**      | Shared archetype already in training (say the name)                   |
 | **Cup**       | Your personal mind that inherits a well + local changes               |
+| **Import**    | `from well take trait` into a soul (shared) or a mind (local) — same idea as language `import` |
+| **Open mind** | Still accepts new imports / extensions (open module) |
+| **Closed / sealed mind** | No further imports; bindings frozen (sealed class / closed module) |
+| **Scope**     | Where a binding is visible — soul-wide vs one mind vs nested folder |
+| **Agent**     | A mind as a little autonomous program |
+| **Closure**   | Mind/cup plus the environment it captured when imported |
+| **Continuation** | What runs next after a bridge / thought / room exit |
+| **Goto / jump** | Transfer of control — soul changes character, narrative teleport, handoff |
 
 **Bridge ≈ how cells move cargo across and between membranes** ([vesicle transport](https://en.wikipedia.org/wiki/Vesicle_%28biology_and_chemistry%29), [endocytosis / exocytosis](https://en.wikipedia.org/wiki/Endocytosis)):
 
