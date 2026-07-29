@@ -1,0 +1,32 @@
+# GLANCE.yml — vehicle
+# Full file: CARD.yml | SKILL.md
+# 🚌 "A movable room a character can inhabit."
+
+what: |
+  A vehicle is a room (or room-tree) that moves through world-space while
+  characters inhabit it. Horses, coaches, wagons, caravans, motorhomes,
+  TARDIS offices, Logo turtles, bakfiets — all vehicles. Storage and
+  nesting (horse pulls wagon; caravan of rooms) are first-class.
+
+why: |
+  - Inhabit a space that relocates (EMBARK / DRIVE / DISEMBARK)
+  - Nest vehicles (pull, hitch, ferry, bag-of-holding)
+  - Keep "mount" free for NFS-style skill/repo overlays
+
+when:
+  - '"Get in / on and go" → EMBARK · DRIVE · DISEMBARK'
+  - '"Horse, coach, RV, TARDIS" → vehicle (not skills/mount)'
+  - '"Hitch wagon / form caravan" → HITCH · NEST'
+  - '"Bigger on the inside" → portable nested ROOM.yml tree'
+
+not:
+  - mount   # NFS / skill overlay / virtual repo trees — different skill
+
+examples:
+  - examples/adventure-4/characters/real-people/don-hopkins/fmc-898/
+  - examples/adventure-4/characters/real-people/richard-bartle/study/
+  - examples/adventure-4/street/lane-neverending/w1/acme-bakfiets-of-holding.yml
+  - skills/room/SKILL.md   # Vehicles section (spatial base)
+
+related: [room, character, soul, party, inventory, container, adventure]
+tier: 1

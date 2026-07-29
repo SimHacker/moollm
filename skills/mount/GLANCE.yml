@@ -1,23 +1,26 @@
 # GLANCE.yml — mount
 # Full file: CARD.yml (1404 lines!) | SKILL.md
-# 🎭 "Overlay skills on characters and rooms"
+# 🎭 "NFS-style: overlay skills / compose virtual trees"
 
 what: |
-  Skill mounting — modify behavior through overlay.
-  GRANT (positive) or AFFLICT (negative).
-  Create zones. Lifecycle containers. Mix skill packs.
+  Mount like NFS — attach a skill (or skill pack) onto a directory,
+  character, or room; compose virtual trees of GitHub repo slices.
+  GRANT (positive) or AFFLICT (negative). Zones, lifecycle containers.
+
+  NOT riding a horse. Movable inhabitables → skills/vehicle (EMBARK/RIDE).
 
 why: |
-  - Modify character behavior
-  - Create room zones
+  - Overlay skills on characters and rooms
+  - Compose virtual trees from repo slices
   - Package activities/events/processes
-  - Mix skills from different characters
+  - Keep "mount" = filesystem/NFS metaphor
 
 when:
   - '"Change character behavior" → MOUNT skill'
   - '"Create room zone" → mount on room'
-  - '"Run activity" → mount activity'
+  - '"Wire repo slice into tree" → mount virtual path'
   - '"Release effect" → UNMOUNT'
+  - '"Get on a horse / drive an RV" → skills/vehicle (not this)'
 
 modes:
   GRANT: "Character gains capabilities"
@@ -55,5 +58,8 @@ character_as_skill_pack: |
   minsky/deep-thinking + pee-wee/exuberance + picard/tea-ritual
 
 t_shirt: "MOUNT responsibly. UNMOUNT with love."
-related: [buff, character, room, incarnation, no-ai-joking]
+disambiguation:
+  vehicle: "Movable room you inhabit (horse, coach, wagon, TARDIS) — EMBARK/DRIVE, not MOUNT"
+
+related: [buff, character, room, vehicle, incarnation, no-ai-joking, file-system-object]
 tier: 1

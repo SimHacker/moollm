@@ -6,15 +6,20 @@ card:
   type: [skill, meta, game-mechanics, modification]
   emoji: "🎭"
   tier: 1
-  tagline: "Overlay skills on characters and rooms"
+  tagline: "NFS-style: overlay skills / compose virtual trees"
   description: |
-    Attach a skill to a character or room to modify behavior until unmounted.
-    Mounting overlays the base personality or environment without destroying it.
+    Attach a skill to a character or room to modify behavior until unmounted —
+    like mounting a filesystem. Also: compose virtual trees of GitHub repo
+    slices into a working directory view. Overlays the base without destroying it.
+
+    Not riding. For horses, coaches, RVs, TARDIS offices → skills/vehicle.
 
 invoke_when:
   - "Need to change a character's behavior quickly"
   - "Want a room to enforce a tone or rule"
   - "Testing a constraint or buff on a target"
+  - "Compose a virtual tree from repo slices"
+  - "NOT when embarking a horse/RV — use vehicle"
 
 concepts:
   modes:
@@ -66,5 +71,9 @@ ethics:
     - "Avoid afflicting core-identity characters without consent"
     - "Afflictions must be curable in-story"
 
+disambiguation:
+  vehicle: "skills/vehicle — movable inhabitable rooms (horse, coach, wagon, TARDIS). Colloquial 'mount a horse' → EMBARK/RIDE there."
+
 references:
   details: "skills/mount/SKILL.md"
+  not_riding: "skills/vehicle/"

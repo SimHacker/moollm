@@ -310,6 +310,9 @@ Navigation can use coordinates:
 
 ## Vehicles: Portable Rooms That Move
 
+Full skill: [`skills/vehicle/`](../vehicle/) — horses, coaches, wagons, caravans,
+TARDIS offices, RVs. **Not** [`mount`](../mount/) (NFS skill/repo overlay).
+
 A **vehicle** is a room you can embark, drive, and disembark.
 
 ```yaml

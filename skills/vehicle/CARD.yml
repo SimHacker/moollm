@@ -1,0 +1,93 @@
+# CARD.yml — Vehicle
+# Movable inhabitables — not skill/repo mounting
+
+card:
+  id: vehicle
+  name: Vehicle
+  type: [skill, spatial, entity]
+  emoji: 🚌
+  tier: 1
+  tagline: "A movable room a character can inhabit."
+
+  description: |
+    Vehicles are rooms (or nested room-trees) that relocate in world-space
+    with their occupants. A horse is a vehicle. A wagon it pulls is a
+    vehicle. A caravan is nested vehicles. FMC motorcoach, Bartle study
+    TARDIS, Logo turtle — same pattern.
+
+    Disambiguation: skills/mount is NFS-style overlay of skills on
+    directories / composing virtual repo trees — not riding.
+
+files:
+  docs:
+    - SKILL.md
+    - GLANCE.yml
+  see_also:
+    - skills/room                 # spatial base; vehicle is a room type
+    - skills/mount                # DIFFERENT — skill/repo overlay (NFS metaphor)
+    - skills/party                # travelers sharing a vehicle
+    - skills/inventory            # cargo / luggage on or in the vehicle
+    - skills/container            # non-navigable inheritance parents
+    - skills/character
+    - skills/soul
+    - examples/adventure-4/characters/real-people/don-hopkins/fmc-898/
+    - examples/adventure-4/characters/real-people/richard-bartle/study/
+
+k-lines:
+  activates:
+    - VEHICLE
+    - PORTABLE-ROOM
+    - EMBARK
+    - DISEMBARK
+    - DRIVE
+    - HITCH
+    - CARAVAN
+  related:
+    - { ref: room, relation: "vehicle IS a room that moves" }
+    - { ref: mount, relation: "NOT this — NFS/skill/repo overlay" }
+    - { ref: party, relation: "souls/characters sharing a vehicle" }
+    - { ref: inventory, relation: "cargo, packs, luggage" }
+    - { ref: character, relation: "inhabitants / sometimes vehicle-as-character" }
+    - { ref: soul, relation: "souls walk inside; vehicle relocates their pin" }
+
+disambiguation:
+  mount: |
+    skills/mount = attach a skill (or virtual tree slice) onto a target
+    directory — GRANT/AFFLICT, zones, repo composition. Like NFS mount.
+    Colloquial "mount a horse" → use EMBARK / RIDE on a vehicle.
+
+invoke_when:
+  - "Create or drive a movable room"
+  - "Character inhabits an RV, horse, coach, TARDIS, tent"
+  - "Hitch wagons / nest vehicles into a caravan"
+  - "Distinguish vehicle from skills/mount"
+
+methods:
+  EMBARK:   { signature: "EMBARK [vehicle]  # enter / get on; inhabit" }
+  DISEMBARK: { signature: "DISEMBARK  # exit to current world location" }
+  DRIVE:    { signature: "DRIVE [direction|destination]  # relocate vehicle + occupants" }
+  RIDE:     { signature: "RIDE [vehicle]  # embark when vehicle is animal/steed" }
+  HITCH:    { signature: "HITCH [trailer|wagon] TO [vehicle]  # nest pullables" }
+  UNHITCH:  { signature: "UNHITCH [trailer|wagon]" }
+  STOW:     { signature: "STOW [cargo] IN|ON [vehicle]  # inventory / nested storage" }
+  STATUS:   { signature: "STATUS [vehicle] → position, occupants, hitchlings, cargo" }
+
+kinds:
+  steed: "Horse, turtle, living mover — still a vehicle; RIDE ≡ EMBARK"
+  coach: "Motorcoach, car, bus — FMC #898 pattern"
+  trailer: "Wagon, cart — pulled; storage-first"
+  caravan: "Ordered nest of vehicles traveling together"
+  tardis: "Portable room-tree; bigger on the inside; own internal coords"
+  pocket: "Bag-of-holding / bakfiets — deployable portable room"
+
+nesting: |
+  Vehicles nest: steed → hitch wagon → caravan of wagons;
+  ferry carries coaches; Culture-ship grade: vehicle may itself be a character.
+  Occupants' souls stay co-located with the outermost moving pin unless they DISEMBARK.
+
+examples_worked:
+  fmc_898: examples/adventure-4/characters/real-people/don-hopkins/fmc-898/
+  bartle_study: examples/adventure-4/characters/real-people/richard-bartle/study/
+  bakfiets: examples/adventure-4/street/lane-neverending/w1/acme-bakfiets-of-holding.yml
+
+tier: 1

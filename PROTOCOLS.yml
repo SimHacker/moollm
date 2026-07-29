@@ -1318,9 +1318,11 @@ ENTER-ROOM:
 
 PORTABLE-ROOM:
   meaning: "Rooms you can pick up, carry, and deploy anywhere."
-  location: skills/room/
+  location: skills/vehicle/   # was room/; vehicle owns movable inhabitables
+  also_see: skills/room/
   invoke_when: "Creating mobile workspaces or shareable environments"
-  also_called: ["vehicle", "TARDIS", "bag-of-holding"]
+  also_called: ["vehicle", "TARDIS", "bag-of-holding", "horse", "wagon", "caravan"]
+  not: "skills/mount — NFS skill/repo overlay, not riding"
   
   operations:
     embark: "Enter the portable room"

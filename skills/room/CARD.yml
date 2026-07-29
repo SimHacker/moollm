@@ -48,6 +48,8 @@ k-lines:
     - { ref: adventure, relation: "room-based exploration + narrative framing" }
     - { ref: character, relation: "characters/souls have locations in rooms" }
     - { ref: soul, relation: "souls walk rooms; inherit venue framing" }
+    - { ref: vehicle, relation: "movable inhabitable rooms (horse, coach, TARDIS)" }
+    - { ref: mount, relation: "NFS skill/repo overlay — not riding" }
     - { ref: container, relation: "non-navigable framing parents" }
     - { ref: representation-ethics, relation: "what framing may authorize" }
     - { ref: memory-palace, relation: "spatial organization" }
@@ -118,7 +120,7 @@ types:
   physical:    "Normal navigable space"
   metaphysical: "Conceptual space (characters/, personas/)"
   container:   "Nested room (cat-cave, bag of holding)"
-  vehicle:     "Room that can move (TARDIS, Logo turtle)"
+  vehicle:     "Room that can move — protocol in skills/vehicle (TARDIS, horse, FMC)"
   repository:  "Storage space for collections"
 
 # STATE SCHEMA (brief — see SKILL.md)

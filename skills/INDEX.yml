@@ -314,8 +314,8 @@ character:
       why: "Curses are just shitty buffs"
       
     - id: mount
-      tagline: "Attach skills"
-      why: "GRANT abilities or AFFLICT conditions"
+      tagline: "NFS skill/repo overlay"
+      why: "Attach skills / compose virtual trees — NOT riding (see vehicle)"
       
     - id: needs
       tagline: "Sims motivations"
@@ -328,6 +328,10 @@ world:
     - id: adventure
       tagline: "Room-based exploration"
       why: "Narrative evidence collection, TinyMUD heritage"
+
+    - id: vehicle
+      tagline: "Movable inhabitable room"
+      why: "Horse, coach, wagon, caravan, TARDIS, FMC — EMBARK/DRIVE; not mount"
       
     - id: simulation
       tagline: "Central hub"
@@ -787,6 +791,7 @@ all_skills:
   - thoughtful-commitment
   - time
   - trekify
+  - vehicle
   - visualizer
   - world-generation
   - worm
