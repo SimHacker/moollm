@@ -6,13 +6,15 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: CHARACTER-AS-ENTITY
-related: [cat, dog, society-of-mind, persona, room, buff, needs, mind-mirror, incarnation, party]
+related: [soul, mind, cat, dog, society-of-mind, persona, room, buff, needs, mind-mirror, incarnation, party, representation-ethics]
 tags: [moollm, entity, location, relationships, inventory, identity]
 ---
 
 # Character
 
 > *"File is identity. Location is presence. Relationships are memory."*
+
+Ethics: [ETHICS.md](ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [representation-ethics](../representation-ethics/)
 
 Characters are entities that exist in the world. Players, NPCs, companions, cats — all are characters.
 

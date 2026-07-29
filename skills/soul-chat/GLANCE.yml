@@ -4,14 +4,22 @@
 
 what: |
   Multi-voice YAML Jazz dialogues where everything speaks.
-  Characters, objects, rooms, algorithms, concepts — all have voices.
+  Needs [soul](../soul/) — a continuity body (or anything granted a soul-like
+  voice). Often [mind](../mind/)s under that soul are the speakers.
+  Characters, objects, rooms, algorithms, concepts — all may have voices.
   Comments in YAML become inner monologue.
 
 why: |
   - Make world expressive
   - Objects explain themselves
-  - Multiple perspectives simultaneously
+  - Multiple perspectives simultaneously (multi-minded souls)
   - Algorithms can defend their complexity
+
+foundation:
+  soul: "Who/what has continuity enough to speak from"
+  mind: "Usual speakers when a soul is multi-minded"
+  ethics: ../soul/ETHICS.md
+  see_also: ../soul/CARD.yml   # dependency_grain + related
 
 when:
   - '"Let something speak" → SPEAK'
@@ -45,5 +53,5 @@ room_speaks: |
   Nobody visits just to visit. *drip* That leak again."
 
 insight: "A room that speaks is more memorable than one you read about."
-related: [yaml-jazz, adversarial-committee, character, simulator-effect]
+related: [soul, mind, yaml-jazz, society-of-mind, adversarial-committee, character, simulator-effect, no-ai-soul]
 tier: 1

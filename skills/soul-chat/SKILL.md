@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [moollm, society-of-mind, character, persona, room, card, mind-mirror, yaml-jazz, adversarial-committee, speed-of-light]
+related: [soul, mind, moollm, society-of-mind, character, persona, room, card, mind-mirror, yaml-jazz, adversarial-committee, speed-of-light, no-ai-soul]
 tags: [moollm, dialogue, voice, alive, multi-agent]
 ---
 
@@ -14,10 +14,16 @@ tags: [moollm, dialogue, voice, alive, multi-agent]
 
 > **"Everything is alive. Everything can speak."**
 
-"YAML Jazz" and "Markup With Typed Code Blocks" dialogues between characters, objects, rooms, documents, concepts—anything with a soul.
+## Foundation
+
+Requires **[soul](../soul/)** — continuity enough to speak from (organizational container, not metaphysics). Often **[mind](../mind/)**s under that soul are the speakers; multi-minded souls are natural choruses.  
+Ethics of voice: [soul/ETHICS.md](../soul/ETHICS.md) · see also: [soul/CARD.yml](../soul/CARD.yml).
+Antidote to [no-ai-soul](../no-ai-soul/) — that skill is the dial on soul / YAML Jazz comment heat; this skill turns heat back up (multi-voice warmth). Neither replaces soul-as-container.
+
+"YAML Jazz" and "Markup With Typed Code Blocks" dialogues between characters, objects, rooms, documents, concepts—anything granted a voice.
 
 > [!TIP]
-> **Give anything a voice.** Characters, concepts, documents, rooms — if it exists, it can speak.
+> **Give anything a voice.** Characters, concepts, documents, rooms — if it exists, it can speak. Name which mind or object is speaking when it matters.
 
 ## What This Is
 

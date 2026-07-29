@@ -19,8 +19,8 @@ sims_credits:
   system: "The Sims personality traits"
 templates:
   - EXTENSIONS.yml
-related: [character, society-of-mind, persona, representation-ethics, incarnation, yaml-jazz, plain-text, needs, cat, dog, room, constructionism, manufacturing-intelligence]
-tags: [moollm, personality, traits, psychology, timothy-leary, sims, circumplex, escape]
+related: [mind, soul, character, society-of-mind, persona, representation-ethics, incarnation, yaml-jazz, plain-text, needs, cat, dog, room, constructionism, manufacturing-intelligence]
+tags: [moollm, personality, traits, psychology, timothy-leary, sims, circumplex, escape, organelle]
 ---
 
 # Mind Mirror
@@ -30,6 +30,12 @@ tags: [moollm, personality, traits, psychology, timothy-leary, sims, circumplex,
 > *"The ultimate intimacy is where you show them your personal database — you show your Mind Mirror."* — Timothy Leary
 
 ---
+
+## Foundation
+
+Requires **[mind](../mind/)** — Mind Mirror is an **organelle schema** (game/ecosystem DNA) on a mind. Usual host: **[soul](../soul/)**.  
+Not a medical diagnosis. Consent and representation: [representation-ethics](../representation-ethics/) · [ETHICS.md](ETHICS.md) · [mind/ETHICS.md](../mind/ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [character/ETHICS.md](../character/ETHICS.md).  
+See also: [soul/CARD.yml](../soul/CARD.yml) · [SOUL-MODEL.md](../../examples/adventure-4/SOUL-MODEL.md)
 
 ## What It Is
 

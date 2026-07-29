@@ -1,0 +1,60 @@
+# GLANCE.yml — soul
+# Full file: CARD.yml | SKILL.md
+# 🕯️ "One location. Shared inventory. Zero or more minds."
+
+what: |
+  Continuity body on the adventure map: one location, shared inventory,
+  history, and zero or more minds. Organizational container — not a
+  metaphysical claim. Multiple minds are first-class. Nesting
+  (sub-minds, sub-souls, intervening containers) allowed under Self.
+  Minds ride with the soul; they do not each need a map pin.
+
+why: |
+  - Embodiment without forcing one psychology
+  - Inventory and location stay on the soul
+  - Multiple minds share the walk
+  - Game organelles attach as minds with schemas
+
+when:
+  - '"One body, many agencies" → soul + minds'
+  - '"Walk the city" → MOVE soul (minds come along)'
+  - '"Shared pockets" → inventory on soul'
+  - '"Cross-game character" → organelle minds under soul'
+
+owns:
+  - location
+  - inventory
+  - minds[]   # cardinality 0, 1, or N — all valid
+  - history
+
+mind_cardinality:
+  mindless: "minds: [] — walks, carries, persists; no resident agency"
+  single_minded: "exactly one mind"
+  multi_minded: "two or more minds (shoulders, parliament, …)"
+
+worked_cases:
+  zombiesims: "Replace human + other minds with one zombie mind (often single-minded after infection)"
+  robot: "Robots have souls; may be mindless, single-, or multi-minded"
+  remote_control: "Remote-control robot → remote-control mind stub (thin agency; pilot elsewhere)"
+
+related_skills:
+  mind: "Resident agencies — required before society-of-mind / mind-mirror"
+  character: "Directory / entity that is or hosts a soul"
+  inventory: "Soul's shared pockets"
+  society-of-mind: "Competition among minds (needs mind)"
+  mind-mirror: "Personality organelle on a mind (needs mind)"
+  soul-chat: "Voices — needs soul (often minds speaking)"
+  incarnation: "Ethical birth / autonomy / exit"
+  adventure: "Map the soul walks — loci lineage"
+  party: "Multiple souls traveling together"
+
+foundational_for: [soul-chat, Soul City, incarnation]
+
+examples: examples/adventure-4/SOUL-MODEL.md   # bootstrap world; ontology in this skill
+ethics: ETHICS.md                             # container + stack hub · mind/ + character/ ETHICS
+# see_also / dependency_grain / related → CARD.yml
+
+not:
+  - no-ai-soul   # dial on soul / YAML Jazz comment heat — not this container ontology
+
+tier: 1

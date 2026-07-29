@@ -2,6 +2,12 @@
 #
 # This file IS the simulation. Reading it = loading the world.
 # Comments are semantic data. The LLM reads them. They matter.
+#
+# Soul City bootstrap (2026-07-29): this world IS the bootstrap Soul City map.
+# One soul walks; many minds share its location + inventory. See SOUL-MODEL.yml.
+# Later: fresh officially named Soul City adventure; until then, grow here.
+
+soul_city_bootstrap: SOUL-MODEL.yml
 
 simulation:
   turn: 3

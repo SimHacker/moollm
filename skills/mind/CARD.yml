@@ -1,0 +1,98 @@
+# CARD.yml — Mind
+# Resident agency inside a soul
+
+card:
+  id: mind
+  name: Mind
+  type: [skill, entity, ontology]
+  emoji: 🧠
+  tier: 1
+  tagline: "Resident agency. Shares the soul's walk."
+
+  description: |
+    An agency that lives in a soul. May inherit latent wells, hold personal
+    deltas (cups), or adopt a game schema (organelle). Co-located with the
+    soul — no separate map pin by default.
+
+files:
+  docs:
+    - SKILL.md
+    - GLANCE.yml
+    - ETHICS.md                      # agency dimension (wells, mute, stubs)
+  ethics:
+    - ETHICS.md
+    - skills/soul/ETHICS.md          # container + stack hub + venues
+    - skills/character/ETHICS.md     # body / patron-mascot
+    - skills/mind-mirror/ETHICS.md   # Leary organelle
+    - skills/representation-ethics/
+  examples:
+    - examples/adventure-4/SOUL-MODEL.md   # bootstrap world + worked examples (not manifesto)
+  see_also:
+    - skills/soul
+    - skills/character
+    - skills/society-of-mind
+    - skills/mind-mirror
+    - skills/soul-chat
+    - skills/prototype
+    - skills/representation-ethics
+    - designs/object-system/LATENT-SPACE-INHERITANCE.md
+
+# mind is foundational for society-of-mind and mind-mirror; usual host is soul
+# Full grain table: skills/soul/CARD.yml → dependency_grain
+foundational_for: [society-of-mind, mind-mirror]
+
+k-lines:
+  activates:
+    - MIND
+    - CUP
+    - WELL
+    - ORGANELLE
+    - SHOULDER
+  related:
+    - { ref: soul, relation: "usual host continuity body" }
+    - { ref: character, relation: "directory host; body ethics" }
+    - { ref: society-of-mind, relation: "needs mind — agent competition and B-brain" }
+    - { ref: mind-mirror, relation: "needs mind — Leary organelle schema" }
+    - { ref: soul-chat, relation: "often minds speaking under a soul" }
+    - { ref: prototype, relation: "clone and change" }
+    - { ref: representation-ethics, relation: "consent when a mind models a real person" }
+
+invoke_when:
+  - "Add a cup, shoulder, or counselor under a soul"
+  - "Bind a mind to a latent well or file archetype"
+  - "Attach a game organelle (import/export/sync)"
+  - "Distinguish mind from persona, party member, or soul"
+
+methods:
+  CREATE:    { signature: "CREATE mind UNDER [soul] (blank | parents | organelle)" }
+  INHERIT:   { signature: "INHERIT [mind] FROM [well | file | both]" }
+  DELTA:     { signature: "DELTA [mind] — write personal overrides (cup)" }
+  MUTE:      { signature: "MUTE [mind]  # censor / suppressor" }
+  SPEAK:     { signature: "SPEAK [mind] AT [fork]  # counsel; soul chooses" }
+  ORGANELLE: { signature: "ORGANELLE [mind] SCHEMA [game] — Import How…" }
+  BRIDGE:    { signature: "BRIDGE [mind] ↔ [mind|soul|game]" }
+
+well_vs_cup:
+  well: "Latent archetype name — shared pure feed; not personal"
+  cup: "Mind reified under a soul — inherits well, carries local delta"
+
+organelle:
+  is: "Mind that adopted a game/ecosystem schema"
+  keeps: "Own DNA (attribute schema + data); import/export/sync"
+  parallel: "Sibling organelles do not overwrite each other"
+
+examples:
+  shoulders:
+    angel: 'parents: ["shoulder angel"]'
+    devil: 'parents: ["shoulder devil"]'
+  two_cups:
+    note: "One soul; jesus-mind and mouse-mind — parliament, not blend"
+  blended_soul:
+    note: "Parents on the soul itself — see SOUL-MODEL.md Jesus Mouse"
+
+disambiguation:
+  mind-mirror: "Specific organelle / personality model — uses this skill's organelle pattern"
+  persona: "Costume on a character — not a mind"
+  party-member: "Separate soul/character in a party — not a co-located mind"
+
+tier: 1

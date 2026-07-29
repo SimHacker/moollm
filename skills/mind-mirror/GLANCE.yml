@@ -4,6 +4,7 @@
 
 what: |
   Deep personality modeling via Timothy Leary's Interpersonal Circumplex.
+  An **organelle schema on a [mind](../mind/)** — needs mind; usual host [soul](../soul/).
   Four Thought Planes capture motivation, not just behavior.
   Complements Sims traits (behavior) with WHY.
 
@@ -12,6 +13,13 @@ why: |
   - Mind Mirror = WHY (motivation)
   - Predict behavior from profile
   - Design complex, realistic personalities
+
+foundation:
+  mind: "Organelle attaches to a mind"
+  soul: "Usual continuity body walking with that mind"
+  ethics: ../soul/ETHICS.md
+  representation: ../representation-ethics/
+  see_also: ../soul/CARD.yml   # dependency_grain + related
 
 when:
   - '"Understand character psyche" → REFLECT'
@@ -41,6 +49,6 @@ sims_vs_mirror: |
   Mind Mirror: "WHY nice? Fear? Love? Calculation?"
   Same output, completely different character.
 
-integrates_with: [character, persona, cat, coatroom, incarnation]
+integrates_with: [mind, soul, character, persona, society-of-mind, cat, coatroom, incarnation]
 lineage: [Timothy Leary 1957, Jerry Wiggins, The Sims]
 tier: 1

@@ -5,13 +5,20 @@ license: MIT
 tier: 0
 allowed-tools: [read_file, list_dir]
 protocol: SOCIETY-OF-MIND
-related: [moollm, k-lines, adversarial-committee, multi-presence, speed-of-light, simulator-effect, character, persona, mind-mirror, constructionism, debate, soul-chat]
+related: [mind, soul, moollm, k-lines, adversarial-committee, multi-presence, speed-of-light, simulator-effect, character, persona, mind-mirror, constructionism, debate, soul-chat]
 tags: [moollm, meta, philosophy, minsky, emergence, agents, k-lines]
 ---
 
 # Society of Mind Skill
 
 > *Simulate the mind as a society of agents.*
+
+## Foundation
+
+Requires **[mind](../mind/)**. Usual host: **[soul](../soul/)** (`minds[]` compete and counsel).  
+See also: [soul/CARD.yml](../soul/CARD.yml) · ethics: [mind/ETHICS.md](../mind/ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · examples: [SOUL-MODEL.md](../../examples/adventure-4/SOUL-MODEL.md)
+
+Agents here are the fine grain inside minds (or skills-as-agents). Multi-minded souls are the natural home for inner conflict and B-brain observation.
 
 ## Overview
 

@@ -24,13 +24,25 @@ files:
   docs:
     - SKILL.md              # Full protocol documentation
     - README.md             # Human landing page
+    - ETHICS.md             # Body / patron-mascot / memorial dimension
+  ethics:
+    - ETHICS.md
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - skills/representation-ethics/
+    - skills/incarnation/
   see_also:
+    - skills/soul           # Continuity body — location + inventory + minds[]
+    - skills/mind           # Resident agency (well / cup / organelle)
     - skills/inventory      # Full inventory protocol
     - skills/persona        # Identity layers
     - skills/buff           # Temporary effects
-    - skills/mind-mirror    # Personality modeling
+    - skills/mind-mirror    # Personality modeling (organelle schema)
     - skills/incarnation    # Ethical character creation
-    - skills/representation-ethics  # Patron-mascot stack for real people
+    - skills/representation-ethics  # Consent + patron-mascot
+    - skills/soul/ETHICS.md
+    - skills/mind/ETHICS.md
+    - examples/adventure-4/SOUL-MODEL.md  # Bootstrap world + worked examples
 
 # K-LINES
 
@@ -45,11 +57,13 @@ k-lines:
     - PATRON-MASCOT-STACK    # When character inherits from real person
     - MASCOT-QUOTES-PATRON   # Mascot cites patron's wisdom
   related:
-    - { ref: persona, relation: "identity layers" }
+    - { ref: soul, relation: "continuity body a character may be or host" }
+    - { ref: mind, relation: "resident agencies under a soul" }
+    - { ref: persona, relation: "identity layers / costumes" }
     - { ref: buff, relation: "temporary effects" }
-    - { ref: room, relation: "where characters exist" }
-    - { ref: incarnation, relation: "ethical creation" }
-    - { ref: representation-ethics, relation: "patron-mascot stack pattern" }
+    - { ref: room, relation: "where characters exist; framing inherits" }
+    - { ref: incarnation, relation: "ethical creation / exit" }
+    - { ref: representation-ethics, relation: "consent + patron-mascot stack" }
 
 # INVOKE WHEN
 

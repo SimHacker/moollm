@@ -2,6 +2,10 @@
 
 > *The world evolved. The pub transformed. The cats remember.*
 
+## Soul City bootstrap
+
+**Working decision (2026-07-29):** adventure-4 *is* the Soul City bootstrap world — one soul walks the map with shared inventory; many minds ride along. **Manifesto:** [`SOUL-MODEL.md`](SOUL-MODEL.md) · twin [`SOUL-MODEL.yml`](SOUL-MODEL.yml). **Skills:** [`skills/soul`](../../skills/soul/) · [`skills/mind`](../../skills/mind/). Soul Plaza: [`street/lane-neverending/e2/soul-plaza/`](street/lane-neverending/e2/soul-plaza/). Later: a fresh officially named Soul City adventure; until then, grow here.
+
 ## 🌍 Overview
 
 Adventure 4 builds on the enriched world from adventure-2 and adventure-3, with significant architectural evolution:

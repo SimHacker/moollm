@@ -3,8 +3,8 @@
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 135
-last_updated: 2026-07-20
+skill_count: 137
+last_updated: 2026-07-29
 
 # FOUNDATION — Load These First
 
@@ -32,7 +32,7 @@ philosophy:
   minsky:
     - id: society-of-mind
       tagline: "Intelligence from simple agents"
-      why: "Minsky's masterwork — skills ARE agents, behavior IS emergent"
+      why: "Needs mind — competition/counsel among agencies; usual host soul"
       
     - id: k-lines
       tagline: "Semantic activation"
@@ -286,7 +286,15 @@ character:
   core:
     - id: character
       tagline: "Body with location"
-      why: "Home, inventory, relationships — the entity foundation"
+      why: "Home, inventory, relationships; ETHICS.md = body / patron-mascot / memorial"
+
+    - id: soul
+      tagline: "One location, shared inventory, minds[]"
+      why: "Foundational for soul-chat + Soul City; ETHICS.md = container + ethics stack hub"
+
+    - id: mind
+      tagline: "Resident agency under a soul"
+      why: "Foundational for society-of-mind + mind-mirror; ETHICS.md = agency (wells, mute, stubs)"
       
     - id: persona
       tagline: "Identity layers"
@@ -298,7 +306,7 @@ character:
       
     - id: mind-mirror
       tagline: "Personality modeling"
-      why: "Leary's Circumplex + four Thought Planes"
+      why: "Needs mind — Leary Circumplex as organelle; not a diagnosis"
       
   modification:
     - id: buff
@@ -430,7 +438,7 @@ communication:
     
   - id: soul-chat
     tagline: "Everything speaks"
-    why: "YAML comments as inner monologue"
+    why: "Needs soul — voices (often minds); antidote to no-ai-soul satire"
     
   - id: card
     tagline: "Portable capabilities"
@@ -702,6 +710,7 @@ all_skills:
   - markdown
   - memory-palace
   - micropolis
+  - mind
   - mind-mirror
   - mooco
   - mooco-mirror
@@ -768,6 +777,7 @@ all_skills:
   - slideshow
   - sniffable-python
   - society-of-mind
+  - soul
   - soul-chat
   - speech
   - speed-of-light

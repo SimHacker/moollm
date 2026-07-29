@@ -4,14 +4,21 @@
 
 what: |
   Minsky's theory implemented in MOOLLM.
-  Skills are agents. Characters are societies.
+  Skills are agents. Characters are societies of minds.
+  Requires [mind](../mind/) — agencies that compete; usual host [soul](../soul/).
   No single agent understands — understanding emerges from pattern.
 
 why: |
-  - Characters with inner conflict
+  - Characters with inner conflict (multi-minded souls)
   - Emergent behavior, not scripted
   - Multi-agent deliberation
-  - Self-observation (B-brain)
+  - Self-observation (B-brain as a mind)
+
+foundation:
+  mind: "Resident agencies that compete / counsel"
+  soul: "Usual container — one location, shared inventory, minds[]"
+  ethics: ../soul/ETHICS.md
+  see_also: ../soul/CARD.yml   # dependency_grain + related
 
 when:
   - '"Inner character conflict" → define competing agents'
@@ -57,5 +64,5 @@ llm_pattern: |
   Show debate. Character decides.
 
 lineage: [Minsky (1985), Papert, Will Wright, Park et al. (2023)]
-connects_to: [k-lines, adversarial-committee, needs, mind-mirror, speed-of-light]
+connects_to: [mind, soul, k-lines, adversarial-committee, needs, mind-mirror, speed-of-light, soul-chat]
 tier: core
