@@ -43,7 +43,7 @@ not persons.
 | Being tags | [ontology](../ontology/) | Composed tags; **most restrictive wins** |
 | Body / mascot | [character/ETHICS.md](../character/ETHICS.md) | Persona vs claim; patron-mascot; memorial dirs |
 | Agency | [mind/ETHICS.md](../mind/ETHICS.md) | Wells/cups; mute; displace; stubs; speaker id |
-| Place / venue | [room](../room/) · [adventure](../adventure/) | Framing **inherits** down the tree |
+| Place / venue | [room/ETHICS.md](../room/ETHICS.md) · [adventure](../adventure/) | Framing **inherits** down the tree; scopes performance |
 | Stage / tribute | [pub/ROOM.yml](../../examples/adventure-4/pub/ROOM.yml) · [`pub/stage/`](../../examples/adventure-4/pub/stage/) | `framing: performance` / tribute |
 | Personality organelle | [mind-mirror/ETHICS.md](../mind-mirror/ETHICS.md) | Model ≠ impersonation ≠ diagnosis |
 | Birth / grant / exit | [incarnation](../incarnation/) · [ETHICS](../incarnation/ETHICS.md) | Grant soul+minds; character authors architecture; George's Provision |
@@ -57,7 +57,7 @@ INDEX: [skills/INDEX.yml → ethics](../INDEX.yml). Extension #7
 
 ## Rooms, stages, and inherited framing
 
-Souls **walk** rooms. Rooms carry ethical atmosphere that children inherit.
+Souls **walk** rooms. Full venue ethics: [room/ETHICS.md](../room/ETHICS.md).
 
 | Venue | Framing | Effect |
 |-------|---------|--------|
@@ -67,9 +67,8 @@ Souls **walk** rooms. Rooms carry ethical atmosphere that children inherit.
 | Classroom / study | learning | K-line / citation preferred over impersonation |
 | Private imagination | private play | Player consent; not public deception |
 
-Tribute three-beats (from pub `tribute_protocol`): **invocation → performance →
-acknowledgment**. Crossing stage → street drops stage license — check the room.
-[room](../room/) · [container](../container/).
+Tribute three-beats: **invocation → performance → acknowledgment**.
+Stage → street drops stage license. [container](../container/) for non-navigable parents.
 
 ---
 

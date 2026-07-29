@@ -46,6 +46,12 @@ room_types:
   vehicle: "Room that moves (TARDIS)"
   repository: "Storage collection"
 
+ethics: ETHICS.md   # venue framing inherits; scopes what souls/minds may perform here
+framing: |
+  ROOM.yml framing.mode + inherits_to_children.
+  Stage ≠ street. Extension #7: Ethical Framing.
+
 anti_pattern: "ASCII maps — fragile, wastes tokens. Use markdown tables."
 lineage: [Colossal Cave 1976, TinyMUD 1989, LambdaMOO 1990]
+related_skills: [adventure, character, soul, container, representation-ethics, incarnation]
 tier: 1

@@ -6,13 +6,15 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [card, container, exit, object, memory-palace, adventure, character, data-flow, multi-presence, plain-text]
-tags: [moollm, navigation, space, directory, moo, adventure]
+related: [card, container, exit, object, memory-palace, adventure, character, soul, representation-ethics, incarnation, data-flow, multi-presence, plain-text]
+tags: [moollm, navigation, space, directory, moo, adventure, framing, ethics]
 ---
 
 # Room
 
 > **Rooms are intertwingled navigable activation context maps. Entering = calling. Exiting = returning.**
+
+Ethics (venue / framing inheritance): [ETHICS.md](ETHICS.md) · stack: [soul/ETHICS.md](../soul/ETHICS.md)
 
 Directories as cognitive spaces where [cards](../card/) come to life.
 

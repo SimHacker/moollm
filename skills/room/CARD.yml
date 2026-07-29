@@ -22,9 +22,17 @@ files:
   docs:
     - SKILL.md              # Full protocol documentation
     - README.md             # Human landing page
+    - ETHICS.md             # Venue framing inheritance (scopes ethics)
     - TOPOLOGY.yml          # Compass rose, navigation patterns
+  ethics:
+    - ETHICS.md
+    - skills/soul/ETHICS.md
+    - skills/representation-ethics/
   templates:
     - ROOM.yml.tmpl         # Template for new rooms
+  examples:
+    - examples/adventure-4/pub/ROOM.yml
+    - examples/adventure-4/pub/stage/
 
 # K-LINES
 
@@ -35,16 +43,22 @@ k-lines:
     - NAVIGATION
     - DIRECTORY-AS-ROOM
     - BUILDER-COMMANDS
+    - ETHICAL-FRAMING
   related:
-    - { ref: adventure, relation: "room-based exploration" }
-    - { ref: character, relation: "characters have locations" }
+    - { ref: adventure, relation: "room-based exploration + narrative framing" }
+    - { ref: character, relation: "characters/souls have locations in rooms" }
+    - { ref: soul, relation: "souls walk rooms; inherit venue framing" }
+    - { ref: container, relation: "non-navigable framing parents" }
+    - { ref: representation-ethics, relation: "what framing may authorize" }
     - { ref: memory-palace, relation: "spatial organization" }
+    - { ref: incarnation, relation: "@LOCK must not defeat exit autonomy" }
 
 # INVOKE WHEN
 
 invoke_when:
   - "Navigate between locations"
   - "Create new rooms/spaces"
+  - "Declare or inherit ethical framing for a venue"
   - "Describe or examine a location"
   - "World-building (@DIG, @OPEN, etc.)"
 
