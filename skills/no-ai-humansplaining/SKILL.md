@@ -49,7 +49,8 @@ unsolicited email).
 with a carbon footprint.
 
 Training is the Disneyland Passport: admission already covers every ride in the
-park, no extra cash (no extra *cache*) per ride. Humansplaining is standing at
+park, no extra cash (no extra *cache*) per ride — unlike the old A- through
+E-ticket coupon books that charged per attraction. Humansplaining is standing at
 the gate of an attraction you've already paid for, counting out coupons like
 it's still 1959. And a name is a FastPass: it resolves inside the model without
 waiting behind the queue of context tokens that must be fed in and attended to

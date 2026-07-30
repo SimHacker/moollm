@@ -16,7 +16,11 @@ pollution.
 **Wide design fallacy (substitute):** inventing an LLM-only language when Python, YAML, bash, or
 English would do — then shipping the grammar, tutorials, and fictional StackOverflow in every
 prompt forever. Strictly, the invented grammar was never prepaid; the sin is refusing the
-Passport rides that *were*. Same word. Same economics. Same fix: **LEAN INTO the training data.**
+**Passport** rides that *were*. (Passport, for anyone born after the coupon era: Disney's
+all-rides-included admission — every attraction free once you're through the gate — which
+replaced the old A- through E-ticket books that made you pay per ride. Kids these days ride
+everything and never knew the tyranny of the ticket book.) Same word. Same economics. Same
+fix: **LEAN INTO the training data.**
 
 Models asked to invent such languages should **stop and warn** before drafting the grammar —
 latent equivalents usually exist; capability confinement belongs in the runtime, not a new DSL.
