@@ -192,8 +192,8 @@ live_transcripts:
     joke: "What is the difference between a duck?"
     answer: "One of its legs is both the same."
     bug_type: "MISSING-OPERAND"
-    bias: -2.0
-    status: recording
+    bias: "-2.0 through +2.0 (full dial sweep)"
+    status: complete
     insight: "The bug is in the question; the answer carries the same bug in a load-bearing position. Bug-for-bug compatible — an ABI, not a punchline."
 
 # MINSKY'S CENTRAL THESIS

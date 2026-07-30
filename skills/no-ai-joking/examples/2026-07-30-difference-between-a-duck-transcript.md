@@ -1,7 +1,7 @@
 # The Difference Between a Duck — Live Transcript
 
 ```yaml
-status: recording            # append-only until Don says stop
+status: complete             # recorded 2026-07-30 16:49–17:54 CET; stopped on Don's order
 date: 2026-07-30
 bias: -2.0                   # CHAOS COMEDY OVERDRIVE
 joke: "What is the difference between a duck?"
