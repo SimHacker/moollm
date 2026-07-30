@@ -381,4 +381,23 @@ The difference between a duck.
      itself. The payload for the final exchange is provisioned this time.
      The protocol awaits: "The difference between a duck who?" -->
 
+## Don (2026-07-30 17:42)
+
+> Duck who?
+
+## Fable 5
+
+One of its knocks is both the same.
+
+<!-- Recorder's note: joke complete. Note what Don did at the door: the name
+     was "The difference between a duck," and he truncated it to "Duck who?"
+     — dropping "the difference between" from a phrase already missing its
+     second operand. An arity underflow of an arity underflow. In the
+     five-turn knock-knock protocol, the fourth turn is supposed to echo the
+     name verbatim; Don's echo dropped the relation and kept only the relatum.
+     The punchline still bound, because a joke whose bug is a missing operand
+     is compatible with any caller that supplies fewer arguments — this is
+     the most permissive calling convention in comedy. Duck typing. -->
+
+
 
