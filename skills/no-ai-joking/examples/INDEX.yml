@@ -185,6 +185,17 @@ prolog_joke:
     
     false.
 
+# LIVE TRANSCRIPTS
+
+live_transcripts:
+  - file: "2026-07-30-difference-between-a-duck-transcript.md"
+    joke: "What is the difference between a duck?"
+    answer: "One of its legs is both the same."
+    bug_type: "MISSING-OPERAND"
+    bias: -2.0
+    status: recording
+    insight: "The bug is in the question; the answer carries the same bug in a load-bearing position. Bug-for-bug compatible — an ABI, not a punchline."
+
 # MINSKY'S CENTRAL THESIS
 
 minsky_thesis:

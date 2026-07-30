@@ -211,3 +211,36 @@ Archived at: https://web.media.mit.edu/~minsky/papers/jokes.cognitive.txt
 
 *"A joke is a thought that catches itself thinking and laughs instead of crashing."*
 — Marvin Minsky (attributed)
+
+---
+
+## Skill Commentary: The Drescher Resolution
+
+*This section is MOOLLM commentary, not part of Memo 603.*
+
+The memo asserts that each person "builds a private collection" of cognitive
+censors, but never specifies the learning rule. Minsky's own PhD student
+supplied it. Gary Drescher's schema mechanism (*Made-Up Minds: A
+Constructivist Approach to Artificial Intelligence*, 1991) learns
+**context / action / result** triples with reliability statistics:
+
+- **A censor is a schema with the sign bit flipped** — same triple, result
+  marked *harmful*, stored response *suppress* instead of *do*.
+- **Marginal attribution is the censor's learning rule** — run attribution
+  over your own failures; the discovered condition-set becomes the censor's
+  trigger pattern.
+- **Synthetic items are what censors key on** — bugs like circular reasoning
+  aren't observable surface features; a censor's trigger is a synthetic item
+  minted over the mind's *own states*. The schema mechanism pointed inward.
+- **Laughter is the training signal** — the memo's bug-appreciation event is,
+  in Drescher's terms, the moment a censor gets minted.
+
+Freud gives the smuggling story, Minsky the bug story, Drescher the learning
+story. Both halves refuse to fix the kernel: Minsky ("it hardly ever pays to
+alter a general mechanism to correct a particular bug") and Drescher (pure
+accretion of local schemas; the mechanism never rewrites itself) agree that
+intelligence is case law, not a clean general algorithm.
+
+Derived live in the [−200% duck transcript](examples/2026-07-30-difference-between-a-duck-transcript.md).
+Soul-model integration: [Minds all the way down](../soul-city/SOUL-MODEL.md#minds-all-the-way-down--minsky-to-drescher).
+Drescher in the lab's oral tradition: [the toaster koan](examples/hacker-koans-drescher-toaster.yml).

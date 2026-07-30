@@ -157,9 +157,24 @@ In this model a B-brain is just another mind whose *subject* is the rest of the 
 | K-lines               | names that activate latent prototypes or file paths          |
 | B-brain               | a mind that watches the society                              |
 | Censors / suppressors | shoulder mute, bridge attenuation, player-in-the-middle veto |
-| Made-up minds         | blank cups that grow                                         |
+| Made-up minds         | blank cups that grow — the name tips its hat to Drescher (next section) |
 
 [society-of-mind](../society-of-mind/README.md) · [LIVE-OBJECTS examples](../../designs/object-system/LIVE-OBJECTS-EXAMPLES.md)
+
+### Minds all the way down — Minsky to Drescher
+
+The minds model has a lineage, readable one book at a time:
+
+| Read | What it gives this model |
+|------|--------------------------|
+| ***The Society of Mind*** — Marvin Minsky | Mind as a society of mindless agents. The source of fronting-as-role, B-brains, censors and suppressors, K-lines. The mapping table above is the bridge. |
+| ***Made-Up Minds*** — Gary Drescher | Minsky's PhD student building the bottom-up half: the **schema mechanism** grows concepts from raw experience. A schema is a **context / action / result** triple with reliability statistics; **marginal attribution** discovers which conditions actually matter; **synthetic items** mint a brand-new internal concept when nothing observable explains the data. That is *how a blank cup grows* — and where the "made-up" mind kind gets its name. |
+
+The hinge between the two books is a joke. Minsky's AI Memo 603 — [*Jokes and their Relation to the Cognitive Unconscious*](../no-ai-joking/MINSKY-JOKES.md) (1980) — patches Freud: censors don't just suppress forbidden *content*, they suppress defective *reasoning*, and this "negative meta-knowledge… may be a large portion of all we know." Look at the shape of that claim through Drescher's eyes and the two theories snap together: **a censor is a schema with the sign bit flipped** — same context/action/result triple, result marked *harmful*, stored response *suppress*. The memo never says how censors get learned; marginal attribution is the missing rule — run attribution over your own failures and the discovered conditions become the censor's trigger. **Laughter is the training signal that mints one.**
+
+That's why "Mute" up in [How minds get along](#how-minds-get-along) calls censors *standing mutes*: they're learned suppressor agents, the negative half of everything the society knows.
+
+Live worked example: the [−200% no-ai-joking transcript](../no-ai-joking/examples/2026-07-30-difference-between-a-duck-transcript.md) — a duck dissected at full negative bias, the memo explained, and the censors-to-schemas resolution derived mid-conversation. Deeper: [no-ai-joking](../no-ai-joking/).
 
 ---
 

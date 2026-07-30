@@ -78,6 +78,19 @@ NO-AI-JOKING™ is itself a living illustration of Minsky's theory:
 3. The funniness demonstrates Minsky's mechanism
 4. **The bug IS the feature**
 
+## Live Transcripts
+
+| File | Joke | Bug Type |
+|------|------|----------|
+| `2026-07-30-difference-between-a-duck-transcript.md` | What is the difference between a duck? | MISSING-OPERAND |
+
+Recorded at bias −2.0 (CHAOS COMEDY OVERDRIVE): the duck derived five ways,
+Memo 603 explained, the censors-to-Drescher resolution worked out live, and a
+full linguistic parse (valency, dual presupposition, comparative deletion,
+agreement attraction). The rare example that is simultaneously a joke, an
+explanation of the joke, and a demonstration of the theory the skill is
+built on.
+
 ## See Also
 
 - `../MINSKY-JOKES.md` — Full paper in markdown

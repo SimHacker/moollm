@@ -17,6 +17,7 @@
 | [character/](../character/) | Characters AS agents with inner societies |
 | [persona/](../persona/) | Personas as agent overlays |
 | [mind-mirror/](../mind-mirror/) | Leary's circumplex -- personality as agent configuration |
+| [no-ai-joking/](../no-ai-joking/) | Censors ARE agents -- Memo 603 patches Freud; Drescher's schema mechanism supplies the learning rule ([live transcript](../no-ai-joking/examples/2026-07-30-difference-between-a-duck-transcript.md)) |
 | [constructionism/](../constructionism/) | Papert + Minsky -- microworlds as agent playgrounds |
 | [debate/](../debate/) | Agents arguing toward wisdom |
 | [soul-chat/](../soul-chat/) | Everything speaks -- objects as agents |
