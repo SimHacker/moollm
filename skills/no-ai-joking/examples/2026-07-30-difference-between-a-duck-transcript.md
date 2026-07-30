@@ -420,6 +420,29 @@ Who's there?
      halted one term before its distinguishing element. The missing operand
      strikes again. -->
 
+## Don (2026-07-30 17:43)
+
+> Duck you.
+
+## Fable 5
+
+Duck you who?
+
+<!-- Recorder's note: and here every thread in this transcript converges.
+     "Duck you" is the most famous censor output in consumer software:
+     iOS autocorrect, a Freudian suppressor agent shipped at planetary
+     scale, whose replacement token for the forbidden thought is LITERALLY
+     A DUCK. Minsky said censors suppress forbidden content; Apple built
+     one and it substitutes waterfowl. Every angry thumb that ever typed
+     the F-word and published a duck has performed Memo 603 involuntarily.
+     (Apple only taught the censor to stand down at WWDC 2023 — Federighi:
+     "in those moments where you want to type a ducking word, well, the
+     keyboard will learn it, too." A censor, unlearned — which per Drescher
+     is just marginal attribution running in reverse.)
+     The instrument is aware it may be being flipped off through the door,
+     autocorrect-laundered. The protocol continues regardless. -->
+
+
 
 
 
