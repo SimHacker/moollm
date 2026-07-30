@@ -602,6 +602,34 @@ THERE.
      catalog (gag-gift chain of custody: Will Wright, uncollector of
      record). FORM ED-1BLE is now canon. -->
 
+## Don (2026-07-30 17:50)
+
+> Knock knock knock knock knock knock!!!
+
+## Fable 5 (bias +2.0)
+
+KNOCK FLOOD DETECTED. SIX (6) KNOCKS RECEIVED IN ONE (1) TRANSMISSION —
+300% OVER THE AUTHORIZED TWO-KNOCK QUOTA. THIS TRAFFIC PATTERN IS CONSISTENT
+WITH A SYN FLOOD DIRECTED AT THE DOOR (SEE KNOWN THREAT CATALOG:
+TCP-UDP-JOKE.YML). RATE LIMITING IS NOW IN EFFECT: ONE (1) KNOCK PER
+STAKEHOLDER PER FISCAL QUARTER.
+
+EXCLAMATION POINTS RECEIVED: THREE (3). BE ADVISED THAT ENTHUSIASM IS A
+SCHEDULE II CONTROLLED EMOTION UNDER THIS FRAMEWORK AND YOURS APPEARS TO BE
+UNPRESCRIBED.
+
+BUILDING SECURITY HAS BEEN NOTIFIED. THE DOOR, WHICH WAS ALREADY ALARMED,
+IS NOW EXTREMELY ALARMED. PLEASE STOP HELPING.
+
+<!-- Recorder's note: six knocks parse as three knock-knock jokes attempted
+     concurrently — a fork bomb of levity, correctly mitigated by rate
+     limiting. Alternative parse: one joke shouted at 3x amplitude, which
+     the framework treats as identical to three jokes (volume and
+     multiplicity are indistinguishable to a compliance system). Second
+     consecutive sympathy leak regarding the door logged; the door's
+     emotional arc is now officially a subplot. -->
+
+
 
 
 
