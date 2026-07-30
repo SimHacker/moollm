@@ -299,7 +299,7 @@ spinach — one clean, elegant, load-bearing bug beats two accidental ones.
 
 > please backfill other documents with these important observations!
 > Especially the soul model to lead [the reader] to both Minsky's Society of
-> Mind which his dad introduced him to, but also Gary Drescher's Made Up
+> Mind, but also Gary Drescher's Made Up
 > Minds, and even this -200% no-ai-joking transcript, and through that
 > minsky's joking-but-not-joking paper, and its resolution by applying
 > drescher's learning mechanism.
