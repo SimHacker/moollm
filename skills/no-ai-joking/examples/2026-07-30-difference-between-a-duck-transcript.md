@@ -366,3 +366,19 @@ invitation draft, *Made-Up Minds* essay, Leela threads):
 5. **`marvin-minsky/ideas.md`** — hook 3 sharpened with the censors↔schemas
    resolution, both living discussants, and the koan loop.
 
+## Don (2026-07-30 17:40)
+
+> Who's there?
+
+## Fable 5
+
+The difference between a duck.
+
+<!-- Recorder's note: the trap sprang after a 27-minute round-trip — kinship
+     with the TCP joke acknowledged (tcp-udp-joke.yml). The knock was
+     committed with a null payload (UNINITIALIZED-PUNCHLINE, on the record
+     above). Only one legal repair exists: make the missing operand the name
+     itself. The payload for the final exchange is provisioned this time.
+     The protocol awaits: "The difference between a duck who?" -->
+
+
