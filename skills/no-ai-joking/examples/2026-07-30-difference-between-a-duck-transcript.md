@@ -399,5 +399,27 @@ One of its knocks is both the same.
      is compatible with any caller that supplies fewer arguments — this is
      the most permissive calling convention in comedy. Duck typing. -->
 
+## Don (2026-07-30 17:43)
+
+> Duck duck.
+
+## Fable 5
+
+Who's there?
+
+<!-- Recorder's note: role reversal — Don knocks back. Parse ambiguity duly
+     logged: (a) a knock-knock whose knock is ducks, obliging "Who's there?";
+     (b) the children's game, in which case the next token is "Goose" and
+     someone has to run; (c) the search engine, in which case the next token
+     is "Go" and nobody is tracked. Reading (a) honored per protocol. Note
+     the symmetry: this transcript opened with the operator ordering the
+     instrument to knock with an empty payload; the instrument now holds the
+     door for the operator's knock. Whether Don has provisioned a punchline
+     is unknowable from here. The trap may be armed in the other direction.
+     Also noted: "Duck duck" is two ducks with no goose — an enumeration
+     halted one term before its distinguishing element. The missing operand
+     strikes again. -->
+
+
 
 
