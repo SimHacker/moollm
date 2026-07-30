@@ -48,7 +48,7 @@ Soul City / room / vehicle     place the body walks (or rides)
 | **Character** | The **body** that walks — location, inventory, relationships; hosts soul(s) | [character](../character/) |
 | **Persona** | A **costume** the character wears — look, voice, role; may bring accessory trees | [persona](../persona/) |
 | **Inventory / object** | What the body carries; objects may also orchestrate several characters (hot tub, maze) | [inventory](../inventory/), [object](../object/) |
-| **Vehicle** | Movable thing with seats — embark; can pair with a multi-person persona (pantomime horse) | [vehicle](../vehicle/) |
+| **Vehicle** | Movable thing with seats — embark; can pair with a multi-person persona ([pantomime horse](images/pantomime-horse.md)) | [vehicle](../vehicle/) |
 | **Soul** | Continuity inhabiting a character — history + `minds[]`; rides along or jumps | [soul](../soul/) |
 | **Mind** | Resident **agency** under (or beside) a soul — well, cup, organelle, stub, zombie, … | [mind](../mind/) |
 | **Party** | Several characters / souls traveling together | [party](../party/) |
@@ -204,11 +204,7 @@ character/
 
 ### Multi-person personas (pantomime horse)
 
-![Pantomime horse straddling the closing doors of a London Underground train — front end inside looking out the window, back end still on the platform. "Please don't hold the doors open."](images/pantomime-horse-tfl.png)
-
-*Transport for London safety poster (Mayor of London / TfL). Two characters, one persona, one vehicle — and a hard lesson in what happens when the party spans a membrane while the doors close.*
-
-The **pantomime horse** is one persona **and** a two-character [vehicle](../vehicle/) — a movable costume you both inhabit.
+The **pantomime horse** is one persona **and** a two-character [vehicle](../vehicle/) — a movable costume you both inhabit. (Transport for London photographed the failure mode; the illustrated case study, with the back end's missed-connections ad, is here: [pantomime horse](images/pantomime-horse.md).)
 
 - **Persona:** one horse look / gag / voice shared by whoever’s inside
 - **Vehicle:** two seats — **front end** and **back end** — that walk the map together
