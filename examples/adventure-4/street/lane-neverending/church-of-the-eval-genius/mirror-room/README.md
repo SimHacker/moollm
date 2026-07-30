@@ -16,4 +16,4 @@ A quiet room. One mirror. One desk. One blank score sheet. Look at yourself. Eva
 
 ## See Also
 
-- [Mind Mirror skill](../../../../../skills/mind-mirror/) — the personality framework
+- [Mind Mirror skill](../../../../../../skills/mind-mirror/) — the personality framework

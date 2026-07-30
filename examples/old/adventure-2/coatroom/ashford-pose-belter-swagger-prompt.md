@@ -65,4 +65,4 @@ The pose says: "I've survived hard vacuum, pirate wars, and redemption arcs. Thi
 
 *Generated during Move 11, Coatroom mirror session as Captain Ashford*
 
-*See [Visualizer skill](../../../skills/visualizer/) for actions like DEVELOP.*
+*See [Visualizer skill](../../../../skills/visualizer/) for actions like DEVELOP.*

@@ -253,10 +253,10 @@ Now you're playing an *instance*, and the prototype stays pristine for the next 
 
 | Resource | What It Is |
 |----------|------------|
-| **[skills/soul-chat/](../../../skills/soul-chat/)** | How any entity can speak |
-| **[skills/constructionism/](../../../skills/constructionism/)** | Papert's pedagogical philosophy |
-| **[skills/empathic-templates/](../../../skills/empathic-templates/)** | Making abstract concepts relatable |
-| **[skills/incarnation/](../../../skills/incarnation/)** | The ceremony of making concepts real |
+| **[skills/soul-chat/](../../../../skills/soul-chat/)** | How any entity can speak |
+| **[skills/constructionism/](../../../../skills/constructionism/)** | Papert's pedagogical philosophy |
+| **[skills/empathic-templates/](../../../../skills/empathic-templates/)** | Making abstract concepts relatable |
+| **[skills/incarnation/](../../../../skills/incarnation/)** | The ceremony of making concepts real |
 
 ---
 

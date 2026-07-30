@@ -49,7 +49,7 @@ The room where MUDs were conceived.
 
 - **[The ACME Heist](../../../../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/)** — Richard arrives (Frames 09-10)
 - **[The Neverending Arms](../../../../../pub/photos/post-heist-fellowship/)** — Post-heist fellowship
-- **[Don's Selfies](../../../../don-hopkins/selfies/)** — The transformation continues
+- **[Don's Selfies](../../../don-hopkins/selfies/)** — The transformation continues
 
 ---
 

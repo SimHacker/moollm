@@ -17,7 +17,7 @@
 | Cape | [`../coatroom/ashford-nomi-cape.yml`](../coatroom/ashford-nomi-cape.yml) | Space-black Nomi cape |
 | The Cake | [`./cake-that-has-seen-too-much.yml`](./cake-that-has-seen-too-much.yml) | Enlightened floor marker |
 | Room | [`./ROOM.yml`](./ROOM.yml) | Mother's kitchen replica |
-| Skill | [`skills/visualizer/PHOTO-SET-8.yml`](../../../skills/visualizer/PHOTO-SET-8.yml) | How we know to take good selfies |
+| Skill | [`skills/visualizer/PHOTO-SET-8.yml`](../../../../skills/visualizer/PHOTO-SET-8.yml) | How we know to take good selfies |
 
 ### Narrative Context
 > *"I forgive you," the frosting whispers. "I have transcended."*

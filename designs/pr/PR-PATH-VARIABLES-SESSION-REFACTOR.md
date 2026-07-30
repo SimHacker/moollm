@@ -78,7 +78,7 @@ relationships:
 
 ### New Documentation
 
-Completely rewrote [`skills/session-log/SKILL.md`](../skills/session-log/SKILL.md):
+Completely rewrote [`skills/session-log/SKILL.md`](../../skills/session-log/SKILL.md):
 
 - **Where Sessions Live** — Default `SESSION.md` in character directory
 - **Collapsible Sections** — `<details open>` for narrative, `<details open>` for technical
@@ -177,8 +177,8 @@ ls ../../animals/palm/                  # ✓ Works
 
 ## See Also
 
-- [`kernel/NAMING.yml`](../kernel/NAMING.yml) — Path variables specification
-- [`skills/session-log/SKILL.md`](../skills/session-log/SKILL.md) — Session writing guide
-- [`skills/ROOM.yml`](../skills/ROOM.yml) — Example of path variables in use
-- [Don Hopkins Marathon Session](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Gold standard example
+- [`kernel/NAMING.yml`](../../kernel/NAMING.yml) — Path variables specification
+- [`skills/session-log/SKILL.md`](../../skills/session-log/SKILL.md) — Session writing guide
+- [`skills/ROOM.yml`](../../skills/ROOM.yml) — Example of path variables in use
+- [Don Hopkins Marathon Session](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — Gold standard example
 - [Donna Toadstool SESSION.md](../examples/adventure-4/characters/fictional/donna-toadstool/SESSION.md) — Character creation example

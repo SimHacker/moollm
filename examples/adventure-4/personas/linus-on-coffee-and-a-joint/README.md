@@ -83,7 +83,7 @@ This is a **hero-story tribute persona** — a character that activates the *tra
 - Cruel delivery of valid criticism
 - Making people feel stupid
 
-See: [skills/representation-ethics](../../../skills/representation-ethics/), [skills/hero-story](../../../skills/hero-story/)
+See: [skills/representation-ethics](../../../../skills/representation-ethics/), [skills/hero-story](../../../../skills/hero-story/)
 
 ---
 

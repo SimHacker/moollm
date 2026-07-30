@@ -287,7 +287,7 @@ The 3ds Max integration (`maxis-maxscript.ms`, 2,365 lines) used an Access datab
 ## See Also
 
 - [IFF-OBJECT Schema](../../exchange/templates/IFF-OBJECT-SCHEMA.yml)
-- [obliterator.py CLI](../../../../SimObliterator_Suite/obliterator.py) — `tmog export` / `tmog import`
-- [Rug-O-Matic Documentation](../../../temp/TheSimsTransmogrifier/RugOMaticDocumentation/)
-- [Transmogrifier Documentation](../../../temp/TheSimsTransmogrifier/TransmogrifierDocumentation/)
-- [SimObliterator Suite](../../../../SimObliterator_Suite/) — the modern parsing engine
+- [obliterator.py CLI](../../../../../SimObliterator_Suite/obliterator.py) — `tmog export` / `tmog import`
+- [Rug-O-Matic Documentation](../../../../temp/TheSimsTransmogrifier/RugOMaticDocumentation/)
+- [Transmogrifier Documentation](../../../../temp/TheSimsTransmogrifier/TransmogrifierDocumentation/)
+- [SimObliterator Suite](../../../../../SimObliterator_Suite/) — the modern parsing engine

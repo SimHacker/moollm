@@ -2,7 +2,7 @@
 
 > *Lightweight shops along the road — each one a directory you can enter.*
 
-**Rollup doc:** [../SOUL-PLAZA-SHOPS.md](../SOUL-PLAZA-SHOPS.md) (condensed design at lane level)
+**Rollup doc:** [../../SOUL-PLAZA-SHOPS.md](../../SOUL-PLAZA-SHOPS.md) (condensed design at lane level)
 **Street segment:** [../ROOM.yml](../ROOM.yml) · [../README.md](../README.md)
 
 ---
@@ -119,7 +119,7 @@ on day one; the graph grows as rooms are built.
 3. `back-yard/` or `stockroom/` where the fiction needs it.
 4. First tunnel spur from Milk Bar cellar → Pet Shop (guinea pig referral pipe).
 5. `CARD.yml` + skill pointer when the tool exists.
-6. Comedy signage from [comedy register](../SOUL-PLAZA-SHOPS.md#comedy-register--zach-mama--transmogrifier).
+6. Comedy signage from [comedy register](../../SOUL-PLAZA-SHOPS.md#comedy-register--zach-mama--transmogrifier).
 
 ---
 
@@ -128,4 +128,4 @@ on day one; the graph grows as rooms are built.
 - [Lane Neverending](../../README.md)
 - [Soul City](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
 - [THE-UPLIFT](../../../../designs/sim-obliterator/THE-UPLIFT.md)
-- [Zach Mama NPC](../../../characters/real-people/zach-mama/)
+- [Zach Mama NPC](../../../../characters/real-people/zach-mama/)

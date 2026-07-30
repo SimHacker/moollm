@@ -453,7 +453,7 @@ Refactors enabled and protected by Layer 1/2 gates.
 
 **Kernel-doc pattern from nesting:** the cluster directory gets GLANCE.yml (cluster summary) + CARD.yml (advertisements, lists children) + optional SKILL.md (cross-cutting cluster concepts) + optional README.md. Not every cluster needs all four.
 
-**Path-churn mitigation.** Every `[cursor-mirror](skills/cursor-mirror/)` link in existing docs breaks on nesting. Options:
+**Path-churn mitigation.** Every `[cursor-mirror](../skills/cursor-mirror/)` link in existing docs breaks on nesting. Options:
 
 - **Symlinks** at old paths for a transition period (`skills/cursor-mirror/` → `skills/introspection/cursor-mirror/`).
 - **Fuzzy `queryInterface`** at the kernel level accepting both paths.

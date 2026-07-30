@@ -581,7 +581,7 @@ goals:
 
 ---
 
-*(Note: This demonstrates [SPEED-OF-LIGHT](../../skills/speed-of-light/) simulation — multiple moves in one epoch!)*
+*(Note: This demonstrates [SPEED-OF-LIGHT](../../../skills/speed-of-light/) simulation — multiple moves in one epoch!)*
 
 ```yaml
 # Path traced at speed of light
@@ -1279,7 +1279,7 @@ But before it's fully Maurice again, they whisper:
 
 ### 🎓 SKILL LEARNED: Maurice Becomes a Visualizer
 
-Through these photo sessions, the **[PHOTO-SET-8](../../skills/visualizer/PHOTO-SET-8.yml)** skill was crystallized — the first instantiation of the [Visualizer](../../skills/visualizer/) prototype.
+Through these photo sessions, the **[PHOTO-SET-8](../../../skills/visualizer/PHOTO-SET-8.yml)** skill was crystallized — the first instantiation of the [Visualizer](../../../skills/visualizer/) prototype.
 
 ```yaml
 # Maurice's new capability
@@ -1396,7 +1396,7 @@ Maurice watches you write. Then they pull out their own blank card and **copy it
 
 *"Now we BOTH know,"* you realize.
 
-📦 **Artifact:** [skills/visualizer/PHOTO-SET-8.yml](../../skills/visualizer/PHOTO-SET-8.yml) — the canonical skill definition
+📦 **Artifact:** [skills/visualizer/PHOTO-SET-8.yml](../../../skills/visualizer/PHOTO-SET-8.yml) — the canonical skill definition
 
 ---
 
@@ -1497,7 +1497,7 @@ shared_knowledge:
 ---
 
 📦 **Artifacts Created (Move 13):**
-- [skills/visualizer/PHOTO-SET-8.yml](../../skills/visualizer/PHOTO-SET-8.yml) — The canonical skill definition (referenced by inventory)
+- [skills/visualizer/PHOTO-SET-8.yml](../../../skills/visualizer/PHOTO-SET-8.yml) — The canonical skill definition (referenced by inventory)
 - [letter-to-mother-photo-skill.yml](./coatroom/letter-to-mother-photo-skill.yml) — The PLAY-LEARN-LIFT letter
 - [skill-package-for-mother.yml](./coatroom/skill-package-for-mother.yml) — **SENT** 📬
 
@@ -2913,8 +2913,8 @@ This is how skills GROW in MOOLLM:
 
 | File | What Changed |
 |------|--------------|
-| [skills/visualizer/PHOTO-SET-8.yml](../../skills/visualizer/PHOTO-SET-8.yml) | Contains "Detail Coherence Interlinking" technique |
-| [skills/visualizer/README.md](../../skills/visualizer/README.md) | Technique documented for all Visualizers |
+| [skills/visualizer/PHOTO-SET-8.yml](../../../skills/visualizer/PHOTO-SET-8.yml) | Contains "Detail Coherence Interlinking" technique |
+| [skills/visualizer/README.md](../../../skills/visualizer/README.md) | Technique documented for all Visualizers |
 | 4 portrait prompts | Now reference all 4 close-up prompts |
 
 ---
@@ -6774,15 +6774,15 @@ This adventure demonstrates the MOOLLM ecosystem:
 
 | Pattern | Example in Adventure |
 |---------|---------------------|
-| **[PLAY-LEARN-LIFT](../../skills/play-learn-lift/)** | Posing → Pattern → Skill card (Maurice) |
-| **[SPEED-OF-LIGHT](../../skills/speed-of-light/)** | Multiple moves per epoch (kitchen → coatroom) |
-| **[YAML-JAZZ](../../skills/yaml-jazz/)** | Semantic YAML throughout, comments carry meaning |
-| **[CARD](../../skills/card/)** | Everything captured as shareable cards |
-| **[SOUL-CHAT](../../skills/soul-chat/)** | Character conversations, letters to Mother |
-| **[COHERENCE-ENGINE](../../skills/coherence-engine/)** | Maintained consistency across 69 moves |
-| **[ROOM](../../skills/room/)** | Filesystem as spatial navigation |
-| **[ADVENTURE](../../skills/adventure/)** | The template that made this possible |
-| **[CONSTRUCTIONISM](../../skills/constructionism/)** | Learning by building, inspecting, modifying |
+| **[PLAY-LEARN-LIFT](../../../skills/play-learn-lift/)** | Posing → Pattern → Skill card (Maurice) |
+| **[SPEED-OF-LIGHT](../../../skills/speed-of-light/)** | Multiple moves per epoch (kitchen → coatroom) |
+| **[YAML-JAZZ](../../../skills/yaml-jazz/)** | Semantic YAML throughout, comments carry meaning |
+| **[CARD](../../../skills/card/)** | Everything captured as shareable cards |
+| **[SOUL-CHAT](../../../skills/soul-chat/)** | Character conversations, letters to Mother |
+| **[COHERENCE-ENGINE](../../../skills/coherence-engine/)** | Maintained consistency across 69 moves |
+| **[ROOM](../../../skills/room/)** | Filesystem as spatial navigation |
+| **[ADVENTURE](../../../skills/adventure/)** | The template that made this possible |
+| **[CONSTRUCTIONISM](../../../skills/constructionism/)** | Learning by building, inspecting, modifying |
 
 ---
 

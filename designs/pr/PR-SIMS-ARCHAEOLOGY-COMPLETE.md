@@ -203,7 +203,7 @@ The simpler design was also the more inclusive one.
 ### To Existing MOOLLM Documents
 
 - Updates [`MOOLLM-EVAL-INCARNATE-FRAMEWORK.md`](../MOOLLM-EVAL-INCARNATE-FRAMEWORK.md) with Sims cross-references
-- Updates [`README.md`](./README.md) with document index
+- Updates [`README.md`](.././README.md) with document index
 
 ### To Skills
 
@@ -222,7 +222,7 @@ Every major Sims system maps to a MOOLLM skill:
 ### To Adventures
 
 The Sims architecture is proven in:
-- [`marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — 33-turn proof
+- [`marathon-session.md`](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — 33-turn proof
 - Pub with stage, cat cave, pie table — Sims room patterns
 - Guest book — Sims relationship tracking
 

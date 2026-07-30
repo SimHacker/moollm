@@ -73,7 +73,7 @@ Led the family on a 21-turn cat simulation through 13 rooms.
 
 > *"We share the garden now. The dog marked it. We marked it. It is OURS. All of us."*
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 🌿 The Garden Treaty
 
@@ -142,7 +142,7 @@ pub/bar/cat-cave/cat-terpie.yml → characters/animals/terpie/CHARACTER.yml
 
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Family:** [Stroopwafel](../cat-stroopwafel/) • [All Kittens](#the-terpene-litter)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 - **Ceremony:** [Incarnation Session](../../real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md)
 
 ---

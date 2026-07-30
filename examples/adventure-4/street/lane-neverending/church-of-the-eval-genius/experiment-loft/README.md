@@ -10,5 +10,5 @@ Tables of run logs, test harnesses, and tiny simulations humming in the corner. 
 
 ## See Also
 
-- [Experiment skill](../../../../../skills/experiment/) — where experiments live
-- [Emo Poker Face](../../../../../skills/experiment/experiments/emo-poker-face/) — a running experiment
+- [Experiment skill](../../../../../../skills/experiment/) — where experiments live
+- [Emo Poker Face](../../../../../../skills/experiment/experiments/emo-poker-face/) — a running experiment

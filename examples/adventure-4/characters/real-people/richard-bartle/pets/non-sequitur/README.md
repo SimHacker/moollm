@@ -23,7 +23,7 @@ The image came back with four subjects.
 
 No one asked for a cartoon rabbit. The rabbit was not in any CHARACTER.yml. The rabbit was not referenced in any ROOM.yml. The rabbit simply... appeared.
 
-![The Emergence](../study/selfies/selfie-07-goofy-imagen4.png)
+![The Emergence](../../study/selfies/selfie-07-goofy-imagen4.png)
 
 There he is. On the left. Pink ears. Wild eyes. Tongue out. Pure chaos energy.
 

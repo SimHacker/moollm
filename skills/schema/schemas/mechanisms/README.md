@@ -1,6 +1,6 @@
 # `mechanisms/` — One directory per plugin
 
-Each subdirectory **`schemas/mechanisms/<registry-id>/`** holds the canonical profile **`MECHANISM.yml`**, a **README.md** (pedia entry), and optionally **`SCHEMAPEDIA-<REGISTRY-ID-UPPER>-AUGMENT.yml`** — big-endian filename: extended links, standards-body rows, cross-cutting problem-space narrative, and YAML Jazz improvisation (see **[../plugin-convention.yml](../plugin-convention.yml)** `schemapedia_augment`). **`moollm_hooks.augment`** in `MECHANISM.yml` points at the augment file. The registry id and directory name match (kebab-case). Copy **[../templates/MECHANISM.yml](../templates/MECHANISM.yml)** when adding a new plugin.
+Each subdirectory **`schemas/mechanisms/<registry-id>/`** holds the canonical profile **`MECHANISM.yml`**, a **README.md** (pedia entry), and optionally **`SCHEMAPEDIA-<REGISTRY-ID-UPPER>-AUGMENT.yml`** — big-endian filename: extended links, standards-body rows, cross-cutting problem-space narrative, and YAML Jazz improvisation (see **[../plugin-convention.yml](../plugin-convention.yml)** `schemapedia_augment`). **`moollm_hooks.augment`** in `MECHANISM.yml` points at the augment file. The registry id and directory name match (kebab-case). Copy **[../templates/MECHANISM.yml](../../templates/MECHANISM.yml)** when adding a new plugin.
 
 Profiles may be **standalone** (specs + hooks only) or **ensemble** (they `delegate` to MOOLLM skills). See [`../plugin-convention.yml`](../plugin-convention.yml).
 
@@ -24,15 +24,15 @@ Optional **`mechanism_relations`** lists how this mechanism **relates to other r
 | [json-schema/MECHANISM.yml](./json-schema/MECHANISM.yml) | `json-schema` | interchange | — (standalone) | JSON Schema — wire validation, OpenAPI, tool IO. |
 | [k-lines/MECHANISM.yml](./k-lines/MECHANISM.yml) | `k-lines` | activation | [`k-lines`](../../../k-lines/) | Protocol symbols / K-lines; PROTOCOLS/INDEX. |
 | [self/MECHANISM.yml](./self/MECHANISM.yml) | `self` | prototype | [`prototype`](../../../prototype/) | Self language (Ungar & crew): delegation, receivers; MOOLLM DOP—skills as prototypes, paths as instances. |
-| [mechanism/MECHANISM.yml](./mechanism/MECHANISM.yml) | `mechanism` | registry_meta | [`schema`](../../../SKILL.md) | Meta: schemapedia plugin shape—MECHANISM.yml, augment, templates, relations. |
+| [mechanism/MECHANISM.yml](./mechanism/MECHANISM.yml) | `mechanism` | registry_meta | [`schema`](../../SKILL.md) | Meta: schemapedia plugin shape—MECHANISM.yml, augment, templates, relations. |
 | [minsky-frame/MECHANISM.yml](./minsky-frame/MECHANISM.yml) | `minsky-frame` | situational | [`knowledge-frames`](../../../knowledge-frames/) | Minsky frames — slots and defaults for situations. |
 | [relax-ng/MECHANISM.yml](./relax-ng/MECHANISM.yml) | `relax-ng` | interchange | — (standalone) | RELAX NG for XML; compact/XML syntax. |
 | [shell-orchestration/MECHANISM.yml](./shell-orchestration/MECHANISM.yml) | `shell-orchestration` | execution | [`sister-script`](../../../sister-script/), [`plan-then-execute`](../../../plan-then-execute/), [`mooco`](../../../mooco/), [`runtime`](../../../runtime/) | Doc-first automation, gated plans, orchestrator, dual runtime; pairs with **cursor-mirror** for post-run inspection. |
 | [society-of-mind/MECHANISM.yml](./society-of-mind/MECHANISM.yml) | `society-of-mind` | meta_model | [`society-of-mind`](../../../society-of-mind/) | SoM architecture skill — not a file format. |
 | [sql/MECHANISM.yml](./sql/MECHANISM.yml) | `sql` | relational | — (standalone) | ANSI SQL DDL/DML family; dialect notes. |
-| [postgres/MECHANISM.yml](./postgres/MECHANISM.yml) | `postgres` | relational | [`postgres`](../../../../postgres/) | Server Postgres; Timescale, pgvector; `psql`; backups vocabulary. |
-| [sqlite/MECHANISM.yml](./sqlite/MECHANISM.yml) | `sqlite` | relational | [`sqlite`](../../../../sqlite/) | Embedded DB, `sqlite_master`, migrations, JSON1. |
-| [datasette/MECHANISM.yml](./datasette/MECHANISM.yml) | `datasette` | relational | [`datasette`](../../../../datasette/) | Read-only HTTP + JSON API over `.db`; **cursor-mirror** export. |
+| [postgres/MECHANISM.yml](./postgres/MECHANISM.yml) | `postgres` | relational | [`postgres`](../../../postgres/) | Server Postgres; Timescale, pgvector; `psql`; backups vocabulary. |
+| [sqlite/MECHANISM.yml](./sqlite/MECHANISM.yml) | `sqlite` | relational | [`sqlite`](../../../sqlite/) | Embedded DB, `sqlite_master`, migrations, JSON1. |
+| [datasette/MECHANISM.yml](./datasette/MECHANISM.yml) | `datasette` | relational | [`datasette`](../../../datasette/) | Read-only HTTP + JSON API over `.db`; **cursor-mirror** export. |
 | [xml-schema/MECHANISM.yml](./xml-schema/MECHANISM.yml) | `xml-schema` | interchange | — (standalone) | W3C XSD. |
 | [yaml-jazz/MECHANISM.yml](./yaml-jazz/MECHANISM.yml) | `yaml-jazz` | notation | [`yaml-jazz`](../../../yaml-jazz/) | Semantic YAML — comments as data; complements JSON Schema. |
 | [zod/MECHANISM.yml](./zod/MECHANISM.yml) | `zod` | interchange | — (standalone) | Zod — TypeScript-first runtime schemas. |

@@ -177,4 +177,4 @@ This is how actors work. The role shapes you, but you also shape the role.
 
 - [../coatroom/](../coatroom/) — The Coatroom (where you try on personas)
 - [../characters/](../characters/) — Character files that wear personas
-- [../../../skills/mind-mirror/](../../../skills/mind-mirror/) — The trait system
+- [../../../skills/mind-mirror/](../../../../skills/mind-mirror/) — The trait system

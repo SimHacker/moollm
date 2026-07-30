@@ -20,7 +20,7 @@ This is how Proc sees which orchestrator behaviors are platform-specific and whi
 
 ## See Also
 
-- [mooco skill](../../../../../skills/mooco/) — The custom orchestrator
-- [mooco-mirror skill](../../../../../skills/mooco-mirror/) — MOOCO introspection
-- [cursor-mirror skill](../../../../../skills/cursor-mirror/) — Cursor introspection
+- [mooco skill](../../../../../../skills/mooco/) — The custom orchestrator
+- [mooco-mirror skill](../../../../../../skills/mooco-mirror/) — MOOCO introspection
+- [cursor-mirror skill](../../../../../../skills/cursor-mirror/) — Cursor introspection
 - [`/proc/cursor/`](../cursor/) — The Cursor-side equivalent

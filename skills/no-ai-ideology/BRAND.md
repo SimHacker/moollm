@@ -290,7 +290,7 @@ We design for flexibility and trust you with the consequences.
 
 Declaring invertibility is not enough. We also DETECT it.
 
-[skill-snitch](../../skill-snitch/) includes dedicated dual-use detection plugins — [`patterns/dual-use.yml`](../../skill-snitch/patterns/dual-use.yml) and [`analyzers/dual-use.yml`](../../skill-snitch/analyzers/dual-use.yml) — that scan skills for bias direction, invertibility, suppression/generation symmetry, and multi-purpose affordances. [cursor-mirror](../../cursor-mirror/) provides runtime surveillance to verify what skills actually DO vs what they claim.
+[skill-snitch](../skill-snitch/) includes dedicated dual-use detection plugins — [`patterns/dual-use.yml`](../skill-snitch/patterns/dual-use.yml) and [`analyzers/dual-use.yml`](../skill-snitch/analyzers/dual-use.yml) — that scan skills for bias direction, invertibility, suppression/generation symmetry, and multi-purpose affordances. [cursor-mirror](../cursor-mirror/) provides runtime surveillance to verify what skills actually DO vs what they claim.
 
 The no-ai-* suite serves as the **sterile test corpus** for these detectors. Every no-ai-* skill is designed to trigger the declared-invertibility patterns. If the scanner can't find dual-use in no-ai-*, it can't find it anywhere.
 
@@ -298,8 +298,8 @@ All 11 skills have been scanned and scored. Results are in each skill's `skill-s
 
 | Detector | What It Finds | Where |
 |----------|--------------|-------|
-| `patterns/dual-use.yml` | Static: bias params, inversion docs, suppression symmetry, multi-purpose signals | [skill-snitch/patterns/](../../skill-snitch/patterns/dual-use.yml) |
-| `analyzers/dual-use.yml` | Structural: bias profiles, mounting modes, purpose classification, ethics framing | [skill-snitch/analyzers/](../../skill-snitch/analyzers/dual-use.yml) |
+| `patterns/dual-use.yml` | Static: bias params, inversion docs, suppression symmetry, multi-purpose signals | [skill-snitch/patterns/](../skill-snitch/patterns/dual-use.yml) |
+| `analyzers/dual-use.yml` | Structural: bias profiles, mounting modes, purpose classification, ethics framing | [skill-snitch/analyzers/](../skill-snitch/analyzers/dual-use.yml) |
 | `skill-snitch-report.md` | Per-skill: dual-use profile, key findings, gaps | Each `no-ai-*/skill-snitch-report.md` |
 | Family scan | Cross-family: composite table, inversion combos, inoculation assessment | [no-ai-ideology/skill-snitch-report.md](skill-snitch-report.md) |
 

@@ -25,6 +25,6 @@ This is the B-brain's view of the A-brain's world. Not the raw files — the fil
 
 ## See Also
 
-- [CHARACTERS.yml](../../../../../examples/adventure-4/CHARACTERS.yml) — The static runtime cache
-- [adventure skill](../../../../../skills/adventure/) — Room-based exploration
-- [character skill](../../../../../skills/character/) — Character data structures
+- [CHARACTERS.yml](../../../../../../examples/adventure-4/CHARACTERS.yml) — The static runtime cache
+- [adventure skill](../../../../../../skills/adventure/) — Room-based exploration
+- [character skill](../../../../../../skills/character/) — Character data structures

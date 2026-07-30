@@ -40,6 +40,6 @@ This is exactly how cursor-mirror already works at the IDE layer — `/proc/curs
 
 ## See Also
 
-- [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the mean void, /dev/null vs /dev/kmem
-- [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) — Proc's role, the FUSE analogy
-- [society-of-mind skill](../../../../../skills/society-of-mind/) — B-brain concept
+- [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the mean void, /dev/null vs /dev/kmem
+- [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) — Proc's role, the FUSE analogy
+- [society-of-mind skill](../../../../../../skills/society-of-mind/) — B-brain concept

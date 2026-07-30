@@ -75,7 +75,7 @@ Hops IS this terpene. Discerning. Refined. Selective.
 | **Movement** | Inspection-delayed. Standards must be maintained. |
 | **Award** | 🏆 **Most Proper** — Inspected everything |
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 🔍 The Garden Inspection
 
@@ -171,7 +171,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
 - **Approved Sibling:** [Linalool](../kitten-linalool/)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---
 

@@ -288,7 +288,7 @@ Gas Town uses carrier pigeon architecture: external agents, mail systems, nudges
 
 ### The MOOLLM Constitution
 
-From **[constitution-core.md](../kernel/constitution-core.md)**:
+From **[constitution-core.md](../../kernel/constitution-core.md)**:
 
 > "Traditional chat (one user ↔ one assistant) produces **the statistical center of all possible viewpoints** — an averaging that loses the richness of diverse perspectives."
 >
@@ -724,17 +724,17 @@ This is likely true for both systems. The question is which insights survive —
 2. Maggie Appleton, ["Gas Town's Agent Patterns, Design Bottlenecks, and Vibecoding at Scale"](https://maggieappleton.com/gas-town) (maggieappleton.com, January 2026)
 3. [Gas Town Article Hacker News Discussion](https://news.ycombinator.com/item?id=42558671) (news.ycombinator.com)
 4. [MOOLLM Repository](../README.md) — The framework top-level documentation
-5. [Eval Incarnate Framework](eval/EVAL-INCARNATE-FRAMEWORK.md) — Full theoretical foundation
-6. [MOOLLM Constitution](../kernel/constitution-core.md) — Core principles
+5. [Eval Incarnate Framework](../eval/EVAL-INCARNATE-FRAMEWORK.md) — Full theoretical foundation
+6. [MOOLLM Constitution](../../kernel/constitution-core.md) — Core principles
 7. Ken Kahn, [ToonTalk](https://toontalk.com) (1995) — Programming for children
 8. David Ungar & Randall Smith, ["Self: The Power of Simplicity"](https://bibliography.selflanguage.org/_static/self-power.pdf) (OOPSLA 1987)
 
 ### Related MOOLLM Documents
 
 **Kernel (Core Protocols):**
-- [Constitution Core](../kernel/constitution-core.md) — The foundational principles
-- [Context Assembly Protocol](../kernel/context-assembly-protocol.md) — How context is built
-- [Memory Management Protocol](../kernel/memory-management-protocol.md) — Three-tier persistence
+- [Constitution Core](../../kernel/constitution-core.md) — The foundational principles
+- [Context Assembly Protocol](../../kernel/context-assembly-protocol.md) — How context is built
+- [Memory Management Protocol](../../kernel/memory-management-protocol.md) — Three-tier persistence
 
 **Key Skills:**
 - [cursor-mirror](../../skills/cursor-mirror/) — Agent self-introspection
@@ -746,8 +746,8 @@ This is likely true for both systems. The question is which insights survive —
 - [representation-ethics](../../skills/representation-ethics/) — Ethical simulation guidelines
 
 **Design Documents:**
-- [EVAL-INCARNATE-FRAMEWORK](eval/EVAL-INCARNATE-FRAMEWORK.md) — The full theoretical framework
-- [Mike Gallaher Ideas](mike-gallaher-ideas.md) — Many Voices, Not One
+- [EVAL-INCARNATE-FRAMEWORK](../eval/EVAL-INCARNATE-FRAMEWORK.md) — The full theoretical framework
+- [Mike Gallaher Ideas](../mike-gallaher-ideas.md) — Many Voices, Not One
 
 **Proof of Concept:**
 - [Amsterdam Fluxx Marathon](../../skills/experiment/experiments/fluxx-chaos/runs/amsterdam-flux/README.md) — 116+ turns, 94/100 score

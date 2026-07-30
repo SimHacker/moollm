@@ -163,7 +163,7 @@ You hum a few bars. Mother joins in on the chorus.
 
 ---
 
-### [PHOTO-SET-8 Skill](../../../skills/visualizer/PHOTO-SET-8.yml)
+### [PHOTO-SET-8 Skill](../../../../skills/visualizer/PHOTO-SET-8.yml)
 
 "This is the skill Maurice taught me. Eight photos — four poses, four
 expressions. It's how I documented everything."

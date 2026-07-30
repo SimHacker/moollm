@@ -750,9 +750,9 @@ Every LLM knows `gh issue`. No LLM knows "beads".
 
 ## References
 
-- [gastown/internal/beads/](../../gastown/internal/beads/) — Bead implementation
-- [gastown/internal/formula/](../../gastown/internal/formula/) — Workflow definitions
-- [gastown/internal/constants/](../../gastown/internal/constants/) — Type registry
+- [gastown/internal/beads/](../../../gastown/internal/beads/) — Bead implementation
+- [gastown/internal/formula/](../../../gastown/internal/formula/) — Workflow definitions
+- [gastown/internal/constants/](../../../gastown/internal/constants/) — Type registry
 - [BEAD-ORCHESTRATION.yml](BEAD-ORCHESTRATION.yml) — Bead research (not official)
 - [skills/action-queue/](../../skills/action-queue/) — Sims-style task scheduling
 - [skills/goal/](../../skills/goal/) — Quest objective tracking

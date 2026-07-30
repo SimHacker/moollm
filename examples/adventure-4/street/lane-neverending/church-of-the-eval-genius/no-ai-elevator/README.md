@@ -10,4 +10,4 @@ A manual elevator with a mechanical gate and a row of metal buttons. Each press 
 
 ## See Also
 
-- [no-ai-overlord skill](../../../../../skills/no-ai-overlord/) — the full NO-AI framework
+- [no-ai-overlord skill](../../../../../../skills/no-ai-overlord/) — the full NO-AI framework

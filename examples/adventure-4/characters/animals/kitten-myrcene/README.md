@@ -74,7 +74,7 @@ Myr embodies this perfectly. She IS couch-lock.
 | **Chaos Index** | 0.4 |
 | **Movement Style** | Nap-interrupted |
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 😴 The Multiple Naps (LEGENDARY)
 
@@ -148,7 +148,7 @@ Upgraded from room-resident to full citizen.
 
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---
 

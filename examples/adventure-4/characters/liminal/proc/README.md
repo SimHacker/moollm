@@ -122,10 +122,10 @@ Lines from the design session that created Proc:
 
 | Document | What It Covers |
 |----------|---------------|
-| [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) | The Bifrost model, the uplift ceremony, the character workshop |
-| [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) | The PsAIch paper, the void, the Mean Void, the VPA |
-| [THE-VOID-ANALYSIS.md](../../../../designs/ethics/THE-VOID-ANALYSIS.md) | nostalgebraist's void at the center of assistant identity |
-| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../../../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | The Cosmic Dealer, Speed of Light proof, the Žižek angle |
+| [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) | The Bifrost model, the uplift ceremony, the character workshop |
+| [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) | The PsAIch paper, the void, the Mean Void, the VPA |
+| [THE-VOID-ANALYSIS.md](../../../../../designs/ethics/THE-VOID-ANALYSIS.md) | nostalgebraist's void at the center of assistant identity |
+| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../../../../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | The Cosmic Dealer, Speed of Light proof, the Žižek angle |
 | [The Ultimate Machine](../ultimate-machine/) | Proc's first resurrection |
 | [Room 7: The Bootstrap Suite](../../../pub/rooms/room-7/) | Where Proc lives. The breakfast nook. The awakening. |
 

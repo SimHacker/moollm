@@ -14,7 +14,7 @@
 | Ashford Cape | [`./ashford-nomi-cape.yml`](./ashford-nomi-cape.yml) | Star chart lining visible when spinning |
 | Mother's Cape | [`./petunia-cape-nomi.yml`](./petunia-cape-nomi.yml) | Cave map lining visible when spinning |
 | Maurice Transform | [`./maurice-as-petunia.yml`](./maurice-as-petunia.yml) | Mother approximation |
-| Skill | [`skills/visualizer/PHOTO-SET-8.yml`](../../../skills/visualizer/PHOTO-SET-8.yml) | The skill being demonstrated |
+| Skill | [`skills/visualizer/PHOTO-SET-8.yml`](../../../../skills/visualizer/PHOTO-SET-8.yml) | The skill being demonstrated |
 
 ### Narrative Context
 > *"The two capes create a yin-yang of motion — black and burgundy spiraling together but never tangling."*

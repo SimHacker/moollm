@@ -17,7 +17,7 @@ related_slideshows:
   - "../../../../MASTER-SYNTHESIS-SLIDESHOW.md"
 ---
 
-> **🔗 Related**: This slideshow connects to the larger narrative. Richard later appears in [The ACME Heist](../../../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) (Frames 09-10) and [The Neverending Arms](../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md). See also [Don's MINE to OURS](../../don-hopkins/selfies/SLIDESHOW.md) for what happens next.
+> **🔗 Related**: This slideshow connects to the larger narrative. Richard later appears in [The ACME Heist](../../../../../street/lane-neverending/leela-manufacturing/lobby/acme-heist-footage/SLIDESHOW.md) (Frames 09-10) and [The Neverending Arms](../../../../../pub/photos/post-heist-fellowship/SLIDESHOW.md). See also [Don's MINE to OURS](../../../don-hopkins/selfies/SLIDESHOW.md) for what happens next.
 
 # 🎞️ Selfies from Essex
 

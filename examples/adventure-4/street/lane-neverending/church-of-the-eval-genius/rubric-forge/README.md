@@ -14,4 +14,4 @@ Heavy table. Iron weights. Wall of criteria cards. People come here to argue abo
 
 ## See Also
 
-- [Rubric skill](../../../../../skills/rubric/)
+- [Rubric skill](../../../../../../skills/rubric/)

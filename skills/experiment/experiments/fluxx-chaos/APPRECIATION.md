@@ -97,7 +97,7 @@ The card isn't a metaphor we imposed on Fluxx. The card is a *universal interfac
 
 The OTHER card lineage: HyperCard (1987), Fluxx (1996), Magic: The Gathering (1993) — all discovering the same pattern independently. Cards are *natural*: discrete, portable, two-sided (interface/implementation), composable.
 
-MOOLLM inherits all of them. See [skills/card/README.md](../../card/README.md) for the full lineage.
+MOOLLM inherits all of them. See [skills/card/README.md](../../../card/README.md) for the full lineage.
 
 **Simplicity that enables power. Baked into the training data. That's the MOOLLM way.**
 

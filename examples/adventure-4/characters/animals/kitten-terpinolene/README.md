@@ -82,7 +82,7 @@ Room-B (ECHO FRIENDS!) → Room-C (scratching) →
 Crystal Cave → Garden → chaos → Echo Chamber again → Eventually Home
 ```
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 🗣️ The Echo Friends (MAGICAL DISCOVERY)
 
@@ -189,7 +189,7 @@ Knocked over [Henk](../../fictional/henk/)'s espresso.
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
 - **Chaos Partner:** [Limonene](../kitten-limonene/)
 - **Echo Friends:** [Room-B](../../../maze/room-b/)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---
 

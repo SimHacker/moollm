@@ -516,7 +516,7 @@ See: [Will Wright on Designing User Interfaces to Simulation Games](https://donh
 **The Annie Hall Protocol in action:**
 > *When someone like 🐰💋 Jessica Rabbit claims "I'm just drawn this way" (in bad faith), 👨🚬📖 Sartre and 👨📺🌐 McLuhan step out from behind a poster to explain existentialism and media theory. With compassion, not cruelty.* 💕
 
-See: [Marshall McLuhan's full character](../../../temp/lloooomm/00-Characters/marshall-mcluhan/marshall-mcluhan.yml)
+See: [Marshall McLuhan's full character](../../../../temp/lloooomm/00-Characters/marshall-mcluhan/marshall-mcluhan.yml)
 
 ---
 

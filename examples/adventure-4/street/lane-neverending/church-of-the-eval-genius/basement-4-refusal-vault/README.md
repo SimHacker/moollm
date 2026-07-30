@@ -11,4 +11,4 @@ A locked archive of abstentions and refusals. Every "I pass" is logged with a ti
 
 ## See Also
 
-- [no-ai-overlord skill](../../../../../skills/no-ai-overlord/) — refusal as resistance
+- [no-ai-overlord skill](../../../../../../skills/no-ai-overlord/) — refusal as resistance

@@ -12,4 +12,4 @@ A circular room with tiered benches and a central lectern. Acoustics tuned for d
 
 - [Evan Gauge](../../../../characters/fictional/evan-gauge/) — presides
 - [Phil Rubric](../../../../characters/fictional/phil-rubric/) — weighs the evidence
-- [Adversarial Committee skill](../../../../../skills/adversarial-committee/)
+- [Adversarial Committee skill](../../../../../../skills/adversarial-committee/)

@@ -1,7 +1,7 @@
 # Zach Mama 🎤🥁 *(tribute NPC — French-American comedian, jazz drummer)*
 
 > *A loving simulation on Lane Neverending. Not Zach Mama — a tribute that honors
-> his tradition without quoting his material. [Representation ethics](../../../../skills/representation-ethics/)*
+> his tradition without quoting his material. [Representation ethics](../../../../../skills/representation-ethics/)*
 
 ## Warm tribute — what kind of humor he is renowned for
 

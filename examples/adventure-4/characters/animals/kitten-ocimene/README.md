@@ -75,7 +75,7 @@ Ocie IS this terpene. Fresh. Light. Renewing.
 | **Movement** | Follow-the-leader. Sweet. Determined. |
 | **Award** | 🏆 **Smallest but Proudest** — Did her best |
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 🎁 First Word to Palm
 
@@ -174,7 +174,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
 - **Fellow Gentle Soul:** [Linalool](../kitten-linalool/)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---
 

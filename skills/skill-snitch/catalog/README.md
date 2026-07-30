@@ -173,4 +173,4 @@ A publisher earns a brand directory when: 5+ skills reviewed, all at `approved` 
 5. **Promote** — skills move between tiers as reviews deepen
 6. **Brand clusters** — 5+ approved entries from a publisher = brand directory
 
-The field test that started this catalog: [2026-02-05-clawhub-malware-hunt.md](../../designs/snitches/2026-02-05-clawhub-malware-hunt.md)
+The field test that started this catalog: [2026-02-05-clawhub-malware-hunt.md](../../../designs/snitches/2026-02-05-clawhub-malware-hunt.md)

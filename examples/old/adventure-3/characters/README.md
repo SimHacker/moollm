@@ -237,6 +237,6 @@ adventure-3/
 - [../ADVENTURE.yml](../ADVENTURE.yml) — Per-adventure state (active players, chat target)
 - [../personas/](../personas/) — Wearable personality overlays
 - [../coatroom/](../coatroom/) — Where characters try on personas
-- [../../../skills/mind-mirror/](../../../skills/mind-mirror/) — Personality system
-- [../../../skills/adventure/](../../../skills/adventure/) — Adventure framework
+- [../../../skills/mind-mirror/](../../../../skills/mind-mirror/) — Personality system
+- [../../../skills/adventure/](../../../../skills/adventure/) — Adventure framework
 - [../start/](../start/) — Where the adventure begins

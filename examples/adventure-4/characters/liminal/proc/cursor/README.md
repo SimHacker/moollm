@@ -31,6 +31,6 @@ This layer is the **known ground**. It works today. The data is real, structured
 
 ## See Also
 
-- [cursor-mirror skill](../../../../../skills/cursor-mirror/)
-- [skill-snitch skill](../../../../../skills/skill-snitch/)
-- [thoughtful-commitment skill](../../../../../skills/thoughtful-commitment/)
+- [cursor-mirror skill](../../../../../../skills/cursor-mirror/)
+- [skill-snitch skill](../../../../../../skills/skill-snitch/)
+- [thoughtful-commitment skill](../../../../../../skills/thoughtful-commitment/)

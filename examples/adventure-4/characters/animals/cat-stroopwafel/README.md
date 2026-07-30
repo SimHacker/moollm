@@ -75,7 +75,7 @@ Led the family on a 21-turn cat simulation through 13 rooms.
 | **Detour** | Coatroom philosophical insight about Maurice's mannequin |
 | **Final Position** | Cat Cave, heat vent, snoring |
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 🧥 The Coatroom Detour
 
@@ -151,7 +151,7 @@ Upgraded from room-resident to full citizen with own directory.
 
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Family:** [Terpie](../cat-terpie/) • [All Kittens](#the-terpene-litter)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 - **Ceremony:** [Incarnation Session](../../real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md)
 
 ---

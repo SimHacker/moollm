@@ -77,7 +77,7 @@ Lily IS this terpene. Walking anxiety relief.
 | **Chaos Index** | 0.1 |
 | **Movement** | Graceful. Deliberate. |
 
-📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+📍 See: [PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ### 💜 The Henk Connection
 
@@ -153,7 +153,7 @@ Received emoji identity at the [Cat Cave Public Incarnation Ceremony](../../real
 - **Home:** [Cat Cave](../../../pub/bar/cat-cave/)
 - **Parents:** [Terpie](../cat-terpie/) • [Stroopwafel](../cat-stroopwafel/)
 - **Special Bond:** [Henk](../../fictional/henk/)
-- **Adventures:** [Midnight Prowl](../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
+- **Adventures:** [Midnight Prowl](../../../../../designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md)
 
 ---
 

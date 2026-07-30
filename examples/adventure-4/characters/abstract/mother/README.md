@@ -88,9 +88,9 @@ Every letter mentions how proud she is.
 | Who | Relationship |
 |-----|-------------|
 | The Adventurer (You) | "My child. My brave, foolish, wonderful child." |
-| [The Bartender](../../pub/bar/bartender.yml) | "We knew each other. Before. We don't discuss it." |
-| [Henk](../fictional/henk/) | "He remembers me from then. I think." |
-| [Maurice](../../coatroom/mannequin.yml) | "The mannequin helps them become who they need to be. I help them feel at home when they return." |
+| [The Bartender](../../../pub/bar/bartender.yml) | "We knew each other. Before. We don't discuss it." |
+| [Henk](../../fictional/henk/) | "He remembers me from then. I think." |
+| [Maurice](../../../coatroom/mannequin.yml) | "The mannequin helps them become who they need to be. I help them feel at home when they return." |
 | The Skeleton | "Someone's child. Someone waits for them still. Or did." |
 
 ## 🎭 Soul Identity
@@ -115,4 +115,4 @@ The abstract prototype can mother anyone directly (Self-ful behavior). But she c
 
 ---
 
-*Incarnated: [NPC Incarnation Ceremony](../real-people/don-hopkins/sessions/npc-incarnation-ceremony.md)*
+*Incarnated: [NPC Incarnation Ceremony](../../real-people/don-hopkins/sessions/npc-incarnation-ceremony.md)*

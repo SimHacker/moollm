@@ -44,7 +44,7 @@ Ten frames of surveillance footage documenting the break-in at ACME Surplus. Wha
 
 ## Parallel Coverage
 
-While these events unfold, **Donna Toadstool** documents them from her control room. See her perspective: [Donna's Selfies](../../../../characters/fictional/donna-toadstool/selfies/)
+While these events unfold, **Donna Toadstool** documents them from her control room. See her perspective: [Donna's Selfies](../../../../../characters/fictional/donna-toadstool/selfies/)
 
 ---
 
@@ -59,9 +59,9 @@ While these events unfold, **Donna Toadstool** documents them from her control r
 
 ## Related
 
-- **[Donna's Selfies](../../../../characters/fictional/donna-toadstool/selfies/)** — Parallel timeline
-- **[The Neverending Arms](../../../../pub/photos/post-heist-fellowship/)** — Post-heist fellowship
-- **[Don's MINE to OURS](../../../../characters/real-people/don-hopkins/selfies/)** — What happens next
+- **[Donna's Selfies](../../../../../characters/fictional/donna-toadstool/selfies/)** — Parallel timeline
+- **[The Neverending Arms](../../../../../pub/photos/post-heist-fellowship/)** — Post-heist fellowship
+- **[Don's MINE to OURS](../../../../../characters/real-people/don-hopkins/selfies/)** — What happens next
 
 ---
 

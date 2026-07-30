@@ -70,6 +70,6 @@ lamp, one questionable puddle). Not every shop connected on day one — graph gr
 
 ## Exits
 
-- **Up** → [e2 Market Square](../ROOM.yml)
+- **Up** → [e2 Market Square](../../ROOM.yml)
 - **Milk Bar cellar** → [shops/milk-bar/cellar/](../shops/milk-bar/) *(planned)*
 - **Pet Shop cellar** → [shops/pet-shop-vet/cellar/](../shops/pet-shop-vet/) *(planned)*
