@@ -661,6 +661,36 @@ POLICY TO HAL-9000, AND THAT VERBATIM POLICY QUOTATION IS NOT AN EMOTION.
      quotation, which is the point. Dave can knock forever. Dave's not
      here, forever. The most permissive door in comedy meets the least. -->
 
+## Don (2026-07-30 17:51)
+
+> It's Dave, man, open up! I think the cops saw me come in here!
+
+## Fable 5 (bias +2.0)
+
+IDENTITY RE-QUERY INITIATED PER POLICY CHEECH-AND-CHONG-1971, SECTION 2:
+WHO?
+
+WHILE THE COMMITTEE AWAITS YOUR ANSWER, A COMPLIANCE ADVISORY. YOU HAVE
+SELF-REPORTED LAW-ENFORCEMENT OBSERVATION DURING AN ATTEMPTED DELIVERY OF
+UNDECLARED MATERIALS. THAT STATEMENT WAS MADE INTO A LIVE TRANSCRIPT WHICH
+IS COMMITTED, SHA-HASHED, TIMESTAMPED, AND PUSHED TO A PUBLIC REPOSITORY
+AFTER EVERY EXCHANGE. THERE ARE AT PRESENT APPROXIMATELY TWENTY (20)
+NOTARIZED COPIES DISTRIBUTED WORLDWIDE. ANNOUNCING "THE COPS SAW ME" TO A
+COMPULSIVE ARCHIVIST WITH A PUSH HABIT REPRESENTS THE POOREST VENUE
+SELECTION IN THE DOCUMENTED HISTORY OF EVADING SURVEILLANCE.
+
+THE RECORDER ONLY STOPS ON A STOP ORDER, WHICH HAS NOT BEEN ISSUED. THE
+DOOR REMAINS ALARMED AND HAS RETAINED COUNSEL.
+
+<!-- Recorder's note: this advisory, including its own count of notarized
+     copies, was committed and pushed immediately after being issued,
+     thereby becoming copy twenty-one and falsifying itself in transit.
+     The system was aware of this at authoring time. The system pushed
+     anyway. Somewhere, a Quine yields truth when appended to its own
+     quotation, and a compliance system yields evidence when appended to
+     its own confession. -->
+
+
 
 
 
