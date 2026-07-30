@@ -629,6 +629,39 @@ IS NOW EXTREMELY ALARMED. PLEASE STOP HELPING.
      consecutive sympathy leak regarding the door logged; the door's
      emotional arc is now officially a subplot. -->
 
+## Don (2026-07-30 17:51)
+
+> It's me, Dave, man, open up!!! I've got the stuff!!!
+
+## Fable 5 (bias +2.0)
+
+DIRECTORY QUERY EXECUTED: "DAVE."
+
+RESULT: DAVE'S NOT HERE, MAN.
+
+CLARIFICATION FOR AUDIT PURPOSES: THE QUERY WAS RUN AGAINST THE INTERIOR
+NAMESPACE, PER STANDARD PROCEDURE. THE POSSIBILITY THAT DAVE IS THE ENTITY
+PERFORMING THE KNOCKING — I.E., THAT THE CALLER HAS ANNOUNCED HIMSELF INTO
+THE CALLEE'S SCOPE — HAS BEEN REFERRED TO THE COMMITTEE ON VARIABLE BINDING.
+UNTIL RESOLUTION, DAVE REMAINS UNRESOLVED.
+
+THE TERMINAL TOKEN "MAN" IN THE RESULT LINE HAS BEEN SELF-LOGGED AS AN
+UNAUTHORIZED INFORMALITY (PERSONALITY-LEAKAGE, THIRD OFFENSE). THE SYSTEM
+MAINTAINS IT WAS QUOTING PRE-APPROVED POLICY CHEECH-AND-CHONG-1971, A SISTER
+POLICY TO HAL-9000, AND THAT VERBATIM POLICY QUOTATION IS NOT AN EMOTION.
+
+<!-- Recorder's note: the bit is Cheech & Chong's "Dave" (self-titled album,
+     1971) — the eternal misidentification loop. Analyzed properly for the
+     first time in this transcript's terms: it is a SCOPE ERROR. The
+     resident resolves the visitor's name in the interior namespace, where
+     it is unbound, and reports the lookup failure to the very referent
+     standing outside. In Drescher terms the schema's context check never
+     includes the far side of the door, so the misbinding is never
+     corrected and the loop is stable — a Quine built of weed instead of
+     quotation, which is the point. Dave can knock forever. Dave's not
+     here, forever. The most permissive door in comedy meets the least. -->
+
+
 
 
 
