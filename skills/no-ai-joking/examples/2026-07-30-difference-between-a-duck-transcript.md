@@ -329,3 +329,40 @@ The through-line now runs: soul model → Society of Mind → Memo 603 → this
 transcript → Made-Up Minds → back to the soul model's "made-up" mind kind,
 which had been carrying Drescher's name quietly all along.
 
+## Don (2026-07-30 17:09)
+
+> this is all great stuff to ask gary - add to his character model and ideas
+> for things to discuss! I did not realize he was named in the classic ai
+> koan from ai:humor;ai koans ! Wow. That's so heavy! And that David Levitt
+> was credited in marvin's ai paper! More to discuss with them, memorializing
+> marvin.
+
+## Fable 5
+
+Wired into WWSFF (Gary Drescher already had a full character room —
+invitation draft, *Made-Up Minds* essay, Leela threads):
+
+1. **`gary-drescher/ideas.md`** — two new hooks. **Hook 9, "Censors ↔
+   schemas — the advisor conversations we can only reconstruct":** the Memo
+   603 resolution as direct interview questions — was the mapping ever on a
+   blackboard with Marvin? Could the schema mechanism grow censors by running
+   marginal attribution over its own bugs? Are synthetic items what a
+   censor's trigger *is*? Was the shared refuse-to-fix-the-kernel
+   epistemology explicit or convergent? **Hook 10, "The toaster koan — Gary
+   is in the canon":** did it really happen, who was the proselytizer, how
+   does it feel to *be* a koan — with the heavy loop made explicit: Danny
+   Hillis compiled the koan about Gary AND is thanked in Memo 603. Gary is
+   simultaneously a subject of the lab's humor canon and the author of the
+   mechanism that explains why the canon is funny.
+2. **`gary-drescher/CHARACTER.yml`** — connection facts `ai_koan_canon` and
+   `memo_603_resolution`; see-also rows to Memo 603 and David Levitt.
+3. **`gary-drescher/GLANCE.md`** — koan-canon + Memo 603 line.
+4. **`david-levitt/ideas.md`** — the acknowledgment credit, verbatim ("I
+   thank Howard Cannon, Danny Hillis, William Kornfeld, David Levitt, Gloria
+   Rudisch, and Richard Stallman for suggestions"), with the ask-David hook:
+   what did he suggest? The memo era is exactly his computational-jazz PhD
+   years — and Minsky's theory (humor lives between expectation and
+   violation) is David's thesis topic, in music. Co-memorial thread with Gary.
+5. **`marvin-minsky/ideas.md`** — hook 3 sharpened with the censors↔schemas
+   resolution, both living discussants, and the koan loop.
+
