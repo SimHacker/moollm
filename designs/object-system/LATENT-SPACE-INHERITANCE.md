@@ -5,7 +5,17 @@ things the LLM already knows**. The mechanism does not distinguish. A path resol
 lookup; a name resolves by the LLM recognizing it. **The whole of the model's training is the
 prototype store; the name is the activation; no essay needed.**
 
-This is the discovery we've been dogfooding since cauldron, promoted from
+The dogfooding predates this repo. **LLOOOOMM** — the earlier prototype that was retired and
+rebooted as MOOLLM — ran on this move daily and proved it worked extremely well; it was one of
+the main ideas carried forward in the reboot, along with **selfish inheritance** (Self-style
+prototypal delegation, [SELFISH-COM-IMPLEMENTATION](../../kernel/SELFISH-COM-IMPLEMENTATION.md)).
+MOOLLM formalized both by building on top of Anthropic skills
+([anthropic-import-plan](../anthropic-import-plan.md)) and adding selfish **multiple**
+inheritance across the two stores at once — files and latent space in one ordered parent list.
+LLOOOOMM's protocol ecosystem is preserved in
+[MOOLLM-PROTOCOLS](../MOOLLM-PROTOCOLS.md).
+
+Within this repo the lineage runs through cauldron: promoted from
 [cauldron META-PLAN §1](../../skills/cauldron/META-PLAN.md) per the
 [Opus review](../../skills/cauldron/REVIEW.2026-04-21.claude-opus-4.7.md), which called it "the
 most novel thing in cauldron's docs and the thing least specific to cauldron… generalizes
