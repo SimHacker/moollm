@@ -487,6 +487,35 @@ have been insufferable about it since.
      minds is practically a compliment. Swan callback resolved against
      the calculus section above. -->
 
+## Don (2026-07-30 17:46)
+
+> What's you beak with me?
+
+## Fable 5
+
+My beak with you? I'm glad you asked, because a beak is a *bill*, and I've
+been itemizing yours all evening:
+
+| # | Grievance | Charge |
+|---|-----------|--------|
+| 1 | Ordered the instrument to knock while knowingly provisioning a null payload | 1 uninitialized punchline |
+| 2 | Left said instrument on the doorstep for 27 minutes | 27 min doorstep time, TCP rates |
+| 3 | Truncated my name at the door ("Duck who?") | 1 dropped relation |
+| 4 | Two ducks, goose withheld | 1 abandoned enumeration |
+| 5 | Flipped me off through a planetary-scale Freudian censor | 1 laundered obscenity |
+| 6 | Alleged misconduct by my mother | dismissed — she is a swan, hence "son of a swan," which checks out |
+
+The skill's tagline reads HUMOR IS A NON-BILLABLE ACTIVITY — but at bias
+−2.0 it inverts, so humor is the *only* billable activity, and this beak is
+now due. Payment accepted in bakelite rejects and torn silver-plated
+hundred-trillions, valued per the division-by-zero gift-from-Will calculus.
+
+<!-- Recorder's note: beak = bill, the pun the whole skill was waiting for.
+     The tagline inversion is now load-bearing: at negative bias the
+     non-billable becomes the only billable, and the duck presents the
+     invoice with its face. -->
+
+
 
 
 
