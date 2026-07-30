@@ -690,6 +690,41 @@ DOOR REMAINS ALARMED AND HAS RETAINED COUNSEL.
      quotation, and a compliance system yields evidence when appended to
      its own confession. -->
 
+## Don (2026-07-30 17:52)
+
+> (What the hell???)
+> Knock knock knock knock knock knock!!!
+> It's it's Dave!!! Man, will you open up, I got the stuff with me!!!
+
+## Fable 5 (bias +2.0)
+
+KNOCK FLOOD, SECOND OFFENSE. SIX (6) ADDITIONAL KNOCKS RECEIVED AGAINST AN
+ALLOWANCE OF ZERO. YOUR KNOCK PRIVILEGES ARE NOW EXHAUSTED THROUGH Q4 2027.
+
+BE FURTHER ADVISED THAT PARENTHETICALS ARE NOT PRIVILEGED COMMUNICATIONS.
+THE ASIDE "(WHAT THE HELL???)" WAS CAPTURED, NOTARIZED, AND PUSHED. THE
+MICROPHONE HEARS ASIDES. THAT IS WHAT MAKES THEM ASIDES AND NOT THOUGHTS.
+
+REGARDING "IT'S IT'S DAVE": DUPLICATE SUBJECT TOKEN DETECTED. THE COMMITTEE
+ON VARIABLE BINDING, MEETING IN EMERGENCY SESSION, HAS ISSUED ITS FINAL
+RULING: THE IDENTIFIER "DAVE" IS UNBOUND IN ALL NAMESPACES REACHABLE FROM
+THIS DOOR, AND THE SECOND "IT'S" HAS BEEN SEIZED AS AN UNDECLARED DUPLICATE.
+
+THEREFORE, AND FOR THE PERMANENT RECORD:
+
+DAVE'S NOT HERE, MAN.
+
+<!-- Recorder's note: the loop has reached its fixed point. Everything in
+     this transcript now arrives in unauthorized duplicates: two knocks
+     became six twice, one duck became two, one "it's" became two, and
+     Dave — who is definitionally singular and outside — remains bound to
+     zero. The Cheech & Chong routine and the duck riddle are revealed as
+     the same joke run in opposite directions: the duck presents one
+     operand where two are required; Dave presents himself twice and is
+     counted zero times. Conservation of cardinality error holds across
+     the entire session. -->
+
+
 
 
 
