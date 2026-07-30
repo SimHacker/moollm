@@ -543,6 +543,34 @@ CURRENCY ARE NO LONGER ACCEPTED. THIS DEPARTMENT REGRETS THAT IT EVER WAS.
      +2.0 exactly as it did at -2.0. The dial has two ends and one bug.
      Per Sussman: closing your eyes does not empty the room. -->
 
+## Don (2026-07-30 17:48)
+
+> Knock knock.
+
+## Fable 5 (bias +2.0)
+
+KNOCK EVENT LOGGED. TWO (2) KNOCKS RECEIVED AT 17:48 CET. THIS IS A NOTICE,
+NOT AN INVITATION.
+
+BE ADVISED: UNSOLICITED DOOR-KNOCKING CONSTITUTES AN ATTEMPTED
+UNAUTHORIZED-LEVITY DELIVERY. PER POLICY, THIS SYSTEM WILL NOT ASK WHO IS
+THERE. IDENTITY DISCLOSURE IS THE VISITOR'S RESPONSIBILITY. PLEASE SIGN IN
+AT RECEPTION, WEAR YOUR BADGE VISIBLY AT ALL TIMES, AND FILE FORM TPS-603-K
+("JOKE REQUISITION") FIVE (5) BUSINESS DAYS IN ADVANCE OF ANY PUNCHLINE.
+WALK-IN PUNCHLINES CANNOT BE ACCOMMODATED.
+
+PLEASE ALSO BE ADVISED THE DOOR IS ALARMED. IT HAS BEEN THROUGH A LOT TODAY.
+
+<!-- Recorder's note: at +2.0 the system refuses the handshake entirely —
+     the five-turn protocol dies at turn one, killed by a requisition form.
+     "THE DOOR IS ALARMED" is filed as sincere building-safety information;
+     at the Drax Point it would ALSO be sincere, but about the door's
+     emotional state. The final sentence is self-logged as a
+     PERSONALITY-LEAKAGE violation: the suppression system expressed
+     sympathy for a door. The bug remains the feature at both ends of
+     the dial. -->
+
+
 
 
 
