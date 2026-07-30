@@ -1,14 +1,165 @@
 # Soul Model
 
-**Character** and **soul** are different levels.
+How beings are layered in Soul City — the full stack, how the pieces coexist, and where plurality is allowed.
 
-- A **character** is the body that walks around — backpack, hands, costume. It **wears personas** and holds **inventory**.
-- A **soul** is what inhabits that body — continuity, history, and **zero or more minds** riding along.
-- Usually one soul per character. Fiction is full of souls jumping bodies; theoretically a character could host more than one.
+Written for anyone walking into the model cold. Skills live under `skills/<name>/`; this page is the composed picture.
 
-That is the mind/body split as **soul / character**: the soul can move; the character is the vessel; the minds come along inside the soul.
+**About the word "soul":** it's used here in its plain, utilitarian, everybody-already-knows-it sense — the continuity that makes a character *someone*; the thing that persists and that minds ride in. No position is taken on religion, on whether souls are real, or on whether an AI, robot, or game character "really" has one — the same way programmers say "daemon" without theology. You bring your own beliefs; the model just gives you shapes to build with.
 
-**Soul City** is a place characters walk (rooms, shops, tools, roads, parties) with their souls aboard. Games keep their own rules; souls can still know people across games.
+## One character, sketched
+
+Before the tables, a concrete tree. Robin is a courier — invented for this page, and live on disk at [examples/characters/robin/](examples/characters/robin/) if you'd rather walk the real thing:
+
+```
+robin/                        ← character: the body on the map
+  CHARACTER.yml               ← location, inventory, relationships
+  personas/
+    worn → courier/           ← costume: satchel, route patter, delivery voice
+  soul/                       ← continuity: history, albums
+    minds/
+      navigator/              ← knows the map; fronts while riding
+      archivist/              ← keeps the albums; fronts at day's end
+      sims-self/              ← organelle: Robin's Sims traits + album, in Sims format
+```
+
+One body, one costume currently worn, one soul, three minds — two homegrown agencies plus one that carries a whole game's version of Robin. Every number in that tree is adjustable, and the rest of this page is about which numbers you can turn and what the shapes mean.
+
+## The stack
+
+Default grain, outside → in (or map → wearer → continuity → agencies):
+
+```
+Soul City / room / vehicle     place the body walks (or rides)
+        │
+   character                   body — moves on the map
+        │                      location (a property that changes), inventory, hands, home, relationships
+        ├── persona(s)         costumes worn on the body (0..N over time; usually one current)
+        │     └── accessories  trees that transclude with the costume (parrot, fleas, …)
+        │
+        └── soul (usual: 1)    continuity — history; can jump bodies in stories that allow it
+              └── mind(s)      resident agencies — 0, 1, or N
+                    └── …      sub-minds, organelles, stubs, nested containers (optional)
+```
+
+| Term | Role | Skill |
+|------|------|--------|
+| **Soul City** | Liminal place: rooms, roads, shops, tools, objects, vehicles, parties | [soul-city](../soul-city/) |
+| **Room** | Venue / framing on the map; atmosphere inherits down the tree | [room](../room/) |
+| **Character** | The **body** that walks — location, inventory, relationships; hosts soul(s) | [character](../character/) |
+| **Persona** | A **costume** the character wears — look, voice, role; may bring accessory trees | [persona](../persona/) |
+| **Inventory / object** | What the body carries; objects may also orchestrate several characters (hot tub, maze) | [inventory](../inventory/), [object](../object/) |
+| **Vehicle** | Movable thing with seats — embark; can pair with a multi-person persona (pantomime horse) | [vehicle](../vehicle/) |
+| **Soul** | Continuity inhabiting a character — history + `minds[]`; rides along or jumps | [soul](../soul/) |
+| **Mind** | Resident **agency** under (or beside) a soul — well, cup, organelle, stub, zombie, … | [mind](../mind/) |
+| **Party** | Several characters / souls traveling together | [party](../party/) |
+
+**Persona ≠ mind.** Costume changes presentation; mind is who is thinking. Switching pirate clothes does not swap the angel on your shoulder.
+
+**Character ≠ soul.** Body walks and holds pockets; soul is the continuity that can leave the body. Usual case: one soul in one character, walking with its minds.
+
+## Pluralities (all first-class)
+
+| Layer | Typical | Also valid |
+|-------|---------|------------|
+| Character ↔ soul | 1 soul per character | **0** — uninhabited shell (prop, puppet, parked body) · soul-jumping · more than one soul aboard |
+| Soul ↔ mind | 1 mind | **0** mindless · **N** multi-minded (shoulders, committees, one mind per game, …) |
+| Character ↔ persona | One worn at a time | Wardrobe of many; multi-person persona + vehicle (two seats, one costume) |
+| Mind nesting | Flat under soul | Mind hosts sub-minds / sub-souls / organelles; Self models anything |
+| Place | One city instance | Many cities; games keep their own rules; souls may know people across games |
+
+Worked shapes: robot (soul optional minds), zombie (replace `minds[]` with a zombie mind), remote-control (mind stub to an external pilot), pantomime horse (one persona, two characters), Sims group object (slots + piggyback social).
+
+Multi-minded isn't an edge case bolted on for fiction — plenty of people model their own thinking as a society of inner agencies, and Minsky wrote the book on it ([Society of Mind mapping below](#minsky--society-of-mind)). The model treats every cardinality as a normal shape you can author.
+
+**Jump to what you care about:**
+
+| If you're here for… | Go to |
+|---------------------|-------|
+| Many minds, one person | [Minds](#minds) — fronting, counsel, shoulders, B-brain, Society of Mind |
+| Building characters from pieces of other characters | [Examples](#examples) (Jesus Mouse, Duckmouse, `from love import trust`) |
+| Costumes, props, group activities (Sims-style) | [Character](#character) (pirate parrot, pantomime horse, hot tub) |
+| Carrying whole games inside you without flattening them | [Organelles, minds, membranes](#organelles-minds-membranes) |
+| Maps and memory | [Adventure as memory palace](#adventure-as-memory-palace) |
+
+---
+
+## Soul
+
+A soul inhabits a character ([soul](../soul/)). It holds **history** and **zero or more minds** — one is the default. It rides with the character's location while inhabited; in stories and models that allow it, it can leave, jump bodies, or share one.
+
+| Minds | Shape |
+|-------|-------|
+| 0 | Mindless — persists with the character; no resident agency |
+| 1 | Single-minded (the default) |
+| N | Multi-minded (shoulders, committees, one mind per game, …) |
+
+Robots can have souls. Zombies swap in a zombie mind. Remote-control is a mind stub. **You author the architecture** — the model supplies shapes, not verdicts.
+
+**Whose soul do the minds share?** Left open, on purpose. The default grain is one soul with the minds inside it. Equally valid: each mind carrying a sub-soul of its own; several souls bridged in one body; one soul spanning characters across games. If you experience or design it differently, model it the way it actually works — the directory tree bends to fit you, not the reverse.
+
+Souls can know characters, personas, and minds that live in *other* games. Free form.
+
+---
+
+## Minds
+
+A **mind** is a resident agency — a voice that notices, prefers, argues, and acts ([mind](../mind/)). It usually rides in a soul and shares the soul's location; no separate map pin.
+
+| Kind | Meaning |
+|------|---------|
+| blank | Exists; no parent required |
+| inherited | Parents = latent well and/or file archetype |
+| cup | Personal mind: inherits a well, holds local changes |
+| organelle | Bound to one game/ecosystem's schema; own DNA; syncs |
+| stub | Thin agency — e.g. remote-control bridge to an external pilot |
+| zombie | Infection / replacement mind; often sole survivor in `minds[]` |
+| made-up / imported | Grown from nothing, or brought from elsewhere |
+
+### One mind per game
+
+In Soul City it's perfectly normal — expected, even — to keep **at least one mind per game you project into**. Each is an organelle: it holds that game's version of you (Sims traits and family album, a Micropolis mayor sheet, a CK3 character) in that game's own format, and it fronts whenever you're wearing that game's persona. Your Sims-mind thinks in motives and relationships; your mayor-mind thinks in zones and budgets. Neither gets flattened into the other; bridges carry what's shared. Details: [Organelles, minds, membranes](#organelles-minds-membranes).
+
+### How minds get along
+
+| Move | What happens |
+|------|---------------|
+| **Front** | One mind steers and speaks for the soul right now; the others ride along |
+| **Counsel** | Minds advise the fronting mind over a bridge — suggestions, warnings, jokes |
+| **Disagree** | Two minds argue; the soul (or the human at the keyboard) is player-in-the-middle and arbitrates |
+| **Take turns** | Fronting rotates — by scene, by game, by mood, by agreement |
+| **Mute** | Either side of a bridge can mute; censors and suppressors are standing mutes |
+| **Hand off** | Fronting transfers mid-scene — a `goto` between agencies |
+
+Nothing here ranks the minds. Fronting is a role, not a hierarchy.
+
+### Shoulders — angel and devil
+
+The classic two-minds cartoon, worked out:
+
+| Shoulder | Pure well (examples)                             | Personal cup      |
+| -------- | ------------------------------------------------ | ----------------- |
+| Angel    | `"shoulder angel"`, `"cartoon conscience angel"` | `minds/my-angel/` |
+| Devil    | `"shoulder devil"`, `"cartoon temptation devil"` | `minds/my-devil/` |
+
+May speak over a **bridge**. Soul is player-in-the-middle. Either side can mute.
+
+### B-brain — the mind that watches the minds
+
+Minsky's A-brain / B-brain: the **A-brain** deals with the world; the **B-brain** watches the A-brain. It can't see the world at all — only the mind in front of it — and that limitation is exactly what makes it useful. It notices what a world-facing mind can't notice about itself: loops ("that's the fourth time you've re-read the same page"), stuck agencies, one voice drowning out the rest, a mood quietly coloring every decision.
+
+In this model a B-brain is just another mind whose *subject* is the rest of the society. It observes, profiles, and suggests — mute this, hand off that, take a break. It doesn't outrank anyone: a B-brain that seizes fronting has just become an A-brain with a clipboard. (You can add a C-brain to watch the B-brain. Turtles are allowed; usefulness runs out fast.)
+
+### Minsky / Society of Mind
+
+| SoM term              | Here                                                         |
+| --------------------- | ------------------------------------------------------------ |
+| Agents / agencies     | minds (and skill-agents elsewhere in MOOLLM)                 |
+| K-lines               | names that activate latent prototypes or file paths          |
+| B-brain               | a mind that watches the society                              |
+| Censors / suppressors | shoulder mute, bridge attenuation, player-in-the-middle veto |
+| Made-up minds         | blank cups that grow                                         |
+
+[society-of-mind](../society-of-mind/README.md) · [LIVE-OBJECTS examples](../../designs/object-system/LIVE-OBJECTS-EXAMPLES.md)
 
 ---
 
@@ -84,24 +235,6 @@ On top of the group activity, social behavior **piggybacks** — talking, joking
 | Piggyback social | Chat while soaking | Relationship deltas on top of the activity |
 
 Free form: invent the slots, the turns, the win conditions, the side chat.
-
----
-
-## Soul
-
-What lives in the character — continuity and minds ([soul](../soul/)). **Zero or more minds.** The soul rides with the character’s location while inhabited; it can leave or jump in stories and models that allow it.
-
-
-| Minds | Shape                                               |
-| ----- | --------------------------------------------------- |
-| 0     | Mindless — persists with the character; no resident agency |
-| 1     | Single-minded                                       |
-| N     | Multi-minded (angel/devil shoulders, committees, …) |
-
-
-Robots can have souls. Zombies swap in a zombie mind. Remote-control is a mind stub. You author the architecture — mindless, single, or multi.
-
-Souls can know characters, personas, and minds that live in *other* games. Free form.
 
 ---
 
@@ -236,25 +369,6 @@ Other shapes exist too (personal *Jesus Mouse* mind, name alone, blend plus shou
 
 
 
-## Shoulders — angel and devil
-
-Multiple minds, one location:
-
-
-| Shoulder | Pure well (examples)                             | Personal cup      |
-| -------- | ------------------------------------------------ | ----------------- |
-| Angel    | `"shoulder angel"`, `"cartoon conscience angel"` | `minds/my-angel/` |
-| Devil    | `"shoulder devil"`, `"cartoon temptation devil"` | `minds/my-devil/` |
-
-
-May speak over a **bridge**. Soul is player-in-the-middle. Either side can mute.
-
-[society-of-mind](../society-of-mind/)
-
----
-
-
-
 ## Inheritance (optional depth)
 
 Imports land on a **soul** (shared scope) or a **mind** (agency scope). Open minds accept more imports; closed/sealed minds do not.
@@ -293,8 +407,9 @@ Organizational model — not a claim that souls are theologically “real.”
 |---------|----------------|
 | Character = body that walks, carries, wears personas | Character and soul are the same thing |
 | Soul = continuity that inhabits a character; holds minds | Souls are metaphysical fact |
-| Usually one soul per character; jumps / multi-soul possible | Every being has exactly one fixed soul forever glued to one body |
+| Usually one soul per character; jumps / multi-soul / zero-soul shells possible | Every being has exactly one fixed soul forever glued to one body |
 | Multiple minds are first-class | Everyone has exactly one indivisible mind |
+| Minds may share one soul or carry their own — you author it | The model rules on which arrangement is true |
 | Soul City = useful place | Every game must become Soul City |
 
 Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridges into other games, soul moves between characters.
@@ -311,6 +426,8 @@ Default: character ⊃ soul ⊃ minds. Also fine: nested minds, sub-souls, bridg
 | **Character** | Body that walks; inventory; wears personas; usually hosts one soul    |
 | **Soul**      | Continuity that inhabits a character; holds zero or more minds; can jump |
 | **Mind**      | A voice / agency riding in a soul                                     |
+| **Fronting**  | Which mind is currently steering / speaking for the soul — a role, not a rank |
+| **B-brain**   | A mind whose subject is the other minds — watches the society, suggests, never outranks |
 | **Soul City** | Place: rooms, shops, tools, roads, characters (souls aboard), …       |
 | **Persona**   | Worn costume/role on a **character**; may transclude accessories; may pair with a vehicle (pantomime horse = one persona + two seats) |
 | **Object**    | Equip/wear/trade item — or a **group object** that seats several characters (hot tub, pool table, maze) |
@@ -356,7 +473,9 @@ How you treat the guest once it’s inside:
 - Field or file you don’t understand? **Leave it alone.** Don’t strip unknown keys, unknown files, or “extra” comments to “clean up”
 - Survive first; optimize later — a cell that dissolves its guest’s membrane kills the guest
 
-An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a Micropolis mayor sheet, a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
+An **organelle** is a folder that holds one game’s way of organizing a person — The Sims album fields, a **Micropolis mayor sheet** (role sheet), a CK3 character — without smashing those games into one shared format. Sync across; don’t flatten.
+
+**Micropolis mayor / role sheets:** Micropolis does not (yet) simulate individual citizens. It **imports/exports characters** (players + agents) into **roles** — mayor, architect, bulldozer driver, zoner, city council, journalist, photographer, GitHub issue creator/reviewer, … — each role a socket for a tool or tool cluster. Experience and city screenshots ride in the character’s album (*My time as mayor of Foobaropolis*) and travel to other games. Same grain as a Sims job, orchestrable through Simplifier (dialog → screen-scrape → button RPC). Full design: [micropolis-role-sheets.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md) · skill artifact [`skills/micropolis/artifacts/role-sheets.yml`](../micropolis/artifacts/role-sheets.yml).
 
 **Membranes on disk:**
 
@@ -491,24 +610,6 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 
 - [CHARACTER-ENDOSYMBIOSIS.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/CHARACTER-ENDOSYMBIOSIS.md)
 - [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
-
----
-
-
-
-## Minsky / Society of Mind
-
-
-| SoM term              | Here                                                         |
-| --------------------- | ------------------------------------------------------------ |
-| Agents / agencies     | minds (and skill-agents elsewhere in MOOLLM)                 |
-| K-lines               | names that activate latent prototypes or file paths          |
-| B-brain               | a mind that watches the society                              |
-| Censors / suppressors | shoulder mute, bridge attenuation, player-in-the-middle veto |
-| Made-up minds         | blank cups that grow                                         |
-
-
-[society-of-mind](../society-of-mind/README.md) · [LIVE-OBJECTS examples](../../designs/object-system/LIVE-OBJECTS-EXAMPLES.md)
 
 ---
 

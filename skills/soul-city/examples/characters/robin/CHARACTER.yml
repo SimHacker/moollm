@@ -1,0 +1,69 @@
+# ROBIN — courier of Soul City
+# The worked example from ../../SOUL-MODEL.md, live on disk.
+# One body, one costume worn, one soul, three minds.
+# This directory does not move; the location field below does.
+
+inherits:
+  - skills/character
+  - skills/soul
+
+ontology:
+  tags: [soul-city, citizen, courier, example, soul-model]
+  species: human
+  origin: soul-model-page          # invented for SOUL-MODEL.md; incarnated here
+  nature: worked_example
+
+character:
+  name: Robin
+  id: robin
+  type: [citizen, courier, example]
+
+  emoji_identity: "🚲📦🗺️📓"
+  #   🚲 — the bike (navigator fronts while riding)
+  #   📦 — the parcels (the job is the day's shape)
+  #   🗺️ — the map (knows every shortcut in Soul City)
+  #   📓 — the route log (archivist fronts at day's end)
+
+  pronouns: he/him
+
+  tagline: "Every parcel arrives. Every day gets a page."
+
+  # location is a PROPERTY that changes — the robin/ directory stays put.
+  location: street/lane-neverending/e2/soul-plaza/
+  home: neighborhoods/riverside/robins-flat/
+
+  inventory:
+    - satchel            # from the courier persona while worn; personal straps
+    - parcel-manifest    # today's deliveries, crossed off in ink
+    - bike-lock-key
+
+  personas:
+    worn: personas/courier/        # symlink personas/worn also points here
+    wardrobe:
+      - personas/courier/
+
+  soul: soul/                      # one soul aboard (the usual grain)
+
+relationships:
+  soul-plaza-shopkeepers:
+    type: regulars
+    narrative: |
+      Robin knows every counter on Lane Neverending by first name.
+      They know him by the bell on his handlebars.
+
+meta:
+  invoke_when:
+    - "A concrete character/persona/soul/minds tree is needed"
+    - "Walking a newcomer through SOUL-MODEL.md with a live example"
+    - "Demonstrating fronting, organelles, or albums in the small"
+
+files:
+  - CHARACTER.yml
+  - GLANCE.yml
+  - README.md
+  - personas/courier/PERSONA.yml
+  - soul/SOUL.yml
+  - soul/minds/navigator/MIND.yml
+  - soul/minds/archivist/MIND.yml
+  - soul/minds/sims-self/MIND.yml
+  - soul/albums/route-log/

@@ -1,0 +1,28 @@
+# PERSONA — courier
+# A costume, not a mind: changes how Robin presents, not who is thinking.
+# Take it off and the satchel, patter, and delivery voice go with it.
+
+persona:
+  id: courier
+  name: Courier
+  worn_by: robin
+
+  look:
+    - weatherproof jacket, high-vis piping
+    - satchel (persona-issued; Robin's personal straps stay in inventory)
+    - fingerless gloves
+
+  voice:
+    register: quick, friendly, already-half-out-the-door
+    taglines:
+      - trigger: handing over a parcel
+        line: "Sign here — no, anywhere's fine."
+      - trigger: asked for directions
+        line: "Faster if you cut through the plaza. Everything's faster through the plaza."
+
+  accessories:
+    # Transcluded trees that ride with the costume (parrot-and-fleas pattern).
+    handlebar-bell/:
+      note: "One ring: passing. Two rings: hello. The shopkeepers know the code."
+
+  removes_cleanly: true    # doffing the persona leaves character and soul untouched

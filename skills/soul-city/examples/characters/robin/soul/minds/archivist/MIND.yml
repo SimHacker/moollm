@@ -1,0 +1,24 @@
+# MIND — archivist
+# Homegrown agency. Fronts at day's end; keeps the soul's albums.
+# Mildly B-brain-ish: its subject is often the rest of the day's thinking —
+# but it writes pages, it doesn't outrank anyone.
+
+mind:
+  id: archivist
+  kind: cup
+  parents:
+    - "meticulous diarist"     # the well
+  open: true
+
+  fronts_when:
+    - day's end, tea poured
+    - navigator hands off after the last delivery
+
+  keeps: ../../albums/route-log/    # numbered beats; one page per day worth telling
+
+  local_delta:
+    habits:
+      - "Dates every page. Refuses to backfill from memory alone."
+      - "Notices when navigator has re-ridden the same wrong turn twice, and says so — over the bridge, gently."
+
+  counsel_style: reflective, past-tense, one-day-at-a-time

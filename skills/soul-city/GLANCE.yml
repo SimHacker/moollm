@@ -17,7 +17,7 @@ when:
   - '"Stand up a Soul City instance" → INSTANTIATE'
   - '"Soul City / soul ontology" → SOUL-MODEL.md'
   - '"Compose Micropolis + MOOLLM city" → micropolis + this'
-  - '"Parker / public entry" → SOUL-MODEL.md'
+  - '"Public entry / newcomer intro" → SOUL-MODEL.md'
 
 contains:
   - rooms
@@ -29,6 +29,7 @@ contains:
   - parties
 
 instances:
+  worked_character: examples/characters/robin/   # Robin, the SOUL-MODEL sketch made real
   bootstrap: examples/adventure-4/
   sims_citizens: examples/soul-city/
   product_vision: MicropolisCore designs

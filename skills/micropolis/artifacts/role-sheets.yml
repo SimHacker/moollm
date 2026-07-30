@@ -1,0 +1,54 @@
+# Micropolis role sheets (mayor sheets) — artifact index
+# Full design: MicropolisCore documentation/designs/micropolis-role-sheets.md
+
+id: micropolis-role-sheets
+status: designing
+emoji: 📋🏙️
+
+premise: |
+  Micropolis does not (yet) represent individual people in the sim.
+  Characters (real players + simulated agents) import/export into ROLES.
+  Roles are sockets for tools / tool clusters. Experience + album pages
+  travel with the character to other games.
+
+absolute_url: https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md
+path: MicropolisCore/documentation/designs/micropolis-role-sheets.md
+
+organelle: |
+  character/<id>/micropolis/ROLE-SHEET.yml + album/
+  Same endosymbiosis grain as Sims family album — sync, don't flatten.
+  SOUL-MODEL: "Micropolis mayor sheet" organelle.
+
+roles:
+  civic: [mayor, architect, bulldozer-driver, zoner, city-council]
+  media: [journalist, newspaper-writer, blogger, photographer]
+  analysis: [data-analyzer]
+  git_multiverse: [issue-creator, responder, implementor, reviewer]
+
+experience: |
+  Deep tenure events (floods survived, votes won, PRs merged, photos captioned)
+  — not hollow XP. Portable across games via soul history + overlay albums.
+
+album: |
+  Screen snapshots of city events → family-album cards
+  ("My time as mayor of Foobaropolis"). Diegetic in Sims as a photo book.
+
+sims_job_bridge:
+  analogy: "Having a Micropolis role ≈ having a job in The Sims"
+  orchestration: Simplifier / computer-use agent
+  loop: |
+    Dialog pops (OK / Cancel / A B C) → screen-scraper reads → character/agent
+    decides → injects button = RPC through the glass → Micropolis applies
+    command → album frame + role-sheet event.
+  see: MicropolisCore/documentation/designs/cua-computer-use-agents-and-simplifier.md
+
+lineage:
+  - MultiPlayerIdeas.txt political roles (mayor, treasurer, planner, builder, reporter, god)
+  - unfulfilled-dreams.yml political_roleplay_becomes_github_permissions
+  - collaborative-microworld-lineage.md design principle #8
+  - character-endosymbiosis.yml identity_over_attributes + family_album
+
+see_also:
+  - artifacts/unfulfilled-dreams.yml
+  - ../CARD.yml
+  - ../../soul-city/SOUL-MODEL.md

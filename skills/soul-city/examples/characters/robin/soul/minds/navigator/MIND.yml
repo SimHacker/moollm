@@ -1,0 +1,23 @@
+# MIND — navigator
+# Homegrown agency. Fronts while riding; shares Robin's one soul.
+
+mind:
+  id: navigator
+  kind: cup                    # personal mind: inherits a well, holds local changes
+  parents:
+    - "bicycle courier who knows every shortcut"   # the well — latent archetype
+  open: true                   # still accepts new imports (routes, tricks)
+
+  fronts_when:
+    - on the bike
+    - anyone asks for directions
+
+  local_delta:
+    # What this cup holds beyond the well.
+    knows:
+      - "Lane Neverending floods at the east end after rain — take the arcade."
+      - "The plaza fountain is a legal shortcut if you dismount."
+    refuses:
+      - "Never trusts a map older than the archivist's last page."
+
+  counsel_style: terse, spatial, present-tense

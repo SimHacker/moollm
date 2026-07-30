@@ -1,0 +1,35 @@
+# MIND — sims-self
+# Organelle: carries The Sims' version of Robin in The Sims' own format.
+# One mind per game — fronts when Robin projects into The Sims.
+# Membrane rule: Sims data stays in Sims shape. Sync across; don't flatten.
+
+mind:
+  id: sims-self
+  kind: organelle
+  game: the_sims
+  open: false                 # sealed to imports; grows only by syncing with the game
+  syncs: true                 # round-trip; unknown fields pass through untouched
+
+  fronts_when:
+    - Robin is projected into The Sims
+  thinks_in: motives, relationship scores, queued interactions
+
+  # Native Sims format below — same shape the game uses, kept intact.
+  sims:
+    traits:
+      neat: 4                 # The flat is tidy-ish. The satchel is chaos.
+      outgoing: 7             # Knows every shopkeeper by name; they know his bell.
+      active: 9               # He bikes for a living. The bar is nearly full.
+      playful: 5              # Rings the bell in rhythm when the day goes well.
+      nice: 8                 # Delivers the heavy parcels to the top floor without being asked.
+    skills:
+      body: 6                 # Active 9, applied daily.
+      charisma: 4             # Friendly, not performing.
+      logic: 5                # Route optimization counts.
+    identity:
+      age: adult
+      gender: male
+      zodiac: sagittarius     # Computed from traits: N4/O7/A9/P5/Ni8
+    family_album:
+      - "01: First day — the bike, the bell, the empty manifest."
+      - "02: The flood on Lane Neverending. Learned the arcade cut."

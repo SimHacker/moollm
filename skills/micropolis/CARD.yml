@@ -59,6 +59,12 @@ related:
   - { ref: sister-script, relation: "CLI tool pattern" }
   - { ref: adventure, relation: "Room-based navigation" }
   - { ref: character, relation: "AI tutor implementation" }
+  - { ref: soul-city, relation: "Mayor/role sheets as organelles; character endosymbiosis" }
+
+role_sheets:
+  artifact: artifacts/role-sheets.yml
+  design: https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md
+  note: "Characters plug into roles (mayor, bulldozer driver, council, journalist, git reviewer…); experience + album travel; Sims-job via Simplifier"
 
 lineage:
   threads:

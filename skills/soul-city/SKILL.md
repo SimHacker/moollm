@@ -42,12 +42,13 @@ keeps its own organization. [incarnation](../incarnation/) — grant and author 
 
 | Instance | Role |
 |----------|------|
+| [`examples/characters/robin/`](examples/characters/robin/) | Worked SOUL-MODEL character — body, persona, soul, three minds |
 | [`examples/adventure-4/`](../../examples/adventure-4/) | Bootstrap walkable seed |
 | [`examples/soul-city/`](../../examples/soul-city/) | Sims-citizen seed |
 | [MicropolisCore](https://github.com/SimHacker/MicropolisCore) | Product compose |
 | [WWSFF catalogs/soul-city](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) | Platform catalog |
 
-## Parker / public entry
+## Public entry
 
 [SOUL-MODEL.md](https://github.com/SimHacker/moollm/blob/main/skills/soul-city/SOUL-MODEL.md)
 

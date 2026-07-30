@@ -1,0 +1,24 @@
+# SOUL — Robin's continuity
+# Holds history and minds; rides the character's map pin while inhabited.
+# The minds share this one soul — the default grain. Each could instead
+# carry a sub-soul of its own; SOUL-MODEL.md leaves that to the author.
+
+soul:
+  of: robin
+  minds:
+    - minds/navigator/     # knows the map; fronts while riding
+    - minds/archivist/     # keeps the albums; fronts at day's end
+    - minds/sims-self/     # organelle: one mind per game (The Sims)
+
+  fronting:
+    current: navigator
+    protocol: take-turns    # by scene: riding → navigator; evening → archivist; in-game → sims-self
+    arbitration: player-in-the-middle   # disagreements go to whoever's at the keyboard
+
+  history: albums/route-log/
+
+  bridges:
+    - between: [minds/navigator/, minds/archivist/]
+      kind: counsel        # archivist feeds yesterday's notes to today's route
+    - between: [minds/sims-self/, the-sims]
+      kind: organelle-sync # round-trip; unknown fields ride through untouched

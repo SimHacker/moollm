@@ -78,6 +78,17 @@ files:
       - "Political roleplay → GitHub teams"
       - "Visual programming → Natural language via MOOLLM"
     key_insight: "Soul City fulfills decades-old vision"
+
+  role_sheets_yml:
+    path: "role-sheets.yml"
+    purpose: "Mayor/role sheets — characters plug into tool roles"
+    design: "https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md"
+    highlights:
+      - "Micropolis does not (yet) model individual people"
+      - "Roles = sockets (mayor, bulldozer driver, council, journalist, git reviewer…)"
+      - "Experience + city album pages travel with the character"
+      - "Sims-job orchestration via Simplifier dialog RPC"
+    key_insight: "Political roleplay becomes portable character tenure, not just GitHub perms"
     
   connections_yml:
     path: "connections.yml"

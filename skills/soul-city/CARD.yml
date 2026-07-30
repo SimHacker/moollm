@@ -28,6 +28,8 @@ files:
     - skills/vehicle/ETHICS.md
     - skills/incarnation/ETHICS.md
     - skills/representation-ethics/ETHICS.md
+  examples:
+    - examples/characters/robin/   # worked SOUL-MODEL character, live on disk
   instances:
     - examples/adventure-4/
     - examples/soul-city/
@@ -56,7 +58,7 @@ k-lines:
 
 invoke_when:
   - "Define or instantiate a Soul City"
-  - "Parker / public soul + city ontology"
+  - "Public soul + city ontology entry point"
   - "Compose MicropolisCore / WWSFF with MOOLLM place grain"
   - "Add rooms, shops, tools, roads to a city instance"
 

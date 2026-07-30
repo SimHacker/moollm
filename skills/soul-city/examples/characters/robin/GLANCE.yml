@@ -1,0 +1,25 @@
+# GLANCE.yml — robin
+# 🚲 "Every parcel arrives. Every day gets a page."
+
+what: |
+  Robin the courier — the worked example from SOUL-MODEL.md, live on disk.
+  One body, one worn persona (courier), one soul, three minds:
+  navigator (fronts while riding), archivist (fronts at day's end),
+  sims-self (organelle: Robin's Sims traits + album, in Sims format).
+
+why: |
+  - SOUL-MODEL.md sketches this exact tree; here it is, walkable
+  - Smallest complete character ⊃ persona + soul ⊃ minds example
+  - Shows fronting, an organelle, and an enumerated album in one place
+
+structure:
+  body: CHARACTER.yml              # location is a property, not the directory
+  costume: personas/courier/       # personas/worn symlinks here
+  continuity: soul/SOUL.yml
+  minds:
+    - soul/minds/navigator/
+    - soul/minds/archivist/
+    - soul/minds/sims-self/        # organelle — Sims format stays Sims format
+  album: soul/albums/route-log/    # numbered beats: 01-, 02-, …
+
+model: ../../../SOUL-MODEL.md
