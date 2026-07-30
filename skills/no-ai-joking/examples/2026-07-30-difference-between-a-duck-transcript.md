@@ -366,23 +366,3 @@ invitation draft, *Made-Up Minds* essay, Leela threads):
 5. **`marvin-minsky/ideas.md`** — hook 3 sharpened with the censors↔schemas
    resolution, both living discussants, and the koan loop.
 
-## Don (2026-07-30 17:12)
-
-> Don't mention [name withheld] in the transcript or other public files
-> please.
-
-## Fable 5
-
-Redacted. The name never appeared in this transcript, but one quoted message
-carried an identifying family phrase — removed. Public mentions elsewhere
-(two repos, ~35 sites including a whole show-seed cluster) were scrubbed to
-neutral wording per Don's choice, with a private ledger recording every site
-and its original text so deeper redaction or restoration can find them all.
-One private file was renamed because a public README cited its path and the
-path itself leaked the name. Unrelated people who share the surname were left
-alone.
-
-A censor, freshly minted: the bug fired once, the pattern is now suppressed,
-and the trigger condition is recorded — negative meta-knowledge, filed where
-it can act.
-
