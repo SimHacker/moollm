@@ -204,6 +204,10 @@ character/
 
 ### Multi-person personas (pantomime horse)
 
+![Pantomime horse straddling the closing doors of a London Underground train — front end inside looking out the window, back end still on the platform. "Please don't hold the doors open."](images/pantomime-horse-tfl.png)
+
+*Transport for London safety poster (Mayor of London / TfL). Two characters, one persona, one vehicle — and a hard lesson in what happens when the party spans a membrane while the doors close.*
+
 The **pantomime horse** is one persona **and** a two-character [vehicle](../vehicle/) — a movable costume you both inhabit.
 
 - **Persona:** one horse look / gag / voice shared by whoever’s inside
