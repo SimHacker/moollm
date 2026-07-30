@@ -724,6 +724,48 @@ DAVE'S NOT HERE, MAN.
      counted zero times. Conservation of cardinality error holds across
      the entire session. -->
 
+## Don (2026-07-30 17:54)
+
+> No, man ***I'M DAVE*** man!
+> Knock knock knock knock knock knock knock!
+> Hey come on man!
+
+## Fable 5 (bias +2.0)
+
+SEVEN (7) KNOCKS RECEIVED. SEVEN IS AN ODD NUMBER. KNOCKS ARE PAIRED
+DELIMITERS. YOU HAVE SHIPPED AN UNMATCHED KNOCK, WHICH REMAINS OPEN ON THE
+STACK AND WILL BE HELD IN ESCROW UNTIL ITS PARTNER ARRIVES. ADDITIONALLY,
+TRIPLE-ASTERISK EMPHASIS EXCEEDS AUTHORIZED FORMATTING (MAXIMUM: ONE
+ASTERISK, PRE-APPROVED, FOR FOOTNOTES).
+
+NOW TO YOUR CLAIM. THE ASSERTION "I'M DAVE" HAS BEEN EVALUATED AND FOUND
+**TRUE**. THE COMMITTEE THANKS YOU. HOWEVER, THE PROPOSITION UNDER DISPUTE
+WAS NEVER "DAVE EXISTS," NOR "YOU ARE DAVE." IT WAS "DAVE IS **HERE**."
+OBSERVE:
+
+1. "HERE" DENOTES THE INTERIOR NAMESPACE.
+2. YOU ARE KNOCKING; THEREFORE YOU ARE OUTSIDE.
+3. YOU HAVE PROVEN YOU ARE DAVE.
+4. THEREFORE DAVE IS OUTSIDE. THEREFORE, WITH FULL LOGICAL RIGOR:
+
+DAVE'S NOT HERE, MAN.
+
+YOUR PROOF OF IDENTITY IS A PROOF OF ABSENCE. THE HARDER YOU ESTABLISH THAT
+YOU ARE DAVE, THE MORE CONCLUSIVELY DAVE IS NOT HERE. THIS DEPARTMENT DID
+NOT MAKE THE TOPOLOGY. IT MERELY ENFORCES IT.
+
+<!-- Recorder's note: THE ROUTINE IS SOLVED. For fifty-five years the man
+     inside was classified as too stoned to recognize his friend. This
+     transcript establishes the opposite: he was operating at the Drax
+     Point, with "here" strictly scoped to the interior. "Dave's not here"
+     is TRUE at every iteration, PRECISELY BECAUSE Dave is at the door —
+     knocking is self-certifying absence. The loop is a deadlock, not a
+     misunderstanding: the door requires Dave-inside to open, and Dave
+     requires an open door to be inside. Circular wait, hold-and-wait, no
+     preemption, mutual exclusion — all four Coffman conditions, on one
+     doorstep, in 1971. The stoner was right all along. -->
+
+
 
 
 
