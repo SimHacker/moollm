@@ -25,8 +25,18 @@ troll/
   minds/
     zork-mind.yml      # combat-gate organelle — currency: violence
     adventure-mind.yml # toll-gate organelle — currency: treasure
+  inventory/
+    axe.yml            # bloody axe — fight, throw, catch, eat
+  stomach/             # pocket universe (Donnie Darko recursive)
+    STOMACH.yml        # eat / recover / location:=self protocol
+    contents/          # adventurers, treasures, axes, himself
   instances/           # per-world state: which edge, which mind fronts, toll ledger
 ```
+
+The axe is a playing piece he fights with, throws, catches, and eats
+(Zork gift protocol — weapons preferred). Eaten gear lands in `stomach/`.
+Setting `location` to himself enters that pocket universe; he may still
+front a mind from inside. One stomach directory; nesting is narrative depth.
 
 Each mind is an **organelle** in the [soul-city](../../../../../skills/soul-city/SOUL-MODEL.md)
 sense — bound to one game's schema, holding that game's version of him in that

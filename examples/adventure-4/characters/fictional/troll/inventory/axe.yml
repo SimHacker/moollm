@@ -1,0 +1,46 @@
+# Bloody axe — playing piece Two-Toll carries
+# Zork weapon. Throwable. Catchable. Edible.
+# When eaten: goes to ../stomach/contents/bloody-axe.yml
+
+item:
+  id: bloody-axe
+  name: bloody axe
+  kind: weapon_and_snack
+  emoji: "🪓"
+  owner: ../CHARACTER.yml
+  location: inventory/          # default: carried; may be stomach/ when eaten
+  stomach_entry: ../stomach/contents/bloody-axe.yml
+
+  appearance: |
+    A bloody axe. Brandished in the Troll Room. Bloodstains optional
+    but traditional. He is suspiciously good at catching it.
+
+  mechanics:
+    fight: |
+      Melee weapon while zork-mind fronts. Blocks passages with steel.
+      Hit points and nasty-looking attitude per minds/zork-mind.yml.
+    throw: |
+      He can throw the axe (at adventurers, at the far side of a room,
+      for emphasis). It usually comes back — he catches it. If it
+      doesn't, he goes and gets it. Never dropped for long.
+    catch: |
+      Catching is free action and personality trait. Thrown axe returns
+      to inventory/ unless someone else holds it (rare; temporary).
+    eat: |
+      Eats the axe. Zork gift protocol: graciously accepts gifts —
+      ESPECIALLY weapons — and eats them. Moves to stomach/contents/.
+      Can be eaten WHILE still being the weapon: inventory ref may
+      stay, location flips to stomach. Recover anytime; re-eat anytime.
+
+  gift_protocol: |
+    "The troll, who is not overly proud, graciously accepts the gift"
+    — and eats it. Yes, including this axe. Especially this axe.
+    Crunchy. Toll NOT paid (zork-mind). adventure-mind: not a treasure.
+
+  states:
+    - wielded
+    - thrown
+    - in_flight
+    - caught
+    - eaten          # in stomach/
+    - recovered      # back from stomach/ to inventory/

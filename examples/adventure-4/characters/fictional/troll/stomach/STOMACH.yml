@@ -1,0 +1,66 @@
+# STOMACH — Two-Toll's pocket universe
+#
+# Everything he eats lands here: adventurers, treasures, axes, himself.
+# A perfect pocket universe. Donnie Darko recursive. Directory IS the gut.
+
+stomach:
+  id: troll-stomach
+  owner: ../CHARACTER.yml
+  kind: pocket_universe
+  path: stomach/
+
+  # WHAT LIVES HERE
+  # contents/ is the digest — files and subdirs for anything swallowed.
+  contents_dir: contents/
+  accepts:
+    - adventurers     # contents/adventurers/
+    - treasures       # contents/treasures/
+    - axes            # contents/bloody-axe.yml (and any spare axes)
+    - himself         # contents/himself.yml when location := self
+
+  default_contents:
+    - contents/bloody-axe.yml   # often here; recoverable; re-edible
+    - contents/himself.yml      # present iff location points at self
+
+  # LOCATION := SELF
+  # Setting the troll's location to himself (or to this stomach/)
+  # is how he eats himself. Easy. One assignment. Pocket closes.
+  self_consumption:
+    trigger: "location := self  OR  location := stomach/"
+    effect: |
+      He enters his own stomach. The outside world still sees a gate
+      (or a vacant edge, depending on how deep he nested). From inside,
+      he may still front a mind — counsel from the gut. Recursive:
+      stomach/ can contain another stomach/ reference to the same
+      pocket, or himself.yml noting he is already here.
+    recover: |
+      Set location back to an external edge or room. He climbs out
+      with whatever he did not finish digesting. The axe usually
+      comes too — unless he ate it again on the way up.
+
+  # RECURSIVE / DONNIE DARKO
+  # The pocket is the same directory every time. Eating himself does
+  # not create a second stomach; it relocates the subject into the
+  # existing one. Nesting depth is a story counter, not a new folder.
+  recursion:
+    model: single_pocket_many_visits
+    note: |
+      Perfect pocket universe. He can be outside brandishing the axe,
+      inside the stomach holding the axe he just ate, or inside holding
+      himself who is holding the axe. The filesystem does not fork;
+      the narrative stack does.
+
+  protocol:
+    eat: |
+      Move or copy the eaten thing into contents/ (or a typed subdir).
+      Update this file's ledger if you keep one. Hunger drops.
+    vomit_or_recover: |
+      Move the thing out of contents/ back to the world or to
+      inventory/. The Zork gift protocol prefers eating; recovery is
+      optional and usually happens when he needs the axe again.
+    eat_while_wielding: |
+      The axe can be eaten while still being the weapon. Gift protocol:
+      graciously accepts, eats. It appears in contents/bloody-axe.yml
+      and may remain referenced from inventory/axe.yml as "in stomach".
+
+  ledger: []   # optional: {what, when, from_whom, still_here}

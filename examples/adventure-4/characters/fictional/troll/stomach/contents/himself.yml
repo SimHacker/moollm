@@ -1,0 +1,32 @@
+# HIMSELF — recursive self-eating note
+#
+# Present when location := self (or location := stomach/).
+# Donnie Darko pocket universe: he is inside his own stomach,
+# possibly still fronting a mind from in there.
+
+presence:
+  id: himself
+  subject: ../../CHARACTER.yml
+  location: ../                 # stomach/ — he IS here
+  trigger: "location := self"
+
+  status: |
+    The troll has eaten himself. Easy: set location to himself.
+    Outside, the gate may look empty, fogged, or still staffed by
+    a mind speaking from the gut. Inside, same stomach/, same axe
+    protocol, same ledger — nested visit, not a new directory.
+
+  fronting_from_inside: |
+    Minds may still bid to front. Combat or commerce voiced from
+    the pocket universe. Adventurers hear a muffled "I insist"
+    or the wet thud of an axe that was already lunch.
+
+  exit: |
+    Set location to an external edge or room. He leaves. This file
+    becomes historical (or is cleared). Depth counter decrements.
+    He may re-enter anytime. The pocket does not mind.
+
+  recursion_note: |
+    Perfect pocket universe. One stomach. Many visits.
+    If he eats himself while already inside, narrative depth++
+    — still this file, still this directory. No fork.

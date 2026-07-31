@@ -11,6 +11,8 @@ description: |
   The Zork troll and the Adventure troll were the same troll all along —
   one soul, two organelle minds, one per game. He fronts the axe or the
   invoice depending on what the world denominates value in.
+  Bloody axe: fight, throw, catch, eat (stomach/). He can eat himself
+  (location := self) — recursive Donnie Darko pocket universe.
   Live worked example for soul-city (one mind per game) and
   PORTABLE-NPCS (customs, luggage, instanced-border pattern).
 
@@ -24,6 +26,8 @@ files:
   - README.md
   - minds/zork-mind.yml
   - minds/adventure-mind.yml
+  - inventory/axe.yml
+  - stomach/
   - instances
 
 related:

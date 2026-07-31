@@ -1,0 +1,32 @@
+# Bloody axe — in the stomach (eaten / recoverable)
+# Canonical playing piece: ../../inventory/axe.yml
+# Same axe. Location: gut. Can be recovered, re-wielded, re-eaten.
+
+item:
+  id: bloody-axe
+  name: bloody axe
+  kind: weapon_and_snack
+  emoji: "🪓"
+  location: ../   # inside the stomach pocket
+  also: ../../inventory/axe.yml
+
+  state: eaten
+  # Possible states: wielded | thrown | in_flight | eaten | recovered
+
+  how_it_got_here: |
+    Zork gift protocol, or he got hungry mid-gate, or he threw it,
+    caught it, and decided crunchy was better than brandishing.
+    Adventurers who "give axe to troll" put it here directly.
+
+  recovery: |
+    Move back to inventory/ (or the world). He brandishes again.
+    Often still bloody. Sometimes bloodier.
+
+  re_eat: |
+    From inventory or from a throw that comes back as a gift —
+    graciously accepts, eats. Returns here. Loop is free.
+
+  mechanics:
+    fight: inherited from inventory/axe.yml
+    throw: inherited — if eaten, must recover first (or spit-throw)
+    eat: already done; eating again is a no-op unless recovered first

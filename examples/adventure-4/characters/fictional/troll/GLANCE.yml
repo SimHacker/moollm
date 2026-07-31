@@ -9,15 +9,19 @@ nature: |
   (Troll Room, bloody axe, 1980). adventure-mind prices it in
   treasure (chasm bridge, one treasure per crossing, 1977).
   He fronts whichever mind the world's currency calls for.
+  Stomach is a pocket universe; location := self eats himself.
 
-location: Whatever edge in the room graph is worth pricing
+location: Whatever edge in the room graph is worth pricing (or self)
 home: between the Troll Room and the bridge (he commutes)
+stomach: stomach/   # pocket universe — adventurers, treasures, axes, himself
 
 facts:
   - Same troll worked both games for fifty years; nobody noticed
   - Skin as tough as rhinoceros hide (adventure canon)
   - Blocks ALL passages out of the room (zork canon)
+  - Bloody axe: fight, throw, catch, eat (recoverable from stomach/)
   - Graciously accepts gifts; eats them, weapons included
+  - Can eat himself (location := self) — recursive Donnie Darko gut
   - Audits every crossing since the fee-fie-foe-foo eggs incident
   - Afraid of exactly one bear; always returns afterward
   - Wealth lives in the instance, never the prototype (PORTABLE-NPCS section 6)

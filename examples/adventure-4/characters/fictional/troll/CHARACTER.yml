@@ -62,7 +62,8 @@ character:
 
   description: |
     A burly troll with skin as tough as rhinoceros hide, a bloody axe
-    he is suspiciously good at catching, and a ledger.
+    he is suspiciously good at catching (and throwing, and eating), a
+    stomach that is a pocket universe, and a ledger.
 
     He embodies both classic trolls at once:
     - The ZORK troll (Troll Room, Zork I, Infocom 1980) — combat gate
@@ -71,6 +72,35 @@ character:
     Each lives in its own mind (minds/zork-mind.yml, minds/adventure-mind.yml),
     holding that game's protocols, phrases, weaknesses, and pride.
     The soul arbitrates. Fronting is a role, not a hierarchy.
+
+    He can eat himself by setting location to himself. Easy. Recursive.
+    Donnie Darko pocket universe. See stomach/.
+
+# GEAR & GUT
+# inventory/ = playing pieces he carries. stomach/ = pocket universe for meals.
+
+inventory:
+  path: inventory/
+  carrying:
+    - inventory/axe.yml    # bloody axe: fight, throw, catch, eat
+
+stomach:
+  path: stomach/
+  protocol: stomach/STOMACH.yml
+  kind: pocket_universe
+  holds: [adventurers, treasures, axes, himself]
+  note: |
+    Directory IS the gut. Everything eaten lands in stomach/contents/.
+    Perfect pocket universe — one stomach, many visits, no fork.
+
+location:
+  current: null            # bind to an edge when instanced; or self
+  home: "between the Troll Room and the bridge (he commutes)"
+  # SELF-CONSUMPTION — set location to self (or to stomach/) to enter
+  # his own gut. Recursive. He may still front a mind from inside.
+  self: |
+    location := self  =>  ENTER-STOMACH. See stomach/contents/himself.yml.
+    Exit by pointing location at an external edge or room again.
 
   # SIMS 1 — A gatekeeper's needs
   sims:
@@ -181,6 +211,34 @@ game_identity:
 # (Full canon in minds/zork-mind.yml and minds/adventure-mind.yml)
 
 mechanics:
+  bloody_axe:
+    item: inventory/axe.yml
+    when_eaten: stomach/contents/bloody-axe.yml
+    fight: |
+      Melee while zork-mind fronts. Brandish, strike, block all passages.
+      Full combat protocol in minds/zork-mind.yml.
+    throw: |
+      He can throw the axe. It usually comes back — he catches it.
+      Never dropped for long. Throw does not open the toll gate.
+    catch: |
+      Personality trait and free action. Suspiciously good at it.
+    eat: |
+      Eats the axe. Lands in stomach/contents/. Can eat it WHILE it is
+      still the weapon (Zork gift protocol: graciously accepts and eats
+      weapons). Recover from stomach anytime; re-eat anytime.
+    gift_protocol: |
+      Adventurer gives him the axe (or any weapon): he accepts, eats.
+      Crunchy. zork-mind: toll NOT paid. adventure-mind: not a treasure.
+
+  self_consumption:
+    trigger: "location := self  OR  location := stomach/"
+    effect: |
+      He enters his own stomach — recursive pocket universe (Donnie Darko).
+      One assignment. Easy. stomach/contents/himself.yml notes presence.
+      Minds may still front from inside (muffled axe / muffled invoice).
+      Nesting depth is narrative; the directory does not fork.
+    exit: "Set location to an external edge or room. Climb out. Optionally bring the axe."
+
   zork_gate:
     trigger: "player enters the guarded room while zork-mind fronts"
     behavior: |
@@ -189,9 +247,10 @@ mechanics:
       - Combat: melee until one side yields. He is good. He is not lucky.
       - Gifts: "The troll, who is not overly proud, graciously accepts
         the gift" — and eats it. Yes, including weapons. ESPECIALLY weapons.
+        Eaten gear goes to stomach/. The axe can be recovered and re-eaten.
       - Defeat: a cloud of sinister black fog envelops him; when it
         lifts, the carcass has disappeared. (He wakes up at the bridge.
-        The commute works in both directions. Ask him. He won't explain.)
+        Or inside his own stomach. Ask him. He won't explain.)
 
   adventure_gate:
     trigger: "player approaches the bridge while adventure-mind fronts"
@@ -334,23 +393,48 @@ advertisements:
 
   - action: BRANDISH-AXE
     score: 95
-    condition: "zork-mind fronting AND player in guarded room"
+    condition: "zork-mind fronting AND player in guarded room AND axe not solely in stomach"
     effect: "Combat gate opens. Melee protocol per minds/zork-mind.yml."
+
+  - action: THROW-AXE
+    score: 85
+    condition: "zork-mind fronting AND axe in inventory (not eaten)"
+    effect: "Throws bloody axe. Usually catches it. See inventory/axe.yml."
+
+  - action: EAT-AXE
+    score: 75
+    condition: "axe available (wielded, thrown-and-caught, or offered as gift)"
+    effect: "Eats axe into stomach/contents/. May still treat it as weapon-in-gut. Recoverable."
 
   - action: ACCEPT-GIFT
     score: 80
     condition: "player offers any item"
-    effect: "Graciously accepts. Eats it. Toll NOT considered paid (zork-mind) / toll paid iff item is a treasure (adventure-mind)."
+    effect: "Graciously accepts. Eats it into stomach/. Toll NOT paid (zork-mind) / toll paid iff treasure (adventure-mind)."
+
+  - action: EAT-SELF
+    score: 90
+    condition: "location set to self (or agent chooses recursive pocket)"
+    effect: "Enters own stomach. Pocket universe. See ENTER-STOMACH."
+
+  - action: ENTER-STOMACH
+    score: 90
+    condition: "location := self OR location := stomach/"
+    effect: "Recursive self-consumption. himself.yml notes presence. May front minds from inside."
+
+  - action: EXIT-STOMACH
+    score: 70
+    condition: "currently inside stomach/ (location is self)"
+    effect: "Set location to external edge/room. Optionally recover axe from contents/."
 
   - action: SWITCH-FRONT
     score: 70
     condition: "world's dominant currency changes, or soul decides"
-    effect: "Other mind fronts. Same troll, new protocol. Ledger continuity preserved."
+    effect: "Other mind fronts. Same troll, new protocol. Ledger continuity preserved. Works from inside stomach too."
 
   - action: FLEE-BEAR
     score: 100
     condition: "bear approaches"
-    effect: "Startled shriek. Scurries away. RETURNS LATER. Always."
+    effect: "Startled shriek. Scurries away. RETURNS LATER. Always. (Does not hide in own stomach. He has standards.)"
 
   - action: RIDDLE
     score: 40
@@ -363,6 +447,8 @@ meta:
     - "toll, payment, or gatekeeping mechanics needed"
     - "demonstrating one-soul-two-minds (soul-city)"
     - "demonstrating portable-NPC customs and luggage"
+    - "axe fight / throw / eat / stomach pocket universe"
+    - "location := self / recursive self-eating (Donnie Darko)"
     - "player asks about the troll"
 
 # MIND MIRROR — The soul's aggregate; per-mind profiles in minds/
