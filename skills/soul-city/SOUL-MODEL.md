@@ -382,6 +382,21 @@ soul
 
 Other shapes exist too (personal *Jesus Mouse* mind, name alone, blend plus shoulders, game hooks). Memorials and design notes — not a playable adventure character yet.
 
+### Two-Toll the Troll — one soul, two game minds (live on disk)
+
+The two-minds shape above, playable: [examples/adventure-4/characters/fictional/troll/](../../examples/adventure-4/characters/fictional/troll/). The Zork troll (Troll Room, bloody axe, 1980) and the Colossal Cave troll (chasm bridge, one treasure per crossing, 1977) were **the same troll all along** — one soul, two organelle minds, one per game:
+
+```
+soul
+  minds
+    zork-mind      ← combat gate; currency: violence   (minds/zork-mind.yml)
+    adventure-mind ← toll gate;   currency: treasure   (minds/adventure-mind.yml)
+```
+
+Each mind holds that game's version of him in that game's own format — exactly [one mind per game](#one-mind-per-game). Neither is flattened into the other. Arriving in a new world, he samples the local advertisements and fronts the mind whose currency the world speaks: combat verbs wake zork-mind, treasure scoring wakes adventure-mind, both at once means the adventurer picks how to pay, and neither means riddles — the species-level fallback older than both games. Fronting is a role, not a hierarchy; the minds stay in [counsel](#how-minds-get-along) and disagree on the record ("You take PAYMENT? We had a REPUTATION." / "You fought a man with a nasty knife for a sack lunch. I own the bridge.").
+
+He is also [PORTABLE-NPCS](PORTABLE-NPCS.md) §6's customs example made flesh: fifty years of tolls stay in the home instance; every border crossing starts with the prototype's personality and empty pockets.
+
 ---
 
 

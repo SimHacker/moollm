@@ -79,10 +79,11 @@ countdown, warnings, teeth) implemented as a *field* rather than an *entity* —
 engineered backward from a mechanic, which is exactly how Dave Lebling invented it: the
 answer to "why does the dark kill you?"
 
-Two patterns, then:
+Three patterns, then:
 
-- **Instanced beast** — travels by copying a pointer + growing a save file. (Wumpus, trolls, thieves, vendors.)
+- **Instanced beast** — travels by copying a pointer + growing a save file. (Wumpus, thieves, vendors.)
 - **Ambient field** — travels by pattern-matching world properties. (Grue, weather, curses, economies themselves.)
+- **Instanced border** — a beast whose instance binds to an *edge* in the room graph, not a node; his location IS a rule. ([Two-Toll the Troll](../../examples/adventure-4/characters/fictional/troll/) — see §6 for his luggage.)
 
 ## 4. Games decompose into plugin hazards
 
@@ -130,6 +131,14 @@ Treaties are the diplomatic layer of the socket. When you import an NPC, you inh
 its treaties; when treaties are missing, the border crossing (§6) is where you write them.
 
 ## 6. Customs: the troll's luggage
+
+(The troll is no longer hypothetical: he lives at
+[examples/adventure-4/characters/fictional/troll/](../../examples/adventure-4/characters/fictional/troll/)
+as **Two-Toll**, a third portability archetype — the *instanced border*, whose
+instance binds to an edge in the room graph rather than a room. He is also
+soul-city's live one-soul-two-minds example: a zork-mind that prices passage in
+violence and an adventure-mind that prices it in treasure, fronting whichever
+currency the destination world speaks.)
 
 The hard problem isn't behavior — it's **economy**. A troll who has taken one treasure
 per crossing for forty years walks into a starter dungeon carrying luggage that would
@@ -193,6 +202,7 @@ universal; the instance grows what's local.
 - [SOUL-MODEL.md](SOUL-MODEL.md) — souls, minds, personas; multi-person personas as
   Sims-style objects that own activities
 - [Snorax](../../examples/adventure-4/characters/fictional/wumpus-snorax/) ·
-  [the grue](../../examples/adventure-4/characters/fictional/grue/) — the two archetypes, running
+  [the grue](../../examples/adventure-4/characters/fictional/grue/) ·
+  [Two-Toll the Troll](../../examples/adventure-4/characters/fictional/troll/) — the three archetypes (beast, field, border), running
 - [adventure-4 maze](../../examples/adventure-4/maze/) — the shared world where they interoperate
 - skills/adventure, skills/character, skills/incarnation — the construction-set skills

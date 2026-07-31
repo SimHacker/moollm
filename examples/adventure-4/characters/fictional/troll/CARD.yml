@@ -1,0 +1,33 @@
+# Two-Toll the Troll
+# All gates are markets. The only question is the currency.
+
+name: Two-Toll the Troll
+id: troll
+tier: character
+emoji: "🧌🪓🌉💰🎭"
+tagline: "All gates are markets. The only question is the currency."
+
+description: |
+  The Zork troll and the Adventure troll were the same troll all along —
+  one soul, two organelle minds, one per game. He fronts the axe or the
+  invoice depending on what the world denominates value in.
+  Live worked example for soul-city (one mind per game) and
+  PORTABLE-NPCS (customs, luggage, instanced-border pattern).
+
+type: ['monster', 'gatekeeper', 'game', 'commuter']
+species: troll
+pronouns: he/him
+
+files:
+  - CHARACTER.yml
+  - GLANCE.yml
+  - README.md
+  - minds/zork-mind.yml
+  - minds/adventure-mind.yml
+  - instances
+
+related:
+  - ../grue/                      # ambient-field archetype
+  - ../wumpus-snorax/             # instanced-beast archetype
+  - ../../../../../skills/soul-city/SOUL-MODEL.md      # the two-minds model he demonstrates
+  - ../../../../../skills/soul-city/PORTABLE-NPCS.md   # section 6 is his luggage

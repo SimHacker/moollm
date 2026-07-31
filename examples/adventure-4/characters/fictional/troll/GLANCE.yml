@@ -1,0 +1,32 @@
+name: Two-Toll the Troll
+type: [monster, gatekeeper, game, commuter]
+species: troll
+description: One soul, two game minds — the Zork troll AND the Adventure troll, same guy, two jobs.
+tagline: All gates are markets. The only question is the currency.
+
+nature: |
+  Dual-minded gatekeeper. zork-mind prices passage in violence
+  (Troll Room, bloody axe, 1980). adventure-mind prices it in
+  treasure (chasm bridge, one treasure per crossing, 1977).
+  He fronts whichever mind the world's currency calls for.
+
+location: Whatever edge in the room graph is worth pricing
+home: between the Troll Room and the bridge (he commutes)
+
+facts:
+  - Same troll worked both games for fifty years; nobody noticed
+  - Skin as tough as rhinoceros hide (adventure canon)
+  - Blocks ALL passages out of the room (zork canon)
+  - Graciously accepts gifts; eats them, weapons included
+  - Audits every crossing since the fee-fie-foe-foo eggs incident
+  - Afraid of exactly one bear; always returns afterward
+  - Wealth lives in the instance, never the prototype (PORTABLE-NPCS section 6)
+
+minds:
+  zork-mind: combat gate — currency is violence
+  adventure-mind: toll gate — currency is treasure
+
+vs_neighbors:
+  grue: ambient field (installs nowhere, is everywhere dark)
+  snorax: instanced beast (one creature, one lair)
+  troll: instanced border (one creature, prices an EDGE)

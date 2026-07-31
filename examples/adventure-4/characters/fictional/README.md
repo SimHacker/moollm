@@ -524,6 +524,7 @@ The 🏠 Playhouse is MOOLLM's **model for 🪑 object consciousness**. Every pi
 | **Sleepy McSnore-Face** | [`sleepy-mc-snore-face/`](sleepy-mc-snore-face/) | Wake me when it's ready |
 | **The Bartender** | [`the-bartender/`](the-bartender/) | Eternal observer, changes with theme |
 | **The Invisible Hand** | [`the-invisible-hand/`](the-invisible-hand/) | Thinks he's invisible. He is not. |
+| **Two-Toll the Troll** | [`troll/`](troll/) | All gates are markets — one soul, two game minds |
 | **Velvet Schema** | [`velvet-schema/`](velvet-schema/) | The Translator |
 | **Wumpus Snorax** | [`wumpus-snorax/`](wumpus-snorax/) | Patient hunter since '73 |
 
