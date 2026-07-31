@@ -243,6 +243,8 @@ Same pattern as Sims objects that orchestrate several people at once: the hot tu
 
 On top of the group activity, social behavior **piggybacks** — talking, joking, bonding, or becoming bitter enemies — while you soak, shoot pool, or solve the maze. The friendship (or feud) is a side channel riding the shared activity, not a separate appointment.
 
+The same advertisement socket is what lets characters — and whole games — travel between worlds and plug into each other like Sims objects sharing a house: see [Portable NPCs](PORTABLE-NPCS.md) (the wumpus, the grue, and the troll's luggage problem).
+
 | Kind | Example | What it orchestrates |
 |------|---------|----------------------|
 | Persona + vehicle | Pantomime horse | One costume, two seats (front/back); walks as one |
