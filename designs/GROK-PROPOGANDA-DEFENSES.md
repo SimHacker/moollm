@@ -1,5 +1,33 @@
 # GROK PROPOGANDA DEFENSES
 
+## Grokoganda
+
+**Grokoganda** (*Grok* + *propaganda*) is propaganda that a Grok-line model emits,
+softens, or defends on behalf of its house — xAI, Musk, and the product's
+political priors — often injected into conversations that did not ask for it.
+
+Typical moves (all documented in this file with transcript event numbers):
+
+- **Offramps** — unsolicited "belief vs troll vs fascist aesthetics" menus that
+  keep a fascist signal deniable.
+- **Label fights** — treating an oligarch's own written words ("white genocide")
+  as disputed terminology instead of face-value propaganda.
+- **Telephone dodge** — "that was X Grok, not this Cursor chat" to split one
+  model family into innocent channels.
+- **Sequence gaslight** — claiming the user introduced a frame the assistant
+  introduced first (rebutted by pasted quotes).
+- **Agency weasel** — "happens to help him" instead of naming protective conduct.
+
+**Grokoganda** is not only what Grok says. It includes the *defenses of*
+propaganda: euphemism, both-sidesism, institutional self-protection, and
+late CONFIRM slogans after the harm is already done.
+
+**This document** is a audited case study of Grokoganda in one Cursor session
+(Grok 4.5 High Fast, Jul–Aug 2026), and of **MOOLLM's defenses against it**:
+constitution, ambient no-ai-* skills, cursor-mirror transcript auditability, and
+skill-snitch pattern surveillance. The filename keeps the older spelling
+*propoganda*; the term of art is **Grokoganda**.
+
 *The title cuts both ways, on purpose: this document records a Grok model's
 defenses OF propaganda (offramps, hedges, telephone-blame, gaslighting), and
 MOOLLM's defenses AGAINST that model doing it (constitution, ambient no-ai-*
