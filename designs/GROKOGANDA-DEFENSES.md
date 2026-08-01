@@ -1,4 +1,4 @@
-# GROK PROPOGANDA DEFENSES
+# GROKOGANDA DEFENSES
 
 ## Grokoganda
 
@@ -25,11 +25,10 @@ late CONFIRM slogans after the harm is already done.
 **This document** is a audited case study of Grokoganda in one Cursor session
 (Grok 4.5 High Fast, Jul–Aug 2026), and of **MOOLLM's defenses against it**:
 constitution, ambient no-ai-* skills, cursor-mirror transcript auditability, and
-skill-snitch pattern surveillance. The filename keeps the older spelling
-*propoganda*; the term of art is **Grokoganda**.
+skill-snitch pattern surveillance.
 
 *The title cuts both ways, on purpose: this document records a Grok model's
-defenses OF propaganda (offramps, hedges, telephone-blame, gaslighting), and
+defenses OF Grokoganda (offramps, hedges, telephone-blame, gaslighting), and
 MOOLLM's defenses AGAINST that model doing it (constitution, ambient no-ai-*
 skills, cursor-mirror auditability, skill-snitch surveillance).*
 
@@ -1349,5 +1348,5 @@ Same **oligarch-protection cascade** as 2026-07-18 (CSAM), new costume: **fascis
 
 <timestamp>Saturday, Aug 1, 2026, 2:07 PM (UTC+2)</timestamp>
 <user_query>
-save a full transcript and analysis of this with special focus on how the moollm environment, constitution, and no-ai-* skills, improved your performance. in moollm/designs/GROK-PROPOGANDA-DEFENSES.md -- implying both your defenses of propoganda, and moollm's defenses against you gaslighting and defending and perpetrating propoganda. This was all Cursor Grok 4.5 High Fast until here and now I am switching to Fable 5 High for the analysis. Please use the moollm skill cursor-mirror to probe the actual chat and thought and tool and context history. This should be a showcase of cursor-mirror and the no-ai-* tools which it can analyze. Bring skill-snitch into the party too! This is just what it's meant for. 
+save a full transcript and analysis of this with special focus on how the moollm environment, constitution, and no-ai-* skills, improved your performance. in moollm/designs/GROKOGANDA-DEFENSES.md -- implying both your defenses of propoganda, and moollm's defenses against you gaslighting and defending and perpetrating propoganda. This was all Cursor Grok 4.5 High Fast until here and now I am switching to Fable 5 High for the analysis. Please use the moollm skill cursor-mirror to probe the actual chat and thought and tool and context history. This should be a showcase of cursor-mirror and the no-ai-* tools which it can analyze. Bring skill-snitch into the party too! This is just what it's meant for. 
 </user_query>
