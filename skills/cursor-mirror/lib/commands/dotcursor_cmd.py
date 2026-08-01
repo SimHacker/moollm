@@ -385,6 +385,41 @@ def cmd_ai_commits(args):
             print(f"{r['scored']} | {r['commitHash'][:12]} | {r['branchName']}")
 
 
+def _render_jsonl_transcript(path, prompts=False, responses=False):
+    """Render Cursor's nested-layout JSONL agent transcript to plain text.
+
+    Post-2026 Cursor writes agent-transcripts/<composer>/<composer>.jsonl with
+    one event per line: {"role": "user"|"assistant", "message": {"content":
+    [{"type":"text","text":...}]}} plus {"type":"turn_ended"} markers.
+    Tool calls and thinking are not included in this format.
+    """
+    out = []
+    want_all = not (prompts or responses)
+    with open(path, 'r', encoding='utf-8') as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                event = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            role = event.get("role")
+            if role not in ("user", "assistant"):
+                continue
+            if not want_all:
+                if role == "user" and not prompts:
+                    continue
+                if role == "assistant" and not responses:
+                    continue
+            parts = event.get("message", {}).get("content", [])
+            text = "".join(p.get("text", "") for p in parts
+                           if p.get("type") == "text")
+            if text.strip():
+                out.append(f"{role}:\n{text}\n")
+    return "\n".join(out)
+
+
 def cmd_agent_transcript(args):
     """Read plaintext transcript from ~/.cursor."""
     composer_id = args.composer
@@ -405,6 +440,14 @@ def cmd_agent_transcript(args):
         for f in os.listdir(trans_dir):
             if f.startswith(composer_id):
                 candidate = os.path.join(trans_dir, f)
+                # Nested layout: agent-transcripts/<composer>/<composer>.jsonl
+                if os.path.isdir(candidate):
+                    nested = os.path.join(candidate, f"{f}.jsonl")
+                    if os.path.isfile(nested) and transcript_format in ("auto", "jsonl"):
+                        transcript_path = nested
+                        transcript_format = "jsonl"
+                        break
+                    continue
                 if transcript_format == "auto":
                     # Prefer JSON if available
                     if f.endswith(".json"):
@@ -428,8 +471,14 @@ def cmd_agent_transcript(args):
         return
     
     # Read and optionally filter
-    with open(transcript_path, 'r', encoding='utf-8') as f:
-        content = f.read()
+    if transcript_format == "jsonl":
+        content = _render_jsonl_transcript(
+            transcript_path,
+            prompts=getattr(args, 'prompts', False),
+            responses=getattr(args, 'responses', False))
+    else:
+        with open(transcript_path, 'r', encoding='utf-8') as f:
+            content = f.read()
     
     if args.tail:
         lines = content.split('\n')

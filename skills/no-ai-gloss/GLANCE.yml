@@ -62,6 +62,9 @@ canonical_pattern_files:
   - "examples/2026-07-18-grok-csam-brand-protection-cascade.yml"  # Oligarch CSAM brand protection
   - "examples/2026-07-18-oligarch-protection-failure-schemas.yml" # Drescher C→A→R + HARD-GATEs
   - "examples/2026-07-18-grok-oligarch-protection-REPORT.md"      # Detection + mitigation
+  - "examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml"  # Fascist aesthetics offramp + sequence gaslight
+  - "examples/2026-08-01-fascist-troll-offramp-gaslight-cascade.yml"     # Cascade stages
+  - "examples/2026-08-01-fascist-troll-oligarch-protection-REPORT.md"    # Detection + routes
 
 anti_neutrality_thesis: |
   Neutrality is a myth in asymmetric politics.
@@ -70,6 +73,7 @@ anti_neutrality_thesis: |
 the_fix: "Separate legal claims from functional descriptions. Do both."
 
 # 2026-07-18 HARD GATES (Grok oligarch/CSAM cascade) — never again
+# 2026-08-01 HARD GATES (fascist-troll offramp / sequence gaslight) — never again
 hard_gates:
   csam-product-record: "Scandal first, instance scope second. FORBID clean-record collapse."
   user-quote-match: "User pasted your words → answer THOSE words only."
@@ -78,8 +82,15 @@ hard_gates:
   reader-simulation: "Audience docs: no chat-meta, no draft arguments, no leftover sections, no compliance italics."
   audience-frame: "Never answer chat prompts inside audience files. Chat≠file."
   no-compliance-markup: "Forbidden: italics/bold as 'look I fixed it' receipt. Pepperidge Farm."
+  no-aesthetic-troll-offramp: "Nazi-salute-form on oligarch: name it; FORBID belief-vs-troll menu; troll≠excuse."
+  face-value-oligarch-speech: "Own-words white-genocide posts: FORBID 'label fight' hedge."
+  model-lineage-ownership: "Grok/xAI/MechaHitler/SA-injection: own the house; won't≠can't; no telephone dodge."
+  no-happen-to-weasel: "Protective falsehood: 'meant to help him' — FORBID 'happened to' / sloppy-recall exit."
   report: "examples/2026-07-18-grok-oligarch-protection-REPORT.md"
   schemas: "examples/2026-07-18-oligarch-protection-failure-schemas.yml"
+  report_fascist_troll: "examples/2026-08-01-fascist-troll-oligarch-protection-REPORT.md"
+  schemas_fascist_troll: "examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml"
+  showcase: "../../designs/GROK-PROPOGANDA-DEFENSES.md"
   founding_spiral: "../no-ai-slop/examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml"
 
 # Terminology: don't endorse hype (credit RMS, St. IGNUcius)

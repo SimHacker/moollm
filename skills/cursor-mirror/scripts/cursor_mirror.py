@@ -512,7 +512,7 @@ def main() -> None:
     p.add_argument("--responses", action="store_true")
     p.add_argument("--tools", action="store_true")
     p.add_argument("--thinking", action="store_true")
-    p.add_argument("--format", choices=["auto", "txt", "json"], default="auto")
+    p.add_argument("--format", choices=["auto", "txt", "json", "jsonl"], default="auto")
     p.add_argument("--json-out", action="store_true")
     p.set_defaults(func=cmd_agent_transcript)
 
