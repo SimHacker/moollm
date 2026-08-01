@@ -64,7 +64,7 @@ Ordered by value to cursor-mirror + MOOLLM + MOOCO: high (clone/deep-mine) → m
 | Priority | Project | Why |
 |----------|---------|-----|
 | 9 | **Han / sheikheddy — Forum export guide** | Classic Datasette + ItemTable query; 22k views. Already covered by Forum harvest; optional one-pager “community export patterns.” |
-| 10 | **Other forum threads** (metadata storage, rich export, Docker/remote) | FORUM-HARVEST.md lists them. Assimilate as needed when building orphan cleanup, rich export, or remote-path features. |
+| 10 | **dwqs/cursor-trace** | VS Code extension; JSONL viewer + heuristic "thinking" detection. **Not empirical recovery** — language/pattern split on assistant text. Document limits alongside tracebench Phase 1. HTTP/clone optional. |
 
 ---
 

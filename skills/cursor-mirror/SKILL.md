@@ -180,7 +180,7 @@ Run **`export_datasette`** first so **`cursor-mirror.db`** exists; add other SQL
 |---------|---------|
 | `analyze` | Deep stats: tools, models, files, duration |
 | `timeline` | Chronological event stream |
-| `thinking` | Agent reasoning blocks (meta-cognition) |
+| `thinking` | Agent reasoning blocks (meta-cognition) — **SQLite bubbles only**; empty for JSONL-only Agent sessions (see [AGENT-TRANSCRIPTS-2026-LIMITS](reference/AGENT-TRANSCRIPTS-2026-LIMITS.md)) |
 | `grep` | Regex search across bubbles |
 | `chat-catalog` | Numbered topic outline for commit planning |
 
@@ -246,7 +246,7 @@ Cursor maintains **two separate data stores**. The commands above query `~/Libra
 | `dotcursor-status` | Overview of ~/.cursor directory |
 | `ai-hashes` | AI code tracking (model, file, timestamp) |
 | `ai-commits` | Git commits scored for AI attribution |
-| `agent-transcript` | Plaintext transcripts (real-time!) |
+| `agent-transcript` | Plaintext transcripts (real-time!) — reads nested `.jsonl` (text + tool_use inputs; no thinking/results) |
 | `agent-tools` | Cached tool result outputs |
 | `dotcursor-terminals` | Terminal state snapshots |
 | `mcp-tools` | MCP tool schemas (JSON) |

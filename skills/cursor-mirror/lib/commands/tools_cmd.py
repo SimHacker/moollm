@@ -201,6 +201,13 @@ def cmd_thinking(args):
         print(fmt(thinking_blocks, args))
     else:
         print(f"Thinking blocks in {target[:16]}... ({len(thinking_blocks)} shown)")
+        if not thinking_blocks:
+            print()
+            print("No thinking blocks in SQLite bubbles for this composer.")
+            print("Agent sessions stored as JSONL-only often have empty composerData.")
+            print("JSONL does not include thinking events; providers never ship raw CoT.")
+            print("See: skills/cursor-mirror/reference/AGENT-TRANSCRIPTS-2026-LIMITS.md")
+            return
         print()
         for t in thinking_blocks:
             print(f"\n💭 {t['timestamp']} ({t['length']} chars)")

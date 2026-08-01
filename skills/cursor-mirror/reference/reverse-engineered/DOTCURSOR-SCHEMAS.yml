@@ -51,6 +51,48 @@ agent_transcript_txt:
     Not strict YAML — contains nested content that breaks YAML parsers.
     Best parsed with line-by-line state machine.
     Tool call arguments are indented 2 spaces.
+    **Legacy:** flat `<uuid>.txt` under agent-transcripts/ (pre-2026).
+    Superseded for many Agent sessions by nested JSONL (see agent_transcript_jsonl).
+
+agent_transcript_jsonl:
+  description: |
+    Nested JSONL event log (dominant Agent format, observed 2026-Q1+).
+    One JSON object per line under agent-transcripts/<composer>/<composer>.jsonl.
+  storage:
+    location: "~/.cursor/projects/<workspace>/agent-transcripts/<composer-uuid>/"
+    pattern: "<composer-uuid>.jsonl"
+    encoding: "UTF-8"
+  event_shape:
+    role_messages:
+      role: "user | assistant"
+      message.content[]:
+        - type: text          # user queries and assistant visible replies
+        - type: tool_use      # name + input (no output)
+    other_lines:
+      type: turn_ended        # turn boundary markers
+  absent_from_jsonl:
+    - thinking blocks (any type) — confirmed 0 in probed sessions
+    - tool_result / tool output
+    - terminal stdin/stdout
+    - timestamps per line (file mtime only)
+    - token usage / model id
+  recovery:
+    thinking_summary: "SQLite bubble.thinking.text IF composerData populated (provider summary only, not raw CoT)"
+    tool_results: "SQLite toolFormerData / agentKv OR Cursor hooks at session time"
+    full_reference: "reference/AGENT-TRANSCRIPTS-2026-LIMITS.md"
+  cursor_mirror:
+    reader: "lib/commands/dotcursor_cmd.py::_render_jsonl_transcript"
+    flags: "agent-transcript --format jsonl; --prompts / --responses"
+    limitation: "Extracts text blocks only; tool_use present in file but not yet rendered by default"
+  community:
+    forum_export: "https://forum.cursor.com/t/transcripts-no-longer-exported-in-full/150214"
+    langfuse_hooks: "https://forum.cursor.com/t/richer-agent-transcripts-lifecycle-data-for-observability-langfuse-stop-hooks/166592"
+    tracebench: "https://www.npmjs.com/package/@tracebench/adapter-cursor"
+    cursor_trace: "https://github.com/dwqs/cursor-trace"
+  notes: |
+    Agent composers may exist ONLY as JSONL with empty workspace/global composerData.
+    cursor-mirror `thinking` reads bubbles, not JSONL — expect empty output.
+    Provider never sends full chain-of-thought; bubble thinking is UI summary only.
 
 agent_transcript_json:
   description: |

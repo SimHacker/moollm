@@ -94,6 +94,8 @@ message of the session and `--tail` works as expected. Verified live.
 
 ### 1.2 What the JSONL actually contains (and doesn't)
 
+**Canonical reference:** [`skills/cursor-mirror/reference/AGENT-TRANSCRIPTS-2026-LIMITS.md`](../skills/cursor-mirror/reference/AGENT-TRANSCRIPTS-2026-LIMITS.md) — community threads, sibling tools, workarounds, and maintenance notes.
+
 Probed structure, this session:
 
 | Metric | Count |
@@ -107,15 +109,32 @@ Probed structure, this session:
 
 Tool-call breakdown: Read 196, Shell 139, StrReplace 139, Write 79,
 TodoWrite 28, Grep 27, WebSearch 17, Task 13, Glob 11, WebFetch 2,
-ReadLints 1, AwaitShell 1.
+ReadLints 1, AwaitShell 1. (`tool_use` blocks **are** in JSONL — inputs only,
+never outputs.)
 
-Not recoverable: thinking blocks (absent from this JSONL format) and tool
-*results*. The old SQLite bubble store that `thinking`/`tools` commands read
-is empty for this workspace under the new storage scheme. So "probe the
-thought history" has an honest limit here: we have every word both parties
-said and every tool invocation the model made, but not its hidden reasoning.
-No fabrication — per constitution §6, what we don't have, we say we don't
-have.
+**Not recoverable from this session's on-disk record:**
+
+| Data | JSONL | SQLite bubbles | Export Transcript |
+|------|-------|----------------|-------------------|
+| User + assistant **visible text** | Yes | Yes (when populated) | Summarized only since ~Jan 2026 |
+| **Thinking** (any form) | **No** (`type:thinking` count = 0) | **Empty** (`composerData` absent for this composer) | **Excluded** (Cursor: feature request) |
+| Tool **inputs** | Yes (`tool_use`) | When populated | Excluded |
+| Tool **results** | **No** | **Empty here** | Excluded |
+| Terminal I/O | **No** | **No** | Excluded |
+| **Full chain-of-thought** | **Never** — providers ship redacted summary only ([Cursor forum, May 2026](https://forum.cursor.com/t/transcripts-no-longer-exported-in-full/150214)) | Same ceiling | Same ceiling |
+
+The old SQLite bubble store that `cursor-mirror thinking` / `tools` read is **empty
+for Agent-only composers** under the 2026 nested-JSONL scheme — not a mirror bug,
+a storage migration. `cursor-mirror thinking 6130c625` correctly returns zero blocks.
+
+**Community alignment:** Same gaps on [Cursor forum](https://forum.cursor.com/t/transcripts-no-longer-exported-in-full/150214) (Export omits thinking, tools, terminal); [Langfuse/hooks thread](https://forum.cursor.com/t/richer-agent-transcripts-lifecycle-data-for-observability-langfuse-stop-hooks/166592) (JSONL thinner than Claude Code); [@tracebench/adapter-cursor](https://www.npmjs.com/package/@tracebench/adapter-cursor) Phase 1 = same JSONL limits, Phase 2 SQLite when bubbles exist; [dwqs/cursor-trace](https://github.com/dwqs/cursor-trace) heuristics only, not forensic recovery.
+
+**Workarounds (forward capture):** hooks (`postToolUse`, `stop`), CLI `stream-json`, proxy logging. [cursor-history](https://github.com/S2thend/cursor-history) parses `bubble.thinking.text` when SQLite is populated.
+
+So "probe the thought history" has an honest limit: every word both parties said,
+every tool **invocation** (inputs), but not hidden reasoning, not tool outputs,
+not full CoT even when the UI shows a thinking block. Constitution §6: what we
+don't have, we say we don't have.
 
 ### 1.3 The search trail (what the model looked up, when)
 
