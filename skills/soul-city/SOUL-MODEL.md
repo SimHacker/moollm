@@ -605,7 +605,11 @@ soul/
 
 ## Adventure as memory palace
 
-Maps of rooms and exits are the old [method of loci](https://en.wikipedia.org/wiki/Method_of_loci). Adventureland’s Scott Adams and Don Hopkins discussed the lineage of adventure games, method of loci, mind mapping, and programming as navigation through code as places: [HN comment](https://news.ycombinator.com/item?id=29330901).
+Maps of rooms and exits are the old [method of loci](https://en.wikipedia.org/wiki/Method_of_loci).
+
+Adventureland’s **Scott Adams** and Don Hopkins discussed this on Hacker News (**24 Nov 2021** — after COVID vaccines were widely available, about a year **before** ChatGPT): adventure games as geographic memory palaces; pie menus as radial two-way room exits (not hierarchical one-way menus); DreamScape → MediaGraph → iLoci as successive palace UIs; code as places you walk. [HN `29330901`](https://news.ycombinator.com/item?id=29330901). WWSFF digest + show seeds: [scott-adams/sources/2021-11-24-hn-memory-palace.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/scott-adams/sources/2021-11-24-hn-memory-palace.md).
+
+Soul City is that UI running as a microworld: directories are rooms; characters walk; souls are continuity (no religious verdict — see [About the word "soul"](#soul-model) above); minds are agencies. A believer and an atheist can share the same map.
 
 ---
 
