@@ -5,7 +5,9 @@
 what: |
   K-lines as semantic activation.
   Saying the name activates a constellation.
-  Marvin Minsky's insight from Society of Mind.
+  Minsky defined them in "K-Lines: A Theory of Memory"
+  (MIT AI Memo 516, 1979; Cognitive Science 4(2), 1980),
+  then built Society of Mind (1986) on them.
 
 why: |
   - Names wake knowledge
@@ -41,13 +43,19 @@ examples:
   SPEED_OF_LIGHT: "Multi-turn simulation"
 
 minsky_insight: |
-  "A symbol that when activated reactivates
-  the mental state from when it was learned."
+  "When you get an idea and want to remember it, you create
+  a K-line for it. When later activated, the K-line induces
+  a partial mental state resembling the one that created it."
+  (Minsky 1980 abstract — prompt engineering, described in 1979.)
+
+wikipedia_urls_are_k_lines: |
+  Every Wikipedia page is in the training data, associated with
+  its URL. Citing the URL activates the article without pasting it.
 
 activation_note: |
   K-lines re-bind a whole workable configuration (stance, sub-skills), not only a fact.
   Shared PROTOCOLS/INDEX supply the “culture” that makes a symbol load-bearing.
   Frames = static situation shape; Drescher schemas = causal units; see knowledge-frames, schema-mechanism, schema.
 
-lineage: Marvin Minsky — Society of Mind (1986)
+lineage: 'Marvin Minsky — "K-Lines: A Theory of Memory" (AI Memo 516, 1979; Cognitive Science 4(2), 1980); Society of Mind (1986)'
 tier: 0

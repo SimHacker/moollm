@@ -26,6 +26,46 @@ A thorough analysis of Steve Yegge's Gas Town project, comparing it with MOOLLM'
 
 ---
 
+## Gastowning (v.)
+
+**Gastowning**: gaslighting the model and humans at once, in the style of Gas Town — telling
+both that novel cosplay vocabulary is knowledge and that never reading the generated code is
+engineering. It works the way shouting louder at someone who does not speak your language works.
+
+Coined in an HN comment (Don Hopkins, 2 Aug 2026, the "Cursor removed cost information" thread)
+that linked to this directory. Archived verbatim:
+[2026-08-02-hn-humansplaining-gastowning.yml](../../skills/no-ai-humansplaining/examples/2026-08-02-hn-humansplaining-gastowning.yml).
+
+Yes, this repo's own rule is *never invent jargon the model has not seen* — and this coinage is
+the exception that explains itself. The license test for a new word is: does it decompress on
+sight, with zero explanation tokens? "Gastowning" passes because both parents are latent:
+**gaslighting** (decades of usage) × **Gas Town** (Yegge's project, plus the Mad Max location it
+cosplays). The word is latent-space arithmetic, the word2vec move — like
+*mansplaining − man + human = humansplaining*, so *gaslighting × Gas Town = gastowning*. Spell
+it once (this file), then it works as a pointer. Contrast "bead", "polecat", "GUPP", "MEOW":
+opaque handles with no vector to anywhere, which must be humansplained in every prompt, forever.
+
+The full theory of that distinction: [HUMANSPLAINING](../object-system/HUMANSPLAINING.md).
+
+## Tokenmaxing (v.)
+
+**Tokenmaxing**: burning tokens not because the work needs them but because the burn is the
+signal. Rolling coal in a datacenter — the black smoke is not exhaust from work getting done;
+the smoke is the product. Twenty subprocess agents idling at a red light so everyone can hear
+the engine.
+
+Veblen named the genus a century ago: conspicuous consumption. A thirty-agent tmux swarm is a
+gold-plated faucet — it does not move more water, it announces what the owner can afford to
+waste. The August 2026 harness benchmarks put a number on it: the same ten tasks, the same
+model, done for one thirtieth the tokens by a near-empty harness. That gap is the difference
+between engineering and decorating.
+
+Same coinage license as gastowning: the "-maxing" suffix is latent (minmaxing, looksmaxing),
+and Veblen and rolling coal are prepaid. Decompresses on sight; spelled once here; a pointer
+ever after. Coined in the same HN comment as gastowning (archived link above).
+
+---
+
 ## Executive Summary
 
 **Gas Town is wrong.** Not "optimized for different use cases" — just wrong.

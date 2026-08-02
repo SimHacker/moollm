@@ -80,10 +80,50 @@ The GUID observation from [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) is the same acco
 readable name is a K-line, an opaque identifier is a cache miss — and a respelled manual is a
 cache miss you *chose*.
 
+## Harnesses humansplain too
+
+The human at the keyboard is not the only offender. A harness can humansplain to the model on
+your behalf: system prompts that teach a frontier model what grep does, hints about markdown
+files it never needed to read, tool lectures nobody asked for. You pay that bill on every call.
+The August 2026 harness benchmarks (tosh's smol comparison, HN) put numbers on it: the same
+model, the same ten tasks, 172k tokens through a near-empty harness versus 5M through a
+maximal one — a ~30x spread, almost all of it injected context.
+
+Humansplaining also causes **oversteering**, visible in traces: injected context restates what
+the model already knows, slightly wrong, in your words instead of the words it learned from.
+The model burns tokens reconciling two versions of the same knowledge. Hence the second
+guessing and the complicated routes. Even a bare file-path hint in a system prompt can pull in
+thousands of tokens the task did not need.
+
+## Citations are K-lines: the Minsky trail
+
+Point at the primary sources; they are prepaid. Minsky defined K-lines in a 1979 MIT AI Lab
+memo, published in *Cognitive Science* in 1980, then built *Society of Mind* (1986) on them.
+"When you get an idea and want to remember it, you create a K-line for it; when later
+activated, the K-line induces a partial mental state resembling the one that created it."
+Prompt engineering, described in 1979.
+
+- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF)](https://apps.dtic.mil/sti/tr/pdf/ADA078116.pdf)
+- [Cognitive Science 4(2):117-133, 1980](https://doi.org/10.1207/s15516709cog0402_1)
+- [Wikipedia: K-line (artificial intelligence)](https://en.wikipedia.org/wiki/K-line_(artificial_intelligence))
+- [Wikipedia: Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)
+
+**Wikipedia URLs ARE K-lines**: every Wikipedia page is in the training data, associated with
+its URL. Citing the URL activates the article without pasting it. Better to point directly at
+Minsky's work than at anyone's reinterpretation that is not in the corpus.
+
+And if you invoke Society of Mind for "agents", **adopt it**: Minsky's agents are tiny
+processes colocated in one mind, communicating almost for free, with intelligence emerging
+from how densely they interact. Architectures that put every agent in its own process,
+coordinating by serialized messages, invert the book they are named after — solitary
+confinement with carrier pigeons, sold as a society of mind. Colocate agents in one context
+and let them interact at full bandwidth
+([SPEED-OF-LIGHT-VS-CARRIER-PIGEON](../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md)).
+
 ## The manifesto: lean into the training data
 
-The argument is old; only the name is new. The same discussion recurs weekly under a different
-project name and a different invented language — most recently Skillscript (Show HN, July
+The argument is old, and even the name turns out to be prepaid (see The K-line, below). The
+same discussion recurs weekly under a different project name and a different invented language — most recently Skillscript (Show HN, July
 2026), an agent-workflow DSL with good security instincts, steelmanned below. Synthesized here
 so the next recurrence takes one K-line, not another thread.
 
@@ -176,8 +216,16 @@ not humansplaining. Quoting the file is.
 Say **HUMANSPLAINING** to invoke all of this: the sin, the economics, the Skillscript case, the
 test. One word; the rest is in latent space now — or will be, once this file has done its work.
 
-Yes, the term is itself a coinage — but it's not a cache miss, and the difference is the whole
-lesson. It's a **portmanteau of two latent prototypes that means what it sounds like**:
+The term is not even ours — and that's the best part. The corpus got there first, which proves
+the thesis on the word itself: Michels & Hirvonen published "Humansplaining: is it a thing? Is
+it bad?" in *AI & Society* (2025), defining it as "a human's act of unnecessarily and unjustly
+explaining something to an AI agent who is an expert on that topic"
+([PhilArchive](https://philarchive.org/rec/MICHII),
+[doi:10.1007/s00146-025-02327-5](https://doi.org/10.1007/s00146-025-02327-5)); the WSJ ran
+"Actually, the Problem Is 'Humansplaining'" back in 2019 (human-to-human sense); Star Trek
+subreddits and Star Wars essays use it for humans lecturing aliens. Adopting a prepaid word
+beats coining one — the K-line was already installed. And even where it isn't, the word is a
+**portmanteau of two latent prototypes that means what it sounds like**:
 *human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. That's the naming discipline applied to naming itself: good coinages are latent-space
 arithmetic — literally the word2vec move. Just as *king − man + woman = queen*, so
 *mansplaining − man + human = humansplaining*. The embedding geometry that made Mikolov's
@@ -190,6 +238,21 @@ Simon Willison championed into common usage on exactly this argument: pick a wor
 existing connotations do all the work, the way "spam" did for unsolicited email. *Slop* names
 the pollution flowing model→human; *humansplaining* names the pollution flowing human→model.
 Two self-decompressing words, one for each direction of the channel.
+
+Both are K-lines now: "AI slop" (and "a pelican riding a bicycle") are already in the training
+data, and "humansplaining" is too — with the double activation path that it would decompress
+via "mansplaining" even if it weren't. A genuinely novel term gets spelled out once — this
+file — and after that it works as a pointer. Humansplaining humansplaining to humans is the
+exception that proves the rule: humans need the one spelling; the corpus-trained reader never
+did.
+
+**Gastowning** (v.): gaslighting the model and humans at once, in the style of Gas Town —
+telling both that novel cosplay vocabulary is knowledge and that never reading the generated
+code is engineering. This one *is* a coinage (HN, 2 Aug 2026), and it licenses itself the same
+way: gaslighting × Gas Town, two latent prototypes, decompresses on sight. Humansplaining is
+usually well-intentioned waste; gastowning is the industrialized version with a philosophy
+attached ([Gastown README](../gastown/README.md#gastowning-v) ·
+[analysis](../gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md)).
 
 ---
 

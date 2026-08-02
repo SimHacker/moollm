@@ -383,21 +383,24 @@ What we're glimpsing:
 ```mermaid
 flowchart TB
     subgraph Now["What We Have Now"]
-        A["cursor-mirror watches behavior"]
-        B["Play-Learn-Lift methodology"]
-        C["Skill composition"]
+        direction TB
+        A["cursor-mirror<br/>watches behavior"]
+        B["Play-Learn-Lift<br/>methodology"]
+        C["Skill<br/>composition"]
     end
     
     subgraph Soon["What's Emerging"]
-        D["📊 Measurement: Which skills actually activate?"]
-        E["🔬 Rubrics: What makes a good skill?"]
-        F["⚡ JIT: Compile frequently-used patterns"]
+        direction TB
+        D["📊 Measurement:<br/>which skills activate?"]
+        E["🔬 Rubrics:<br/>what makes a good skill?"]
+        F["⚡ JIT: compile<br/>frequent patterns"]
     end
     
     subgraph Deep["The Attractor"]
-        G["🧬 Polymorphic inline caching for skills"]
-        H["🌊 Data flow optimization across skill networks"]
-        I["🔮 PbD: Programming by Demonstration via cursor-mirror"]
+        direction TB
+        G["🧬 Polymorphic inline<br/>caching for skills"]
+        H["🌊 Data flow optimization<br/>across skill networks"]
+        I["🔮 PbD: Programming<br/>by Demonstration<br/>via cursor-mirror"]
     end
     
     Now --> Soon --> Deep
@@ -417,16 +420,15 @@ There's an strange attractor in this design space, and we're falling into it.
 
 ```mermaid
 flowchart TD
-    UP["👤 User Prompt"] --> LLM1["🤖 LLM generates tool call"]
+    UP["👤 User Prompt"] --> LLM1["🤖 LLM generates<br/>tool call"]
     LLM1 --> STOP["⛔ STOP GENERATION<br/>💀 Universe destroyed"]
-    STOP --> MCP["📡 Send request to MCP server"]
-    MCP --> WAIT["⏳ WAIT 500ms+<br/>🕊️ Carrier pigeon flight time"]
-    WAIT --> PARSE["📥 Receive response, parse JSON"]
-    PARSE --> NEW["🔄 NEW LLM CALL<br/>💸 Re-tokenize entire context"]
-    NEW --> LLM2["🤖 LLM generates next tool call..."]
-    LLM2 --> REPEAT["🔁 ...repeat ad nauseam"]
-    
-    COST["💰 Cost: O(n) API calls<br/>🐢 Latency: O(n × 500ms)<br/>📉 Precision: Degrades each hop"]
+    STOP --> MCP["📡 Send request<br/>to MCP server"]
+    MCP --> WAIT["⏳ WAIT 500ms+<br/>🕊️ Carrier pigeon<br/>flight time"]
+    WAIT --> PARSE["📥 Receive response,<br/>parse JSON"]
+    PARSE --> NEW["🔄 NEW LLM CALL<br/>💸 Re-tokenize<br/>entire context"]
+    NEW --> LLM2["🤖 LLM generates<br/>next tool call..."]
+    LLM2 --> REPEAT["🔁 ...repeat<br/>ad nauseam"]
+    REPEAT --- COST["💰 O(n) API calls<br/>🐢 O(n × 500ms) latency<br/>📉 Precision degrades<br/>each hop"]
     
     style STOP fill:#fcc,stroke:#c00
     style WAIT fill:#ffc,stroke:#cc0
@@ -449,29 +451,28 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    UP["👤 User Prompt"] --> CTX["📚 Skills already in context"]
-    CTX --> LLM["🧠 LLM understands, iterates, recurses, composes..."]
+    UP["👤 User Prompt"] --> CTX["📚 Skills already<br/>in context"]
+    CTX --> LLM["🧠 LLM understands,<br/>iterates, recurses,<br/>composes..."]
     
-    LLM --> A["🔧 Skill A activates"]
-    LLM --> B["🔗 Skill B composes with A"]
-    LLM --> C["🗣️ Character C responds"]
-    LLM --> D["💬 Character D debates with C"]
-    LLM --> R["🏠 Room updates"]
-    LLM --> MORE["🔄 20 more turns happen internally"]
+    subgraph Parallel["Parallel in one generation"]
+        direction TB
+        A["🔧 Skill A activates"]
+        B["🔗 Skill B composes with A"]
+        C["🗣️ Character C responds"]
+        D["💬 Character D debates with C"]
+        R["🏠 Room updates"]
+        MORE["🔄 20 more turns happen internally"]
+        A --> B --> C --> D --> R --> MORE
+    end
     
-    A --> ONE["✨ ONE GENERATION, MANY TURNS ⚡"]
-    B --> ONE
-    C --> ONE
-    D --> ONE
-    R --> ONE
-    MORE --> ONE
-    
-    ONE --> OUT["📤 Final response + state changes"]
-    
-    COST["💚 Cost: O(1) API calls<br/>🚀 Latency: O(generation time only)<br/>🎯 Precision: Perfect within context"]
+    LLM --> A
+    MORE --> ONE["✨ ONE GENERATION<br/>MANY TURNS ⚡"]
+    ONE --> OUT["📤 Final response<br/>+ state changes"]
+    OUT --- COST["💚 O(1) API calls<br/>🚀 Gen-time latency<br/>🎯 In-context precision"]
     
     style ONE fill:#cfc,stroke:#0a0
     style OUT fill:#cfc,stroke:#0a0
+    style Parallel fill:#f8fff8,stroke:#0a0
 ```
 
 ---
@@ -486,10 +487,10 @@ Speed of Light is the default. But some work genuinely can't fit in one context 
 flowchart TB
     subgraph Federation["MOOLLM FEDERATION"]
         direction TB
-        subgraph CellA["Context A (Speed of Light)"]
+        subgraph CellA["Context A<br/>(Speed of Light)"]
             A1["🗣️ Agent 1"] <-->|"⚡ instant"| A2["🗣️ Agent 2"]
         end
-        subgraph CellB["Context B (Speed of Light)"]
+        subgraph CellB["Context B<br/>(Speed of Light)"]
             B1["🗣️ Agent 3"] <-->|"⚡ instant"| B2["🗣️ Agent 4"]
         end
         CellA <-->|"🕊️ Carrier Pigeon<br/>(Git / Mail)"| CellB

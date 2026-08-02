@@ -6,6 +6,13 @@
 > *"Skills are programs. The LLM is `eval()`. Empathy is the interface."*
 > — MOOLLM
 
+**Gastowning** (v.): gaslighting the model and humans at once, in the style of Gas Town —
+telling both that novel cosplay vocabulary is knowledge and that never reading the generated
+code is engineering. **Tokenmaxing** (v.): rolling coal in a datacenter — token burn as
+conspicuous consumption; the smoke is the product. Definitions, provenance, and why these
+coinages license themselves: [README](README.md#gastowning-v) ·
+[HUMANSPLAINING](../object-system/HUMANSPLAINING.md).
+
 ---
 
 ## How to Read This Document

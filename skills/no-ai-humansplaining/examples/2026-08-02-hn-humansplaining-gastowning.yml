@@ -1,0 +1,189 @@
+# Public adoption of "humansplaining" + coinage of "gastowning" — HN comment, 2026-08-02
+# Thread: "Cursor removed cost information from the usage page" (HN)
+# Reply to tosh (smol harness author) on harness token-bloat benchmarks:
+# same model, same 10 tasks, 172k tokens (smol) vs 5M (Claude Code).
+
+example: hn-humansplaining-gastowning
+date: 2026-08-02
+author: don-hopkins
+venue: hacker-news
+status: posted  # comment_text below is verbatim as posted
+sins_illustrated: [RESPELLING, PREEMPTIVE-TUTORING, LANGUAGE-INVENTING, FILE-DUMPING]
+
+context: |
+  tosh benchmarked harnesses and observed that injected context which "sounds
+  useful" oversteers the model, visible in traces; even a file-path hint in a
+  system prompt pulls in tokens the task did not need. This reply names the
+  phenomenon, gives the design discipline, and cites the Minsky trail.
+
+prior_art: |
+  "Humansplaining" turned out to be prepaid, which proves the thesis on the
+  word itself. Michels & Hirvonen, "Humansplaining: is it a thing? Is it
+  bad?", AI & Society 40(7):5633-5635 (2025), defines it as a human's act of
+  unnecessarily and unjustly explaining something to an AI agent who is an
+  expert on that topic. https://philarchive.org/rec/MICHII
+  Earlier human-to-human uses: WSJ "Actually, the Problem Is 'Humansplaining'"
+  (2019); Star Trek/Star Wars fandom (humans lecturing aliens). Adoption
+  beats coinage: the K-line was already installed.
+
+new_insights_captured:
+  harnesses_humansplain: |
+    Not just humans: harnesses humansplain to the model on the user's behalf.
+    System prompts teaching a frontier model what grep does. The benchmark
+    table is the price tag.
+  wikipedia_urls_are_k_lines: |
+    Every Wikipedia page is in the training data, associated with its URL.
+    Citing the URL activates the article without pasting it.
+  slop_and_humansplaining_are_k_lines: |
+    Both already latent; humansplaining has a double activation path since
+    "mansplaining" is latent too. Spell a novel term once, then point.
+  adopt_som_dont_just_invoke_it: |
+    Society of Mind is the K-line for "agents". Minsky's agents are colocated
+    in one mind. One-agent-per-process architectures invert the book they are
+    named after. Colocate agents in one context.
+  gastowning: |
+    The one deliberate coinage: gaslighting the model and the humans at once,
+    in the style of Gas Town. Licensed because gaslighting x Gas Town are
+    both latent prototypes; the word decompresses on sight.
+  tokenmaxing: |
+    Rolling coal in a datacenter: token burn as conspicuous consumption,
+    the smoke is the product. Self-licensing via the latent -maxing suffix
+    (minmaxing, looksmaxing) plus Veblen and rolling coal.
+
+folded_into:
+  - ../../designs/object-system/HUMANSPLAINING.md
+  - ../../skills/k-lines/GLANCE.yml
+  - ../../skills/k-lines/CARD.yml
+  - ../../skills/k-lines/README.md
+
+comment_text: |
+  There is a name for the outbound failure: AI slop. The model wasting your
+  attention with words you did not need. The inbound failure has a name too:
+  humansplaining.
+
+  The spelling carries the definition: mansplaining, aimed at the machine.
+  Condescending over-explanation of things the listener already knows better
+  than you. I would have happily claimed the coinage, but the corpus got
+  there first: philosophers published a paper defining it exactly this way,
+  and the WSJ used the word years before that. Which proves the point better
+  than coining it would. The best words are already paid for. Slop pollutes
+  the output; humansplaining pollutes the input.
+
+  Humansplaining: is it a thing? Is it bad? (Michels and Hirvonen, AI and
+  Society, 2025):
+
+  https://philarchive.org/rec/MICHII
+
+  >In this note, we discuss the possibility of humansplaining, where
+  humansplaining is, in analogy to mansplaining, a human's act of
+  unnecessarily and unjustly explaining something to an AI agent who is an
+  expert on that topic. We argue that, assuming a suitably developed AI
+  which is capable of being explained to in the first place, humansplaining
+  would be bad for similar reasons as mansplaining and that the risk one
+  runs of engaging in it would vary depending on the explained topic and in
+  particular on whether the natures of the explainer, the explainee, or
+  both allow them to have expertise in that area.
+
+  (Yes, I am humansplaining humansplaining to humans right now. Humans need
+  the spelling once; the model never did.)
+
+  The irony is that harnesses humansplain to the model on your behalf. System
+  prompts that teach a frontier model what grep does. Hints about markdown
+  files it never needed. Tool lectures nobody asked for. You pay that bill on
+  every call, and you documented the price in your table.
+
+  Humansplaining also causes the oversteering you see in traces. The injected
+  context restates what the model already knows, slightly wrong, in your
+  words instead of the words it learned from. The model then burns tokens
+  reconciling two versions of the same knowledge. Hence the second guessing
+  and the complicated routes.
+
+  The fix is a discipline: lean into the training data.
+
+  Name concepts with the strongest well defined terms the literature already
+  burned into the corpus. If your system does spreading activation over
+  symbols, call them K-lines. Minsky defined them in a 1979 MIT AI Lab memo,
+  published in Cognitive Science in 1980, then built a whole book on them.
+  When you get an idea and want to remember it, you create a K-line for it;
+  activating the K-line later induces a partial mental state resembling the
+  one that created it. Prompt engineering, described in 1979.
+
+  K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979:
+
+  https://apps.dtic.mil/sti/tr/pdf/ADA078116.pdf
+
+  The journal version, Cognitive Science 4(2), 1980:
+
+  https://doi.org/10.1207/s15516709cog0402_1
+
+  Wikipedia on K-lines (and notice that Wikipedia URLs ARE k-lines, since
+  every Wikipedia page is already in the training data associated with its
+  url):
+
+  https://en.wikipedia.org/wiki/K-line_(artificial_intelligence)
+
+  If your objects clone and delegate, say prototypes, and you get Self and
+  Smalltalk and thirty years of papers for free. If your agents advertise
+  what they afford, say advertisements, and you get the entire Sims
+  behavioral model and "Simantics" for free. A well chosen name dereferences
+  into everything the model already knows. One word activates a library.
+
+  Simantics:
+
+  https://simstek.fandom.com/wiki/SimAntics
+
+  Sims Advertisements:
+
+  https://youtu.be/-exdu4ETscs?t=617
+
+  Both "AI slop" and "humansplaining" are k-lines, already sitting in the
+  training data next to "a pelican riding a bicycle", and humansplaining
+  would work even if it were not, because mansplaining is there, so it is
+  obvious what it means.
+
+  "Agents" is itself such a name, and Society of Mind is the K-line:
+
+  https://en.wikipedia.org/wiki/Society_of_Mind
+
+  If you invoke it, adopt it. Minsky's agents are tiny processes colocated in
+  one mind, communicating almost for free, with intelligence emerging from
+  how densely they interact. The fashionable architecture inverts him: every
+  agent in its own process, coordinating by serialized messages, each hop
+  costing a round trip, a re-tokenization, quantization, noise, distortion,
+  and an expensive long distance relationship game of telephone. Solitary
+  confinement with carrier pigeons, sold as a society of mind. Colocate your
+  agents in one context and let them interact at full bandwidth, which is
+  what the book actually says.
+
+  Same law for languages. Write Python. Write TypeScript. Write YAML and
+  markdown. Never invent special bespoke languages like "SkillScript" or
+  "PascaLLM" for the model. A grammar with zero lines in the corpus stays an
+  eternal cache miss: you re-explain it in the prompt, on every call,
+  forever. Python is prepaid.
+
+  Standing rules should constrain behavior, not teach curriculum. Minimize
+  diff scope. Cite before you claim. Ask when unsure. A sentence each, and
+  they never re-teach the model git or HTTP.
+
+  Gas Town shows the full anti-pattern, and I can hardly keep a straight
+  face: a Mad Max meets FurryCon glossary absent from any training corpus,
+  orchestration by injecting text into tmux, parsing subprocess output by
+  hand, and a brash proudly stated vibe philosophy of never reading the
+  generated code. This one I will coin, because it decompresses on sight:
+  "gastowning".
+
+  Gastowning is gaslighting the model and humans at once, in the style of
+  Gas Town: telling both that novel cosplay vocabulary is knowledge and that
+  never reading the code is engineering. It works the way shouting louder at
+  someone who does not speak your language works.
+
+  Tokenmaxing is rolling coal in a datacenter. The black smoke is not
+  exhaust from work getting done; the smoke is the product. Twenty
+  subprocess agents idling at a red light so everyone can hear the engine.
+
+  https://github.com/SimHacker/moollm/tree/main/designs/gastown
+
+  So yes, start from nothing. The interesting question is what earns its way
+  back in: only what the model cannot know. Your tree layout, your
+  invariants, yesterday's broken build. Point at everything else by name.
+  The names are already paid for.

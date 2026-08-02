@@ -330,14 +330,39 @@ wings:
             - "Orwell, 'Politics and the English Language' (1946) — the founding audit of gloss"
 
       - term: HUMANSPLAINING
-        kind: coined
+        kind: adopted  # prior art: Michels & Hirvonen, AI & Society 2025 (exact AI sense); WSJ 2019 (human-to-human)
         origin: "skills/no-ai-humansplaining/ — slop's mirror image, pointing inbound"
         means: "Wasting tokens telling an LLM what its training already contains. Pasting the manual. Respelling the known."
         kid: "Explaining what pizza is to the pizza chef."
-        deep: "Latent knowledge is prepaid; respelled knowledge is billed per call, forever. The test: is the pointee in latent space? Then point — the name is the activation. LOAD-BEARING.md runs this economics in reverse: for authentication, the cache miss IS the signal."
-        k_lines: [K-LINE, LOAD-BEARING]
+        deep: "Latent knowledge is prepaid; respelled knowledge is billed per call, forever. The test: is the pointee in latent space? Then point — the name is the activation. The word itself turned out to be prepaid (AI & Society 2025), which proves the thesis on the word. LOAD-BEARING.md runs this economics in reverse: for authentication, the cache miss IS the signal."
+        k_lines: [K-LINE, LOAD-BEARING, GASTOWNING]
         see_also:
           repo: [../skills/no-ai-humansplaining/, object-system/HUMANSPLAINING.md]
+          web:
+            - "Michels & Hirvonen, 'Humansplaining: is it a thing? Is it bad?' (AI & Society, 2025) — https://philarchive.org/rec/MICHII"
+
+      - term: GASTOWNING
+        kind: coined  # HN comment, Don Hopkins, 2 Aug 2026; licensed because it decompresses on sight
+        origin: "designs/gastown/ — gaslighting × Gas Town, two latent prototypes"
+        means: "Gaslighting the model and humans at once, Gas Town style: telling both that novel cosplay vocabulary is knowledge and that never reading the generated code is engineering."
+        kid: "Making up secret club words, then getting mad that nobody, not even the robot, knows them."
+        deep: "The justified exception to never-invent-jargon: the coinage explains itself. Word2vec arithmetic — mansplaining − man + human = humansplaining; gaslighting × Gas Town = gastowning. Spell it once, then it points. Contrast bead/polecat/GUPP/MEOW: opaque handles humansplained in every prompt, forever."
+        k_lines: [HUMANSPLAINING, K-LINE, TOKENMAXING]
+        see_also:
+          repo: [gastown/README.md, gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md, object-system/HUMANSPLAINING.md, ../skills/no-ai-humansplaining/examples/2026-08-02-hn-humansplaining-gastowning.yml]
+
+      - term: TOKENMAXING
+        kind: coined  # same HN comment as GASTOWNING, 2 Aug 2026; -maxing suffix is latent (minmaxing, looksmaxing)
+        origin: "designs/gastown/ — Veblen's conspicuous consumption, measured in tokens"
+        means: "Burning tokens not because the work needs them but because the burn is the signal. Rolling coal in a datacenter: the smoke is the product."
+        kid: "Revving the engine at a red light so everyone hears how much gas you can waste."
+        deep: "A thirty-agent tmux swarm is a gold-plated faucet: it does not move more water, it announces what the owner can afford to waste. The 2026 harness benchmarks quantified it: same ten tasks, same model, one thirtieth the tokens through a near-empty harness. Engineering versus decorating."
+        k_lines: [GASTOWNING, HUMANSPLAINING]
+        see_also:
+          repo: [gastown/README.md, ../skills/no-ai-humansplaining/examples/2026-08-02-hn-humansplaining-gastowning.yml]
+          web:
+            - "Conspicuous consumption (Veblen) — https://en.wikipedia.org/wiki/Conspicuous_consumption"
+            - "Rolling coal — https://en.wikipedia.org/wiki/Rolling_coal"
 
       - term: FLYING-MONKEYS
         kind: reused

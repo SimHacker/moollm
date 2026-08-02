@@ -1,6 +1,6 @@
 # 🔤 K-Lines
 
-> Names that activate conceptual clusters (Minsky, *Society of Mind*, 1985). K-lines are cocaine for LLMs. Not to be confused with what makes Elon Musk wet his pants.
+> Names that activate conceptual clusters (Minsky, "K-Lines: A Theory of Memory", 1979/1980; *Society of Mind*, 1986). K-lines are cocaine for LLMs. Not to be confused with what makes Elon Musk wet his pants.
 
 ## MOOLLM K-Lines
 
@@ -27,7 +27,20 @@
 
 ## What Are K-Lines?
 
-A **K-line** (Minsky, *Society of Mind*, 1985) is a mental structure that, when activated, reactivates an entire constellation of knowledge, skills, and associations.
+A **K-line** is a mental structure that, when activated, reactivates an entire constellation of knowledge, skills, and associations. Minsky defined them in a 1979 MIT AI Lab memo, published in *Cognitive Science* in 1980, then built *Society of Mind* (1986) on them:
+
+> "When you get an idea and want to remember it, you create a K-line for it. When later activated, the K-line induces a partial mental state resembling the one that created it."
+
+Prompt engineering, described in 1979.
+
+Primary sources:
+
+- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF)](https://apps.dtic.mil/sti/tr/pdf/ADA078116.pdf)
+- [Journal version, Cognitive Science 4(2):117-133, 1980](https://doi.org/10.1207/s15516709cog0402_1)
+- [Wikipedia: K-line (artificial intelligence)](https://en.wikipedia.org/wiki/K-line_(artificial_intelligence))
+- [Wikipedia: Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)
+
+Wikipedia URLs are themselves K-lines: every Wikipedia page is in the training data, associated with its URL. Citing the URL activates the article without pasting it.
 
 ```
 YAML-JAZZ         ← Activates: semantic comments, jazz interpretation

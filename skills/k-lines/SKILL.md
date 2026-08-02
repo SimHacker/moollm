@@ -20,7 +20,7 @@ MOOLLM protocol symbols are Minsky's K-lines made concrete and greppable.
 
 ## Protocol Names = K-Lines
 
-A **K-line** (Minsky, *Society of Mind*) is a mental structure that, when activated, reactivates an entire constellation of knowledge, skills, and associations.
+A **K-line** (Minsky, "K-Lines: A Theory of Memory", Cognitive Science 1980; *Society of Mind*, 1986) is a mental structure that, when activated, reactivates an entire constellation of knowledge, skills, and associations.
 
 **Protocol names are exactly this:**
 
