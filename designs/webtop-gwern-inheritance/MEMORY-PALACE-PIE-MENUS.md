@@ -96,6 +96,49 @@ parameters you supplied, and the room beyond is the constructed result. A locked
 whose key you lack renders shut — visible but unaffordable, exactly like a grayed menu
 item, exactly like a Sims interaction that doesn't advertise to you.
 
+## Path scope: the history stack is a dynamic scope
+
+Moving around the map does double duty: every step adds to the browser back/next stack
+**and adds a frame to your path scope** — a dynamic scope accumulated along the walk.
+Each room can define any variables it wants, **overriding** bindings from rooms earlier
+on the path; the nearest binding wins. Back pops a frame (bindings unwind); forward
+re-pushes it. The two inheritance relations now have clean computer-science names:
+
+| Relation | Scoping | Answers |
+|----------|---------|---------|
+| Declared door inheritance | lexical / prototype chain | "what kind of room is this?" — stable context |
+| Path scope | dynamic scope | "how did you get here, what are you carrying?" — journey state |
+
+Doors tell you what the room *is*; the path tells you what you've *done*. Filled-in door
+parameters are just bindings in path scope, which is why navigation-as-form-filling
+falls out for free.
+
+### Kitchen-sink namespacing
+
+The path scope is deliberately a kitchen sink — every game, character, and skill throws
+its state in — kept sane by **keys that carry their own hierarchy**, same big-endian
+discipline as GLYPHS and yaml-jazz naming:
+
+```yaml
+# dotted sub-objects…
+wumpus.arrows: 3
+wumpus.smell: faint
+lamp.fuel: 40%
+
+# …or big-endian paths as keys
+game/wumpus/arrows: 3
+inventory/keys/vault: true
+ui/theme: dark
+```
+
+Prefix is namespace: `wumpus.*` belongs to Snorax, who reads and writes only his own
+subtree, so two games can haunt the same palace without collision (the grue and the
+wumpus share your scope, not their variables). Prefixes are queryable and truncatable —
+`game/` sweeps up all game state for a save, exactly as a GLYPHS prefix coarsens an
+icon. A room overrides by rebinding the key; leaving on the back button restores what
+was shadowed. Dynamic game state at any scale lives here — from `wumpus.smell: faint`
+to a whole simulation checkpoint keyed under its path.
+
 ## Every step pushes a history frame
 
 Each step through the palace **adds a frame to the browser history**. The back button
@@ -167,8 +210,10 @@ the walk only as much as its semantics require.
 3. Pie menu per room generated from its doors; slice labels via set-contrastive
    menu-summarizer.
 4. Every transition does pushState with the accumulated parameter trail in the URL/state;
-   back unwinds one parameter.
-5. K-line capture: the walked path with parameters is appended to the attention tree, so
+   back unwinds one frame of path scope (bindings and parameters together).
+5. Path scope = ordered list of per-room binding maps; lookup walks it nearest-first;
+   keys namespaced big-endian (dots or slashes) so games/characters/skills own subtrees.
+6. K-line capture: the walked path with parameters is appended to the attention tree, so
    saved views replay journeys, not just destinations.
 
 ↑ [design pack README](README.md) · [K-PYRAMID-ATTENTION-MAPS](K-PYRAMID-ATTENTION-MAPS.md) ·
