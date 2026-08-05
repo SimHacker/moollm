@@ -64,20 +64,24 @@ overlay needs **JSON/cell bridge** + Electron hooks — design for it, ship brow
 - **Mesa / Declare calendar:** one surface, continuity zoom ([Temkin Mesa notes](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/david-temkin/sources/mesa-and-in-formation.md))
 - **Micropolis:** map zoom + Chaim reverse-diagram Cards drill-down
 - **MOOLLM:** yaml-jazz pyramid — GLANCE → CARD → SKILL → README, extended down to
-  **LABEL** (tab word) and **GLYPH** (icon/pie slice) for UI chrome
+  **LABEL** (tab word) and **GLYPHS** (big-endian emoji sequence, type first, truncatable
+  from the right to any length) for UI chrome
 
 
 
-### P-lines (saved attention as content)
+### K-pyramids (saved attention as content)
 
-- The user's view — open windows, zoom weights, narrowed-hallway paths, comment trees —
-  is a **first-class object**: saved, copied, shared, diffed, traded back and forth
+- The live view is a **P-pyramid**; saving mints a **K-node + K-line** (the weighted
+  attachment set); saved views compose by K-recursion into the user's **K-pyramid** —
+  a first-class object: saved, copied, shared, diffed, traded back and forth
   (correspondence webtops)
-- PSIBER-style scaling: partial attention renders smaller; drill a shrunken path, bloom
-  full-size at the destination
+- One canonical `weight:` per node; font size, detail level, window state all derived
+  from it, and direct manipulation writes back — two-way mapping
+- PSIBER-style scaling: partial attention renders smaller; drill a shrunken hallway,
+  bloom full-size at the destination
 - Anti-pattern it kills: Quora's EPHEMERAL PYRAMID — one stray click destroys your
   reconstructed reading state
-- Full design: [P-LINE-ATTENTION-MAPS.md](P-LINE-ATTENTION-MAPS.md) · theory:
+- Full design: [K-PYRAMID-ATTENTION-MAPS.md](K-PYRAMID-ATTENTION-MAPS.md) · theory:
   [P-PYRAMID](../P-PYRAMID.md)
 
 
