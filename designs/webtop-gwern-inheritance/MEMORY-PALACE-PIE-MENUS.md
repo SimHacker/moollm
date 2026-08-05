@@ -14,15 +14,51 @@ The 1988 seed (Don, NeWS-makers, on nested pie menu selection):
 That was already a memory palace: directions remembered kinesthetically, rooms nested in
 rooms, muscle memory as the retrieval key. This design finishes the thought.
 
-## Rooms inherit from their path
+## Rooms inherit through their doors
 
-Each sub-room **inherits from the (path of) parent rooms** — a Self-style prototype chain
-laid out spatially. Walking into `palace/finance/invoices/overdue/` accumulates context
-the way nested scopes accumulate bindings: the child room sees everything its ancestors
-established and can override it. The room you stand in *is* the current environment;
-where you came from *is* the inheritance chain. (MOOLLM already treats directories as
-activation contexts — [room skill](../../skills/room/), object-system
-directory-as-object — this extends that chain up the path, not just into the node.)
+The simple case: each sub-room **inherits from the (path of) parent rooms** — a
+Self-style prototype chain laid out spatially. Walking into
+`palace/finance/invoices/overdue/` accumulates context the way nested scopes accumulate
+bindings: the child room sees everything its ancestors established and can override it.
+(MOOLLM already treats directories as activation contexts — [room skill](../../skills/room/),
+object-system directory-as-object — this extends that chain up the path.)
+
+But inheriting only from the door you walked in through is **directional inheritance** —
+history-dependent, one parent, fixed. The general mechanism is declarative: **the room
+lists the names of the doors it inherits from.** Doors are named slots; the inherit list
+marks which slots are parent slots. This is precisely Self's object model in adventure
+costume:
+
+| Self | Palace |
+|------|--------|
+| named slot | door |
+| parent slot (`*`) | door on the room's inherit list |
+| multiple inheritance | inheriting through several doors |
+| **dynamic inheritance** (assignable parent slots) | a door that **dynamically selects its destination** |
+| delegation (message lookup up the parents) | asking a question in a room: unanswered, it echoes through the inherited doors |
+
+```yaml
+room: overdue-invoices
+doors:
+  hallway:  { to: .. }                          # where you came from
+  policy:   { to: /palace/finance/policy }       # shared rules live there
+  season:   { to: !door-script pick-quarter }    # dynamic destination
+  vault:    { to: /palace/vault, ritual: key }   # not inherited; must walk it
+inherits: [hallway, policy, season]
+```
+
+Consequences:
+
+- **Different rooms can exist behind doors** — the same doorframe can lead somewhere else
+  for a different visitor, at a different time, or with a different parameter trail; the
+  room's context follows the door's *current* destination.
+- **Dynamic-destination doors are computed parents**: a `season` door that opens onto the
+  current quarter's room re-parents the whole context each quarter with no edits to the
+  room itself. (In Self, assigning a parent slot mid-execution changes an object's
+  behavior; here, the door swinging to a new destination changes the room's ambience.)
+- The **walked path still exists** — as history, hallway, and K-line — but it no longer
+  *forces* inheritance. Where you came from and what you inherit from are separate
+  relations that happen to coincide in the simple nested-directory case.
 
 ## Navigation is parameter entry
 
@@ -93,9 +129,11 @@ the walk only as much as its semantics require.
 
 ## Minimum viable
 
-1. Room tree = directory tree; path inheritance = merged context objects down the path.
-2. Door = YAML object on the room: target, ritual type, parameter schema, advertisement
-   text (GLYPHS + LABEL).
+1. Room tree = directory tree; default inheritance down the path, overridable by the
+   room's declared `inherits:` door list (Self parent slots; dynamic doors = computed
+   parents).
+2. Door = YAML object on the room: destination (static or door-script), ritual type,
+   parameter schema, advertisement text (GLYPHS + LABEL), inheritable flag.
 3. Pie menu per room generated from its doors; slice labels via set-contrastive
    menu-summarizer.
 4. Every transition does pushState with the accumulated parameter trail in the URL/state;
