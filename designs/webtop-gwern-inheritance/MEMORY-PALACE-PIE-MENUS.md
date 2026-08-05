@@ -115,6 +115,36 @@ trail, the same hallway, the same context stack. No stray click can strand you, 
 history frames make every step reversible (the EPHEMERAL PYRAMID anti-pattern's exact
 antidote applied to navigation).
 
+## Wumpus: sensing through doors
+
+Hunt the Wumpus is the founding game of **door-graph sensing**: you never see into the
+next room, but its hazards leak one hop through the doors — *"bats nearby!"*, *"I feel a
+draft!"*, *"I smell a wumpus!"*. That is the palace's ambient-awareness mechanism, already
+designed in 1973: adjacent rooms advertise through their doors, with one-hop falloff.
+A webtop room should waft the same hints — the door's GLYPHS tail carrying the scent of
+what's behind it (🚪…🦇 / 🚪…🕳️ / 🚪…👃), popups previewing one hop, never more. Sniffing
+is cheaper than walking; peripheral attention at weight ≈ 0.1 is a draft under the door.
+
+The living proof is MOOLLM's
+[wumpus-snorax character](../../examples/adventure-4/characters/fictional/wumpus-snorax/)
+(Snorax the Patient, `👃🦏💤🏹💀🎲`): **the character IS the game.** The directory
+contains the complete rules ([GAME.yml](../../examples/adventure-4/characters/fictional/wumpus-snorax/GAME.yml)),
+the [original 1973 BASIC source](../../examples/adventure-4/characters/fictional/wumpus-snorax/wumpus-basic-source.md),
+the canonical [DODECAHEDRON.yml](../../examples/adventure-4/characters/fictional/wumpus-snorax/DODECAHEDRON.yml)
+topology (20 caves, Gregory Yob's favorite solid), the hazards (pits, bats), and
+per-topology instance files. Drop the character into **any existing room network** and he
+plays there — the [adventure-4 maze](../../examples/adventure-4/maze/) instance runs on
+maze topology, not the dodecahedron, and the instance file just tracks game state for
+that network.
+
+Topology generation is the [room skill](../../skills/room/)'s job, not Wumpus's: its
+`GENERATE` method takes a pattern (maze, dungeon, building, neighborhood, tree) or a
+topology description, so you can point it at the official Wumpus dodecahedron, the
+**ARPANET IMP map**, or your own adventure map described in JSON/YAML, and it
+instantiates all the linked-up rooms dynamically. Game character and floor plan are
+orthogonal: the palace supplies rooms and doors; the character supplies rules and
+hazards; the doors supply the sniffing.
+
 ## Pie menus as the door picker
 
 At each room, the pie menu is the compass rose of available doors: directions are stable
