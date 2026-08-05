@@ -18,6 +18,7 @@ desktop wrong, but because he was solving different (excellent) problems.
 | [REVERSE-OVER-ENGINEERING.md](REVERSE-OVER-ENGINEERING.md) | Mirror workflow, repo anatomy, what to measure, self-aware limits |
 | [MOOLLM-WEBTOP-VISION.md](MOOLLM-WEBTOP-VISION.md) | Our shell: WIMP webtop, pie/tab windows, rooms, Declare vs Svelte vs OL |
 | [K-PYRAMID-ATTENTION-MAPS.md](K-PYRAMID-ATTENTION-MAPS.md) | The content type: saved shareable attention (Minsky K-nodes/K-lines/K-pyramids), weight-driven two-way zoom, narrowed hallways, comment trees, correspondence webtops, LLM menu summarizer |
+| [MEMORY-PALACE-PIE-MENUS.md](MEMORY-PALACE-PIE-MENUS.md) | Navigation as parameter entry: rooms inherit from their path, doors are reified forms (key/knock/password/payment rituals), every step pushes a history frame |
 | [TEMKIN-CALL-2026-08-05.md](TEMKIN-CALL-2026-08-05.md) | OpenLaszlo webtop, Declare Desktop demo, JSON bridge, overlay WM vs in-page |
 | [ANALYSIS-WORKFLOW.md](ANALYSIS-WORKFLOW.md) | Clone, mirror, grep, article pipeline |
 | [sources/analysis-notes/](sources/analysis-notes/README.md) | **Source deep dive (done):** architecture, popup WM + TNT pin test, GTX link pipeline, LLM guardrails, styling/delivery |

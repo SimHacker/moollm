@@ -55,6 +55,9 @@ overlay needs **JSON/cell bridge** + Electron hooks — design for it, ship brow
 - Directory listing = **room activation** ([HOME-AUTOMATION-MEMORY-PALACE](../HOME-AUTOMATION-MEMORY-PALACE.md))
 - Zoom into room → subdirectory; objects = files; characters = `CHARACTER.yml`
 - GitHub repo browser IS the adventure map ([GITHUB-AS-MMORPG](../GITHUB-AS-MMORPG.md))
+- Rooms inherit from their **path**; each move fills a parameter; doors are reified forms
+  with rituals (key, knock, password, payment); every step pushes a history frame —
+  [MEMORY-PALACE-PIE-MENUS.md](MEMORY-PALACE-PIE-MENUS.md)
 
 
 
