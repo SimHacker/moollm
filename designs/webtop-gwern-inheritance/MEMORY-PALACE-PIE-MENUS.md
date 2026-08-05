@@ -139,6 +139,33 @@ icon. A room overrides by rebinding the key; leaving on the back button restores
 was shadowed. Dynamic game state at any scale lives here — from `wumpus.smell: faint`
 to a whole simulation checkpoint keyed under its path.
 
+### The wire format is already in the browser
+
+The browser path is a list of URLs, and each URL's **`?query=args` are that frame's
+bindings** — the form fields you filled at the door, or root-room defaults you're
+overriding. The scope stack needs no invented serialization; it is the history itself:
+
+```
+/palace/                                      root room defaults: lamp.fuel=100, theme=light
+/palace/maze/?lamp.fuel=40                    a binding overridden en route
+/palace/maze/room-e/?wumpus.arrows=2&wumpus.smell=strong
+```
+
+The URL path locates the room (lexical: which room, which doors); the query string
+carries the dynamic bindings (what you chose, what you spent). Big-endian keys pass
+through unchanged (`?game/wumpus/arrows=2` or `?wumpus.arrows=2`). Consequences:
+
+- **Deep links carry their journey** — share a URL trail and the recipient replays your
+  scope, not just your location; bookmark = frozen frame.
+- **REST honesty** — no hidden session state; what the frame binds is what the URL says.
+  Copy-paste debugging of game state is reading the address bar.
+- **Defaults live in the room, overrides live in the URL** — the room's YAML declares the
+  form and its defaults; the query string records only deviations, so URLs stay short on
+  the beaten path and verbose exactly where you did something interesting.
+- **Ritual exceptions** — secrets (passwords, keys as capabilities) bind into session
+  scope, not the URL; the URL records *that* the vault door opened, never the password
+  that opened it.
+
 ## Every step pushes a history frame
 
 Each step through the palace **adds a frame to the browser history**. The back button
