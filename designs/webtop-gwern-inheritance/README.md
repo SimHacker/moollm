@@ -17,7 +17,7 @@ desktop wrong, but because he was solving different (excellent) problems.
 | [GWERN-WHAT-TO-INHERIT.md](GWERN-WHAT-TO-INHERIT.md) | Praise and explicit inheritance list — publishing, hypertext, archives, semantic zoom |
 | [REVERSE-OVER-ENGINEERING.md](REVERSE-OVER-ENGINEERING.md) | Mirror workflow, repo anatomy, what to measure, self-aware limits |
 | [MOOLLM-WEBTOP-VISION.md](MOOLLM-WEBTOP-VISION.md) | Our shell: WIMP webtop, pie/tab windows, rooms, Declare vs Svelte vs OL |
-| [K-PYRAMID-ATTENTION-MAPS.md](K-PYRAMID-ATTENTION-MAPS.md) | The content type: saved shareable attention (Minsky K-nodes/K-lines/K-pyramids), weight-driven two-way zoom, narrowed hallways, comment trees, correspondence webtops, LLM menu summarizer |
+| [K-PYRAMID-ATTENTION-MAPS.md](K-PYRAMID-ATTENTION-MAPS.md) | The content type: saved shareable attention (Minsky K-nodes/K-lines/K-pyramids), weight-driven two-way zoom, narrowed hallways, comment trees, correspondence webtops, trains of thought (Family Album pages that configure the live site — the Urban Safari recreation), LLM menu summarizer |
 | [MEMORY-PALACE-PIE-MENUS.md](MEMORY-PALACE-PIE-MENUS.md) | Navigation as parameter entry: rooms inherit through declared doors (Self parent slots; dynamic doors = computed parents), doors are reified forms (key/knock/password/payment rituals), Wumpus one-hop sensing through doors, every step pushes a history frame |
 | [TEMKIN-CALL-2026-08-05.md](TEMKIN-CALL-2026-08-05.md) | OpenLaszlo webtop, Declare Desktop demo, JSON bridge, overlay WM vs in-page |
 | [ANALYSIS-WORKFLOW.md](ANALYSIS-WORKFLOW.md) | Clone, mirror, grep, article pipeline |

@@ -114,6 +114,47 @@ fork.
 This is also the Repo Show participation mechanic: an episode ships with the host's
 K-pyramid over the repo; viewers extend it, re-weight it, and send it back.
 
+## Trains of thought: the Family Album that configures the live site
+
+A sequence of K-nodes is a **train of thought** — and its publishing shape is the Sims
+Family Album, upgraded: **each album page, instead of showing a JPEG, configures your
+live site browser page.** The Sims album (2000) was a linear chain of captioned
+screenshots; millions shared them on the Exchange. The webtop album's "photo" is a K-line
+activation — open these rooms, at these weights, with this hallway, these comments in
+view. The snapshot is alive: the reader lands *inside* the moment, can turn the page to
+ride the train, or step off and wander.
+
+MicropolisCore already designed the graph this rides on —
+[family-album-as-storymaker](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/family-album-as-storymaker.md):
+scenes as captioned moments with the live data behind them, directed edges (continuation,
+aftermath, alternate-reality, dream, crossover), storylines as author-curated paths
+through a shared scene pool, and append-only `vote.yml` / `comment.yml` records. Swap
+"Sims screenshot + IFF data" for "K-line over the site" and it is the same schema.
+
+What this yields, in ascending granularity of sharing:
+
+- **Blogs, but much more granular** — a post decomposes into scenes; a scene can be as
+  small as one window opened on one paragraph with one remark. Publish a moment, not
+  only an essay.
+- **Multiplayer discussions** — a Hacker News-style comment tree hangs off every scene,
+  and the comments are themselves weighted, open/close/zoomable nodes (no EPHEMERAL
+  PYRAMID: the thread state is yours and persists).
+- **StoryMaker scenes with votes** — user comment trees and votes on each scene, exactly
+  the [storymaker](https://github.com/SimHacker/MicropolisCore/tree/main/documentation/designs/storymaker)
+  / Bar Karma writers-room mechanic: propose scenes, thread reactions, vote storylines
+  toward canon.
+
+And this is the **Urban Safari recreation**:
+[Urban Safari](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/urban-safari/overview.md)
+was field geo-capture on the StoryMaker stack — walk the city, capture scenes where you
+stand, thread them into shared stories. The webtop safari walks the **site's map instead
+of the city's**: rooms for GPS fixes, K-lines for photographs, trains of thought for the
+safari log, comment trees and votes for the expedition party. Same stack, same social
+mechanics ([WWSFF storymaker scenes-and-stories](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/storymaker-stories-and-scenes.md),
+[ShowMaker](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/showmaker-network.md) —
+a show is a graph walk over StoryMaker content, and a Repo Show episode is a guided
+safari), new territory: the corpus.
+
 ## The UI summary pyramid: two levels below GLANCE
 
 The standard MOOLLM pyramid (README → SKILL → CARD → GLANCE) bottoms out at ~5 lines.
