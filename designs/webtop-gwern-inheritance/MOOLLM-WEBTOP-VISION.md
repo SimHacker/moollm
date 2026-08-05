@@ -63,7 +63,22 @@ overlay needs **JSON/cell bridge** + Electron hooks — design for it, ship brow
 - **Gwern:** collapse sections, expand in place
 - **Mesa / Declare calendar:** one surface, continuity zoom ([Temkin Mesa notes](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/david-temkin/sources/mesa-and-in-formation.md))
 - **Micropolis:** map zoom + Chaim reverse-diagram Cards drill-down
-- **MOOLLM:** yaml-jazz pyramid — GLANCE → CARD → SKILL → README
+- **MOOLLM:** yaml-jazz pyramid — GLANCE → CARD → SKILL → README, extended down to
+  **LABEL** (tab word) and **GLYPH** (icon/pie slice) for UI chrome
+
+
+
+### P-lines (saved attention as content)
+
+- The user's view — open windows, zoom weights, narrowed-hallway paths, comment trees —
+  is a **first-class object**: saved, copied, shared, diffed, traded back and forth
+  (correspondence webtops)
+- PSIBER-style scaling: partial attention renders smaller; drill a shrunken path, bloom
+  full-size at the destination
+- Anti-pattern it kills: Quora's EPHEMERAL PYRAMID — one stray click destroys your
+  reconstructed reading state
+- Full design: [P-LINE-ATTENTION-MAPS.md](P-LINE-ATTENTION-MAPS.md) · theory:
+  [P-PYRAMID](../P-PYRAMID.md)
 
 
 
