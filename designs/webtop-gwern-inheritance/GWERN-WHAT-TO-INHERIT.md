@@ -29,6 +29,16 @@ collapsed depth; default calm surface, instant drill-down.
 **Inherit:** popups are not tooltips — they are **windows in a desktop**. Gwern's popup chrome is
 the seed of our webtop window manager.
 
+**Verified in source (the TNT pin test):** Gwern's pin is a class flag on the same window
+object — no rewrap, no reparent (`popups.js:1083`). Same architecture as Don's TNT OPEN LOOK
+pin-up menus (menu frames subclass window frames; promotion = flag), and the opposite of the
+olwm/ICCCM rewrap dance forced by a separate-process WM with no shared class hierarchy.
+**Anti-inherit, two real transient/persistent splits that remain:** (1) pinned popups die on
+page navigation — pin must instead promote onto a persistent, serialized desk; (2) desktop
+Popups vs mobile Popovers are two windowing engines — we want one window class with adaptive
+chrome. **Aesthetic fix:** pin button is a bare icon swap; restore the OPEN LOOK push-in /
+pull-out pin rotation — the animation IS the affordance that teaches promotion.
+
 ### 3. Linkrot and provenance
 
 - Local archives, metadata on links, bidirectional backlinks, tag/directory navigation

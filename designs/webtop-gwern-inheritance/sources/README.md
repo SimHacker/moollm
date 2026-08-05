@@ -2,7 +2,7 @@
 
 | Path | What |
 |------|------|
-| `analysis-notes/` | Grep output, module maps, behavior notes (create on first clone) |
+| [`analysis-notes/`](analysis-notes/README.md) | **Done 2026-08-05:** full source deep dive — architecture, popup WM, link pipeline, LLM tools, styling/delivery |
 | `article-draft.md` | Public article draft (future) |
 | `screenshots/` | Optional UI captures (keep small) |
 

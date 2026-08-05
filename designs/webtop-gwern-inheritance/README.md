@@ -19,7 +19,8 @@ desktop wrong, but because he was solving different (excellent) problems.
 | [MOOLLM-WEBTOP-VISION.md](MOOLLM-WEBTOP-VISION.md) | Our shell: WIMP webtop, pie/tab windows, rooms, Declare vs Svelte vs OL |
 | [TEMKIN-CALL-2026-08-05.md](TEMKIN-CALL-2026-08-05.md) | OpenLaszlo webtop, Declare Desktop demo, JSON bridge, overlay WM vs in-page |
 | [ANALYSIS-WORKFLOW.md](ANALYSIS-WORKFLOW.md) | Clone, mirror, grep, article pipeline |
-| [sources/README.md](sources/README.md) | Captured notes, links, optional local mirror (gitignored) |
+| [sources/analysis-notes/](sources/analysis-notes/README.md) | **Source deep dive (done):** architecture, popup WM + TNT pin test, GTX link pipeline, LLM guardrails, styling/delivery |
+| [sources/README.md](sources/README.md) | Captured notes, links, sister-repo mirror pointer |
 
 ## One-line thesis
 
@@ -39,6 +40,6 @@ desktop wrong, but because he was solving different (excellent) problems.
 ## Deliverables (planned)
 
 1. **Design pack** (this directory) — done as scaffold
-2. **Mirror analysis** — local clone of `gwern/gwern.net` + spot-check built pages (see workflow)
+2. **Mirror analysis** — **done** — sister clone at `~/GroundUp/git/gwern.net`, deep dive in [sources/analysis-notes/](sources/analysis-notes/README.md)
 3. **Article** — praise + inheritance + contrast table (Repo Show vs gwern.net)
 4. **Prototype spikes** — Declare Desktop-shaped shell; Micropolis site as webtop; Kando overlay WM (Electron) as stretch
