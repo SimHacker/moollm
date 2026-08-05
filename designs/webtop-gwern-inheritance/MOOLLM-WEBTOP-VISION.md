@@ -3,6 +3,14 @@
 Classic **WIMP** on purpose. Not reinventing the desktop metaphor — **completing** what Gwern's
 popups hint at and what OpenLaszlo's **webtop** shipped twenty years ago.
 
+But completion is not imitation. We are **re-imagining previous implementations** — pie menus,
+tabbed windows, the scrolling zooming desktop — and **recombining** them with rooms, links,
+navigation, viewing, editing, interacting, and simulating. A **forward and backward looking
+reimagination**: backward to proven implementations and applications (NeWS tabs, OWM, HyperTIES,
+Pad/PadDraw zooming, SimCity's living map, Gwern's popups, OpenLaszlo's webtop), forward to what
+they can become when combined on one surface with git-native rooms and an LLM resolver. Each
+ingredient shipped somewhere before; the recombination is the new thing.
+
 ## Two deployment surfaces (same object model)
 
 
