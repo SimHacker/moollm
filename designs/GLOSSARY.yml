@@ -70,18 +70,32 @@ wings:
 
       - term: K-LINE
         kind: inherited
-        origin: "Marvin Minsky, The Society of Mind (1986) — Knowledge-lines that reactivate a past mental state"
+        origin: "Marvin Minsky, 'K-Lines: A Theory of Memory' (MIT AI Memo 516, 1979; Cognitive Science 4(2), 1980); built into The Society of Mind (1986)"
         means: "A name that, when spoken, wakes up everything attached to it. Typing POSTEL activates a whole tradition."
         kid: "A magic word. Say it and your brain sets the table for the idea to come to dinner."
         deep: "MOOLLM's central bet: LLM latent space honors K-lines natively. A filename, a protocol symbol, a person's name — each is a key on the concept synthesizer. PROTOCOLS.yml is the keyboard layout."
         ambiguity: "Not the Kardashian line, not a ski run, not k-line as in IRC bans. Minsky's. Always Minsky's."
-        k_lines: [ROOM, P-HANDLE-K, TRADITION-INVOKE]
+        k_lines: [ROOM, P-HANDLE-K, TRADITION-INVOKE, P-PYRAMID]
         see_also:
           repo: [../skills/k-lines/, ../PROTOCOLS.yml]
           web:
+            - "K-Lines memo, MIT AI Memo 516, 1979 (PDF) — https://dspace.mit.edu/bitstream/handle/1721.1/5739/AIM-516.pdf"
             - "K-line (AI) — https://en.wikipedia.org/wiki/K-line_(artificial_intelligence)"
-            - "Minsky, 'K-Lines: A Theory of Memory', Cognitive Science 4(2), 1980"
+            - "Minsky, 'K-Lines: A Theory of Memory', Cognitive Science 4(2), 1980 — https://doi.org/10.1207/s15516709cog0402_1"
             - "The Society of Mind — https://en.wikipedia.org/wiki/Society_of_Mind"
+
+      - term: P-PYRAMID
+        kind: inherited
+        origin: "Minsky, K-Lines memo (1979) — 'the P-pyramid we speak of is an illusion of an agent's perspective'"
+        means: "An agent-scoped hierarchical view over a graph that is not hierarchical: an overlay of attention weights (0 closed, 1 open, fractional = scale/mip level), keyed by path so loops get multiple views."
+        kid: "The world isn't a pyramid, but when YOU look at it, it stacks up under where you're standing."
+        deep: "The agent-side twin of the MOO-Map: the object publishes its resolution ladder (GLANCE/CARD/SKILL); the P-pyramid records which rung of which object this agent has open, at what weight. A saved P-pyramid is a K-line for a view ('if I can get into that old state...'). Loops render as shrinking laps — a truncated spiral is recursion made visible. The context window is a P-pyramid over the repo."
+        k_lines: [K-LINE, MOO-MAPS, HALLS-AND-ROOMS, ATTENTION-TREE]
+        see_also:
+          repo: [P-PYRAMID.md, MOOPMAP.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md, ../skills/moocroworld/ATTENTION-TREE.md]
+          web:
+            - "K-Lines memo, MIT AI Memo 516, 1979 (PDF) — https://dspace.mit.edu/bitstream/handle/1721.1/5739/AIM-516.pdf"
+            - "MicropolisCore UI counterpart — https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/p-pyramid-attention-overlay.md"
 
       - term: YAML-JAZZ
         kind: coined

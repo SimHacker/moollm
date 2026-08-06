@@ -341,6 +341,11 @@ anything else. Two consequences fall out immediately:
   view state persists, dark, ready to reopen exactly as you left it. The
   fog of war has a memory.
 
+This overlay has a 1979 name: it is a **P-pyramid** (Minsky, K-Lines memo) —
+an anchored attention mask over a graph, the hierarchical illusion of one
+agent's perspective. Light intensity is attention weight; a saved lighting
+rig is a K-line. Full treatment: [designs/P-PYRAMID.md](../../designs/P-PYRAMID.md).
+
 **Colored light is status.** White light is plain attention; color is
 meaning laid over it: **green** ready-to-go and running, **red** error or
 paused, **yellow** warning, **purple** open question. The mapping is itself

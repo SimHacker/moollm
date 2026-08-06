@@ -438,6 +438,40 @@ The reflexive kicker: the patent's co-author has a character directory in WillWr
 object model descends from their work now instantiates them as objects in it. Inheritance in the
 Self-reflective sense: the parents are in the world.
 
+## Primary sources
+
+The Self bibliography index holds nearly every paper as PDF:
+[bibliography.selflanguage.org](https://bibliography.selflanguage.org/)
+
+The RISC claim, in the authors' own hand:
+
+- [Self: The Power of Simplicity (Ungar & Smith, OOPSLA '87 / LaSC '91, PDF)](https://bibliography.selflanguage.org/_static/self-power.pdf)
+  — the kernel: objects, slots, message send, delegation; even state access is a send
+- [Architecture of SOAR: Smalltalk on a RISC (Ungar, Blau, Foley, Samples, Patterson, ISCA '84)](https://dl.acm.org/doi/10.1145/800015.808182)
+  — the literal RISC; Patterson on the author list makes the lineage one hop, not an analogy
+- *Organizing Programs Without Classes* (Ungar, Chambers, Chang, Hölzle, LaSC '91) — building
+  class-like systems from the primitives; the proof of "program all other object systems out of it"
+- [Self (Ungar & Smith, HOPL III, 2007, PDF)](https://worrydream.com/refs/Ungar_2007_-_Self_(HOPL).pdf)
+  — the retrospective, the best single entry point
+
+The compiler line: *An Efficient Implementation of SELF* (Chambers, Ungar, Lee, OOPSLA '89, maps);
+*Polymorphic Inline Caches* (Hölzle, Chambers, Ungar, ECOOP '91); *Debugging Optimized Code with
+Dynamic Deoptimization* (Hölzle, Ungar, PLDI '92) — all on the bibliography index.
+
+The Randy Smith line — experience first, subjectivity second:
+
+- [Experiences with the Alternate Reality Kit (Smith, CHI+GI '87, PDF)](https://worrydream.com/refs/Smith_R_1987_-_Experiences_With_The_Alternate_Reality_Kit,_An_Example_of_the_Tension_Between_Literalism_and_Magic.pdf)
+  — the literalism/magic axis, at PARC, before Self
+- *Programming as an Experience: The Inspiration for Self* (Smith & Ungar, ECOOP '95)
+- *Directness and Liveness in the Morphic UI Construction Environment* (Maloney & Smith, UIST '95)
+- *Us: A Simple and Unifying Approach to Subjective Objects* (Smith & Ungar, TAPOS '96) —
+  subjectivity as a dispatch dimension, direct ancestor of
+  [Korz (Ungar, Ossher, Kimelman, Onward! 2014, PDF)](https://worrydream.com/refs/Ungar_2014_-_Korz_Simple,_Symmetric,_Subjective,_Context-Oriented_Programming.pdf)
+
+Video: [Self: The Movie (1995)](https://www.youtube.com/watch?v=Ox5P7QyL774) — Randy on
+directness and liveness, Dave on the implementation;
+[Self and Self: Whys and Wherefores (Ungar, Stanford EE380, 2009)](https://www.youtube.com/watch?v=3ka4KY7TMTU).
+
 ## The one-line summary
 
 Self gave us the smallest possible object model. MOOLLM runs it on the largest possible

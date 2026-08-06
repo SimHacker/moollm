@@ -54,6 +54,40 @@ That matters in MOOLLM because:
 
 ---
 
+## The 1979 memo mechanics
+
+The memo (AI Memo 516; full OCR text in [sources/aim-516-k-lines-1979-ocr.txt](sources/aim-516-k-lines-1979-ocr.txt))
+gives the machinery, and every piece maps onto context engineering:
+
+- **K-node assignment + K-line attachment.** A memorable event mints a K-node; its K-line
+  makes an *excitatory attachment to every currently active P-agent*. **A K-line is a
+  stored attention mask over a P-pyramid**: which nodes to activate and how much.
+  Reactivation makes P "virtually hallucinate" the old partial state.
+- **The level-band principle** (Minsky's "most important idea"). Attach only to an
+  intermediate band: too low *"would impose false perceptions and conceal the real details
+  of the present problem"*; too high *"would make us hallucinate the present problem as
+  already solved."* Restore the middle of the pyramid — structure — leaving the top free
+  for the current goal and the bottom free for current facts. Context-loading policy, 1979.
+- **Weak fringes = frame defaults.** Connections at the band's edges are weak, so they lose
+  cross-exclusion competition to anything the present situation asserts. Defaults that
+  yield to evidence, implemented as low attention weights.
+- **Cross-exclusion.** Agents cluster in mutually inhibiting groups — radio buttons. Force
+  one on and it suppresses its rivals: cheap state reset, built-in short-term memory
+  (persistence), and *dispositions* — a P-pyramid's repertory of pre-activated subsets,
+  i.e. ways of seeing (the Necker cube flip). Conflict inside a group makes the whole
+  group drop out and default upward: don't average contradictions, zoom out.
+- **K-recursion.** New K-lines attach to currently active K-nodes, not raw P-agents: *"new
+  memories are composed mainly of ingredients from earlier memories."* Vocabulary
+  compounds — each named view becomes a component of the next.
+- **Crossbar via sparse coding.** K-lines don't need full wiring; random small subsets of a
+  shared line bundle suffice (Mooers zatocoding 1956, Willshaw 1969) — hashing and Bloom
+  filters as neuroanatomy. Plus the Society answer: most agents never need to talk.
+
+The P-pyramid — the agent-scoped hierarchical view a K-line masks over — has its own
+design doc: [designs/P-PYRAMID.md](../../designs/P-PYRAMID.md).
+
+---
+
 ## Naming Convention
 
 | Rule | Example | Why |
