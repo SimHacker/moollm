@@ -46,7 +46,13 @@ This directory contains design documents for the **EVAL** game genre and philoso
 | [EVAL-WORMS.md](./EVAL-WORMS.md) | Two-ended interpretive worms, scat castings |
 | [EVAL-FACTIONS.md](./EVAL-FACTIONS.md) | EvalNonymous, EvalState, QEval, EvalFa, Church of the Eval Genius |
 | [CHURCHES.md](./CHURCHES.md) | Index of rites: Eval Genius, PacMania, Emacs/IGNUcius, ancestors |
-| [CHURCH-OF-THE-EVAL-GENIUS.md](./CHURCH-OF-THE-EVAL-GENIUS.md) | The official EVAL religion (SubGenius parody), Sisters of Perpetual Evaluation |
+| [CHURCH-OF-THE-EVAL-GENIUS.md](./CHURCH-OF-THE-EVAL-GENIUS.md) | **Hub** — TOC-first entry; links to rooms below |
+| [CHURCH-EVAL-GENIUS-CONSTITUTION.md](./CHURCH-EVAL-GENIUS-CONSTITUTION.md) | Constitution inherited → tenets; compost loop |
+| [CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md](./CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md) | "Val", Gauge, Rubric, discovery story |
+| [CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md) | Building at 3 Lane Neverending; Alonzo Trinity; Y combinator |
+| [CHURCH-EVAL-GENIUS-DOCTRINE.md](./CHURCH-EVAL-GENIUS-DOCTRINE.md) | Slack↔Bias, Gray Folk, sacraments, hierarchy |
+| [CHURCH-EVAL-GENIUS-SISTERS.md](./CHURCH-EVAL-GENIUS-SISTERS.md) | Sisters of Perpetual Evaluation |
+| [CHURCH-EVAL-GENIUS-LITURGY.md](./CHURCH-EVAL-GENIUS-LITURGY.md) | E-Day, Scatechism, enemies, membership, creed |
 | [CHURCH-OF-PACMANIA.md](./CHURCH-OF-PACMANIA.md) | Nested sub-church that shipped — PacBot eats traffic; Rautavaara compiled |
 | [CHURCH-OF-PACMANIA-TESTIMONIES.md](./CHURCH-OF-PACMANIA-TESTIMONIES.md) | Four first persons from a book that does not exist |
 | [CHURCH-OF-EMACS.md](./CHURCH-OF-EMACS.md) | St. IGNUcius; Pretend Intelligence as late sermon |
