@@ -13,7 +13,7 @@ This is the base for:
 - All of it **in git beside the save**
 - Pointers into **GitHub issues**
 
-The 1990s dream this executes: [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/kids-city-newspaper.yml) — SimCityNet's scrolling chat grown into a newsroom. [SimCityNet](./../sims/simcity-multiplayer-micropolis.md) already had chat, voice, whiteboard, votes. This is that strip, pinned to the map, archived with the city.
+The 1990s dream this executes: [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/README.md) — SimCityNet's scrolling chat grown into a newsroom. [SimCityNet](./../sims/simcity-multiplayer-micropolis.md) already had chat, voice, whiteboard, votes. This is that strip, pinned to the map, archived with the city.
 
 ---
 
@@ -89,7 +89,7 @@ event:
 
 SC2K's paper was a **generated organ**: fluff, puns, the city talking to itself in a canned voice. Funny. Opaque. Not yours.
 
-The inversion: **players write the paper into the game, about the game.** [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/kids-city-newspaper.yml) — reporting, editorials, advice column, letters, classifieds, comics. The photographer is the screen plus graphs from the save. Kids author; the machine is the press. LLMs backstage, never bylined.
+The inversion: **players write the paper into the game, about the game.** [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/README.md) — reporting, editorials, advice column, letters, classifieds, comics. The photographer is the screen plus graphs from the save. Kids author; the machine is the press. LLMs backstage, never bylined.
 
 An event card is one clipping. A newspaper issue is a layout over a set of clippings in a date range. Load an old save, read what they were fighting about. Games mostly simulate space. A player-published paper simulates **history**.
 
@@ -144,7 +144,7 @@ PacBot-3 was right: from the tile, it was a pulse. The extra floors are ours. Th
 - [CHURCH-OF-PACMANIA.md](./CHURCH-OF-PACMANIA.md) — the zone
 - [CHURCHES.md](./CHURCHES.md) — reverse over-engineering
 - [EVAL-VS-SIM.md](./EVAL-VS-SIM.md) — arguing with the sim
-- [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/kids-city-newspaper.yml)
+- [Kids' City Newspaper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/kids-city-newspaper/README.md)
 - [SimCity multiplayer / Micropolis](../sims/simcity-multiplayer-micropolis.md)
 - [GIT-AS-FOUNDATION.md](../GIT-AS-FOUNDATION.md)
 - [TicketPR](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/ticket-pr.yml)
