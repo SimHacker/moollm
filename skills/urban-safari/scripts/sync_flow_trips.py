@@ -26,37 +26,37 @@ async def sync(dest: Path, dry_run: bool) -> int:
         return 1
 
     dest.mkdir(parents=True, exist_ok=True)
-    lockdown = await create_using_usbmux()
 
     pulled = 0
     skipped = 0
 
-    async with await HouseArrestService.create(
-        lockdown, FLOW_BUNDLE_ID, documents_only=True
-    ) as service:
-        names = await service.listdir(DOCUMENTS_ROOT)
-        fit_names = sorted(n for n in names if n.lower().endswith(".fit"))
+    async with await create_using_usbmux() as lockdown:
+        async with await HouseArrestService.create(
+            lockdown, FLOW_BUNDLE_ID, documents_only=True
+        ) as service:
+            names = await service.listdir(DOCUMENTS_ROOT)
+            fit_names = sorted(n for n in names if n.lower().endswith(".fit"))
 
-        if not fit_names:
-            print("No .fit files in Flow Documents.")
-            return 0
+            if not fit_names:
+                print("No .fit files in Flow Documents.")
+                return 0
 
-        for name in fit_names:
-            remote = f"{DOCUMENTS_ROOT}/{name}"
-            local = dest / name
+            for name in fit_names:
+                remote = f"{DOCUMENTS_ROOT}/{name}"
+                local = dest / name
 
-            if local.exists() and local.stat().st_size > 0:
-                skipped += 1
-                continue
+                if local.exists() and local.stat().st_size > 0:
+                    skipped += 1
+                    continue
 
-            if dry_run:
-                print(f"would pull: {name}")
+                if dry_run:
+                    print(f"would pull: {name}")
+                    pulled += 1
+                    continue
+
+                print(f"pulling: {name}")
+                await service.pull(remote, str(local))
                 pulled += 1
-                continue
-
-            print(f"pulling: {name}")
-            await service.pull(remote, str(local))
-            pulled += 1
 
     print(f"Done — pulled {pulled}, skipped {skipped} (already present) → {dest}")
     return 0

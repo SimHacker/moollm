@@ -1,5 +1,8 @@
 # Urban Safari
 
+> **Public live stage (2026-08):** [WillWrightShowForFood/apps/ebike-safari](https://github.com/SimHacker/WillWrightShowForFood) — skill renamed **ebike-safari**.  
+> This MOOLLM `urban-safari` copy is **frozen**; Urban Safari (SFC) is amber. Do not fork scripts here.
+
 FIT rides → one map → video clips synced to GPS with frame paths over the track.
 
 **Urban safari content pipeline:** collect rides from bike computers, show every path
