@@ -12,6 +12,7 @@ This directory contains design documents for the **EVAL** game genre and philoso
 |----------|----------------|
 | [EVAL-INCARNATE-PHILOSOPHY.md](./EVAL-INCARNATE-PHILOSOPHY.md) | The foundational thesis: meaning arises through judgment |
 | [EVAL-VS-SIM.md](./EVAL-VS-SIM.md) | How EVAL differs from SIM as a genre token |
+| [PAUSE-MARK-STORY.md](./PAUSE-MARK-STORY.md) | Pause a low-res city, mark an event, write journalism that may contradict the sim |
 
 ---
 
@@ -44,7 +45,11 @@ This directory contains design documents for the **EVAL** game genre and philoso
 |----------|----------------|
 | [EVAL-WORMS.md](./EVAL-WORMS.md) | Two-ended interpretive worms, scat castings |
 | [EVAL-FACTIONS.md](./EVAL-FACTIONS.md) | EvalNonymous, EvalState, QEval, EvalFa, Church of the Eval Genius |
+| [CHURCHES.md](./CHURCHES.md) | Index of rites: Eval Genius, PacMania, Emacs/IGNUcius, ancestors |
 | [CHURCH-OF-THE-EVAL-GENIUS.md](./CHURCH-OF-THE-EVAL-GENIUS.md) | The official EVAL religion (SubGenius parody), Sisters of Perpetual Evaluation |
+| [CHURCH-OF-PACMANIA.md](./CHURCH-OF-PACMANIA.md) | Nested sub-church that shipped — PacBot eats traffic; Rautavaara compiled |
+| [CHURCH-OF-PACMANIA-TESTIMONIES.md](./CHURCH-OF-PACMANIA-TESTIMONIES.md) | Four first persons from a book that does not exist |
+| [CHURCH-OF-EMACS.md](./CHURCH-OF-EMACS.md) | St. IGNUcius; Pretend Intelligence as late sermon |
 | [SHORT-DURATION-PERSONAL-EVALUATORS.md](./SHORT-DURATION-PERSONAL-EVALUATORS.md) | ShorDurPerEval doctrine and MOOLLM/EVAL extension |
 | [EVAL-ARTIFACTS.md](./EVAL-ARTIFACTS.md) | Diary, Wish Book, Hope Chest, Shopping Basket, Criteria Ledger |
 | [EVAL-TAXONOMY.md](./EVAL-TAXONOMY.md) | Entity types, autonomy levels, personas, dialects, code-switching |
@@ -60,6 +65,8 @@ This directory contains design documents for the **EVAL** game genre and philoso
 | **Simlish** | Universal expression → Emoji YAML Jazz |
 | **Ian Bogost** | Procedural rhetoric → Eval as staged argument |
 | **Alan Kay** | Black box critique → All assumptions visible |
+| **Will Wright, Long Now 2006** | Arguing with the sim = success; opening source ≠ playable assumptions — [EVAL-VS-SIM](./EVAL-VS-SIM.md) |
+| **PacMania** | EVAL theology inside a SIM: a scoring function with a sprite |
 
 ---
 

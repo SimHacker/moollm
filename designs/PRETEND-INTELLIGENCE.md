@@ -75,7 +75,8 @@ MOOAM and related designs treat the LLM as **advisory**: it can follow rules as 
 - [skills/no-ai-gloss/](../skills/no-ai-gloss/) — **PI ingested:** terminology rule (don't endorse "AI"); GLANCE, CARD, SKILL.md
 - [skills/no-ai-slop/](../skills/no-ai-slop/) — **PI ingested:** words_to_avoid / loaded_term_ai; k-lines PI, PRETEND-INTELLIGENCE
 - [skills/no-ai-joking/examples/rms-stories-don-hopkins.yml](../skills/no-ai-joking/examples/rms-stories-don-hopkins.yml) — Don's RMS stories (house fire, gerbil, plants, Doctor)
-- [designs/openclaw/CHARACTERS-AS-AGENTS.md](./openclaw/CHARACTERS-AS-AGENTS.md) — StIGNUcius as character (tribute, not impersonation)
+- [designs/eval/CHURCH-OF-EMACS.md](./eval/CHURCH-OF-EMACS.md) — St. IGNUcius as a sister church; this note is the late sermon
+- [designs/eval/CHURCHES.md](./eval/CHURCHES.md) — index of rites
 - [examples/adventure-4/characters/real-people/don-hopkins/HEROS.yml](../examples/adventure-4/characters/real-people/don-hopkins/HEROS.yml) — RMS in hero roster (Saint IGNUcius)
 
 ---
