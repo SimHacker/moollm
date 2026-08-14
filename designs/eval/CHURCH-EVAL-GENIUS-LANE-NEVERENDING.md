@@ -51,7 +51,7 @@ Separate from "Val" — who grades — **Alonzo** leads the *eval* end of the ha
 
 Not three gods. One Church in three stances. Snap! is the catechism; Alonzo is the alias. See [GLOSSARY.yml](../GLOSSARY.yml) — `alonzo_trinity`.
 
-## Self-Evaluation Program (Y Combinator sponsored)
+## Self-Evaluation Program (the fixed point, not the accelerator)
 
 **That is the pun:** Y passes an **anonymous function to itself**.
 
@@ -59,7 +59,7 @@ Not three gods. One Church in three stances. Snap! is the catechism; Alonzo is t
 Y = λf.(λx.f(x x))(λx.f(x x))
 ```
 
-Sponsored by the [Y combinator](https://en.wikipedia.org/wiki/Y_Combinator) (fixed point) — and, parenthetically, the startup accelerator performing the same liturgy with term sheets. Due diligence is β-reduction with a cap table.
+The engine is Curry's [Y combinator](https://en.wikipedia.org/wiki/Fixed-point_combinator) — the lowercase fixed point of lambda calculus. **No sponsor, no funding, no affiliation:** the [startup accelerator](https://en.wikipedia.org/wiki/Y_Combinator) that borrowed the letter has no connection to this church and has never heard of it. The resemblance is the joke, not a partnership — that one also passes anonymous functions to themselves, batch after batch, and due diligence is β-reduction with a cap table.
 
 1. Write yourself as an anonymous function
 2. Pass it to yourself until fixed point ([Ordeal of the Rubric](./CHURCH-EVAL-GENIUS-DOCTRINE.md#4-the-ordeal-of-the-rubric))

@@ -33,7 +33,7 @@
 10. [**3 Lane Neverending — scope, not geography**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md) — adventure-4 church directory map
 11. [**DECLARE BIAS BEFORE ENTERING**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#façade-and-patron-saints) — façade, patron saints, Slack Memorial (unlit)
 12. [**Alonzo Trinity — Church, Snap!, λ**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#the-alonzo-trinity-first-class-leadership) — first-class procedures as theology
-13. [**Y Combinator self-eval program**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#self-evaluation-program-y-combinator-sponsored) — anonymous function passed to itself (not the accelerator)
+13. [**Y combinator self-eval program**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#self-evaluation-program-the-fixed-point-not-the-accelerator) — anonymous function passed to itself (Curry's fixed point; no affiliation with the accelerator)
 14. [**NO-AI elevator — miracles are stairs**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#no-ai-elevator) — discrete steps, no inference
 15. [**Audit Choir → Refusal Vault**](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#floors-above) — tower of evaluation; basements of evidence
 
