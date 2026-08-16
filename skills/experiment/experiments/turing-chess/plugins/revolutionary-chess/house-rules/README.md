@@ -19,7 +19,24 @@ change *who may join* the commoners, *when*, and *at what price*.
 | [`AMNESTY-VOTE.yml`](AMNESTY-VOTE.yml) | The commons votes on each surrender | Karma becomes currency; no self-laundering |
 | [`EXILE.yml`](EXILE.yml) | Surrender = leave the board, organelle emigrates | Brain drain; the commons prefers execution to exile |
 
+## A second axis: capture policy
+
+Surrender mixins govern *joining* the commons. The deep version adds a
+second axis — what capture *means* for an aristocrat:
+
+| Mixin | One line | Predicted politics |
+|-------|----------|--------------------|
+| [`TRIBUNAL.yml`](TRIBUNAL.yml) | Capture is an arrest; the whole board (both colors, surrendered aristocrats included) votes live-or-die | Cross-color reputation; swing-bloc loyalty theater; square testimony decides close cases |
+
+TRIBUNAL leans on [`DEEP-MEMORY.yml`](../DEEP-MEMORY.yml): pieces keep
+append-only memory logs of every step, squares keep ledgers of everything
+that occurred on them, and ballots are informed by memory and personality
+([`PIECE-CONSCIOUSNESS.yml`](../PIECE-CONSCIOUSNESS.yml)) rather than a
+cached karma integer. Without deep memory it degrades gracefully to
+karma-weighted ballots ([`TREATMENT-KARMA.yml`](../TREATMENT-KARMA.yml)).
+
 These are hypotheses in the [DYNAMICS.md](../DYNAMICS.md) sense — run them
 and see. Combinations are legal where they don't contradict (GOLDEN-BRIDGE +
 AMNESTY-VOTE: a closing window *and* a vote; VANQUISHED-MERCY + EXILE: the
-defeated may leave but take their moves with them).
+defeated may leave but take their moves with them; TRIBUNAL + anything,
+since it patches a different axis).

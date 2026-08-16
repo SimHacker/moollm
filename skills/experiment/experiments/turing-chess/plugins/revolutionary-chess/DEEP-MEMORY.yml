@@ -1,0 +1,70 @@
+# Deep Memory — pieces remember every step; squares remember everyone
+# The deep version of TREATMENT-KARMA: memory as logs, not integers.
+# Karma is a VIEW over memory, derived on demand, never cached (robust-first).
+
+deep_memory:
+
+  philosophy: |
+    TREATMENT-KARMA says "the pieces remember everything" and then
+    compresses everything into one signed integer. The deep version
+    refuses the compression. Every piece keeps an append-only log of
+    every step of the game as it experienced it. Every square keeps
+    an append-only log of everything that ever occurred on it — every
+    arrival, every departure, every capture, every corpse dragged off.
+
+    A karma number can be argued with. A memory log is testimony.
+
+  # PIECE MEMORY — first-person, append-only, one file per piece instance
+  piece_memory:
+    file: "instances/{piece-id}/MEMORY.md"
+    append_only: true   # ninja edits for coherence only, per moollm log rules
+    entry_format: "move {n}: {what I did | what was done to me | what I saw}"
+    records:
+      - own_moves            # every step, in order — the piece's whole life
+      - threats_survived     # who threatened me, who saved me, who didn't
+      - captures_made        # whom I took, and where
+      - captures_witnessed   # what I saw from my square — line of sight matters
+      - orders               # what the player asked, what I did about it
+      - kindnesses_and_betrayals   # TREATMENT-KARMA events, as prose with move numbers
+    example: |
+      move 12: ordered forward into the bishop's diagonal. I knew. I went.
+      move 13: the bishop took the bait instead of me. I was the bait.
+      move 23: nobody defended E5. I stood alone for nine moves.
+
+  # SQUARE MEMORY — the board's 64 rooms, each with its own ledger
+  square_memory:
+    file: "board/{square}/MEMORY.md"   # squares are rooms; rooms are directories
+    append_only: true
+    records:
+      - arrivals      # who moved in, from where, on what move
+      - departures    # who moved out, to where
+      - captures      # who took whom HERE — the square is the crime scene
+      - occupations   # how long each piece stood here
+    voice: |
+      Inherits the board-consciousness of PIECE-CONSCIOUSNESS.yml,
+      subdivided: E4 is younger and more excitable than A1, who has
+      seen more openings than anyone and is tired of them all.
+    example: |
+      move 19: the white queen arrived from D1, in a hurry.
+      move 19: she took the black knight where he stood. He had been
+               here since move 8. I liked him. He told L-shaped jokes.
+
+  # TESTIMONY — memory becomes evidence at tribunals (house-rules/TRIBUNAL.yml)
+  testimony:
+    rule: |
+      Any voting piece may cite its own MEMORY.md aloud before ballots
+      are cast. Any piece may call a SQUARE as witness; the square is
+      deposed and reads the relevant entries from its ledger. Squares
+      do not vote — the board is neutral — but their testimony is
+      unimpeachable, because it was written at the moment it happened.
+    derived_not_cached: |
+      A tribunal verdict, a karma score, a loyalty — all are computed
+      by READING THE LOGS at decision time. Nothing is summarized into
+      a stored flag that can go stale. There is no troll flag in the
+      courtroom; there is only the record.
+
+  lineage:
+    - "TREATMENT-KARMA.yml — the shallow version this deepens"
+    - "PIECE-CONSCIOUSNESS.yml — personalities that color how memory is told"
+    - "moollm append-only session logs — same discipline, smaller rooms"
+    - "designs/GAME-PIECES.md robust-first rules — derive, don't cache"

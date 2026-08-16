@@ -101,7 +101,7 @@ instance of a piece type is captured or capitulates, that type's moves are
 inherited by all remaining commoners.** Kill the queen and every pawn gains
 queen moves. Eliminate both rooks and everyone gains rook moves. And the
 factoring is perfect: there is a shared
-[**COMMONS**](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
+**[COMMONS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)**
 mixin — empty at game start — that `types/PAWN` inherits from, and every
 commoner inherits from PAWN. Each political event is **one edit to one
 file**: when the revolution begins, the commons receives **NWAP** (the
@@ -154,6 +154,34 @@ burns at the first execution, amnesty by karma-weighted vote of the
 commons, and exile, where the organelle emigrates and nobody inherits.
 House rules are to rulesets what colors are to pieces: orthogonal mixins
 on the same graph.
+
+The **deep version**
+([DEEP-MEMORY.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DEEP-MEMORY.yml))
+replaces the karma integer with the record itself: every piece keeps an
+append-only memory log of every step of its game — every order obeyed,
+every threat survived, every move it spent as bait — and **every square
+keeps a ledger of everything that ever occurred on it**: arrivals,
+departures, captures, who stood there and for how long. The board's 64
+squares are 64 small rooms with 64 small memories (A1 has seen more
+openings than anyone and is tired of them all). And capture gains a second
+policy axis:
+[TRIBUNAL](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/TRIBUNAL.yml)
+makes capturing an aristocrat an *arrest*, not an execution. The whole
+board votes on whether the captive lives or dies — **both colors**, plus
+surrendered aristocrats, who are commoners now and may declaim their
+loyalties before casting a ballot. Votes are grounded in how each voter
+was actually treated by the accused and in the voter's personality; any
+piece may testify from its own memory, and any piece may **call a square
+as witness** — the crime scene is deposed, reads its ledger aloud, and
+cannot lie, because the entry was written the moment it happened. Spared
+aristocrats are demoted to pawns, donating their move-set organelle to
+the commons alive. The robust-first rule holds even in court: verdicts
+are derived by reading the logs at decision time, never from a cached
+loyalty flag — there is no troll flag in the courtroom, only the record.
+Predicted dynamics: cross-color reputation (the enemy's pawns may spare
+a queen who fought them honorably), kindness in the standard game priced
+as life insurance per witness, and — on a persistent board — pieces
+citing precedent from square ledgers by the third game.
 
 The plugin runs it as a full state machine — STANDARD → REVOLUTION →
 INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
@@ -357,10 +385,7 @@ Zork's troll had two glorious behaviors and one famous bug. GIVE AXE TO
 TROLL: he eats his own weapon and cowers. GIVE TROLL TO TROLL: he eats
 himself and vanishes — self-devouring via transitive containment, arguably
 *acting as designed*, since the MDL's generic containment made it fall out
-for free. The bug: `**TROLL-FLAG` was never cleared** when he self-devoured,
-so the empty room still "fends you off with a menacing gesture." (Don
-Hopkins reverse-engineered that flag from black-box play on MIT-DM and
-confirmed it in the source decades later.)
+for free. The bug: `**TROLL-FLAG` was never cleared** when he self-devoured, so the empty room still "fends you off with a menacing gesture." (Don Hopkins reverse-over-engineered that flag from black-box play on MIT-DM and confirmed it in the source decades later.)
 
 The failure shape: **the room cached a fact about the troll instead of
 asking the troll.** A flag is a copy of state; copies go stale; stale copies
@@ -413,3 +438,35 @@ in character, then LIFT the ruling into the rules file so next time it's
 deterministic). Bugs like the troll flag become one-line prose fixes: the
 ruling "an eaten troll guards nothing" is obvious to a language engine even
 when a 1980 flag table missed it.
+
+## Compile to ECS: trade flexibility for performance, when it gels
+
+Entity component systems do multi-role entities in a **static, predefined
+way**: components are mixins with the inheritance stripped out, archetypes
+are the gelled type combinations, and systems iterate dense arrays of them
+cache-line by cache-line (Unity DOTS, Bevy, flecs). ECS is what the mixin
+graph looks like *after rigor mortis* — fast precisely because nothing can
+change shape at runtime.
+
+So don't choose; **compile**. The same move the adventure compiler makes
+(natural language → deterministic JS, LLM at authoring time only) applies
+one level down: once instance-first development (Oliver Steele's Laszlo
+term) has let the schemas **gel** — once thousands of pieces have voted
+with their `inherits:` lines and the working set of mixin combinations is
+known — compile the gelled part into ECS archetypes and trade runtime
+flexibility for performance. The long tail of odd pieces stays on the
+dynamic prototype layer; the hot path (every superbat, every crowd sim,
+every SliceCity parachuter) runs as packed arrays.
+
+This is the **Self lineage move**, not a departure from it: Ungar, Chambers,
+and Hölzle's Self VM recovered class-like efficiency from prototype-like
+freedom with maps (hidden classes) and adaptive compilation — clone families
+that share a shape share compiled machinery, transparently, without the
+author ever declaring a class. V8's hidden classes descend directly from it.
+Prototypes for authoring, classes for the compiler to *discover*: the
+taxonomy that emerged from play is exactly the archetype table ECS wants.
+Play-Learn-Lift, one level down: PLAY with free delegation, LEARN which
+shapes gel, LIFT the gelled shapes into the fast engine — and when
+Revolutionary Chess appends an organelle to the COMMONS mid-story, that's
+an archetype migration; handle it on the dynamic layer, and recompile when
+the new order gels.

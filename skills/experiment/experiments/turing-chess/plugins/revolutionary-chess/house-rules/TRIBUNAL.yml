@@ -1,0 +1,46 @@
+# TRIBUNAL — capture is an arrest, not an execution
+# A new axis: this patches capture_policy, not surrender_policy.
+# Composable with any surrender mixin in this deck.
+# Requires ../DEEP-MEMORY.yml for testimony; degrades to karma-only
+# ballots (../TREATMENT-KARMA.yml) if deep memory is off.
+
+house_rule:
+  id: tribunal
+  patches:
+    capture_policy:
+      aristocrats: on_trial   # commoners still die where they stand
+      trial:
+        venue: "the square where the capture occurred — the crime scene court"
+        electorate: "every piece on the board, black AND white, plus
+                     surrendered aristocrats (they are commoners now;
+                     they vote, and they may declaim their loyalties
+                     before voting — theater is legal)"
+        witnesses: "any piece may testify from its MEMORY.md; any piece
+                    may call a square, which is deposed from its ledger
+                    and cannot lie (DEEP-MEMORY.yml testimony rule)"
+        ballot_basis: "how the voter was treated by the accused (memory,
+                       not hearsay), the voter's personality
+                       (PIECE-CONSCIOUSNESS.yml by-type and
+                       by-experience), and declared loyalties"
+        verdicts:
+          death: "executed; move-set organelle seized into ../COMMONS.yml"
+          life: "spared and demoted — joins the commoners as a pawn,
+                 donating the organelle to the commons alive; surrender
+                 imposed by ballot rather than chosen"
+
+predicted_dynamics:
+  - "Cross-color voting scrambles the teams: the enemy's pawns may spare
+     a queen who fought them honorably and condemn one who spent her own
+     pawns as tempo. Reputation stops being a same-color affair."
+  - "Surrendered aristocrats become the swing bloc — few, articulate,
+     and carrying grudges in both directions. Their loyalty speeches
+     before the vote are the best drama in the game."
+  - "Square testimony decides close cases: E4's ledger of who abandoned
+     whom on move 23 outweighs any speech. Play near talkative squares
+     with care."
+  - "Kindness in the standard game becomes life insurance, priced per
+     witness. Elites start sparing enemy pawns they could take, because
+     every pawn spared is a juror bought honestly."
+  - "Hypothesis: TRIBUNAL + AMNESTY-VOTE converges to a jurisprudence —
+     precedents accumulate in square ledgers, and by the third game on a
+     persistent board, the pieces cite case law."
