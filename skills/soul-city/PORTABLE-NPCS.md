@@ -91,6 +91,21 @@ the session mounted — swap the topology file and the same cartridge runs on a
 Möbius strip. (Wumpus 2's cave #6, "enter your own cave," was this exact idea in
 1975: the topology is a parameter, not the game.)
 
+And embedded worlds can live **inside characters**. Interiority is not a
+privilege of scale — an Iain M. Banks Culture ship is a character containing a
+city, but a troll can contain rooms just as cheaply, because containment is just
+directories. [Two-Toll's realms](../../examples/adventure-4/characters/fictional/troll/realms/)
+mirror each mind's home corner (Zork's Troll Room, Adventure's chasm bridge) as
+embedded topologies inside him: memory palaces he retreats into
+(`location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge`), with exits
+that fade into fog where his memory ends. His
+[sorting stomach](../../examples/adventure-4/characters/fictional/troll/stomach/STOMACH.yml)
+is the other interior: a pocket universe with a smart placement protocol that
+routes what he eats into typed sub-rooms. Small characters carrying their own
+maps and microworlds is the same pattern as ships carrying cities — and worlds
+may mount a realm as a visitable place, so players can meet a character in its
+natural habitat.
+
 ## 3. Ambient games (field pattern — the grue)
 
 The grue is the other portability archetype, and the contrast is the design lesson.
