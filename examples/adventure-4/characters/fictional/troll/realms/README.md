@@ -37,3 +37,34 @@ Rules of the interior:
   microworld — meet the troll in his natural habitat, on his home planks,
   by his own bloodstains. Two games, two habitats, one troll to interview
   in either.
+
+## The pattern: block quotes of other worlds
+
+A realm is a **block quote** — a procedural rhetorical excerpt from another
+work of literature (in this case, adventure games). The whole apparatus of
+quotation maps onto it:
+
+| Quotation | Realm |
+|-----------|-------|
+| The excerpt | the mirrored rooms — his corner, not the whole map |
+| The ellipsis (…) | the fog and mist at the boundary — where the quote ends |
+| The citation | `canon:` and provenance fields — game, year, source |
+| Fair-use sizing | quote a passage, not the book: four rooms, not the Great Underground Empire |
+| Quoting from memory | descriptions are the mind's recollection, lightly editorialized ("my decor, my resume") |
+
+The same pattern at other scales:
+
+- **Disneyland dark rides.** Mr. Toad's Wild Ride, Peter Pan's Flight, Snow
+  White's Scary Adventures — navigable block quotes of a story's famous
+  corners, compressed into a track. A realm is a dark ride through a
+  character's memory of the game he lived in.
+- **Holodeck historical reenactments.** Mount the excerpt as a visitable
+  simulation, walk in, interview the inhabitants. The realm's boundary fog
+  is the holodeck wall you agree not to touch.
+- **Prose itself.** An epigraph at a chapter head is a tiny mounted realm:
+  someone else's world, quoted, with a citation, changing how you read what
+  follows.
+
+Any character can quote any world this way: excerpt the corner that matters,
+fence it in ellipsis, cite the source, and let people walk around inside the
+quotation.

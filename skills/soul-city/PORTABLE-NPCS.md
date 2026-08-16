@@ -106,6 +106,14 @@ maps and microworlds is the same pattern as ships carrying cities — and worlds
 may mount a realm as a visitable place, so players can meet a character in its
 natural habitat.
 
+A realm is a **block quote of another game**: a procedural rhetorical excerpt —
+the corner that matters, not the whole map — with the boundary fog as the
+ellipsis and the `canon:` fields as the citation. Disneyland dark rides and
+holodeck reenactments are the same move at other scales: navigable quotations
+of a story's famous corners. See
+[the troll's realms README](../../examples/adventure-4/characters/fictional/troll/realms/README.md)
+for the full quotation-apparatus mapping.
+
 ## 3. Ambient games (field pattern — the grue)
 
 The grue is the other portability archetype, and the contrast is the design lesson.
