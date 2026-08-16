@@ -143,6 +143,27 @@ piece carries its own rules and advertises its own warnings ("breeze
 nearby!") — warnings are presentation mixins on the hazard, not code in the
 room.
 
+This is precisely how Sims expansion packs and twenty-five years of
+user-created content play together harmoniously: **objects work
+independently as much as possible, with at most a few system/controller
+objects per playset**. The WillWrightShowForFood catalogs formalize the
+pattern with real playsets
+([orchestrator-playsets design](https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/orchestrator-playsets/README.md)):
+[SimProv's wedding Hope Chest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/simprov/ORCHESTRATOR.yml)
+is a `saga_controller` — it summons Cupid and gates the wedding quest tree;
+[Zombie Sims' Ham Radio](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/zombie-sims/ORCHESTRATOR.yml)
+is a `wave_controller` orchestrating outbreaks;
+[SliceCity's power plant](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/simslice/ORCHESTRATOR.yml)
+is the seed orchestrator for a whole city of otherwise-independent pieces —
+buildings, a modular airport whose components snap together, planes spawned
+and absorbed as transit objects, parachuters, swarms of people, and puddles
+of blood when you step on them (`stomp_result: red_blood_stains`).
+Everything that *can* stand alone does — Cupid, Buddha, the crowd sitter —
+à la carte, exactly like the bottomless pit in a dungeon that never heard
+of a wumpus. The controller is the exception that earns its keep, not the
+default; and even controllers coordinate by merging and gating
+*advertisements*, never by owning the objects they orchestrate.
+
 Same decomposition for the whole menagerie: the crooked arrow is a piece
 (ammunition type × inventory mixin), the lamp is a piece (light source type ×
 fuel state), and the lamp's fuel is **shared state that two games read** —
