@@ -79,6 +79,8 @@ graph TD
   ASCII -.optional.-> BQ
 ```
 
+
+
 The instance file is tiny: parents plus deltas. That is the whole Self
 insight — identity is cheap, variation is a small delta on something that
 already works, and the taxonomy *emerges* from what people actually make.
@@ -86,7 +88,7 @@ already works, and the taxonomy *emerges* from what people actually make.
 ## Revolutionary Chess: runtime inheritance as politics
 
 The mixin graph isn't static, and
-[**Revolutionary Chess**](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/)
+**[Revolutionary Chess](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/)**
 (a live plugin in the turing-chess experiment) is the demonstration that
 **adding inheritance relationships at runtime is practical** — and
 dramatically legible. The plugin lies dormant until a normal game ends with
@@ -96,15 +98,26 @@ royalty and courtier class. Civil war as a rules patch.
 
 The core mechanic is inheritance-by-extinction (or surrender): **when every
 instance of a piece type is captured or capitulates, that type's moves are
-inherited by all remaining pieces.** Kill the queen and every pawn gains
-queen moves. Eliminate both rooks and everyone gains rook moves. In mixin
-terms each political event is a one-line graph edit — add a delegation edge
-from every surviving instance to `types/QUEEN`'s rules — which is exactly
-why it's practical: no class-hierarchy rebuild, no migration, just edges
-added live to the same graph promotion already edits. And robust-first
-makes the trigger safe: "the rooks are extinct" is *derived by counting
-instance files*, never cached, so there is no troll flag to forget when
-the last rook falls.
+inherited by all remaining commoners.** Kill the queen and every pawn gains
+queen moves. Eliminate both rooks and everyone gains rook moves. And the
+factoring is perfect: there is a shared
+[**COMMONS**](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
+mixin — empty at game start — that `types/PAWN` inherits from, and every
+commoner inherits from PAWN. Each political event is **one edit to one
+file**: when the revolution begins, the commons receives **NWAP** (the
+backwards-pawn move set — "pawn" mirrored, because it *is* the pawn
+mirrored: homeward step, homeward capture, coronation at the home rank,
+*additive*, so pawns keep their forward moves and now walk both roads).
+Each regicide appends the regent's move organelle to the commons, and all
+commoners gain it through delegation edges that already exist — no
+per-instance surgery, no hierarchy rebuild, O(1) political events on the
+same graph promotion already edits. The aristocracy never inherits COMMONS,
+so bottom-up is structural rather than policed; an elite reaches the seized
+moves only by surrendering — one edit to its own `inherits:`, pointing it
+at PAWN. And robust-first keeps it honest twice over: "the rooks are
+extinct" is *derived by counting instance files*, never cached, and the
+COMMONS file doubles as the **ledger of the revolution** — read one file to
+know everything seized, and when.
 
 Biologically, this is **sideways migration of organelles**. A move-set is
 an organelle in the [soul-city sense](../skills/soul-city/SOUL-MODEL.md) —
@@ -179,10 +192,7 @@ piece carries its own rules and advertises its own warnings ("breeze
 nearby!") — warnings are presentation mixins on the hazard, not code in the
 room.
 
-This is precisely how Sims expansion packs and twenty-five years of
-user-created content play together harmoniously: **objects work
-independently as much as possible, with at most a few system/controller
-objects per playset**. The WillWrightShowForFood catalogs formalize the
+This is precisely how Sims expansion packs and twenty-six years of user-created content play together harmoniously: **objects work independently as much as possible, with at most a few system/controller objects per playset**. The WillWrightShowForFood catalogs formalize the
 pattern with real playsets
 ([orchestrator-playsets design](https://github.com/SimHacker/WillWrightShowForFood/blob/main/designs/orchestrator-playsets/README.md)):
 [SimProv's wedding Hope Chest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/simprov/ORCHESTRATOR.yml)
@@ -210,16 +220,16 @@ wumpus rules while it burns, grue rules when it dies.
 Location is a path, so containment is free and recursive:
 
 - **Inventory** — [the troll's axe](../examples/adventure-4/characters/fictional/troll/inventory/)
-  is a piece he *plays*: fight, throw, catch, eat. It composes weapon rules ×
-  throwable × edible (Zork gift protocol: weapons preferred).
+is a piece he *plays*: fight, throw, catch, eat. It composes weapon rules ×
+throwable × edible (Zork gift protocol: weapons preferred).
 - **Stomach** — [the troll's stomach](../examples/adventure-4/characters/fictional/troll/stomach/)
-  is a **location piece**: a pocket universe holding characters, weapons,
-  food, treasures. Eating is a move, not a copy: set the eaten piece's
-  `location` to the stomach path. Local state is a stub `.yml` inheriting
-  from the character — spattered in digestive juices — never a mutation of
-  the prototype.
+is a **location piece**: a pocket universe holding characters, weapons,
+food, treasures. Eating is a move, not a copy: set the eaten piece's
+`location` to the stomach path. Local state is a stub `.yml` inheriting
+from the character — spattered in digestive juices — never a mutation of
+the prototype.
 - **Recursion** — `location: self` puts the troll in his own stomach. One
-  directory; nesting is narrative depth, not filesystem depth.
+directory; nesting is narrative depth, not filesystem depth.
 
 Containers are just pieces whose presentation includes "what's inside," so a
 chess piece could contain a smaller board, and a wumpus could swallow a lamp
@@ -260,34 +270,34 @@ views, troll stomachs. Low-level moves obey; high-level verbs route.
 Games have been shipping smart placement for decades, in four families:
 
 - **Typed bags** (the container only accepts its type): World of Warcraft's
-  profession bags — herb, mining, enchanting, soul bags, quivers; EverQuest's
-  quivers and tradeskill containers before that; Breath of the Wild's pouches
-  are the purest form — an apple *can only* land in materials, and the player
-  never files anything.
+profession bags — herb, mining, enchanting, soul bags, quivers; EverQuest's
+quivers and tradeskill containers before that; Breath of the Wild's pouches
+are the purest form — an apple *can only* land in materials, and the player
+never files anything.
 - **Auto-routing on deposit** (the container inspects and files — the
-  stomach's exact protocol): Guild Wars 2's fills-first bags (oiled bags
-  attract junk, craftsman's bags attract mats, equipment boxes attract gear,
-  invisible bags opt *out* of sorting and vendoring) plus "deposit all
-  materials"; Path of Exile's stash tab affinities routing a ctrl-click dump
-  to whichever tab owns the type; Terraria's Quick Stack to Nearby Chests —
-  the elegant one, items fly to whatever chests *already contain that kind of
-  thing*, so **the world's existing arrangement is the routing table**;
-  Stardew Valley's "add to existing stacks"; Diablo III/IV material storage.
+stomach's exact protocol): Guild Wars 2's fills-first bags (oiled bags
+attract junk, craftsman's bags attract mats, equipment boxes attract gear,
+invisible bags opt *out* of sorting and vendoring) plus "deposit all
+materials"; Path of Exile's stash tab affinities routing a ctrl-click dump
+to whichever tab owns the type; Terraria's Quick Stack to Nearby Chests —
+the elegant one, items fly to whatever chests *already contain that kind of
+thing*, so **the world's existing arrangement is the routing table**;
+Stardew Valley's "add to existing stacks"; Diablo III/IV material storage.
 - **Routing as visible labor**: Dwarf Fortress stockpiles (dwarves haul
-  everything to its typed zone — the sort is performed by characters you can
-  watch), Minecraft hopper sorters (player-*built* placement protocols),
-  Factorio filter inserters and logistic chests. Factorio generalizes
-  furthest: deposit-routing made *continuous* — belts for arbitrary objects,
-  in the von Neumann 29-state universal constructor lineage
-  ([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)).
+everything to its typed zone — the sort is performed by characters you can
+watch), Minecraft hopper sorters (player-*built* placement protocols),
+Factorio filter inserters and logistic chests. Factorio generalizes
+furthest: deposit-routing made *continuous* — belts for arbitrary objects,
+in the von Neumann 29-state universal constructor lineage
+([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)).
 - **Containers with behavior** (the stomach's true family): Diablo II's
-  Horadric Cube *transforms* what it holds — a container that digests;
-  EverQuest's ovens and forges; Torchlight's pet, a walking container that
-  leaves to go sell; and NetHack's bag of tricks, a container that turns out
-  to be a creature — the exact inverse of the troll, a creature that turns
-  out to be a container. NetHack also supplies the recursion cautionary tale:
-  bag of holding in bag of holding explodes. GIVE TROLL TO TROLL just deepens
-  the narrative stack — single pocket, no boom.
+Horadric Cube *transforms* what it holds — a container that digests;
+EverQuest's ovens and forges; Torchlight's pet, a walking container that
+leaves to go sell; and NetHack's bag of tricks, a container that turns out
+to be a creature — the exact inverse of the troll, a creature that turns
+out to be a container. NetHack also supplies the recursion cautionary tale:
+bag of holding in bag of holding explodes. GIVE TROLL TO TROLL just deepens
+the narrative stack — single pocket, no boom.
 
 And in **PieCraft** (Don Hopkins,
 [canonical design in MicropolisCore](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIECRAFT.md))
@@ -307,22 +317,22 @@ the direct descendant of OpenLaszlo's placement protocol, at home in a
 zoomable interface of the kind David Temkin has pursued:
 
 - **Quick Stack for files**: drop a pile on the desktop and each file flies
-  to a folder that already contains that kind of thing — the user's existing
-  arrangement is the routing table, so the system learns filing from the
-  filing you already did. That is programming by demonstration where the
-  *demonstration is your folder structure*.
+to a folder that already contains that kind of thing — the user's existing
+arrangement is the routing table, so the system learns filing from the
+filing you already did. That is programming by demonstration where the
+*demonstration is your folder structure*.
 - **Affinities and fills-first folders**: a folder declares what it attracts
-  (INTERFACE.yml-style, one dropped file at a time); an invisible-bag folder
-  opts out of auto-sort entirely.
+(INTERFACE.yml-style, one dropped file at a time); an invisible-bag folder
+opts out of auto-sort entirely.
 - **Deposit-all verbs**: one gesture files everything routable and leaves
-  the residue visible for triage — conservative in what it moves, liberal in
-  what it accepts.
+the residue visible for triage — conservative in what it moves, liberal in
+what it accepts.
 - **Routing as visible animation**: in a zoomable interface the file
-  *visibly flies* to its destination, Terraria-style, so auto-filing is
-  self-demonstrating — the system shows you its reasoning at exactly the
-  moment you could correct it. Smart placement plus visible routing is the
-  teach-by-demonstration loop running in reverse: the system demonstrates,
-  the user inspects and corrects.
+*visibly flies* to its destination, Terraria-style, so auto-filing is
+self-demonstrating — the system shows you its reasoning at exactly the
+moment you could correct it. Smart placement plus visible routing is the
+teach-by-demonstration loop running in reverse: the system demonstrates,
+the user inspects and corrects.
 
 The **pie menu tabbed window interface** is the window-level embodiment of
 the same system
@@ -347,7 +357,7 @@ Zork's troll had two glorious behaviors and one famous bug. GIVE AXE TO
 TROLL: he eats his own weapon and cowers. GIVE TROLL TO TROLL: he eats
 himself and vanishes — self-devouring via transitive containment, arguably
 *acting as designed*, since the MDL's generic containment made it fall out
-for free. The bug: **`TROLL-FLAG` was never cleared** when he self-devoured,
+for free. The bug: `**TROLL-FLAG` was never cleared** when he self-devoured,
 so the empty room still "fends you off with a menacing gesture." (Don
 Hopkins reverse-engineered that flag from black-box play on MIT-DM and
 confirmed it in the source decades later.)
@@ -359,28 +369,28 @@ haunt rooms.
 Design rules for plug-in pieces that can't grow troll flags:
 
 1. **Presence is the flag.** "A troll guards this edge" is true iff a troll
-   instance file points at this edge. Remove the file, the fact is gone.
+  instance file points at this edge. Remove the file, the fact is gone.
    No cleanup step exists to forget.
 2. **Advertisements die with the advertiser.** The room never knows what a
-   troll is; it relays whatever pieces currently advertise. An eaten troll
+  troll is; it relays whatever pieces currently advertise. An eaten troll
    advertises nothing — from inside his own stomach, fronting is optional.
 3. **Derive, don't cache.** If another piece needs "is the bridge guarded?",
-   it asks the edge at score time. If it must cache for performance, the
+  it asks the edge at score time. If it must cache for performance, the
    cache carries the instance path it derived from, and a missing source
    invalidates it.
 4. **State lives in the instance, never the prototype.** The customs rule
-   from [PORTABLE-NPCS.md](../skills/soul-city/PORTABLE-NPCS.md): wealth,
+  from [PORTABLE-NPCS.md](../skills/soul-city/PORTABLE-NPCS.md): wealth,
    grudges, and toll ledgers are instance-local. Prototypes stay clean, so
    every new world gets a fresh troll with no haunted luggage.
 5. **Postel at the socket.** Accept pieces with missing or unknown keys;
-   default what you can, ignore what you don't understand, emit clean YAML.
+  default what you can, ignore what you don't understand, emit clean YAML.
    A piece referencing an absent mixin degrades to its next ancestor — a
    queen with no glyph set still moves like a queen and renders as "queen."
 6. **Survive > correct** (Dave Ackley, robust-first). A crashed game is
-   infinitely wrong. A pit that can't find its breeze warning is a silent
+  infinitely wrong. A pit that can't find its breeze warning is a silent
    pit, not a stack trace. Log, degrade, keep playing.
 7. **Reset is re-instantiation, not un-mutation.** `rm` instances, copy from
-   templates ([SUPERBATS.yml](../examples/adventure-4/characters/fictional/wumpus-snorax/hazards/SUPERBATS.yml)
+  templates ([SUPERBATS.yml](../examples/adventure-4/characters/fictional/wumpus-snorax/hazards/SUPERBATS.yml)
    documents this in its header). There is no "undo every flag" step because
    there are no flags to undo.
 

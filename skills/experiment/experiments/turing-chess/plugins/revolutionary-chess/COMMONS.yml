@@ -1,0 +1,47 @@
+# THE COMMONS — one shared mixin holding everything the revolution has seized
+# Perfectly factored: political events edit THIS FILE and nothing else.
+# PAWN inherits from COMMONS; every commoner inherits from PAWN.
+# The aristocracy does NOT inherit COMMONS — bottom-up is structural,
+# not policed. Seized moves reach elites only by surrender (become a pawn).
+
+commons:
+  id: commons
+  inherited_by: types/PAWN     # and through PAWN, every commoner and every surrendered elite
+  initially: []                # empty at game start; the revolution fills it
+
+move_sets: []                  # appended by political events; each entry is an organelle
+
+protocol:
+  revolution_begins: |
+    Append NWAP (below) to move_sets. Additive: pawns KEEP their forward
+    moves and gain the homeward ones. The reversal is a widening, not a
+    flip — the pawn now walks both roads.
+  regicide_or_full_surrender: |
+    When every instance of an elite type is captured or capitulates,
+    append that type's move organelle here (types/QUEEN moves, etc).
+    ONE EDIT. Every commoner gains the moves through delegation edges
+    that already exist. No per-instance surgery; O(1) political events.
+  individual_surrender: |
+    A surrendering elite edits its own inherits: to types/PAWN.
+    Joining the commons is one edge — the seized moves come with
+    membership, past and future.
+  house_rule_interactions: |
+    EXILE: the organelle leaves with the exile and is never appended here.
+    AMNESTY-VOTE: the vote gates the inherits: edit, not this file.
+
+why_this_factoring:
+  - "COMMONS is the LEDGER of the revolution: read one file to know everything seized, and when."
+  - "Reset is emptying one file. No flags, no per-instance cleanup, nothing to forget."
+  - "Presence-derived and robust-first: 'do pawns have queen moves?' is answered by delegation lookup, never by cached state."
+  - "The class the revolution enriches is a prototype, so enrichment is inheritance — the mechanism IS the politics."
+
+# NWAP — the first donation to the commons
+# 'pawn' mirrored, because the move set is literally the pawn reversed.
+nwap:
+  name: NWAP
+  aka: [homeward moves, the grudge march]
+  grants: |
+    Pawn moves toward your OWN home rank: single step homeward, double
+    step from the far rank, diagonal capture homeward. Promotion at the
+    home rank (the coronation — see MANIFESTO.md phase 4).
+  additive: true    # forward moves are kept; NWAP widens, never replaces
