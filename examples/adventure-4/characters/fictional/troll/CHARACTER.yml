@@ -159,6 +159,17 @@ soul:
       currency: treasure
       fronts_when: "the world speaks commerce — inventories, treasures, scores"
 
+  # THE SOUL'S INTERIORS — each mind's home turf, mirrored inside him.
+  # Not the whole maps: just his corner of each game, as embedded
+  # topologies (realms/README.md). He can retreat INTO his own soul.
+  realms:
+    - mind: zork-mind
+      file: realms/ZORK-TROLL-ROOM.yml
+      retreat: "location: realms/ZORK-TROLL-ROOM.yml#troll-room"
+    - mind: adventure-mind
+      file: realms/ADVENTURE-CHASM-BRIDGE.yml
+      retreat: "location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge"
+
   fronting_protocol: |
     On arrival in a new world, the troll samples the local advertisements:
     - Weapons and combat verbs present? zork-mind bids to front.

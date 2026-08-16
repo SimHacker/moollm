@@ -25,6 +25,9 @@ troll/
   minds/
     zork-mind.yml      # combat-gate organelle — currency: violence
     adventure-mind.yml # toll-gate organelle — currency: treasure
+  realms/              # the soul's interiors — each mind's home turf mirrored inside him
+    ZORK-TROLL-ROOM.yml       # the Troll Room corner, edges ending in black fog
+    ADVENTURE-CHASM-BRIDGE.yml # the chasm crossing, edges ending in white mist
   inventory/
     axe.yml            # bloody axe — fight, throw, catch, eat
   stomach/             # pocket universe (Donnie Darko recursive)
@@ -32,6 +35,15 @@ troll/
     contents/          # adventurers, treasures, axes, himself
   instances/           # per-world state: which edge, which mind fronts, toll ledger
 ```
+
+The realms are the newest organ: **each mind's local corner of its game,
+reproduced as an embedded map inside him** — not all of Zork or Colossal Cave,
+just the Troll Room with its three blocked passages, and the chasm with its
+rickety bridge and the audit spot beneath. He can literally retreat into either
+of his soul's realms (`location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge`);
+exits beyond each corner end in black fog or white mist, because memory blurs
+where he never went. Inside the mirror, the edge he guards becomes a room he
+can stand on. See [realms/README.md](realms/README.md).
 
 The axe is a playing piece he fights with, throws, catches, and eats
 (Zork gift protocol — weapons preferred). Eaten gear lands in `stomach/`.

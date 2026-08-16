@@ -1,0 +1,58 @@
+# ZORK REALM — the Troll Room corner, mirrored inside Two-Toll
+# zork-mind's home turf as interior memory palace. Not the whole Great
+# Underground Empire — just the room named after him and the passages
+# he blocked. Beyond them, sinister black fog: memory ends where he
+# never went.
+
+realm:
+  name: "The Troll Room (interior mirror)"
+  mind: ../minds/zork-mind.yml
+  game: "Zork I (Infocom, 1980)"
+  mirrors: "The Troll Room, Great Underground Empire — his corner only"
+  retreat: "location: realms/ZORK-TROLL-ROOM.yml#troll-room"
+
+rooms:
+  troll-room:
+    description: |
+      A small room with passages to the east and south and a forbidding
+      hole leading west. Bloodstains and deep scratches mar the walls —
+      my decor, my resume. In here, nobody needs to be fended off.
+      In here, I fend off memories instead.
+    exits:
+      east: east-west-passage
+      south: cellar
+      west: forbidding-hole
+    furnishings:
+      - "axe rack (empty — the axe travels with him; see ../inventory/)"
+      - "the spot where the black fog took him, marked with chalk. His chalk."
+
+  cellar:
+    description: |
+      The way they always came in, blinking from the light of the trap
+      door. In memory it smells of anticipation: footsteps overhead,
+      revenue approaching.
+    exits:
+      north: troll-room
+      up: FOG    # the trap door — he never went up; memory blurs
+
+  east-west-passage:
+    description: |
+      Where they fled when the axe did the introductions. Narrow,
+      echoing. In memory the echoes are all his.
+    exits:
+      west: troll-room
+      east: FOG  # the rest of the Empire — never his beat
+
+  forbidding-hole:
+    description: |
+      The hole leading west toward the maze of twisty little passages.
+      Even in his own interior he does not go in. Some things forbid
+      trolls too.
+    exits:
+      east: troll-room
+      west: FOG  # all alike in there; memory declines to render it
+
+boundary:
+  FOG: |
+    A cloud of sinister black fog marks the edge of the realm — the
+    same fog that took the carcass, repurposed as a property line.

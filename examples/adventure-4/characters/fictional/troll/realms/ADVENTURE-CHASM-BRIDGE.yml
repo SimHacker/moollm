@@ -1,0 +1,63 @@
+# ADVENTURE REALM — the chasm bridge corner, mirrored inside Two-Toll
+# adventure-mind's home turf as interior memory palace. Not all of
+# Colossal Cave — just the chasm, the bridge he prices, and the spot
+# beneath it where he waited out the eggs audit. Beyond, white mist:
+# memory ends where he never went.
+
+realm:
+  name: "The Rickety Bridge (interior mirror)"
+  mind: ../minds/adventure-mind.yml
+  game: "Colossal Cave Adventure (Crowther & Woods, 1977)"
+  mirrors: "the chasm crossing, Colossal Cave — his corner only"
+  retreat: "location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge"
+
+rooms:
+  sw-side-of-chasm:
+    description: |
+      One side of a large, deep chasm. A heavy white mist rising up
+      from below obscures all view of the far side. A rickety wooden
+      bridge extends across, vanishing into the mist. The sign reads:
+      "STOP! PAY TROLL!" He painted it himself. Twice — the first
+      apostrophe placement was wrong.
+    exits:
+      cross: rickety-bridge
+      down: beneath-the-bridge
+      back: MIST   # toward Bedquilt and the rest of the cave — not his beat
+
+  rickety-bridge:
+    description: |
+      Outside, this is an EDGE — his location is a rule, one treasure
+      per crossing. Inside, the bridge is a ROOM: he can stand on his
+      own crossing with nobody coming and nothing owed. A border
+      guard's inner life. The planks creak in load-bearing memory of
+      exactly one bear.
+    exits:
+      sw: sw-side-of-chasm
+      ne: ne-side-of-chasm
+      down: beneath-the-bridge   # not recommended; that's what the bridge is FOR
+
+  ne-side-of-chasm:
+    description: |
+      The far side, where customers went after paying. In memory it is
+      always slightly disappointing — they never looked back, never
+      waved. Repeat business is courteous; gratitude is extra.
+    exits:
+      cross: rickety-bridge
+      on: MIST     # the corridor toward the barren room. Something lumbers
+                   # in that mist. He does not render it. NEVER AGAIN twice.
+
+  beneath-the-bridge:
+    description: |
+      Where he stepped out from during the golden eggs incident — the
+      audit office. Cool, dark, acoustically perfect for hearing
+      "fee fie foe foo" spoken anywhere on the span above. The ledger
+      lives here in memory: every crossing, every treasure, one entry
+      marked RECALLED in a hand that still shakes slightly.
+    exits:
+      up: sw-side-of-chasm
+
+boundary:
+  MIST: |
+    Heavy white mist marks the edge of the realm — the same mist that
+    obscured the far side, repurposed as a property line. The bear is
+    somewhere beyond it. The mist stays.
