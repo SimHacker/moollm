@@ -1,17 +1,42 @@
 # ZORK REALM — the Troll Room corner, mirrored inside Two-Toll
 # zork-mind's home turf as interior memory palace. Not the whole Great
-# Underground Empire — just the room named after him and the passages
-# he blocked. Beyond them, sinister black fog: memory ends where he
-# never went.
+# Underground Empire — just the room named after him, the passages he
+# blocked, and a one-move dilation into the canonical neighbors: the
+# trap door above (entrance), the Round Room beyond (exit hub), one
+# step into the maze. Beyond those, sinister black fog: memory ends
+# where he never went. Reality-capture style — the scene that matters,
+# walkable, glitch-fuzzed where the recording ends.
 
 realm:
   name: "The Troll Room (interior mirror)"
   mind: ../minds/zork-mind.yml
   game: "Zork I (Infocom, 1980)"
-  mirrors: "The Troll Room, Great Underground Empire — his corner only"
+  mirrors: "The Troll Room and its canonical neighborhood, dilated one move"
   retreat: "location: realms/ZORK-TROLL-ROOM.yml#troll-room"
 
 rooms:
+  trap-door:
+    role: entrance   # how every customer arrived; the top of the ride
+    description: |
+      The underside of the famous trap door, at the top of the stairs
+      above the cellar. In memory it is always mid-slam: the crash, the
+      dark, the muffled sound of someone above realizing they cannot go
+      back. Beautiful acoustics. His favorite overture.
+    exits:
+      down: cellar
+      up: FOG      # the Living Room, the white house, daylight — never his
+
+  cellar:
+    description: |
+      Dark and damp, a narrow passageway leading north, the bottom of a
+      steep metal ramp nobody ever climbed back up. The way they always
+      came in, blinking from the light of the trap door. In memory it
+      smells of anticipation: footsteps overhead, revenue approaching.
+    exits:
+      up: trap-door
+      north: troll-room
+      west: FOG    # the unclimbable ramp — even memory can't climb it
+
   troll-room:
     description: |
       A small room with passages to the east and south and a forbidding
@@ -26,33 +51,56 @@ rooms:
       - "axe rack (empty — the axe travels with him; see ../inventory/)"
       - "the spot where the black fog took him, marked with chalk. His chalk."
 
-  cellar:
-    description: |
-      The way they always came in, blinking from the light of the trap
-      door. In memory it smells of anticipation: footsteps overhead,
-      revenue approaching.
-    exits:
-      north: troll-room
-      up: FOG    # the trap door — he never went up; memory blurs
-
   east-west-passage:
+    role: exit-hall
     description: |
       Where they fled when the axe did the introductions. Narrow,
-      echoing. In memory the echoes are all his.
+      echoing, a stairway leading down at the north end. In memory the
+      echoes are all his.
     exits:
       west: troll-room
-      east: FOG  # the rest of the Empire — never his beat
+      east: round-room
+      down: FOG    # the chasm below the stairs — heard, never visited
+
+  round-room:
+    role: branching   # the far end of every chase; the realm's one hub
+    description: |
+      A circular room with passages in all directions. This is as far
+      as he ever chased anyone — past here they scattered like marbles,
+      and the room spins a little in memory, the way it spun for
+      everyone. All the passages but one lead into fog. He stands in
+      the middle sometimes, counting exits he never took.
+    exits:
+      west: east-west-passage
+      north: FOG
+      east: FOG
+      south: FOG
+      southeast: FOG   # every direction the Empire went on without him
 
   forbidding-hole:
     description: |
       The hole leading west toward the maze of twisty little passages.
-      Even in his own interior he does not go in. Some things forbid
-      trolls too.
+      Even in his own interior he mostly does not go in. Some things
+      forbid trolls too. But memory has taken exactly one step —
     exits:
       east: troll-room
-      west: FOG  # all alike in there; memory declines to render it
+      west: maze-1
+
+  maze-1:
+    role: one-step-in
+    description: |
+      A maze of twisty little passages, all alike. One room of it,
+      quoted from memory, which is one room more than is wise. Every
+      exit looks like every other exit, and all of them are fog. The
+      skeleton and the rusty knife are somewhere past the ellipsis;
+      he leaves them there.
+    exits:
+      east: forbidding-hole
+      all-other-directions: FOG   # all alike; memory declines to render them
 
 boundary:
   FOG: |
     A cloud of sinister black fog marks the edge of the realm — the
     same fog that took the carcass, repurposed as a property line.
+    It is the ellipsis of the quotation and the fuzz at the edge of
+    the reality capture: the recording ends here.

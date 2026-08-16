@@ -1,17 +1,32 @@
 # ADVENTURE REALM — the chasm bridge corner, mirrored inside Two-Toll
 # adventure-mind's home turf as interior memory palace. Not all of
-# Colossal Cave — just the chasm, the bridge he prices, and the spot
-# beneath it where he waited out the eggs audit. Beyond, white mist:
-# memory ends where he never went.
+# Colossal Cave — the chasm, the bridge he prices, the audit spot
+# beneath, dilated one move into the canonical neighbors: the winding
+# corridor that delivered customers (entrance), the long corridor they
+# left through (exit), and the fork where their fates divided. Beyond,
+# white mist: memory ends where he never went. Reality-capture style —
+# the scene that matters, walkable, fuzzed where the recording ends.
 
 realm:
   name: "The Rickety Bridge (interior mirror)"
   mind: ../minds/adventure-mind.yml
   game: "Colossal Cave Adventure (Crowther & Woods, 1977)"
-  mirrors: "the chasm crossing, Colossal Cave — his corner only"
+  mirrors: "the chasm crossing and its canonical neighborhood, dilated one move"
   retreat: "location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge"
 
 rooms:
+  winding-corridor:
+    role: entrance   # how the customers arrived, wallets full
+    description: |
+      A long winding corridor sloping out of sight in both directions.
+      Downhill leads to the chasm; uphill fades into mist. In memory
+      this is the sound of business approaching: footsteps with that
+      particular clink of carried treasure. He could price a customer
+      by the clink alone, three bends before they arrived.
+    exits:
+      down: sw-side-of-chasm
+      up: MIST     # toward Bedquilt and the rest of the cave — not his beat
+
   sw-side-of-chasm:
     description: |
       One side of a large, deep chasm. A heavy white mist rising up
@@ -20,9 +35,9 @@ rooms:
       "STOP! PAY TROLL!" He painted it himself. Twice — the first
       apostrophe placement was wrong.
     exits:
+      up: winding-corridor
       cross: rickety-bridge
       down: beneath-the-bridge
-      back: MIST   # toward Bedquilt and the rest of the cave — not his beat
 
   rickety-bridge:
     description: |
@@ -43,8 +58,35 @@ rooms:
       waved. Repeat business is courteous; gratitude is extra.
     exits:
       cross: rickety-bridge
-      on: MIST     # the corridor toward the barren room. Something lumbers
-                   # in that mist. He does not render it. NEVER AGAIN twice.
+      ne: long-corridor
+
+  long-corridor:
+    role: exit-hall
+    description: |
+      A long corridor leading away from the chasm. A faint rumbling
+      noise can be heard in the distance — the volcano, doing its
+      volcano accounting. Paid customers walked this way with their
+      lighter packs, footsteps fading toward the fork. He knows this
+      corridor entirely by ear.
+    exits:
+      sw: ne-side-of-chasm
+      east: fork-in-path
+
+  fork-in-path:
+    role: branching   # where the customers' fates divided; both prongs are ellipses
+    description: |
+      The path forks here, and this is as far as his knowledge goes —
+      everything past it is hearsay reconstructed from returning
+      customers. The left fork climbs toward warm walls and the
+      rumble: the ones who went left came back sweating and
+      talking about a breath-taking view. The right fork leads toward
+      the barren room: the ones who went right came back fast, pale,
+      and once — ONCE — with the bear. Both prongs end in mist. The
+      right one ends in mist that lumbers.
+    exits:
+      back: long-corridor
+      left: MIST    # warm walls, the breath-taking view, the volcano — hearsay
+      right: MIST   # the barren room. NEVER AGAIN. The mist stays. He checks it, though.
 
   beneath-the-bridge:
     description: |
@@ -59,5 +101,7 @@ rooms:
 boundary:
   MIST: |
     Heavy white mist marks the edge of the realm — the same mist that
-    obscured the far side, repurposed as a property line. The bear is
-    somewhere beyond it. The mist stays.
+    obscured the far side, repurposed as a property line. It is the
+    ellipsis of the quotation and the fuzz at the edge of the reality
+    capture: the recording ends here. The bear is somewhere beyond the
+    right-hand prong. The mist stays.

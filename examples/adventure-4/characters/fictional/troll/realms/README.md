@@ -11,10 +11,21 @@ location: realms/ZORK-TROLL-ROOM.yml#troll-room        # sulk with the axe
 location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge   # audit in peace
 ```
 
-| Realm | Mind | Corner mirrored |
-|-------|------|-----------------|
-| [`ZORK-TROLL-ROOM.yml`](ZORK-TROLL-ROOM.yml) | [zork-mind](../minds/zork-mind.yml) | The Troll Room and its three blocked passages |
-| [`ADVENTURE-CHASM-BRIDGE.yml`](ADVENTURE-CHASM-BRIDGE.yml) | [adventure-mind](../minds/adventure-mind.yml) | The chasm, the rickety bridge, and beneath it |
+| Realm | Mind | Corner mirrored (dilated one move) |
+|-------|------|------------------------------------|
+| [`ZORK-TROLL-ROOM.yml`](ZORK-TROLL-ROOM.yml) | [zork-mind](../minds/zork-mind.yml) | Trap door → cellar → Troll Room → East-West Passage → Round Room, plus one step into the maze |
+| [`ADVENTURE-CHASM-BRIDGE.yml`](ADVENTURE-CHASM-BRIDGE.yml) | [adventure-mind](../minds/adventure-mind.yml) | Winding corridor → chasm → rickety bridge → far side → long corridor → the fork, plus the audit office beneath |
+
+Each realm is **dilated one move outward** from the home room into its
+canonical neighbors, selectively: an **entrance hall** to walk down (the
+slamming trap door; the winding corridor with its clink of approaching
+treasure), an **exit hall** to leave through (the East-West Passage; the long
+corridor with its faint volcano rumble), and **one good fork** for local
+branching (the Round Room, spinning, all exits but one in fog; the fork in the
+path, where the left prong is hearsay of a breath-taking view and the right
+prong is mist that lumbers). Rooms are tagged with their `role:` — entrance,
+exit-hall, branching, one-step-in — so the excerpt reads as a ride, not a
+diorama.
 
 Rules of the interior:
 
@@ -49,7 +60,7 @@ quotation maps onto it:
 | The excerpt | the mirrored rooms — his corner, not the whole map |
 | The ellipsis (…) | the fog and mist at the boundary — where the quote ends |
 | The citation | `canon:` and provenance fields — game, year, source |
-| Fair-use sizing | quote a passage, not the book: four rooms, not the Great Underground Empire |
+| Fair-use sizing | quote a passage, not the book: seven rooms, not the Great Underground Empire |
 | Quoting from memory | descriptions are the mind's recollection, lightly editorialized ("my decor, my resume") |
 
 The same pattern at other scales:
@@ -61,6 +72,10 @@ The same pattern at other scales:
 - **Holodeck historical reenactments.** Mount the excerpt as a visitable
   simulation, walk in, interview the inhabitants. The realm's boundary fog
   is the holodeck wall you agree not to touch.
+- **Cyberpunk 2077 braindances.** Volumetric reality captures of a scene —
+  walkable, scrubbable, glitch-fuzzed at the edge of the recording. A realm
+  is a braindance of a game: the capture volume is the dilated excerpt, and
+  the fog is where the sensor data ends.
 - **Prose itself.** An epigraph at a chapter head is a tiny mounted realm:
   someone else's world, quoted, with a citation, changing how you read what
   follows.

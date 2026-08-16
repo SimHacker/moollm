@@ -38,10 +38,12 @@ troll/
 
 The realms are the newest organ: **each mind's local corner of its game,
 reproduced as an embedded map inside him** — not all of Zork or Colossal Cave,
-just the Troll Room with its three blocked passages, and the chasm with its
-rickety bridge and the audit spot beneath. He can literally retreat into either
-of his soul's realms (`location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge`);
-exits beyond each corner end in black fog or white mist, because memory blurs
+just his neighborhood, dilated one move into the canonical neighbors: the
+slamming trap door down through the Troll Room to the spinning Round Room; the
+winding corridor across the rickety bridge to the fork where the right prong
+is mist that lumbers. He can literally retreat into either of his soul's
+realms (`location: realms/ADVENTURE-CHASM-BRIDGE.yml#beneath-the-bridge`);
+exits beyond each excerpt end in black fog or white mist, because memory blurs
 where he never went. Inside the mirror, the edge he guards becomes a room he
 can stand on. See [realms/README.md](realms/README.md).
 
