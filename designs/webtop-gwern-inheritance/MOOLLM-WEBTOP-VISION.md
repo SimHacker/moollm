@@ -48,6 +48,22 @@ overlay needs **JSON/cell bridge** + Electron hooks — design for it, ship brow
 - Window frame pies (NeWS ICCCM WM), Kando overlay, Micropolis **PIE-TAB-WINDOWS**
 - Directional layout for WM commands: front/back, grab corners, move axis
 
+### Smart placement (auto-routing on deposit)
+
+- Drop a pile of files: each flies to a folder that already contains that
+  kind of thing — **the user's arrangement is the routing table** (Terraria
+  Quick Stack; GW2 fills-first bags; PoE affinities); demonstration-by-filing
+- Folders declare affinities; invisible-bag folders opt out of auto-sort;
+  deposit-all verbs file the routable and leave residue visible for triage
+- Snapping & Grouping in PIE-TAB-WINDOWS is the same protocol for windows:
+  the workspace inspects the dragged Card and offers placements
+- Routing is **visible animation** in the zoomable surface — self-demonstrating,
+  correctable at the moment of filing; lineage from OpenLaszlo determine-placement
+  through the troll's sorting stomach: [GAME-PIECES.md](../GAME-PIECES.md)
+  ("Smart placement" and "Beyond games: the webtop")
+- Pies as typed bags, slot count as valence, composed into molecules:
+  [PieCraft](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIECRAFT.md)
+
 
 
 ### Rooms (memory palace)

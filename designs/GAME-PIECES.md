@@ -228,6 +228,23 @@ zoomable interface of the kind David Temkin has pursued:
   teach-by-demonstration loop running in reverse: the system demonstrates,
   the user inspects and corrects.
 
+The **pie menu tabbed window interface** is the window-level embodiment of
+the same system
+([PIE-TAB-WINDOWS.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/notes/PIE-TAB-WINDOWS.md)
+in MicropolisCore; shell context in
+[MOOLLM-WEBTOP-VISION.md](webtop-gwern-inheritance/MOOLLM-WEBTOP-VISION.md)).
+A **Stack is a typed bag of Cards**; a **tab is simultaneously the handle
+and the advertisement** — grab it to drag, pop a pie on it for the Card's
+verbs (close, detach to window, move to stack, open in git), heritage
+running back through NeWS tabbed frames and the PSIBER Space Deck. And its
+Snapping & Grouping rules are literally a placement protocol for windows:
+dragging a Card offers snap positions — dock as a sibling in the layout
+tree, insert into a target Stack (tab rows merge), or pull out to float —
+so the *workspace* inspects the incoming window and offers placements, the
+way the stomach inspects the incoming meal. Pies, tabs, Stacks, and
+PieCraft molecules are one container algebra at four scales: slice, tab,
+window, workspace.
+
 ## Robust-first: the TROLL-FLAG lesson
 
 Zork's troll had two glorious behaviors and one famous bug. GIVE AXE TO
