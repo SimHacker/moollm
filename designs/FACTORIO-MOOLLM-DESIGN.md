@@ -193,6 +193,60 @@ Don Hopkins shows up across HN Factorio threads with a consistent set of motifs.
 - "Satisfactory is 3D Factorio, but the grid is what makes Factorio programmable."
 - "Pinball machine with millions of balls."
 
+## Belts for arbitrary objects: von Neumann's universal constructor on steroids
+
+Von Neumann's 29-state cellular automaton (designed 1948–51, completed and
+published by Arthur Burks in 1966 as *Theory of Self-Reproducing Automata*)
+is Factorio's ancestor at the level of architecture, not just vibes:
+transmission states carry signals along constructed paths (belts),
+confluent states combine and gate them (inserters and assemblers), the
+construction arm writes new cells into the grid (construction bots), and
+the tape describing what to build is data traveling through the same
+machinery it describes (blueprints). Factorio is the 29-state CA with
+better graphics, throughput ratios, and trains. The lineage runs through
+Toffoli and Margolus's CAM-6 cellular automata machine and Rucker &
+Walker's CelLab to Don's
+[CAM6 simulator port](https://github.com/SimHacker/CAM6), and the
+isomorphism table above is why the vocabulary transfers so well.
+
+The upgrade this design wants: **belts that carry arbitrary data types and
+objects, not iron plates.** Every Factorio routing primitive generalizes:
+
+| Factorio primitive | Generalized |
+|--------------------|-------------|
+| Typed item on belt | Any object — YAML character, JSON record, image, email, commit |
+| Filter inserter | Pattern dispatch — smart placement as a *continuous* process |
+| Splitter | Conditional / load balancer over object streams |
+| Assembler + recipe | Function or constructor consuming typed inputs (recipe = skill) |
+| Chest | Buffer with visible depth — backpressure you can see |
+| Circuit network | Control plane reading and gating the data plane |
+| Blueprint | A machine description that can ride the belt it describes |
+
+Deposit-routing (the [smart placement](GAME-PIECES.md) family — quick-stack,
+affinities, the sorting stomach) is the *discrete* case: one drop, one
+routing decision. Belts are the same protocol made **continuous**: standing
+flows of objects with visible intermediate products, filter dispatch at
+every junction, and backpressure instead of overflow. A webtop with both
+has file management (drop the pile, it files itself) and *data* management
+(stand up a belt from inbox to classifier to archive and watch the objects
+ride it). The Leela pipeline mapping above is exactly this with the
+graphics turned off; the design ask is to turn the graphics back on —
+Factorio as the direct-manipulation surface for dataflow, where debugging
+is *watching the belt back up*.
+
+"On steroids" is the constructor closing the loop: recipes whose *outputs
+are machines*. A blueprint is an object on a belt; an assembler that
+consumes a blueprint and emits an assembler is von Neumann's self-reproduction
+move, which Factorio players already perform manually every time the
+factory builds the factory's next module. MOOLLM's version is the
+[adventure compiler](../skills/adventure/ADVENTURE-COMPILER.md): the LLM
+as constructor reads natural-language tape and emits deterministic JS
+machines that run without the constructor — and the
+[chess-set mixin factory](GAME-PIECES.md) is an instantiation line, pieces
+manufactured by composing type × rules × presentation mixins rather than
+enumerated by hand. Universal construction with a language-understanding
+head on the construction arm.
+
 ## Trade-offs
 
 Factorio forces you to confront trade-offs that don't have right answers — only context-dependent better choices. Compact designs save space but can't grow. One fast assembler is simpler than four slow ones, but four survive a breakdown. Smelting on-site avoids train logistics but sprawls the base. Direct insertion maximizes throughput but couples producer to consumer. These same trade-offs appear in cloud architecture (monolith vs microservices, sync vs async) and MOOLLM design (one big prompt vs many small skills, local vs cloud LLM).

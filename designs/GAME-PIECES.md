@@ -183,7 +183,10 @@ Games have been shipping smart placement for decades, in four families:
 - **Routing as visible labor**: Dwarf Fortress stockpiles (dwarves haul
   everything to its typed zone — the sort is performed by characters you can
   watch), Minecraft hopper sorters (player-*built* placement protocols),
-  Factorio filter inserters and logistic chests.
+  Factorio filter inserters and logistic chests. Factorio generalizes
+  furthest: deposit-routing made *continuous* — belts for arbitrary objects,
+  in the von Neumann 29-state universal constructor lineage
+  ([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)).
 - **Containers with behavior** (the stomach's true family): Diablo II's
   Horadric Cube *transforms* what it holds — a container that digests;
   EverQuest's ovens and forges; Torchlight's pet, a walking container that
