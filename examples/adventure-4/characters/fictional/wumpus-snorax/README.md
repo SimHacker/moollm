@@ -76,8 +76,14 @@ Snorax, the Grue, and [Two-Toll the Cross-Platform Troll](../troll/) run **paral
 
 They don't compete. They complement. Each binds to a different element of the
 world graph — node, ambient condition, edge — so any room network can host all
-three at once. Worst case: lamp dying adjacent to the wumpus room, on the wrong
-side of an unpaid bridge.
+three at once.
+
+**How Snorax and the Grue interoperate:** your **lamp** is shared state both games
+read. While it burns, you play Hunt the Wumpus — smell warnings, adjacency,
+arrows. When it runs out, you are suddenly in Don't Go In The Dark — the grue's
+countdown starts in the same rooms you were already navigating. The wumpus did not
+move; the **rules changed under you**. Worst case: lamp dying adjacent to the wumpus
+room, on the wrong side of an unpaid bridge.
 
 More portable NPCs (superbats, bottomless pit, the ACME vending machine) and the
 travel contract they share: [soul-city/PORTABLE-NPCS.md](../../../../../skills/soul-city/PORTABLE-NPCS.md).

@@ -48,6 +48,13 @@ The grue and Snorax run **parallel games** in the same maze:
 
 They don't compete. They complement. The wumpus won't enter grue territory (darkness). The grue won't enter the wumpus's lair (too smelly).
 
+**How they interoperate:** your **lamp** is shared state. While it burns, you play
+Hunt the Wumpus — spatial puzzle, smell warnings, arrows. When it runs out, you are
+suddenly in Don't Go In The Dark — the grue's countdown starts in the same rooms
+you were already in. The wumpus did not move; the **rules changed under you**.
+Worst case: lamp dying one room from Snorax, still smelling him, now counting grue
+turns in the dark.
+
 ---
 
 ## 👁️ What The Grue Fears
