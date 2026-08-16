@@ -1,6 +1,6 @@
 # Two-Toll the Troll
 
-One soul. Two minds. Two of the oldest jobs in adventure gaming.
+**a.k.a. the Cross-Platform Troll.** One soul. Two minds. Two of the oldest jobs in adventure gaming.
 
 In **Colossal Cave Adventure** (Crowther & Woods, 1977) a burly troll stands by the
 bridge across the fissure and insists you throw him a treasure. One per crossing.
