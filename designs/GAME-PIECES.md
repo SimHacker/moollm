@@ -162,6 +162,62 @@ This is the drag-and-drop contract every direct-manipulation microworld
 needs: SimCity tiles, Sims object slots, HyperCard backgrounds, Laszlo
 views, troll stomachs. Low-level moves obey; high-level verbs route.
 
+### The genealogy in shipped games
+
+Games have been shipping smart placement for decades, in four families:
+
+- **Typed bags** (the container only accepts its type): World of Warcraft's
+  profession bags — herb, mining, enchanting, soul bags, quivers; EverQuest's
+  quivers and tradeskill containers before that; Breath of the Wild's pouches
+  are the purest form — an apple *can only* land in materials, and the player
+  never files anything.
+- **Auto-routing on deposit** (the container inspects and files — the
+  stomach's exact protocol): Guild Wars 2's fills-first bags (oiled bags
+  attract junk, craftsman's bags attract mats, equipment boxes attract gear,
+  invisible bags opt *out* of sorting and vendoring) plus "deposit all
+  materials"; Path of Exile's stash tab affinities routing a ctrl-click dump
+  to whichever tab owns the type; Terraria's Quick Stack to Nearby Chests —
+  the elegant one, items fly to whatever chests *already contain that kind of
+  thing*, so **the world's existing arrangement is the routing table**;
+  Stardew Valley's "add to existing stacks"; Diablo III/IV material storage.
+- **Routing as visible labor**: Dwarf Fortress stockpiles (dwarves haul
+  everything to its typed zone — the sort is performed by characters you can
+  watch), Minecraft hopper sorters (player-*built* placement protocols),
+  Factorio filter inserters and logistic chests.
+- **Containers with behavior** (the stomach's true family): Diablo II's
+  Horadric Cube *transforms* what it holds — a container that digests;
+  EverQuest's ovens and forges; Torchlight's pet, a walking container that
+  leaves to go sell; and NetHack's bag of tricks, a container that turns out
+  to be a creature — the exact inverse of the troll, a creature that turns
+  out to be a container. NetHack also supplies the recursion cautionary tale:
+  bag of holding in bag of holding explodes. GIVE TROLL TO TROLL just deepens
+  the narrative stack — single pocket, no boom.
+
+### Beyond games: the webtop
+
+Every desktop ever shipped makes the user do all the filing by hand. These
+are features a general-purpose webtop window/object manager should have —
+the direct descendant of OpenLaszlo's placement protocol, at home in a
+zoomable interface of the kind David Temkin has pursued:
+
+- **Quick Stack for files**: drop a pile on the desktop and each file flies
+  to a folder that already contains that kind of thing — the user's existing
+  arrangement is the routing table, so the system learns filing from the
+  filing you already did. That is programming by demonstration where the
+  *demonstration is your folder structure*.
+- **Affinities and fills-first folders**: a folder declares what it attracts
+  (INTERFACE.yml-style, one dropped file at a time); an invisible-bag folder
+  opts out of auto-sort entirely.
+- **Deposit-all verbs**: one gesture files everything routable and leaves
+  the residue visible for triage — conservative in what it moves, liberal in
+  what it accepts.
+- **Routing as visible animation**: in a zoomable interface the file
+  *visibly flies* to its destination, Terraria-style, so auto-filing is
+  self-demonstrating — the system shows you its reasoning at exactly the
+  moment you could correct it. Smart placement plus visible routing is the
+  teach-by-demonstration loop running in reverse: the system demonstrates,
+  the user inspects and corrects.
+
 ## Robust-first: the TROLL-FLAG lesson
 
 Zork's troll had two glorious behaviors and one famous bug. GIVE AXE TO
