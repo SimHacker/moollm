@@ -1,0 +1,23 @@
+# GOLDEN BRIDGE — surrender window closes at the first execution
+# "Build your opponent a golden bridge to retreat across." — Sun Tzu
+# The bridge exists, briefly. Then it burns.
+
+house_rule:
+  id: golden-bridge
+  patches:
+    surrender_policy:
+      winning_side: allowed
+      losing_side: allowed
+      window: "open from revolution start until the first execution of an
+               elite of YOUR OWN type; then forbidden for that type"
+
+predicted_dynamics:
+  - "Sharpens the cascade to a knife edge: the first execution of a rook
+     strands every other rook on the wrong side of the bridge."
+  - "Procrastinators burn. The optimal surrender time collapses from
+     'early' to 'immediately'."
+  - "Creates a race between revolutionary justice and elite defection —
+     the commons may deliberately DELAY executions to tempt more
+     donations, or rush one execution per type to lock the rest out."
+  - "Hypothesis: commons factions split over execution timing — mercy
+     doves (harvest surrenders) vs guillotine hawks (lock the doors)."

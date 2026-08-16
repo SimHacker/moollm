@@ -1,0 +1,24 @@
+# EXILE — surrender means leaving the board
+# The organelle emigrates with the exile. Nobody inherits.
+
+house_rule:
+  id: exile
+  patches:
+    surrender_policy:
+      winning_side: allowed
+      losing_side: allowed
+      consequence: "surrendered piece is removed from the board; its
+                    move-set organelle LEAVES WITH IT — no transplant,
+                    no inheritance from surrendered types"
+
+predicted_dynamics:
+  - "Brain drain: every exile is an organelle the commons never gets."
+  - "Dark incentive inversion: the revolution PREFERS execution to
+     exile, because only carcasses donate. The commons hunts hardest
+     the elites most willing to leave."
+  - "Elites gain real leverage — 'let me go or fight me' is a genuine
+     threat when leaving costs the revolution its inheritance."
+  - "Hypothesis: negotiated outcomes emerge that base rules never
+     produce — safe-passage deals, hostage organelles, partial
+     donations as exit visas (combine with AMNESTY-VOTE for a full
+     immigration policy)."

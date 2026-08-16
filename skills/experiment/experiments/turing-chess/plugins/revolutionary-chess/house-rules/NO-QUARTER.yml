@@ -1,0 +1,20 @@
+# NO QUARTER — surrender is not an option
+# Removes the golden bridge. Sun Tzu warned about this.
+
+house_rule:
+  id: no-quarter
+  patches:
+    surrender_policy:
+      winning_side: forbidden
+      losing_side: forbidden
+
+predicted_dynamics:
+  - "Elites fight like cornered animals — no exit means maximal resistance."
+  - "No surrender cascades; every organelle must be taken from a carcass."
+  - "Longest, bloodiest INHERITANCE phase; aristocratic holdouts bunker in
+     corners and play for stalemate."
+  - "Equality still arrives — extinction is inevitable against reversed
+     pawns with growing move-sets — but the board is a graveyard and the
+     commons inherits everything the hard way."
+  - "Hypothesis: total game length 2-3x baseline; zero elite survivors by
+     definition; the sandbox phase opens on a depopulated board."

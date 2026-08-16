@@ -1,0 +1,24 @@
+# VICTOR'S EXIT — only the winning side's elites may surrender
+# The war's winners get the golden bridge; the losers' aristocracy
+# is locked in with its own reversed pawns.
+
+house_rule:
+  id: victors-exit
+  patches:
+    surrender_policy:
+      winning_side: allowed
+      losing_side: forbidden
+
+predicted_dynamics:
+  - "The losing aristocracy is exterminated by its own pawns — every one
+     of its organelles is seized, none donated."
+  - "The winning elites read the writing on the wall and defect
+     PREEMPTIVELY, while nominally victorious — draining the winning
+     army's command structure before the revolt even spreads to it."
+  - "Nomenklatura-to-oligarch dynamics: the revolution's biggest
+     beneficiaries are the exact class that lost the least. Same faces,
+     new flag."
+  - "Treachery is rewarded in victory: winning the war becomes a trap for
+     your own royalty unless they betray it quickly."
+  - "Hypothesis: surrender cascade appears ONLY on the winning side, and
+     earlier than baseline — victory itself is the writing on the wall."

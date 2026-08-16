@@ -83,6 +83,11 @@ documents:
       status: "LIVING DOCUMENT — update with experiment results"
       note: "The whole point is to RUN these and see what happens"
 
+    house-rules/:
+      purpose: "Surrender policy as dealer's choice — parameterized rule mixins"
+      contains: "NO-QUARTER, VICTORS-EXIT, VANQUISHED-MERCY, GOLDEN-BRIDGE, AMNESTY-VOTE, EXILE"
+      note: "Each is a patch to surrender_policy, composable like poker house rules; predicted dynamics are DYNAMICS.md-style hypotheses"
+
 # QUICK REFERENCE
 
 quick-reference:

@@ -1,0 +1,25 @@
+# VANQUISHED MERCY — only the defeated side's elites may surrender
+# Mercy for the fallen kingdom; rigidity for the victor.
+
+house_rule:
+  id: vanquished-mercy
+  patches:
+    surrender_policy:
+      winning_side: forbidden
+      losing_side: allowed
+
+predicted_dynamics:
+  - "The defeated kingdom converges fast and PEACEFULLY: its aristocracy
+     joins the revolting pawns, donating organelles ahead of the
+     executioner — truth-and-reconciliation as game mechanic."
+  - "Result: one equal commons with seized move-sets facing one rigid
+     ancien régime next door. The second war is the interesting one —
+     a distributed-capability society vs a specialist hierarchy."
+  - "Moral inversion: losing the first war wins the second. Blessed are
+     the defeated."
+  - "Metagame alert: SANDBAGGING. If defeat leads to the stronger
+     society, players start trying to lose the opening war gracefully —
+     Revolutionary Chess turns misère, like giveaway/antichess, without
+     changing another rule."
+  - "Hypothesis: under this rule, engines asked to maximize final-state
+     power deliberately throw the standard phase."

@@ -129,6 +129,19 @@ predicts early surrender is optimal — capitulating converts you from
 organelle donor to organelle recipient, and the earlier you convert, the
 more transplants you're alive to receive.
 
+And surrender itself is a parameter axis, not a fixed rule: the plugin's
+[house rules](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/)
+are **mixins on the ruleset** — dealer's choice, like poker — each a small
+patch to `surrender_policy` with its own predicted politics. No quarter
+(cornered aristocrats, war of extermination), victor's exit (nomenklatura
+become oligarchs — treachery rewarded in victory), vanquished mercy
+(reconciliation commons vs rigid ancien régime, and a sandbagging metagame
+where losing the first war wins the second), a Sun Tzu golden bridge that
+burns at the first execution, amnesty by karma-weighted vote of the
+commons, and exile, where the organelle emigrates and nobody inherits.
+House rules are to rulesets what colors are to pieces: orthogonal mixins
+on the same graph.
+
 The plugin runs it as a full state machine — STANDARD → REVOLUTION →
 INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
 strategic option ([DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)

@@ -1,0 +1,23 @@
+# AMNESTY VOTE — the commons votes on each surrender
+# No self-laundering: capitulation is an application, not a right.
+# Integrates TREATMENT-KARMA.yml: pieces remember how they were treated.
+
+house_rule:
+  id: amnesty-vote
+  patches:
+    surrender_policy:
+      winning_side: by_vote
+      losing_side: by_vote
+      vote: "simple majority of current commoners; ballots weighted by
+             karma events from ../TREATMENT-KARMA.yml"
+
+predicted_dynamics:
+  - "Karma becomes currency. The queen who shielded pawns gets amnesty;
+     the queen who spent them as tempo gets refused at the door."
+  - "Elites start performing kindness DURING the standard game, hedging
+     against revolution — the mere possibility of the vote changes
+     opening theory."
+  - "Refused surrenders create a tragic class: elites who renounced their
+     arms and were turned away — martyrs or moles, per the storyteller."
+  - "Hypothesis: treatment of pawns in the standard phase becomes the
+     best predictor of elite survival, beating material and position."
