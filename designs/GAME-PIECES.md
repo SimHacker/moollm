@@ -106,6 +106,29 @@ makes the trigger safe: "the rooks are extinct" is *derived by counting
 instance files*, never cached, so there is no troll flag to forget when
 the last rook falls.
 
+Biologically, this is **sideways migration of organelles**. A move-set is
+an organelle in the [soul-city sense](../skills/soul-city/SOUL-MODEL.md) —
+the same word Two-Toll's per-game minds use (`kind: organelle`) — a
+self-contained package of capability that lives *inside* a piece but is not
+*of* the piece. When the last owner of a move-set dies, the organelle is
+rescued from the carcass and **transplanted into every surviving piece**:
+horizontal transfer instead of vertical inheritance, Lynn Margulis's
+endosymbiosis as a game mechanic. Mitochondria were free-living bacteria
+until an ancestor cell engulfed them and kept the machinery; queen-moves
+were the queen's until the revolution engulfed her and kept the machinery.
+The delegation edge *is* the transplant — the organelle never stops being
+one file, it just gains hosts.
+
+Surrender is the **nonviolent path, and it's a demotion with a payoff**: a
+fancy piece that capitulates *becomes a pawn* — it renounces its aristocratic
+move-set (donating that organelle to the commons ahead of the executioner's
+schedule) and joins the class that inherits: pawn moves, plus everything
+already seized from the aristocracy, plus everything seized after. That is
+why [DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
+predicts early surrender is optimal — capitulating converts you from
+organelle donor to organelle recipient, and the earlier you convert, the
+more transplants you're alive to receive.
+
 The plugin runs it as a full state machine — STANDARD → REVOLUTION →
 INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
 strategic option ([DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
