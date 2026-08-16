@@ -64,16 +64,23 @@ Or play in any room network — the adventure-4 maze, a custom dungeon, even the
 
 ---
 
-## 🤝 Parallel Play With The Grue
+## 🤝 Parallel Play With The Grue, The Troll, And Others
 
-Snorax and the Grue run **parallel games** in the same space:
+Snorax, the Grue, and [Two-Toll the Cross-Platform Troll](../troll/) run **parallel games** in the same space:
 
-| Game | Threat Type | How You Die |
-|------|-------------|-------------|
-| **Hunt the Wumpus** | Spatial | Enter wrong room |
-| **Don't Go In The Dark** | Time | Stay in darkness 3 turns |
+| Game | Host | Threat Type | How You Die |
+|------|------|-------------|-------------|
+| **Hunt the Wumpus** | Snorax (beast — haunts a room) | Spatial | Enter wrong room |
+| **Don't Go In The Dark** | Grue (field — is everywhere dark) | Time | Stay in darkness 3 turns |
+| **Pay The Troll** | Two-Toll (border — prices an edge) | Economic | Cross the guarded edge without paying (steel or treasure, per fronting mind) |
 
-They don't compete. They complement. Worst case: lamp dies adjacent to wumpus room.
+They don't compete. They complement. Each binds to a different element of the
+world graph — node, ambient condition, edge — so any room network can host all
+three at once. Worst case: lamp dying adjacent to the wumpus room, on the wrong
+side of an unpaid bridge.
+
+More portable NPCs (superbats, bottomless pit, the ACME vending machine) and the
+travel contract they share: [soul-city/PORTABLE-NPCS.md](../../../../../skills/soul-city/PORTABLE-NPCS.md).
 
 ---
 
