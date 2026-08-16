@@ -19,8 +19,8 @@ Chat UIs render rich text, and copying rendered rich text is lossy and unpredict
 drops, characters get substituted, and — worst — the selection boundary is invisible, so private
 editorial notes sitting next to a draft get swept into the clipboard along with it.
 
-The founding incident, July 2026: an agent drafted a Hacker News post, then appended a private
-note flagging one claim's accuracy. The human copied the whole thing. The private note went live
+The founding incident, July 2026: a draft Hacker News post sat in chat next to a private note
+flagging one claim's accuracy. The author copied the whole thing. The private note went live
 on HN inside the post and was caught only because the edit window was still open. The draft and
 the note were separated by nothing but a paragraph break, and a paragraph break is not a boundary.
 
@@ -88,11 +88,11 @@ behavior becomes a `test_cases` entry and, if needed, a new quirk. Real cases in
 
 ## House styles — `house-styles/`
 
-Venue plugins say what *can* render. House styles say what the author *wants*. Example, Don
-Hopkins: no em-dashes ever (two ASCII dashes or restructure); links on their own line, preceded
-by a description line ending with a colon, blank lines around; wall-of-text paragraphs are fine
-but each paragraph makes one move. House styles apply across venues and never authorize something
-a venue forbids.
+Venue plugins say what *can* render. House styles say what the author *wants*. An author might
+forbid em-dashes (two ASCII dashes or restructure), require links on their own line preceded by
+a description line ending with a colon with blank lines around, or demand that quoted material
+is never silently cleaned. See `house-styles/EXAMPLE.yml` for a template. House styles apply
+across venues and never authorize something a venue forbids.
 
 ## Examples — `examples/`
 

@@ -53,7 +53,7 @@ methods:
       content: "The fenced artifact"
       venue: "Venue plugin to validate against"
     output: chat (pass, or list of violations with fixes)
-    effect: "Catches emoji on HN, em-dashes for Don, meta-notes inside the fence, fence collisions"
+    effect: "Catches emoji on HN, author-forbidden patterns per house style, meta-notes inside the fence, fence collisions"
     invoked-by: [any]
 
   DEFINE-VENUE:
@@ -124,7 +124,7 @@ see-also:
 
 credits:
   origin:
-    - "Don Hopkins — after a near-miss where an agent's private accuracy note was almost published inside an HN post (July 2026)"
+    - "Don Hopkins — after a near-miss where a private editorial note was almost published inside a public post (July 2026)"
   lineage:
     - "Newspaper copydesk — house style enforced at the last desk before print"
     - "Radio voice procedure — 'copy that' means received exactly as transmitted"

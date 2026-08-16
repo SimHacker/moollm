@@ -53,10 +53,10 @@ quirks:
   - "Flagged/dead posts can be deleted and reposted once, but repeated reposting looks like spam."
 
 house_style_note: >
-  Don Hopkins overlay (house-styles/don-hopkins.yml) adds: links each on their own line,
-  preceded by a description line ending with a colon, blank lines before and after;
-  no em-dashes, two ASCII dashes or restructure; no emojis in HN drafts (venue strips
-  them anyway, so their presence in a draft signals it wasn't preflighted).
+  Author overlays (house-styles/<author>.yml) commonly tighten HN further: links each on
+  their own line preceded by a description line ending with a colon, no em-dashes, and no
+  emojis even in drafts (the venue strips them anyway, so their presence in a draft
+  signals it wasn't preflighted).
 
 test_cases:
   - paste: "**bold** and *ital*"

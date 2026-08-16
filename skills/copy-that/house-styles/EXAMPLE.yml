@@ -1,0 +1,27 @@
+# house-styles/EXAMPLE.yml — template for an author overlay, applied on top of any venue plugin
+# Venue rules say what CAN render; a house style says what the author WANTS.
+# Tightens, never loosens: a house style never authorizes something a venue forbids.
+# Copy this file to house-styles/<author>.yml and replace the illustrative rules.
+
+author: example-author
+
+hard_rules:
+  - id: no-emdashes
+    rule: "Never an em-dash. Two ASCII dashes if a dash is truly needed; usually restructure the sentence instead."
+    why: "Personal taste; also renders inconsistently across venues."
+  - id: links-on-own-line
+    rule: "Every URL on its own line, preceded by a description line ending with a colon, blank lines before and after the pair."
+    example: |
+      The venue's format documentation:
+
+      https://example.com/formatdoc
+  - id: verbatim-is-sacred
+    rule: "Quoted material is preserved typos and all. Never silently clean a quote."
+
+voice:
+  - "Short paragraphs, one move each."
+  - "Facts instead of adjectives."
+
+venue_overrides:
+  hacker-news:
+    - "No emojis in drafts even though HN strips them anyway; their presence means the draft wasn't preflighted."
