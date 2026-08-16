@@ -35,6 +35,40 @@ why_this_factoring:
   - "Presence-derived and robust-first: 'do pawns have queen moves?' is answered by delegation lookup, never by cached state."
   - "The class the revolution enriches is a prototype, so enrichment is inheritance — the mechanism IS the politics."
 
+# TEAM COMMONS — the two-tier factoring (afterthought worth arguing about)
+# Black and white run separate revolutions at first, so each side gets its
+# own commons; both inherit from THIS file, the world commons.
+team_commons:
+  structure: |
+    COMMONS                    <- the world commons (this file); empty until unification
+      COMMONS-WHITE            <- white's seized moves; white regicides append here
+      COMMONS-BLACK            <- black's seized moves; black regicides append here
+    Each side's commoners reach their team commons through one thin team
+    prototype (PAWN-WHITE inherits [types/PAWN, COMMONS-WHITE]; likewise
+    black), so political events stay one-edit-one-file per side. Two
+    revolutions, two ledgers, two timelines: the board can hold a flat
+    white society and a still-royalist black kingdom at once — and the
+    flat side will proselytize across the ranks.
+  unification: |
+    THE INTERNATIONAL: the event that merges the teams into one flat
+    society. Candidate factorings, deliberately left open:
+      hoist    — move both team ledgers upstairs into COMMONS; team files
+                 remain as emptied historical husks (two edits, history
+                 preserved in place)
+      repoint  — team pawn prototypes change inherits: from COMMONS-{team}
+                 upstairs to COMMONS, after hoisting the organelles
+      dissolve — delete the team layer entirely; commoners inherit COMMONS
+                 directly, and the ledgers concatenate with provenance
+                 comments intact
+    Whichever factoring, the mechanism is the message: unification is a
+    delegation edit, the same primitive as every other political event.
+  open_question: |
+    Where should the team edge live — on the thin team-pawn prototype, on
+    the color mixin (dangerous: aristocrats wear colors too and must not
+    inherit a commons), or on each instance at setup? Ordered multiple
+    parent slots make all three expressible; taste decides. One to argue
+    out with David Ungar.
+
 # NWAP — the first donation to the commons
 # 'pawn' mirrored, because the move set is literally the pawn reversed.
 nwap:

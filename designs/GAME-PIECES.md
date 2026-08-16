@@ -119,6 +119,23 @@ extinct" is *derived by counting instance files*, never cached, and the
 COMMONS file doubles as the **ledger of the revolution** — read one file to
 know everything seized, and when.
 
+The commons itself factors by team: black and white run **separate
+revolutions at first**, so each side gets its own ledger — COMMONS-WHITE
+and COMMONS-BLACK, both inheriting from a generic world COMMONS that starts
+empty. Each team progresses toward its own flat society on its own
+timeline, which means the board can hold a classless white commune and a
+still-royalist black kingdom simultaneously (the flat side will
+proselytize). Then comes **the International**: the unification event that
+merges the teams — hoist both team ledgers upstairs into the world commons,
+or repoint the team pawns' `inherits:` from COMMONS-{team} up to plain
+COMMONS — and either way the mechanism is the message: **unification is
+one more delegation edit**, the same primitive as every regicide before
+it. The open factoring question (where the team edge lives — on a thin
+team-pawn prototype, on the color mixin, or per instance at setup) is
+written up in
+[COMMONS.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
+under `team_commons`.
+
 Biologically, this is **sideways migration of organelles**. A move-set is
 an organelle in the [soul-city sense](../skills/soul-city/SOUL-MODEL.md) —
 the same word Two-Toll's per-game minds use (`kind: organelle`) — a
