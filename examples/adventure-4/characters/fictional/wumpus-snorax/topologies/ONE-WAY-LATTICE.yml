@@ -1,0 +1,38 @@
+# ONE-WAY LATTICE — Wumpus 2, cave #5
+# "Here all tunnels go one way only. To return, you must go around the
+#  cave (about 5 moves)." — Wumpus 2 instructions
+
+topology:
+  name: "One-Way Lattice"
+  type: directed_lattice
+  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 3070-3100"
+  regular: false     # IRREGULAR BY DESIGN: every tunnel is directed
+  verbatim: true     # adjacency lists are OUTBOUND tunnels only
+  description: |
+    A lattice where every tunnel is one-way. Adjacency here means "you can
+    go there," not "you can come back" — retreat takes a lap around the
+    cave (about 5 moves). Smell something? You can't just step back the
+    way you came. The map looks tangled freestyle; it plays like a current
+    you have to swim with.
+
+adjacency:      # outbound only — this is a directed graph
+  1: [5, 4, 8]
+  2: [1, 5, 6]
+  3: [2, 6, 7]
+  4: [3, 7, 8]
+  5: [8, 9, 12]
+  6: [5, 9, 10]
+  7: [6, 10, 11]
+  8: [7, 11, 12]
+  9: [12, 13, 16]
+  10: [9, 13, 14]
+  11: [10, 14, 15]
+  12: [11, 15, 16]
+  13: [16, 17, 20]
+  14: [13, 17, 18]
+  15: [14, 18, 19]
+  16: [15, 19, 20]
+  17: [1, 4, 20]
+  18: [1, 2, 17]
+  19: [2, 3, 18]
+  20: [3, 4, 19]

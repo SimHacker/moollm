@@ -1,0 +1,46 @@
+# STRING OF BEADS — Wumpus 2, cave #2
+# "Five beads in a circle. Each bead is a diamond with a vertical cross-bar.
+#  The right & left corners lead to neighboring beads.
+#  (This one is difficult to play)" — Wumpus 2 instructions
+
+topology:
+  name: "String of Beads"
+  type: bead_necklace
+  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2830-2860"
+  regular: true      # every room: 3 tunnels, two-way traffic
+  description: |
+    Five diamond-shaped beads of four rooms each, strung in a circle.
+    Between beads there is exactly one tunnel — a chokepoint. One pit on
+    a chokepoint can sever the necklace, which is why the instructions
+    warn it is difficult to play: sometimes the only move is to shoot
+    down the string and hope.
+
+adjacency:
+  1: [2, 3, 20]
+  2: [1, 3, 4]
+  3: [1, 2, 4]
+  4: [2, 3, 5]
+  5: [4, 6, 7]
+  6: [5, 7, 8]
+  7: [5, 6, 8]
+  8: [6, 7, 9]
+  9: [8, 10, 11]
+  10: [9, 11, 12]
+  11: [9, 10, 12]
+  12: [10, 11, 13]
+  13: [12, 14, 15]
+  14: [13, 15, 16]
+  15: [13, 14, 16]
+  16: [14, 15, 17]
+  17: [16, 18, 19]
+  18: [17, 19, 20]
+  19: [17, 18, 20]
+  20: [1, 18, 19]
+
+beads:
+  - [1, 2, 3, 4]
+  - [5, 6, 7, 8]
+  - [9, 10, 11, 12]
+  - [13, 14, 15, 16]
+  - [17, 18, 19, 20]
+chokepoints: [[4, 5], [8, 9], [12, 13], [16, 17], [20, 1]]

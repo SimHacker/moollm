@@ -78,6 +78,19 @@ territory changes: edit the array, the walls move.
 Live example: [Snorax's maze instance](../../examples/adventure-4/characters/fictional/wumpus-snorax/instances/maze-room-e.yml)
 — confined to `maze/`, visiting rights at the pub, never in the house.
 
+Topology files are **embedded worlds**, and locations into them work like browser
+URLs. [`DODECAHEDRON.yml`](../../examples/adventure-4/characters/fictional/wumpus-snorax/DODECAHEDRON.yml)
+and the [Wumpus 2 alternates](../../examples/adventure-4/characters/fictional/wumpus-snorax/topologies/)
+(Möbius strip, string of beads, hex torus, dendrite, one-way lattice) each carry a
+complete navigable room network inside one YAML file — no directory scaffolding
+needed. An instance points into one with a file-plus-fragment reference
+(`lair: topologies/MOBIUS-STRIP.yml#room-7`), encoding position the way a browser
+encodes state in the URL; a `history:` array is the back stack. Most game state
+belongs in the instance file; locations are just pointers into whatever topology
+the session mounted — swap the topology file and the same cartridge runs on a
+Möbius strip. (Wumpus 2's cave #6, "enter your own cave," was this exact idea in
+1975: the topology is a parameter, not the game.)
+
 ## 3. Ambient games (field pattern — the grue)
 
 The grue is the other portability archetype, and the contrast is the design lesson.

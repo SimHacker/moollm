@@ -15,6 +15,7 @@ The game rules, the dodecahedron topology, the original 1973 BASIC source code �
 | [CHARACTER.yml](./CHARACTER.yml) | Snorax's soul + game integration |
 | [GAME.yml](./GAME.yml) | Complete Hunt the Wumpus rules |
 | [DODECAHEDRON.yml](./DODECAHEDRON.yml) | The canonical 20-cave topology |
+| [topologies/](./topologies/) | The Wumpus 2 alternate caves — Möbius strip, string of beads, hex torus, dendrite, one-way lattice |
 | [wumpus-basic-source.md](./wumpus-basic-source.md) | Original 1973 BASIC source code |
 | [hazards/SUPERBATS.yml](./hazards/SUPERBATS.yml) | Super-bat hazard mechanics |
 | [hazards/BOTTOMLESS-PIT.yml](./hazards/BOTTOMLESS-PIT.yml) | Pit hazard mechanics |

@@ -1,0 +1,41 @@
+# DENDRITE WITH DEGENERACIES — Wumpus 2, cave #4
+# "Pull a plant from the ground. The roots & branches form a dendrite —
+#  ie., there are no looping paths. Degeneracy means a) some rooms connect
+#  to themselves and b) some rooms have more than one tunnel to the same
+#  other room ie, 12 has two tunnels to 13." — Wumpus 2 instructions
+
+topology:
+  name: "Dendrite with Degeneracies"
+  type: tree_with_degeneracies
+  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2990-3020"
+  regular: false     # IRREGULAR BY DESIGN: self-loops and double tunnels
+  verbatim: true     # transcribed as printed; asymmetry is the point
+  description: |
+    A tree: no looping paths, lots of dead ends. Leaf rooms burn tunnel
+    slots on self-loops (enter room 17's self-tunnel and you're back in 17);
+    some pairs get double tunnels (12 has two to 13). One pit can sever a
+    whole branch — the blogger consensus is "easily the worst map, do not
+    play," which of course means somebody should. Susceptible to needing
+    blind shots to make the wumpus move.
+
+adjacency:
+  1: [1, 1, 5]       # two self-loops — a leaf pretending to have neighbors
+  2: [2, 2, 5]
+  3: [3, 3, 6]
+  4: [4, 4, 6]
+  5: [1, 2, 7]
+  6: [3, 4, 7]
+  7: [5, 6, 10]
+  8: [8, 9, 9]
+  9: [8, 8, 10]
+  10: [7, 9, 11]
+  11: [10, 13, 14]
+  12: [12, 13, 13]   # the documented degeneracy: two tunnels to 13
+  13: [11, 12, 12]
+  14: [11, 15, 16]
+  15: [14, 17, 18]
+  16: [14, 19, 20]
+  17: [15, 17, 17]
+  18: [15, 18, 18]
+  19: [16, 19, 19]
+  20: [16, 20, 20]

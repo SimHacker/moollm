@@ -39,6 +39,18 @@ Each cave connects to exactly 3 others. No compass directions — just numbered 
 | Super Bats | 2 | "BATS NEARBY!" | Random relocation |
 | Crooked Arrows | 5 | — | Kill wumpus (or yourself) |
 
+## The announced variations (not implemented here)
+
+Lines 52–67 ("ADDED BY DAVE" — Dave Ahl) are an **advertisement, not an
+implementation**: WUMP2 (different cave arrangements), WUMP3 (different
+hazards), and WUMP4 (hide-n-seek) were separate sibling programs. This
+program ships only the dodecahedron DATA. Wumpus 2's six caves —
+dodecahedron, Möbius strip, string of beads, hex network on a torus,
+dendrite with degeneracies, one-way lattice, plus "enter your own cave" —
+are extracted to [`topologies/`](topologies/) as navigable embedded worlds.
+(Trivia: the circulating Wumpus 2 listing's own dodecahedron has a typo at
+cave 15 — `6,4,16` where this 1973 original correctly reads `6,14,16`.)
+
 ## Original Source Code
 
 ```basic

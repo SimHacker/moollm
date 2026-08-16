@@ -43,7 +43,7 @@ adjacency:
 
 # VISUAL LAYOUT — 2D projection of the dodecahedron
 
-map_ascii: |
+map_ascii: |2
   
            1
          / | \
@@ -112,7 +112,16 @@ generate:
 # PLAYING IN EXISTING NETWORKS
 
 alternative_networks:
-  
+
+  wumpus_2_caves:
+    description: "The five alternate caves from Gregory Yob's Wumpus 2, extracted"
+    where: topologies/
+    caves: [MOBIUS-STRIP, STRING-OF-BEADS, HEX-NETWORK-TORUS, DENDRITE, ONE-WAY-LATTICE]
+    note: |
+      The 1973 listing only ADVERTISES these (WUMP2 announcement, added by
+      Dave Ahl); Wumpus 2 implements them. Cave #6 there is "enter your own
+      cave" — the original port contract. See topologies/README.md.
+
   adventure_maze:
     description: "Use the existing adventure-4 maze instead"
     how: |

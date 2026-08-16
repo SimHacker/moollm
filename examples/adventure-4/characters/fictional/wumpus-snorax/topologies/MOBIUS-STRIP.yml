@@ -1,0 +1,41 @@
+# MÖBIUS STRIP — Wumpus 2, cave #1
+# "This cave is two rooms wide and 10 rooms around (like a belt).
+#  You will notice there is a half twist somewhere." — Wumpus 2 instructions
+
+topology:
+  name: "Möbius Strip"
+  type: mobius_strip
+  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2750-2780"
+  regular: true      # every room: 3 tunnels, two-way traffic
+  description: |
+    Two rooms wide, ten rooms around, like a belt — with a half twist:
+    room 2 tunnels to 19 and room 1 to 20, crossing the strip's edges.
+    Walk far enough and you come back on the other side.
+
+adjacency:
+  1: [20, 2, 3]
+  2: [19, 1, 4]
+  3: [1, 4, 5]
+  4: [2, 3, 6]
+  5: [3, 6, 7]
+  6: [4, 5, 8]
+  7: [5, 8, 9]
+  8: [6, 7, 10]
+  9: [7, 10, 11]
+  10: [8, 9, 12]
+  11: [9, 12, 13]
+  12: [10, 11, 14]
+  13: [11, 14, 15]
+  14: [12, 13, 16]
+  15: [13, 16, 17]
+  16: [14, 15, 18]
+  17: [15, 18, 19]
+  18: [16, 17, 20]
+  19: [2, 17, 20]
+  20: [1, 18, 19]
+
+errata:
+  room_15:
+    printed: [12, 16, 17]
+    corrected: [13, 16, 17]
+    reason: "Symmetry: room 13 lists 15, room 12 does not; two-way cave requires 15<->13."
