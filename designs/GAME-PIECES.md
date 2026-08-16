@@ -193,6 +193,16 @@ Games have been shipping smart placement for decades, in four families:
   bag of holding in bag of holding explodes. GIVE TROLL TO TROLL just deepens
   the narrative stack — single pocket, no boom.
 
+And in **PieCraft** (Don Hopkins,
+[canonical design in MicropolisCore](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIECRAFT.md))
+the container *is the UI*: pie menus are craftable typed bags whose
+**geometry is part of the type — slot count is valence**. Pies auto-route on
+deposit (a potion files itself into the consumables pie, a spell into its
+element's slice) and **bond into molecules**: a submenu is a covalent bond, a
+loadout is a molecule of complementary valences, and combat can decompose a
+molecule back into element pies, spilling loose items. Smart placement,
+typed bags, and Fitts's law fused into one crafting system.
+
 ### Beyond games: the webtop
 
 Every desktop ever shipped makes the user do all the filing by hand. These
