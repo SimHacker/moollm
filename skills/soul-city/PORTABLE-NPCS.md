@@ -64,6 +64,20 @@ with defined adjacency, at least 7 rooms, one safe starting position. That's the
 porting guide. Meet the contract and the wumpus game runs in your world — the pub, a
 generated dungeon, any `ROOM.yml` network.
 
+Instance game state also includes the character's **territory — a chroot for
+characters**. `confined_to:` is an array of directory subtrees the instance may inhabit
+and navigate (world-relative, like `lair:`). One entry confines the wumpus to the maze;
+multiple entries let a character hop between subtrees (the troll commutes between two
+dungeons). It's a whitelist by default; add `never:` for an explicit blacklist, and
+`visiting_rights:` for places reachable by invitation rather than free roam. Because
+territory lives in the **instance**, not the prototype, the same character can be
+maze-bound in one world and free-range in another — and because presence is checked
+against the listed subtrees at move time, there is no stale flag to forget when the
+territory changes: edit the array, the walls move.
+
+Live example: [Snorax's maze instance](../../examples/adventure-4/characters/fictional/wumpus-snorax/instances/maze-room-e.yml)
+— confined to `maze/`, visiting rights at the pub, never in the house.
+
 ## 3. Ambient games (field pattern — the grue)
 
 The grue is the other portability archetype, and the contrast is the design lesson.

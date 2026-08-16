@@ -14,6 +14,17 @@ instance:
   network: adventure-4-maze
   lair: maze/room-e
   state: sleeping
+
+  # TERRITORY — chroot for characters
+  # The directory subtrees this instance may inhabit and navigate.
+  # A whitelist ARRAY: the character can hop between listed subtrees,
+  # but cannot wander outside them. World-relative paths, like lair.
+  confined_to:
+    - maze/               # his hunting ground — the whole game happens here
+  visiting_rights:
+    - pub/                # by invitation only (the Incarnation Ceremony precedent)
+  never:
+    - home/               # no wumpus in the house. House rule.
   
   # PHYSICAL MANIFESTATION
   traits:
