@@ -4,7 +4,9 @@ The 1973 listing ([wumpus-basic-source.md](../wumpus-basic-source.md)) *announce
 alternate caves but does not implement them — lines 52–67 are Dave Ahl's
 advertisement for the sibling programs (WUMP2: cave arrangements, WUMP3: hazards,
 WUMP4: hide-n-seek). The caves themselves live in Gregory Yob's **Wumpus 2**
-(*Creative Computing*; source: [wumpus2.bas](https://www.roug.org/retrocomputing/languages/basic/morebasicgames/wumpus2.bas)),
+(*Creative Computing*, Jan/Feb 1976; source archived locally at
+[`../sources/wumpus2-yob.bas`](../sources/wumpus2-yob.bas), transcription via
+[roug.org](https://www.roug.org/retrocomputing/languages/basic/morebasicgames/wumpus2.bas)),
 which offers seven choices:
 
 | # | Cave | File | Character |

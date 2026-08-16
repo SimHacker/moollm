@@ -51,6 +51,11 @@ are extracted to [`topologies/`](topologies/) as navigable embedded worlds.
 (Trivia: the circulating Wumpus 2 listing's own dodecahedron has a typo at
 cave 15 — `6,4,16` where this 1973 original correctly reads `6,14,16`.)
 
+The full Wumpus 2 listing is now archived locally at
+[`sources/wumpus2-yob.bas`](sources/wumpus2-yob.bas), alongside the V7 Unix
+and BSD games C implementations — the curated canon, with provenance and
+verification notes, in [`sources/`](sources/).
+
 ## Original Source Code
 
 ```basic

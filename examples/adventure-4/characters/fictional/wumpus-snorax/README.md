@@ -17,6 +17,7 @@ The game rules, the dodecahedron topology, the original 1973 BASIC source code �
 | [DODECAHEDRON.yml](./DODECAHEDRON.yml) | The canonical 20-cave topology |
 | [topologies/](./topologies/) | The Wumpus 2 alternate caves — Möbius strip, string of beads, hex torus, dendrite, one-way lattice |
 | [wumpus-basic-source.md](./wumpus-basic-source.md) | Original 1973 BASIC source code |
+| [sources/](./sources/) | The canonical implementations, curated — Yob's Wumpus 2 BASIC, V7 Unix `wump.c` (1979), BSD games `wump.c` (1989) |
 | [hazards/SUPERBATS.yml](./hazards/SUPERBATS.yml) | Super-bat hazard mechanics |
 | [hazards/BOTTOMLESS-PIT.yml](./hazards/BOTTOMLESS-PIT.yml) | Pit hazard mechanics |
 | `instances/` | Active game sessions |
