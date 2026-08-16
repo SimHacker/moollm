@@ -83,6 +83,42 @@ The instance file is tiny: parents plus deltas. That is the whole Self
 insight — identity is cheap, variation is a small delta on something that
 already works, and the taxonomy *emerges* from what people actually make.
 
+## Revolutionary Chess: runtime inheritance as politics
+
+The mixin graph isn't static, and
+[**Revolutionary Chess**](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/)
+(a live plugin in the turing-chess experiment) is the demonstration that
+**adding inheritance relationships at runtime is practical** — and
+dramatically legible. The plugin lies dormant until a normal game ends with
+the capture of the king. Then the war is over, and the defeated side's
+pawns **reverse direction and march home** — to revolt against their own
+royalty and courtier class. Civil war as a rules patch.
+
+The core mechanic is inheritance-by-extinction (or surrender): **when every
+instance of a piece type is captured or capitulates, that type's moves are
+inherited by all remaining pieces.** Kill the queen and every pawn gains
+queen moves. Eliminate both rooks and everyone gains rook moves. In mixin
+terms each political event is a one-line graph edit — add a delegation edge
+from every surviving instance to `types/QUEEN`'s rules — which is exactly
+why it's practical: no class-hierarchy rebuild, no migration, just edges
+added live to the same graph promotion already edits. And robust-first
+makes the trigger safe: "the rooks are extinct" is *derived by counting
+instance files*, never cached, so there is no troll flag to forget when
+the last rook falls.
+
+The plugin runs it as a full state machine — STANDARD → REVOLUTION →
+INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
+strategic option ([DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
+predicts early surrenderers end up with the most inherited moves, and
+surrender cascades once two or three elites fold), pawns promoting at their
+*home* rank on the return march, and historic-game replays
+([HISTORIC-GAMES.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/HISTORIC-GAMES.md):
+Byrne–Fischer 1956 continued past checkmate — Byrne's pawns reverse and
+hunt Fischer's king). When all elites are gone, all pieces have all moves,
+competition dissolves, and the board transcends into a sandbox — the game
+ends where this document begins, with every piece a composition of
+everything the war set free.
+
 ## The wumpus set: hazards as sub-piece templates
 
 [Snorax](../examples/adventure-4/characters/fictional/wumpus-snorax/) already
