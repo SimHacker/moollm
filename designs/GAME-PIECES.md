@@ -24,6 +24,13 @@ Collapse them into classes and you get `BlackQueen`, `WhiteQueen`,
 `RedQueen3D`, `BlackQueenASCII`... — the combinatorial explosion Self and
 prototype delegation were invented to kill.
 
+(On the standard objection that multiple inheritance is too dangerous for
+everyday use: it is — which is why the mixin graph is a *discipline* layered
+on a sharp substrate, the same way Densmore's class.ps built structured
+inheritance from PostScript's raw dictionary stack and COM's QueryInterface
+disciplined raw vtables. The argument, with lineage:
+[DIRECTORY-AS-IUNKNOWN.md](DIRECTORY-AS-IUNKNOWN.md#the-classps-precedent-dangerous-substrate-structured-discipline).)
+
 ## The chess set (canonical example)
 
 Six types, two colors, N presentations. NOT 6 × 2 × N files — 6 + 2 + N:

@@ -49,6 +49,44 @@ shell PATH file system based multiple inheritance object system
 
 ---
 
+## The class.ps Precedent: Dangerous Substrate, Structured Discipline
+
+The standard objection to general-purpose, everyday multiple inheritance is
+correct: as a daily tool it's a footgun. The answer is not to ban the
+mechanism but to layer disciplines on top of it — and PostScript is the
+canonical case study.
+
+PostScript's dictionary stack is raw dynamic scope: `begin`/`end` push and
+pop dictionaries at any time, precisely (or imprecisely) rewiring name
+lookup for everything downstream. Doing that casually is a horrible idea —
+spooky action at a distance, the archetype of why people distrust dynamic
+scope. Yet Owen Densmore's **class.ps** (Object Oriented Programming in
+NeWS) used exactly those low-level `begin`/`end` primitives to implement a
+*structured* object system: first single inheritance like Smalltalk, later
+multiple inheritance like Self. The lookup discipline — what gets pushed,
+in what order, when — was encapsulated inside the class system, so ordinary
+code never touched the dict stack directly. The dangerous mechanism wasn't
+the enemy; it was the load-bearing substrate.
+
+The same story repeats up the industry: C++ vtables are hand-corruptible
+function-pointer tables; COM's QueryInterface disciplined them into
+negotiated capability discovery; Java and C# interfaces made that
+discipline a language feature. Pattern: **a maximally general sharp-edged
+mechanism at the bottom, a structured protocol on top, everyday work
+through the protocol — and the raw layer stays available for building the
+next protocol.**
+
+MOOLLM runs the same layering. The substrate is maximally general —
+`prototype:` can point at anything, YAML inheritance chains can braid
+freely. The discipline is the file conventions: drop an `INTERFACE.yml`
+(or `ROOM.yml`, `CHARACTER.yml`, `GAME.yml`) into a directory and the
+object grows a queryable facet, one file at a time, without touching what
+was already there. Chris Trottier would call it **design by accretion** —
+the discipline lives in the conventions and the query protocol, not in a
+restriction of the substrate.
+
+---
+
 ## Directory as Object
 
 In MOOLLM, a directory is an object:
