@@ -125,6 +125,36 @@ Containers are just pieces whose presentation includes "what's inside," so a
 chess piece could contain a smaller board, and a wumpus could swallow a lamp
 (grue rules apply inside).
 
+## Smart placement: the sorting stomach
+
+"Put this in that" is underspecified, and good containers know it. The
+pattern comes from **OpenLaszlo** (David Temkin et al.): a child declares a
+`placement` attribute, a container declares a `defaultplacement`, and the
+container can override its determine-placement method to inspect the
+incoming child — plus an optional args object for custom parameterized
+placement protocols — and route it to the right sub-container. The everyday
+use was a constant sub-path to the "client view," so children added to a
+window skipped the chrome (title bar, scroll bars) and landed in the content
+area. The general idea is bigger: **the container owns the routing decision,
+and the giver doesn't need to know the container's internals.**
+
+[The troll's stomach](../examples/adventure-4/characters/fictional/troll/stomach/STOMACH.yml)
+is a sorting container in exactly this sense. EAT X and GIVE X TO TROLL are
+user-level verbs — drag-and-drop into the gaping maw — and the stomach's
+placement protocol inspects the child: characters route to
+`contents/adventurers/` (as digestive-juice-spattered stubs inheriting from
+their prototypes), treasures to `contents/treasures/` with a ledger entry,
+weapons land loose and crunchy, and the troll himself routes to
+`contents/himself.yml`. GIVE TROLL TO TROLL isn't a special case that needs
+a flag; it's just the self route through the same protocol. The dumb
+explicit API (move the file yourself) is still there underneath — the smart
+overlay is for the user's level, where dropping something *into* something
+should do the logically right thing without asking where the sub-slot is.
+
+This is the drag-and-drop contract every direct-manipulation microworld
+needs: SimCity tiles, Sims object slots, HyperCard backgrounds, Laszlo
+views, troll stomachs. Low-level moves obey; high-level verbs route.
+
 ## Robust-first: the TROLL-FLAG lesson
 
 Zork's troll had two glorious behaviors and one famous bug. GIVE AXE TO

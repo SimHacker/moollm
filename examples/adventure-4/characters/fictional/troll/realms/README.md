@@ -33,3 +33,7 @@ Rules of the interior:
   Counsel continues inside (see `counsel_to_sibling` in both minds).
 - **Fronting from inside is allowed**, same as from the stomach. Retreat is
   not resignation; the toll booth reopens when he steps out.
+- **Players can jump in too.** A world may mount a realm as a visitable
+  microworld — meet the troll in his natural habitat, on his home planks,
+  by his own bloodstains. Two games, two habitats, one troll to interview
+  in either.

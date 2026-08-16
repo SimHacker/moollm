@@ -22,6 +22,38 @@ stomach:
     - contents/bloody-axe.yml   # often here; recoverable; re-edible
     - contents/himself.yml      # present iff location points at self
 
+  # SMART PLACEMENT — this is a SORTING stomach.
+  # Lineage: OpenLaszlo's placement protocol (David Temkin et al.):
+  # a child declares `placement`, a container declares `defaultplacement`,
+  # and the container can override determine-placement to inspect the
+  # child (plus an optional args object) and route it to the right
+  # sub-container. Common use: a constant sub-path to the "client view"
+  # so children skip the chrome (title bar, scroll bars). Here the
+  # chrome is teeth and the client view is the gut.
+  placement:
+    default: contents/                    # the client view; chrome (teeth) skipped
+    routes:
+      - match: character
+        place: contents/adventurers/
+        on_place: "drop a stub .yml inheriting from the character — spattered in digestive juices, prototype untouched"
+      - match: treasure
+        place: contents/treasures/
+        on_place: "ledger entry; adventure-mind INSISTS, even in here"
+      - match: weapon
+        place: contents/                  # loose; crunchy; may stay referenced from inventory/ as "in stomach"
+      - match: self                       # GIVE TROLL TO TROLL — the recursion route
+        place: contents/himself.yml
+        on_place: "location := stomach/; single pocket, no second folder; see recursion below"
+    args: |
+      Optional args object for parameterized placement, per the Laszlo
+      protocol: eat(thing, {chew: false}) places it whole and recoverable;
+      eat(thing, {savor: true}) appends a review to the ledger.
+    escape_hatch: |
+      The dumb explicit API never went away: move the file yourself.
+      Placement is the smart overlay for user-level verbs — EAT X,
+      GIVE X TO TROLL, drag-and-drop into the gaping maw. High-level
+      verbs route; low-level moves obey.
+
   # LOCATION := SELF
   # Setting the troll's location to himself (or to this stomach/)
   # is how he eats himself. Easy. One assignment. Pocket closes.
@@ -52,8 +84,9 @@ stomach:
 
   protocol:
     eat: |
-      Move or copy the eaten thing into contents/ (or a typed subdir).
-      Update this file's ledger if you keep one. Hunger drops.
+      Route the eaten thing through placement (above): the stomach
+      inspects it and files it in the right sub-container. Update the
+      ledger if you keep one. Hunger drops.
     vomit_or_recover: |
       Move the thing out of contents/ back to the world or to
       inventory/. The Zork gift protocol prefers eating; recovery is
