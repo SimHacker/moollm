@@ -176,6 +176,54 @@ one binding.) The point under the joke: the moody track is a
 general-purpose parameter bus. Mood was just the first thing worth
 broadcasting on it.
 
+## The zig-zag: the simulation composes, the tape remembers
+
+Three directions now. Authored moody media broadcasts meaning into
+the world (the read path). Experience writes overlays back onto media
+(the write path). The **zig-zag** is generation with a tape recorder
+running: **generate moody music in response to events in the
+simulation** — the Spore direction, music *from* meaning — **and
+record the parameters as they're emitted, making a new moody object
+you can replay.**
+
+The recorded object is not an audio file with annotations bolted on.
+It *is* the parameter stream — the meaning and the music in one
+artifact — so replaying it re-synthesizes the sound *and*
+re-broadcasts the feeling, and it can be **sampled, remixed, looped,
+and scrubbed**. Scrub the wedding tape back and forth and the room
+re-feels the toast, the kiss, the first dance, in any order, at any
+speed. The reference instrument is **Laurie Anderson's tape-bow
+violin**: recorded tape in the bow, a playback head on the bridge, so
+that *performance is scrubbing a recording* — bowing a memory
+forward and backward, at whatever speed the arm feels. The moody tape
+is that, for feeling. Bow the memory.
+
+To generate and record this well, the schema needs the musical
+vocabulary as first-class terms — the words composers already use for
+the shape of time:
+
+- **envelopes** at the tag level: attack, decay, sustain, release —
+  ramping up, dying away
+- **dynamics**: crescendo, diminuendo, sforzando (the spike has a
+  name in Italian)
+- **motion**: accelerando, ritardando — escalation and relaxation as
+  first-class curves
+- **tension and closure**: build, drop, suspension, cadence — the
+  resolution operator, the reason a scene feels *finished*
+- **heat, energy, valence** — the moody tags themselves
+- **determinism** — the temperature track, recorded like everything
+  else: how dithered the moment was is part of the memory, so a
+  chaotic party scrubs differently than a solemn vow
+
+One vocabulary, both provenances: a composer hand-writes the same
+envelopes the simulation emits live, so hand tracks and machine
+tracks remix on equal terms — the jam session between the author and
+the world. And the zig-zag composes with the write path
+automatically: a tape generated at your wedding is born already being
+"your song," the overlays mastered in at the moment of recording. The
+generated tape is a save file of feeling — the home movie that knows
+what it meant.
+
 ## SimRadio: live streaming into the dollhouse
 
 The primary source is the **"Live SimRadio on the net" email of
@@ -407,7 +455,9 @@ crossfader as an exploration/exploitation knob · ambient computing,
 finally ambient about something · they're playing our song (a
 temporal relationship matrix cache hit) · Netflix and chill (a moody
 jam recording session) · the madeleine (playback you didn't
-schedule) · track record (literally).
+schedule) · track record (literally) · bow the memory (tape-bow
+violin, scrubbing as performance) · sforzando (the spike has a name
+in Italian) · a save file of feeling.
 
 ## See also
 
