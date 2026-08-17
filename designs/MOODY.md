@@ -168,13 +168,19 @@ The degenerate case proves the range: **the brown note**. The
 legendary infrasound frequency that makes you shit your pants is, in
 this schema, just a tag whose constraint binds not to a mood but to
 the **bladder motive, at max gain** — bladdermaxing: media driving
-physiology, skipping the heart entirely. (MythBusters busted it in
-the real world; in a microworld it works every time, which is why the
-prank subwoofer with a BROWN-NOTE parameter track is a legitimate
-plug-in object, and why the diaper is a buff that disables exactly
-one binding.) The point under the joke: the moody track is a
-general-purpose parameter bus. Mood was just the first thing worth
-broadcasting on it.
+physiology, skipping the heart entirely. In The Sims it would be
+localized as **the blue note**, because Sims pee blue puddles — the
+game collapses all bodily catastrophe into one blue-puddled bladder
+motive, so the note comes out the color of the puddle. (A blue note
+is also the bent, flatted tone that makes the blues the blues, which
+is exactly the register of a Sim standing in a puddle with both
+hands on their head. No yellow or red notes — the palette is canon.)
+MythBusters busted the note in the real world; in a microworld it
+works every time, which is why the prank subwoofer with a BLUE-NOTE
+parameter track is a legitimate plug-in object, and why the diaper
+is a buff that disables exactly one binding. The point under the
+joke: the moody track is a general-purpose parameter bus. Mood was
+just the first thing worth broadcasting on it.
 
 ## The zig-zag: the simulation composes, the tape remembers
 
@@ -501,7 +507,8 @@ schedule) · track record (literally) · bow the memory (tape-bow
 violin, scrubbing as performance) · sforzando (the spike has a name
 in Italian) · a save file of feeling · safari tracks (the ride is the
 ink) · the madeleine, geofenced · roundabout (municipal circular
-gesture guide).
+gesture guide) · the blue note (the bent tone that makes the blues
+the blues, and the color of the puddle).
 
 ## See also
 
