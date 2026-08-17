@@ -140,6 +140,42 @@ measurable trace of a shared experience. Rewatching it together
 replays both overlays in sync: the mood jam, remixed live, gaining a
 new layer every session.
 
+## Constraints: heat drives parameters, buffs gate the wires
+
+Advertisement re-weighting is the *soft* consumer of heat. The hard
+consumer is **constraints**: declarative bindings (the
+OpenLaszlo/Declare move — Temkin's instance-first constraint lineage)
+that wire an environmental moody track directly to room and character
+parameters, which in turn drive anything downstream. While the
+binding is active, the parameter *follows the envelope*: a happiness
+constraint tracks the joy tag of whatever's playing, room lighting
+warms with the romantic envelope, a horror soundtrack's dread tag
+drips straight into a character's comfort motive.
+
+And **buffs enable and disable the constraints** — the binding is
+exactly a conditional delegation edge from
+[GAME-PIECES.md](GAME-PIECES.md): present, but only answering while
+its condition holds. A BLISSED buff wires the room's joy envelope
+into happiness at full gain; noise-cancelling headphones are a buff
+that *disconnects* the wearer from the room's audio bindings
+(silencing meaning as well as sound — or, with the meaning knob up,
+only the sound); earplugs disable, mood amplifiers enable, a stiff
+drink lowers the threshold on every romantic binding in the room.
+Robust-first as always: a disabled constraint is not torn down, it
+just stops writing — no stale bindings, no cleanup pass.
+
+The degenerate case proves the range: **the brown note**. The
+legendary infrasound frequency that makes you shit your pants is, in
+this schema, just a tag whose constraint binds not to a mood but to
+the **bladder motive, at max gain** — bladdermaxing: media driving
+physiology, skipping the heart entirely. (MythBusters busted it in
+the real world; in a microworld it works every time, which is why the
+prank subwoofer with a BROWN-NOTE parameter track is a legitimate
+plug-in object, and why the diaper is a buff that disables exactly
+one binding.) The point under the joke: the moody track is a
+general-purpose parameter bus. Mood was just the first thing worth
+broadcasting on it.
+
 ## SimRadio: live streaming into the dollhouse
 
 The primary source is the **"Live SimRadio on the net" email of
