@@ -358,7 +358,17 @@ schema learner the wide coverage pure exploitation never visits.
 forced pick of one ad regardless of score, which is programming by
 demonstration in disguise; skill gains from the demonstrated action
 re-weight future auctions until the override becomes the habit. A piece
-that always argmaxes cannot be taught this way. The full dispatch
+that always argmaxes cannot be taught this way. And overrides should
+weigh heavy: a forced pick is a **strong salience signal** to a
+Drescher-style schema learner — the teacher explicitly marking *which*
+choice mattered, worth a thousand unattended trials. Which implies the
+unbuilt fourth stage: **advertisements that learn** — not to be more
+persuasive (that road is engagement maximization) but more *appropriate
+and helpful*, re-tuning bids against the hearer's observed outcomes;
+persuasion then arrives as earned trust, because the hearer discovers
+the ads serve the listener's good rather than the seller's. The hustler
+food chain can learn honesty, and where outcomes feed the auction,
+honesty keeps winning it. The full dispatch
 spectrum runs
 **argmax** (deterministic winner; compiles to a table lookup) →
 **find-best-N** (still crystallizable: scoring table plus a *seeded* RNG,

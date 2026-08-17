@@ -8,10 +8,12 @@ envelopes that ride along with the waveform. When the artifact plays,
 it broadcasts the track into the room. When it stops, the broadcast
 stops. Mood is multimedia. **Multimoodia.**
 
-Proposed by Don Hopkins for The Sims, before The Sims Online. It didn't
-ship. This document is the design, its history, and what MOOLLM does
-with it now that the technology (and the object system) finally caught
-up.
+Proposed by Don Hopkins to the Maxis team on **February 18, 1999** —
+almost four years before The Sims Online — under the name **SimRadio**,
+with the "moody track" as its emotional payload (primary source below).
+It didn't ship. This document is the design, its history, and what
+MOOLLM does with it now that the technology (and the object system)
+finally caught up.
 
 ## The parameter track
 
@@ -79,31 +81,64 @@ dithering — while a party track broadcasts high energetic heat with
 adjusting the room's exploration/exploitation tradeoff with a
 crossfader.
 
-## The radio pitch: live streaming into the dollhouse
+## SimRadio: live streaming into the dollhouse
 
-The original proposal, circa The Sims' development and **before The
-Sims Online**: pipe live streaming internet radio into the game.
-Music, DJs, talk radio — and advertisements.
+The primary source is the **"Live SimRadio on the net" email of
+February 18, 1999** to the Maxis team, harvested in full in
+[WWSFF: simradio-moody-1999-maxis-email.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-moody-1999-maxis-email.md).
+The pitch: Maxis runs **SimRadioStation** servers broadcasting MP3
+music and **SimDJ** dialog over IP multicast, and the game gets a
+receiver — solving "the problem of repeated music loops driving
+players insane" while opening an advertising and distribution channel
+for plug-in objects and Maxis/EA products. The moody track rides the
+stream: music "encoded with a 'moody track', **marked up with events
+that affected people emotionally**."
 
 The advertisements are the load-bearing pun. A radio ad **is** a Sims
 advertisement in the full behavioral sense: broadcast into the room,
 scored by every character who hears it, acted on by the susceptible.
-And the live kind carries a deadline — *"run to the phone and call in
-NOW to order, the next ten callers get..."* — an advertisement with an
-**expiration window**, which characters in the game could respond to
-within the window, sprinting to the phone alongside the humans
+And the live kind carries a deadline — the email's twist is real-time
+interactive call-in contests where **the contest players are the Sims**
+(autonomous or player-directed), who "have to run to the phone and try
+to be the 20'th caller when they hear a song by the Beatles." An
+advertisement with an **expiration window**, answered inside the game
+world by characters sprinting to the phone alongside the humans
 listening to the same live stream. In [GAME-PIECES.md](GAME-PIECES.md)
 terms, a time-windowed ad is a **buff with an expiration date**: it
 stands next to the room, shouts into the auction, and stops answering
 when the window closes. No cleanup, because the menu was never stored,
 only derived.
 
-That was the whole loop, years early: live synchronized global events,
-real-world media crossing into game behavior, characters and players
-reacting to the same broadcast in the same time window — The Sims
-Online energy before The Sims Online, plus a business model (the ads
-pay for the stream, and the in-game response *is* engagement
-measurement).
+The 1999 email had the whole economy sketched around that loop:
+
+- **SimPrizes** — virtual money, furniture, personal growth,
+  interesting visitors ("dinner with Elvis!"), unique decorative items
+  (a Jim Morrison or Kermit the Frog poster), or real Maxis products
+  ("Win a trip to the big SimCity!"). "Think of it like a game show,
+  where the show is actually an entertaining advertisement for the
+  prizes" — advertising as native content instead of interruption.
+- **DLC with a doorbell** — win a plug-in object on air and it's
+  seamlessly downloaded and "delivered to the front door," instead of
+  leaving the game for an unwieldy FTP client. Object distribution as
+  a diegetic event, before the term DLC existed.
+- **Registration as carrot** — demo copies pick up free ad-heavy
+  broadcast stations; registered copies get "cable TV" and "digital
+  radio" with the good music, contests, and prizes. Anti-piracy by
+  making the legitimate copy *more alive*.
+- **"This would put the game 'online'"** — same broadcast, same time
+  window, competing against other players — with, per the email, no
+  major changes to the game's design or code. The Sims Online energy,
+  four years before The Sims Online, at a fraction of the cost.
+
+And the moody track came with **per-person reaction** built in:
+"different people would react to the musical moods in different ways."
+Heat is filtered through personality, never applied raw — the same
+tag envelope makes the romantic Sim swoon and the grouchy one leave
+the room. The email's worked examples are the design in miniature:
+call the station and request a Sim's favorite song to raise their
+happiness; "turn an unruly crowd into a wild party by turning off the
+cop show on TV, and switching on the radio to a dance music station."
+The DJ as behavior-engine input, the remote control as a mood API.
 
 ## Precedents and kin
 
@@ -130,9 +165,12 @@ measurement).
 Three reasons, in honest order:
 
 1. **Opportunity cost.** The Sims was drowning in more-essential work;
-   every feature on the disc displaced another. Streaming radio into
-   the dollhouse lost fair fights to features the game could not ship
-   without.
+   every feature on the disc displaced another. The email argued the
+   integration itself was cheap ("would not require any major changes
+   to the design of the game or the code") — but the servers, the
+   stations, the SimDJs, and the live-ops staffing were a business,
+   not a feature, and that business lost fair fights to features the
+   game could not ship without.
 2. **Technology timing.** It was practical in the RealAudio/SHOUTcast
    era — barely. The infrastructure for millions of concurrent
    listeners with synchronized interactive windows wanted the later
@@ -195,6 +233,8 @@ finally ambient about something.
 
 ## See also
 
+- [The 1999 SimRadio email, in full](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-moody-1999-maxis-email.md)
+  — the primary source, harvested with commentary in WWSFF
 - [GAME-PIECES.md](GAME-PIECES.md) — advertisement auctions, buffs
   with expiration dates, the dispatch spectrum and temperature as
   context
