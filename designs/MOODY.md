@@ -224,6 +224,48 @@ automatically: a tape generated at your wedding is born already being
 generated tape is a save file of feeling — the home movie that knows
 what it meant.
 
+## Moody IRL: the ebike safari
+
+None of this needs a game engine. Real life is already running the
+simulation, and the shippable-now version of the zig-zag is a phone
+on a bicycle. Ride an **ebike safari** through a city with music
+playing, and record a **place+time sync track**: the song and its
+position, the GPS trace, the photos and video you shoot, and your
+spoken impressions — speech-to-text, either keyword commands
+("mark," "love this," "come back here") or free natural-language
+narration about what you're seeing. Every input lands on the same
+timeline: `(time, place, tag, heat)` — the moody schema with two more
+columns. Place is just more dimensions in the context.
+
+The novel input channel is **GPS gestures**: the bike's path is a
+gesture stroke drawn on the map plane, and it can be recognized like
+any other gesture. **Stop in front of an address** — dwell is a
+point-select, and dwell time is heat. **Encircle a fountain, a
+statue, a block, a roundabout** — the loop is a lasso-select, and
+what it encloses is the point of interest. The city is the screen,
+the bike is the pen, and the ride is the ink. (Roundabouts are
+pre-installed circular gesture guides — the municipal infrastructure
+was built for this and never knew it.) No screen interaction while
+riding: the annotation *is* the riding.
+
+Playback is the tape-bow again, in real coordinates. Scrub the
+safari and the music, the map position, the photos, and the spoken
+impressions all stay in sync — bow your way back down the
+Amstel at any speed, in either direction. The write path works in
+real coordinates too: the song you were playing when you rounded
+that fountain now carries a spike at that timestamp *and* that
+lat/lon, so hearing the song re-evokes the place and returning to
+the place re-evokes the song — the madeleine, geofenced. Share the
+tape and a friend can ride your ride, with your soundtrack, your
+photos surfacing as they pass the spots where you took them.
+
+This is the version that ships soonest: no game, no engine, no
+platform permission needed — a phone, an ebike, GPS, a music app
+with a position API, and a speech-to-text loop. The artifact it
+produces is a standard moody object, so the day a game or MOOLLM
+microworld wants to import your safari as an in-world tape, the
+schema is already the same.
+
 ## SimRadio: live streaming into the dollhouse
 
 The primary source is the **"Live SimRadio on the net" email of
@@ -457,7 +499,9 @@ temporal relationship matrix cache hit) · Netflix and chill (a moody
 jam recording session) · the madeleine (playback you didn't
 schedule) · track record (literally) · bow the memory (tape-bow
 violin, scrubbing as performance) · sforzando (the spike has a name
-in Italian) · a save file of feeling.
+in Italian) · a save file of feeling · safari tracks (the ride is the
+ink) · the madeleine, geofenced · roundabout (municipal circular
+gesture guide).
 
 ## See also
 
