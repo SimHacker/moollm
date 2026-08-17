@@ -306,6 +306,50 @@ produces is a standard moody object, so the day a game or MOOLLM
 microworld wants to import your safari as an in-world tape, the
 schema is already the same.
 
+### The city record: every street is a groove
+
+Now let the safaris accumulate. Every trip lays down a music sync
+track — what was playing, where, when, by whom — so each street
+builds up **parallel tracks from many rides**, grooves side by side
+in the asphalt. The whole city map becomes a **branching,
+overlapping song playback record**, and **your bike is the record
+needle**. Scrub laterally between grooves anywhere — drift across
+the lane and you're crossfading between what different riders heard
+on this street. The player switches or loops songs when you turn:
+**turn to follow a groove** and keep listening; an intersection is a
+branch point in a song graph; and circling a roundabout is a
+**locked groove**, looping the bar until you exit.
+
+Or **take the music with you**, like a honey bee gathering pollen:
+pull the song you're hearing into your own currently-playing stream
+so it continues along with you when you branch off onto your own
+route — carving a new groove in the city record that carries the
+taken song forward. Riding **scrobbles a playlist**: even a partial
+listen is kept as a section you can edit later — expand to the full
+song, remove it, change the sample window. And if you like
+somebody's music, **keep following their ride path** to hear the
+next thing they listened to: music discovery as wayfinding, a route
+as a mixtape, the best DJ in town possibly being someone's commute.
+
+The prior art at song scale is exact: **Paul Lamere's Infinite
+Jukebox** ([Boston Music Hack Day 2012, at
+MIT](https://musicmachinery.com/2012/11/12/the-infinite-jukebox/)),
+built on The Echo Nest's beat analysis — decompose a song into
+beats, graph the similar-sounding ones, and branch playback through
+the graph so the song never ends (community-maintained today as the
+[Eternal Jukebox](https://musicmachinery.substack.com/p/the-infinite-jukebox-10-years-later)).
+The city record is the Infinite Jukebox at 1:1 scale: beats become
+blocks, branches become intersections, and the song graph is drawn
+in asphalt.
+
+What would Eno call it? The catalogue entry writes itself: **Music
+for Streets** — the sequel *Music for Airports* always implied. And
+it honors his contract twice over: ambient, because it rewards every
+level of attention (ride through it obliviously or stop and study a
+single groove); generative, because no two rides ever play the same
+city. Kin: Janet Cardiff's audio walks, Bluebrain's location-aware
+albums, the Situationists' dérive finally issued with a soundtrack.
+
 And it shouldn't require the bike. A **demo mode** in any desktop or
 mobile web browser gives the full experience without wheels, two
 control schemes deep: **direct position manipulation** — drag the
@@ -603,7 +647,10 @@ ink) · the madeleine, geofenced · roundabout (municipal circular
 gesture guide) · the blue note (the bent tone that makes the blues
 the blues, and the color of the puddle) · the breakup remaster (a
 grief pass, append-only like a heart) · hot dogging it (dead
-reckoning with feeling).
+reckoning with feeling) · Music for Streets (the sequel Airports
+implied) · locked groove (the roundabout, again) · carving a new
+groove (in actual asphalt) · pollen-taking (the honey bee school of
+playlist construction).
 
 ## See also
 
