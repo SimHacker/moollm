@@ -81,6 +81,65 @@ dithering — while a party track broadcasts high energetic heat with
 adjusting the room's exploration/exploitation tradeoff with a
 crossfader.
 
+## Your song: experience writes back
+
+Everything above is the read path: authored tracks broadcast into
+rooms, characters feel them. The other half of the design is the
+**write path**. When a character has an experience while moody media
+is playing, the experience writes an association back — onto **that
+exact moment of that exact media** — creating a
+**character-and-media-and-time specific overlay**. The overlay is
+private: it plays back every time to that particular character, and
+*only* they hear the tracks they added. The authored moody track is
+the shared public base layer; personal overlays are private tracks
+stacked above it — same envelope schema, different provenance,
+different visibility.
+
+Two granularities, one mechanism:
+
+- **The ambient wash.** A joyous wedding gently associates *all* the
+  songs that were playing — whole songs, entire — with happiness,
+  bliss, and memories of the people being married. Low heat, wide
+  envelope, many songs at once: the soundtrack of an afternoon
+  becomes faintly golden forever.
+- **The spike.** Your first kiss with your future spouse writes a
+  **strong spike of emotion at the particular time of the particular
+  media** that was playing — plus a full-song association around it.
+  High heat, narrow envelope, one timestamp of one song.
+
+The storage is Sims machinery, extended to media: each song carries a
+**relationship matrix** with characters and objects (the song-level
+associations — this song and that person, this song and that porch
+swing) and a **temporal relationship matrix** (time-indexed: what
+happened at t=1:47, who was there, what it felt like). A song is a
+first-class party to relationships, exactly like a person.
+
+Playback closes the loop. That song becomes **"your song"** — both of
+you are moved whenever it plays, because you both wrote spikes onto
+the same timestamp of the same media, and at the particular kiss
+point you both get a strong emotional ping, together, every time.
+"Darling, they're playing our song" is a temporal relationship matrix
+having a cache hit. Proust's madeleine is the cross-modal case — any
+media, any sense, can carry an overlay; involuntary memory is just
+playback you didn't schedule.
+
+And the overlays feed the auction like everything else. A song with a
+grief spike *inhibits* — the widow leaves the room when it comes on;
+the jukebox becomes a gift or a weapon; a suitor who learned your
+song courts with it, and a cruel ex torments with it. The DJ can read
+the room's aggregate public heat but never the private overlays,
+which is exactly right: the radio knows what the song means, only you
+know what it *meant*.
+
+**Netflix and chill becomes a moody jam recording session.** Shared
+media consumption is co-recording: two characters writing interleaved
+private overlays onto the same movie at the same timestamps. The
+movie becomes a shared diary that plays back differently to each of
+them — and the correlation of their spikes at the same moments is the
+measurable trace of a shared experience. Rewatching it together
+replays both overlays in sync: the mood jam, remixed live, gaining a
+new layer every session.
+
 ## SimRadio: live streaming into the dollhouse
 
 The primary source is the **"Live SimRadio on the net" email of
@@ -277,6 +336,13 @@ MOOLLM's object system already has every socket this design needs:
 - **Time-windowed broadcast ads are buffs** with `expires_at:` —
   the live call-in ad drops into the room's auction, shouts, and
   stops answering at the deadline.
+- **Personal overlays live in the character's own directory**, not on
+  the media — private by filesystem construction. An overlay file
+  keyed by media path plus timestamp, append-only like a session log;
+  the shared media artifact never mutates. At playback the character's
+  overlays for the playing media are summed onto the public track —
+  derived, never cached, so your song is your song on every machine
+  that mounts your soul.
 - **The LLM is the meaning knob.** The original design needed humans
   to author every parameter track. An LLM can *listen to the lyrics* —
   or read the scene, or the liner notes — and infer the track. The
@@ -293,7 +359,10 @@ through) · elevator music that actually elevates · theme song (a
 theme is a parameter set) · in the mood (high tag heat) · killing
 the mood (zeroing the track) · Muzak to my ears · the DJ's
 crossfader as an exploration/exploitation knob · ambient computing,
-finally ambient about something.
+finally ambient about something · they're playing our song (a
+temporal relationship matrix cache hit) · Netflix and chill (a moody
+jam recording session) · the madeleine (playback you didn't
+schedule) · track record (literally).
 
 ## See also
 
