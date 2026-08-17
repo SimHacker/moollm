@@ -416,6 +416,10 @@ schedule) · track record (literally).
 - [Radio On Internet: context and call to action](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-call-to-action.md)
   — the Broadcast.com date collision, the Russ Hanneman ROI scene, the
   EAML counterfactual, and the open-commons plan to finally build it
+- [Show seed: Moody — MIDI for Mood](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/moody-midi-for-mood/moody-midi-for-mood.yml)
+  — the Tiny Life trio (dev, composer, emotion sting artist), Jerry
+  Martin, David Levitt, and Will, on composers annotating their own
+  meaning
 - [GAME-PIECES.md](GAME-PIECES.md) — advertisement auctions, buffs
   with expiration dates, the dispatch spectrum and temperature as
   context
