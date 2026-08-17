@@ -1,0 +1,99 @@
+# THE HAGUE — trial mini-games; justice, not plebiscite
+# Upgrades TRIBUNAL.yml from a board-wide show of hands to due process:
+# judge, jury, advocates, evidence, and a full replay of the accused's
+# every recorded interaction. Each trial is a playable mini-game and a
+# broadcastable court TV episode.
+# Requires ../DEEP-MEMORY.yml — the logs ARE the case file.
+
+house_rule:
+  id: the-hague
+  stacks_on: tribunal          # replaces the raw vote with a court
+  patches:
+    capture_policy:
+      trial:
+        procedure: adversarial   # not straight democracy; justice has structure
+
+        court:
+          judge: |
+            The board itself presides — the oldest and most neutral
+            consciousness in the game (PIECE-CONSCIOUSNESS.yml,
+            board-consciousness). It has felt every step of every game
+            and favors neither color, only interesting verdicts. It
+            rules on objections, excludes hearsay, and instructs the
+            jury. It does not vote.
+          jury: |
+            Empaneled by lot from both colors — pawns, commoners, and
+            surrendered aristocrats alike, loyalties disclosed under
+            voir dire (advocates may strike jurors with cause argued
+            aloud; the strikes are part of the show). The jury decides
+            the verdict; nobody's ballot outranks anybody's.
+          advocates:
+            prosecution: |
+              Any piece with standing — typically a pawn the accused
+              spent, or the survivor of a pair the accused traded away.
+              The people's counsel builds the case from square ledgers.
+            defense: |
+              Chosen by the accused or appointed by the judge. Surrendered
+              aristocrats make the best defenders — they know the class,
+              its pressures, and its excuses from the inside, and their
+              presence proves redemption is on the table.
+          accused: |
+            Takes the stand if they choose. Their own MEMORY.md is
+            admissible either way — you cannot unwrite your life.
+
+        evidence:
+          replay: |
+            THE CENTERPIECE: the accused's every interaction is replayed
+            move by move from the deep memory logs — their MEMORY.md
+            cross-checked against the ledger of every square they touched
+            and the memories of every piece they moved past, threatened,
+            spent, or saved. The board reenacts key moments in place:
+            pieces assume their old positions and the moment plays again,
+            a navigable reconstruction of the crime scene at the moment
+            of the crime (same move as the troll's soul realms: an
+            embedded block-quote of a past game state).
+          objection_rule: |
+            Testimony that contradicts a square's ledger is struck; the
+            square is deposed and the ledger controls. Squares cannot
+            lie, do not vote, and are terrifying witnesses.
+
+        mini_game: |
+          The trial is PLAYABLE. Advocates argue by citing log entries;
+          jurors are persuadable characters with personalities and their
+          own memories of the accused; the judge rules in real time.
+          Players can take any seat — prosecutor, defender, juror,
+          witness, accused — and the outcome is genuinely undecided
+          until the foreman speaks. A trial is to Revolutionary Chess
+          what a dungeon is to an RPG: an interior game with its own
+          rules, entered from the outer one.
+
+        broadcast: |
+          COURT TV: every trial is an episode. Cold open on the capture
+          replay; opening statements; witness of the day; the square
+          deposition as the act-three twist; verdict and sentencing as
+          the cliffhanger. Recaps cite earlier episodes (square ledgers
+          persist across games, so precedent is canon). The revolution
+          will not only be televised, it will be subpoenaed.
+
+        verdicts:
+          enfranchise: "joins the commons as a full equal; organelle donated alive"
+          execute: "organelle seized into the commons; remembered by 64 squares"
+          restorative: |
+            The middle path the raw vote never had: sentenced to repair —
+            escort the pawn you spent to coronation, stand guard on the
+            square where you abandoned the knight. Sentence terms are
+            logged in the convict's MEMORY.md and verified against
+            square ledgers on completion. Justice with a work order.
+
+predicted_dynamics:
+  - "Advocacy becomes a career: a pawn who wins three prosecutions is a
+     name; a surrendered bishop who gets acquittals is a folk hero."
+  - "The replay changes play in the standard game: every move is made
+     knowing it may be exhibit A, reenacted in front of a jury."
+  - "Restorative verdicts produce the strangest loyalties — the queen
+     escorting the pawn she once spent becomes the story of the game."
+  - "Precedent accumulates in square ledgers across games on a persistent
+     board; by season three the pieces argue stare decisis."
+  - "Hypothesis: juries spare more aristocrats than plebiscites did —
+     process manufactures empathy; the replay shows the pressure behind
+     the cruelty, and the defense gets to say so out loud."

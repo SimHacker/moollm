@@ -27,6 +27,8 @@ second axis — what capture *means* for an aristocrat:
 | Mixin | One line | Predicted politics |
 |-------|----------|--------------------|
 | [`TRIBUNAL.yml`](TRIBUNAL.yml) | Capture is an arrest; the whole board (both colors, surrendered aristocrats included) votes live-or-die | Cross-color reputation; swing-bloc loyalty theater; square testimony decides close cases |
+| [`THE-HAGUE.yml`](THE-HAGUE.yml) | Stacks on TRIBUNAL: full trial mini-game — the board judges, a cross-color jury decides, advocates argue, and the accused's every interaction is replayed from the deep memory logs | Advocacy careers; every move made knowing it may be exhibit A; restorative sentences; stare decisis by season three |
+| [`SHOGI-DROPS.yml`](SHOGI-DROPS.yml) | Capture sends every piece to the captor's bench; drop it back on any vacant square as one of yours — allegiance is orientation, five centuries of shogi prior art | Material circulates instead of attriting; the bench is a hand of cards; capture by the revolutionary side is a promotion in disguise |
 
 TRIBUNAL leans on [`DEEP-MEMORY.yml`](../DEEP-MEMORY.yml): pieces keep
 append-only memory logs of every step, squares keep ledgers of everything

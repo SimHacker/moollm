@@ -85,6 +85,35 @@ The instance file is tiny: parents plus deltas. That is the whole Self
 insight — identity is cheap, variation is a small delta on something that
 already works, and the taxonomy *emerges* from what people actually make.
 
+And the set is only the cast; the *scene* is modeled too.
+[MICROWORLD.yml](../skills/experiment/experiments/turing-chess/MICROWORLD.yml)
+lays out the complete chess match as a room tree: the venue with arbiter
+and audience (and the demo board, ancestor of every live eval bar), the
+**table** as the unsung root object, the board's 64 square rooms, the
+two-faced clock, both players' scoresheets (the game's official shallow
+memory, doubly witnessed), the box with its spare queens — and the
+**sidelines**, where taken pieces stand. Chess never gave that spot an
+official name (the FIDE Laws don't designate one; convention says each
+player keeps their captures beside the board on their own side), but shogi
+did: the **komadai**, official precisely because captured pieces change
+allegiance and re-enter play — five centuries of capture-as-enfranchisement
+before Revolutionary Chess made it a trial. So each player's stand is
+modeled as **the bench**, and benched pieces are *alive on it*: they face
+the board, their memories keep running, and they provide color commentary —
+heckling their captor, coaching their old teammates, punditing the trials
+(The Hague seats them as the commentary desk). Voice and memory, no moves:
+the liveliest furniture in the microworld. And shogi's economy is a house
+rule of its own —
+[SHOGI-DROPS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/SHOGI-DROPS.yml):
+capture sends any piece to the captor's bench, and a later turn may drop it
+back on any vacant square *as one of yours*. The trick that makes it cheap
+is worth stealing on its own: shogi pieces aren't painted two colors — they
+are identical wedges, and **allegiance is orientation**, a one-bit rotation
+rather than an identity. Ownership derived from which way you point, never
+cached: robust-first, five hundred years early. A piece's location is just
+a path — `board/e4`, `sidelines/white-bench`, `box/spare-queens` — so
+capture, promotion, drop, and exile are all *moves in the same tree*.
+
 ## Revolutionary Chess: runtime inheritance as politics
 
 The mixin graph isn't static, and
@@ -96,28 +125,46 @@ the capture of the king. Then the war is over, and the defeated side's
 pawns **reverse direction and march home** — to revolt against their own
 royalty and courtier class. Civil war as a rules patch.
 
-The core mechanic is inheritance-by-extinction (or surrender): **when every
-instance of a piece type is captured or capitulates, that type's moves are
-inherited by all remaining commoners.** Kill the queen and every pawn gains
-queen moves. Eliminate both rooks and everyone gains rook moves. And the
-factoring is perfect: there is a shared
-**[COMMONS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)**
-mixin — empty at game start — that `types/PAWN` inherits from, and every
-commoner inherits from PAWN. Each political event is **one edit to one
-file**: when the revolution begins, the commons receives **NWAP** (the
-backwards-pawn move set — "pawn" mirrored, because it *is* the pawn
-mirrored: homeward step, homeward capture, coronation at the home rank,
-*additive*, so pawns keep their forward moves and now walk both roads).
-Each regicide appends the regent's move organelle to the commons, and all
-commoners gain it through delegation edges that already exist — no
-per-instance surgery, no hierarchy rebuild, O(1) political events on the
-same graph promotion already edits. The aristocracy never inherits COMMONS,
-so bottom-up is structural rather than policed; an elite reaches the seized
-moves only by surrendering — one edit to its own `inherits:`, pointing it
-at PAWN. And robust-first keeps it honest twice over: "the rooks are
-extinct" is *derived by counting instance files*, never cached, and the
-COMMONS file doubles as the **ledger of the revolution** — read one file to
-know everything seized, and when.
+The core mechanic is inheritance-by-seizure: **when an aristocrat is taken,
+their moves join the commons — and so do they.** Capture is enfranchisement,
+not execution; the taken piece joins as a full equal (equality is the whole
+point — nobody who joins the commons is ever less than equal), and their
+move organelle is deposited in the ledger for everyone, immediately.
+Equality doesn't wait for the second rook to die. And the factoring is
+perfect — perfectly *flat*: a pawn has **one rules parent, its
+[commons](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)**.
+There is no PAWN class above it; PAWN is a move-set organelle **seeded
+into the commons at setup**, the founding deposit of the ledger. From
+there, **every political event is an addition** — one append to one file,
+never a removal. The revolution appends **NWAP** (the backwards-pawn move
+set — "pawn" mirrored, because it *is* the pawn mirrored: homeward step,
+homeward capture, coronation at the home rank, *additive*, so pawns keep
+their forward moves and now walk both roads); every seizure appends an
+organelle; unification hoists contents upward. Politics as a monotonic
+append-only ledger, equality as the limit it converges to — there is no
+operation that takes a move away from the people. Move-sets are written
+in **side-relative coordinates** (forward = toward the enemy's home rank),
+rotationally symmetric like a Margolus neighborhood in a block cellular
+automaton — one rule file, interpreted in each team's frame, DRY across
+the color axis. No per-instance surgery, no hierarchy rebuild, O(1)
+political events on the same graph promotion already edits. And the
+degenerate case is a feature: a piece whose commons holds **no move-sets
+at all** just sits there, like furniture — its menu is *derived* from the
+organelles present, so an empty ledger means an empty menu, not an error.
+Give it self-destruct or let the troll's stomach eat it; the floor of
+degradation is not a stack trace, it's a nice ottoman. The Sims built an
+empire on pieces with no moves. The aristocracy never inherits COMMONS,
+so bottom-up is structural rather than policed — and here is the punchline
+of the class system: **there is no aristocracy mixin at all, because
+aristocrats don't share.** A class file holds what its members have in
+common, and the elites have nothing in common but their refusal to hold
+things in common — an absence of a delegation edge, not a file. The only
+sharing among them is piece-type behavior between same-color pairs (two
+white rooks share `types/ROOK`, which already exists). When the last
+aristocrat joins or falls, the class vanishes with no file to clean up.
+And robust-first keeps it honest: membership is *derived by delegation
+lookup*, never cached, and the COMMONS file doubles as the **ledger of the
+revolution** — read one file to know everything seized, and when.
 
 The commons itself factors by team: black and white run **separate
 revolutions at first**, so each side gets its own ledger — COMMONS-WHITE
@@ -126,13 +173,18 @@ empty. Each team progresses toward its own flat society on its own
 timeline, which means the board can hold a classless white commune and a
 still-royalist black kingdom simultaneously (the flat side will
 proselytize). Then comes **the International**: the unification event that
-merges the teams — hoist both team ledgers upstairs into the world commons,
-or repoint the team pawns' `inherits:` from COMMONS-{team} up to plain
-COMMONS — and either way the mechanism is the message: **unification is
-one more delegation edit**, the same primitive as every regicide before
-it. The open factoring question (where the team edge lives — on a thin
-team-pawn prototype, on the color mixin, or per instance at setup) is
-written up in
+merges the teams — and it touches **no piece's parents at all**. No
+repointing, no re-instancing: just move the methods upstairs, cutting the
+organelles from the team commons and pasting them into the world COMMONS.
+Shared stock deduplicates trivially — PAWN and NWAP are side-relative, so
+both teams were carrying the same contents all along — and every commoner
+already delegates *through* its team commons *to* the world commons, so
+the moves arrive by lookup the moment the file contents change. **The
+delegation graph is the constitution and it never needs amending;
+political events are contents flowing up edges that existed from the
+first move of the game.** The remaining factoring question (where the
+team edge lives — on a thin team-pawn prototype, on the color mixin, or
+per instance at setup) is written up in
 [COMMONS.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
 under `team_commons`.
 
@@ -149,11 +201,12 @@ were the queen's until the revolution engulfed her and kept the machinery.
 The delegation edge *is* the transplant — the organelle never stops being
 one file, it just gains hosts.
 
-Surrender is the **nonviolent path, and it's a demotion with a payoff**: a
-fancy piece that capitulates *becomes a pawn* — it renounces its aristocratic
-move-set (donating that organelle to the commons ahead of the executioner's
-schedule) and joins the class that inherits: pawn moves, plus everything
-already seized from the aristocracy, plus everything seized after. That is
+Surrender is the **nonviolent path, and it's an enfranchisement, not a
+demotion**: a fancy piece that capitulates joins the commons as a full
+equal — it donates its aristocratic move-set (that organelle reaches the
+commons ahead of the executioner's schedule) and joins the class that
+inherits: pawn moves, plus everything already seized from the aristocracy,
+plus everything seized after. That is
 why [DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
 predicts early surrender is optimal — capitulating converts you from
 organelle donor to organelle recipient, and the earlier you convert, the
@@ -191,14 +244,40 @@ was actually treated by the accused and in the voter's personality; any
 piece may testify from its own memory, and any piece may **call a square
 as witness** — the crime scene is deposed, reads its ledger aloud, and
 cannot lie, because the entry was written the moment it happened. Spared
-aristocrats are demoted to pawns, donating their move-set organelle to
-the commons alive. The robust-first rule holds even in court: verdicts
+aristocrats are enfranchised as full equals, donating their move-set
+organelle to the commons alive. The robust-first rule holds even in court:
+verdicts
 are derived by reading the logs at decision time, never from a cached
 loyalty flag — there is no troll flag in the courtroom, only the record.
 Predicted dynamics: cross-color reputation (the enemy's pawns may spare
 a queen who fought them honorably), kindness in the standard game priced
 as life insurance per witness, and — on a persistent board — pieces
 citing precedent from square ledgers by the third game.
+
+And the vote is only the entry-level court. **The Hague**
+([THE-HAGUE.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/THE-HAGUE.yml))
+stacks on the tribunal and replaces straight democracy with **justice**:
+the board itself presides as judge (oldest and most neutral consciousness
+in the game — it doesn't vote, it rules on objections), a jury is
+empaneled by lot from both colors with loyalties disclosed under voir
+dire, and advocates argue the case — a spent pawn prosecuting, a
+surrendered aristocrat defending, because who knows the class and its
+excuses better. The centerpiece is the **replay**: the accused's every
+recorded interaction is reenacted move by move from the deep memory logs,
+cross-checked against the ledger of every square they touched — the board
+reconstructs the crime scene at the moment of the crime, the same
+embedded-block-quote move as the troll's soul realms, but quoting a *past
+game state* instead of another game. Testimony that contradicts a square's
+ledger is struck; the ledger controls. Each trial is a **playable
+mini-game** (take any seat: prosecutor, defender, juror, accused — a trial
+is to Revolutionary Chess what a dungeon is to an RPG) and a **court TV
+episode** (cold open on the capture replay, square deposition as the
+act-three twist, verdict as cliffhanger; the revolution will not only be
+televised, it will be subpoenaed). Verdicts gain a middle path the raw
+vote never had: **restorative sentences** — escort the pawn you spent to
+coronation, stand guard on the square where you abandoned the knight —
+logged in the convict's memory and verified against square ledgers on
+completion. Justice with a work order.
 
 The plugin runs it as a full state machine — STANDARD → REVOLUTION →
 INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
@@ -212,6 +291,126 @@ hunt Fischer's king). When all elites are gone, all pieces have all moves,
 competition dissolves, and the board transcends into a sandbox — the game
 ends where this document begins, with every piece a composition of
 everything the war set free.
+
+## Buffs: mixins with expiration dates
+
+Once inheritance edges can be added at runtime, the next question is
+whether they can *lapse* — and that's what a buff is: **a mixin with an
+expiration date or condition on its delegation edge.**
+
+```yaml
+inherits:
+  - types/KNIGHT
+  - mixins/WHITE
+  - buffs/BLESSED.yml        # while: carrying(holy-symbol)
+  - buffs/GIANT-GROWTH.yml   # expires: end_of_turn
+  - debuffs/POISONED.yml     # expires: after_moves(6), or cured_by(antidote)
+```
+
+The grammar is three keywords: `expires_at` (a move number, a date, a
+clock time), `expires_when` (an event: first execution, sunrise, the lamp
+running out), and `while` (a continuous predicate: active only while the
+carrier holds the holy symbol, stands on the home rank, is in shadow).
+
+The lifecycle is a **three-layer ladder**, each layer a step up in
+sophistication:
+
+1. **Self-removal.** The common pattern: a buff can own its own death —
+   time out, self-destruct, delete its edge when the condition fires.
+   The robust-first distinction is *agency*: removal is the buff's own
+   act, not a cleanup step some other system must remember to run. The
+   troll flag failed because the *world* was supposed to clear it;
+   a self-destructing buff carries its own funeral instructions.
+2. **Disable-but-remain.** Another layer of conditionalization: the buff
+   stays in the graph but *stops answering* while its condition is false —
+   evaluated fresh at lookup time, so it can flicker (a `while:` buff
+   re-enables the moment you pick the holy symbol back up), and it doubles
+   as the safety net under layer 1: a buff that somehow missed its own
+   funeral still answers "not anymore," so nothing stale ever acts.
+3. **Scoring.** The top of the ladder: an enabled buff doesn't just answer
+   present-or-absent, it returns a **score** — and scores flow into the
+   **what-do-I-do-next engine**, the same advertise → score → act loop the
+   piece protocol already runs (and The Sims shipped). A POISONED debuff
+   doesn't merely restrict moves; it bids "find the antidote" high. A
+   BLESSED buff scores holy actions up while it lasts. The buff graduates
+   from a capability to a *voice in the auction* — behavior selection is
+   just reading the current bids from whatever mixins are alive, enabled,
+   and shouting.
+
+And the auction shouldn't always pay the highest bidder. The Sims'
+autonomy used a **find-best-N** primitive: score every advertisement,
+then pick *randomly among the top N* — deliberate dither that makes
+behavior organic instead of digitally predictable, and turns scoring
+ties from a bug into personality. Three reasons the dither is a feature,
+not a compromise. **Epistemics:** argmax was never "optimal," because
+bids are approximations at best and bald-faced lies at their cleverest —
+the Sims food chain is a supply chain of hustlers (fridge advertises
+"open me if hungry" → raw food advertises "cook me" → stove advertises
+a hot meal while omitting the burn-the-house-down clause that scales
+with your skill, beside a microwave promising safety and delivering
+fish-flavored everything). Paying the top bid every time isn't
+optimization, it's being deterministically conned. **Exploration:**
+random picks among strong candidates escape local maxima — repeated
+iteration finds ways out of apparent dead ends, giving a Drescher-style
+schema learner the wide coverage pure exploitation never visits.
+**Teachability:** visible imperfection leaves room for the player to
+*improve* the character by overriding it — a directed command is a
+forced pick of one ad regardless of score, which is programming by
+demonstration in disguise; skill gains from the demonstrated action
+re-weight future auctions until the override becomes the habit. A piece
+that always argmaxes cannot be taught this way. The full dispatch
+spectrum runs
+**argmax** (deterministic winner; compiles to a table lookup) →
+**find-best-N** (still crystallizable: scoring table plus a *seeded* RNG,
+and the seed goes in the deep memory logs so trial replays don't diverge
+from the crime) → **softmax** (temperature sampling over judged salience —
+which an LLM does natively, because temperature sampling *is* find-best-N's
+continuous generalization). Make **temperature a context value** and the
+knob composes like everything else: the party planner runs hot, the
+accountant runs cold, and a scene sets its dither level once, inherited
+implicitly by every decision inside it. And ambient heat doesn't have to
+be set by hand — it can come from **the room**, and the room can inherit
+it, varying over time, from **moody media** playing in it: music, video,
+and pure mood objects that broadcast time-varying heat levels per
+semantic tag (romantic, energetic, intellectual...) into the room's
+auction while they play. A slow dance is high romantic heat at low
+temperature; a party track is high energy at high dither. See
+[MOODY.md](MOODY.md) for the full design and its Sims-era history.
+
+And since a buff is a full prototype, it carries the whole interface: **a
+buff has its own CARD with its own advertisements**, and attaching the
+buff merges its card into the host's advertisement pool. The host's menu
+and behavior are the *union of the cards of every live, enabled mixin*,
+scored together in one auction — the piece contributes its move
+advertisements, the color mixin its allegiance-flavored options, and the
+POISONED debuff its own card: "seek antidote" advertised to the host,
+"administer antidote" advertised *to bystanders* (a poisoned pawn
+advertises its plight to nearby healers exactly the way a Sims fridge
+advertises meals to the hungry). BLESSED's card adds smite slices to the
+pie menu while the blessing lasts; when the buff disables or removes
+itself, its advertisements leave the pool with it — no menu cleanup,
+because the menu was never stored, only derived. Advertisements compose
+the same way move-sets do: the buff doesn't patch the host, it *stands
+next to it and shouts*, and the scoring engine hears everyone at once.
+
+The genealogy is everywhere once you look. Chess itself ships two buffs
+in the base rules: **castling rights** (a capability that expires
+permanently the move your king or rook first moves — and famously a
+*cached-flag bug factory*: FEN notation stores castling rights as flags,
+and every engine author learns why deriving them from move history is
+safer) and **en passant**, the shortest-lived buff in classic games — a
+capture right that exists for exactly one move and then evaporates.
+Magic: The Gathering built a whole economy on `expires: end_of_turn`
+(Giant Growth is a +3/+3 mixin with a one-turn edge); D&D has spell
+durations and concentration (a `while:` condition on the caster);
+roguelikes distinguish intrinsics (permanent mixins) from timed
+extrinsics; The Sims 4 calls them **moodlets** — mood mixins with
+visible countdown timers. And Revolutionary Chess already uses them on
+the *ruleset*: the golden-bridge surrender window is a buff on the
+house rules that `expires_when: first_execution`, and a Hague
+restorative sentence is a debuff that lifts on verified completion.
+Same mechanism at every scale: piece, player, ruleset — a delegation
+edge with a condition, evaluated fresh, never cached.
 
 ## The wumpus set: hazards as sub-piece templates
 

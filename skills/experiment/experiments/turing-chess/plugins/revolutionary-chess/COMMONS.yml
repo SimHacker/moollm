@@ -1,75 +1,136 @@
 # THE COMMONS — one shared mixin holding everything the revolution has seized
-# Perfectly factored: political events edit THIS FILE and nothing else.
-# PAWN inherits from COMMONS; every commoner inherits from PAWN.
-# The aristocracy does NOT inherit COMMONS — bottom-up is structural,
-# not policed. Seized moves reach elites only by surrender (become a pawn).
+# Perfectly factored: political events edit commons FILES and nothing else.
+# The delegation topology never changes; CONTENTS flow upward through it.
+# The aristocracy does NOT inherit any commons — bottom-up is structural,
+# not policed. And it needs no class file of its own: see no_aristocracy_mixin.
 
 commons:
   id: commons
-  inherited_by: types/PAWN     # and through PAWN, every commoner and every surrendered elite
-  initially: []                # empty at game start; the revolution fills it
+  inherited_by: [commons-white, commons-black]   # the world commons; teams below
+  initially: []                # empty at game start; unification fills it
 
-move_sets: []                  # appended by political events; each entry is an organelle
+move_sets: []                  # entries hoisted up from team commons; each is an organelle
+
+# COORDINATE SYSTEM — why one organelle serves both teams
+coordinates:
+  rule: |
+    Move sets are expressed in SIDE-RELATIVE coordinates: forward means
+    toward the enemy's home rank, homeward means toward your own. Like a
+    Margolus neighborhood in a block cellular automaton, the rule is
+    rotationally symmetric — the same rule file, interpreted in each
+    team's frame. So PAWN and NWAP are one file each, shared by both
+    colors, DRY across the color axis. No PAWN-moves-for-white,
+    PAWN-moves-for-black duplication anywhere.
 
 protocol:
+  setup: |
+    Each pawn instance has ONE rules parent: its team commons. There is
+    no PAWN class above it — PAWN is a move-set organelle SEEDED INTO
+    each team commons at setup, the founding deposit of the ledger.
+    (Color, glyph, and presentation stay orthogonal mixins per
+    designs/GAME-PIECES.md; the single parent is for RULES.)
   revolution_begins: |
-    Append NWAP (below) to move_sets. Additive: pawns KEEP their forward
-    moves and gain the homeward ones. The reversal is a widening, not a
-    flip — the pawn now walks both roads.
-  regicide_or_full_surrender: |
-    When every instance of an elite type is captured or capitulates,
-    append that type's move organelle here (types/QUEEN moves, etc).
-    ONE EDIT. Every commoner gains the moves through delegation edges
-    that already exist. No per-instance surgery; O(1) political events.
+    Append NWAP (below) to the revolting side's commons. Additive: pawns
+    KEEP their forward moves and gain the homeward ones. The reversal is
+    a widening, not a flip — the pawn now walks both roads.
+  aristocrat_taken: |
+    When an aristocrat is taken, add them to the commons — the piece AND
+    the moves. Capture is enfranchisement, not execution: the taken
+    aristocrat joins the commons as a full equal (subject to TRIBUNAL if
+    that house rule is in play), and their move organelle is deposited in
+    the ledger for everyone. No waiting for type extinction — equality
+    does not wait for the second rook to die. EQUALITY IS THE WHOLE POINT:
+    nobody who joins the commons is ever less than equal.
+    (The old extinction-triggered variant survives as a conservative
+    house rule for those who like their revolutions slower.)
   individual_surrender: |
-    A surrendering elite edits its own inherits: to types/PAWN.
-    Joining the commons is one edge — the seized moves come with
-    membership, past and future.
+    A surrendering elite joins the commons as an equal — not a demotion,
+    an enfranchisement. One edge edit on the piece itself; the seized
+    moves come with membership, past and future, and their own organelle
+    is donated on arrival.
   house_rule_interactions: |
     EXILE: the organelle leaves with the exile and is never appended here.
-    AMNESTY-VOTE: the vote gates the inherits: edit, not this file.
+    AMNESTY-VOTE: the vote gates admission, not this file.
+    TRIBUNAL: gates whether a taken aristocrat is enfranchised or executed;
+    either way the organelle is deposited.
+
+monotonic_politics: |
+  EVERY EDIT IS AN ADDITION. Setup seeds PAWN; revolution appends NWAP;
+  every capture, surrender, and verdict appends an organelle; unification
+  hoists contents upward. Nothing is ever removed from a commons (EXILE
+  doesn't remove — it declines to append). The rule system is append-only
+  the way moollm session logs are append-only: politics as a monotonic
+  ledger, equality as the limit it converges to. There is no operation
+  that takes a move away from the people.
+
+furniture_degradation: |
+  The degenerate case is a feature: a piece with NO move-set organelles
+  at all just sits there, like furniture or decoration. Nothing crashes —
+  its menu is DERIVED from the move-sets present (advertisement-style,
+  by delegation lookup), so an empty commons means an empty menu, not an
+  error. Give it universal verbs if you like: self-destruct, or be eaten
+  (the troll's sorting stomach accepts furniture). Robust-first all the
+  way down: the floor of degradation is not a stack trace, it's a nice
+  ottoman. The Sims built an empire on pieces with no moves.
+
+no_aristocracy_mixin: |
+  There is no ARISTOCRACY.yml, and there never needs to be one:
+  ARISTOCRATS DON'T SHARE (hee hee). A class file exists to hold what its
+  members have in common, and the elites hold nothing in common but their
+  refusal to hold things in common — which is an absence of a delegation
+  edge, not a file. The only sharing among them is piece-type behavior
+  between same-color pairs: two white rooks share types/ROOK, and that
+  file already exists. Aristocracy is defined negatively — a piece that
+  inherits no commons — and when the last one joins or falls, the class
+  vanishes without a single file to clean up. Robust-first even in the
+  class system: no mixin, no stale mixin.
 
 why_this_factoring:
-  - "COMMONS is the LEDGER of the revolution: read one file to know everything seized, and when."
-  - "Reset is emptying one file. No flags, no per-instance cleanup, nothing to forget."
+  - "COMMONS files are the LEDGER of the revolution: read them to know everything seized, and when."
+  - "Reset is emptying the files. No flags, no per-instance cleanup, nothing to forget."
   - "Presence-derived and robust-first: 'do pawns have queen moves?' is answered by delegation lookup, never by cached state."
   - "The class the revolution enriches is a prototype, so enrichment is inheritance — the mechanism IS the politics."
+  - "No piece's parents are EVER edited by a world event; only commons contents move. Topology is constitution, contents are law."
 
-# TEAM COMMONS — the two-tier factoring (afterthought worth arguing about)
+# TEAM COMMONS — the two-tier factoring
 # Black and white run separate revolutions at first, so each side gets its
 # own commons; both inherit from THIS file, the world commons.
 team_commons:
   structure: |
     COMMONS                    <- the world commons (this file); empty until unification
-      COMMONS-WHITE            <- white's seized moves; white regicides append here
-      COMMONS-BLACK            <- black's seized moves; black regicides append here
-    Each side's commoners reach their team commons through one thin team
-    prototype (PAWN-WHITE inherits [types/PAWN, COMMONS-WHITE]; likewise
-    black), so political events stay one-edit-one-file per side. Two
-    revolutions, two ledgers, two timelines: the board can hold a flat
-    white society and a still-royalist black kingdom at once — and the
-    flat side will proselytize across the ranks.
+      COMMONS-WHITE            <- seeded with PAWN at setup; white's seizures append here
+      COMMONS-BLACK            <- seeded with PAWN at setup; black's seizures append here
+        pawn instances         <- ONE rules parent: their team commons; nothing else
+    No thin team-pawn prototype, no types/PAWN class: PAWN is the founding
+    deposit in each team's ledger, and every commoner reads its rules
+    straight from the commons it belongs to. Political events stay
+    one-edit-one-file per side. Two revolutions, two ledgers, two
+    timelines: the board can hold a flat white society and a
+    still-royalist black kingdom at once — and the flat side will
+    proselytize across the ranks.
   unification: |
     THE INTERNATIONAL: the event that merges the teams into one flat
-    society. Candidate factorings, deliberately left open:
-      hoist    — move both team ledgers upstairs into COMMONS; team files
-                 remain as emptied historical husks (two edits, history
-                 preserved in place)
-      repoint  — team pawn prototypes change inherits: from COMMONS-{team}
-                 upstairs to COMMONS, after hoisting the organelles
-      dissolve — delete the team layer entirely; commoners inherit COMMONS
-                 directly, and the ledgers concatenate with provenance
-                 comments intact
-    Whichever factoring, the mechanism is the message: unification is a
-    delegation edit, the same primitive as every other political event.
+    society. No piece's parents are touched — no repointing, no
+    re-instancing, nothing. Just MOVE THE METHODS UPSTAIRS: cut the
+    organelles from COMMONS-WHITE and COMMONS-BLACK and paste them into
+    COMMONS, deduplicating shared stock (PAWN and NWAP merge trivially —
+    side-relative coordinates mean they were the same file's contents all
+    along). Every commoner already delegates through the team commons to
+    the world commons, so the moves arrive by lookup the moment the files
+    change. The delegation graph is the constitution and it never needed
+    amending; unification is contents flowing up an edge that existed
+    from the first move of the game.
   open_question: |
-    Where should the team edge live — on the thin team-pawn prototype, on
-    the color mixin (dangerous: aristocrats wear colors too and must not
-    inherit a commons), or on each instance at setup? Ordered multiple
-    parent slots make all three expressible; taste decides. One to argue
-    out with David Ungar.
+    Mostly resolved by the single-parent factoring: the team edge lives
+    on each pawn instance, pointing at its team commons, set once at
+    setup and never edited again. Remaining taste questions for the
+    David Ungar conversation: should aristocrats' piece-type files
+    (types/ROOK etc.) also become seeded single-parent micro-commons of
+    one or two members, making the whole rule system one uniform
+    mechanism? And does anything break when a commons is empty (answer
+    so far: no — see furniture_degradation)?
 
-# NWAP — the first donation to the commons
+# NWAP — shared stock, deposited at revolution start alongside PAWN
 # 'pawn' mirrored, because the move set is literally the pawn reversed.
 nwap:
   name: NWAP
@@ -79,3 +140,4 @@ nwap:
     step from the far rank, diagonal capture homeward. Promotion at the
     home rank (the coronation — see MANIFESTO.md phase 4).
   additive: true    # forward moves are kept; NWAP widens, never replaces
+  side_relative: true   # one file for both colors; see coordinates rule

@@ -1,0 +1,135 @@
+# THE CHESS MICROWORLD — the complete room/object model of a match
+# Directories are rooms; a piece's location is a path. The game is not
+# just the board: it's the venue, the table, the clock, the people, and
+# the paper. Plugins (revolutionary-chess) overlay meanings on the same
+# tree without changing its shape.
+
+microworld:
+  id: chess-match
+  principle: |
+    Model the WHOLE scene, accurately. Every object a real tournament
+    has, as a room or an object in one. Game state is "which path is
+    everything at" — capture is a move from a square to a sideline,
+    promotion is a trip to the box for a spare queen, resignation is a
+    king laid on its side ON its square. No hidden state; the tree is
+    the truth.
+
+tree: |
+  chess-match/
+    VENUE.yml               # the hall: lighting, quiet rules, the rope line
+    arbiter/                # tournament referee; rules on disputes, flag falls
+    audience/               # spectators (behind the rope); can murmur, not speak
+      demo-board/           # wall-size mirror of the position for the crowd,
+                            # the ancestor of every live-broadcast eval bar
+    table/                  # everything below sits ON the table
+      board/                # the 8x8 room grid
+        a1/ .. h8/          # 64 square rooms, each with MEMORY.md (DEEP-MEMORY)
+      clock/                # one object, two faces, one button
+        white-face.yml      # remaining time; the flag that falls
+        black-face.yml
+      sidelines/            # where taken pieces sit — see naming note below
+        white-bench/        # pieces White has captured (Black's men), kept on
+                            # White's side of the table by convention
+        black-bench/        # pieces Black has captured
+      scoresheets/          # the official shallow memory of the game
+        white-scoresheet.md # algebraic notation, signed at the end
+        black-scoresheet.md # two independent witnesses of one history
+    players/
+      white/                # a character with a chair, a scoresheet, a pen,
+        chair/              # and (revolutionary-chess) a karma ledger
+      black/
+        chair/
+    box/                    # where the pieces sleep between games; also the
+      spare-queens/         # promotion stock — the extra queen every set carries
+
+naming_the_sidelines: |
+  Chess has NO official name for where captured pieces go — the FIDE Laws
+  of Chess never designate an area. The convention: each player keeps the
+  pieces they captured beside the board on their own side, in view, so
+  material can be counted at a glance. Informal names: the graveyard, the
+  prisoners. The game that made the piece stand OFFICIAL is shogi: the
+  komadai, a small wooden platform at each player's right — official
+  because captured pieces change allegiance and re-enter play. Shogi has
+  been playing capture-as-enfranchisement for five centuries; we adopt
+  komadai as the honored loanword, "sidelines" as the area, and THE BENCH
+  as each player's stand — because that's what it is: a bench.
+
+the_bench: |
+  Taken pieces are not dead. They sit on the bench, FACING THE BOARD,
+  watching the rest of the game they were taken out of — and they
+  COMMENT. Color commentary from the sidelines: heckling their captor,
+  coaching their old teammates, second-guessing the queen, narrating
+  the endgame they can see coming from the best seats in the house.
+  Their MEMORY.md keeps running the whole time; a benched piece is the
+  ideal witness (they watched everything after their capture with
+  nothing else to do) and the ideal court TV pundit (THE-HAGUE trials
+  seat them as the commentary desk). Benched pieces have voice and
+  memory but no moves — the liveliest furniture in the microworld, the
+  peanut gallery with a grudge ledger. Under SHOGI-DROPS the bench is
+  also a hand of cards: any of them may be dropped back into play,
+  turned around, on the captor's side — so their commentary acquires a
+  strategic subtext; the pawn heckling you may be auditioning.
+
+objects:
+  table:
+    is: room            # contains board, clock, sidelines, scoresheets
+    note: "The unsung root object. Bump it and every piece remembers."
+  board:
+    is: room
+    contains: "64 square rooms; coordinates printed on its edge are the URL scheme"
+  square:
+    is: room
+    state: "occupant (derived: which piece file is here), MEMORY.md ledger"
+  piece:
+    is: character
+    location: "a path: board/e4, sidelines/white-side, or box"
+    rules: "delegation to its commons (plugins/revolutionary-chess/COMMONS.yml)"
+  clock:
+    is: object
+    drama: "the flag fall — time as a third player that never blunders"
+    protocol: "pressing your button is part of your move; the clock witnesses tempo"
+  scoresheet:
+    is: document
+    note: |
+      The game's OFFICIAL memory — shallow, notation-only, but doubly
+      witnessed: both players keep one and they must agree. DEEP-MEMORY
+      logs are the unofficial memory: what the squares and pieces
+      actually experienced. Trials (THE-HAGUE) admit both; the
+      scoresheet establishes WHAT happened, the deep logs establish
+      what it MEANT.
+  arbiter:
+    is: character
+    note: "Neutral human authority; in THE-HAGUE trials the arbiter clerks
+           for the judge (the board presides; the arbiter keeps order)."
+  bench:
+    is: room
+    note: "Each player's stand for taken pieces (shogi: komadai). Occupants
+           face the board, keep their memories running, and provide color
+           commentary — voice and memory, no moves. See the_bench."
+  audience:
+    is: room
+    note: "Spectators are characters with opinions and no moves — furniture
+           that murmurs. They watch the demo board, not the table."
+  spare_queen:
+    is: piece
+    location: box/spare-queens
+    note: "Proof the box is not a graveyard but a bench: promotion summons
+           reinforcements from storage. Every set ships with an understudy."
+
+revolutionary_chess_overlay: |
+  Same tree, new meanings, zero structural changes:
+    sidelines/  -> the DOCK and the COMMENTARY DESK: taken aristocrats
+                   await trial here (house-rules/TRIBUNAL.yml,
+                   THE-HAGUE.yml) while benched pieces heckle and
+                   testify; under house-rules/SHOGI-DROPS.yml the bench
+                   is a live reserve — komadai semantics, pieces turned
+                   around and dropped back in on the captor's side
+    box/        -> exile destination (house-rules/EXILE.yml) and the
+                   reset mechanism: re-instantiation from templates
+    scoresheets/-> exhibit index for trials; deep logs cite scoresheet
+                   move numbers as their timestamps
+    audience/   -> the court TV gallery; the demo board becomes the
+                   trial replay screen
+    clock/      -> after the revolution nobody presses it; the flag
+                   falls unheeded — the first casualty of equality is
+                   the tempo economy

@@ -1,0 +1,57 @@
+# SHOGI DROPS — capture-as-enfranchisement, five centuries of prior art
+# Capture axis house rule: a taken piece is not dead and not on trial —
+# it changes allegiance and waits on YOUR bench to be dropped back into
+# play as one of yours. Shogi has run this economy since the 16th century.
+# Composable with THE-HAGUE (trial decides bench vs commons) or standalone.
+
+house_rule:
+  id: shogi-drops
+  patches:
+    capture_policy:
+      all_pieces: to_captors_bench   # not just aristocrats; shogi spares everyone
+      bench: |
+        Each player has a bench (shogi: komadai, the piece stand at the
+        player's right). Taken pieces stand there IN VIEW, alive, facing
+        the board — see MICROWORLD.yml sidelines/the bench.
+      drop: |
+        On your turn, instead of moving a piece on the board, place a
+        piece from your bench on any vacant square. It is yours now.
+        The drop is a full move; the clock witnesses it.
+      allegiance: |
+        THE DEEP TRICK, stolen with admiration: shogi pieces are not
+        painted two colors — they are identical flat wedges, and
+        OWNERSHIP IS ORIENTATION. A captured piece changes sides by
+        being turned around, a one-bit rotation. Chess bakes allegiance
+        into paint (BLACK/WHITE mixins with glyph sets); shogi derives
+        it from which way you point. In mixin terms: allegiance is a
+        cheap swappable edge, not an identity — which is exactly what
+        makes recycling captives practical. Robust-first bonus: on the
+        board, whose piece it is can be DERIVED from orientation; no
+        ownership flag to go stale.
+      canon_restrictions: |
+        Shogi's own balance patches, kept as canon fields:
+          nifu       — no dropping a pawn onto a file that already has
+                       your unpromoted pawn
+          uchifuzume — no delivering immediate checkmate by pawn drop
+          no_dead_drops — no dropping a piece where it can never move
+                       (pawn or lance on the last rank, knight on the
+                       last two)
+          demotion   — promoted pieces revert to base type when captured;
+                       the bench strips titles at the door.
+        Note the contrast with the commons: shogi demotes the INDIVIDUAL
+        on capture, but Revolutionary Chess never removes anything from
+        the PEOPLE. Per-piece humility, collective monotonicity — the
+        two rules compose without contradiction.
+
+predicted_dynamics:
+  - "Material never leaves the game; it circulates. Attrition chess
+     becomes a conservation economy — every capture arms your opponent's
+     future and your present."
+  - "The bench is a hand of cards: hidden depth in plain sight. Threats
+     multiply because every vacant square is a potential arrival."
+  - "With team commons: a dropped piece reads rules from its NEW side's
+     commons — defection includes the seized moves, which makes being
+     captured by the revolutionary side a promotion in disguise."
+  - "With THE-HAGUE: the trial decides bench or commons — conscription
+     versus citizenship. Defense advocates start arguing for the bench
+     as the lighter sentence. Is it?"
