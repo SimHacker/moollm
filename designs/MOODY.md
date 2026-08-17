@@ -507,7 +507,7 @@ gesture guide).
 
 - [The 1999 SimRadio email, in full](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-moody-1999-maxis-email.md)
   — the primary source, harvested with commentary in WWSFF
-- [Radio On Internet: context and call to action](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-call-to-action.md)
+- [Radio On Internet: SimRadio in context](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-radio-on-internet.md)
   — the Broadcast.com date collision, the Russ Hanneman ROI scene, the
   EAML counterfactual, and the open-commons plan to finally build it
 - [Show seed: Moody — MIDI for Mood](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/moody-midi-for-mood/moody-midi-for-mood.yml)
