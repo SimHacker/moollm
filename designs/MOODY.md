@@ -142,14 +142,78 @@ The DJ as behavior-engine input, the remote control as a mood API.
 
 ## Precedents and kin
 
-- **Muzak's stimulus progression** — the 1940s shipped time-varying
-  mood parameter tracks: fifteen-minute blocks ascending in intensity
-  to fight worker fatigue. Muzak just never published the schema.
-  Moody is stimulus progression with the schema in the open, per tag.
-- **Brian Eno's ambient music** — "as ignorable as it is interesting"
-  (*Music for Airports*). Moody media is ambient music with a
-  machine-readable meaning track; Eno later built generative music for
-  *Spore* with Will Wright, so the lineage loops back to Maxis anyway.
+### Muzak: stimulus progression (1940s)
+
+The 1940s shipped time-varying mood parameter tracks at industrial
+scale. Muzak began as Wired Radio, Inc., founded on the patents of
+**Major General George Owen Squier** (US Army Signal Corps, inventor
+of multiplexed transmission over power lines), who coined the name by
+splicing *music* into his favorite brand, *Kodak*. Its signature
+product, **Stimulus Progression**, was a quantified mood engine: every
+recording was assigned a numeric **stimulus value** based on tempo,
+rhythm, instrumentation, and ensemble size, and programming was
+assembled into **fifteen-minute blocks of ascending stimulus**
+followed by silence — an envelope shaped to counter the measured
+mid-morning and mid-afternoon dips of the industrial **fatigue
+curve**. Wartime factories ran it on purpose (alongside the BBC's live
+*Music While You Work*, 1940, with its own tempo and orchestration
+rules); Muzak sold documented productivity claims for decades before
+retiring Stimulus Progression in the 1980s as quantity-of-mood gave
+way to "Audio Architecture" branding. The standard history is
+**Joseph Lanza, *Elevator Music: A Surreal History of Muzak,
+Easy-Listening, and Other Moodsong*** (1994; rev. 2004).
+
+So the parameter track is not speculative — it ran for half a century.
+Muzak just never published the schema, kept one scalar dimension, and
+pointed the envelope at the *employer's* goal (output per worker).
+Moody is stimulus progression with the schema in the open, per tag —
+and pointed the other way, per the advertisements-that-learn rule in
+[GAME-PIECES.md](GAME-PIECES.md): heat tuned to the *inhabitant's*
+observed good, not the owner's extraction curve. Same engineering,
+opposite principal.
+
+### Eno: ambient, generative, and the loop back to Maxis
+
+**Brian Eno** named the genre and stated its contract in the liner
+notes of ***Ambient 1: Music for Airports*** (1978, following
+*Discreet Music*, 1975): ambient music "must be able to accommodate
+many levels of listening attention without enforcing one in
+particular; it must be **as ignorable as it is interesting**." That is
+a two-knob specification avant la lettre — surface you can tune out,
+influence that keeps working — and Moody media is ambient music with
+the influence channel made machine-readable.
+
+Eno then spent decades making the *generator* explicit: the
+rule-driven **generative music** systems he named in 1996 (the SSEYO
+Koan software releases, and his talk framing composers as people who
+plant seeds rather than build objects), later the ***Bloom*** app with
+Peter Chilvers and *77 Million Paintings*. The lineage loops back to
+Maxis concretely: for ***Spore*** (2008) Eno worked with Maxis audio
+director **Kent Jolly** and composer **Aaron McLeran** (their GDC 2008
+talk, *Procedural Music in SPORE*, is the reference; Jolly's Pd
+convention paper covers the engineering) on a **generative score
+running in EAPd** — EA's embedded dialect of Pure Data, used as event
+logic driving the game's audio engine — music that mutates with how
+you play rather than streaming fixed. Jolly compared Eno's
+contributions to *Apollo: Atmospheres and Soundtracks*; Eno sent a CD
+of new material within a week of the first phone call. It is the moody
+track's inverse twin: instead of annotating fixed music with meaning,
+generate the music *from* the meaning.
+
+And the personal loop: Eno coined **"The Long Now"** and co-founded
+the Long Now Foundation, where on **June 26, 2006** he and **Will
+Wright** gave the seminar ***Playing with Time*** — generative music
+and generative simulation as the same idea in different clothes
+([YouTube](https://www.youtube.com/watch?v=Dfc-DQorohc) · WWSFF source
+bundle with transcript:
+[`will-wright/sources/2006-06-26-long-now-playing-with-time-eno-wright/`](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/will-wright/sources/2006-06-26-long-now-playing-with-time-eno-wright) ·
+[Eno's room and show ideas](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/brian-eno)).
+Don met Brian after that talk and introduced him to Scott Draves of
+Electric Sheep — a distributed generative artwork that is itself a
+room-scale mood broadcast.
+
+### The rest of the family
+
 - **Film scoring and leitmotif** — a parameter track performed by an
   orchestra: the composer annotates the scene's semantic heat and the
   audience's behavior engine responds on cue.
@@ -235,6 +299,9 @@ finally ambient about something.
 
 - [The 1999 SimRadio email, in full](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-moody-1999-maxis-email.md)
   — the primary source, harvested with commentary in WWSFF
+- [Radio On Internet: context and call to action](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-call-to-action.md)
+  — the Broadcast.com date collision, the Russ Hanneman ROI scene, the
+  EAML counterfactual, and the open-commons plan to finally build it
 - [GAME-PIECES.md](GAME-PIECES.md) — advertisement auctions, buffs
   with expiration dates, the dispatch spectrum and temperature as
   context
