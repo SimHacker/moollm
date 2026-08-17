@@ -303,6 +303,15 @@ Three reasons, in honest order:
    be connected to. Live talk radio with call-in windows inside The
    Sims was several boxes outside the box.
 
+Pieces of the email did ship, slowly, at Maxis itself: the celebrity
+visitor arrived as Drew Carey's limo in *House Party* (2001), diegetic
+front-door delivery as *Makin' Magic*'s mystery box (2003), and "this
+would put the game online" as The Sims Online (2002) — built the hard
+way, as a full MMO, instead of the email's receiver-in-the-game route.
+The studio's idea pool ran years ahead of its release schedule, and it
+never emptied — much of what was imagined then still hasn't shipped
+and still could.
+
 The missed boat, for the record: the loop this design described —
 live broadcast into a synthetic world, synchronized real-time events,
 characters and players responding together inside a time window,
