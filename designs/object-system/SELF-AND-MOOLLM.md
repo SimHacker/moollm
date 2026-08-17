@@ -79,6 +79,112 @@ prototypes"*) and `PROTOTYPES.yml` define ordered multiple parents with first-ma
 A skill can inherit from a character prototype and a room prototype simultaneously. Flavors-style
 mixins with none of the MRO metaphysics: sweep the list left to right, first slot found wins.
 
+### Named parent slots vs the parent array
+
+One real divergence from Self is worth naming. In Self, a parent is an
+ordinary **named** slot marked with an asterisk (`parent*`, `traits*`):
+the name documents the parent's *role*, and dynamic inheritance means
+assigning to that specific named slot — reparent the `traits*` without
+touching anything else. NeWS's `class.ps` took the other road: parents
+in an ordered, **unnamed** array (`/Parents`), positions instead of
+roles, multiple inheritance by sweep order. MOOLLM's `parents:` /
+`invokes:` lists follow NeWS: ordered, positional, anonymous — though
+YAML jazz comments can annotate any entry with its role, which recovers
+Self's documentation-by-name without adding mechanism.
+
+The deeper divergence is what a parent reference *is*. In Self the
+parent slot holds the parent object itself. In MOOLLM a parent entry is
+**symbolic**: a relative path, a URL, a K-line, a skill name, or a plain
+natural-language string — resolved in context by the LLM, sometimes all
+the way into latent space
+([LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md)). Objects are
+never embedded in other objects by reference; **embedding is what the
+physical filesystem does**. The directory tree — and above it the git
+repo and the GitHub URL space — is the containment layer, used for
+addressing: identity is location, pointing is a path.
+
+Two conventions ride on that containment layer:
+
+- **Walking up for registries.** The LLM resolves a bare name by
+  climbing the physical containment tree looking for registries — a
+  `skills/` directory of locally named skills, a `characters/` index —
+  nearest match wins. Lexical scoping over directories: HyperCard's
+  button → card → stack delegation, done with `ls ..`.
+- **Typed containers with plural names.** A directory named with a
+  plural (`skills/`, `characters/`, `rooms/`, `sources/`) is a typed
+  container whose children are subdirectories keyed by dir-scoped
+  unique ids. The container carries its own metadata and
+  `INTERFACE.yml`, giving it behavior and defaults its children
+  inherit — their type, how to present them, what contract they answer
+  to ([DIRECTORY-AS-IUNKNOWN](../DIRECTORY-AS-IUNKNOWN.md)). The
+  container is the class-shaped thing; the children only carry deltas.
+
+So the two inheritance systems run on different substrates and meet in
+the object: **delegation follows symbolic references** (parents, K-lines,
+latent names) while **defaults flow down physical containment**
+(container interfaces, walking up for registries). A file inherits from
+what its YAML points at *and* from where it sits.
+
+### What naming the parents buys you
+
+Is the named parent slot worth it? Four things say yes:
+
+1. **Disambiguation by drilling down.** Self's directed resends route a
+   send through a specific named parent when several answer. An
+   anonymous array offers only position (fragile) or copying the slot
+   down (defeats delegation). MOOLLM gets this semantically — "use the
+   zork-mind's answer" — and note that characters already name their
+   parents in practice: the Cross-Platform Troll's minds are named
+   directories, de facto named parent slots.
+2. **Mode switching with a name.** Assigning a parent slot is Self's
+   classic dynamic-inheritance idiom, and the name makes the mode
+   dimension explicit and *orthogonal*: reassign the allegiance without
+   touching the traits. Revolutionary Chess reparents by role, not by
+   list position.
+3. **Mutation ergonomics.** A named-slot set is a map; an ordered
+   parent list is a sequence. Maps mutate better — add or remove a
+   parent without renumbering positions or worrying where it lands in
+   resolution order.
+4. **Diff and merge.** Keyed diffs beat positional diffs. Two branches
+   each adding a parent to a map merge cleanly; the same edits to a
+   sequence conflict on line order. In a git-native object system this
+   is not a detail.
+
+What names lose is explicit resolution order — why early Self had
+parent priorities, and why MOOLLM's list is ordered. The synthesis is
+already sitting in the notation: **a YAML map preserves key order as
+written**, so `parents:` as a map yields named roles *and*
+declaration-order resolution at once.
+
+And Self's asterisk convention drops straight into YAML unquoted:
+`traits*:` and `parent*:` parse as plain keys, because YAML only
+reserves `*` at the *start* of a scalar (the alias sigil). The
+collision is impossible and the sigils are even complementary — leading
+`*` is YAML's dereference-a-reference, trailing `*` is Self's
+this-slot-is-a-parent, per Self's own convention a notation rather than
+part of the name. YAML also ships a native single-document parents
+basket: the `<<: *anchor` merge key, which merges a referenced
+mapping's slots in — inheritance the YAML spec already paid for.
+
+```yaml
+traits*: ../traits/clonable      # named parent, Self notation, no quotes
+allegiance*: red-army            # reassign this one slot to defect
+parents*: baskets/revolutionary  # the whole ancestry, swappable at once
+```
+
+And there's a second-order move: **the parents basket** — one slot
+named `parents*` holding an intermediate object whose slots are the
+actual parents (the opposite of eggs-in-one-basket: all your parents in
+one basket). Swapping the basket swaps an entire *ancestry* atomically —
+mode switching at the lineage level, one assignment replacing a
+coherent set of parents designed to work together. MOOLLM's file-shaped
+version already exists: `PROTOTYPES.yml` *is* the basket; swap the
+file, swap the ancestry. Follow the thought one step further and it
+lands in Korz: a basket of named parents chosen per situation is a
+**context**. Self's named parent slot was the proto-dimension, and
+drilling down through a named parent is manually binding the coordinate
+that Korz binds implicitly.
+
 ## The Lisp lineage — Flavors, CLOS, and the MOP
 
 The other heritage we inherit by name is the Lisp Machine line — the gloriously CISC end of the

@@ -93,7 +93,7 @@ SHOOT 3 → room-d → room-e → room-f
 
 See [wumpus.yml](./wumpus.yml) for maze game state.
 Full game rules: [characters/fictional/wumpus-snorax/](../characters/fictional/wumpus-snorax/)
-Original 1973 BASIC: [wumpus-basic-source.md](../characters/fictional/wumpus-snorax/wumpus-basic-source.md)
+Original 1973 BASIC: [wumpus1-yob.bas](../characters/fictional/wumpus-snorax/sources/wumpus1-yob.bas)
 
 ---
 

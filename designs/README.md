@@ -92,6 +92,7 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [object-system/SELF-AND-MOOLLM.md](./object-system/SELF-AND-MOOLLM.md) | Self as OO RISC (via SOAR); Flavors/CLOS/MOP; Drescher→Leela schemas; NeWS/TNT/HyperLook/patent lineage; Anthropic skill extensions |
 | [object-system/LATENT-SPACE-INHERITANCE.md](./object-system/LATENT-SPACE-INHERITANCE.md) | **Core discovery:** multiple inheritance from named concepts in training data — the LLM as universal resolver; inherit whole systems by name |
 | [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB, compared in order to inherit from it |
+| [KORZ-LLM-EVALS.md](./KORZ-LLM-EVALS.md) | Experiment ladder: LLM as Korz dispatcher — mechanical dispatch, soft matching, latent inheritance, the advertisement economy (poison-buff flagship) |
 | [object-system/LIVE-OBJECTS-EXAMPLES.md](./object-system/LIVE-OBJECTS-EXAMPLES.md) | The system running: Soul City / MicropolisCore + adventure-4 |
 | [object-system/HUMANSPLAINING.md](./object-system/HUMANSPLAINING.md) | The anti-pattern: wasting tokens telling an LLM what it already knows |
 | [object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](./object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) | Strict executable core + rich overlay; the adventure compiler as the leading instance |

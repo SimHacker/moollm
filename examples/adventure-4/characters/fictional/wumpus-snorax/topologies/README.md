@@ -1,6 +1,6 @@
 # Topologies — the Wumpus 2 caves, extracted
 
-The 1973 listing ([wumpus-basic-source.md](../wumpus-basic-source.md)) *announces*
+The 1973 listing ([wumpus1-yob.bas](../sources/wumpus1-yob.bas)) *announces*
 alternate caves but does not implement them — lines 52–67 are Dave Ahl's
 advertisement for the sibling programs (WUMP2: cave arrangements, WUMP3: hazards,
 WUMP4: hide-n-seek). The caves themselves live in Gregory Yob's **Wumpus 2**

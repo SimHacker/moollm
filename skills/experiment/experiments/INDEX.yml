@@ -31,6 +31,24 @@ experiments:
     recommended_characters: 4
     estimated_tokens: 20000-40000
 
+  - id: korz-eval
+    name: "Korz Eval"
+    category: "Language semantics execution ladder"
+    status: active
+    created: 2026-08-17
+    path: experiments/korz-eval/
+    design: ../../designs/KORZ-LLM-EVALS.md
+    description: |
+      Can an LLM be a Korz dispatcher? Four-phase ladder: mechanical
+      dispatch vs deterministic ground truth (anti-Korz control, gensym
+      parity, Stroop names), soft semantic matching, latent-space
+      inheritance under precedence rules, Sims advertisement economy
+      (poison-buff flagship). Tribute to Ungar/Ossher/Kimelman.
+    min_characters: 0
+    max_characters: 8
+    recommended_characters: 3    # Phase 4: victim, medic, bystander
+    estimated_tokens: 10000-60000
+
   - id: valentine-flux
     name: "Valentine Flux"
     category: "Themed card game simulation"

@@ -127,7 +127,8 @@ files:
   - CHARACTER.yml          # This file — the soul
   - GAME.yml               # Full game rules and mechanics
   - DODECAHEDRON.yml       # The canonical 20-cave topology
-  - wumpus-basic-source.md # Original 1973 BASIC source code
+  - sources/wumpus1-yob.bas # Original 1973 BASIC source code (sidecar: sources/wumpus1-yob.md)
+  - wumpus.w.md # Literate treatment of the 1973 BASIC (Knuth-style first cut)
   - hazards/SUPERBATS.yml  # Super-bats (relocate player randomly)
   - hazards/BOTTOMLESS-PIT.yml  # Pits (instant death)
   - README.md              # Human landing page

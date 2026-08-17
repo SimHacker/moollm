@@ -48,7 +48,7 @@ a complete, self-carrying game cartridge:
 | `CHARACTER.yml` | The soul — personality, philosophy, relationships |
 | `GAME.yml` | The complete rules — Gregory Yob's 1973 mechanics plus extensions |
 | `DODECAHEDRON.yml` | The canonical topology, if the host world wants it |
-| `wumpus-basic-source.md` | The original BASIC — provenance in the luggage |
+| `sources/wumpus1-yob.bas` | The original BASIC — provenance in the luggage |
 | `hazards/` | The game decomposed into plugin parts (see §4) |
 | `instances/` | Per-world state — where Snorax actually lives |
 

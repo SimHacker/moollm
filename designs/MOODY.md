@@ -11,9 +11,15 @@ stops. Mood is multimedia. **Multimoodia.**
 Proposed by Don Hopkins to the Maxis team on **February 18, 1999** —
 almost four years before The Sims Online — under the name **SimRadio**,
 with the "moody track" as its emotional payload (primary source below).
-It didn't ship. This document is the design, its history, and what
-MOOLLM does with it now that the technology (and the object system)
-finally caught up.
+The idea is older than the email: Don had already written it into his
+review of **The Sims Design Document Draft 3**, where the moody track
+rides the player's own CDs, the disc ID fetches the meaning from a web
+database ("Streaming emotions over the net!"), and "percussion" events
+at dramatic moments trigger game events. In 2019 he summed it up to
+Sims composer Jerry Martin as **"MOODIE" music — MIDI music with a
+MOOD track**. It didn't ship. This document is the design, its
+history, and what MOOLLM does with it now that the technology (and the
+object system) finally caught up.
 
 ## The parameter track
 
@@ -331,6 +337,43 @@ somebody's music, **keep following their ride path** to hear the
 next thing they listened to: music discovery as wayfinding, a route
 as a mixtape, the best DJ in town possibly being someone's commute.
 
+At any point on the map there's also a **radio dial**. Turn it and
+you tune across stations ordered by locality: first the grooves of
+rides that intersect your current position, then other rides in the
+neighborhood, then the wider area — a signal-strength metaphor where
+distance is literal distance. The dial is how songs travel: tune in
+a ride from three neighborhoods over, keep riding, and you're laying
+down a **new synchronized trail** that carries that music into this
+part of the map. Songs hop around the city that way — a track that
+only ever lived on the canal ring gets picked up on someone's dial,
+ridden out to the harbor, and now there's a groove for it there that
+the next rider can stumble into. Radio propagation, except the
+transmitter is a bicycle and the coverage map is drawn one commute
+at a time.
+
+One thing the grooves must not do is drag the needle. Recorded
+tracks are full of irregularities — stop at a light and the groove
+has one location with a stack of timestamps — so playback can't be
+a 1:1 mapping from your time:place onto the original ride's. Song
+tracks are **magnetic and inertial** instead: dropping into a groove
+picks the song, and from then on your play head keeps its own smooth
+temporal velocity, undisturbed by the gps:time samples underneath.
+Stay near the same ride with the same song and you keep your own
+time in it — no tempo warping, no jumping around. It's for listening
+and enjoying, not being anal retentive. The same decoupling gives
+you jump-in choice (resume where the song was playing here, or start
+from the top) and delightful roundabout dynamics: instead of
+mechanically looping a fixed few seconds, the locked groove runs
+Infinite-Jukebox-style beat-similarity loops, orbiting inside the
+song until you exit on a tangent. Turning is a switch event — turn
+onto a new path and the player picks a groove there you haven't
+heard recently — and stopping is a scan: point your body down each
+path like an AR pie menu, songs rendered as bearings toward their
+highest density, coming and going. You *are* the radio dial. Stand
+at a crossing of Vondelpark paths — tagged grooves of techno or
+handbag house that you and others laid down — and rotate to see
+which music there is to follow along each spoke.
+
 The prior art at song scale is exact: **Paul Lamere's Infinite
 Jukebox** ([Boston Music Hack Day 2012, at
 MIT](https://musicmachinery.com/2012/11/12/the-infinite-jukebox/)),
@@ -362,6 +405,12 @@ mode is how the proof of concept travels — anyone, anywhere, can
 ride your Amsterdam safari or record their own imaginary one, and
 the tapes are interchangeable with the ones recorded on real
 streets.
+
+The implementation home for all of this is the [ebike-safari design
+cauldron](https://github.com/SimHacker/WillWrightShowForFood/tree/main/apps/ebike-safari/design)
+in WWSFF — the city record and the speech track are pillars there,
+mapped onto a working FIT-to-GeoJSON pipeline and a shared map-game
+data plane.
 
 ## SimRadio: live streaming into the dollhouse
 
@@ -650,12 +699,18 @@ grief pass, append-only like a heart) · hot dogging it (dead
 reckoning with feeling) · Music for Streets (the sequel Airports
 implied) · locked groove (the roundabout, again) · carving a new
 groove (in actual asphalt) · pollen-taking (the honey bee school of
-playlist construction).
+playlist construction) · drive-time radio (literally) · signal
+strength (measured in blocks, the city kind).
 
 ## See also
 
 - [The 1999 SimRadio email, in full](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-moody-1999-maxis-email.md)
   — the primary source, harvested with commentary in WWSFF
+- [The design document review](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/moody-design-doc-review.md)
+  — the earlier primary source: moody tracks on your own CDs, disc-ID
+  meaning lookup over the web, percussion events, the end-user
+  recording tool, and the 2019 "MIDI music with a MOOD track" framing
+  to Jerry Martin
 - [Radio On Internet: SimRadio in context](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/simradio-radio-on-internet.md)
   — the Broadcast.com date collision, the Russ Hanneman ROI scene, the
   EAML counterfactual, and the open-commons plan to finally build it

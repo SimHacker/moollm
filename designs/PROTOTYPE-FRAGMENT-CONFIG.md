@@ -23,6 +23,12 @@ This generalizes a pattern that already proved itself twice:
 
 MOOLLM should adopt the **mechanics**, not the fleet-specific names.
 
+Production receipts, copied out and annotated:
+[SELFISH-CONFIG-IN-PRODUCTION](SELFISH-CONFIG-IN-PRODUCTION.md) —
+live parent-chain JSON for machine-vision processors, the edgebox
+prototype-first master config (presence = enabled), and the full
+[Fleet Weather](FLEET-WEATHER-DESIGN.md) design.
+
 ---
 
 ## Self mapping (the “why”)
