@@ -140,6 +140,40 @@ measurable trace of a shared experience. Rewatching it together
 replays both overlays in sync: the mood jam, remixed live, gaining a
 new layer every session.
 
+### The wedding playset: a ceremony is a mastering session
+
+The write path at full scale is a wedding. The **wedding playset**
+lets you build a jukebox of songs for the ceremony, including songs
+bound to **formal cue points**: the processional (walking down the
+aisle), the vows, the ring, the first dance, the bouquet toss. A
+ceremony is a score with named slots, and filling the slots with
+*your* music is the point — which makes wedding music the strongest
+custom-content motivation in the game: import the songs, mark up
+their moody tracks by hand, author the emotional arc of the biggest
+day of your characters' lives.
+
+When you perform the wedding, the playset plays the mood into the
+audience, and the write path runs for **everyone attending at
+once**: every guest gets overlays associating those songs with the
+couple, the venue, and each other. A wedding is a mastering session
+for a room full of hearts — "your song" written into a few dozen
+ledgers simultaneously, which is why the whole town mists up when
+the processional comes on at the diner years later. And the
+reception keeps recording: dancing to the playlist, Netflix and
+chill afterward — living and recording lifelong emotional
+experiences, the foundational ambient background memories of a whole
+life, laid down in the overlay layer where nothing but playback can
+reach them.
+
+You can have as many weddings and jukeboxes as you want. Serial
+romantics accumulate emotional archaeology — strata of overlays from
+different marriages on overlapping songs. And harsh breakups **edit
+the responses**: the breakup remaster, a grief pass written *on top*
+of the old joy rather than erasing it. The overlay layer is
+append-only, like a heart — the song that made you swoon now makes
+you leave the room, and the old joy is still under there, which is
+exactly why it aches.
+
 ## Constraints: heat drives parameters, buffs gate the wires
 
 Advertisement re-weighting is the *soft* consumer of heat. The hard
@@ -272,6 +306,19 @@ produces is a standard moody object, so the day a game or MOOLLM
 microworld wants to import your safari as an in-world tape, the
 schema is already the same.
 
+And it shouldn't require the bike. A **demo mode** in any desktop or
+mobile web browser gives the full experience without wheels, two
+control schemes deep: **direct position manipulation** — drag the
+marker to move instantly, or click a destination and the virtual
+bike routes there on the real street network — and **first-person
+riding**, with tilt gestures to steer on mobile. Every gesture works
+identically: circle the fountain with your finger or with your
+routed path and it's the same lasso, writing the same tape. Demo
+mode is how the proof of concept travels — anyone, anywhere, can
+ride your Amsterdam safari or record their own imaginary one, and
+the tapes are interchangeable with the ones recorded on real
+streets.
+
 ## SimRadio: live streaming into the dollhouse
 
 The primary source is the **"Live SimRadio on the net" email of
@@ -330,6 +377,52 @@ call the station and request a Sim's favorite song to raise their
 happiness; "turn an unruly crowd into a wild party by turning off the
 cop show on TV, and switching on the radio to a dance music station."
 The DJ as behavior-engine input, the remote control as a mood API.
+
+### A moody jukebox for The Sims 1, in SimAntics
+
+Moody could ship *backward in time*, as custom content for the
+original game. The build: a **jukebox object programmed in
+SimAntics**, plus a companion authoring tool in the Transmogrifier
+lineage — pick your MP3s, pair each with a hand-authored moody
+track, and the tool generates the custom jukebox object with the
+envelopes baked into its behavior data. While a song plays, the
+jukebox's SimAntics tree walks the envelope and pushes mood and
+motive deltas to everyone in the room — the room-inherits-heat model
+retrofitted onto 2000-era simulation.
+
+The honest engineering question is **synchronization**. SimAntics is
+tick-driven: the object's only native clock is the simulation tick,
+audio playback is fire-and-forget in the sound subsystem, and there
+is no obvious wall-clock primitive — so out of the box, we're **hot
+dogging it**: open-loop dead reckoning. But dead reckoning with
+instruments is respectable navigation:
+
+- **t=0 is known.** The jukebox issued the play call, so the song's
+  start is anchored to an exact tick.
+- **Ticks convert to seconds by calibration.** The companion tool
+  ships measured ticks-per-second constants for each game speed;
+  modern machines run The Sims 1 at full speed reliably, so the
+  conversion is stable enough to track a song within a second or
+  two. Game speed itself is invisible from inside the VM (ticks are
+  the only clock, so all speeds feel identical from within), which
+  leaves options: assume speed 1 and accept drift at fast-forward,
+  or let the calibration err toward the speed players actually
+  listen at.
+- **Resync is free at every track boundary**, because the jukebox
+  controls when songs start. Drift never accumulates past one song.
+- **The envelope is forgiving.** This is emotional weather, not
+  lip-sync: an ambient wash needs no synchronization at all, and a
+  spike that lands two seconds late on a swell is inaudible in the
+  heart. Quantize envelopes to coarse sections (intro, verse,
+  chorus, drop) and dead reckoning never misses by a section.
+- **The clean fix lives in the reimplementations.** FreeSO and
+  Simitone can grow a real wall-clock or audio-position primitive
+  properly, making the jukebox closed-loop where the platform allows
+  it.
+
+Precedent for the hot dogging: The Sims 1 itself never synced —
+dancing Sims loop their animations near the stereo without a beat
+tracker, and nobody ever noticed. Period-authentic imprecision.
 
 ## Precedents and kin
 
@@ -508,7 +601,9 @@ violin, scrubbing as performance) · sforzando (the spike has a name
 in Italian) · a save file of feeling · safari tracks (the ride is the
 ink) · the madeleine, geofenced · roundabout (municipal circular
 gesture guide) · the blue note (the bent tone that makes the blues
-the blues, and the color of the puddle).
+the blues, and the color of the puddle) · the breakup remaster (a
+grief pass, append-only like a heart) · hot dogging it (dead
+reckoning with feeling).
 
 ## See also
 
