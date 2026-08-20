@@ -130,12 +130,14 @@ procedure, verification): `git-mailmap` (attribution correction without history
 rewrite), `acm-petition`, `orcid`, `registries` (dblp/Scholar/Wikidata),
 `web-archives` (layer corrections beside immutable snapshots — fixity is evidence,
 not the enemy), `life-admin` (the chores beyond documents). Add a playbook, advertise
-it in CARD.yml, and this skill grows a new flower.
+it in CARD.yml, and the skill covers a new venue.
 
 ## Part of MOOLLM
 
 This skill lives in [MOOLLM](../../README.md) — see [skills/README.md](../README.md)
-for the ecosystem. Founding case study: [designs/prestoration/](../../designs/prestoration/).
+for the ecosystem. Founding case study: [designs/prestoration/](../../designs/prestoration/),
+with the worked example — before and after PDFs, sha256 provenance, and Vanessa's own
+HN request — in [designs/prestoration/sources/](../../designs/prestoration/sources/).
 Companion tribute: [Vanessa's philosophy](../../designs/vanessa-freudenberg-philosophy.md).
 Works standalone: the protocol above and the script in `scripts/` need only python3,
 ghostscript, and pikepdf.

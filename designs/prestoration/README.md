@@ -36,6 +36,7 @@ She had asked for exactly this.
 
 | Document | What |
 |----------|------|
+| [sources/](sources/) | The case files: before and after PDFs, sha256 provenance, and Vanessa's own HN request, with a contextualizing README |
 | [case-study.md](case-study.md) | The full story: the search, the nudge, the surgery, the twist |
 | [alignment-and-forgery.md](alignment-and-forgery.md) | Head-on: was this forgery? why didn't the AI propose it? who has standing to correct history? The five-condition legitimacy test |
 | [play-by-play.md](play-by-play.md) | Sportscaster's blow-by-blow of every script, error message, and rabbit hole |
@@ -76,11 +77,11 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
 
 ## The deliverables (live)
 
-- [Memorial edition PDF](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-memorial-edition.pdf) — byline corrected to Vanessa Freudenberg
-- [Original PDF, untouched](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Freudenberg-2014-SqueakJS-original.pdf) — primary source, sha256-pinned
-- [Provenance README](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/README.md) — every edit enumerated
+- [Memorial edition PDF](sources/Freudenberg-2014-SqueakJS-memorial-edition.pdf) — byline corrected to Vanessa Freudenberg
+- [Original PDF, untouched](sources/Freudenberg-2014-SqueakJS-original.pdf) — primary source, sha256-pinned
+- [Provenance README](sources/README.md) — every edit enumerated
 - [Her HN comment](https://news.ycombinator.com/item?id=29125515) — "The main improvement for me is not being deadnamed."
-- [The complete 2021 HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2021-squeakjs.md) — including Don's two parent comments she was replying to (the hybrid-GC appreciation and the Ingalls HOPL quote), parentage verified against the HN API
+- [The complete 2021 HN thread, preserved verbatim](sources/hn-thread-2021-squeakjs.md) — including Don's two parent comments she was replying to (the hybrid-GC appreciation and the Ingalls HOPL quote), parentage verified against the HN API
 - [Dan Ingalls's Zoo-corrected HOPL paper](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/Ingalls-2020-Evolution-of-Smalltalk-Zoo-corrected.pdf) — the paper she asked us to cite; precedent that authors correct their own records
 - [The 2023 Croquet Jasmine HN thread, preserved verbatim](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md) — her VM philosophy in her own words: JavaScript over WASM ("to be honest, fun"), Self's dynamic deoptimization, the Lars Bak lineage to V8
 - [Her JIT brain dumps, preserved](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources/jit-notes) — the SqueakJS performance notes and runnable mockups she pointed HN at, in original Markdeep and extracted Markdown

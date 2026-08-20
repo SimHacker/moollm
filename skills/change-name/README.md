@@ -107,10 +107,10 @@ required, procedure, verification. Add one, advertise it in
 ## See also
 
 - [designs/prestoration/](../../designs/prestoration/) — the founding case: story, ethics, play-by-play, design seed
+- [designs/prestoration/sources/](../../designs/prestoration/sources/) — the worked example: before and after PDFs, sha256 provenance, and the HN comment where Vanessa asked for the correction
 - [Vanessa's philosophy](../../designs/vanessa-freudenberg-philosophy.md) — target JS not WASM, hybrid GC, Self→V8; links memorial edition and preserved threads
 - [cursor-mirror](../cursor-mirror/) — the introspection skill used to lift this one from its own transcript
 - [sister-script](../sister-script/) — the doc-first automation pattern the scanner follows
-- [Vanessa's sources directory](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vanessa-freudenberg/sources) — original, memorial edition, and provenance, live
 
 ## Part of MOOLLM
 
