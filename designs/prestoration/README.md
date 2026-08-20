@@ -6,7 +6,8 @@ beside it, with every change enumerated, hashed, and signed in public.
 
 Not forgery. Not revisionism. Conservation with receipts.
 
-This project is a complete worked example of **play-learn-lift** using
+This project is a complete worked example of
+**[play-learn-lift](../../skills/play-learn-lift/)** using
 [cursor-mirror](../../skills/cursor-mirror/). **Play:** the agent performed
 one real correction — fixing the byline on Vanessa Freudenberg's SqueakJS
 paper. **Learn:** cursor-mirror then read that session's own recorded
@@ -67,13 +68,17 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
   the agent's own session history: shell commands, thought bubbles, errors,
   recoveries. The [play-by-play](play-by-play.md) and the change-name skill's
   "traps learned the hard way" were both mined from the transcript with it.
-  This is play-learn-lift as programming by demonstration: perform one
-  instance, shine cursor-mirror over the thought stream, write up the skill.
+  This is [play-learn-lift](../../skills/play-learn-lift/) as programming by
+  demonstration: perform one instance, shine cursor-mirror over the thought
+  stream, write up the skill.
 - **[anthropic-skill-extensions.md](../anthropic-skill-extensions.md)** — how
   MOOLLM skills build on and extend Anthropic's skill model; why the result is
   composable and shippable.
-- **pikepdf + Ghostscript** — the actual surgery and verification instruments;
-  see the [playbook](../../skills/change-name/playbooks/pdf-prestoration.md).
+- **[pikepdf](https://github.com/pikepdf/pikepdf) + [Ghostscript](https://www.ghostscript.com/)** —
+  the actual surgery and verification instruments; see the
+  [playbook](../../skills/change-name/playbooks/pdf-prestoration.md). The
+  scanner is the skill's [sister-script](../../skills/sister-script/):
+  [pdf_name_scan.py](../../skills/change-name/scripts/pdf_name_scan.py).
 
 ## The deliverables (live)
 
@@ -100,9 +105,10 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
   never replacing them. See the memorial arc:
   [remembering-vanessa-freudenberg.yml](https://github.com/SimHacker/WillWrightShowForFood/blob/main/repo-shows/remembering-vanessa-freudenberg.yml)
 - **The dissertation** — the fuller write-up of the method: one performed
-  instance, introspected with cursor-mirror, lifted into a skill — program by
-  demonstration where the demonstration is your own transcript. CACM-quality
-  argument, Hacker News-quality readability.
+  instance, introspected with [cursor-mirror](../../skills/cursor-mirror/),
+  lifted into a [skill](../../skills/change-name/) — program by demonstration
+  where the demonstration is your own transcript. CACM-quality argument,
+  Hacker News-quality readability.
 - **More playbooks** — every venue in the [toolkit brainstorm](name-change-toolkit.md)
   is a planned playbook slot in [skills/change-name/](../../skills/change-name/).
 
