@@ -16,6 +16,16 @@ tags: [moollm, methodology, pedagogy, workflow, learning]
 
 The three-stage journey from curiosity to mastery to teaching. The core MOOLLM methodology.
 
+This is **programming by demonstration**
+([Cypher, *Watch What I Do*, MIT Press 1993](http://acypher.com/wwid/)) —
+except the demonstrator is you and the recording is your own session
+transcript. Do the thing once (PLAY), inspect how you actually did it with
+[cursor-mirror](../cursor-mirror/) (LEARN), and lift the procedure into a
+reusable skill (LIFT). Worked example, end to end:
+[the Prestoration](../../designs/prestoration/) — one performed PDF
+correction, introspected from its transcript, lifted into
+[change-name](../change-name/).
+
 > [!TIP]
 > **This IS the methodology.** Every other skill is an expression of `PLAY-LEARN-LIFT`. Start here.
 
