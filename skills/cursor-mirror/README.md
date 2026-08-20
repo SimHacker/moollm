@@ -31,13 +31,7 @@ cursor-mirror thinking @1
 cursor-mirror tools @1 -v
 ```
 
-**This is not debugging. This is understanding.** Papert argued that
-metacognition needs concrete artifacts — you can't think about thinking
-without something to inspect. Your agent's session history is that artifact.
-cursor-mirror puts it on the shelf where you can look at it.
-
-Strictly read-only (`sqlite3 ... ?mode=ro`): it observes the record, it never
-alters it. The archive stays fixed; only your understanding changes.
+Strictly read-only (`sqlite3 ... ?mode=ro`): it cannot alter Cursor's data.
 
 ## The Killer Demo: Look Into Your Own Mind, Write a Skill
 
