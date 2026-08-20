@@ -161,8 +161,8 @@ just by being directories.
 Skills that already compose with this one:
 [skill-snitch](../skill-snitch/) (runtime security surveillance),
 [thoughtful-commitment](../thoughtful-commitment/) (commit messages mined from
-thinking blocks), [change-name](../change-name/) (born from a cursor-mirror
-self-analysis, as above).
+context, prompts, and thinking blocks), [change-name](../change-name/) (born
+from a cursor-mirror self-analysis, as above).
 
 ## Reverse Engineering Manifesto
 
