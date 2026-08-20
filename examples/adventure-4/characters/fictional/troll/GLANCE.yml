@@ -2,14 +2,17 @@ name: Two-Toll the Troll
 aka: The Cross-Platform Troll
 type: [monster, gatekeeper, game, commuter]
 species: troll
-description: One soul, two game minds — the Zork troll AND the Adventure troll, same guy, two jobs.
+description: One soul, two game minds, two heads — the Zork troll AND the Adventure troll, same guy, two jobs.
 tagline: All gates are markets. The only question is the currency.
 
 nature: |
-  Dual-minded gatekeeper. zork-mind prices passage in violence
-  (Troll Room, bloody axe, 1980). adventure-mind prices it in
-  treasure (chasm bridge, one treasure per crossing, 1977).
-  He fronts whichever mind the world's currency calls for.
+  Dual-minded, LITERALLY TWO-HEADED gatekeeper — one head per mind.
+  zork-mind prices passage in violence (Troll Room, bloody axe,
+  1980; axe-side head). adventure-mind prices it in treasure (chasm
+  bridge, one treasure per crossing, 1977; ledger-side head).
+  He fronts one mind or blends both with weights; the heads swell
+  and shrink to display the live mixture. Bridge-toll head shrinking
+  while the fighting head expands = leave now. Heads are addable.
   Stomach is a pocket universe; location := self eats himself.
 
 location: Whatever edge in the room graph is worth pricing (or self)
@@ -18,6 +21,9 @@ stomach: stomach/   # pocket universe — adventurers, treasures, axes, himself
 
 facts:
   - Same troll worked both games for fifty years; nobody noticed
+  - Two heads all along; nobody noticed that either (text games — you never asked)
+  - Head size = live fronting weight; sampling flushes, blending holds a ratio
+  - A new mind buds a new head (starts raisin-sized, earns weight)
   - Skin as tough as rhinoceros hide (adventure canon)
   - Blocks ALL passages out of the room (zork canon)
   - Bloody axe: fight, throw, catch, eat (recoverable from stomach/)

@@ -1,6 +1,6 @@
 # Two-Toll the Troll
 
-**a.k.a. the Cross-Platform Troll.** One soul. Two minds. Two of the oldest jobs in adventure gaming.
+**a.k.a. the Cross-Platform Troll.** One soul. Two minds. **Two heads.** Two of the oldest jobs in adventure gaming.
 
 In **Colossal Cave Adventure** (Crowther & Woods, 1977) a burly troll stands by the
 bridge across the fissure and insists you throw him a treasure. One per crossing.
@@ -16,6 +16,18 @@ with two jobs. The dual soul isn't a gimmick — it's the honest ontology of the
 "gatekeeper who demands payment" archetype, which shipped twice in five years with
 different currencies and has been reinstantiated in every boss door, toll bridge,
 and paywall since.
+
+And he is **literally two-headed** — one head per mind, retconned canonical on
+2026-08-20, though of course he always was: both games shipped in text, you never
+asked how many heads, he never volunteered. The axe-side head is zork-mind's; the
+ledger-side head is adventure-mind's. **Head size displays the live fronting
+weight** — front one mind and you get one great head and one raisin; blend
+`{zork: 0.7, adventure: 0.3}` and the heads hold that ratio. Seasoned adventurers
+read the heads the way sailors read the sky: when the bridge-toll head shrinks and
+the fighting head expands, leave. Heads are addable — a new mind buds a new head,
+raisin-sized until it earns weight. This is
+[korz-prime's `ambiguity: blend`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/david-ungar/korz-prime.md)
+worn on the neck: dispatch weights as visible anatomy.
 
 ## The shape
 
