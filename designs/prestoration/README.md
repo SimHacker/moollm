@@ -6,6 +6,15 @@ beside it, with every change enumerated, hashed, and signed in public.
 
 Not forgery. Not revisionism. Conservation with receipts.
 
+This project is a complete worked example of **play-learn-lift** using
+[cursor-mirror](../../skills/cursor-mirror/). **Play:** the agent performed
+one real correction — fixing the byline on Vanessa Freudenberg's SqueakJS
+paper. **Learn:** cursor-mirror then read that session's own recorded
+transcript — every shell command, reasoning block, error, and recovery.
+**Lift:** the procedure and its traps were written up from the transcript as
+the reusable [change-name](../../skills/change-name/) skill. Do the thing
+once, study how you actually did it, ship the skill.
+
 This directory is the hub for the whole project: the case, the ethics, the
 blow-by-blow, the reusable skill that came out of it, and the tools that made
 the write-up possible.
@@ -21,7 +30,7 @@ and ninja-editing it to have the correct name?"* Twenty minutes of font-subset a
 later, a memorial edition existed — and the hunt for precedent then surfaced Vanessa's own
 2021 Hacker News comment asking, in her own words, not to be deadnamed in citations.
 
-She had asked for exactly this. The record just hadn't listened yet.
+She had asked for exactly this.
 
 ## The documents (this directory)
 
@@ -94,6 +103,6 @@ and slotted in the skill's [CARD.yml](../../skills/change-name/CARD.yml).
   demonstration where the demonstration is your own transcript. CACM-quality
   argument, Hacker News-quality readability.
 - **More playbooks** — every venue in the [toolkit brainstorm](name-change-toolkit.md)
-  is a flower waiting to bloom in [skills/change-name/](../../skills/change-name/).
+  is a planned playbook slot in [skills/change-name/](../../skills/change-name/).
 
 *Part of the [Remembering Vanessa Freudenberg](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/memorial.md) memorial. We represent and discuss; we never speak as her. Her deadname appears in these documents only where the story of correcting it requires.*
