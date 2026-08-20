@@ -15,8 +15,8 @@
 
 Don and Craig met in a park to record a screencast: scrolling through the SqueakJS paper,
 discussing her work. They could not find a version with her name on it in time, so they
-recorded with the deadname version — agreed it was good practice — and resolved to record
-again once the right paper turned up.
+recorded with the deadname version — good rehearsal, not good practice — and resolved to
+record again once the right paper turned up.
 
 Don asked the agent: where is the better version by Vanessa Freudenberg?
 
