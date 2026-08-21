@@ -1,0 +1,89 @@
+# MAZE.yml — the Maze of Twisty Little Passages, All Different
+# Source: Crowther & Woods ADVENT (1977), via Knuth's literate advent.w (CWEB,
+# with Woods, 1998). Locations q107, q112, q131-q139, q140 in original
+# numbering, from Knuth's @q..@> margin comments.
+# Knuth: "based on an 11x11 latin square. Each of the eleven locations leads
+# to each of the others under the ten motions N, S, E, W, NE, SE, NW, SW,
+# U, D --- except that diff0 goes down to the entrance location wlong instead
+# of to diff10, and diff10 goes south to the dead-end location pony instead
+# of to diff0. Furthermore, each location is accessible from all ten possible
+# directions."
+# Knuth: "Incidentally, if you ever get into a 'little twisting maze of
+# passages,' you're really lost."
+
+maze:
+  name: all-different
+  # ELEVEN descriptions, ELEVEN rooms — the anti-shadow. Every room
+  # materializes its own description, but the values are permutations of one
+  # bag of words: {maze, little, twisty/twisting, passages}. Identity through
+  # word order — a derived coordinate over a single vocabulary.
+  # Contrast: ../all-alike-maze/ inherits ONE description across 14 rooms.
+  dead_end_description: "Dead end."
+  entrances:
+    - "wlong: south -> diff0, condition 100"   # Woods's condition 100 =
+      # "Dwarves not permitted" — a guard on the character dimension,
+      # keeping dwarves out of the maze (the pirate ignores it; see below)
+  external:
+    wlong: "West end of long hall (q108 territory) — the way in and out"
+
+rooms:
+  # twist(l, n, s, e, w, ne, se, nw, sw, u, d, description)
+  diff0:    # q107
+    description: "You are in a maze of twisty little passages, all different."
+    exits: {north: diff9, south: diff1, east: diff7, west: diff8, ne: diff3, se: diff4, nw: diff6, sw: diff2, up: diff5, down: wlong}
+  diff1:    # q131
+    description: "You are in a maze of twisting little passages, all different."
+    exits: {north: diff8, south: diff9, east: diff10, west: diff0, ne: diff5, se: diff2, nw: diff3, sw: diff4, up: diff6, down: diff7}
+  diff2:    # q132
+    description: "You are in a little maze of twisty passages, all different."
+    exits: {north: diff3, south: diff4, east: diff8, west: diff5, ne: diff7, se: diff10, nw: diff0, sw: diff6, up: diff1, down: diff9}
+  diff3:    # q133
+    description: "You are in a twisting maze of little passages, all different."
+    exits: {north: diff7, south: diff10, east: diff6, west: diff2, ne: diff4, se: diff9, nw: diff8, sw: diff5, up: diff0, down: diff1}
+  diff4:    # q134
+    description: "You are in a twisting little maze of passages, all different."
+    exits: {north: diff1, south: diff7, east: diff5, west: diff9, ne: diff0, se: diff3, nw: diff2, sw: diff10, up: diff8, down: diff6}
+  diff5:    # q135
+    description: "You are in a twisty little maze of passages, all different."
+    exits: {north: diff0, south: diff3, east: diff4, west: diff6, ne: diff8, se: diff1, nw: diff9, sw: diff7, up: diff10, down: diff2}
+  diff6:    # q136
+    description: "You are in a twisty maze of little passages, all different."
+    exits: {north: diff10, south: diff5, east: diff0, west: diff1, ne: diff9, se: diff8, nw: diff7, sw: diff3, up: diff2, down: diff4}
+  diff7:    # q137
+    description: "You are in a little twisty maze of passages, all different."
+    exits: {north: diff6, south: diff2, east: diff9, west: diff10, ne: diff1, se: diff0, nw: diff5, sw: diff8, up: diff4, down: diff3}
+  diff8:    # q138
+    description: "You are in a maze of little twisting passages, all different."
+    exits: {north: diff5, south: diff6, east: diff1, west: diff4, ne: diff2, se: diff7, nw: diff10, sw: diff9, up: diff3, down: diff0}
+  diff9:    # q139
+    description: "You are in a maze of little twisty passages, all different."
+    exits: {north: diff4, south: diff8, east: diff2, west: diff3, ne: diff10, se: diff6, nw: diff1, sw: diff0, up: diff7, down: diff5}
+  diff10:   # q112
+    description: "You are in a little maze of twisting passages, all different."
+    exits: {north: diff2, south: pony, east: diff3, west: diff7, ne: diff6, se: diff5, nw: diff4, sw: diff1, up: diff9, down: diff8}
+
+  pony:     # q140 — dead end; the vending machine lives here
+    exits: {north: diff10}
+    objects:
+      vending_machine: |
+        There is a massive vending machine here.  The instructions on it read:
+        "Drop coins here to receive fresh batteries."
+      # When the pirate robs you, one line of advent.w cross-links the mazes:
+      #   move(CHEST, chest_loc);  move(MESSAGE, message_loc);
+      # chest_loc = dead2 (all-alike maze, behind the NW dirty trick);
+      # message_loc = pony (HERE). The message, in flowery script:
+      #   "This is not the maze where the pirate leaves his treasure chest."
+      message_after_pirate: |
+        There is a message scrawled in the dust in a flowery script, reading:
+        "This is not the maze where the pirate leaves his treasure chest."
+
+# Korz reading, in contrast to the all-alike maze:
+# - All-alike is SPARSE: one inherited description, few exits materialized,
+#   absent directions fall through. All-different is TOTAL: every room
+#   answers all ten motions — inside the maze, doesNotUnderstand is
+#   impossible by construction. A Latin square is a total dispatch table.
+# - The entrance guard (condition 100, dwarves not permitted) is dispatch on
+#   the character dimension — Adventure's CEXIT, cousin to Zork's
+#   TROLL-FLAG exits.
+# - Descriptions differ but draw from one word bag: the "different" maze is
+#   a permutation group wearing prose.

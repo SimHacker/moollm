@@ -55,7 +55,13 @@ against Zork's ~2,200 `COND` clauses.
   [korz-prime.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/david-ungar/korz-prime.md)
   ("Zorkizing Adventure" and "Instance first: Korzork").
 
-## Sibling
+## Siblings
+
+[`../all-different-maze/`](../all-different-maze/) is this maze's structural
+opposite from the same cave: eleven rooms, eleven distinct descriptions, all
+ten motions defined everywhere — an 11×11 Latin square, the anti-shadow to
+this maze's sparse inheritance. The pirate cross-links them: his chest hides
+here (at `dead2`), his taunting message lands there (at `pony`).
 
 [`../adventure-4/maze/`](../adventure-4/maze/) is the native MOOLLM maze —
 directory-per-room, wumpus warnings, cats. This one is the imported ancestor:
