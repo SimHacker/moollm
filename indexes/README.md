@@ -16,6 +16,7 @@ The [README](../README.md) points here. These files point everywhere else. No du
 | [ANIMALS.md](./ANIMALS.md) | 24 incarnated animals — monkeys, cats, kittens, dogs, puppies, turtles, worms |
 | [SLIDESHOWS.md](./SLIDESHOWS.md) | 14 slideshows, 100+ images, narrative visual galleries |
 | [PIONEERS.md](./PIONEERS.md) | The lineage — 22 giants we stand on |
+| [XANADU.md](./XANADU.md) | Could this be a substrate for Xanadu? The answer, told in order |
 | [FLUXX.md](./FLUXX.md) | Amsterdam Fluxx Championship — stats, cards, analysis |
 
 ---
