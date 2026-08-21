@@ -1,0 +1,81 @@
+# MAZE.yml — the Maze of Twisty Little Passages, All Alike
+# Source: Crowther & Woods ADVENT (1977), via Knuth's literate advent.w (CWEB,
+# with Woods, 1998). Locations q42-q56, q80-q87, q114 in original numbering,
+# preserved from Knuth's @q..@> margin comments. Travel table transcribed
+# faithfully, including self-loops and the NW dirty trick.
+# Knuth: "The twisty little passages of this maze are said to be all alike,
+# but they respond differently to different motions... In that way you can
+# psych out the whole maze of 14 similar locations."
+
+maze:
+  name: all-alike
+  # ONE description, FOURTEEN rooms. The description is a single inherited
+  # slot; each room materializes only its exits. This maze is a sparse
+  # shadow tree that shipped in 1977.
+  description: "You are in a maze of twisty little passages, all alike."
+  dead_end_description: "Dead end."
+  hint: twist_hint
+  entrances:
+    - "wmist: south/up/passage/climb -> like1"   # West end of Hall of Mists
+  external:
+    wmist: "Hall of Mists, west end (q61 territory) — the way in"
+    bird:  "Bird chamber — down from brink, no way back up"
+
+rooms:
+  like1:    # q42 — the front door of the maze
+    exits: {up: wmist, north: like1, east: like2, south: like4, west: like11}
+  like2:    # q43
+    exits: {west: like1, south: like3, east: like4}
+  like3:    # q44
+    exits: {east: like2, down: dead5, south: like6, north: dead9}
+  like4:    # q45 — hub: three dead ends hang off it
+    exits: {west: like1, north: like2, east: dead3, south: dead4, up: like14, down: like14}
+  like5:    # q49
+    exits: {east: like6, west: like7}
+  like6:    # q50
+    exits: {east: like3, west: like5, down: like7, south: like8}
+  like7:    # q51
+    exits: {west: like5, up: like6, east: like8, south: like9}
+  like8:    # q52 — south is a self-loop
+    exits: {west: like6, east: like7, south: like8, up: like9, north: like10, down: dead11}
+  like9:    # q53
+    exits: {west: like7, north: like8, south: dead6}
+  like10:   # q55 — north is a self-loop; east reaches brink
+    exits: {west: like8, north: like10, down: dead7, east: brink}
+  like11:   # q80 — west AND south self-loop
+    exits: {north: like1, west: like11, south: like11, east: dead1}
+  like12:   # q83
+    exits: {south: brink, east: like13, west: dead10}
+  like13:   # q84
+    exits: {north: brink, west: like12, nw: dead2}   # Knuth: "NW: a dirty trick!"
+  like14:   # q87 — reachable only vertically from like4
+    exits: {up: like4, down: like4}
+
+  brink:    # q57 — the only room here with its own description
+    description: |
+      You are on the brink of a thirty-foot pit with a massive orange column
+      down one wall.  You could climb down here but you could not get back
+      up.  The maze continues at this level.
+    short: "You're at brink of pit."
+    exits: {down: bird, west: like10, south: dead8, north: like12, east: like13}
+
+  # Dead ends: description inherited from dead_end_description; one way out
+  # (the original binds OUT as a synonym for each escape direction).
+  dead1:  {exits: {west: like11}}   # q81
+  dead2:  {exits: {se: like13}}     # q114 — chest_loc: the pirate hides his
+                                    # treasure chest HERE, behind the dirty trick
+  dead3:  {exits: {west: like4}}    # q46
+  dead4:  {exits: {east: like4}}    # q47
+  dead5:  {exits: {up: like3}}      # q48
+  dead6:  {exits: {west: like9}}    # q54
+  dead7:  {exits: {up: like10}}     # q56
+  dead8:  {exits: {east: brink}}    # q58
+  dead9:  {exits: {south: like3}}   # q82
+  dead10: {exits: {east: like12}}   # q85
+  dead11: {exits: {up: like8}}      # q86
+
+# The classic player move: drop an object in a room to tell it apart from
+# its identical siblings. In Korz terms the player materializes a
+# distinguishing slot in an otherwise-inherited room — disambiguation by
+# writing to the world. The maze teaches sparse shadow trees by forcing
+# you to invent them.
