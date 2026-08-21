@@ -16,7 +16,7 @@ The stack, top to bottom:
 | **Constitutional** | What is the medium? | Crystallization Lifecycle, Neats × Scruffies, Living Directory, Universal Card, Soul Chat |
 | **Communication** | How does meaning move? | Best Possible Interpretation, Nelson-Links, Humane Links |
 | **Structure** | Where do things happen? | Room-as-Function, Skill Instantiation, Delegation, Conductor & Council |
-| **Ethics** | Who may be summoned? | P-HANDLE-K, Consent Ladder, Persona Publishing, Pets & Familiars |
+| **Ethics** | Who may be summoned? | P-HANDLE-K, Consent Ladder, Ethical Scope, Persona Publishing, Pets & Familiars |
 | **Memory & Truth** | What persists, and honestly? | Honest Forgetting, Truth Comment, DEFLUFF |
 | **Kernel** | What does the OS floor guarantee? | Constitution, Tool Calling, Context Assembly, Memory Management, Self-Healing, Event Logging |
 
@@ -280,6 +280,23 @@ Consenting individuals specify approved and forbidden topics, personality
 guardrails, and whether the simulation may learn. For the deceased, authority
 passes to digital executors, estates, then family; absent all, default to
 P-HANDLE-K.
+
+### Ethical Scope
+**Ethics inherit down the tree; children may only tighten.**
+
+Any directory can declare an ethical scope — consent levels, portrayal rules,
+forbidden topics, what may be quoted. Directories that declare nothing inherit
+from their ethics-parent, so most of the tree carries no local rules at all:
+the ethics live as a sparse shadow over the directory hierarchy, materialized
+only where the rules change.
+
+A child scope refines what it inherits — more specific, stricter, or fully
+sandboxed — like a ScriptX child clock transforming its parent's time without
+escaping the parent's timeline. Refinement is one-way: a subtree can always
+forbid more than its parent; loosening an inherited rule requires explicit
+consent recorded at the level that imposed it. A sandbox is just a directory
+whose scope says "stricter in here"; a private annex is a scope materialized
+where the public default stops being true.
 
 ### Persona Publishing
 **Your persona as a public package.**
