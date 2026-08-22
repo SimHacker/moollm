@@ -167,8 +167,9 @@ playtest.
 
 ## Harness
 
-This design is instantiated as a registered experiment:
-[skills/experiment/experiments/korz-eval/](../skills/experiment/experiments/korz-eval/EXPERIMENT.md)
+This design is instantiated as a registered experiment that lives
+with the Korz cauldron in the wwsff repo:
+[characters/david-ungar/korz/experiments/korz-eval/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/david-ungar/korz/experiments/korz-eval)
 — run it with the experiment skill's READ → SIM → WRITE protocol;
 first mechanical battery (with hand-verified ground truth) is in
 `batteries/phase-1-mechanical/battery-001.yml`.

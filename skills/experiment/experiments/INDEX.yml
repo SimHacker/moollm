@@ -34,9 +34,9 @@ experiments:
   - id: korz-eval
     name: "Korz Eval"
     category: "Language semantics execution ladder"
-    status: active
+    status: moved    # lives with the Korz cauldron now; run it from there with this skill
     created: 2026-08-17
-    path: experiments/korz-eval/
+    path: https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/david-ungar/korz/experiments/korz-eval
     design: ../../designs/KORZ-LLM-EVALS.md
     description: |
       Can an LLM be a Korz dispatcher? Four-phase ladder: mechanical
@@ -44,6 +44,9 @@ experiments:
       parity, Stroop names), soft semantic matching, latent-space
       inheritance under precedence rules, Sims advertisement economy
       (poison-buff flagship). Tribute to Ungar/Ossher/Kimelman.
+      Moved to the wwsff Korz cauldron (characters/david-ungar/korz/
+      experiments/korz-eval/) — experiments can be happy anywhere,
+      they don't need to live in their parent's house.
     min_characters: 0
     max_characters: 8
     recommended_characters: 3    # Phase 4: victim, medic, bystander
