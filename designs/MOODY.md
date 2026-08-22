@@ -675,6 +675,12 @@ MOOLLM's object system already has every socket this design needs:
   or read the scene, or the liner notes — and infer the track. The
   meaning channel finally has a universal decoder, which is the
   technology the design was waiting for.
+- **The moody keyboard is the meaning knob at your fingertips.** Each
+  key raises heat on a semantic tag or Korz dispatch dimension;
+  held keys sum into ambient context for LLM text transformation —
+  poetic, flowery, E-Prime, temperature, and the rest. Korz′ worked
+  example: [moody-temperature.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/david-ungar/korz/examples/moody-temperature.md)
+  (stereo writes the room; the keyboard writes *you*).
 
 ## The pun shelf
 

@@ -1,0 +1,14 @@
+cave:
+  name: lazy-cave-demo
+  start: start
+  generator:
+    initial_rooms: 10
+    max_rooms: 24
+    room_voice: different
+    starting_pebbles: 8
+    link_mode: scored
+    link_attach: skew
+    oneway_chance: 0.0
+    pick_top_n: 3
+    seed: null
+    treasure_object: treasure.yml
