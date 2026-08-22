@@ -3,7 +3,7 @@
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 137
+skill_count: 138
 last_updated: 2026-07-29
 
 # FOUNDATION — Load These First
@@ -522,6 +522,11 @@ methodology:
     tagline: "Melt a big plan down. Ladle out small PRs."
     why: "Two-phase discipline for cross-cutting plans: monolith → topical tree + playbooks for parallel executors"
     composes_with: [bootstrap, cursor-mirror, empathic-templates, k-lines, yaml-jazz, trekify, skill-snitch, thoughtful-commitment, adversarial-committee]
+
+  - id: design-sense
+    tagline: "The working designer's head, always on"
+    why: "Ambient socket with plugin registries — lenses (fitts, foveation, stage-magic), methods (design-by-accretion, tuned-emergence), masters (wright, ungar, trottier), seeds (raw harvest intake)"
+    composes_with: [simulator-effect, procedural-rhetoric, prototype, k-lines, cauldron]
 
 # DEVELOPMENT — Building Things
 

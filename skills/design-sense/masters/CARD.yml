@@ -1,0 +1,64 @@
+# masters/CARD.yml — dispatch table: whose head to borrow
+# A master file is a compressed sensibility: head, votes, vetoes, plugins,
+# sources. Ads below map problems to the people who solved them.
+
+interface:
+  borrow: "Read the .md; the Votes are what they'd tell you to do, the Vetoes what they'd stop you doing."
+  committee: "Load several ads' worth for an adversarial-committee session."
+
+advertisements:
+
+  pointing-menus-gestures:
+    offer: "Cursors, menus, touch, modeless input"
+    load: [don-hopkins, ben-shneiderman, larry-tesler, ivan-sutherland,
+           doug-engelbart]
+
+  simulation-games:
+    offer: "Simulation design, toys, possibility spaces, sim legibility"
+    load: [will-wright, chris-trottier, chaim-gingold, yoot-saito,
+           shigeru-miyamoto, ian-bogost]
+
+  emergence-and-generative-systems:
+    offer: "Rules that grow behavior; tuning the edge"
+    load: [john-conway, craig-reynolds, ken-perlin, brian-eno, will-wright]
+
+  live-systems-and-languages:
+    offer: "Languages, liveness, prototypes, substrates that stay editable"
+    load: [alan-kay, dan-ingalls, david-ungar, randall-smith, arthur-van-hoff,
+           bill-atkinson, james-gosling, rich-harris, oliver-steele,
+           richard-gabriel]
+
+  learning-and-education:
+    offer: "Tools for learners; floors, walls, ceilings"
+    load: [seymour-papert, mitch-resnick, brian-harvey, jens-monig,
+           cynthia-solomon, adele-goldberg, ken-kahn, warren-robinett,
+           bill-budge]
+
+  worlds-and-communities:
+    offer: "Virtual worlds, moderation, multiplayer, social design"
+    load: [chip-morningstar, randy-farmer, dan-gackle, dani-bunten-berry,
+           stewart-brand]
+
+  explanation-and-media:
+    offer: "Diagrams, documents, comics, explorables, hypertext"
+    load: [bret-victor, edward-tufte, scott-mccloud, stone-librande,
+           chaim-gingold, ted-nelson, doug-engelbart]
+
+  attention-and-cognition:
+    offer: "Memory, attention, mental models, minds"
+    load: [marvin-minsky, david-ungar, don-norman, terry-winograd,
+           clifford-nass, byron-reeves]
+
+  assistants-and-automation:
+    offer: "Agents, programming by demonstration, DWIM, undo, social presence"
+    load: [warren-teitelman, allen-cypher, henry-lieberman, clifford-nass]
+
+  design-philosophy:
+    offer: "Patterns, pace layers, calm, theatre, everyday things, robustness"
+    load: [christopher-alexander, stewart-brand, mark-weiser, brenda-laurel,
+           don-norman, dave-ackley, scott-kim, lynn-conway, brad-myers]
+
+kin:
+  lenses: ../lenses/CARD.yml
+  methods: ../methods/CARD.yml
+  incarnation: ../../incarnation/  # for full character treatment beyond a head file

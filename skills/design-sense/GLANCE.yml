@@ -1,0 +1,44 @@
+# GLANCE.yml — design-sense
+# Full file: CARD.yml | SKILL.md | CAULDRON.md (planning)
+# 👁️ "Motion is a foveation summons. Only send it where you want the eye."
+
+what: |
+  The working designer's head as an ambient skill: the constraints and methods
+  that stay loaded at all times while designing user interfaces, interactivity,
+  games (especially simulation games), and software. Not a checklist, not a
+  style guide — a sense. Never tells you what colors to use.
+
+why: |
+  - Great designers carry Fitts' law and foveation the way drivers carry mirrors
+  - One socket with plugin registries beats a swarm of tiny single-law skills
+  - The expertise exists in the corpus (Wright, Ungar, Trottier, Bogost, Minsky...);
+    this skill is where it gets cured into loadable form
+
+when:
+  - '"Design/critique a UI, menu, HUD, interaction" -- LOAD LENSES'
+  - '"Plan how to build a design over time" -- LOAD METHODS'
+  - '"What would Will/David/Chris do?" -- LOAD MASTER'
+  - '"Found a design principle in the wild" -- PLANT A SEED'
+
+registries:
+  lenses: "31 ways of seeing — fitts, foveation, stage-magic, masking, simulator-effect, media-equation, cli-not-tui..."
+  methods: "32 ways of working — design-by-accretion, tuned-emergence, worse-is-better, one-page-designs..."
+  masters: "59 heads to borrow, each with votes (do) and vetoes (don't) — will-wright, david-ungar, alan-kay, papert..."
+  seeds: "raw harvest intake, dated batch files with Planted/Todo journals; germinate then graduate"
+  # each registry has its own GLANCE.yml (scan) / CARD.yml (dispatch ads) / README.md (format + norms)
+
+two_axes: |
+  Lenses constrain attention while you look. Methods constrain process while
+  you build. A candidate that is neither may be a master trait or still a seed.
+
+go_deeper:
+  CARD.yml: "Methods, plugin schema, curing protocol"
+  SKILL.md: "Full protocol, lens/method authoring guide"
+  CAULDRON.md: "Planning doc — naming, harvest log, graduation queue"
+
+related: [copy-that, cauldron, play-learn-lift, simulator-effect, procedural-rhetoric, k-lines]
+lineage: [Paul Fitts, David Ungar, Chris Trottier, Will Wright, Marvin Minsky, Ian Bogost,
+          Alan Kay, Seymour Papert, Ben Shneiderman, Bret Victor, Scott McCloud, Doug Engelbart,
+          Ted Nelson, and the rest of the 57-head masters shelf]
+tier: 0
+ambient: true

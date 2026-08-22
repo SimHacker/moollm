@@ -1,0 +1,51 @@
+# methods/CARD.yml — dispatch table for ways of working
+# A method is a procedure or process constraint. Ads below map phases of work
+# to the methods that carry them.
+
+interface:
+  load_one: "Read the named .md; apply the protocol it states."
+  load_set: "Load an ad's whole list when entering that phase."
+
+advertisements:
+
+  growing-a-design:
+    offer: "Starting something that must get large before it gets good"
+    load: [design-by-accretion, tuned-emergence, instance-first,
+           instance-substitution, play-learn-lift, tools-first-content-second,
+           poisoned-well]
+
+  designing-a-simulation-or-game:
+    offer: "Possibility spaces, agents, players, and what they'll actually do"
+    load: [possibility-space, failure-as-entertainment, player-as-storyteller,
+           advertisement-economy, find-best-n-dither, emergence-nuance-slider,
+           procedural-rhetoric, roles-not-characters, time-to-penis,
+           vibe-labeled-voices]
+
+  explaining-and-documenting:
+    offer: "Specs, diagrams, docs, and their live versions"
+    load: [one-page-designs, reverse-diagrams, explorable-explanations,
+           sister-script, point-dont-copy]
+
+  designing-languages-and-substrates:
+    offer: "Languages, toolkits, formats, object systems"
+    load: [power-of-simplicity, everything-is-concrete, worse-is-better,
+           low-floor-no-ceiling, sharp-substrate, latent-space-inheritance,
+           melt-then-ladle]
+
+  governing-a-community-or-world:
+    offer: "Virtual worlds, forums, open systems, and their inhabitants"
+    load: [tourist-policy, player-as-storyteller, failure-as-entertainment,
+           time-to-penis]
+
+  shipping-under-pressure:
+    offer: "What wins, what survives, what to cut"
+    load: [worse-is-better, one-page-designs, instance-first,
+           tools-first-content-second, summon-native]
+
+  choosing-an-interface-substrate:
+    offer: "Where the pixels live vs where the process lives"
+    load: [summon-native, remote-cli-local-gui, sharp-substrate]
+
+kin:
+  lenses: ../lenses/CARD.yml     # perception, not procedure
+  masters: ../masters/CARD.yml   # whole heads to borrow

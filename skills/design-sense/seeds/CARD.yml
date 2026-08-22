@@ -1,0 +1,36 @@
+# seeds/CARD.yml — the farming interface
+# Seeds are raw harvest; this card is the protocol for planting and germinating.
+
+interface:
+
+  PLANT-SEED:
+    when: "A new principle arrives (scout harvest, chat, reading)"
+    do:
+      - "Append to today's batch file (create one if none), under Todo"
+      - "Ground it: find the corpus source before writing the plugin"
+      - "Classify: way of seeing → lens · way of working → method · whole person → master"
+
+  GERMINATE:
+    when: "A seed is ready to become a plugin"
+    do:
+      - "Write the .md in the right registry (statement, body, links, kin)"
+      - "Move the seed's line from Todo to Planted, with a link to the grown file"
+      - "Cross-link kin plugins both ways"
+
+  HARVEST-LOG:
+    when: "Reviewing what's grown or what's stalled"
+    do:
+      - "Read batch files newest-first; Todo sections are the open queue"
+      - "CAULDRON.md holds the longer farming journal"
+
+advertisements:
+
+  whats-still-raw:
+    offer: "The open germination queue"
+    load: [2026-08-22-micropolis-palmhoo.md, 2026-08-22-moollm.md,
+           2026-08-22-wwsff-corpus.md]
+    note: "Check Todo sections; dons-session batch is fully planted"
+
+kin:
+  protocol: ../SKILL.md
+  journal: ../CAULDRON.md

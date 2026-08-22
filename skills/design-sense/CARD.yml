@@ -1,0 +1,59 @@
+# CARD.yml — design-sense
+# Interface card. Protocol details: SKILL.md. Planning: CAULDRON.md.
+
+skill:
+  id: design-sense
+  emoji: 👁️
+  tagline: "The working designer's head, always on"
+  type: ambient-socket
+  registries: [lenses, methods, masters, seeds]
+
+advertisements:
+  - trigger: "designing or critiquing any interactive surface (menu, HUD, gesture, dialog, sim UI)"
+    action: LOAD-LENSES
+    score_hint: high
+  - trigger: "planning or pacing design work over time (when to tune, when to abstract)"
+    action: LOAD-METHODS
+    score_hint: high
+  - trigger: "channel a named designer's judgment"
+    action: LOAD-MASTER
+    score_hint: medium
+  - trigger: "encountered a quotable design principle worth keeping"
+    action: PLANT-SEED
+    score_hint: medium
+
+methods:
+  LOAD-LENSES:
+    does: "Read lenses/*.md relevant to the surface at hand; hold them while working"
+    note: "Lenses are constraints, not steps. They veto and redirect; they don't sequence."
+    dispatch: "lenses/CARD.yml maps design contexts to lens sets"
+  LOAD-METHODS:
+    does: "Read methods/*.md relevant to the phase of work"
+    dispatch: "methods/CARD.yml maps phases of work to method sets"
+  LOAD-MASTER:
+    does: "Read masters/<person>.md; borrow the head — votes push, vetoes block"
+    dispatch: "masters/CARD.yml maps problems to people; load several for a committee"
+  PLANT-SEED:
+    does: "Append raw principle to today's seeds/ batch file under Todo, with source and attribution"
+  GERMINATE:
+    does: "Ground it in a corpus source, name it (kebab-case), write the registry .md,
+           move the seed line from Todo to Planted with a link to the grown file"
+    gate: "A seed graduates only if a working designer would keep it loaded — not trivia"
+
+plugin_schema:
+  # All plugins are Markdown (.md) — human-readable first, k-lineable names, working links.
+  lens_or_method_file:
+    header: "name (H1), class, attribution; dispatch line if it points at a whole moollm skill"
+    statement: "one bold blockquote line; the loadable form"
+    body: "mechanism, consequences, exhibits from the corpus"
+    go_deeper: "external links — Wikipedia, founding papers, primary articles"
+    sources: "working links: relative paths in-repo, GitHub URLs cross-repo"
+    see: "kin plugins and masters, linked"
+  master_file:
+    header: "name (H1), class, head (2-3 idea core); dispatch line if a whole skill exists"
+    votes: "bulleted positive imperatives, each linked to plugins/sources that cash it"
+    vetoes: "the lines this head won't cross"
+    plugins_attributed: "lenses/methods this master grounds, linked"
+    sources: "primary works + corpus locations, all working links"
+
+related: [copy-that, cauldron, play-learn-lift, simulator-effect, procedural-rhetoric, k-lines]

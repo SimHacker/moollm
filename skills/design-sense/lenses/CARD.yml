@@ -1,0 +1,62 @@
+# lenses/CARD.yml — dispatch table for ways of seeing
+# A lens is ambient: you don't run it, you wear it. Ads below map design
+# contexts to the lenses that should be on when you're working there.
+
+interface:
+  load_one: "Read the named .md; the statement line is the activation."
+  load_set: "Load an ad's whole list when entering that design context."
+
+advertisements:
+
+  designing-menus-or-pointing-targets:
+    offer: "Menus, palettes, buttons, anything aimed at with a cursor"
+    load: [fitts, foveation, angle-at-release, mark-ahead-suppression,
+           self-revealing-gestures, saturate-gesture-space,
+           memorably-differentiate-commands]
+
+  designing-touch-and-gesture:
+    offer: "Multitouch, pen, voice+point, anything tracked continuously"
+    load: [gesture-space-constraints, saturate-gesture-space,
+           no-spurious-velocity, angle-at-release, put-that-there]
+
+  spending-the-animation-budget:
+    offer: "Transitions, motion design, attention choreography"
+    load: [foveation, no-spurious-velocity, calm-not-invisible, stage-magic]
+
+  sizing-complexity:
+    offer: "How deep should the system be; is failure legible; will the model fit"
+    load: [goldilocks-complexity, mental-model-compiler, level-band,
+           semantic-mipmap]
+
+  designing-simulations-and-games:
+    offer: "What to simulate, what to imply, who the player identifies with"
+    load: [simulator-effect, gutter-closure, masking, mental-model-compiler,
+           goldilocks-complexity, media-equation]
+
+  designing-agents-and-characters:
+    offer: "Voices, assistants, screen characters, anything with social presence"
+    load: [media-equation, calm-not-invisible, masking, simulator-effect]
+
+  structuring-repos-docs-and-context:
+    offer: "Files, formats, naming, LLM context budgets, progressive disclosure"
+    load: [semantic-mipmap, sniff-depths, directories-as-advertisements,
+           k-line-activation, lean-into-latent, comments-as-data,
+           three-axis-accessibility, level-band]
+
+  exploring-data:
+    offer: "Queries, dashboards, filters, information seeking"
+    load: [dynamic-queries, direct-manipulation, p-pyramid-attention]
+
+  auditing-an-existing-ui:
+    offer: "Something feels wrong; name which principle broke"
+    load: [direct-manipulation, calm-not-invisible, no-spurious-velocity,
+           fitts, memorably-differentiate-commands, cli-not-tui,
+           keyboard-is-not-tui]
+
+  choosing-an-interface-substrate:
+    offer: "CLI, TUI, native, web — which surface, and why"
+    load: [cli-not-tui, keyboard-is-not-tui, direct-manipulation, fitts]
+
+kin:
+  methods: ../methods/CARD.yml    # constraints on process, not perception
+  masters: ../masters/CARD.yml    # whole heads to borrow
