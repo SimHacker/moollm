@@ -654,9 +654,9 @@ This aligns perfectly with MOOLLM's [representation-ethics](../representation-et
 
 ## Theme Song
 
-> *You can be anyone this time around*
-> *You can be anything this time around*
-> *It encourages me to change, to improve, to grow*
+> *You can be anyone this time around*  
+> *You can be anything this time around*  
+> *It encourages me to change, to improve, to grow*  
 > *You can be anything this time around*
 
 ---
@@ -694,4 +694,4 @@ This aligns perfectly with MOOLLM's [representation-ethics](../representation-et
 - [card/](../card/) — Character cards embed Mind Mirror data
 - [soul-chat/](../soul-chat/) — Mind Mirror influences character voice
 - [adventure/](../adventure/) — NPCs have personality profiles
-- [coatroom/](../../examples/adventure-3/coatroom/) — Costumes modify Mind Mirror profiles
+- [coatroom/](../../examples/adventure-4/coatroom/) — Costumes modify Mind Mirror profiles (live). Archive: [old/adventure-3/coatroom](../../examples/old/adventure-3/coatroom/)

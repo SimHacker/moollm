@@ -458,7 +458,7 @@ In 2001, they received the inaugural **First Penguin Award** (IGDA) for this pio
 
 | Habitat Concept | MOOLLM Equivalent | Link |
 |-----------------|-------------------|------|
-| Avatar | Player character | [examples/adventure-2/player.yml](../examples/adventure-2/player.yml) |
+| Avatar | Player character | [examples/old/adventure-2/player.yml](../examples/old/adventure-2/player.yml) |
 | Region (room) | Room directory | [skills/room/](../skills/room/) |
 | Object | File | YAML Jazz |
 | Oracle | Coherence engine | LLM role |

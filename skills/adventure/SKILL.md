@@ -407,9 +407,10 @@ framing:
 
 ### Other Examples
 
-- [examples/adventure-3/](../../examples/adventure-3/) — Earlier version, still useful
-- [examples/adventure-1/](../../examples/adventure-1/) — Minimal starting point
-- [examples/adventure-2/](../../examples/adventure-2/) — Extended exploration
+- [examples/adventure-4/](../../examples/adventure-4/) — Current walkable instance
+- [examples/old/adventure-3/](../../examples/old/adventure-3/) — Earlier version
+- [examples/old/adventure-2/](../../examples/old/adventure-2/) — Extended exploration
+- [examples/old/adventure-1/](../../examples/old/adventure-1/) — Minimal starting point
 
 ## The Intertwingularity
 

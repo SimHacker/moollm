@@ -168,4 +168,4 @@ Core personality persists. Context layers change.
 
 - [Character Skill](../character/)
 - [Mind Mirror Skill](../mind-mirror/)
-- [Coatroom Mirror](../../examples/adventure-3/coatroom/)
+- [Coatroom Mirror](../../examples/adventure-4/coatroom/)

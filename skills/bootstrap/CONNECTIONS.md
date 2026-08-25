@@ -223,11 +223,11 @@ MOOLLM skills are **prototypes that spawn instances**:
 skills/adventure/              # The PROTOTYPE
   ADVENTURE.yml.tmpl           # Template with {{variables}}
   
-examples/adventure-3/          # An INSTANTIATION  
+examples/adventure-4/          # An INSTANTIATION
   ADVENTURE.yml                # Filled-in state
   pub/                         # Living world
-    cat-cave/
-      terpie.yml               # Character with soul
+    bar/cat-cave/
+      cat-cave.yml             # Nested room with zones
 ```
 
 The **LLM IS the template engine**. Not Mustache. Not Handlebars. The LLM. It can interpret `{{pick a mood that fits the player's recent actions}}` because it understands context.

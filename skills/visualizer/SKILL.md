@@ -462,7 +462,7 @@ photo_set:
     - [static, action]        # Posed + dynamic
 ```
 
-This pattern was developed through the **Dynasty Photo Session** in [adventure-2](../../examples/adventure-2/), where Maurice learned to compose 8-prompt sets.
+This pattern was developed through the **Dynasty Photo Session** in [old/adventure-2](../../examples/old/adventure-2/), where Maurice learned to compose 8-prompt sets.
 
 ---
 
@@ -807,7 +807,7 @@ These aren't impersonations — they're **focused channels** that invoke specifi
 | System | How Visualizer Integrates |
 |--------|---------------------------|
 | [Adventure](../adventure/) | Render rooms, objects, moments |
-| [Coatroom](../../examples/adventure-2/coatroom/) | Fashion/portrait photography |
+| [Coatroom](../../examples/adventure-4/coatroom/) | Fashion/portrait photography |
 | [Memory Palace](../memory-palace/) | Visualize memory spaces |
 | [Soul Chat](../soul-chat/) | Illustrate conversations |
 | [Card](../card/) | Visualizer cards can be played |
@@ -816,7 +816,7 @@ These aren't impersonations — they're **focused channels** that invoke specifi
 
 ## PHOTO-SET-8 Development
 
-The [PHOTO-SET-8](./PHOTO-SET-8.yml) skill was developed through play in [adventure-2](../../examples/adventure-2/):
+The [PHOTO-SET-8](./PHOTO-SET-8.yml) skill was developed through play in [old/adventure-2](../../examples/old/adventure-2/):
 
 1. **Play**: Posing, expressions, angles — experimentation
 2. **Learn**: 8 is good. Two types create contrast. Context matters.

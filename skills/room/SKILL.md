@@ -795,8 +795,8 @@ When you "enter" the debug-session room:
 
 ## Live Examples
 
-- [examples/adventure-3/pub/](../../examples/adventure-3/pub/) — A room with NPCs
-- [examples/adventure-3/pub/cat-cave/](../../examples/adventure-3/pub/cat-cave/) — Nested room with zones
+- [examples/adventure-4/pub/](../../examples/adventure-4/pub/) — A room with NPCs
+- [examples/adventure-4/pub/bar/cat-cave/](../../examples/adventure-4/pub/bar/cat-cave/) — Nested room with zones
 
 ## Dovetails With
 
