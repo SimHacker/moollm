@@ -439,6 +439,7 @@ flowchart TD
 - Connecting to external systems (databases, APIs, hardware)
 - Operations that MUST happen outside the model
 - Integration with existing infrastructure
+- Environments with **no shell** (cloud harness, locked VDI, marketplace users)
 
 **MCP is terrible for:**
 - Reasoning
@@ -446,6 +447,9 @@ flowchart TD
 - Skills calling skills
 - Multi-agent coordination
 - Anything that can happen inside the context window
+- **Pipe composition** — no `|` between tools; every hop re-enters the token bus
+
+**Deeper dive (pipes, billing, code mode, decision matrix):** [MCP-VS-SKILLS-CLI-PIPES.md](./MCP-VS-SKILLS-CLI-PIPES.md)
 
 ### MOOLLM Skills
 
@@ -783,6 +787,7 @@ This matters for:
 
 ## Quick Links
 
+- [MCP vs Skills + CLI Pipes](./MCP-VS-SKILLS-CLI-PIPES.md) — composition economics, stacked meters, code mode
 - [Speed of Light Skill](../skills/speed-of-light/)
 - [Cursor Mirror Skill](../skills/cursor-mirror/)
 - [Skill Snitch Skill](../skills/skill-snitch/)
