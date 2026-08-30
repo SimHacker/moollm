@@ -1,0 +1,85 @@
+# formats/linkedin.yml -- venue plugin for linkedin.com feed posts and comments
+# Verified 2026-08-30 against current published limits plus observed composer behavior.
+# LinkedIn is the inverse of GitHub: zero markup, and the first line does all the work.
+
+venue:
+  id: linkedin
+  name: LinkedIn
+  fence_language_hint: text  # never draft LinkedIn content as markdown
+
+markup_supported:
+  - syntax: "line breaks and blank lines"
+    renders: paragraph spacing
+    notes: "The entire native layout system. Short paragraphs with blank lines between them are the house look."
+  - syntax: "bare URL"
+    renders: clickable link
+    notes: "In a post, the first URL may also generate a preview card; in a comment, no card. Posting a link in the body is widely believed to suppress reach, so many authors put it in the first comment instead."
+  - syntax: "@name typed and selected from the autocomplete"
+    renders: real mention that notifies the person
+    notes: "CRITICAL: pasted text does NOT create mentions. Any @name in a copied draft is dead plain text. Mentions must be retyped and picked from the dropdown in the composer."
+  - syntax: "#hashtag"
+    renders: clickable topic tag
+  - syntax: "emoji"
+    renders: emoji
+    notes: "Survives, unlike Hacker News. Counts as 2 characters, more for flags and skin tones."
+  - syntax: "pasted bullet characters, e.g. a leading dash or a middle dot"
+    renders: literally, which is the only way to get a list
+    notes: "Markdown list syntax does not become a list; the dash just sits there. That is fine and is the normal workaround."
+
+markup_unsupported:
+  - { syntax: "**bold**, *italic*, _italic_", happens: "renders literally with the asterisks and underscores" }
+  - { syntax: "# headers", happens: "literal hash marks" }
+  - { syntax: "[markdown](links)", happens: "literal brackets; the URL may auto-link on its own" }
+  - { syntax: "> blockquote", happens: "literal > character, a social convention only" }
+  - { syntax: "`code` and fenced code blocks", happens: "literal backticks; there is no monospace anywhere" }
+  - { syntax: "HTML", happens: "shown literally or stripped" }
+  - { syntax: "tables", happens: "no table support; collapse to lines or an image" }
+
+styling_workaround:
+  what: "Unicode Mathematical Alphanumeric characters that look bold or italic."
+  verdict: avoid
+  why:
+    - "Screen readers announce them character by character or skip them, so it is an accessibility regression."
+    - "Search and copy-paste degrade; the characters are not the letters they resemble."
+    - "Numbers and punctuation have no styled variants, so mixed text looks broken."
+  exception: "LinkedIn Articles have a real rich-text editor with genuine bold, italic, and headings. Use those instead of the Unicode hack."
+
+limits:
+  post: 3000
+  comment: 1250
+  article_title: 150
+  article_body: 110000
+  connection_request_note: 300
+  direct_message: 8000
+  headline: 220
+  about: 2600
+  notes:
+    - "Limits count spaces and line breaks. The post button hard-disables past the cap, no grace."
+    - "Comment limit has been reported between 1250 and 1750 by different sources; treat 1250 as the safe budget."
+    - "Comments display in full with no truncation, so a comment is the better venue for a substantive paragraph than a post."
+
+structure:
+  the_fold: "Roughly the first 210 characters on desktop and 140 on mobile show before 'see more'. The opening sentence is the whole advertisement for the rest."
+  post_sweet_spot: "Reported engagement peak around 1300 to 1900 characters, but that is an engagement claim, not a quality claim; say what needs saying and stop."
+  comments_are_first_class: "Replying under someone's post reaches their audience without asking them for anything. For warm outreach this is usually better than a new post."
+  edit: "Posts and comments can be edited; an 'edited' marker appears."
+
+quirks:
+  - "Drafting a comment that quotes the post is normal, but there is no blockquote, so mark quoted text with plain quotation marks."
+  - "Auto-capitalization and link unfurling happen on paste; reread after pasting, before posting."
+  - "The composer eats some leading whitespace, so indentation-based layout is not available at all."
+  - "Notifications are the actual distribution mechanism: mentioning a person, done properly in the composer, matters more than hashtags."
+
+house_style_note: >
+  Author overlays commonly add: no Unicode-bold ever, no em-dashes, ASCII punctuation,
+  at most one link and only when it earns its place, and no emoji in professional replies
+  even though the venue supports them. Write the first sentence as if it is the entire
+  comment, because for most readers it is.
+
+test_cases:
+  - paste: "**bold** and *ital*"
+    renders: "**bold** and *ital* (both literal)"
+  - paste: "- point one\n- point two"
+    renders: "- point one / - point two on separate lines, as plain dashes, not a list"
+  - paste: "@Scott Kim"
+    renders: "plain text, no mention, no notification"
