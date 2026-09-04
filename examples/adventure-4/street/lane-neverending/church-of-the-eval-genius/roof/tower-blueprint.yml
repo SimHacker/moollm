@@ -1,0 +1,51 @@
+# THE TOWER BLUEPRINT
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "The Tower Blueprint"
+  type: [dispenser, document_reference, design_reference]
+  emoji: "🗼"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../designs/pie-stack-views/THE-TOWER.md
+    why: "This building read as a semantic pyramid — the doc that explains the floors you climbed"
+
+  description: |
+    The Tower Blueprint — a brochure stand holding `THE-TOWER.md`.
+    This building read as a semantic pyramid — the doc that explains the floors you climbed
+
+  examine: |
+    A brochure stand, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Postcard: The Tower Blueprint"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../designs/pie-stack-views/THE-TOWER.md
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "Roof"
+      from_dispenser: tower-blueprint
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../designs/pie-stack-views/THE-TOWER.md
+        Why it is shelved here: This building read as a semantic pyramid — the doc that explains the floors you climbed
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Postcard of The Tower Blueprint, stamped "Roof" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

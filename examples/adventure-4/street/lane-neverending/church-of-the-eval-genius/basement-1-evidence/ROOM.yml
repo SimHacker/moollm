@@ -15,3 +15,11 @@ room:
       to: ../
       description: "Back to the nave."
       aliases: [up, stairs]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. Backlink for the memory palace — the design
+  # corpus already links in, so without this the rooms are orphans.
+  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+  learn:
+    - doc: ../../../../../../designs/eval/EVAL-ARTIFACTS.md
+      why: "Logs, transcripts and receipts — the artifact layer everything above rests on"

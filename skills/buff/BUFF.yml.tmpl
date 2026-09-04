@@ -3,8 +3,16 @@
 # Buffs modify stats, abilities, or behavior.
 # CURSES ARE JUST SHITTY BUFFS — no separate system.
 #
-# TARGET: Characters only. Never rooms directly.
-# If a room needs buffs, create a "room spirit" character.
+# HOST: whatever the effect belongs to — a character (caffeinated), a room
+# (haunted), an object (a lantern burning down), a prototype (silver that harms
+# its wielder), a relationship (Bob smitten with Alice), or the ruleset (Fluxx).
+# Same fields and same clock whichever it is.
+#   radiates: { to: occupants }  reaches past the host
+#   expires:                     places and materials outlive everything, so a
+#                                timer keyed to the host's death never fires
+#   hosts: [room, object]        only if this buff makes no sense elsewhere
+# Rooms and objects may delegate to `character` and simply BE characters.
+# Full rules: SKILL.md § Hosts.
 #
 # THE SIMS INSIGHT:
 # Needs and buffs form the motivational system.

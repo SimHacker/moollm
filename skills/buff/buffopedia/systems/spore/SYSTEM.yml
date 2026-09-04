@@ -1,0 +1,266 @@
+# BUFFOPEDIA — Spore (2008)
+# family: multi (one product, five dialects, plus a cross-stage one)
+# confidence: high on structure and mechanism names; LOW on specific
+#   ability↔archetype pairings and exact stacking arithmetic — flagged inline.
+#   Nothing here has been checked against extracted game data this session.
+
+system:
+  id: spore
+  name: "Spore — per-stage modifiers and cross-stage Consequence Abilities"
+  vendor: "Maxis / Will Wright, 2008"
+  family: multi
+  vocabulary:
+    the_buff: "part (Cell/Creature), tool (Tribal/Space), Consequence Ability (Space)"
+    the_guard: "diet, play style, archetype, badge level, planet Terrascore"
+    the_stat: "ability level 1–5 (Bite, Charge, Sing, Charm, …), plus health/speed/stealth"
+  short_answer: |
+    Yes — at every stage, and they are five DIFFERENT systems. Spore is a
+    buffopedia in one box: it contains a distinct modifier dialect per stage
+    plus a sixth that spans all five, and it shipped the interchange problem
+    between them, including the lossy tier.
+
+# THE FIVE PER-STAGE DIALECTS
+
+stages:
+
+  cell:
+    dialect: "parts as capability, diet as a permanent guard"
+    mechanism: |
+      Parts grant abilities directly (spike → attack, flagella → speed, filter
+      or jaw → what counts as food). The diet choice — herbivore, carnivore,
+      omnivore — is a PERMANENT binding made early that guards what is edible
+      for the rest of the run.
+    buff_reading: "equipment-as-capability, where the equipment is your body"
+
+  creature:
+    dialect: "affix family, with the player as the loot generator"
+    mechanism: |
+      Installed parts determine ability LEVELS on a small fixed set of tracks —
+      offensive (Bite, Charge, Strike, Spit) and social (Sing, Dance, Charm,
+      Pose) at levels 1–5, plus health, speed, stealth, jump, glide, sense.
+      The editor charges DNA points per part, so the part set is chosen under a
+      budget.
+    confidence_note: "Track list is high confidence; whether duplicate parts raise a level or only the best part counts is LOW — verify before quoting."
+    buff_reading: |
+      This is the affix family with the loot table removed and the player
+      installed in its place. In Diablo the game rolls your modifiers; in Spore
+      you author them, and the editor draws the aggregated result as bars while
+      you work.
+
+  tribal:
+    dialect: "equipment slots, per tribe member"
+    mechanism: |
+      Tools are handed to individual tribe members — weapons, gathering tools,
+      musical instruments for the social path, fishing spears. Domesticated
+      animals are food production. The tribe is a party, and equipping it is
+      loadout management.
+    buff_reading: "per-agent equipment binding; the tribe is a squad sheet"
+
+  civilization:
+    dialect: "point-buy with a conservation law"
+    mechanism: |
+      The vehicle editor exposes stat sliders — speed, power, health — bound by
+      a budget, so raising one lowers the others. Cities carry happiness and
+      spice production, modified by what is built in them. Archetype (military,
+      economic, religious) gates the super weapon.
+    buff_reading: |
+      The only stage with an explicit CONSERVATION LAW on modifiers. This is
+      GURPS point-buy inside a Maxis game: you cannot have a good stat without
+      paying for it out of another one.
+
+  space:
+    dialect: "cooldown-gated activatables, leveled badges, and planet-level state"
+    mechanism: |
+      Tools cost energy and have cooldowns (terraformers, Monolith, Genesis
+      Device, Staff of Life, Planet Buster). Badges level up and each level
+      grants a concrete benefit or raises a cap. Planets carry a Terrascore
+      (T0–T3) that gates which life and cities can be placed — a modifier whose
+      host is a world, not a creature. Empire relations accumulate itemized
+      diplomatic modifiers that decay.
+    confidence_note: "Relations being displayed as itemized reasons with values is MEDIUM confidence."
+    buff_reading: |
+      Terrascore is the aura/region family with the spatial guard scaled up to
+      a planet. It is what skills/buff/ approximates with room-spirit
+      characters, done properly.
+
+# THE SIXTH SYSTEM — AND THE REASON THIS ENTRY MATTERS
+
+consequence_abilities:
+  what: |
+    Choices across every earlier stage — diet in Cell, predator vs social vs
+    adaptable in Creature, military vs economic vs religious in Tribal and
+    Civilization — accumulate into an ARCHETYPE (Zealot, Warrior, Scientist,
+    Trader, Shaman, Bard, Diplomat, Ecologist, Knight, Wanderer), which grants
+    a permanent, activatable, cooldown-gated Consequence Ability in Space.
+  confidence: "Mechanism: high. Archetype list: high but possibly incomplete. Specific ability↔archetype pairings: LOW — do not quote without checking."
+
+  why_it_is_novel: |
+    THE GUARD IS YOUR BEHAVIORAL HISTORY.
+
+    Almost every other guard in this pedia tests present state — a tag, a
+    selector, a stat threshold, a resource you spent. Spore's guard is a
+    classifier over everything you have DONE, summarized into an archetype and
+    then cashed out as a permanent ability.
+
+    Nothing in skills/buff/ can express that. TECH-TREE.md gets close with
+    "progress guard instead of a timer," but a progress guard still tests an
+    accumulated resource. Spore tests accumulated CONDUCT.
+
+  not_alone_though: |
+    Black & White (2001) got there seven years earlier and did it better on both
+    counts — its alignment is CONTINUOUS rather than bucketed into ten
+    archetypes, and it is rendered constantly on the player's hand, the temple,
+    the creature's body and the landscape instead of being cashed out invisibly
+    at a stage boundary. It also carries a second, LEARNED guard that Spore does
+    not attempt.
+
+    So the two bracket the design space, and the axis between them is LEGIBILITY
+    VERSUS RESOLUTION: Spore's ten named archetypes are trivially explainable
+    and cannot express much; Black & White's learned opinions express a great
+    deal and explain nothing. See systems/black-and-white/SYSTEM.yml, which
+    argues MOOLLM does not have to choose.
+
+  the_korz_prime_connection: |
+    This is the soft-tier guard, hand-coded. SELF-KORZ.md §4 proposes guards an
+    LLM judges in prose — "applies while the character is behaving
+    generously" — and treats it as a new capability. Spore shipped the same
+    guard shape in 2008 by hardwiring a small classifier: count the choices,
+    bucket into ten archetypes, grant the matching ability.
+
+    So the soft tier is not novel in KIND, only in resolution. Spore had ten
+    buckets fixed at design time; an LLM judge has unbounded buckets named at
+    runtime. That reframes the design question from "can we do this?" to "what
+    is the right number of archetypes, and who names them?" — and Spore's
+    answer, ten, is data.
+
+# THE CRITICISM, WHICH IS THE MOST USEFUL PART
+
+the_lossy_projection:
+  claim: |
+    Spore's best-known disappointment is mechanical: an unbounded creature
+    editor projects onto roughly ten ability tracks at five levels. Two wildly
+    different creatures with the same part classes play nearly identically, so
+    authoring reads as cosmetic — the "your design barely matters" complaint.
+  confidence: "high — the critique is extensively documented; the exact track count is approximate"
+
+  why_it_belongs_in_this_pedia: |
+    This is interchange.yml's fidelity ladder happening INSIDE ONE GAME. The
+    editor is a rich authoring space; the simulation consumes a narrow one; the
+    handoff between them is a lossy downgrade with no way to recover what was
+    dropped. Same failure as porting a behavioral buff into a system that only
+    understands numbers — except here both ends shipped in the same box, by the
+    same team, with no interchange excuse available.
+
+  the_lesson_for_moollm: |
+    IF THE AUTHORING SPACE IS RICHER THAN THE GUARD SPACE, AUTHORING IS
+    COSMETIC.
+
+    This is a direct warning about the construction-set argument in
+    CONSEQUENCE-LOOP.md. Letting players author buffs is worthless unless the
+    guard and effect vocabulary is expressive enough to NOTICE what was
+    authored. An authorable buff whose only mechanical footprint is +2 to one
+    of ten stats is a coat of paint.
+
+    MOOLLM has an unusual advantage here and should be explicit about it: with
+    an LLM in the loop the effect space is prose, so the projection need not be
+    lossy — a weird creature can be weird in ways nobody enumerated in advance.
+    That is the one Spore problem this architecture is actually equipped to fix.
+
+what_moollm_should_adopt:
+
+  conduct_guards:
+    take: "a permanent ability granted by a judgement over how the character has BEHAVED, rather than by a resource they spent"
+    why: |
+      Every guard in skills/buff/ tests the present: a tag, a stat, a flag. None
+      can ask "what kind of person has this been?" Spore asks exactly that at
+      each stage boundary and hands out a permanent ability based on the answer.
+    see: "the consequence_abilities section above, and black-and-white/ for the continuous version"
+
+  a_budget:
+    take: "make acquiring a modifier cost something, so a character's modifier set is a set of TRADES rather than a pile"
+    how_spore_does_it: |
+      Two ways. In the creature editor every part costs DNA points from a finite
+      pool, so a better mouth means fewer legs. In the Civilization stage the
+      vehicle editor gives you sliders for speed, power and health that share one
+      budget — raising any of them lowers the others, visibly, as you drag.
+    why_moollm_needs_it: |
+      Buffs here have no cost and no cap. Nothing in the design pushes back on a
+      character accumulating twenty of them, so there is no tension, no
+      prioritisation, and no interesting decision in choosing one. Every
+      long-lived system surveyed in observations.yml eventually grew a budget:
+      D&D caps attunement at three items, LambdaMOO metered ticks, audio
+      engineers call it gain staging.
+
+  regions_can_own_state_directly:
+    take: "a modifier's host does not have to be a character; a place can hold its own state"
+    how_spore_does_it: |
+      In the Space stage every planet carries a TERRASCORE — a rating from T0 to
+      T3 summarising how habitable it is, raised by terraforming. It gates what
+      can be placed there: which plants and animals survive, how large a city
+      can grow. The modifier belongs to the planet.
+    the_moollm_problem_it_solves: |
+      skills/buff/ declares that buffs target CHARACTERS ONLY. So when a ROOM
+      needs a modifier — this place is cold, this place is haunted — the current
+      workaround is to invent a "room spirit": a character that exists only to
+      be the thing the room's buff is attached to, because the design has no
+      other host to offer.
+
+      That is a bookkeeping fiction standing in for a missing feature. Spore
+      hangs a modifier on a planet with no spirit, no daemon and no resident,
+      and nothing about it is strange. Regions should be first-class hosts, and
+      the buffopedia's aura family is the name for it.
+
+  show_the_aggregate_while_authoring:
+    take: "when someone attaches or removes a modifier, immediately show the recomputed result AND which contribution moved it"
+    how_spore_does_it: |
+      The creature editor draws the ability bars live. Drag a part onto the
+      creature and the bars for bite, speed, health and the social abilities
+      move as you do it, before you commit. The aggregation is not a hidden
+      calculation you discover in play; it is the main feedback of the tool.
+    why_it_is_worth_listing: |
+      EFFECTIVE-VALUES.md specifies the arithmetic — base values, modifiers
+      folded in a defined order, an effective result — and says nothing at all
+      about how a person SEES any of it. That is a real hole, because a modifier
+      system nobody can inspect is one nobody can debug or design against.
+
+      The concrete ask: a view listing a character's base value, every live
+      contribution with its source, and the resulting effective value — updated
+      when a buff lands or expires. That is a stat block with attributions, and
+      Spore's editor is proof it can be the primary interface rather than a
+      diagnostic screen.
+
+what_moollm_should_avoid:
+
+  rich_authoring_over_narrow_guards:
+    avoid: "a large, expressive authoring surface feeding a small fixed set of mechanical effects"
+    because: |
+      This is Spore's central disappointment, described in the_lossy_projection
+      above: an unbounded creature editor projecting onto roughly ten ability
+      tracks, so two wildly different creatures play almost identically and
+      authoring becomes decoration.
+
+      The trap for MOOLLM is specific. Letting characters and players author
+      their own buffs is easy; the value depends entirely on whether the guard
+      and effect vocabulary can NOTICE what was authored. A player-authored buff
+      whose only footprint is +2 to one of ten stats is a coat of paint.
+
+import_export:
+  data_location: "shipped game data; creature saves famously embed the part list in PNG metadata"
+  extractability: "medium — the community reverse-engineered the creature format; server-side content is gone"
+  useful_direction: "conceptual only. Nobody should import Spore parts; the archetype→ability pattern is the takeaway."
+  rights: "EA-owned. Concepts and critique only."
+
+wwsff_thread:
+  relevance: "Will Wright — this is a show-archive question, not just a pedia entry."
+  questions_worth_asking:
+    - "Ten archetypes: how was that number arrived at, and were there ever more?"
+    - "Was the narrow ability projection a scope casualty or a deliberate legibility choice — did wilder creature-to-mechanic mappings get prototyped and cut?"
+    - "The Consequence system reads as the most Sims-like idea in Spore: behavior accumulating into a durable trait. Was it framed that way internally?"
+  cross_repo: "WillWrightShowForFood/ — file under Spore design decisions"
+
+external_refs:
+  - { role: moollm, title: "interchange.yml — the fidelity ladder this entry instantiates internally", path: "skills/buff/buffopedia/interchange.yml" }
+  - { role: moollm, title: "SELF-KORZ.md §4 — soft-tier guards, of which archetypes are the hardwired ancestor", path: "skills/buff/SELF-KORZ.md" }
+  - { role: moollm, title: "CONSEQUENCE-LOOP.md — the construction-set argument this entry qualifies", path: "skills/buff/CONSEQUENCE-LOOP.md" }
+  - { role: moollm, title: "TECH-TREE.md — progress guards, one step short of conduct guards", path: "designs/TECH-TREE.md" }
+  - { role: verify, title: "Extracted Spore data / community wikis", note: "Required before any numeric claim here is quoted as fact." }

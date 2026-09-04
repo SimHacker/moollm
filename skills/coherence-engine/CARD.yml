@@ -81,7 +81,11 @@ state:
 coherence-domains:
   location-consistency: "Character.location matches room occupants"
   inventory-consistency: "Object.location matches holder's inventory"
-  relationship-bidirectional: "If A knows B, does B know A?"
+  relationship-reciprocal-existence: "If A has a relationship cell for B, does B have one for A?
+    Reconcile by CREATING the missing cell — never by copying values into it.
+    Contents are per-direction and independent: A may adore B while B has not noticed.
+    A pair-hosted buff lives in one cell and must not be mirrored into the other
+    (skills/buff/SKILL.md § Relationship hosts)."
   buff-expiration: "Buffs with duration 0 are removed"
   reference-validity: "All paths resolve to actual files"
 

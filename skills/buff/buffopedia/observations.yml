@@ -1,0 +1,636 @@
+# Buffopedia — observations
+#
+# Running log of "X is secretly this mechanism" findings. Append-only.
+#
+# The entry that started it: "CSS is the most widely deployed
+# modifier-aggregation system on Earth. Nobody calls it a buff system. It is
+# one." — registry.yml, endorsed 2026-09-01.
+
+# HOUSE RULES — both learned the hard way, 2026-09-01, on this file.
+#
+# 1. THE KEY IS THE K-LINE, AND IT NAMES THE SYSTEM.
+#    Write `kubernetes-schedules-with-guards-on-both-ends`, never
+#    `taints-and-tolerations-are-symmetric-dispatch`. A reader scanning keys must
+#    be able to tell whether they know the system. Leading with an insider term
+#    hides the subject behind the punchline.
+#
+# 2. DEFINE EVERY TERM OF ART ON FIRST USE, IN PLAIN WORDS.
+#    Spell out acronyms. If an entry needs more than two, give it a `terms:`
+#    block. THIS FILE EXISTS TO TEACH THESE SYSTEMS, not to demonstrate
+#    familiarity with them. An undefined term is a cost transferred to the
+#    reader, charged again on every future read.
+#
+#    This is the human-facing complement of skills/no-ai-humansplaining, and
+#    yaml-jazz's three audiences is why both rules apply at once: the K-line in
+#    the key is for the LLM (the name IS the activation, no respelling needed);
+#    the `terms:` block is for the human, who may never have touched the system.
+#    Serve both in the same entry. Neither one is optional.
+#
+# Schema per entry:
+#   claim       — the observation, stated so it can be disagreed with
+#   system      — what it is and who uses it, for readers who do not know it
+#   terms       — jargon used below, defined (include whenever there is any)
+#   confidence  — verified | high | medium | low
+#   evidence    — what makes it true, concretely
+#   steal       — what MOOLLM should take, or "nothing, it's just true"
+#   status      — noted | written_up (with path)
+#
+# Bar for entry: it must either change a design decision or kill a false one.
+# "Two things are vaguely similar" is not an observation.
+
+observations:
+
+  css-is-almost-a-complete-buff-system:
+    claim: "CSS has five and a half of the six components of a buff, and shipped them to every device on Earth. The missing one is mortality."
+    system: "Cascading Style Sheets — the language that says how web pages look. Many rules from many files all try to set the same property on the same element, and the CASCADE is the algorithm that decides which one wins."
+    terms:
+      specificity: "a score computed from the shape of a selector — an id counts more than a class, a class more than a tag name — used to rank competing rules"
+      style_invalidation: "the browser's internal bookkeeping of which elements need their styles recomputed after something changes, so it does not redo all of them"
+      calc_and_var: "calc() does arithmetic in a value; var() reads a named custom value set elsewhere. Together they make a declaration an expression rather than a constant."
+    confidence: high
+    evidence: |
+      Against the six components in EFFECTIVE-VALUES.md — constraint (yes,
+      declarations are declarative), expression (calc/var), inherit-then-override
+      (values pass down the page structure; inherit/initial/unset/revert override
+      explicitly), combine-with-dependencies (the cascade), cache (computed
+      styles plus style invalidation). Transitions and animations supply a
+      partial tick function. Nothing ever expires.
+    steal:
+      - "COMPUTED specificity as guard precedence, instead of priority integers an author picks by hand"
+      - "declared precedence bands as the escape hatch for when specificity gives the wrong answer"
+      - "revert as a verb: undo to the previous layer, not all the way to base"
+    corollary: |
+      Every awkward part of a buff system is downstream of mortality. Because
+      declarations never expire, CSS needs no cleanup path, no removal tick, and
+      no succession rules. When this skill feels complicated, the complexity is
+      the clock, not the combination.
+    status: written_up
+    path: systems/css-cascade/SYSTEM.yml
+
+  css-invented-per-source-tallying-in-1994:
+    claim: "The CSS cascade counts each contributor's rules separately with declared precedence between contributors — the feature Unreal's ability system treats as advanced, CSS made its founding metaphor and named the language after."
+    system: "As above. The word 'cascading' referred originally to merging three separate sources of styling: the browser's defaults, the READER's own preferences, and the page author's stylesheet."
+    terms:
+      unreal_gas: "the Gameplay Ability System in Unreal Engine — the standard toolkit for abilities and timed effects in games built on that engine"
+      aggregate_by_source: "GAS's name for tallying each applier's contributions in its own bucket, rather than throwing every modifier into one pile. The alternative is aggregate-by-target."
+    confidence: high
+    evidence: "Håkon Wium Lie's 1994 proposal is explicitly about combining browser, user, and author stylesheets with a declared order of precedence between the three parties."
+    steal: "the concept and the vocabulary — MOOLLM's buff cannot currently express 'each caster gets their own separate stack', which is what per-source tallying is for"
+    status: written_up
+    path: systems/css-cascade/SYSTEM.yml
+
+  css-and-unreal-both-invented-precedence-bands:
+    claim: "CSS cascade layers and Unreal's modifier evaluation channels are the same invention, twenty-five years apart, for the same reason."
+    system: "Two unrelated systems for combining many modifiers into one value: stylesheets, and game ability effects."
+    terms:
+      cascade_layers: "the CSS @layer feature — authors declare named bands, and any rule in a higher band beats any rule in a lower one no matter how specific the loser was"
+      evaluation_channels: "GAS's equivalent — numbered stages, each fully resolved before the next begins, so a later channel cannot be outvoted by an earlier one"
+    confidence: high
+    evidence: |
+      Both add an author-declared precedence band that is consulted BEFORE the
+      engine's normal combination rule, because authors kept losing arguments
+      with that rule and needed a way to say "this group wins, stop counting."
+      GAS's version shipped in engine version 4.14, off by default and
+      undocumented; the community found it and wrote it up.
+    steal: |
+      Convergence this strong means it is not a workaround, it is a missing
+      primitive. If MOOLLM adopts computed guard specificity, it must add
+      declared bands in the SAME pass, or it will relive both histories.
+    status: written_up
+    path: systems/css-cascade/SYSTEM.yml
+
+  css-important-encodes-an-ethic:
+    claim: "CSS's precedence rules contain a deliberate clause protecting the weaker party, and it is the clearest non-game proof that a conflict policy is a political document."
+    system: "As above."
+    terms:
+      important: "writing !important after a CSS value promotes it above normal rules. Both page authors and readers can use it."
+    confidence: high
+    evidence: |
+      Normally an author's styles beat a reader's. Under !important the order
+      INVERTS, and asymmetrically on purpose: a reader's !important beats an
+      author's !important. A site therefore cannot override someone who needs
+      larger text or higher contrast. The standard legislated a total order and
+      then wrote an exception protecting the person with less power.
+    steal: |
+      The evidence for CONSEQUENCE-LOOP.md's claim that the conflict policy IS
+      the politics — and that writing it down makes it auditable. Use this
+      whenever the buff-table-as-argument point needs an example from outside
+      games.
+    status: written_up
+    path: systems/css-cascade/SYSTEM.yml
+
+  kubernetes-schedules-with-guards-on-both-ends:
+    claim: "Kubernetes decides where to run software using a predicate on the machine AND a predicate on the software, with neither side privileged — the same structure this skill is missing."
+    system: |
+      Kubernetes (often written k8s) is the widely used system for running
+      containerized programs across a fleet of machines. Its scheduler's job is
+      to decide which machine runs which program. A NODE is one machine in the
+      fleet; a POD is the unit of software being placed on one.
+    terms:
+      taint: "a marker put on a NODE meaning 'do not place anything here unless it explicitly says it accepts this' — e.g. a machine with expensive GPUs, or one being drained for maintenance"
+      toleration: "the matching marker on a POD, meaning 'I accept that condition' — without it, the scheduler will not place the pod on the tainted node"
+      mutating_admission_webhook: "a hook that intercepts a resource as it is submitted and REWRITES it before storage — injecting a sidecar container, adding labels, setting defaults. Several can run in sequence, each seeing the previous one's output."
+      kustomize_overlay: "a layer of patches applied over a base configuration to produce an environment-specific version, without editing the base"
+    confidence: high
+    evidence: |
+      The taint/toleration pair is a two-sided match: the node states a
+      requirement about who may bind to it, the pod states a claim about what it
+      can bind to, and the placement happens only if both are satisfied. Neither
+      is the receiver of a method call on the other.
+
+      Two more in the same system: mutating admission webhooks are an ORDERED
+      REWRITE CHAIN over an object, which is a modifier stack; Kustomize overlays
+      are a modifier stack over configuration files.
+    steal: |
+      Independent support for the source/target guard gap in registry.yml. Three
+      unrelated domains — game abilities, cluster scheduling, and stylesheets —
+      each concluded that a modifier needs a predicate on the APPLIER as well as
+      on the thing being modified. MOOLLM has neither.
+
+      Also the naming lesson: Kubernetes gave the two sides DIFFERENT words
+      (taint on the passive side, toleration on the active side) even though it
+      is one symmetric match. That is more teachable than GAS's
+      source_tags/target_tags, where only the prefix distinguishes them.
+    status: noted
+
+  audio-mixing-is-a-modifier-stack-that-moves:
+    claim: "An audio effects chain is a buff stack on a sound, and the drawn curves that change its knobs over time are exactly the tick function that constraint systems lack."
+    system: |
+      A DAW — digital audio workstation, the category containing Ableton Live,
+      Logic, Pro Tools, Reaper — is the software musicians use to record and mix.
+      Each track carries a chain of effect plugins that the audio passes through
+      in order.
+    terms:
+      insert_chain: "the ordered list of effect plugins on one track. Order matters: compression before distortion sounds different from the reverse."
+      bypass: "switching a plugin off while leaving it in the chain, with its settings intact"
+      send_and_bus: "a send routes a copy of a track's signal to a shared channel called a bus, where many tracks' copies are processed together — one reverb serving a whole mix"
+      sidechain: "wiring a SECOND signal in to control an effect on the first — the classic case is a bass line whose volume ducks whenever the kick drum hits"
+      automation_envelope: "a curve drawn along the timeline that moves a parameter over time by itself, with no one touching it"
+      gain_staging: "managing signal level at each stage so nothing distorts or gets lost — the discipline of a multi-stage multiplicative chain"
+    confidence: high
+    evidence: |
+      Base signal, ordered non-destructive processors, effective signal: that is
+      EFFECTIVE-VALUES.md verbatim, in an industry that has shipped it for
+      decades. Sends and buses are per-target aggregation — many contributors
+      folding into one shared pool. A sidechain is a guard whose input comes from
+      somewhere other than the thing being modified. Bypass is
+      disable-but-remain. And automation is a value that changes with no reader
+      and no triggering event, which is precisely the half a constraint graph
+      cannot express.
+    steal: |
+      MOODY.md is a design about music that borrows nothing from how music
+      software actually models change over time. Automation envelopes are the
+      missing vocabulary for "heat": a CURVE, not a scalar, with a shape and a
+      duration.
+
+      Also: this skill's weight trees (blend → strain → terpene) are a bus tree
+      with gain staging, and mixing engineers have known that structure's failure
+      modes — everything loud, nothing audible — for fifty years.
+    status: noted
+
+  photoshop-layer-masks-are-spatial-guards:
+    claim: "A layer mask is a guard whose domain is space instead of identity — the aura family, authored with a paintbrush."
+    system: |
+      Photoshop (and every image editor since) stacks LAYERS. Some layers are not
+      pictures but ADJUSTMENTS — brightness, hue, curves — that alter everything
+      beneath them without changing the original pixels.
+    terms:
+      adjustment_layer: "a layer holding an effect rather than an image, applied to everything below it. Non-destructive: the underlying pixels are untouched and it can be reordered or deleted."
+      blend_mode: "how a layer combines with what is beneath — multiply, screen, overlay. The combination operator."
+      opacity: "how strongly the layer applies, from 0 to 100% — a continuous weight, not a switch"
+      layer_mask: "a greyscale image controlling WHERE the layer applies: white applies fully, black not at all, grey partially. Painted by hand."
+      clipping_group: "restricting a layer's effect to the shape of the one below it — scoping by containment"
+    confidence: high
+    evidence: |
+      An ordered non-destructive modifier stack (the same structure as Blender's
+      modifier stack, arrived at earlier), with explicit combination operators, a
+      continuous strength weight rather than a boolean, and a mask that makes the
+      modifier apply per-location.
+    steal: |
+      The principled version of the room-spirit workaround: a buff whose guard is
+      a REGION needs no character to own it. And the mask is an AUTHORABLE guard
+      with a direct-manipulation interface — the construction-set argument from
+      CONSEQUENCE-LOOP.md, already proven in a tool millions of non-programmers
+      use daily. Nobody teaching Photoshop explains what a guard is.
+    status: noted
+
+  make-and-bazel-are-the-tech-tree-half:
+    claim: "Build systems are dependency graphs with up-to-date checks and cached results. The cauldron's tech tree is a Makefile whose targets are documents and whose recipes are humans."
+    system: |
+      A build system decides what work still needs doing. Make (1976) is the
+      ancestor; Bazel is Google's large-scale version; Nix builds packages in a
+      way where the inputs fully determine the output.
+    terms:
+      target_and_prerequisite: "a target is a thing to be produced; its prerequisites must exist and be newer, or the target is rebuilt"
+      up_to_date_check: "the test deciding whether a target needs rebuilding — timestamps in Make, hashes of the inputs in Bazel and Nix"
+      content_hash: "a fingerprint of the actual input bytes. If the fingerprint is unchanged the work is skipped, which is stricter and more reliable than comparing timestamps."
+      phony: "a Make target declared to have no file behind it, so it always runs — always-dirty by declaration"
+      nix_overlay: "a layer of modifications over a whole package collection, composing like a modifier stack. Nix calls them overlays, in the Photoshop sense, unprompted."
+    confidence: high
+    evidence: |
+      In cauldron's protocols/TREE.yml, requires[].verify is a prerequisite
+      check, research_complete_when is an up-to-date test, and FRONTIER answers
+      "what would a dry-run build do next." These are not analogies, they are the
+      same three fields.
+    steal:
+      - "the word STALE, and the discipline behind it — a guard is an up-to-date check, and it can be wrong in both directions"
+      - "content hashing as the strictest end of the invalidation spectrum in EFFECTIVE-VALUES.md"
+      - "Bazel's hard-won lesson that a cache is only as sound as the COMPLETENESS of its declared inputs. An undeclared dependency is exactly the troll flag from GAME-PIECES.md: state nobody owns and nobody knows to clear."
+    status: noted
+
+  law-is-the-only-complete-modifier-system:
+    claim: "Law has all six components including the one CSS lacks: a legislated combination order, predicates on both parties, and effects that expire on a date."
+    system: "Statutes, regulations, and case law — which contradict each other constantly and therefore need a precedence order, exactly as competing stylesheet rules do."
+    terms:
+      sunset_clause: "a provision written to expire automatically on a set date unless renewed — an expiration date, in the buff sense"
+      grandfather_clause: "a provision exempting those already in a situation when the rule changed — disable-but-remain, scoped by history"
+    confidence: medium
+    evidence: |
+      Jurisdiction and status (residency, filing status, licensure) are guards on
+      both the acting and the acted-upon party. Precedence among constitution,
+      statute, regulation and case law is a legislated cascade with an origin
+      order. Sunset clauses expire. Emergency powers are effects with a
+      triggering condition and a termination condition.
+    steal: |
+      Nothing mechanical. The point is rhetorical: when CONSEQUENCE-LOOP.md
+      argues a buff table is an argument, this is the converse — real policy IS a
+      buff table. Which is why designing one is a political act rather than a
+      tuning chore, and why "we just picked numbers that felt fair" is never a
+      complete answer.
+    caution: "Structural analogy, not legal expertise. Do not let this drift into confident claims about specific law."
+    status: noted
+
+  spore_guards_on_your_behavioral_history:
+    claim: "Spore grants permanent abilities based on a classifier over everything you have DONE. Every other guard in this pedia tests present state."
+    system: |
+      Spore (Maxis, Will Wright, 2008) runs a creature from single cell to
+      galactic empire through five stages. Choices in each stage — what you ate,
+      whether you befriended or attacked, whether your tribe went military or
+      economic or religious — accumulate into an ARCHETYPE, which grants an
+      activatable ability in the final stage.
+    terms:
+      consequence_ability: "the granted power. Permanent, activatable, on a cooldown — not a passive stat bonus."
+      archetype: "one of roughly ten labels (Zealot, Warrior, Scientist, Trader, Shaman, Bard, Diplomat, Ecologist, Knight, Wanderer) assigned from your accumulated play style"
+    confidence: "high for the mechanism; LOW for which ability goes with which archetype"
+    evidence: "The grant is computed at stage transitions from a summary of prior choices, not from a resource the player spent."
+    steal: |
+      A new guard KIND: conduct. TECH-TREE.md's progress guard still tests an
+      accumulated resource; Spore tests accumulated behavior.
+
+      And it reframes the soft-guard proposal in SELF-KORZ.md §4. An
+      LLM-judged prose guard ("applies while behaving generously") is the same
+      guard SHAPE Spore shipped in 2008 by hardwiring ten buckets. So the soft
+      tier is novel in RESOLUTION, not in kind — which turns an open research
+      question into a tractable design question: how many archetypes, and who
+      names them? Spore's answer of about ten is real data.
+    status: written_up
+    path: systems/spore/SYSTEM.yml
+
+  spore_shows_authoring_dies_when_guards_are_narrow:
+    claim: "Spore's unbounded creature editor projected onto roughly ten ability tracks, so authoring read as cosmetic. This is the fidelity ladder failing inside a single product."
+    system: "As above. Spore's editors let players build nearly any creature; the simulation consumed a small fixed set of ability levels."
+    confidence: "high — the critique is extensively documented; the exact track count is approximate"
+    evidence: |
+      Two visually wild creatures with the same part CLASSES play nearly
+      identically. The authored structure is far richer than anything the guards
+      can notice, and the handoff drops the difference with no way to recover it.
+    steal: |
+      IF THE AUTHORING SPACE IS RICHER THAN THE GUARD SPACE, AUTHORING IS
+      COSMETIC. A direct warning about CONSEQUENCE-LOOP.md's construction-set
+      argument: player-authored buffs are worthless unless the guard and effect
+      vocabulary can NOTICE what was authored.
+
+      With an LLM in the loop the effect space is prose, so this projection need
+      not be lossy — a strange creature can be strange in ways nobody
+      enumerated in advance. That is the one Spore problem this architecture is
+      genuinely equipped to fix, and it should be stated as a design goal rather
+      than assumed.
+    status: written_up
+    path: systems/spore/SYSTEM.yml
+
+  disguises_prove_some_effects_live_in_the_pair:
+    claim: "A disguise modifies no stat of its wearer. Its entire effect is on how OTHER agents evaluate the wearer — so the effect belongs to the pair, not to either party."
+    system: |
+      Stealth games (the Hitman series is the clearest case) let you wear a
+      uniform taken from someone else. Guards then read you as staff. Some
+      guards — Hitman calls them enforcers — see through the specific uniform
+      they themselves wear.
+    confidence: high
+    evidence: |
+      Nothing about the wearer changes: no speed, no health, no skill. What
+      changes is the outcome of an evaluation performed by a different agent, and
+      the enforcer rule makes the guard depend on the OBSERVER's identity as much
+      as the wearer's.
+    steal: |
+      The everyday case that forces symmetric dispatch. "Whose buff is the
+      disguise?" has no good answer in an object-with-a-buff-list model, and
+      skills/buff/ cannot express it at all, since every buff must attach to
+      exactly one character.
+
+      In Korz terms it is a slot whose coordinates include both wearer and
+      observer — and it is the most intuitive example available for explaining
+      why Korz drops the receiver, because everyone already understands
+      uniforms.
+    status: written_up
+    path: systems/equipment-inventory/SYSTEM.yml
+
+  equipment_slots_are_dimensions_capped_at_one:
+    claim: "An equipment slot is a dimension that accepts one binding. Equipping is rebinding, not layering — and the inventory screen is a Fluxx table."
+    system: |
+      Nearly every role-playing game gives characters SLOTS — head, chest, main
+      hand — each holding one item, whose modifiers apply while it is worn.
+    terms:
+      fluxx: "Andrew Looney's card game where the rules are cards on the table. It allows one New Rule per category, enforced physically: the new card is laid over the card it replaces."
+    confidence: high
+    evidence: |
+      You cannot wear two helmets. The conflict between two head items is never
+      resolved because it is never representable — putting the second on takes
+      the first off. Fluxx does the same thing with card overlap; World of
+      Warcraft does it with exclusive categories.
+    steal: |
+      Slots are the cheapest conflict policy in this pedia: no cascade, no
+      specificity, no legislated operator order — declare the dimension, cap it
+      at one, and the whole state is visible at a glance.
+
+      So the first question about any hard buff conflict is whether the dimension
+      should have been capped at one binding. Three independent systems reached
+      for that answer.
+    status: written_up
+    path: systems/equipment-inventory/SYSTEM.yml
+
+  interactive_fiction_named_both_halves_first:
+    claim: "A buff is a daemon and a fuse bound to the same object. Interactive fiction split those into two named primitives decades ago, and the names are better than ours."
+    system: |
+      Text adventures need things to happen without the player acting: a lamp
+      burns down, a thief wanders in. Zork's language ZIL, and later TADS and
+      Inform, all grew scheduling machinery for this.
+    terms:
+      daemon: "a routine that runs EVERY turn until switched off. The tick function."
+      fuse: "a routine that fires ONCE, a set number of turns from now. The expiration date."
+      clocker: "ZIL's per-turn routine that walks the table of pending events, decrements each counter, and calls whatever has come due"
+    confidence: verified
+    evidence: |
+      ZIL registers persistent DEMONS and one-shot QUEUEd interrupts in the same
+      table from opposite ends; a queue count of -1 means every turn. TADS
+      exposes add_daemon and add_fuse as separate calls. Inform 6 has daemon and
+      timer properties with StartDaemon and StartTimer.
+    steal: |
+      The two words, immediately. They clarify every definition in this skill:
+      poison is a daemon with a fuse, a flat stat modifier is a fuse with no
+      daemon, a permanent aura is a daemon with no fuse.
+
+      Plus two specifics: ZIL's KILL-INTERRUPTS, called when the player dies, is
+      the GAME-PIECES.md troll-flag bug diagnosed and fixed in 1979 — a buff
+      system needs a documented mass-dispel on host death. And a ZIL interrupt
+      returns whether it PRINTED something, which lets a multi-turn WAIT break
+      early; tick functions here return nothing, so nothing can distinguish a
+      quiet decay from a dramatic one.
+    status: written_up
+    path: systems/if-daemons-fuses/SYSTEM.yml
+
+  black_and_white_renders_the_guard_instead_of_reporting_it:
+    claim: "Black & White solved the objection to continuous strength: you do not show the player a number, you draw its consequence on everything they already look at."
+    system: |
+      Black & White (Lionhead, Peter Molyneux, 2001) casts the player as a god
+      with a giant creature. Alignment runs along a continuous good↔evil axis,
+      moved by every action taken — a running summary of conduct, with nothing
+      spent and nothing researched.
+    confidence: verified
+    evidence: |
+      Alignment is drawn on the player's hand, the temple and its interior, the
+      creature's body (an evil creature grows glowing eyes and enlarged fangs and
+      claws; a good one shifts toward soft purple and a gentle glow), and the
+      landscape within the player's influence. The creature also carries its OWN
+      alignment, separate from the god's, accumulated independently.
+    steal: |
+      This retires the standard argument against the missing primitive below.
+      Continuous strength gets rejected because "nobody can read a 0.63" — and
+      the answer is that nobody should have to. Render the consequence, not the
+      coefficient.
+
+      MOODY.md needs precisely this. Heat as a curve is unreadable as a curve;
+      heat as a palette, a posture and a growl is readable with no digits on
+      screen at all.
+
+      Second, cheaper idea from the same game: two alignments on two entities in
+      a relationship, accumulated separately, so a good god can end up stuck with
+      an evil creature.
+    status: written_up
+    path: systems/black-and-white/SYSTEM.yml
+
+  black_and_white_enumerated_the_llm_learning_stack_in_2001:
+    claim: "Richard Evans's four learning channels for the Black & White creature are, in order, reinforcement learning from human feedback, instruction-following, imitation learning, and self-reflection."
+    system: "As above. Evans was the lead AI programmer; the creature was built on Belief-Desire-Intention with deliberately mixed representations."
+    terms:
+      bdi: "Belief-Desire-Intention — Bratman's model of practical reasoning. An agent forms an intention from what it believes, what it wants, and its views on how to get it."
+      perceptron: "the simplest neural network: one layer, a weighted sum. Trainable from very few examples."
+      id3: "Ross Quinlan's algorithm for building a decision tree by repeatedly picking the attribute that best separates the examples — the one whose answer explains the most."
+    confidence: verified
+    evidence: |
+      Evans's own list of how the creature learns: from player feedback
+      (stroking or slapping); from being commanded (told to attack a town, it
+      learns that sort of town should be attacked); from observing the player,
+      other creatures and villagers; and from reflecting on experience — acting
+      to satisfy a motive, seeing how well it worked, adjusting the weights.
+
+      Underneath: beliefs about individuals as symbolic attribute-value lists,
+      beliefs about types as decision trees, desires as perceptrons, and
+      OPINIONS — how to satisfy a desire — as decision trees built dynamically
+      with ID3 to minimise entropy.
+    steal: |
+      The taxonomy, wholesale, as the answer to how a character's dispositions
+      come to exist. skills/buff/ has exactly one channel: an author writes a
+      buff and something applies it. Evans had four, and three of them need no
+      author at all.
+
+      Also worth internalising: an OPINION IS A LEARNED GUARD. Every other guard
+      in this pedia was written by a designer. Evans induced his from experience,
+      in 2001, on a few hundred megabytes of RAM.
+    status: written_up
+    path: systems/black-and-white/SYSTEM.yml
+
+  black_and_white_creature_learns_a_model_of_its_applier:
+    claim: "The creature keeps a learned model of its god and uses it to predict what would please them — the applier-side predicate MOOLLM lacks, acquired by observation rather than declared."
+    system: "As above."
+    confidence: "high — stated in Evans's write-up and in secondary analyses; the exact representation is not verified"
+    evidence: "The creature maintains a symbolic representation of the player, learns their personality from watching them, and uses it to choose actions likely to earn approval — anticipating feedback rather than waiting for it."
+    steal: |
+      Below, PREDICATES ON BOTH ENDS is listed as a primitive MOOLLM lacks.
+      Everyone else who has it has it because somebody typed it: Unreal's
+      designers write source tags, Kubernetes operators write tolerations.
+      Lionhead shipped an agent that works out the applier for itself.
+
+      That reframes the gap. The question is not only "should a buff carry a
+      predicate about who applied it," but "should the target be able to LEARN
+      one?" — which, with a language model as the substrate, is closer to free
+      than it has ever been.
+    status: written_up
+    path: systems/black-and-white/SYSTEM.yml
+
+  judged_guards_need_attributions_not_just_verdicts:
+    claim: "Black & White's creature learning felt arbitrary not because the representation was opaque — decision trees are printable — but because it was never shown. This is the LLM-judged guard's failure mode, already demonstrated."
+    system: "As above. The creature learned durable habits from player feedback, and players had no view of what had been learned or of which action a given slap was taken to be about."
+    confidence: "high that the critique is widespread and long-standing; the specific anecdotes are folklore rather than measurements"
+    evidence: |
+      Feedback is ambiguous: slap the creature and it does not necessarily know
+      WHICH recent action you meant. Bad habits stuck, correction became
+      superstition, and Molyneux's Turing-test ambition landed for many players
+      as an animal that behaved randomly. Meanwhile the game rendered the
+      creature's alignment superbly and its reasoning not at all — two legibility
+      surfaces needed, one built.
+    steal: |
+      An LLM-judged prose guard is this same system with a less inspectable
+      representation and a far larger vocabulary. Two requirements follow, both
+      cheap here precisely because the judge emits text natively:
+
+        1. every soft-guard verdict records its REASON alongside the verdict
+        2. every correction reports its ATTRIBUTION — "I took that as disapproval
+           of feeding the villagers, not of the dance" — so the player can argue
+           with the attribution instead of just repeating the slap
+
+      The second is the one Black & White could not do and MOOLLM can, and it
+      belongs in the soft-tier design from the start rather than after the first
+      character develops an inexplicable habit.
+    status: written_up
+    path: systems/black-and-white/SYSTEM.yml
+
+  lambdamoo_had_both_halves_and_never_joined_them:
+    claim: "LambdaMOO had persistent timers and player-attachable mixins as separate first-class features, and no abstraction combining them. MOOLLM inherits the gap by descent."
+    system: |
+      LambdaMOO (Pavel Curtis, Xerox PARC, 1990) is the text-based virtual world
+      whose object system MOOLLM is named after. Users program it from inside.
+    terms:
+      forked_task: "code scheduled by the `fork` statement to run a given number of seconds later. Survives server checkpoints — a fuse that outlives the process."
+      feature_object: "an object holding verbs that a player ATTACHES to themselves, gaining new commands without changing what they are. The command parser searches attached features when matching input."
+      tick_quota: "LambdaMOO meters every task in ticks and seconds and kills it if it exceeds them. 'Ran out of ticks' is an error a generation of MOO programmers can quote from memory."
+    confidence: "verified for the server mechanisms; high but unverified for feature-object details, which live in the LambdaCore database rather than the server"
+    evidence: |
+      Timers: fork, suspend, queued_tasks, kill_task — with cancellation in the
+      API from the start. Mixins: feature objects, attached per player. A feature
+      object plus a fork that detaches it is a buff, in about two lines. It does
+      not appear as a core abstraction.
+    steal: |
+      A METERED, ENFORCED, KILLABLE TICK BUDGET — the single most useful
+      borrowing in this file. A MOOLLM tick function may make an LLM call, which
+      is orders of magnitude more expensive than a MOO verb, and there is
+      currently no quota, no accounting, and no kill. A hundred characters with
+      three prose-guarded buffs each is three hundred judgements per tick;
+      without a budget that is not a performance problem, it is an unbounded
+      bill. A text MUD on 1990 hardware metered this, published the meter, and
+      killed overruns.
+
+      Also queued_tasks() as an introspection verb — list every live buff with
+      its owner, its fuse, and where it came from.
+    two_further_notes: |
+      WHY features exist: LambdaMOO objects have exactly ONE parent and there is
+      no way to add a second. Feature objects are a workaround for missing
+      multiple inheritance — so LambdaMOO independently invented card-merging
+      mixins, and GAME-PIECES.md's "the host's menu is the union of the cards of
+      every attached mixin, derived fresh" describes the LambdaMOO command
+      matcher walking a player's feature list. MOOLLM does NOT have that
+      limitation, which makes buff-as-mixin a free choice here rather than a
+      forced one.
+
+      WHY the join was never built, probably: LambdaMOO's timers are in seconds
+      of wall clock, and its world had no turn structure, no combat round, and no
+      stats. A buff needs something to modify and a clock to modify it against.
+      LambdaMOO deliberately had neither — it was a place, not a game. The
+      absence follows from the design rather than from an oversight.
+    status: written_up
+    path: systems/lambdamoo/SYSTEM.yml
+
+# WHAT THE PATTERN ACROSS THESE ACTUALLY SAYS
+
+meta:
+  entries: 15
+  independent_domains: 9   # stylesheets, game engines, cluster scheduling, audio, image editing, build systems, law, text adventures, virtual worlds
+
+  the_finding: |
+    Nine unrelated domains, none borrowing from the others, each independently
+    derived some subset of the same four mechanisms. Named individually below,
+    with what MOOLLM has and does not have, because a claim like "the first two
+    but not the last two" makes the reader count back to a list and is worth
+    nothing to anyone reading in a hurry.
+
+  the_four_primitives:
+
+    ordered_non_destructive_combination:
+      what: "Contributions are folded in a defined order and the original value is never overwritten, so any contribution can be removed later."
+      seen_in: "CSS cascade · Unreal GAS · audio insert chains · Photoshop layer stack · Blender modifiers · Magic's CR 613 layers"
+      moollm: HAS
+      note: "EFFECTIVE-VALUES.md, though the order comes from priority integers an author picks by hand rather than a fixed operator sequence."
+
+    base_versus_effective_split:
+      what: "Two values are kept: the authoritative base, and the computed result of all live modifiers. Reads use effective, writes go to base."
+      seen_in: "CSS computed style · GAS attribute base/current · audio dry signal vs output · Blender's evaluated copy"
+      moollm: HAS
+      note: "foo and foo_effective. This is the part the skill got right first."
+
+    continuous_strength:
+      what: "A modifier applies partially — a weight between nothing and fully — instead of being on or off."
+      seen_in: "Photoshop layer opacity · Blender constraint influence · audio wet/dry mix · RimWorld hediff severity · Black & White alignment"
+      moollm: MISSING
+      consequence: |
+        Every buff here is boolean: it applies or it does not. So there is no way
+        to express a fading effect, a partial resistance, a half-strength aura at
+        the edge of a room, or a mood that is present but weak — the exact things
+        MOODY.md is about. Severity ladders (mild/moderate/severe) are the
+        cheap discrete approximation; a weight is the real answer.
+      objection_and_answer: |
+        The standard objection is that players cannot read a weight. Black &
+        White answers it and the answer is already in this file: do not show the
+        coefficient, render its consequence on surfaces the player is looking at
+        anyway. So the legibility argument is not a reason to stay boolean.
+
+    predicates_on_both_ends:
+      what: "The binding is gated by a condition on the APPLIER as well as on the thing being modified."
+      seen_in: "GAS source and target tag requirements · Kubernetes taints and tolerations · feature-flag targeting rules · Hitman's enforcers · Black & White's creature, which LEARNS one · SimProv's Cupid, which puts it in a pie menu"
+      moollm: "MISSING FROM skills/buff/ — but shipped in Don's own prior art, so this is a PORT, not research"
+      consequence: |
+        A buff either applies or does not, with no predicate on who is applying
+        it. So this skill cannot express "works only if the caster is trusted",
+        "hostile sources cannot land this", per-source stacking, or the disguise
+        case, where the effect lives in the wearer-observer pair and belongs to
+        neither party alone.
+      the_correction: |
+        This entry originally called it a gap in the abstract. It is not
+        abstract. Cupid, in Don's SimProv playset for The Sims 1, multi-dispatches
+        on the applier AND a target picked from a hierarchical pie menu, and its
+        effect edits a directed cell of the relationship matrix — the player
+        chooses whose love for whom to change.
+
+        So the primitive was implemented, with a usable interface, twenty-five
+        years ago, by the person who now needs it. The design question is not
+        "how would this work?" but "why did the reimplementation drop it?"
+        See systems/simprov/SYSTEM.yml, and `relationship` as a host kind in
+        SKILL.md § Hosts.
+      the_harder_version: |
+        Everyone else who has this primitive has it because somebody typed it.
+        Black & White's creature induces its model of its god from observation,
+        so the applier-side predicate can also be LEARNED rather than declared —
+        the more interesting question for a system with a language model
+        underneath.
+
+  the_conclusion: |
+    Nine-way convergence is not coincidence and not fashion. These four are the
+    primitives, and a system that starts without them re-derives them later
+    under deadline pressure and ships a worse version.
+
+    MOOLLM has ordered combination and the base/effective split. It lacks
+    CONTINUOUS STRENGTH and PREDICATES ON BOTH ENDS — and those two are the
+    blockers for MOODY's fading ambient heat and for the disguise/symmetric
+    dispatch case respectively, so they are not abstract completeness items.
+
+  the_prediction: |
+    Falsifiable, which is the point: the next modifier system anyone shows me
+    will have ordered combination and a base/effective split, will be missing
+    either continuous strength or the applier-side predicate, and its issue
+    tracker will contain a long thread requesting whichever one it lacks.
+
+  the_second_finding: |
+    Separately, and less expected: the systems that survived longest all grew a
+    BUDGET — a cost or cap making acquisition a trade rather than an
+    accumulation. Spore charges DNA points per part and constrains vehicle stats
+    to a slider triangle; D&D caps attunement at three items; LambdaMOO meters
+    ticks; audio engineers call it gain staging. MOOLLM's buffs have no cost and
+    no cap, so nothing in the design pushes back on stacking twenty of them.

@@ -27,7 +27,9 @@ methods:
 coherence_domains:
   location: "Character.location matches room occupants"
   inventory: "Object.location matches holder's inventory"
-  relationships: "Bidirectional — if A knows B, B knows A"
+  relationships: "EXISTENCE is reciprocal — if A has a cell for B, B has one for A.
+    CONTENTS are not. A's feelings, scores and buffs for B are independent of B's
+    for A; unrequited is the normal case. Never equalize the two cells."
   buffs: "Duration 0 → removed"
   references: "All paths resolve to files"
 

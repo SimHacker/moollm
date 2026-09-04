@@ -80,6 +80,20 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 
 > *"The factory must grow."* — Leverages Factorio's massive training data representation for richer LLM understanding of dataflow architecture.
 
+| Document | Description |
+|----------|-------------|
+| [TECH-TREE.md](./TECH-TREE.md) | **One mechanism for everything you unlock.** A tech tree (really a DAG — same artifact as a runbook dependency graph, a scrum board, or a conspiracy board with red string) is a buff with a progress guard instead of a timer: tech, spells, abilities, modifiers and runbooks are one node type. Unlock = a card merge into the advertisement pool. The cauldron is the engine — its playbooks already ship the guard evaluators, so the frontier is computed, not tracked |
+
+---
+
+### Migration & Legacy Systems
+
+| Document | Description |
+|----------|-------------|
+| [LEGACY-MIGRATION.md](./LEGACY-MIGRATION.md) | **Resurrection, then reimagination.** Getting a decades-old app running is the only honest spec; the data contract is one owner per table; subtract before you rewrite (erase / stub / **decapitate** — keep the decision, drop the transport); the backup test for content vs state; flattened filenames are a directory tree in disguise, so let directories delegate Self-style with an inspectable chain; **GitHub is the CMS**, and teaching version control far and wide is the feature, not the tax |
+
+> *"Restore last month's backup. Should this be last month's version, or today's?"* — the test for whether a thing is state or content.
+
 ---
 
 ### Object System (Self, latent-space inheritance)

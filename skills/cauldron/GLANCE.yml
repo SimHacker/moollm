@@ -30,13 +30,27 @@ when:
   - '"Big cross-cutting plan" → MELT'
   - '"Add a section to the monolith" → STIR'
   - '"Plan is stable, split it" → LADLE'
+  - '"Wire the playbooks into a tech tree" → TREE'
+  - '"What can I build now?" → FRONTIER'
+  - '"A PR landed, what does it unlock?" → UNLOCK'
   - '"Verify claims against the code" → ANCHOR'
   - '"Wire up navigation" → LINK'
   - '"Readthrough before shipping" → TASTE'
   - '"Hand off to executors" → SERVE'
   - '"Run lint → read text report → interpret → iterate" → SCRY'
 
-protocols: [MELT, STIR, LADLE, SCOOP, ANCHOR, LINK, TASTE, SERVE, SCRY, MODEL-ROUTING]
+protocols: [MELT, STIR, LADLE, TREE, SCOOP, ANCHOR, LINK, TASTE, SERVE, SCRY, MODEL-ROUTING]
+
+tech_tree:
+  what: "Playbooks are a dependency graph — which is what gamers call a technology tree."
+  how: "Each PB declares requires: (prereq + shell guard) and unlocks: (nodes, docs, features)."
+  payoff: |
+    Cauldron already ships the guard evaluators — every playbook step ends in a
+    Verify block. Wire those to the edges and the frontier becomes EXECUTABLE:
+    an arriving executor runs the guards instead of reading a status doc
+    somebody forgot to update. Store what happened; compute what is possible.
+  generality: "Same node schema unlocks craftables, spells, verbs, abilities, buffs — designs/TECH-TREE.md"
+  protocol: protocols/TREE.yml
 
 scoop:
   what: "Operations that select what LEAVES the pot — harvest, filter, structure, maintain, summarize, remove"

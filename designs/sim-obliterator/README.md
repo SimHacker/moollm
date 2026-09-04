@@ -45,6 +45,7 @@ Not started — this note exists so the scope is captured and the directory is f
 | **[IFF-LAYERS.md](IFF-LAYERS.md)** | Multi-resolution resource layer architecture (6 layers from binary to narrative), compilation directions, TMOG comparison, gap analysis |
 | **[PSYCHOPOMP-AND-THE-BIFROST.md](PSYCHOPOMP-AND-THE-BIFROST.md)** | The mythological framing — SimObliterator as the Bifrost bridge, and the psychopomp character who guides souls across it |
 | **[BATTLE-PLAN.md](BATTLE-PLAN.md)** | Integration architecture — the sister-repo pattern (clone, don't copy) and the uplift / download / inspect scripts |
+| **[ANGEL-EVENT-BUS.md](ANGEL-EVENT-BUS.md)** | *(new, 1 Sep 2026)* Objects make "system calls" to the angel by creating invisible message objects; the angel reads the save, acts, and writes replies the objects consume and delete. A low-frequency event bus for minting custom content from actual gameplay — idiomatic, because the Sims VM is already 100% event-driven. Includes the **"Take a Rest" / "Finish Resting"** session model, where saving and quitting becomes diegetic and the rest screen doubles as the one-writer-at-a-time lock; plus the instance/class editor split and the **authoritative engine rules for class edits** (grow attribute counts, never shrink them) |
 
 YAML data sources: [THE-UPLIFT.yml](THE-UPLIFT.yml) · [BRIDGE.yml](BRIDGE.yml) · [IFF-LAYERS.yml](IFF-LAYERS.yml)
 

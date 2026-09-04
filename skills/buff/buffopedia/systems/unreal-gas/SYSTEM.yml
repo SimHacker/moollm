@@ -1,0 +1,175 @@
+# BUFFOPEDIA — Unreal Engine Gameplay Ability System (GAS)
+# family: engine | confidence: verified (see external_refs; checked 2026-09-01)
+
+system:
+  id: unreal-gas
+  name: "Gameplay Ability System"
+  vendor: "Epic Games"
+  family: engine
+  vocabulary:
+    the_buff: "GameplayEffect (GE)"
+    the_stat: "Gameplay Attribute"
+    the_tag: "GameplayTag — hierarchical dotted name, e.g. State.Debuff.Burning"
+    the_container: "AbilitySystemComponent (ASC)"
+  why_it_matters: |
+    The most explicit shipped design in the pedia, and the only mainstream engine
+    that puts guards on BOTH ends of every modifier. If MOOLLM's buff schema is
+    ever going to grow, this is the design to steal from.
+
+# THE FOUR AXES
+
+guard:
+  mechanism: "GameplayTagRequirements on the modifier itself"
+  the_important_part: |
+    FGameplayModifierInfo carries BOTH source_tags AND target_tags. Every single
+    modifier is guarded on who is applying it and who is receiving it.
+    That is symmetric dispatch — no privileged receiver — shipped in the engine
+    that runs Fortnite. skills/buff/ has nothing equivalent: a MOOLLM buff either
+    applies or does not, with no predicate on the applier.
+  also:
+    - "Application requirements gate whether the GE lands at all"
+    - "Ongoing requirements can disable an active GE without removing it — the disable-but-remain rung of the GAME-PIECES ladder"
+  tag_specificity: |
+    GameplayTags are hierarchical, so State.Debuff matches State.Debuff.Burning.
+    That gives a specificity lattice for free — the same shape as CSS specificity
+    and as Korz coordinate constraint.
+
+conflict:
+  mechanism: "Fixed operator sequence, evaluated by an FAggregator per attribute"
+  the_equation: "((BaseValue + AddBase) * MultiplyAdditive / DivideAdditive * MultiplyCompound) + AddFinal"
+  ops: [AddBase, MultiplyAdditive, DivideAdditive, MultiplyCompound, AddFinal, Override]
+  notes:
+    - "Multipliers are summed before applying: 50% + 50% means 1.5 + 1.5 = 2.0, not 2.25"
+    - "MultiplyCompound is the one that actually compounds: 1.5 * 1.5 = 2.25"
+    - "Override wins regardless of the computation — the same role as Magic's layer-7b 'set' beating 'modify'"
+  the_lesson_for_moollm: |
+    Authors never pick a priority number. The OPERATOR determines the order.
+    skills/buff/ currently asks authors to write priority: 100 / priority: 200
+    by hand (EFFECTIVE-VALUES.md "Modifier Order"), which is the same information
+    encoded worse — two buffs written by two people will collide on 100.
+  designer_declared_layers:
+    what: "Modifier Evaluation Channels — up to 10, result of channel N becomes base of channel N+1"
+    how: |
+      Off by default. Enable in DefaultGame.ini:
+        [/Script/GameplayAbilities.AbilitySystemGlobals]
+        bAllowGameplayModEvaluationChannels=true
+        GameplayModEvaluationChannelAliases[0]="MyFirstChannel"
+    note: "Shipped in 4.14 and essentially undocumented for years; the community found it. This is CSS @layer, arrived at independently."
+
+lifetime:
+  duration_policies: [Instant, HasDuration, Infinite]
+  periodic: |
+    A GE can have a Period, applying repeatedly at an interval — damage over
+    time as periodic re-dispatch rather than a per-tick hook. skills/buff/ has a
+    per-tick simulate hook but no interval, so "every 3 ticks" must be
+    hand-counted.
+  instant_vs_duration: |
+    Instant effects modify the attribute's BASE value permanently.
+    Duration/Infinite effects modify the CURRENT value via the aggregator and
+    revert cleanly when removed. This is exactly EFFECTIVE-VALUES.md's
+    base-is-truth / effective-is-reality split, enforced by the type system.
+  removal: "expiry, explicit removal, or by tag query (dispel)"
+
+ownership:
+  order_owner: "engine-fixed operator sequence, plus optional project-configured channels"
+  contrast: "MTG legislates the order in a rulebook; CSS specifies it in a standard; GAS hardcodes it and lets you add phases."
+
+stacking:
+  policies:
+    aggregate_by: [AggregateBySource, AggregateByTarget]
+    limit: "StackLimitCount"
+    on_reapply: [StackDurationRefreshPolicy, StackPeriodResetPolicy]
+    on_expire: "StackExpirationPolicy"
+  the_lesson_for_moollm: |
+    Reapplying a buff has at least five sane meanings: add a stack, refresh the
+    duration, reset the period, take the max, or ignore. skills/buff/ has
+    stacks + max-stacks and does not say which. And aggregate-by-source
+    (each caster gets their own stack) vs by-target (one pool) is a distinction
+    MOOLLM cannot currently express at all.
+
+what_moollm_should_adopt:
+
+  guards_on_the_applier_too:
+    take: "let a buff carry a condition about WHO is applying it, not only about who receives it"
+    how_gas_does_it: "every modifier carries both source_tags and target_tags, checked at application"
+    what_it_buys: |
+      Effects that only land from a trusted source, effects hostile casters
+      cannot inflict, and effects whose strength depends on the relationship
+      between the two parties. Today a MOOLLM buff either applies or does not,
+      and the applier is not consulted at all.
+
+  let_the_operator_decide_the_order:
+    take: "stop asking authors to pick a priority number; derive the order from WHAT KIND of modification each one is"
+    how_gas_does_it: |
+      One fixed equation per attribute:
+        ((Base + AddBase) * MultiplyAdditive / DivideAdditive * MultiplyCompound) + AddFinal
+      An author says "this is a MultiplyAdditive of 0.5" and the position in the
+      sequence follows from that choice.
+    why_it_is_better: |
+      EFFECTIVE-VALUES.md currently has authors write priority: 100 and
+      priority: 200 by hand. That is the same information encoded worse: two
+      people writing two buffs independently will both reach for 100, and
+      neither has any way to know what the right number was.
+
+  say_what_reapplying_means:
+    take: "a per-buff block declaring what happens when the same buff is applied again while already active"
+    the_choices: "add another stack · refresh the duration · reset the periodic timer · take the higher value · ignore the new one entirely"
+    also: "and whether stacks are counted per applier (each caster gets their own) or pooled across all appliers"
+    why: |
+      Reapplication has at least five sensible meanings and skills/buff/ picks
+      none of them — it has a stack count and a maximum, and is silent about the
+      behavior. Silence here becomes a bug report later, because the answer
+      differs per buff: a poison should refresh, a rage should stack, a blessing
+      should probably do neither.
+
+  a_period_field:
+    take: "let a buff declare that it acts every N ticks, rather than every tick"
+    how_gas_does_it: "a GameplayEffect has a Period; it re-applies on that interval, so damage-over-time is repeated application rather than a hook that fires constantly"
+    why_moollm_needs_it: |
+      skills/buff/ has a per-tick hook and no interval, so a buff that should
+      act every third tick has to count ticks itself, in its own state, in every
+      buff that wants it. That is a field's worth of work repeated by hand
+      forever.
+
+  disable_without_removing:
+    take: "a guard that switches a live buff off while leaving it attached, so it resumes when the condition returns"
+    how_gas_does_it: "ongoing requirements, checked continuously and separately from the requirements that governed whether it landed"
+    why_it_matters: |
+      Removing and re-adding is not equivalent: it loses the buff's elapsed
+      duration, its stack count, and its history. Concentration in D&D, a
+      bypassed plugin in an audio chain, and a grandfather clause in law are all
+      this same rung.
+
+what_moollm_should_not_adopt:
+
+  a_fixed_closed_stat_list:
+    avoid: "declaring the set of modifiable attributes ahead of time in compiled code"
+    how_gas_does_it: "attributes live in a C++ AttributeSet, fixed at build time"
+    why_not_here: |
+      An open stat space is the point of this project. A buff must be able to
+      modify something nobody declared, including something invented mid-scene,
+      because the effect vocabulary is prose.
+
+  numbers_as_the_only_effect:
+    avoid: "restricting effects to arithmetic on numeric attributes"
+    the_limitation: |
+      GAS can express -20% movement speed and cannot express "cats seem to like
+      you today." There is no tier for an effect that changes meaning rather
+      than magnitude.
+    why_it_matters_here: |
+      That semantic tier is most of what MOOLLM's buffs are FOR, so the borrowing
+      from GAS has to stop at the mechanics of aggregation. Take the equation,
+      the guards and the stacking policies; do not inherit the ceiling.
+
+import_export:
+  data_location: "GameplayEffect blueprint/data assets inside .uasset — engine-internal binary"
+  extractability: "poor without the editor; not a realistic import source"
+  useful_direction: "export only — MOOLLM buff to GAS is plausible for anyone building a game; GAS to MOOLLM is not worth the tooling"
+  rights: "GAS is Epic's engine plugin; the DESIGN is documentable, the shipped content of any given game is not yours"
+
+external_refs:
+  - { role: spec, title: "unreal.GameplayModOp (aggregation equation, op list)", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/GameplayModOp" }
+  - { role: spec, title: "unreal.GameplayModifierInfo (source_tags, target_tags, evaluation_channel_settings)", url: "https://dev.epicgames.com/documentation/en-us/unreal-engine/python-api/class/GameplayModifierInfo" }
+  - { role: analysis, title: "Influence of the GameplayEffect aggregator on attribute values (channel chaining)", url: "https://stackoverflow.com/questions/52916274/unreal-gas-influence-of-the-gameplayeffect-aggregator-on-gameplay-attribute-val" }
+  - { role: community, title: "Modifier evaluation channels — the ini incantation", url: "https://forums.unrealengine.com/t/gameplay-ability-system-modifiers/211068" }
+  - { role: moollm, title: "SELF-KORZ.md — why source+target guards are the Korz reading", path: "skills/buff/SELF-KORZ.md" }

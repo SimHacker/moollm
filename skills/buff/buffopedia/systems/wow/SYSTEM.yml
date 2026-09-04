@@ -1,0 +1,108 @@
+# BUFFOPEDIA — World of Warcraft auras
+# family: aura | confidence: verified for the stacking-rule mechanics and the
+#   patch archaeology (see external_refs, checked 2026-09-01); the emulator DB
+#   schema is the accessible surface, not Blizzard's internal one.
+
+system:
+  id: wow
+  name: "World of Warcraft auras"
+  vendor: "Blizzard Entertainment"
+  family: aura
+  vocabulary:
+    the_buff: "aura (an applied spell effect); players say buff / debuff"
+    positive: "buff — right side of the frame"
+    negative: "debuff — separately tracked, separately dispellable by school"
+    spatial: "totem / aura / raid buff — applies to everyone in range or group"
+  why_it_matters: |
+    WoW is where the industry worked out what to do when two bindings want the
+    same slot, at a scale where being wrong cost raid guilds their progression.
+    Its answer is not layering. It is exclusion.
+
+# THE FOUR AXES
+
+guard:
+  mechanism: "spell target + range + group membership + caster-side conditions"
+  spatial: |
+    Totems and group buffs are guarded on PROXIMITY, not on a target list —
+    the binding follows the region. This is the 'aura' family: the guard is a
+    coordinate on where, which is precisely what skills/buff/ cannot express
+    (hence its room-spirit workaround).
+  dispel_by_school: "Magic / Curse / Poison / Disease — the tag taxonomy IS the dispel interface"
+
+conflict:
+  mechanism: "EXCLUSIVE CATEGORIES with max-wins"
+  how_it_works: |
+    Buffs providing the same benefit are grouped. Within a group they do not
+    stack — the strongest applies. Famously, both icons can sit on your frame
+    while only one is doing anything:
+
+      "You can have both buffs on you, but you won't be getting 18%,
+       only 10%, from the stronger spell."
+
+    Blessing of Kings (10%) over Drums of the Forgotten Kings (8%) gives 10%,
+    not 18%, regardless of application order.
+  the_emulator_schema: |
+    The accessible expression of this is the server-emulator table:
+      spell_group_stack_rules (group_id, stack_rule)
+      stack_rule = 1  →  exclusive group, does not stack
+    Groups exist both for a spell against ITSELF and across different spells,
+    e.g. Totem of Wrath vs Flametongue Totem vs Demonic Pact.
+  the_korz_reading: |
+    This is FLUXX'S RULE, invented independently for raid buffs: one binding per
+    dimension. Fluxx discards the superseded card; WoW leaves the icon on screen
+    and silently ignores it. Fluxx's version is better UI — the discard pile
+    makes the rebinding visible, whereas WoW's icon row actively lies to you.
+  diminishing_returns: |
+    A separate policy for crowd control: repeated application of the same
+    category within a window has REDUCED duration, then full immunity. This is
+    a decay on repeated binding — a fourth conflict policy nobody else in the
+    pedia has, and the only one that treats re-binding frequency as the input.
+
+lifetime:
+  durations: "seconds, with haste/spec modifiers; some until-cancelled; some until-zone-change"
+  refresh: "reapplication generally refreshes duration; pandemic-style partial carryover in later expansions"
+  charges: "some auras are consumed by N uses rather than time — a lifetime measured in events"
+
+ownership:
+  order_owner: "content data — the group tables ship as data and are revised by hotfix"
+  the_cautionary_tale: |
+    Whether two effects share an exclusive category is DATA, and its history is
+    contested. The Dragonstrike weapon proc and Haste Potions:
+      - launch of TBC through 2.4.1: stacked
+      - patch 2.4.2: made to share an exclusive category, stopped stacking
+      - patch 3.0.1: reverted, stacked again
+      - Classic 2.5.4: a fix for self-stacking accidentally restored the 2.4.2 behavior
+    Players resolved the question of ORIGINAL INTENT by finding 2007 video
+    footage showing both buffs active. Blizzard then hotfixed back to stacking.
+  the_lesson_for_moollm: |
+    When exclusivity is a data table, that table needs PROVENANCE — who assigned
+    this category, when, and why. skills/buff/ has a `category` field with no
+    history. A buff's category is exactly the kind of claim that gets quietly
+    flipped and then argued about with archaeology.
+
+what_moollm_should_adopt:
+  - "exclusive category with max-wins as a NAMED conflict policy, selectable per dimension"
+  - "spatial guards (aura) as a first-class scope, retiring the room-spirit workaround"
+  - "provenance on category assignment"
+  - "diminishing returns as an available policy — decay on repeated binding"
+  - "charge-based lifetimes (N uses) alongside time-based"
+
+what_moollm_should_not_adopt:
+  - "keeping a superseded binding visible while ignoring it — Fluxx's discard is the honest UI"
+  - "dispel-by-school as the only taxonomy; MOOLLM tags are open and richer"
+
+import_export:
+  data_location: "client DBC/DB2 files; community emulator SQL (TrinityCore, AzerothCore) is the readable form"
+  extractability: "high for structure, via emulator schemas"
+  useful_direction: |
+    Import the POLICY VOCABULARY, not the content. Nobody needs Blessing of Kings
+    in Soul City. Everybody building a buff system needs the words
+    'exclusive group' and 'diminishing returns'.
+  rights: "Blizzard's game data. Emulator projects publish their own schemas and rule tables; those are the citable artifacts."
+
+external_refs:
+  - { role: schema, title: "TrinityCore #4313 — spell_group_stack_rules, exclusive groups, worked examples", url: "https://github.com/TrinityCore/TrinityCore/issues/4313" }
+  - { role: evidence, title: "AzerothCore #2561 — 'only the stronger one counts' (Kings vs Drums)", url: "https://github.com/azerothcore/azerothcore-wotlk/issues/2561" }
+  - { role: archaeology, title: "Dragonstrike / Haste Potion exclusivity across 2.4.2 → 3.0.1 → 2.5.4, settled with 2007 footage", url: "https://us.forums.blizzard.com/en/wow/t/bugtbcc-dragonstrike-not-stacking-with-haste-potion/1205888" }
+  - { role: primary, title: "Patch 4.0.3a notes — diminishing returns shared between CC categories; 'does not stack' language", url: "https://worldofwarcraft.blizzard.com/en-gb/news/9996563" }
+  - { role: moollm, title: "fluxx SYSTEM.yml — the same one-binding-per-dimension rule, better UI", path: "skills/buff/buffopedia/systems/fluxx/SYSTEM.yml" }

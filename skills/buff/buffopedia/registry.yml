@@ -1,0 +1,323 @@
+# Buffopedia — master index (many dialects of "buff")
+# Sibling of skills/schema/schemas/registry.yml. Read README.md first.
+
+registry:
+  version: 1
+  title: MOOLLM buffopedia
+  description: |
+    One index for many senses of "buff": timed stat modifiers, mood states,
+    auras, item affixes, material syndromes, rule cards, and the
+    framework-level modifier aggregators that are the same mechanism wearing
+    an engineering hat (CSS cascade, Unreal GAS, feature flags, CLOS :around).
+
+    Unlike schemapedia, this is NOT interop infrastructure — nobody ports WoW
+    auras into Dwarf Fortress on a Tuesday. It earns its place because buffs
+    are character state, characters are portable (Soul City Exchange), and
+    convergent design across eighteen dialects is the cheapest available
+    critique of MOOLLM's own choices.
+
+    Canonical model: designs/GAME-PIECES.md — a buff is a mixin with an
+    expiration date or condition on its delegation edge, carrying its own CARD
+    into the host's advertisement pool.
+
+  plugin_convention: plugin-convention.yml
+  interchange: interchange.yml
+  observations: observations.yml   # running log of "X is secretly this mechanism" findings
+
+  # The four axes every entry must answer. See README.md for the range table.
+  axes: [guard, conflict, lifetime, ownership]
+
+  families:
+    temporal:
+      summary: "Timed modifiers with an explicit clock: N turns, end of turn, until dawn."
+      canonical: "D&D spell durations; Magic's end_of_turn economy."
+    mood:
+      summary: "Affective state as a first-class timed object, usually with UI countdown and autonomy influence."
+      canonical: "The Sims 3/4 moodlets; RimWorld thoughts."
+    aura:
+      summary: "Binding scoped to proximity or region rather than to a target — the guard is spatial."
+      canonical: "WoW auras/totems; GAS infinite effects with area application."
+      moollm_note: "Now native: a room-hosted buff with `radiates:` (1 Sep 2026). Previously routed through invented 'room spirit' characters."
+    affix:
+      summary: "Modifiers borne by items: the buff lives on the gear and applies while equipped."
+      canonical: "Diablo/Path of Exile affix tiers; D&D magic items."
+    syndrome:
+      summary: "Modifiers borne by MATERIALS, inherited by everything made of them — a buff on the prototype, not the instance."
+      canonical: "Dwarf Fortress syndromes."
+      moollm_note: "The delegation model handles this natively; most engines cannot."
+    rule:
+      summary: "Buffs on the RULESET rather than on a piece — the game's own rules are the host."
+      canonical: "Fluxx New Rule cards; Nomic amendments; Revolutionary Chess house rules."
+    engine:
+      summary: "Framework-level modifier aggregation: same mechanism, engineering vocabulary, no fiction."
+      canonical: "Unreal GAS; CSS cascade; feature flags; CLOS method combination; K8s mutating admission."
+    economic:
+      summary: "Buff as a voice in an auction — it does not restrict behavior, it bids."
+      canonical: "The Sims advertisement scoring; GAME-PIECES layer-3 scoring ladder."
+    multi:
+      summary: "One product containing several dialects at once, usually per game layer — and therefore containing its own interchange problem."
+      canonical: "Spore: five stages, five dialects, plus a sixth spanning all of them."
+    applicator:
+      summary: "The object that APPLIES effects to many hosts at once, carrying its own targeting UI. The buff's scope is the applicator, not a field on the buff."
+      canonical: "SimProv's Cupid (pie menu of families → people → pets), Buddha (suppress a crowd's needs), Come and See Me (an unbeatable advertisement with a fuse)."
+      moollm_note: "skills/buff/ has APPLY taking ONE target and no notion of an applicator object at all. Don's own 25-year-old objects are the prior art."
+    conduct:
+      summary: "The guard is a classifier over accumulated BEHAVIOR rather than over present state or a spent resource. Bucketed or continuous, authored or learned."
+      canonical: "Black & White's alignment and its creature's learned opinions; Spore's Consequence Abilities."
+      moollm_note: "The family the LLM-judged soft guard in SELF-KORZ.md §4 belongs to — which means its failure modes are already documented, in Black & White."
+
+  # status:     written | planned
+  # confidence: verified (checked this session, citations in entry)
+  #             high (well-known, uncited)
+  #             low (from memory, MUST verify before relying on field names)
+  systems:
+
+    unreal-gas:
+      family: engine
+      status: written
+      confidence: verified
+      path: systems/unreal-gas/SYSTEM.yml
+      why_it_matters: "The most explicit shipped design. Guards on BOTH source and target tags — symmetric dispatch in a commercial engine — plus a fixed operator sequence and designer-declarable evaluation channels."
+
+    wow:
+      family: aura
+      status: written
+      confidence: verified
+      path: systems/wow/SYSTEM.yml
+      why_it_matters: "Exclusive categories with max-wins: the industry's answer to 'two bindings, one dimension.' Same policy Fluxx uses, invented for raid buffs. Plus the cautionary tale of category assignment as contested content data."
+
+    mtg:
+      family: temporal
+      status: planned
+      confidence: verified
+      intended_path: systems/mtg/SYSTEM.yml
+      why_it_matters: "CR 613 layers: a legislated total order, because a game with judges cannot error on ambiguity. Oracle text is the largest prose-to-guard translation corpus in existence."
+      cross_repo: "WillWrightShowForFood/characters/david-ungar/korz/examples/mtg-layers.md"
+
+    sims-4:
+      family: mood
+      status: planned
+      confidence: low
+      intended_path: systems/sims-4/SYSTEM.yml
+      why_it_matters: "Ships the actual word 'buff' in its tuning data, and buffs modify the SCORING context of the autonomy auction rather than a stat table — closest shipped relative of the MOOLLM model."
+      caution: "Field and resource names are from memory. Verify against extracted tuning before writing importer code."
+
+    css-cascade:
+      family: engine
+      status: written
+      confidence: high
+      path: systems/css-cascade/SYSTEM.yml
+      why_it_matters: "The most widely deployed modifier-aggregation system on Earth, with an explicit specificity lattice, declared cascade layers, and pseudo-class guards. Nobody calls it a buff system. It is one."
+      scorecard: "Five and a half of the six components in the buff definition. The missing one is mortality — and every awkward part of a buff system turns out to be downstream of mortality."
+
+    if-daemons-fuses:
+      family: temporal
+      status: written
+      confidence: verified
+      path: systems/if-daemons-fuses/SYSTEM.yml
+      why_it_matters: "The vocabulary should have come from here. A DAEMON runs every turn; a FUSE fires once, later. A buff is a daemon and a fuse on the same object — split into two named primitives by 1988, and TADS still registers them separately. Also: ZIL's KILL-INTERRUPTS is the troll-flag cleanup bug, diagnosed and remedied in 1979."
+      repo_sources: "zork-mdl/ is on disk — upgrade this entry from documentation-verified to source-verified"
+
+    lambdamoo:
+      family: engine
+      status: written
+      confidence: verified
+      path: systems/lambdamoo/SYSTEM.yml
+      why_it_matters: "The namesake, and the most interesting NEGATIVE result here: LambdaMOO had both halves of a buff — persistent forked-task timers, and feature objects as player-attachable verb-granting mixins — and never joined them. Feature objects are card-merging invented as a workaround for single inheritance. Plus the one borrowing this skill most needs: a metered, enforced, killable tick budget."
+
+    equipment-inventory:
+      family: affix
+      status: written
+      confidence: high
+      path: systems/equipment-inventory/SYSTEM.yml
+      why_it_matters: "Clothing, accessories and inventory are the most familiar buff system alive and the least recognized as one. An equipment SLOT is a dimension capped at one binding — the inventory screen is a Fluxx table. Also the home of dispel permission (cursed items), aggregate-derived buffs (encumbrance), buff budgets (attunement), and disguises, whose effect lives in the OBSERVER-WEARER PAIR and therefore cannot be written down without symmetric dispatch."
+
+    black-and-white:
+      family: conduct
+      status: written
+      confidence: verified
+      path: systems/black-and-white/SYSTEM.yml
+      why_it_matters: |
+        The strongest conduct-guard case here, and the answer to two open
+        problems at once. Alignment is CONTINUOUS and rendered on every surface
+        the player already looks at — which is how you make continuous strength
+        legible without showing a number, the thing MOODY.md needs. And the
+        creature carries a LEARNED guard: opinions as ID3 decision trees over
+        experience, desires as perceptrons, plus a symbolic model OF ITS GOD used
+        to predict approval — a learned applier-side predicate, which nothing
+        else in this pedia has in any form.
+
+        Its four learning channels (feedback, instruction, observation,
+        reflection) are, in 2001 and in order, the four channels current
+        language-model practice is built on.
+
+        Most importantly it documents the failure mode of the soft-tier guard
+        before MOOLLM ships one: the representation was readable and was never
+        shown, so players formed superstitions. Verdicts need reasons, and
+        corrections need attributions.
+      lineage_thread: "Richard Evans → The Sims 3 autonomy → Versu → DeepMind. Personnel link between learned dispositions and Maxis autonomy; verify each hop before quoting."
+      cross_repo: "WillWrightShowForFood/ — guest thread and Sims-autonomy comparison"
+
+    spore:
+      family: multi
+      status: written
+      confidence: high
+      path: systems/spore/SYSTEM.yml
+      why_it_matters: "A buffopedia in one box: five stages, five dialects (parts-as-anatomy, per-member equipment, point-buy with a conservation law, cooldown activatables, planet-scale Terrascore), plus Consequence Abilities whose GUARD IS YOUR BEHAVIORAL HISTORY — the soft-tier guard from SELF-KORZ.md §4, hardwired as ten archetypes in 2008. And its famous disappointment is interchange.yml's lossy tier occurring inside a single product."
+      caution: "Ability↔archetype pairings and stacking arithmetic are LOW confidence. Verify before quoting."
+      cross_repo: "WillWrightShowForFood/ — Will Wright design-decision questions are in the entry"
+
+    dnd-5e:
+      family: temporal
+      status: planned
+      confidence: high
+      intended_path: systems/dnd-5e/SYSTEM.yml
+      why_it_matters: "Conditions as a closed enum, concentration as a while-guard on the CASTER, exhaustion as a severity ladder. And SRD 5.1 is CC-BY-4.0, so it is the one corpus that is unambiguously legal to import wholesale."
+
+    dwarf-fortress:
+      family: syndrome
+      status: planned
+      confidence: low
+      intended_path: systems/dwarf-fortress/SYSTEM.yml
+      why_it_matters: "Buffs attached to materials, inherited by anything made of them. Prototype-level buffing, in plain-text moddable raws, since long before anyone asked for it."
+      caution: "Raw token names from memory; verify against the raws before importer work."
+      cross_repo: "WillWrightShowForFood/characters/david-ungar/korz/examples/df-procedural-magic.md"
+
+    fluxx:
+      family: rule
+      status: planned
+      confidence: high
+      intended_path: systems/fluxx/SYSTEM.yml
+      why_it_matters: "One binding per dimension, enforced physically by overlapping the card you supersede. Conflict is not resolved, it is made unrepresentable."
+      cross_repo: "WillWrightShowForFood/characters/david-ungar/korz/examples/fluxx-nomic.md"
+
+    feature-flags:
+      family: engine
+      status: planned
+      confidence: high
+      intended_path: systems/feature-flags/SYSTEM.yml
+      why_it_matters: "Targeting rules are tag guards on source and target; rollout percentages are probabilistic guards; kill switches are dispels. The cauldron's own exemplary plan is a feature-flag system."
+
+    soul-city:
+      family: engine
+      status: planned
+      confidence: verified
+      intended_path: systems/soul-city/SYSTEM.yml
+      why_it_matters: "MOOLLM's own transport layer. Documents the gap this pedia closes: the Visitor Protocol says what persists across worlds and never mentions buffs."
+
+    simprov:
+      family: applicator
+      status: written
+      confidence: verified
+      path: systems/simprov/SYSTEM.yml
+      why_it_matters: |
+        PRIMARY-SOURCE PRIOR ART FOR THE TWO PRIMITIVES THIS PEDIA CALLS MISSING,
+        written by the person building MOOLLM.
+
+        Cupid multi-dispatches on the applier AND a target chosen from a
+        hierarchical pie menu (families → people → pets), then orchestrates
+        instantiation, behavior, RELATIONSHIP MATRIX EDITING, and animation as
+        one transaction. Its host is the edge, with a direction — which is why
+        `relationship` is now a host kind.
+
+        Buddha suppresses a whole crowd's needs so a staged event can finish.
+        Come and See Me broadcasts an unbeatable advertisement and relies
+        entirely on its timeout for safety — the clearest argument anywhere that
+        the fuse is load-bearing rather than convenient.
+      consequences_for_the_design:
+        - "relationship added as a host kind (SKILL.md § Hosts)"
+        - "applicator objects: one gesture, N hosts, a targeting UI"
+        - "the pets case is a fidelity ladder inside a single object — per-effect `hosts:` rather than a global rule"
+      sources_available: "simprov/Downloads (the .iff objects), SimObliterator_Suite, obliterator"
+
+    sims-1:
+      family: economic
+      status: written
+      confidence: high
+      path: systems/sims-1/SYSTEM.yml
+      why_it_matters: |
+        The system that got buffs WITHOUT THE NOUN — effects live in SimAntics
+        BHAVs, motives, and the advertisement economy; "moodlet" only arrives in
+        The Sims 3.
+
+        And it supplies the diagnostic this pedia needed: the guinea pig disease
+        was carried by an INVISIBLE OBJECT created in the world, which is the
+        same displacement as MOOLLM's old room-spirit. When a system lacks the
+        host kind it needs, it manufactures an entity of the kind it has. So:
+        an invisible entity whose only job is to exist is a bug report against
+        the host model.
+
+        The disease is also the legibility lesson in Don's own franchise — a
+        fatal effect with a long fuse and no readout, which players lose Sims to
+        without ever learning why. The Sims 3's fix was a noun with an icon and
+        a timer.
+      caution: "the invisible-object implementation is Don's session testimony; the BHAVs are on disk and should settle it"
+      sources_available: "simprov/GameData, simprov/Downloads, SimObliterator_Suite"
+
+    sims-3:
+      family: mood
+      status: planned
+      confidence: low
+      why_it_matters: "Where 'moodlet' enters the series vocabulary."
+
+    rimworld:
+      family: mood
+      status: planned
+      confidence: low
+      why_it_matters: "Hediffs carry CONTINUOUS severity with staged thresholds — a coordinate, not a flag. XML defs make it the most importable modern corpus after the D&D SRD."
+
+    diablo-arpg:
+      family: affix
+      status: planned
+      confidence: high
+      why_it_matters: "Affix tiers and ranges: the buff as loot, and the economy of rolling for guards."
+
+    nethack:
+      family: temporal
+      status: planned
+      confidence: high
+      why_it_matters: "Intrinsics vs timed extrinsics — the permanent/temporary distinction named cleanly, already cited in GAME-PIECES.md."
+
+    clos-aop:
+      family: engine
+      status: planned
+      confidence: high
+      why_it_matters: "CLOS method combination and AOP advice are the language-level ancestors: :around methods and pointcuts are guards, and the combination order is the layer stack."
+
+    korz-cop:
+      family: engine
+      status: planned
+      confidence: high
+      why_it_matters: "Context-oriented programming is the formal home of all of this. Korz removes the object boundary entirely: dimensions, coordinates, guards, symmetric dispatch."
+      cross_repo: "WillWrightShowForFood/characters/david-ungar/korz/"
+
+    proxi:
+      family: mood
+      status: planned
+      confidence: low
+      why_it_matters: "Named export target. Will Wright's memory-object world — an obvious destination for exported character state."
+      open_questions:
+        - "Does Proxi have a modifier/state model at all, or only memory objects?"
+        - "Is there any documented import format, or is this LLM-mediated prose only?"
+      caution: "Almost nothing verified. Treat as an aspiration with unknowns, not a target with a spec."
+
+  gaps_this_pedia_reveals:
+    - claim: "skills/buff/ has no source/target guard — a buff either applies or does not, with no predicate on WHO is applying it."
+      seen_in: [unreal-gas, feature-flags]
+      note: "GAS puts GameplayTagRequirements on both ends of every modifier. That is symmetric dispatch, shipped."
+    - claim: "skills/buff/ picks conflict order with hand-written priority integers."
+      seen_in: [unreal-gas, css-cascade, mtg]
+      note: "Three systems converged on a FIXED operator sequence instead, so authors never choose a number. GAS: ((Base + AddBase) * MultAdditive / DivAdditive * MultCompound) + AddFinal."
+    - claim: "skills/buff/ has stacks/max-stacks but no refresh-vs-add-vs-max policy, and no aggregate-by-source."
+      seen_in: [unreal-gas, wow]
+      note: "Reapplying a buff has at least five sane meanings. Pick per buff, not per engine."
+    - claim: "skills/buff/ says CHARACTERS ONLY, routing rooms through room-spirit characters."
+      seen_in: [wow, dwarf-fortress, spore, equipment-inventory, fluxx]
+      note: "Aura (spatial guard) and syndrome (material-borne, prototype-level) are the principled versions of what room-spirits approximate."
+      status: RESOLVED
+      resolved: 2026-09-01
+      decision: "Hosts are open — see SKILL.md § Hosts. Any entity carries buffs; `radiates:` reaches occupants; prototypes give the syndrome family by delegation; relationships are hosts with a direction. Rooms and objects may delegate to `character` and be animate."
+      still_open: "runtime, not design: places and materials need real expiry conditions, and tick narration for inanimate hosts is unspecified."
+    - claim: "No buff field records provenance of its category assignment."
+      seen_in: [wow]
+      note: "WoW's Dragonstrike/Haste-Potion exclusivity flip-flopped across patches and players settled it with 2007 video footage. When exclusivity is data, its history is contested."

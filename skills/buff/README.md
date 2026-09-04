@@ -2,14 +2,20 @@
 
 > *"All effects are buffs. Some are just shitty."*
 
-## Target: Characters Only
+## Hosts: whatever the effect belongs to
 
-**Buffs only apply to characters, never rooms directly.**
+A Sim gets **caffeinated**. A tavern gets **haunted**. A lantern **burns down**. **Silver**, as a material, harms anyone who wields it. **Bob is smitten with Alice**, whatever Alice thinks. In Fluxx, **the rules** get a new one.
 
-If a room needs buffs (e.g., "haunted", "poisoned air"), create a "room spirit" character:
-- `room/dark-cave` → `character/dark-cave-spirit`
-- Buff the spirit, not the room
-- Keeps buff system simple: one target type, one closure signature
+Same fields, same clock, any host — character, room, object, prototype, relationship, ruleset.
+
+- `radiates: { to: occupants }` reaches past the host, so a poisoned room hurts whoever is in it
+- Places and materials outlive everything, so they need a real `expires:` — a timer keyed to the host's death never fires
+- A prototype-hosted buff is inherited by everything delegating to it: Dwarf Fortress syndromes for free
+- `hosts:` on a buff restricts it where it only makes sense somewhere; `buff_policy.allowed_hosts` on a world narrows a whole game. Default is any.
+
+**Rooms and objects can also just be characters.** Anything can delegate to [`character`](../character/) — a forge that wants tending, remembers who banked the fire, takes turns and narrates is a character who is a place. Rooms already [`ADVERTISE`](../room/) into the same auction.
+
+**Host rules in full:** [SKILL.md § Hosts](SKILL.md)
 
 ## MOOLLM K-Lines
 
@@ -23,6 +29,8 @@ If a room needs buffs (e.g., "haunted", "poisoned air"), create a "room spirit" 
 | [dog/](../dog/) | Dogs grant loyalty buffs |
 | [persona/](../persona/) | Personas grant buffs |
 | [yaml-jazz/](../yaml-jazz/) | Semantic buffs (LLM interprets) |
+| [adventure/](../adventure/) | The compiler that turns English guards into `_js`/`_py` snippets, and the engine that runs them |
+| [room/](../room/) | Rooms host buffs, and can delegate to `character` to be animate |
 | [examples/adventure-4/](../../examples/adventure-4/) | Grue-repellent in action |
 
 **Full Spec:** [SKILL.md](SKILL.md)
@@ -50,6 +58,7 @@ buff:
 | **Mixed** | Both stat mods and vibes |
 | **Duration** | Turns, natural language, or conditional |
 | **Stacking** | Same source refreshes, different sources add |
+| **Compiled** | English `guard`/`tick`/`expires` compile to `_js` and `_py` snippets the engine runs directly — a JIT for buffs, with deopt back to the prose ([BUFF-IN-TIME-COMPILER.md](BUFF-IN-TIME-COMPILER.md)) |
 | **Synergies** | Some buffs combine into stronger effects |
 
 ## Lifecycle Hooks
@@ -110,37 +119,44 @@ Buffs modify these standard character stats:
 | `speed` | numeric | Movement/action rate |
 | `luck` | -100 to +100 | Chance modifier |
 
-### Room Spirit Properties
+### Room Properties
 
-When a room has a "spirit" character, buff its stats to affect the room:
+A room holds these itself, and buffs modify them like any other stats:
 
-| Spirit Property | Affects | Example |
+| Property | Affects | Example |
 |-----------------|---------|---------|
-| `production_speed` | Work rate in room | Factory spirit +20% = faster crafting |
-| `error_rate` | Mistake probability | Haunted spirit +30% = more accidents |
-| `comfort_bonus` | Comfort granted to visitors | Cozy spirit +15 comfort |
-| `mood_influence` | Mood effect on occupants | Creepy spirit -10 mood |
-| `discovery_chance` | Finding hidden things | Mysterious spirit +25% secrets |
-| `danger_level` | Hazard intensity | Cursed spirit = traps more deadly |
+| `production_speed` | Work rate in room | Well-lit forge +20% = faster crafting |
+| `error_rate` | Mistake probability | Haunted +30% = more accidents |
+| `comfort_bonus` | Comfort granted to visitors | Cozy +15 comfort |
+| `mood_influence` | Mood effect on occupants | Creepy -10 mood |
+| `discovery_chance` | Finding hidden things | Mysterious +25% secrets |
+| `danger_level` | Hazard intensity | Cursed = traps more deadly |
 
 ```yaml
-# Example: Haunted Library Spirit
-character:
-  id: library-spirit
-  name: "Spirit of the Old Library"
-  location: room/old-library
-  
-  # Base stats (affected by buffs)
+# A library that is also someone — it delegates to `character`, so it wants
+# things, takes turns, and narrates its own buff ticks.
+room:
+  id: old-library
+  name: "The Old Library"
+  delegates_to: [room, character]
+
   production_speed: 100    # Books found per search
   error_rate: 5            # % chance of disturbing something
   mood_influence: -5       # Slightly creepy
   discovery_chance: 20     # Good for finding secrets
-  
+
+  wants: { be_read_in: 7, be_dusted: 4 }
+
   buffs:
     - id: poltergeist-activity
       effect: { error_rate: +15, mood_influence: -20 }
       simulate: "Occasionally knock books off shelves"
+      radiates: { to: occupants, effect: { unease: +2 }, while: present }
+      expires: { when: "the salt line is renewed" }
 ```
+
+A room does not have to be animate — an ordinary room holds buffs and ticks
+silently. Delegating to `character` is what buys wanting, acting, and narrating.
 
 ## Sources
 

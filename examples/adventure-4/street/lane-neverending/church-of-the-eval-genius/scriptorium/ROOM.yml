@@ -1,0 +1,28 @@
+room:
+  name: "The Scriptorium"
+  type: library
+  emoji: "📚"
+
+  description: |
+    The public library. Long tables, good north light, and the whole design corpus
+    shelved where anyone can reach it. Copying is encouraged; the sign says so.
+
+  examine: |
+    Carved over the door: "NOTHING HERE IS SECRET. READ IT ALOUD."
+    Below, in smaller letters, someone has added: "(The vault is downstairs.)"
+
+  sign: "PUBLIC STACKS — TAKE A REFERENCE, LEAVE THE ORIGINAL"
+
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, out]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. See designs/pie-stack-views/THE-TOWER.md
+  learn:
+    - doc: ../../../../../../designs/eval/CHURCH-OF-THE-EVAL-GENIUS.md
+      why: "The hub this library indexes"
+    - doc: ../../../../../../designs/eval/CHURCHES.md
+      why: "The wider ecclesiastical family"

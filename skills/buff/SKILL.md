@@ -8,7 +8,7 @@ tier: 1
 protocol: BUFF-AS-MODIFIER
 related: [simulation, time, needs, character, cat, dog, persona, yaml-jazz]
 tags: [moollm, effects, curses, stats, game, modifiers]
-target: character  # ONLY characters, never rooms
+hosts: any  # characters, rooms, objects, prototypes, rulesets — see Hosts below
 ---
 
 # Buff
@@ -17,23 +17,370 @@ target: character  # ONLY characters, never rooms
 
 Buffs modify stats, abilities, or behavior. They have durations, can stack, and come from various sources. **Curses are just negative buffs** — no separate system.
 
-## Characters Only
+## Hosts — a buff attaches to whatever the effect belongs to
 
-**Buffs only target characters.** This is a design constraint, not a limitation.
-
-- Single closure signature: `(world, subject, verb, object)`
-- `subject` is always a character — no type checking needed
-- Rooms that need buffs get a "room spirit" character
+A Sim gets caffeinated. A tavern gets haunted. A lantern burns down. Silver, as a
+*material*, harms anyone who wields it. Bob is smitten with Alice, whatever Alice
+thinks. In Fluxx, the *rules themselves* get a new one. All of those are buffs,
+and each belongs to a different kind of thing:
 
 ```yaml
-# Room needs to be "haunted"? Create its spirit.
-character:
-  id: dark-cave-spirit
-  name: "Spirit of the Dark Cave"
-  location: room/dark-cave
-  buffs:
-    - ref: buff/haunted
+# a character
+buff:
+  name: "Caffeinated"
+  host: character/mrs-crumplebottom
+  effect: { energy: +2, focus: +1 }
+  expires: { after: 5, unit: turns }
+
+# a room — and note it reaches the people inside it, not just the room
+buff:
+  name: "Poisoned Air"
+  host: room/lower-mine
+  effect: { breathable: false }
+  radiates: { to: occupants, effect: { health: -1 }, while: present }
+  expires: { when: "ventilation restored" }
+
+# an object, carrying its own countdown
+buff:
+  name: "Burning Down"
+  host: object/brass-lantern
+  effect: { light_radius: -1 }
+  tick: { every: 1, effect: { fuel: -1 } }
+  expires: { when: "fuel <= 0" }
+
+# a prototype — every instance inherits it, including ones made later
+buff:
+  name: "Cursed Silver"
+  host: prototype/material/silver
+  effect: { harms_wielder: true }
+
+# a relationship — the edge, with a direction
+buff:
+  name: "Smitten"
+  host: relationship/{ from: bob, to: alice }
+  effect: { romance: +80 }
+  expires: { after: 40, unit: turns }
+
+# the ruleset
+buff:
+  name: "Everyone Draws Two"
+  host: ruleset/current-game
+  effect: { draw_per_turn: 2 }
+  expires: { when: "superseded by another Draw rule" }
 ```
+
+Nothing in the buff's structure changes with the host. Same fields, same clock,
+same conflict resolution.
+
+### Rooms and objects can simply *be* characters
+
+MOOLLM has no rigid entity classes to work around. Everything is a prototype, and
+anything can delegate to [`character`](../character/) — so a room that needs to
+want things, take turns, and narrate becomes animate by saying so:
+
+```yaml
+room:
+  id: the-forge
+  delegates_to: [room, character]     # it is a place AND someone
+  wants: { be_tended: 8, be_admired: 3 }
+  buffs:
+    - { name: "Well Banked", effect: { production_speed: +30 }, expires: { after: 12, unit: turns } }
+```
+
+Rooms already [`ADVERTISE`](../room/) in the same auction characters bid into, so
+an animate room is a small step rather than a special case. A forge that resents
+neglect is a *character who is a place*, and it holds its buffs itself.
+
+This is also why the host list above is not a type system. It is a list of things
+that turn out to want modifiers, and `host:` accepts any of them — plus whatever
+else a world invents.
+
+### Restricting a buff to certain hosts
+
+Most buffs are host-agnostic and should say nothing. Where a buff genuinely only
+makes sense somewhere, it says so:
+
+```yaml
+buff:
+  name: "Haunted"
+  hosts: [room, object]              # a place or a thing, not a mood someone has
+
+buff:
+  name: "Waterlogged"
+  # nothing declared — anything can get wet
+  effect: { weight: +1, flammable: false }
+```
+
+`hosts:` omitted means **any**; be liberal in what you accept
+([postel](../postel/)). A world may also narrow it for a whole game, which is
+where a ruleset's own restrictions belong:
+
+```yaml
+world:
+  buff_policy:
+    allowed_hosts: [character]        # this game keeps effects on people
+    on_violation: "refuse and explain"
+```
+
+### Three things a host has to answer
+
+The structure is the same everywhere, but every host must have an answer to who
+narrates, when it ends, and how far it reaches:
+
+| Host | Who narrates its tick | Ends when |
+|---|---|---|
+| **character** | the character | death, scene end, dispel |
+| **room** | the room if it is animate; otherwise nobody, and it ticks silently | an explicit condition — see below |
+| **object** | the object if animate, else its holder | destruction, or leaving play |
+| **prototype** | nothing — a prototype does not tick; its instances do | the buff is removed from the prototype |
+| **relationship** | either party, or the narrator | either party leaves play, or dispel |
+| **group** | any member, or the narrator | per `on_member_leave:` — dissolve, shrink, or persist |
+| **ruleset** | the narrator | repeal, or supersession by a later rule |
+
+**Places and materials outlive everything.** A timer keyed to the host's own
+death never fires on a room, a material, or a ruleset. Those hosts need a real
+end condition — a turn count, an event, or a predicate:
+
+```yaml
+expires: { after: 12, unit: turns }         # good
+expires: { when: "ventilation restored" }   # good
+expires: { with: host }                     # never fires on a room
+```
+
+**`radiates:` is how a buff reaches beyond its host.** Buffing a room and
+buffing everyone in it are different claims, and a buff that means both says so:
+
+```yaml
+buff:
+  name: "Sweltering"
+  host: room/the-forge
+  effect: { comfort: -10 }                  # the room's own property
+  radiates:
+    to: occupants
+    effect: { energy: -1, mood: -2 }        # everyone inside
+    while: present                          # leaving ends it
+```
+
+The same field carries auras from a character, contagion from an object, and
+region effects from a place. `to:` accepts `occupants`, `holder`, `wearer`,
+`nearby: <radius>`, or a query.
+
+### Relationship hosts — the matrix cell is the host
+
+Some effects belong to neither party. Cupid, in Don's SimProv playset for The Sims 1, makes Bob love Alice — and whether Alice loves Bob back is a *separate* value the player chooses to set or not. The effect is not on Bob and not on Alice. It is on the edge, and the edge has a direction.
+
+**The relationship matrix already is that host.** A character's [`relationships:`](../character/SKILL.md) map is keyed by target and holds an open mapping per target, so a pair-hosted buff needs no new storage — it goes in the cell:
+
+```yaml
+# in bob.yml
+relationships:
+  alice:
+    feeling: "Can't stop thinking about her. This is new."
+    daily: 45
+    lifetime: 30
+    buffs:
+      - name: "Smitten"
+        source: "object/cupid"
+        effect: { romance: +80 }
+        expires: { after: 40, unit: turns }
+        tick: "he finds a reason to walk past her"
+```
+
+`host: relationship/{ from: bob, to: alice }` names that cell. The direction is
+not a field on the buff — it is *where the buff is stored*, which is why the
+asymmetry maintains itself. Bob's file says he is smitten; Alice's file is
+untouched, and stays untouched unless someone sets it.
+
+Why the cell, rather than two coordinated buffs on two characters:
+
+- **Nothing keeps two halves consistent.** A buff on Bob referencing Alice plus another on Alice referencing Bob gives two objects that expire, dispel, and get edited independently, with no invariant tying them.
+- **Dispel wants to name the edge.** "End whatever is between those two" is one operation on one host, not a search for buffs whose payload mentions the other party.
+- **Asymmetry is the normal case.** Unrequited feelings are the interesting ones, which is why the storage is per-direction in the first place.
+
+#### The matrix is YAML Jazz, so the dimensions are open
+
+The Sims 1 matrix holds a fixed numeric tuple per directed pair. MOOLLM's holds
+whatever the world needs, in whatever notation fits, with comments carrying
+meaning the way they do everywhere else. So a relationship buff is not confined
+to the dimensions someone declared in advance:
+
+```yaml
+relationships:
+  marieke:
+    owes_her: "three coffees and an apology"     # invented for this world, needs no schema
+    buffs:
+      - name: "Awkward Since the Thing"
+        effect:
+          eye_contact: -3
+          # not a stat anybody registered — the guard reads the prose
+        guard: "while neither of them has mentioned it"
+        expires: { when: "one of them mentions it" }
+```
+
+Two consequences worth naming. The `daily`/`lifetime` pair inherited from the
+Sims chunk format is **one convention among many**, not the schema — it stays for
+[beaming to and from The Sims](../character/CARD.yml), and a world that does not
+care about it simply omits it. And an effect can be *purely semantic*, with no
+numeric footprint at all, because the cell is prose-capable and the guard is
+compiled from English ([BUFF-IN-TIME-COMPILER.md](BUFF-IN-TIME-COMPILER.md)).
+
+#### Pairs of anything, including yourself
+
+The relationships map already points at characters, objects, and places — so
+pair-hosted buffs come along for free:
+
+```yaml
+# a person and an object
+relationships:
+  object/grandfathers-watch:
+    buffs:
+      - { name: "Can't Bear to Sell It", effect: { will_trade: false } }
+
+# a person and a place
+  room/the-old-library:
+    buffs:
+      - { name: "Homesick For It", effect: { pull: +4 }, expires: { when: "she visits" } }
+
+# a person and themselves — `self:` is a relationship like any other
+  self:
+    buffs:
+      - name: "Ashamed"
+        effect: { confidence: -20 }
+        expires: { when: "she tells someone what happened" }
+```
+
+That last one is the case a character-hosted buff models badly and a
+relationship-hosted one models exactly: shame is not a property of a person, it
+is a stance toward oneself, and it ends when the stance changes.
+
+The same shape covers grudges, trust, debts, jealousy, and disguises — a disguise's effect lives in the observer-wearer pair and belongs to neither ([`buffopedia/systems/equipment-inventory/`](buffopedia/systems/equipment-inventory/SYSTEM.yml)). In Korz terms this is a slot whose coordinates include both parties, which is why [`SELF-KORZ.md`](SELF-KORZ.md) wants the receiver dropped.
+
+⚠ **Reciprocity is about existence, not values.** If A has a cell for B, B should
+have a cell for A — but the *contents* must be free to disagree, or Cupid is
+unimplementable. See the note in [`../coherence-engine/`](../coherence-engine/GLANCE.yml).
+
+### Bulk operations over the matrix
+
+Cupid edits one directed cell. **Super Cupid** — make everyone love everyone, or
+hate, or go neutral — operates on a whole region of the matrix at once, and it
+needs three fields:
+
+```yaml
+operation:
+  scope: { among: everyone }        # or: a lot, a family, a named set
+  topology: complete_symmetric      # who ends up pointing at whom — see below
+  write: { romance: 100 }
+```
+
+**Neutral is a different kind of operation from love and hate,** and the
+difference is the base/effective split ([EFFECTIVE-VALUES.md](EFFECTIVE-VALUES.md)):
+
+| Layer written | Behavior | What "neutral" means there |
+|---|---|---|
+| **base** | permanent; prior values are gone | social amnesia — history destroyed, nobody remembers the feud |
+| **modifier** (a buff per cell) | temporary; originals return on expiry | a truce — everyone is civil for an hour, then remembers |
+
+That is one object with two wildly different characters, and the buff version is
+only possible *because* base values are preserved underneath. A party where
+everyone adores each other for an hour and then the grudges come back is the
+whole reason the split exists.
+
+```yaml
+buff:
+  name: "Universal Adoration"
+  host: relationship/{ among: everyone }   # applied per cell in scope
+  effect: { romance: +100 }
+  expires: { after: 60, unit: minutes }    # base values return, feuds intact
+```
+
+**Topology is the interesting parameter,** because it turns one object into
+several:
+
+| Topology | Shape | What it makes |
+|---|---|---|
+| `complete_symmetric` | everyone ↔ everyone | a commune |
+| `complete_asymmetric` | random per direction | unrequited chaos |
+| `star_inbound` | everyone → one | a cult — adoration flows one way |
+| `star_outbound` | one → everyone | the doting leader |
+| `perfect_matching` | disjoint pairs | mass pairing, the guru assigning couples |
+| `clique_partition` | love inside, hate across | **factions — a schism generator** |
+
+`star_inbound` and `clique_partition` are worth calling out: one is how a cult's
+affection graph actually looks, and the other manufactures rival factions in a
+single gesture, which is otherwise hours of hand-editing.
+
+### Group hosts — one buff over a set, not a mesh of pairs
+
+Some bonds are held by three or more parties at once: a marriage of three, a band,
+a crew, a conspiracy, a cult. The host is the **set**:
+
+```yaml
+buff:
+  name: "Married"
+  host: group/{ members: [bob, alice, chandra] }
+  effect: { household: shared, inheritance: equal }
+
+buff:
+  name: "In On It"
+  host: group/{ members: [marieke, henk] }        # two is just the common case
+  effect: { may_discuss: the-thing }
+  guard: "only when no one else is present"
+```
+
+A group host is a *hyperedge*, and it is not reducible to the pairwise cells in
+the relationship matrix:
+
+- **The bond is one thing, not its pairs.** Three people in one marriage is a
+  single commitment among three, not three couples. Storing it as pairs asserts
+  something false about its structure.
+- **Dissolution is one operation.** Ending a group bond means removing one buff
+  from one host. Pairwise, it is *n(n−1)/2* removals that can partly fail, leaving
+  a marriage that half exists.
+- **Membership can change without the bond ending.** Members join and leave a crew
+  that persists. A pair bond, by contrast, dies when either party leaves — which is
+  correct for pairs and wrong for groups.
+
+So use a **relationship host** when the asymmetry matters (Bob's feelings for
+Alice, which Alice need not return) and a **group host** when the *togetherness* is
+the thing being modified. They coexist: three people can share one marriage while
+each holding a different private opinion of the others.
+
+Two questions a group-hosted buff must answer, because the pair case answered them
+implicitly:
+
+| Question | Options |
+|---|---|
+| A member leaves | dissolve · shrink · block the departure |
+| Membership is edited | new buff · amend in place (a Fluxx New Rule played onto the host) |
+
+```yaml
+buff:
+  name: "The Crew"
+  host: group/{ members: [a, b, c] }
+  on_member_leave: shrink        # dissolve | shrink | block
+  min_members: 2                 # dissolve if it would drop below
+```
+
+Worked example — an officiant that summons a participant list and marries it,
+whoever and however many they are:
+[`life-events-playset.md`](../../../WillWrightShowForFood/designs/orchestrator-playsets/life-events-playset.md).
+
+Prior art, in Don's own code, is written up at [`buffopedia/systems/simprov/`](buffopedia/systems/simprov/SYSTEM.yml). What The Sims itself eventually did about relationship-hosted effects is in [`buffopedia/systems/sims-4/`](buffopedia/systems/sims-4/SYSTEM.yml).
+
+### Prototype hosts inherit for free
+
+Attaching a buff to a prototype means everything delegating to it is affected, because that is what delegation does:
+
+```yaml
+buff:
+  name: "Cursed Silver"
+  hosts: [prototype]
+  attached_to: material/silver
+  effect: { harms_wielder: true }
+# every object made of silver now harms its wielder, including ones made later
+```
+
+Most engines cannot do this at all; Dwarf Fortress is the notable exception, and MOOLLM gets it from the object model rather than as a feature. See [`buffopedia/registry.yml`](buffopedia/registry.yml) under the `syndrome` family.
 
 ## Structure
 
@@ -124,32 +471,35 @@ mind:
   curiosity: 80   # Exploration drive (0-100)
 ```
 
-### Room Spirit Stats
+### Room Stats
 
-Room spirits are characters whose stats affect the room they haunt:
+A room carries its own stats and its own buffs, directly. No spirit required:
 
 ```yaml
-character:
-  id: forge-spirit
-  name: "Spirit of the Forge"
-  location: room/blacksmith-forge
-  
-  # These stats affect everyone in the room
+room:
+  id: blacksmith-forge
+  name: "The Forge"
+
+  # The room's own stats
   production_speed: 120   # +20% crafting speed
   error_rate: 8           # 8% chance of mistakes
   mood_influence: +5      # Slight pride boost
   comfort_bonus: -10      # Hot and uncomfortable
   discovery_chance: 15    # Sometimes find rare materials
   danger_level: 25        # Burns, sparks, accidents
-  
+
   buffs:
-    - id: master-craftsman-blessing
-      source: "Pleased the forge spirit"
+    - id: well-tended
+      source: "Someone banked the fire properly"
       effect: { production_speed: +30, error_rate: -5 }
-      duration: "until you leave"
+      expires: { after: 12, unit: turns }
+      radiates:
+        to: occupants
+        effect: { mood: +5 }
+        while: present
 ```
 
-| Spirit Stat | What It Does | Example Buff Effect |
+| Room Stat | What It Does | Example Buff Effect |
 |-------------|--------------|---------------------|
 | `production_speed` | Work/craft rate | Blessing: +30% faster |
 | `error_rate` | Mistake probability | Curse: +20% more errors |
@@ -157,6 +507,14 @@ character:
 | `comfort_bonus` | Comfort modifier | Cozy: +20 comfort |
 | `discovery_chance` | Finding hidden things | Mysterious: +25% |
 | `danger_level` | Hazard intensity | Cursed: traps more deadly |
+
+Note `expires:` rather than a duration tied to the host's lifetime — a room does
+not die, so a room buff that waits for its host to expire waits forever.
+
+A forge that remembers who banked the fire, wants to be tended, and can be
+pleased or offended is a room that also delegates to `character` — see above. It
+holds its own buffs either way; delegating to `character` is what lets it want
+things and act on them.
 
 ## Sources
 
@@ -242,6 +600,99 @@ buff:
   cancels: [curse, poison, disease]  # Remove all matching
   start: "Holy light purges dark afflictions"
 ```
+
+### Pending — issued, but not yet in force
+
+A buff can exist without being in effect. The model has `active` and `absent`, and
+the missing third state is **issued and awaiting ratification**:
+
+```yaml
+buff:
+  name: "Married"
+  host: group/{ members: [bob, alice] }
+  status: pending                       # exists, contributes nothing yet
+  pending_expires: { after: 90, unit: days }   # the licence lapses if unused
+  ratified_by: officiant                # who can flip it to active
+```
+
+Two clocks, not one. The **pending window** is how long the offer stands; the
+buff's own `expires:` does not start until ratification. A lapsed pending buff was
+never in force at all, which is a different outcome from one that expired.
+
+Why it earns its place:
+
+- **Prior art is everywhere.** A marriage licence is issued, then solemnized, then
+  recorded. A statute is enacted, then *commences* on a later date. A contract is
+  signed, then takes effect. Enactment and force are separate events in every
+  system that takes records seriously.
+- **It makes batch ratification possible.** Pending buffs are a work queue, so one
+  event can ratify all of them — a mass wedding is a scheduler over every
+  unratified licence present.
+- **The gap between issue and ratification is where the stories are.** Someone
+  assigned and never showing up is only representable if the assignment can exist
+  unfulfilled.
+
+`status:` omitted means active on application, which is the ordinary case.
+
+### Removal policy — who may end this, at what cost, leaving what
+
+The table above matches on tags: *what* cancels *what*. It says nothing about
+**who is permitted to remove a buff, what removal costs, or what it leaves
+behind** — and those three questions are where most of the interesting cases
+live. A cursed item you cannot drop, a marriage you can end cheaply or properly,
+a contract that needs a specialist: all three are the same missing field.
+
+```yaml
+buff:
+  name: "Married"
+  host: object/marriage-certificate     # the artifact is the host
+  removal:
+    - by: host_owner                    # throw the certificate out
+      cost: 0
+      unwinds: false                    # record gone, entanglement remains
+      residue:
+        relationship: { bitter: +40 }
+        room: "a lighter rectangle on the wallpaper"
+    - by: service/divorce-attorney      # hire someone to do it properly
+      cost: { simoleons: 3000 }
+      unwinds: true                     # pairwise state, property, paperwork
+      residue: {}
+```
+
+Three fields, each answering one question:
+
+| Field | Question | Prior art |
+|---|---|---|
+| `by:` | who is permitted to remove it | D&D's remove-curse-requires-a-caster; cursed items you cannot unequip |
+| `cost:` | what removal takes | hiring a specialist as an economy rather than a spell list |
+| `unwinds:` | whether the state is cleaned up or just the record deleted | the orchestrator as unwind handler ([SELF-KORZ.md § phase extent](SELF-KORZ.md)) |
+
+**A cheap removal destroys the record. An expensive one unwinds the state.** The
+difference is `residue:`, and residue is where the stories are — the ex who is
+still owed money, the rectangle on the wall where the certificate hung.
+
+A buff with no `removal:` block behaves as it always has: it expires on its own
+terms and `cancels:` can clear it.
+
+#### Second-order: a buff that edits another buff's removal
+
+Because `removal:` is data on the buff, another buff can modify it. A
+prenuptial agreement does not change what being married *does* — it changes what
+divorce costs and what it leaves:
+
+```yaml
+buff:
+  name: "Prenuptial Agreement"
+  host: object/marriage-certificate     # rides on the same artifact
+  modifies_removal_of: buff/married
+  set:
+    - { by: service/divorce-attorney, cost: { simoleons: 500 }, unwinds: true, residue: {} }
+```
+
+That is a modifier whose target is another modifier's *dispel policy*, which the
+tag-matching table cannot express at all. Worked design, with the object family
+it belongs to:
+[`life-events-playset.md`](../../../WillWrightShowForFood/designs/orchestrator-playsets/life-events-playset.md).
 
 ### Boost Example
 

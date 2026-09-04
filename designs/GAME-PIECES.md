@@ -696,3 +696,17 @@ shapes gel, LIFT the gelled shapes into the fast engine — and when
 Revolutionary Chess appends an organelle to the COMMONS mid-story, that's
 an archetype migration; handle it on the dynamic layer, and recompile when
 the new order gels.
+
+## See also
+
+- [skills/buff/](../skills/buff/) — the runtime for the buff half of this document, plus the
+  concentrated design: [SELF-KORZ.md](../skills/buff/SELF-KORZ.md) (the Self reading here is
+  the narrowest of three — Korz drops the requirement that a buff be attached to a host,
+  which retires the room-spirit workaround), [EFFECTIVE-VALUES.md](../skills/buff/EFFECTIVE-VALUES.md)
+  (buff as cached constraint expression, and why "never cached" and "caches" are both right),
+  [CONSEQUENCE-LOOP.md](../skills/buff/CONSEQUENCE-LOOP.md) (where buffs sit in the
+  advertisement cycle, and why the buff table is where a simulation keeps its argument), and
+  [buffopedia/](../skills/buff/buffopedia/) (eighteen dialects, four axes, one fidelity ladder)
+- [TECH-TREE.md](TECH-TREE.md) — the same gated-mixin mechanism with a progress guard instead
+  of an expiration date: unlocks, spells, abilities and buffs as one node type
+- [MOODY.md](MOODY.md) — heat as ambient context; buffs gate the constraint wires

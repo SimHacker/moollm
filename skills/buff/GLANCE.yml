@@ -5,7 +5,19 @@
 what: |
   Temporary effects system. Numeric modifiers, semantic vibes,
   behavior changes. Curses are just negative buffs.
-  Target: CHARACTERS ONLY (rooms use room-spirit characters).
+  Hosts: ANYTHING — characters, rooms, objects, prototypes, RELATIONSHIPS, the ruleset.
+
+definition: |
+  A buff is a CONSTRAINT — an expression that inherits from a parent and then
+  overrides, procedurally modifies and combines with other dependencies, and
+  caches. With a TICK FUNCTION and an EXPIRATION DATE.
+
+  The tick function and the expiration date are the whole difference from a
+  constraint system: a constraint is reactive and immortal, a buff acts when
+  nothing has happened and then stops existing. Interactive fiction named these
+  two separately and better — a DAEMON runs every turn, a FUSE fires once,
+  later (buffopedia/systems/if-daemons-fuses/). Component-by-component prior
+  art: EFFECTIVE-VALUES.md.
 
 why: |
   - Unified system (no separate curse system)
@@ -44,6 +56,51 @@ standard_stats:
   combat: [hp, damage, armor, speed, luck]
 
 interactions: [cancels, boosts, replaces, merges_with, blocked_by]
-target_rule: "Characters only — rooms use room-spirit characters"
-lineage: [D&D, World of Warcraft, The Sims Moodlets]
+host_rule: |
+  A buff attaches to whatever the effect belongs to — a character (caffeinated),
+  a room (haunted), an object (a lantern burning down), a prototype (silver that
+  harms its wielder), a relationship (Bob smitten with Alice, whatever Alice
+  thinks), or the ruleset (Fluxx). Same fields, same clock, any host.
+
+  Not a type system: rooms and objects can delegate to `character` and simply BE
+  characters — wanting things, taking turns, narrating.
+
+  A buff may declare `hosts:` where it only makes sense somewhere; a world may
+  declare `buff_policy.allowed_hosts` to narrow a game. Default: any.
+  `radiates: { to: occupants }` reaches beyond the host. Places and materials
+  outlive everything, so they need a real `expires:` — a timer keyed to the
+  host's death never fires. Full rules: SKILL.md § Hosts.
+
+# WHERE THE DESIGN ACTUALLY LIVES
+# This skill is the runtime. The model is a design doc; the theory is SELF-KORZ.md;
+# the comparative survey is buffopedia/. Read in that order when the runtime
+# schema looks arbitrary — it usually means the newer layer moved.
+design_layers:
+  canonical_model: ../../designs/GAME-PIECES.md   # "a mixin with an expiration date"
+  theory: SELF-KORZ.md                            # Self → Korz → Korz′; the lifetime axis
+  place_in_the_cycle: CONSEQUENCE-LOOP.md         # ad → pie menu → action → buff → ad again
+  survey: buffopedia/registry.yml                 # 22 dialects, 4 axes, fidelity ladder
+  observations: buffopedia/observations.yml       # "X is secretly this mechanism" log; the 4 primitives, and which 2 we lack
+  tick_protocol: EFFECTIVE-VALUES.md              # base is truth, effective is reality
+  compilation: BUFF-IN-TIME-COMPILER.md           # English guard/tick/expires → _js and _py snippets; JIT tiers, deopt back to prose
+  library: buffs/INDEX.yml                        # instances, not systems
+  same_mechanism:
+    - ../../designs/TECH-TREE.md                  # unlock = permanent buff, progress guard
+    - ../../designs/MOODY.md                      # buffs gate the constraint wires
+
+lineage:
+  short: [D&D, World of Warcraft, The Sims moodlets, Unreal GAS, Magic CR 613, DF syndromes, Fluxx]
+  full: buffopedia/registry.yml
+  self_reading: "buff = delegation edge with a condition (GAME-PIECES.md)"
+  korz_reading: "buff = slots whose coordinates include the host as ONE dimension (SELF-KORZ.md)"
+
+known_gaps:
+  # Each is a Self-level restriction the Korz reading removes. See SELF-KORZ.md §5.
+  - "no guard on the APPLIER — GAS puts tag requirements on source AND target"
+  - "conflict order via hand-picked priority integers — GAS/CSS/MTG all use a fixed operator sequence"
+  - "stacks/max-stacks with no refresh-vs-add-vs-max policy, no aggregate-by-source"
+  # RESOLVED 1 Sep 2026: hosts are now open (see host_rule). Aura is spelled
+  # `radiates:` on a room-hosted buff; syndrome is a prototype-hosted buff,
+  # inherited by delegation. Remaining work is runtime, not design.
+
 tier: 1

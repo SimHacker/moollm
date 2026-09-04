@@ -1,0 +1,51 @@
+# THE SIM BOUNDARY CHART
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "The Sim Boundary Chart"
+  type: [dispenser, document_reference, design_reference]
+  emoji: "🧪"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../designs/eval/EVAL-VS-SIM.md
+    why: "The genre boundary this floor works across: evaluating versus simulating"
+
+  description: |
+    The Sim Boundary Chart — a brochure stand holding `EVAL-VS-SIM.md`.
+    The genre boundary this floor works across: evaluating versus simulating
+
+  examine: |
+    A brochure stand, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Brochure: The Sim Boundary Chart"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../designs/eval/EVAL-VS-SIM.md
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "Experiment Loft"
+      from_dispenser: sim-boundary-chart
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../designs/eval/EVAL-VS-SIM.md
+        Why it is shelved here: The genre boundary this floor works across: evaluating versus simulating
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Brochure of The Sim Boundary Chart, stamped "Experiment Loft" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

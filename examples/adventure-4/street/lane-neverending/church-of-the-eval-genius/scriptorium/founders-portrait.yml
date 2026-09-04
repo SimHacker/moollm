@@ -1,0 +1,51 @@
+# THE FOUNDERS' PORTRAIT
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "The Founders' Portrait"
+  type: [dispenser, document_reference, design_reference]
+  emoji: "🖼️"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md
+    why: "'Val', the founding dyad, and the Alonzo Trinity"
+
+  description: |
+    The Founders' Portrait — a brochure stand holding `CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md`.
+    'Val', the founding dyad, and the Alonzo Trinity
+
+  examine: |
+    A brochure stand, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Brochure: The Founders' Portrait"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "The Scriptorium"
+      from_dispenser: founders-portrait
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md
+        Why it is shelved here: 'Val', the founding dyad, and the Alonzo Trinity
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Brochure of The Founders' Portrait, stamped "The Scriptorium" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

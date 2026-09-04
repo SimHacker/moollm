@@ -730,6 +730,12 @@ wings:
         kind: coined
         origin: "Don Hopkins, in the HyperLook article — 'The Axis of Eval: Code, Graphics, and Data': one PostScript for programming, rendering, AND representation, in NeWS and HyperLook. The name is s/Evil/Eval/ on the Bush-era axis — the same substitution that later built the Church of the Eval Genius."
         means: "One homoiconic language serving as code, graphics, and data — the axis everything rotates around. NeWS did it with PostScript; MOOLLM does it with plain text, and the LLM is the interpreter that pivots the stance."
+        qualified_by: |
+          MOOLLM has one substrate but NOT full homoiconicity, and the difference is located
+          precisely: PostScript's ENVIRONMENT was also data (the dictionary stack), while an
+          LLM's weights and assembled context are not in the repo. Declared YAML is fully
+          openable; behavior delegated to judgment is not.
+          See designs/object-system/HOMOICONICITY.md before repeating the unqualified claim.
         kid: "One kind of stuff that can be the recipe, the picture, and the shopping list — depending on how you hold it."
         deep: "NeWS was AJAX-before-AJAX, but coherent: PostScript code where the web later put JavaScript, PostScript graphics where it put DHTML/CSS, PostScript data where it put XML/JSON. Homoiconicity is the structural requirement — code is just data with the executable bit set, so one interpreter can rotate a single text through all three stances. EVAL-INCARNATE runs the same axis through the LLM: skills are programs, YAML is data, Markdown is graphics, the LLM is eval(). And the axis is liturgical furniture: the Church of the Eval Genius is the congregation; the Axis of Eval is the axis mundi the nave rotates around."
         ambiguity: "Not Manuel Simoni's Lisp blog 'The Axis of Eval' — a parallel liturgy in a different parish; proof the pun preaches across congregations. And 'axis' here is rotational, not geopolitical — though the Bush-era echo is the ignition charge."

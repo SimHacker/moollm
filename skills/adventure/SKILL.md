@@ -228,6 +228,60 @@ I stepped into `src/auth/` — a maze of middleware.
 | `INVENTORY` | List held items |
 | `DEBUG` / `DEBUG-ON` | Enable debug mode |
 | `DEBUG-OFF` | Disable debug mode |
+| `GLYPH` / `SUPERBRIEF` / `BRIEF` / `VERBOSE` / `INFODUMP` | Set the detail rung — see below |
+
+## The rung selector
+
+**Rule: every describable thing answers at any rung, and the reader picks the rung — not the author.**
+
+Adventure games shipped this in 1977. `VERBOSE`, `BRIEF`, and `SUPERBRIEF` are **viewspecs**:
+per-reader, persistent across the session, set by the reader and applying to everything thereafter.
+That is the same control Engelbart had in NLS a decade earlier, and the same thing OPML later stored
+as `expansionState`. Three independent traditions concluded that a document needs a view knob, and
+only the web shipped without one.
+
+MOOLLM generalizes it past rooms. **Any object** — room, character, item, idea, design doc, commit,
+scene — must be renderable at every rung, because the rung is a property of the *reading*, not of the
+thing:
+
+| Rung | Renders as | Classic |
+|---|---|---|
+| `GLYPH` | One mark. No text. A map symbol, a pie slice, a graph node | — |
+| `SUPERBRIEF` | The name, every time, even on first encounter | Infocom |
+| `BRIEF` | Full on first encounter, name thereafter | Infocom (**default**) |
+| `VERBOSE` | Full description, every time | Infocom |
+| `INFODUMP` | Everything attached: description, lore, provenance, backlinks, design notes, the YAML itself | — |
+
+`GLYPH` and `INFODUMP` are the new ends. The glyph rung is the one that can be
+**apprehended in parallel** — a map or contact sheet of glyphs is scanned pre-attentively, where a
+page of descriptions is read serially. `INFODUMP` is what a curious reader or an agent wants: not
+a better summary, all of it.
+
+### Two details from 1977 worth honoring
+
+**`BRIEF` is adaptive, and that is the sophisticated part.** It is not a fixed detail level — it is
+*full once, then name only*, which makes detail a function of *what this reader has already seen*.
+A rung with memory. Nothing in the modern summary-ladder discussion has this, and it is strictly
+better than a static setting: it spends words exactly where they are new. Implement it by reading
+visit history, so `BRIEF` on a revisit is not a shorter description but a different one.
+
+**`LOOK` is the one-shot override.** In the classic games `LOOK` redisplays the room in full
+regardless of the current mode, without changing the setting. That is a **peek**: a temporary
+excursion to a deeper rung that does not disturb your global preference — the same contract as a
+link popup, and the same as [reselection](../../designs/pie-stack-views/RESELECTION.md), where you
+browse a consequence before committing to it. Keep `LOOK` doing exactly this, and let `EXAMINE` be
+the object-scoped version.
+
+### Consequences for authoring
+
+- A room, character, or object whose YAML supplies only a full description is **incomplete** — it
+  cannot answer at `SUPERBRIEF` or `GLYPH`. `GLANCE.yml` is the glance rung; `ROOM.yml` carries the
+  name and the sign; `README.md` is the body. The three-file contract is the rung contract.
+- Missing rungs may be **generated** rather than blocking, which is what makes the requirement cheap
+  — see [`designs/TAGSONOMY-COMPILER.md`](../../designs/TAGSONOMY-COMPILER.md) for the build-time
+  version, and [`ADVENTURE-COMPILER.md`](ADVENTURE-COMPILER.md) for compiling a world.
+- The reader's rung choice is **state worth saving**, which makes it part of a view record rather
+  than a hidden preference: [`VIEW-STATE-ANCESTORS.md`](../../designs/pie-stack-views/VIEW-STATE-ANCESTORS.md).
 
 ## Debug Mode
 

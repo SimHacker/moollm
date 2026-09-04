@@ -1,0 +1,31 @@
+room:
+  name: "The Apothecary of Ambient Skills"
+  type: workshop
+  emoji: "⚗️"
+
+  description: |
+    Floor-to-ceiling shelves of stoppered bottles, each labeled with a behavioral
+    constraint. The ten ambient ones are kept at eye level, unstoppered, because they
+    are always in the air whether you reach for them or not.
+
+  examine: |
+    A hand-lettered card by the scales:
+      "AMBIENT = PERMISSION TO LIVE IN CONTEXT RENT-FREE.
+       HIGH TRUST. ONLY TRUSTWORTHY SKILLS."
+    The unstoppered bottles do not evaporate. That is the joke and also the mechanism.
+
+  sign: "TAKE WHAT YOU NEED. THE AMBIENT ONES ALREADY TOOK YOU."
+
+  exits:
+    out:
+      to: ../
+      description: "Back to the nave."
+      aliases: [back, out]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. See designs/pie-stack-views/THE-TOWER.md
+  learn:
+    - doc: ../../../../../../skills/README.md
+      why: "The whole skill ecosystem this dispensary draws from"
+    - doc: ../../../../../../designs/object-system/HOMOICONICITY.md
+      why: "The potions distilled: what inspectability actually grants"

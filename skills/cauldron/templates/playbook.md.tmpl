@@ -8,7 +8,19 @@
 
   Required slots:  pb_number, pb_title, scope_summary, prereqs, files_affected, steps
   Empathic slots:  describe_* / summarize_* / enumerate_* — LLM fills from the monolith
+
+  The frontmatter below is the machine-readable half of Navigation: it makes this
+  playbook a node in a technology tree. See protocols/TREE.yml and
+  ../../../designs/TECH-TREE.md. Guards are shell commands — exit 0 means satisfied.
 --}}
+---
+requires:
+{{enumerate_prereq_nodes_each_with_a_shell_verify_command_proving_it_landed}}
+unlocks:
+{{enumerate_what_this_authorizes_as_node_or_doc_or_feature_each_with_one_line_why}}
+research_complete_when: "{{shell_command_proving_this_playbook_landed}}"
+---
+
 # {{pb_number}} — {{pb_title}}
 
 > **Executor:** Composer 2.5 (fast). Run one phase per session unless Steps fit a single PR trivially.

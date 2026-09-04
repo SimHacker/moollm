@@ -486,6 +486,75 @@ When asked to resolve a skill by bare name (`inherits: [biome]`, `related: [card
 
 A skill located inside another skill's tree (`parent/skills/child/`, or `parent/biomes/<name>/`) inherits the parent's conventions by **containment alone** — no explicit `inherits:` required. Parent-directory containment is a relatedness signal, not an organizational accident. This parallels CSS cascade, DOM event bubbling, Node's `node_modules` walk, Self's parent-slot chain, and `.gitignore` composition.
 
+### Plural containers type their children
+
+A plural directory is a **typed namespace**, and it types what it holds. `farts/fart-01/` needs no
+declaration to be a fart: the container's name, depluralized, is the child's type, and the type
+resolves by the ordinary §14 discovery rule walking outward for a skill named `fart`.
+
+**An empty directory is a valid instance.** `farts/fart-01/` with nothing in it is a fart — the
+minimal one, all behavior inherited, nothing overridden. This is the zero-configuration case and it
+must stay free, because the cost of declaring the obvious is what kills grammars.
+
+```
+farts/                    # a plural container: one namespace, one type
+  fart-01/                # empty. Therefore: a fart, fully inherited.
+  fart-02/
+    CARD.yml              # a fart with opinions
+  fart-03/
+    inherits: [silent-but-deadly]   # explicit beats inferred
+```
+
+Resolution is **late-bound and contextual**, not compiled in. The type is looked up when the
+directory is read, from where it is read, so the same `farts/` tree means different things under
+different mounted roots and a closer `fart` shadows a farther one. Move the tree and it re-types
+itself. This is the same lexical-scope walk as everything else in §14; nothing new to learn.
+
+**The container may specialize its children, in one place.** Put `FARTS.yml` in the container and it
+declares the class and the overrides for what it holds, so you do not repeat yourself in fifty
+subdirectories:
+
+```yaml
+# farts/FARTS.yml — the container speaks for its children
+element_type: fart                  # or a specific class: [wet-fart]
+element_inherits: [fart, silent]    # every child delegates here
+element_overrides:                  # applied to all children, once
+  volume: quiet
+  deniability: high
+selector:                           # which children this applies to
+  naming: "fart-*"                  # a scheme, or...
+  enumerate: [fart-01, fart-02]     # ...an explicit list
+```
+
+Precedence runs **specific over general, explicit over inferred** — the order a first guess should
+land on:
+
+| # | Source | Beats |
+|---|---|---|
+| 1 | Child's own explicit `inherits:` | everything |
+| 2 | Child's own marker files (`CARD.yml`, `CHARACTER.yml`, …) | container rules |
+| 3 | Container's `FARTS.yml` `element_*` for matching children | inference |
+| 4 | Depluralized container name (`farts/` → `fart`) | ambient containment |
+| 5 | Ambient inheritance by containment (above) | nothing |
+
+**One namespace per plural container.** This is the type discipline that makes scope-walking
+resolution safe rather than a global-name free-for-all: HyperTIES kept separate indexes for
+storyboard names, image names, and target names, so a reference's type came from its syntactic
+position and `~Founders~` as an article could not collide with `Founders` as an image. Plural
+containers generalize that exactly — the tree supplies the type, so `characters/founders/` and
+`images/founders/` are different names in different namespaces, and neither needs a prefix to say
+so. See [`designs/webtop/hyperties/LINK-RESOLUTION.md`](../designs/webtop/hyperties/LINK-RESOLUTION.md).
+
+Why this is **selfish** and not classy: a child does not have a class, it has parents it delegates
+to, and the container is merely one more object in that chain with the privilege of proximity.
+`element_overrides` is differential inheritance — copy-down, override the delta, leave the rest
+pointing home. Nothing is instantiated, nothing is compiled, and a child that wants out just says so.
+
+Why the **first guess is right**: a plural directory full of instances is one of the most heavily
+attested conventions in the training data — Rails and ActiveRecord pluralization, Django apps,
+Jekyll `_posts`, Hugo content sections, Maildir, `node_modules`. The grammar is already known; this
+section only promises MOOLLM will not surprise anyone who assumes it.
+
 ### Full protocol
 
 Full resolver algorithm, shadowing rules, ambient-parent enumeration, and the distributed-ecosystem model: see the `file-system-object` skill at `moollm/skills/file-system-object/` (the resolver also finds it by bare name `file-system-object`, obviously).
@@ -506,7 +575,8 @@ These MUST be true regardless of driver:
 8. **No decorative dividers**: NEVER use lines of ───, ═══, ---, === (token waste)
 9. **Kebab-case symbols**: Methods, actions, protocols use `LIKE-THIS` not `LIKE_THIS`
 10. **Skills are duck-typed**: A directory is a skill iff it has `SKILL.md` OR lives inside `skills/`; no registry, no gatekeeper, equal-citizen mounted roots
-11. **Three-axis accessibility**: Prefer forms that balance human + LLM + program access; YAML Jazz is the default because it does (§3)
+11. **Plural containers type their children**: `farts/fart-01/` is a fart with no declaration; an empty directory is a valid instance; `FARTS.yml` lets the container specialize its children in one place; one namespace per plural container (§14)
+12. **Three-axis accessibility**: Prefer forms that balance human + LLM + program access; YAML Jazz is the default because it does (§3)
 
 ---
 

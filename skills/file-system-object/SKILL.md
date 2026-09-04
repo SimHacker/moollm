@@ -612,6 +612,41 @@ Smart enumeration of a plural directory `foobars/` should **skip** metadata and 
 
 A smart `queryInterface(dir, FOOBAR)` returns null for any of the skipped entries — they declare *how to make* foobars, not *a foobar*.
 
+### The container can declare its own enumeration rule
+
+The table above is the default, inferred from filename patterns. A container may instead **declare** the rule, which is more robust than pattern-matching because it states intent rather than asking the reader to infer it. The cleanest declaration, and the one worth reaching for by default:
+
+```yaml
+# foobars/INDEX.yml — or the container's own CARD.yml
+container:
+  element_type: foobar        # redundant with the plural dir name, and that redundancy is a checksum
+  members: subdirectories     # every subdirectory IS a member; no marker file required
+  non_members: files          # every loose file is metadata, exempt from enumeration, ignored
+  order: fixed_width_numeric  # see kernel/naming/NAMING.yml § ordering
+```
+
+`members: subdirectories` is the rule that makes a container **cheap to read and hard to get wrong**. Enumeration becomes `ls -d */` with no per-child validation, loose files can accumulate freely as notes, indexes, templates and sidecars without polluting the collection, and a new member is created by making a directory. The cost is that a malformed member is still counted, which is the right trade for a world where an empty stub is a legitimate work-in-progress rather than an error.
+
+The alternative, `members: marker`, requires each child to carry the expected UPPERCASE marker and is stricter — use it where a half-built member would actually break something downstream.
+
+### Typed containers have behavior of their own
+
+A plural container is not just an array; it is an object that happens to hold an array. Because the container directory can carry its own UPPERCASE marker files, it has interfaces, state, and presentation in exactly the way its members do:
+
+```
+foobars/
+├── CARD.yml          ← the collection's own methods and advertisements
+├── GLANCE.yml        ← "what is this collection, in one line"
+├── INDEX.yml         ← the enumeration declaration above
+├── README.md         ← human landing for the collection
+├── FOOBAR.yml.template
+├── notes.md          ← loose file: metadata, not a member
+├── 00-alice/         ← member
+└── 10-bob/           ← member
+```
+
+So `foobars/` can answer messages (`CARD.yml` methods), describe itself at a glance, define how it is ordered and enumerated, and render itself as a unit — while its members remain independently addressable objects. This is the difference between a JavaScript array and an array-like object with prototype methods: the collection is a first-class participant, not a bag. The same recursion applies to its members, without limit.
+
 ---
 
 ---

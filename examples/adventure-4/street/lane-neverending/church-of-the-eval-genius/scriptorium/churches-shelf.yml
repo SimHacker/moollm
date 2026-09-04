@@ -1,0 +1,51 @@
+# THE COMPARATIVE CHURCHES SHELF
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "The Comparative Churches Shelf"
+  type: [dispenser, document_reference, design_reference]
+  emoji: "⛪"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../designs/eval/CHURCHES.md
+    why: "The wider family, including Emacs and Pacmania"
+
+  description: |
+    The Comparative Churches Shelf — a brochure stand holding `CHURCHES.md`.
+    The wider family, including Emacs and Pacmania
+
+  examine: |
+    A brochure stand, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Brochure: The Comparative Churches Shelf"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../designs/eval/CHURCHES.md
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "The Scriptorium"
+      from_dispenser: churches-shelf
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../designs/eval/CHURCHES.md
+        Why it is shelved here: The wider family, including Emacs and Pacmania
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Brochure of The Comparative Churches Shelf, stamped "The Scriptorium" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

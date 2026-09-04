@@ -1,0 +1,178 @@
+# Buffopedia — interchange: what survives the trip
+# The fidelity ladder, the wire format, and the Visitor Protocol clause this fills.
+
+interchange:
+  version: 1
+  thesis: |
+    Porting a buff is not one operation, it is four, and they fail at different
+    rates. Trying to port "the buff" wholesale always fails; porting it TIER BY
+    TIER, and declaring what was dropped, always succeeds at something.
+
+    The historical reason nobody built this: the behavioral tier was simply
+    dropped, which made the whole exercise feel pointless. In an
+    LLM-orchestrated destination the behavioral tier degrades to PROSE INTENT
+    and gets re-implemented in the destination's own idiom. That is new, and it
+    is the only reason this file is worth writing.
+
+# THE FIDELITY LADDER
+
+tiers:
+
+  t0_narrative:
+    carries: [name, source, description, polarity, tags, emoji, visual]
+    portability: universal
+    why: |
+      Every destination can consume a name and a sentence. An LLM-orchestrated
+      world can consume ONLY this and still behave correctly, because the prose
+      is the specification.
+    rule: "NEVER drop this tier. If you can only send one thing, send this."
+
+  t1_temporal:
+    carries: [duration, expires_at, expires_when, while, period, charges]
+    portability: high, with a clock mapping
+    hazards:
+      - "Tick lengths differ. A Sims 'sim minute' is not a MOOLLM tick is not a WoW second."
+      - "Event-based expiry ('until sunrise') needs the event to exist at the destination."
+      - "while: guards need their predicate vocabulary to exist — usually it does not."
+    rule: "Convert to a declared canonical unit, record the original, never silently rescale."
+
+  t2_numeric:
+    carries: [stat modifiers, operations, magnitudes, stacking policy]
+    portability: conditional — requires a declared stat mapping AND a magnitude rescale
+    hazards:
+      - "Namespace mismatch: 'energy' exists in both; 'bladder' does not exist outside Sims-likes."
+      - |
+          MAGNITUDE IS THE SILENT KILLER. +5 damage where damage runs 1-20 is a
+          25% swing; +5 where damage runs 1-2000 is noise. Numbers do not carry
+          their scale, so a naive port produces a buff that is either inert or
+          game-breaking, and it looks fine in the YAML either way.
+      - "Operation semantics differ: additive multipliers (GAS MultiplyAdditive) vs compounding."
+    rule: |
+      Require an explicit stat map and a scale factor per stat. If either is
+      missing, DEMOTE the modifier to tier 0 prose ("makes you notably faster")
+      rather than shipping an unscaled number.
+
+  t3_behavioral:
+    carries: [guards, lifecycle hooks, scripts, advertisements, dispatch effects]
+    portability: none, mechanically
+    degradation: prose intent
+    why_that_is_enough: |
+      A buff's hooks are code against the source engine's API and cannot run
+      anywhere else. But the buff also knows what it was TRYING to do, and in a
+      destination with an LLM in the loop that intent is executable: the
+      destination re-implements the behavior in its own idiom and records that
+      it did so.
+
+      This is the Korz′ soft tier (see ../SELF-KORZ.md §4) doing transport work.
+    rule: "Emit intent prose for every hook you drop. Mark the result as re-implemented, not imported."
+
+# WHAT TO DO WITH WHAT YOU DROPPED
+
+provenance:
+  requirement: "A ported buff records its own customs declaration."
+  fields:
+    imported_from: "system id from registry.yml"
+    source_id: "the foreign identifier, verbatim"
+    tiers_carried: "[t0, t1, ...]"
+    tiers_dropped: "[t3]"
+    reimplemented: "list of hooks re-authored at the destination, with what they now do"
+    scale_map: "the stat mapping and factors actually used"
+    fidelity_note: "one honest sentence on what is different now"
+  why: |
+    postel + robust-first: accept the messy foreign buff, emit a clean MOOLLM
+    buff, and never lose the fact that a translation happened. A buff whose
+    numbers were rescaled is a DIFFERENT buff and the diff should say so.
+
+# THE GAP THIS FILLS
+
+soul_city_clause:
+  observed: |
+    examples/soul-city/bridge/visitor-protocol.yml states what persists when a
+    character crosses between worlds: identity, the sims: block, mind_mirror:,
+    relationships, soul_philosophy. Needs continue and decay in the destination.
+  the_omission: "It never mentions buffs."
+  the_consequence: "A Sim who walks into Adventure 4 mid-hangover currently arrives cured."
+  proposed_clause:
+    rule: "Buffs travel with the character, at declared fidelity."
+    details:
+      - "t0 narrative always travels — the hangover is still a hangover"
+      - "t1 temporal travels, converted to the destination's tick, original recorded"
+      - "t2 numeric travels only where the destination declares the stat; otherwise demoted to prose"
+      - "t3 behavioral is re-implemented by the destination and marked as such"
+      - "Buffs whose guard references the home world (while: in-the-Grotto) SUSPEND rather than expire — disable-but-remain, so they resume on return"
+    the_last_one_matters: |
+      Suspension is the interesting case and it falls out of the existing model
+      for free: GAME-PIECES layer 2 already says a buff can stay in the graph
+      and stop answering while its condition is false. Cross-world travel is
+      just a very large condition going false.
+
+# THE WIRE FORMAT
+
+wire:
+  note: "Deliberately thin. This is a customs form, not a schema for buffs."
+  example: |
+    buff:
+      # t0 — always present
+      name: "Hangover"
+      source: "Amsterdam Flux tournament afterparty"
+      polarity: negative
+      tags: [alcohol, aftermath]
+      description: "Squinting, holding head, moving slowly. Light hurts."
+
+      # t1 — converted, original kept
+      duration: 16
+      duration_unit: moollm_tick
+      original_duration: { value: 480, unit: sim_minute }
+
+      # t2 — only mapped stats, with the factor used
+      modifiers:
+        - { stat: energy, op: add, value: -20, scale_factor: 1.0 }
+        - { stat: focus,  op: add, value: -15, scale_factor: 1.0 }
+      demoted_to_prose:
+        - "light_sensitivity +30 — no such stat at destination; see description"
+
+      # t3 — dropped and re-authored
+      reimplemented:
+        - { was: "periodic groan emote via source engine anim call",
+            now: "simulate: occasional groaning; cannot eat solid food" }
+
+      imported_from: sims-4
+      source_id: "buff_Hangover_Severe"
+      tiers_carried: [t0, t1, t2]
+      tiers_dropped: [t3]
+      fidelity_note: "Light sensitivity survives only as prose. Duration rescaled from sim minutes."
+
+# DIRECTIONS THAT ARE ACTUALLY WORTH TOOLING
+
+directions:
+  worth_it:
+    - from: sims-1
+      why: "Don's own primary sources, SimObliterator already parses the binaries, and the Soul City Exchange pipeline exists. The only import path with real corpus AND real tooling."
+      caveat: "Sims 1 has no buff objects — effects live in SimAntics BHAVs. This is extraction by inference, not translation."
+    - from: dnd-5e
+      why: "SRD 5.1 is CC-BY-4.0. Conditions, durations and concentration are cleanly specified prose. Legally and technically the easiest wholesale import in the pedia."
+    - from: rimworld
+      why: "Hediffs and thoughts are plain XML defs with staged severity — the most importable modern corpus."
+    - to: proxi
+      why: "Named target. Tier 0 alone would probably suffice, since the destination is LLM-mediated."
+      unknowns: "Whether Proxi has a modifier model at all, and whether any import format is documented. See registry.yml."
+  not_worth_it:
+    - from: unreal-gas
+      why: "Engine-internal .uasset binaries; the DESIGN is the valuable export, not the data."
+    - from: wow
+      why: "Nobody needs Blessing of Kings in Soul City. Import the policy vocabulary (exclusive group, diminishing returns), not the content."
+    - bidirectional_standard:
+      why: "There is no interop pressure and no constituency for a standard. This pedia is a dialect atlas with a working import path, and should not grow standards ambitions."
+
+rights:
+  principle: "State the license per system in its SYSTEM.yml. Do not assume extraction implies redistribution rights."
+  clear: "D&D SRD 5.1 (CC-BY-4.0) is importable and redistributable with attribution."
+  murky: "Extracted game tuning data (Sims, WoW, Unreal titles) — fine to read and learn from; redistributing the extracted tables is a different act."
+  moollm_native: "Everything under skills/buff/buffs/ and Soul City is ours."
+
+see_also:
+  - { path: README.md, why: "the thesis and the four axes" }
+  - { path: registry.yml, why: "the systems index, with confidence and status" }
+  - { path: ../SELF-KORZ.md, why: "why the behavioral tier is portable as prose — the Korz′ soft tier" }
+  - { path: ../../../examples/soul-city/bridge/visitor-protocol.yml, why: "the protocol this proposes a clause for" }
+  - { path: ../../../examples/soul-city/exchange/README.md, why: "the working uplift/download pipeline" }

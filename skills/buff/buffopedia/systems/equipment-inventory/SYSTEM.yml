@@ -1,0 +1,151 @@
+# BUFFOPEDIA — clothing, accessories, and inventory
+# family: affix
+# confidence: high on mechanisms (these are near-universal conventions);
+#   specific per-game numbers not checked.
+
+system:
+  id: equipment-inventory
+  name: "Worn, wielded, and carried — equipment as buff"
+  vendor: "universal, from Adventure onward"
+  family: affix
+  vocabulary:
+    the_buff: "item, garment, accessory, trinket"
+    the_guard: "the slot it occupies, plus worn / wielded / carried / attuned"
+    the_lifetime: "while equipped — a `while:` guard, not a timer"
+  why_it_matters: |
+    The most familiar buff system in existence, and the one people are least
+    likely to recognize as one. Wearing a hat is attaching a mixin. The
+    inventory screen is a buff table with an art budget.
+
+# THE CENTRAL OBSERVATION
+
+slots_are_dimensions:
+  claim: |
+    AN EQUIPMENT SLOT IS A DIMENSION THAT ACCEPTS ONE BINDING, AND EQUIPPING IS
+    REBINDING, NOT LAYERING.
+
+    You cannot wear two helmets. The conflict between two head items is never
+    resolved, because it is never representable — putting the second one on
+    takes the first one off.
+  therefore: |
+    The inventory screen is a Fluxx table. Fluxx allows one New Rule per
+    category and enforces it physically, by laying the new card on top of the
+    one it supersedes; an equipment slot allows one item and enforces it by
+    ejecting the previous occupant into your bag. Same policy, same reason,
+    different medium — and both are the "one binding per dimension" rule from
+    SELF-KORZ.md, arrived at independently by a card game and by every RPG ever
+    shipped.
+  the_design_lesson: |
+    Slots are the cheapest conflict-resolution mechanism available: instead of
+    a cascade, a specificity lattice, or a legislated operator order, you
+    declare the dimension and cap it at one. No arithmetic, no ordering
+    questions, and the player can see the whole state at a glance.
+
+    Whenever a buff conflict looks hard, the first question should be whether
+    the dimension should have been capped at one binding. WoW reached for
+    exclusive categories, Fluxx for card overlap, RPGs for slots. Three answers,
+    one policy.
+
+# THE GUARD LADDER — CARRIED IS NOT WORN
+
+guard_variants:
+  wielded: "in hand; usually gates attack effects"
+  worn: "occupying a slot; the common case"
+  carried: "in inventory, unworn — a weaker guard, and the source of the classic bug where a bagged item keeps working"
+  attuned: |
+    D&D 5e's attunement is the interesting one: a character may attune to a
+    limited number of magic items (three), regardless of how many they carry.
+    That is a GLOBAL BUDGET ON ACTIVE BUFFS, independent of slots.
+  contained: "inside a bag or box — nested scope. Whether a container blocks the guard is a real design decision most systems make by accident."
+
+  the_budget_point: |
+    Attunement and Spore's DNA-point cost are the same move: a conservation law
+    that makes acquiring a buff a TRADE rather than an accumulation. MOOLLM's
+    buffs have neither a cost nor a cap, so nothing in the design pushes back on
+    stacking twenty of them. Every long-lived system in this pedia eventually
+    grew a budget.
+
+# SECOND-ORDER AND SOCIAL CASES
+
+set_bonuses:
+  what: "a buff whose guard counts OTHER buffs carrying a shared tag — wear four pieces of the set, get the fifth effect"
+  why_notable: |
+    A guard that reads the buff table itself. Second-order: the predicate is
+    over the modifier set, not over the host's stats. This is the same shape as
+    the entourage-effect / merges_with idea already in skills/buff/, and set
+    bonuses are its shipped, mass-market form.
+
+encumbrance:
+  what: "a debuff DERIVED from an aggregate over the whole inventory — sum the weights, cross a threshold, take a penalty ladder"
+  why_notable: |
+    Nothing in skills/buff/ can express a buff computed from a collection with
+    staged severity thresholds. RimWorld's hediff severity ladder is the same
+    structure. It is a fold plus a step function, and it is common enough to be
+    a primitive.
+
+cursed_items:
+  what: "NetHack: a cursed item cannot be removed. The buff refuses to be dispelled."
+  why_notable: |
+    Reveals a missing field. skills/buff/ has no answer to WHO MAY REMOVE THIS
+    and UNDER WHAT CONDITIONS. Dispel permission is orthogonal to expiration:
+    an item buff can be permanent-until-removed and simultaneously
+    removal-forbidden-except-by-remove-curse. Feature-flag systems call the
+    same thing a kill-switch permission.
+
+disguises_as_symmetric_dispatch:
+  what: "Hitman's disguises, Deus Ex uniforms, a uniform in any social sim: the garment's entire effect is on how OTHER agents evaluate you"
+  why_notable: |
+    THE EFFECT IS NOT IN THE WEARER AND NOT IN THE OBSERVER. IT IS IN THE PAIR.
+
+    A disguise modifies no stat of the person wearing it. It changes the
+    result of a dispatch between two parties — and Hitman refines it further
+    with enforcers, observers who are specifically immune to the disguise they
+    themselves wear.
+
+    This is the cleanest everyday example of why Korz drops the receiver.
+    Asking "whose buff is the disguise?" has no good answer in an
+    object-with-a-buff-list model: it is a slot whose coordinates include both
+    the wearer and the observer, and SELF-KORZ.md's symmetric dispatch is what
+    it takes to say that directly. skills[buff] cannot currently express it at
+    all, since a buff must be attached to exactly one character.
+
+items_carry_their_own_daemons:
+  what: "Zork's brass lantern burns down; the elvish sword glows near danger; the coffin is too heavy to climb with"
+  why_notable: |
+    The buff lives on the OBJECT, with its own fuse and its own daemon, and the
+    player is merely the current context. That is the affix insight and the
+    syndrome insight at once, in 1977, and it is why the IF entry and this one
+    are the same lineage viewed from two angles.
+  see: systems/if-daemons-fuses/SYSTEM.yml
+
+cosmetic_only_equipment:
+  what: "The Sims' clothing is overwhelmingly cosmetic — vast authoring surface, near-zero mechanical footprint beyond occasional social appropriateness checks"
+  why_notable: |
+    The Spore lossy-projection lesson, in the other Maxis franchise. When the
+    authoring space is far richer than the guard space, authoring becomes
+    self-expression rather than strategy.
+
+    Worth stating plainly that this is NOT automatically a failure: The Sims'
+    clothing is one of the most-used creative systems ever shipped, and it works
+    precisely because nobody has to optimise it. Spore's problem was not that
+    parts were cosmetic — it was that they LOOKED mechanical and were not.
+    Cosmetic is fine when it is honest.
+  confidence: "high in general; specific Sims-title appropriateness rules not verified"
+
+what_moollm_should_adopt:
+  - "SLOTS as a declared one-binding dimension — the cheapest conflict policy there is"
+  - "a dispel-permission field: who may remove this, and what does it cost (the cursed-item case)"
+  - "aggregate-derived buffs with staged thresholds (the encumbrance shape)"
+  - "an attunement-style global budget on simultaneously active buffs"
+  - "guards distinguishing worn / wielded / carried / contained, so bagged items stop working on purpose rather than by accident"
+
+import_export:
+  data_location: "per-game; D&D SRD 5.1 magic items are CC-BY-4.0 and the one wholesale-importable corpus"
+  extractability: "high for SRD, medium for open-source roguelikes, low for commercial ARPGs"
+  useful_direction: "the SRD magic item list is a ready-made affix corpus with attunement and slot data already structured"
+
+external_refs:
+  - { role: moollm, title: "SELF-KORZ.md — one binding per dimension; symmetric dispatch, which the disguise case requires", path: "skills/buff/SELF-KORZ.md" }
+  - { role: moollm, title: "fluxx — the same one-per-category policy, enforced by card overlap", path: "skills/buff/buffopedia/systems/fluxx/SYSTEM.yml" }
+  - { role: moollm, title: "spore — the other Maxis case of a rich authoring surface meeting a narrow guard space", path: "skills/buff/buffopedia/systems/spore/SYSTEM.yml" }
+  - { role: moollm, title: "if-daemons-fuses — items as hosts for their own timers", path: "skills/buff/buffopedia/systems/if-daemons-fuses/SYSTEM.yml" }

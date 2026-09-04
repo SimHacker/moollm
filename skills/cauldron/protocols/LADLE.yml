@@ -51,8 +51,14 @@ discipline:
     scripts/split_monolith.py does the splitting. Manual copy is forbidden —
     too easy to lose content. Script is doc-first.
 
-next_protocols: [ANCHOR, LINK, TASTE]
-related: [STIR, ANCHOR, LINK, MODEL-ROUTING]
+next_protocols: [TREE, ANCHOR, LINK, TASTE]
+related: [STIR, TREE, ANCHOR, LINK, MODEL-ROUTING]
+
+tech_tree_note: |
+  playbook_plan should carry the edges, not just the list: each PB gets
+  requires: (prereq node + a shell guard proving it landed) and unlocks:
+  (nodes, docs, features). TREE renders the graph and computes the frontier.
+  See protocols/TREE.yml and ../../../designs/TECH-TREE.md.
 
 recommended_model:
   cursor: gpt-5.5-high

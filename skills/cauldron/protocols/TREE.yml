@@ -1,0 +1,131 @@
+# 🍲 TREE
+# Wire the ladled playbooks into a technology tree. Compute the frontier by
+# running guards, never by reading a status doc.
+#
+# Part of cauldron. Design: ../../../designs/TECH-TREE.md
+
+protocol: TREE
+skill: cauldron
+phase: phase_2
+emoji: "🌳"
+
+meaning: |
+  LADLE already emits a dependency graph — the playbook template names what
+  each PR is "Preceded by" and what it "Unlocks." TREE makes those edges
+  machine-readable and executable: prerequisites become verification commands,
+  so "what can I build now" is COMPUTED, not tracked.
+
+  A playbook is a tech node. Its payload is what lands. Its guard is its own
+  Verify block. Research completes when the code lands.
+
+invoke_when:
+  - "LADLE has emitted playbooks/ and the PR order matters"
+  - "An executor asks 'what should I pick up next?'"
+  - "A PR landed and dependents may now be unblocked"
+  - "playbooks/README.md dep graph has drifted from the playbook frontmatter"
+
+why_not_a_status_doc: |
+  A hand-maintained NEXT-STEPS list is the troll flag from GAME-PIECES.md:
+  state some other system is supposed to remember to clear. It goes stale the
+  first day. Guards or nothing.
+
+  Store what happened (the completion ledger, append-only, with provenance).
+  Compute what is possible (the frontier).
+
+node_schema:
+  # Frontmatter block at the top of each PB-NN-*.md
+  requires:
+    type: array
+    items:
+      node:   {type: string, required: true, note: "PB id or external milestone"}
+      verify: {type: string, required: true, note: "shell command; exit 0 == satisfied"}
+    note: "Empty array means a root node — start here."
+  unlocks:
+    type: array
+    items:
+      one_of: [node, doc, feature, prototype]
+      why: {type: string, required: true, note: "one line — why this becomes possible"}
+    note: |
+      Every node should hand over something with a card: a prototype, a
+      document, or a capability. A node that unlocks only other nodes is
+      bookkeeping.
+  research_complete_when:
+    type: string
+    note: "Shell command proving THIS node landed. Becomes dependents' verify."
+
+methods:
+
+  TREE:
+    description: "Read playbook frontmatter, build the DAG, render it"
+    steps:
+      - "Glob playbooks/PB-*.md, parse requires/unlocks frontmatter"
+      - "Build edges; detect cycles and orphans"
+      - "Render to playbooks/README.md — mermaid graph + PR index table"
+      - "Flag any Navigation prose that disagrees with the frontmatter"
+    output: "playbooks/README.md dep graph, regenerated"
+    invariants:
+      - "acyclic — a cycle is a design error, escalate to STIR"
+      - "every non-root node's requires names a real node or external milestone"
+      - "every unlocks target exists on disk, or is marked planned"
+
+  FRONTIER:
+    description: "Run the guards; report what is buildable now"
+    steps:
+      - "For each node, run each requires[].verify"
+      - "Partition: DONE (research_complete_when passes), READY (all requires pass), BLOCKED (else)"
+      - "For BLOCKED, name the first failing guard — that is the real next step"
+    output: "chat — three lists, plus the failing guard per blocked node"
+    scry: |
+      This is SCRY applied to the plan's own shape. Verification commands are
+      sensors, not judges: they report, the LLM interprets. A guard that fails
+      for an uninteresting reason (missing dep, wrong cwd) is a tooling bug to
+      fix, not a blocked node.
+    invoked_by: [executor, SERVE, don, orchestrator]
+
+  UNLOCK:
+    description: "A PR landed — re-derive and hand the executor the reward"
+    steps:
+      - "Run the landed node's research_complete_when to confirm"
+      - "Append to the completion ledger (who, when, PR link) — append-only"
+      - "Re-run FRONTIER; the reward IS the pointer to what is now buildable"
+      - "Surface the newly READY nodes and the docs they authorize"
+    output: "chat + ledger append"
+    note: |
+      The reward for research is the pointer. Do not just say 'PB-04 done' —
+      say what that makes possible, in the same breath.
+
+ledger:
+  path: "playbooks/COMPLETED.yml"
+  shape: |
+    completed:
+      - { node: PB-01, landed: 2026-09-01, pr: "org/repo#412", by: composer-2.5,
+          verified: "pytest tests/flags/ -q" }
+  discipline: "append-only; never rewrite history; provenance is the point"
+
+generality: |
+  The playbook case is one instance of the general mechanism in
+  designs/TECH-TREE.md: a gated mixin whose guard is a predicate over progress
+  instead of a timer. The same node schema unlocks craftables, spells, verbs,
+  pie-menu slices, and buffs. Here the payload happens to be documents and
+  code, and the guard happens to be a test suite.
+
+composes_with:
+  ripgrep:       "Most guards are a grep or a test invocation"
+  sister-script: "scripts/ can host a frontier walker; doc-first"
+  robust-first:  "A blocked node degrades to 'here is the failing guard', never a crash"
+  k-lines:       "Each node is a K-line; requires/unlocks are K-REFs"
+  yaml-jazz:     "Frontmatter is structured data; the why: lines are semantic"
+
+anti_patterns:
+  fake_gating: "Never hide a doc an executor needs. The tree orders attention, not access."
+  stale_frontier: "If FRONTIER is ever transcribed into prose, it is already wrong."
+  payload_free_node: "A node that unlocks only nodes is bookkeeping. Give it a card."
+
+next_protocols: [SERVE, TASTE]
+related: [LADLE, LINK, SERVE, SCRY, STIR]
+
+recommended_model:
+  cursor: gpt-5.5-high
+  alternates: [composer-2.5]
+  note: "Mechanical graph work; Composer can run FRONTIER once edges exist"
+  rationale: "Parsing frontmatter, running guards, rendering a graph — sensor work"

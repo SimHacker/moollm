@@ -31,6 +31,7 @@ desktop wrong, but because he was solving different (excellent) problems.
 
 ## Related MOOLLM / Micropolis / WWSFF
 
+- [pie-stack-views/](../pie-stack-views/README.md) — the component-level designs: reselection, sparse view overlays, views as testimony, the Atkinstown stack, temporal semantic zoom
 - [GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md) — publishing substrate
 - [HOME-AUTOMATION-MEMORY-PALACE.md](../HOME-AUTOMATION-MEMORY-PALACE.md) — rooms as directories
 - [object-system/README.md](../object-system/README.md) — directory-as-object, advertisements

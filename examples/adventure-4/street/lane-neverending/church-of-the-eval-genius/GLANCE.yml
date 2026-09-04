@@ -5,7 +5,7 @@ description: Modest stone church with clipboard-shaped window and single stained
 
 motto: "Declare Bias. Publish Scores."
 
-entrance: "DECLARE BIAS BEFORE ENTERING." (door lintel)
+entrance: '"DECLARE BIAS BEFORE ENTERING." (door lintel)'
 
 lineage: "SubGenius taught us slack. EvalGenius teaches bias."
 
@@ -19,8 +19,22 @@ objects:
   - scoreboard-bell.yml
   - scatechism-pod.yml
   - tattoo-dispenser.yml
-  - bias-lantern.yml (changes color with Bias of Record)
+  - "bias-lantern.yml (changes color with Bias of Record)"
   - slack-pipe.yml
+
+# Every room also holds document dispensers: brochure stands, bottle shelves, and sealed
+# boxes that issue stamped souvenirs of the design corpus.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+rooms:
+  ground: [narthex, audit-choir, bias-library, rubric-forge, mirror-room, scriptorium, apothecary]
+  upper: [experiment-loft, roof]
+  basements:
+    - basement-1-evidence          # and basement-1-evidence/sealed-stacks (the vault)
+    - basement-2-bias-engine
+    - basement-3-null-chapel
+    - basement-4-refusal-vault
+    - basement-5-no-ai-embassy
+  vertical: no-ai-elevator
 
 atmosphere: Calm, procedural. People come to be measured. Leave with rubrics and receipts.
 

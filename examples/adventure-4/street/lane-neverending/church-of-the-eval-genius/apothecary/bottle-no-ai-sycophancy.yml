@@ -1,0 +1,51 @@
+# BOTTLE: NO-AI-SYCOPHANCY
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "Bottle: no-ai-sycophancy"
+  type: [dispenser, document_reference, skill_reference]
+  emoji: "🧴"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../skills/no-ai-sycophancy/CARD.yml
+    why: "Ambient. Respect is not agreement"
+
+  description: |
+    Bottle: no-ai-sycophancy — a shelf of bottles holding `CARD.yml`.
+    Ambient. Respect is not agreement
+
+  examine: |
+    A shelf of bottles, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Sample vial: no-ai-sycophancy"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../skills/no-ai-sycophancy/CARD.yml
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "The Apothecary of Ambient Skills"
+      from_dispenser: bottle-no-ai-sycophancy
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../skills/no-ai-sycophancy/CARD.yml
+        Why it is shelved here: Ambient. Respect is not agreement
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Sample vial of no-ai-sycophancy, stamped "The Apothecary of Ambient Skills" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

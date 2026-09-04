@@ -1,0 +1,215 @@
+# BUFFOPEDIA — Pee-wee's Playhouse (CBS, 1986–1990)
+# family: rule (the Secret Word) + applicator (Jambi) + the host model (everything else)
+# confidence: high on structure and the recurring bits — this is a widely known
+#   show and the mechanisms are its format. MEDIUM on which puppet was built or
+#   voiced by whom, and on how often a Jambi wish went wrong versus straight.
+#   Nothing here was checked against episodes this session.
+#
+# WHY A TELEVISION SHOW IS IN A BUFF ENCYCLOPEDIA
+#   Two of its running bits are cleanly-specified modifier mechanisms — one hosted
+#   on the ruleset, one a natural-language compiler with a famous failure mode —
+#   and its set design is the best available answer to the question skills/buff/
+#   just settled about hosts.
+
+system:
+  id: pee-wees-playhouse
+  name: "Pee-wee's Playhouse"
+  vendor: "Paul Reubens; set and character design by Gary Panter, Wayne White, Ric Heitzman"
+  family: rule
+  also: [applicator, economic]
+  vocabulary:
+    the_buff: "the Secret Word; a Jambi wish"
+    the_guard: "hearing the word said aloud"
+    the_host: "the episode's rules — and, for everything else, the furniture"
+    the_fuse: "the end of the episode"
+
+why_it_matters: |
+  THE ARCHITECTURE IS ANIMATE, AND NOBODY FINDS THIS STRANGE.
+
+  Chairry is an armchair with feelings about being sat in. Floory is the floor.
+  Mr. Window is the window. Clocky is the clock. Globey is the globe, Magic Screen
+  is the screen, Conky is an appliance, the Flowers are the flowers, the Fish are
+  the fish. Each has a voice, opinions, and wants.
+
+  This is the cultural reference for the host model in SKILL.md § Hosts: a room
+  whose components are characters, with no spirit, no daemon, and no possessing
+  entity. The floor is not haunted by a floor-spirit. The floor is a guy.
+
+the_secret_word:
+  the_bit: |
+    Conky, an appliance built out of found parts, prints the day's Secret Word at
+    the top of the episode. For the rest of the episode, whenever anyone says it,
+    EVERYBODY SCREAMS.
+  why_it_is_a_textbook_ruleset_buff: |
+    It modifies no stat and belongs to no character. It changes what the world
+    does in response to an event, for a bounded stretch of time. Field by field:
+
+      host:    ruleset/this-episode      # not a person; the episode's own rules
+      guard:   "when anyone says <word>"  # trigger, not a state test
+      effect:  "everybody screams"        # applies to the entire cast at once
+      expires: "end of episode"
+      rebind:  each episode replaces it — one binding per dimension
+  what_it_demonstrates_that_nothing_else_here_does: |
+    A ruleset-hosted buff whose effect is a REACTION RULE rather than a value
+    change, that is REBOUND on a fixed cadence, and that the audience is told
+    about explicitly at the start. Fluxx has ruleset hosting and rebinding, but
+    its New Rules change legal moves; this one changes what everyone does when a
+    thing is uttered. The closest analogue in the pedia is an event handler
+    installed with a fuse — which is exactly the daemon/fuse pair from
+    systems/if-daemons-fuses/, hosted on the world rather than on a thing.
+  the_design_lesson: |
+    THE BUFF IS ANNOUNCED, AND THAT IS WHY IT IS FUN.
+
+    The legibility problem in black-and-white/ and sims-1/ is that a live effect
+    was never shown, so players formed superstitions or lost Sims without learning
+    why. The Secret Word is the opposite extreme: the rule is stated on screen,
+    the trigger is a word you now cannot help noticing, and the whole audience is
+    holding it. Anticipation IS the entertainment, and it is created entirely by
+    disclosing the guard in advance.
+
+jambi:
+  the_bit: |
+    A blue genie head in a lacquered box grants Pee-wee one wish per episode,
+    after the magic words — "mekka lekka hi, mekka hiney ho." Wishes are granted
+    literally, and the literal reading is frequently not what was meant.
+  confidence: "the bit and the words: high. How reliably wishes went wrong rather than straight: medium — verify before leaning on it."
+  why_it_belongs_in_the_applicator_family: |
+    An object that takes a request, checks an invocation condition, and applies an
+    effect to the world. Same shape as SimProv's Cupid, with three extra features
+    Cupid does not have:
+
+      an invocation cost   — the magic words must be said, correctly
+      a budget             — one wish per episode (see spore/, on budgets)
+      a natural-language interface — the request is spoken English, not a menu
+
+  jambi_is_the_buff_in_time_compiler_and_its_failure_mode: |
+    THIS IS WHY THE ENTRY MATTERS FOR THE ARCHITECTURE, NOT JUST THE AESTHETIC.
+
+    BUFF-IN-TIME-COMPILER.md proposes taking a buff written in English and
+    compiling it into a code snippet the deterministic engine runs. Jambi is that
+    pipeline, staged as comedy: a wish in English, compiled literally, executed
+    exactly as compiled, and wrong.
+
+    The genie problem is not a fable about greed. It is a precise description of
+    the risk in compiling prose to code — that the snippet is a plausible reading
+    of the words which is not the reading the author intended, and that the
+    execution is faithful to the snippet rather than to the intent.
+
+    So the mitigation in that document has a name in folklore. DEOPT BACK TO THE
+    PROSE is "wait, that is not what I meant" — and the reason the English must
+    stay authoritative beside its compiled form is that it is the only record of
+    what was actually meant. A genie with no deopt path is a compiler with no
+    source map.
+  the_further_ask: |
+    Jambi grants the wish as stated and lets the consequence play out. A compiler
+    with a language model in it can do better than a 1986 genie: it can notice
+    that a wish admits two readings, and ASK. That is the postel skill's third
+    clause — accept liberally, emit conservatively, ASK IF UNSURE — applied to
+    compilation. The ambiguity check belongs before the snippet is written, not
+    after it runs.
+
+chairry_and_the_advertisement_economy:
+  observation: |
+    THE SIMS' ADVERTISEMENT ECONOMY IS PEE-WEE'S PLAYHOUSE WITH THE VOLUME DOWN.
+  the_argument: |
+    In The Sims, every object broadcasts a numeric bid for attention — a chair
+    advertises comfort, a fridge advertises hunger relief — and Sims act on the
+    highest-scoring offer (systems/sims-1/). The objects are, functionally,
+    soliciting. The broadcast is silent and the number is invisible.
+
+    Chairry does exactly the same thing out loud, with a personality attached, and
+    with feelings about whether the offer is accepted. Same mechanism, disclosed.
+  why_it_is_actionable_here: |
+    MOOLLM has a language model in the loop, so the volume can go back up: an
+    object can NARRATE its own advertisement, in its own voice, and a room that
+    delegates to `character` can editorialise about what its furniture is offering.
+
+    That turns the scoring economy from a hidden auction into dialogue — which is
+    the legibility fix again, arriving from the aesthetic direction rather than the
+    engineering one. The Sims made the furniture want things and hid the wanting.
+    A playhouse says it.
+
+the_host_lesson:
+  claim: |
+    EVERY OCCUPANT OF THE PLAYHOUSE IS TWO THINGS AT ONCE, AND NEITHER IS A COSTUME.
+  detail: |
+    Chairry is furniture you can genuinely sit in AND a character with a stake in
+    being sat in. Floory is the floor you walk on AND someone you talk to. Mr.
+    Window is an aperture AND a personality. The object role is not a disguise
+    over the character role, or vice versa; both are live simultaneously.
+  in_moollm_terms: |
+    That is delegation to two prototypes, which is already expressible:
+
+      room:
+        id: the-playhouse
+        delegates_to: [room, character]
+
+      object:
+        id: chairry
+        delegates_to: [furniture, character]
+        affords: { sit: true }
+        wants: { be_sat_in: 9, be_thanked: 5 }
+        buffs:
+          - name: "Hug"
+            effect: { comfort: +30, mood: +10 }
+            expires: { after: 3, unit: turns }
+            radiates: { to: holder }   # whoever is being held
+
+    Nothing above requires a new host kind, a spirit, or a special case. It is the
+    open host model plus two-parent delegation, and the show is the proof that
+    audiences parse it instantly.
+
+what_moollm_should_adopt:
+
+  announce_the_guard:
+    take: "state a live rule's trigger out loud, in advance, as part of the entertainment"
+    from: "the Secret Word"
+    why: |
+      The pedia's two documented legibility failures (black-and-white/, sims-1/)
+      are both effects that were never disclosed. The Secret Word shows disclosure
+      is not a debugging concession — it is where the anticipation comes from.
+
+  ask_before_compiling_an_ambiguous_wish:
+    take: "when prose admits two readings, ask instead of picking one"
+    from: "Jambi, by counterexample"
+    why: "the genie problem is the buff-in-time compiler's central risk; see BUFF-IN-TIME-COMPILER.md open question 1"
+
+  let_objects_speak_their_advertisements:
+    take: "an object narrates the offer it is broadcasting, in its own voice"
+    from: "Chairry"
+    why: "turns the hidden autonomy auction into dialogue, using the model already in the loop"
+
+  animate_by_default_in_a_playhouse_world:
+    take: "in worlds of this genre, assume components are characters unless stated otherwise"
+    from: "Floory, Mr. Window, Clocky"
+    why: |
+      The open host model permits this; the Playhouse argues it should sometimes be
+      the DEFAULT rather than an option. A world can say so once
+      (`world.animate_furniture: true`) instead of per object.
+
+what_moollm_should_avoid:
+
+  everything_talking_at_once:
+    avoid: "animating every component in every world"
+    because: |
+      The Playhouse is a deliberate genre with a tolerance for chaos, and it is
+      thirty minutes long. A dungeon where the floor, the door, the walls and the
+      dust all have opinions is unplayable, and the token cost of narrating them
+      is real. Animacy is a genre setting, not an upgrade.
+
+  one_wish_per_episode_as_the_only_budget_model:
+    avoid: "hard per-scene caps as the general answer to applicator cost"
+    because: "it works because the episode is a fixed length; MOOLLM's scenes are not. See spore/ on budgets, and lambdamoo/ on metering."
+
+open_questions:
+  - "Does the Playhouse itself — as a whole — ever speak, as distinct from its components? If so it is a room hosting a voice above its parts, which is a different structure from Floory and Mr. Window."
+  - "Is the Secret Word ever changed mid-episode, or violated deliberately? Either would make it a better model of rebinding under contest."
+  - "Were the wishes written as literal-compilation jokes, or is that a pattern read back onto them? Affects how hard the Jambi analogy can be pushed."
+
+see_also:
+  - "../../../SKILL.md § Hosts — the open host model this entry illustrates"
+  - "../../../BUFF-IN-TIME-COMPILER.md — Jambi is its failure mode, and deopt is the mitigation"
+  - "../sims-1/SYSTEM.yml — the same advertisement economy, with the volume down"
+  - "../simprov/SYSTEM.yml — Cupid, the applicator with a menu instead of a spoken wish"
+  - "../fluxx-nomic.yml — the other ruleset-hosted family, with rebinding as a physical act"
+  - "../../../../room/ — rooms as directories, and rooms that delegate to character"

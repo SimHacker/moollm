@@ -15,3 +15,13 @@ room:
       to: ../
       description: "Back to the nave."
       aliases: [back, nave]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. Backlink for the memory palace — the design
+  # corpus already links in, so without this the rooms are orphans.
+  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+  learn:
+    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md#4-the-ordeal-of-the-rubric
+      why: "The Ordeal of the Rubric — rubrics written, tested, re-weighted"
+    - doc: ../../../../../../designs/eval/EVAL-TAXONOMY.md
+      why: "The vocabulary a rubric is built out of"

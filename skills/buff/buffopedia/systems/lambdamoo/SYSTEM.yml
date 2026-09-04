@@ -1,0 +1,130 @@
+# BUFFOPEDIA — LambdaMOO
+# family: engine (and the namesake — MOOLLM is a MOO)
+# confidence: verified for server mechanisms (LambdaMOO Programmer's Manual,
+#   checked 2026-09-01). HIGH but unverified for LambdaCore feature-object
+#   details, which live in the database rather than the server.
+
+system:
+  id: lambdamoo
+  name: "LambdaMOO — forked tasks and feature objects"
+  vendor: "Pavel Curtis / Xerox PARC, 1990–; LambdaCore database"
+  family: engine
+  vocabulary:
+    the_tick: "forked task, suspended task"
+    the_mixin: "feature object"
+    the_budget: "ticks and seconds quota per task"
+  the_answer: |
+    LambdaMOO had BOTH HALVES OF A BUFF AND NEVER JOINED THEM.
+
+    Timers: yes, first-class and persistent — fork, suspend, the task queue.
+    Mixins: yes, first-class and player-attachable — feature objects.
+    A feature object with an expiration date: no. Nobody built the join.
+
+    That is the most interesting negative result in this pedia, because MOOLLM
+    is a MOO, so the missing join is directly inherited.
+
+# HALF ONE — THE CLOCK
+
+tasks:
+  kinds: "five: input tasks, server tasks, forked tasks, suspended tasks, reading tasks. The last three are collectively QUEUED (background) tasks."
+  fork: "the `fork (n) ... endfork` statement schedules a task whose execution is delayed at least n SECONDS — a fuse measured in wall-clock time, not turns"
+  suspend: |
+    suspend([seconds]) snapshots the whole execution state and resumes later; with
+    no argument it suspends indefinitely until resume(). A loop containing
+    suspend(n) is a daemon.
+  introspection: "queued_tasks() lists your background tasks (all of them, if you are a wizard) with task id, start time, owner, verb location, verb name, line number, and `this`"
+  dispel: "kill_task(id) — cancellation was in the API from the start, not bolted on"
+
+  the_resource_budget: |
+    Every task gets a quota of TICKS and SECONDS, and a resumed task gets a
+    fresh full quota. Exceed it and the task dies. "Ran out of ticks" is a
+    LambdaMOO error message a generation of MOO programmers can quote from
+    memory, and $command_utils:suspend_if_needed() exists precisely so that
+    long-running verbs can yield before they hit the wall.
+  why_that_matters_here: |
+    THE ONE THING THIS SKILL MOST NEEDS AND DOES NOT HAVE.
+
+    A MOOLLM buff's tick function may make an LLM call. That is several orders
+    of magnitude more expensive than a MOO verb, and there is currently no
+    quota, no cost accounting, and no kill. LambdaMOO — a text MUD on 1990
+    hardware — metered its tick functions, published the meter, and killed
+    overruns.
+
+    A hundred characters with three soft-guarded buffs each is three hundred
+    judgements per tick. Without a budget that is not a performance problem, it
+    is an unbounded bill.
+  persistence: "queued tasks are part of the database and survive checkpoints — timers outlive the process. Buff persistence across save/load, solved in 1990. (Medium-high confidence; verify checkpoint semantics before relying on it.)"
+
+# HALF TWO — THE MIXIN
+
+feature_objects:
+  what: |
+    A feature object holds verbs. A player adds it (@add-feature) and it goes on
+    the player's .features list; the command parser then searches those feature
+    objects when matching commands. Adding a feature grants NEW COMMANDS to the
+    player without changing what the player IS.
+  status: "LambdaCore convention, implemented in the database — NOT a server mechanism. That distinction is the point below."
+
+  why_they_exist: |
+    BECAUSE LAMBDAMOO IS SINGLE-INHERITANCE. Every object has exactly one
+    parent; chparent() changes it, and there is no second parent to add. So
+    there is no way to say "this player is also a Musician" by delegation.
+
+    Feature objects are the workaround: since you cannot add a parent, you add
+    an object to a list that the command matcher consults.
+
+  the_observation: |
+    LAMBDAMOO INDEPENDENTLY INVENTED CARD-MERGING MIXINS AS A WORKAROUND FOR
+    MISSING MULTIPLE DELEGATION.
+
+    GAME-PIECES.md says attaching a buff merges its CARD into the host's
+    advertisement pool, so the host's menu is the union of the cards of every
+    live mixin, derived fresh and never stored. That is a description of the
+    LambdaMOO command matcher walking .features. Same mechanism, same
+    motivation, thirty-five years earlier, in the system this project is named
+    after.
+
+    And the reason it is a list rather than a parent is a limitation, not a
+    design insight — which is worth knowing, because MOOLLM does NOT have that
+    limitation. Delegation here is multiple by default, so the buff-as-mixin
+    reading is a free choice rather than a forced one.
+
+  what_features_lack:
+    - "no expiration — a feature is permanent until manually removed"
+    - "no guard — a feature applies or it does not; no conditions, no while-clauses"
+    - "no conflict policy — two features defining the same verb resolve by list order, which is arrival order"
+    - "no aggregation — features add COMMANDS, never modify numeric values, so there is no cascade to resolve"
+
+the_unbuilt_join:
+  claim: "A feature object plus a fork that removes it is a buff. Two lines of MOO code. It appears nobody made it a core abstraction."
+  confidence: "medium — an assertion about the absence of a convention across thousands of MOOs, which is hard to prove. State it as 'not in LambdaCore', not as 'nobody ever did it'."
+  why_probably_not: |
+    Plausible reason worth recording: LambdaMOO's timers are in SECONDS of wall
+    clock, and its social world had no turn structure, no combat round, and no
+    stats to modify. A buff needs something to modify and a clock to modify it
+    against. LambdaMOO deliberately had neither — it was a place, not a game.
+    The absence is a consequence of the design, not an oversight.
+
+what_moollm_should_adopt:
+  - "A TICK BUDGET, metered and enforced, with a kill — the single clearest borrowing in this entry"
+  - "queued_tasks() as an introspection verb: list every live buff with its owner, its fuse, and where it came from"
+  - "kill_task() parity: cancellation as a first-class operation, present from day one"
+  - "timers in the persistent database, so buffs survive a restart"
+  - "suspend_if_needed() as a pattern: expensive tick functions should be able to yield mid-work"
+
+what_moollm_inherits_and_should_not:
+  - "features as arrival-ordered with no conflict policy — the gap this pedia's conflict axis exists to close"
+  - "wall-clock seconds as the only unit; buffs need turns, scenes, and events too"
+
+import_export:
+  data_location: "LambdaMOO server source and LambdaCore database are public"
+  extractability: "high"
+  useful_direction: "architecture and vocabulary. The MOO-programmer audience already knows fork/suspend/features, so using those words is free K-line."
+
+external_refs:
+  - { role: primary, title: "LambdaMOO Programmer's Manual — Tasks (five kinds; forked/suspended/reading)", url: "https://lambda.moo.mud.org/pub/MOO/html/ProgrammersManual_38.html" }
+  - { role: primary, title: "LambdaMOO Programmer's Manual — suspend(), queued_tasks(), kill_task()", url: "https://lambda.moo.mud.org/pub/MOO/html/ProgrammersManual_54.html" }
+  - { role: primary, title: "LambdaMOO Programmer's Manual — single inheritance, chparent()", url: "https://lambda.moo.mud.org/pub/MOO/html/ProgrammersManual_47.html" }
+  - { role: verify, title: "LambdaCore database", note: "Needed to confirm @add-feature verb names and the .features matching order." }
+  - { role: moollm, title: "if-daemons-fuses — the other half of this lineage, which named both primitives", path: "skills/buff/buffopedia/systems/if-daemons-fuses/SYSTEM.yml" }
+  - { role: moollm, title: "GAME-PIECES.md — card merging, which is the feature-object mechanism", path: "designs/GAME-PIECES.md" }

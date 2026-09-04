@@ -1,0 +1,482 @@
+# BUFFOPEDIA — SimProv (The Sims 1 playset, Don Hopkins)
+# family: applicator
+# confidence: verified — object roles from the catalog in
+#   WillWrightShowForFood/catalogs/simprov/; mechanics from Don, in session,
+#   1 Sep 2026. Implementation is SimAntics/BHAV; not re-read from the .iff
+#   files this session.
+
+system:
+  id: simprov
+  name: "SimProv — the Hope Chest, and the applicators it conducts"
+  vendor: "Don Hopkins (programming) · SimBabes / SimFreaks (graphics) · Donna (craft layer) · The Sims 1, 2000s"
+  family: applicator
+  also: [orchestrator]
+  vocabulary:
+    the_orchestrator: "the object that owns the plan, the state machine, and the cleanup — the Hope Chest"
+    the_applicator: "an object whose purpose is to apply effects to many entities, with a targeting UI"
+    the_target_picker: "a pie menu of families, with sub-pies of people, and later pets"
+    the_pairwise_state: "the relationship matrix — per-pair, per-direction scores"
+  why_it_matters: |
+    THIS IS PRIMARY-SOURCE PRIOR ART FOR THE TWO PRIMITIVES observations.yml
+    LISTS AS MISSING, and it is Don's own code.
+
+    Everything else in this pedia is somebody else's shipped system, surveyed
+    from outside. These objects were written by the person building MOOLLM, and
+    they already do the two things skills/buff/ cannot: apply an effect to many
+    hosts at once, and let the player choose WHICH SIDE of a relationship to
+    modify.
+
+    So the applier-side predicate is not a research question. It is a port.
+
+# THE ORCHESTRATOR — the object the others report to
+
+the_hope_chest:
+  source: "catalogs/simprov/ORCHESTRATOR.yml in WillWrightShowForFood — a written spec, not a reconstruction"
+  confidence: "verified against that file; the pie menu is documented in the Transmogrifier media notes cited there"
+
+  what_it_is: |
+    A piece of furniture that owns an eight-state machine:
+
+      single → flirting → in_love → engaged → planning → rehearsal → ceremony → reception
+
+    Each transition declares what it `unlocks:` (new pie-menu options), what it
+    `spawns:` (the planner NPC, the priest, the photographer), what it `requires:`
+    (a Crowd Sitter and an officiant before the ceremony can start), and what it
+    `hands_off:` (the venue, staff and schedule magazines).
+
+  why_it_is_the_important_object_here: |
+    THE APPLICATORS ARE INSTRUMENTS; THIS IS THE CONDUCTOR.
+
+    Cupid, Buddha and the Crowd Sitter each apply effects to many Sims at once.
+    None of them knows what the wedding IS, what phase it is in, or what has to be
+    true before the next beat can happen. The Hope Chest knows all of that, and it
+    is the reason a multi-object, multi-NPC, multi-phase staged event holds
+    together instead of being a pile of cheats a player fires by hand.
+
+    It is simultaneously the plan, the contract between the participants, the state
+    machine, the menu host, and the owner of cleanup. In most engines those are
+    five subsystems. Here they are a chest you can put in a room.
+
+  the_name_is_the_design: |
+    A hope chest, in the world, is where someone stores things for a marriage that
+    has not happened yet. So the object's real-world meaning ALREADY IS "the
+    accumulating plan for a future wedding." The affordance and the semantics
+    agree, and nothing has to be explained to the player.
+
+    That is the standard the room-spirit and the guinea-pig disease failed
+    (systems/sims-1/): when state needs an owner, the owner should be a thing
+    whose ordinary meaning is holding that kind of state. An invisible object is
+    the failure case; a hope chest is the success case. SAME MOVE, OPPOSITE
+    OUTCOME — and the difference is entirely whether the object means anything.
+
+  what_it_gives_the_buff_design:
+
+    phase_extent_as_a_lifetime: |
+      Buddha's need-suppression and the Crowd Sitter's seating are scoped to
+      PHASES of this machine, not to turn counts. That is a lifetime kind
+      skills/buff/ did not have: `while: phase == ceremony`, owned by an object
+      that knows what phase it is. Added to the ladder in SELF-KORZ.md §3.
+
+    the_orchestrator_is_the_unwind_handler: |
+      A wedding that collapses halfway has to un-suppress Buddha's crowd, release
+      the seated guests, and dismiss the spawned NPCs. Only the owner of the phase
+      can do that, because only it knows what the phase installed.
+
+      So an orchestrator is `try/finally` as a placeable object, and phase-scoped
+      buffs are what it unwinds. This is the single most important thing missing
+      from skills/buff/'s cleanup story, which currently assumes a buff outlives
+      its cause and dies of its own timer.
+
+    requires_is_a_runbook_step: |
+      `requires: [crowd-sitter, priest-or-officiant]` on the rehearsal→ceremony
+      transition is a verification predicate gating a phase — the same shape as a
+      cauldron playbook's verification steps and TECH-TREE.md's progress guards.
+      A staged event is a runbook whose executor is furniture.
+
+  the_locked_ads_policy_is_the_legibility_answer: |
+    THIS IS THE FINDING WORTH CARRYING EVERYWHERE.
+
+    The spec says locked options are `visible_before_unlock: true`, with
+    `score_when_locked: high`, plus a `guidance_when_locked` string — for example
+    PLAN-WEDDING, locked until `in_love`, advising the player to summon Cupid and
+    complete the fall-in-love protocol first.
+
+    So a gated capability is SHOWN, SCORES HIGH SO IT TEMPTS, and EXPLAINS ITS OWN
+    PRECONDITION.
+
+    Every legibility failure catalogued in this pedia is the opposite of that
+    policy. Black & White's learned guard was readable and never shown, so players
+    formed superstitions. The guinea pig disease killed Sims who never learned
+    why. Spore cashed out its archetype invisibly at a stage boundary. Meanwhile
+    the fix was already implemented, in this file, in a piece of Sims 1 furniture:
+    publish the guard, keep the locked thing attractive, and say what would unlock
+    it.
+
+    TECH-TREE.md should adopt this verbatim as the presentation rule for a locked
+    node — a locked door that advertises is better than a hidden one
+    (see that document on locked doors as advertisements waiting for a bidder).
+
+  the_certificate_is_the_output: |
+    THE ORCHESTRATOR IS SCAFFOLDING. THE CERTIFICATE IS THE ARTIFACT.
+
+    Ordering the certificate makes the Hope Chest create an object carrying the
+    participants' ids. The ceremony checks that stage off. At that point the chest
+    has done its job, and the certificate goes on the wall.
+
+    So the wedding playset is a COMPILER. The Hope Chest is the build system —
+    stateful, phased, full of preconditions, and disposable once it has run. The
+    certificate is the compiled output: small, durable, and the only thing that
+    needs to survive. Deleting the chest after the ceremony is deleting the build
+    directory.
+  attribution_certificate: "Described by Don, in session, 1 Sep 2026."
+
+  ownership_migrates_at_ratification: |
+    Don's lifecycle rule, stated 1 Sep 2026, and it is the correct one:
+
+      the chest holds PERSISTENT BUT THROWAWAY state — needed while becoming
+      married, worthless afterwards. It may hang around to orchestrate the party.
+      Anything marriage-related after the fact — divorce, death — is orchestrated
+      BY THE LICENSE ITSELF.
+
+    So orchestration is not owned by one object for the whole story. It HANDS OFF
+    at ratification: the chest owns the becoming, the artifact owns the being and
+    the ending. A marriage outlives its wedding planner, so a divorce twenty years
+    later must not route through furniture that existed to book a caterer.
+
+    Two consequences worth carrying into skills/buff/:
+
+      THE ARTIFACT IS ACTIVE, NOT A RECORD. It runs its own small machine —
+      pending, in force, dissolved, widowed, lapsed — and handles its own later
+      events. "Widowed on a participant's death" belongs to the license; nothing
+      else is still around to notice.
+
+      THE UNWIND HANDLER MIGRATES. SELF-KORZ.md §3 says the orchestrator unwinds
+      phase-scoped buffs on abort, which is right for the phases it owns. After
+      handoff the artifact is its own unwind handler. Cleanup ownership follows
+      the lifecycle stage rather than sitting with whoever created the state.
+
+    And "persistent but throwaway" names a category the design needed: state that
+    must survive saves but is garbage once the artifact exists. Build state. The
+    same line MOOLLM draws between .moollm/ scratch and what gets committed.
+
+    The tail matters too — deletion is PERMITTED at ratification, not forced. The
+    reception is still part of the becoming, so the chest may stay for it. The
+    player throws it out when it stops being useful, which is what happens to a
+    real hope chest.
+
+  the_participant_set_is_not_always_a_pair: |
+    Don described the certificate as carrying the ids of the two Sims, and then
+    immediately opened it up: an officiant summoned to the eloporter's output
+    could marry participants who do not live on the lot, and a guru could assign
+    everyone in the neighborhood — "keep this open ended, cult friendly."
+
+    So the artifact holds a PARTICIPANT SET that is commonly, not necessarily,
+    two. That is a hyperedge rather than a matrix cell, and it is why `group`
+    exists as a host kind alongside `relationship` in SKILL.md: a bond among three
+    is one commitment, not three couples, and it must survive members joining and
+    leaving. The pair case remains the common case and keeps the matrix cell.
+
+  the_certificate_is_a_pair_hosted_buff_you_can_hang_on_a_wall: |
+    An object whose identity is ITS PARTICIPANTS is a relationship-matrix cell —
+    or a hyperedge — that someone gave a physical form. Everything the
+    relationship-host section of SKILL.md argues for abstractly, this object does
+    concretely:
+
+      the pair is the identity     — the two Sim IDs are what the object IS
+      the state has one home       — not mirrored on two Sims, so it cannot desync
+      dispel names the edge        — there is one object to destroy
+      and it is VISIBLE            — hung on a wall, in a room, where anyone looks
+
+    That last line is the legibility principle arriving from the aesthetic
+    direction again. Black & White's lesson was to render state on surfaces the
+    player is already looking at (systems/black-and-white/). A framed certificate
+    on the living-room wall is that lesson as set dressing: the marriage is not a
+    hidden flag or a number in a panel, it is a thing on the wall, and its absence
+    is equally visible.
+
+  divorce_is_destroying_the_object:
+    what_don_described: |
+      Getting a divorce could be as simple as throwing the certificate out — or
+      hiring an expensive divorce attorney to remove it for you. Don's comparison:
+      not unlike the clown catcher, but more of a clown CLEAVER, separating and
+      freeing rather than catching.
+    attribution: "Don, in session, 1 Sep 2026. The Tragic Clown is canonical Sims 1; the catcher object is Don's reference and is not documented here."
+
+    why_it_is_the_cleanest_dispel_in_the_pedia: |
+      Every other system in this survey removes a modifier with an administrative
+      verb — cast Remove Curse, call RemoveGameplayEffect, tick to zero, unequip.
+      Here you remove it by throwing away a piece of paper, which is what a person
+      would do. THE DISPEL IS DIEGETIC: no menu of system commands, no separate
+      concept to teach, just an object interaction whose real-world meaning is
+      already the mechanic.
+
+      This generalises. When a buff's host is an object in the world, destroying
+      the object is a dispel path that needs no vocabulary at all.
+
+    two_tiers_of_removal_is_a_design_axis_the_skill_lacks: |
+      Throwing it out is free and crude. Hiring the attorney is expensive and
+      done properly. skills/buff/ has `cancels:` and `replaces:` — tag matching —
+      and no notion of WHO MAY REMOVE A BUFF, WHAT IT COSTS, or WHETHER A CHEAP
+      REMOVAL LEAVES A MESS.
+
+      The interesting reading of Don's two paths is that they are not the same
+      operation at different prices. Bin the paper and the record is gone while
+      the entanglement remains — the relationship scores, the shared history, the
+      jealousy, all still there. Hire the attorney and someone competent UNWINDS
+      the marriage: the paperwork, the property, the pairwise state.
+
+      So the attorney is the unwind handler (see the_hope_chest above), sold as an
+      NPC service, and the trash can is an abort with no cleanup. That gives the
+      design a rule worth keeping:
+
+        A CHEAP DISPEL DESTROYS THE RECORD. AN EXPENSIVE ONE UNWINDS THE STATE.
+        Residue is the difference, and residue is where the stories are.
+
+    the_removal_service_as_a_pattern: |
+      Catcher and cleaver are the two shapes of a purchased dispel agent:
+
+        CATCHER — traps and contains an unwanted persistent entity (the clown)
+        CLEAVER — severs a binding between two parties and releases both
+
+      Both are "hire an NPC to remove something you cannot remove yourself," which
+      is D&D's remove-curse-requires-a-caster rule (systems/equipment-inventory/
+      on dispel permission) implemented as an economy rather than as a spell list.
+      The cost is the balancing mechanism, and the NPC arriving to do it is the
+      animation that makes the state change legible.
+
+  design_notes_offered_not_claimed: |
+    Extensions this suggests, none of them things Don described — flagged so they
+    are not mistaken for the shipped object:
+      - the certificate could `radiate:` a household-level effect to occupants
+      - a torn-up certificate could leave residue: a lighter rectangle on the
+        wallpaper, a nail hole, a `bitter:` cell in the relationship matrix
+      - the attorney's fee is a natural place for the buff BUDGET spore/ asks for
+
+  the_magazines_are_menu_grafting: |
+    A magazine declares `menu_host_when_placed: dining-table` — put it on the
+    table and its options join the TABLE's pie menu, then it configures venue,
+    staff or schedule.
+
+    So a placed object can graft its interface onto another object's menu, and the
+    orchestrator hands work off to these grafted surfaces during the `planning`
+    phase. That is dynamic menu composition and phase-scoped delegation of
+    authoring, which is a genuinely more sophisticated interface pattern than
+    anything in the pedia's engine entries.
+
+# THE APPLICATORS — the instruments the chest conducts
+
+objects:
+
+  cupid:
+    catalog_role: "Instant romance / speed-dating cheat — prerequisite romance for marriage"
+    what_it_actually_does: |
+      Four things at once, which in most modifier systems are four separate
+      concerns:
+        1. INSTANTIATION — brings the selected Sim into play
+        2. BEHAVIOR AND ACTIONS — queues the interactions
+        3. RELATIONSHIP MATRIX EDITING — writes the pairwise scores directly
+        4. ANIMATION — plays it, so the change is legible on screen
+    dispatch: |
+      MULTI-DISPATCH ON TWO ARGUMENTS: the Sim who used it, and the Sim chosen
+      from the pie menu. Neither is the privileged receiver. The effect is a
+      function of the pair.
+    the_target_picker: |
+      A pie menu of FAMILIES, each opening a sub-pie of PEOPLE, and since the
+      Pets expansion, pets as well. A hierarchical menu over the population.
+    the_direction_control: |
+      The control selects WHOSE LOVE FOR WHOM to modify. Sims 1 relationships
+      are stored per-pair AND per-direction — A's score for B is not B's score
+      for A — so an effect on a relationship has to say which cell it writes.
+      Cupid exposes that choice to the player as part of the menu.
+
+  buddha:
+    catalog_role: "Suppress needs for large wedding crowds"
+    what_it_actually_does: |
+      Holds a whole crowd in a suppressed-need state so a staged event can run
+      to completion. Without it a wedding collapses into hunger and bladder
+      tragedy before the interesting part happens — the Slap Conga rules call
+      this "Buddha keeps the trap alive."
+    buff_reading: |
+      A many-host effect that clamps need decay: one applicator, N hosts, one
+      gesture. It is not N separate buffs authored individually — the object IS
+      the buff's scope.
+    why_it_is_more_than_an_aura: |
+      An aura's guard is spatial and incidental. Buddha is deliberate crowd
+      management in service of a NARRATIVE requirement: the simulation's own
+      motive system is the obstacle to the story, so a piece of authored physics
+      suspends it. That is a director's tool, not a game balance tool.
+
+  come_and_see_me:
+    what: |
+      Placed in the world, it makes EVERY Sim route to it irresistibly and
+      cheer — for showing off a new baby, or any beat that needs the whole cast
+      present and delighted. It has a TIMEOUT.
+    attribution: "Described by Don, in session, 1 Sep 2026. Whether this is a SimProv object or a Maxis one is not recorded here — confirm before publishing."
+    buff_reading: |
+      It modifies no stat. It broadcasts an ADVERTISEMENT with an effectively
+      unbeatable score, so every Sim's own autonomy picks it. The buff is a bid,
+      not a delta — the `economic` family in registry.yml, taken to its limit.
+    the_lesson_that_makes_it_worth_an_entry: |
+      AN UNBOUNDED BID IS ONLY SAFE BECAUSE IT HAS A FUSE.
+
+      An advertisement nobody can outbid is a trap: every Sim on the lot walks
+      over and stays. The timeout is not a detail, it is the entire safety
+      mechanism — the thing that makes an autonomy override a STAGED BEAT rather
+      than a permanent hijack.
+
+      This is the sharpest available argument for why the expiration date is a
+      first-class part of the definition in EFFECTIVE-VALUES.md rather than a
+      convenience. The stronger the effect, the more load the fuse carries.
+    two_ways_to_take_the_wheel: |
+      Set beside Buddha, these are the two distinct director's tools:
+        - Buddha SUPPRESSES the motive system, so nothing interrupts
+        - Come and See Me OVERRIDES action selection, so everyone participates
+      Both temporarily overrule the autonomy the simulation exists to run.
+      Neither is expressible in skills/buff/, which can modify a stat but cannot
+      say "for the next twenty turns, this is what everyone wants."
+    also: "it drives behavior and animation (the cheer), like Cupid — the effect includes its own performance"
+
+  crowd_sitter:
+    catalog_role: "Gather guests, seat them, manage overflow"
+    described_as: "Interactive agitprop object — crowds, applause, pie menus"
+    buff_reading: |
+      Mostly an orchestrator rather than a modifier — it moves and positions
+      many Sims — but it belongs here because it shares the shape: one object,
+      a pie menu, N affected Sims, and a job that would otherwise be N manual
+      interactions.
+    source: "WillWrightShowForFood/characters/will-wright/sources/2018-04-23-sims-crowd-sitter/"
+
+# WHAT THIS SETTLES
+
+the_host_is_the_relationship:
+  claim: |
+    Cupid's effect does not belong to either Sim. It belongs to the EDGE between
+    them, and it has a direction.
+  therefore: |
+    A relationship is a HOST. That is the fifth host kind, added to SKILL.md
+    § Hosts on the strength of this object:
+
+      hosts: [relationship]
+      host_ref: { from: sim-a, to: sim-b }   # direction matters
+
+    Without it, "Cupid made Bob love Alice, but not the other way round" has to
+    be modelled as two buffs on two characters that happen to reference each
+    other, with nothing keeping them consistent and nothing to dispel as a unit.
+  cross_refs:
+    - "equipment-inventory/SYSTEM.yml — disguises, the same pair-hosted shape with no UI"
+    - "SELF-KORZ.md — symmetric dispatch; Cupid is a shipped instance of it"
+
+the_pie_menu_is_the_coordinate_picker:
+  claim: "A hierarchical pie menu — families, then people, then pets — is a user interface for selecting a coordinate in a guard space."
+  why_it_matters: |
+    Every system in this pedia has a guard vocabulary and no way for a player to
+    navigate it. GAS has hierarchical tags a designer types. CSS has selectors an
+    author writes. Cupid has the same hierarchical structure with a radial menu
+    on top, usable at speed by someone who has never heard the word "guard".
+
+    CONSEQUENCE-LOOP.md argues that pie menus are how advertisements become
+    choices. This is the stronger version: the pie menu is also how a GUARD
+    becomes a choice — the applicator's parameters are picked from the same
+    hierarchy the engine dispatches on.
+
+the_pets_case_is_a_fidelity_ladder_inside_one_object:
+  what: |
+    After the Pets expansion, Cupid can target pets: the romance relationship
+    edit works, and the marriage animations do not exist for them.
+  why_it_is_the_perfect_example: |
+    ONE OBJECT, TWO TIERS, DIFFERENT PORTABILITY — which is exactly
+    interchange.yml's fidelity ladder, occurring inside a single applicator
+    rather than between two games:
+
+      - numeric tier (relationship scores) — ports to the new host kind cleanly
+      - behavioral/animation tier — has no representation for the new host
+
+    And the honest handling is what Cupid does: allow the part that works,
+    decline the part that does not, and do not fake the difference.
+  the_design_consequence: |
+    This is the argument for per-buff `hosts:` rather than a global rule. The
+    right answer is not "Cupid works on pets" or "Cupid does not work on pets" —
+    it is that each EFFECT within Cupid declares which hosts it can serve, and
+    the applicator applies the subset that applies.
+
+what_moollm_should_adopt:
+
+  applicator_as_a_first_class_object:
+    take: "an object whose job is to apply effects to many hosts, carrying its own targeting UI"
+    why: |
+      skills/buff/ has APPLY as a method taking one target. There is no notion of
+      an object that holds a targeting interface, selects a set, and applies to
+      all of it — which is how every one of these three objects works, and how a
+      director actually wants to operate.
+
+  relationship_as_a_host:
+    take: "hosts: [relationship], with an explicit direction"
+    why: "the only honest place for Cupid's effect, and for jealousy, grudges, trust, and the disguise case"
+
+  multi_dispatch_on_applier_and_target:
+    take: "resolve the effect from BOTH parties, not from the target with the applier as metadata"
+    why: "Cupid is a shipped instance of symmetric dispatch, in a 25-year-old game, written by the person who needs it now"
+
+  orchestration_bundled_with_modification:
+    take: "an applicator may instantiate, act, edit state, and animate as one transaction"
+    why: |
+      A buff in skills/buff/ is a data change. Cupid is a data change plus the
+      staging that makes it visible and believable — and the animation is not
+      decoration, it is how the player learns the state changed at all.
+      Compare Black & White rendering alignment on every surface.
+
+  suppression_as_a_legitimate_effect:
+    take: "a buff that suspends part of the simulation so a story can complete"
+    why: |
+      Buddha suppresses needs. Nothing in the buff vocabulary covers "turn off
+      the motive system for these N characters until the ceremony ends", and any
+      system used for staging stories will need it. Director tools are not
+      cheating; they are the point of a playset.
+
+  an_orchestrator_object_that_owns_the_plan:
+    take: "one placeable object owning the state machine, the phase, the spawns, and the cleanup"
+    why: |
+      Staged events need a state owner, and putting it in an object rather than in
+      a global scheduler makes it inspectable, movable, saveable, and legible to
+      the player. It also gives phase-scoped buffs somewhere to be unwound from
+      when the scene aborts. See the_hope_chest above.
+
+  publish_the_guard_and_keep_the_locked_thing_attractive:
+    take: "locked options stay visible, keep a high score, and carry guidance saying what would unlock them"
+    why: |
+      The Hope Chest's locked_ads_policy is the answer to every legibility failure
+      in this pedia, already implemented in Sims 1 furniture. TECH-TREE.md should
+      take it verbatim as the rule for presenting a locked node.
+
+  name_the_state_owner_after_what_it_means:
+    take: "when state needs a home, house it in an object whose ordinary meaning is holding that state"
+    why: |
+      A hope chest holding a wedding plan explains itself. An invisible object
+      holding a disease explains nothing (systems/sims-1/). Same structural move,
+      opposite outcome, and the difference is whether the object means anything.
+
+import_export:
+  data_location: "The Sims 1 .iff objects; SimAntics BHAV trees. simprov/GameData and simprov/Downloads on disk."
+  extractability: |
+    High, and uniquely so — Don wrote them, holds the sources, and has the
+    tooling (SimObliterator_Suite, obliterator). This is the one system in this
+    pedia where the answer to "can we read the real behavior?" is yes without
+    reverse engineering.
+  useful_direction: |
+    Import: read the actual BHAV trees for Cupid and Buddha and document the
+    real guard and effect structure, replacing this entry's session-testimony
+    confidence with source-verified detail.
+  rights: "Don's own objects; graphics by SimBabes/SimFreaks collaborators. Status: republishing (catalog says so)."
+
+todo:
+  - "Read the Cupid and Buddha BHAVs from simprov/Downloads and upgrade this entry to source-verified"
+  - "Document the relationship matrix layout as Sims 1 actually stores it, for the relationship-host design"
+  - "Check whether Buddha suppresses decay, freezes values, or satisfies continuously — three different effects with the same appearance"
+
+external_refs:
+  - { role: catalog, title: "SimProv catalog — object roles", path: "WillWrightShowForFood/catalogs/simprov/CATALOG.yml" }
+  - { role: segment, title: "Speed Dating with Cupid — pie-menu mechanic, published long-form run", path: "WillWrightShowForFood/bits/gag-speed-dating-with-cupid/gag-speed-dating-with-cupid.yml" }
+  - { role: segment, title: "The Slap Conga — Buddha keeping the trap alive, kiss/Cupid re-buffing", path: "WillWrightShowForFood/repo-shows/will-wright-premiere/simprov-slap-conga.yml" }
+  - { role: source, title: "The Sims 1 Crowd Sitter (Medium)", url: "https://donhopkins.medium.com/the-sims-1-crowd-sitter-1f478b645148" }
+  - { role: moollm, title: "GAME-PIECES.md — 'Everything that can stand alone does — Cupid, Buddha, the crowd sitter'", path: "designs/GAME-PIECES.md" }
+  - { role: moollm, title: "CONSEQUENCE-LOOP.md — pie menus and advertisements", path: "skills/buff/CONSEQUENCE-LOOP.md" }

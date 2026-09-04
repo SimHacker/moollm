@@ -1,0 +1,117 @@
+# BUFFOPEDIA — interactive fiction: demons, fuses, and the clock
+# family: temporal (the ancestor of the family)
+# confidence: verified — ZIL specifics checked 2026-09-01 against Learning ZIL
+#   (Meretzky, 1995), the Infocom ZIL course, and a documented Zork III port.
+
+system:
+  id: if-daemons-fuses
+  name: "Adventure, Zork/ZIL, TADS, Inform — the turn clock"
+  vendor: "Crowther & Woods 1976–77; Infocom 1979–89; TADS 1988–; Inform 1993–"
+  family: temporal
+  why_it_matters: |
+    THIS IS WHERE THE VOCABULARY SHOULD HAVE COME FROM. Interactive fiction
+    separated the two halves of a buff cleanly, forty-five years ago, and gave
+    them different names — and the names are better than anything in this pedia.
+
+# THE NAMING, WHICH IS THE WHOLE CONTRIBUTION
+
+the_distinction:
+  daemon: "runs EVERY turn until switched off — the tick function"
+  fuse: "fires ONCE after N turns — the expiration date"
+  the_insight: |
+    A buff is a daemon and a fuse bound to the same object.
+
+    EFFECTIVE-VALUES.md defines a buff as a constraint with "a tick function and
+    an expiration date" and treats that pairing as the novel part. IF split those
+    into two named primitives before either had a name in game design, and TADS
+    exposes them as two separate registration calls — add_daemon and add_fuse.
+
+    Adopting these two words costs nothing and immediately clarifies every
+    buff definition in this skill: poison is a daemon with a fuse, a stat
+    modifier is a fuse with no daemon, a permanent aura is a daemon with no fuse.
+
+# THE PROGRESSION, WHICH IS A LESSON IN ABSTRACTION
+
+lineage:
+
+  adventure:
+    year: "1976–77"
+    mechanism: "bare global counters, checked in the main loop"
+    examples: "lamp battery life; dwarf and pirate appearance rolls; the cave-closing countdown"
+    lesson: "No scheduler at all. Every timed effect is an ad-hoc integer plus an if-statement, which is exactly how buffs start out in every codebase."
+
+  zil:
+    year: "1979–89"
+    mechanism: |
+      CLOCKER runs once per turn, after the parser. Timed routines live in a
+      single fixed-size table (C-TABLE, 180 bytes, 6-byte entries): DEMONS grow
+      from one end, QUEUED INTERRUPTS from the other, with C-DEMONS and C-INTS
+      as the boundary pointers. CLOCKER walks the table, decrements each tick
+      counter, and APPLYs the routine when it reaches zero.
+    api:
+      queue: "<QUEUE I-ROUTINE n> — fire n turns from now. n=1 means this same turn, before the next prompt."
+      every_turn: "<QUEUE I-ROUTINE -1> — a tick count of -1 means run every turn until dequeued. The daemon idiom."
+      dequeue: "<DEQUEUE I-ROUTINE> — cancel. The dispel."
+      convention: "queued routines are named I-SOMETHING by convention — I-LANTERN, I-SHOOTING-STAR, I-TRUCK"
+    the_cleanup_bug_they_named: |
+      KILL-INTERRUPTS, called from JIGS-UP (the routine that kills the player).
+      Learning ZIL is explicit that queued actions "cause some silly
+      side-effects if they are not turned off at appropriate times (especially
+      when the player dies)" — which is the troll-flag bug from GAME-PIECES.md,
+      diagnosed in 1979, with a named remedy.
+      SO: a buff system needs a documented mass-dispel on host death or reset,
+      and if MOOLLM's does not have one it will ship the same bug.
+    the_return_value_protocol: |
+      An interrupt returns true to mean "I printed something." WAIT loops for
+      several turns and breaks early if any interrupt reports output. A tick
+      function's return value carries WHETHER IT WAS NARRATIVELY VISIBLE, and
+      the engine uses that to decide whether to keep fast-forwarding.
+      That is a genuinely good idea nobody in this pedia copied: tick functions
+      here return void, so nothing can distinguish a quiet decay from a
+      dramatic one, and there is no basis for interrupting a montage.
+    resource_shape: "fixed table, 180 bytes, growing inward from both ends — a hard cap on concurrent timed effects, which is what a buff system looks like under real memory pressure"
+
+  tads:
+    year: "1988–"
+    mechanism: "add_daemon and add_fuse as explicit methods, with priority ordering"
+    lesson: "Both primitives, named, first-class, with an ordering policy. The most direct ancestor of a buff API."
+    confidence: "high — names and roles verified; priority semantics not checked in detail"
+
+  inform:
+    year: "1993–"
+    mechanism: |
+      Inform 6: daemon and timer properties on objects, with StartDaemon /
+      StopDaemon / StartTimer / StopTimer, a time_left counter and a time_out
+      routine; each_turn for per-turn behavior. Inform 7 rephrases this as
+      "every turn" rules and timed events scheduled in N turns.
+    lesson: |
+      The timer becomes a PROPERTY OF THE OBJECT rather than an entry in a
+      global table. That is the move from a scheduler to self-ticking objects —
+      the same shape as a buff attached to its host, and the shape this skill
+      uses.
+    confidence: "high for Inform 6 API names; Inform 7 described loosely"
+
+what_moollm_should_adopt:
+  - "the words: DAEMON (every tick) and FUSE (once, later). Two primitives, not one fuzzy 'buff'."
+  - "mass-dispel on host death/reset, documented, in the manner of KILL-INTERRUPTS"
+  - "tick functions returning whether they produced visible narration, so fast-forward can be interrupted"
+  - "the ZIL n=1 subtlety: 'fires this same turn, before the next prompt' is a real and distinct case from 'next turn'"
+
+import_export:
+  data_location: "source code — ZIL sources for several Infocom games are public; Inform/TADS ecosystems are open"
+  extractability: "high, and it is READABLE, which matters more"
+  useful_direction: "vocabulary and idioms, not data. Nobody needs I-LANTERN as a buff."
+
+repo_note:
+  relevance: |
+    Don's own territory — zork-mdl is a workspace repo, and MDL is what ZIL grew
+    out of. The primary sources for this entry are on disk, not just on the web.
+  todo: "cross-check the QUEUE/DEQUEUE/CLOCKER claims above against the MDL and ZIL sources in zork-mdl/ and cite file+line, upgrading this entry from 'verified against documentation' to 'verified against source'."
+
+external_refs:
+  - { role: primary, title: "Learning ZIL (Steve Meretzky, 1995) §6.3 Queuing an Interrupt Routine", url: "http://www.if.mirror.stargrave.org/eblong.com-infocom/other/Learning_ZIL_Meretzky_1995.pdf" }
+  - { role: primary, title: "Infocom ZIL course — CLOCK and Queued Actions", url: "https://eblong.com/infocom/other/zil-course.fwf" }
+  - { role: secondary, title: "Zork III event scheduler — CLOCKER, C-TABLE, demons vs queued interrupts", url: "https://deepwiki.com/historicalsource/zork3/4.5-event-scheduler" }
+  - { role: secondary, title: "Zork: The Great Port — the C-TABLE layout, with the CLOCKER loop in both ZIL and Go", url: "https://rokajdnik.com/zork-the-great-port" }
+  - { role: moollm, title: "EFFECTIVE-VALUES.md — 'a tick function and an expiration date', i.e. a daemon and a fuse", path: "skills/buff/EFFECTIVE-VALUES.md" }
+  - { role: moollm, title: "lambdamoo — the other half of this lineage, which had both primitives and never joined them", path: "skills/buff/buffopedia/systems/lambdamoo/SYSTEM.yml" }

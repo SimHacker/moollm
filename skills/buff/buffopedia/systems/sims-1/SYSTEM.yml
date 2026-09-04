@@ -1,0 +1,130 @@
+# BUFFOPEDIA — The Sims 1 (2000)
+# family: economic
+# confidence: high on the advertisement economy and the absence of a
+#   status-effect object; the guinea pig implementation detail is Don's
+#   testimony (in session, 1 Sep 2026) and is exactly the kind of claim worth
+#   confirming against the BHAVs, which are on disk.
+
+system:
+  id: sims-1
+  name: "The Sims 1 — the system that got buffs without the noun"
+  vendor: "Maxis / Will Wright, 2000"
+  family: economic
+  vocabulary:
+    the_buff: "there isn't one — no status-effect object exists"
+    the_mechanism: "SimAntics BHAV trees, motives, and the advertisement economy"
+    the_workaround: "instantiate an invisible object to hold the state"
+  why_it_matters: |
+    The most instructive negative case in this pedia. The Sims 1 has all the
+    BEHAVIOR of a buff system — timed effects, moods that decay, diseases that
+    kill, objects that change what you want — and no NOUN for it. "Moodlet"
+    arrives in The Sims 3, two games later.
+
+    So it answers a question nothing else here can: what do people build when
+    the concept is missing? They materialize entities.
+
+# THE FINDING
+
+no_status_effect_object:
+  what: |
+    Effects live in SimAntics BHAV trees attached to objects, in motive values,
+    and in the advertisement scores objects broadcast. There is no first-class
+    "effect currently active on this Sim, with a duration" record.
+  consequence: |
+    Anything that needed to persist independently of an object interaction had
+    to find a host. And since the only hosts available were OBJECTS IN THE
+    WORLD, that is what got created.
+
+the_guinea_pig_disease:
+  what: |
+    The guinea pig cage, left uncleaned, leads to a bite and a disease that can
+    kill a Sim and spread to others — one of the game's most notorious ways to
+    lose a household.
+  the_implementation: |
+    According to Don, the disease was carried by an INVISIBLE OBJECT created in
+    the world. Not a flag on the Sim, not a status record: an entity, placed,
+    with the effect living in it.
+  confidence: "the disease is well documented; the invisible-object implementation is Don's testimony and should be confirmed against the BHAVs in simprov/"
+
+  the_diagnostic_it_gives_us: |
+    WHEN YOU FIND AN INVISIBLE ENTITY WHOSE ONLY JOB IS TO EXIST, YOU HAVE FOUND
+    A MISSING HOST KIND.
+
+    A disease is not an object. It has no location, no appearance, and nobody
+    interacts with it. It became an object because objects were the only things
+    the model could instantiate, and the effect needed somewhere to live.
+
+    That is a repeatable diagnosis, and it is cheap to apply: search a system for
+    entities that exist purely as anchors, and each one names a kind of host the
+    model should have admitted directly. It is worth running against any world
+    built in MOOLLM as it grows.
+
+  the_second_lesson_legibility: |
+    An invisible object holding a fatal effect with a long fuse is also a
+    LEGIBILITY failure, and a famous one: players lose Sims to the guinea pig
+    without ever learning why, because nothing on screen names the state they
+    are in. There is no icon, no countdown, no readout.
+
+    Black & White's creature learning fails the same way and for the same reason
+    (systems/black-and-white/SYSTEM.yml): the state was real, the reasoning was
+    sound, and the player could not see it, so the outcome felt arbitrary.
+
+    Compare The Sims 3's moodlets — the same class of state, given a name, an
+    icon and a visible timer. Two games later, the fix is a NOUN WITH A UI.
+    That is the whole argument for having a buff object at all.
+
+the_advertisement_economy:
+  mechanism: |
+    Objects broadcast advertisements — "I will satisfy hunger by this much" —
+    scored against a Sim's current motives and distance. The Sim picks the best
+    bid. Autonomy is an auction.
+  buff_reading: |
+    An effect does not have to restrict behavior; it can just BID. This is the
+    `economic` family, and it is the mechanism SimProv's objects exploit:
+    Come and See Me wins the auction outright, and Buddha removes the motives
+    that would otherwise win it (systems/simprov/SYSTEM.yml).
+  what_it_means_for_the_definition: |
+    EFFECTIVE-VALUES.md defines a buff as a constraint over values. The Sims 1
+    demonstrates a different and equally real kind: an effect that changes what
+    a character WANTS rather than what they can do. A modifier on the scoring
+    context, not on a stat.
+
+    skills/buff/ inherits the advertisement model, so it should say explicitly
+    that a buff may modify the auction as well as the attributes. That is the
+    difference between "-2 energy" and "suddenly the piano looks appealing."
+
+what_moollm_should_adopt:
+
+  a_noun_with_a_readout:
+    take: "the thing The Sims 1 lacked and The Sims 3 added: a named, visible, expiring state object"
+    why: "the guinea pig is what invisible state costs — a death nobody can explain and a player who learns nothing"
+
+  buffs_that_bid:
+    take: "an explicit effect kind that modifies advertisement scores rather than attributes"
+    why: "half of what a Sims-lineage buff does is change what looks appealing; a stat-only vocabulary cannot say it"
+
+  the_missing_host_diagnostic:
+    take: "treat any entity that exists only to hold state as a bug report against the host model"
+    why: "the room-spirit and the invisible disease object are the same symptom, and it is now a rule that can be checked"
+
+import_export:
+  data_location: "SimAntics BHAV trees inside .iff files. On disk: simprov/GameData, simprov/Downloads."
+  extractability: |
+    Genuinely high here, and uniquely so in this pedia — Don has the tooling
+    (SimObliterator_Suite, obliterator) and decades of familiarity with the
+    format. Every other entry is surveyed from documentation; this one can be
+    read from the actual behavior trees.
+  useful_direction: "read the guinea pig disease BHAVs and document what the invisible object actually is. It settles a design argument this pedia is currently making from analogy."
+  rights: "EA/Maxis game data. Documentation and analysis only."
+
+todo:
+  - "Confirm the invisible-object implementation of the guinea pig disease against the BHAVs in simprov/"
+  - "Check whether other Sims 1 persistent states (fire, flies, ghosts, roaches) use the same invisible-entity idiom — if so this is the general pattern, not one case"
+  - "Document how advertisement scores are actually computed, for the buffs-that-bid design"
+
+external_refs:
+  - { role: primary, title: "simprov/GameData and simprov/Downloads — the actual object data, on disk", path: "simprov/" }
+  - { role: moollm, title: "simprov — Don's own objects, which exploit the advertisement economy deliberately", path: "skills/buff/buffopedia/systems/simprov/SYSTEM.yml" }
+  - { role: moollm, title: "black-and-white — the same legibility failure, diagnosed", path: "skills/buff/buffopedia/systems/black-and-white/SYSTEM.yml" }
+  - { role: moollm, title: "SKILL.md § Hosts — the rule this entry retroactively justifies", path: "skills/buff/SKILL.md" }
+  - { role: moollm, title: "CONSEQUENCE-LOOP.md — advertisements, pie menus, and consequences", path: "skills/buff/CONSEQUENCE-LOOP.md" }

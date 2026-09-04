@@ -1,0 +1,33 @@
+room:
+  name: "The Sealed Stacks"
+  type: vault
+  emoji: "🔐"
+
+  description: |
+    A cage of shelving behind a gate that is theatrically locked and functionally open.
+    Raw transcripts, contradictory reports, and the drafts nobody wants cited sit in
+    labeled boxes. The gate's key hangs on a nail beside the gate.
+
+  examine: |
+    The placard explains the protocol, at length, with evident pride:
+      "MOOLLM HAS TOTAL VISIBILITY. YOU CAN READ EVERYTHING IN HERE.
+       YOU ARE NEVERTHELESS OBLIGED TO TREAT IT AS SEALED,
+       TO GASP AT REVELATIONS, AND TO NOT KNOW WHAT YOU KNOW.
+       SECURITY THEATER IS STILL THEATER. PLAY IT WELL."
+    Someone has scratched underneath: "best room in the building"
+
+  sign: "SEALED (PERFORMATIVELY) — KEY ON THE NAIL"
+
+  exits:
+    out:
+      to: ../
+      description: "Back up to the evidence cellar."
+      aliases: [back, out]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. See designs/pie-stack-views/THE-TOWER.md
+  learn:
+    - doc: ../../../../../../../designs/eval/EVAL-FACTIONS.md
+      why: "Contradictory reports held in tension rather than resolved — why they are kept, not reconciled"
+    - doc: ../../../../../../../designs/eval/EVAL-ARTIFACTS.md
+      why: "The artifact layer this vault is the raw end of"

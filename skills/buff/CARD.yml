@@ -3,9 +3,16 @@
 # Temporary effects system — curses are just shitty buffs.
 # "All effects are buffs. Some are just shitty."
 #
-# IMPORTANT: Buffs only target CHARACTERS, never rooms directly.
-# If a room needs buffs, create a "room spirit" character for it.
-# This keeps the buff system simple — one target type, one signature.
+# HOSTS: a buff attaches to whatever the effect belongs to —
+#   a character (caffeinated), a room (haunted), an object (a lantern burning
+#   down), a prototype (silver that harms whoever wields it), a relationship
+#   (Bob is smitten with Alice, whatever Alice thinks), or the ruleset (Fluxx).
+# Same fields and same clock regardless of host.
+# A buff may declare `hosts:` where it only makes sense somewhere; a world may
+# declare buff_policy.allowed_hosts to narrow a whole game. Default: any.
+# Rooms and objects can also delegate to `character` and simply BE characters —
+# wanting things, taking turns, narrating. No separate spirit entity involved.
+# Details, and the `radiates:` field for reaching occupants: SKILL.md § Hosts.
 
 card:
   id: buff
@@ -21,7 +28,9 @@ card:
     Can be numeric (+2 energy) or semantic ("feeling lucky").
     Curses are just negative buffs — no separate system needed.
     
-    TARGET: Characters only. Rooms get buffed via "room spirit" characters.
+    HOSTS: anything — characters, rooms, objects, prototypes, the ruleset.
+    A buff may declare `hosts:` to restrict itself; a world may declare
+    `buff_policy.allowed_hosts` to restrict the game. Default is unrestricted.
 
 # TOOLS REQUIRED
 
@@ -108,7 +117,8 @@ methods:
     invoked-by: [healer, shrine, item]
 
 # STATE
-# Buff structure (lives on CHARACTERS only, never rooms)
+# Buff structure. Lives on the host's `buffs:` list, whatever kind of thing
+# the host is — character, room, object, prototype, ruleset.
 
 state:
   buff-schema:
@@ -279,8 +289,9 @@ standard-properties:
     speed: { range: "numeric", description: "Movement/action rate" }
     luck: { range: [-100, 100], description: "Chance modifier" }
     
-  # Room spirit stats (for room-spirit characters)
-  room-spirit:
+  # Room stats — these belong to the ROOM itself, which hosts its own buffs.
+  # (Formerly "room-spirit stats", when a room needed a character to hold them.)
+  room:
     production_speed: { range: "percent", default: 100, description: "Work rate in room" }
     error_rate: { range: "percent", default: 5, description: "Mistake probability" }
     mood_influence: { range: [-100, 100], default: 0, description: "Mood effect on occupants" }

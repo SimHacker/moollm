@@ -1,0 +1,51 @@
+# THE PAUSE MARK
+# A DISPENSER. It holds a view of one document — framing, context, why-it-is-here — and it
+# issues stamped souvenirs of that view. The object is not the document; several dispensers in
+# several rooms may point at the same one, and a ref may drill down to a section.
+# See designs/webtop/DISPENSERS-AND-SOUVENIRS.md
+
+object:
+  name: "The Pause Mark"
+  type: [dispenser, document_reference, design_reference]
+  emoji: "⏸️"
+  portable: false         # the dispenser stays; what it issues does not
+
+  ref:
+    doc: ../../../../../../designs/eval/PAUSE-MARK-STORY.md
+    why: "The mark that is not yet a score"
+
+  description: |
+    The Pause Mark — a brochure stand holding `PAUSE-MARK-STORY.md`.
+    The mark that is not yet a score
+
+  examine: |
+    A brochure stand, well stocked. Reading it here does not move the document; it shows you
+    where the document lives and what this room thinks it is for.
+    Take one — they are free, and yours will be stamped with this room.
+
+  dispenses:
+    souvenir: "Brochure: The Pause Mark"
+    weight: 0             # a reference, not a copy — see skills/inventory/
+    ref:
+      doc: ../../../../../../designs/eval/PAUSE-MARK-STORY.md
+    stamp:                # what makes it a souvenir rather than a bookmark
+      from_room: "Basement 3 Null Chapel"
+      from_dispenser: pause-mark
+      at: <now>
+      issue: <next>
+    redeemable: [read, cite, trade, place]
+
+  actions:
+    READ:
+      description: "Read the referenced document"
+      aliases: [read, open, examine, study]
+      effect: |
+        Reads ../../../../../../designs/eval/PAUSE-MARK-STORY.md
+        Why it is shelved here: The mark that is not yet a score
+    TAKE:
+      description: "Take a stamped souvenir"
+      aliases: [take, get, pocket, collect]
+      effect: |
+        You take a Brochure of The Pause Mark, stamped "Basement 3 Null Chapel" with today's date
+        and an issue number. Weight 0. The document stays where it is; the stamp
+        remembers where you were standing.

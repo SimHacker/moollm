@@ -44,6 +44,47 @@ big_endian:
 
 
 
+# CHILD ORDERING
+# Enumeration order is derived from child names, never from a manifest.
+# Three disciplines; pick one per container and stay consistent within it.
+
+ordering:
+  principle: "Lexical sort IS the order. No index file to drift out of sync."
+
+  disciplines:
+    unprefixed:
+      shape: "narthex/ roof/ mirror-room/"
+      order: "alphabetical, and that is the whole answer"
+      use_when: "Order does not carry meaning — a set, not a sequence"
+
+    fixed_width_numeric:
+      shape: "00-intake/ 01-factory/ 02-shipping/  ·  0000-first.md 0010-second.md"
+      order: "authored sequence"
+      why_padded: |
+        Lexical sort equals numeric sort ONLY at fixed width. Unpadded breaks at 10:
+        1, 10, 11, 2. Pad to the width you will plausibly need, then stop worrying.
+      gap_convention: "Leave gaps (0010, 0020) so insertion does not renumber siblings"
+      use_when: "Sequence is authored and stable — chapters, floors, pipeline stages"
+
+    big_endian_date:
+      shape: "2026-09-04-session.yml  ·  2026-09/  ·  2026-09-04T10-30-notes.md"
+      order: "chronological, for free"
+      why: "ISO 8601 is big-endian by construction, so it already sorts right"
+      use_when: "A timeline — sessions, logs, correspondence, releases"
+      see: "big_endian.examples above; same rule, applied to time"
+
+  mixing: |
+    Do not mix disciplines inside one container: 00-foo/ beside 2026-09-04-bar/ beside baz/
+    sorts numerics first, dates second, words last, which is an order nobody intended.
+    If a container needs two orders, it needs two containers.
+
+  ordering_is_not_identity: |
+    The prefix orders; it does not name. 01-factory/ is the factory, not "01".
+    Renumbering must not break references, so refer to children by their unprefixed
+    stem and let the resolver match on suffix.
+
+
+
 # FILE EVOLUTION LIFECYCLE
 
 evolution:
@@ -83,6 +124,8 @@ k_lines:
   BIG-ENDIAN: "Most significant component first"
   PREFIX-OWNERSHIP: "Prefix implies belonging"
   SAME-NAME-IDENTITY: "File named like directory IS the directory"
+  PAD-TO-SORT: "Fixed-width numeric prefixes; lexical sort equals numeric sort only when padded"
+  ONE-ORDER-PER-CONTAINER: "Do not mix numeric, date, and bare children in one directory"
   ABOUT-NOT-INSIDE: "Conversations about objects don't live inside them"
   VIRTUAL-PARENT: "Prefixes create implicit parent groups (no-ai → no-ai-*)"
 

@@ -46,3 +46,13 @@ room:
       to: signal-chapel/
       description: "A small chapel for signal calibration and quiet vows."
       aliases: [chapel, signal, vows]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. Backlink for the memory palace — the design
+  # corpus already links in, so without this the rooms are orphans.
+  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+  learn:
+    - doc: ../../../../../../designs/eval/EVAL-VS-SIM.md
+      why: "Where evaluation and restraint negotiate instead of fighting"
+    - doc: ../../../../../../skills/no-ai-slop/CARD.yml
+      why: "The other side's doctrine, read on its own terms"

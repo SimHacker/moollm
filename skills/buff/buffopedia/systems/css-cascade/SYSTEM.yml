@@ -1,0 +1,142 @@
+# BUFFOPEDIA — the CSS cascade
+# family: engine | confidence: high (standard behavior, uncited specifics are
+#   from the Cascading and Inheritance spec family; verify level numbers before
+#   quoting them normatively)
+
+system:
+  id: css-cascade
+  name: "CSS cascade, specificity, and inheritance"
+  vendor: "W3C / WHATWG — Håkon Wium Lie's 1994 proposal onward"
+  family: engine
+  vocabulary:
+    the_buff: "declaration (a property: value pair in a matching rule)"
+    the_guard: "selector, plus pseudo-classes, media/container/supports queries"
+    the_combine: "the cascade"
+    the_stat: "computed value of a property"
+    the_cache: "computed style, invalidated by style invalidation"
+  why_it_matters: |
+    The most widely deployed modifier-aggregation system on Earth. It is not
+    marketed as a buff system, nobody calls its declarations buffs, and it
+    independently derived nearly every mechanism in this pedia — including two
+    that MOOLLM's buff skill does not have yet.
+
+# SCORED AGAINST THE DEFINITION
+# "a constraint — an expression that inherits from a parent then overrides,
+#  procedurally modifies and combines with other dependencies, and caches —
+#  with a tick function and an expiration date."
+
+definition_scorecard:
+  constraint: "YES — declarations are declarative relations, never imperative writes"
+  expression: "YES — calc(), var(), and relative units are expressions over other values"
+  inherit_then_override: "YES — inheritance down the DOM tree, with inherit / initial / unset / revert / revert-layer as explicit override verbs"
+  combine_with_dependencies: "YES — the cascade IS the combination algorithm"
+  cache: "YES — computed styles are cached and invalidated by a dependency mechanism engines call style invalidation"
+  tick_function: "PARTIAL — transitions and animations tick over time, but only over presentational properties"
+  expiration_date: "NO — this is the one component CSS lacks. A declaration never ages out. animation-fill-mode is the closest thing, and it governs a curve, not a binding's mortality."
+  verdict: |
+    Five and a half of six. CSS is a buff system that never needed mortality,
+    because a document does not have a simulation clock. Add an expiration date
+    to a stylesheet and you would have this skill.
+
+# THE FOUR AXES
+
+guard:
+  mechanism: "selector match, plus conditional at-rules"
+  the_specificity_lattice: |
+    Specificity is a tuple — (id count, class/attribute/pseudo-class count,
+    type/pseudo-element count) — compared lexicographically. That is a
+    SPECIFICITY LATTICE for guards, the same structure as GAS's hierarchical
+    GameplayTags and as Korz's constrained coordinates: a more specific guard
+    beats a less specific one, and "more specific" is a computed partial order
+    rather than an author-assigned number.
+  temporal_guards:
+    - ":hover, :focus, :active — state-dependent, re-evaluated continuously. These are `while:` guards."
+    - "@media — guards on ambient environment (viewport, print, prefers-reduced-motion)."
+    - "@container — guards on the PARENT's state, which is the closest CSS gets to reading a Korz coordinate someone else bound."
+    - "@supports — guards on engine capability."
+  negative_guard: ":not() and :has() — blocked_by, with :has() finally allowing an upward guard"
+
+conflict:
+  mechanism: "a legislated total order, evaluated in strict sequence"
+  order_sketch: "origin + importance → context/encapsulation → style attribute → cascade LAYERS → specificity → order of appearance"
+  observation_aggregate_by_source: |
+    THE CASCADE IS AGGREGATE-BY-SOURCE, FROM 1994. The whole point of
+    "cascading" was combining user-agent, USER, and author stylesheets with
+    declared precedence between the parties. Unreal's GAS calls this
+    AggregateBySource and treats it as an advanced feature; CSS made it the
+    founding metaphor and named the language after it.
+  observation_declared_layers: |
+    @layer (Cascade Layers) lets authors declare precedence BANDS evaluated
+    before specificity — so a low-specificity declaration in a higher layer
+    beats a high-specificity one in a lower layer. That is exactly GAS's
+    Modifier Evaluation Channels, arrived at independently, roughly twenty-five
+    years apart, for the same reason: authors kept fighting the combination
+    algorithm and needed a way to say "this group wins, stop counting."
+  override_op: "!important — the same role as GAS's Override and Magic's layer-7b set effects"
+
+  the_political_clause: |
+    Worth reading closely, because it is the clearest example in this pedia of a
+    conflict-resolution policy encoding an ethic. Normally author styles beat
+    user styles. But !important INVERTS the origin order, and the inversion is
+    asymmetric on purpose: a USER's !important beats an AUTHOR's !important.
+
+    The tie-breaking rule exists so that a person who needs larger text or
+    higher contrast cannot be overridden by a site. The standard legislated a
+    total order and then wrote in a clause protecting the weaker party.
+
+    This is the CONSEQUENCE-LOOP.md argument in the wild: the conflict policy IS
+    the politics, and it is auditable because it is written down. Compare the
+    Sims choice of whether poverty debuffs the person or the room.
+
+lifetime:
+  declarations: "immortal — no expiry, no dispel; only re-cascading changes anything"
+  transitions_animations: "duration + delay + fill-mode; animation-fill-mode: forwards persists the end state"
+  the_gap_and_the_lesson: |
+    Because declarations never expire, CSS needs no cleanup path, no TICK for
+    removal, and no succession (`spawns_after`). Every awkward part of a buff
+    system is downstream of mortality. That is worth knowing when the buff skill
+    feels complicated: the complexity is the clock, not the combination.
+
+ownership:
+  order_owner: "a standards body — the order is specified, not configurable"
+  contrast: "MTG legislates in a rulebook and errata's it; GAS hardcodes and lets you add channels; CSS specifies and evolves by adding a new stage (layers) rather than renumbering."
+
+caching:
+  mechanism: "computed style caches with dependency-driven invalidation"
+  relevance: |
+    This is the refined end of the invalidation spectrum in EFFECTIVE-VALUES.md.
+    Browser engines cannot recompute every element's style every frame, so style
+    invalidation tracks which DOM mutations dirty which subtrees — dirty-marking
+    over a dependency graph, at a scale no game buff system approaches.
+  ambient_context: |
+    Custom properties (--foo) inherit down the tree and can be overridden at any
+    node. That is MOODY's ambient heat, exactly: the room sets it, everything
+    inside inherits it, any child can shadow it. CSS shipped context inheritance
+    for arbitrary author-invented dimensions, which is the Korz′ move of letting
+    the author name a dimension nobody designed for.
+
+what_moollm_should_adopt:
+  - "COMPUTED specificity as guard precedence, instead of author-assigned priority integers — a more specific guard should win by construction"
+  - "declared precedence bands (@layer) as an escape hatch when specificity gives the wrong answer"
+  - "revert / revert-layer as first-class verbs: undo to the previous layer, not to base"
+  - "the recognition that ambient inheritable custom dimensions (--var) are the ambient-heat mechanism, generalized"
+
+what_moollm_should_not_adopt:
+  - "immortality — the clock is the point here"
+  - "specificity as the ONLY precedence rule; CSS spent two decades learning that authors need layers too"
+
+import_export:
+  data_location: "text stylesheets — the most readable corpus in the pedia"
+  extractability: "trivial"
+  useful_direction: |
+    Not content import — nobody wants a website's declarations as character
+    buffs. What ports is the ALGORITHM: cascade order, specificity comparison,
+    revert semantics. Worth implementing rather than importing.
+  rights: "The specifications are open. Any given site's stylesheet is its own."
+
+external_refs:
+  - { role: spec, title: "CSS Cascading and Inheritance (cascade order, layers, revert)", url: "https://www.w3.org/TR/css-cascade-5/" }
+  - { role: history, title: "Håkon Wium Lie, Cascading HTML style sheets — a proposal (1994)", url: "https://www.w3.org/People/howcome/p/cascade.html" }
+  - { role: moollm, title: "unreal-gas — evaluation channels, the same idea 25 years later", path: "skills/buff/buffopedia/systems/unreal-gas/SYSTEM.yml" }
+  - { role: moollm, title: "EFFECTIVE-VALUES.md — invalidation policies, where style invalidation sits", path: "skills/buff/EFFECTIVE-VALUES.md" }
+  - { role: moollm, title: "CONSEQUENCE-LOOP.md — conflict policy as politics", path: "skills/buff/CONSEQUENCE-LOOP.md" }

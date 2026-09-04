@@ -1,0 +1,253 @@
+# BUFFOPEDIA — Black & White (2001)
+# family: conduct (the family this entry establishes)
+# confidence: verified — architecture checked 2026-09-01 against Richard Evans's
+#   own write-up (gameai.com, archived) plus secondary sources. Specific numbers
+#   and per-miracle behavior not checked.
+
+system:
+  id: black-and-white
+  name: "Black & White — continuous alignment, and a creature that learns"
+  vendor: "Lionhead Studios / Peter Molyneux, 2001. Creature AI led by Richard Evans."
+  family: conduct
+  vocabulary:
+    the_guard: "alignment (continuous good↔evil), computed from everything you have done"
+    the_readout: "your hand, your temple, your creature's body, the landscape — all of it"
+    the_second_guard: "the creature's learned opinions — a guard nobody authored"
+  why_it_matters: |
+    THE STRONGEST CONDUCT-GUARD CASE IN THIS PEDIA, and it beats Spore on two
+    axes at once: the guard is CONTINUOUS rather than bucketed into archetypes,
+    and its current value is RENDERED ON EVERY SURFACE IN THE GAME rather than
+    cashed out invisibly at a stage transition.
+
+    Then it does something Spore does not attempt at all: a second guard that is
+    LEARNED rather than authored. That one is the real ancestor of the
+    LLM-judged soft guard in SELF-KORZ.md §4 — including its failure mode.
+
+terms:
+  bdi: "Belief-Desire-Intention — Michael Bratman's model of practical reasoning, standard in agent research. An agent forms an intention by combining what it believes, what it wants, and its views on how to get it."
+  perceptron: "the simplest neural network — one layer, a weighted sum. Cheap, trainable from very few examples, and not remotely deep learning."
+  decision_tree: "a branching test structure: check an attribute, follow a branch, arrive at an answer. Readable by a human, which matters below."
+  id3: "Ross Quinlan's algorithm for building a decision tree by repeatedly choosing the attribute that best separates the training examples."
+  entropy: "a measure of how mixed-up a set of outcomes is. ID3 picks the attribute that reduces it most — i.e. the question whose answer explains the most."
+  inverse_reinforcement_learning: "inferring what someone WANTS by watching what they do, rather than being told the goal directly"
+  few_shot_learning: "learning from a handful of examples instead of millions"
+
+# GUARD ONE — ALIGNMENT, CONTINUOUS AND VISIBLE
+
+alignment:
+  mechanism: |
+    The player is a god. Every action — which miracles you cast, whether you
+    heal or burn villagers, what you let your creature do — moves alignment along
+    a continuous good↔evil axis. Nothing is spent, nothing is researched; the
+    axis is a running summary of conduct.
+  separate_alignments: |
+    The creature has an alignment SEPARATE from the player's. Two conduct
+    dimensions, independently accumulated, on two entities in a relationship —
+    so a good god can end up with an evil creature and have to live with it.
+
+  the_rendering: |
+    THIS IS THE PART TO STEAL.
+
+    Alignment is not a number on a stats screen. It is drawn on:
+      - your hand (the cursor — the player's own body in the world)
+      - your temple and its interior
+      - your creature's body: an evil creature grows glowing eyes and enlarged
+        fangs and claws, a good one shifts toward a soft purple and a gentle glow
+      - the landscape inside your influence
+    Wikipedia's own summary of the design is that the game "reinforces the
+    creature's choices and learning by providing visual feedback."
+  why_that_solves_a_named_problem: |
+    observations.yml says MOOLLM lacks CONTINUOUS STRENGTH — weights instead of
+    booleans — and the standard objection to weights is that players cannot read
+    a 0.63. Black & White answers it: you do not show the number, you show the
+    consequence, continuously, on everything the player already looks at.
+
+    That is also exactly what MOODY.md needs and does not have. Heat as a curve
+    is unreadable as a curve; heat as a palette, a posture and a growl is
+    readable without a single digit on screen.
+
+influence_radius:
+  mechanism: "your power is bounded to a region that grows with villagers' belief — miracles only work inside it"
+  buff_reading: |
+    An aura whose radius is a computed function of accumulated belief. The
+    aura family with a dynamic extent, which is more than any entry here does:
+    elsewhere an aura's radius is authored, not earned.
+
+leashes:
+  mechanism: |
+    Three physical leashes tether god to creature, one at a time: one makes the
+    creature attend closely while you demonstrate an action, and the other two
+    push it toward benevolent or malevolent behavior. A leash can also be tied
+    to a building to restrict where the creature goes.
+  buff_reading: |
+    An equipment slot capped at one binding (see equipment-inventory), except
+    the buff is RENDERED AS A PHYSICAL OBJECT connecting the applier to the
+    target. You can see which modifier is active, who is applying it, and to
+    whom, from across the map.
+
+    Compare skills/buff/, where a buff is an entry in a list on a character and
+    has no depiction at all. The leash is the strongest argument in this pedia
+    that buffs should be visible objects in the world rather than rows in a
+    table.
+  and_it_is_a_learning_channel: "the attention leash exists so the creature can infer your intention from your behavior — inverse reinforcement learning, wired to a piece of tack"
+
+# GUARD TWO — THE LEARNED ONE
+
+creature_architecture:
+  model: "Belief-Desire-Intention, with a deliberately MIXED set of representations"
+  representations:
+    beliefs_about_individuals: "symbolic lists of attribute-value pairs"
+    beliefs_about_types: "decision trees"
+    desires: "perceptrons"
+    opinions: "decision trees, built dynamically with ID3 to minimise entropy — an opinion is how to satisfy a desire"
+  intention_formation: "for each desire, pick the belief with the best opinion; that becomes the intention"
+  evans_rationale: |
+    Evans cites Minsky on causal diversity and refuses a uniform
+    representation on purpose: "beliefs are symbolic structures, whereas desires
+    are more fuzzy." Different jobs, different substrates, in one agent.
+  why_this_belongs_in_a_buff_pedia: |
+    An OPINION IS A LEARNED GUARD. It is the predicate deciding whether a given
+    action applies to a given situation, and no designer wrote it — it was
+    induced from experience. Everything else in this pedia has authored guards.
+
+the_four_learning_channels:
+  # Evans's own list. The convergence below is the observation.
+  channels:
+    - { name: "player feedback", how: "stroking or slapping" }
+    - { name: "instruction", how: "being commanded — told to attack a town, it learns that sort of town should be attacked" }
+    - { name: "observation", how: "watching the player, other creatures, or villagers" }
+    - { name: "reflection", how: "after acting to satisfy a motive, noticing how well it worked and adjusting the weights" }
+  the_observation: |
+    READ THAT LIST AGAIN IN MODERN TERMS: reinforcement learning from human
+    feedback, instruction-following, imitation learning, and self-reflection.
+    That is a 2001 shipped game enumerating the four channels the current
+    generation of language-model work is built on, in the same order.
+  steal_it_wholesale: |
+    This is the taxonomy MOOLLM should use for how a character's dispositions
+    come to exist. skills/buff/ has exactly one channel — an author writes a
+    buff and something applies it. Evans had four, and three of them require no
+    author at all.
+
+the_creature_models_its_god:
+  what: |
+    The creature maintains a symbolic representation OF THE PLAYER, learns the
+    player's personality from observation, and uses it to work out which actions
+    would most please them.
+  confidence: "high — stated in Evans's write-up and in secondary analyses; exact representation not verified"
+  why_it_is_remarkable_here: |
+    observations.yml lists PREDICATES ON BOTH ENDS as a primitive MOOLLM lacks —
+    a condition on the applier, not just the target. Black & White has one, and
+    it is LEARNED: the creature's model of its god is a predicate about the
+    applier, induced from watching them, used to anticipate approval before
+    feedback arrives.
+
+    Nobody else in this pedia gets close. Unreal's GAS lets a designer write
+    source tags; Kubernetes lets an operator write tolerations. Lionhead shipped
+    an agent that figures out the applier for itself.
+
+the_few_shot_constraint:
+  what: |
+    Players expect a pet to learn immediately, so bulk statistical learning was
+    unusable — hence perceptrons and ID3 trees that generalise from a single
+    piece of feedback, on late-1990s hardware with a few hundred megabytes of RAM.
+  why_it_matters_now: |
+    The constraint that forced the entire architecture is the thing language
+    models are natively good at. Evans needed few-shot generalisation and had to
+    engineer it from the cheapest available parts; MOOLLM gets it as the default
+    behavior of its substrate.
+
+    So the honest statement of MOOLLM's advantage is narrow and specific: not
+    "we have AI now", but "the specific hard problem this system was built
+    around — generalising a disposition from one example — is free here." What
+    is NOT free is everything below.
+
+# THE FAILURE, WHICH IS THE MOST IMPORTANT PART FOR THIS PROJECT
+
+the_opacity_problem:
+  what: |
+    The creature's learning was famously hard to steer. Feedback is ambiguous:
+    slap it and it does not necessarily know WHICH recent action you meant.
+    Creatures acquired durable bad habits — the one that learned to eat
+    villagers is the folk memory — and players had no way to see what had been
+    learned, so correction became superstition. Molyneux wanted a Turing test;
+    a lot of players got an animal that felt arbitrary.
+  confidence: "high that this critique is widespread and long-standing; specific anecdotes are folklore, not measurements"
+
+  the_diagnosis: |
+    The representation was not the problem. A decision tree is one of the most
+    readable structures in machine learning — you can print it. The problem is
+    that it was never SHOWN. The game rendered the creature's alignment
+    beautifully and its reasoning not at all.
+
+    So there were two legibility surfaces needed and only one was built:
+      - WHAT the disposition currently is → rendered, everywhere, superbly
+      - WHY it is that way, and what my last correction actually changed →
+        absent
+
+  the_lesson_for_moollm: |
+    THIS IS THE FAILURE MODE OF THE LLM-JUDGED SOFT GUARD, ALREADY DEMONSTRATED.
+
+    A prose guard an LLM evaluates over a character's history is exactly Black &
+    White's opinion tree with a less inspectable representation and a much bigger
+    vocabulary. If the player cannot see why the judgement went the way it did,
+    they will do what Black & White players did: form superstitions, over-correct,
+    and conclude the system is arbitrary.
+
+    Two requirements follow, and they are cheap here in a way they were not in
+    2001, because the judge produces text natively:
+      1. Every soft-guard judgement records its REASON alongside its verdict.
+      2. Every correction reports its ATTRIBUTION — "I took that as disapproval
+         of feeding the villagers, not of the dance" — so the player can
+         disagree with the attribution rather than just repeating the slap.
+
+    Requirement 2 is the one Black & White could not do and MOOLLM can. It
+    should be in the soft-tier design from the start, not added after the first
+    character develops an inexplicable habit.
+
+comparison_with_spore:
+  spore: "conduct bucketed into about ten named archetypes at stage boundaries; legible, coarse, authored, and cashed out as a discrete ability"
+  black_and_white: "conduct as a continuous axis, rendered constantly; plus a second guard that is learned, fine-grained, and unrendered"
+  the_pairing: |
+    Together they bracket the design space for conduct guards, and the tradeoff
+    is legibility versus resolution. Spore's ten archetypes are trivially
+    explainable and cannot express much. Black & White's learned opinions express
+    a great deal and explain nothing.
+
+    MOOLLM does not have to choose. A prose judge with unbounded resolution CAN
+    emit a legible summary — "currently reads as: protective, grudge-holding" —
+    which is Spore's archetype label generated on demand instead of selected from
+    a fixed list. That is the synthesis, and it is available.
+
+what_moollm_should_adopt:
+  - "render the guard's value on surfaces the player already looks at, instead of showing the number"
+  - "the four learning channels — feedback, instruction, observation, reflection — as the taxonomy for how dispositions arise"
+  - "buffs as visible world objects with a visible applier: the leash"
+  - "auras with an earned, computed radius rather than an authored one"
+  - "two alignments on two entities in a relationship, accumulated separately"
+  - "MANDATORY reason-and-attribution logging for any judged guard — the fix for the one thing this game got wrong"
+
+import_export:
+  data_location: "proprietary and long out of print; no meaningful data corpus"
+  extractability: "none needed"
+  useful_direction: "architecture and lessons only. Evans's own write-up is the primary source and is short."
+
+lineage_thread:
+  claim: "Richard Evans went from this creature to autonomy work on The Sims 3, then to Versu with Emily Short, and later to DeepMind."
+  confidence: "high, but each hop should be checked before it is stated as fact in a show script"
+  why_it_matters_to_this_archive: |
+    A direct personnel link between Lionhead's learned-disposition creature and
+    Maxis autonomy — the same design question (how does an agent decide what to
+    want?) answered twice, by the same person, in two houses. That is a
+    WillWrightShowForFood thread, not just a pedia footnote: The Sims scores
+    broadcast advertisements, Black & White's creature forms intentions from
+    perceptron desires and learned opinions, and someone worked on both.
+  cross_repo: "WillWrightShowForFood/ — potential guest thread and a Sims-autonomy comparison"
+
+external_refs:
+  - { role: primary, title: "Richard Evans, 'AI in Games: From Black & White to Infinity and Beyond' (gameai.com, archived 2001)", url: "http://web.archive.org/web/20010821114932/http:/www.gameai.com/blackandwhite.html" }
+  - { role: secondary, title: "Black & White — BDI model, leashes, separate creature alignment, visual feedback", url: "https://en.wikipedia.org/wiki/Black_%26_White_(video_game)" }
+  - { role: secondary, title: "Student survey quoting Evans on ID3 and the four learning channels", url: "https://www.cs.rochester.edu/~brown/242/assts/termprojs/games.pdf" }
+  - { role: moollm, title: "SELF-KORZ.md §4 — the soft-tier guard whose failure mode this entry documents", path: "skills/buff/SELF-KORZ.md" }
+  - { role: moollm, title: "spore — the other conduct-guard case; bucketed and legible where this one is continuous and opaque", path: "skills/buff/buffopedia/systems/spore/SYSTEM.yml" }
+  - { role: moollm, title: "MOODY.md — wants continuous heat, and this is how to make it readable", path: "designs/MOODY.md" }
+  - { role: moollm, title: "equipment-inventory — slots capped at one binding, which the leash is", path: "skills/buff/buffopedia/systems/equipment-inventory/SYSTEM.yml" }

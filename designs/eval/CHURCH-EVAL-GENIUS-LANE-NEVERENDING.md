@@ -11,16 +11,25 @@ examples/adventure-4/street/lane-neverending/
     narthex/
     audit-choir/
     bias-library/
+    scriptorium/                    # public stacks: the design corpus, freely copyable
+    apothecary/                     # ambient skills as bottles; the ten kept unstoppered
     experiment-loft/
     rubric-forge/
     mirror-room/
     no-ai-elevator/
     roof/
     basement-1-evidence/
+      sealed-stacks/                # the vault; key on the nail beside the gate
     basement-2-bias-engine/
     basement-3-null-chapel/
     basement-4-refusal-vault/
+    basement-5-no-ai-embassy/
 ```
+
+Every room also holds **document dispensers** — brochure stands, shelves of bottles, sealed boxes —
+each holding a view of one design document and issuing stamped souvenirs of it. Several dispensers in
+different rooms may point at the same document, and a reference may drill down to a section, so the
+building doubles as the corpus's index. See [Dispensers and Souvenirs](../webtop/DISPENSERS-AND-SOUVENIRS.md).
 
 ## The road and the front
 

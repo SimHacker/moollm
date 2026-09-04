@@ -727,6 +727,17 @@ strength (measured in blocks, the city kind).
 - [GAME-PIECES.md](GAME-PIECES.md) — advertisement auctions, buffs
   with expiration dates, the dispatch spectrum and temperature as
   context
+- [skills/buff/](../skills/buff/) — the runtime, and the concentrated
+  design: [SELF-KORZ.md](../skills/buff/SELF-KORZ.md) (a buff as slots
+  whose coordinates include the host as one dimension — so heat, weather
+  and rooms stop needing spirit characters),
+  [CONSEQUENCE-LOOP.md](../skills/buff/CONSEQUENCE-LOOP.md) (media as
+  the ambient path into the auction), and
+  [buffopedia/](../skills/buff/buffopedia/) (how eighteen other systems
+  answered the same questions — Blender constraints with an `influence`
+  slider are the continuous guard MOODY wants)
+- [TECH-TREE.md](TECH-TREE.md) — the same mechanism with a progress
+  guard instead of a timer
 - The Sims' advertisement scoring and the Room motive — the shipped
   ancestors
 - Korz (Ungar/Ossher/Kimelman) — implicit context dimensions, the

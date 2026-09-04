@@ -132,3 +132,15 @@ room:
       to: basement-5-no-ai-embassy/
       description: "The mutual NO-AI embassy, deeper below."
       aliases: [embassy, no-ai, deeper, below]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. Backlink for the memory palace — the design
+  # corpus already links in, so without this the rooms are orphans.
+  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+  learn:
+    - doc: ../../../../../designs/eval/CHURCH-OF-THE-EVAL-GENIUS.md
+      why: "The hub — what this institution is and why it exists"
+    - doc: ../../../../../designs/eval/CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md
+      why: "This building, floor by floor, and what it tells you"
+    - doc: ../../../../../designs/eval/CHURCH-EVAL-GENIUS-VAL-AND-FOUNDERS.md
+      why: "'Val' and the founding dyad; the Alonzo Trinity"

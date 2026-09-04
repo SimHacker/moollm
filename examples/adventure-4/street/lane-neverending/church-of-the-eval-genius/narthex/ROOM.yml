@@ -16,3 +16,13 @@ room:
       to: ../
       description: "Back to the main nave."
       aliases: [back, nave]
+
+  # Design documents this floor embodies. Read these to learn why the room is shaped this
+  # way; stand here to learn what they mean. Backlink for the memory palace — the design
+  # corpus already links in, so without this the rooms are orphans.
+  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+  learn:
+    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
+      why: "Bias declaration as sacrament — what the registration desk is for"
+    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-CONSTITUTION.md
+      why: "The rules you agree to by crossing the lintel"

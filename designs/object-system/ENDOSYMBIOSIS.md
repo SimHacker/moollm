@@ -111,4 +111,6 @@ each other harmonically rather than merely coexist.
 Related: [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) ·
 [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) ·
 [GAME-PIECES](../GAME-PIECES.md) ·
-[LIVE-OBJECTS-EXAMPLES](LIVE-OBJECTS-EXAMPLES.md)
+[LIVE-OBJECTS-EXAMPLES](LIVE-OBJECTS-EXAMPLES.md) ·
+[LEGACY-MIGRATION](../LEGACY-MIGRATION.md) — engulfment applied to a
+legacy app: containerize it with its genome intact, then absorb what it knows
