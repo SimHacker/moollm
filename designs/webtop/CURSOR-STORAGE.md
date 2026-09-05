@@ -361,12 +361,144 @@ will reach that, and the answer is IndexedDB rather than a smaller cursor.
 
 
 
+## Use dedicated repos for objects, never mix them with source
+
+A cursor repo should contain **nothing but objects**. Not your code, not your site, not your notes
+as prose — one repo whose entire job is holding `type_id` branches.
+
+This is worth a rule because it converts several separate problems into non-problems at once:
+
+- **The orphan-branch surprise becomes the repo's stated purpose.** Every branch is an orphan, none
+  of them merge, and `main` exists only to say so. Nobody is confused by a repo that is consistently
+  one thing; they are confused by a source repo with strange branches hiding in it.
+- **`main` is the place for the explainer and the index**, so the per-branch generated `README.md`
+  can be one terse line pointing at it rather than repeating the whole story.
+- **CI does not fire.** A repo with no build has no workflow assuming descent from `main`.
+- **The token's blast radius is exactly this repo**, which contains only objects. That is what makes
+  "scoped to one repository" meaningful rather than nominal.
+- **Clones stay small**, and the object history never inflates a source repo's.
+
+## How big an ask is bring-your-own-repo, honestly
+
+It depends entirely on the flow, and the two flows are not close:
+
+| Flow | Steps | Realistic |
+|---|---|---|
+| **Paste a fine-grained PAT** | navigate settings → create token → choose fine-grained → scope to one repo → set contents-write → set expiry → copy → paste | **No.** Eight steps, several with a wrong-but-tempting option next to the right one. Most people will over-scope it or give up |
+| **Install a GitHub App** | click Install → pick the repo → done | **Yes.** Three clicks, and the scoping is GitHub's UI rather than your instructions |
+
+So the PAT path is a developer affordance and should be presented as one. The App path is the real
+answer for anyone else — *provided they already have a GitHub account*, which is the actual gate.
+For a general audience most people do not, and no amount of flow polish fixes that. Which is why
+[the LocalStorage and export rungs](#the-on-ramp-most-readers-will-never-have-a-storage-repo) are
+not a consolation prize: they are the tier most readers will ever use, and they have to be complete
+on their own.
+
+## Server-side is fine. Holding credentials is not.
+
+The instinct that "no server" and "safe" are the same goal is worth separating, because they are
+different goals and only one of them matters here. **A server is not the risk; a server that holds
+other people's authority is the risk.** Once you say that plainly, most of the design falls out.
+
+There are two server architectures and they are not variations on a theme:
+
+| | **Server holds user tokens** | **Client holds the token; server holds nothing** |
+|---|---|---|
+| User OAuths, server stores the access token and acts for them | ✅ typical | ❌ |
+| Browser gets the token, writes directly to `api.github.com` | ❌ | ✅ |
+| A database breach leaks | **every user's credentials** | nothing |
+| The user's protection is | your promises and your security | **arithmetic — you do not have it** |
+| Revocation | asks you, or GitHub-wide | GitHub's settings page, without telling you |
+
+The second column is what "provably safe" actually means, and note *why*: not that the credentials
+are well protected, but that **there is nothing to protect.** That is a claim a skeptical user can
+verify from the outside — they can watch the network tab and see the token go only to
+`api.github.com`, and they can read the App's permissions on GitHub's own installation page rather
+than believing your privacy policy. Verification, not trust.
+
+**So keep the server, and give it only work that needs no authority:**
+
+| Component | Holds | Job |
+|---|---|---|
+| **Browser** | the user's token | every write. Never sends it anywhere but `api.github.com` |
+| **CORS relay** | nothing — device flow has no client secret | forwards two token endpoints. Stateless, ~150 lines |
+| **Index / cache** | **public data only** | crawl, search, aggregate, render heavy views |
+| **GitHub** | the objects, the identity, the permissions | system of record |
+
+### Attack surface, component by component
+
+| Component | If fully compromised | Bounded by |
+|---|---|---|
+| Browser client | that one user's cursor repo is writable | fine-grained scope on one repo containing only objects |
+| CORS relay | nothing — it stores nothing and holds no secret | keep the path allow-list narrow; **the moment it holds a secret it becomes the crown jewel** |
+| Index server / Postgres | nothing that was not already public | public-only crawling, enforced as a rule not a habit |
+| **GitHub App private key** *(only if the server acts as the App)* | **every installed repo, for every user** | this is the one high-value secret in the design. KMS, rotation, and a strong reason before you create it |
+
+Two residual risks that no architecture diagram removes:
+
+- **XSS in the client is the whole game**, because that is where the token is, and this app renders
+  content from repos it does not control. Covered [above](#the-threat-that-is-specific-to-this-design);
+  it remains the top risk and the reason for origin isolation.
+- **Indexing public data is itself a privacy act.** Aggregating public cursors into a searchable
+  index makes inference easy that was merely *possible* before — who reads what, how long they
+  linger, when they stopped. Public-but-scattered and public-and-indexed are different conditions,
+  and the honest position is that building the index creates exposure even though every input was
+  already public.
+
+## Git or Postgres is a false choice: git is the log, Postgres is the projection
+
+The temptation to "just do it in Postgres and forget GitHub" is really a complaint about **queries**,
+and it is a fair complaint: branch-as-object [cannot do field
+queries](#querying-across-branches-when-you-need-it) without walking every branch. But queries are
+the *only* thing Postgres wins, and the list it would have to reimplement is long:
+
+| What GitHub already provides | Cost to rebuild |
+|---|---|
+| accounts, 2FA, SSO, password reset | an identity system, plus breach liability you did not have |
+| a permissions UI and **revocation the user controls** | a consent product |
+| version history of every object | temporal tables or event sourcing |
+| three-way merge and conflict resolution | genuinely hard |
+| **PRs — review of a state change** | a review product |
+| **Actions — automation triggered by state change** | a CI system, on your compute bill |
+| forking, and the fork network as an index | a sharing model |
+| **the user's data survives your service dying** | impossible to rebuild; it is the opposite of what a database gives you |
+| storage paid by GitHub | your hosting bill |
+
+And what Postgres wins: indexed queries, millisecond writes, no account required, multi-writer
+concurrency, low-latency reads. All real, none of them overlapping with the list above.
+
+**They are complementary, so use both with a strict direction of authority:**
+
+```
+GitHub  ──(webhook on push)──▶  indexer  ──▶  Postgres  ──▶  fast queries, search, aggregate views
+  ▲                                                                    │
+  └────────────── writes go here, always, from the client ◀────────────┘
+```
+
+- **Git is the system of record.** Every write lands in the user's repo, from the client.
+- **Postgres is a derived read model**, built by crawling public repos and kept warm by webhooks.
+- Actions run in the *user's own* repo — validating their cursor, linting anchors, regenerating
+  branch READMEs — which is automation you do not host, on data you do not hold.
+
+**The discipline that keeps it honest is one sentence: you must be able to `DROP DATABASE` and
+rebuild the index from the repos.** If that is true, Postgres is a cache and the user still owns
+their data. If it drifts and becomes untrue — one field that exists only in Postgres, one write that
+never lands in git — you have quietly reinvented the lock-in the whole design exists to avoid, and
+you will not notice on the day it happens.
+
+This is the ordinary CQRS split with git as the event log, which is worth saying because it means
+none of it is novel and all of it is known to work. The beauty Don is reluctant to give up —
+everything visible, versionable, PR-able, Actions-able — is preserved exactly, because those
+properties live in the log and the projection never has to have them.
+
 ## Honest costs
 
 **Orphan branches are unusual enough to confuse tooling and people.** CI that assumes every branch
 descends from `main` will do something surprising. Anyone cloning the repo will see branches that do
 not merge and should not. This wants a `README.md` at the root of every cursor branch explaining what
-it is, which is cheap and should be generated.
+it is, which is cheap and should be generated — and it is most of the argument for
+[dedicated object repos](#use-dedicated-repos-for-objects-never-mix-them-with-source), below, which
+make the surprise the *rule* of the repo instead of an exception inside it.
 
 **A commit per cursor move is a lot of commits.** Every scroll is not a commit; the granularity has
 to be *meaningful positions*, which means something must decide what counts — probably the same

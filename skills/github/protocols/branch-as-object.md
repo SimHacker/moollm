@@ -223,9 +223,42 @@ git push origin --delete ticket_42
    target rewrites history.
 4. **Multi-writer safety.** Normal git conflict resolution applies; not a problem for single-owner
    objects.
-5. **Tooling.** `moorls` URLs and the `moo` CLI ([`skills/moo/`](../../moo/),
-   [`skills/moocroworld/`](../../moocroworld/)) are the intended automation layer. Vanilla `git` +
-   `gh` are sufficient until then.
+5. **Create is the missing verb in `moo`.** See below — everything else is implemented.
+
+## Tooling status: what `moo` already does, and the one gap
+
+The [`moo` CLI](../../moo/) ([`skills/moocroworld/`](../../moocroworld/) holds the repo registry and
+overlays) is a working implementation of this protocol — roughly 1000 lines of Python under
+`skills/moo/lib/` with a test suite. It operates entirely through `gh api` against the REST API and
+never touches a local checkout, so nothing needs to be cloned to read or write an object.
+
+| Verb | Command | Notes |
+|---|---|---|
+| List objects of a type | `moo ls --type <type>` | the prefix type-query, implemented |
+| List an object's files | `moo tree` | |
+| Read state | `moo read` | accepts `repo/branch/path` or a `moorl` URL, and can index into YAML/JSON with a slash path |
+| Read at a resolution | `moo glance` · `moo card` · `moo sniff` | the semantic pyramid, per object |
+| Scan a field across objects | `moo scan` · `moo batch-glance` | the linear walk from [Querying](#querying-across-branches-when-you-need-it), automated |
+| Update state | `moo write` | Contents API `PUT`, handles the existing-blob SHA |
+| Tombstone | `moo rm` | deletes the ref |
+| Resolve a `moorl` | `moo resolve` | `moo://` / `moollm://` → components |
+
+**The gap: there is no `moo create`.** You can write into an object that exists and delete one, but
+nothing mints a new one — which also means nothing in the toolchain creates an *orphan* branch, the
+one step this whole protocol depends on.
+
+It is a small gap with a non-obvious implementation, which is probably why it is still open. The
+Contents API cannot do it: `PUT /contents/{path}` requires the branch to already exist. Creation has
+to go through the Git Data API, and the orphan-ness is one field:
+
+```
+POST /repos/{owner}/{repo}/git/trees     → tree_sha        (omit base_tree)
+POST /repos/{owner}/{repo}/git/commits   → commit_sha      with "parents": []   ← the orphan part
+POST /repos/{owner}/{repo}/git/refs      → refs/heads/type_id pointing at commit_sha
+```
+
+An empty `parents` array is what makes it a root commit, so the object's tree shares no history with
+`main` — the API equivalent of `git switch --orphan`, without needing a working copy at all.
 
 ## Known deployments
 
