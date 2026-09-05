@@ -449,7 +449,8 @@ Two residual risks that no architecture diagram removes:
 
 The temptation to "just do it in Postgres and forget GitHub" is really a complaint about **queries**,
 and it is a fair complaint: branch-as-object [cannot do field
-queries](#querying-across-branches-when-you-need-it) without walking every branch. But queries are
+queries](../../skills/github/protocols/branch-as-object.md#querying-across-branches-when-you-need-it)
+without walking every branch. But queries are
 the *only* thing Postgres wins, and the list it would have to reimplement is long:
 
 | What GitHub already provides | Cost to rebuild |
