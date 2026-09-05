@@ -574,6 +574,105 @@ And the best target for it is validation the user's own repo can run on itself: 
 against its type's schema, check that permalink anchors still resolve, regenerate the branch
 `README.md`. Automation on data you do not hold, paid for by the platform.
 
+## `main` is the type registry, and the URL is the join key
+
+### The repo carries its own schema
+
+The object branches hold instances; **`main` holds the types** — schema, skill, tools, validators, one
+directory per type at a well-known path:
+
+```
+main:/types/cursor/SCHEMA.yml     # what a cursor_* branch must contain
+main:/types/cursor/SKILL.md       # what MOOLLM does when it binds one
+main:/types/cursor/tools/         # migrations, validators, renderers
+```
+
+This finishes the [type-prefix binding](../../skills/github/protocols/branch-as-object.md): the prefix
+in `cursor_a3f9` was always a promise that something knew what a cursor is, and now that something has
+an address. The repo becomes self-describing — schema shipped alongside data, which relational
+databases have in `information_schema` and object stores almost never do.
+
+The nuance is that schema and instances live on **different branches, so they move independently.**
+That is the feature (migrate the type without touching a million objects) and the hazard (an object
+can have been validated against a schema that no longer exists in that form). So an object records
+the schema commit it was written against — the same `(ref, commit)` discipline as [the cursor
+permalink](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor), applied to types
+instead of positions. Validation failures then read "written against schema `a1b2c3`, current is
+`f4e5d6`, here is the diff" rather than just "invalid."
+
+### The URL is the canonical name — but store its parts, not the string
+
+Don is right that keeping identity in-band is the beautiful part: the branch name is on the public
+web, so **the absolute URL is already a global name** and nobody has to mint one. Two refinements.
+
+**There are two URLs and they are not interchangeable.** A branch-ref URL is a mutable *identity*
+(follows updates, always current). A SHA URL is an immutable *citation* (never moves, may be
+garbage). Identity for the row, citation for anything reproducible — cached bytes, a rendered
+figure, a claim in an essay.
+
+**Store the components and derive the URL.** A repo rename or transfer invalidates every stored URL
+string, including the ones buried in JSONB where no `UPDATE` will find them. GitHub redirects renamed
+repos, but that is a courtesy that dies the moment someone squats the old name. Components in
+columns, URL as a generated column, and a rename is one `UPDATE`:
+
+```sql
+create table object (
+  owner       text not null,
+  repo        text not null,
+  type        text not null,
+  id          text not null,
+  branch      text generated always as (type || '_' || id) stored,
+  url         text generated always as (
+                'https://github.com/'||owner||'/'||repo||'/tree/'||type||'_'||id) stored,
+  head_sha    text not null,          -- current tip; the citation form
+  schema_sha  text,                   -- which type commit it validated against
+  updated_at  timestamptz not null,
+  meta        jsonb not null default '{}',
+  primary key (owner, repo, type, id)
+);
+```
+
+### It is `jsonb`, and that distinction is the whole feature
+
+Postgres's binary JSON type is **`jsonb`**, not BSON — worth being exact about because `json` (the
+other one) stores text verbatim and cannot take a GIN index, which is precisely the "slap indexes on
+as needed" capability being asked for. Choose wrong and the long-tail column becomes unqueryable.
+
+With `jsonb` there is a three-stage promotion path, and each stage is cheap:
+
+| Stage | Cost | When |
+|---|---|---|
+| Land in `meta` | free | unexpected or one-off metadata |
+| Expression index on the path | one `CREATE INDEX`, no migration | it started showing up in `WHERE` |
+| Promote to a real column | a migration | it is stable, typed, and hot |
+
+```sql
+create index on object using gin (meta jsonb_path_ops);          -- containment, everything
+create index on object ((meta->>'title')) where type = 'cursor'; -- one hot field, no migration
+```
+
+That path is what keeps `meta` from rotting into a junk drawer: it is a **staging area for fields
+that have not earned a column yet**, with a clear graduation ceremony.
+
+### The rule for what stays in git
+
+**Postgres stores what you query on; git stores what you read.** If a value would only ever be
+selected and never filtered, sorted, joined, or aggregated, it is bulk — leave it in the branch and
+keep a URL. Objects are polymorphic and some carry megabytes of images, transcripts, and GPS tracks;
+none of that belongs in a row.
+
+The cache then falls out for free, because URL → path is total and reversible:
+
+```
+https://github.com/OWNER/REPO/tree/cursor_a3f9/notes/2026-09.md
+                 → ~/.cache/moollm/OWNER/REPO/cursor_a3f9/notes/2026-09.md
+```
+
+And the two URL forms have exactly the caching behavior you would want them to: **SHA-keyed entries
+are immutable and cacheable forever; branch-keyed entries are mutable and need invalidation** — which
+is what [the webhook](#github--postgres-the-easy-direction-with-two-requirements) already delivers.
+The push that updates the row is the same event that busts the cache.
+
 ## Honest costs
 
 **Orphan branches are unusual enough to confuse tooling and people.** CI that assumes every branch
