@@ -492,6 +492,88 @@ none of it is novel and all of it is known to work. The beauty Don is reluctant 
 everything visible, versionable, PR-able, Actions-able — is preserved exactly, because those
 properties live in the log and the projection never has to have them.
 
+## Wiring the bridge: webhooks in, commits out, simulations on both
+
+### The trigger gotcha: Actions will not fire on a bare object branch
+
+The obvious plan — a GitHub Action that runs when a `type_id` branch changes — **does not work**, and
+the reason is worth knowing before building on it. A `push` workflow is loaded **from the ref that
+was pushed**. A cursor branch is an orphan containing only object files, with no `.github/workflows/`
+in its tree, so a push to `cursor_a3f9` finds no workflow and nothing runs.
+
+| Option | Verdict |
+|---|---|
+| Put `.github/workflows/` in every object branch | works, and pollutes every object with CI config it does not own |
+| **Repo webhook (or a GitHub App subscribing to `push`)** | **the right answer** — fires on any ref regardless of tree contents, and the payload carries `ref` plus before/after SHAs, which is exactly an incremental sync cursor |
+| Scheduled workflow on `main` that polls branches | works, laggy, and wasteful |
+
+So the announcement channel is a **webhook**, not Actions. Actions still matter — see simulations
+below — but they are triggered *by* the receiver, not by the object push.
+
+### GitHub → Postgres: the easy direction, with two requirements
+
+The receiver takes `(ref, before, after)`, reads the changed files at `after`, and upserts. Two
+properties it must have, because webhooks are at-least-once and unordered:
+
+- **Idempotent.** Duplicate deliveries must be harmless. Dedupe on the delivery ID, and store the
+  last-indexed commit SHA per branch so a replay is a no-op.
+- **Gap-tolerant.** Deliveries get dropped. On any doubt — an unexpected `before`, a missed
+  branch — re-read the branch head and reconcile rather than trying to replay history.
+
+Both are easy here for a structural reason: **the projection is rebuildable, so recovery is always
+just "re-read."** There is no repair procedure to get wrong.
+
+### Postgres → GitHub: not bidirectional sync, which is the trap
+
+Bidirectional sync means two writers and a merge policy, and it is how the projection quietly becomes
+authoritative. Do not build it. There are two legitimate write paths and it is worth being strict
+about which is which:
+
+**Write-through — for meaningful state changes.** The write goes to *GitHub* as a commit; Postgres is
+updated optimistically in the same breath so the UI is instant, and marked unconfirmed until the
+webhook returns the canonical version. Postgres never originates anything; it just gets to be early.
+
+```
+edit ──▶ commit to GitHub ──▶ (webhook) ──▶ Postgres canonical
+   └────▶ Postgres optimistic ────────────────────▲ replaced
+```
+
+**Buffer-and-checkpoint — for high-frequency state that does not deserve a commit.** Scroll position
+is the obvious case; a commit per scroll is the [granularity
+problem](#honest-costs) in its worst form. Let it live in Postgres alone, declared **ephemeral and
+lossy by design**, and commit only at checkpoints — the same meaningful-position boundaries that
+[segment a ride](EBIKE-PATH-GRAMMAR.md#pauses-are-the-natural-cleavage-points). Losing the buffer
+must cost you nothing but the tail.
+
+The line between them is the honest bit: **anything you would be upset to lose must not live only in
+the buffer.** If that rule starts bending, you have built write-back after all.
+
+**Concurrency comes free.** `PUT /contents/{path}` takes the existing blob `sha` and rejects the
+write if it has moved — that is compare-and-swap, so a conflicting write fails loudly with a 409
+instead of silently clobbering. Optimistic concurrency control you do not have to design.
+
+### Simulations run on both, and Actions is the free compute
+
+A MOOLLM simulation is **just another writer**, and it uses the same paths: read from Postgres when
+it wants queries, read from git when it wants provenance, and write through git like everyone else.
+Nothing special, which is the point.
+
+Running them **inside Actions** is the attractive part — automation triggered by object change, on
+compute you do not host, with results committed back as objects. Two constraints shape it:
+
+- **Dispatch, do not push-trigger.** Because of the gotcha above, the webhook receiver fires the
+  simulation with `repository_dispatch` or `workflow_dispatch`, passing the branch as an input. The
+  workflow itself lives on `main` where workflows belong.
+- **Guard the loop.** A workflow that commits can trigger a workflow that commits. GitHub's default
+  `GITHUB_TOKEN` deliberately does not trigger new runs, which makes the naive version safe by
+  accident — but the moment you swap in a PAT or App token to get cross-repo writes, **recursion
+  becomes live** and needs an explicit guard (actor filter, path filter, or a marker in the commit
+  message). This is the bug that shows up as a runaway bill rather than an error.
+
+And the best target for it is validation the user's own repo can run on itself: lint the object
+against its type's schema, check that permalink anchors still resolve, regenerate the branch
+`README.md`. Automation on data you do not hold, paid for by the platform.
+
 ## Honest costs
 
 **Orphan branches are unusual enough to confuse tooling and people.** CI that assumes every branch
