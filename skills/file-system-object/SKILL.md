@@ -663,7 +663,7 @@ Branch ALERT_42 in leela-ai/leela-alerts:
     └── screenshot.png
 ```
 
-The branch's root directory implements the `ALERT` interface, declared by `ALERT.yml`. The branch NAME (`ALERT_42`) encodes both the interface name (`ALERT`) and the instance id (`42`). Full protocol at [`central/skills/github/protocols/branch-as-object.md`](../../../central/skills/github/protocols/branch-as-object.md).
+The branch's root directory implements the `ALERT` interface, declared by `ALERT.yml`. The branch NAME (`ALERT_42`) encodes both the interface name (`ALERT`) and the instance id (`42`). Full protocol at [`skills/github/protocols/branch-as-object.md`](../github/protocols/branch-as-object.md).
 
 This is the same grammar operating in git-branch space instead of filesystem space. The rules don't change; only the storage backend does.
 
@@ -862,7 +862,7 @@ This grammar did not appear from nowhere. The ideas it combines have been circli
 
 **MOOLLM DOP** ([`../skill/delegation-object-protocol.md`](../skill/delegation-object-protocol.md)). Formalized Self-style delegation for LLM-read-able filesystems. `PROTOTYPES.yml` is an interface export under the grammar this skill names; DOP is the resolution algorithm that uses the grammar.
 
-**MOOLLM branch-as-object** (`leela-ai/leela-alerts` Issue_<n> / ALERT_<n> branches). Extends the grammar from filesystems to git branches — the branch's root directory declares its implemented interface via an UPPERCASE marker file. See [`central/skills/github/protocols/branch-as-object.md`](../../../central/skills/github/protocols/branch-as-object.md).
+**MOOLLM branch-as-object** (`leela-ai/leela-alerts` Issue_<n> / ALERT_<n> branches). Extends the grammar from filesystems to git branches — the branch's root directory declares its implemented interface via an UPPERCASE marker file. See [`skills/github/protocols/branch-as-object.md`](../github/protocols/branch-as-object.md).
 
 What MOOLLM adds to this long conversation:
 
@@ -885,7 +885,7 @@ What MOOLLM adds to this long conversation:
 - [`schema/schemas/mechanisms/com-xpcom/`](../schema/schemas/mechanisms/com-xpcom/) — COM / XPCOM background
 - [`schema/schemas/mechanisms/self/`](../schema/schemas/mechanisms/self/) — Self-style prototype mechanism profile
 - [`yaml-jazz/`](../yaml-jazz/) — semantic YAML; the serialization style UPPERCASE marker files use
-- `central/skills/github/protocols/branch-as-object.md` (if reading from the Leela central repo) — the grammar extended to git branches
+- [`skills/github/protocols/branch-as-object.md`](../github/protocols/branch-as-object.md) — the grammar extended to git branches
 
 ### External historical references (if you want the full story)
 

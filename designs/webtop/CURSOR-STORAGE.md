@@ -22,14 +22,14 @@ repo as the code and shares none of its history.
 What makes it the right substrate here rather than merely a trick:
 
 - **It is a typed, addressable object with its own filesystem.** The branch name carries the class
-  and the id — `cursor_<id>`, `character_<id>` — which is [the plural-typed-container
-  convention](../../.cursorrules) applied to refs. The prefix is the class; the suffix is the
-  instance.
+and the id — `cursor_<id>`, `character_<id>` — which is [the plural-typed-container
+convention](../../.cursorrules) applied to refs. The prefix is the class; the suffix is the
+instance.
 - **Its history is the object's history**, not a snapshot. Editable, evolvable, diffable, with
-  timestamps and authors, going back to the object's creation.
+timestamps and authors, going back to the object's creation.
 - **The object store is shared.** Orphan branches are separate histories over the *same* blobs, so a
-  cursor whose inventory is mostly references costs almost nothing, and a boxed copy that happens to
-  be identical to the original is stored once.
+cursor whose inventory is mostly references costs almost nothing, and a boxed copy that happens to
+be identical to the original is stored once.
 
 **The pattern is already in production.** Leela's alerting system represents alerts as GitHub issues,
 and stores each alert's data — loaded evidence, database query results, whatever the alert
@@ -45,7 +45,7 @@ object's audit log, its HEAD is current state, and deleting it tombstones the ob
 
 > Spec: `skills/github/protocols/branch-as-object.md` in Leela's `central`, which documents the
 > convention and its live use. MOOLLM's own schemapedia already names the pattern in
-> [`skills/schema/schemas/mechanisms/github/`](../../skills/schema/schemas/mechanisms/github/) —
+> `[skills/schema/schemas/mechanisms/github/](../../skills/schema/schemas/mechanisms/github/)` —
 > theory there, operational practice in central, and this document is the reading-cursor application.
 
 ```
@@ -56,16 +56,16 @@ cursor_a3f9        character_b21        issue_4471        room_narthex
 Three properties fall out, and one of them is weaker than it first looks:
 
 - **Per-type ID spaces.** `cursor_1` and `issue_1` are different objects. IDs need only be unique
-  within a type, so each type mints its own without coordinating with any other.
+within a type, so each type mints its own without coordinating with any other.
 - **The prefix enumerates.** `git branch --list 'cursor_*'` lists every cursor in the repository.
-  **But that is enumeration, not query** — asking *which cursors are stale* means checking out or
-  fetching each branch and scanning its files, which is a linear walk. The protocol doc is explicit
-  that this scales to thousands of objects per type and is not a substitute for a database with
-  indexes. Cheap listing, expensive field queries.
+**But that is enumeration, not query** — asking *which cursors are stale* means checking out or
+fetching each branch and scanning its files, which is a linear walk. The protocol doc is explicit
+that this scales to thousands of objects per type and is not a substitute for a database with
+indexes. Cheap listing, expensive field queries.
 - **One repo holds many types**, which is what makes it a **polymorphic container** rather than a
-  place to keep one kind of thing.
+place to keep one kind of thing.
 
-**And MOOLLM binds the type to a skill.** `cursor_*` resolves to `skills/cursor/`, `character_*` to
+**And MOOLLM binds the type to a skill.** `cursor_`* resolves to `skills/cursor/`, `character_*` to
 `skills/character/`, and the instance inherits its behavior, schema, and permissions from there. The
 prefix is not a label — it is the pointer to the prototype, so an object's type tells you what it can
 do and where that is defined.
@@ -74,12 +74,12 @@ This is the constitution's plural-typed-container discipline on a different subs
 filesystem the *directory* infers the type of its children; in git the *ref prefix* does. Same rule,
 same first-guess-right behavior, and the ref namespace turns out to be a container like any other.
 
-The precedent is running in production: **Leela's alerting system stores each alert as an
-`Issue_<id>` branch**, holding evidence, query results, and working files in a tree of its own.
+The precedent is running in production: **Leela's alerting system stores each alert as an**
+`Issue_<id>` **branch**, holding evidence, query results, and working files in a tree of its own.
 
 ### Lowercase, and why the separator is an underscore
 
-**Use `type_id`, lowercase.** This is a deliberate revision: the central protocol currently
+**Use** `type_id`**, lowercase.** This is a deliberate revision: the central protocol currently
 recommends PascalCase or UPPERCASE type names, and its live branches are `Issue_<id>` and
 `ALERT_<n>`. Lowercase is the better rule going forward for a reason that is not aesthetic. Loose
 refs are literal files under `.git/refs/heads/`, so on macOS and Windows — case-insensitive
@@ -123,10 +123,12 @@ The cursor must be **explicit about which repository it lives in**, because in t
 not the repository it is reading. You have no write access to gwern.net's repo, or to
 `SimHacker/moollm`, or to whatever you are annotating — and you should not need any.
 
-| Field | Repo | Access |
-|---|---|---|
-| `home:` | **yours** — where the orphan branch lives | write |
-| `targets:` | **theirs** — what the cursor points into | read only, pinned |
+
+| Field      | Repo                                      | Access            |
+| ---------- | ----------------------------------------- | ----------------- |
+| `home:`    | **yours** — where the orphan branch lives | write             |
+| `targets:` | **theirs** — what the cursor points into  | read only, pinned |
+
 
 Each entry in `targets:` is the [permalink from
 READING-CURSORS](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor):
@@ -148,26 +150,64 @@ against *different* remotes, and there was never a single-repo version of this t
 is the same shape from the other side: many people's cursors point into one public repo, and none of
 them need to know about each other.
 
-**Cache the quoted span, not just the pointer.** Since you control neither the target's history nor
-its continued existence, your annotation should carry the text it is about. That costs bytes and buys
-two things: your notes stay meaningful when the target is rewritten or deleted, and the
-[dangling-SHA fallback](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor) has
-something to search with. It is transclusion with a local cache, and here the cache is the point —
+**Cache the quoted span, not just the pointer.** Since you control neither the target's history nor  
+its continued existence, your annotation should carry the text it is about. That costs bytes and buys  
+two things: your notes stay meaningful when the target is rewritten or deleted, and the  
+[dangling-SHA fallback](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor) has  
+something to search with. It is transclusion with a local cache, and here the cache is the point —  
 an archival copy of exactly what you were responding to.
 
-**There is a live receipt for this arrangement in this project.** Don's private `DonHopkins` repo
-holds correspondence, clearance decisions, and working notes whose `see_also` paths point into the
-public `WillWrightShowForFood` and `moollm` repos. Private annotation layer, public target, pointers
-across the boundary, no central service — already in daily use, just not yet called a cursor.
+### Fork the location repo: the polite way to get write access without asking
 
-**Honest cost: discovery.** Out-of-band annotation trades **findability for independence**, and that
-is a real trade, not a free lunch. Nobody reading the target repo can see that your layer exists;
-there are no backlinks, and the target cannot be notified without opting in to something. A
-publisher who *wants* the annotations can list known layers, and readers can share cursor URLs
-directly, but neither is discovery at scale. The hosted services that died at least had an index.
-Being clear-eyed: this design makes annotation possible without permission and does nothing to make
-it findable, and those are separate problems that should not be solved by pretending the second one
-is easy.
+There is a better move than keeping a wholly separate storage repo, and it is the ordinary GitHub
+one: **fork the repo you are reading, put your cursors in the fork, and open pull requests for
+whatever is worth sending back.**
+
+This is more polite than requesting write access, and the asymmetry is exactly what the pull request
+was invented for. Asking for write access asks a maintainer to **trust you and accept risk**, before
+they have seen anything. A fork asks **nobody for anything** — it is unilateral — and the PR that
+follows asks only for **review of one specific change.** The maintainer's cost drops from "assess
+this person" to "read this diff," which is why the answer is so much more often yes.
+
+**Forks and orphan branches compose unusually well.** Your fork's `main` mirrors upstream and stays
+clean; your `cursor_<id>` branches share no history with it, so they never touch the code, never
+collide when you sync upstream, and never appear in a PR diff unless you aim one at them. The fork's
+branch namespace becomes your polymorphic container **for that corpus specifically**, which is a
+tidier arrangement than one storage repo holding cursors into a dozen unrelated places.
+
+**Correcting the discovery pessimism above: the fork network *is* an index.** GitHub lists a repo's
+forks, and forks with `cursor_*` branches are annotation layers. "Who has read and marked up this
+corpus" becomes a query against machinery that already exists and that nobody has to maintain —
+federated, opt-out, and outliving any company. It is not a good index (fork lists get enormous, the
+UI is poor, and forks-of-forks nest badly), but claiming there was none was wrong, and a PR is also
+exactly the backlink and notification I said the arrangement could not produce.
+
+**But a PR is not the right destination for most of a cursor**, and conflating the two would be a
+mistake. Your reading positions, your marginalia, and your disagreements are *yours*; nobody is
+merging your reading notes into their essay, nor should they. Only a **subset** of what a cursor
+accumulates is an offer to the upstream — a correction, a dead link, a missing citation, a genuine
+addition. The fork holds everything; the PR carries only the part that was meant for them.
+
+**The constraint that decides where private cursors live: you cannot privately fork a public repo.**
+On GitHub, forks of a public repository are public, always. Since a cursor records where you stopped
+reading — which is where you got bored, lost, or angry, and more intimate than a bookmark — this is
+not a small detail. It splits the design cleanly:
+
+| Intent | Where it goes |
+|---|---|
+| annotation you mean to share, or contribute upstream | **a fork** of the location repo |
+| reading position and private marginalia | **a separate private storage repo**, never a fork |
+
+You can mirror-push a public repo into a private one, but that is not a fork: you lose the upstream
+link and the PR path, so it buys privacy at the cost of the whole reason to fork. Better to keep both
+and promote a cursor from the private repo into the fork at the moment you decide to publish it —
+which is the same [transition-is-a-commit](READING-CURSORS.md#the-two-tiers-again-and-the-transition-is-a-commit)
+move, with a repo boundary as the privacy gate.
+
+**What is still genuinely lost.** Discovery via fork network only works when your layer lives in a
+fork, so the private tier remains invisible by construction — which is the correct behavior, not a
+bug. And a corpus published somewhere other than a forge has no fork network to inherit, so for
+those the original pessimism stands.
 
 ## Three things git gives away that we would otherwise have to build
 
@@ -177,7 +217,7 @@ commit on its own branch. That means the itinerary is not a log we maintain alon
 ring](READING-CURSORS.md#a-selection-is-a-cursor-with-width) that reading interfaces lack comes free,
 and it is better than Emacs's because each position also records what changed when you were there.
 
-**`git worktree` is the body plan.** `git worktree add` checks out several branches into several
+`git worktree` **is the body plan.** `git worktree add` checks out several branches into several
 directories from one repository, simultaneously. Which is literally
 [a creature in several places at once](READING-CURSORS.md#body-plans-cursors-are-limbs-and-a-creature-has-more-than-one):
 the worm with its head in document A and its butt in document B is two worktrees, and each limb is a
@@ -190,7 +230,7 @@ social feature: identity, sharing, review, and merge are the host's, not ours.
 
 ## One design decision, with a real tradeoff
 
-You could store cursors **outside `refs/heads/` entirely** — in a custom ref namespace like
+You could store cursors **outside** `refs/heads/` **entirely** — in a custom ref namespace like
 `refs/cursors/<id>`. This is well-trodden: `git notes` lives in `refs/notes/`, and Gerrit runs
 enormous deployments on `refs/changes/*`. It keeps `git branch` clean no matter how many cursors
 exist, which matters once a person has fifty.
@@ -210,11 +250,13 @@ Everything above assumes a repo, and **the casual web guest does not have one an
 the design requires git to keep your place, it has no users. So the storage repo is the *top* rung,
 not the entry, and the ladder has to work from the bottom with nothing.
 
-| Rung | Requires | Durability | Shareable |
-|---|---|---|---|
-| **LocalStorage** | nothing at all | until you clear site data | no |
-| **Export a file** | nothing at all | as durable as your Downloads folder | by sending it |
-| **Storage repo** | a repo + credentials, both supplied by you | archival, versioned | fork, cite, hand over |
+
+| Rung              | Requires                                   | Durability                          | Shareable             |
+| ----------------- | ------------------------------------------ | ----------------------------------- | --------------------- |
+| **LocalStorage**  | nothing at all                             | until you clear site data           | no                    |
+| **Export a file** | nothing at all                             | as durable as your Downloads folder | by sending it         |
+| **Storage repo**  | a repo + credentials, both supplied by you | archival, versioned                 | fork, cite, hand over |
+
 
 The middle rung matters more than it looks: it covers the person who wants their data out and has no
 GitHub account and no intention of getting one. Download a file, keep it, re-import it later or on
@@ -242,14 +284,14 @@ backing stores**, and that is the only version where climbing a rung is free and
 
 ### Credentials: what is actually safe, and what only sounds safe
 
-The useful fact that shapes everything: **`api.github.com` sends CORS headers and
-`github.com/login/*` does not.** Reading and writing repository contents from a browser works with
+The useful fact that shapes everything: `api.github.com` **sends CORS headers and**
+`github.com/login/*` **does not.** Reading and writing repository contents from a browser works with
 no server at all; only the token-*minting* dance is blocked. So the two auth rungs have very
 different infrastructure costs.
 
 **Rung A — fine-grained PAT, zero infrastructure.** The user creates a
 [fine-grained personal access token](https://github.com/settings/personal-access-tokens), scoped to
-**one repository**, with **`Contents: Read and write` and nothing else**, and an expiry. Paste it in.
+**one repository**, with `Contents: Read and write` **and nothing else**, and an expiry. Paste it in.
 Because the API is CORS-enabled this is genuinely backend-free, which keeps the no-server thesis
 intact. The instruction that matters: **never a classic PAT** — classic `repo` scope grants every
 repository the user owns, including private ones, which is the difference between a bounded mistake
@@ -259,7 +301,7 @@ and an unbounded one.
 needs only a `client_id` and **no client secret**, which is exactly why it suits a static site. Three
 real advantages over a pasted PAT: the user grants access through GitHub's own per-repository
 installation UI rather than by trusting your instructions; tokens **expire** (8 hours, with refresh)
-instead of lasting a year; and the token request accepts a **`repository_id` parameter that pins the
+instead of lasting a year; and the token request accepts a `repository_id` **parameter that pins the
 token to a single repository** regardless of what else the installation can see.
 
 The catch is the CORS gap above: `login/device/code` and `login/oauth/access_token` cannot be called
@@ -285,33 +327,39 @@ is not — script that can call `decrypt` does not need to read the key. What ac
 **isolation and blast radius**:
 
 - **Keep the token on a different origin from the renderer.** A small auth frame owns the token and
-  exposes a narrow `postMessage` API — "commit these files to this repo." XSS in the renderer can
-  then ask for a commit but cannot exfiltrate the credential, and the API only ever writes to the
-  one cursor repo.
+exposes a narrow `postMessage` API — "commit these files to this repo." XSS in the renderer can
+then ask for a commit but cannot exfiltrate the credential, and the API only ever writes to the
+one cursor repo.
 - **Render foreign content sandboxed**, in a `sandbox`ed iframe on a separate origin, so a location
-  repo's content cannot reach the parent's storage at all.
-- **CSP with `connect-src` limited to `api.github.com`** and the relay, so a stolen token has
-  nowhere to be sent from.
+repo's content cannot reach the parent's storage at all.
+- **CSP with** `connect-src` **limited to** `api.github.com` and the relay, so a stolen token has
+nowhere to be sent from.
 - **A dedicated private repo.** Cursors record where you stopped reading, which is more intimate
-  than a bookmark — default the created repo to **private**, and never point the token at anything
-  else the user owns.
+than a bookmark — default the created repo to **private**, and never point the token at anything
+else the user owns.
+
+
 
 ### Two footguns worth naming
 
 - **Never let the export include the token.** "Download my data" that serialises LocalStorage will
-  cheerfully write a live credential into the user's Downloads folder. Store credentials under a key
-  the exporter explicitly excludes, and test that.
+cheerfully write a live credential into the user's Downloads folder. Store credentials under a key
+the exporter explicitly excludes, and test that.
 - **"Forget my token" is not revocation.** Clearing local state leaves the token valid on GitHub's
-  side. Say so, and link straight to the revocation page.
+side. Say so, and link straight to the revocation page.
+
+
 
 ### The rest of the free rung's costs
 
 - **Clearing site data destroys an un-synced cursor**, silently and completely. That is the price of
-  requiring nothing, and it argues for offering the export rung *early*, before someone has
-  accumulated enough to mourn.
+requiring nothing, and it argues for offering the export rung *early*, before someone has
+accumulated enough to mourn.
 - **LocalStorage is roughly 5–10 MB per origin.** Cursors that
-  [cache the quoted spans they annotate](#a-cursor-names-two-repos-and-they-are-not-the-same-repo)
-  will reach that, and the answer is IndexedDB rather than a smaller cursor.
+[cache the quoted spans they annotate](#a-cursor-names-two-repos-and-they-are-not-the-same-repo)
+will reach that, and the answer is IndexedDB rather than a smaller cursor.
+
+
 
 ## Honest costs
 
@@ -336,12 +384,14 @@ which is the correct speed for everything except presence. That remains true and
 
 ---
 
+
+
 ## Related
 
 - [READING-CURSORS.md](READING-CURSORS.md) — what a cursor is and why it needs a body
 - [PLAYABLE-CORPUS.md](PLAYABLE-CORPUS.md) — the static-versus-social tiers, and GitHub as a slow server
-- [`skills/inventory/`](../../skills/inventory/) — refs versus boxes, and why boxing is irreversible
-- [`skills/worm/`](../../skills/worm/) — the two-cursor organism whose limbs these worktrees are
+- `[skills/inventory/](../../skills/inventory/)` — refs versus boxes, and why boxing is irreversible
+- `[skills/worm/](../../skills/worm/)` — the two-cursor organism whose limbs these worktrees are
 - [EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md) — the same storage question for rides
 
 ↑ [webtop hub](README.md)
