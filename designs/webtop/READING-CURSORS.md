@@ -89,6 +89,7 @@ Collecting them is not wordplay; each one shipped a piece the others are missing
 | Turtle | Logo | **heading**, not just position — and pen state, whether you are recording |
 | Zipper | functional programming | focus **plus the path back to the root**, as a data structure |
 | Continuation | Scheme | "resume from here" as a *first-class value* you can save and re-enter |
+| **Your bike** | eBike Safari | the cursor is a *vehicle* — or your phone and your feet when you walk. Position in a city, at speed, with a heading |
 | Character | MOO, adventure, MOOLLM | a `location:`, an inventory, a memory, a voice, and an owner who might not be you |
 
 And the word was already ours. Latin *cursor* is a **runner, a courier** — from *currere*, to run.
@@ -232,6 +233,143 @@ paste buffer. It goes places, takes references at a chosen register, keeps what 
 and hands over a bundle that carries its own provenance. Context engineering as *an excursion with an
 inventory*, rather than as a wall of pasted text with no memory of where any of it came from.
 
+## Body plans: cursors are limbs, and a creature has more than one
+
+The multi-cursor problem dissolves once you stop assuming the cursors are interchangeable. **A worm
+is an organism with two cursors — a head and a behind — and they do not compete for focus, because
+they do different jobs.** Both MOOLLM and LLOOOOMM already define it that way, and
+[`skills/worm/`](../../skills/worm/) has the whole verb basis:
+
+| Verb | Where | Inverse |
+|---|---|---|
+| `EAT` | ingest at the **head** | `BARF` |
+| `CHOMP` | pattern-scan, then ingest at the head | `BARF` |
+| `POOP` | emit the buffer at the **tail** | `EAT` |
+| `BARF` | emit at the head | `EAT` |
+| `STICK-UP-BUM` | inject from the tail | `POOP` |
+
+**A worm is a Unix pipe with a body.** `cat a | transform > b` is an animal with its head in `a` and
+its butt in `b`, and the skill says so directly: *"Head in doc A, tail in doc B. EAT from A → POOP to
+B. Streaming pipeline!"* The image Don reaches for is the honest one — **a worm with its head in one
+document eating the text, and its butt in another document laying eggs generated from what it ate.**
+The organism *is* the transform, and it spans two locations while doing it.
+
+Two things fall out that are worth more than the joke.
+
+**The I-beam is a degenerate worm, and the skill already knew it:** *"Length: head–tail distance
+(**zero-length = NOP cursor**)."* So the plain blinking caret is not a different thing from the
+two-cursor organism — it is that organism at length zero. Which means
+[masking](#masking-the-default-cursor-is-the-most-abstract-character) and the creature editor are the
+same dial, not two competing stories. You start as one point with no body, and you grow.
+
+**Every verb has an inverse, so an organism that transforms is also an organism that can be undone.**
+Eating is reversible by barfing. That is a much stronger property than a pipeline has, and it is what
+makes a worm safe to send into someone's corpus.
+
+### A selection is a cursor with width
+
+Which is the other direction along the same axis, and it collapses several things into one object.
+The worm skill states it as arithmetic — length is head-to-tail distance, and `SELECT-RANGE` spans
+them — but the consequence is worth drawing out, because **Emacs shipped the two-cursor organism
+decades ago and everyone else kept only the degenerate case.**
+
+| Emacs | The worm | What it is |
+|---|---|---|
+| **point** | head | the moving end, where you act |
+| **mark** | tail | the anchor you left behind |
+| **region** | the body | the span between them |
+| `exchange-point-and-mark` | reverse the worm | swap which end is active |
+| **mark ring** | the path | a *stack of previous positions you can pop back to* |
+| **global mark ring** | head in doc A, tail in doc B | the same, across buffers |
+
+The mark ring deserves the emphasis: it is [the return stack](#the-five-that-pay-rent) that reading
+interfaces do not have, implemented in a text editor in the 1980s, crossing files. Emacs users pop
+back to where they were. Web readers press Back and get the previous URL.
+
+### The I-beam's superpower: it separates *and* embraces
+
+Stretching is the ability, and it flips what the thing topologically *is*:
+
+| Width | Role | What it does |
+|---|---|---|
+| zero | **separates** | goes *between* — an insertion point, a boundary, a wedge that cleaves |
+| nonzero | **embraces** | goes *around* — an enclosure, two arms holding a span |
+
+Same object, opposite jobs, decided by measure: a zero-length interval **divides** a line, and a
+positive-length interval **encloses** part of it. Nothing else about the cursor changes.
+
+The separating role is in the glyph's industrial design. The I-beam is shaped that way — a hairline
+with serifs top and bottom — so you can aim it precisely *between* two letters and still see it
+against the text. Its silhouette is a tool for getting between things.
+
+And embracing is not merely surrounding, it is **holding** — which makes it the gateway to
+everything downstream. You stretch to embrace a span, and now you can carry it: into your
+[outline](#outlines-with-their-own-insertion-cursors-the-student-model), into your inventory, into a
+note. **Stretch → embrace → take.** The plain caret cannot pick anything up, because it has no arms;
+growing width is growing arms. Which is also, exactly, growing from a zero-length worm into one with
+a body.
+
+And the unification runs one more step, because **width and lifetime are two dials on one object**:
+
+| Width | Lifetime | What we call it |
+|---|---|---|
+| zero | one keystroke | a **caret** |
+| nonzero | until you click elsewhere | a **selection** |
+| nonzero | persistent | a **highlight** |
+| nonzero | persistent and addressable by others | a **transclusion** |
+
+That last row is the payoff. The stable start/end anchor span that transclusion needs is not a new
+mechanism to invent — **it is a selection that was saved and given a name.** Which means highlighting
+while you read and quoting with provenance are the same act at different lifetimes, and the
+[note-slurping](#outlines-with-their-own-insertion-cursors-the-student-model) above is just the
+button that promotes one row to the next.
+
+### Spore's editor is the right interface, and it types the cursors
+
+Spore is the model for how you'd actually build one: **cursors as parts you stick onto a creature**,
+at any side, direction, or location. And the part determines the capability, which is where this
+turns into a type system.
+
+| Limb | Surface it can stand on |
+|---|---|
+| **Fins** | liquid — streams, feeds, anything flowing past |
+| **Feet** | text files — walk them, stand in them |
+| **Fingers** | structured files — reach into a tree and hold a specific node |
+
+**Different limbs enumerate different surfaces.** Which makes "what can I do here?" a question you
+answer by *looking at your own body* rather than by discovering a hidden command — precisely the
+self-revealing property Don says multiple cursors currently lack. You can see that you have two feet
+and a fin, so you know you can stand in two text files and drink from one stream. The body plan is
+the capability manifest, and it is visible.
+
+This also inherits Spore's placement behavior, which is the same negotiation as
+[container placement](#inventory-is-a-portable-graph-not-a-list): you drag a part at the body and it
+snaps, orients, and scales itself to where it landed. Attaching a cursor should work like attaching a
+limb, not like memorizing a chord.
+
+And a creature is legitimately **in several places at once**, which is not a mode error because the
+places are held by different limbs with different jobs. That is the answer to "which one is you": all
+of them, the way both your hands are you.
+
+### Honest problems with bodies
+
+**A body plan is a lot of state for someone who wants to read an essay.** The cell stage has to stay
+the default — one point, no limbs, nothing to configure — and growing a limb has to be provoked by
+wanting to do something, never presented as setup.
+
+**Spore's editor is a mode you go into,** and if growing a limb means leaving what you were doing,
+the discoverability problem has been relocated rather than solved.
+
+**Two cursors in two documents straddle a consistency boundary.** If the head's document changes
+while the tail is still writing derived output, what should happen is a real question — and it is the
+[database cursor isolation problem](#the-five-that-pay-rent) again, now with two cursors in different
+files. Worth answering deliberately rather than discovering.
+
+**Eggs laid from eaten text are model output, and model output confabulates.** An egg needs
+provenance back to the specific span that was eaten, or the worm is just a laundering pipeline with a
+cute name. `EAT`'s inverse being `BARF` helps: if you cannot barf back what you ate, you did not
+really keep it.
+
 ## Cursor chat needs cursors, and the lack of them enforces vibe coding
 
 The tool this is being written in demonstrates the thesis by failing at it, and the failure mode is
@@ -367,6 +505,10 @@ is interesting.** A Thompson cursor takes different notes than a Minsky cursor f
 
 The pyramid is the mitigation. Nobody is told they are playing; the I-beam is what they already use;
 and every step up is opt-in and buys something concrete.
+
+The abstraction is not a limitation, either — the I-beam has powers before it has a personality. Its
+first is that it can [stretch, and thereby embrace rather than
+separate](#the-i-beams-superpower-it-separates-and-embraces).
 
 **Plurality needs a user model, and the character model is the one that is missing.** The objection
 that two carets compete for a keystroke is real but it is not the current state of the art: most
