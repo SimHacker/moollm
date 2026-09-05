@@ -85,6 +85,71 @@ So souvenirs should *do* things, not merely prove attendance:
 A souvenir that redeems for nothing is a checkin badge, and checkin badges are why location games
 get boring. The rule: **every dispenser declares what its output does.**
 
+## Why "ticket" and not "object": taking one is instantiation
+
+The word is doing technical work. An ordinary adventure object is a thing that exists and then you
+have it. **A ticket does not exist until you take it, and taking it is an `instantiate` with
+inheritance from the vendor.**
+
+That single difference is what makes the whole context chain live:
+
+```
+your ticket  ──inherits──▶  the vending object  ──located in──▶  the room
+                                                                    │
+                                        ┌───────────────────────────┘
+                                        ▼
+                          every other object and character in it,
+                          its exits, and its neighbourhood
+```
+
+Nothing in that chain is a copy, so **all of it is available as LLM context** by following one
+pointer from a thing in your pocket. Which is the actual payoff: a ticket is a **general-purpose way
+to carry a piece of annotated, filtered, highlighted context out of a place and hand it to something
+else.** Any other object, room, or character can then use it functionally — to perform an action, to
+create something, to edit something — and the ticket supplies both the content and where it came
+from.
+
+**Entering a place is what grants access.** Being in the room is what puts its objects within reach,
+whether they are embedded in the text, sitting in separate files, or inherited from a prototype. The
+free ticket every room should dispense is the honest one: *I have read this page, and here is the
+title, description, and summary I opened up, with what I found interesting about it foregrounded.*
+Minted on the way out, customized, and **editable by the holder** — a souvenir of your own reading,
+not a receipt the site wrote about you.
+
+Then it is usable elsewhere. Dropping a ticket somewhere else **makes a link from there to where you
+got it, modified by the focus and parameters you added** — so the same source produces different
+links depending on what you took from it. And because tickets are typed values, they drop into forms
+with typed fields: person-reference inputs, picture-reference inputs, free-text inputs.
+
+**Places are therefore not booleans.** Browser history's entire model of what you did somewhere is
+that the link turns purple. A room that dispenses an editable ticket records what you actually took
+from it, which is a different fact for every visitor.
+
+### Both kinds of object matter, and `take` is where they differ
+
+Ordinary objects stay ordinary. An apple tree drops apples and then there is one fewer apple; a
+pirate drops a unique treasure and it is the only one. Both still point at their own parent
+prototypes and contexts, so provenance survives either way. The corpus needs both kinds and should
+not collapse them.
+
+The elegant part is that **this requires no new verb.** The generic `take` does everything, because
+**dispensers override `take`** — Self- or Korz-style dispatch, not a special case in the parser:
+
+| You `take` | Because the receiver overrides it | You get |
+|---|---|---|
+| an apple from a tree | no — default `take` | the apple, and the tree has one fewer |
+| a ticket from a dispenser | yes | a **new instance** inheriting from the dispenser |
+| an ACME catalog from the catalog stand outside ACME HQ | yes, same override | a catalog bound to that stand, that lobby, that company |
+| a Leela catalog from the dispenser in the Leela lobby | yes, same override, different vendor | the same mechanism, a different context chain |
+
+Taking the *dispenser itself* is a separate question and should stay hard: it may need a tool, a key,
+or permission, or expose a different verb entirely — `unbolt`, or `steal`. And for an admin, it is a
+[Korz](../KORZ-LLM-EVALS.md) dispatch along the role dimension: possession is a method slot that
+resolves only when the caller's role is admin and the phrase supplies the reflexive — *take the
+dispenser itself* — with the parser mapping that adjective into the dimensions, method, and
+parameters of the call. The permission is not a check bolted onto the verb; it is which method the
+dispatch finds.
+
 ## Parameterized dispensers: put your photo in, turn the crank
 
 Here is where this stops being a filing metaphor. A dispenser need not hold a fixed rack of items.

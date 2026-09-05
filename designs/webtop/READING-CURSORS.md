@@ -71,27 +71,101 @@ A bookmark records a *URL*. It does not record where in the page you were, what 
 to get there, what you had picked up on the way, or what rung you were reading at. It is a pointer to
 the front door of a building you were on the fourth floor of.
 
-## The pun is load-bearing in three directions
+## The pun is load-bearing in more directions than three
 
-**Cursor** (text editing): a position in a substrate, which can move, which you can have several of,
-which anchors a selection. Engelbart had multiple cursors; the idea is old and mostly unshipped.
+The shared type: **a position in a substrate, with state, that moves — and has history.** Nearly
+every field that needed this invented it, named it separately, and solved a different part of it.
+Collecting them is not wordplay; each one shipped a piece the others are missing.
 
-**Read head** (disk, tape): a physical thing that seeks over a medium, reads only where it is, and
-has locality — near is cheap, far is a seek.
+| Name | Field | The piece it contributes |
+|---|---|---|
+| Caret / insertion point | text editing | the position anchors a *selection*, and typing happens where it is |
+| **Cursor** (slide rule) | instruments | the original: a transparent slider with a hairline — a **lens**, so position and *view* travel together |
+| Read head | disk, tape | **locality and seek cost**: near is cheap, far is expensive, and it reads only where it stands |
+| Head | Turing machine | the formal minimum — the head is the machine's entire locus of action |
+| Program counter + call stack | execution | **the stack is the path**, and it is what makes *return* possible |
+| Cursor | databases | `FETCH` over a result set, plus a worked theory of **what happens when the data changes underneath an open cursor** |
+| Playhead | time media | **the one that shipped**: visible by default, and everyone's video player resumes |
+| Turtle | Logo | **heading**, not just position — and pen state, whether you are recording |
+| Zipper | functional programming | focus **plus the path back to the root**, as a data structure |
+| Continuation | Scheme | "resume from here" as a *first-class value* you can save and re-enter |
+| Character | MOO, adventure, MOOLLM | a `location:`, an inventory, a memory, a voice, and an owner who might not be you |
 
-**Character** (MOO, adventure, MOOLLM): an entity whose `location:` is where it is, which carries
-inventory, remembers where it has been, and can be someone other than you.
+And the word was already ours. Latin *cursor* is a **runner, a courier** — from *currere*, to run.
+The same root gives *cursus* (a course, a route), *excursion* (a running-out, which is what a ride
+is), *recur* (to run back, which is what resumption is), and **discourse** (*dis-currere*, a running
+to and fro). A cursor running a route through a corpus and coming back with things is not a metaphor
+borrowed from typography. It is the older meaning, and typography borrowed it.
 
-All three are *a position in a substrate, with state, that moves.* MOOLLM implements the third
-already, which means the first two arrive free. What the character has that a bare cursor does not:
+### The five that pay rent
+
+**The call stack is the missing piece in every reading interface.** A program can `return` because
+the stack records not just where it is but how it got there. Reading has no return stack, which is
+precisely why following links gets you lost — and why the browser Back button feels wrong: it is a
+*history* of visited URLs, not a *stack* of open questions. Six links deep into an argument you do
+not want the previous page, you want to pop back to the point where you still had the question. A
+cursor that keeps its path keeps a return stack, and "unwind to where I last understood things" is a
+real command.
+
+**The zipper is the implementation, not an analogy.** Huet's zipper is exactly focus-plus-context:
+the node you are at, together with everything needed to reconstruct the way back up. For a corpus
+that is already a tree of directories, a reading cursor *is* a zipper over that tree with extra
+payload hung off it — inventory, notes, register. This is the part that makes it buildable rather
+than aspirational.
+
+**The database cursor already solved staleness.** Decades of work on what an open cursor sees when
+rows change under it — isolation levels, stability, whether you observe your own writes — is directly
+the [versioned-corpus problem](#version-control-makes-a-stale-cursor-honest). The vocabulary exists;
+we should steal it rather than reinvent it badly.
+
+**The playhead is the existence proof, and it is embarrassing.** Every video and podcast player on
+earth keeps your position, shows it, lets you scrub it, and resumes you. Nobody loses their place in
+a two-hour video. Everybody loses their place in a two-hour essay. Same problem, solved completely in
+one medium and not attempted in the other — and the solved one is the *harder* medium, because time
+media has no anchors and text is full of them. There is no technical excuse; there is only that
+nobody thought text needed it.
+
+**The turtle contributes heading.** Position alone cannot tell you what you were about to do. A
+cursor with a direction knows which way you were reading — deeper, sideways, back up — which is what
+makes a resumption briefing possible instead of just a coordinate. And the turtle's pen-up/pen-down
+is the privacy control: whether this excursion is being recorded at all.
+
+MOOLLM implements the last row of the table already, which means the rest arrive as things the
+character can carry. What the character has that a bare cursor does not:
 
 - **Inventory** — what it picked up along the way. `TAKE REF` is weightless, so a cursor accumulates
-  pointers without copying ([`skills/inventory/`](../../skills/inventory/)).
+  pointers without copying ([`skills/inventory/`](../../skills/inventory/)). And the inventory is not
+  a flat list; see [below](#inventory-is-a-portable-graph-not-a-list).
 - **A path** — where it has been, in order, which is an itinerary, which is
   [testimony](../pie-stack-views/VIEWS-AS-TESTIMONY.md).
 - **A register** — the rung it reads at. `SUPERBRIEF`/`BRIEF`/`VERBOSE` becomes *per cursor*, so the
   same corpus is legitimately two different documents to two cursors at once.
+- **A voice** — see [masking](#masking-the-default-cursor-is-the-most-abstract-character). Its
+  personality colors what it writes down, what it edits, and what it finds interesting.
 - **An author** — it can be someone else's, which is the whole social tier.
+
+### Inventory is a portable graph, not a list
+
+The flat "bag of items" is the same poverty as the single clipboard. What games worked out and
+documents never did is that **different kinds of things want different kinds of containers**:
+Ultima Online's nested bags, WoW's typed bags and bank slots, Glitch's pockets. Containers hold
+containers, and the arrangement is itself information — how you filed a thing says what you thought
+it was.
+
+Which makes the reader's inventory *its own graph of rooms*, portable, carried. The organizing
+problem is already solved twice in this repo, and neither solution needs inventing:
+
+- **Placement is a negotiation, not an assignment.** OpenLaszlo's container placement protocol had
+  the container, its sub-containers, their layout policies, the contained object, *and the caller of
+  `place` passing hints* all participate in deciding where a thing lands — so an object gets
+  intelligently routed to the right place and then physically laid out. That is DWIM filing, and it
+  is what makes an inventory stay organized without the reader curating it. See
+  [GAME-PIECES.md](../GAME-PIECES.md).
+- **Getting things elsewhere is logistics.** Throw it out an exit, a window, a chute, a dumbwaiter, a
+  pneumatic tube — overlapping, intersecting networks in the Factorio sense: belts, inserters,
+  trains, logistic chests, drones. Already specified in
+  [factorio-logistics-protocol.md](../factorio-logistics-protocol.md). An inventory item does not
+  only get carried; it gets *routed*, possibly while you are elsewhere.
 
 ### Locality is the part that earns the metaphor
 
@@ -114,6 +188,101 @@ the cursor parked in §4 and it answers from §4, with §4's assumptions loaded,
 under [AUTO-FAQ.md](AUTO-FAQ.md). An LLM in a chat pane beside the document is a read head with no
 location; that is precisely why it needs the whole document pasted in every time.
 
+## Outlines with their own insertion cursors: the student model
+
+A reading cursor that only records position is half a student. The other half is that **you are
+writing something while you read**, and what you read gets slurped into it.
+
+Medium has the small version and stops there: select text, attach a comment. The comment stays
+welded to Medium's copy of the paragraph, and you leave with nothing. What you want instead is to
+**carry the selection along and append it into the outline you are building as you travel** —
+highlighting as *granular transclusion into your own document*, where your surrounding outline
+supplies the context that makes the fragment mean something.
+
+So the inventory contains **any number of ongoing outlines, each with its own insertion cursor.**
+Those insertion points are themselves cursors — sub-characters, one per topic — and they are where
+slurped material lands. Select text or an object out of the environment, and a reference goes into
+the outline at the active insertion point, at a chosen register and level of detail (glyph, title,
+abstract, full quote — the same rungs as everything else). The reference stays live, so the outline
+is connected to what it was made from.
+
+**This is the clipboard argument's constructive half.** Not one slot, invisible and frozen, but
+many named destinations, visible, persistent, and editable — which is what the
+[clipboard bus](../pie-stack-views/VIEWS-AS-TESTIMONY.md#github-is-the-clipboard-bus) already gives
+as directories in git.
+
+And the model to steal is the oldest one in the building: **a student with a notebook.** Reading the
+textbook, sitting in the lecture, asking a question and writing down the answer, noting the
+assignment, marking the thing to come back to. Every one of those is a different insertion point in
+a different outline, maintained in parallel, by a person who is also *somewhere* — in the chapter, in
+the room. Nobody had to explain the user model to them.
+
+Two consequences worth stating. **Questions are first-class inventory** — a written-down question is
+an item with a location (where it occurred to you) and a status (open, answered, abandoned), which is
+what feeds [AUTO-FAQ](AUTO-FAQ.md) with real questions instead of invented ones. And **a place is not
+a boolean.** Browser history colors a link purple and that is the entire model of what you did there.
+Read, skimmed, argued with, extracted three quotes from, left a question in, disagreed with the
+central claim — these are different, and the cursor's trace records which.
+
+### These cursors are how you build LLM context
+
+The same mechanism, pointed at the machine: a mobile character that gathers, filters, and
+incrementally elaborates context is a far better context-assembly tool than a chat window with a
+paste buffer. It goes places, takes references at a chosen register, keeps what survived scrutiny,
+and hands over a bundle that carries its own provenance. Context engineering as *an excursion with an
+inventory*, rather than as a wall of pasted text with no memory of where any of it came from.
+
+## Cursor chat needs cursors, and the lack of them enforces vibe coding
+
+The tool this is being written in demonstrates the thesis by failing at it, and the failure mode is
+worth stating precisely because it is causal rather than annoying.
+
+You scroll back to read what the model actually did. Reading provokes a thought. You type the
+thought — and **the view snaps to the bottom, destroying your reading position** in a mile-high
+transcript with no anchors, no outline, and no way to say "I was here." Recovering the position costs
+more than reading did. Do that three times and you stop scrolling back at all.
+
+**That is not a papercut, it is a mechanism that produces vibe coding.** Vibe coding is defined by
+not reading the output. An interface that charges a punitive fee every time you try to read the
+output, and charges nothing for typing the next prompt, is not neutral about which one you do. It
+trains the behavior everyone then attributes to the users' character. The absence of a reading cursor
+is the cause; "nobody reads the diffs" is the symptom.
+
+Three things fix it, all of them in this document already:
+
+- **A reading position that survives typing.** Where you were reading and where you are writing are
+  two cursors, not one. Conflating them is the bug.
+- **Transcripts as branching paths, not linear logs.** Scroll back to a point that has since been
+  summarized, fuzzed, and forgotten — and *branch there*, in full resolution, with the context as it
+  stood. `cursor-mirror` can already pull forgotten material out of the past and back into the
+  present; what is missing is doing it *from a position* rather than by search, and re-entering
+  rather than quoting. A chat is a tree of continuations, and the linear log is one traversal of it.
+- **Split views.** Which is the next section.
+
+### The Emacs move, and the receipt that we already shipped it
+
+The muscle memory is specific: split the window and scroll to a different place in the same file, or
+two different files, or an interactive process, or an Info node — and look at both at once. It is the
+most basic multi-position affordance there is, forty years old, and the modern chat interface does
+not have it.
+
+**The HyperTIES authoring tool had this, with pie menus to drive it.** Built on Gosling UniPress
+Emacs, it gave you multiple tabbed overlapping indexable windows, so you could edit many storyboards
+at once, navigate among them, render them through the actual browser formatting engine to see how
+they would look, navigate around inside the *rendered* view, and pop back into the editor window for
+whatever page you were looking at.
+
+It was not in-place WYSIWYG, because there was no time, leverage, tooling, or budget for that. The
+parts list was what existed: Gosling UniPress Emacs with MockLisp, Mitch Bradley's Forth, a C
+compiler with no dynamic loading (so Forth did the relocating, memory-mapping, and linking of
+non-dynamic libraries), a dumped image of the compiled hypermedia document database so it restarted
+fast, the NeWS object-oriented PostScript toolkit, and PSIBER for interactive visual debugging.
+
+Two things follow. The affordance is **not hard** — it was affordable in the late 1980s under
+severe constraints, on a rendering pipeline built by hand. And the editor/rendered-view round trip
+is exactly the reading-cursor-plus-editing-cursor pair, shipped, with pie menus as the command
+surface. The tools available now are enormously better and the capability regressed to zero.
+
 ## What plurality buys, which is where it stops being a bookmark
 
 Once the position is an object rather than browser state:
@@ -126,13 +295,26 @@ what any of them was for.
 
 **Somebody else's cursor is a thing you can pick up.** Not "here is my reading list" — that is the
 route, and it already exists in
-[DISPENSERS-AND-SOUVENIRS.md](DISPENSERS-AND-SOUVENIRS.md#reading-lists). This is *the position on
+[DISPENSERS-AND-SOUVENIRS.md](DISPENSERS-AND-SOUVENIRS.md#a-reading-list-is-a-curated-souvenir-collection).
+This is *the position on
 it*, with what they had picked up when they stopped. Handing someone a route says where to go;
 handing them a cursor says where you are and what you are carrying. Forking one and walking it
 forward is a reply.
 
 **The author's cursor through his own corpus is content.** gwern re-reads his own pages constantly —
 that path, published, is a tour nobody can reconstruct from the link graph.
+
+**Characters gather into parties, and this is essential rather than decorative.** A party is several
+cursors moving together under one intent, which is how you cover a corpus that is too big for one
+read head — send the skeptic, the summarizer, and the fact-checker down three branches and
+reconvene. Exchanging characters between people is the same operation as exchanging cursors, which
+means a party can be assembled out of other people's readers.
+
+**Characters own views, and different characters want different ones.** A view focused on what *this*
+reader is interested in, exploring, or trying to prove is per-character state, not global chrome — so
+the same room looks different depending on who is standing in it, and publishing a view is publishing
+a character's angle rather than a neutral snapshot
+([VIEWS-AS-TESTIMONY](../pie-stack-views/VIEWS-AS-TESTIMONY.md)).
 
 **An agent's cursor is the same type as yours.** This is the endosymbiosis, stated concretely: the
 LLM is not a pane beside the document, it is a read head *in* the corpus, with a location you can see
@@ -161,18 +343,49 @@ No web bookmark can do this, and it converts resumption from a guess into a brie
 ## Honest costs
 
 **A cursor that is a character invites cuteness, and cuteness is a tax.** A reader who wants to
-resume an essay does not want to name a golem, pick a face, or be greeted by anything. The default
-cursor must be nameless, invisible, and expressed as *continue where you left off* — one affordance,
-no ceremony. The character surface is opt-in and only pays for itself once you have more than one, or
-once you want to hand one to somebody. Violating this breaks the rule
-[PLAYABLE-CORPUS](PLAYABLE-CORPUS.md#honest-costs) already sets: nobody is ever told they are
-playing.
+resume an essay must never be made to name a golem, pick a face, or be greeted. But the fix is not
+"no character" — it is *the right point on the abstraction pyramid*, and Scott McCloud already
+worked out where that is.
 
-**Plurality needs a focus story or it becomes modes.** Engelbart's multiple cursors were for multiple
-*people*, where "which one is you" answers itself. Several cursors for one person is the case that
-goes wrong — two carets competing for a keystroke is the classic mode error. The provisional
-discipline: exactly one cursor is active, it is visibly named, and the others are a *list* you switch
-to deliberately, never a second caret on screen.
+### Masking: the default cursor is the most abstract character
+
+McCloud's masking effect is that **the more abstract a face, the more readily the reader inhabits
+it.** A photorealistic face is someone else; a smiley is anyone; and the reader pours themselves into
+the empty one.
+
+The blinking I-beam is *past* the smiley. It is not a simplified face, it is no face — pure locus of
+attention and command, with no emotion of its own. Which is why everyone already identifies with it
+completely and nobody has ever found it cute. It is `cursor-mirror`'s agent, and it is the correct
+default precisely because it is the most abstract thing on the pyramid: **the emotion comes from the
+words you type, which it leaves behind it.**
+
+So personality is not a cost the design imposes, it is a **dial that starts at zero.** From there the
+reader may optionally personalize — a flame cursor, a math cursor, an Einstein or Pac-Man or Minsky
+or Hunter S. Thompson cursor, or their own character writing in their own voice. And this is not
+skinning: **the cursor's personality colors what it writes down, how it edits, and what it decides
+is interesting.** A Thompson cursor takes different notes than a Minsky cursor from the same page.
+
+The pyramid is the mitigation. Nobody is told they are playing; the I-beam is what they already use;
+and every step up is opt-in and buys something concrete.
+
+**Plurality needs a user model, and the character model is the one that is missing.** The objection
+that two carets compete for a keystroke is real but it is not the current state of the art: most
+serious editors *do* ship multiple cursors for parallel editing, and they are genuinely useful. The
+actual failure is discoverability. The feature is unlabeled, the invocation is unmemorable, and there
+is no user model at all — you cannot picture what you have, so you cannot picture what to do with it.
+Even people who would use it daily do not know the command.
+
+Which inverts the objection. **If you already have a model of characters — create, delete, clone,
+name, arrange, send somewhere — then multiple cursors stop being a hidden mode and become an obvious
+consequence of something you can already see.** Then broadcasting an operation across them is
+natural at whatever level you like: a keystroke, a click, or preferably a *named high-level command*.
+The character model does not merely survive plurality; it is the affordance that makes plurality
+thinkable, and it is better than what editors currently ship.
+
+**The real requirement underneath all of this** is a coherent kit: cursors, containers, a command
+dispatch system, and composition rules where it is obvious both that the pieces fit together and how.
+Any individual feature here is buildable; the thing that is actually hard, and not yet done, is
+making the set legible enough that a user can see the combinations without being taught them.
 
 **A reading cursor is a worse privacy surface than inventory, not a comparable one.** Inventory
 records what you took, which is roughly what you liked. A cursor records **where you stopped** —
@@ -180,6 +393,13 @@ which is where you got bored, lost, or angry, and which paragraph did it. That i
 a bookmark and far more intimate than analytics, because it is per-argument rather than per-page.
 Local by default is not politeness here, it is the requirement; and publishing one should show you
 its exact contents first, since the interesting part is the part you would not think to check.
+
+**So remembering must be a control, not a property.** The reader decides whether a cursor records at
+all (the turtle's pen), what it keeps, what is curated out before anything is persisted, and what
+crosses from persisted to shared. Three separate gates, because they are three separate decisions —
+and the middle one is the one systems always omit. The same requirement governs the ride version,
+where the trace is of a physical body: see
+[EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md#privacy-is-an-editing-problem).
 
 **Resumption is sometimes the wrong move.** The cursor makes it cheap to jump back in with false
 confidence that the context is still loaded, when what you needed was to re-read from the section

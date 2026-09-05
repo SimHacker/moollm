@@ -29,6 +29,38 @@ notation: cells indexed by signed offset from center, a one-dimensional neighbor
 The lane is described in its own design doc as *"a road that is whatever length it needs to be"* —
 an unbounded lattice — and the buildings are cell states.
 
+### Wide and thin, versus square and shallow
+
+Worth being precise about *which* neighborhood, because the lane picked an unusual one. `w3…e3` is
+**radius 3 on a single axis** — seven cells, wide and thin. A city grid map is the opposite shape:
+**radius 1 on two axes**, either von Neumann (`n e s w`, four cells) or Moore (adding `ne nw se sw`,
+eight). Same rough budget of neighbors, spent on reach instead of dimension.
+
+That is a real design choice rather than an accident of a one-street example. Radius buys you *how
+far along the argument you can see without leaving it*; dimension buys you *how many arguments are
+adjacent at all*. A lane can see three doors down and has no notion of the next street over. A grid
+knows about the next street over and cannot see past one block in any direction.
+
+**And the city's diagonals are not the same kind of neighbor as its cardinals.** On a street grid the
+four cardinals run *along the streets* — public circulation, traversable, the way a body actually
+gets around. The four diagonals point **into the block interiors**: they are the buildings. Moore
+looks like eight uniform neighbors and is really four corridors and four walls.
+
+Which means the diagonal is **not a primitive move at all**. To reach your NE neighbor you go north
+and then east around the block, or you go *through the building* — in, across, out. That second
+option is a lateral move that spends the vertical axis to make itself, and it is the honest picture
+of what a shortcut inside an institution costs. The typed connectors below arrive here from geometry
+rather than from UI taste: adjacency was already heterogeneous before anyone drew a link.
+
+Micropolis has the receipt in its tile logic. Roads, rails, and wires connect **orthogonally** —
+which is why they never join diagonally, and why the autotiling picks its sprite from which of the
+four cardinals match. The simulation's own connectivity is von Neumann even though the map is a full
+2D grid, because the thing being modeled is circulation, and circulation runs along the streets.
+
+Stacked up, the corpus geometry is: the lane supplies one lateral axis with reach, the tower supplies
+the signed vertical, and a real city map would add the second lateral axis and the block interiors
+with it.
+
 That makes the coordinate system explicit and gives the two axes different mathematics. **Laterally
 you are in a CA neighborhood; vertically you are on a pyramid rung.** And a CA neighborhood is
 already a sparse local view: a rule reads a fixed-radius window over the lattice and cannot see past
