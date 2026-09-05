@@ -43,13 +43,20 @@ mounts:
     at:  /ref/webtop
     mode: ro
 
+  - src: github://SimHacker/moollm@main
+    at:  /obj
+    sparse:                     # sparse-checkout patterns, not one path
+      - /skills/moo/
+      - /designs/webtop/
+      - '!**/node_modules/'
+
   - src: file:///Users/don/skills-dev
     at:  /skills/local
     mode: rw
     over: /skills/moollm        # union: this wins on collision
 ```
 
-Three properties do most of the work:
+Four properties do most of the work:
 
 **Pinned or live.** `@sha` is immutable and cacheable forever; `@branch` follows updates and needs
 invalidation. Same split as [the two URL
@@ -61,11 +68,19 @@ working session does not.
 costs no more than mounting a repo, and never requires a clone. This is git being genuinely better
 suited to the job than a filesystem: subtrees are already first-class addressable values.
 
+**Sparse selection, not one path.** A mount takes a **sparse-checkout pattern set**, so you pick and
+choose exactly which files and directories appear. Git's two matching modes have a real cost
+difference worth inheriting rather than hiding: **cone mode** is directory-level and matches by
+prefix, so it stays cheap on large trees; **pattern mode** takes full gitignore-style globs and must
+test every path. Default to cone, allow patterns, and say which one a mount is using — an
+accidentally non-cone mount over a big repo is a silent performance cliff.
+
 **Write mode is declared, not inferred.** `ro` is the default. `rw` maps writes back to `moo write`
 on that branch. `cow` buffers writes in a scratch overlay for later commit — the same
 [buffer-and-checkpoint](webtop/CURSOR-STORAGE.md#postgres--github-not-bidirectional-sync-which-is-the-trap)
 discipline, one layer down. A pinned mount **cannot** be `rw`, because there is nothing to write to;
-that is a constraint, not a policy.
+that is a constraint, not a policy. What happens when you write *through* a union is
+[below](#writeback-copy-up-whiteouts-and-where-new-files-land).
 
 ---
 
@@ -91,7 +106,7 @@ files, no behavior, and a warning naming the missing type directory.
 
 ---
 
-## Mounting the index: the namespace is `mmap` and reading is the page fault
+## Gitmapping: the namespace is `mmap` and reading is the page fault
 
 The [Postgres projection](webtop/CURSOR-STORAGE.md#main-is-the-type-registry-and-the-url-is-the-join-key)
 gets a mountpoint too, and once it does the shape of the whole system becomes familiar:
@@ -109,6 +124,25 @@ paging in*. Map ten thousand objects for free, touch four. The index exists so y
 **whether** to fault, and that decision is where all the leverage is: a predicate over 10,000 objects
 is one SQL query instead of 10,000 API reads, which is the difference between a feasible operation
 and an impossible one.
+
+**Memory-mapping to git instead of RAM** — *gitmapping*, and the name is doing real work, because git
+already implements most of it:
+
+```bash
+git clone --filter=blob:none --sparse   # trees and commits now; blobs on touch
+```
+
+**Partial clone** defers blob download and fetches from the promisor remote on access. **Sparse
+checkout** selects which paths materialize. Together that *is* demand paging, with the remote as
+backing store, shipped and battle-tested at scale. So the honest scope is narrow and much more
+achievable than it first sounds:
+
+> MOOFS supplies **naming and policy** — where a tree appears, which layer wins, what is writable.
+> Git supplies the **paging**.
+
+Which also means the fallback is not a rewrite. A gitmapped mount can always be materialized as a
+real partial-clone worktree on disk and handed to a compiler, an editor, or a shell — the same
+[MOOT reification](#status-what-exists-and-what-does-not) idea, now with a mechanism.
 
 ### Two ways in: by name and by predicate
 
@@ -157,6 +191,48 @@ problem](webtop/READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-
 through search instead of through a bookmark. Detect it at page-in, report the miss with the commit
 that vanished, and never silently drop the row: a result that quietly shrinks is worse than one that
 reports damage.
+
+---
+
+## Writeback: copy-up, whiteouts, and where new files land
+
+Writing through a union should work wherever it means anything, and the cases where it means
+something are enumerable. All three mechanisms are overlayfs's, already solved, and worth taking
+rather than reinventing.
+
+| You write to | What happens |
+|---|---|
+| a file in a `rw` layer | write to that layer's branch. Unambiguous, the common case. |
+| a file resolved from a lower `ro` layer | **copy-up**: copy into the topmost writable layer covering that path, then modify. The file now exists twice and the top wins. |
+| a new file | lands in the topmost writable layer whose mount covers the path — the most local layer, as Don says. |
+| a delete of a lower-layer file | **whiteout**: a tombstone in the upper layer that masks the lower entry. A union delete is a masking record, not a delete. |
+| anything under a pinned mount | refused; copy-up is the only route. |
+
+Layer order resolves the ambiguity, and it is **list order, declared as significant** — with
+`/proc/self/whence` reporting which mount actually won, because an order you can only infer from
+behavior is not an order anyone can debug.
+
+Two placement rules keep the edge case from becoming a bug. If **no** writable layer covers the path,
+fail loudly rather than inventing a home; a write that lands somewhere plausible is discovered weeks
+later in the wrong repo. If **two** writable layers cover it, require an explicit target instead of
+picking by ordinal — tie-breaking is right for reads and wrong for writes.
+
+### The cost that is not an edge case
+
+Copy-up **silently forks content**. You edit what looks like the upstream file, get a private copy in
+your local layer, and from that moment upstream changes stop reaching you at that path — invisibly
+and permanently. In a container that is fine, because the image is meant to be frozen. Here it is
+corrosive, because the entire value of the arrangement is that upstream keeps flowing.
+
+So a copy-up is not a silent side effect. It records its provenance — source layer, source commit,
+the bytes it forked from — which makes two things possible that are otherwise impossible: a
+**divergence report** (your copy-ups whose sources have moved, and the diffs you are now missing) and
+a **rebase** of a copy-up onto the current upstream. Without that record, a union filesystem over
+live repos quietly becomes a stale private fork of everything you ever touched.
+
+And whiteouts committed into a git layer are real files that mean nothing outside the union. They
+travel with the branch, confuse anyone reading it directly, and want a naming convention obvious
+enough to be ignorable.
 
 ---
 
@@ -231,9 +307,10 @@ after a 3400-line spec described a mount layer that did not exist.
 mid-session. Pinning fixes it and costs currency; the default should probably be pin-on-first-read,
 so a session is internally consistent even when nobody thought about it.
 
-**Write ambiguity in unions.** If two mounts cover a path and one is `rw`, a write is unambiguous; if
-both are, it is not. Declare exactly one writable layer per union or refuse the write. Guessing here
-produces edits that land in the wrong repo and are found much later.
+**Write ambiguity and silent forking.** Union writes have real hazards — ambiguous placement, and
+copy-up quietly detaching a file from upstream forever. Both are handled
+[above](#writeback-copy-up-whiteouts-and-where-new-files-land); the second is the one that does not
+announce itself.
 
 ---
 
