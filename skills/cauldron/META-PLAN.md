@@ -55,7 +55,7 @@ So cauldron's "self-awareness" isn't a ladder everyone must climb. It's a conste
 
 | Reified META-PLAN | Artifact it reflects on | Audience | Status |
 |---|---|---|---|
-| [`central/docs/configuration/META-PLAN.md`](../../../central/docs/configuration/META-PLAN.md) | One specific brew (`central/docs/configuration/`) | Executors working this project's PRs | exists |
+| *(per-brew META-PLAN)* | One specific brew | Executors working that project's PRs | **not reified** — the first brew's artifacts were captured as [`examples/configuration-flags/`](examples/configuration-flags/), but no companion META-PLAN was written |
 | [`this file`](META-PLAN.md) | The cauldron skill itself | Anyone brewing *any* cross-cutting plan | exists |
 | *(level-2 wisdom)* | The pattern of meta-orchestrator skills (cauldron, debate, plan-then-execute, play-learn-lift) | Anyone authoring a new meta-orchestrator | **not reified** — no file yet, and that's fine |
 | *(level-3 philosophy)* | MOOLLM as a whole | Kernel maintainers | **partially reified** in `kernel/*.md` |
@@ -318,4 +318,6 @@ And when you have ideas that should flow back — better templates, a missing K-
 - [protocols/](protocols/) — per-K-line YAML definitions
 - [examples/](examples/) — programming-by-example (first example: trekified configuration-flags)
 
-Companion META-PLAN in the first-brew project: [`central/docs/configuration/META-PLAN.md`](../../../central/docs/configuration/META-PLAN.md) (note: relative path crosses repositories; reachable from a checkout where both are siblings).
+The first brew is captured as [`examples/configuration-flags/`](examples/configuration-flags/) —
+monolith, shards, substitutions, and lessons. It has no companion META-PLAN of its own; writing one
+would be the natural way to test whether this file's advice survives contact with a real brew.
