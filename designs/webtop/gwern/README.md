@@ -51,9 +51,64 @@ made for TNT OPEN LOOK pin-up menus, arrived at independently about thirty years
 on the same answer by two people who never discussed it is the strongest evidence available that
 **a popup is a window**, and should be a real one from the start.
 
-## What we add
+## What we add — under his own principle
 
-Four affordances gwern.net has none of, each with machinery already in MOOLLM: **playability** (actions whose consequence is a tracked diff), **explorability** (a place with altitude and unvisited exits, not a link graph), **inventory** (`TAKE REF` carries a weightless pointer — transclusion as a game verb), and **multi-userness** (other readers' paths as content, agents as inhabitants rather than a chat pane). The mechanism is that an article *is* a room: one directory exporting the document interface and the ROOM interface simultaneously, no rewrite. See [PLAYABLE-CORPUS.md](../PLAYABLE-CORPUS.md).
+The design doc's miscellaneous principles include **"give the reader agency"**, in the cluster under
+`reader > author`. Everything in this section is that line carried further than gwern carried it, not
+a foreign agenda: he named the principle and implemented the reading half of it.
+
+Five affordances gwern.net has none of, each with machinery already in MOOLLM: **playability**
+(actions whose consequence is a tracked diff), **explorability** (a place with altitude and unvisited
+exits, not a link graph), **inventory** (`TAKE REF` carries a weightless pointer — transclusion as a
+game verb), **multi-userness** (other readers' paths as content, agents as inhabitants rather than a
+chat pane), and **persistent reading cursors** (a position that is an object you can keep, name, and
+hand to someone). The mechanism is that an article *is* a room: one directory exporting the document
+interface and the ROOM interface simultaneously, no rewrite. See
+[PLAYABLE-CORPUS.md](../PLAYABLE-CORPUS.md).
+
+**The fourth thing worth restating, and it is a receipt.** gwern.net's `demo-mode` keeps a per-reader
+model in LocalStorage — use-counts per site feature, so the theme-switcher hint stops animating after
+*n* visits. It is a static site with no backend and no account, and it already carries durable
+per-reader state. That state has never been pointed at *where you were reading*: dark mode and reader
+mode persist, and your place in the argument does not. The mechanism is built and aimed at the
+furniture. See [READING-CURSORS.md](../READING-CURSORS.md).
+
+## The ornament rule, which is an order of operations
+
+Two adjacent principles from the design doc do more work than they look like:
+
+> you must earn your ornaments — if you go overboard on minimalism, you may barely be mediocre
+
+> visual differences should be semantic differences
+
+The footnote spells out the sequencing: *"One earns the right to add 'extraneous' details by first
+putting in the hard work of removing the actual extraneous details; only after the ground has been
+cleared — the 'data-ink ratio' maximized, the 'chartjunk' removed — can one see what is actually
+beautiful to add."*
+
+**Removal is the prerequisite, not the product.** Data-ink is a *ratio*, and the common failure is
+driving the denominator to zero and calling it finished. gwern says so directly — *"many 'minimalist'
+designs proud of their simplicity are merely simple-minded"*, and Rams' "as little design as
+possible" fails when *"designers focus on the first part, and forget the second part."* A minimalism
+that cannot hold more than a few paragraphs and a hero image *"has not solved the design problem, and
+is merely a sub-genre of illustration."*
+
+This connects to the returns-to-design parabola in the same document, and that is the sharp version:
+**minimalism-as-ideology delivers you to the middle of the sigmoid and then confiscates the
+vocabulary for the spike.** "Barely mediocre" is not a slur, it is a position on his own curve — the
+region where nothing is broken, nothing is noticed, and there is no move left that the style permits.
+
+The second principle is the diagnostic for the flat-design era specifically, and it fails in the
+*converse* direction: a borderless button makes a **semantic** difference (tappable versus inert)
+carry **no visual** difference. That is not ornament removal, it is the deletion of the interface's
+syntax, and it is the direct-manipulation regression Shneiderman's whole position predicts — visible
+objects with visible actions is the requirement, and the objects went invisible while the actions
+stayed. Ornament added later without clearing that up is the same error inverted: unearned.
+
+Inherited here as a lint with an order, not a taste: strip first, and no decorative element exists
+until the removal pass is clean — then what you add is legible against the cleared ground. MOOLLM's
+own `no-decorative-comments` rule stated only the first half until this was noticed; the earning
+clause is now attached to it in `.cursorrules`.
 
 ## What we do not inherit
 

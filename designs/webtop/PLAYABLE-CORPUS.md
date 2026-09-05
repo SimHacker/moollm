@@ -3,10 +3,13 @@
 *Don Hopkins · September 2026*
 
 **Thesis:** gwern.net is the best-read document on the web and you cannot *do* anything in it. What
-this hub brings to that world is four affordances the adventure lineage shipped decades ago and the
-web never adopted: **playability, explorability, inventory, and multi-userness.** Each has real
-machinery in MOOLLM already, and one of them turns out to be Nelson's transclusion wearing a
-game verb.
+this hub brings to that world is five affordances the adventure lineage shipped decades ago and the
+web never adopted: **playability, explorability, inventory, multi-userness, and persistent reading
+cursors.** Each has real machinery in MOOLLM already, and one of them turns out to be Nelson's
+transclusion wearing a game verb.
+
+None of this is imposed from outside. gwern's own design principles include **"give the reader
+agency"** and `reader > author`; these are what those lines commit you to if you carry them out.
 
 The compilation half of this — how a corpus becomes navigable with no model, server, or key in the
 loop — is [TAGSONOMY-COMPILER.md](../TAGSONOMY-COMPILER.md). This is what the compiled artifact
@@ -141,6 +144,21 @@ What multi-userness adds to a *document* corpus specifically:
   Nenex puts beside the document. Mesa's shared canvas is the same instinct
   ([temkin](temkin/README.md)).
 
+## Reading cursors: the one that makes the other four persist
+
+The four above all assume a reader who is *there*. None of them survive closing the tab, and neither
+does gwern.net's semantic zoom — you drill four rungs into an appendix, come back tomorrow, and start
+at the surface.
+
+The fix is already in the repo under another name: **a reading cursor is a character.**
+`CHARACTER.yml` owns `location:`, and a location in a corpus of rooms is a position in a document.
+That gives the position an identity, an inventory, a path, a rung, and an owner — so you can keep
+several, return to one, hand one to somebody, and let an agent hold one of the same type as yours.
+
+The full argument, including gwern's own already-shipped per-reader LocalStorage model and why the
+browser bookmark fails on exactly the axes Nelson's clipboard does, is
+[READING-CURSORS.md](READING-CURSORS.md).
+
 ## The tension worth naming
 
 **Inventory and multi-userness want a server; the compilation thesis forbids one.** The whole point
@@ -245,6 +263,7 @@ above, and without them exploration is just being lost.
 - [../TAGSONOMY-COMPILER.md](../TAGSONOMY-COMPILER.md) — how the corpus compiles, and the Scott Adams interpreter-plus-database architecture
 - [`skills/adventure/SKILL.md`](../../skills/adventure/SKILL.md) — the verb set, the rung selector, state ownership
 - [`skills/inventory/`](../../skills/inventory/) — pointers versus values, boxing, weight as cost
+- [READING-CURSORS.md](READING-CURSORS.md) — the fifth affordance: characters as read heads, plural cursors, staleness reporting, and why the bookmark is the clipboard problem again
 - [DISPENSERS-AND-SOUVENIRS.md](DISPENSERS-AND-SOUVENIRS.md) — what you *carry out* of a room: stamped souvenirs, tickets as service interfaces, parameterized cranks, and the whole thing on a real-world map
 - [`skills/adventure/MOOST-MULTIPLAYER.md`](../../skills/adventure/MOOST-MULTIPLAYER.md) — shared state plus git forks
 - [gwern pack](gwern/README.md) — what we inherit and what we do not
