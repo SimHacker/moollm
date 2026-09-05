@@ -478,6 +478,62 @@ claim you were about to argue with was retracted.
 
 No web bookmark can do this, and it converts resumption from a guess into a briefing.
 
+#### The cursor is a permalink: `(remote, commit, path, anchor)`
+
+The mechanism is the one GitHub already ships. A cursor stores a **repo, a commit SHA, a path, and
+an anchor** — which is exactly `blob/<sha>/<path>#<anchor>`, a permalink with a reading position
+attached. And because your cursor lives in its own branch ([CURSOR-STORAGE.md](CURSOR-STORAGE.md))
+while the document usually lives in *someone else's* repo, the pointer has to be cross-repo anyway.
+
+The receipt for that shape is a **submodule**: a pinned cross-repo pointer at a known SHA, with drift
+detection built in (`git submodule status` tells you when the pin is behind). A cursor is a submodule
+pointer that also remembers where you were reading.
+
+**The point worth being precise about: pinning to a SHA does not fix staleness, it makes staleness
+computable.** Those are different, and the difference is the whole design.
+
+| Pinned to | On return |
+|---|---|
+| a branch (`main`) | your position silently drifts — the anchor resolves, the text under it is not what you read, and nothing says so |
+| a commit SHA | your position is exactly what you saw, permanently. It may no longer be where the conversation is — but that is now a **diff**, not a corruption |
+
+Everything in the briefing above falls out of the SHA mechanically, no heuristics:
+
+```bash
+git log -1 --format=%ci $CURSOR_SHA          # elapsed time
+git rev-list --count $CURSOR_SHA..HEAD -- $PATH   # commits since
+git diff $CURSOR_SHA..HEAD -- $PATH          # what actually moved
+```
+
+And the one that answers the real question — **whether the change was above you.** Diff hunks carry
+line ranges; compare them against the anchor's position. If every hunk lands *below* your cursor, the
+context you built is still valid and resume is safe. If something landed *above* it, your loaded
+context is wrong and re-reading from the section head is the correct move. That is the exact judgment
+that "resumption is sometimes the wrong move" asks the reader to make, computed rather than guessed.
+
+So the default is not a binary but **three modes, selected by the diff:**
+
+| Mode | Chosen when |
+|---|---|
+| **Resume** | nothing changed above the anchor |
+| **Re-read from the section head** | something changed above it, or enough time passed that the briefing is longer than the section |
+| **Re-locate** | the anchor no longer exists — show the diff that removed it |
+
+**Anchor on prose, not on line numbers.** Line-pinned permalinks are the known failure of this
+mechanism: GitHub's own `#L40` breaks the moment anyone inserts a paragraph. The anchor should be a
+heading slug or a **quoted span**, with line numbers demoted to a hint for fast lookup. This is the
+same stable start/end anchor span that transclusion needs, which is why it is one mechanism and not
+two.
+
+**Honest cost: a SHA can dangle, and dangling is worse than stale.** Force-push, rebase, and
+squash-merge destroy the commit your cursor names; once it is gone you cannot even compute the diff,
+so you lose the briefing along with the position. This is a real risk against any actively-rebased
+repo, and it argues for storing **both** — the SHA for exact provenance, and the quoted anchor text
+for content-addressed recovery when history has been rewritten. When the SHA resolves you get the
+full briefing; when it does not you degrade to searching HEAD for the quoted text and reporting
+lower confidence. Belt and suspenders, and the `robust-first` reading: a cursor should lose precision
+rather than lose your place.
+
 ## Honest costs
 
 **A cursor that is a character invites cuteness, and cuteness is a tax.** A reader who wants to
@@ -554,7 +610,9 @@ where the trace is of a physical body: see
 confidence that the context is still loaded, when what you needed was to re-read from the section
 head. A cursor that reports its own staleness — elapsed time, commits since, what changed above you —
 makes that judgment available instead of assuming resume; but the failure mode is real and the
-default should offer both.
+default should offer both. The commit SHA in the cursor's permalink is what makes the judgment
+computable rather than a guess — [see above](#the-cursor-is-a-permalink-remote-commit-path-anchor)
+for the three resume modes and how the diff selects among them.
 
 **None of this helps the drive-by reader**, who is most readers. Someone arriving from Hacker News to
 read one essay gets zero value from any of it and must pay nothing for it. The feature has to be
