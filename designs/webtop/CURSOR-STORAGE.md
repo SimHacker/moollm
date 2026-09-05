@@ -36,24 +36,32 @@ and stores each alert's data — loaded evidence, database query results, whatev
 accumulated — in an `Issue_<issueid>` branch. A little tree of files, isolated, with a type and an id
 you can look it up by. `cursor_<id>` is the same move pointed at a different noun.
 
-## The layer above: `Type_ID` branches make a repo a polymorphic container
+## The layer above: branch-as-object makes a repo a polymorphic container
 
 The orphan branch is only the **mechanism** — one clean tree with no shared history. The convention
-layered on top of it is what does the real work: **name branches `Type_ID`**, and the ref namespace
-becomes a typed object store.
+layered on top has a name and a written protocol: **branch-as-object**, naming branches `type_id`
+so the ref namespace becomes a typed object store. The branch *is* the object, its history is the
+object's audit log, its HEAD is current state, and deleting it tombstones the object.
+
+> Spec: `skills/github/protocols/branch-as-object.md` in Leela's `central`, which documents the
+> convention and its live use. MOOLLM's own schemapedia already names the pattern in
+> [`skills/schema/schemas/mechanisms/github/`](../../skills/schema/schemas/mechanisms/github/) —
+> theory there, operational practice in central, and this document is the reading-cursor application.
 
 ```
-cursor_a3f9        character_b21        Issue_4471        room_narthex
+cursor_a3f9        character_b21        issue_4471        room_narthex
 └─ type ─┘└─id─┘   └── type ──┘└id┘     └type┘└─id─┘      └type┘└──id──┘
 ```
 
-Three properties fall out of it, and none of them needed a database:
+Three properties fall out, and one of them is weaker than it first looks:
 
-- **Per-type ID spaces.** `cursor_1` and `Issue_1` are different objects. IDs only have to be unique
+- **Per-type ID spaces.** `cursor_1` and `issue_1` are different objects. IDs need only be unique
   within a type, so each type mints its own without coordinating with any other.
-- **The prefix is a type query.** `git branch --list 'cursor_*'` enumerates every cursor in the
-  repository — `SELECT * FROM cursors` with no index to maintain, because the ref namespace already
-  is one.
+- **The prefix enumerates.** `git branch --list 'cursor_*'` lists every cursor in the repository.
+  **But that is enumeration, not query** — asking *which cursors are stale* means checking out or
+  fetching each branch and scanning its files, which is a linear walk. The protocol doc is explicit
+  that this scales to thousands of objects per type and is not a substitute for a database with
+  indexes. Cheap listing, expensive field queries.
 - **One repo holds many types**, which is what makes it a **polymorphic container** rather than a
   place to keep one kind of thing.
 
@@ -62,27 +70,32 @@ Three properties fall out of it, and none of them needed a database:
 prefix is not a label — it is the pointer to the prototype, so an object's type tells you what it can
 do and where that is defined.
 
-This is the constitution's plural-typed-container discipline applied to a different substrate. In the
-filesystem, the *directory* infers the type of its children; in git, the *ref prefix* does. Same rule,
+This is the constitution's plural-typed-container discipline on a different substrate. In the
+filesystem the *directory* infers the type of its children; in git the *ref prefix* does. Same rule,
 same first-guess-right behavior, and the ref namespace turns out to be a container like any other.
 
 The precedent is running in production: **Leela's alerting system stores each alert as an
 `Issue_<id>` branch**, holding evidence, query results, and working files in a tree of its own.
 
-### Two gotchas that decide the naming scheme
+### Lowercase, and why the separator is an underscore
 
-**The underscore is load-bearing; a slash would break it.** Git refs are paths, and a ref cannot also
-be a directory containing other refs. Adopt `cursor/1` and you have permanently burned `cursor` as a
-usable ref name, and any later wish for a sub-ref under an instance is a hard
-`refs/heads/cursor/1` versus `refs/heads/cursor/1/notes` conflict. `Type_ID` keeps the namespace flat
-and sidesteps the whole class of directory/file collisions. The choice looks cosmetic and is not.
+**Use `type_id`, lowercase.** This is a deliberate revision: the central protocol currently
+recommends PascalCase or UPPERCASE type names, and its live branches are `Issue_<id>` and
+`ALERT_<n>`. Lowercase is the better rule going forward for a reason that is not aesthetic. Loose
+refs are literal files under `.git/refs/heads/`, so on macOS and Windows — case-insensitive
+filesystems — `Issue_1` and `issue_1` are **the same ref**. A single-case convention makes that
+class of collision unrepresentable; a mixed-case one fails silently and per-platform, which is the
+worst way to fail. Worth deciding deliberately rather than by drift, since existing branches use the
+old rule.
 
-**Pick one case convention and lint it.** Loose refs are literal files under `.git/refs/heads/`, so on
-macOS and Windows — case-insensitive filesystems — `Issue_1` and `issue_1` are **the same ref**. A
-repo mixing capitalized types (`Issue_`) with lowercase ones (`cursor_`) is fine until two types'
-names differ only by case, at which point the collision is silent and platform-dependent, which is
-the worst kind. Also sanitize IDs: ref names cannot contain spaces, `..`, `~^:?*[`, or end in
-`.lock`.
+**The underscore is load-bearing, for two reasons.** The protocol's own: ids frequently contain
+dashes (UUIDs, slugs), so `_` is the only separator that splits `type` from `id` unambiguously. And
+a structural one: git refs are paths, and a ref cannot also be a directory of refs — adopt `cursor/1`
+and you permanently burn `cursor` as a usable ref name, and `refs/heads/cursor/1` versus
+`refs/heads/cursor/1/notes` becomes a hard conflict the first time you want a sub-ref. Underscores
+keep the namespace flat and sidestep the whole class.
+
+Sanitize ids while you are at it: ref names cannot contain spaces, `..`, `~^:?*[`, or end in `.lock`.
 
 ## The layout
 
@@ -227,15 +240,72 @@ real conflicts**, and git resolves it with machinery that already exists.
 So the tiers are not two formats with a converter between them. They are **one format with two
 backing stores**, and that is the only version where climbing a rung is free and reversible.
 
-### Honest costs of the free rung
+### Credentials: what is actually safe, and what only sounds safe
 
-- **Credentials in LocalStorage are readable by any script on the origin.** This is the standard
-  token-storage anti-pattern, and a static site with no backend cannot use the standard fix
-  (`httpOnly` cookies), so there is no secure option here — only **small blast radii**. Use a
-  fine-grained token scoped to *one* repo with contents-write and nothing else, prefer a GitHub App
-  or device-flow token over a pasted PAT so it is revocable and expiring, and point it at a
-  dedicated cursor repo rather than anything else you own. Compromise then means someone can write
-  to your notes, which is bad and bounded — a different category from acting as you.
+The useful fact that shapes everything: **`api.github.com` sends CORS headers and
+`github.com/login/*` does not.** Reading and writing repository contents from a browser works with
+no server at all; only the token-*minting* dance is blocked. So the two auth rungs have very
+different infrastructure costs.
+
+**Rung A — fine-grained PAT, zero infrastructure.** The user creates a
+[fine-grained personal access token](https://github.com/settings/personal-access-tokens), scoped to
+**one repository**, with **`Contents: Read and write` and nothing else**, and an expiry. Paste it in.
+Because the API is CORS-enabled this is genuinely backend-free, which keeps the no-server thesis
+intact. The instruction that matters: **never a classic PAT** — classic `repo` scope grants every
+repository the user owns, including private ones, which is the difference between a bounded mistake
+and an unbounded one.
+
+**Rung B — GitHub App + device flow, for people who should not be handling tokens.** Device flow
+needs only a `client_id` and **no client secret**, which is exactly why it suits a static site. Three
+real advantages over a pasted PAT: the user grants access through GitHub's own per-repository
+installation UI rather than by trusting your instructions; tokens **expire** (8 hours, with refresh)
+instead of lasting a year; and the token request accepts a **`repository_id` parameter that pins the
+token to a single repository** regardless of what else the installation can see.
+
+The catch is the CORS gap above: `login/device/code` and `login/oauth/access_token` cannot be called
+from a browser. The fix is **a stateless relay that forwards exactly those two paths with CORS
+headers attached** — a Cloudflare Worker of roughly 150 lines. Worth being precise about what it is
+and is not, because it looks like the central server this design exists to avoid: it holds **no
+client secret** (device flow has none), stores nothing, keeps no tokens, has no database, and its
+path allow-list is deliberately narrow. Tokens pass through once and are forgotten. It is a CORS
+shim, not an auth backend, and the moment it holds a secret it has become the thing we were avoiding.
+
+### The threat that is specific to this design
+
+**A cursor app renders content from repositories it does not control, in the same origin that holds
+a write token.** That is the actual attack surface, and it is worse here than in an ordinary SPA,
+because [location repos](#a-cursor-names-two-repos-and-they-are-not-the-same-repo) are by definition
+other people's. Untrusted markdown and HTML being rendered next to a credential is the whole problem
+in one sentence.
+
+No token storage choice fixes this. LocalStorage, `sessionStorage`, and IndexedDB are all readable by
+any script on the origin, and a static site cannot use the real answer (`httpOnly` cookies) because
+that needs a backend. Encrypting the token with a non-extractable `CryptoKey` sounds like a fix and
+is not — script that can call `decrypt` does not need to read the key. What actually helps is
+**isolation and blast radius**:
+
+- **Keep the token on a different origin from the renderer.** A small auth frame owns the token and
+  exposes a narrow `postMessage` API — "commit these files to this repo." XSS in the renderer can
+  then ask for a commit but cannot exfiltrate the credential, and the API only ever writes to the
+  one cursor repo.
+- **Render foreign content sandboxed**, in a `sandbox`ed iframe on a separate origin, so a location
+  repo's content cannot reach the parent's storage at all.
+- **CSP with `connect-src` limited to `api.github.com`** and the relay, so a stolen token has
+  nowhere to be sent from.
+- **A dedicated private repo.** Cursors record where you stopped reading, which is more intimate
+  than a bookmark — default the created repo to **private**, and never point the token at anything
+  else the user owns.
+
+### Two footguns worth naming
+
+- **Never let the export include the token.** "Download my data" that serialises LocalStorage will
+  cheerfully write a live credential into the user's Downloads folder. Store credentials under a key
+  the exporter explicitly excludes, and test that.
+- **"Forget my token" is not revocation.** Clearing local state leaves the token valid on GitHub's
+  side. Say so, and link straight to the revocation page.
+
+### The rest of the free rung's costs
+
 - **Clearing site data destroys an un-synced cursor**, silently and completely. That is the price of
   requiring nothing, and it argues for offering the export rung *early*, before someone has
   accumulated enough to mourn.
