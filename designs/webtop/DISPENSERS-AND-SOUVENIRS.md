@@ -303,12 +303,34 @@ Constraints, since they shape the design rather than merely limiting it:
 | Constraint | Consequence |
 |---|---|
 | 800×600 host resolution | a Version-1 symbol (21×21 modules) at 2px/module plus quiet zone is ~50px. Enough for a short URL, nowhere near enough for a raw repo path — **a redirector is mandatory, not a convenience** |
-| Reed–Solomon error correction (7–30% by level) | a partly-occluded in-world sprite may still scan, which softens the z-buffer compositing problem the sprite approach exists to solve |
+| Reed–Solomon error correction (7–30% by level) | recovers a scuffed symbol, **not a Sim standing in front of one** — a character sprite blocks far more than 30% and moves while doing it. This is why the dialog wins (below) |
 | Catalogs outlive URLs | **link rot is the real failure mode** over a 26-year catalog. The redirector must be owned by the creator; destination URLs frozen into shipped objects are a guaranteed future breakage |
 
 That last row is the same problem [reading cursors](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor)
 have with dangling SHAs, and it takes the same shape of answer: an indirection you control, plus
 enough content in the ticket to re-find the target when the indirection fails.
+
+### The dialog wins, and the sprite becomes a game mechanic
+
+The two implementations are not a tie. **Put the code in a popup dialog**, as an image in the
+object's About panel: more pixels, no compositing work, no occlusion, and it is a few lines against a
+sprite pipeline. The in-world floating sprite loses for a reason error correction cannot fix —
+**inhabitants walk in front of it.** A character sprite blocks most of a small symbol and keeps
+moving while it does, so the failure is not a degraded scan but an intermittent one, which is worse
+than a consistent failure because the user cannot tell whether the thing is broken.
+
+But the failure mode is a design brief for a different feature. A code that is **only sometimes
+scannable, only from some angles, and only for a while** is a code you have to *catch* — which is the
+[Pokémon-without-the-brand-name](#pokémon-without-the-brand-name) mechanic arriving from the
+opposite direction. Ephemeral in-world codes are worth building precisely where scarcity is the
+point; persistent reference codes belong in the dialog. Occlusion is a bug in a citation and a
+feature in a hunt.
+
+**Wikipedia is the obvious first target and it settles the link-rot row above.** If a scan on an
+object about a real thing resolves to that thing's Wikipedia article, the destination is stable,
+already-maintained, multilingual, and free, and the creator's redirector only has to map
+object → article rather than object → a page they must keep alive for 26 years. The catalog then
+inherits an encyclopedia's upkeep instead of paying its own.
 
 ## Honest costs
 
