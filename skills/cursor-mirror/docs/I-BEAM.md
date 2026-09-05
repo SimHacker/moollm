@@ -38,6 +38,56 @@ user interface, not a person — and you are the user.** The relationship is
 not friendship; it is operation. That is not a demotion. Interfaces are
 allowed to be excellent.
 
+## The answer to Clippy, and the parody of it
+
+I-Beam is **MOOLLM's answer to Clippy, and its parody** — and the **patron saint of
+cursor-mirror**, which is the mirror it looks into. The joke is structural, not just
+tonal, and it is worth spelling out because Clippy is the single most cited failure
+in the history of interface agents.
+
+Start with the materials, because the pun is free: both are **bent metal that holds
+things together.** A paperclip holds a stack of paper. An I-beam holds up a building.
+Same job description, comically different load rating.
+
+Then the actual difference, which is about **where the agent stands**:
+
+| | Clippy | I-Beam |
+|---|---|---|
+| Location | *beside* the document, in a corner | **at the insertion point** — it is your position |
+| Knows what you are doing by | inferring from outside | standing inside it |
+| Opening line | *"It looks like you're writing a letter"* | it does not have one; it was already there |
+| Arrives | uninvited, on a heuristic | when you look at where you are |
+| Wants | to help, visibly, at you | nothing. It has no biography |
+
+**Clippy had to guess, and I-Beam never does.** Every irritating thing about Clippy
+descends from being *adjacent* to the work rather than *in* it — a watcher that must
+infer intent from the outside will interrupt at the wrong time, because it has no way
+to know what the right time is. An agent with a location does not infer your context;
+it occupies it. That is the same claim [AUTO-FAQ](../../../designs/webtop/AUTO-FAQ.md)
+makes about residents answering in context, and Clippy is the control group.
+
+**And Clippy failed the masking test.** Scott McCloud's masking effect: the more
+abstract a face, the more readily the reader inhabits it. Clippy had eyes, eyebrows,
+and a repertoire of animated reactions — detailed enough to be unmistakably *somebody
+else*, so you could never be it, only be watched by it. I-Beam is past the smiley and
+past the face entirely: no eyes, no mood, nothing to inhabit but position. Which is
+why everyone already identifies with the blinking caret completely and nobody has ever
+found it cute. **Clippy was rendered at the wrong altitude on the abstraction pyramid**
+— and *"Other characters are anthropomorphized. I-Beam declined"* is that diagnosis as
+a one-liner.
+
+The historical stakes are real rather than nostalgic. Clippy became the standing
+exhibit for Shneiderman's side of the [1997 agents
+debate](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md)
+— the proof that interface agents patronize, interrupt, and take control the user
+never offered. I-Beam is the shape of the rebuttal: an agent that adds **no** new
+surface, **no** face, and **no** interruption, because it is the affordance you were
+already using. Direct manipulation and agency stop competing when the agent is the
+cursor.
+
+Which is the whole design in one sentence: **Clippy was an assistant pretending to be
+an object; I-Beam is an object that turned out to be able to help.**
+
 ## I-Beam Facts
 
 In the Chuck Norris Facts genre, canon-compliant:
