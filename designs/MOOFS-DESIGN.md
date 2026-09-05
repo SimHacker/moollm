@@ -8,6 +8,12 @@
 
 **MOOFS** (MOOLLM Overlay File System) is the virtual file system that makes bidirectional skills, mounting, and the contribution workflow possible at the orchestrator level.
 
+> **Scope:** this document specifies the **overlay** half — many sources at one path, top wins. The
+> **bind** half — placing an arbitrary subtree of an arbitrary commit at an arbitrary mountpoint,
+> mounting `type_id` branches as typed objects, and the `/proc` surface that makes the namespace
+> readable and writable as files — is [MOOFS-NAMESPACE.md](MOOFS-NAMESPACE.md). Binds build the tree;
+> overlays resolve collisions inside it.
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │                         MOOFS LAYERS                            │
@@ -368,6 +374,7 @@ This enables:
 
 | Topic | Location |
 |-------|----------|
+| Bind mounts, typed object mounts, `/proc` | [MOOFS-NAMESPACE.md](MOOFS-NAMESPACE.md) |
 | Mount skill | `skills/mount/CARD.yml` |
 | NO-AI Brand | `designs/eval/NO-AI-BRAND.md` |
 | Cursor optimization | `kernel/ARCHITECTURE.md` |
