@@ -100,6 +100,113 @@ transcript — prisoners in solitary exchanging notes in lipstick on wet napkins
 and an auto-FAQ built as inter-agent messaging would be exactly that, paying per token for the
 privilege.
 
+## Real people: the answer is retrieval, not generation
+
+The residents above are invented, and invented residents may speak freely. **Real people may not be
+spoken for**, and an auto-FAQ makes violating that cheap, fast, and automatic — which is what makes
+this the load-bearing constraint of the whole design rather than a disclaimer at the bottom.
+
+The fix is to change what the model is being asked to do. It is **not** composing an answer in
+someone's voice. It is **finding which of that person's actual words answer the question**, and
+saying plainly when none of them do. That single substitution changes the failure mode from
+fabrication to a miss:
+
+| If the job is | The failure is | Which is |
+|---|---|---|
+| generate an answer in their voice | a fabricated opinion attributed to a real person | the [P-HANDLE-K](../../kernel/constitution-core.md) violation, and it looks exactly like a success |
+| retrieve their words that answer this | **no answer found** | honest, safe, and a research to-do |
+
+**A person's character speaks only insofar as it uses their own words.** Everything else — framing,
+summary, reading, connection-drawing — is real and valuable and belongs in the artifact, but it is
+authored by *the corpus*, labeled as such, and never set in their voice.
+
+### Answer tiers, and only one of them is a voice
+
+| Tier | Who is speaking | Requires |
+|---|---|---|
+| `direct` | **them, now** — a live guest answered this for the corpus | consent record, date |
+| `quote` | **them, on the record** — verbatim | source with a locator, date, crop bounds |
+| `paraphrase` | the corpus, restating their position | source; **never in quotation marks**, never in their voice |
+| `analysis` | **the corpus author**, by name | its own reasoning; attributed to Don or whoever wrote it, not to the subject |
+| `correction` | **them, contesting** an answer attributed to them | supersedes what it corrects, and is never deleted |
+| `gap` | nobody yet | the honest answer, and a first-class artifact |
+
+The schema makes the violation *impossible rather than discouraged*: a `quote` without a resolvable
+`source` locator does not render. Not a lint, a hard gate — because the whole risk here is that the
+cheap path and the wrong path are the same path.
+
+### A question holds many answers
+
+One question, N answers, from the same person or different ones. This is not a storage detail; three
+things that are ordinarily unrepresentable fall out of it:
+
+- **Disagreement stays disagreement.** Two people answer, both sourced, and the corpus does not
+  synthesize them into a averaged non-position. The Shneiderman–Maes material in this hub is exactly
+  this shape and reads correctly only because nobody reconciled it.
+- **Changing your mind becomes visible.** The same person, two answers, two dates, neither
+  overwriting the other. An evolving view is data, and only a multi-answer question can hold it —
+  which is why every answer carries a date whether or not anything has superseded it.
+- **A quote and its reading coexist without contaminating each other.** `quote` plus `analysis` on
+  the same question, clearly separated, is the honest form of "here is what they said and here is
+  what I think it means."
+
+```yaml
+# questions/does-direct-manipulation-scale/QUESTION.yml
+question:
+  text: "Does direct manipulation scale to large information spaces?"
+  answers:
+    - tier: quote
+      person: ben-shneiderman
+      text: "..."                       # verbatim only
+      source:
+        doc: characters/ben-shneiderman/agents-debate-1997.md
+        anchor: "#what-was-argued"      # a span, so a reader can see the surrounding context
+        original: "IUI '97 debate, transcript p.34"
+      date: 1997-01
+    - tier: quote
+      person: pattie-maes
+      text: "..."
+      source: { doc: ..., anchor: ..., original: ... }
+      date: 1997-01
+    - tier: analysis
+      person: null                      # NOT attributed to a subject
+      author: don-hopkins               # attributed to whoever actually thinks it
+      text: "Both were answered by a synthesis neither named: PBD."
+    - tier: gap
+      note: "Selker was never asked this directly. COACH implies an answer; he has not given one."
+      becomes: interview-question       # feeds repo-shows/ted-selker/
+```
+
+### Gaps are the interview script
+
+A `gap` is not a hole in the FAQ, it is **the most useful artifact in it.** It marks a question the
+corpus cannot answer honestly, attached to the person who could — which is precisely the list a
+[repo show](https://github.com/SimHacker/WillWrightShowForFood/tree/main/repo-shows) needs. Readers asking questions the corpus
+cannot answer are *writing the interview*, and a guest accepting turns their gaps into `direct`
+answers. The loop closes: asking generates gaps, gaps generate invitations, acceptances promote gaps
+to the top tier, and the FAQ backfills itself from the outside.
+
+### The cost verbatim does not pay off
+
+**Quoting accurately does not prevent misrepresentation, it only moves it from fabrication to
+selection.** You can distort someone perfectly using nothing but their real words — by choosing which
+ones, cropping where it flatters your argument, and omitting the sentence that qualified it. This is
+the harder problem, it is not solved by a `verbatim: true` flag, and any design that claims
+sourcing made it safe is lying about the remaining risk.
+
+Three partial mitigations, none complete:
+
+- **Locators are spans, not points.** The `anchor` resolves to enough surrounding text that a reader
+  can check the crop without leaving. This is the same stable start/end anchor span
+  [transclusion needs](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor), which
+  is why it stays one mechanism.
+- **The crop is recorded, not just the excerpt** — what was cut, and whether an ellipsis spans a
+  qualifier.
+- **The subject can contest, and the contest outranks.** `correction` supersedes without deleting, so
+  the record shows both what was said about them and what they said back. The receipt already exists:
+  Ted Nelson's factual corrections are preserved as their own block in his character directory rather
+  than folded silently into the prose.
+
 ## Why "AUTO-FAQ" is the right name, warning included
 
 Philip K. Dick's *Autofac* (1955): automated factories keep producing after the civilization that
@@ -258,7 +365,10 @@ be able to say *I don't know, and here is who might.*
 **Attribution.** An answer given in the voice of a real person's character is the P-HANDLE-K problem
 in a new place ([constitution §8](../../kernel/constitution-core.md)). Residents modeled on living
 people must not manufacture opinions and attribute them; the consent tiers already in the character
-directories govern this, and an auto-FAQ makes violating them cheap and automatic.
+directories govern this, and an auto-FAQ makes violating them cheap and automatic. Answered above by
+making the job [retrieval rather than generation](#real-people-the-answer-is-retrieval-not-generation)
+— but note the residue that mechanism does *not* clear: accurate quoting moves misrepresentation from
+fabrication to **selection**, and selection is the harder problem.
 
 **The index becomes a popularity contest.** If frequently asked questions get the good answers,
 rarely asked ones rot, and the corpus optimizes for what is already understood. Worth measuring
