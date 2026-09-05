@@ -50,6 +50,51 @@ Dasher also settles an argument in advance: its box sizes were language-model pr
 
 The pivot has a continuous cousin: the layout can also be *dialed* between radial pie tree and linear outliner rather than switched, with different kinds of children opening in different directions or facets along the way — see [Sparse View Overlays](SPARSE-VIEW-OVERLAYS.md), where projection is treated as just another overlay parameter.
 
+### Every cursor carries its own model, so personality becomes geometry
+
+If box sizes are language-model probabilities, then **the model is a per-cursor possession, not a
+system setting.** Each [reading cursor](../webtop/READING-CURSORS.md) owns its own Dasher profile:
+the flame cursor dashes and autocompletes into flamier linguistic space than the math cursor does,
+because a different model is sizing the boxes ahead of it.
+
+This is what makes character more than skinning, and it is worth stating as the technical claim it
+is: **personality stops being a label on the cursor and becomes the curvature of the space around
+it.** You do not read that a cursor is Hunter S. Thompson; you feel it, as which directions are wide
+and easy to steer into and which require precision. Two cursors on the same page are navigating
+differently-shaped continuations of the same text. A Thompson cursor and a Minsky cursor take
+different notes because the cheap moves are in different places.
+
+And it composes, because there are two conditioning sources: **where you are** and **who you are.**
+A cursor standing in a corpus can have its model conditioned on that corpus — autocompleting in the
+local dialect of wherever it happens to be — while its own character profile weights the same space
+toward what it finds interesting. Position × personality = geometry.
+
+Three-way convergence worth noting, since two of the three are already in this repo: **Sims
+advertisement scores, Dasher box sizes, and pie slice widths are the same quantity** — target size
+proportional to expected value *to this agent*. An object broadcasting how good it is for you, a
+box sized by how likely you are to want it, and a slice sized by how often you pick it are one
+mechanism wearing three interface costumes. Which also means the [dwell-time
+prediction](../webtop/EBIKE-PATH-GRAMMAR.md#the-receipt-selkers-dwell-time-and-pie-menus) already
+built into pie menus is a language model over choices; it just has not been asked to size anything
+yet.
+
+MacKay's own framing is the destination: *"Writing is navigating in the library of all possible
+books."* Every book in Borges' library is reachable in Dasher — improbable text is a **small target,
+not an absent one** — and the model only decides what is easy. That is the property to preserve when
+scaling this up, because it is exactly what autocomplete-with-a-top-five-dropdown throws away.
+
+**The honest conflict, which the pivot framing above softens too much.** Pie menus work because the
+geometry is *stable*: the same gesture always means the same thing, which is what makes rehearsal and
+mousing-ahead possible. Dasher's geometry is *probability-driven and therefore changes constantly*.
+You cannot have both in one view — a probability-weighted pie menu is a pie menu with its principal
+virtue removed, and no amount of smooth animation fixes that.
+
+The resolution is a boundary rather than a blend: **keep the rungs where muscle memory operates
+geometrically fixed, and let the model shape only the rungs below it** — the open-ended
+continuation space where the vocabulary is unbounded and there was never anything to rehearse. Fixed
+commands up top, modeled text underneath, and the seam falls exactly where the vocabulary stops being
+a closed set. That is a testable line, and it is where the two interfaces should meet.
+
 ---
 
 ## Related

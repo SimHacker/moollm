@@ -503,6 +503,13 @@ or Hunter S. Thompson cursor, or their own character writing in their own voice.
 skinning: **the cursor's personality colors what it writes down, how it edits, and what it decides
 is interesting.** A Thompson cursor takes different notes than a Minsky cursor from the same page.
 
+**And the dial is technically a language model.** Each cursor carries its own Dasher profile, so the
+flame cursor autocompletes into flamier linguistic space than the math cursor — which means
+personality is not a label on the cursor but **the curvature of the space around it**. You feel it as
+which continuations are wide and easy to steer into. Worked out in [the Dasher
+pivot](../pie-stack-views/PUMPING-UP-PIE-MENUS.md#every-cursor-carries-its-own-model-so-personality-becomes-geometry),
+including the conflict with pie-menu muscle memory and where the seam between them belongs.
+
 The pyramid is the mitigation. Nobody is told they are playing; the I-beam is what they already use;
 and every step up is opt-in and buys something concrete.
 
