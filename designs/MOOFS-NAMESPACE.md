@@ -91,6 +91,75 @@ files, no behavior, and a warning naming the missing type directory.
 
 ---
 
+## Mounting the index: the namespace is `mmap` and reading is the page fault
+
+The [Postgres projection](webtop/CURSOR-STORAGE.md#main-is-the-type-registry-and-the-url-is-the-join-key)
+gets a mountpoint too, and once it does the shape of the whole system becomes familiar:
+
+| MOOFS | Virtual memory |
+|---|---|
+| mount table | address space |
+| `ls`, query, index hit | consulting the page table — cheap, no I/O |
+| reading a file | **page fault** → fetch from git → cache |
+| pinned `@sha` cache entry | clean page, never needs re-fetch |
+| token cost | the actual cost of paging in |
+
+"[Mounting is not loading](#the-mount-table-is-the-context-manifest)" is precisely *mapping is not
+paging in*. Map ten thousand objects for free, touch four. The index exists so you can decide
+**whether** to fault, and that decision is where all the leverage is: a predicate over 10,000 objects
+is one SQL query instead of 10,000 API reads, which is the difference between a feasible operation
+and an impossible one.
+
+### Two ways in: by name and by predicate
+
+`/obj/` is the by-name index and needs no query at all — `ls /obj/cursor/` is already the type
+listing. Queries get the Plan 9 `/net` idiom, because it keeps query syntax out of pathnames:
+
+```
+/q/clone                    read it → allocates /q/7/, returns "7"
+/q/7/ctl                    write the query here
+/q/7/results/               ls the matches; each entry is a bind into /obj/<type>/<id>/
+/q/7/status                 rows, ms, index used, and index lag
+```
+
+**Results are binds, not copies.** A result entry *is* the object mount, so navigating into a hit
+navigates the real object and the bytes arrive on read. No new mechanism — the
+[bind primitive](#a-mount-is-repo-ref-subpath--mountpoint) already does it.
+
+**Results are pinned.** The query captures each object's `head_sha` and binds at that commit, so the
+result set is a consistent snapshot and reading it twice gives the same bytes. Which means a saved
+search is literally a [`namespace_<id>` object](#the-mount-table-is-the-context-manifest): a list of
+pinned mounts, versioned and shareable. Searching and context-assembly turn out to be the same
+operation.
+
+Writes do not go through `/q/`. It is read-only; edits go to the object mount, which is the
+[write-through path](webtop/CURSOR-STORAGE.md#postgres--github-not-bidirectional-sync-which-is-the-trap).
+
+### Making "speedup, not dependency" checkable at runtime
+
+The architecture guarantees the projection is rebuildable. It does **not** guarantee the projection is
+*current*, and a filesystem is very good at hiding the difference — twelve entries in a directory
+look equally authoritative whether the index is three seconds or three days behind. Three things have
+to be surfaced or the guarantee is decorative:
+
+- **Lag, always.** `status` reports per-type last-indexed position against branch heads. An answer
+  from a stale index is still useful; an answer from a stale index *presented as current* is a
+  fabrication with a directory listing for evidence.
+- **Empty is two different answers.** "No rows" and "no rows, index current, type covered" must not
+  render identically, or the model concludes something false from an indexing gap. Absence of
+  evidence is the failure mode LLMs are worst at catching, so `/q/` must never report a bare zero.
+- **Verify escapes to git.** A flag that re-runs the predicate against branch heads, slow and
+  authoritative. Without it, "you could always check git" is a claim nobody can execute.
+
+**And the index can outlive the data.** Deleted branches, force-pushes, and GC'd commits leave result
+entries pointing at objects that no longer resolve — the [dangling-permalink
+problem](webtop/READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor) arriving
+through search instead of through a bookmark. Detect it at page-in, report the miss with the commit
+that vanished, and never silently drop the row: a result that quietly shrinks is worse than one that
+reports damage.
+
+---
+
 ## `/proc`: introspection with no new verbs
 
 The reason to make the namespace visible as files rather than as a tool API is narrow and practical:
@@ -105,6 +174,7 @@ adds a verb. A writable `/proc` file adds none.
 /proc/self/whence?path=…   # which mount produced this file, and at which commit
 /proc/objects/             # mounted objects, by type
 /proc/types/               # types resolvable from main, and which are missing
+/proc/index.yml            # index lag per type, and whether /q/ can be trusted right now
 ```
 
 The load-bearing one is the first. **Writing to `/proc/self/ns.yml` is how you mount**, so the whole
