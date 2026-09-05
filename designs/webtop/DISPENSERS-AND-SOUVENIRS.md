@@ -268,6 +268,48 @@ photographs, stamped with your own rides, and readable without the app that made
 service goes away you still have the collection — which is the linkrot argument from
 [`gwern/`](gwern/) applied to play, and the reason this is worth building rather than merely enjoying.
 
+## The optical dispenser: retrofitting links onto a runtime that has none
+
+The cheapest dispenser needs no cooperation from its host at all. Don proposed it for The Sims 1 in
+2026 and Steve Alvey — 26 years into shipping Sims content — took it up immediately: **an object
+displays a QR code, either as an in-world sprite or as a bitmap in its About dialog, and you point
+your phone at the screen.**
+
+The Sims 1 has no browser, no clipboard bridge, and no URL type. It does not need any, because **the
+resolver is the player's phone, and the host application never has to know.** The screen is the wire.
+That generalizes past games: any closed, finished, un-modifiable runtime that can draw a bitmap can
+be given hypertext after the fact, by an author with no access to its source.
+
+**It reads exactly as a dispenser.** The object issues a ticket, the ticket points back at the object
+that issued it, and you carry it out of the room on a device the room knows nothing about. The
+[instantiation-with-inheritance](#why-ticket-and-not-object-taking-one-is-instantiation) story is
+unchanged; only the transport is unusual.
+
+**Why nobody did it, which is the interesting part.** The Sims 1 shipped in 2000. QR codes existed —
+Denso Wave, 1994 — but phone cameras were not practical scanners until around 2010, and OS-level
+scanning came later. So this is not an oversight anyone should feel dumb about: **it was impossible
+while the platform was current, and became possible only after the platform was finished.** Dead
+runtimes can acquire new affordances. That is worth generalizing on its own.
+
+**The pedagogical version beats the promotional one.** Don's framing was creator attribution — link
+back to my site. Alvey's counter, arrived at unprompted, was to link to *what the object teaches*,
+so a player can scan a prop and be taken to the real thing behind it. That turns the QR code into a
+**citation apparatus for a simulated world**: every prop footnoted and followable to its real
+referent. A game world where you can scan a plant and get its sources is doing something gwern.net
+does with links and no game has ever done with objects.
+
+Constraints, since they shape the design rather than merely limiting it:
+
+| Constraint | Consequence |
+|---|---|
+| 800×600 host resolution | a Version-1 symbol (21×21 modules) at 2px/module plus quiet zone is ~50px. Enough for a short URL, nowhere near enough for a raw repo path — **a redirector is mandatory, not a convenience** |
+| Reed–Solomon error correction (7–30% by level) | a partly-occluded in-world sprite may still scan, which softens the z-buffer compositing problem the sprite approach exists to solve |
+| Catalogs outlive URLs | **link rot is the real failure mode** over a 26-year catalog. The redirector must be owned by the creator; destination URLs frozen into shipped objects are a guaranteed future breakage |
+
+That last row is the same problem [reading cursors](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor)
+have with dangling SHAs, and it takes the same shape of answer: an indirection you control, plus
+enough content in the ticket to re-find the target when the indirection fails.
+
 ## Honest costs
 
 **Geo-privacy is the serious one.** A souvenir collection is a movement log with photographs
