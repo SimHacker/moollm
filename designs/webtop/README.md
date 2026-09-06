@@ -75,6 +75,127 @@ Full argument: [`hyperties/README.md`](hyperties/README.md#who-this-is-for-and-w
 
 ---
 
+## Start here — three routes in
+
+The hub is large on purpose and nobody should read it in file order. Pick the route that matches why
+you arrived.
+
+### If you are Gwern
+
+Your own footnote is the thesis of this hub, so the interesting question is whether the rest holds
+up. **What is here that you do not already have** is narrow and worth naming, so you can leave early
+if it is not enough:
+
+- **Primary sources on HyperTIES nobody has published** — the 1988 article schema, the build
+  scripts, who wrote which implementation, and the parts that worked *together* rather than as a
+  list of features. Don was on the team.
+- **A build-time answer to the author-burden problem** you raised, with four shipped precedents
+  rather than a proposal.
+- **Two concrete disagreements**, not compliments: the pyramid needs a rung *below* the link icon,
+  and your site already keeps durable per-reader state and spends it on toolbar animation.
+
+Everything else is context you can skip.
+
+1. [`OBJECTIONS.md`](OBJECTIONS.md) — Borretti's "Unbundling Tools for Thought", which you endorsed,
+   turned on this work. What it concedes before it answers.
+2. [`hyperties/ARTICLE-SCHEMA.md`](hyperties/ARTICLE-SCHEMA.md) — **the ladder shipped as a mandatory
+   schema in 1988**: title, synonyms, description, body, with a build script proving the definition
+   was a separate compilation unit. The receipt for "link-icon → title → abstract → section."
+3. [`../TAGSONOMY-COMPILER.md`](../TAGSONOMY-COMPILER.md) — how a corpus stays navigable **with no
+   model in the loop at read time**. The LLM runs at build; the artifact is static. Written knowing
+   what your site is and is not willing to become.
+4. [`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) — the bottom rung as a proposed eval, and an argument
+   that the pelican has no referent while a thousand documents do.
+5. [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) — *"give the reader agency"* taken literally: an
+   article does not get a room, it **is** one.
+6. [`READING-CURSORS.md`](READING-CURSORS.md) — the uncomfortable receipt: gwern.net already keeps a
+   durable per-reader model in LocalStorage and spends it on whether to animate a toolbar. Dark mode
+   persists; your place in the argument does not.
+7. [`gwern/NENEX.md`](gwern/NENEX.md) — your edit-log neural wiki, read as the engine that this shell
+   was specified around.
+
+### If you are David Temkin
+
+Start by auditing what we say about you — there are known gaps flagged in the doc, and one claim was
+already corrected once.
+
+1. [`temkin/README.md`](temkin/README.md) — Declare, Mesa, DOMIsland, SimFaux, and
+   [what we know we are missing](temkin/README.md#open-and-known-gaps-in-our-own-record).
+2. **The two ideas** below — the pyramid and the card. Mesa is
+   [the pyramid rendered as space](temkin/README.md#mesa-is-the-semantic-pyramid-rendered-as-space);
+   the card is what Declare would call a record type.
+3. [`../pie-stack-views/VIEW-STATE-ANCESTORS.md`](../pie-stack-views/VIEW-STATE-ANCESTORS.md) — view
+   state as authored content. The Declare question underneath it: if the view is a constraint
+   satisfaction over the document, saving the view saves the constraints.
+4. [`TREE-NAVIGATION.md`](TREE-NAVIGATION.md) — the closest thing here to a Declare invariant: every
+   structural operation reachable by keyboard, pie menu, **and** drag, all dispatching one named
+   command. Stated as a lint rather than a taste, because that is the only version that survives.
+5. [`AUTO-FAQ.md`](AUTO-FAQ.md) — the agent half of Mesa's shared canvas, generalized: residents
+   answer in context and the answers persist as retrievable artifacts.
+6. [`CURSOR-STORAGE.md`](CURSOR-STORAGE.md) — the systems layer, git as substrate. **Read the first
+   half**; past the Postgres bridge it becomes deep infrastructure that nothing else depends on.
+7. [`OBJECTIONS.md`](OBJECTIONS.md) — the strongest case that all of it is procrastination.
+
+### If you have twenty minutes
+
+[`OBJECTIONS.md`](OBJECTIONS.md), the two ideas below, then
+[`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md). That is the argument, the case against it, and the
+payoff.
+
+---
+
+## How the ideas relate
+
+Twelve pieces, and the dependency order is the actual argument — each one exists because the one
+above it is unusable without it.
+
+```
+        THE CARD  ──────── a typed node: title, synonyms, description, body, media
+            │              (hyperties/ARTICLE-SCHEMA.md — shipped 1988)
+            ▼
+      THE PYRAMID  ─────── render that node at every scale: glyph → title → abstract → section → room
+            │              (SUMMARY-GENRES.md · GLYPH-BENCHMARK.md)
+            ▼
+   TAGSONOMY COMPILER  ─── the LLM writes the missing rungs at BUILD time, so reading needs no model
+            │              (../TAGSONOMY-COMPILER.md)
+            ▼
+    TREE NAVIGATION  ───── one command set for the resulting structure; TAB is a derived projection
+            │              (TREE-NAVIGATION.md · ../pie-stack-views/)
+            ▼
+    PLAYABLE CORPUS  ───── a navigable node set with agency is a room; the article IS the room
+            │              (PLAYABLE-CORPUS.md)
+            ├──────────────► DISPENSERS      taking something out of a room; inventory = itinerary
+            ├──────────────► AUTO-FAQ        characters in the room make it answerable
+            ▼
+    READING CURSORS  ───── a room needs a reader who persists: position + identity + inventory + path
+            │              (READING-CURSORS.md)
+            ├──────────────► EBIKE PATH      same cursor, city as substrate; the path becomes gesture
+            ▼
+    CURSOR STORAGE  ────── where that reader lives: orphan branch per cursor, git as the object store
+            │              (CURSOR-STORAGE.md)
+            ▼
+    GITMAPPING / MOOFS  ── at scale: mount objects by name, index them, page in on read
+                           (../MOOFS-NAMESPACE.md)
+
+    OBJECTIONS  ────────── runs alongside all of it and is meant to win where it can
+```
+
+Read across instead of down and the same pieces group into four claims:
+
+| Claim | Pieces | Rests on |
+|---|---|---|
+| **A node can be shown at any size** | card, pyramid, summary genres, glyph benchmark | authors already wrote descriptions in 1988; LLMs write the rungs nobody wrote |
+| **A corpus can be navigable without an AI in the loop** | tagsonomy compiler, tree navigation, view state | compile the warm structure at build time; keep it static and inspectable |
+| **A reader can have agency in it** | playable corpus, dispensers, auto-FAQ, reading cursors | a position in a substrate with state, history, and inventory is a character |
+| **It can persist and be shared without a server** | cursor storage, gitmapping, GitHub as slow server | git is the object store, GitHub is the social layer |
+
+The two seams where this could fail are marked in the docs rather than hidden: **the compiler's
+synonym collisions** fail silently by resolving to a plausible wrong node, and **a reading cursor is
+a worse privacy surface than inventory** because it records where you got bored rather than what you
+liked.
+
+---
+
 ## Read the objections first
 
 [**`OBJECTIONS.md`**](OBJECTIONS.md) — Borretti's "Unbundling Tools for Thought", which gwern
@@ -94,6 +215,7 @@ the engine-versus-game joke, which is aimed squarely at us. What we concede, and
 | [`temkin/`](temkin/) | Declare and Mesa: constraints that stay true, and a zoomable canvas shared with an agent |
 | [`pie-stack-views/VIEW-STATE-ANCESTORS.md`](../pie-stack-views/VIEW-STATE-ANCESTORS.md) | What you focused on, expanded, and zoomed into is authored content — shareable, citable, answerable |
 | [`../TAGSONOMY-COMPILER.md`](../TAGSONOMY-COMPILER.md) | How the corpus becomes navigable without a model in the loop: LLM proposes the warm things at build time, the build **crystallizes** a static index, and you **melt** it back up to restructure. Four shipped receipts — MDL Zork interning aliases to one object, HyperTIES compiling storyboards to FORTH, CAM-6's Forth-to-lookup-tables, Scott Adams' interpreter-plus-database — plus the ground-up version, where the seeds are GPS-located spoken impressions |
+| [`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) | The pyramid's bottom rung, proposed as an LLM eval better than the pelican on a bicycle. The pelican earns its place — cheap, memorable, hard to game — but it has **no referent**, so scoring is vibes. A thousand real documents do have one: the glyph is right if a reader who knows the document recognizes it and a reader who does not can pick it out of a contact sheet. Objective scoring function, and the whole semantic pyramid comes along so humans can judge from the top |
 | [`SUMMARY-GENRES.md`](SUMMARY-GENRES.md) | The pyramid's second axis: same rung, different register. The terms of art (topos, snowclone, shibboleth, facet, focalization), and why a sardonic bingo card is a contact sheet of textual glyphs with an objective scoring function — hit rate near one half |
 | [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) | What this brings to gwern's world: **playability, explorability, inventory, multi-userness, reading cursors** — all of it under gwern's own stated principle, *"give the reader agency."* An article does not get a room, it *is* one — a directory exporting the document interface and the ROOM interface at once, with behavioral objects and characters in it, hosted in GitHub repos. Includes the inventory-is-transclusion finding (`TAKE REF` weighs nothing, `TAKE OBJECT` is heavy) and the static-versus-social tier split |
 | [`AUTO-FAQ.md`](AUTO-FAQ.md) | Residents answer in context and the answers **persist as artifacts** others retrieve without re-deriving — the tagsonomy compiler applied to dialogue. The key move: an answered question records what got activated to produce it, which **is a K-line** (Minsky, AI Memo 516), so the artifact is a re-activatable path and the text is one rendering of it. An answer record is also a Drescher schema — activation as context, question as action, answer as result — with reinforce/spawn/prune following for free. Named for PKD's *Autofac*, and the pun is the warning: a factory that cannot be switched off fills the repo with answers nobody asked for |
@@ -181,18 +303,6 @@ for the canonical data model ·
 for the 2026 continuation ·
 [`shneiderman-2011-correspondence.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/storymaker/shneiderman-2011-correspondence.md)
 for primary-source proof of the stack at peak deployment.
-
----
-
-## Reading order
-
-1. [`OBJECTIONS.md`](OBJECTIONS.md) — why this might all be a waste of time
-2. This file — the two ideas
-3. [`pie-stack-views/VIEW-STATE-ANCESTORS.md`](../pie-stack-views/VIEW-STATE-ANCESTORS.md) — the new mechanism
-4. [`hyperties/`](hyperties/) — the parts that already worked together
-5. [`gwern/NENEX.md`](gwern/NENEX.md) — the engine half
-6. [`winer/`](winer/) and [`temkin/`](temkin/) — structure and constraints
-7. [`../webtop-gwern-inheritance/`](../webtop-gwern-inheritance/) — the founding study in full
 
 ---
 

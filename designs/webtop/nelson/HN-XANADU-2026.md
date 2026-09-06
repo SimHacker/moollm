@@ -1,12 +1,32 @@
 # HN thread: gwern's "Project Xanadu: Even More Hindsight"
 
 **[news.ycombinator.com/item?id=49559522](https://news.ycombinator.com/item?id=49559522)** ·
-[gwern.net/xanadu](https://gwern.net/xanadu) · posted 2026-09-04 · 102 points · 28 comments ·
-23 distinct commenters
+[gwern.net/xanadu](https://gwern.net/xanadu) · submitted 2026-09-04 · 102 points · 42 comments ·
+31 distinct commenters
 
 An earlier gwern.net/xanadu submission
 ([45315196](https://news.ycombinator.com/item?id=45315196), 2025-09-20) got 3 points and 0 comments,
 so this is the first time the piece has had a real thread.
+
+## This thread is not a deadline
+
+Two facts set the strategy, and both cut against rushing a reply.
+
+**The essay is about a year old.** It was already up in September 2025; this is a resubmission
+finding an audience the first one missed. Nothing about it is breaking, and nothing here expires.
+
+**Gwern has not posted in the thread** (checked 2026-09-06, 42 comments, no `gwern`). He is not
+reading over anyone's shoulder, so a comment here reaches the commenters — not him.
+
+So the thread is **evidence, not a venue.** Its value is that twenty-odd strangers independently
+converged on pieces of this corpus's position, which is worth recording as corroboration. The
+audience worth writing for is gwern himself, and the artifact that reaches him is a document he
+chooses to open, judged by whether it wastes his time. That is
+[the hub's gwern route](../README.md#if-you-are-gwern), which leads with what he does not already
+have and says where to stop reading.
+
+A thread reply stays worth making if it is cheap and additive — `Rochus` and `xnorswap` below are
+both people missing a receipt someone here happens to hold. It is just not the thing that matters.
 
 ## Four comments that are answerable with primary sources nobody else has
 
@@ -111,12 +131,17 @@ Kubla Khan. `taybin`'s "Gaze upon my blogs, and despair" is the best line on the
 
 ## What this changes about the pending reply
 
-The [HN reply task](../README.md) was queued as a general statement of the transclusion/context-cost
-thesis. This thread argues for making it **specific and additive instead**: reply to `Rochus` with the
-Objectory/HyperTIES convergence and the compile-all receipt, and to `xnorswap` with the trackback
-history and the pull-versus-push diagnosis. Both are people who found the right idea and lack the
-evidence, which is a better use of a first appearance than restating a thesis at a thread that is
-already halfway to it.
+The reply task was queued as a general statement of the transclusion/context-cost thesis. Two
+revisions, in order of importance.
+
+**Demote it.** With gwern absent and the essay a year old, a thread reply is a small additive act,
+not the main move. The prepared document is the main move.
+
+**If it does get written, make it specific.** Reply to `Rochus` with the Objectory/HyperTIES
+convergence and the `compile-all` receipt, and to `xnorswap` with the trackback history and the
+pull-versus-push diagnosis. Both found the right idea and lack the evidence, which beats restating a
+thesis at a thread already halfway to it. Restating the thesis at strangers is the version that
+wastes everyone's time, including ours.
 
 Standing constraint from `[copy-that](../../../skills/copy-that/)`: drafts ship in a fenced block
 formatted for HN, notes outside the fence.
