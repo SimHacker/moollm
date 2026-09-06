@@ -372,6 +372,46 @@ is not a new capability, and this supplies exactly the abstraction that
 so the absent abstraction can simply be supplied, which is also what the
 [reading cursors](../webtop/READING-CURSORS.md) design needs underneath it.
 
+### The shipped receipt: Cursor Camp
+
+**[Cursor Camp](https://neal.fun/cursor-camp/)** by **Neal Agarwal** (neal.fun, May 2026;
+[HN 47949939](https://news.ycombinator.com/item?id=47949939), 1215 points, 195 comments) is this
+document's thesis running in production for a mass audience. You *are* your cursor, in a shared camp
+world with everyone else's cursors, each flagged by country. No text chat — cursor motion is the
+entire social channel.
+
+The two details that make it a receipt rather than an example, both from the top HN comment:
+
+> I particularly like the points where **the mouse control is taken away from you**, i.e. when you
+> float downstream, or when you go down a slide. It's also particularly genius how the mouse can
+> **'teleport' around the screen** (i.e. when you go into a door and come out somewhere else).
+
+Control taken away while floating downstream is a friction field at **gain zero with an imposed
+drift** — the strongest possible form of "middleware in the seam," shipped and enjoyed rather than
+merely proposed. And teleporting through a door is **warping**, the thing browsers do not offer, which
+proves the cursor is virtual: the real one is hidden and the game draws its own, because a drawn
+cursor can be moved anywhere and a system cursor cannot.
+
+**Whether it uses Pointer Lock, I could not verify** — Cloudflare blocks scripted fetches of the
+bundle, and Neal Agarwal does not publish source (his stack is React, Node and MongoDB on Netlify, per
+his [Uses This interview](https://usesthis.com/interviews/neal.agarwal/), and none of neal.fun is open
+source, so **there is no repo to read**). Plain `mousemove` with the real cursor hidden would explain
+everything observed. If that is what it does, then the drawn cursor *diverges* from the physical
+pointer during the drift — which is nulling, and is fine here precisely because there is no acquisition
+task. Nobody is aiming at a 4-pixel target while riding the raft. A menu system does not get that
+exemption, which is the case for Pointer Lock in the paragraphs above.
+
+The precedent it names in its own thread is older and still online: **cursordanceparty.com**, built
+around 2011. And the social reading is the one this cluster keeps arriving at — the PC Gamer writeup
+describes wiggling a cursor in time to music and a stranger in India copying it, which is
+[communitas](PIE-MENU-MEMORY-PALACES.md#the-graph-is-a-liminal-space) with no vocabulary but position
+and motion.
+
+*Two disambiguations, since the name collides: the Reddit/Devvit "Cursor Camp" is a different project
+by someone else, and spunky.games is an SEO aggregator page, not the game. Also worth knowing —
+[Sam Arbesman](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/sam-arbesman/README.md)
+interviewed Agarwal on The Orthogonal Bet in August 2025, which is a warm path if one is ever wanted.*
+
 ### What it costs, honestly
 
 - **Latency.** A hardware cursor is drawn by the compositor and arrives almost immediately; a virtual

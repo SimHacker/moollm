@@ -313,14 +313,14 @@ becomes possible at all**, and absolute control has no seam, because position is
 
 Taken to its limit the cursor stops being a coordinate and becomes an object in a simulated world —
 the multiplayer games where your cursor rides an inflatable raft drifting downstream, and steering
-means negotiating with the current. Same seam, used maximally.
+means negotiating with the current. Same seam, used maximally. **That game is
+[Cursor Camp](FRICTION-FIELDS.md#the-shipped-receipt-cursor-camp)**, and the drifting is real.
 
 The **Precision Pie** is this same transfer function built as visible geometry — gain you can watch,
 because it is the bend of a lever rather than a curve in a driver. Documented with the demo and
 transcript in [Radial Dimensions](RADIAL-DIMENSIONS.md#the-precision-pie-and-the-problem-it-was-built-for).
 
-*(Still needed from Don: the **virtual cursor** design for pie menus, and the title of the dynamic 
-cursor game.)*
+*(Still needed from Don: the **virtual cursor** design for pie menus.)*
 
 ## Radius now means three things, one meaning per level
 
