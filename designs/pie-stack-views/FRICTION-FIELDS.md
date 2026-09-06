@@ -14,6 +14,11 @@ raw delta ──▶ [ F(position, delta, state) ] ──▶ applied delta
 [Friction strips](WINDOW-RESIZE-PIE.md#friction-strips-snapping-that-never-gets-ahead-of-the-gesture)
 introduced two members and the wall family; this document is the general object.
 
+One structural caveat on the thesis, established later and worth knowing up front: a field is owned by
+the *space*, but the seam can also be filled by an object that owns its own mapping — a
+[**vehicle**](#the-vehicle-owns-the-mapping-so-input-is-routed-rather-than-reduced). Vehicles nest
+inside fields, and pie menus turn out to be vehicles.
+
 ---
 
 ## Threshold is a function of direction
@@ -241,9 +246,14 @@ at drag start and whenever the world changes, giving a mask — which is cheap, 
 
 ## The ocean: tacking, and why friction is the power source
 
-Don's maximal case. A region of the plane is **ocean**, and entering it turns the cursor into a
-**boat**: angle the sail, hoist or reef it, and there is a **wind** with a direction. If the wind
-blows from where you are going, you cannot point at your destination and arrive. You must **tack.**
+A region of the plane is **ocean**, and entering it turns the cursor into a **boat**: angle the sail,
+hoist or reef it, and there is a **wind** with a direction. If the wind blows from where you are going,
+you cannot point at your destination and arrive. You must **tack.**
+
+This section was drafted as the maximal case of a field and is better read as the first instance of a
+different thing — a **vehicle**, which owns its own mapping. That generalization is
+[below](#the-vehicle-owns-the-mapping-so-input-is-routed-rather-than-reduced); the boat's specifics
+here stand either way.
 
 This is the case that uses the `state` term the opening signature declares and nothing else in this
 document needs. A wall reads position; a damping strip reads position; a validity field reads the held
@@ -322,6 +332,96 @@ nonholonomic, headwinds are literal, and hills are a potential field you climb o
   rehearsed the way a pie stroke can, which forfeits the property the rest of the cluster is built to
   protect.
 
+## The vehicle owns the mapping, so input is routed rather than reduced
+
+Don's correction, which demotes the section above from *maximal case* to *first instance*. While you
+are on the raft, your input is not attenuated and not discarded — **it is routed to the raft**, which
+applies its own algorithm mapping cursor motion into a raft-in-stream simulation. The sailboat is not
+a bigger version of that. It is a sibling: another vehicle, another mapping, same architecture. Any
+vehicle can carry its own motion-to-dynamics parameterization.
+
+This kills the question of whether the drift is gain zero or reduced gain. Both answers presuppose
+that your input is competing with the current for control of *your position*, and it is not. Your
+authority is **mediated**: total over the paddle, nil over the water.
+
+| | Field | Vehicle |
+|---|---|---|
+| Owner of the mapping | the space, or the verb-and-operand pair | the object you are riding |
+| Shape | `F(position, delta, state)` | `vehicle.map(delta)` → controls, then `vehicle.step()` |
+| Your authority | direct over position, modulated | indirect — over the vehicle's controls |
+| Composition | fields sum | vehicles nest *inside* fields |
+
+```
+input ──▶ vehicle.map ──▶ controls ──▶ vehicle.step (inside the field) ──▶ your position
+```
+
+Three stages, and only the first belongs to you. The field never disappears — the stream still acts,
+but it acts on the raft, not on you.
+
+### This is the Sims object model, one level in
+
+A Sim does not know how to use a toilet; the toilet knows, and supplies the behaviour for the duration
+of the interaction. A vehicle is that pattern applied to the **cursor**: while you are aboard, the
+object supplies your control code. So `vehicle` is a prototype and `raft` and `sailboat` are children
+overriding one method, which is the plural-typed-container discipline this repo already runs on —
+motion mapping as polymorphic dispatch on the thing you are standing in.
+
+And the dispatch is **two-sided**. Don's cursors-as-limbs proposal types the *cursor* by the surface it
+is working on; a vehicle types the mapping from the other end. The general form takes both, which makes
+the mapping a multimethod on `(cursor, vehicle)` — the same shape as
+[the field belonging to the verb-and-operand pair](#the-field-belongs-to-the-pair-not-the-space),
+reached this time from the object direction rather than the semantic one. Third independent derivation
+of the same structure in this document.
+
+### The pie menu was a vehicle the whole time
+
+An open pie menu captures input and supplies its own interpretation of motion: angle selects, radius
+sets a parameter. The
+[Precision Pie](RADIAL-DIMENSIONS.md#the-precision-pie-and-the-problem-it-was-built-for) supplies a
+stranger one — poke out to snapshot a direction, then work a hinged fine adjustment anchored where you
+poked. Nobody would call either a vehicle, but structurally they are identical to the raft: transient,
+input-capturing objects that own the map from motion to meaning. **Popping a pie and boarding a raft
+are the same operation.** This cluster has been designing vehicles and calling them menus.
+
+### Boarding is a mode, and an honest one
+
+Tesler's objection applies with full force: the same wiggle means different things aboard and ashore,
+which is the definition of a mode. It survives for the reason the Sims red tint survives — the mode is
+**an object you can see yourself inside of**, spatially located, entered deliberately, with a visible
+exit. The dishonest version of a vehicle is one with no depiction, which is just an input handler that
+changed behind your back.
+
+### What it costs
+
+- **Every vehicle is a control scheme to learn.** The mitigation is the cluster's standing discipline:
+  the vehicle must *display* its mapping. A sail shows its trim; a paddle shows its stroke. Visible
+  mechanism, as in the Precision Pie's lever.
+- **Nulling returns at full strength.** Aboard, your drawn position may not track your hand at all.
+  Either show the true pointer or concede that acquisition is off the table while riding. Cursor Camp
+  concedes it, correctly, because nothing there needs aiming at — a menu does not get that exemption.
+- **The handoff needs continuity.** Boarding and leaving should carry velocity across, or each
+  transition is a lurch. Exactly the argument from
+  [velocity credit](#dons-velocity-credit-paying-the-debt-as-an-impulse), applied to a rebinding rather
+  than a wall.
+- **Motion-only control is an accessibility dead end.** A vehicle's controls must also exist as
+  discrete commands, or riding is mouse-users-only.
+
+### The vehicle's dynamics fix the alphabet of the gesture grammar
+
+The eBike Safari consequence, and the reason this is not only a screen concern. Real vehicles have
+mappings you cannot edit. A walker can self-cross inside a metre; a bicycle needs several and must lean
+to do it; a car cannot make the tight roundabout figure at all. So the set of
+[gestures a path can express](../webtop/EBIKE-PATH-GRAMMAR.md) is a function of the vehicle, and the
+same route ridden, walked and driven yields three different expressible vocabularies. The grammar does
+not get to choose its own alphabet — the dynamics choose it.
+
+### The testable version of the Cursor Camp question
+
+Which supersedes the one asked earlier: if input is routed to the raft rather than dropped, then
+wiggling while aboard should produce **some** raft response — rocking, a heading change, a wake —
+rather than nothing at all. Nothing at all means the input really is discarded and the raft is
+scenery. Any response means the raft is a vehicle in this sense.
+
 ## Where the seam is in a browser: warping was the lurch all along
 
 Don's practical payoff, and it retires a workaround that has been load-bearing since NeWS. **The pie
@@ -386,9 +486,10 @@ The two details that make it a receipt rather than an example, both from the top
 > float downstream, or when you go down a slide. It's also particularly genius how the mouse can
 > **'teleport' around the screen** (i.e. when you go into a door and come out somewhere else).
 
-Control taken away while floating downstream is a friction field at **gain zero with an imposed
-drift** — the strongest possible form of "middleware in the seam," shipped and enjoyed rather than
-merely proposed. And teleporting through a door is **warping**, the thing browsers do not offer, which
+"Control taken away" is how it reads from outside, and the mechanism is
+[a vehicle](#the-vehicle-owns-the-mapping-so-input-is-routed-rather-than-reduced): input is routed to
+the raft, which maps it into a raft-in-stream simulation. Middleware in the seam, shipped and enjoyed
+rather than merely proposed. And teleporting through a door is **warping**, the thing browsers do not offer, which
 proves the cursor is virtual: the real one is hidden and the game draws its own, because a drawn
 cursor can be moved anywhere and a system cursor cannot.
 
