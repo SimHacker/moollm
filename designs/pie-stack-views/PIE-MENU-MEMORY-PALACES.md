@@ -135,6 +135,54 @@ intent, not merely location — provenance in the coordinate, which is a feature
 cannot be compared for identity by comparing tuples. Two different questions need two different
 operations: canonicalize to ask *same place*, do not canonicalize to ask *same journey*.
 
+#### N handles: generalized barycentric coordinates
+
+The two-node lerp is the 1-simplex case, and the general form has a name. Anchoring a position as a
+blend of **any number** of places is **generalized barycentric coordinates**:
+
+```
+addr = Σ wᵢ · placeᵢ  +  offset        with  Σ wᵢ = 1,  wᵢ ≥ 0
+```
+
+Barycentric proper is the simplex case (triangle, tetrahedron, and a simplicial complex is
+barycentric-within-each-simplex). For arbitrary handle sets the named schemes are **Wachspress**
+(convex polygons), **mean value coordinates** (Floater — handles non-convex cages), **harmonic
+coordinates** (Joshi et al., built at Pixar for character articulation), and — the relevant one here —
+**Sibson / natural neighbor coordinates**, which derive weights from the Voronoi diagram of a *scattered
+point set*, so you can drop a pin among existing places and have the weights fall out with no cage to
+author.
+
+Don's "you would get dragged around by them when they moved" is exactly right and is the whole point:
+this is **cage-based deformation**, the same mathematics as **linear blend skinning**. Two invariants
+make it a contract rather than a heuristic:
+
+- **Partition of unity** (`Σ wᵢ = 1`) — the address is an *affine* combination, so it is a position
+  rather than a scaled vector.
+- **Affine reproduction**, also called linear precision — if every handle undergoes the same
+  translation, rotation or scale, the address follows **exactly, with zero error**. This upgrades the
+  earlier claim that a blend address "survives relayout" from a hope to a theorem for the affine case;
+  non-affine relayout distorts, but continuously.
+
+**Non-negativity is worth demanding**, and is not free. Extrapolation and some schemes on non-convex
+regions produce negative weights, which fling the point outside the hull of its own handles and make it
+behave wrongly when they move — this is precisely why harmonic coordinates were developed. With
+`wᵢ ≥ 0` you get the intuitive guarantee: **the address stays inside the region its handles span.**
+
+**Sparsity is the real design knob.** Weights over every place means every edit anywhere tugs you;
+weights over three or four means only your neighbourhood does. Compact support is what makes edits
+predictable, keeps the address short enough to read, and bounds the blast radius of a rename — the
+same argument as [sparse view overlays](SPARSE-VIEW-OVERLAYS.md), one layer down.
+
+And the payoff that matters most for a corpus: **multi-anchor addressing is error-correcting for link
+rot.** A single anchor is fragile — delete it and the citation dies. With N weighted handles you
+**delete one, renormalize the rest, and the address still means approximately what it meant.**
+Renormalization is the repair operation, and graceful degradation of references is the thing
+[transclusion](../webtop/nelson/HN-XANADU-2026.md) has never had a good story for.
+
+*One detail that will bite: if the handles rotate, a fixed DC offset points the wrong way.* The offset
+has to live in the local frame the blend induces rather than in world coordinates, which is what
+skinning does with bind poses — and skipping it reproduces the candy-wrapper artifact in the residual.
+
 *Discipline, since this is a strong borrowing: keep it only where it predicts something. It predicts
 that transit deserves state and an address, that transitions must be optional rather than scheduled,
 and that encounters in the between are status-free. Three commitments that can be checked. Anything
