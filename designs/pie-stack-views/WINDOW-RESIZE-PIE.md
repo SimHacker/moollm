@@ -181,6 +181,99 @@ And it only works under relative control. A clamp is by definition a discarded d
 that insists the object track the cursor absolutely cannot have walls at all — which is the nulling
 argument arriving a third time, from the direction of Fitts's law.
 
+### The Sims placement tool: the transfer function renders the constraint model
+
+The section above warns never to snap ahead of the gesture. The Sims object placement tool snaps
+*hard* — and is right to. The discriminator is worth stating, because it bounds the earlier claim:
+
+> **Capture is honest when the lattice is the actual set of legal values, and dishonest when it is a
+> convenience laid over a continuum.** Grid placement has no legal position between two tiles, so
+> nothing is being suppressed. A guide on a free canvas does have legal positions three pixels away,
+> so eating them is a lie.
+
+What Don's tool does with that is the interesting part. The drag has **two regimes chosen by
+validity**, not by geometry:
+
+| Placement | Motion | Colour |
+|---|---|---|
+| valid | hard **snap-snap-snap** between legal tiles | normal |
+| invalid — intersecting a wall or furniture | **continuous and smooth** | red tint |
+
+Smooth-for-invalid looks backwards for about a second and then is obviously correct: **snapping
+requires somewhere legal to snap to.** In an invalid region there are no candidates, so quantization
+has nothing to quantize onto, and pretending otherwise would snap the object to a place it cannot go.
+Smooth is the honest rendering of a continuum with no landmarks in it.
+
+**The boundary is the instrument.** Because the two regimes *feel* different, the transition between
+them localizes the edge of the valid region precisely — you find the wall by feeling where the
+behaviour changes, without reading the tint or studying the geometry. Mode changes are normally
+treated as a cost, and Tesler was right about that in general; here the mode change **is the signal**,
+and the design lives or dies on the switch being perceptible.
+
+Two properties make it work, and both generalize:
+
+- **Redundant coding.** Colour and motion character carry the same fact on independent channels, so
+  it works peripherally, works when you are looking at something else, and works if you cannot see
+  the red.
+- **Invalid does not mean immovable.** The object keeps following you into illegal space. A tool that
+  refused to move would destroy the very ability to find the boundary — degrade, do not refuse.
+
+And it generalizes the transfer function past geometry. A damping strip makes gain a function of
+*position*; the placement tool makes it a function of **semantic validity**, computed from the model
+rather than from coordinates. Which is the sharpest statement of what all of this machinery is for:
+
+> **The transfer function is where the constraint model gets rendered into the motor channel.** If
+> [grooves are constraints](GROOVES-AND-SPIKES.md), friction is how a constraint becomes *felt* —
+> force feedback with no force-feedback hardware, because motion character is proprioceptively
+> legible on its own.
+
+One hazard the shipped version had to handle: **the mode switch needs its own hysteresis.** Hovering
+exactly on the validity boundary will otherwise chatter between snapping and smoothing, which is
+worse than either. The friction-strip discipline applies recursively — the detent that stabilizes the
+mode transition is the same construct as the detents inside the valid lattice.
+
+This one is not a proposal. It shipped in a product that sold tens of millions of copies, which is a
+different and in some ways better class of evidence than a user study.
+
+### Minimum sizes are walls, so inside-out becomes unreachable
+
+Relative push also gets constraint enforcement for free, and the mechanism is one already on the
+table: **a minimum width is a wall.** Motion into it is a discarded delta, exactly like the screen
+edge, so a window cannot be collapsed to nothing and an edge cannot be pushed through its opposite to
+turn the window inside out.
+
+The interesting part is that absolute resize does not merely fail to prevent this — **enforcing the
+constraint is what breaks it.** Clamp the edge's position at the minimum while the cursor keeps
+travelling, and the two now disagree, which is [nulling](#two-problems-usually-conflated) manufactured
+by the constraint itself. Everyone has felt the result: you hit the minimum, drag back, and nothing
+happens for an inch and a half while the cursor pays off a debt it did not know it had. Under
+relative control there is no debt to pay, because the excess was **discarded rather than banked** —
+the same policy the detent bullet argues for, and walls are the case that settles it. Reverse
+direction and the edge moves on the first pixel.
+
+That produces a difference in kind, not degree:
+
+| | Invalid states |
+|---|---|
+| **absolute** — `pos = cursor` | reachable; must be **detected and repaired**, with a frame where width is negative |
+| **relative** — `pos += clamp(delta)` | **unreachable**; the clamp knows the opposite edge, so the state never exists |
+
+Constraints applied in the delta domain are *constructive*; constraints applied in the position domain
+are *corrective*. All the classic bugs — the flicker, the swapped coordinates, the edge that sticks —
+live in the corrective version. And for a
+[constraint network](GROOVES-AND-SPIKES.md#sketchpad-class-power-and-the-sketchpad-class-failure)
+this matters more than for one window: the solver never has to answer *how do I escape an illegal
+configuration*, because it is never in one.
+
+**One consequence for scoped drags.** When a ring recruits several edges, any member can hit its
+minimum first — and since the design already promises that
+[recruited edges keep their offsets](#radius-as-scope-the-rings-are-hops-not-pixels), the group must
+stop **as a unit** when the first member hits its wall. Letting members stop individually would
+silently eat the gaps the whole feature exists to preserve. So a scoped drag is as constrained as its
+most constrained member, and the UI has to say **which** one — the same requirement as
+[naming the binding constraint](GROOVES-AND-SPIKES.md#sketchpad-class-power-and-the-sketchpad-class-failure),
+since a group that stops for no visible reason is indistinguishable from a broken one.
+
 **It already shipped, in PSIBER, in 1989.** Objects on the deck had tabs you dragged onto a stack
 spike:
 
@@ -219,7 +312,7 @@ transcript in [Radial Dimensions](RADIAL-DIMENSIONS.md#the-precision-pie-and-the
 *(Still needed from Don: the **virtual cursor** design for pie menus, and the title of the dynamic 
 cursor game.)*
 
-## Radius now means three things, and they must not collide
+## Radius now means three things, one meaning per level
 
 The radial dimension is the cluster's most reused resource, and this doc adds the third claim on it:
 
