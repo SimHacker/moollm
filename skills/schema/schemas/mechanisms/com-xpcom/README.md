@@ -8,7 +8,7 @@ Same ecosystem that shipped **Win32**, **IE**, and **Gecko** also shipped **comp
 
 ## What’s distinctive
 
-- **COM**: binary interface contract; hard to Google by name; **ActiveX** is not identical to “all COM” ([HN](https://news.ycombinator.com/item?id=20266627) thread on COM vs SOM and naming).
+- **COM**: binary interface contract; hard to Google by name; **ActiveX** is not identical to “all COM” ([HN](https://news.ycombinator.com/item?id=20266627) thread on COM vs SOM and naming). The rename to ActiveX was *itself* partly a searchability fix, and it failed — see [the naming footnote](../../../../../designs/object-system/sources/2016-com-synopsis.md#the-name-defeated-two-attempts-to-fix-it).
 - **XPCOM**: Mozilla’s parallel; **XPIDL** and bindings; substantial **removal** effort documented on the wiki and in bugs.
 - **Not** interchange JSON: API shapes may be JSON *today*, but COM/XPCOM are **memory/layout + IDL** stories.
 
@@ -44,7 +44,7 @@ Related **Hacker News** and **Mozilla** primary sources (same conversation clust
 | Resource | URL |
 |----------|-----|
 | HN — COM vs SOM, Don Box, IBM SOM article, **decomification / decomtamination**, WebAssembly aside | [news.ycombinator.com/item?id=20266627](https://news.ycombinator.com/item?id=20266627) |
-| HN — **“What is COM?”** long synopsis (VBX → COM → OCX → ActiveX; **XP/COM**; deCOMtamination links) | [news.ycombinator.com/item?id=12975257](https://news.ycombinator.com/item?id=12975257) |
+| HN — **“What is COM?”** long synopsis (VBX → COM → OCX → ActiveX; **XP/COM**; deCOMtamination links). **Fullest of the five; archived verbatim [in-repo](../../../../../designs/object-system/sources/2016-com-synopsis.md)** | [news.ycombinator.com/item?id=12975257](https://news.ycombinator.com/item?id=12975257) |
 | HN — **DeCOMification** discussion | [news.ycombinator.com/item?id=12968830](https://news.ycombinator.com/item?id=12968830) |
 | Mozilla wiki — **Gecko:DeCOMtamination** | [wiki.mozilla.org/Gecko:DeCOMtamination](https://wiki.mozilla.org/Gecko:DeCOMtamination) |
 | Taras Glek — **decomtamination** category | [taras.glek.net/blog/categories/decomtamination/](http://taras.glek.net/blog/categories/decomtamination/) |

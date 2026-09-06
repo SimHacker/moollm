@@ -27,6 +27,12 @@ Reading order: SELF-AND-MOOLLM → LATENT-SPACE-INHERITANCE → the case studies
 bibliography is the side-table: consult it when a citation points into YAML you don't want to
 context-switch into.
 
+Primary sources in [`sources/`](sources/):
+
+| Source | What it is |
+|---|---|
+| [2016-com-synopsis.md](sources/2016-com-synopsis.md) | Don's COM synopsis, HN 2016, archived verbatim — the ancestor of the whole Selfish COM line. VBX's success disaster; `QueryInterface` as `dynamic_cast` plus aggregation and tear-offs; **dual interfaces** as the compiler thesis published in a vendor's IDL in 1993; "DCOM is where COM went off the deep end"; tooling dependency as the actual cause of death; and the closing call to skip the component middleman and target the JavaScript engine directly, which [the kernel](../../kernel/SELFISH-COM-IMPLEMENTATION.md#why-javascript-not-wasm) now does |
+
 Prefer to listen? Don Hopkins reads (and digresses) this README on video:
 [MOOLLM Designs: Object System README](https://www.youtube.com/watch?v=0uBO6ZAcVTE) —
 corrected transcript in

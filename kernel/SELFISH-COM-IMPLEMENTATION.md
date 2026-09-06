@@ -177,6 +177,19 @@ home: ./ROOM.yml
 
 ### Why JavaScript (Not WASM)
 
+This section is the execution of a conclusion Don reached in 2016, at the end of the COM synopsis that
+the rest of this document borrows its vocabulary from:
+
+> At this point in history, I think it's best to skip the "component technology" middleman and
+> integrate extensions directly into the JavaScript engine itself.
+
+— [HN 12975257](https://news.ycombinator.com/item?id=12975257), archived at
+[`designs/object-system/sources/2016-com-synopsis.md`](../designs/object-system/sources/2016-com-synopsis.md).
+Ten years on, that is what the kernel does: there is no component ABI, no IDL, and no plugin loader.
+A skill is a directory, and the compiled artifact is a closure the host engine already knows how to
+run. The [dual-interface reading](../designs/DIRECTORY-AS-IUNKNOWN.md#dual-interfaces-are-the-compiler-thesis-with-a-vendor-receipt)
+is what we kept from COM; the middleman is what the sentence above throws out.
+
 Following [Vanessa Freudenberg's SqueakJS insight](https://freudenbergs.de/vanessa/publications/Freudenberg-2014-SqueakJS.pdf): **compile to JavaScript, not WebAssembly**. JS engines are phenomenally optimized, JS runs everywhere, and debugging JS is far easier than debugging WASM. SqueakJS proved this by running a complete Smalltalk system in pure JS — not emscripten, not WASM, just JavaScript.
 
 Our LLM compiler emits JS closures directly. The runtime `eval()`s them. No intermediate representation, no bytecode, no WASM compilation step.

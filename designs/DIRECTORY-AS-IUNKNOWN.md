@@ -47,6 +47,71 @@ Also inspired by: Owen Densmore and David SH Rosenthal's patented
 shell PATH file system based multiple inheritance object system 
 (Smalltalk/NeWS/Self-like object system using the filesystem itself).
 
+The seven points above are a condensation of Don's own COM synopsis, written on Hacker News in
+November 2016 and archived verbatim at
+[`object-system/sources/2016-com-synopsis.md`](object-system/sources/2016-com-synopsis.md). Two of
+its arguments do not survive condensation, and the sections below restore them.
+
+---
+
+## Dual interfaces are the compiler thesis, with a vendor receipt
+
+MIDL let one component publish **two** interfaces to the same functionality:
+
+> both an OLE IDispatch interfaces taking variant type parameters, and also more efficient lower
+> level COM interface taking primitive types. Runtimes like Visual Basic knew how to integrate dual
+> interfaces and could bind to the more efficient underlying COM interfaces, instead of going through
+> the slower generic dynamic IDispatch interfaces.
+
+That is this repo's compilation strategy, shipped commercially in 1993 and load-bearing for a decade.
+
+| | OLE | MOOLLM |
+|---|---|---|
+| Slow, general path | `IDispatch` — stringly-typed, late-bound, variants | the LLM reads the YAML and figures it out |
+| Fast, specific path | vtable call with primitive types | compiled JSON tree, deterministic traversal |
+| Who chooses | the runtime, at bind time | the reader — a human clicking, or a model |
+| Guarantee | both paths reach the same behaviour | both paths reach the same behaviour |
+
+The crucial property is not that two paths exist. It is that **the fast path is derived from the
+same declaration as the slow path**, so nothing has to be written twice and the two cannot drift.
+A dual interface is one MIDL declaration, and the adventure compiler is one YAML tree — from which
+falls out a browsable artifact that needs no model at runtime, which is the
+[tagsonomy compiler](webtop/hyperties/LINK-RESOLUTION.md#the-build-step-is-the-whole-trick) move
+stated in a vendor's interface-definition language thirty years early.
+
+The direction of preference is also worth copying. Visual Basic bound the *fast* path whenever it
+could and fell back to dynamic dispatch only when it could not, which is the honest default: pay for
+interpretation when you must, never as a matter of course. A corpus that requires an LLM to navigate
+has published only its `IDispatch`.
+
+## The overshoot arc is the design budget
+
+The post's history is not decoration; it is a failure mode named three times in one arc.
+
+1. **VBX succeeded too well.** "Extremely popular and became a victim of their own success, after a
+   whole industry grew up around them, and people started using them for all kinds of things they
+   weren't intended for." Microsoft had to act to "mitigate the success disaster of VBX," so it
+   invented COM. A **success disaster** is the specific shape of Kay's observation that things which
+   only kind of work tend to hang on — VBX hung on hard enough to force a rewrite.
+2. **COM was the good part.** "A very simple and ingenious idea that elegantly solved some real world
+   problems."
+3. **Then it kept going.** "It eventually evolved into something extremely complex that attempted to
+   solve many other unrelated problems, and which required a massive amount of tooling, and that
+   depended on Microsoft's Visual Studio and Win32 environment." And the verdict on the far end:
+   **"DCOM is where COM went off the deep end."**
+
+The lesson is not "component systems are bad." It is that the tooling dependency is what kills them.
+COM's ingenious core needed MIDL, type-library compilers, wizards, and a specific IDE, so it could not
+outlive that IDE — and every knock-off inherited the same disease. MOA needed Director. XPCOM needed
+XPIDL, and Mozilla spent years removing it under the name *deCOMtamination*.
+
+Which sets the budget that
+[§ What We Skip](../kernel/DIRECTORY-AS-OBJECT.md#what-we-skip) spends: the interface language is
+YAML, the type library is `CARD.yml`, the registry is the filesystem, and the compiler is a Python
+script plus a model. Anyone with `ls` has the tooling. **The test to keep applying is whether a reader
+who does not have our tools can still use the objects** — because that is the exact test COM failed,
+after passing everything else.
+
 ---
 
 ## The class.ps Precedent: Dangerous Substrate, Structured Discipline

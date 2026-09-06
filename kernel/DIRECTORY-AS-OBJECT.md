@@ -116,6 +116,16 @@ All the C++ COM complexity:
 - No registry (filesystem IS the registry)
 - No binary formats (YAML text files)
 
+This list is not squeamishness about C++, it is the diagnosis from
+[Don's 2016 COM synopsis](../designs/object-system/sources/2016-com-synopsis.md): COM's core was
+"simple and ingenious," and what killed it was that it "required a massive amount of tooling, and
+depended on Microsoft's Visual Studio and Win32 environment." Every item above is a tooling
+dependency, so dropping them is the point rather than a convenience — and the
+[overshoot arc](../designs/DIRECTORY-AS-IUNKNOWN.md#the-overshoot-arc-is-the-design-budget) records
+what happens when they accumulate. GUIDs are the sharpest case: unreadable, unsearchable names that
+require a registry to resolve, which is the same defect as
+[GUID-NAMING](../designs/object-system/HUMANSPLAINING.md) with a vendor behind it.
+
 ## The Stack
 
 ```
