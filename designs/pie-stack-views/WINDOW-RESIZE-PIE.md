@@ -165,9 +165,12 @@ Taken to its limit the cursor stops being a coordinate and becomes an object in 
 the multiplayer games where your cursor rides an inflatable raft drifting downstream, and steering
 means negotiating with the current. Same seam, used maximally.
 
-*(Two pointers Don has that are not written up here yet: the **precision pie menu**'s take on
-position-dependent gain, and the **virtual cursor** design for pie menus. Both want their own
-sections; the raft game needs its title from him.)*
+The **Precision Pie** is this same transfer function built as visible geometry — gain you can watch,
+because it is the bend of a lever rather than a curve in a driver. Documented with the demo and
+transcript in [Radial Dimensions](RADIAL-DIMENSIONS.md#the-precision-pie-and-the-problem-it-was-built-for).
+
+*(Still needed from Don: the **virtual cursor** design for pie menus, and the title of the raft
+game.)*
 
 ## Radius now means three things, and they must not collide
 
@@ -179,11 +182,16 @@ The radial dimension is the cluster's most reused resource, and this doc adds th
 | **Appetite** — further out asks for more detail about the item | [PUMPING-UP-PIE-MENUS.md](PUMPING-UP-PIE-MENUS.md#distance-as-appetite) |
 | **Scope** — further out applies the operation to more objects | this document |
 
-They coexist only because they belong to different kinds of menu: appetite suits a *navigational*
+They coexist partly because they belong to different kinds of menu: appetite suits a *navigational*
 pie where the item is a place, scope suits an *operational* pie where the item is a verb with an
-operand. A menu that tries both at once is ambiguous and should be considered a design error rather
-than a feature. Precision is free and compatible with both, being a property of the geometry rather
-than a semantics assigned to it.
+operand. Precision is free and compatible with both, being a property of the geometry rather than a
+semantics assigned to it.
+
+**But "one menu may not claim two" is too strong**, and the Precision Pie disproves it — it ships
+leverage before the hinge and flexibility after, in one stroke, unambiguously. The real rule is
+narrower: **radius has one meaning per level, and an anchor is where it may rebind.** Worked out in
+[Radial Dimensions](RADIAL-DIMENSIONS.md), which is also how a resize gesture entering
+`resize(edge, scope, delta)` stays legible across three dimensions.
 
 ## The open seam: what locks the scope
 
