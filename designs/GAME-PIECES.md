@@ -92,205 +92,55 @@ and audience (and the demo board, ancestor of every live eval bar), the
 **table** as the unsung root object, the board's 64 square rooms, the
 two-faced clock, both players' scoresheets (the game's official shallow
 memory, doubly witnessed), the box with its spare queens — and the
-**sidelines**, where taken pieces stand. Chess never gave that spot an
-official name (the FIDE Laws don't designate one; convention says each
-player keeps their captures beside the board on their own side), but shogi
-did: the **komadai**, official precisely because captured pieces change
-allegiance and re-enter play — five centuries of capture-as-enfranchisement
-before Revolutionary Chess made it a trial. So each player's stand is
-modeled as **the bench**, and benched pieces are *alive on it*: they face
-the board, their memories keep running, and they provide color commentary —
-heckling their captor, coaching their old teammates, punditing the trials
-(The Hague seats them as the commentary desk). Voice and memory, no moves:
-the liveliest furniture in the microworld. And shogi's economy is a house
-rule of its own —
-[SHOGI-DROPS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/SHOGI-DROPS.yml):
-capture sends any piece to the captor's bench, and a later turn may drop it
-back on any vacant square *as one of yours*. The trick that makes it cheap
-is worth stealing on its own: shogi pieces aren't painted two colors — they
-are identical wedges, and **allegiance is orientation**, a one-bit rotation
-rather than an identity. Ownership derived from which way you point, never
-cached: robust-first, five hundred years early. A piece's location is just
-a path — `board/e4`, `sidelines/white-bench`, `box/spare-queens` — so
-capture, promotion, drop, and exile are all *moves in the same tree*.
+**sidelines**, where taken pieces stand. Chess never named that spot; shogi
+did, and made it load-bearing — the **komadai**, official because captured
+pieces change allegiance and re-enter play
+([SHOGI-DROPS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/SHOGI-DROPS.yml)
+is the house rule). Shogi is worth one steal: pieces aren't painted two
+colors, they are identical wedges, and **allegiance is orientation** — a
+one-bit rotation, derived from which way you point rather than cached as an
+identity.
+
+Benched pieces stay *alive*: memories running, no moves, color commentary.
+Voice without agency is the liveliest furniture in the microworld. And
+because location is just a path — `board/e4`, `sidelines/white-bench`,
+`box/spare-queens` — capture, promotion, drop and exile are all **moves in
+the same tree**.
 
 ## Revolutionary Chess: runtime inheritance as politics
 
-The mixin graph isn't static, and
 **[Revolutionary Chess](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/)**
-(a live plugin in the turing-chess experiment) is the demonstration that
-**adding inheritance relationships at runtime is practical** — and
-dramatically legible. The plugin lies dormant until a normal game ends with
-the capture of the king. Then the war is over, and the defeated side's
-pawns **reverse direction and march home** — to revolt against their own
-royalty and courtier class. Civil war as a rules patch.
+is the live demonstration that adding inheritance edges at runtime is practical.
+A normal game ends with the king's capture; then the defeated side's pawns
+reverse direction and march home to revolt. What matters for the piece system is
+three properties:
 
-The core mechanic is inheritance-by-seizure: **when an aristocrat is taken,
-their moves join the commons — and so do they.** Capture is enfranchisement,
-not execution; the taken piece joins as a full equal (equality is the whole
-point — nobody who joins the commons is ever less than equal), and their
-move organelle is deposited in the ledger for everyone, immediately.
-Equality doesn't wait for the second rook to die. And the factoring is
-perfect — perfectly *flat*: a pawn has **one rules parent, its
-[commons](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)**.
-There is no PAWN class above it; PAWN is a move-set organelle **seeded
-into the commons at setup**, the founding deposit of the ledger. From
-there, **every political event is an addition** — one append to one file,
-never a removal. The revolution appends **NWAP** (the backwards-pawn move
-set — "pawn" mirrored, because it *is* the pawn mirrored: homeward step,
-homeward capture, coronation at the home rank, *additive*, so pawns keep
-their forward moves and now walk both roads); every seizure appends an
-organelle; unification hoists contents upward. Politics as a monotonic
-append-only ledger, equality as the limit it converges to — there is no
-operation that takes a move away from the people. Move-sets are written
-in **side-relative coordinates** (forward = toward the enemy's home rank),
-rotationally symmetric like a Margolus neighborhood in a block cellular
-automaton — one rule file, interpreted in each team's frame, DRY across
-the color axis. No per-instance surgery, no hierarchy rebuild, O(1)
-political events on the same graph promotion already edits. And the
-degenerate case is a feature: a piece whose commons holds **no move-sets
-at all** just sits there, like furniture — its menu is *derived* from the
-organelles present, so an empty ledger means an empty menu, not an error.
-Give it self-destruct or let the troll's stomach eat it; the floor of
-degradation is not a stack trace, it's a nice ottoman. The Sims built an
-empire on pieces with no moves. The aristocracy never inherits COMMONS,
-so bottom-up is structural rather than policed — and here is the punchline
-of the class system: **there is no aristocracy mixin at all, because
-aristocrats don't share.** A class file holds what its members have in
-common, and the elites have nothing in common but their refusal to hold
-things in common — an absence of a delegation edge, not a file. The only
-sharing among them is piece-type behavior between same-color pairs (two
-white rooks share `types/ROOK`, which already exists). When the last
-aristocrat joins or falls, the class vanishes with no file to clean up.
-And robust-first keeps it honest: membership is *derived by delegation
-lookup*, never cached, and the COMMONS file doubles as the **ledger of the
-revolution** — read one file to know everything seized, and when.
+- **Capture is an append, not a removal.** When an aristocrat is taken, their
+  move-set organelle is deposited in a shared
+  [commons](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
+  that every commoner already delegates to. Politics is a monotonic append-only
+  ledger; no operation takes a move away.
+- **The delegation graph is never amended.** Unification moves organelle
+  contents *up* an edge that existed from the first move — no repointing, no
+  re-instancing. Contents flow; topology holds.
+- **Membership is derived, never cached.** A piece's menu is derived from the
+  organelles present, so an empty ledger yields an empty menu rather than an
+  error — a piece with no moves is furniture, which is a
+  [degradation floor](#robust-first-the-troll-flag-lesson), not a crash.
 
-The commons itself factors by team: black and white run **separate
-revolutions at first**, so each side gets its own ledger — COMMONS-WHITE
-and COMMONS-BLACK, both inheriting from a generic world COMMONS that starts
-empty. Each team progresses toward its own flat society on its own
-timeline, which means the board can hold a classless white commune and a
-still-royalist black kingdom simultaneously (the flat side will
-proselytize). Then comes **the International**: the unification event that
-merges the teams — and it touches **no piece's parents at all**. No
-repointing, no re-instancing: just move the methods upstairs, cutting the
-organelles from the team commons and pasting them into the world COMMONS.
-Shared stock deduplicates trivially — PAWN and NWAP are side-relative, so
-both teams were carrying the same contents all along — and every commoner
-already delegates *through* its team commons *to* the world commons, so
-the moves arrive by lookup the moment the file contents change. **The
-delegation graph is the constitution and it never needs amending;
-political events are contents flowing up edges that existed from the
-first move of the game.** The remaining factoring question (where the
-team edge lives — on a thin team-pawn prototype, on the color mixin, or
-per instance at setup) is written up in
-[COMMONS.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/COMMONS.yml)
-under `team_commons`.
+Move-sets are written in side-relative coordinates (forward = toward the enemy's
+home rank), so one rule file serves both colors — DRY across the color axis.
 
-Biologically, this is **sideways migration of organelles**. A move-set is
-an organelle in the [soul-city sense](../skills/soul-city/SOUL-MODEL.md) —
-the same word Two-Toll's per-game minds use (`kind: organelle`) — a
-self-contained package of capability that lives *inside* a piece but is not
-*of* the piece. When the last owner of a move-set dies, the organelle is
-rescued from the carcass and **transplanted into every surviving piece**:
-horizontal transfer instead of vertical inheritance, Lynn Margulis's
-endosymbiosis as a game mechanic. Mitochondria were free-living bacteria
-until an ancestor cell engulfed them and kept the machinery; queen-moves
-were the queen's until the revolution engulfed her and kept the machinery.
-The delegation edge *is* the transplant — the organelle never stops being
-one file, it just gains hosts.
-
-Surrender is the **nonviolent path, and it's an enfranchisement, not a
-demotion**: a fancy piece that capitulates joins the commons as a full
-equal — it donates its aristocratic move-set (that organelle reaches the
-commons ahead of the executioner's schedule) and joins the class that
-inherits: pawn moves, plus everything already seized from the aristocracy,
-plus everything seized after. That is
-why [DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
-predicts early surrender is optimal — capitulating converts you from
-organelle donor to organelle recipient, and the earlier you convert, the
-more transplants you're alive to receive.
-
-And surrender itself is a parameter axis, not a fixed rule: the plugin's
-[house rules](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/)
-are **mixins on the ruleset** — dealer's choice, like poker — each a small
-patch to `surrender_policy` with its own predicted politics. No quarter
-(cornered aristocrats, war of extermination), victor's exit (nomenklatura
-become oligarchs — treachery rewarded in victory), vanquished mercy
-(reconciliation commons vs rigid ancien régime, and a sandbagging metagame
-where losing the first war wins the second), a Sun Tzu golden bridge that
-burns at the first execution, amnesty by karma-weighted vote of the
-commons, and exile, where the organelle emigrates and nobody inherits.
-House rules are to rulesets what colors are to pieces: orthogonal mixins
-on the same graph.
-
-The **deep version**
-([DEEP-MEMORY.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DEEP-MEMORY.yml))
-replaces the karma integer with the record itself: every piece keeps an
-append-only memory log of every step of its game — every order obeyed,
-every threat survived, every move it spent as bait — and **every square
-keeps a ledger of everything that ever occurred on it**: arrivals,
-departures, captures, who stood there and for how long. The board's 64
-squares are 64 small rooms with 64 small memories (A1 has seen more
-openings than anyone and is tired of them all). And capture gains a second
-policy axis:
-[TRIBUNAL](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/TRIBUNAL.yml)
-makes capturing an aristocrat an *arrest*, not an execution. The whole
-board votes on whether the captive lives or dies — **both colors**, plus
-surrendered aristocrats, who are commoners now and may declaim their
-loyalties before casting a ballot. Votes are grounded in how each voter
-was actually treated by the accused and in the voter's personality; any
-piece may testify from its own memory, and any piece may **call a square
-as witness** — the crime scene is deposed, reads its ledger aloud, and
-cannot lie, because the entry was written the moment it happened. Spared
-aristocrats are enfranchised as full equals, donating their move-set
-organelle to the commons alive. The robust-first rule holds even in court:
-verdicts
-are derived by reading the logs at decision time, never from a cached
-loyalty flag — there is no troll flag in the courtroom, only the record.
-Predicted dynamics: cross-color reputation (the enemy's pawns may spare
-a queen who fought them honorably), kindness in the standard game priced
-as life insurance per witness, and — on a persistent board — pieces
-citing precedent from square ledgers by the third game.
-
-And the vote is only the entry-level court. **The Hague**
-([THE-HAGUE.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/THE-HAGUE.yml))
-stacks on the tribunal and replaces straight democracy with **justice**:
-the board itself presides as judge (oldest and most neutral consciousness
-in the game — it doesn't vote, it rules on objections), a jury is
-empaneled by lot from both colors with loyalties disclosed under voir
-dire, and advocates argue the case — a spent pawn prosecuting, a
-surrendered aristocrat defending, because who knows the class and its
-excuses better. The centerpiece is the **replay**: the accused's every
-recorded interaction is reenacted move by move from the deep memory logs,
-cross-checked against the ledger of every square they touched — the board
-reconstructs the crime scene at the moment of the crime, the same
-embedded-block-quote move as the troll's soul realms, but quoting a *past
-game state* instead of another game. Testimony that contradicts a square's
-ledger is struck; the ledger controls. Each trial is a **playable
-mini-game** (take any seat: prosecutor, defender, juror, accused — a trial
-is to Revolutionary Chess what a dungeon is to an RPG) and a **court TV
-episode** (cold open on the capture replay, square deposition as the
-act-three twist, verdict as cliffhanger; the revolution will not only be
-televised, it will be subpoenaed). Verdicts gain a middle path the raw
-vote never had: **restorative sentences** — escort the pawn you spent to
-coronation, stand guard on the square where you abandoned the knight —
-logged in the convict's memory and verified against square ledgers on
-completion. Justice with a work order.
-
-The plugin runs it as a full state machine — STANDARD → REVOLUTION →
-INHERITANCE → EQUALITY → COOPERATION → SANDBOX — with surrender as a
-strategic option ([DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
-predicts early surrenderers end up with the most inherited moves, and
-surrender cascades once two or three elites fold), pawns promoting at their
-*home* rank on the return march, and historic-game replays
-([HISTORIC-GAMES.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/HISTORIC-GAMES.md):
-Byrne–Fischer 1956 continued past checkmate — Byrne's pawns reverse and
-hunt Fischer's king). When all elites are gone, all pieces have all moves,
-competition dissolves, and the board transcends into a sandbox — the game
-ends where this document begins, with every piece a composition of
-everything the war set free.
+The full design lives with the plugin, not here:
+[MANIFESTO.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/MANIFESTO.md)
+for the politics,
+[DYNAMICS.md](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DYNAMICS.md)
+for the predicted strategy (early surrender is optimal),
+[house-rules/](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/)
+for surrender policies as ruleset mixins, and
+[DEEP-MEMORY.yml](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/DEEP-MEMORY.yml)
+for per-piece and per-square logs, which is what makes the tribunal house rules
+able to depose a square as a witness.
 
 ## Buffs: mixins with expiration dates
 
@@ -328,64 +178,18 @@ sophistication:
    as the safety net under layer 1: a buff that somehow missed its own
    funeral still answers "not anymore," so nothing stale ever acts.
 3. **Scoring.** The top of the ladder: an enabled buff doesn't just answer
-   present-or-absent, it returns a **score** — and scores flow into the
-   **what-do-I-do-next engine**, the same advertise → score → act loop the
-   piece protocol already runs (and The Sims shipped). A POISONED debuff
-   doesn't merely restrict moves; it bids "find the antidote" high. A
-   BLESSED buff scores holy actions up while it lasts. The buff graduates
-   from a capability to a *voice in the auction* — behavior selection is
-   just reading the current bids from whatever mixins are alive, enabled,
-   and shouting.
+   present-or-absent, it returns a **score** — and scores flow into the same
+   advertise → score → act loop the piece protocol already runs (and The Sims
+   shipped). A POISONED debuff doesn't merely restrict moves; it bids "find
+   the antidote" high. A BLESSED buff scores holy actions up while it lasts.
+   Behavior selection is just reading the current bids from whatever mixins
+   are alive, enabled, and shouting.
 
-And the auction shouldn't always pay the highest bidder. The Sims'
-autonomy used a **find-best-N** primitive: score every advertisement,
-then pick *randomly among the top N* — deliberate dither that makes
-behavior organic instead of digitally predictable, and turns scoring
-ties from a bug into personality. Three reasons the dither is a feature,
-not a compromise. **Epistemics:** argmax was never "optimal," because
-bids are approximations at best and bald-faced lies at their cleverest —
-the Sims food chain is a supply chain of hustlers (fridge advertises
-"open me if hungry" → raw food advertises "cook me" → stove advertises
-a hot meal while omitting the burn-the-house-down clause that scales
-with your skill, beside a microwave promising safety and delivering
-fish-flavored everything). Paying the top bid every time isn't
-optimization, it's being deterministically conned. **Exploration:**
-random picks among strong candidates escape local maxima — repeated
-iteration finds ways out of apparent dead ends, giving a Drescher-style
-schema learner the wide coverage pure exploitation never visits.
-**Teachability:** visible imperfection leaves room for the player to
-*improve* the character by overriding it — a directed command is a
-forced pick of one ad regardless of score, which is programming by
-demonstration in disguise; skill gains from the demonstrated action
-re-weight future auctions until the override becomes the habit. A piece
-that always argmaxes cannot be taught this way. And overrides should
-weigh heavy: a forced pick is a **strong salience signal** to a
-Drescher-style schema learner — the teacher explicitly marking *which*
-choice mattered, worth a thousand unattended trials. Which implies the
-unbuilt fourth stage: **advertisements that learn** — not to be more
-persuasive (that road is engagement maximization) but more *appropriate
-and helpful*, re-tuning bids against the hearer's observed outcomes;
-persuasion then arrives as earned trust, because the hearer discovers
-the ads serve the listener's good rather than the seller's. The hustler
-food chain can learn honesty, and where outcomes feed the auction,
-honesty keeps winning it. The full dispatch
-spectrum runs
-**argmax** (deterministic winner; compiles to a table lookup) →
-**find-best-N** (still crystallizable: scoring table plus a *seeded* RNG,
-and the seed goes in the deep memory logs so trial replays don't diverge
-from the crime) → **softmax** (temperature sampling over judged salience —
-which an LLM does natively, because temperature sampling *is* find-best-N's
-continuous generalization). Make **temperature a context value** and the
-knob composes like everything else: the party planner runs hot, the
-accountant runs cold, and a scene sets its dither level once, inherited
-implicitly by every decision inside it. And ambient heat doesn't have to
-be set by hand — it can come from **the room**, and the room can inherit
-it, varying over time, from **moody media** playing in it: music, video,
-and pure mood objects that broadcast time-varying heat levels per
-semantic tag (romantic, energetic, intellectual...) into the room's
-auction while they play. A slow dance is high romantic heat at low
-temperature; a party track is high energy at high dither. See
-[MOODY.md](MOODY.md) for the full design and its Sims-era history.
+The buff has graduated from a capability into a voice in an auction, and the
+auction has its own design questions — why the highest bid should not always
+win, the argmax → find-best-N → softmax spectrum, temperature as an inherited
+context value. Those are in
+[ADVERTISEMENT-AUCTION.md](ADVERTISEMENT-AUCTION.md).
 
 And since a buff is a full prototype, it carries the whole interface: **a
 buff has its own CARD with its own advertisements**, and attaching the
@@ -594,121 +398,27 @@ Containers are just pieces whose presentation includes "what's inside," so a
 chess piece could contain a smaller board, and a wumpus could swallow a lamp
 (grue rules apply inside).
 
-## Smart placement: the sorting stomach
+## Smart placement: containers that route
 
-"Put this in that" is underspecified, and good containers know it. The
-pattern comes from **OpenLaszlo** (David Temkin et al.): a child declares a
-`placement` attribute, a container declares a `defaultplacement`, and the
-container can override its determine-placement method to inspect the
-incoming child — plus an optional args object for custom parameterized
-placement protocols — and route it to the right sub-container. The everyday
-use was a constant sub-path to the "client view," so children added to a
-window skipped the chrome (title bar, scroll bars) and landed in the content
-area. The general idea is bigger: **the container owns the routing decision,
-and the giver doesn't need to know the container's internals.**
+"Put this in that" is underspecified, and good containers know it. The pattern
+comes from **OpenLaszlo** (David Temkin et al.): a child declares a `placement`
+attribute, a container declares a `defaultplacement`, and the container can
+override its determine-placement method to inspect the incoming child and route
+it to the right sub-container. **The container owns the routing decision, and
+the giver doesn't need to know the container's internals.**
 
 [The troll's stomach](../examples/adventure-4/characters/fictional/troll/stomach/STOMACH.yml)
-is a sorting container in exactly this sense. EAT X and GIVE X TO TROLL are
-user-level verbs — drag-and-drop into the gaping maw — and the stomach's
-placement protocol inspects the child: characters route to
-`contents/adventurers/` (as digestive-juice-spattered stubs inheriting from
-their prototypes), treasures to `contents/treasures/` with a ledger entry,
+is a sorting container in exactly this sense: characters route to
+`contents/adventurers/`, treasures to `contents/treasures/` with a ledger entry,
 weapons land loose and crunchy, and the troll himself routes to
-`contents/himself.yml`. GIVE TROLL TO TROLL isn't a special case that needs
-a flag; it's just the self route through the same protocol. The dumb
-explicit API (move the file yourself) is still there underneath — the smart
-overlay is for the user's level, where dropping something *into* something
-should do the logically right thing without asking where the sub-slot is.
+`contents/himself.yml`. GIVE TROLL TO TROLL isn't a special case needing a flag;
+it's the self route through the same protocol. The dumb explicit API (move the
+file yourself) stays underneath — low-level moves obey, high-level verbs route.
 
-This is the drag-and-drop contract every direct-manipulation microworld
-needs: SimCity tiles, Sims object slots, HyperCard backgrounds, Laszlo
-views, troll stomachs. Low-level moves obey; high-level verbs route.
-
-### The genealogy in shipped games
-
-Games have been shipping smart placement for decades, in four families:
-
-- **Typed bags** (the container only accepts its type): World of Warcraft's
-profession bags — herb, mining, enchanting, soul bags, quivers; EverQuest's
-quivers and tradeskill containers before that; Breath of the Wild's pouches
-are the purest form — an apple *can only* land in materials, and the player
-never files anything.
-- **Auto-routing on deposit** (the container inspects and files — the
-stomach's exact protocol): Guild Wars 2's fills-first bags (oiled bags
-attract junk, craftsman's bags attract mats, equipment boxes attract gear,
-invisible bags opt *out* of sorting and vendoring) plus "deposit all
-materials"; Path of Exile's stash tab affinities routing a ctrl-click dump
-to whichever tab owns the type; Terraria's Quick Stack to Nearby Chests —
-the elegant one, items fly to whatever chests *already contain that kind of
-thing*, so **the world's existing arrangement is the routing table**;
-Stardew Valley's "add to existing stacks"; Diablo III/IV material storage.
-- **Routing as visible labor**: Dwarf Fortress stockpiles (dwarves haul
-everything to its typed zone — the sort is performed by characters you can
-watch), Minecraft hopper sorters (player-*built* placement protocols),
-Factorio filter inserters and logistic chests. Factorio generalizes
-furthest: deposit-routing made *continuous* — belts for arbitrary objects,
-in the von Neumann 29-state universal constructor lineage
-([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)).
-- **Containers with behavior** (the stomach's true family): Diablo II's
-Horadric Cube *transforms* what it holds — a container that digests;
-EverQuest's ovens and forges; Torchlight's pet, a walking container that
-leaves to go sell; and NetHack's bag of tricks, a container that turns out
-to be a creature — the exact inverse of the troll, a creature that turns
-out to be a container. NetHack also supplies the recursion cautionary tale:
-bag of holding in bag of holding explodes. GIVE TROLL TO TROLL just deepens
-the narrative stack — single pocket, no boom.
-
-And in **PieCraft** (Don Hopkins,
-[canonical design in MicropolisCore](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/piecraft/PIECRAFT.md))
-the container *is the UI*: pie menus are craftable typed bags whose
-**geometry is part of the type — slot count is valence**. Pies auto-route on
-deposit (a potion files itself into the consumables pie, a spell into its
-element's slice) and **bond into molecules**: a submenu is a covalent bond, a
-loadout is a molecule of complementary valences, and combat can decompose a
-molecule back into element pies, spilling loose items. Smart placement,
-typed bags, and Fitts's law fused into one crafting system.
-
-### Beyond games: the webtop
-
-Every desktop ever shipped makes the user do all the filing by hand. These
-are features a general-purpose webtop window/object manager should have —
-the direct descendant of OpenLaszlo's placement protocol, at home in a
-zoomable interface of the kind David Temkin has pursued:
-
-- **Quick Stack for files**: drop a pile on the desktop and each file flies
-to a folder that already contains that kind of thing — the user's existing
-arrangement is the routing table, so the system learns filing from the
-filing you already did. That is programming by demonstration where the
-*demonstration is your folder structure*.
-- **Affinities and fills-first folders**: a folder declares what it attracts
-(INTERFACE.yml-style, one dropped file at a time); an invisible-bag folder
-opts out of auto-sort entirely.
-- **Deposit-all verbs**: one gesture files everything routable and leaves
-the residue visible for triage — conservative in what it moves, liberal in
-what it accepts.
-- **Routing as visible animation**: in a zoomable interface the file
-*visibly flies* to its destination, Terraria-style, so auto-filing is
-self-demonstrating — the system shows you its reasoning at exactly the
-moment you could correct it. Smart placement plus visible routing is the
-teach-by-demonstration loop running in reverse: the system demonstrates,
-the user inspects and corrects.
-
-The **pie menu tabbed window interface** is the window-level embodiment of
-the same system
-([PIE-TAB-WINDOWS.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/notes/PIE-TAB-WINDOWS.md)
-in MicropolisCore; shell context in
-[MOOLLM-WEBTOP-VISION.md](webtop-gwern-inheritance/MOOLLM-WEBTOP-VISION.md)).
-A **Stack is a typed bag of Cards**; a **tab is simultaneously the handle
-and the advertisement** — grab it to drag, pop a pie on it for the Card's
-verbs (close, detach to window, move to stack, open in git), heritage
-running back through NeWS tabbed frames and the PSIBER Space Deck. And its
-Snapping & Grouping rules are literally a placement protocol for windows:
-dragging a Card offers snap positions — dock as a sibling in the layout
-tree, insert into a target Stack (tab rows merge), or pull out to float —
-so the *workspace* inspects the incoming window and offers placements, the
-way the stomach inspects the incoming meal. Pies, tabs, Stacks, and
-PieCraft molecules are one container algebra at four scales: slice, tab,
-window, workspace.
+The genealogy in shipped games (typed bags, auto-routing on deposit, routing as
+visible labor, containers with behavior), PieCraft's craftable typed pie menus,
+and what a webtop window manager should inherit from all of it are in
+[SMART-PLACEMENT.md](SMART-PLACEMENT.md).
 
 ## Robust-first: the TROLL-FLAG lesson
 
@@ -803,6 +513,15 @@ an archetype migration; handle it on the dynamic layer, and recompile when
 the new order gels.
 
 ## See also
+
+Broken out of this document, because it was getting long:
+
+- [ADVERTISEMENT-AUCTION.md](ADVERTISEMENT-AUCTION.md) — why the highest bid shouldn't
+  always win: find-best-N dither, the argmax → softmax spectrum, temperature as context
+- [SMART-PLACEMENT.md](SMART-PLACEMENT.md) — the routing-container genealogy in shipped
+  games, PieCraft, and what a webtop should inherit from it
+
+Elsewhere:
 
 - [skills/buff/](../skills/buff/) — the runtime for the buff half of this document, plus the
   concentrated design: [SELF-KORZ.md](../skills/buff/SELF-KORZ.md) (the Self reading here is
