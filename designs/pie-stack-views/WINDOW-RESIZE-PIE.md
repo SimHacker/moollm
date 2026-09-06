@@ -145,6 +145,22 @@ acquisition costs nothing.
 Which means the most celebrated Fitts's law win in interface history is **not a property of the
 display, it is a line in the pointer's transfer function.** It was always software, always a
 parameter, and there was never a reason to have exactly four of them nailed to the physical borders.
+
+> **The pointer transfer function is where Ted Selker did his life's work.** The TrackPoint is
+> isometric rate control, so unlike a mouse *nothing* about its mapping is given by physics — the
+> transfer function is the entire device. Selker's answer was two **plateaus**: a wide band of light
+> pressure mapping to one exact slow predictable speed, and a wide band of harder pressure mapping to
+> a fast speed held just below eye-tracking, because above that you lose the cursor.
+>
+> **A plateau is a detent one derivative up.** Both take a wide range of input, flatten it onto one
+> output, and thereby convert motor noise into stability instead of error — Selker's makes a *speed*
+> easy to hold, a friction strip makes a *position* easy to hold. And his two-plateau coarse/fine
+> pair is the same shape as [eyeball-then-dial](RADIAL-DIMENSIONS.md#the-precision-pie-and-the-problem-it-was-built-for).
+>
+> The story, from Don's accounts: [TrackPoint transfer
+> function](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ted-selker/sources/trackpoint-transfer-function.md)
+> — including his father the material scientist designing the non-skid rubber, IBM refusing to ship
+> until it measured as efficient as a mouse, and the bag of spare Joy Buttons he kept in the car.
 The proof by regression is multi-monitor: the moment two displays share an edge, the wall evaporates
 and the menu bar stops being infinite — a hardware accident deciding an interface property.
 
@@ -200,8 +216,8 @@ The **Precision Pie** is this same transfer function built as visible geometry �
 because it is the bend of a lever rather than a curve in a driver. Documented with the demo and
 transcript in [Radial Dimensions](RADIAL-DIMENSIONS.md#the-precision-pie-and-the-problem-it-was-built-for).
 
-*(Still needed from Don: the **virtual cursor** design for pie menus, and the title of the raft
-game.)*
+*(Still needed from Don: the **virtual cursor** design for pie menus, and the title of the dynamic 
+cursor game.)*
 
 ## Radius now means three things, and they must not collide
 
