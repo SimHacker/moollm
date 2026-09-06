@@ -47,10 +47,75 @@ already did is the spec.
 **Routing as visible labor** — Dwarf Fortress stockpiles (dwarves haul everything
 to its typed zone, so the sort is performed by characters you can watch),
 Minecraft hopper sorters (player-*built* placement protocols), Factorio filter
-inserters and logistic chests. Factorio generalizes furthest: deposit-routing
-made *continuous*, belts for arbitrary objects, in the von Neumann 29-state
-universal constructor lineage
+inserters and belts. Factorio generalizes furthest: deposit-routing made
+*continuous*, belts for arbitrary objects, in the von Neumann 29-state universal
+constructor lineage
 ([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)).
+
+**Pull instead of push** — and this is the one that inverts the family.
+Everything above is push-routing: something arrives, the container inspects it
+and files it. Factorio's **logistic chests** run the other direction. A requester
+chest broadcasts what it *wants*, providers broadcast what they *have*, and bots
+close the loop. The routing table stops being a method on the container and
+becomes a property of the network.
+
+MOOLLM ships this as a skill —
+[`skills/logistic-container/`](../skills/logistic-container/) — with Factorio's
+five box types intact: passive provider ("take from me if you need"), active
+provider ("I'm pushing these out", with `push_to` match rules, which is the push
+family again), requester (a `request_list` with `min:` thresholds for
+hysteresis), storage (whatever the network couldn't route), and buffer (hold
+until a condition fires). Three details earn their keep:
+
+- **Requesters are advertisers of demand.** A request list is a standing bid, so
+  the logistic network is the [advertisement auction](ADVERTISEMENT-AUCTION.md)
+  running over containers instead of over actions. Scoring, priority (buffers
+  outrank storage for bots) and the whole find-best-N question arrive for free
+  rather than needing a second mechanism.
+- **The haulers are characters.** A logistic bot is
+  `behavior.type: logistic-bot` on an ordinary character with a roboport, cargo
+  slots and a range — so this is the Dwarf Fortress "sort you can watch" family
+  too, except the dwarves are addressable, have inventories, and can be given
+  other jobs. Courier kitten is a piece.
+- **Cells auto-create.** Toss an unknown item type into a grid container and a
+  new cell directory appears — `mkdir -p` for items, and navigable, so a
+  warehouse is a place you can walk through rather than a table you query.
+
+Signals are the circuit network: a container emits `iron-count` or `is-full`, and
+anything can read it, including an exit that only opens above a threshold. Exits
+with `flow:` are conveyor belts between rooms. Protocol details in
+[factorio-logistics-protocol.md](factorio-logistics-protocol.md).
+
+### The character is a logistic container, and it walks
+
+Factorio's best move in this family is **personal logistics**: request slots and
+auto-trash slots on the player's own inventory, plus a **personal roboport** worn
+in the armor grid so the bots come with you. Your inventory stops being a bag you
+manage and becomes a **requester chest that follows you around** — the routing
+travels with the actor instead of sitting still in a warehouse.
+
+Two things fall out of that, and both generalize past Factorio.
+
+**A request and an auto-trash are the same knob with opposite signs.** A request
+slot is a *min* — keep me topped up to 20 iron plate — and a trash slot is a
+*max*: anything above this, take it away. One threshold pair per item, on one
+axis, and the whole personal inventory policy is that pair repeated. "Trash
+unrequested" is the blanket form: **anything I didn't ask for is not mine**,
+which is the strongest opt-out policy in this entire document and the only one
+stated as a negative. A standing request is a bid; auto-trash is a standing
+*ask*. Both are advertisements, which is why this belongs in the same auction as
+everything else.
+
+**Worn equipment is a typed bag whose contents are mixins.** The armor grid holds
+modules that change what you can do, so it is simultaneously a container (slots,
+sizes, filters) and a set of live delegation edges — the
+[buff graph](GAME-PIECES.md#buffs-mixins-with-expiration-dates) with an
+inventory UI. Take the roboport out of your armor and the capability leaves with
+it, no cleanup, because the capability was never cached anywhere but the slot.
+
+[factorio-logistics-protocol.md](factorio-logistics-protocol.md) has
+`personal_requests` on the player already; it has no trash side yet, so half the
+knob is missing.
 
 **Containers with behavior** — the stomach's true family. Diablo II's Horadric
 Cube *transforms* what it holds, a container that digests; EverQuest's ovens and
@@ -91,6 +156,13 @@ the kind David Temkin has pursued:
 - **Deposit-all verbs.** One gesture files everything routable and leaves the
   residue visible for triage — conservative in what it moves, liberal in what it
   accepts.
+- **A personal request list and an auto-trash list**, which is the Factorio
+  personal-logistics move applied to a working set: *keep these near me* as a
+  min, *take away anything above this* as a max, and *anything I didn't ask for
+  is not mine* as the blanket policy. Every desktop makes you clean up by hand
+  because it has no idea what you consider yours. A declared working set with a
+  trash threshold is the smallest thing that would fix it, and it is the same
+  min/max pair a requester chest uses.
 - **Routing as visible animation.** In a zoomable interface the file *visibly
   flies* to its destination, Terraria-style, so auto-filing is
   self-demonstrating: the system shows you its reasoning at exactly the moment
