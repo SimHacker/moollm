@@ -176,12 +176,15 @@ The architecture guarantees the projection is rebuildable. It does **not** guara
 look equally authoritative whether the index is three seconds or three days behind. Three things have
 to be surfaced or the guarantee is decorative:
 
-- **Lag, always.** `status` reports per-type last-indexed position against branch heads. An answer
-  from a stale index is still useful; an answer from a stale index *presented as current* is a
-  fabrication with a directory listing for evidence.
+- **Lag, always.** `status` reports it exactly rather than approximately, because
+  [`indexed_sha <> head_sha`](webtop/CURSOR-STORAGE.md#validity-postgres-may-be-behind-never-ahead)
+  is a count, not an estimate. An answer from a stale index is still useful; an answer from a stale
+  index *presented as current* is a fabrication with a directory listing for evidence.
 - **Empty is two different answers.** "No rows" and "no rows, index current, type covered" must not
   render identically, or the model concludes something false from an indexing gap. Absence of
-  evidence is the failure mode LLMs are worst at catching, so `/q/` must never report a bare zero.
+  evidence is the failure mode LLMs are worst at catching, so `/q/` never reports a bare zero — it
+  reports matches alongside how many rows in scope were `stale` or `pending`, which is exactly how
+  much doubt the answer deserves.
 - **Verify escapes to git.** A flag that re-runs the predicate against branch heads, slow and
   authoritative. Without it, "you could always check git" is a claim nobody can execute.
 

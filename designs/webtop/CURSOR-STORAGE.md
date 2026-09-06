@@ -530,8 +530,9 @@ authoritative. Do not build it. There are two legitimate write paths and it is w
 about which is which:
 
 **Write-through — for meaningful state changes.** The write goes to *GitHub* as a commit; Postgres is
-updated optimistically in the same breath so the UI is instant, and marked unconfirmed until the
-webhook returns the canonical version. Postgres never originates anything; it just gets to be early.
+updated optimistically in the same breath so the UI is instant, and marked
+[`optimistic`](#validity-postgres-may-be-behind-never-ahead) until the webhook returns the canonical
+version. Postgres never originates anything; it just gets to be early.
 
 ```
 edit ──▶ commit to GitHub ──▶ (webhook) ──▶ Postgres canonical
@@ -551,6 +552,53 @@ the buffer.** If that rule starts bending, you have built write-back after all.
 **Concurrency comes free.** `PUT /contents/{path}` takes the existing blob `sha` and rejects the
 write if it has moved — that is compare-and-swap, so a conflicting write fails loudly with a 409
 instead of silently clobbering. Optimistic concurrency control you do not have to design.
+
+### Validity: Postgres may be behind, never ahead
+
+Git is always valid; only the projection can lag. So rows carry their own validity and the index
+drives its own repair — but **"invalid" is at least five states, and collapsing them discards the
+part that is useful:**
+
+| State | Content | Means |
+|---|---|---|
+| `valid` | current | indexed at `head_sha` |
+| `stale` | **old but real** | we know the head moved; we have not re-read it |
+| `pending` | **none** | we know it exists; we have never read it |
+| `optimistic` | client-supplied | written locally, commit not yet confirmed by webhook |
+| `error` | none or partial | fetch or parse failed at a known commit |
+| `gone` | tombstone | deleted in git, row retained |
+
+The line that earns the whole table is **`stale` versus `pending`**. A stale row still has real
+content — just older — so a query that can tolerate age can be served from it and say so. A pending
+row has nothing but an identity. Collapse them into one flag and you lose both graceful degradation
+and the cheap answer to "does this object exist?"
+
+**Two phases, and phase one always succeeds.** The webhook hands you `(ref, after)` for free, while
+reading and parsing the object is the expensive part. Split there:
+
+1. **Cheap, synchronous:** record `(branch, head_sha, seen_at)`, mark `stale` if the row exists and
+   `pending` if it does not. A tiny write that cannot really fail — this is Don's "at least create it
+   and mark it invalid," and it is the load-bearing half.
+2. **Expensive, batched:** fetch at that SHA, parse, fill columns, mark `valid`.
+
+Staleness then stops being a guess: **`indexed_sha <> head_sha` is exact**, so
+[`/proc/index.yml`](../MOOFS-NAMESPACE.md#proc-introspection-with-no-new-verbs) reports a countable
+backlog rather than "seconds behind."
+
+**The revalidator never needs a lock.** Phase two indexes a *pinned commit*, so it is idempotent and
+race-free: a concurrent update cannot corrupt it, it just leaves another `stale` marker for the next
+pass. Batches can be ordered by whatever is worth repairing first — objects under active query, then
+recent changes, then the tail.
+
+**Two ordering rules keep the invariant true.** Never write a filled optimistic row before the commit
+lands; `optimistic` claims a *pending* identity, not content, so a failed commit degrades to a stub
+instead of a lie. And never `DELETE` on branch deletion — a `gone` tombstone makes out-of-order
+create/delete deliveries resolvable, keeps deletion idempotent, and lets a query answer "this existed
+and was removed at `<sha>`" instead of silently omitting a row.
+
+**The failure this introduces:** a backlog that grows faster than repair, while every query keeps
+returning plausible results and nothing looks wrong. Monitor *oldest* pending age rather than count,
+and cap retries on `error` rows so one malformed object cannot occupy the batch forever.
 
 ### Simulations run on both, and Actions is the free compute
 
@@ -624,7 +672,9 @@ create table object (
   branch      text generated always as (type || '_' || id) stored,
   url         text generated always as (
                 'https://github.com/'||owner||'/'||repo||'/tree/'||type||'_'||id) stored,
-  head_sha    text not null,          -- current tip; the citation form
+  head_sha    text not null,          -- what git says; the citation form
+  indexed_sha text,                   -- what this row was built from; <> head_sha means stale
+  state       text not null,          -- valid | stale | pending | optimistic | error | gone
   schema_sha  text,                   -- which type commit it validated against
   updated_at  timestamptz not null,
   meta        jsonb not null default '{}',
