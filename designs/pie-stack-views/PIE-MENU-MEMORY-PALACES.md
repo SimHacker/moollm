@@ -137,8 +137,27 @@ operations: canonicalize to ask *same place*, do not canonicalize to ask *same j
 
 #### N handles: generalized barycentric coordinates
 
-The two-node lerp is the 1-simplex case, and the general form has a name. Anchoring a position as a
-blend of **any number** of places is **generalized barycentric coordinates**:
+Before the mathematics, the deflation, which is Don's and is the right way in. **Anchoring to one node
+plus an offset is already the most ordinary operation in interface construction** — parent plus local
+translation, `position: relative`, a scene-graph child, a widget attached to its container with an
+inset, a Sims object placed on a tile. Everybody already does this and nobody calls it a coordinate
+system.
+
+So this is not new machinery. **It is that operation with the arity restriction lifted:** keep adding
+interpolation targets, adjust each one's weight, and add the offset on top. Which buys three things
+before any math is invoked:
+
+- **Total backward compatibility.** Every existing single-parent placement is already a valid address
+  with one nonzero weight. Nothing needs converting, and arity one stays the default.
+- **Progressive disclosure for free.** The user never confronts a weight vector; they *add another
+  anchor*. Complexity arrives one handle at a time, so the simple case remains the simple thing.
+- **The offset stops looking like a hack.** Earlier in this section it is described as the residual
+  the handles do not explain, which is true and historically backwards. **At arity one the offset is
+  the entire content of the placement** — parenting is nothing but an offset. The offset is the
+  original primitive; the weights are the addition.
+
+With that established, the general form has a name. Anchoring a position as a blend of **any number**
+of places is **generalized barycentric coordinates**:
 
 ```
 addr = Σ wᵢ · placeᵢ  +  offset        with  Σ wᵢ = 1,  wᵢ ≥ 0
@@ -172,6 +191,21 @@ behave wrongly when they move — this is precisely why harmonic coordinates wer
 weights over three or four means only your neighbourhood does. Compact support is what makes edits
 predictable, keeps the address short enough to read, and bounds the blast radius of a rename — the
 same argument as [sparse view overlays](SPARSE-VIEW-OVERLAYS.md), one layer down.
+
+**Nobody should ever edit a weight vector**, which is the obvious objection — N sliders constrained to
+sum to one is a famously bad interface. The resolution is that the weights are *inferred from where
+you put the thing*, and this is the second reason to prefer natural neighbor coordinates: they solve
+the **inverse problem canonically.** Drop a point among places and there is one right answer for its
+weights. That matters because the inverse problem is otherwise underdetermined — for more than three
+handles in the plane, many weight vectors produce the same position, so dragging alone cannot recover
+them and *some* canonical scheme has to supply the missing constraint.
+
+Which lands it in the pattern this cluster keeps arriving at, from
+[grooves](GROOVES-AND-SPIKES.md#promotion-inference-is-a-draft-of-a-constraint): **infer, show,
+promote.** Dropping the object infers weights; the handles and their strengths are displayed as
+[state rendered in the substrate](FRICTION-FIELDS.md#visual-thickness-is-independent-of-both); and the
+user may then pin, delete or override any of them, at which point an inferred blend has become a
+declared constraint. Explicit weight editing is the escape hatch, never the front door.
 
 And the payoff that matters most for a corpus: **multi-anchor addressing is error-correcting for link
 rot.** A single anchor is fragile — delete it and the citation dies. With N weighted handles you
