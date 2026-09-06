@@ -134,6 +134,37 @@ Two strips are enough for most of it:
   without any value being forbidden. This is the control-to-display ratio becoming a function of
   position instead of a constant.
 
+### Tog's menu bar was a zeroing strip all along
+
+Tognazzini's Fitts's law argument for the Mac menu bar — that it is effectively a thousand miles
+tall, because you can slam the pointer at the top of the screen and the edge catches you — describes
+**a detent with an infinite escape threshold.** The mouse keeps moving; the cursor does not; the
+excess delta is discarded. Overshoot is free, so the target's effective height is unbounded and
+acquisition costs nothing.
+
+Which means the most celebrated Fitts's law win in interface history is **not a property of the
+display, it is a line in the pointer's transfer function.** It was always software, always a
+parameter, and there was never a reason to have exactly four of them nailed to the physical borders.
+The proof by regression is multi-monitor: the moment two displays share an edge, the wall evaporates
+and the menu bar stops being infinite — a hardware accident deciding an interface property.
+
+Generalize it and the whole family is one mechanism with two parameters:
+
+| | Capture depth | Escape threshold | |
+|---|---|---|---|
+| **Screen edge** | unbounded, one-sided | ∞ | Tog's wall |
+| **Groove** | unbounded along, narrow across | finite | slide freely, [pull off to leave](GROOVES-AND-SPIKES.md#a-groove-is-a-1-d-manifold-with-a-policy) |
+| **Detent** | narrow | finite | catches a value, releases with effort |
+| **Damping strip** | wide | n/a — gain, not capture | precision without prohibition |
+
+So Don's generalization is exact: put a wall **anywhere**, make it as **deep** as you want, and —
+unlike a physical edge, which has only one side — approach it **from any direction**, including from
+both sides, which is what makes a groove a groove rather than a border.
+
+And it only works under relative control. A clamp is by definition a discarded delta, so a system
+that insists the object track the cursor absolutely cannot have walls at all — which is the nulling
+argument arriving a third time, from the direction of Fitts's law.
+
 **It already shipped, in PSIBER, in 1989.** Objects on the deck had tabs you dragged onto a stack
 spike:
 

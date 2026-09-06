@@ -106,6 +106,14 @@ snapped, pop off by pulling far enough away* — and it means the whole
 [hysteresis discipline](WINDOW-RESIZE-PIE.md#friction-strips-snapping-that-never-gets-ahead-of-the-gesture)
 transfers with no new machinery.
 
+It also makes a groove **a screen edge you can put anywhere.** Tognazzini's thousand-mile-tall menu
+bar is a clamp in the pointer's transfer function with an infinite escape threshold; a groove is the
+same mechanism, two-sided and escapable —
+[the parameterized family](WINDOW-RESIZE-PIE.md#togs-menu-bar-was-a-zeroing-strip-all-along). So
+drawing a groove is drawing a Fitts's law wall, and every object docked to it inherits an infinitely
+deep target for free. That is the strongest practical argument for grooves over ordinary snapping:
+they do not merely organize, they make things **easier to hit**.
+
 ## Promotion: inference is a draft of a constraint
 
 The resize pie
