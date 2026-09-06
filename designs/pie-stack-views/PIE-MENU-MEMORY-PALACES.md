@@ -60,6 +60,86 @@ Which gives the sharp form of the objection to canned transitions: **an animatio
 
 **The precondition, which is easy to miss.** You can only brake mid-flight if the place you stop in is a legitimate place. Interruptible transit therefore requires the space *between* nodes to be real — continuously navigable, renderable, and addressable — which is why it worked in MediaGraph's spatial graph and cannot be retrofitted onto navigation between discrete pages. A system whose only valid states are its nodes has no choice but to make transitions modal. This is the same requirement as semantic zoom needing intermediate scales to be meaningful, arriving in the navigation layer.
 
+### The graph is a liminal space
+
+Don's name for it, and it is better than the framing above, which was merely defensive — *the
+in-between must be valid enough to stop in*. Liminality (van Gennep's *limen*, threshold; Turner's
+betwixt-and-between) says the opposite and stronger thing: **in a rite of passage the threshold phase
+is not the cost of reaching the far side, it is the part that does the work.** Transit is not overhead
+to be tolerated. It is where the change happens.
+
+Which licenses the strong reading of Don's phrase. Not *the edges are liminal and the nodes are
+structural*, but liminal throughout — and then **a node is just a point where someone stopped often
+enough to name it.** Nodes are bookmarks, not an ontological category; the graph's structure is a
+record of where attention has settled, exactly as a desire path is a record of where feet went. The
+[eBike Safari](../webtop/EBIKE-PATH-GRAMMAR.md) case is this literally, since lingering is what
+promotes a GPS coordinate into a place.
+
+It also explains why canned transitions feel not merely slow but *insulting*. **A cutscene abolishes
+the liminal phase** — it takes the threshold, makes it opaque, and performs the transformation on you
+offscreen. You are carried through the one stretch you might have learned something in. Turner's later
+distinction sharpens it into a directive: **liminal** passage is obligatory and scheduled by someone
+else, **liminoid** passage is voluntary and playful. Interruptible navigation is liminoid. Make the
+threshold liminoid, never liminal.
+
+And one non-obvious payoff for the multi-user layer. Turner's other claim about liminal phases is
+**communitas**: status distinctions are suspended, so strangers in the threshold meet as equals. Nodes
+in this system have owners, types and permissions; the space between them does not. So **cursors that
+meet in transit meet outside the structure** — pilgrims on the road rather than congregants in the
+church — which is a real property to design for rather than a metaphor to admire, and the natural home
+for the unstructured encounter a [playable corpus](../webtop/PLAYABLE-CORPUS.md) needs.
+
+The engineering requirement survives the reframe unchanged, and is now better motivated:
+**liminal space must be addressable.** Without coordinates in the between, you cannot stop there,
+cannot link to it, and cannot come back — and an unaddressable threshold collapses into a cutscene no
+matter how it is animated.
+
+#### The address is a blend, plus a DC offset
+
+Don's representation, offered with a wink and correct anyway:
+
+```
+addr = lerp(src, dst, t) + offset
+```
+
+Not absolute coordinates — an **interpolation between two named nodes, plus a bias off the line.**
+The wink is that this is not an analogy to view interpolation, it is
+[the same operation already written down](VIEWS-AS-TESTIMONY.md) for views: *stop partway, stake the
+intermediate state, label it, and later interpolate against it.* A saved view is a blend of named
+views; a liminal address is a blend of named nodes. **One primitive, used in two layers.**
+
+Four properties fall out, and the first is the reason to prefer it:
+
+- **It is semantic, so it survives relayout.** Absolute coordinates rot the moment the graph is
+  rearranged — they come to denote empty space, or the wrong thing. *Sixty percent of the way from A
+  to B* still denotes the same **relation** after every node has moved, which is the anchor-stability
+  argument from the [transclusion](../webtop/nelson/HN-XANADU-2026.md) thread arriving in the
+  navigation layer.
+- **"DC" is the right word, and it buys graceful degradation.** The lerp is the structured, meaningful
+  component; the offset is constant bias carrying no structural information. So a client that does not
+  understand offsets can drop them and still place you *on* the A→B path — nearly right rather than
+  nowhere. `t` is required, `offset` is optional, which is
+  [Postel](../../skills/postel/GLANCE.yml) applied to coordinates.
+- **It formalizes "a node is just a bookmark."** A node is `t = 0` with zero offset. Nodes and
+  in-between positions become the same type with no special case, which is exactly what the liminal
+  claim demanded but could not previously cash. And promotion composes: stake a liminal address, name
+  it, and subsequent addresses blend against *it*.
+- **`t` outside `[0,1]` is meaningful**, which is convenient rather than a defect — overshoot past the
+  destination is precisely the state the [ballistic cannon](#kinetic-navigation-the-aimable-interruptible-cannon)
+  produces, and it needs no separate representation.
+
+The honest cost is that **the same point has many addresses.** Near a junction, three edges give three
+legitimate blends. They are not interchangeable: `lerp(A,B,0.5)` and `lerp(C,D,0.2)` may denote one
+pixel while saying different things about what you were *doing*, so the address records route and
+intent, not merely location — provenance in the coordinate, which is a feature. But it means addresses
+cannot be compared for identity by comparing tuples. Two different questions need two different
+operations: canonicalize to ask *same place*, do not canonicalize to ask *same journey*.
+
+*Discipline, since this is a strong borrowing: keep it only where it predicts something. It predicts
+that transit deserves state and an address, that transitions must be optional rather than scheduled,
+and that encounters in the between are status-free. Three commitments that can be checked. Anything
+past that is decoration.*
+
 That closes the loop on Shneiderman's clauses simultaneously: the command structure is continuously represented as a place; navigating and editing are physical actions on the same representation; and even the automatic motion is reversible, because the user can seize it mid-flight. Reversibility extended to interrupting the system's own animations is the strongest form of the reselection argument — the commit is **soft**, so [reselection](RESELECTION.md) continues into the ballistic phase instead of ending at release.
 
 ## A pump instead of a glide
