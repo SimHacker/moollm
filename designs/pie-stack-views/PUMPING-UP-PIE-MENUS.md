@@ -16,6 +16,8 @@ The overlay's parameters are not only visual — view scale, child scale factor 
 
 Radial distance already carries leverage — arc length grows with radius, so farther out buys finer angular precision from the same motor accuracy ([Reselection](RESELECTION.md)). It can also carry appetite. Moving out into a slice is itself an expression of intent: *more, about this*. The display can answer by pushing aside the fog of war — the center smoothly refocuses on the current item, opening detail as the pointer moves farther out and folding it away, reversibly, on the way back in.
 
+Appetite is not the only thing radius can carry, and the meanings do not mix: an *operational* pie can spend the same dimension on **scope** — how many objects the verb reaches — which is worked out in [The Window Resize Pie](WINDOW-RESIZE-PIE.md#radius-now-means-three-things-and-they-must-not-collide). Appetite belongs to navigational menus where the item is a place; scope belongs to menus where the item is a verb. A menu claiming both at once is ambiguous.
+
 The model to aspire to is the computer-animated history of Amsterdam rising around de Dam: the city accretes outward in ordered rings, each century growing up in place around the point you are watching. Pumping outward should feel like that — detail building up around the current item in layers that stay navigable like a subway map, outer city and suburbs of information appearing in the order that they matter, not as a data dump.
 
 ## The public square
