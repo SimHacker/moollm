@@ -129,7 +129,10 @@ Two strips are enough for most of it:
 - **Zeroing strip (a detent).** Contributes nothing until accumulated motion through it passes a
   threshold, then releases. One real decision inside it: the consumed motion is either *discarded*
   (clean, costs the user a little input) or *credited* (continuous, but the edge lurches on exit).
-  Discard, with a short ramp, is almost certainly right — the lurch is the thing being avoided.
+  Discard, with a short ramp, is the right default of those two — the lurch is the thing being
+  avoided. **But those two are not the only options**, and Don's third dissolves the tradeoff by
+  paying the debt back as *velocity* rather than position: see
+  [Friction Fields](FRICTION-FIELDS.md#dons-velocity-credit-paying-the-debt-as-an-impulse).
 - **Damping strip.** Gain below one across a region, so precision rises near interesting values
   without any value being forbidden. This is the control-to-display ratio becoming a function of
   position instead of a constant.
@@ -180,6 +183,13 @@ both sides, which is what makes a groove a groove rather than a border.
 And it only works under relative control. A clamp is by definition a discarded delta, so a system
 that insists the object track the cursor absolutely cannot have walls at all — which is the nulling
 argument arriving a third time, from the direction of Fitts's law.
+
+The four rows above are not the whole family. Thresholds can differ **by direction** (traps, guard
+rails, one-way doors), thickness and threshold turn out to be **independent axes** — as is *visual*
+thickness, which is forced rather than merely permitted — and the 1-D support of a "strip" is itself
+a special case of a **field**, up to and including Perlin-noise terrain. That generalization, and the
+velocity-credit policy that makes deep walls feel like springs, are worked out in
+[Friction Fields](FRICTION-FIELDS.md).
 
 ### The Sims placement tool: the transfer function renders the constraint model
 
