@@ -26,7 +26,12 @@ Four edges and four corners, each in the direction it lives:
 
 Orthogonals are edges, diagonals are corners. The mapping is not a mnemonic to memorize, it is the
 thing itself — which is the property pie menus have and lists do not, and the reason this particular
-menu was worth building in NeWS before anyone asked for it.
+menu was worth building in NeWS before anyone asked for it. Don's own statement of why the domain
+fits:
+
+> Window managers tend to have directional commands: open on left or right side, **resize from
+> bottom right corner**, move to top or bottom layer, etc, which correspond nicely to pie menu
+> directions, so they're obvious, easy to learn, remember, and use without looking or waiting.
 
 ## Two problems, usually conflated
 
@@ -47,7 +52,9 @@ asked for anything.
 
 Relative control has no nulling problem, because only the delta means anything. So after the
 direction is chosen, **you push the edge** — it starts where it is and moves as far as you move, and
-your cursor's absolute position is never consulted at any point in the interaction.
+your cursor's absolute position is never consulted at any point in the interaction. It buys more than
+the missing jump, too: it opens the gap where
+[friction strips and physics](#friction-strips-snapping-that-never-gets-ahead-of-the-gesture) live.
 
 That is the general form worth keeping: **direction selects the operand, displacement supplies the
 quantity.** The pie is good at the first and terrible at the second; a drag is the reverse. Using
@@ -74,12 +81,93 @@ Hops are learnable and stable; a pixel radius is neither. And the adjacency that
 **"near enough," not touching** — edges within a tolerance are neighbors, so windows with deliberate
 gaps between them still move together.
 
+### Inferred per gesture, never enforced
+
+The adjacency graph is **computed at grab time from where the windows actually are**, and thrown away
+when the gesture ends. That is the whole difference from a tiling window manager: a tiling WM makes
+you live inside its layout tree, and every window you open has to find a home in it. Here windows
+float, overlap, and sit at whatever gaps you left them; the tree is a *momentary interpretation* of
+the current arrangement, produced to answer one question and then discarded.
+
+So you get tiling behavior on demand without the straightjacket, and the cost is honest: **inference
+can guess wrong.** Which gives the overlay highlight its real job — it is not decoration, it is the
+guess made visible *before* it acts, so a wrong interpretation is corrected by pulling back in rather
+than undone afterward.
+
 **Recruited edges keep their offsets.** This is the difference between a constraint and a snap:
 capture each edge's offset when the scope locks, apply one delta to all of them, and the gaps survive
 exactly as the user left them. Snapping would collapse them into a kiss, destroying spacing that was
 probably intentional — the failure mode of most "smart guides." What is being preserved is a
 relation, which is [Declare's](../webtop/temkin/README.md#declare-sql-for-interfaces) argument
 arriving in a window manager: state the invariant, let the solver keep it true.
+
+## Friction strips: snapping that never gets ahead of the gesture
+
+Snapping usually ruins this, and the reason is specific. Naive snap-dragging is **position-based
+capture**: get near a target and you are taken. Which means the values *near* the target become
+unreachable — you cannot park an edge three pixels off a guide, because the field eats it — and the
+interface has quietly decided that your intent was the round number. Every over-eager alignment
+system has this bug, filed as a feature.
+
+The fix is **hysteresis instead of gravity.** Do not move the edge to the value; **hold it there and
+consume motion** until enough has accumulated to escape. Quantization by effort supplied rather than
+by proximity achieved. Every value stays reachable, because the snap costs a little push to leave and
+nothing to pass through slowly.
+
+**Relative control is what makes this possible at all**, and this is the deeper payoff of the nulling
+fix above. Under absolute tracking the object must stay under the cursor, so any hold opens a visible
+gap between the two — you have reintroduced nulling to implement snapping. Under relative control the
+edge was never tied to the cursor, so there is somewhere to stand between input and effect:
+
+```
+raw delta ──▶ [ transfer function ] ──▶ applied delta
+                 friction · detents · gain · physics
+```
+
+Two strips are enough for most of it:
+
+- **Zeroing strip (a detent).** Contributes nothing until accumulated motion through it passes a
+  threshold, then releases. One real decision inside it: the consumed motion is either *discarded*
+  (clean, costs the user a little input) or *credited* (continuous, but the edge lurches on exit).
+  Discard, with a short ramp, is almost certainly right — the lurch is the thing being avoided.
+- **Damping strip.** Gain below one across a region, so precision rises near interesting values
+  without any value being forbidden. This is the control-to-display ratio becoming a function of
+  position instead of a constant.
+
+**It already shipped, in PSIBER, in 1989.** Objects on the deck had tabs you dragged onto a stack
+spike:
+
+> It implements a mutant form of "Snap-dragging", that **constrains non-vertical movement when an
+> object is snapped onto the stack, but allows you to pop it off by pulling it far enough away** or
+> lifting it off the top. [Bier, Snap-dragging]
+
+A zeroing strip on one axis plus an escape threshold, thirty-seven years ago, credited to Bier and
+Stone's *Snap-Dragging* (SIGGRAPH 1986) — whose own contribution was already an indirection, since
+gravity there acts on a **caret** and objects follow the caret rather than the cursor. Bier put a
+layer between input and effect and spent it on gravity; the friction strip spends the same layer on
+hysteresis, which is the version that does not eat nearby values.
+
+The overlay highlighting has a shipped ancestor too, with a reason attached:
+
+> …previewing and highlighting **in the overlay plane** (which was much faster to draw interactively
+> than moving and resizing the live windows themselves).
+
+Recruitment preview is therefore not a new cost — it is cheaper than the thing it replaces.
+
+### The seam is the point
+
+Once a transfer function exists, arbitrary **middleware** fits in it: momentum, springs, viscosity,
+magnetism-with-escape, or a full physics simulation. That reframes the claim of this whole document.
+Relative control is not merely a fix for a jump — **it is the seam where interaction middleware
+becomes possible at all**, and absolute control has no seam, because position is just position.
+
+Taken to its limit the cursor stops being a coordinate and becomes an object in a simulated world —
+the multiplayer games where your cursor rides an inflatable raft drifting downstream, and steering
+means negotiating with the current. Same seam, used maximally.
+
+*(Two pointers Don has that are not written up here yet: the **precision pie menu**'s take on
+position-dependent gain, and the **virtual cursor** design for pie menus. Both want their own
+sections; the raft game needs its title from him.)*
 
 ## Radius now means three things, and they must not collide
 
