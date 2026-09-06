@@ -17,6 +17,28 @@
 # Instance files are game state. ROOM.yml is room structure.
 # Keep concerns separated. Easy reset, easy save, easy diff.
 
+# HAZARD CONTRACT — what the game reads. Everything below this block is the
+# colony being a colony; this block is the colony being a hazard. See INDEX.yml.
+hazard:
+  id: superbats
+  canon: wumpus-1          # Yob 1973, in the original listing
+  warning:
+    sense: sound           # high-pitched chittering
+    message: "Bats nearby!"
+    priority: 30           # announce order; wumpus 10, pit 20, bats 30
+    radius: 1
+  on_enter: relocate       # snatched and dropped in a random room
+  relocate:
+    destination: random_room
+    may_drop_into: [bottomless-pit, wumpus]   # cruel but canonical
+    recursive: true        # may drop you onto another bat room; chain allowed
+  placement:
+    count: 2               # L(5), L(6) in the 1973 array
+    unique_room: true
+    may_start_here: false
+    may_be_adjacent_to_start: true
+  mobile: true             # colonies relocate; may split
+
 # INSTANCE DEFAULTS — Override in room-specific bats.yml
 defaults:
   population: 50

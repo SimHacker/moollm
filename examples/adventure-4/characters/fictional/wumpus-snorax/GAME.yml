@@ -154,6 +154,18 @@ room_networks:
       - At least 7 rooms (for all hazards)
       - One safe starting position
 
+# HAZARDS — the second plugin axis. Both axes were advertised in the 1973
+# listing four lines apart: WUMP2 cave arrangements, WUMP3 different hazards.
+# The caves came back in Wumpus 2; the Wumpus 3 listing is lost, so this
+# directory is written to a contract rather than transcribed. See hazards/README.md.
+
+mounted_hazards:
+  manifest: hazards/INDEX.yml
+  all: hazards/
+  default_set: [bottomless-pit, superbats]    # plus the wumpus, who is the game
+  contract: "hazards/INDEX.yml#contract -- id, warning, on_enter, placement"
+  warning_order: "ascending hazard.warning.priority; not hardcoded in turn_structure"
+
 # SETUP — placing the six things, in any mounted topology
 
 setup:
@@ -202,11 +214,11 @@ turn_structure:
   on_enter_room:
     - Describe room
     - Check adjacencies
-    - Announce warnings in order:
-      - "I smell a wumpus! (if wumpus adjacent)"
-      - "I feel a draft! (if pit adjacent)"
-      - "Bats nearby! (if bats adjacent)"
-      - "It is getting dark... (if lamp low)"
+    # The warning list is NOT written here. Each hazard declares its own message
+    # and priority in its `hazard.warning` block, and the announce order is the
+    # sort. Adding a hazard must not require editing the rules -- that coupling
+    # is what made hazards less pluggable than topologies.
+    - Announce warnings by ascending hazard.warning.priority
     - Await player action
     
   player_actions:

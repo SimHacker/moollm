@@ -1,0 +1,112 @@
+# HAZARDS — machine-readable manifest of the second plugin axis
+#
+# The 1973 listing advertises two axes of variation, four lines apart:
+#   64 PRINT "     WUMP2:  SOME DIFFERENT CAVE ARRANGEMENTS"
+#   66 PRINT "     WUMP3:  DIFFERENT HAZARDS"
+# The caves came back (see ../topologies/). Wumpus 3 was real -- Yob sold paper
+# tapes of it for $5.00 from PO Box 354, Palo Alto -- but no listing has
+# surfaced. So this directory is the axis Yob announced and we cannot restore.
+#
+# Which sets the provenance rule below: topologies can be checked against Yob's
+# DATA statements, hazards cannot. Anything here that is not marked
+# canon: wumpus-1 is invention against a contract, and must say so.
+
+schema:
+  required: [hazard.id, hazard.warning, hazard.on_enter, hazard.placement]
+  optional: [hazard.canon, hazard.mobile, hazard.relocate, defaults, generate, warnings, behavior, advertisements]
+  note: |
+    The `hazard:` block is the engine interface. Everything else in the file is
+    the piece being whatever kind of thing it is -- SUPERBATS.yml carries a
+    `character:` block because a colony is animate, BOTTOMLESS-PIT.yml carries
+    an `object:` block because a hole is not. The game does not care which.
+    That split is the point: one uniform contract, two different kinds of being.
+
+contract:
+  # What a new hazard must answer. Answer these and it drops in.
+  id: "stable name, referenced by other hazards' interaction lists"
+  warning:
+    sense: "draft | sound | smell | light | ... -- the channel it announces through"
+    message: "the adjacent-room line, in the game's voice"
+    priority: "integer; ascending announce order when several fire at once"
+    radius: "how many rooms out it is sensed; 1 in every canonical hazard"
+  on_enter: "death | relocate | wake | none -- what entering the room does"
+  placement:
+    count: "how many instances a standard game places"
+    unique_room: "may it share a room with another hazard"
+    may_start_here: "may the player's start be this room"
+    may_be_adjacent_to_start: "may the player's first turn carry this warning"
+  mobile: "does it move during play"
+
+warning_order:
+  # Derived from the priority fields, not hardcoded in GAME.yml. Adding a
+  # hazard must not require editing the rules -- that was the old coupling.
+  10: "I smell a wumpus!"       # the wumpus itself, ../CHARACTER.yml
+  20: "I feel a draft!"         # BOTTOMLESS-PIT.yml
+  30: "Bats nearby!"            # SUPERBATS.yml
+  40: "It is getting dark..."   # the grue, a MOOLLM extension -- lamp state
+
+hazards:
+
+  - id: bottomless-pit
+    file: BOTTOMLESS-PIT.yml
+    canon: wumpus-1
+    kind: object
+    sense: draft
+    on_enter: death
+    count: 2
+    mobile: false
+    character: "The one that just kills you. No mechanism, no appeal."
+
+  - id: superbats
+    file: SUPERBATS.yml
+    canon: wumpus-1
+    kind: character            # a colony, with a population and a temperament
+    sense: sound
+    on_enter: relocate
+    count: 2
+    mobile: true
+    character: "The one that ruins your map. Survivable and worse than death for a mapper."
+
+  - id: wumpus
+    file: ../CHARACTER.yml
+    canon: wumpus-1
+    kind: character
+    sense: smell
+    on_enter: death
+    count: 1
+    mobile: true               # wakes and moves when an arrow misses
+    character: "Not in this directory, because he is the game. Listed so the warning order is complete."
+
+  - id: grue
+    file: ../../grue/
+    canon: false               # Zork, not Wumpus -- a MOOLLM crossover
+    kind: character
+    sense: light               # absence of it
+    on_enter: death
+    count: null                # ambient, not placed: it is everywhere dark
+    mobile: null
+    character: |
+      Binds to an ambient condition rather than a room, which is why it composes
+      with the others instead of competing. Reads the lamp; the lamp is shared
+      state two games interpret differently.
+
+interactions:
+  # Hazards that reference each other, which is where a plugin axis earns its
+  # keep and also where it can break. Declared here so a new hazard can see
+  # what it is joining.
+  - "superbats may drop the player into a pit room, or the wumpus room -- cruel and canonical"
+  - "the wumpus avoids pit rooms; the grue will not enter one, having nothing to eat there"
+  - "bat relocation may chain: dropped into another bat room, snatched again"
+
+lint:
+  - name: unique_priority
+    rule: "no two hazards share a warning priority, or announce order is undefined"
+  - name: placement_feasible
+    rule: "sum of counts plus the player plus the wumpus must fit in the mounted topology's room count with unique_room honored"
+    note: "2 pits + 2 bat colonies + wumpus + player = 6, which is why GAME.yml asks for 7 rooms minimum"
+  - name: safe_start_exists
+    rule: "after placement there must remain a room that satisfies every hazard's may_start_here: false"
+  - name: canon_declared
+    rule: "any hazard without canon: wumpus-1 must be reachable from a source that says where it came from"
+  - name: interaction_targets_exist
+    rule: "every id in a relocate.may_drop_into or interactions entry must be a declared hazard"

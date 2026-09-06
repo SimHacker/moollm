@@ -21,6 +21,24 @@
 # Instance files are game state. ROOM.yml is room structure.
 # Keep concerns separated. Easy reset, easy save, easy diff.
 
+# HAZARD CONTRACT — what the game reads. Everything below this block is the
+# pit being a pit; this block is the pit being a hazard. See INDEX.yml.
+hazard:
+  id: bottomless-pit
+  canon: wumpus-1          # Yob 1973, in the original listing
+  warning:
+    sense: draft           # cold air rising
+    message: "I feel a draft!"
+    priority: 20           # announce order; wumpus 10, pit 20, bats 30
+    radius: 1              # adjacent rooms only
+  on_enter: death
+  placement:
+    count: 2               # L(3), L(4) in the 1973 array
+    unique_room: true      # no two hazards share a room
+    may_start_here: false  # player start must not be a pit
+    may_be_adjacent_to_start: true   # a draft on turn one is fair
+  mobile: false            # pits do not move; they can be covered
+
 # INSTANCE DEFAULTS — Override in room-specific pit.yml
 defaults:
   shape: irregular

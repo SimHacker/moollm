@@ -157,9 +157,12 @@ files:
   - sources/yob-1975-essay-digest.md     # Condensed
   - sources/scans/                       # Page images
 
-  # HAZARDS — the game decomposed into plugin parts
-  - hazards/SUPERBATS.yml  # Super-bats (relocate player randomly)
-  - hazards/BOTTOMLESS-PIT.yml  # Pits (instant death)
+  # HAZARDS — the second plugin axis, same shape as the boards
+  - hazards/INDEX.yml      # Manifest: the contract, warning order, lints
+  - hazards/README.md      # Why this axis is invention and topologies/ is restoration
+  - hazards/BOTTOMLESS-PIT.yml  # Pits — on_enter: death; ends the run
+  - hazards/SUPERBATS.yml  # Super-bats — on_enter: relocate; ends the map
+  #                          WUMP3 advertised this axis in 1973; its listing is lost
 
   - instances/             # Per-world state: which cave, which game, who got eaten
 

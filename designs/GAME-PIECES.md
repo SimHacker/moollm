@@ -433,11 +433,33 @@ wumpus-snorax/
   topologies/                 # the boards: six of Yob's seven caves, parallel plugins
     INDEX.yml                 #   machine-readable manifest with lints
     DODECAHEDRON.yml          #   cave 0, the default -- not a special case
-  hazards/
-    SUPERBATS.yml             # piece template: population, alpha, relocation
-    BOTTOMLESS-PIT.yml        # piece template: fall protocol, breeze warning
+  hazards/                    # the pieces: the other plugin axis
+    INDEX.yml                 #   contract, warning order, lints
+    BOTTOMLESS-PIT.yml        #   on_enter: death -- ends the run
+    SUPERBATS.yml             #   on_enter: relocate -- ends the map
   instances/                  # per-world state: which cave, which game
 ```
+
+**Both directories are plugin axes, and Yob advertised both in 1973** -- four
+lines apart in the original listing: `WUMP2: SOME DIFFERENT CAVE ARRANGEMENTS`
+and `WUMP3: DIFFERENT HAZARDS`. So a hazard drops in exactly the way a topology
+does: answer the `hazard:` contract (id, warning with sense and priority,
+`on_enter`, placement constraints), pick an unused priority, drop the file in.
+The warning order is the sort over declared priorities rather than a list in the
+rules -- which is the coupling that usually makes a plugin axis fake, and it was
+real here until the priorities moved onto the pieces.
+
+The asymmetry between the two axes is worth keeping visible. Wumpus 2 shipped
+and its caves are *transcribed*, checkable against Yob's `DATA` statements, with
+an errata block for the typos. **Wumpus 3 shipped too -- Yob sold paper tapes
+for $5.00 -- but no listing has surfaced**, so hazards are *written to a
+contract* and every one declares `canon:` so invention is never mistaken for
+restoration.
+
+One uniform contract does not mean one kind of thing: `SUPERBATS.yml` carries a
+`character:` block because a colony has a population and a temperament, and
+`BOTTOMLESS-PIT.yml` carries an `object:` block because a hole does not. The
+engine reads the `hazard:` block from both and cannot tell the difference.
 
 Pits and superbats are **sub-object templates of the wumpus** in exactly the
 chess-set sense: instantiate any number (`room-x/bats.yml` with
@@ -470,6 +492,87 @@ Same decomposition for the whole menagerie: the crooked arrow is a piece
 (ammunition type × inventory mixin), the lamp is a piece (light source type ×
 fuel state), and the lamp's fuel is **shared state that two games read** —
 wumpus rules while it burns, grue rules when it dies.
+
+## The general principle: a game ships as a box
+
+What the wumpus directory *is*, stated plainly: **a game is a box containing
+rules, one or more boards, and prototypes for its playing pieces — and play
+consists of placing instances of those prototypes.** Snorax carries the rules in
+`GAME.yml` and five implementations, the boards as parallel plugins in
+`topologies/`, and the pieces as prototypes in `hazards/`. A game session
+instantiates a pit here and a colony of bats there.
+
+That is not a MOOLLM invention, it is what a game box has always been:
+
+| Box | Rules | Board(s) | Piece prototypes | Instances |
+|---|---|---|---|---|
+| Chess | the rulebook | one, fixed | six types per side | 32 on the board, more in fairy variants |
+| Hunt the Wumpus | `GAME.yml` | Yob's seven caves | wumpus, pit, superbats | placed per session, randomized |
+| Magic: The Gathering | comprehensive rules | the battlefield and its zones | tens of thousands of card types | whatever is in your deck |
+| Fluxx | one line, then whatever the table did to it | no board at all | cards, four kinds | the ones that got played |
+
+**Cards are playing pieces, and rich ones**, which is why the card games are the
+strongest cases rather than exceptions. A chess knight's behavior lives in the
+rulebook and the piece is a token. A Magic card's behavior lives **on the card**,
+in text, and the piece is therefore self-describing — which is exactly the
+property the bottomless pit has when it works in a dungeon that never heard of a
+wumpus.
+
+### Magic solved Kay's language problem commercially, and at scale
+
+Magic's card text is **rigidly templated English** — *"When ~ enters the
+battlefield, …"*, *"Whenever ~ deals combat damage to a player, …"* — and
+Wizards maintains **Oracle text** as the canonical wording precisely so that a
+card printed in 1994 and a card printed today can be adjudicated by one rule
+set. Underneath sits a comprehensive rulebook with a layer system, a stack, and
+priority, because tens of thousands of self-describing pieces interacting
+demands it.
+
+This is *"close to natural language but clearly not natural language"* — Kay's
+criterion from [webtop/kay/](webtop/kay/README.md) — shipped as a commercial
+product, and arrived at by necessity rather than theory. The templating is what
+keeps it on the correct side of the HyperTalk trap: it reads as English, and the
+formulaic phrasing signals continuously that it is a **form with edges** rather
+than a conversation. Errata and Oracle updates are the maintenance cost of
+holding that line, and they are the same cost as this repo's
+[assessment lint](webtop/SIGNED-ASSESSMENTS.md) or a synonym collision check.
+
+The lesson for a piece prototype is concrete: **put the behavior on the piece, in
+constrained language, and version the wording separately from the printing.** A
+piece whose text has drifted from the engine's reading of it is the same bug as a
+rung nobody distinguishes.
+
+### Fluxx is runtime inheritance as the entire game
+
+Fluxx (Andrew Looney, Looney Labs, 1997) starts with one rule — draw one, play
+one — and **the cards change the rules.** New Rule cards enter play and stay
+there, mutating hand limits, draw counts and play counts; Goal cards replace the
+win condition mid-game; Keepers are the objects the goals refer to; Actions fire
+once and leave.
+
+There is no board and almost no fixed rulebook. The rule set *is* the pile of
+New Rule cards currently on the table, so **the game's ruleset is runtime state
+that pieces edit.** That is the same move as
+[Revolutionary Chess](#revolutionary-chess-runtime-inheritance-as-politics)
+above, except it is not a variant — it is the base game, and it is why Fluxx is
+the sharpest available demonstration that rules can be pieces:
+
+- **A New Rule card is a mixin with a lifetime**, which is the buff pattern in
+  [Buffs](#buffs-mixins-with-expiration-dates) with the expiration set to
+  *until somebody removes it*.
+- **A Goal card is a win condition as a swappable plugin**, the thing that in
+  most games is the one component you cannot replace.
+- **Conflicting New Rules need a resolution order**, which is Magic's layer
+  problem in miniature and the reason Fluxx prints precedence text on the cards
+  that need it.
+
+For this repo the payoff is that a Fluxx-shaped game is *already* the MOOLLM
+shape: pieces that carry rules, a ruleset assembled from whatever is present,
+and resolution by reading the pieces in scope rather than consulting a central
+authority. Which is also the honest caution — **Fluxx games can deadlock or run
+long when the rule pile fights itself**, and that is the genuine cost of letting
+pieces edit the rules. A precedence mechanism is not optional at scale; it is
+what Magic's layers exist to be.
 
 ## Containers: inventory and stomachs
 
