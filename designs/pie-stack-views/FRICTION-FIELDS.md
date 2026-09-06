@@ -160,6 +160,11 @@ arriving in the motor channel:
   screen, glassy smoothness in another. This is **learnable**: it can be mastered, rehearsed, and
   navigated by feel, exactly as real terrain is, and it gives regions a distinguishable character
   without labelling them.
+- **Derived from world state** — not noise at all, but a field computed from the model, which changes
+  when the model changes. Better than seeded noise rather than worse, because it is both learnable
+  *and* informative: the terrain updates because the world changed, not because a seed did. This is
+  where the Sims placement tool lives, and it gets its own section
+  [below](#the-field-belongs-to-the-pair-not-the-space).
 - **Re-rolled per gesture, or time-varying** — this is drunkenness. Legitimate as a *depicted
   condition* (impairment, damage, a status effect, a cursor that has had a rough day) and never
   legitimate as ambience, because it destroys rehearsability: the user cannot build a model of a
@@ -175,6 +180,285 @@ rather than only in its prose — a heavy cursor whose terrain is viscous, a jit
 rough. Cheap, since it is a seed and a gain.
 
 ---
+
+## The field belongs to the pair, not the space
+
+Don's observation that closes the loop: in the Sims,
+[placing indoor-only and outdoor-only objects produces **opposite** regimes over the same lot](WINDOW-RESIZE-PIE.md#the-sims-placement-tool-the-transfer-function-renders-the-constraint-model).
+A rug snaps inside the house and goes smooth-and-red in the yard. A tree does the exact reverse. Same
+geometry, inverted field.
+
+Which means the field is not a property of the space at all. **It is a property of the verb and its
+operand** — `F(position, delta, held_object)`. The lot has no friction landscape; the lot-plus-a-rug
+has one, and the lot-plus-a-tree has its complement.
+
+Two things follow, and the second is the good one.
+
+**The wall is a groove in validity space.** Because indoor and outdoor are complements, one exterior
+wall serves both regimes, approached from opposite sides depending on what you are carrying. That is
+[the two-sidedness that makes a groove a groove rather than a border](WINDOW-RESIZE-PIE.md#togs-menu-bar-was-a-zeroing-strip-all-along)
+arriving from the semantic direction instead of the geometric one — the same structure, derived twice
+from unrelated starting points.
+
+**The dimensionality of the valid set picks the interaction primitive.** Every placeable object
+carries a predicate, and the solution set of that predicate has a dimension:
+
+| Valid set | Example | Interaction that falls out |
+|---|---|---|
+| 2-D region | rug on a floor | snap lattice in two axes |
+| **1-D curve** | picture on a wall | **a groove** — slide along it |
+| 0-D points | object that fits one slot | **a detent** — a single target |
+| empty | tree indoors | all smooth, all red |
+
+So grooves and detents are not separate designs to be authored. They are **what a validity predicate
+looks like when its solution set is low-dimensional** — which retro-justifies the whole groove
+vocabulary and adds a third origin for constraints alongside
+[inference and declaration](GROOVES-AND-SPIKES.md#promotion-inference-is-a-draft-of-a-constraint):
+**derivation**. Hanging a painting slides along a groove nobody drew.
+
+And it runs backwards as information. Since the snapping regime traces the valid region, dragging a
+rug around **reveals the floor plan through the motor channel**, and dragging a tree reveals its
+negative — the yard. You feel out the building's topology using the held object as a probe.
+
+The budget: the predicate must be evaluable at input rate. The Sims could afford it because the checks
+were cheap grid lookups. The general answer is to evaluate the predicate over the visible region once
+at drag start and whenever the world changes, giving a mask — which is cheap, and is also why a
+*semantic* field costs no more per frame than a geometric one.
+
+## The ocean: tacking, and why friction is the power source
+
+Don's maximal case. A region of the plane is **ocean**, and entering it turns the cursor into a
+**boat**: angle the sail, hoist or reef it, and there is a **wind** with a direction. If the wind
+blows from where you are going, you cannot point at your destination and arrive. You must **tack.**
+
+This is the case that uses the `state` term the opening signature declares and nothing else in this
+document needs. A wall reads position; a damping strip reads position; a validity field reads the held
+object. A boat carries **heading, sail trim, sail area and momentum between frames**, and the wind is
+a field it converts rather than merely suffers. The cursor stops being a point that gets perturbed and
+becomes a **dynamical system with its own configuration space**.
+
+### Tacking is a nonholonomic constraint, and that is a new kind of restriction
+
+Sailing upwind is impossible; sailing *to* a point upwind is easy. The no-go zone forbids a set of
+**instantaneous directions** while leaving the set of **reachable positions** total — which is
+precisely a nonholonomic constraint, the same structure as parallel parking a car. You can get
+anywhere. You cannot get there directly.
+
+That is a third axis of restriction, and the two the document already had do not cover it:
+
+| Restricts | Constructs |
+|---|---|
+| where you may **be** | walls, minimum sizes, validity fields |
+| how **fast** you get there | gain, damping strips, plateaus |
+| **which way you may move right now** | **tacking, and nonholonomic fields generally** |
+
+Note what it costs the user: **nothing is forbidden and nothing is slowed.** Only the path is
+constrained. Which makes it the most humane restriction in the whole taxonomy — it never says *no*, it
+says *not that way, not yet* — and it is the only one that makes the route itself into content.
+
+### The wind that opposes you is the wind that moves you
+
+The cluster already cites the multiplayer games where your cursor rests on an inflatable raft drifting
+downstream. The raft is **passive**: the current carries you and you negotiate with it. The boat is
+**active**: you extract work from the wind by angling against it, which promotes the field from an
+obstacle to a **resource**.
+
+And it is the case that proves the document's thesis as mechanics rather than as rhetoric. A sail
+generates drive from the pressure difference across it, held against a keel's lateral resistance —
+remove the resistance and you do not go faster, you go **sideways**. A frictionless ocean is
+unsailable. So:
+
+> **Friction is not the cost of manipulation. It is the enabling condition.** The wall you push
+> against is what lets you push at all.
+
+Which is Bogost's *Play Anything* argument about the pleasure of limits, arriving in the motor channel
+with a physical proof attached instead of an appeal to taste.
+
+### The controls are the two dimensions the pies already have
+
+Don's "turn around and hoist and lower by moving the mouse around somehow appropriate" resolves into
+the cluster's existing vocabulary, with no new input model:
+
+- **angle** → sail trim. Direction selects, exactly as in a pie.
+- **radius** → sail area. Hoist and reef, which is
+  [distance as appetite](PUMPING-UP-PIE-MENUS.md#distance-as-appetite) meaning literal appetite for
+  wind.
+
+Reefing in heavy weather is therefore **the user choosing a damping strip** — less input authority in
+exchange for more control — which is the one case in this document where the gain knob belongs to the
+user rather than to the designer. Worth noticing that this is the honest version of every "sensitivity"
+slider ever shipped.
+
+The eBike Safari case is the same structure with the metaphor removed, since a bicycle is
+nonholonomic, headwinds are literal, and hills are a potential field you climb or spend. See
+[the path grammar](../webtop/EBIKE-PATH-GRAMMAR.md).
+
+### Honest costs, which are steep
+
+- **Tacking must be taught.** A user who does not know that upwind requires tacking experiences a
+  broken interface, not a constraint. So the no-go zone and the wind need a **telltale** — which
+  promotes *render the state, not the geometry* from a calibration aid to a comprehension requirement.
+- **It is a toy unless the journey is the content.** Sailing to reach a menu item is charming once and
+  intolerable on the hundredth repetition. This belongs where traversal is what the user came for — a
+  map, a route, a corpus being explored — and nowhere near a control panel.
+- **The wind must be deterministic** — authored, seeded, or modelled — or it is the drunkenness case
+  with extra steps. Stable wind makes routes learnable, which sailors call local knowledge and this
+  document calls terrain.
+- **Motor memory does not survive it.** A gesture whose path depends on carried state cannot be
+  rehearsed the way a pie stroke can, which forfeits the property the rest of the cluster is built to
+  protect.
+
+## Where the seam is in a browser: warping was the lurch all along
+
+Don's practical payoff, and it retires a workaround that has been load-bearing since NeWS. **The pie
+menu edge problem:** pop a menu near a screen or window edge and some slices land outside, so they
+cannot be selected. The classic fix is to **warp the pointer** — `XWarpPointer`, `SetCursorPos` —
+teleporting the cursor inward far enough that the menu fits.
+
+Don stated the problem and its limit on his own pie-menu retrospective thread, in the same breath as
+the touch case:
+
+> With a mouse, you can do things like "warping" the mouse pointer to a new location when the user
+> tries to click up a pie menu near the screen edge, but **there's no way to forcefully push the
+> user's finger towards the center of the screen.**
+>
+> — Don Hopkins, [HN 17106103](https://news.ycombinator.com/item?id=17106103), 2018-05-19, on
+> *Pie Menus: A 30-Year Retrospective*
+
+**Warping is absolute tracking's version of a friction field**, and specifically it is the bad
+version: a one-shot position step, which is precisely the
+[credit-as-position policy](#dons-velocity-credit-paying-the-debt-as-an-impulse) whose defining defect
+is that it lurches. That is not a coincidence — it is the same fact twice. When you do not own the
+mapping from hand to pointer, the *only* way to change the relationship between them is to teleport
+one of them. Warping is what a transfer function looks like when you are not allowed to have one.
+
+Browsers provide no warp at all, which sounds like a regression and is not. They provide
+**Pointer Lock**: `requestPointerLock()` hides the system cursor and delivers `movementX`/`movementY`
+— the raw delta stream, which is exactly the left-hand side of `F`. You draw your own **virtual
+cursor** and integrate the deltas yourself.
+
+So the edge problem is not solved, it is **dissolved.** There is no system cursor position left to be
+trapped against an edge; the virtual cursor lives in a coordinate space you own, and that space can
+be clamped, wrapped, offset, or allowed to run past the viewport while the menu stays inside it.
+Nothing needs teleporting because nothing was tethered.
+
+And the same API is what makes every construct in this document implementable on the web, since all
+of them are `applied = F(raw)` and Pointer Lock is the only browser API that hands over `raw`.
+
+**One correctness requirement, easy to miss.** Request `{ unadjustedMovement: true }`. Without it the
+OS pointer-acceleration curve has already been applied to the deltas, so your field composes *on top
+of* an unknown transfer function — two in series, and every threshold in this document silently
+becomes a function of the user's mouse settings. Raw deltas are not an optimization here, they are the
+difference between a designed field and an undefined one.
+
+**Multiple cursors fall out for free.** Once you are integrating a delta stream, integrating several
+is not a new capability, and this supplies exactly the abstraction that
+[Selker's two-TrackPoint prototype could not get from OS/2](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ted-selker/sources/trackpoint-transfer-function.md)
+— the hardware existed, the pointer model did not. Under pointer lock **you are the OS for pointers**,
+so the absent abstraction can simply be supplied, which is also what the
+[reading cursors](../webtop/READING-CURSORS.md) design needs underneath it.
+
+### What it costs, honestly
+
+- **Latency.** A hardware cursor is drawn by the compositor and arrives almost immediately; a virtual
+  cursor waits for your animation frame. This is the real reason virtual cursors feel worse than
+  system ones, it is perceptible, and it is not fixable from JavaScript. Every field in this document
+  is being paid for in milliseconds of cursor lag.
+- **Escape is not yours.** Pointer lock requires a user gesture to enter and surrenders `Esc` to exit,
+  so a menu system cannot own that key or that gesture.
+- **Accessibility.** Hiding the system cursor breaks assistive technology that tracks it. There must be
+  an unlocked fallback mode in which the fields degrade to no-ops rather than to nonsense — which is
+  survivable precisely because the field is a *transformation*, and the identity transformation is a
+  valid member of the family.
+- **Touch has neither warp nor lock.** A finger cannot be pushed, so the edge problem is *real* on
+  touch rather than dissolved, and pie menus there need a layout answer instead of a pointer answer.
+  The only honest alternative is hardware: Iwata's movable-touchscreen haptic interface, which
+  supplies reaction force by moving the screen under stationary fingers — the same
+  [heavy-handed direction](https://www.youtube.com/watch?v=YCZPmj7NtSQ) Don pointed at in the same
+  comment.
+- **Gesture libraries assume a button is down.** Don's note on hammer.js: pie menus must track while
+  the button is *up*, which touch-first gesture frameworks did not support, forcing a hack. Anything
+  built on a gesture library inherits its model of when tracking is allowed to happen.
+
+## The procedural rhetoric of direct manipulation
+
+Don's frame, and it is the right name for everything above. Ian Bogost's **procedural rhetoric**
+(*Persuasive Games*, MIT Press, 2007) holds that computational media make arguments through
+*processes* — the unit of expression is the rule, and a system persuades by modelling how something
+works and letting you inhabit the model. Bogost's own description of where it came from is
+[an unholy blend of Will Wright and Aristotle](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ian-bogost/README.md),
+which is the correct ancestry for this cluster too.
+
+Direct manipulation's transfer function is exactly that, one derivative down: **arguments delivered
+in the motor channel, felt rather than read.**
+
+The asymmetric thresholds turn out to be **deontic operators** — the modalities of permission and
+obligation, expressed as thresholds instead of prose:
+
+| Construct | The claim it makes |
+|---|---|
+| symmetric detent | *this value is notable* |
+| guard rail | *permitted, but discouraged* |
+| trap | *you probably want to stay* |
+| ratchet | *this is irreversible — decide now* |
+| hard wall | *forbidden* |
+| restitution < 1 | *this boundary is expensive* |
+| restitution > 1 | *this boundary wants you through* |
+| **velocity credit** | ***your effort was not wasted*** |
+
+That last one is worth dwelling on: repaying consumed motion as an impulse is a claim about the user's
+labour, made in the velocity domain. No affordance, no message, no dialog — you push, and the system
+gives it back. Which is also the humane version of the
+[warning nobody asked for](../../skills/no-ai-moralizing/GLANCE.yml): a guard rail does not lecture,
+it charges. Let them through and make it cost something.
+
+**The referent is present, which makes this rhetoric checkable.** Bogost's cases argue about systems
+you cannot inspect — agribusiness, municipal debt — so the model's fidelity has to be taken on faith.
+A placement field argues about *the artifact on screen*. If the friction claims a wall is there and
+you can see no wall, the argument is falsified on the spot. Direct manipulation is therefore the rare
+case of procedural rhetoric with a **verifiable referent**, which is the structural reason it can be
+honest at all.
+
+### The same mechanism, weaponized
+
+Bogost's own warning applies: rhetoric persuades, and persuasion is manipulable. Every construct here
+inverts cleanly into a dark pattern, and the code is identical.
+
+The original sin was already named at the top of the friction-strip section — position-based capture
+*quietly decides that your intent was the round number*. That is a rhetorical claim, and a false one:
+the interface asserts an intent you did not have. Scale it up and you get a damping strip on
+*unsubscribe* and gain above one on *buy*, which is the identical machinery pointed at the vendor.
+
+So the legitimacy test is not about the mechanism, since the mechanism is neutral:
+
+> **Does the field model the world, or the interest of whoever shipped it?** The Sims wall resists
+> because the wall is there. A cancellation flow resists because churn is expensive. Same construct,
+> opposite ethics.
+
+That test is not quite the right one, though, and [the ocean](#the-ocean-tacking-and-why-friction-is-the-power-source)
+is what breaks it: a wind models nothing outside the artifact, and is obviously legitimate anyway.
+What distinguishes it is that the wind is **present in the world the user is in** — perceivable,
+reasonable-about, and therefore exploitable. The unsubscribe damping is invisible by construction, and
+that invisibility is not incidental to the abuse, it *is* the abuse.
+
+> **Legibility, not fidelity, is the ethical line.** A field the user can perceive is terrain they can
+> master, whatever it depicts. A field they cannot perceive is being used on them.
+
+Which promotes [render the state, not the geometry](#visual-thickness-is-independent-of-both) from a
+usability rule to the load-bearing ethical requirement of the whole document. It was always the
+interesting half.
+
+Which gives the determinism criterion a second axis, and learnability stops being purely good:
+
+| | models the world | models the vendor |
+|---|---|---|
+| **learnable** | a **tool** — masterable terrain | the worst case: you learn helplessness and rehearse it |
+| **not learnable** | a bug, or an honest depiction of impairment | ordinary hostile design |
+
+The uncomfortable cell is top-right. Friction that is consistent, teachable and adversarial is more
+effective than friction that is merely annoying, because the user builds an accurate model of a
+landscape built to defeat them. Nothing in the technique prevents this. Only the referent test does,
+and it is a judgement rather than a check.
 
 ## Honest costs
 
