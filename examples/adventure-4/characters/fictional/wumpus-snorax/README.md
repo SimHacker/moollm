@@ -14,8 +14,8 @@ The game rules, the dodecahedron topology, the original 1973 BASIC source code �
 |------|------------------|
 | [CHARACTER.yml](./CHARACTER.yml) | Snorax's soul + game integration |
 | [GAME.yml](./GAME.yml) | Complete Hunt the Wumpus rules |
-| [DODECAHEDRON.yml](./DODECAHEDRON.yml) | The canonical 20-cave topology |
-| [topologies/](./topologies/) | The Wumpus 2 alternate caves — Möbius strip, string of beads, hex torus, dendrite, one-way lattice |
+| [topologies/](./topologies/) | The boards, as interchangeable plugins — [dodecahedron](./topologies/DODECAHEDRON.yml) (cave 0, the default), Möbius strip, string of beads, hex torus, dendrite, one-way lattice |
+| [topologies/INDEX.yml](./topologies/INDEX.yml) | Machine-readable manifest: measured properties, errata, lints |
 | [wumpus1-yob.bas](./sources/wumpus1-yob.bas) | Original 1973 BASIC source code ([sidecar](./sources/wumpus1-yob.md)) |
 | [wumpus.w.md](./wumpus.w.md) | Literate treatment of the 1973 BASIC, in the manner of Knuth's Adventure (first cut) |
 | [sources/](./sources/) | The canonical implementations, curated — Yob's Wumpus 2 BASIC, V7 Unix `wump.c` (1979), BSD games `wump.c` (1989) |

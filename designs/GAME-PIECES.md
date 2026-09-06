@@ -430,7 +430,9 @@ factors this way. Hunt the Wumpus is a **set**, and its hazards are **pieces**:
 ```
 wumpus-snorax/
   GAME.yml                    # the set: rules, win/lose, turn protocol
-  DODECAHEDRON.yml            # the board: canonical 20-cave topology
+  topologies/                 # the boards: six of Yob's seven caves, parallel plugins
+    INDEX.yml                 #   machine-readable manifest with lints
+    DODECAHEDRON.yml          #   cave 0, the default -- not a special case
   hazards/
     SUPERBATS.yml             # piece template: population, alpha, relocation
     BOTTOMLESS-PIT.yml        # piece template: fall protocol, breeze warning

@@ -752,6 +752,7 @@ which is the correct speed for everything except presence. That remains true and
 
 ## Related
 
+- [CONTRIBUTION-BOT.md](CONTRIBUTION-BOT.md) — the layer above this one: a bot that makes the branches, writes the commits and opens the PRs for readers with no GitHub account, using the author/committer split for attribution
 - [READING-CURSORS.md](READING-CURSORS.md) — what a cursor is and why it needs a body
 - [PLAYABLE-CORPUS.md](PLAYABLE-CORPUS.md) — the static-versus-social tiers, and GitHub as a slow server
 - `[skills/inventory/](../../skills/inventory/)` — refs versus boxes, and why boxing is irreversible

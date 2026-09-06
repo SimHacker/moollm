@@ -1,0 +1,119 @@
+# TOPOLOGIES — machine-readable manifest of Yob's seven caves
+#
+# Every entry is a peer. The dodecahedron is cave #0 and carries `default: true`,
+# which is a preference, not a privilege — swap the file and the same game runs.
+# Yob's `regular:` flag is his vocabulary from the Wumpus 2 instructions and it
+# conflates three different things, so the measured properties below are the ones
+# to check against. They are computed from `adjacency:`, not asserted.
+
+schema:
+  required: [topology.name, topology.type, topology.cave, topology.source, adjacency]
+  optional: [topology.regular, topology.verbatim, topology.default, topology.description, errata, map_ascii]
+  adjacency: "room number -> list of reachable room numbers; outbound only where directed"
+  location_syntax: "topologies/<FILE>#room-<n> — file plus fragment, like a URL"
+
+measured_properties:
+  # What `regular:` actually decomposes into. All six happen to be 3-regular by
+  # degree; they differ in symmetry and simplicity, which is the real distinction.
+  two_way: "every tunnel appears in both rooms' lists (undirected)"
+  simple: "no self-loops, no double tunnels between the same pair"
+  uniform_degree: "every room has the same number of tunnels"
+
+caves:
+
+  - cave: 0
+    file: DODECAHEDRON.yml
+    name: "The Dodecahedron"
+    type: platonic_solid
+    default: true
+    rooms: 20
+    degree: 3
+    two_way: true
+    simple: true
+    source: "Hunt the Wumpus (Yob, 1973), DATA 130-160"
+    character: "The one you have to deduce. No grid, no directions."
+    errata: [room_15]
+
+  - cave: 1
+    file: MOBIUS-STRIP.yml
+    name: "Möbius Strip"
+    type: mobius_strip
+    rooms: 20
+    degree: 3
+    two_way: true
+    simple: true
+    source: "Wumpus 2 (Yob), DATA 2750-2780"
+    character: "Two rooms wide, ten around, one half twist. Come back on the other side."
+    errata: [room_15]
+
+  - cave: 2
+    file: STRING-OF-BEADS.yml
+    name: "String of Beads"
+    type: bead_necklace
+    rooms: 20
+    degree: 3
+    two_way: true
+    simple: true
+    source: "Wumpus 2 (Yob), DATA 2830-2860"
+    character: "Chokepoints. Yob's own instructions call it difficult to play."
+
+  - cave: 3
+    file: HEX-NETWORK-TORUS.yml
+    name: "Hex Network on a Torus"
+    type: toroidal_hex_lattice
+    rooms: 20
+    degree: 3
+    two_way: true
+    simple: true
+    source: "Wumpus 2 (Yob), DATA 2910-2940"
+    character: "Wraps in both directions. No edges to hide against."
+    errata: [room_10]
+
+  - cave: 4
+    file: DENDRITE.yml
+    name: "Dendrite with Degeneracies"
+    type: tree_with_degeneracies
+    rooms: 20
+    degree: 3
+    two_way: true      # measured: symmetric, unlike what `regular: false` suggests
+    simple: false      # 10 self-loops, 12 rooms with double tunnels
+    verbatim: true
+    source: "Wumpus 2 (Yob), DATA 2990-3020"
+    character: "Irregular by way of self-loops and doubled tunnels, not direction."
+    note: "`regular: false` here means non-simple. It is still two-way."
+
+  - cave: 5
+    file: ONE-WAY-LATTICE.yml
+    name: "One-Way Lattice"
+    type: directed_lattice
+    rooms: 20
+    degree: 3          # outbound
+    two_way: false     # measured: 60 directed tunnels, zero reciprocated
+    simple: true
+    verbatim: true
+    source: "Wumpus 2 (Yob), DATA 3070-3100"
+    character: "Every tunnel one-way. Retreat is not a move."
+    note: "`regular: false` here means directed. Adjacency lists are outbound only."
+
+  - cave: 6
+    file: null
+    name: "Enter your own cave"
+    type: bring_your_own
+    source: "Wumpus 2 (Yob), the 1975 port contract"
+    character: |
+      The punchline: Wumpus 2 already shipped "bring your own topology." Any room
+      network with adjacency, at least seven rooms, and one safe start will do —
+      the adventure-4 maze, a custom dungeon, or the pub. The contract is in
+      ../GAME.yml under `room_networks`.
+
+lint:
+  # Checkable without running the game. The errata blocks exist because these ran.
+  - name: symmetry
+    rule: "for caves where two_way is true, every tunnel must appear in both rooms' lists"
+    found: "three transcription typos in the circulating Wumpus 2 listing — see README.md"
+  - name: degree
+    rule: "for uniform_degree caves, every room lists the same number of tunnels"
+  - name: closure
+    rule: "every referenced room number must exist in adjacency"
+  - name: reachability
+    rule: "for two_way caves, the graph must be connected; for directed, every room needs an inbound tunnel"

@@ -80,7 +80,7 @@ moollm_extensions:
       GRUE: "Time pressure — keep lamp lit, 3-turn countdown in darkness"
       WUMPUS: "Spatial pressure — navigate carefully, deduction puzzle"
       
-    warning: "It is getting dark..." (if lamp low)
+    warning: "It is getting dark..."   # emitted when the lamp runs low
     
     coexistence: |
       The grue won't enter the wumpus's lair (too smelly).
@@ -115,16 +115,20 @@ moollm_extensions:
 # ROOM NETWORKS — Where the game can be played
 
 room_networks:
-  
-  canonical_dodecahedron:
-    rooms: 20
-    connections_per_room: 3
-    description: |
-      Gregory Yob's original map. Each room connects to exactly 3 others.
-      No grid. No compass directions. Just numbered caves and tunnels.
-      
-    invoke: "CREATE-WUMPUS-MAP" or "GENERATE DODECAHEDRON"
-    see: DODECAHEDRON.yml
+
+  # Topologies are plugins. Six of Yob's seven caves ship as parallel files in
+  # topologies/ with a machine-readable manifest; the seventh is bring-your-own,
+  # which is this section. The dodecahedron is the default, not a special case.
+  mounted_topology:
+    default: topologies/DODECAHEDRON.yml
+    manifest: topologies/INDEX.yml
+    all: topologies/
+    location_syntax: "topologies/<FILE>#room-<n>"
+    invoke: [CREATE-WUMPUS-MAP, GENERATE DODECAHEDRON, "PLAY ON <cave name>"]
+    note: |
+      Swap the file and the same game runs on a Möbius strip, a torus, or a
+      one-way lattice where retreat is not a move. Nothing in the rules below
+      knows which one is mounted — it only reads `adjacency`.
     
   adventure_maze:
     description: |
@@ -149,6 +153,47 @@ room_networks:
       - Rooms must have exits
       - At least 7 rooms (for all hazards)
       - One safe starting position
+
+# SETUP — placing the six things, in any mounted topology
+
+setup:
+
+  location_array: |
+    The 1973 BASIC keeps all six positions in one array, L(1)-L(6):
+      L(1) = Player
+      L(2) = Wumpus
+      L(3) = Pit 1
+      L(4) = Pit 2
+      L(5) = Bats 1
+      L(6) = Bats 2
+
+  randomization: |
+    1. Place all six in random rooms
+    2. No overlaps — each gets a distinct room
+    3. The player's start must be safe:
+       - not the wumpus room
+       - not a pit room
+       - not adjacent to the wumpus, so the first turn carries no warning
+
+  recommended_placements:
+    wumpus: "Deep in the network, not adjacent to start"
+    pits: "Spread apart, creating multiple danger zones"
+    bats: "Near interesting areas, adding chaos"
+    player: "An edge room, or room 1 on the dodecahedron"
+
+  validate:
+    - All six locations are unique
+    - Player is not adjacent to the wumpus
+    - Player is not in a pit or bat room
+    - At least one arrow in inventory
+    - Every room referenced by `adjacency` exists (topologies/INDEX.yml, lint: closure)
+
+  materialize_rooms: |
+    Optional. The game needs only `adjacency` from the mounted topology, so
+    rooms can stay virtual and be addressed as `topologies/<FILE>#room-<n>`.
+    To give them files instead — for objects, descriptions, other characters —
+    create one room per entry with exits set to its adjacency list, then place
+    hazards per `randomization` above.
 
 # TURN STRUCTURE
 
@@ -199,7 +244,7 @@ outcomes:
 # SIMULATION MODE — Speed of Light
 
 simulation:
-  invoke: "SIMULATE WUMPUS GAME" or "OVERDRIVE" or "PLAY AS [character]"
+  invoke: [SIMULATE WUMPUS GAME, OVERDRIVE, "PLAY AS [character]"]
   
   styles:
     cautious: |

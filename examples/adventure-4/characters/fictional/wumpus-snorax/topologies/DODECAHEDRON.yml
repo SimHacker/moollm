@@ -1,0 +1,63 @@
+# DODECAHEDRON — Wumpus 2, cave #0; the 1973 original
+# "20 rooms, each connecting to 3 others." The default, not a special case:
+# every other file in this directory can replace it without touching the game.
+
+topology:
+  name: "The Dodecahedron"
+  type: platonic_solid
+  cave: 0                                    # Yob's own menu number in Wumpus 2
+  default: true                              # what a session mounts if none is named
+  source: "Hunt the Wumpus (Gregory Yob, 1973), DATA lines 130-160 of ../sources/wumpus1-yob.bas"
+  regular: true      # every room: 3 tunnels, two-way traffic
+  description: |
+    Twenty caves as the vertices of a dodecahedron, each connected to exactly
+    three others. No grid, no compass directions — numbered caves and tunnels,
+    which is why the map has to be deduced rather than read.
+
+    Yob picked the solid because it was his favourite and because he had once
+    made a kite shaped like one.
+
+adjacency:
+  1: [2, 5, 8]
+  2: [1, 3, 10]
+  3: [2, 4, 12]
+  4: [3, 5, 14]
+  5: [1, 4, 6]
+  6: [5, 7, 15]
+  7: [6, 8, 17]
+  8: [1, 7, 9]
+  9: [8, 10, 18]
+  10: [2, 9, 11]
+  11: [10, 12, 19]
+  12: [3, 11, 13]
+  13: [12, 14, 20]
+  14: [4, 13, 15]
+  15: [6, 14, 16]
+  16: [15, 17, 20]
+  17: [7, 16, 18]
+  18: [9, 17, 19]
+  19: [11, 18, 20]
+  20: [13, 16, 19]
+
+errata:
+  room_15:
+    printed: [6, 4, 16]      # as printed in the circulating Wumpus 2 listing
+    corrected: [6, 14, 16]   # as in the 1973 original, DATA line 150
+    reason: "Symmetry: room 14 lists 15, and 4 does not; two-way cave requires 15<->14."
+
+map_ascii: |2
+
+           1
+         / | \
+        2  5  8
+       /|  |  |\
+     10 3  4  7 9
+     |  |\ /|  | |
+    11 12-+-14 17 18
+     |  | X |  |  |
+    19-13-+-15-16-+
+      \  20   /
+       \___|_/
+
+  (A 2D projection. Dodecahedra are 3D, and the drawing lies about distances —
+   which is fair, because so does the game.)

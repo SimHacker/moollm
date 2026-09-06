@@ -336,11 +336,9 @@ structured entry with type-aware completion driven by type-ahead, sketched in 19
 same interaction as [TREE-NAVIGATION.md](../TREE-NAVIGATION.md)'s type-ahead-as-resolution and
 [LINK-RESOLUTION.md](LINK-RESOLUTION.md)'s ranked candidates.
 
-### Correction: the abbrev mechanism *was* built — as a dictionary, not as an input method
+### The abbrev mechanism *was* built — as a dictionary, not as an input method
 
-An earlier version of this document said the abbrev note was never implemented. That is wrong, and
-the truth is better. `yahtittie.ml` references abbrevs twenty-five times, and there is a line that
-settles what for:
+`yahtittie.ml` references abbrevs twenty-five times, and there is a line that settles what for:
 
 ```
     ; The dictionary mappings are stored in the dictionary buffer's

@@ -28,6 +28,28 @@ class YAMLJSONEncoder(json.JSONEncoder):
         return super().default(obj)
 
 
+def stringify_keys(obj):
+    """Coerce mapping keys to JSON-legal strings.
+
+    YAML happily makes a date out of an unquoted `2006-12-16:` key, and a
+    timeline keyed by date is a reasonable thing to write. JSON keys only accept
+    str/int/float/bool/None, and `default()` is never consulted for keys, so one
+    such key anywhere aborts the whole build. Coerce instead of crashing.
+    """
+    if isinstance(obj, dict):
+        out = {}
+        for k, v in obj.items():
+            if isinstance(k, (datetime, date)):
+                k = k.isoformat()
+            elif not isinstance(k, (str, int, float, bool)) and k is not None:
+                k = str(k)
+            out[k] = stringify_keys(v)
+        return out
+    if isinstance(obj, list):
+        return [stringify_keys(v) for v in obj]
+    return obj
+
+
 def load_yaml(path: Path) -> dict:
     """Load YAML file, return empty dict if not found."""
     if not path.exists():
@@ -1466,7 +1488,7 @@ def main():
     # Write output (use custom encoder for dates, etc.)
     indent = 2 if args.pretty else None
     with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(world, f, indent=indent, ensure_ascii=False, cls=YAMLJSONEncoder)
+        json.dump(stringify_keys(world), f, indent=indent, ensure_ascii=False, cls=YAMLJSONEncoder)
     
     print(f"\n✅ Compiled to: {output_path}")
     counts = world['_meta']['counts']

@@ -144,6 +144,50 @@ What multi-userness adds to a *document* corpus specifically:
   Nenex puts beside the document. Mesa's shared canvas is the same instinct
   ([temkin](temkin/README.md)).
 
+## Cursor Camp: the whole model shipped, for a mass audience, with no characters
+
+**[Cursor Camp](https://neal.fun/cursor-camp/)** by **Neal Agarwal** (May 2026;
+[HN 47949939](https://news.ycombinator.com/item?id=47949939), 1215 points) is worth sitting with,
+because it is four of the five properties above running in production and enjoyed by strangers. You
+*are* your cursor. The world is a set of connected places you move through, and **doors teleport you
+between them** — navigable rooms, at mass scale, in a browser. Everyone else's cursors are in there
+with you, each flagged by country, and **cursor motion is the entire social channel**: no text chat,
+no accounts, no personas.
+
+That last part is the uncomfortable, useful lesson. It is a strong existence proof that **presence
+alone carries most of the multi-user value** — the "presence is a signal" claim above, validated by
+1215 points and a crowd of people who stayed. It is also, deliberately or not, the case against
+leaning on characters: nobody in Cursor Camp has a name, a backstory, or a line of dialogue, and it
+works anyway because the behavior is operational rather than narrative. Our rooms should be able to
+earn their keep before any character is added to them, and this is the artifact that says so.
+
+For a corpus that wants the cheapest possible multi-userness, note what it spends: identity is **one
+bit** (a flag), state is ephemeral, and nothing is durable. That is precisely the budget a static
+tier can afford, and it sits below the Supabase-plus-git arrangement rather than competing with it —
+see [CURSOR-STORAGE.md](CURSOR-STORAGE.md) on starting from local storage with no login.
+
+### Why the virtual cursor is the load-bearing trick
+
+The cursor you see in Cursor Camp is **drawn by the page**, not the system pointer, which is what
+lets it be warped through a door. Browsers do not expose cursor warping, so a drawn cursor is the
+only way to get it — and that one decision is what makes three things we are building possible at
+all:
+
+| What we are building | What the virtual cursor buys |
+|---|---|
+| **Pie menus** | Warping. A pie opened near a screen or window edge can pull the pointer to its center, or keep it inside the bounds, instead of clipping the menu or losing slices. This is [Tog's thousand-mile menu bar](../pie-stack-views/WINDOW-RESIZE-PIE.md) generalized, and it is the one blocker browsers hand you. |
+| **Snap dragging** | Decoupling. Friction strips, detents, and precision damping all require the drawn pointer to *diverge* from the physical one — you cannot zero motion through a detent if the two must track 1:1. Cursor Camp's downstream drift is that divergence, shipped and liked. |
+| **Vehicles** | The raft. Input routed to an object that owns its own motion-to-simulation mapping, rather than filtered by the space. The full argument is [FRICTION-FIELDS.md](../pie-stack-views/FRICTION-FIELDS.md#the-vehicle-owns-the-mapping-so-input-is-routed-rather-than-reduced). |
+
+The honest limits, both recorded in
+[FRICTION-FIELDS.md](../pie-stack-views/FRICTION-FIELDS.md#the-shipped-receipt-cursor-camp): **there
+is no source to read** — none of neal.fun is open source, and Cloudflare blocks scripted fetches of
+the bundle, so whether it uses Pointer Lock or plain `mousemove` with the real cursor hidden is
+unverified. And it gets an exemption a corpus does not: **nobody riding the raft is aiming at a
+four-pixel target.** Divergence between drawn and physical pointer is free when there is no
+acquisition task and expensive when there is, which is why a reading surface with links, spans, and
+menus needs the stricter treatment.
+
 ## Reading cursors: the one that makes the other four persist
 
 The four above all assume a reader who is *there*. None of them survive closing the tab, and neither
@@ -267,6 +311,7 @@ above, and without them exploration is just being lost.
 - [DISPENSERS-AND-SOUVENIRS.md](DISPENSERS-AND-SOUVENIRS.md) — what you *carry out* of a room: stamped souvenirs, tickets as service interfaces, parameterized cranks, and the whole thing on a real-world map
 - [`skills/adventure/MOOST-MULTIPLAYER.md`](../../skills/adventure/MOOST-MULTIPLAYER.md) — shared state plus git forks
 - [gwern pack](gwern/README.md) — what we inherit and what we do not
+- [FRICTION-FIELDS.md](../pie-stack-views/FRICTION-FIELDS.md) — virtual cursors, friction strips, and vehicles that own their own mapping; the full Cursor Camp receipt
 - [THE-TOWER.md](../pie-stack-views/THE-TOWER.md) — the corpus as architecture, with altitude
 - [VIEWS-AS-TESTIMONY.md](../pie-stack-views/VIEWS-AS-TESTIMONY.md) — paths as content
 - [SUMMARY-GENRES.md](SUMMARY-GENRES.md) — the commonplace book, and register as a parameter

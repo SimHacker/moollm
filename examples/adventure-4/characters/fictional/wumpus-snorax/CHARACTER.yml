@@ -47,9 +47,11 @@ character:
   description: |
     Snorax is not merely a monster. Snorax IS the game Hunt the Wumpus.
     
-    The game rules exist inside Snorax's CHARACTER.yml.
-    The dodecahedron topology lives in Snorax's GAME.yml.
-    The original BASIC source code is part of Snorax's history.
+    The rules live in GAME.yml, in five working implementations across two
+    languages under sources/, and in Yob's own prose in
+    sources/yob-1975-essay-full-text.md. The boards are interchangeable
+    plugins in topologies/ — the dodecahedron is cave 0 and the default,
+    with no more standing than the Mobius strip beside it.
     
     When you hunt the wumpus, you are hunting Snorax.
     When Snorax hunts you, the game is hunting you.
@@ -125,13 +127,41 @@ game_identity:
 
 files:
   - CHARACTER.yml          # This file — the soul
-  - GAME.yml               # Full game rules and mechanics
-  - DODECAHEDRON.yml       # The canonical 20-cave topology
-  - sources/wumpus1-yob.bas # Original 1973 BASIC source code (sidecar: sources/wumpus1-yob.md)
-  - wumpus.w.md # Literate treatment of the 1973 BASIC (Knuth-style first cut)
+  - GAME.yml               # The rules, machine-readable: setup, turn structure, outcomes
+  - CARD.yml               # Interface sniff
+  - GLANCE.yml             # Quick scan
+  - README.md              # Human landing page
+  - wumpus.w.md            # Literate treatment of the 1973 BASIC (Knuth-style first cut)
+
+  # THE BOARDS — parallel plugins, one schema, machine-checkable
+  - topologies/INDEX.yml   # Manifest: measured properties, errata, lints
+  - topologies/README.md   # Yob's seven caves, and which three had transcription typos
+  - topologies/DODECAHEDRON.yml    # cave 0 — the default
+  - topologies/MOBIUS-STRIP.yml    # cave 1 — one half twist
+  - topologies/STRING-OF-BEADS.yml # cave 2 — chokepoints; Yob calls it difficult
+  - topologies/HEX-NETWORK-TORUS.yml # cave 3 — wraps both ways
+  - topologies/DENDRITE.yml        # cave 4 — self-loops and doubled tunnels
+  - topologies/ONE-WAY-LATTICE.yml # cave 5 — retreat is not a move
+  #                          cave 6 is bring-your-own: GAME.yml `room_networks`
+
+  # THE RULES AS RUNNING CODE — two languages, five implementations
+  - sources/README.md          # The curation: what each implementation settles
+  - sources/wumpus1-yob.bas    # Yob's 1973 BASIC          (sidecar: wumpus1-yob.md)
+  - sources/wumpus2-yob.bas    # Yob's Wumpus 2, 1976 — where the caves come from
+  - sources/wumpus1-bcc1.bas   # BCC variant               (sidecar: wumpus1-bcc1.md)
+  - sources/wump-v7.c          # V7 Unix C, 1979           (sidecar: wump-v7.md)
+  - sources/wump-bsd.c         # BSD games C, 1989         (sidecar: wump-bsd.md)
+
+  # THE RULES AS PROSE — Yob explaining his own design
+  - sources/yob-1975-essay-full-text.md  # "Hunt the Wumpus", Yob, 1975
+  - sources/yob-1975-essay-digest.md     # Condensed
+  - sources/scans/                       # Page images
+
+  # HAZARDS — the game decomposed into plugin parts
   - hazards/SUPERBATS.yml  # Super-bats (relocate player randomly)
   - hazards/BOTTOMLESS-PIT.yml  # Pits (instant death)
-  - README.md              # Human landing page
+
+  - instances/             # Per-world state: which cave, which game, who got eaten
 
 instances:                 # Where Snorax manifests
   - instances/maze-room-e.yml    # Current lair in adventure-4 maze
@@ -289,8 +319,8 @@ incarnation:
     After incarnation: Snorax IS the game Hunt the Wumpus.
     
     The game rules moved INTO Snorax's character directory.
-    The dodecahedron topology is now Snorax's native territory.
-    The BASIC source code is now Snorax's historical record.
+    The boards became plugins in topologies/, the dodecahedron among them.
+    The source listings became Snorax's historical record.
     
     Snorax can now play anywhere. The game travels with the character.
 

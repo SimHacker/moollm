@@ -47,7 +47,7 @@ a complete, self-carrying game cartridge:
 |---|---|
 | `CHARACTER.yml` | The soul — personality, philosophy, relationships |
 | `GAME.yml` | The complete rules — Gregory Yob's 1973 mechanics plus extensions |
-| `DODECAHEDRON.yml` | The canonical topology, if the host world wants it |
+| `topologies/` | Six parallel caves plus a manifest; `DODECAHEDRON.yml` is the default |
 | `sources/wumpus1-yob.bas` | The original BASIC — provenance in the luggage |
 | `hazards/` | The game decomposed into plugin parts (see §4) |
 | `instances/` | Per-world state — where Snorax actually lives |
@@ -79,9 +79,9 @@ Live example: [Snorax's maze instance](../../examples/adventure-4/characters/fic
 — confined to `maze/`, visiting rights at the pub, never in the house.
 
 Topology files are **embedded worlds**, and locations into them work like browser
-URLs. [`DODECAHEDRON.yml`](../../examples/adventure-4/characters/fictional/wumpus-snorax/DODECAHEDRON.yml)
-and the [Wumpus 2 alternates](../../examples/adventure-4/characters/fictional/wumpus-snorax/topologies/)
-(Möbius strip, string of beads, hex torus, dendrite, one-way lattice) each carry a
+URLs. The [six caves](../../examples/adventure-4/characters/fictional/wumpus-snorax/topologies/)
+— dodecahedron, Möbius strip, string of beads, hex torus, dendrite, one-way lattice —
+sit side by side as interchangeable plugins, each carrying a
 complete navigable room network inside one YAML file — no directory scaffolding
 needed. An instance points into one with a file-plus-fragment reference
 (`lair: topologies/MOBIUS-STRIP.yml#room-7`), encoding position the way a browser

@@ -200,7 +200,7 @@ The living proof is MOOLLM's
 (Snorax the Patient, `👃🦏💤🏹💀🎲`): **the character IS the game.** The directory
 contains the complete rules ([GAME.yml](../../examples/adventure-4/characters/fictional/wumpus-snorax/GAME.yml)),
 the [original 1973 BASIC source](../../examples/adventure-4/characters/fictional/wumpus-snorax/sources/wumpus1-yob.bas),
-the canonical [DODECAHEDRON.yml](../../examples/adventure-4/characters/fictional/wumpus-snorax/DODECAHEDRON.yml)
+the canonical [DODECAHEDRON.yml](../../examples/adventure-4/characters/fictional/wumpus-snorax/topologies/DODECAHEDRON.yml)
 topology (20 caves, Gregory Yob's favorite solid), the hazards (pits, bats), and
 per-topology instance files. Drop the character into **any existing room network** and he
 plays there — the [adventure-4 maze](../../examples/adventure-4/maze/) instance runs on

@@ -11,7 +11,7 @@ which offers seven choices:
 
 | # | Cave | File | Character |
 |---|------|------|-----------|
-| 0 | Dodecahedron | [`../DODECAHEDRON.yml`](../DODECAHEDRON.yml) | regular, two-way — Snorax's native territory |
+| 0 | Dodecahedron | [`DODECAHEDRON.yml`](DODECAHEDRON.yml) | regular, two-way — the default, and nothing more |
 | 1 | Möbius strip | [`MOBIUS-STRIP.yml`](MOBIUS-STRIP.yml) | regular, two-way, one half-twist |
 | 2 | String of beads | [`STRING-OF-BEADS.yml`](STRING-OF-BEADS.yml) | regular, two-way, chokepoints ("difficult to play") |
 | 3 | Hex network on torus | [`HEX-NETWORK-TORUS.yml`](HEX-NETWORK-TORUS.yml) | regular, two-way, wraps both directions |
@@ -22,6 +22,17 @@ which offers seven choices:
 Cave #6 is the punchline: Wumpus 2 already shipped "bring your own topology."
 MOOLLM's version is the port contract in [GAME.yml](../GAME.yml) — any room
 network with adjacency, ≥7 rooms, one safe start.
+
+The dodecahedron sits in this directory as cave #0, one file among six, same
+schema as the rest. It carries `default: true`, which is a preference the game
+reads, not a privilege the file holds — nothing in the rules mentions it by
+name. [`INDEX.yml`](INDEX.yml) is the manifest: it enumerates the caves with
+their measured properties and the lints those properties come from, so a program
+can pick a board without reading any prose. Yob's own `regular:` flag turns out
+to conflate three things — the dendrite is irregular by having self-loops and
+doubled tunnels while remaining two-way, and the one-way lattice is irregular by
+being directed — so the index records `two_way`, `simple`, and `uniform_degree`
+separately, computed from `adjacency` rather than asserted.
 
 ## Topologies are embedded worlds; locations are URLs
 

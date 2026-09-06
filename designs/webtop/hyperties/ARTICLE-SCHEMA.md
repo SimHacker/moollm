@@ -5,10 +5,10 @@ markup, in 1988. That schema is the semantic pyramid with an addressing layer bo
 and it is the single most important thing in this pack.
 
 The schema itself is settled by the storyboard source below. **Authorship of the code that
-implemented it is a different question, and this pack got it wrong at first.** Don wrote parts — the
-page formatter (`fmt.c`, `fmt.cps`, `fmt.ps`), the FORTH storyboard compiler, and the Emacs MockLisp
-authoring editor — but name resolution lived in the **index manager, which was Bill Weiland's C
-code**. The archive contains the receipt, an email from Don to `weiland@bensun`:
+implemented it is a separate question, and the division of labor was real.** Don wrote the page
+formatter (`fmt.c`, `fmt.cps`, `fmt.ps`), the FORTH storyboard compiler, and the Emacs MockLisp
+authoring editor. Name resolution lived elsewhere — in the **index manager, which was Bill Weiland's
+C code**. The archive holds the receipt, an email from Don to `weiland@bensun`:
 
 > Would it be much trouble to make .h files for the index manager so that I can include them in
 > fmt.c? I'm not sure how to deal with including the .c files.

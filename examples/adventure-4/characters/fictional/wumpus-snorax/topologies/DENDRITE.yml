@@ -7,6 +7,7 @@
 topology:
   name: "Dendrite with Degeneracies"
   type: tree_with_degeneracies
+  cave: 4                                    # Yob\'s own menu number in Wumpus 2
   source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2990-3020"
   regular: false     # IRREGULAR BY DESIGN: self-loops and double tunnels
   verbatim: true     # transcribed as printed; asymmetry is the point

@@ -75,7 +75,7 @@ Full argument: [`hyperties/README.md`](hyperties/README.md#who-this-is-for-and-w
 
 ---
 
-## Start here — three routes in
+## Start here — four routes in
 
 The hub is large on purpose and nobody should read it in file order. Pick the route that matches why
 you arrived.
@@ -89,6 +89,10 @@ if it is not enough:
 - **Primary sources on HyperTIES nobody has published** — the 1988 article schema, the build
   scripts, who wrote which implementation, and the parts that worked *together* rather than as a
   list of features. Don was on the team.
+- **A shipped system with your architecture and one difference.** HyperLook was a statically
+  publishable corpus with a dynamically composed chrome layer — and the chrome could be flipped into
+  edit mode *while running*, by the reader, using the same tool that built it. SimCity shipped on it
+  in 1992 as a sealed runtime. Plus Alan Kay's verdict on why the browser should have been HyperCard.
 - **A build-time answer to the author-burden problem** you raised, with four shipped precedents
   rather than a proposal.
 - **Two concrete disagreements**, not compliments: the pyramid needs a rung *below* the link icon,
@@ -101,18 +105,64 @@ Everything else is context you can skip.
 2. [`hyperties/ARTICLE-SCHEMA.md`](hyperties/ARTICLE-SCHEMA.md) — **the ladder shipped as a mandatory
    schema in 1988**: title, synonyms, description, body, with a build script proving the definition
    was a separate compilation unit. The receipt for "link-icon → title → abstract → section."
-3. [`../TAGSONOMY-COMPILER.md`](../TAGSONOMY-COMPILER.md) — how a corpus stays navigable **with no
+3. [`HYPERLOOK.md`](HYPERLOOK.md) — **your architecture, shipped in 1992, editable from inside**:
+   HyperCard's model rebuilt on NeWS by Arthur van Hoff, productized with Don, with SimCity running
+   in a sealed runtime while the authoring environment stayed fully live. The stripped runtime *is*
+   the crystallize/melt split; property sheets were themselves stacks; a plugin was a document you
+   opened. Includes Alan Kay on Apple blowing it "by not making the design framework the basis of a
+   web browser," and the honest tension you have chosen the other side of.
+4. [`../TAGSONOMY-COMPILER.md`](../TAGSONOMY-COMPILER.md) — how a corpus stays navigable **with no
    model in the loop at read time**. The LLM runs at build; the artifact is static. Written knowing
    what your site is and is not willing to become.
-4. [`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) — the bottom rung as a proposed eval, and an argument
+5. [`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) — the bottom rung as a proposed eval, and an argument
    that the pelican has no referent while a thousand documents do.
-5. [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) — *"give the reader agency"* taken literally: an
+6. [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) — *"give the reader agency"* taken literally: an
    article does not get a room, it **is** one.
-6. [`READING-CURSORS.md`](READING-CURSORS.md) — the uncomfortable receipt: gwern.net already keeps a
+7. [`READING-CURSORS.md`](READING-CURSORS.md) — the uncomfortable receipt: gwern.net already keeps a
    durable per-reader model in LocalStorage and spends it on whether to animate a toolbar. Dark mode
    persists; your place in the argument does not.
-7. [`gwern/NENEX.md`](gwern/NENEX.md) — your edit-log neural wiki, read as the engine that this shell
+8. [`gwern/NENEX.md`](gwern/NENEX.md) — your edit-log neural wiki, read as the engine that this shell
    was specified around.
+
+### If you are Said Achmiz
+
+Everything above is written to the author of the corpus. This route is written to the person whose
+code we read. **What is here that you do not already have**, so you can leave early if it is not
+enough:
+
+- **Two disagreements with the current design**, not compliments — one of them expensive.
+- **Unpublished HyperTIES primary sources**: the mandatory 1988 article schema, the build scripts, the
+  MockLisp authoring tool, and who wrote which implementation on which platform. Don was on the team.
+- **A navigation invariant stated as a lint**, which your accesskeys and the gwern.net chord table are
+  among the few shipped systems that would pass.
+
+The credit line this pack carries, and why: *inspired by the publishing and hypertext system developed
+by Gwern Branwen and Said Achmiz at gwern.net* — following gwern's own "tech co-creator" rather than
+"frontend by," and deliberately not guessing which of you thought of what.
+
+1. [`../webtop-gwern-inheritance/GWERN-WHAT-TO-INHERIT.md`](../webtop-gwern-inheritance/GWERN-WHAT-TO-INHERIT.md)
+   — **the pin test.** Pinning sets a flag on the same window object; no rewrap, no reparent. That is
+   the TNT OPEN LOOK pin-up menu architecture, arrived at independently decades earlier, and the
+   opposite of the olwm/ICCCM rewrap dance X11 forced on a separate-process window manager with no
+   shared class hierarchy. Convergent design, or the only sane choice in a DOM?
+2. **The two disagreements.** Pinned popups die on page navigation — if pinning is promotion,
+   promotion should outlive the document, on a persistent serialized desk
+   ([`READING-CURSORS.md`](READING-CURSORS.md)). And desktop popups versus mobile popovers are two
+   windowing engines where one adaptive window class would do. If you tried either and rejected it,
+   **why** is the artifact we want.
+3. [`TREE-NAVIGATION.md`](TREE-NAVIGATION.md) — the lint: every structural operation reachable by
+   keyboard, pie menu, **and** drag, all three dispatching one named command. Not three code paths
+   that happen to agree. Most likely document here to contain an error you can spot on sight.
+4. [`hyperties/ARTICLE-SCHEMA.md`](hyperties/ARTICLE-SCHEMA.md) — embedded menus and link previews in
+   1988, with a build step that pre-resolved them and a schema that made every article self-naming.
+   The ancestor of the popup, with receipts.
+5. [`hyperties/FOCUS-FLOW.md`](hyperties/FOCUS-FLOW.md) — HyperTIES could reveal every link at once;
+   this fuses that with animated chevrons between tab stops to render the whole focus graph. Honest
+   cost: it exposes bad tab order mercilessly. We think that is a lint worth having.
+6. [`OBJECTIONS.md`](OBJECTIONS.md) — the strongest case against all of it, written down so you can
+   attack the design instead of first reconstructing our awareness of its weaknesses.
+
+Skippable for you: the corpus-as-place material, unless it interests you on its own.
 
 ### If you are David Temkin
 
@@ -210,6 +260,7 @@ the engine-versus-game joke, which is aimed squarely at us. What we concede, and
 |---|---|
 | [`gwern/`](gwern/) | The publishing engine: popups-as-windows, annotation, archives. Plus [`NENEX.md`](gwern/NENEX.md) — his edit-log neural wiki proposal, the engine that needs our shell |
 | [`hyperties/`](hyperties/) | Shneiderman's lab, and the parts that already worked together in 1988: mandatory definition previews, embedded menus, click-background-reveals-all, pie-menu routing, scriptable applets. Includes the [distilled HN archive](hyperties/HN-ARCHIVE.md) and [who did what](hyperties/TEAM.md) |
+| [`kay/`](kay/) | **He already reviewed this lineage, and the criticism is worth more than the praise.** Seven OLPC threads from 2007 extracted in [`kay/OLPC-2007.md`](kay/OLPC-2007.md), where three of this hub's theses turn out to pre-exist it: *"close to natural language but clearly not natural language"* as the criterion for a readable substrate, with HyperTalk's failure being that it looked **too** like English — a trap whose failure mode inverts once a model is reading the files; **science as map-making not bible-making, "with annotations for errors and kinds of measurements"**, which is the signed assessment with its evidence dimension; and **gray boxes that pop open**, where opacity is graduated and *"what is the center and what is the side will shift as the learning progresses"* — semantic zoom applied to mechanism. Plus the warning aimed at us: environments *"form tribal bonds that are rather religious in nature."* The browser should have been "not an 'app' but an Operating System" safely running encapsulated real objects; settling for a simple text format sent web media "in entirely the wrong direction," and circa the early 90s the whole thing "had the look and feel of an **atavistic hack**." **Symmetry** is his word for the property this hub keeps groping for — the reader can "turn around and 'author' in the same high-level terms." Then the two criticisms of Don's own work: that his group "missed the significance for personal computing of the design of Hypertalk," and that SimCity hid its simulation in a black box players cannot change — the first proved by **PdB**, the second answered by Micropolis. Plus **views as "watchers" that do not affect what they view**, the unsolved **automatic inverter** problem for dimensions a view discards, and the brief: *a second pass at the end-user programming problem has never been done* |
 | [`nelson/`](nelson/) | Visible connection: why a link should be a bridge and not *"a diving board into the darkness"*. Transclusion as infrastructure, self-revealing interfaces, intertwingularity |
 | [`winer/`](winer/) | Outline as syntax for code *and* data; the object DB that is the outline; view state in the document. Plus [`HN-POSTS.md`](winer/HN-POSTS.md) — 71 of Don's HN comments, deduped |
 | [`temkin/`](temkin/) | Declare and Mesa: constraints that stay true, and a zoomable canvas shared with an agent |
@@ -217,6 +268,7 @@ the engine-versus-game joke, which is aimed squarely at us. What we concede, and
 | [`../TAGSONOMY-COMPILER.md`](../TAGSONOMY-COMPILER.md) | How the corpus becomes navigable without a model in the loop: LLM proposes the warm things at build time, the build **crystallizes** a static index, and you **melt** it back up to restructure. Four shipped receipts — MDL Zork interning aliases to one object, HyperTIES compiling storyboards to FORTH, CAM-6's Forth-to-lookup-tables, Scott Adams' interpreter-plus-database — plus the ground-up version, where the seeds are GPS-located spoken impressions |
 | [`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) | The pyramid's bottom rung, proposed as an LLM eval better than the pelican on a bicycle. The pelican earns its place — cheap, memorable, hard to game — but it has **no referent**, so scoring is vibes. A thousand real documents do have one: the glyph is right if a reader who knows the document recognizes it and a reader who does not can pick it out of a contact sheet. Objective scoring function, and the whole semantic pyramid comes along so humans can judge from the top |
 | [`SUMMARY-GENRES.md`](SUMMARY-GENRES.md) | The pyramid's second axis: same rung, different register. The terms of art (topos, snowclone, shibboleth, facet, focalization), and why a sardonic bingo card is a contact sheet of textual glyphs with an objective scoring function — hit rate near one half |
+| [`HYPERLOOK.md`](HYPERLOOK.md) | **The shipped ancestor of this entire hub.** HyperCard's model rebuilt on NeWS as GoodNeWS by **Arthur van Hoff** at the Turing Institute in 1989, renamed HyperNeWS, productized as HyperLook with Don in 1992 — and you could **flip a running SimCity into edit mode**, open the transportation-fund slider's property sheet, and read the script that sent `SetTransportationFund` to the stack. Five things it had that this cluster keeps re-deriving: a **stripped non-editable runtime** for shipping products, which is crystallize/melt billed for in 1992; **property sheets that were themselves stacks**, so one tool went all the way down; delegation **Object → Card → Background → Stack → network client**, addressed by path of names; **warehouses**, where a plugin was a document you opened and its pages became your *New Object* menu; and PostScript as programming, graphics and data at once. Plus **PdB**, van Hoff's C-to-PostScript compiler — the dual path again. Carries Alan Kay's verdict that HyperCard "deserved to be successful" and that **Apple blew it by not making the design framework the basis of a web browser** |
 | [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) | What this brings to gwern's world: **playability, explorability, inventory, multi-userness, reading cursors** — all of it under gwern's own stated principle, *"give the reader agency."* An article does not get a room, it *is* one — a directory exporting the document interface and the ROOM interface at once, with behavioral objects and characters in it, hosted in GitHub repos. Includes the inventory-is-transclusion finding (`TAKE REF` weighs nothing, `TAKE OBJECT` is heavy) and the static-versus-social tier split |
 | [`AUTO-FAQ.md`](AUTO-FAQ.md) | Residents answer in context and the answers **persist as artifacts** others retrieve without re-deriving — the tagsonomy compiler applied to dialogue. The key move: an answered question records what got activated to produce it, which **is a K-line** (Minsky, AI Memo 516), so the artifact is a re-activatable path and the text is one rendering of it. An answer record is also a Drescher schema — activation as context, question as action, answer as result — with reinforce/spawn/prune following for free. Named for PKD's *Autofac*, and the pun is the warning: a factory that cannot be switched off fills the repo with answers nobody asked for |
 | [`TREE-NAVIGATION.md`](TREE-NAVIGATION.md) | **Tab order flattens a tree into a line, and that is the original error** — then in/out navigation gets bolted on per widget with no grammar, so users can only learn exceptions. Defines the structural command set first (siblings, depth, extremes, history, expand/collapse) and makes `TAB` a *derived projection* of the tree walk. The invariant: every structural operation reachable by keyboard, pie menu, **and** drag, all invoking the same named command — which is a lint, not a taste. Receipts from ThinkTank (keyboard-driven) and MORE (1986, drag-and-drop *without spoiling the keyboard interface*). Type-ahead turns out to be the link-resolution protocol with a different entry point |
@@ -224,6 +276,8 @@ the engine-versus-game joke, which is aimed squarely at us. What we concede, and
 | [`READING-CURSORS.md`](READING-CURSORS.md) | **A reading cursor is a character**, because `CHARACTER.yml` already owns `location:` and a location in a corpus of rooms is a position in a document. Cursor / read head / character are the same object — a position in a substrate, with state, that moves — so a reading position gains identity, inventory, a path, a rung, and an owner. The receipt: gwern.net's `demo-mode` already keeps a durable per-reader model in LocalStorage and spends it on whether to animate a toolbar; dark mode persists and your place in the argument does not. The generalization: **the bookmark is to reading position what the clipboard is to selection** — invisible, dead, no identity, no history — Nelson's complaint one layer over. Seek time is the reader's re-entry cost, so semantic zoom and reading cursors attack the same context cost from opposite sides of the screen. A versioned corpus lets a stale cursor report what moved under it, which no bookmark can |
 | [`CURSOR-STORAGE.md`](CURSOR-STORAGE.md) | Where the rubber meets the road: a cursor is an **orphan branch**, `git switch --orphan` — a tangent universe with no parent commit, a typed addressable object with its own filesystem, where the name carries class and id (`cursor_<id>`, `character_<id>`). Already in production: Leela's alerting system stores each alert's evidence in an `Issue_<id>` branch. Three things git gives away — **the commit history is the path**, and therefore the return stack, better than Emacs's because it records what changed while you were there; **`git worktree` is the body plan**, so the worm with head in doc A and butt in doc B is two checkouts; and **forking is handing someone your character**. Custom ref namespaces (`refs/cursors/*`, Gerrit-style) are cleaner but GitHub cannot render them, and GitHub *is* the social layer, so branches win. Publishing must be a squash, because history is the part people forget to curate |
 | [`EBIKE-PATH-GRAMMAR.md`](EBIKE-PATH-GRAMMAR.md) | The same cursor with a **city** as its substrate, which makes the path legible as **gesture**: a roundabout is a mark and riding it backwards is an **undo**; pausing is the primary gesture, and duration plus surroundings plus the photo library at that timestamp is nearly enough to infer intent. **Velocity is the register dial** — address-by-address detail is wasted at speed and earned when you stop. Receipts: Selker's dwell-time next-item prediction, reimplemented as pie-menu slice lingering. Pauses are the natural cleavage points, so segmentation is free and DWIM moves fall out; **every self-crossing is an event**. Resumption is start/continue/branch — git on wheels. Privacy is an editing pass with three gates, not one |
+| [`SIGNED-ASSESSMENTS.md`](SIGNED-ASSESSMENTS.md) | Rating as a compiled tagsonomy. The unit is an **assessment record — author, target, dimension, value, date, evidence** — signed, owned, and free to conflict, never universal metadata on a node. Dimensions are parent tags, rungs are their closed value sets, and [the tagsonomy compiler](../TAGSONOMY-COMPILER.md) crystallizes them into a static index, so it renders with no backend. Slashdot's typed moderation and Leary's Mind Mirror are the ancestors; bridging aggregation replaces counting; reader-turnable knobs are one rendering rather than the thesis |
+| [`CONTRIBUTION-BOT.md`](CONTRIBUTION-BOT.md) | **The commit is the conversational turn** — pushing to a branch is the utterance, not the storage under it. A bot makes the branch, writes the commits, opens the PR and runs the checks, so a reader with no GitHub account participates in the normal PR workflow without seeing it. Git's thirty-year-old **author/committer split** is the primitive: the bot holds the credential, the contributor holds the claim — but an author string is a *claim, not an identity*, which for a project that portrays real people is the primary abuse case, so identity is two-tier and a claimed name colliding with anyone in the corpus is rejected at submission. Commits are cheap and constant; the **PR is the reviewable bundle**, opened at a boundary and generated with its checks already run, because forty one-typo PRs turn a gift into a chore. *Obvious case* is a predicate, not a vibe: merging someone's own signed opinion into their own namespace is not a judgment about whether they are right, and everything touching shared content is human. The bot's own auto-decisions are signed assessments in its own namespace, so its false-accept rate is measurable and a rejection is contestable |
 | [`OBJECTIONS.md`](OBJECTIONS.md) | The strongest case against all of it |
 
 Sibling pack, kept at its original URL because it has been shared publicly:
@@ -249,7 +303,10 @@ Each of these solved part of it, in production, and none of them ever met each o
 | **Winer** | Outline as code-and-data syntax; object DB as outline; `expansionState` in the document head | [`winer/`](winer/) |
 | **Gwern / Said Achmiz** | Popups that are real windows; annotation and local archives; the semantic zoom ladder; Nenex | [`gwern/`](gwern/) |
 | **Temkin** | Declarative constraints that re-satisfy; a zoomable spatial canvas shared with an agent | [`temkin/`](temkin/) |
-| **NeWS / HyperLook** | The window as a scriptable object; flip any stack into edit mode; pie menus everywhere | The shell itself |
+| **Atkinson / HyperCard** | Stacks, cards, direct-manipulation editing, and a scripting language millions of end users actually wrote | The ancestor of all of it |
+| **van Hoff / HyperLook** | HyperCard rebuilt on NeWS: every object scriptable, flip a *running* program into edit mode, property sheets that are themselves stacks, plugins that are documents, and a sealed runtime for shipping | [`HYPERLOOK.md`](HYPERLOOK.md) |
+| **Kay** | The browser should have been an OS running real objects; **symmetry** between reading and writing; views as watchers; gray boxes that pop open; and a criticism of the NeWS work that stands | [`kay/`](kay/) |
+| **NeWS** | The window as a scriptable object; PostScript as code, graphics and data; pie menus everywhere | The shell itself |
 
 ---
 

@@ -5,6 +5,7 @@
 topology:
   name: "One-Way Lattice"
   type: directed_lattice
+  cave: 5                                    # Yob\'s own menu number in Wumpus 2
   source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 3070-3100"
   regular: false     # IRREGULAR BY DESIGN: every tunnel is directed
   verbatim: true     # adjacency lists are OUTBOUND tunnels only

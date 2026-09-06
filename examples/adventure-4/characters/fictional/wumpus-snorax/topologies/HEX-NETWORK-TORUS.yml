@@ -7,6 +7,7 @@
 topology:
   name: "Hex Network on a Torus"
   type: toroidal_hex_lattice
+  cave: 3                                    # Yob\'s own menu number in Wumpus 2
   source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2910-2940"
   regular: true      # every room: 3 tunnels, two-way traffic
   description: |

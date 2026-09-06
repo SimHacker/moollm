@@ -302,7 +302,7 @@ DATA_FILE_PATTERNS = [
 
 # Filename patterns that are data
 DATA_FILENAMES = {
-    'PALM-LANGUAGE.yml', 'DODECAHEDRON.yml', 'GAME.yml', 'SUPERBATS.yml',
+    'PALM-LANGUAGE.yml', 'DODECAHEDRON.yml', 'INDEX.yml', 'GAME.yml', 'SUPERBATS.yml',
     'SLIDESHOW.yml', 'PHOTO.yml'
 }
 

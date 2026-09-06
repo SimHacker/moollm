@@ -486,6 +486,10 @@ The two details that make it a receipt rather than an example, both from the top
 > float downstream, or when you go down a slide. It's also particularly genius how the mouse can
 > **'teleport' around the screen** (i.e. when you go into a door and come out somewhere else).
 
+It is also the navigable-rooms model shipped and enjoyed — doors that teleport, presence as the whole
+social channel, and not one character in it. That reading is in
+[PLAYABLE-CORPUS.md](../webtop/PLAYABLE-CORPUS.md#cursor-camp-the-whole-model-shipped-for-a-mass-audience-with-no-characters).
+
 "Control taken away" is how it reads from outside, and the mechanism is
 [a vehicle](#the-vehicle-owns-the-mapping-so-input-is-routed-rather-than-reduced): input is routed to
 the raft, which maps it into a raft-in-stream simulation. Middleware in the seam, shipped and enjoyed
