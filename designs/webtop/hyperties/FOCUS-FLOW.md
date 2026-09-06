@@ -154,6 +154,17 @@ polylines, or picking one pass as canonical and rendering the rest as static sha
 first thing to build a test case for, since it is the common case in a small town and not the
 exception.
 
+**Offsetting the polylines now has a principled form**, developed for a different purpose and arriving
+here as the answer: a position on a path can be addressed as a blend of its endpoints plus a
+**weighted offset expressed in the path's own frame**, whose *normal* component is which lane you are
+in. Give each pass a distinct normal offset and repeated segments separate instead of overlapping;
+tie the sign of that component to the direction of travel and an out-and-back ride separates
+*automatically*, with no pass having to be nominated as canonical. See
+[the offset is blendable too, which buys lanes](../../pie-stack-views/PIE-MENU-MEMORY-PALACES.md#the-offset-is-blendable-too-which-buys-lanes).
+
+That also supplies the static fallback this section wanted, since **lane position encodes direction
+without motion** — which matters most at exactly the zoom levels where chevrons collide into noise.
+
 ---
 
 ## Related

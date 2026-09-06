@@ -217,6 +217,56 @@ Renormalization is the repair operation, and graceful degradation of references 
 has to live in the local frame the blend induces rather than in world coordinates, which is what
 skinning does with bind poses — and skipping it reproduces the candy-wrapper artifact in the residual.
 
+#### The offset is blendable too, which buys lanes
+
+Don's extension, and it turns the frame requirement above from a bug fix into the interesting part.
+Give the offset **its own weight**:
+
+```
+addr = Σ wᵢ · placeᵢ  +  k · offset
+```
+
+Now nothing in the address is special-cased — every term is a weighted contribution, uniformly
+interpolable. And because the offset lives in the frame the blend induces, it decomposes along that
+frame into two components that mean different things:
+
+| Component | Meaning |
+|---|---|
+| **tangential** — along the path | ahead of or behind the canonical position; lead and lag |
+| **normal** — across the path | **which lane you are in** |
+
+**Fading `k` to zero returns you to the true path.** For two handles that is the line between source
+and destination; for N it is the blend point itself, so the operation is well defined at any arity.
+Its real significance is epistemic rather than spatial: a `k = 0` address is just `(src, dst, t)` —
+short, canonical, comparable, citable. So **driving the offset to zero is compressing the address**,
+and `k` turns out to be a dial between *personal* and *shareable* position, which is the
+[views-as-testimony](VIEWS-AS-TESTIMONY.md) distinction showing up in a coordinate.
+
+**Holding a normal offset gives you the side of the road**, and this is the load-bearing consequence.
+Tie the sign of the normal component to the direction of travel and **traffic going each way occupies
+distinct, non-overlapping lanes.** Three things follow:
+
+- **Direction becomes visible from position alone.** No arrow, no label, no animation — where a cursor
+  sits across the path says which way it is going. That is
+  [the chevron flow](../webtop/hyperties/FOCUS-FLOW.md#the-chevron-flow) obtained *statically*, so it
+  survives a screenshot and costs nothing to render; the animated version remains the better answer
+  where the *order* of a traversal matters rather than merely its sense.
+- **It repairs the addressing ambiguity**, partially but really. The cost noted above was that one
+  point has many addresses; with lanes, `(A→B, t)` and `(B→A, 1−t)` are no longer the same point at
+  all. The two journeys through "the same place" are physically separated, so the distinction stops
+  needing a convention to resolve — it is just true.
+- **Communitas gets a mechanism.** Meeting someone in the liminal space becomes *passing* rather than
+  colliding, which is the pilgrims-on-the-road image made literal rather than decorative.
+
+Two honest costs. **Handedness is a per-space parameter, not a universal** — keep-right and keep-left
+are both correct, and a corpus has to pick one and say so. And **auto-centering conflicts with the
+friction discipline**: fading `k` moves the position without user input, which is exactly the
+[snapping-ahead-of-the-gesture](FRICTION-FIELDS.md) failure unless the fade is user-initiated or slow
+enough to read as motion. Centering must be an operation someone asks for, never ambient drift.
+
+Lanes also need a direction of travel, so they are a **two-handle, edge-traversal** feature; an N-handle
+blend has no canonical tangent, and there is nothing to be on the side of.
+
 *Discipline, since this is a strong borrowing: keep it only where it predicts something. It predicts
 that transit deserves state and an address, that transitions must be optional rather than scheduled,
 and that encounters in the between are status-free. Three commitments that can be checked. Anything
