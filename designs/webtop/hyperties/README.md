@@ -142,15 +142,57 @@ up pre-formatted and instant — *"kind of like partial evaluation, and Smalltal
 webtop equivalent is a build step that pre-renders pyramid rungs so a zoom is a lookup, not a
 generation round-trip.
 
-### Article synonyms
+### Article synonyms — the part nobody has rebuilt
 
-Don's recollection: articles carried synonyms, so inline prose could link to an article by any of
-its names and resolve correctly — link-by-meaning rather than link-by-path.
+**Every article declared a synonym list, and inline prose resolved against titles and synonyms, so
+you linked by meaning rather than by path.** This is the load-bearing part of the whole pack, and it
+is settled by the source, the census, the paper, and the authoring tool independently.
 
-*Not yet sourced.* It is not in the Medium roll-up or the 1991 paper text checked so far; it needs a
-citation from the TIES/HyperTIES documentation before it goes in anything public. Recorded here as
-a claim to verify, because the feature matters: it is the ancestor of aliasing a node so that
-[[wiki-style]] links, tags, and prose references all land on one canonical thing.
+The markup, verbatim from `doc/demos/hyperties.st0`, the first article of the demo database:
+
+```
+.title
+The HyperTIES hypermedia browser
+
+.synonyms
+NeWS HyperTIES
+HyperTIES
+TIES
+```
+
+The census across the storyboard databases in the archive: **261 articles, 142 of which declare
+synonyms** — `.synonyms` used 109 times and `.synonym` 33. Full directive table in
+[ARTICLE-SCHEMA.md](ARTICLE-SCHEMA.md).
+
+The 1991 paper names the property this creates, in passing, while explaining why graphical links are
+harder to author than textual ones:
+
+> the author must laboriously link targets to their references (**they are not "self-naming", as in
+> the text case**)
+
+Text links are self-naming, and the synonym list is the mechanism that makes it true: you write the
+sentence you meant to write, and the phrase resolves. The author is not marking up links, the author
+is writing prose, and the prose links itself.
+
+The implementations, three of them: **Weiland's C index manager** owned resolution (the archive holds
+Don's email asking him for `.h` files so `fmt.c` could call in), Don's FORTH storyboard compiler and
+MockLisp authoring editor owned the rest, and `new-synonym` in `yahtittie.ml` **refuses to shadow a
+name already claimed at the top of the index stack** — a duplicate-claim check in 1988 authoring
+code, which is half the collision lint this design needs. Reverse engineered line by line in
+[EMACS-INDEX-MANAGER.md](EMACS-INDEX-MANAGER.md), with the surviving note-to-self — *"Make synonyms
+use the abbrev mechinism"* — showing where the author intended to take it next.
+
+One detail from that archive worth keeping in view, because it shows the feature in daily use rather
+than in a spec: one article registers `"alphabetically"`, `"alphabetically,"` and
+`"alphabetically."` as three separate synonyms. The author was hand-registering **punctuation
+variants** so the phrase would resolve mid-sentence. That is what a working system's warts look
+like, and it is also the argument for canonicalization in the revival.
+
+This is the rung no modern system in this hub has: not gwern.net, not Frontier, not the wikis. Aliases
+so that prose references, tags, and `[[wiki-style]]` links all land on one canonical thing, and so
+that **renaming stays survivable** — add a synonym and every old reference keeps working, which is
+exactly what a corpus meant to outlive its author needs. Protocol and revival plan in
+[LINK-RESOLUTION.md](LINK-RESOLUTION.md).
 
 ## The claim: these were one design, not a feature list
 
