@@ -87,9 +87,23 @@ the coefficient of restitution:
 - **> 1 — pumping.** The wall returns more than you put in. A catapult, and legitimately useful for
   launching a panel across a screen with a short shove.
 
-Restitution above one needs an energy budget, because a **ratchet plus restitution above one is a
-motor** — a cursor can be pumped without bound by a user who discovers the loop. Cap the returned
-impulse, or make gain above one available only to walls that are not one-way.
+A **ratchet plus restitution above one is a motor**, and a cursor can then be pumped without bound by
+a user who finds the loop. The obvious fix is an energy budget — cap the returned impulse, or allow
+gain above one only on walls that are not one-way — and it is the wrong fix, because it treats speed
+as the danger.
+
+Don's kinetic-navigation work says otherwise. MediaGraph's
+[aimable, interruptible cannon](PIE-MENU-MEMORY-PALACES.md#kinetic-navigation-the-aimable-interruptible-cannon)
+launches the view ballistically and lets the user **grab, brake, pan or throw it mid-flight** without a
+mode switch. Under that contract unbounded velocity is not a loss of control, it is fast travel:
+
+> **The invariant is not bounded energy, it is continuous grabbability.** A runaway is only a runaway
+> if it cannot be caught. Cap unrecoverability, not speed.
+
+Which also settles when gain above one is legitimate. A user pumping *themselves* is playing — they
+supplied the energy and can stop any time. A field pumping the user *unprompted*, with no handhold, is
+the [dark-pattern case](#the-same-mechanism-weaponized) wearing physics. Same coefficient, and the
+difference is who initiated it and who can end it.
 
 ### The decay rate is a feel parameter, and τ has a floor
 
