@@ -106,25 +106,35 @@ Two citations survive a public post. Nine do not. The bibliography belongs in
 
 ## On what instruction files are actually for
 
-Harvested 2026-09-07 from *Ask HN: How do you manage skills files?* All entries
-below are `url: NEEDS-PERMALINK` — transcribed from the rendered thread the same
-day, to be confirmed against individual comment links before public quotation.
+Harvested 2026-09-07 from *Ask HN: How do you manage skills files?* by
+imadtaieber — https://news.ycombinator.com/item?id=49589914
 
-### serf
+All entries below are `verified: verbatim via HN Algolia API, fetched
+2026-09-07`.
+
+### serf · https://news.ycombinator.com/item?id=49590065
 
 > a model capability is never going to fill in an unknowable blank that a custom
 > skill (or whatever equivalent your paradigm supports) can.
+
+> a model might have the cleverness to whoami and look through the .ssh folder
+> for keys and evidence of past connections when asked to connect to bob, but a
+> skills file can just easily say "We connect to bob using key Z and user X." so
+> that the operation gets done without all this nonsense needless inference as
+> far into the future as the information is valid for.
 
 > a concise information dense skill is going to always dominate on tokens-burnt
 > for any given task that requires insider knowledge. it simply gets rid of the
 > entire investigative phase of work.
 
-`kind: correction · form: the capability argument, from a stranger`
+`kind: correction · form: the capability argument, from a stranger, answering
+the submitter's own premise that models will eat skills`
 
 The cleanest available answer to "models will eat this," and it is somebody
-else's, which is why it is worth quoting rather than restating.
+else's, which is why it is worth quoting rather than restating. He is replying
+directly to the submitter's opening premise, quoted in his own first line.
 
-### pletnes
+### pletnes · https://news.ycombinator.com/item?id=49594045
 
 > I don't see the point in trying to teach the models things that is in the
 > documentation of git, python, what have you. They already know.
@@ -153,7 +163,7 @@ sentences.
 
 `kind: correction · form: the architecture, stated plainly`
 
-### chickensong
+### chickensong · https://news.ycombinator.com/item?id=49594214
 
 > If you can express something deterministically with code, it's better to do
 > that rather than have an agent do it, because it's faster, cheaper, and
@@ -161,12 +171,19 @@ sentences.
 
 `kind: correction · form: the harness principle`
 
-### ygjb
+### ygjb · https://news.ycombinator.com/item?id=49594458
 
 > So the term used internally is to make things "Determinishtic".
 
 `kind: correction · form: the whole thesis, as a joke, spelled that way on
-purpose`
+purpose · quote-limit: FIRST SENTENCE ONLY`
+
+**Hard limit on this entry.** The rest of that comment discusses the author's
+own neurology and medication history. Under the standing prohibition that
+material does not enter this corpus and must not be quoted, paraphrased or
+alluded to, however publicly it was posted. Quote the sentence above and stop.
+
+`omission: for the author's privacy, not to remove a qualifier`
 
 **The most quotable line in the thread.** Anyone claiming that this community
 delegates judgment to the model is contradicted by the community's own house
@@ -191,6 +208,30 @@ Quotable *with* the skeptics rather than against them. Agreeing with the
 deflationary version is free: yes, it is a markdown file, and that is the point.
 
 ---
+
+### RicDan · https://news.ycombinator.com/item?id=49595216
+
+> Must criterias need deterministic checks -> be it hooks or what not.
+
+`kind: correction · form: the same point from the skeptical side — he opens with
+"You don't" and still lands on hooks`
+
+Found during verification rather than in the first read. Useful precisely
+because he is unimpressed with skills and arrives at the harness anyway.
+
+### floriangoebel · https://news.ycombinator.com/item?id=49595048
+
+> What skills do for me, is essentially skip the "learning" phase of an agent
+> working in the codebase.
+
+> A big caveat here is though that now you need to treat your skills repo very
+> carefully as mistakes in there can easily spread to all of the new code you
+> write using a coding agent.
+
+`kind: correction · form: the benefit and its honest cost, stated together by
+the same person`
+
+Quote both halves or neither. The caveat is what makes the first half credible.
 
 ## Harvest discipline
 

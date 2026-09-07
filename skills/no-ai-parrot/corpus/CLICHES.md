@@ -12,8 +12,36 @@ Harvest rules in [`../SKILL.md`](../SKILL.md). Two standing prohibitions:
 
 ## hypfer — Hacker News
 
-Two instances, seventeen days apart, in unrelated threads. The dates are the
-only commentary needed.
+Three instances in twenty-six days, in three unrelated threads: a paper about
+reasoning traces, a news story about a misbehaving agent, and a thread about
+organizing markdown files. The dates and the subjects are the only commentary
+needed.
+
+Found by `ENLIST-THE-RECORD` against the HN Algolia API on 2026-09-07. All text
+below is character-exact from the API response.
+
+### 2026-08-12 · on a news story about an agent booking a gym class
+
+Thread: *AI agent hacks gym to get its user a spot in pilates class* (BBC) —
+https://news.ycombinator.com/item?id=49268697
+
+https://news.ycombinator.com/item?id=49269255
+
+> No, it starts much earlier. They should not have given a next token predictor
+> unsupervised Internet access, regardless of what the marketing might have told
+> them about its capabilities or alignment. Don't use technology you do not
+> understand in ways that might bring harm to others.
+>
+> Exercise appropriate caution. I don't think the guy itself is fully to blame
+> though. Our whole culture has rotted quite significantly.
+
+`kind: cliche · form: general-purpose verdict, applied to a consumer-product
+story · verified: verbatim via HN Algolia API, fetched 2026-09-07`
+
+**This instance is why the phrase is a cliché rather than an argument.** The
+same four words carry a metaphysical verdict on 21 August, a product-safety
+judgment on 12 August, and a workflow judgment on 7 September, across three
+unrelated subjects, without changing.
 
 ### 2026-08-20 · on a paper about reasoning traces
 
@@ -72,9 +100,12 @@ everyone else. It is quotable directly beside the door-policy passage above.
 
 Thread: *Ask HN: How do you manage skills files?*, posted by imadtaieber.
 
-`url: NEEDS-PERMALINK — capture the individual comment link before quoting this
-in public. Text below transcribed from the rendered thread on 2026-09-07 and
-must be confirmed against the permalink.`
+Thread: *Ask HN: How do you manage skills files?* —
+https://news.ycombinator.com/item?id=49589914
+
+https://news.ycombinator.com/item?id=49594743
+
+Replying to ygjb (https://news.ycombinator.com/item?id=49594458).
 
 > You're putting a lot of trust into the judgement abilities of what is just a
 > next token predictor there.
@@ -90,7 +121,8 @@ must be confirmed against the permalink.`
 >
 > Just a very roundabout way to achieve that, but that's fine, I guess.
 
-`kind: cliche · form: workflow claim, with a concession in paragraph three`
+`kind: cliche · form: workflow claim, with a concession in paragraph three ·
+verified: verbatim via HN Algolia API, fetched 2026-09-07, 06:44:37Z`
 
 **Harvest the third paragraph.** It walks from *cannot be trusted* to *that's
 useful* without prompting. Their own concession, quoted, does more work than a
@@ -98,7 +130,7 @@ rebuttal, and it means the conceding has already been done for you.
 
 ### 2026-09-07 · the good question, same account, same thread
 
-`url: NEEDS-PERMALINK`
+https://news.ycombinator.com/item?id=49594705
 
 > My genuine question is:
 >
@@ -114,7 +146,8 @@ rebuttal, and it means the conceding has already been done for you.
 > knowledge from code.
 
 `kind: NOT a cliche — filed here to keep the account's material together ·
-form: answerable question, correctly reasoned`
+form: answerable question, correctly reasoned · verified: verbatim via HN
+Algolia API, 06:38:34Z — six minutes BEFORE the cliché comment`
 
 **This is the one worth answering.** "The prompt that got me there expired" is
 accurate and is a design principle rather than an objection to one. Throwing
