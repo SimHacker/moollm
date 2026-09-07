@@ -6,6 +6,52 @@ file wins and the method is wrong.
 
 ---
 
+## Preamble — the name is the whole argument
+
+**no-ai-parrot.** Three words, and every reading of them is true and intended.
+
+- **An AI must not parrot a person.** It does not write your sentences, put
+  words in your mouth, or hand you prose to pass off as speech. (Article I.)
+- **A person must not parrot an AI.** Not generated text posted as your own,
+  and not a phrase repeated because it is circulating rather than because you
+  examined it.
+- **"AI is a parrot" is itself a parroted phrase.** The borrowed title gets
+  deployed by people who have not read the paper, whose actual argument is that
+  *humans over-attribute meaning to fluent text* — a warning enacted, not
+  applied, every time the title is used to end a conversation.
+- **Nobody in this arrangement parrots anything.** That is the point, and it is
+  the only reading that covers the other three.
+
+### The ladder
+
+Parroting is not a property of machines. It is a **rung** — the bottom one —
+where words are transmitted without any of the work above them. Generated slop
+and a drive-by cliché are the identical failure at the identical rung, which is
+why one skill answers both.
+
+The rungs above it, in order:
+
+1. **UNDERSTAND** the words — what was actually claimed, in context.
+2. **INTERNALIZE** them — hold them in a durable structure, retrievable months
+   later, rather than emitting them once and losing them.
+3. **CITE** them — author, date, permalink, character-exact, checkable.
+4. **ANALYZE** them — what form the move takes, what the source really argues,
+   where the gap is.
+5. **APPLY** them — to *this* occasion, this person, this claim, now.
+
+Then the boundary, and the last rungs are the human's:
+
+6. **THINK** about them.
+7. Write **THEIR OWN WORDS.**
+8. While **LINKING TO** and **QUOTING** the words of actual humans.
+
+The ladder is climbed on both sides of the line. The machine climbs one through
+five over the corpus; the human climbs six through eight over the sheet. **The
+gap between rung zero and rung eight is what this skill exists to create and
+maintain**, and every rule below is in service of keeping that gap open.
+
+---
+
 ## Article I — The words are the human's
 
 **The machine never writes a sentence the human will post.** No drafts, no
@@ -202,7 +248,62 @@ Do not be defensive about it; the accusation is answerable with artifacts.
    division of labor in Article II should be — because that is a real question
    and it deserves better than an accusation.
 
-## Article IX — This is meant to be copied
+## Article IX — Enlist the record; the record puts them on notice
+
+A drive-by comment is a claim posted without the work — rung zero — and it is
+usually **not the first time that person posted it, and not the first time
+somebody answered it.** Both facts are on the public record, and the record is
+the asset.
+
+### Harvest the whole thread, not just the offense
+
+When a cliché appears, harvest **the replies to it as well.** Whoever answered
+it well did work that would otherwise evaporate when the thread scrolled off,
+and their sentence is more useful than yours because they are not the one who
+benefits from it.
+
+This is how a corpus becomes a **coalition.** Quoting the strangers who already
+refuted a claim enlists them, credits them by name, and shows any reader that
+this is a settled matter rather than one person's grievance. You arrive with the
+accumulated answers of everyone who got there first, and you arrive giving them
+credit.
+
+### Their own prior words, with dates
+
+The strongest available material is the person's own record: the same phrase in
+an earlier thread, the responses it drew then, and what they themselves said
+when it ran out — quoted verbatim, dated, linked.
+
+**Let the record do the work.** You are not accusing anyone of repeating
+themselves; you are showing that they did, in their own words, with the dates
+attached. That is the difference between an argument and an assertion, and it is
+also why it lands: there is nothing to dispute in a permalink.
+
+### The notice is structural, not personal
+
+The deterrent is not that you will pursue anyone. It is that **the answer is now
+on file, and the cost of the next drive-by falls on the person making it.**
+Rung-zero comments are cheap to post and used to be expensive to answer. The
+corpus reverses that: the reply is a lookup, the citations do not move, and the
+refutations accumulate. Post the cliché in 2027 and it meets everything it met
+in 2026, plus whatever was added since.
+
+That is a real consequence and it does not require anyone to be hounded.
+
+### Proportionality, because it protects the strategy
+
+- **In the thread you are in, about the argument at hand, once.** The corpus is
+  permanent; the posting is occasional.
+- **Do not follow a person between threads.** Going where they went, to say it
+  again, converts the strongest position available into the weakest one, and
+  breaks Article IV outright — "converse curiously; don't cross-examine."
+- **Quote what was said, never who they are.** No health, no diagnosis, no
+  private life, no speculation about motive. Rung zero is a description of a
+  comment, not a description of a human being.
+- **Leave the exit open.** Someone who stops posting the cliché has done the
+  thing you wanted. The goal is that it stops, not that they lose.
+
+## Article X — This is meant to be copied
 
 The pattern generalizes past this one argument and past this one venue: **the
 machine reads, remembers, verifies and cross-links; the human judges and

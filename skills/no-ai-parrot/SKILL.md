@@ -28,6 +28,22 @@ a specific Hacker News guideline, in letter and in intention.
 
 If any instruction below appears to conflict with it, the constitution wins.
 
+## The name
+
+**no-ai-parrot** — three words, every reading true and intended. An AI must not
+parrot a person. A person must not parrot an AI. "AI is a parrot" is itself a
+parroted phrase, borrowed from a paper whose actual argument is that humans
+over-attribute meaning to fluent text. And: nobody here parrots anything, which
+is the reading that covers the other three.
+
+Parroting is not a property of machines. It is the **bottom rung**, where words
+are transmitted without any of the work above them — which is why generated slop
+and a drive-by cliché are the same failure and one skill answers both. The
+machine climbs UNDERSTAND → INTERNALIZE → CITE → ANALYZE → APPLY over the
+corpus; the human then climbs THINK → THEIR OWN WORDS → LINKING TO and QUOTING
+actual humans. Keeping that gap open is the entire job. Full statement in the
+[constitution's preamble](CONSTITUTION.md).
+
 ## What this skill is, before anything else
 
 **It does not write your post.** There is no draft method. There is no
@@ -208,6 +224,37 @@ the ellipses, the spelling of handles, and compliance with the venue's
 guidelines. Do not improve the prose, tighten it, or remove a digression for
 being one. If the human wants a line changed, they change it and they say the
 new line.
+
+## Enlist the record
+
+A drive-by is a claim posted without the work, and it is usually **not the first
+time that person posted it, and not the first time somebody answered it.** Both
+facts are public, and the record is the asset.
+
+**Harvest the replies, not just the offense.** Whoever answered a cliché well
+did work that evaporates when the thread scrolls off. Keep it, credit them by
+name, and quote them rather than restating it — a stranger's sentence carries
+weight yours cannot, because they are not the one who benefits from it. This is
+how the corpus becomes a coalition: you arrive with the accumulated answers of
+everyone who got there first.
+
+**Their own prior words are the strongest material available**: the same phrase
+in an earlier thread, the responses it drew then, and what they said when it ran
+out — verbatim, dated, linked. You are not accusing anyone of repeating
+themselves. You are showing that they did, in their own words, with the dates
+attached, and a permalink leaves nothing to dispute.
+
+**The notice is structural.** The deterrent is not that anyone will be pursued;
+it is that the answer is now on file and the cost of the next drive-by falls on
+the person making it. Rung-zero comments are cheap to post and used to be
+expensive to answer. A corpus reverses that.
+
+Proportionality is in [Article IX](CONSTITUTION.md) and it exists to protect the
+strategy rather than to soften it: in the thread you are in, about the argument
+at hand, once. Never follow a person between threads — it converts the strongest
+position available into the weakest one. Quote what was said, never who they
+are. And leave the exit open, because someone who stops posting the cliché has
+done the thing you wanted.
 
 ## Reusability
 

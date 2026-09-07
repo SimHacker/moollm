@@ -87,6 +87,32 @@ methods:
       pull an exchange out of your own session transcripts; the HN Algolia API can
       pull it from the source.
 
+  HARVEST-THE-THREAD:
+    description: "When a cliché appears, harvest the replies to it as well — not just the offense"
+    args: { thread: "url or pasted thread" }
+    returns: "The cliché, plus every substantive answer to it, each attributed"
+    why: |
+      Whoever answered it well did work that evaporates when the thread scrolls
+      off. Their sentence is more useful than yours because they are not the one
+      who benefits from it. This is how a corpus becomes a coalition: you arrive
+      with the accumulated answers of everyone who got there first, crediting
+      them by name. (CONSTITUTION.md Article IX.)
+
+  ENLIST-THE-RECORD:
+    description: "Assemble a person's own prior instances and the responses those drew, dated"
+    args: { author: "handle", phrase: "the recurring cliché" }
+    returns: "Chronology of verbatim instances and verbatim replies, with permalinks"
+    the_point: |
+      Let the record do the work. You are not accusing anyone of repeating
+      themselves; you are showing that they did, in their own words, with dates.
+      The deterrent is structural — the answer is on file, so the cost of the
+      next drive-by falls on the person making it.
+    proportionality:
+      - "In the thread you are in, about the argument at hand, once"
+      - "Never follow a person between threads — that breaks Article IV and forfeits the position"
+      - "Quote what was said, never who they are"
+      - "Leave the exit open; someone who stops has done the thing you wanted"
+
   PROMPT-THE-HUMAN:
     description: "The last act. Ask the questions that make the human articulate their own view."
     args: { sheet: "the assembled quote sheet" }
