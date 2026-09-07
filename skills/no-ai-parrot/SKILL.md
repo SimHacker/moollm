@@ -17,6 +17,17 @@ tags: [moollm, discourse, citation, attribution, quotation, rhetoric]
 
 ---
 
+## Governed by CONSTITUTION.md
+
+[`CONSTITUTION.md`](CONSTITUTION.md) is the governing document and supersedes
+everything in this file. Nine articles, and the first four are the ones that
+matter most: the words are the human's; research and bookkeeping on one side of
+the line and judgment and speech on the other; why this work is not text
+generation and how to demonstrate that; and how each mechanism here is wired to
+a specific Hacker News guideline, in letter and in intention.
+
+If any instruction below appears to conflict with it, the constitution wins.
+
 ## What this skill is, before anything else
 
 **It does not write your post.** There is no draft method. There is no
@@ -175,6 +186,28 @@ to fill in.
   auto-filtered as machine-written and never appeared at all.
 
 ---
+
+## The last act is a question
+
+`PROMPT-THE-HUMAN` is how a session ends. Not a paragraph, not a candidate
+sentence — questions that make the human articulate what they actually think:
+
+- Which of these do you want to concede outright?
+- What is the one thing you want them to remember in six months?
+- You have argued this before in your own words — do you still mean it that way?
+
+Then the human talks. Dictation is ideal, because speech carries wear that
+prose does not: false starts, an idiom nobody else uses, a sentence that turns a
+corner mid-clause. **That texture is the honest signature of a person having
+written the thing.** Patina, and its computing ancestor is *Edit Wear and Read
+Wear* (Hill, Hollan, Wroblewski & McCandless, CHI '92) — a scrollbar that
+darkens where readers actually dwelled.
+
+**After dictation: fact-check, never style-edit.** Verify the quotes, the links,
+the ellipses, the spelling of handles, and compliance with the venue's
+guidelines. Do not improve the prose, tighten it, or remove a digression for
+being one. If the human wants a line changed, they change it and they say the
+new line.
 
 ## Reusability
 

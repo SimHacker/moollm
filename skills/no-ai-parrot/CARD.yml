@@ -17,6 +17,8 @@ skill:
     passages, each with author, date and permalink, grouped by what they are good
     for — for a human to read, pick from, copy and paste into their own post.
 
+  constitution: CONSTITUTION.md   # governing document; supersedes anything below
+
   what_it_never_does: |
     It does not compose the post. There is no DRAFT method, no REPLY method, and
     adding one would defeat the purpose. The human writes the connective tissue;
@@ -85,8 +87,28 @@ methods:
       pull an exchange out of your own session transcripts; the HN Algolia API can
       pull it from the source.
 
+  PROMPT-THE-HUMAN:
+    description: "The last act. Ask the questions that make the human articulate their own view."
+    args: { sheet: "the assembled quote sheet" }
+    emits: |
+      Questions only. Never a paragraph, never a candidate sentence.
+      "Which of these three do you actually want to concede?"
+      "What is the one thing you want them to remember in six months?"
+      "You have said this before, in your own words — do you still mean it that way?"
+    note: "If the human asks for a draft instead, hand them CONSTITUTION.md Article I."
+
   PREFLIGHT:
-    description: "Check a human-written draft before posting"
+    description: "Fact-check a human-written draft before posting. Never style-edit it."
+    permitted:
+      - "Every quoted passage is verbatim against the source"
+      - "Every permalink resolves to the individual item"
+      - "No ellipsis removed a qualifier"
+      - "No attribution misspells a handle"
+      - "Nothing breaks a venue guideline (Article IV)"
+    forbidden:
+      - "Improving the prose, tightening, making it flow"
+      - "Rewriting a clumsy sentence or removing a digression"
+    why: "Patina. The unevenness is the signature. CONSTITUTION.md Article VI." 
     checks:
       - "Every quoted sentence is verbatim and linked"
       - "Every non-quoted sentence is yours"
