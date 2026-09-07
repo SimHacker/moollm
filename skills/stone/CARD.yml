@@ -1,0 +1,110 @@
+# CARD.yml — The Stone Card
+#
+# SNIFFABLE INTERFACE — see SKILL.md for the protocol,
+# and examples/STONE.md for the seed the protocol was read off.
+#
+# KEY INSIGHT: at one page, the page IS the design — not a summary of it.
+
+card:
+  id: stone
+  name: "The Stone Card"
+  type: [skill, meta, resolution-tier, prototype]
+  emoji: 🪨
+  tier: 1
+  rarity: rare
+  tagline: "If you only read one page, read this one."
+
+  description: |
+    The one-page tier of the semantic pyramid, and the discipline of
+    stopping there. A STONE puts a whole system on one dense legible page
+    and makes the relationships the star.
+
+    Named for Stone Librande, whose GDC one-page designs (Diablo III,
+    Spore, The Simpsons) it imitates by being one. The pun is the point.
+
+  unusual: |
+    This skill is defined BY a concrete instance rather than by decree.
+    examples/STONE.md is simultaneously a STONE, the subject's tribute page,
+    and the prototype every other STONE clones. Improve the seed and every
+    clone inherits the improvement.
+
+files:
+  docs:
+    - GLANCE.yml            # this skill at a glance
+    - SKILL.md              # protocol, read off the seed
+  examples:
+    - examples/STONE.md     # THE SEED — read first; instance precedes class
+
+k-lines:
+  activates:
+    - STONE
+    - ONE-PAGE
+    - ONE-PAGE-DESIGN
+    - ARROWS                # the relationships block
+    - LADDER                # resolution tier selection
+  related:
+    - { ref: card, relation: "the tier below — CARD teases, STONE keeps" }
+    - { ref: prototype, relation: "how this skill is defined: clone the instance" }
+    - { ref: design-sense, relation: "judges whether the page earned its density" }
+    - { ref: moollm, relation: "the semantic pyramid this is a rung of" }
+
+invoke_when:
+  - "Distill a system, skill or person to a single page"
+  - "A README has sprawled and nobody reads past the top"
+  - "Deciding which resolution tier a document belongs at"
+  - "Making the relationships in a design visible instead of implied"
+  - "Auditing an existing page against the four properties"
+
+advertisements:
+
+  MAKE-STONE:
+    score: 95
+    condition: "A system is understood and needs one page that shows it"
+    see: "SKILL.md § Making one · clone examples/STONE.md"
+
+  CLONE-SEED:
+    score: 95
+    condition: "Making a STONE for a new subject — never start from blank"
+
+  RESCUE-A-README:
+    score: 90
+    condition: "Documentation sprawled and the relationships got buried in prose"
+
+  DRAW-ARROWS:
+    score: 85
+    condition: "Connections are mentioned in paragraphs but not shown"
+
+  PICK-A-TIER:
+    score: 80
+    condition: "Unsure whether this wants a GLANCE, a CARD, a STONE or a README"
+
+  AUDIT-PAGE:
+    score: 75
+    condition: "Checking a candidate page against the four properties"
+
+methods:
+  STONE:  { signature: "STONE [subject]", note: "clone the seed, swap the subject, keep the four properties" }
+  CLONE:  { signature: "CLONE [seed] FOR [subject]" }
+  AUDIT:  { signature: "AUDIT [file]", note: "returns which of the four properties fail" }
+  ARROWS: { signature: "ARROWS [subject]", note: "the relationships block alone" }
+  LADDER: { signature: "LADDER [file]", note: "recommends a resolution tier" }
+
+four_properties:
+  one_page:  "Denser than DESCRIPTION, shorter than README. Stopping is the work."
+  arrows:    "Relationships shown as structure, not narrated as prose."
+  earned:    "Drawn from real understanding; the arrows cannot be faked."
+  keeper:    "The one tier you would keep if you could keep only one."
+
+anti_patterns:
+  two_pages:        "A two-page STONE is a README with a haircut."
+  prose_arrows:     "'X influenced Y' in a sentence is not a relationships block."
+  summary_mindset:  "Summarizing a design you do not understand yields a legible lie."
+  decoration:       "Density must carry meaning; ornament must be earned."
+
+lineage:
+  - "Stone Librande — one-page designs (GDC)"
+  - "Will Wright — make the complex graspable without oversimplifying"
+  - "Chaim Gingold — reverse-diagram lineage"
+  - "Edward Tufte — information density as respect for the reader"
+
+representation: "Tribute / K-line, authored by Don Hopkins. Never impersonation."

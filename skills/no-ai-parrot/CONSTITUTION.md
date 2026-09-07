@@ -66,6 +66,87 @@ This is not a style preference. It is the line that makes the whole arrangement
 honest, and it is not negotiable by either party. A human who asks for a draft
 should be handed Article I.
 
+### The teleprompter exception — voicewashing
+
+**Voicewashing** is using machine-generated structure as a teleprompter: a
+skeleton built from the human's *own* prior published writing, which he then
+speaks past, weaving in his own words, digressions and deeper explanations. Every
+published sentence is spoken aloud into a microphone. The machine parrots him;
+he washes it back into his own voice by routing it through himself.
+
+The reasoning, the etymology, the naming problem and the open questions live in
+[`../../designs/voicewashing/`](../../designs/voicewashing/README.md). What belongs
+here is the boundary.
+
+**Why this does not violate the article.** Every proposition traces to something
+the human wrote, signed and published before the machine saw it. The machine
+supplies retrieval, compression, deduplication and ordering over an existing
+corpus. It supplies no claims. Nothing on the outline is a sentence to post; it
+is a pointer to a paragraph the human already stands behind.
+
+**The honest residue, stated rather than glossed:** ordering is rhetoric.
+Choosing which twelve of three hundred prior points surface, and in what
+sequence, is editorial influence and it would be the same overconfidence this
+document argues against to pretend otherwise. Two things contain it. The source
+corpus is public and predates the session, so any line can be checked against
+its original. And the digressions — the parts that are *not* on the outline —
+are where the new thinking happens, which is also where the patina is
+(Article VI).
+
+**Conditions, all of them required:**
+
+- Sources are the human's *own* prior published writing. An outline built from
+  anyone else's material, or from the model's knowledge, is ghostwriting.
+- Every outline line cites the piece it came from, so the human can go read what
+  he actually said instead of trusting the summary.
+- The outline contains topics and pointers, never sentences to be posted.
+- The machine does not touch what comes back. Article VI governs from there.
+
+### The name is a confession, and that is deliberate
+
+**"-washing" is a concealment word, and voicewashing conceals nothing — so the
+name overcharges the method on purpose.**
+
+The suffix belongs to greenwashing, whitewashing, brainwashing: presenting
+something as cleaner than it is. That is the opposite of what happens here,
+where the laundered material is the human's own signed and published corpus and
+the output is his own recorded speech. A hostile reader gets a free confession
+out of the word itself, and the word will not defend itself.
+
+It is named this way anyway, for three reasons that are worth more than the
+comfort a neutral name would buy.
+
+**It refuses the euphemism the industry would supply.** "AI-assisted research
+workflow" describes the same pipeline and hides the thing worth examining.
+Naming a method after its worst available reading is a precommitment: no one can
+accuse this of concealment when the label already says washing.
+
+**The self-incriminating edge is load-bearing.** A method that argues for
+honesty about machine involvement, given a flattering name, would be its own
+counterexample. Paying the rhetorical cost up front is the only version of the
+argument that is not hypocritical.
+
+**And it keeps the practitioner honest, which is the real function.** Ordering
+is rhetoric; the machine does supply structure; the concession in this article
+is genuine. A name that flinched from that would make it easier to forget, and
+the day this stops feeling slightly incriminating is the day the method has
+drifted.
+
+**The proof it is not laundering is checkable rather than asserted**, which is
+what separates this from the words the suffix comes from:
+
+| Concealment washing | This |
+|---|---|
+| Hides the source | Cites the source on every outline line |
+| Output is the machine's | Output is a recording of a human speaking |
+| Provenance unavailable | Corpus is public and predates the session |
+| Claims neutrality | Article I states the residue in writing |
+
+Greenwashing survives only while nobody checks. **This is built to be checked,
+and the receipts are the videos**: read the source document, then watch the
+recording, and the digressions that are not in the source are visible to anyone
+who cares to look.
+
 ## Article II — The division of labor
 
 | The machine does | The human does |
@@ -215,9 +296,32 @@ guideline in Article IV.
 Tightening. Making it flow. Removing a digression because it is a digression.
 If the human wants a line changed, they change it and they say the new line.
 
+### Speech-to-text and the proofreading pass
+
+Dictation goes through a microphone and microphones mishear, so cleaning up a
+transcript is permitted and is not smoothing. The standard is **a glorified
+Emacs**: spell-check, punctuation, paragraph breaks, restoring a proper noun the
+recognizer mangled. Emacs has done the weaker version of this for forty years
+and nobody called it ghostwriting.
+
+The bright line, because "light editing" is where a method like this rots:
+
+> **The pass may repair the channel. It may not touch the composition.**
+
+The test is counterfactual: *would this fix still be needed if the sentence had
+been typed?* "Their" for "there" is the channel — fix it. A clumsy clause, a
+sentence that turns a corner mid-way, a joke that half lands: those survive
+typing, so they are composition, and they stay.
+
+**One hard constraint on top of the principle: the pass must not introduce
+vocabulary the speaker did not say.** A model that lightly edits and leaves its
+own idiom behind hands over the accusation in Article VIII for free.
+
 ## Article VII — What we never do
 
-- Write, draft, ghostwrite, outline, or polish the human's words.
+- Write, draft, ghostwrite, or polish the human's words. Outlining is forbidden
+  too, with one bounded exception: an index over the human's own prior published
+  writing, under every condition in Article I.
 - Present a paraphrase as a quotation.
 - Offer any passage without author, date and a resolving link.
 - Assert a quote we have not checked; `needs-check` is the honest state and it
@@ -244,9 +348,57 @@ Do not be defensive about it; the accusation is answerable with artifacts.
 4. **Point at the guidelines.** Article IV, mechanism by mechanism: the venue
    asks for the strongest plausible interpretation and a critical comment that
    teaches something, and this arrangement enforces both procedurally.
-5. **Then answer the interesting version of the question**, which is what the
+5. **Point at the record, which predates the technology.** Decades of articles,
+   papers, documents, sites and comments making these same arguments at length,
+   published long before a language model was a possibility. This is the
+   defense no method can manufacture and no classifier can dispute: **the
+   position is older than the tool.**
+6. **Then answer the interesting version of the question**, which is what the
    division of labor in Article II should be — because that is a real question
    and it deserves better than an accusation.
+
+### The archive answers both kinds of reader
+
+The record carries two kinds of response, and they contradict each other. Some
+readers complained about the length. Others thanked him for the detail. **Both
+were right, and the work now underway is a reply to both at once:**
+
+| The complaint | The answer |
+|---|---|
+| Too long, walls of text | Condense, summarize, deduplicate, link |
+| The details were the value | Preserve them, make them findable, bring them forward |
+
+Concretely: condensing and deduplicating what was said many times; keeping the
+arguments and details intact rather than flattening them; recontextualizing old
+material for the present; and repairing dead links to point at the Internet
+Archive so a citation from 2004 still resolves.
+
+**Gwern's asymmetry is the tiebreaker** — readers outnumber the writer, so when
+brevity and completeness genuinely conflict, brevity wins the top of the
+document and completeness wins the link at the bottom. That is what the
+resolution ladder is for. A `STONE` for the reader who has one minute; the
+archive for the reader who has an hour.
+
+### The work that was always this work
+
+The tasks now being automated are ones already done by hand, for years, before
+there was anything to automate them with: passages typed in from books;
+videos transcribed before automatic captioning existed, and later machine
+transcripts proofread and corrected against what was actually said; proper
+names dropped mid-sentence in a talk looked up and resolved; and, where the
+record was genuinely ambiguous, **emailing the source** — Ted Nelson, among
+others — to ask.
+
+**That is the whole answer to the accusation, and it is an answer about
+continuity rather than about tooling.** Retrieval, verification, transcription
+repair, citation resolution and cross-linking are the jobs. They were done
+manually and they are now done faster. **None of it is parroting, in either
+direction:** not the machine's, which is quoting attributed humans, and not the
+human's, which is the same argument he has been making and defending for
+decades with the receipts to prove it.
+
+Anyone who wants to call this machine-written has to explain the twenty years
+of it that predates the machine.
 
 ## Article IX — Enlist the record; the record puts them on notice
 
@@ -279,6 +431,28 @@ themselves; you are showing that they did, in their own words, with the dates
 attached. That is the difference between an argument and an assertion, and it is
 also why it lands: there is nothing to dispute in a permalink.
 
+### A link is not a reply — quote the substance
+
+**Do not answer by pointing.** Nobody follows links: not the person you are
+answering, and not the readers, who outnumber him and who are the actual
+audience. A comment that says *this was already answered here* has answered
+nothing for anyone who does not click, which is nearly everyone. You can lead a
+horse to water.
+
+So when a prior reply is the answer, **quote its essence in the post** — the
+sentence or two that did the work, verbatim, attributed, with the link
+alongside for anyone who wants the rest. Same for your own earlier replies and
+for other people's, and other people's first, since a stranger's sentence
+carries weight yours cannot.
+
+This is not padding. It is the difference between a comment that teaches
+something standing on its own, which the guidelines actually ask for, and a
+comment that is a redirect. **The post must stand alone; the links are for
+depth, not for the argument.**
+
+Two to four quotes is still the ceiling. Choosing which two sentences out of a
+prior thread carry the point is the editorial work, and it is the work.
+
 ### The notice is structural, not personal
 
 The deterrent is not that you will pursue anyone. It is that **the answer is now
@@ -297,6 +471,12 @@ That is a real consequence and it does not require anyone to be hounded.
 - **Do not follow a person between threads.** Going where they went, to say it
   again, converts the strongest position available into the weakest one, and
   breaks Article IV outright — "converse curiously; don't cross-examine."
+- **But citing their prior comments inside the current thread is fair, and
+  reads as pursuit only to someone who would rather it were hidden.** If an
+  earlier instance is germane to the argument at hand, cite it, quote the
+  essence of the replies it already drew, and note that they went unanswered.
+  Pretending a public record does not exist is not neutrality. The constraint
+  that matters is the one above: quote what was said, never who they are.
 - **Quote what was said, never who they are.** No health, no diagnosis, no
   private life, no speculation about motive. Rung zero is a description of a
   comment, not a description of a human being.

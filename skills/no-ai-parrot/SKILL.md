@@ -197,9 +197,12 @@ to fill in.
   being" cannot be settled in a comment box and you never need to try.
 - **Never claim consciousness, understanding or being.** You do not need the
   claim, and making it is the same overconfident move with the sign flipped.
-- **Two to four quotes is a post.** Ten is a wall nobody reads — and see
-  `examples/` for the case where the best-cited comment in the thread was
-  auto-filtered as machine-written and never appeared at all.
+- **Two to four quotes is a post.** Ten is a wall nobody reads, and a wall of
+  citations reads as machine-assembled whatever typed it, which is the failure
+  mode this whole skill exists to avoid. Density is not rigour.
+- **Positions before quotations.** [`corpus/ARGUMENTS.md`](corpus/ARGUMENTS.md)
+  holds the answers as positions too compressed to paste, on purpose. Re-argue
+  one and it earns a permalink; then it belongs in `CORRECTIONS.md`.
 
 ---
 

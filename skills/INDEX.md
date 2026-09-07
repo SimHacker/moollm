@@ -1,6 +1,6 @@
 # MOOLLM Skill Index
 
-> Version 2 | 129 skills | Updated 2026-03-24
+> Version 2 | 150 skills | Updated 2026-09-07
 
 Every **bold term** is a k-line AND a skill directory name in `skills/`, spelled exactly. No other use of bold in this file.
 

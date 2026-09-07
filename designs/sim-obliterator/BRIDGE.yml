@@ -107,16 +107,16 @@ auto_internationalizer:
 
 transmogrifier_modernization:
   context: >
-    Daniel Tupper offered to put TMOG through an LLM for modern code.
-    Don Hopkins (TMOG creator) wants the whole pipeline in the browser.
+    Daniel Tupper offered to put TMog through an LLM for modern code.
+    Don Hopkins (TMog creator) wants the whole pipeline in the browser.
   approach:
     - "SimObliterator's 60+ chunk parsers as ground truth"
     - "LLM-assisted Python→TypeScript translation"
     - "WASM for any C++ components"
-    - "Rug-O-Matic pattern: higher-level tools on TMOG primitives"
+    - "Rug-O-Matic pattern: higher-level tools on TMog primitives"
   dons_python_code: >
     Don wrote Python code for Sims content (not EA property). Also built
-    Zope/Plone CMS and a TMOG server for on-demand web object creation.
+    Zope/Plone CMS and a TMog server for on-demand web object creation.
 
 related_links:
   simobliterator: https://github.com/DnfJeff/SimObliterator_Suite
@@ -129,7 +129,7 @@ related_links:
 
 people:
   don_hopkins:
-    role: "TMOG creator, character animation (VitaBoy), pie menus, MOOLLM"
+    role: "TMog creator, character animation (VitaBoy), pie menus, MOOLLM"
     can_help_with:
       - "SimAntics VM internals (wrote the VM design doc)"
       - "Character animation system (wrote VitaBoy)"

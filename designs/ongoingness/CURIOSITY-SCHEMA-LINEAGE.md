@@ -1,5 +1,13 @@
 # Curiosity, Schemas, and the Lineage: Piaget → Papert → Minsky → Drescher → Leela AI
 
+**This is the constructive line — how the machinery fits together.** For the
+argument about the neuro/symbolic *divide* — what *Perceptrons* actually proved,
+what Cyc actually taught, the bitter lesson stated fairly, and why Minsky's
+objection to perceptrons and his objection to unified theories are the same
+objection — see [`../NEURO-SYMBOLIC.md`](../NEURO-SYMBOLIC.md). The general
+form, covering worse-is-better and neats-versus-scruffies too, is
+[`../AXES-NOT-CAMPS.md`](../AXES-NOT-CAMPS.md).
+
 ## The correction
 
 "You don't program curiosity" is too glib. Programming curiosity is exactly

@@ -22,6 +22,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | Document | Sims Concept | MOOLLM Application |
 |----------|--------------|-------------------|
 | [sims-will-wright-microworlds-1996.md](./sims-will-wright-microworlds-1996.md) | Will Wright's Stanford lecture | Toys vs games, distributed AI, Trurl's vision |
+| [MEDIUM-RESCUE.md](./MEDIUM-RESCUE.md) | Getting the writing off Medium | Article layers 1996/2000/2023, Wayback archaeology, Edith |
 | [sims-maxis-requirements.md](./sims-maxis-requirements.md) | Seven Points of Sim | Core design principles |
 | [sims-happy-friends-home.md](./sims-happy-friends-home.md) | Project X proposal | Three Pillars, plug-ins |
 | [sims-find-best-action.md](./sims-find-best-action.md) | Autonomy algorithm | Action queue, advertisements |

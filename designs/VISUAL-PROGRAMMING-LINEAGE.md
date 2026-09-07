@@ -65,6 +65,13 @@ At Interval Research Corporation (Paul Allen's "PARC for the 90s"),
 several threads converged:
 
 **Hookup → Body Electric → Bounce** (David Levitt)
+
+One continuous dataflow language across three decades and three industries —
+MIDI, then virtual reality, then components — carried by the same designer. **The
+most direct answer in this file to the claim that visual programming never
+shipped anything real:** Body Electric drove commercial VR systems, live, on
+stage.
+
 - Hookup: Atari Cambridge/MIT Media Lab era, MIDI visual programming
 - Body Electric: VPL Research, inherited MMP (Macromedia Director player)
 - VR integration: Flock of Birds, Polhemus, DataGlove, Convolvotron
@@ -74,7 +81,24 @@ several threads converged:
 - Bounce: David's post-VPL version at Levity, Don Hopkins did UI
 - COM/ActiveX integration: new wire types for JSON-like nested data
 - Solved six-input-limit with polymorphic dictionary objects
-- Lessons: pure data flow unwieldy for complex state (COM objects helped)
+- Don ported Bounce to PowerPC Mac and built a cross-platform plug-in
+  architecture on COM, porting the ActiveX Template Library to the Mac to do it
+
+**The lesson is the one worth carrying forward, because it is a negative
+result stated by the people who built the thing:** *pure* dataflow becomes
+unwieldy once complex state is involved, and the fix was to let opaque
+objects — COM components — sit inside the graph and hold state, with richer wire
+types to carry nested data between them.
+
+That is the same shape as the resolution in
+[AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md): not one mechanism winning, but a
+visual layer for the connections and a symbolic layer for the state, each doing
+what it is good at. A patch graph is a beautiful way to express *flow* and a bad
+way to express *memory*.
+
+Note also the pairing with Lanier's augmentation/automation axis — the same
+Jaron Lanier, performing music with a dataflow language, is the person whose
+review supplies that axis. The instrument was augmentation, literally.
 
 **MediaFlow** (Marc Davis)
 - Visual programming for video processing
@@ -97,10 +121,57 @@ Key insight from Richard Gabriel's *Patterns of Software*:
 
 ### 1996-2000: The Sims Era
 
-**SimAntics** (Maxis/EA)
+**SimAntics** (Maxis/EA) — the visual programming language the characters run on.
+The name is a pun on *semantics*, and it is the most widely deployed visual
+programming language in this whole lineage: it shipped inside a game that sold
+in the tens of millions, and players edited it.
+
 - Character simulation visual programming language
 - Simple local rules → complex global behavior
 - Players as authors, not just consumers
+
+**It did not start with The Sims — it came from SimCopter, and that matters for
+this document.** SimAntics is a link in a chain rather than a one-off:
+
+> "Edith lets you view and edit SimAntics code, which is the visual programming
+> language for scripting the behavior of The Sims. […] The SymAntics [sic]
+> language was used to program the people in SimCopter, and Edith evolved out of
+> that."
+> — Don Hopkins, SimWatch list, 2000-08-26
+
+`verified: recovered primary source; text and provenance in
+[sims/MEDIUM-RESCUE.md](./sims/MEDIUM-RESCUE.md). The email uses the early
+"SymAntics" variant; the established spelling is SimAntics.`
+
+So the sequence is **SimCopter people → SimAntics → The Sims**, with the editor
+evolving alongside the language rather than being bolted on after.
+
+**Edith** — the editor, and the reason this belongs in a *lineage* rather than a
+catalogue. Named for Edith Bunker, the first mother Sim, and doubling as "EDIT
+House." It was compiled *into* The Sims rather than shipped alongside it, and
+the payoff is the property every environment-side language in this document is
+chasing:
+
+> "Edith has grown a lot and is much wiser, now that she's integrated into The
+> Sims instead of running as a separate program, so she is actually able to
+> **debug and edit code and data while it's running live in the game**."
+
+That is the Smalltalk image property, reached by a commercial game studio for
+production reasons. It also cost what liveness always costs: Edith was never
+publicly released, and the blocker was *documentation*. See
+[AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md) on the notation-side/environment-side
+trade this exemplifies.
+
+**Why that much effort for a language with four users.** Early on, SimAntics had
+Jamie Doornbos writing it, Don porting it to Windows and making it easier to
+use, Patrick J Barrett III using it heavily and making it "much more colorful,"
+and Will Wright as the only other user. The investment is not justified by user
+count — **it is justified by whose iteration cost you are lowering.** Wright is
+rare enough that making his loop faster changes what gets designed, so tooling
+spent on one designer's throughput can return more than tooling spread across
+thousands. This is the strongest case in this whole file for visual programming
+as a *leverage* technology rather than a mass-adoption one, and it is the
+opposite of how the field usually argues for it.
 
 Will Wright's progression:
 - SimAnt: Too simple
@@ -116,7 +187,8 @@ Don's contributions:
 
 **User-Created Content Tools** (Don Hopkins, Maxis/EA)
 - SimShow: Pre-release tool for character skins — fans hit ground running
-- Transmogrifier: OLE component for custom objects without 3D Studio
+- Transmogrifier (TMog): OLE component for custom objects without 3D Studio
+  — <https://thesimstransmogrifier.com/>
 - rug-o-matic: Template + drag-drop = storytelling "rugs" (title+description+image)
 - Fan communities (Yahoo Groups, personal blogs) = social currency economy
 - Heather "SimFreaks" + Steve "SimSlice" met in fandom, got married!

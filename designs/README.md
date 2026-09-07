@@ -230,6 +230,15 @@ How MOOLLM builds on Anthropic's skill model as its compatibility ABI and extend
 |----------|--------|
 | [simcity-multiplayer-micropolis.md](./sims/simcity-multiplayer-micropolis.md) | SimCityNet, OLPC, Sugar, What-If branching |
 
+### Dichotomies, and the Architecture Underneath Them
+
+| Document | Description |
+|----------|-------------|
+| [AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md) | Right-thing/worse-is-better, neat/scruffy, augmentation/automation, direct-manipulation/agents, language/environment — real axes, fake tribes. Two assign the coasts to *opposite* poles; one has both poles on the same coast. Includes the Shneiderman/Maes rematch, and how Wright shipped the synthesis first |
+| [NEURO-SYMBOLIC.md](./NEURO-SYMBOLIC.md) | Symbols against networks: what *Perceptrons* actually proved, what Cyc actually taught, Sutton's bitter lesson answered honestly, and where this repo stands |
+| [RULES-INJECTION-CONUNDRUM.md](./RULES-INJECTION-CONUNDRUM.md) | What reaches the prompt, what it costs, bear traps in other people's repos, and why skills beat rules files |
+| [NOISY-CHANNEL.md](./NOISY-CHANNEL.md) | Alan Kay praising Shannon's noisy-channel theorem while a nine-layer feedback loop garbles him. Noise degrades, priors invent, policy censors — and only the first is channel repair |
+
 ### Project Lineage
 
 | Document | Description |
@@ -265,7 +274,7 @@ These document specific development sessions and feature additions:
 | Document | Description |
 |----------|-------------|
 | [kilroy-ideas.md](./kilroy-ideas.md) | Synergy with Chuck Shotton's Kilroy project |
-| [chuck-shotton-chat.txt](./chuck-shotton-chat.txt) | Raw conversation transcript |
+| [chuck-shotton-chat.txt](./raw-chats/chuck-shotton-chat.txt) | Raw conversation transcript |
 | [mike-gallaher-ideas.md](./mike-gallaher-ideas.md) | Ideas from Mike Gallaher correspondence |
 | [letter-to-scott-adams.md](./email/letter-to-scott-adams.md) | Letter to Scott Adams (Adventure International / adventure game pioneer) |
 | [sunny-street-outreach.md](./email/sunny-street-outreach.md) | Sungman Cho / Sunny Street — readable sim, pie menus, git/GitHub, constructionist agenda |
@@ -275,8 +284,8 @@ These document specific development sessions and feature additions:
 | Document | Description |
 |----------|-------------|
 | [constitution-design-summary.md](./constitution-design-summary.md) | Constitution evolution summary |
-| [constitution-design.txt](./constitution-design.txt) | Raw constitution notes |
-| [moollm-design.txt](./moollm-design.txt) | Original design scratchpad |
+| [constitution-design.txt](./raw-chats/constitution-design.txt) | Raw constitution notes |
+| [moollm-design.txt](./raw-chats/moollm-design.txt) | Original design scratchpad |
 
 ---
 

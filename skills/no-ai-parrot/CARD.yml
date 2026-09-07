@@ -173,7 +173,17 @@ the_catalog:
     heard_as: "It's just a next token predictor"
     concede_first: "The training objective genuinely is next-token prediction."
     the_gap: "Naming an objective says nothing about what the optimization produces."
+    the_mechanism: "Prediction under constraint is compression, and compression forces structure. Emergent capability is not a side effect of predicting well — it is a technique for it."
     quotable_reversal: "Shannon 1951 — human subjects guessing the next letter of English to measure entropy. See corpus/CANON.md."
+    counter_metaphor: "MacKay's Dasher — the same prediction as a human-steered prosthesis. 'Writing is navigation in the library of all possible books.' See corpus/CANON.md."
+
+  answer_shaped_string:
+    heard_as: "It just extrapolates the statistically most likely answer-shaped string"
+    concede_first: "Vivid, and the sharpest phrasing in the family. Say so."
+    the_gap: "It describes the output format and is silent about the path taken to it."
+    the_move: "Shaped by what path? Computation performed, cases split, sources checked, tools composed, iteration against real feedback — none of those results were known in advance."
+    the_test: "Paths are inspectable, so inspect one. Either it is indistinguishable from a human's, or it is distinguishable because it checked more."
+    see: "corpus/ARGUMENTS.md"
 
   stochastic_parrot:
     heard_as: "It's a stochastic parrot"
@@ -214,10 +224,11 @@ house_rules:
 files:
   GLANCE.yml: "Five-line orientation and the hard rule"
   SKILL.md: "Harvest protocol, the good-answer patterns, what each source actually says"
-  corpus/CLICHES.md: "Harvested instances, attributed"
+  corpus/PHRASES.md: "The phrase family and the considered defenses of it"
   corpus/CORRECTIONS.md: "Good human answers, attributed, including your own"
   corpus/CANON.md: "Standing citations with the quotable passages"
-  examples/hypfer-2026.md: "Founding harvest and what it taught about length"
+  corpus/ARGUMENTS.md: "Positions too compressed to paste. Re-argue them; a good re-argument earns a permalink and moves to CORRECTIONS."
+  examples/educom-jobs.md: "Persuading a hostile skeptic by demonstration"
 
 related:
   no-ai-slop: "The claim ledger — CONFIRM / DISPUTE / ASK. Conceding first is that rule applied to a cliché."

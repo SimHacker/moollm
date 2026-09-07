@@ -75,9 +75,10 @@ does_not:
   - "Fix anybody's typos, including in the clichés — [sic] or leave it"
 
 corpus:
-  corpus/CLICHES.md: "Harvested instances, attributed and dated. What was actually said, verbatim."
+  corpus/PHRASES.md: "The phrase family, its provenance, and the considered defenses of it."
   corpus/CORRECTIONS.md: "Good human answers, attributed. Other people's and your own."
   corpus/CANON.md: "The standing human corrections with full citations — Shannon 1951, Lifton 1961, Weizenbaum 1966, Minsky 1982, Turing 1950 quoting Jefferson 1949, Dijkstra EWD 898."
+  corpus/ARGUMENTS.md: "Positions, not prose. Deliberately unpastable: objectives are not ontologies, compression is the mechanism, and the answer-shaped-string reply — look at the path."
 
 the_test: |
   Before you paste: is every quoted sentence someone's actual sentence, linked?
@@ -92,7 +93,13 @@ core_insight: |
 go_deeper:
   CARD.yml: "Methods, attribution schema, quote-sheet format"
   SKILL.md: "Harvest protocol, what each parroted paper actually argues, the good-answer patterns"
-  examples/: "Founding harvest — one account, one cliché, two venues, seventeen days"
+  examples/: "Worked cases — persuading a hostile skeptic by demonstration"
+
+privacy: |
+  Per-person instance files, dated chronologies and thread-level analysis are
+  kept OUT of this public repository. The published skill is the method plus
+  credited quotations; the case files live privately. An idea should stand on
+  its own rather than on somebody's posting history.
 
 lineage: [Lifton, Shannon, Minsky, Turing, Weizenbaum]
 related: [no-ai-slop, no-ai-humansplaining, no-ai-ideology, copy-that, cursor-mirror]

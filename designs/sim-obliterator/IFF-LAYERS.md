@@ -117,7 +117,7 @@ instructions:
 
 ### Layer 3: Semantic / Pretty-Printed
 
-Decoded fields interpreted into meaningful representations. This is where humans and LLMs **read and edit**. TMOG's XML layer, done right in YAML.
+Decoded fields interpreted into meaningful representations. This is where humans and LLMs **read and edit**. TMog's XML layer, done right in YAML.
 
 ```
 chair/
@@ -237,11 +237,11 @@ flowchart TD
 | **Lossy boundary** | L3→L2 loses comments. L5→L3 loses memories. Raw layers guarantee recovery. |
 | **Sloshing** | Edit at L3, see results in L0. Pull old L1 chunk to revert L3 edit. Independent but connected. |
 
-## What TMOG Got Right (and Wrong)
+## What TMog Got Right (and Wrong)
 
 [Transmogrifier](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) understood that modders need a human-editable intermediate between binary and the game. Its XML mapping was the right idea in 2000.
 
-| Aspect | TMOG (2000) | This Design (2026) |
+| Aspect | TMog (2000) | This Design (2026) |
 |--------|-------------|---------------------|
 | Intermediate format | XML | YAML |
 | Layer count | 1 (binary ↔ XML) | 6 (binary through narrative) |

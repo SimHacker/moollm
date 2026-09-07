@@ -218,9 +218,9 @@ These are cultural artifacts. Uplifting their characters gives those stories a s
 
 ## Transmogrifier Modernization
 
-[Transmogrifier](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) (TMOG) was the official Sims 1 content creation tool, written by Don Hopkins. It mapped IFF binary resources to XML for editing. Daniel Tupper has volunteered to help modernize it.
+[Transmogrifier](https://thesimstransmogrifier.com/) (TMog) was the official Sims 1 content creation tool, written by Don Hopkins. It mapped IFF binary resources to XML for editing. Daniel Tupper has volunteered to help modernize it.
 
-| Aspect | TMOG (2000) | Modern Target |
+| Aspect | TMog (2000) | Modern Target |
 |--------|------------|---------------|
 | Language | C++/COM | TypeScript / WASM |
 | Platform | Windows-only desktop | Browser-native |
@@ -232,9 +232,9 @@ Approach:
 1. Use SimObliterator's 60+ chunk parsers as ground truth
 2. LLM-assisted Python → TypeScript translation
 3. WASM compilation of any remaining C++ components
-4. Rug-O-Matic pattern: higher-level tools built on TMOG primitives
+4. Rug-O-Matic pattern: higher-level tools built on TMog primitives
 
-Don's existing Python code (not EA property): IFF reader/writer, [Zope](https://en.wikipedia.org/wiki/Zope)/[Plone](https://en.wikipedia.org/wiki/Plone_(software)) Sims CMS, TMOG-driven web server for on-demand object creation.
+Don's existing Python code (not EA property): IFF reader/writer, [Zope](https://en.wikipedia.org/wiki/Zope)/[Plone](https://en.wikipedia.org/wiki/Plone_(software)) Sims CMS, TMog-driven web server for on-demand object creation.
 
 ## Roadmap
 
@@ -326,11 +326,11 @@ flowchart TB
 
 ### Dynamic Object Generation
 
-[Transmogrifier](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) could create objects on demand via [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). Rug-O-Matic used this to make custom rugs. Don Hopkins built a web server that drove TMOG to create custom tombstones (name + eulogy + photo). The Adventure Compiler is this pattern generalized:
+[Transmogrifier](https://thesimstransmogrifier.com/) could create objects on demand via [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation). Rug-O-Matic used this to make custom rugs. Don Hopkins built a web server that drove TMog to create custom tombstones (name + eulogy + photo). The Adventure Compiler is this pattern generalized:
 
 | Precedent | What It Made | How |
 |-----------|-------------|-----|
-| Rug-O-Matic | Custom rugs (title + text + picture) | TMOG OLE Automation |
+| Rug-O-Matic | Custom rugs (title + text + picture) | TMog OLE Automation |
 | Don's tombstone module | Custom tombstones (name + eulogy + photo) | Simple Python: read/edit/write IFF template directly |
 | Slideshow objects | Pageable in-game books (any # of pages) | Insert SimAntics popup-paging code + images into IFF |
 | Adventure Compiler | **Any object from MOOLLM description** | SimObliterator IFF generation |
@@ -445,9 +445,9 @@ The [IFF Layers](IFF-LAYERS.md) pipeline:
 
 | Person | Role | Links |
 |--------|------|-------|
-| Don Hopkins | TMOG creator, VitaBoy, pie menus, MOOLLM | [moollm](https://github.com/SimHacker/moollm), [VitaBoy](https://donhopkins.com/home/VitaBoyUnity.zip), [VM Design](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) |
+| Don Hopkins | TMog creator, VitaBoy, pie menus, MOOLLM | [moollm](https://github.com/SimHacker/moollm), [VitaBoy](https://donhopkins.com/home/VitaBoyUnity.zip), [VM Design](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf) |
 | Jeff Adkins | SimObliterator creator, CTO Sims community | [SimObliterator](https://github.com/DnfJeff/SimObliterator_Suite) |
-| Daniel Tupper | TMOG modernization volunteer | — |
+| Daniel Tupper | TMog modernization volunteer | — |
 
 Jeff is asking for BHAV authoring expertise. Don wrote the [VM design document](https://donhopkins.com/home/TheSimsDesignDocuments/VMDesign.pdf). Natural collaboration.
 

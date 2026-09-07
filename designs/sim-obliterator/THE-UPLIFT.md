@@ -198,7 +198,7 @@ This is the Sims equivalent of the [MOOLLM Adventure Compiler](https://github.co
 The precedents:
 
 - **Rug-O-Matic** made custom rugs (title + text + picture) via Transmogrifier [OLE Automation](https://en.wikipedia.org/wiki/OLE_Automation)
-- **Don's tombstone module** made custom tombstones (name + eulogy + photo) via a simple Python module that read, edited, and wrote IFF template objects directly — not even TMOG. Just insert image and text into Sims IFF resources. Super simple, super powerful.
+- **Don's tombstone module** made custom tombstones (name + eulogy + photo) via a simple Python module that read, edited, and wrote IFF template objects directly — not even TMog. Just insert image and text into Sims IFF resources. Super simple, super powerful.
 
 The Adventure Compiler generalizes this: any MOOLLM object description compiles to a Sims IFF via SimObliterator's [bhav_authoring.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/bhav_authoring.py), [str_parser.py](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/Tools/core/str_parser.py), and sprite generation.
 

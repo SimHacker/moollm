@@ -1,0 +1,8405 @@
+1
+00:00:00,000 --> 00:00:03,070
+
+And I'm going to take you on a deep dive
+
+2
+00:00:03,070 --> 00:00:03,080
+And I'm going to take you on a deep dive
+ 
+
+3
+00:00:03,080 --> 00:00:05,270
+And I'm going to take you on a deep dive
+into the MOOM
+
+4
+00:00:05,270 --> 00:00:05,280
+into the MOOM
+ 
+
+5
+00:00:05,280 --> 00:00:08,630
+into the MOOM
+object system. MOOM to just give you an
+
+6
+00:00:08,630 --> 00:00:08,640
+object system. MOOM to just give you an
+ 
+
+7
+00:00:08,640 --> 00:00:10,310
+object system. MOOM to just give you an
+introduction
+
+8
+00:00:10,310 --> 00:00:10,320
+introduction
+ 
+
+9
+00:00:10,320 --> 00:00:11,470
+introduction
+is
+
+10
+00:00:11,470 --> 00:00:11,480
+is
+ 
+
+11
+00:00:11,480 --> 00:00:15,510
+is
+MOO for LLMs. And MOO is inspired by
+
+12
+00:00:15,510 --> 00:00:15,520
+MOO for LLMs. And MOO is inspired by
+ 
+
+13
+00:00:15,520 --> 00:00:18,230
+MOO for LLMs. And MOO is inspired by
+Pavel Curtis's LambdaMOO
+
+14
+00:00:18,230 --> 00:00:18,240
+Pavel Curtis's LambdaMOO
+ 
+
+15
+00:00:18,240 --> 00:00:21,510
+Pavel Curtis's LambdaMOO
+that he developed at Xerox PARC. And uh
+
+16
+00:00:21,510 --> 00:00:21,520
+that he developed at Xerox PARC. And uh
+ 
+
+17
+00:00:21,520 --> 00:00:23,830
+that he developed at Xerox PARC. And uh
+now there's a whole lot of designs here.
+
+18
+00:00:23,830 --> 00:00:23,840
+now there's a whole lot of designs here.
+ 
+
+19
+00:00:23,840 --> 00:00:25,270
+now there's a whole lot of designs here.
+And uh
+
+20
+00:00:25,270 --> 00:00:25,280
+And uh
+ 
+
+21
+00:00:25,280 --> 00:00:28,150
+And uh
+what we're going to dive into
+
+22
+00:00:28,150 --> 00:00:28,160
+what we're going to dive into
+ 
+
+23
+00:00:28,160 --> 00:00:32,990
+what we're going to dive into
+is the object directory.
+
+24
+00:00:32,990 --> 00:00:33,000
+is the object directory.
+ 
+
+25
+00:00:33,000 --> 00:00:35,270
+is the object directory.
+Object system. Okay.
+
+26
+00:00:35,270 --> 00:00:35,280
+Object system. Okay.
+ 
+
+27
+00:00:35,280 --> 00:00:36,750
+Object system. Okay.
+Now,
+
+28
+00:00:36,750 --> 00:00:36,760
+Now,
+ 
+
+29
+00:00:36,760 --> 00:00:39,310
+Now,
+MOOM inherits from a lot of different
+
+30
+00:00:39,310 --> 00:00:39,320
+MOOM inherits from a lot of different
+ 
+
+31
+00:00:39,320 --> 00:00:42,870
+MOOM inherits from a lot of different
+really good ideas. And this will take
+
+32
+00:00:42,870 --> 00:00:42,880
+really good ideas. And this will take
+ 
+
+33
+00:00:42,880 --> 00:00:45,310
+really good ideas. And this will take
+you on a tour of that. So,
+
+34
+00:00:45,310 --> 00:00:45,320
+you on a tour of that. So,
+ 
+
+35
+00:00:45,320 --> 00:00:48,910
+you on a tour of that. So,
+uh the one important thing is MOOM
+
+36
+00:00:48,910 --> 00:00:48,920
+uh the one important thing is MOOM
+ 
+
+37
+00:00:48,920 --> 00:00:51,270
+uh the one important thing is MOOM
+exists on the stage of a GitHub repo.
+
+38
+00:00:51,270 --> 00:00:51,280
+exists on the stage of a GitHub repo.
+ 
+
+39
+00:00:51,280 --> 00:00:53,350
+exists on the stage of a GitHub repo.
+And GitHub Git
+
+40
+00:00:53,350 --> 00:00:53,360
+And GitHub Git
+ 
+
+41
+00:00:53,360 --> 00:00:55,110
+And GitHub Git
+is over the
+
+42
+00:00:55,110 --> 00:00:55,120
+is over the
+ 
+
+43
+00:00:55,120 --> 00:00:56,190
+is over the
+file system. [snorts]
+
+44
+00:00:56,190 --> 00:00:56,200
+file system. [snorts]
+ 
+
+45
+00:00:56,200 --> 00:00:59,030
+file system. [snorts]
+And LLMs can read and edit the file
+
+46
+00:00:59,030 --> 00:00:59,040
+And LLMs can read and edit the file
+ 
+
+47
+00:00:59,040 --> 00:01:03,510
+And LLMs can read and edit the file
+system, but Git adds parallel universes,
+
+48
+00:01:03,510 --> 00:01:03,520
+system, but Git adds parallel universes,
+ 
+
+49
+00:01:03,520 --> 00:01:06,630
+system, but Git adds parallel universes,
+branching and merging. And GitHub adds
+
+50
+00:01:06,630 --> 00:01:06,640
+branching and merging. And GitHub adds
+ 
+
+51
+00:01:06,640 --> 00:01:10,110
+branching and merging. And GitHub adds
+collaborative uh PRs
+
+52
+00:01:10,110 --> 00:01:10,120
+collaborative uh PRs
+ 
+
+53
+00:01:10,120 --> 00:01:14,070
+collaborative uh PRs
+uh code reviews everything. So, that is
+
+54
+00:01:14,070 --> 00:01:14,080
+uh code reviews everything. So, that is
+ 
+
+55
+00:01:14,080 --> 00:01:16,070
+uh code reviews everything. So, that is
+the stack that we're building on top of.
+
+56
+00:01:16,070 --> 00:01:16,080
+the stack that we're building on top of.
+ 
+
+57
+00:01:16,080 --> 00:01:19,270
+the stack that we're building on top of.
+It's industrial strength. So, um now the
+
+58
+00:01:19,270 --> 00:01:19,280
+It's industrial strength. So, um now the
+ 
+
+59
+00:01:19,280 --> 00:01:22,070
+It's industrial strength. So, um now the
+MOOM object system, how MOOM does
+
+60
+00:01:22,070 --> 00:01:22,080
+MOOM object system, how MOOM does
+ 
+
+61
+00:01:22,080 --> 00:01:25,190
+MOOM object system, how MOOM does
+objects. Self-styled prototypes over the
+
+62
+00:01:25,190 --> 00:01:25,200
+objects. Self-styled prototypes over the
+ 
+
+63
+00:01:25,200 --> 00:01:27,190
+objects. Self-styled prototypes over the
+file system with the LLM as the
+
+64
+00:01:27,190 --> 00:01:27,200
+file system with the LLM as the
+ 
+
+65
+00:01:27,200 --> 00:01:29,470
+file system with the LLM as the
+universal resolver.
+
+66
+00:01:29,470 --> 00:01:29,480
+universal resolver.
+ 
+
+67
+00:01:29,480 --> 00:01:32,030
+universal resolver.
+Promoted here from where the ideas were
+
+68
+00:01:32,030 --> 00:01:32,040
+Promoted here from where the ideas were
+ 
+
+69
+00:01:32,040 --> 00:01:33,910
+Promoted here from where the ideas were
+first proven in the field, the Cauldron
+
+70
+00:01:33,910 --> 00:01:33,920
+first proven in the field, the Cauldron
+ 
+
+71
+00:01:33,920 --> 00:01:35,950
+first proven in the field, the Cauldron
+Metaplan, Skill Security Architecture,
+
+72
+00:01:35,950 --> 00:01:35,960
+Metaplan, Skill Security Architecture,
+ 
+
+73
+00:01:35,960 --> 00:01:38,270
+Metaplan, Skill Security Architecture,
+Directory as Object for the Opus Review,
+
+74
+00:01:38,270 --> 00:01:38,280
+Directory as Object for the Opus Review,
+ 
+
+75
+00:01:38,280 --> 00:01:39,790
+Directory as Object for the Opus Review,
+Latent Space Inheritance, which
+
+76
+00:01:39,790 --> 00:01:39,800
+Latent Space Inheritance, which
+ 
+
+77
+00:01:39,800 --> 00:01:41,950
+Latent Space Inheritance, which
+generalizes MOOM's inheritance model to
+
+78
+00:01:41,950 --> 00:01:41,960
+generalizes MOOM's inheritance model to
+ 
+
+79
+00:01:41,960 --> 00:01:45,030
+generalizes MOOM's inheritance model to
+use the LLM as a universal resolver. The
+
+80
+00:01:45,030 --> 00:01:45,040
+use the LLM as a universal resolver. The
+ 
+
+81
+00:01:45,040 --> 00:01:47,110
+use the LLM as a universal resolver. The
+most novel thing and the thing least
+
+82
+00:01:47,110 --> 00:01:47,120
+most novel thing and the thing least
+ 
+
+83
+00:01:47,120 --> 00:01:48,870
+most novel thing and the thing least
+specific to the Cauldron. Cauldron is
+
+84
+00:01:48,870 --> 00:01:48,880
+specific to the Cauldron. Cauldron is
+ 
+
+85
+00:01:48,880 --> 00:01:52,710
+specific to the Cauldron. Cauldron is
+just a skill for designing and so I'm
+
+86
+00:01:52,710 --> 00:01:52,720
+just a skill for designing and so I'm
+ 
+
+87
+00:01:52,720 --> 00:01:55,470
+just a skill for designing and so I'm
+structuring design so that
+
+88
+00:01:55,470 --> 00:01:55,480
+structuring design so that
+ 
+
+89
+00:01:55,480 --> 00:01:57,750
+structuring design so that
+you can work with a high-powered LLM to
+
+90
+00:01:57,750 --> 00:01:57,760
+you can work with a high-powered LLM to
+ 
+
+91
+00:01:57,760 --> 00:02:01,390
+you can work with a high-powered LLM to
+design and then use lower-power models
+
+92
+00:02:01,390 --> 00:02:01,400
+design and then use lower-power models
+ 
+
+93
+00:02:01,400 --> 00:02:04,390
+design and then use lower-power models
+to execute that design step-by-step. So,
+
+94
+00:02:04,390 --> 00:02:04,400
+to execute that design step-by-step. So,
+ 
+
+95
+00:02:04,400 --> 00:02:06,990
+to execute that design step-by-step. So,
+now Self and Moons explains how Moons
+
+96
+00:02:06,990 --> 00:02:07,000
+now Self and Moons explains how Moons
+ 
+
+97
+00:02:07,000 --> 00:02:09,510
+now Self and Moons explains how Moons
+uses a selfish-inspired
+
+98
+00:02:09,510 --> 00:02:09,520
+uses a selfish-inspired
+ 
+
+99
+00:02:09,520 --> 00:02:12,070
+uses a selfish-inspired
+object system. The mechanism inherits
+
+100
+00:02:12,070 --> 00:02:12,080
+object system. The mechanism inherits
+ 
+
+101
+00:02:12,080 --> 00:02:14,310
+object system. The mechanism inherits
+inherited self as an object-oriented
+
+102
+00:02:14,310 --> 00:02:14,320
+inherited self as an object-oriented
+ 
+
+103
+00:02:14,320 --> 00:02:16,470
+inherited self as an object-oriented
+risk instruction set
+
+104
+00:02:16,470 --> 00:02:16,480
+risk instruction set
+ 
+
+105
+00:02:16,480 --> 00:02:19,910
+risk instruction set
+via David Ungar's SOAR Smalltalk on RISC
+
+106
+00:02:19,910 --> 00:02:19,920
+via David Ungar's SOAR Smalltalk on RISC
+ 
+
+107
+00:02:19,920 --> 00:02:22,070
+via David Ungar's SOAR Smalltalk on RISC
+project that he did before that. The
+
+108
+00:02:22,070 --> 00:02:22,080
+project that he did before that. The
+ 
+
+109
+00:02:22,080 --> 00:02:25,830
+project that he did before that. The
+Lisp lineage flavors from MIT, Lisp
+
+110
+00:02:25,830 --> 00:02:25,840
+Lisp lineage flavors from MIT, Lisp
+ 
+
+111
+00:02:25,840 --> 00:02:29,110
+Lisp lineage flavors from MIT, Lisp
+Machines, CLOS which was
+
+112
+00:02:29,110 --> 00:02:29,120
+Machines, CLOS which was
+ 
+
+113
+00:02:29,120 --> 00:02:31,350
+Machines, CLOS which was
+when Common Lisp said, "Oh, we got all
+
+114
+00:02:31,350 --> 00:02:31,360
+when Common Lisp said, "Oh, we got all
+ 
+
+115
+00:02:31,360 --> 00:02:33,190
+when Common Lisp said, "Oh, we got all
+these different object systems in Lisp
+
+116
+00:02:33,190 --> 00:02:33,200
+these different object systems in Lisp
+ 
+
+117
+00:02:33,200 --> 00:02:34,470
+these different object systems in Lisp
+because you can roll your own and
+
+118
+00:02:34,470 --> 00:02:34,480
+because you can roll your own and
+ 
+
+119
+00:02:34,480 --> 00:02:36,230
+because you can roll your own and
+there's many approaches. How can we make
+
+120
+00:02:36,230 --> 00:02:36,240
+there's many approaches. How can we make
+ 
+
+121
+00:02:36,240 --> 00:02:37,870
+there's many approaches. How can we make
+an object system
+
+122
+00:02:37,870 --> 00:02:37,880
+an object system
+ 
+
+123
+00:02:37,880 --> 00:02:39,949
+an object system
+for designing object systems, the
+
+124
+00:02:39,949 --> 00:02:39,959
+for designing object systems, the
+ 
+
+125
+00:02:39,959 --> 00:02:42,949
+for designing object systems, the
+metaobject protocol?" So, Common Lisp
+
+126
+00:02:42,949 --> 00:02:42,959
+metaobject protocol?" So, Common Lisp
+ 
+
+127
+00:02:42,959 --> 00:02:45,230
+metaobject protocol?" So, Common Lisp
+Object System is CLOS, which inherits
+
+128
+00:02:45,230 --> 00:02:45,240
+Object System is CLOS, which inherits
+ 
+
+129
+00:02:45,240 --> 00:02:47,110
+Object System is CLOS, which inherits
+from Flavors and other things like
+
+130
+00:02:47,110 --> 00:02:47,120
+from Flavors and other things like
+ 
+
+131
+00:02:47,120 --> 00:02:48,150
+from Flavors and other things like
+loops.
+
+132
+00:02:48,150 --> 00:02:48,160
+loops.
+ 
+
+133
+00:02:48,160 --> 00:02:51,510
+loops.
+Uh and MOP is
+
+134
+00:02:51,510 --> 00:02:51,520
+Uh and MOP is
+ 
+
+135
+00:02:51,520 --> 00:02:53,590
+Uh and MOP is
+it's kind of reifies how the it works.
+
+136
+00:02:53,590 --> 00:02:53,600
+it's kind of reifies how the it works.
+ 
+
+137
+00:02:53,600 --> 00:02:55,150
+it's kind of reifies how the it works.
+It's something like this, reflective
+
+138
+00:02:55,150 --> 00:02:55,160
+It's something like this, reflective
+ 
+
+139
+00:02:55,160 --> 00:02:58,590
+It's something like this, reflective
+power. Okay, so Gary Drescher, Scheme
+
+140
+00:02:58,590 --> 00:02:58,600
+power. Okay, so Gary Drescher, Scheme
+ 
+
+141
+00:02:58,600 --> 00:03:01,710
+power. Okay, so Gary Drescher, Scheme
+lineage, has inspired this. He was uh
+
+142
+00:03:01,710 --> 00:03:01,720
+lineage, has inspired this. He was uh
+ 
+
+143
+00:03:01,720 --> 00:03:04,430
+lineage, has inspired this. He was uh
+Marvin Minsky's PhD student and Leela
+
+144
+00:03:04,430 --> 00:03:04,440
+Marvin Minsky's PhD student and Leela
+ 
+
+145
+00:03:04,440 --> 00:03:06,830
+Marvin Minsky's PhD student and Leela
+AI's advisor and we've discussed this
+
+146
+00:03:06,830 --> 00:03:06,840
+AI's advisor and we've discussed this
+ 
+
+147
+00:03:06,840 --> 00:03:07,910
+AI's advisor and we've discussed this
+with him.
+
+148
+00:03:07,910 --> 00:03:07,920
+with him.
+ 
+
+149
+00:03:07,920 --> 00:03:10,630
+with him.
+Piaget inspired Minsky who inspired
+
+150
+00:03:10,630 --> 00:03:10,640
+Piaget inspired Minsky who inspired
+ 
+
+151
+00:03:10,640 --> 00:03:11,910
+Piaget inspired Minsky who inspired
+Drescher
+
+152
+00:03:11,910 --> 00:03:11,920
+Drescher
+ 
+
+153
+00:03:11,920 --> 00:03:13,790
+Drescher
+who inspired Leela AI. This is all about
+
+154
+00:03:13,790 --> 00:03:13,800
+who inspired Leela AI. This is all about
+ 
+
+155
+00:03:13,800 --> 00:03:16,030
+who inspired Leela AI. This is all about
+how do children learn
+
+156
+00:03:16,030 --> 00:03:16,040
+how do children learn
+ 
+
+157
+00:03:16,040 --> 00:03:19,350
+how do children learn
+by playing and um
+
+158
+00:03:19,350 --> 00:03:19,360
+by playing and um
+ 
+
+159
+00:03:19,360 --> 00:03:20,590
+by playing and um
+how can we
+
+160
+00:03:20,590 --> 00:03:20,600
+how can we
+ 
+
+161
+00:03:20,600 --> 00:03:24,229
+how can we
+make an algorithm that does that? So,
+
+162
+00:03:24,229 --> 00:03:24,239
+make an algorithm that does that? So,
+ 
+
+163
+00:03:24,239 --> 00:03:26,270
+make an algorithm that does that? So,
+but it was missing something and he
+
+164
+00:03:26,270 --> 00:03:26,280
+but it was missing something and he
+ 
+
+165
+00:03:26,280 --> 00:03:27,949
+but it was missing something and he
+wrote it in Lisp
+
+166
+00:03:27,949 --> 00:03:27,959
+wrote it in Lisp
+ 
+
+167
+00:03:27,959 --> 00:03:30,430
+wrote it in Lisp
+and uh Henry Minsky, my colleague at
+
+168
+00:03:30,430 --> 00:03:30,440
+and uh Henry Minsky, my colleague at
+ 
+
+169
+00:03:30,440 --> 00:03:31,790
+and uh Henry Minsky, my colleague at
+Leela, who's
+
+170
+00:03:31,790 --> 00:03:31,800
+Leela, who's
+ 
+
+171
+00:03:31,800 --> 00:03:33,470
+Leela, who's
+Marvin's son, wrote a Python
+
+172
+00:03:33,470 --> 00:03:33,480
+Marvin's son, wrote a Python
+ 
+
+173
+00:03:33,480 --> 00:03:34,870
+Marvin's son, wrote a Python
+implementation, but all of them hit a
+
+174
+00:03:34,870 --> 00:03:34,880
+implementation, but all of them hit a
+ 
+
+175
+00:03:34,880 --> 00:03:35,910
+implementation, but all of them hit a
+wall
+
+176
+00:03:35,910 --> 00:03:35,920
+wall
+ 
+
+177
+00:03:35,920 --> 00:03:39,590
+wall
+of grounding and LLM grounding that
+
+178
+00:03:39,590 --> 00:03:39,600
+of grounding and LLM grounding that
+ 
+
+179
+00:03:39,600 --> 00:03:42,470
+of grounding and LLM grounding that
+finally arrived. Okay, and I worked at
+
+180
+00:03:42,470 --> 00:03:42,480
+finally arrived. Okay, and I worked at
+ 
+
+181
+00:03:42,480 --> 00:03:45,470
+finally arrived. Okay, and I worked at
+Sun on News, the News Toolkit at Turing
+
+182
+00:03:45,470 --> 00:03:45,480
+Sun on News, the News Toolkit at Turing
+ 
+
+183
+00:03:45,480 --> 00:03:47,229
+Sun on News, the News Toolkit at Turing
+Institute with Arthur van Hoff on
+
+184
+00:03:47,229 --> 00:03:47,239
+Institute with Arthur van Hoff on
+ 
+
+185
+00:03:47,239 --> 00:03:48,630
+Institute with Arthur van Hoff on
+Hyperlook
+
+186
+00:03:48,630 --> 00:03:48,640
+Hyperlook
+ 
+
+187
+00:03:48,640 --> 00:03:51,710
+Hyperlook
+and Owen Densmore and David Rosenthal at
+
+188
+00:03:51,710 --> 00:03:51,720
+and Owen Densmore and David Rosenthal at
+ 
+
+189
+00:03:51,720 --> 00:03:53,670
+and Owen Densmore and David Rosenthal at
+Sun who
+
+190
+00:03:53,670 --> 00:03:53,680
+Sun who
+ 
+
+191
+00:03:53,680 --> 00:03:56,950
+Sun who
+at that time filed a patent for
+
+192
+00:03:56,950 --> 00:03:56,960
+at that time filed a patent for
+ 
+
+193
+00:03:56,960 --> 00:04:00,710
+at that time filed a patent for
+looking at the Unix file system and
+
+194
+00:04:00,710 --> 00:04:00,720
+looking at the Unix file system and
+ 
+
+195
+00:04:00,720 --> 00:04:03,190
+looking at the Unix file system and
+the shell and paths
+
+196
+00:04:03,190 --> 00:04:03,200
+the shell and paths
+ 
+
+197
+00:04:03,200 --> 00:04:05,390
+the shell and paths
+as an multiple inheritance
+
+198
+00:04:05,390 --> 00:04:05,400
+as an multiple inheritance
+ 
+
+199
+00:04:05,400 --> 00:04:07,350
+as an multiple inheritance
+object-oriented programming system just
+
+200
+00:04:07,350 --> 00:04:07,360
+object-oriented programming system just
+ 
+
+201
+00:04:07,360 --> 00:04:10,430
+object-oriented programming system just
+like the one that was in move news that
+
+202
+00:04:10,430 --> 00:04:10,440
+like the one that was in move news that
+ 
+
+203
+00:04:10,440 --> 00:04:13,390
+like the one that was in move news that
+we used to build TNT and then HyperLook
+
+204
+00:04:13,390 --> 00:04:13,400
+we used to build TNT and then HyperLook
+ 
+
+205
+00:04:13,400 --> 00:04:16,670
+we used to build TNT and then HyperLook
+which was inspired by HyperCard.
+
+206
+00:04:16,670 --> 00:04:16,680
+which was inspired by HyperCard.
+ 
+
+207
+00:04:16,680 --> 00:04:18,310
+which was inspired by HyperCard.
+Uh now
+
+208
+00:04:18,310 --> 00:04:18,320
+Uh now
+ 
+
+209
+00:04:18,320 --> 00:04:20,069
+Uh now
+taking these ideas together is taking a
+
+210
+00:04:20,069 --> 00:04:20,079
+taking these ideas together is taking a
+ 
+
+211
+00:04:20,079 --> 00:04:22,510
+taking these ideas together is taking a
+step back.
+
+212
+00:04:22,510 --> 00:04:22,520
+step back.
+ 
+
+213
+00:04:22,520 --> 00:04:25,510
+step back.
+Then I did a prototype called Loom l l o
+
+214
+00:04:25,510 --> 00:04:25,520
+Then I did a prototype called Loom l l o
+ 
+
+215
+00:04:25,520 --> 00:04:29,110
+Then I did a prototype called Loom l l o
+o o o m m that's kind of hard to spell.
+
+216
+00:04:29,110 --> 00:04:29,120
+o o o m m that's kind of hard to spell.
+ 
+
+217
+00:04:29,120 --> 00:04:31,990
+o o o m m that's kind of hard to spell.
+But that was kind of to learn from and
+
+218
+00:04:31,990 --> 00:04:32,000
+But that was kind of to learn from and
+ 
+
+219
+00:04:32,000 --> 00:04:34,230
+But that was kind of to learn from and
+then anthropic skills came along and I
+
+220
+00:04:34,230 --> 00:04:34,240
+then anthropic skills came along and I
+ 
+
+221
+00:04:34,240 --> 00:04:37,070
+then anthropic skills came along and I
+realized I have to throw all that away
+
+222
+00:04:37,070 --> 00:04:37,080
+realized I have to throw all that away
+ 
+
+223
+00:04:37,080 --> 00:04:38,830
+realized I have to throw all that away
+and start from scratch based on
+
+224
+00:04:38,830 --> 00:04:38,840
+and start from scratch based on
+ 
+
+225
+00:04:38,840 --> 00:04:40,990
+and start from scratch based on
+anthropic skills because they are
+
+226
+00:04:40,990 --> 00:04:41,000
+anthropic skills because they are
+ 
+
+227
+00:04:41,000 --> 00:04:43,750
+anthropic skills because they are
+ awesome. They are composable.
+
+228
+00:04:43,750 --> 00:04:43,760
+awesome. They are composable.
+ 
+
+229
+00:04:43,760 --> 00:04:46,870
+awesome. They are composable.
+And uh anyway, but I wanted to add
+
+230
+00:04:46,870 --> 00:04:46,880
+And uh anyway, but I wanted to add
+ 
+
+231
+00:04:46,880 --> 00:04:48,470
+And uh anyway, but I wanted to add
+things to it to make it more powerful.
+
+232
+00:04:48,470 --> 00:04:48,480
+things to it to make it more powerful.
+ 
+
+233
+00:04:48,480 --> 00:04:49,990
+things to it to make it more powerful.
+We've added like I think we're on like
+
+234
+00:04:49,990 --> 00:04:50,000
+We've added like I think we're on like
+ 
+
+235
+00:04:50,000 --> 00:04:51,550
+We've added like I think we're on like
+10 extensions at this point and
+
+236
+00:04:51,550 --> 00:04:51,560
+10 extensions at this point and
+ 
+
+237
+00:04:51,560 --> 00:04:53,630
+10 extensions at this point and
+counting. But the really important ones
+
+238
+00:04:53,630 --> 00:04:53,640
+counting. But the really important ones
+ 
+
+239
+00:04:53,640 --> 00:04:55,950
+counting. But the really important ones
+are you can instantiate [snorts] a
+
+240
+00:04:55,950 --> 00:04:55,960
+are you can instantiate [snorts] a
+ 
+
+241
+00:04:55,960 --> 00:04:58,750
+are you can instantiate [snorts] a
+skill. Okay? And we have multiple
+
+242
+00:04:58,750 --> 00:04:58,760
+skill. Okay? And we have multiple
+ 
+
+243
+00:04:58,760 --> 00:05:01,190
+skill. Okay? And we have multiple
+inheritance which and like
+
+244
+00:05:01,190 --> 00:05:01,200
+inheritance which and like
+ 
+
+245
+00:05:01,200 --> 00:05:03,550
+inheritance which and like
+prototype-based self-like multiple
+
+246
+00:05:03,550 --> 00:05:03,560
+prototype-based self-like multiple
+ 
+
+247
+00:05:03,560 --> 00:05:05,590
+prototype-based self-like multiple
+inheritance. So you can have an instance
+
+248
+00:05:05,590 --> 00:05:05,600
+inheritance. So you can have an instance
+ 
+
+249
+00:05:05,600 --> 00:05:08,270
+inheritance. So you can have an instance
+and it can inherit from several skills.
+
+250
+00:05:08,270 --> 00:05:08,280
+and it can inherit from several skills.
+ 
+
+251
+00:05:08,280 --> 00:05:11,550
+and it can inherit from several skills.
+Uh then looking at the abomination that
+
+252
+00:05:11,550 --> 00:05:11,560
+Uh then looking at the abomination that
+ 
+
+253
+00:05:11,560 --> 00:05:14,310
+Uh then looking at the abomination that
+is Microsoft COM
+
+254
+00:05:14,310 --> 00:05:14,320
+is Microsoft COM
+ 
+
+255
+00:05:14,320 --> 00:05:16,870
+is Microsoft COM
+OLE, ActiveX
+
+256
+00:05:16,870 --> 00:05:16,880
+OLE, ActiveX
+ 
+
+257
+00:05:16,880 --> 00:05:20,590
+OLE, ActiveX
+um type libraries even Mozilla looked at
+
+258
+00:05:20,590 --> 00:05:20,600
+um type libraries even Mozilla looked at
+ 
+
+259
+00:05:20,600 --> 00:05:21,909
+um type libraries even Mozilla looked at
+that and said, "Hey, we need something
+
+260
+00:05:21,909 --> 00:05:21,919
+that and said, "Hey, we need something
+ 
+
+261
+00:05:21,919 --> 00:05:23,470
+that and said, "Hey, we need something
+like that uh
+
+262
+00:05:23,470 --> 00:05:23,480
+like that uh
+ 
+
+263
+00:05:23,480 --> 00:05:25,110
+like that uh
+XPCOM."
+
+264
+00:05:25,110 --> 00:05:25,120
+XPCOM."
+ 
+
+265
+00:05:25,120 --> 00:05:27,909
+XPCOM."
+I've have used that. So also like even
+
+266
+00:05:27,909 --> 00:05:27,919
+I've have used that. So also like even
+ 
+
+267
+00:05:27,919 --> 00:05:29,790
+I've have used that. So also like even
+companies like Macromedia looked at it
+
+268
+00:05:29,790 --> 00:05:29,800
+companies like Macromedia looked at it
+ 
+
+269
+00:05:29,800 --> 00:05:31,430
+companies like Macromedia looked at it
+and said, "Hey, that's a great great
+
+270
+00:05:31,430 --> 00:05:31,440
+and said, "Hey, that's a great great
+ 
+
+271
+00:05:31,440 --> 00:05:33,790
+and said, "Hey, that's a great great
+plugin system. We're going to make Boa."
+
+272
+00:05:33,790 --> 00:05:33,800
+plugin system. We're going to make Boa."
+ 
+
+273
+00:05:33,800 --> 00:05:36,110
+plugin system. We're going to make Boa."
+There's like 12 different COM clones cuz
+
+274
+00:05:36,110 --> 00:05:36,120
+There's like 12 different COM clones cuz
+ 
+
+275
+00:05:36,120 --> 00:05:37,790
+There's like 12 different COM clones cuz
+there is something to it.
+
+276
+00:05:37,790 --> 00:05:37,800
+there is something to it.
+ 
+
+277
+00:05:37,800 --> 00:05:41,350
+there is something to it.
+Um and then character runes okay, that's
+
+278
+00:05:41,350 --> 00:05:41,360
+Um and then character runes okay, that's
+ 
+
+279
+00:05:41,360 --> 00:05:42,830
+Um and then character runes okay, that's
+the idea
+
+280
+00:05:42,830 --> 00:05:42,840
+the idea
+ 
+
+281
+00:05:42,840 --> 00:05:45,510
+the idea
+that like you can have a directory and
+
+282
+00:05:45,510 --> 00:05:45,520
+that like you can have a directory and
+ 
+
+283
+00:05:45,520 --> 00:05:47,470
+that like you can have a directory and
+it has interfaces. It's like a COM
+
+284
+00:05:47,470 --> 00:05:47,480
+it has interfaces. It's like a COM
+ 
+
+285
+00:05:47,480 --> 00:05:50,270
+it has interfaces. It's like a COM
+object, a OLE object, with multiple or
+
+286
+00:05:50,270 --> 00:05:50,280
+object, a OLE object, with multiple or
+ 
+
+287
+00:05:50,280 --> 00:05:54,310
+object, a OLE object, with multiple or
+or Java object. And those interfaces are
+
+288
+00:05:54,310 --> 00:05:54,320
+or Java object. And those interfaces are
+ 
+
+289
+00:05:54,320 --> 00:05:56,310
+or Java object. And those interfaces are
+uppercase character.yaml, uppercase
+
+290
+00:05:56,310 --> 00:05:56,320
+uppercase character.yaml, uppercase
+ 
+
+291
+00:05:56,320 --> 00:05:59,670
+uppercase character.yaml, uppercase
+room.yaml that are declare it as
+
+292
+00:05:59,670 --> 00:05:59,680
+room.yaml that are declare it as
+ 
+
+293
+00:05:59,680 --> 00:06:01,470
+room.yaml that are declare it as
+providing this interface. So, you can
+
+294
+00:06:01,470 --> 00:06:01,480
+providing this interface. So, you can
+ 
+
+295
+00:06:01,480 --> 00:06:03,310
+providing this interface. So, you can
+look at a directory as both a character
+
+296
+00:06:03,310 --> 00:06:03,320
+look at a directory as both a character
+ 
+
+297
+00:06:03,320 --> 00:06:05,110
+look at a directory as both a character
+and a room at the same time. Which is
+
+298
+00:06:05,110 --> 00:06:05,120
+and a room at the same time. Which is
+ 
+
+299
+00:06:05,120 --> 00:06:06,470
+and a room at the same time. Which is
+great if you're doing like Pee-wee's
+
+300
+00:06:06,470 --> 00:06:06,480
+great if you're doing like Pee-wee's
+ 
+
+301
+00:06:06,480 --> 00:06:08,350
+great if you're doing like Pee-wee's
+Playhouse and you want a talking room
+
+302
+00:06:08,350 --> 00:06:08,360
+Playhouse and you want a talking room
+ 
+
+303
+00:06:08,360 --> 00:06:10,190
+Playhouse and you want a talking room
+that that
+
+304
+00:06:10,190 --> 00:06:10,200
+that that
+ 
+
+305
+00:06:10,200 --> 00:06:12,030
+that that
+you know, remembers what happens in it.
+
+306
+00:06:12,030 --> 00:06:12,040
+you know, remembers what happens in it.
+ 
+
+307
+00:06:12,040 --> 00:06:13,670
+you know, remembers what happens in it.
+There is there are applications of that
+
+308
+00:06:13,670 --> 00:06:13,680
+There is there are applications of that
+ 
+
+309
+00:06:13,680 --> 00:06:16,710
+There is there are applications of that
+and we'll get to that. So, um naming and
+
+310
+00:06:16,710 --> 00:06:16,720
+and we'll get to that. So, um naming and
+ 
+
+311
+00:06:16,720 --> 00:06:19,190
+and we'll get to that. So, um naming and
+structure as reflection. So, having a
+
+312
+00:06:19,190 --> 00:06:19,200
+structure as reflection. So, having a
+ 
+
+313
+00:06:19,200 --> 00:06:22,350
+structure as reflection. So, having a
+consistent big Indian naming system
+
+314
+00:06:22,350 --> 00:06:22,360
+consistent big Indian naming system
+ 
+
+315
+00:06:22,360 --> 00:06:24,150
+consistent big Indian naming system
+where you list the first thing for the
+
+316
+00:06:24,150 --> 00:06:24,160
+where you list the first thing for the
+ 
+
+317
+00:06:24,160 --> 00:06:26,590
+where you list the first thing for the
+most important thing first and think how
+
+318
+00:06:26,590 --> 00:06:26,600
+most important thing first and think how
+ 
+
+319
+00:06:26,600 --> 00:06:28,430
+most important thing first and think how
+are these going to alphabetically sort
+
+320
+00:06:28,430 --> 00:06:28,440
+are these going to alphabetically sort
+ 
+
+321
+00:06:28,440 --> 00:06:30,150
+are these going to alphabetically sort
+so that related things are next to each
+
+322
+00:06:30,150 --> 00:06:30,160
+so that related things are next to each
+ 
+
+323
+00:06:30,160 --> 00:06:31,030
+so that related things are next to each
+other
+
+324
+00:06:31,030 --> 00:06:31,040
+other
+ 
+
+325
+00:06:31,040 --> 00:06:33,230
+other
+and implied
+
+326
+00:06:33,230 --> 00:06:33,240
+and implied
+ 
+
+327
+00:06:33,240 --> 00:06:37,550
+and implied
+structure with shared prefixes. So, but
+
+328
+00:06:37,550 --> 00:06:37,560
+structure with shared prefixes. So, but
+ 
+
+329
+00:06:37,560 --> 00:06:38,510
+structure with shared prefixes. So, but
+anyway,
+
+330
+00:06:38,510 --> 00:06:38,520
+anyway,
+ 
+
+331
+00:06:38,520 --> 00:06:40,790
+anyway,
+listing a directory
+
+332
+00:06:40,790 --> 00:06:40,800
+listing a directory
+ 
+
+333
+00:06:40,800 --> 00:06:43,350
+listing a directory
+is saying what interfaces and state do
+
+334
+00:06:43,350 --> 00:06:43,360
+is saying what interfaces and state do
+ 
+
+335
+00:06:43,360 --> 00:06:46,630
+is saying what interfaces and state do
+you have. So, um and then the thing is
+
+336
+00:06:46,630 --> 00:06:46,640
+you have. So, um and then the thing is
+ 
+
+337
+00:06:46,640 --> 00:06:49,390
+you have. So, um and then the thing is
+naming files and directories
+
+338
+00:06:49,390 --> 00:06:49,400
+naming files and directories
+ 
+
+339
+00:06:49,400 --> 00:06:51,710
+naming files and directories
+as self-describing
+
+340
+00:06:51,710 --> 00:06:51,720
+as self-describing
+ 
+
+341
+00:06:51,720 --> 00:06:53,230
+as self-describing
+big Indian
+
+342
+00:06:53,230 --> 00:06:53,240
+big Indian
+ 
+
+343
+00:06:53,240 --> 00:06:56,030
+big Indian
+human and LLM friendly
+
+344
+00:06:56,030 --> 00:06:56,040
+human and LLM friendly
+ 
+
+345
+00:06:56,040 --> 00:06:58,350
+human and LLM friendly
+klines. Klines are a concept from Marvin
+
+346
+00:06:58,350 --> 00:06:58,360
+klines. Klines are a concept from Marvin
+ 
+
+347
+00:06:58,360 --> 00:06:59,630
+klines. Klines are a concept from Marvin
+Minsky
+
+348
+00:06:59,630 --> 00:06:59,640
+Minsky
+ 
+
+349
+00:06:59,640 --> 00:07:01,909
+Minsky
+that are just like it's a token that
+
+350
+00:07:01,909 --> 00:07:01,919
+that are just like it's a token that
+ 
+
+351
+00:07:01,919 --> 00:07:04,830
+that are just like it's a token that
+refers it's a string [snorts] you pull
+
+352
+00:07:04,830 --> 00:07:04,840
+refers it's a string [snorts] you pull
+ 
+
+353
+00:07:04,840 --> 00:07:07,470
+refers it's a string [snorts] you pull
+that points to not just an idea but the
+
+354
+00:07:07,470 --> 00:07:07,480
+that points to not just an idea but the
+ 
+
+355
+00:07:07,480 --> 00:07:10,830
+that points to not just an idea but the
+whole crowd of concepts around it and
+
+356
+00:07:10,830 --> 00:07:10,840
+whole crowd of concepts around it and
+ 
+
+357
+00:07:10,840 --> 00:07:12,950
+whole crowd of concepts around it and
+what you were thinking of at the time.
+
+358
+00:07:12,950 --> 00:07:12,960
+what you were thinking of at the time.
+ 
+
+359
+00:07:12,960 --> 00:07:14,990
+what you were thinking of at the time.
+So, the idea
+
+360
+00:07:14,990 --> 00:07:15,000
+So, the idea
+ 
+
+361
+00:07:15,000 --> 00:07:17,430
+So, the idea
+is to have and define and just more
+
+362
+00:07:17,430 --> 00:07:17,440
+is to have and define and just more
+ 
+
+363
+00:07:17,440 --> 00:07:19,790
+is to have and define and just more
+importantly reuse well-known words as
+
+364
+00:07:19,790 --> 00:07:19,800
+importantly reuse well-known words as
+ 
+
+365
+00:07:19,800 --> 00:07:21,230
+importantly reuse well-known words as
+klines.
+
+366
+00:07:21,230 --> 00:07:21,240
+klines.
+ 
+
+367
+00:07:21,240 --> 00:07:23,270
+klines.
+Uh and then you can just they're like
+
+368
+00:07:23,270 --> 00:07:23,280
+Uh and then you can just they're like
+ 
+
+369
+00:07:23,280 --> 00:07:25,909
+Uh and then you can just they're like
+pointers to thought. So, so the
+
+370
+00:07:25,909 --> 00:07:25,919
+pointers to thought. So, so the
+ 
+
+371
+00:07:25,919 --> 00:07:27,950
+pointers to thought. So, so the
+directory listing, the klines are the
+
+372
+00:07:27,950 --> 00:07:27,960
+directory listing, the klines are the
+ 
+
+373
+00:07:27,960 --> 00:07:29,550
+directory listing, the klines are the
+file names and subdirectory names that
+
+374
+00:07:29,550 --> 00:07:29,560
+file names and subdirectory names that
+ 
+
+375
+00:07:29,560 --> 00:07:31,150
+file names and subdirectory names that
+are pointers to files and
+
+376
+00:07:31,150 --> 00:07:31,160
+are pointers to files and
+ 
+
+377
+00:07:31,160 --> 00:07:33,909
+are pointers to files and
+subdirectories.
+
+378
+00:07:33,909 --> 00:07:33,919
+subdirectories.
+ 
+
+379
+00:07:33,919 --> 00:07:35,590
+subdirectories.
+The name explains itself. And then
+
+380
+00:07:35,590 --> 00:07:35,600
+The name explains itself. And then
+ 
+
+381
+00:07:35,600 --> 00:07:37,150
+The name explains itself. And then
+something we borrow that's really
+
+382
+00:07:37,150 --> 00:07:37,160
+something we borrow that's really
+ 
+
+383
+00:07:37,160 --> 00:07:39,670
+something we borrow that's really
+powerful is we'll write and Jamie
+
+384
+00:07:39,670 --> 00:07:39,680
+powerful is we'll write and Jamie
+ 
+
+385
+00:07:39,680 --> 00:07:41,270
+powerful is we'll write and Jamie
+Dornbos invented this thing called
+
+386
+00:07:41,270 --> 00:07:41,280
+Dornbos invented this thing called
+ 
+
+387
+00:07:41,280 --> 00:07:43,150
+Dornbos invented this thing called
+advertisements which sounds sort of
+
+388
+00:07:43,150 --> 00:07:43,160
+advertisements which sounds sort of
+ 
+
+389
+00:07:43,160 --> 00:07:44,670
+advertisements which sounds sort of
+space.
+
+390
+00:07:44,670 --> 00:07:44,680
+space.
+ 
+
+391
+00:07:44,680 --> 00:07:46,430
+space.
+Obscene but um
+
+392
+00:07:46,430 --> 00:07:46,440
+Obscene but um
+ 
+
+393
+00:07:46,440 --> 00:07:49,470
+Obscene but um
+news called interests, event interests,
+
+394
+00:07:49,470 --> 00:07:49,480
+news called interests, event interests,
+ 
+
+395
+00:07:49,480 --> 00:07:50,870
+news called interests, event interests,
+template for an event that you would
+
+396
+00:07:50,870 --> 00:07:50,880
+template for an event that you would
+ 
+
+397
+00:07:50,880 --> 00:07:52,750
+template for an event that you would
+like to receive. And then what to do
+
+398
+00:07:52,750 --> 00:07:52,760
+like to receive. And then what to do
+ 
+
+399
+00:07:52,760 --> 00:07:55,510
+like to receive. And then what to do
+when you get it. So, Sims advertisements
+
+400
+00:07:55,510 --> 00:07:55,520
+when you get it. So, Sims advertisements
+ 
+
+401
+00:07:55,520 --> 00:07:57,310
+when you get it. So, Sims advertisements
+are on objects and it's the key to the
+
+402
+00:07:57,310 --> 00:07:57,320
+are on objects and it's the key to the
+ 
+
+403
+00:07:57,320 --> 00:07:59,830
+are on objects and it's the key to the
+Sims plugin extensible
+
+404
+00:07:59,830 --> 00:07:59,840
+Sims plugin extensible
+ 
+
+405
+00:07:59,840 --> 00:08:01,310
+Sims plugin extensible
+object system that allowed it to be so
+
+406
+00:08:01,310 --> 00:08:01,320
+object system that allowed it to be so
+ 
+
+407
+00:08:01,320 --> 00:08:03,750
+object system that allowed it to be so
+successful by enabling
+
+408
+00:08:03,750 --> 00:08:03,760
+successful by enabling
+ 
+
+409
+00:08:03,760 --> 00:08:06,030
+successful by enabling
+players to make their own objects and EA
+
+410
+00:08:06,030 --> 00:08:06,040
+players to make their own objects and EA
+ 
+
+411
+00:08:06,040 --> 00:08:08,470
+players to make their own objects and EA
+to make their own expansion packs that
+
+412
+00:08:08,470 --> 00:08:08,480
+to make their own expansion packs that
+ 
+
+413
+00:08:08,480 --> 00:08:10,790
+to make their own expansion packs that
+drop into the base game and just work
+
+414
+00:08:10,790 --> 00:08:10,800
+drop into the base game and just work
+ 
+
+415
+00:08:10,800 --> 00:08:13,030
+drop into the base game and just work
+seamlessly. So,
+
+416
+00:08:13,030 --> 00:08:13,040
+seamlessly. So,
+ 
+
+417
+00:08:13,040 --> 00:08:17,030
+seamlessly. So,
+uh successful way that their capability
+
+418
+00:08:17,030 --> 00:08:17,040
+uh successful way that their capability
+ 
+
+419
+00:08:17,040 --> 00:08:19,870
+uh successful way that their capability
+announcements that I must stove and you
+
+420
+00:08:19,870 --> 00:08:19,880
+announcements that I must stove and you
+ 
+
+421
+00:08:19,880 --> 00:08:22,710
+announcements that I must stove and you
+can cook on me and if you're hungry,
+
+422
+00:08:22,710 --> 00:08:22,720
+can cook on me and if you're hungry,
+ 
+
+423
+00:08:22,720 --> 00:08:25,350
+can cook on me and if you're hungry,
+you'd probably want to do this. So, so
+
+424
+00:08:25,350 --> 00:08:25,360
+you'd probably want to do this. So, so
+ 
+
+425
+00:08:25,360 --> 00:08:27,630
+you'd probably want to do this. So, so
+there an advertisement
+
+426
+00:08:27,630 --> 00:08:27,640
+there an advertisement
+ 
+
+427
+00:08:27,640 --> 00:08:30,550
+there an advertisement
+is like a name of some function that you
+
+428
+00:08:30,550 --> 00:08:30,560
+is like a name of some function that you
+ 
+
+429
+00:08:30,560 --> 00:08:31,990
+is like a name of some function that you
+can provide
+
+430
+00:08:31,990 --> 00:08:32,000
+can provide
+ 
+
+431
+00:08:32,000 --> 00:08:34,310
+can provide
+but also uh
+
+432
+00:08:34,310 --> 00:08:34,320
+but also uh
+ 
+
+433
+00:08:34,320 --> 00:08:37,469
+but also uh
+some parameters and some code that can
+
+434
+00:08:37,469 --> 00:08:37,479
+some parameters and some code that can
+ 
+
+435
+00:08:37,479 --> 00:08:39,670
+some parameters and some code that can
+score how much you want to do based on
+
+436
+00:08:39,670 --> 00:08:39,680
+score how much you want to do based on
+ 
+
+437
+00:08:39,680 --> 00:08:40,830
+score how much you want to do based on
+the context,
+
+438
+00:08:40,830 --> 00:08:40,840
+the context,
+ 
+
+439
+00:08:40,840 --> 00:08:43,550
+the context,
+who you are, what relationships you have
+
+440
+00:08:43,550 --> 00:08:43,560
+who you are, what relationships you have
+ 
+
+441
+00:08:43,560 --> 00:08:45,670
+who you are, what relationships you have
+to people, what your mood is. The toilet
+
+442
+00:08:45,670 --> 00:08:45,680
+to people, what your mood is. The toilet
+ 
+
+443
+00:08:45,680 --> 00:08:48,310
+to people, what your mood is. The toilet
+advertises that it can move your bowels
+
+444
+00:08:48,310 --> 00:08:48,320
+advertises that it can move your bowels
+ 
+
+445
+00:08:48,320 --> 00:08:51,350
+advertises that it can move your bowels
+if you need to go to the bathroom but
+
+446
+00:08:51,350 --> 00:08:51,360
+if you need to go to the bathroom but
+ 
+
+447
+00:08:51,360 --> 00:08:55,430
+if you need to go to the bathroom but
+not if you don't. So, um the you know,
+
+448
+00:08:55,430 --> 00:08:55,440
+not if you don't. So, um the you know,
+ 
+
+449
+00:08:55,440 --> 00:08:56,910
+not if you don't. So, um the you know,
+the bed you remember which side of the
+
+450
+00:08:56,910 --> 00:08:56,920
+the bed you remember which side of the
+ 
+
+451
+00:08:56,920 --> 00:08:59,310
+the bed you remember which side of the
+bed to sleep on because you when you
+
+452
+00:08:59,310 --> 00:08:59,320
+bed to sleep on because you when you
+ 
+
+453
+00:08:59,320 --> 00:09:01,470
+bed to sleep on because you when you
+sleep on that side of the bed,
+
+454
+00:09:01,470 --> 00:09:01,480
+sleep on that side of the bed,
+ 
+
+455
+00:09:01,480 --> 00:09:04,230
+sleep on that side of the bed,
+that makes a relationship with the bed
+
+456
+00:09:04,230 --> 00:09:04,240
+that makes a relationship with the bed
+ 
+
+457
+00:09:04,240 --> 00:09:05,590
+that makes a relationship with the bed
+that improves every time you do,
+
+458
+00:09:05,590 --> 00:09:05,600
+that improves every time you do,
+ 
+
+459
+00:09:05,600 --> 00:09:08,150
+that improves every time you do,
+assuming you have decent experiences.
+
+460
+00:09:08,150 --> 00:09:08,160
+assuming you have decent experiences.
+ 
+
+461
+00:09:08,160 --> 00:09:10,670
+assuming you have decent experiences.
+And that weighs the sleep in the
+
+462
+00:09:10,670 --> 00:09:10,680
+And that weighs the sleep in the
+ 
+
+463
+00:09:10,680 --> 00:09:12,870
+And that weighs the sleep in the
+advertisement of that side of the bed.
+
+464
+00:09:12,870 --> 00:09:12,880
+advertisement of that side of the bed.
+ 
+
+465
+00:09:12,880 --> 00:09:15,910
+advertisement of that side of the bed.
+Okay, so so you by doing it, you're
+
+466
+00:09:15,910 --> 00:09:15,920
+Okay, so so you by doing it, you're
+ 
+
+467
+00:09:15,920 --> 00:09:17,710
+Okay, so so you by doing it, you're
+increasing the chances that you'll do it
+
+468
+00:09:17,710 --> 00:09:17,720
+increasing the chances that you'll do it
+ 
+
+469
+00:09:17,720 --> 00:09:20,110
+increasing the chances that you'll do it
+later. So, um
+
+470
+00:09:20,110 --> 00:09:20,120
+later. So, um
+ 
+
+471
+00:09:20,120 --> 00:09:22,110
+later. So, um
+anyway, so think of the LLM as having a
+
+472
+00:09:22,110 --> 00:09:22,120
+anyway, so think of the LLM as having a
+ 
+
+473
+00:09:22,120 --> 00:09:25,310
+anyway, so think of the LLM as having a
+program counter of what to look at next.
+
+474
+00:09:25,310 --> 00:09:25,320
+program counter of what to look at next.
+ 
+
+475
+00:09:25,320 --> 00:09:28,350
+program counter of what to look at next.
+And all these advertisements,
+
+476
+00:09:28,350 --> 00:09:28,360
+And all these advertisements,
+ 
+
+477
+00:09:28,360 --> 00:09:30,350
+And all these advertisements,
+like whether they're a file name or a
+
+478
+00:09:30,350 --> 00:09:30,360
+like whether they're a file name or a
+ 
+
+479
+00:09:30,360 --> 00:09:32,670
+like whether they're a file name or a
+directory name or something out there in
+
+480
+00:09:32,670 --> 00:09:32,680
+directory name or something out there in
+ 
+
+481
+00:09:32,680 --> 00:09:34,630
+directory name or something out there in
+associative memory, you know, the fuzzy
+
+482
+00:09:34,630 --> 00:09:34,640
+associative memory, you know, the fuzzy
+ 
+
+483
+00:09:34,640 --> 00:09:37,110
+associative memory, you know, the fuzzy
+search, the the vector store,
+
+484
+00:09:37,110 --> 00:09:37,120
+search, the the vector store,
+ 
+
+485
+00:09:37,120 --> 00:09:39,870
+search, the the vector store,
+or here's the important thing, K lines
+
+486
+00:09:39,870 --> 00:09:39,880
+or here's the important thing, K lines
+ 
+
+487
+00:09:39,880 --> 00:09:42,750
+or here's the important thing, K lines
+are greppable, okay? You can do very
+
+488
+00:09:42,750 --> 00:09:42,760
+are greppable, okay? You can do very
+ 
+
+489
+00:09:42,760 --> 00:09:46,750
+are greppable, okay? You can do very
+cheap, very fast find me all
+
+490
+00:09:46,750 --> 00:09:46,760
+cheap, very fast find me all
+ 
+
+491
+00:09:46,760 --> 00:09:49,230
+cheap, very fast find me all
+advertisement or all references to the
+
+492
+00:09:49,230 --> 00:09:49,240
+advertisement or all references to the
+ 
+
+493
+00:09:49,240 --> 00:09:51,310
+advertisement or all references to the
+word advertisement in this or these 12
+
+494
+00:09:51,310 --> 00:09:51,320
+word advertisement in this or these 12
+ 
+
+495
+00:09:51,320 --> 00:09:53,230
+word advertisement in this or these 12
+repos. So,
+
+496
+00:09:53,230 --> 00:09:53,240
+repos. So,
+ 
+
+497
+00:09:53,240 --> 00:09:54,750
+repos. So,
+and the and the and then an LLM does
+
+498
+00:09:54,750 --> 00:09:54,760
+and the and the and then an LLM does
+ 
+
+499
+00:09:54,760 --> 00:09:56,670
+and the and the and then an LLM does
+that to like what should I look at next
+
+500
+00:09:56,670 --> 00:09:56,680
+that to like what should I look at next
+ 
+
+501
+00:09:56,680 --> 00:09:58,710
+that to like what should I look at next
+to add to my context.
+
+502
+00:09:58,710 --> 00:09:58,720
+to add to my context.
+ 
+
+503
+00:09:58,720 --> 00:10:01,550
+to add to my context.
+So, we'll go over that, but latent space
+
+504
+00:10:01,550 --> 00:10:01,560
+So, we'll go over that, but latent space
+ 
+
+505
+00:10:01,560 --> 00:10:03,830
+So, we'll go over that, but latent space
+inheritance, this is the great thing.
+
+506
+00:10:03,830 --> 00:10:03,840
+inheritance, this is the great thing.
+ 
+
+507
+00:10:03,840 --> 00:10:06,150
+inheritance, this is the great thing.
+Oop, self then any
+
+508
+00:10:06,150 --> 00:10:06,160
+Oop, self then any
+ 
+
+509
+00:10:06,160 --> 00:10:08,070
+Oop, self then any
+many languages, a lot of which were
+
+510
+00:10:08,070 --> 00:10:08,080
+many languages, a lot of which were
+ 
+
+511
+00:10:08,080 --> 00:10:10,470
+many languages, a lot of which were
+inspired by it,
+
+512
+00:10:10,470 --> 00:10:10,480
+inspired by it,
+ 
+
+513
+00:10:10,480 --> 00:10:12,990
+inspired by it,
+point to a set of parents. And those
+
+514
+00:10:12,990 --> 00:10:13,000
+point to a set of parents. And those
+ 
+
+515
+00:10:13,000 --> 00:10:14,430
+point to a set of parents. And those
+parents are like made out of the same
+
+516
+00:10:14,430 --> 00:10:14,440
+parents are like made out of the same
+ 
+
+517
+00:10:14,440 --> 00:10:16,790
+parents are like made out of the same
+thing, right? But the thing is with an
+
+518
+00:10:16,790 --> 00:10:16,800
+thing, right? But the thing is with an
+ 
+
+519
+00:10:16,800 --> 00:10:18,910
+thing, right? But the thing is with an
+LLM, we we can have parents that are
+
+520
+00:10:18,910 --> 00:10:18,920
+LLM, we we can have parents that are
+ 
+
+521
+00:10:18,920 --> 00:10:20,270
+LLM, we we can have parents that are
+concrete
+
+522
+00:10:20,270 --> 00:10:20,280
+concrete
+ 
+
+523
+00:10:20,280 --> 00:10:23,430
+concrete
+files, anthropic skills, moose moose
+
+524
+00:10:23,430 --> 00:10:23,440
+files, anthropic skills, moose moose
+ 
+
+525
+00:10:23,440 --> 00:10:26,510
+files, anthropic skills, moose moose
+skills, uh or just whatever
+
+526
+00:10:26,510 --> 00:10:26,520
+skills, uh or just whatever
+ 
+
+527
+00:10:26,520 --> 00:10:28,270
+skills, uh or just whatever
+prototypes.
+
+528
+00:10:28,270 --> 00:10:28,280
+prototypes.
+ 
+
+529
+00:10:28,280 --> 00:10:31,430
+prototypes.
+But we can also inherit from abstract
+
+530
+00:10:31,430 --> 00:10:31,440
+But we can also inherit from abstract
+ 
+
+531
+00:10:31,440 --> 00:10:35,550
+But we can also inherit from abstract
+concepts like love or more concretely,
+
+532
+00:10:35,550 --> 00:10:35,560
+concepts like love or more concretely,
+ 
+
+533
+00:10:35,560 --> 00:10:40,470
+concepts like love or more concretely,
+uh Microsoft COM IUnknown or uh the uh
+
+534
+00:10:40,470 --> 00:10:40,480
+uh Microsoft COM IUnknown or uh the uh
+ 
+
+535
+00:10:40,480 --> 00:10:43,390
+uh Microsoft COM IUnknown or uh the uh
+Google GCS
+
+536
+00:10:43,390 --> 00:10:43,400
+Google GCS
+ 
+
+537
+00:10:43,400 --> 00:10:47,030
+Google GCS
+file access API or a function that
+
+538
+00:10:47,030 --> 00:10:47,040
+file access API or a function that
+ 
+
+539
+00:10:47,040 --> 00:10:49,870
+file access API or a function that
+returns a pointer to an array of
+
+540
+00:10:49,870 --> 00:10:49,880
+returns a pointer to an array of
+ 
+
+541
+00:10:49,880 --> 00:10:53,230
+returns a pointer to an array of
+strings, okay? So, so we can inherit
+
+542
+00:10:53,230 --> 00:10:53,240
+strings, okay? So, so we can inherit
+ 
+
+543
+00:10:53,240 --> 00:10:55,430
+strings, okay? So, so we can inherit
+from single words that name something
+
+544
+00:10:55,430 --> 00:10:55,440
+from single words that name something
+ 
+
+545
+00:10:55,440 --> 00:10:57,510
+from single words that name something
+like the name of a library or the name
+
+546
+00:10:57,510 --> 00:10:57,520
+like the name of a library or the name
+ 
+
+547
+00:10:57,520 --> 00:10:59,190
+like the name of a library or the name
+of a you know, the name of something
+
+548
+00:10:59,190 --> 00:10:59,200
+of a you know, the name of something
+ 
+
+549
+00:10:59,200 --> 00:11:00,710
+of a you know, the name of something
+that's well-documented in the training
+
+550
+00:11:00,710 --> 00:11:00,720
+that's well-documented in the training
+ 
+
+551
+00:11:00,720 --> 00:11:02,870
+that's well-documented in the training
+data is what it matters.
+
+552
+00:11:02,870 --> 00:11:02,880
+data is what it matters.
+ 
+
+553
+00:11:02,880 --> 00:11:05,870
+data is what it matters.
+Or, we can even have even looser natural
+
+554
+00:11:05,870 --> 00:11:05,880
+Or, we can even have even looser natural
+ 
+
+555
+00:11:05,880 --> 00:11:09,630
+Or, we can even have even looser natural
+language inheritance like I inherit from
+
+556
+00:11:09,630 --> 00:11:09,640
+language inheritance like I inherit from
+ 
+
+557
+00:11:09,640 --> 00:11:12,350
+language inheritance like I inherit from
+a taco with crispy shell and hot meat
+
+558
+00:11:12,350 --> 00:11:12,360
+a taco with crispy shell and hot meat
+ 
+
+559
+00:11:12,360 --> 00:11:14,550
+a taco with crispy shell and hot meat
+and vegetables overflowing and sauces,
+
+560
+00:11:14,550 --> 00:11:14,560
+and vegetables overflowing and sauces,
+ 
+
+561
+00:11:14,560 --> 00:11:15,590
+and vegetables overflowing and sauces,
+okay?
+
+562
+00:11:15,590 --> 00:11:15,600
+okay?
+ 
+
+563
+00:11:15,600 --> 00:11:17,230
+okay?
+You know, maybe I'm making I'm defining
+
+564
+00:11:17,230 --> 00:11:17,240
+You know, maybe I'm making I'm defining
+ 
+
+565
+00:11:17,240 --> 00:11:18,110
+You know, maybe I'm making I'm defining
+a new
+
+566
+00:11:18,110 --> 00:11:18,120
+a new
+ 
+
+567
+00:11:18,120 --> 00:11:21,590
+a new
+food, but it wants this particular type
+
+568
+00:11:21,590 --> 00:11:21,600
+food, but it wants this particular type
+ 
+
+569
+00:11:21,600 --> 00:11:24,070
+food, but it wants this particular type
+of taco I can describe in a few words
+
+570
+00:11:24,070 --> 00:11:24,080
+of taco I can describe in a few words
+ 
+
+571
+00:11:24,080 --> 00:11:26,070
+of taco I can describe in a few words
+as a parent
+
+572
+00:11:26,070 --> 00:11:26,080
+as a parent
+ 
+
+573
+00:11:26,080 --> 00:11:28,590
+as a parent
+and then we'll start from there. So, um
+
+574
+00:11:28,590 --> 00:11:28,600
+and then we'll start from there. So, um
+ 
+
+575
+00:11:28,600 --> 00:11:30,910
+and then we'll start from there. So, um
+but you know, mixing in
+
+576
+00:11:30,910 --> 00:11:30,920
+but you know, mixing in
+ 
+
+577
+00:11:30,920 --> 00:11:33,350
+but you know, mixing in
+literally different types of inheritance
+
+578
+00:11:33,350 --> 00:11:33,360
+literally different types of inheritance
+ 
+
+579
+00:11:33,360 --> 00:11:36,870
+literally different types of inheritance
+from a very concrete thing to something
+
+580
+00:11:36,870 --> 00:11:36,880
+from a very concrete thing to something
+ 
+
+581
+00:11:36,880 --> 00:11:38,710
+from a very concrete thing to something
+that's in the training data. Okay, that
+
+582
+00:11:38,710 --> 00:11:38,720
+that's in the training data. Okay, that
+ 
+
+583
+00:11:38,720 --> 00:11:41,790
+that's in the training data. Okay, that
+you only have to ask uh by name. Kay
+
+584
+00:11:41,790 --> 00:11:41,800
+you only have to ask uh by name. Kay
+ 
+
+585
+00:11:41,800 --> 00:11:42,710
+you only have to ask uh by name. Kay
+Loden.
+
+586
+00:11:42,710 --> 00:11:42,720
+Loden.
+ 
+
+587
+00:11:42,720 --> 00:11:44,750
+Loden.
+Um anyway, where were we? So, they're in
+
+588
+00:11:44,750 --> 00:11:44,760
+Um anyway, where were we? So, they're in
+ 
+
+589
+00:11:44,760 --> 00:11:46,390
+Um anyway, where were we? So, they're in
+the training data.
+
+590
+00:11:46,390 --> 00:11:46,400
+the training data.
+ 
+
+591
+00:11:46,400 --> 00:11:47,710
+the training data.
+You can inherit a whole language, a
+
+592
+00:11:47,710 --> 00:11:47,720
+You can inherit a whole language, a
+ 
+
+593
+00:11:47,720 --> 00:11:50,550
+You can inherit a whole language, a
+protocol, another object system. You can
+
+594
+00:11:50,550 --> 00:11:50,560
+protocol, another object system. You can
+ 
+
+595
+00:11:50,560 --> 00:11:53,790
+protocol, another object system. You can
+inherit object systems. Like, when I'm
+
+596
+00:11:53,790 --> 00:11:53,800
+inherit object systems. Like, when I'm
+ 
+
+597
+00:11:53,800 --> 00:11:56,270
+inherit object systems. Like, when I'm
+defining the Mu object system, I want to
+
+598
+00:11:56,270 --> 00:11:56,280
+defining the Mu object system, I want to
+ 
+
+599
+00:11:56,280 --> 00:11:59,550
+defining the Mu object system, I want to
+inherit Self's object system just by
+
+600
+00:11:59,550 --> 00:11:59,560
+inherit Self's object system just by
+ 
+
+601
+00:11:59,560 --> 00:12:00,630
+inherit Self's object system just by
+saying
+
+602
+00:12:00,630 --> 00:12:00,640
+saying
+ 
+
+603
+00:12:00,640 --> 00:12:02,630
+saying
+one of my parents is Self's object
+
+604
+00:12:02,630 --> 00:12:02,640
+one of my parents is Self's object
+ 
+
+605
+00:12:02,640 --> 00:12:05,430
+one of my parents is Self's object
+system. And another of my parents is US
+
+606
+00:12:05,430 --> 00:12:05,440
+system. And another of my parents is US
+ 
+
+607
+00:12:05,440 --> 00:12:09,470
+system. And another of my parents is US
+patent number 1 2 3 4 5 filed by David
+
+608
+00:12:09,470 --> 00:12:09,480
+patent number 1 2 3 4 5 filed by David
+ 
+
+609
+00:12:09,480 --> 00:12:12,430
+patent number 1 2 3 4 5 filed by David
+Rosenthal and Owen Dinsmore
+
+610
+00:12:12,430 --> 00:12:12,440
+Rosenthal and Owen Dinsmore
+ 
+
+611
+00:12:12,440 --> 00:12:16,390
+Rosenthal and Owen Dinsmore
+about how to convert a file system into
+
+612
+00:12:16,390 --> 00:12:16,400
+about how to convert a file system into
+ 
+
+613
+00:12:16,400 --> 00:12:18,710
+about how to convert a file system into
+and the shell and paths into an
+
+614
+00:12:18,710 --> 00:12:18,720
+and the shell and paths into an
+ 
+
+615
+00:12:18,720 --> 00:12:21,910
+and the shell and paths into an
+executable tree of objects. Okay? So,
+
+616
+00:12:21,910 --> 00:12:21,920
+executable tree of objects. Okay? So,
+ 
+
+617
+00:12:21,920 --> 00:12:25,070
+executable tree of objects. Okay? So,
+you can inherit by referring to a US
+
+618
+00:12:25,070 --> 00:12:25,080
+you can inherit by referring to a US
+ 
+
+619
+00:12:25,080 --> 00:12:27,630
+you can inherit by referring to a US
+patent. Okay? And hopefully that
+
+620
+00:12:27,630 --> 00:12:27,640
+patent. Okay? And hopefully that
+ 
+
+621
+00:12:27,640 --> 00:12:30,310
+patent. Okay? And hopefully that
+patent's expired or it's in your name,
+
+622
+00:12:30,310 --> 00:12:30,320
+patent's expired or it's in your name,
+ 
+
+623
+00:12:30,320 --> 00:12:31,990
+patent's expired or it's in your name,
+or you might have legal troubles, but
+
+624
+00:12:31,990 --> 00:12:32,000
+or you might have legal troubles, but
+ 
+
+625
+00:12:32,000 --> 00:12:33,430
+or you might have legal troubles, but
+fortunately
+
+626
+00:12:33,430 --> 00:12:33,440
+fortunately
+ 
+
+627
+00:12:33,440 --> 00:12:35,510
+fortunately
+the Rosenthals and Dinsmore's patent is
+
+628
+00:12:35,510 --> 00:12:35,520
+the Rosenthals and Dinsmore's patent is
+ 
+
+629
+00:12:35,520 --> 00:12:38,990
+the Rosenthals and Dinsmore's patent is
+expired. So, um so that and it helps to
+
+630
+00:12:38,990 --> 00:12:39,000
+expired. So, um so that and it helps to
+ 
+
+631
+00:12:39,000 --> 00:12:41,030
+expired. So, um so that and it helps to
+have some naming discipline.
+
+632
+00:12:41,030 --> 00:12:41,040
+have some naming discipline.
+ 
+
+633
+00:12:41,040 --> 00:12:42,710
+have some naming discipline.
+And uh failure modes, graceful
+
+634
+00:12:42,710 --> 00:12:42,720
+And uh failure modes, graceful
+ 
+
+635
+00:12:42,720 --> 00:12:44,470
+And uh failure modes, graceful
+degradation. So,
+
+636
+00:12:44,470 --> 00:12:44,480
+degradation. So,
+ 
+
+637
+00:12:44,480 --> 00:12:46,590
+degradation. So,
+anyway, so there was an interesting uh
+
+638
+00:12:46,590 --> 00:12:46,600
+anyway, so there was an interesting uh
+ 
+
+639
+00:12:46,600 --> 00:12:49,910
+anyway, so there was an interesting uh
+Hacker News discussion about YouTrackDB.
+
+640
+00:12:49,910 --> 00:12:49,920
+Hacker News discussion about YouTrackDB.
+ 
+
+641
+00:12:49,920 --> 00:12:52,550
+Hacker News discussion about YouTrackDB.
+And I think versus is too hard a word. I
+
+642
+00:12:52,550 --> 00:12:52,560
+And I think versus is too hard a word. I
+ 
+
+643
+00:12:52,560 --> 00:12:53,470
+And I think versus is too hard a word. I
+mean,
+
+644
+00:12:53,470 --> 00:12:53,480
+mean,
+ 
+
+645
+00:12:53,480 --> 00:12:57,190
+mean,
+I want to inherit from YouTrackDB the
+
+646
+00:12:57,190 --> 00:12:57,200
+I want to inherit from YouTrackDB the
+ 
+
+647
+00:12:57,200 --> 00:12:59,550
+I want to inherit from YouTrackDB the
+great things about it
+
+648
+00:12:59,550 --> 00:12:59,560
+great things about it
+ 
+
+649
+00:12:59,560 --> 00:13:01,630
+great things about it
+and build on top of it. I'm not saying
+
+650
+00:13:01,630 --> 00:13:01,640
+and build on top of it. I'm not saying
+ 
+
+651
+00:13:01,640 --> 00:13:03,390
+and build on top of it. I'm not saying
+this is an alternative to it. They're
+
+652
+00:13:03,390 --> 00:13:03,400
+this is an alternative to it. They're
+ 
+
+653
+00:13:03,400 --> 00:13:05,150
+this is an alternative to it. They're
+very different.
+
+654
+00:13:05,150 --> 00:13:05,160
+very different.
+ 
+
+655
+00:13:05,160 --> 00:13:06,910
+very different.
+But, uh
+
+656
+00:13:06,910 --> 00:13:06,920
+But, uh
+ 
+
+657
+00:13:06,920 --> 00:13:09,870
+But, uh
+YouTrackDB, JetBrains class-based object
+
+658
+00:13:09,870 --> 00:13:09,880
+YouTrackDB, JetBrains class-based object
+ 
+
+659
+00:13:09,880 --> 00:13:12,470
+YouTrackDB, JetBrains class-based object
+oriented graph DB. And we
+
+660
+00:13:12,470 --> 00:13:12,480
+oriented graph DB. And we
+ 
+
+661
+00:13:12,480 --> 00:13:15,590
+oriented graph DB. And we
+compare in order to inherit what each is
+
+662
+00:13:15,590 --> 00:13:15,600
+compare in order to inherit what each is
+ 
+
+663
+00:13:15,600 --> 00:13:16,870
+compare in order to inherit what each is
+better at.
+
+664
+00:13:16,870 --> 00:13:16,880
+better at.
+ 
+
+665
+00:13:16,880 --> 00:13:19,030
+better at.
+And the machine language movie, you see,
+
+666
+00:13:19,030 --> 00:13:19,040
+And the machine language movie, you see,
+ 
+
+667
+00:13:19,040 --> 00:13:22,190
+And the machine language movie, you see,
+you this is like Java VM executes it,
+
+668
+00:13:22,190 --> 00:13:22,200
+you this is like Java VM executes it,
+ 
+
+669
+00:13:22,200 --> 00:13:24,430
+you this is like Java VM executes it,
+but we're being executed by an LLM.
+
+670
+00:13:24,430 --> 00:13:24,440
+but we're being executed by an LLM.
+ 
+
+671
+00:13:24,440 --> 00:13:26,510
+but we're being executed by an LLM.
+However, we'll get to this later, this
+
+672
+00:13:26,510 --> 00:13:26,520
+However, we'll get to this later, this
+ 
+
+673
+00:13:26,520 --> 00:13:27,990
+However, we'll get to this later, this
+Dublin Core thing.
+
+674
+00:13:27,990 --> 00:13:28,000
+Dublin Core thing.
+ 
+
+675
+00:13:28,000 --> 00:13:30,110
+Dublin Core thing.
+We do want to have kind of a a machine
+
+676
+00:13:30,110 --> 00:13:30,120
+We do want to have kind of a a machine
+ 
+
+677
+00:13:30,120 --> 00:13:31,950
+We do want to have kind of a a machine
+executable core.
+
+678
+00:13:31,950 --> 00:13:31,960
+executable core.
+ 
+
+679
+00:13:31,960 --> 00:13:33,670
+executable core.
+So, um
+
+680
+00:13:33,670 --> 00:13:33,680
+So, um
+ 
+
+681
+00:13:33,680 --> 00:13:35,150
+So, um
+we can make adapters, bridges, and
+
+682
+00:13:35,150 --> 00:13:35,160
+we can make adapters, bridges, and
+ 
+
+683
+00:13:35,160 --> 00:13:36,950
+we can make adapters, bridges, and
+emulators to different object systems.
+
+684
+00:13:36,950 --> 00:13:36,960
+emulators to different object systems.
+ 
+
+685
+00:13:36,960 --> 00:13:38,710
+emulators to different object systems.
+Anybody any Python programmer that has
+
+686
+00:13:38,710 --> 00:13:38,720
+Anybody any Python programmer that has
+ 
+
+687
+00:13:38,720 --> 00:13:39,630
+Anybody any Python programmer that has
+used
+
+688
+00:13:39,630 --> 00:13:39,640
+used
+ 
+
+689
+00:13:39,640 --> 00:13:40,870
+used
+like uh
+
+690
+00:13:40,870 --> 00:13:40,880
+like uh
+ 
+
+691
+00:13:40,880 --> 00:13:44,510
+like uh
+PiGTK knows that it has a G object
+
+692
+00:13:44,510 --> 00:13:44,520
+PiGTK knows that it has a G object
+ 
+
+693
+00:13:44,520 --> 00:13:47,510
+PiGTK knows that it has a G object
+wrapper for GTK's object system to like
+
+694
+00:13:47,510 --> 00:13:47,520
+wrapper for GTK's object system to like
+ 
+
+695
+00:13:47,520 --> 00:13:49,390
+wrapper for GTK's object system to like
+bring that into Python.
+
+696
+00:13:49,390 --> 00:13:49,400
+bring that into Python.
+ 
+
+697
+00:13:49,400 --> 00:13:52,510
+bring that into Python.
+And or or like SWIG to plug a
+
+698
+00:13:52,510 --> 00:13:52,520
+And or or like SWIG to plug a
+ 
+
+699
+00:13:52,520 --> 00:13:54,630
+And or or like SWIG to plug a
+library or a library that just happens
+
+700
+00:13:54,630 --> 00:13:54,640
+library or a library that just happens
+ 
+
+701
+00:13:54,640 --> 00:13:56,590
+library or a library that just happens
+to have an object system
+
+702
+00:13:56,590 --> 00:13:56,600
+to have an object system
+ 
+
+703
+00:13:56,600 --> 00:13:59,070
+to have an object system
+into Python and make bridges so that you
+
+704
+00:13:59,070 --> 00:13:59,080
+into Python and make bridges so that you
+ 
+
+705
+00:13:59,080 --> 00:14:02,270
+into Python and make bridges so that you
+can subclass objects defined in another
+
+706
+00:14:02,270 --> 00:14:02,280
+can subclass objects defined in another
+ 
+
+707
+00:14:02,280 --> 00:14:03,910
+can subclass objects defined in another
+uh object system. So, all this has been
+
+708
+00:14:03,910 --> 00:14:03,920
+uh object system. So, all this has been
+ 
+
+709
+00:14:03,920 --> 00:14:06,750
+uh object system. So, all this has been
+done with like C and C++ and stuff.
+
+710
+00:14:06,750 --> 00:14:06,760
+done with like C and C++ and stuff.
+ 
+
+711
+00:14:06,760 --> 00:14:10,390
+done with like C and C++ and stuff.
+Uh but we are purposefully doing it in
+
+712
+00:14:10,390 --> 00:14:10,400
+Uh but we are purposefully doing it in
+ 
+
+713
+00:14:10,400 --> 00:14:13,470
+Uh but we are purposefully doing it in
+the LLM execution engine virtual
+
+714
+00:14:13,470 --> 00:14:13,480
+the LLM execution engine virtual
+ 
+
+715
+00:14:13,480 --> 00:14:16,230
+the LLM execution engine virtual
+machine. So, the LLMs can just like
+
+716
+00:14:16,230 --> 00:14:16,240
+machine. So, the LLMs can just like
+ 
+
+717
+00:14:16,240 --> 00:14:18,710
+machine. So, the LLMs can just like
+imagine virtual machines and then be
+
+718
+00:14:18,710 --> 00:14:18,720
+imagine virtual machines and then be
+ 
+
+719
+00:14:18,720 --> 00:14:22,510
+imagine virtual machines and then be
+them. So, um I mean, they are. Uh so,
+
+720
+00:14:22,510 --> 00:14:22,520
+them. So, um I mean, they are. Uh so,
+ 
+
+721
+00:14:22,520 --> 00:14:24,670
+them. So, um I mean, they are. Uh so,
+live object examples. Okay, so we have
+
+722
+00:14:24,670 --> 00:14:24,680
+live object examples. Okay, so we have
+ 
+
+723
+00:14:24,680 --> 00:14:25,790
+live object examples. Okay, so we have
+like
+
+724
+00:14:25,790 --> 00:14:25,800
+like
+ 
+
+725
+00:14:25,800 --> 00:14:27,630
+like
+we're we're using these for actual
+
+726
+00:14:27,630 --> 00:14:27,640
+we're we're using these for actual
+ 
+
+727
+00:14:27,640 --> 00:14:29,950
+we're we're using these for actual
+things and we're learning from them.
+
+728
+00:14:29,950 --> 00:14:29,960
+things and we're learning from them.
+ 
+
+729
+00:14:29,960 --> 00:14:33,190
+things and we're learning from them.
+Ground Up uh software is my my company
+
+730
+00:14:33,190 --> 00:14:33,200
+Ground Up uh software is my my company
+ 
+
+731
+00:14:33,200 --> 00:14:34,630
+Ground Up uh software is my my company
+and that's how we do it from the ground
+
+732
+00:14:34,630 --> 00:14:34,640
+and that's how we do it from the ground
+ 
+
+733
+00:14:34,640 --> 00:14:36,430
+and that's how we do it from the ground
+up or like hamburger
+
+734
+00:14:36,430 --> 00:14:36,440
+up or like hamburger
+ 
+
+735
+00:14:36,440 --> 00:14:39,829
+up or like hamburger
+or or or used coffee beans. But, um so,
+
+736
+00:14:39,829 --> 00:14:39,839
+or or or used coffee beans. But, um so,
+ 
+
+737
+00:14:39,839 --> 00:14:42,070
+or or or used coffee beans. But, um so,
+the system is running in public. So,
+
+738
+00:14:42,070 --> 00:14:42,080
+the system is running in public. So,
+ 
+
+739
+00:14:42,080 --> 00:14:43,510
+the system is running in public. So,
+Soul City
+
+740
+00:14:43,510 --> 00:14:43,520
+Soul City
+ 
+
+741
+00:14:43,520 --> 00:14:45,790
+Soul City
+Micropolis core, Soul's content human
+
+742
+00:14:45,790 --> 00:14:45,800
+Micropolis core, Soul's content human
+ 
+
+743
+00:14:45,800 --> 00:14:48,070
+Micropolis core, Soul's content human
+LLM collaboration, and Adventure 4 is a
+
+744
+00:14:48,070 --> 00:14:48,080
+LLM collaboration, and Adventure 4 is a
+ 
+
+745
+00:14:48,080 --> 00:14:50,590
+LLM collaboration, and Adventure 4 is a
+built-in world world example.
+
+746
+00:14:50,590 --> 00:14:50,600
+built-in world world example.
+ 
+
+747
+00:14:50,600 --> 00:14:52,630
+built-in world world example.
+So, Dublin core and the Adventure
+
+748
+00:14:52,630 --> 00:14:52,640
+So, Dublin core and the Adventure
+ 
+
+749
+00:14:52,640 --> 00:14:54,030
+So, Dublin core and the Adventure
+compiler
+
+750
+00:14:54,030 --> 00:14:54,040
+compiler
+ 
+
+751
+00:14:54,040 --> 00:14:56,230
+compiler
+the strict machine executable core under
+
+752
+00:14:56,230 --> 00:14:56,240
+the strict machine executable core under
+ 
+
+753
+00:14:56,240 --> 00:14:58,829
+the strict machine executable core under
+the rich semantic overlay. Natural
+
+754
+00:14:58,829 --> 00:14:58,839
+the rich semantic overlay. Natural
+ 
+
+755
+00:14:58,839 --> 00:15:02,190
+the rich semantic overlay. Natural
+language guards compiled to guard JS by
+
+756
+00:15:02,190 --> 00:15:02,200
+language guards compiled to guard JS by
+ 
+
+757
+00:15:02,200 --> 00:15:04,910
+language guards compiled to guard JS by
+an LLM resolving linter warnings.
+
+758
+00:15:04,910 --> 00:15:04,920
+an LLM resolving linter warnings.
+ 
+
+759
+00:15:04,920 --> 00:15:07,430
+an LLM resolving linter warnings.
+Instance first, not yet lifted the
+
+760
+00:15:07,430 --> 00:15:07,440
+Instance first, not yet lifted the
+ 
+
+761
+00:15:07,440 --> 00:15:09,590
+Instance first, not yet lifted the
+the good, not the evil racist, but the
+
+762
+00:15:09,590 --> 00:15:09,600
+the good, not the evil racist, but the
+ 
+
+763
+00:15:09,600 --> 00:15:13,550
+the good, not the evil racist, but the
+good creative Scott Adams lineage who
+
+764
+00:15:13,550 --> 00:15:13,560
+good creative Scott Adams lineage who
+ 
+
+765
+00:15:13,560 --> 00:15:15,670
+good creative Scott Adams lineage who
+made Scott Adams Adventureland on the
+
+766
+00:15:15,670 --> 00:15:15,680
+made Scott Adams Adventureland on the
+ 
+
+767
+00:15:15,680 --> 00:15:17,550
+made Scott Adams Adventureland on the
+TRS-80 and Apple II.
+
+768
+00:15:17,550 --> 00:15:17,560
+TRS-80 and Apple II.
+ 
+
+769
+00:15:17,560 --> 00:15:20,590
+TRS-80 and Apple II.
+So, now I have a new buzzword for you.
+
+770
+00:15:20,590 --> 00:15:20,600
+So, now I have a new buzzword for you.
+ 
+
+771
+00:15:20,600 --> 00:15:21,150
+So, now I have a new buzzword for you.
+Uh
+
+772
+00:15:21,150 --> 00:15:21,160
+Uh
+ 
+
+773
+00:15:21,160 --> 00:15:22,870
+Uh
+humansplaining.
+
+774
+00:15:22,870 --> 00:15:22,880
+humansplaining.
+ 
+
+775
+00:15:22,880 --> 00:15:25,310
+humansplaining.
+Its meaning is obvious. It's like the
+
+776
+00:15:25,310 --> 00:15:25,320
+Its meaning is obvious. It's like the
+ 
+
+777
+00:15:25,320 --> 00:15:26,990
+Its meaning is obvious. It's like the
+the
+
+778
+00:15:26,990 --> 00:15:27,000
+the
+ 
+
+779
+00:15:27,000 --> 00:15:29,070
+the
+complement the other direction of AI
+
+780
+00:15:29,070 --> 00:15:29,080
+complement the other direction of AI
+ 
+
+781
+00:15:29,080 --> 00:15:31,790
+complement the other direction of AI
+slop. So, the named anti-pattern wasting
+
+782
+00:15:31,790 --> 00:15:31,800
+slop. So, the named anti-pattern wasting
+ 
+
+783
+00:15:31,800 --> 00:15:33,910
+slop. So, the named anti-pattern wasting
+tokens telling an LLM what it already
+
+784
+00:15:33,910 --> 00:15:33,920
+tokens telling an LLM what it already
+ 
+
+785
+00:15:33,920 --> 00:15:36,590
+tokens telling an LLM what it already
+need knew knows. AI slop's mirror image
+
+786
+00:15:36,590 --> 00:15:36,600
+need knew knows. AI slop's mirror image
+ 
+
+787
+00:15:36,600 --> 00:15:40,790
+need knew knows. AI slop's mirror image
+the skill script case study capability
+
+788
+00:15:40,790 --> 00:15:40,800
+the skill script case study capability
+ 
+
+789
+00:15:40,800 --> 00:15:43,430
+the skill script case study capability
+confinement begin belongs in the runtime
+
+790
+00:15:43,430 --> 00:15:43,440
+confinement begin belongs in the runtime
+ 
+
+791
+00:15:43,440 --> 00:15:45,310
+confinement begin belongs in the runtime
+not the grammar. So, we'll get into
+
+792
+00:15:45,310 --> 00:15:45,320
+not the grammar. So, we'll get into
+ 
+
+793
+00:15:45,320 --> 00:15:47,430
+not the grammar. So, we'll get into
+humansplaining but then I'll provide a
+
+794
+00:15:47,430 --> 00:15:47,440
+humansplaining but then I'll provide a
+ 
+
+795
+00:15:47,440 --> 00:15:49,750
+humansplaining but then I'll provide a
+annotated bibliography. Every YAML
+
+796
+00:15:49,750 --> 00:15:49,760
+annotated bibliography. Every YAML
+ 
+
+797
+00:15:49,760 --> 00:15:51,630
+annotated bibliography. Every YAML
+source cited by this series annotated is
+
+798
+00:15:51,630 --> 00:15:51,640
+source cited by this series annotated is
+ 
+
+799
+00:15:51,640 --> 00:15:53,590
+source cited by this series annotated is
+human readable prose with links back to
+
+800
+00:15:53,590 --> 00:15:53,600
+human readable prose with links back to
+ 
+
+801
+00:15:53,600 --> 00:15:56,310
+human readable prose with links back to
+the live files. One ladle from the Repos
+
+802
+00:15:56,310 --> 00:15:56,320
+the live files. One ladle from the Repos
+ 
+
+803
+00:15:56,320 --> 00:15:59,070
+the live files. One ladle from the Repos
+cream layer. See, ladle is a a K line
+
+804
+00:15:59,070 --> 00:15:59,080
+cream layer. See, ladle is a a K line
+ 
+
+805
+00:15:59,080 --> 00:16:00,750
+cream layer. See, ladle is a a K line
+that refers
+
+806
+00:16:00,750 --> 00:16:00,760
+that refers
+ 
+
+807
+00:16:00,760 --> 00:16:02,110
+that refers
+to
+
+808
+00:16:02,110 --> 00:16:02,120
+to
+ 
+
+809
+00:16:02,120 --> 00:16:04,590
+to
+the cauldron skill. So, we'll get to
+
+810
+00:16:04,590 --> 00:16:04,600
+the cauldron skill. So, we'll get to
+ 
+
+811
+00:16:04,600 --> 00:16:06,470
+the cauldron skill. So, we'll get to
+that later, too. But, okay, reading
+
+812
+00:16:06,470 --> 00:16:06,480
+that later, too. But, okay, reading
+ 
+
+813
+00:16:06,480 --> 00:16:08,550
+that later, too. But, okay, reading
+order. First, read about Self and Moo
+
+814
+00:16:08,550 --> 00:16:08,560
+order. First, read about Self and Moo
+ 
+
+815
+00:16:08,560 --> 00:16:09,790
+order. First, read about Self and Moo
+latent space inheritance the case
+
+816
+00:16:09,790 --> 00:16:09,800
+latent space inheritance the case
+ 
+
+817
+00:16:09,800 --> 00:16:11,270
+latent space inheritance the case
+studies the annotated bibliography is
+
+818
+00:16:11,270 --> 00:16:11,280
+studies the annotated bibliography is
+ 
+
+819
+00:16:11,280 --> 00:16:13,790
+studies the annotated bibliography is
+the side table consulted with a citation
+
+820
+00:16:13,790 --> 00:16:13,800
+the side table consulted with a citation
+ 
+
+821
+00:16:13,800 --> 00:16:15,230
+the side table consulted with a citation
+points in the YAML and you don't want to
+
+822
+00:16:15,230 --> 00:16:15,240
+points in the YAML and you don't want to
+ 
+
+823
+00:16:15,240 --> 00:16:17,790
+points in the YAML and you don't want to
+context switch. So, the heritage 1980s
+
+824
+00:16:17,790 --> 00:16:17,800
+context switch. So, the heritage 1980s
+ 
+
+825
+00:16:17,800 --> 00:16:20,550
+context switch. So, the heritage 1980s
+Self Ungar and Smith 1987. Clone
+
+826
+00:16:20,550 --> 00:16:20,560
+Self Ungar and Smith 1987. Clone
+ 
+
+827
+00:16:20,560 --> 00:16:23,230
+Self Ungar and Smith 1987. Clone
+override delegate is the risk core that
+
+828
+00:16:23,230 --> 00:16:23,240
+override delegate is the risk core that
+ 
+
+829
+00:16:23,240 --> 00:16:24,710
+override delegate is the risk core that
+everything lowers to.
+
+830
+00:16:24,710 --> 00:16:24,720
+everything lowers to.
+ 
+
+831
+00:16:24,720 --> 00:16:26,470
+everything lowers to.
+Source Smalltalk in a risk Ungar and
+
+832
+00:16:26,470 --> 00:16:26,480
+Source Smalltalk in a risk Ungar and
+ 
+
+833
+00:16:26,480 --> 00:16:28,829
+Source Smalltalk in a risk Ungar and
+Patterson and Sequoin Berkeley '83 to
+
+834
+00:16:28,829 --> 00:16:28,839
+Patterson and Sequoin Berkeley '83 to
+ 
+
+835
+00:16:28,839 --> 00:16:31,190
+Patterson and Sequoin Berkeley '83 to
+'85. Smalltalk in a risk the minimal
+
+836
+00:16:31,190 --> 00:16:31,200
+'85. Smalltalk in a risk the minimal
+ 
+
+837
+00:16:31,200 --> 00:16:34,230
+'85. Smalltalk in a risk the minimal
+primitive discipline Self grew from.
+
+838
+00:16:34,230 --> 00:16:34,240
+primitive discipline Self grew from.
+ 
+
+839
+00:16:34,240 --> 00:16:36,270
+primitive discipline Self grew from.
+Lisp machine flavors to Common Lisp
+
+840
+00:16:36,270 --> 00:16:36,280
+Lisp machine flavors to Common Lisp
+ 
+
+841
+00:16:36,280 --> 00:16:39,230
+Lisp machine flavors to Common Lisp
+class to meta object protocol MOP.
+
+842
+00:16:39,230 --> 00:16:39,240
+class to meta object protocol MOP.
+ 
+
+843
+00:16:39,240 --> 00:16:43,910
+class to meta object protocol MOP.
+Howard Cannon Moon Bob Rao Kickzales et
+
+844
+00:16:43,910 --> 00:16:43,920
+Howard Cannon Moon Bob Rao Kickzales et
+ 
+
+845
+00:16:43,920 --> 00:16:46,510
+Howard Cannon Moon Bob Rao Kickzales et
+cetera mixins method combinations
+
+846
+00:16:46,510 --> 00:16:46,520
+cetera mixins method combinations
+ 
+
+847
+00:16:46,520 --> 00:16:48,710
+cetera mixins method combinations
+multiple dispatch open implementations
+
+848
+00:16:48,710 --> 00:16:48,720
+multiple dispatch open implementations
+ 
+
+849
+00:16:48,720 --> 00:16:51,510
+multiple dispatch open implementations
+before and after the events and around.
+
+850
+00:16:51,510 --> 00:16:51,520
+before and after the events and around.
+ 
+
+851
+00:16:51,520 --> 00:16:54,350
+before and after the events and around.
+So, news TNT the news toolkit HyperLook
+
+852
+00:16:54,350 --> 00:16:54,360
+So, news TNT the news toolkit HyperLook
+ 
+
+853
+00:16:54,360 --> 00:16:57,630
+So, news TNT the news toolkit HyperLook
+inspired by HyperCard. Um
+
+854
+00:16:57,630 --> 00:16:57,640
+inspired by HyperCard. Um
+ 
+
+855
+00:16:57,640 --> 00:16:58,950
+inspired by HyperCard. Um
+this
+
+856
+00:16:58,950 --> 00:16:58,960
+this
+ 
+
+857
+00:16:58,960 --> 00:17:00,190
+this
+is
+
+858
+00:17:00,190 --> 00:17:00,200
+is
+ 
+
+859
+00:17:00,200 --> 00:17:02,190
+is
+a like well, it was a shipping window
+
+860
+00:17:02,190 --> 00:17:02,200
+a like well, it was a shipping window
+ 
+
+861
+00:17:02,200 --> 00:17:03,430
+a like well, it was a shipping window
+system
+
+862
+00:17:03,430 --> 00:17:03,440
+system
+ 
+
+863
+00:17:03,440 --> 00:17:04,870
+system
+a shipping
+
+864
+00:17:04,870 --> 00:17:04,880
+a shipping
+ 
+
+865
+00:17:04,880 --> 00:17:07,630
+a shipping
+user
+
+866
+00:17:07,630 --> 00:17:07,640
+user
+ 
+
+867
+00:17:07,640 --> 00:17:10,829
+user
+end user user interface construction and
+
+868
+00:17:10,829 --> 00:17:10,839
+end user user interface construction and
+ 
+
+869
+00:17:10,839 --> 00:17:13,270
+end user user interface construction and
+editing system like HyperCard and then a
+
+870
+00:17:13,270 --> 00:17:13,280
+editing system like HyperCard and then a
+ 
+
+871
+00:17:13,280 --> 00:17:16,429
+editing system like HyperCard and then a
+shipping game SimCity on top of all of
+
+872
+00:17:16,429 --> 00:17:16,439
+shipping game SimCity on top of all of
+ 
+
+873
+00:17:16,439 --> 00:17:18,910
+shipping game SimCity on top of all of
+So, Owen Densmore, James Gosling, David
+
+874
+00:17:18,910 --> 00:17:18,920
+So, Owen Densmore, James Gosling, David
+ 
+
+875
+00:17:18,920 --> 00:17:21,110
+So, Owen Densmore, James Gosling, David
+Rosenthal, me, Don Hopkins, Arthur van
+
+876
+00:17:21,110 --> 00:17:21,120
+Rosenthal, me, Don Hopkins, Arthur van
+ 
+
+877
+00:17:21,120 --> 00:17:23,110
+Rosenthal, me, Don Hopkins, Arthur van
+Hoff, who like ended up after that
+
+878
+00:17:23,110 --> 00:17:23,120
+Hoff, who like ended up after that
+ 
+
+879
+00:17:23,120 --> 00:17:25,150
+Hoff, who like ended up after that
+writing the Java compiler in Java, etc.
+
+880
+00:17:25,150 --> 00:17:25,160
+writing the Java compiler in Java, etc.
+ 
+
+881
+00:17:25,160 --> 00:17:27,910
+writing the Java compiler in Java, etc.
+So, it used multiple inheritance object
+
+882
+00:17:27,910 --> 00:17:27,920
+So, it used multiple inheritance object
+ 
+
+883
+00:17:27,920 --> 00:17:30,350
+So, it used multiple inheritance object
+oriented PostScript, which inspired by
+
+884
+00:17:30,350 --> 00:17:30,360
+oriented PostScript, which inspired by
+ 
+
+885
+00:17:30,360 --> 00:17:32,550
+oriented PostScript, which inspired by
+Smalltalk, of course. Uh shipped as a
+
+886
+00:17:32,550 --> 00:17:32,560
+Smalltalk, of course. Uh shipped as a
+ 
+
+887
+00:17:32,560 --> 00:17:34,750
+Smalltalk, of course. Uh shipped as a
+system software, HyperCard like editable
+
+888
+00:17:34,750 --> 00:17:34,760
+system software, HyperCard like editable
+ 
+
+889
+00:17:34,760 --> 00:17:37,830
+system software, HyperCard like editable
+scriptable UI, and SimCity as live
+
+890
+00:17:37,830 --> 00:17:37,840
+scriptable UI, and SimCity as live
+ 
+
+891
+00:17:37,840 --> 00:17:39,910
+scriptable UI, and SimCity as live
+objects that you could like deconstruct
+
+892
+00:17:39,910 --> 00:17:39,920
+objects that you could like deconstruct
+ 
+
+893
+00:17:39,920 --> 00:17:41,590
+objects that you could like deconstruct
+the game's user interface and build it
+
+894
+00:17:41,590 --> 00:17:41,600
+the game's user interface and build it
+ 
+
+895
+00:17:41,600 --> 00:17:45,070
+the game's user interface and build it
+back. So, Owen Densmore and Rosenthal
+
+896
+00:17:45,070 --> 00:17:45,080
+back. So, Owen Densmore and Rosenthal
+ 
+
+897
+00:17:45,080 --> 00:17:47,670
+back. So, Owen Densmore and Rosenthal
+then after doing the News object
+
+898
+00:17:47,670 --> 00:17:47,680
+then after doing the News object
+ 
+
+899
+00:17:47,680 --> 00:17:50,950
+then after doing the News object
+oriented system realized see News took
+
+900
+00:17:50,950 --> 00:17:50,960
+oriented system realized see News took
+ 
+
+901
+00:17:50,960 --> 00:17:53,870
+oriented system realized see News took
+Smalltalk's objects and implemented it
+
+902
+00:17:53,870 --> 00:17:53,880
+Smalltalk's objects and implemented it
+ 
+
+903
+00:17:53,880 --> 00:17:55,870
+Smalltalk's objects and implemented it
+on what PostScript was already doing,
+
+904
+00:17:55,870 --> 00:17:55,880
+on what PostScript was already doing,
+ 
+
+905
+00:17:55,880 --> 00:17:57,670
+on what PostScript was already doing,
+which includes a dictionary stack for
+
+906
+00:17:57,670 --> 00:17:57,680
+which includes a dictionary stack for
+ 
+
+907
+00:17:57,680 --> 00:18:00,230
+which includes a dictionary stack for
+looking up names, which is all you need
+
+908
+00:18:00,230 --> 00:18:00,240
+looking up names, which is all you need
+ 
+
+909
+00:18:00,240 --> 00:18:01,830
+looking up names, which is all you need
+like, you know, attention is all you
+
+910
+00:18:01,830 --> 00:18:01,840
+like, you know, attention is all you
+ 
+
+911
+00:18:01,840 --> 00:18:04,190
+like, you know, attention is all you
+need. We would say dictionary stack,
+
+912
+00:18:04,190 --> 00:18:04,200
+need. We would say dictionary stack,
+ 
+
+913
+00:18:04,200 --> 00:18:05,590
+need. We would say dictionary stack,
+PostScript dictionary stack is all you
+
+914
+00:18:05,590 --> 00:18:05,600
+PostScript dictionary stack is all you
+ 
+
+915
+00:18:05,600 --> 00:18:07,350
+PostScript dictionary stack is all you
+need to implement multiple inheritance
+
+916
+00:18:07,350 --> 00:18:07,360
+need to implement multiple inheritance
+ 
+
+917
+00:18:07,360 --> 00:18:09,110
+need to implement multiple inheritance
+PostScript. And guess what that's
+
+918
+00:18:09,110 --> 00:18:09,120
+PostScript. And guess what that's
+ 
+
+919
+00:18:09,120 --> 00:18:12,270
+PostScript. And guess what that's
+isomorphic to? A shell path
+
+920
+00:18:12,270 --> 00:18:12,280
+isomorphic to? A shell path
+ 
+
+921
+00:18:12,280 --> 00:18:15,190
+isomorphic to? A shell path
+within a file system. So, you can do
+
+922
+00:18:15,190 --> 00:18:15,200
+within a file system. So, you can do
+ 
+
+923
+00:18:15,200 --> 00:18:16,470
+within a file system. So, you can do
+objects.
+
+924
+00:18:16,470 --> 00:18:16,480
+objects.
+ 
+
+925
+00:18:16,480 --> 00:18:19,590
+objects.
+This is what this patent is about, okay?
+
+926
+00:18:19,590 --> 00:18:19,600
+This is what this patent is about, okay?
+ 
+
+927
+00:18:19,600 --> 00:18:20,670
+This is what this patent is about, okay?
+So,
+
+928
+00:18:20,670 --> 00:18:20,680
+So,
+ 
+
+929
+00:18:20,680 --> 00:18:22,390
+So,
+um
+
+930
+00:18:22,390 --> 00:18:22,400
+um
+ 
+
+931
+00:18:22,400 --> 00:18:24,550
+um
+boom, you know, this like see we can
+
+932
+00:18:24,550 --> 00:18:24,560
+boom, you know, this like see we can
+ 
+
+933
+00:18:24,560 --> 00:18:28,830
+boom, you know, this like see we can
+inherit from this This is a K-line
+
+934
+00:18:28,830 --> 00:18:28,840
+inherit from this This is a K-line
+ 
+
+935
+00:18:28,840 --> 00:18:30,270
+inherit from this This is a K-line
+to
+
+936
+00:18:30,270 --> 00:18:30,280
+to
+ 
+
+937
+00:18:30,280 --> 00:18:33,430
+to
+this patent that explains everything,
+
+938
+00:18:33,430 --> 00:18:33,440
+this patent that explains everything,
+ 
+
+939
+00:18:33,440 --> 00:18:34,510
+this patent that explains everything,
+okay?
+
+940
+00:18:34,510 --> 00:18:34,520
+okay?
+ 
+
+941
+00:18:34,520 --> 00:18:37,150
+okay?
+This is it right here. Um
+
+942
+00:18:37,150 --> 00:18:37,160
+This is it right here. Um
+ 
+
+943
+00:18:37,160 --> 00:18:39,510
+This is it right here. Um
+so,
+
+944
+00:18:39,510 --> 00:18:39,520
+so,
+ 
+
+945
+00:18:39,520 --> 00:18:42,350
+so,
+Gary Drescher, um he was Marvin Minsky's
+
+946
+00:18:42,350 --> 00:18:42,360
+Gary Drescher, um he was Marvin Minsky's
+ 
+
+947
+00:18:42,360 --> 00:18:45,310
+Gary Drescher, um he was Marvin Minsky's
+graduate student. He made Made Up Minds
+
+948
+00:18:45,310 --> 00:18:45,320
+graduate student. He made Made Up Minds
+ 
+
+949
+00:18:45,320 --> 00:18:48,750
+graduate student. He made Made Up Minds
+in 1991, and that inspired us at Lila
+
+950
+00:18:48,750 --> 00:18:48,760
+in 1991, and that inspired us at Lila
+ 
+
+951
+00:18:48,760 --> 00:18:51,070
+in 1991, and that inspired us at Lila
+AI, who who Henry Minsky is my colleague
+
+952
+00:18:51,070 --> 00:18:51,080
+AI, who who Henry Minsky is my colleague
+ 
+
+953
+00:18:51,080 --> 00:18:54,950
+AI, who who Henry Minsky is my colleague
+and the CTO, uh Marvin's son, of course,
+
+954
+00:18:54,950 --> 00:18:54,960
+and the CTO, uh Marvin's son, of course,
+ 
+
+955
+00:18:54,960 --> 00:18:58,470
+and the CTO, uh Marvin's son, of course,
+to do a schema mechanism. The LL Okay,
+
+956
+00:18:58,470 --> 00:18:58,480
+to do a schema mechanism. The LL Okay,
+ 
+
+957
+00:18:58,480 --> 00:18:59,790
+to do a schema mechanism. The LL Okay,
+we hit a
+
+958
+00:18:59,790 --> 00:18:59,800
+we hit a
+ 
+
+959
+00:18:59,800 --> 00:19:03,350
+we hit a
+the wall was in Lisp or Python is that
+
+960
+00:19:03,350 --> 00:19:03,360
+the wall was in Lisp or Python is that
+ 
+
+961
+00:19:03,360 --> 00:19:05,950
+the wall was in Lisp or Python is that
+there's no grounding, no way to do
+
+962
+00:19:05,950 --> 00:19:05,960
+there's no grounding, no way to do
+ 
+
+963
+00:19:05,960 --> 00:19:08,150
+there's no grounding, no way to do
+grounding, right? Well, guess what LLM
+
+964
+00:19:08,150 --> 00:19:08,160
+grounding, right? Well, guess what LLM
+ 
+
+965
+00:19:08,160 --> 00:19:11,870
+grounding, right? Well, guess what LLM
+does really well. So, anyway, earlier
+
+966
+00:19:11,870 --> 00:19:11,880
+does really well. So, anyway, earlier
+ 
+
+967
+00:19:11,880 --> 00:19:14,190
+does really well. So, anyway, earlier
+back Minsky has written about K lines,
+
+968
+00:19:14,190 --> 00:19:14,200
+back Minsky has written about K lines,
+ 
+
+969
+00:19:14,200 --> 00:19:15,630
+back Minsky has written about K lines,
+which I think I touched on, and then
+
+970
+00:19:15,630 --> 00:19:15,640
+which I think I touched on, and then
+ 
+
+971
+00:19:15,640 --> 00:19:19,230
+which I think I touched on, and then
+especially Society of Mind, which we are
+
+972
+00:19:19,230 --> 00:19:19,240
+especially Society of Mind, which we are
+ 
+
+973
+00:19:19,240 --> 00:19:21,310
+especially Society of Mind, which we are
+This gives you a much better perspective
+
+974
+00:19:21,310 --> 00:19:21,320
+This gives you a much better perspective
+ 
+
+975
+00:19:21,320 --> 00:19:25,630
+This gives you a much better perspective
+and way to frame and collocate agents in
+
+976
+00:19:25,630 --> 00:19:25,640
+and way to frame and collocate agents in
+ 
+
+977
+00:19:25,640 --> 00:19:28,230
+and way to frame and collocate agents in
+the same LLM call. Not having a whole
+
+978
+00:19:28,230 --> 00:19:28,240
+the same LLM call. Not having a whole
+ 
+
+979
+00:19:28,240 --> 00:19:30,350
+the same LLM call. Not having a whole
+bunch of agents
+
+980
+00:19:30,350 --> 00:19:30,360
+bunch of agents
+ 
+
+981
+00:19:30,360 --> 00:19:32,310
+bunch of agents
+talking to each other by serializing and
+
+982
+00:19:32,310 --> 00:19:32,320
+talking to each other by serializing and
+ 
+
+983
+00:19:32,320 --> 00:19:37,630
+talking to each other by serializing and
+deserializing pay per token like
+
+984
+00:19:37,630 --> 00:19:37,640
+deserializing pay per token like
+ 
+
+985
+00:19:37,640 --> 00:19:40,030
+deserializing pay per token like
+it's like prisoners in solitary
+
+986
+00:19:40,030 --> 00:19:40,040
+it's like prisoners in solitary
+ 
+
+987
+00:19:40,040 --> 00:19:41,910
+it's like prisoners in solitary
+confinement
+
+988
+00:19:41,910 --> 00:19:41,920
+confinement
+ 
+
+989
+00:19:41,920 --> 00:19:44,270
+confinement
+exchanging notes by writing in in
+
+990
+00:19:44,270 --> 00:19:44,280
+exchanging notes by writing in in
+ 
+
+991
+00:19:44,280 --> 00:19:46,790
+exchanging notes by writing in in
+lipstick on wet napkins and then sending
+
+992
+00:19:46,790 --> 00:19:46,800
+lipstick on wet napkins and then sending
+ 
+
+993
+00:19:46,800 --> 00:19:50,030
+lipstick on wet napkins and then sending
+them back and forth with carrier pigeons
+
+994
+00:19:50,030 --> 00:19:50,040
+them back and forth with carrier pigeons
+ 
+
+995
+00:19:50,040 --> 00:19:51,630
+them back and forth with carrier pigeons
+instead of having everyone in the same
+
+996
+00:19:51,630 --> 00:19:51,640
+instead of having everyone in the same
+ 
+
+997
+00:19:51,640 --> 00:19:53,870
+instead of having everyone in the same
+room together, okay? The distortion and
+
+998
+00:19:53,870 --> 00:19:53,880
+room together, okay? The distortion and
+ 
+
+999
+00:19:53,880 --> 00:19:56,470
+room together, okay? The distortion and
+the cost caused by serializing and
+
+1000
+00:19:56,470 --> 00:19:56,480
+the cost caused by serializing and
+ 
+
+1001
+00:19:56,480 --> 00:20:00,630
+the cost caused by serializing and
+deserializing like high-dimension vector
+
+1002
+00:20:00,630 --> 00:20:00,640
+deserializing like high-dimension vector
+ 
+
+1003
+00:20:00,640 --> 00:20:02,630
+deserializing like high-dimension vector
+pointers to ideas
+
+1004
+00:20:02,630 --> 00:20:02,640
+pointers to ideas
+ 
+
+1005
+00:20:02,640 --> 00:20:04,710
+pointers to ideas
+the the noise that you're introducing
+
+1006
+00:20:04,710 --> 00:20:04,720
+the the noise that you're introducing
+ 
+
+1007
+00:20:04,720 --> 00:20:06,630
+the the noise that you're introducing
+and the the
+
+1008
+00:20:06,630 --> 00:20:06,640
+and the the
+ 
+
+1009
+00:20:06,640 --> 00:20:08,310
+and the the
+climate change that you're that you're
+
+1010
+00:20:08,310 --> 00:20:08,320
+climate change that you're that you're
+ 
+
+1011
+00:20:08,320 --> 00:20:10,710
+climate change that you're that you're
+perpetrating just for doing that
+
+1012
+00:20:10,710 --> 00:20:10,720
+perpetrating just for doing that
+ 
+
+1013
+00:20:10,720 --> 00:20:12,510
+perpetrating just for doing that
+incredibly inefficient thing when you
+
+1014
+00:20:12,510 --> 00:20:12,520
+incredibly inefficient thing when you
+ 
+
+1015
+00:20:12,520 --> 00:20:15,470
+incredibly inefficient thing when you
+could just put put them together and
+
+1016
+00:20:15,470 --> 00:20:15,480
+could just put put them together and
+ 
+
+1017
+00:20:15,480 --> 00:20:17,510
+could just put put them together and
+they just like point to each other's
+
+1018
+00:20:17,510 --> 00:20:17,520
+they just like point to each other's
+ 
+
+1019
+00:20:17,520 --> 00:20:23,230
+they just like point to each other's
+ideas in the same LLM call you know, GPU
+
+1020
+00:20:23,230 --> 00:20:23,240
+ideas in the same LLM call you know, GPU
+ 
+
+1021
+00:20:23,240 --> 00:20:25,950
+ideas in the same LLM call you know, GPU
+memory, okay? So
+
+1022
+00:20:25,950 --> 00:20:25,960
+memory, okay? So
+ 
+
+1023
+00:20:25,960 --> 00:20:28,590
+memory, okay? So
+applying Society of Mind to LLMs, there
+
+1024
+00:20:28,590 --> 00:20:28,600
+applying Society of Mind to LLMs, there
+ 
+
+1025
+00:20:28,600 --> 00:20:30,030
+applying Society of Mind to LLMs, there
+are like
+
+1026
+00:20:30,030 --> 00:20:30,040
+are like
+ 
+
+1027
+00:20:30,040 --> 00:20:32,030
+are like
+really good ideas that you can do to
+
+1028
+00:20:32,030 --> 00:20:32,040
+really good ideas that you can do to
+ 
+
+1029
+00:20:32,040 --> 00:20:34,590
+really good ideas that you can do to
+make it much more efficient. Uh
+
+1030
+00:20:34,590 --> 00:20:34,600
+make it much more efficient. Uh
+ 
+
+1031
+00:20:34,600 --> 00:20:36,630
+make it much more efficient. Uh
+not just efficient, but like be able to
+
+1032
+00:20:36,630 --> 00:20:36,640
+not just efficient, but like be able to
+ 
+
+1033
+00:20:36,640 --> 00:20:38,430
+not just efficient, but like be able to
+do things you couldn't do before. So,
+
+1034
+00:20:38,430 --> 00:20:38,440
+do things you couldn't do before. So,
+ 
+
+1035
+00:20:38,440 --> 00:20:41,230
+do things you couldn't do before. So,
+the activation mechanism and the agency
+
+1036
+00:20:41,230 --> 00:20:41,240
+the activation mechanism and the agency
+ 
+
+1037
+00:20:41,240 --> 00:20:42,670
+the activation mechanism and the agency
+model
+
+1038
+00:20:42,670 --> 00:20:42,680
+model
+ 
+
+1039
+00:20:42,680 --> 00:20:45,910
+model
+agency composed of multiple agents that
+
+1040
+00:20:45,910 --> 00:20:45,920
+agency composed of multiple agents that
+ 
+
+1041
+00:20:45,920 --> 00:20:48,190
+agency composed of multiple agents that
+can communicate efficiently, you know,
+
+1042
+00:20:48,190 --> 00:20:48,200
+can communicate efficiently, you know,
+ 
+
+1043
+00:20:48,200 --> 00:20:50,550
+can communicate efficiently, you know,
+like telepathically, okay? I mean,
+
+1044
+00:20:50,550 --> 00:20:50,560
+like telepathically, okay? I mean,
+ 
+
+1045
+00:20:50,560 --> 00:20:53,310
+like telepathically, okay? I mean,
+literally, they're in the same
+
+1046
+00:20:53,310 --> 00:20:53,320
+literally, they're in the same
+ 
+
+1047
+00:20:53,320 --> 00:20:55,350
+literally, they're in the same
+spark of of
+
+1048
+00:20:55,350 --> 00:20:55,360
+spark of of
+ 
+
+1049
+00:20:55,360 --> 00:20:56,950
+spark of of
+if you would call it consciousness or
+
+1050
+00:20:56,950 --> 00:20:56,960
+if you would call it consciousness or
+ 
+
+1051
+00:20:56,960 --> 00:20:58,790
+if you would call it consciousness or
+not, it doesn't matter. They're in the
+
+1052
+00:20:58,790 --> 00:20:58,800
+not, it doesn't matter. They're in the
+ 
+
+1053
+00:20:58,800 --> 00:21:01,310
+not, it doesn't matter. They're in the
+same LLM completion call
+
+1054
+00:21:01,310 --> 00:21:01,320
+same LLM completion call
+ 
+
+1055
+00:21:01,320 --> 00:21:04,430
+same LLM completion call
+in the same context. Uh the whole thing
+
+1056
+00:21:04,430 --> 00:21:04,440
+in the same context. Uh the whole thing
+ 
+
+1057
+00:21:04,440 --> 00:21:06,630
+in the same context. Uh the whole thing
+runs on Okay, and now here's where
+
+1058
+00:21:06,630 --> 00:21:06,640
+runs on Okay, and now here's where
+ 
+
+1059
+00:21:06,640 --> 00:21:08,030
+runs on Okay, and now here's where
+getting retro.
+
+1060
+00:21:08,030 --> 00:21:08,040
+getting retro.
+ 
+
+1061
+00:21:08,040 --> 00:21:10,390
+getting retro.
+COM O laying ActiveX, multiple
+
+1062
+00:21:10,390 --> 00:21:10,400
+COM O laying ActiveX, multiple
+ 
+
+1063
+00:21:10,400 --> 00:21:12,790
+COM O laying ActiveX, multiple
+interfaces per object. See, Java had to
+
+1064
+00:21:12,790 --> 00:21:12,800
+interfaces per object. See, Java had to
+ 
+
+1065
+00:21:12,800 --> 00:21:14,590
+interfaces per object. See, Java had to
+like a
+
+1066
+00:21:14,590 --> 00:21:14,600
+like a
+ 
+
+1067
+00:21:14,600 --> 00:21:17,150
+like a
+Self inspired Java and JavaScript, but
+
+1068
+00:21:17,150 --> 00:21:17,160
+Self inspired Java and JavaScript, but
+ 
+
+1069
+00:21:17,160 --> 00:21:18,350
+Self inspired Java and JavaScript, but
+they
+
+1070
+00:21:18,350 --> 00:21:18,360
+they
+ 
+
+1071
+00:21:18,360 --> 00:21:21,030
+they
+made crippled implementations of it. And
+
+1072
+00:21:21,030 --> 00:21:21,040
+made crippled implementations of it. And
+ 
+
+1073
+00:21:21,040 --> 00:21:22,510
+made crippled implementations of it. And
+I mean, they all had their own design
+
+1074
+00:21:22,510 --> 00:21:22,520
+I mean, they all had their own design
+ 
+
+1075
+00:21:22,520 --> 00:21:25,270
+I mean, they all had their own design
+trade-offs and shall we say time
+
+1076
+00:21:25,270 --> 00:21:25,280
+trade-offs and shall we say time
+ 
+
+1077
+00:21:25,280 --> 00:21:26,670
+trade-offs and shall we say time
+constraints.
+
+1078
+00:21:26,670 --> 00:21:26,680
+constraints.
+ 
+
+1079
+00:21:26,680 --> 00:21:30,870
+constraints.
+Uh but, Java doesn't use multiple
+
+1080
+00:21:30,870 --> 00:21:30,880
+Uh but, Java doesn't use multiple
+ 
+
+1081
+00:21:30,880 --> 00:21:33,510
+Uh but, Java doesn't use multiple
+inheritance of implementation. It
+
+1082
+00:21:33,510 --> 00:21:33,520
+inheritance of implementation. It
+ 
+
+1083
+00:21:33,520 --> 00:21:35,830
+inheritance of implementation. It
+separates that out into and and so does
+
+1084
+00:21:35,830 --> 00:21:35,840
+separates that out into and and so does
+ 
+
+1085
+00:21:35,840 --> 00:21:38,430
+separates that out into and and so does
+C#. Into interfaces that don't have
+
+1086
+00:21:38,430 --> 00:21:38,440
+C#. Into interfaces that don't have
+ 
+
+1087
+00:21:38,440 --> 00:21:39,950
+C#. Into interfaces that don't have
+implementation. So, you can multiply
+
+1088
+00:21:39,950 --> 00:21:39,960
+implementation. So, you can multiply
+ 
+
+1089
+00:21:39,960 --> 00:21:42,150
+implementation. So, you can multiply
+inherit interfaces and then it's up to
+
+1090
+00:21:42,150 --> 00:21:42,160
+inherit interfaces and then it's up to
+ 
+
+1091
+00:21:42,160 --> 00:21:44,190
+inherit interfaces and then it's up to
+you to implement those interfaces behind
+
+1092
+00:21:44,190 --> 00:21:44,200
+you to implement those interfaces behind
+ 
+
+1093
+00:21:44,200 --> 00:21:47,670
+you to implement those interfaces behind
+the scene. C++ supplies this.
+
+1094
+00:21:47,670 --> 00:21:47,680
+the scene. C++ supplies this.
+ 
+
+1095
+00:21:47,680 --> 00:21:51,590
+the scene. C++ supplies this.
+COM is simply looking at C++ multiple
+
+1096
+00:21:51,590 --> 00:21:51,600
+COM is simply looking at C++ multiple
+ 
+
+1097
+00:21:51,600 --> 00:21:54,950
+COM is simply looking at C++ multiple
+inheritance, V tables, objects that have
+
+1098
+00:21:54,950 --> 00:21:54,960
+inheritance, V tables, objects that have
+ 
+
+1099
+00:21:54,960 --> 00:21:58,510
+inheritance, V tables, objects that have
+multiple interfaces having a sequence of
+
+1100
+00:21:58,510 --> 00:21:58,520
+multiple interfaces having a sequence of
+ 
+
+1101
+00:21:58,520 --> 00:22:00,750
+multiple interfaces having a sequence of
+V table pointers, and then query
+
+1102
+00:22:00,750 --> 00:22:00,760
+V table pointers, and then query
+ 
+
+1103
+00:22:00,760 --> 00:22:03,950
+V table pointers, and then query
+interface casting a pointer between
+
+1104
+00:22:03,950 --> 00:22:03,960
+interface casting a pointer between
+ 
+
+1105
+00:22:03,960 --> 00:22:06,230
+interface casting a pointer between
+these pointers to the V table pointers.
+
+1106
+00:22:06,230 --> 00:22:06,240
+these pointers to the V table pointers.
+ 
+
+1107
+00:22:06,240 --> 00:22:08,670
+these pointers to the V table pointers.
+And then and then query interface being
+
+1108
+00:22:08,670 --> 00:22:08,680
+And then and then query interface being
+ 
+
+1109
+00:22:08,680 --> 00:22:10,070
+And then and then query interface being
+the first
+
+1110
+00:22:10,070 --> 00:22:10,080
+the first
+ 
+
+1111
+00:22:10,080 --> 00:22:12,070
+the first
+function in the V table allowing you to
+
+1112
+00:22:12,070 --> 00:22:12,080
+function in the V table allowing you to
+ 
+
+1113
+00:22:12,080 --> 00:22:14,550
+function in the V table allowing you to
+pivot between interfaces, right? This is
+
+1114
+00:22:14,550 --> 00:22:14,560
+pivot between interfaces, right? This is
+ 
+
+1115
+00:22:14,560 --> 00:22:17,830
+pivot between interfaces, right? This is
+a great idea as as as horribly as it was
+
+1116
+00:22:17,830 --> 00:22:17,840
+a great idea as as as horribly as it was
+ 
+
+1117
+00:22:17,840 --> 00:22:20,070
+a great idea as as as horribly as it was
+like where it led, I didn't even put
+
+1118
+00:22:20,070 --> 00:22:20,080
+like where it led, I didn't even put
+ 
+
+1119
+00:22:20,080 --> 00:22:21,910
+like where it led, I didn't even put
+DCOM into here because that's where it
+
+1120
+00:22:21,910 --> 00:22:21,920
+DCOM into here because that's where it
+ 
+
+1121
+00:22:21,920 --> 00:22:23,470
+DCOM into here because that's where it
+gets really grizzly.
+
+1122
+00:22:23,470 --> 00:22:23,480
+gets really grizzly.
+ 
+
+1123
+00:22:23,480 --> 00:22:25,390
+gets really grizzly.
+But, um there's some great ideas in
+
+1124
+00:22:25,390 --> 00:22:25,400
+But, um there's some great ideas in
+ 
+
+1125
+00:22:25,400 --> 00:22:26,230
+But, um there's some great ideas in
+there.
+
+1126
+00:22:26,230 --> 00:22:26,240
+there.
+ 
+
+1127
+00:22:26,240 --> 00:22:27,270
+there.
+Um
+
+1128
+00:22:27,270 --> 00:22:27,280
+Um
+ 
+
+1129
+00:22:27,280 --> 00:22:28,550
+Um
+So, uh
+
+1130
+00:22:28,550 --> 00:22:28,560
+So, uh
+ 
+
+1131
+00:22:28,560 --> 00:22:30,190
+So, uh
+That's my cat's meowing.
+
+1132
+00:22:30,190 --> 00:22:30,200
+That's my cat's meowing.
+ 
+
+1133
+00:22:30,200 --> 00:22:32,630
+That's my cat's meowing.
+But, anyway, query interface
+
+1134
+00:22:32,630 --> 00:22:32,640
+But, anyway, query interface
+ 
+
+1135
+00:22:32,640 --> 00:22:35,070
+But, anyway, query interface
+translates to just is there
+
+1136
+00:22:35,070 --> 00:22:35,080
+translates to just is there
+ 
+
+1137
+00:22:35,080 --> 00:22:38,870
+translates to just is there
+a foo.yaml file in this directory
+
+1138
+00:22:38,870 --> 00:22:38,880
+a foo.yaml file in this directory
+ 
+
+1139
+00:22:38,880 --> 00:22:40,070
+a foo.yaml file in this directory
+that
+
+1140
+00:22:40,070 --> 00:22:40,080
+that
+ 
+
+1141
+00:22:40,080 --> 00:22:41,910
+that
+declares and implements the foo
+
+1142
+00:22:41,910 --> 00:22:41,920
+declares and implements the foo
+ 
+
+1143
+00:22:41,920 --> 00:22:45,310
+declares and implements the foo
+interface and could contain any
+
+1144
+00:22:45,310 --> 00:22:45,320
+interface and could contain any
+ 
+
+1145
+00:22:45,320 --> 00:22:47,350
+interface and could contain any
+state that foo might need it, but you
+
+1146
+00:22:47,350 --> 00:22:47,360
+state that foo might need it, but you
+ 
+
+1147
+00:22:47,360 --> 00:22:48,870
+state that foo might need it, but you
+also have the entire directory for
+
+1148
+00:22:48,870 --> 00:22:48,880
+also have the entire directory for
+ 
+
+1149
+00:22:48,880 --> 00:22:51,470
+also have the entire directory for
+shared states like the C++ concrete
+
+1150
+00:22:51,470 --> 00:22:51,480
+shared states like the C++ concrete
+ 
+
+1151
+00:22:51,480 --> 00:22:54,910
+shared states like the C++ concrete
+implementation class behind the facade
+
+1152
+00:22:54,910 --> 00:22:54,920
+implementation class behind the facade
+ 
+
+1153
+00:22:54,920 --> 00:22:57,310
+implementation class behind the facade
+of multiple interfaces. So,
+
+1154
+00:22:57,310 --> 00:22:57,320
+of multiple interfaces. So,
+ 
+
+1155
+00:22:57,320 --> 00:23:00,230
+of multiple interfaces. So,
+um anyway, so skills implementing this.
+
+1156
+00:23:00,230 --> 00:23:00,240
+um anyway, so skills implementing this.
+ 
+
+1157
+00:23:00,240 --> 00:23:01,470
+um anyway, so skills implementing this.
+We've got a lot of skills. See, these
+
+1158
+00:23:01,470 --> 00:23:01,480
+We've got a lot of skills. See, these
+ 
+
+1159
+00:23:01,480 --> 00:23:04,990
+We've got a lot of skills. See, these
+are moom skills. Prototype
+
+1160
+00:23:04,990 --> 00:23:05,000
+are moom skills. Prototype
+ 
+
+1161
+00:23:05,000 --> 00:23:07,350
+are moom skills. Prototype
+is the moom skill
+
+1162
+00:23:07,350 --> 00:23:07,360
+is the moom skill
+ 
+
+1163
+00:23:07,360 --> 00:23:09,990
+is the moom skill
+that defines how you can use
+
+1164
+00:23:09,990 --> 00:23:10,000
+that defines how you can use
+ 
+
+1165
+00:23:10,000 --> 00:23:12,550
+that defines how you can use
+directories, objects, and files, and
+
+1166
+00:23:12,550 --> 00:23:12,560
+directories, objects, and files, and
+ 
+
+1167
+00:23:12,560 --> 00:23:15,310
+directories, objects, and files, and
+skills themselves as prototypes for
+
+1168
+00:23:15,310 --> 00:23:15,320
+skills themselves as prototypes for
+ 
+
+1169
+00:23:15,320 --> 00:23:16,390
+skills themselves as prototypes for
+other
+
+1170
+00:23:16,390 --> 00:23:16,400
+other
+ 
+
+1171
+00:23:16,400 --> 00:23:20,270
+other
+directories and classes if you Classes
+
+1172
+00:23:20,270 --> 00:23:20,280
+directories and classes if you Classes
+ 
+
+1173
+00:23:20,280 --> 00:23:21,470
+directories and classes if you Classes
+are just something you can implement
+
+1174
+00:23:21,470 --> 00:23:21,480
+are just something you can implement
+ 
+
+1175
+00:23:21,480 --> 00:23:23,430
+are just something you can implement
+with prototypes when treating them a
+
+1176
+00:23:23,430 --> 00:23:23,440
+with prototypes when treating them a
+ 
+
+1177
+00:23:23,440 --> 00:23:25,470
+with prototypes when treating them a
+certain way. An object, this is the
+
+1178
+00:23:25,470 --> 00:23:25,480
+certain way. An object, this is the
+ 
+
+1179
+00:23:25,480 --> 00:23:27,470
+certain way. An object, this is the
+object system with definition within the
+
+1180
+00:23:27,470 --> 00:23:27,480
+object system with definition within the
+ 
+
+1181
+00:23:27,480 --> 00:23:28,710
+object system with definition within the
+object system.
+
+1182
+00:23:28,710 --> 00:23:28,720
+object system.
+ 
+
+1183
+00:23:28,720 --> 00:23:30,590
+object system.
+Uh artifactory
+
+1184
+00:23:30,590 --> 00:23:30,600
+Uh artifactory
+ 
+
+1185
+00:23:30,600 --> 00:23:34,510
+Uh artifactory
+is the idea of objects that make other
+
+1186
+00:23:34,510 --> 00:23:34,520
+is the idea of objects that make other
+ 
+
+1187
+00:23:34,520 --> 00:23:36,150
+is the idea of objects that make other
+objects and protocols that they can
+
+1188
+00:23:36,150 --> 00:23:36,160
+objects and protocols that they can
+ 
+
+1189
+00:23:36,160 --> 00:23:37,710
+objects and protocols that they can
+follow and how they relate to these
+
+1190
+00:23:37,710 --> 00:23:37,720
+follow and how they relate to these
+ 
+
+1191
+00:23:37,720 --> 00:23:39,950
+follow and how they relate to these
+other skills. Skill, the meta skill,
+
+1192
+00:23:39,950 --> 00:23:39,960
+other skills. Skill, the meta skill,
+ 
+
+1193
+00:23:39,960 --> 00:23:41,390
+other skills. Skill, the meta skill,
+skill skill. Everybody's got a skill
+
+1194
+00:23:41,390 --> 00:23:41,400
+skill skill. Everybody's got a skill
+ 
+
+1195
+00:23:41,400 --> 00:23:42,390
+skill skill. Everybody's got a skill
+skill.
+
+1196
+00:23:42,390 --> 00:23:42,400
+skill.
+ 
+
+1197
+00:23:42,400 --> 00:23:44,150
+skill.
+I mean, Anthropic even has a skill for
+
+1198
+00:23:44,150 --> 00:23:44,160
+I mean, Anthropic even has a skill for
+ 
+
+1199
+00:23:44,160 --> 00:23:45,750
+I mean, Anthropic even has a skill for
+how to make Anthropic skills, but these
+
+1200
+00:23:45,750 --> 00:23:45,760
+how to make Anthropic skills, but these
+ 
+
+1201
+00:23:45,760 --> 00:23:47,630
+how to make Anthropic skills, but these
+are not These are more than Anthropic
+
+1202
+00:23:47,630 --> 00:23:47,640
+are not These are more than Anthropic
+ 
+
+1203
+00:23:47,640 --> 00:23:49,310
+are not These are more than Anthropic
+skills. So, there's a lot of stuff in
+
+1204
+00:23:49,310 --> 00:23:49,320
+skills. So, there's a lot of stuff in
+ 
+
+1205
+00:23:49,320 --> 00:23:50,910
+skills. So, there's a lot of stuff in
+this skill skill here.
+
+1206
+00:23:50,910 --> 00:23:50,920
+this skill skill here.
+ 
+
+1207
+00:23:50,920 --> 00:23:53,630
+this skill skill here.
+Um file system object.
+
+1208
+00:23:53,630 --> 00:23:53,640
+Um file system object.
+ 
+
+1209
+00:23:53,640 --> 00:23:55,350
+Um file system object.
+Like I've explained that. K-lines,
+
+1210
+00:23:55,350 --> 00:23:55,360
+Like I've explained that. K-lines,
+ 
+
+1211
+00:23:55,360 --> 00:23:57,110
+Like I've explained that. K-lines,
+society of mind, incarnation is a
+
+1212
+00:23:57,110 --> 00:23:57,120
+society of mind, incarnation is a
+ 
+
+1213
+00:23:57,120 --> 00:23:59,990
+society of mind, incarnation is a
+protocol for creating characters richly
+
+1214
+00:23:59,990 --> 00:24:00,000
+protocol for creating characters richly
+ 
+
+1215
+00:24:00,000 --> 00:24:02,230
+protocol for creating characters richly
+and ethically. And uh
+
+1216
+00:24:02,230 --> 00:24:02,240
+and ethically. And uh
+ 
+
+1217
+00:24:02,240 --> 00:24:03,950
+and ethically. And uh
+there's character, of course, and then
+
+1218
+00:24:03,950 --> 00:24:03,960
+there's character, of course, and then
+ 
+
+1219
+00:24:03,960 --> 00:24:06,110
+there's character, of course, and then
+empathic templates
+
+1220
+00:24:06,110 --> 00:24:06,120
+empathic templates
+ 
+
+1221
+00:24:06,120 --> 00:24:08,110
+empathic templates
+are instead of like mustache templates
+
+1222
+00:24:08,110 --> 00:24:08,120
+are instead of like mustache templates
+ 
+
+1223
+00:24:08,120 --> 00:24:10,270
+are instead of like mustache templates
+with a certain syntax,
+
+1224
+00:24:10,270 --> 00:24:10,280
+with a certain syntax,
+ 
+
+1225
+00:24:10,280 --> 00:24:12,630
+with a certain syntax,
+you just explain to the LLM what you
+
+1226
+00:24:12,630 --> 00:24:12,640
+you just explain to the LLM what you
+ 
+
+1227
+00:24:12,640 --> 00:24:15,350
+you just explain to the LLM what you
+want it to fill in. I mean,
+
+1228
+00:24:15,350 --> 00:24:15,360
+want it to fill in. I mean,
+ 
+
+1229
+00:24:15,360 --> 00:24:17,150
+want it to fill in. I mean,
+why why run I mean, you're if you're
+
+1230
+00:24:17,150 --> 00:24:17,160
+why why run I mean, you're if you're
+ 
+
+1231
+00:24:17,160 --> 00:24:19,190
+why why run I mean, you're if you're
+running it through an LLM, why also run
+
+1232
+00:24:19,190 --> 00:24:19,200
+running it through an LLM, why also run
+ 
+
+1233
+00:24:19,200 --> 00:24:22,150
+running it through an LLM, why also run
+it through some very limited uh
+
+1234
+00:24:22,150 --> 00:24:22,160
+it through some very limited uh
+ 
+
+1235
+00:24:22,160 --> 00:24:23,950
+it through some very limited uh
+template system. So,
+
+1236
+00:24:23,950 --> 00:24:23,960
+template system. So,
+ 
+
+1237
+00:24:23,960 --> 00:24:26,310
+template system. So,
+uh and schema mechanism is Gary
+
+1238
+00:24:26,310 --> 00:24:26,320
+uh and schema mechanism is Gary
+ 
+
+1239
+00:24:26,320 --> 00:24:28,470
+uh and schema mechanism is Gary
+Drescher's schema mechanism, and schema
+
+1240
+00:24:28,470 --> 00:24:28,480
+Drescher's schema mechanism, and schema
+ 
+
+1241
+00:24:28,480 --> 00:24:30,950
+Drescher's schema mechanism, and schema
+factory goes with that. And then schema
+
+1242
+00:24:30,950 --> 00:24:30,960
+factory goes with that. And then schema
+ 
+
+1243
+00:24:30,960 --> 00:24:33,470
+factory goes with that. And then schema
+Oh my god, schema is a hot topic here.
+
+1244
+00:24:33,470 --> 00:24:33,480
+Oh my god, schema is a hot topic here.
+ 
+
+1245
+00:24:33,480 --> 00:24:36,310
+Oh my god, schema is a hot topic here.
+Leela AI is where I work with Henry
+
+1246
+00:24:36,310 --> 00:24:36,320
+Leela AI is where I work with Henry
+ 
+
+1247
+00:24:36,320 --> 00:24:39,190
+Leela AI is where I work with Henry
+uh and now, see, schema is a very
+
+1248
+00:24:39,190 --> 00:24:39,200
+uh and now, see, schema is a very
+ 
+
+1249
+00:24:39,200 --> 00:24:40,830
+uh and now, see, schema is a very
+general term. There are many different
+
+1250
+00:24:40,830 --> 00:24:40,840
+general term. There are many different
+ 
+
+1251
+00:24:40,840 --> 00:24:43,590
+general term. There are many different
+types of schema. Schema
+
+1252
+00:24:43,590 --> 00:24:43,600
+types of schema. Schema
+ 
+
+1253
+00:24:43,600 --> 00:24:47,110
+types of schema. Schema
+This is worth just hopping into. Um
+
+1254
+00:24:47,110 --> 00:24:47,120
+This is worth just hopping into. Um
+ 
+
+1255
+00:24:47,120 --> 00:24:49,030
+This is worth just hopping into. Um
+schema
+
+1256
+00:24:49,030 --> 00:24:49,040
+schema
+ 
+
+1257
+00:24:49,040 --> 00:24:51,350
+schema
+is a veritable schemapedia. An
+
+1258
+00:24:51,350 --> 00:24:51,360
+is a veritable schemapedia. An
+ 
+
+1259
+00:24:51,360 --> 00:24:53,350
+is a veritable schemapedia. An
+encyclopedia
+
+1260
+00:24:53,350 --> 00:24:53,360
+encyclopedia
+ 
+
+1261
+00:24:53,360 --> 00:24:55,710
+encyclopedia
+is a circle of general knowledge.
+
+1262
+00:24:55,710 --> 00:24:55,720
+is a circle of general knowledge.
+ 
+
+1263
+00:24:55,720 --> 00:24:58,230
+is a circle of general knowledge.
+Consider this a schemy p- schemapedia. A
+
+1264
+00:24:58,230 --> 00:24:58,240
+Consider this a schemy p- schemapedia. A
+ 
+
+1265
+00:24:58,240 --> 00:25:00,830
+Consider this a schemy p- schemapedia. A
+circle drawn around schema in every moom
+
+1266
+00:25:00,830 --> 00:25:00,840
+circle drawn around schema in every moom
+ 
+
+1267
+00:25:00,840 --> 00:25:01,870
+circle drawn around schema in every moom
+since
+
+1268
+00:25:01,870 --> 00:25:01,880
+since
+ 
+
+1269
+00:25:01,880 --> 00:25:03,590
+since
+that needs a name and a shelf. There's a
+
+1270
+00:25:03,590 --> 00:25:03,600
+that needs a name and a shelf. There's a
+ 
+
+1271
+00:25:03,600 --> 00:25:05,070
+that needs a name and a shelf. There's a
+lot of different schemas and we're
+
+1272
+00:25:05,070 --> 00:25:05,080
+lot of different schemas and we're
+ 
+
+1273
+00:25:05,080 --> 00:25:06,790
+lot of different schemas and we're
+trying to be
+
+1274
+00:25:06,790 --> 00:25:06,800
+trying to be
+ 
+
+1275
+00:25:06,800 --> 00:25:08,990
+trying to be
+we're trying to catalog them all. So, or
+
+1276
+00:25:08,990 --> 00:25:09,000
+we're trying to catalog them all. So, or
+ 
+
+1277
+00:25:09,000 --> 00:25:11,390
+we're trying to catalog them all. So, or
+at least the good ones. Not the W3C
+
+1278
+00:25:11,390 --> 00:25:11,400
+at least the good ones. Not the W3C
+ 
+
+1279
+00:25:11,400 --> 00:25:13,310
+at least the good ones. Not the W3C
+listed ontology directory. They have
+
+1280
+00:25:13,310 --> 00:25:13,320
+listed ontology directory. They have
+ 
+
+1281
+00:25:13,320 --> 00:25:15,430
+listed ontology directory. They have
+ontology repository catalog such as the
+
+1282
+00:25:15,430 --> 00:25:15,440
+ontology repository catalog such as the
+ 
+
+1283
+00:25:15,440 --> 00:25:17,590
+ontology repository catalog such as the
+BioPortal and blah blah blah blah blah.
+
+1284
+00:25:17,590 --> 00:25:17,600
+BioPortal and blah blah blah blah blah.
+ 
+
+1285
+00:25:17,600 --> 00:25:20,190
+BioPortal and blah blah blah blah blah.
+Okay. And there's an old schemapedia
+
+1286
+00:25:20,190 --> 00:25:20,200
+Okay. And there's an old schemapedia
+ 
+
+1287
+00:25:20,200 --> 00:25:22,270
+Okay. And there's an old schemapedia
+thing out there that is not this. We're
+
+1288
+00:25:22,270 --> 00:25:22,280
+thing out there that is not this. We're
+ 
+
+1289
+00:25:22,280 --> 00:25:24,630
+thing out there that is not this. We're
+just reusing the name.
+
+1290
+00:25:24,630 --> 00:25:24,640
+just reusing the name.
+ 
+
+1291
+00:25:24,640 --> 00:25:28,470
+just reusing the name.
+Uh okay, but anyway, the idea here
+
+1292
+00:25:28,470 --> 00:25:28,480
+Uh okay, but anyway, the idea here
+ 
+
+1293
+00:25:28,480 --> 00:25:30,230
+Uh okay, but anyway, the idea here
+is your schemas. What kind of schemas
+
+1294
+00:25:30,230 --> 00:25:30,240
+is your schemas. What kind of schemas
+ 
+
+1295
+00:25:30,240 --> 00:25:32,390
+is your schemas. What kind of schemas
+are there? Mechanisms. Mechanisms was
+
+1296
+00:25:32,390 --> 00:25:32,400
+are there? Mechanisms. Mechanisms was
+ 
+
+1297
+00:25:32,400 --> 00:25:34,870
+are there? Mechanisms. Mechanisms was
+like haha, look at this. Comex Pcom
+
+1298
+00:25:34,870 --> 00:25:34,880
+like haha, look at this. Comex Pcom
+ 
+
+1299
+00:25:34,880 --> 00:25:37,190
+like haha, look at this. Comex Pcom
+cursor mirror data set, pressure, get
+
+1300
+00:25:37,190 --> 00:25:37,200
+cursor mirror data set, pressure, get
+ 
+
+1301
+00:25:37,200 --> 00:25:39,710
+cursor mirror data set, pressure, get
+GitHub JSON schema key lines, mechanism,
+
+1302
+00:25:39,710 --> 00:25:39,720
+GitHub JSON schema key lines, mechanism,
+ 
+
+1303
+00:25:39,720 --> 00:25:42,950
+GitHub JSON schema key lines, mechanism,
+Minsky frame, Postgres, Relax NG, self
+
+1304
+00:25:42,950 --> 00:25:42,960
+Minsky frame, Postgres, Relax NG, self
+ 
+
+1305
+00:25:42,960 --> 00:25:45,230
+Minsky frame, Postgres, Relax NG, self
+self, shell orchestration, society minus
+
+1306
+00:25:45,230 --> 00:25:45,240
+self, shell orchestration, society minus
+ 
+
+1307
+00:25:45,240 --> 00:25:48,310
+self, shell orchestration, society minus
+QL SQL light. Plug your own schemas in.
+
+1308
+00:25:48,310 --> 00:25:48,320
+QL SQL light. Plug your own schemas in.
+ 
+
+1309
+00:25:48,320 --> 00:25:50,710
+QL SQL light. Plug your own schemas in.
+Like we love Zod schemas.
+
+1310
+00:25:50,710 --> 00:25:50,720
+Like we love Zod schemas.
+ 
+
+1311
+00:25:50,720 --> 00:25:52,790
+Like we love Zod schemas.
+So, why are why do we love them?
+
+1312
+00:25:52,790 --> 00:25:52,800
+So, why are why do we love them?
+ 
+
+1313
+00:25:52,800 --> 00:25:55,710
+So, why are why do we love them?
+Schemapedia Zod argument. Okay. Ah,
+
+1314
+00:25:55,710 --> 00:25:55,720
+Schemapedia Zod argument. Okay. Ah,
+ 
+
+1315
+00:25:55,720 --> 00:25:58,110
+Schemapedia Zod argument. Okay. Ah,
+wanted to introduce you to YAML jazz.
+
+1316
+00:25:58,110 --> 00:25:58,120
+wanted to introduce you to YAML jazz.
+ 
+
+1317
+00:25:58,120 --> 00:25:59,350
+wanted to introduce you to YAML jazz.
+Now, this one doesn't have a comment a
+
+1318
+00:25:59,350 --> 00:25:59,360
+Now, this one doesn't have a comment a
+ 
+
+1319
+00:25:59,360 --> 00:26:01,310
+Now, this one doesn't have a comment a
+lot of comments, but the point is that
+
+1320
+00:26:01,310 --> 00:26:01,320
+lot of comments, but the point is that
+ 
+
+1321
+00:26:01,320 --> 00:26:02,870
+lot of comments, but the point is that
+you're you're you're just taking you
+
+1322
+00:26:02,870 --> 00:26:02,880
+you're you're you're just taking you
+ 
+
+1323
+00:26:02,880 --> 00:26:05,310
+you're you're you're just taking you
+don't have a schema. You're you're
+
+1324
+00:26:05,310 --> 00:26:05,320
+don't have a schema. You're you're
+ 
+
+1325
+00:26:05,320 --> 00:26:07,510
+don't have a schema. You're you're
+making up schemas from the ground up.
+
+1326
+00:26:07,510 --> 00:26:07,520
+making up schemas from the ground up.
+ 
+
+1327
+00:26:07,520 --> 00:26:09,790
+making up schemas from the ground up.
+And if they're useful, then they
+
+1328
+00:26:09,790 --> 00:26:09,800
+And if they're useful, then they
+ 
+
+1329
+00:26:09,800 --> 00:26:11,990
+And if they're useful, then they
+propagate and get copied. And then
+
+1330
+00:26:11,990 --> 00:26:12,000
+propagate and get copied. And then
+ 
+
+1331
+00:26:12,000 --> 00:26:14,310
+propagate and get copied. And then
+later, you play, you learn, and then you
+
+1332
+00:26:14,310 --> 00:26:14,320
+later, you play, you learn, and then you
+ 
+
+1333
+00:26:14,320 --> 00:26:17,310
+later, you play, you learn, and then you
+lift into formal schema definitions that
+
+1334
+00:26:17,310 --> 00:26:17,320
+lift into formal schema definitions that
+ 
+
+1335
+00:26:17,320 --> 00:26:19,030
+lift into formal schema definitions that
+are usable and composable to other
+
+1336
+00:26:19,030 --> 00:26:19,040
+are usable and composable to other
+ 
+
+1337
+00:26:19,040 --> 00:26:21,470
+are usable and composable to other
+schemas. So, these we just pulled these
+
+1338
+00:26:21,470 --> 00:26:21,480
+schemas. So, these we just pulled these
+ 
+
+1339
+00:26:21,480 --> 00:26:23,750
+schemas. So, these we just pulled these
+out of our ass. In fact, LLMs are great
+
+1340
+00:26:23,750 --> 00:26:23,760
+out of our ass. In fact, LLMs are great
+ 
+
+1341
+00:26:23,760 --> 00:26:27,150
+out of our ass. In fact, LLMs are great
+at pulling things out of his ass. But,
+
+1342
+00:26:27,150 --> 00:26:27,160
+at pulling things out of his ass. But,
+ 
+
+1343
+00:26:27,160 --> 00:26:29,110
+at pulling things out of his ass. But,
+like pro- you just you can understand
+
+1344
+00:26:29,110 --> 00:26:29,120
+like pro- you just you can understand
+ 
+
+1345
+00:26:29,120 --> 00:26:31,430
+like pro- you just you can understand
+this by reading it. But, so can the LLM.
+
+1346
+00:26:31,430 --> 00:26:31,440
+this by reading it. But, so can the LLM.
+ 
+
+1347
+00:26:31,440 --> 00:26:32,950
+this by reading it. But, so can the LLM.
+And the other thing that we don't see
+
+1348
+00:26:32,950 --> 00:26:32,960
+And the other thing that we don't see
+ 
+
+1349
+00:26:32,960 --> 00:26:33,990
+And the other thing that we don't see
+here
+
+1350
+00:26:33,990 --> 00:26:34,000
+here
+ 
+
+1351
+00:26:34,000 --> 00:26:36,630
+here
+are like comments. End of line comments
+
+1352
+00:26:36,630 --> 00:26:36,640
+are like comments. End of line comments
+ 
+
+1353
+00:26:36,640 --> 00:26:37,590
+are like comments. End of line comments
+saying
+
+1354
+00:26:37,590 --> 00:26:37,600
+saying
+ 
+
+1355
+00:26:37,600 --> 00:26:40,430
+saying
+like, why did I set this to this? What
+
+1356
+00:26:40,430 --> 00:26:40,440
+like, why did I set this to this? What
+ 
+
+1357
+00:26:40,440 --> 00:26:42,870
+like, why did I set this to this? What
+was what was it before? And then also,
+
+1358
+00:26:42,870 --> 00:26:42,880
+was what was it before? And then also,
+ 
+
+1359
+00:26:42,880 --> 00:26:46,550
+was what was it before? And then also,
+you can have multi-line comments of any
+
+1360
+00:26:46,550 --> 00:26:46,560
+you can have multi-line comments of any
+ 
+
+1361
+00:26:46,560 --> 00:26:48,950
+you can have multi-line comments of any
+number of lines. It's like
+
+1362
+00:26:48,950 --> 00:26:48,960
+number of lines. It's like
+ 
+
+1363
+00:26:48,960 --> 00:26:52,350
+number of lines. It's like
+arbitrarily high bandwidth out of band
+
+1364
+00:26:52,350 --> 00:26:52,360
+arbitrarily high bandwidth out of band
+ 
+
+1365
+00:26:52,360 --> 00:26:55,430
+arbitrarily high bandwidth out of band
+overlay of semantic information that
+
+1366
+00:26:55,430 --> 00:26:55,440
+overlay of semantic information that
+ 
+
+1367
+00:26:55,440 --> 00:26:59,790
+overlay of semantic information that
+humans and LLMs can read and write. So,
+
+1368
+00:26:59,790 --> 00:26:59,800
+humans and LLMs can read and write. So,
+ 
+
+1369
+00:26:59,800 --> 00:27:01,070
+humans and LLMs can read and write. So,
+in general, you don't you want your
+
+1370
+00:27:01,070 --> 00:27:01,080
+in general, you don't you want your
+ 
+
+1371
+00:27:01,080 --> 00:27:03,550
+in general, you don't you want your
+tools to preserve comments because
+
+1372
+00:27:03,550 --> 00:27:03,560
+tools to preserve comments because
+ 
+
+1373
+00:27:03,560 --> 00:27:06,270
+tools to preserve comments because
+comments are precious. But, anyway, I
+
+1374
+00:27:06,270 --> 00:27:06,280
+comments are precious. But, anyway, I
+ 
+
+1375
+00:27:06,280 --> 00:27:08,630
+comments are precious. But, anyway, I
+digress. Let's go back to Z and
+
+1376
+00:27:08,630 --> 00:27:08,640
+digress. Let's go back to Z and
+ 
+
+1377
+00:27:08,640 --> 00:27:11,470
+digress. Let's go back to Z and
+mechanisms and So, that this
+
+1378
+00:27:11,470 --> 00:27:11,480
+mechanisms and So, that this
+ 
+
+1379
+00:27:11,480 --> 00:27:13,350
+mechanisms and So, that this
+this is a skill
+
+1380
+00:27:13,350 --> 00:27:13,360
+this is a skill
+ 
+
+1381
+00:27:13,360 --> 00:27:15,670
+this is a skill
+all about [snorts] schemas in general,
+
+1382
+00:27:15,670 --> 00:27:15,680
+all about [snorts] schemas in general,
+ 
+
+1383
+00:27:15,680 --> 00:27:17,630
+all about [snorts] schemas in general,
+schema mechanisms.
+
+1384
+00:27:17,630 --> 00:27:17,640
+schema mechanisms.
+ 
+
+1385
+00:27:17,640 --> 00:27:18,950
+schema mechanisms.
+And
+
+1386
+00:27:18,950 --> 00:27:18,960
+And
+ 
+
+1387
+00:27:18,960 --> 00:27:20,990
+And
+now it's just knowledge that we can draw
+
+1388
+00:27:20,990 --> 00:27:21,000
+now it's just knowledge that we can draw
+ 
+
+1389
+00:27:21,000 --> 00:27:24,710
+now it's just knowledge that we can draw
+from and be inspired from and refer to
+
+1390
+00:27:24,710 --> 00:27:24,720
+from and be inspired from and refer to
+ 
+
+1391
+00:27:24,720 --> 00:27:27,430
+from and be inspired from and refer to
+with paths. This is very concrete
+
+1392
+00:27:27,430 --> 00:27:27,440
+with paths. This is very concrete
+ 
+
+1393
+00:27:27,440 --> 00:27:31,230
+with paths. This is very concrete
+instead of just abstract K-lines cuz
+
+1394
+00:27:31,230 --> 00:27:31,240
+instead of just abstract K-lines cuz
+ 
+
+1395
+00:27:31,240 --> 00:27:35,070
+instead of just abstract K-lines cuz
+See, if I just go and I say data set
+
+1396
+00:27:35,070 --> 00:27:35,080
+See, if I just go and I say data set
+ 
+
+1397
+00:27:35,080 --> 00:27:36,510
+See, if I just go and I say data set
+well, that like
+
+1398
+00:27:36,510 --> 00:27:36,520
+well, that like
+ 
+
+1399
+00:27:36,520 --> 00:27:38,230
+well, that like
+obviously, you can Google for it and you
+
+1400
+00:27:38,230 --> 00:27:38,240
+obviously, you can Google for it and you
+ 
+
+1401
+00:27:38,240 --> 00:27:40,630
+obviously, you can Google for it and you
+can read why it's so cool.
+
+1402
+00:27:40,630 --> 00:27:40,640
+can read why it's so cool.
+ 
+
+1403
+00:27:40,640 --> 00:27:41,910
+can read why it's so cool.
+But
+
+1404
+00:27:41,910 --> 00:27:41,920
+But
+ 
+
+1405
+00:27:41,920 --> 00:27:44,470
+But
+now we've like reified it into our our
+
+1406
+00:27:44,470 --> 00:27:44,480
+now we've like reified it into our our
+ 
+
+1407
+00:27:44,480 --> 00:27:47,310
+now we've like reified it into our our
+concrete thing and you know, formally
+
+1408
+00:27:47,310 --> 00:27:47,320
+concrete thing and you know, formally
+ 
+
+1409
+00:27:47,320 --> 00:27:50,310
+concrete thing and you know, formally
+defined that it is named this and how it
+
+1410
+00:27:50,310 --> 00:27:50,320
+defined that it is named this and how it
+ 
+
+1411
+00:27:50,320 --> 00:27:51,750
+defined that it is named this and how it
+works and where you can go to get more
+
+1412
+00:27:51,750 --> 00:27:51,760
+works and where you can go to get more
+ 
+
+1413
+00:27:51,760 --> 00:27:53,270
+works and where you can go to get more
+information. So, that's what we're doing
+
+1414
+00:27:53,270 --> 00:27:53,280
+information. So, that's what we're doing
+ 
+
+1415
+00:27:53,280 --> 00:27:54,070
+information. So, that's what we're doing
+here.
+
+1416
+00:27:54,070 --> 00:27:54,080
+here.
+ 
+
+1417
+00:27:54,080 --> 00:27:56,150
+here.
+But, anyway, I digress.
+
+1418
+00:27:56,150 --> 00:27:56,160
+But, anyway, I digress.
+ 
+
+1419
+00:27:56,160 --> 00:27:57,590
+But, anyway, I digress.
+Um
+
+1420
+00:27:57,590 --> 00:27:57,600
+Um
+ 
+
+1421
+00:27:57,600 --> 00:28:00,270
+Um
+Uh let's see. Did we get to the end? No,
+
+1422
+00:28:00,270 --> 00:28:00,280
+Uh let's see. Did we get to the end? No,
+ 
+
+1423
+00:28:00,280 --> 00:28:03,670
+Uh let's see. Did we get to the end? No,
+we were just on Oh, my god. So, um
+
+1424
+00:28:03,670 --> 00:28:03,680
+we were just on Oh, my god. So, um
+ 
+
+1425
+00:28:03,680 --> 00:28:07,150
+we were just on Oh, my god. So, um
+schema Lila AI, we do neurosymbolic
+
+1426
+00:28:07,150 --> 00:28:07,160
+schema Lila AI, we do neurosymbolic
+ 
+
+1427
+00:28:07,160 --> 00:28:08,510
+schema Lila AI, we do neurosymbolic
+AI.
+
+1428
+00:28:08,510 --> 00:28:08,520
+AI.
+ 
+
+1429
+00:28:08,520 --> 00:28:11,190
+AI.
+We do uh manufacturing intelligence and
+
+1430
+00:28:11,190 --> 00:28:11,200
+We do uh manufacturing intelligence and
+ 
+
+1431
+00:28:11,200 --> 00:28:13,790
+We do uh manufacturing intelligence and
+uh real-time computer vision and but
+
+1432
+00:28:13,790 --> 00:28:13,800
+uh real-time computer vision and but
+ 
+
+1433
+00:28:13,800 --> 00:28:15,510
+uh real-time computer vision and but
+then with a layer
+
+1434
+00:28:15,510 --> 00:28:15,520
+then with a layer
+ 
+
+1435
+00:28:15,520 --> 00:28:17,750
+then with a layer
+I mean, computer vision is like the
+
+1436
+00:28:17,750 --> 00:28:17,760
+I mean, computer vision is like the
+ 
+
+1437
+00:28:17,760 --> 00:28:21,150
+I mean, computer vision is like the
+the neat AI, the mathematically
+
+1438
+00:28:21,150 --> 00:28:21,160
+the neat AI, the mathematically
+ 
+
+1439
+00:28:21,160 --> 00:28:23,790
+the neat AI, the mathematically
+you know, it's a black box. It's fuzzy.
+
+1440
+00:28:23,790 --> 00:28:23,800
+you know, it's a black box. It's fuzzy.
+ 
+
+1441
+00:28:23,800 --> 00:28:26,430
+you know, it's a black box. It's fuzzy.
+We don't know how or why it works, but
+
+1442
+00:28:26,430 --> 00:28:26,440
+We don't know how or why it works, but
+ 
+
+1443
+00:28:26,440 --> 00:28:28,790
+We don't know how or why it works, but
+we do not know from whence they come.
+
+1444
+00:28:28,790 --> 00:28:28,800
+we do not know from whence they come.
+ 
+
+1445
+00:28:28,800 --> 00:28:31,830
+we do not know from whence they come.
+But, we neurosymbolically AI layers and
+
+1446
+00:28:31,830 --> 00:28:31,840
+But, we neurosymbolically AI layers and
+ 
+
+1447
+00:28:31,840 --> 00:28:34,790
+But, we neurosymbolically AI layers and
+sandwiches and mixes in symbolic AI of
+
+1448
+00:28:34,790 --> 00:28:34,800
+sandwiches and mixes in symbolic AI of
+ 
+
+1449
+00:28:34,800 --> 00:28:36,510
+sandwiches and mixes in symbolic AI of
+the you know, the old school
+
+1450
+00:28:36,510 --> 00:28:36,520
+the you know, the old school
+ 
+
+1451
+00:28:36,520 --> 00:28:38,630
+the you know, the old school
+uh fuzzy See, uh
+
+1452
+00:28:38,630 --> 00:28:38,640
+uh fuzzy See, uh
+ 
+
+1453
+00:28:38,640 --> 00:28:40,990
+uh fuzzy See, uh
+it's like
+
+1454
+00:28:40,990 --> 00:28:41,000
+it's like
+ 
+
+1455
+00:28:41,000 --> 00:28:42,750
+it's like
+physics
+
+1456
+00:28:42,750 --> 00:28:42,760
+physics
+ 
+
+1457
+00:28:42,760 --> 00:28:43,470
+physics
+uh
+
+1458
+00:28:43,470 --> 00:28:43,480
+uh
+ 
+
+1459
+00:28:43,480 --> 00:28:46,390
+uh
+like versus biology, okay? See, physics
+
+1460
+00:28:46,390 --> 00:28:46,400
+like versus biology, okay? See, physics
+ 
+
+1461
+00:28:46,400 --> 00:28:48,270
+like versus biology, okay? See, physics
+can be explained with mathematics, but
+
+1462
+00:28:48,270 --> 00:28:48,280
+can be explained with mathematics, but
+ 
+
+1463
+00:28:48,280 --> 00:28:50,390
+can be explained with mathematics, but
+biology is all exceptions and ad hoc
+
+1464
+00:28:50,390 --> 00:28:50,400
+biology is all exceptions and ad hoc
+ 
+
+1465
+00:28:50,400 --> 00:28:53,430
+biology is all exceptions and ad hoc
+rules. That's kind of the fuzzy AI
+
+1466
+00:28:53,430 --> 00:28:53,440
+rules. That's kind of the fuzzy AI
+ 
+
+1467
+00:28:53,440 --> 00:28:56,950
+rules. That's kind of the fuzzy AI
+versus neat AI distinction. But, uh the
+
+1468
+00:28:56,950 --> 00:28:56,960
+versus neat AI distinction. But, uh the
+ 
+
+1469
+00:28:56,960 --> 00:28:58,470
+versus neat AI distinction. But, uh the
+conclusion that when they had all these
+
+1470
+00:28:58,470 --> 00:28:58,480
+conclusion that when they had all these
+ 
+
+1471
+00:28:58,480 --> 00:29:00,230
+conclusion that when they had all these
+discussions back when they coined those
+
+1472
+00:29:00,230 --> 00:29:00,240
+discussions back when they coined those
+ 
+
+1473
+00:29:00,240 --> 00:29:02,630
+discussions back when they coined those
+terms, is that we need both. And they're
+
+1474
+00:29:02,630 --> 00:29:02,640
+terms, is that we need both. And they're
+ 
+
+1475
+00:29:02,640 --> 00:29:03,990
+terms, is that we need both. And they're
+they're both good for things that the
+
+1476
+00:29:03,990 --> 00:29:04,000
+they're both good for things that the
+ 
+
+1477
+00:29:04,000 --> 00:29:05,110
+they're both good for things that the
+other isn't.
+
+1478
+00:29:05,110 --> 00:29:05,120
+other isn't.
+ 
+
+1479
+00:29:05,120 --> 00:29:07,190
+other isn't.
+So, anyway, the kernel directory is
+
+1480
+00:29:07,190 --> 00:29:07,200
+So, anyway, the kernel directory is
+ 
+
+1481
+00:29:07,200 --> 00:29:09,270
+So, anyway, the kernel directory is
+objects selfish common implementation I
+
+1482
+00:29:09,270 --> 00:29:09,280
+objects selfish common implementation I
+ 
+
+1483
+00:29:09,280 --> 00:29:10,350
+objects selfish common implementation I
+touched on.
+
+1484
+00:29:10,350 --> 00:29:10,360
+touched on.
+ 
+
+1485
+00:29:10,360 --> 00:29:12,470
+touched on.
+And we have like a constitution, you
+
+1486
+00:29:12,470 --> 00:29:12,480
+And we have like a constitution, you
+ 
+
+1487
+00:29:12,480 --> 00:29:16,150
+And we have like a constitution, you
+know, like lean into the training. Don't
+
+1488
+00:29:16,150 --> 00:29:16,160
+know, like lean into the training. Don't
+ 
+
+1489
+00:29:16,160 --> 00:29:18,910
+know, like lean into the training. Don't
+make up like Gastown for no
+
+1490
+00:29:18,910 --> 00:29:18,920
+make up like Gastown for no
+ 
+
+1491
+00:29:18,920 --> 00:29:21,350
+make up like Gastown for no
+reason. We'll get into that. So, prior
+
+1492
+00:29:21,350 --> 00:29:21,360
+reason. We'll get into that. So, prior
+ 
+
+1493
+00:29:21,360 --> 00:29:24,390
+reason. We'll get into that. So, prior
+design selfish influence, Garnet Amulet
+
+1494
+00:29:24,390 --> 00:29:24,400
+design selfish influence, Garnet Amulet
+ 
+
+1495
+00:29:24,400 --> 00:29:26,430
+design selfish influence, Garnet Amulet
+Prototype System I work with Brad Myers
+
+1496
+00:29:26,430 --> 00:29:26,440
+Prototype System I work with Brad Myers
+ 
+
+1497
+00:29:26,440 --> 00:29:28,710
+Prototype System I work with Brad Myers
+CMU and and and CMU Common Lisp, of
+
+1498
+00:29:28,710 --> 00:29:28,720
+CMU and and and CMU Common Lisp, of
+ 
+
+1499
+00:29:28,720 --> 00:29:30,710
+CMU and and and CMU Common Lisp, of
+course, on a user interface system that
+
+1500
+00:29:30,710 --> 00:29:30,720
+course, on a user interface system that
+ 
+
+1501
+00:29:30,720 --> 00:29:33,870
+course, on a user interface system that
+used constraints using the KR knowledge
+
+1502
+00:29:33,870 --> 00:29:33,880
+used constraints using the KR knowledge
+ 
+
+1503
+00:29:33,880 --> 00:29:35,990
+used constraints using the KR knowledge
+representation system and
+
+1504
+00:29:35,990 --> 00:29:36,000
+representation system and
+ 
+
+1505
+00:29:36,000 --> 00:29:38,230
+representation system and
+Lisp could like parse your expressions,
+
+1506
+00:29:38,230 --> 00:29:38,240
+Lisp could like parse your expressions,
+ 
+
+1507
+00:29:38,240 --> 00:29:39,590
+Lisp could like parse your expressions,
+figure out what they depended on, and
+
+1508
+00:29:39,590 --> 00:29:39,600
+figure out what they depended on, and
+ 
+
+1509
+00:29:39,600 --> 00:29:42,030
+figure out what they depended on, and
+automatically wire up a dependency
+
+1510
+00:29:42,030 --> 00:29:42,040
+automatically wire up a dependency
+ 
+
+1511
+00:29:42,040 --> 00:29:44,990
+automatically wire up a dependency
+network, and do um it actually used a
+
+1512
+00:29:44,990 --> 00:29:45,000
+network, and do um it actually used a
+ 
+
+1513
+00:29:45,000 --> 00:29:48,630
+network, and do um it actually used a
+pull constraints. So, when you need it,
+
+1514
+00:29:48,630 --> 00:29:48,640
+pull constraints. So, when you need it,
+ 
+
+1515
+00:29:48,640 --> 00:29:52,630
+pull constraints. So, when you need it,
+you read it and recompute it if anything
+
+1516
+00:29:52,630 --> 00:29:52,640
+you read it and recompute it if anything
+ 
+
+1517
+00:29:52,640 --> 00:29:54,790
+you read it and recompute it if anything
+it depends on has changed. Where like
+
+1518
+00:29:54,790 --> 00:29:54,800
+it depends on has changed. Where like
+ 
+
+1519
+00:29:54,800 --> 00:29:57,630
+it depends on has changed. Where like
+Open Laszlo uses push because that was
+
+1520
+00:29:57,630 --> 00:29:57,640
+Open Laszlo uses push because that was
+ 
+
+1521
+00:29:57,640 --> 00:29:59,790
+Open Laszlo uses push because that was
+more efficient to implement in the Flash
+
+1522
+00:29:59,790 --> 00:29:59,800
+more efficient to implement in the Flash
+ 
+
+1523
+00:29:59,800 --> 00:30:03,710
+more efficient to implement in the Flash
+engine. So, Garnet and Open Laszlo were
+
+1524
+00:30:03,710 --> 00:30:03,720
+engine. So, Garnet and Open Laszlo were
+ 
+
+1525
+00:30:03,720 --> 00:30:06,350
+engine. So, Garnet and Open Laszlo were
+prototypes for reactive programming,
+
+1526
+00:30:06,350 --> 00:30:06,360
+prototypes for reactive programming,
+ 
+
+1527
+00:30:06,360 --> 00:30:09,790
+prototypes for reactive programming,
+which React claimed, but all React is is
+
+1528
+00:30:09,790 --> 00:30:09,800
+which React claimed, but all React is is
+ 
+
+1529
+00:30:09,800 --> 00:30:14,350
+which React claimed, but all React is is
+iterating on DOM shadow. No reaction,
+
+1530
+00:30:14,350 --> 00:30:14,360
+iterating on DOM shadow. No reaction,
+ 
+
+1531
+00:30:14,360 --> 00:30:16,790
+iterating on DOM shadow. No reaction,
+no reactive programming, no constraint
+
+1532
+00:30:16,790 --> 00:30:16,800
+no reactive programming, no constraint
+ 
+
+1533
+00:30:16,800 --> 00:30:19,670
+no reactive programming, no constraint
+tracking. While Svelte comes along,
+
+1534
+00:30:19,670 --> 00:30:19,680
+tracking. While Svelte comes along,
+ 
+
+1535
+00:30:19,680 --> 00:30:22,590
+tracking. While Svelte comes along,
+especially Svelte 5, and actually
+
+1536
+00:30:22,590 --> 00:30:22,600
+especially Svelte 5, and actually
+ 
+
+1537
+00:30:22,600 --> 00:30:26,470
+especially Svelte 5, and actually
+ships a reactive system in the spirit of
+
+1538
+00:30:26,470 --> 00:30:26,480
+ships a reactive system in the spirit of
+ 
+
+1539
+00:30:26,480 --> 00:30:28,670
+ships a reactive system in the spirit of
+Garnet and Open Laszlo.
+
+1540
+00:30:28,670 --> 00:30:28,680
+Garnet and Open Laszlo.
+ 
+
+1541
+00:30:28,680 --> 00:30:31,070
+Garnet and Open Laszlo.
+Um but so, prototype
+
+1542
+00:30:31,070 --> 00:30:31,080
+Um but so, prototype
+ 
+
+1543
+00:30:31,080 --> 00:30:33,270
+Um but so, prototype
+fragment config directory is I and known
+
+1544
+00:30:33,270 --> 00:30:33,280
+fragment config directory is I and known
+ 
+
+1545
+00:30:33,280 --> 00:30:36,350
+fragment config directory is I and known
+Moo heritage from Lambda Moo, Pavel
+
+1546
+00:30:36,350 --> 00:30:36,360
+Moo heritage from Lambda Moo, Pavel
+ 
+
+1547
+00:30:36,360 --> 00:30:38,310
+Moo heritage from Lambda Moo, Pavel
+Curtis's work in Xerox PARC. And
+
+1548
+00:30:38,310 --> 00:30:38,320
+Curtis's work in Xerox PARC. And
+ 
+
+1549
+00:30:38,320 --> 00:30:41,030
+Curtis's work in Xerox PARC. And
+Linguistic Motherboard was John
+
+1550
+00:30:41,030 --> 00:30:41,040
+Linguistic Motherboard was John
+ 
+
+1551
+00:30:41,040 --> 00:30:43,510
+Linguistic Motherboard was John
+Warnock's invention and intention for
+
+1552
+00:30:43,510 --> 00:30:43,520
+Warnock's invention and intention for
+ 
+
+1553
+00:30:43,520 --> 00:30:46,470
+Warnock's invention and intention for
+PostScript, where it's just a
+
+1554
+00:30:46,470 --> 00:30:46,480
+PostScript, where it's just a
+ 
+
+1555
+00:30:46,480 --> 00:30:48,790
+PostScript, where it's just a
+motherboard for plugging in cards, and
+
+1556
+00:30:48,790 --> 00:30:48,800
+motherboard for plugging in cards, and
+ 
+
+1557
+00:30:48,800 --> 00:30:51,470
+motherboard for plugging in cards, and
+the first card he plugged in was
+
+1558
+00:30:51,470 --> 00:30:51,480
+the first card he plugged in was
+ 
+
+1559
+00:30:51,480 --> 00:30:53,550
+the first card he plugged in was
+graphics, you know, stencil paint,
+
+1560
+00:30:53,550 --> 00:30:53,560
+graphics, you know, stencil paint,
+ 
+
+1561
+00:30:53,560 --> 00:30:55,030
+graphics, you know, stencil paint,
+printer duff,
+
+1562
+00:30:55,030 --> 00:30:55,040
+printer duff,
+ 
+
+1563
+00:30:55,040 --> 00:30:58,270
+printer duff,
+graphics rendering to a bitmap to print.
+
+1564
+00:30:58,270 --> 00:30:58,280
+graphics rendering to a bitmap to print.
+ 
+
+1565
+00:30:58,280 --> 00:30:59,990
+graphics rendering to a bitmap to print.
+But, there's also like a networking
+
+1566
+00:30:59,990 --> 00:31:00,000
+But, there's also like a networking
+ 
+
+1567
+00:31:00,000 --> 00:31:02,390
+But, there's also like a networking
+card, and there's Now, we've got a like
+
+1568
+00:31:02,390 --> 00:31:02,400
+card, and there's Now, we've got a like
+ 
+
+1569
+00:31:02,400 --> 00:31:06,230
+card, and there's Now, we've got a like
+an LLM inference card, and you know, so
+
+1570
+00:31:06,230 --> 00:31:06,240
+an LLM inference card, and you know, so
+ 
+
+1571
+00:31:06,240 --> 00:31:09,070
+an LLM inference card, and you know, so
+But, the idea that he when when Owen
+
+1572
+00:31:09,070 --> 00:31:09,080
+But, the idea that he when when Owen
+ 
+
+1573
+00:31:09,080 --> 00:31:11,910
+But, the idea that he when when Owen
+Densmore worked at Apple, he was making
+
+1574
+00:31:11,910 --> 00:31:11,920
+Densmore worked at Apple, he was making
+ 
+
+1575
+00:31:11,920 --> 00:31:13,910
+Densmore worked at Apple, he was making
+Apple's printing system.
+
+1576
+00:31:13,910 --> 00:31:13,920
+Apple's printing system.
+ 
+
+1577
+00:31:13,920 --> 00:31:15,870
+Apple's printing system.
+And he went over
+
+1578
+00:31:15,870 --> 00:31:15,880
+And he went over
+ 
+
+1579
+00:31:15,880 --> 00:31:16,550
+And he went over
+to
+
+1580
+00:31:16,550 --> 00:31:16,560
+to
+ 
+
+1581
+00:31:16,560 --> 00:31:19,110
+to
+Adobe and worked with
+
+1582
+00:31:19,110 --> 00:31:19,120
+Adobe and worked with
+ 
+
+1583
+00:31:19,120 --> 00:31:21,110
+Adobe and worked with
+with, you know, all these people at
+
+1584
+00:31:21,110 --> 00:31:21,120
+with, you know, all these people at
+ 
+
+1585
+00:31:21,120 --> 00:31:22,910
+with, you know, all these people at
+Adobe uh
+
+1586
+00:31:22,910 --> 00:31:22,920
+Adobe uh
+ 
+
+1587
+00:31:22,920 --> 00:31:24,830
+Adobe uh
+to understand what the hell they were
+
+1588
+00:31:24,830 --> 00:31:24,840
+to understand what the hell they were
+ 
+
+1589
+00:31:24,840 --> 00:31:27,910
+to understand what the hell they were
+doing with PostScript, and how can we
+
+1590
+00:31:27,910 --> 00:31:27,920
+doing with PostScript, and how can we
+ 
+
+1591
+00:31:27,920 --> 00:31:31,550
+doing with PostScript, and how can we
+make that supported by the Mac operating
+
+1592
+00:31:31,550 --> 00:31:31,560
+make that supported by the Mac operating
+ 
+
+1593
+00:31:31,560 --> 00:31:32,990
+make that supported by the Mac operating
+system.
+
+1594
+00:31:32,990 --> 00:31:33,000
+system.
+ 
+
+1595
+00:31:33,000 --> 00:31:34,430
+system.
+And develop a product like the
+
+1596
+00:31:34,430 --> 00:31:34,440
+And develop a product like the
+ 
+
+1597
+00:31:34,440 --> 00:31:36,750
+And develop a product like the
+LaserWriter that revolutionized
+
+1598
+00:31:36,750 --> 00:31:36,760
+LaserWriter that revolutionized
+ 
+
+1599
+00:31:36,760 --> 00:31:39,190
+LaserWriter that revolutionized
+desktop printing and publishing.
+
+1600
+00:31:39,190 --> 00:31:39,200
+desktop printing and publishing.
+ 
+
+1601
+00:31:39,200 --> 00:31:40,310
+desktop printing and publishing.
+So,
+
+1602
+00:31:40,310 --> 00:31:40,320
+So,
+ 
+
+1603
+00:31:40,320 --> 00:31:43,030
+So,
+he got this idea of the linguistic
+
+1604
+00:31:43,030 --> 00:31:43,040
+he got this idea of the linguistic
+ 
+
+1605
+00:31:43,040 --> 00:31:46,270
+he got this idea of the linguistic
+motherboard, and then he went to Sun,
+
+1606
+00:31:46,270 --> 00:31:46,280
+motherboard, and then he went to Sun,
+ 
+
+1607
+00:31:46,280 --> 00:31:48,310
+motherboard, and then he went to Sun,
+and James Gosling took a step back and
+
+1608
+00:31:48,310 --> 00:31:48,320
+and James Gosling took a step back and
+ 
+
+1609
+00:31:48,320 --> 00:31:49,510
+and James Gosling took a step back and
+looked at all the window systems and
+
+1610
+00:31:49,510 --> 00:31:49,520
+looked at all the window systems and
+ 
+
+1611
+00:31:49,520 --> 00:31:50,870
+looked at all the window systems and
+said like, how can we make a window
+
+1612
+00:31:50,870 --> 00:31:50,880
+said like, how can we make a window
+ 
+
+1613
+00:31:50,880 --> 00:31:54,430
+said like, how can we make a window
+system that sends code instead of
+
+1614
+00:31:54,430 --> 00:31:54,440
+system that sends code instead of
+ 
+
+1615
+00:31:54,440 --> 00:31:56,830
+system that sends code instead of
+commands, a limited command set like X
+
+1616
+00:31:56,830 --> 00:31:56,840
+commands, a limited command set like X
+ 
+
+1617
+00:31:56,840 --> 00:31:58,230
+commands, a limited command set like X
+windows.
+
+1618
+00:31:58,230 --> 00:31:58,240
+windows.
+ 
+
+1619
+00:31:58,240 --> 00:32:01,590
+windows.
+And then Owen saw this, and it's
+
+1620
+00:32:01,590 --> 00:32:01,600
+And then Owen saw this, and it's
+ 
+
+1621
+00:32:01,600 --> 00:32:03,990
+And then Owen saw this, and it's
+PostScript. PostScript is like Lisp
+
+1622
+00:32:03,990 --> 00:32:04,000
+PostScript. PostScript is like Lisp
+ 
+
+1623
+00:32:04,000 --> 00:32:06,910
+PostScript. PostScript is like Lisp
+crossed with Forth, but more Lisp than
+
+1624
+00:32:06,910 --> 00:32:06,920
+crossed with Forth, but more Lisp than
+ 
+
+1625
+00:32:06,920 --> 00:32:09,510
+crossed with Forth, but more Lisp than
+Forth because it's
+
+1626
+00:32:09,510 --> 00:32:09,520
+Forth because it's
+ 
+
+1627
+00:32:09,520 --> 00:32:12,950
+Forth because it's
+like it's data is is polymorphic
+
+1628
+00:32:12,950 --> 00:32:12,960
+like it's data is is polymorphic
+ 
+
+1629
+00:32:12,960 --> 00:32:15,190
+like it's data is is polymorphic
+arrays and dictionaries, exactly the
+
+1630
+00:32:15,190 --> 00:32:15,200
+arrays and dictionaries, exactly the
+ 
+
+1631
+00:32:15,200 --> 00:32:17,190
+arrays and dictionaries, exactly the
+same as JSON.
+
+1632
+00:32:17,190 --> 00:32:17,200
+same as JSON.
+ 
+
+1633
+00:32:17,200 --> 00:32:21,550
+same as JSON.
+Okay, instead of like typed binary crap
+
+1634
+00:32:21,550 --> 00:32:21,560
+Okay, instead of like typed binary crap
+ 
+
+1635
+00:32:21,560 --> 00:32:23,510
+Okay, instead of like typed binary crap
+that Forth, I mean, I love Forth, but
+
+1636
+00:32:23,510 --> 00:32:23,520
+that Forth, I mean, I love Forth, but
+ 
+
+1637
+00:32:23,520 --> 00:32:27,470
+that Forth, I mean, I love Forth, but
+it's very low-level, okay. PostScript
+
+1638
+00:32:27,470 --> 00:32:27,480
+it's very low-level, okay. PostScript
+ 
+
+1639
+00:32:27,480 --> 00:32:31,630
+it's very low-level, okay. PostScript
+it In one page of code, Owen implemented
+
+1640
+00:32:31,630 --> 00:32:31,640
+it In one page of code, Owen implemented
+ 
+
+1641
+00:32:31,640 --> 00:32:34,390
+it In one page of code, Owen implemented
+a Smalltalk-like class system,
+
+1642
+00:32:34,390 --> 00:32:34,400
+a Smalltalk-like class system,
+ 
+
+1643
+00:32:34,400 --> 00:32:35,910
+a Smalltalk-like class system,
+object-oriented programming system, on
+
+1644
+00:32:35,910 --> 00:32:35,920
+object-oriented programming system, on
+ 
+
+1645
+00:32:35,920 --> 00:32:38,990
+object-oriented programming system, on
+top of which we built user interface
+
+1646
+00:32:38,990 --> 00:32:39,000
+top of which we built user interface
+ 
+
+1647
+00:32:39,000 --> 00:32:41,710
+top of which we built user interface
+tool kits, applications,
+
+1648
+00:32:41,710 --> 00:32:41,720
+tool kits, applications,
+ 
+
+1649
+00:32:41,720 --> 00:32:44,030
+tool kits, applications,
+even HyperLook, several versions,
+
+1650
+00:32:44,030 --> 00:32:44,040
+even HyperLook, several versions,
+ 
+
+1651
+00:32:44,040 --> 00:32:47,030
+even HyperLook, several versions,
+HyperGoodNews, HyperNews, HyperLook.
+
+1652
+00:32:47,030 --> 00:32:47,040
+HyperGoodNews, HyperNews, HyperLook.
+ 
+
+1653
+00:32:47,040 --> 00:32:48,710
+HyperGoodNews, HyperNews, HyperLook.
+There was like other things between
+
+1654
+00:32:48,710 --> 00:32:48,720
+There was like other things between
+ 
+
+1655
+00:32:48,720 --> 00:32:52,110
+There was like other things between
+there, but you know, user editable
+
+1656
+00:32:52,110 --> 00:32:52,120
+there, but you know, user editable
+ 
+
+1657
+00:32:52,120 --> 00:32:53,390
+there, but you know, user editable
+environments
+
+1658
+00:32:53,390 --> 00:32:53,400
+environments
+ 
+
+1659
+00:32:53,400 --> 00:32:55,750
+environments
+out of this object system that was just
+
+1660
+00:32:55,750 --> 00:32:55,760
+out of this object system that was just
+ 
+
+1661
+00:32:55,760 --> 00:32:56,830
+out of this object system that was just
+like
+
+1662
+00:32:56,830 --> 00:32:56,840
+like
+ 
+
+1663
+00:32:56,840 --> 00:32:58,990
+like
+designed to run on a PostScript
+
+1664
+00:32:58,990 --> 00:32:59,000
+designed to run on a PostScript
+ 
+
+1665
+00:32:59,000 --> 00:33:00,710
+designed to run on a PostScript
+interpreter. It also ran on the printer.
+
+1666
+00:33:00,710 --> 00:33:00,720
+interpreter. It also ran on the printer.
+ 
+
+1667
+00:33:00,720 --> 00:33:03,030
+interpreter. It also ran on the printer.
+I have like really cool pictures.
+
+1668
+00:33:03,030 --> 00:33:03,040
+I have like really cool pictures.
+ 
+
+1669
+00:33:03,040 --> 00:33:05,670
+I have like really cool pictures.
+So, um and then also we draw from the
+
+1670
+00:33:05,670 --> 00:33:05,680
+So, um and then also we draw from the
+ 
+
+1671
+00:33:05,680 --> 00:33:07,590
+So, um and then also we draw from the
+lineage of visual programming. I don't
+
+1672
+00:33:07,590 --> 00:33:07,600
+lineage of visual programming. I don't
+ 
+
+1673
+00:33:07,600 --> 00:33:09,830
+lineage of visual programming. I don't
+even get me started. But
+
+1674
+00:33:09,830 --> 00:33:09,840
+even get me started. But
+ 
+
+1675
+00:33:09,840 --> 00:33:12,630
+even get me started. But
+uh anyway, so this is broken up
+
+1676
+00:33:12,630 --> 00:33:12,640
+uh anyway, so this is broken up
+ 
+
+1677
+00:33:12,640 --> 00:33:15,830
+uh anyway, so this is broken up
+into This is just the readme.
+
+1678
+00:33:15,830 --> 00:33:15,840
+into This is just the readme.
+ 
+
+1679
+00:33:15,840 --> 00:33:18,710
+into This is just the readme.
+Uh and I will go over the uh rest of the
+
+1680
+00:33:18,710 --> 00:33:18,720
+Uh and I will go over the uh rest of the
+ 
+
+1681
+00:33:18,720 --> 00:33:21,680
+Uh and I will go over the uh rest of the
+stuff next.
+

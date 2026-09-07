@@ -1,0 +1,46 @@
+# GLANCE.yml — stone
+# Full file: CARD.yml | SKILL.md | examples/STONE.md (the seed — read this one first)
+# 🪨 "If you only read one page, read this one."
+
+what: |
+  The one-page tier. A STONE distills a whole system onto a single dense,
+  legible page whose star is the relationships, not the prose.
+  Named for Stone Librande, whose one-page designs it imitates by being one.
+
+seed_first: |
+  This skill was READ OFF its own example. examples/STONE.md is both a STONE
+  (subject: Stone Librande) and the prototype every other STONE clones.
+  Instance precedes class — go read the example before this file's siblings.
+
+why: |
+  - The first page is the only page most people read
+  - A README sprawls; a CARD teases; the STONE is the page you would keep
+  - Relationships on the page beat relationships in paragraphs
+  - You cannot draw the arrows until you actually understand the system
+
+when:
+  - '"Distill this system to one page" → STONE'
+  - '"Make a STONE for X" → CLONE the seed'
+  - '"Is this a STONE?" → AUDIT against the four properties'
+  - '"Which tier does this doc belong at?" → LADDER'
+
+ladder: "GLANCE → CARD → DESCRIPTION → **STONE** → README → directory"
+
+four_properties:
+  one_page: "Denser than a DESCRIPTION, shorter than a README. Stopping is the discipline."
+  arrows: "An explicit relationships block, not just prose that mentions connections."
+  earned: "Made from understanding — the diagram is impossible to fake."
+  keeper: "The single tier you would keep if you could keep only one."
+
+key_insight: "The page is not a summary of the design. At one page, the page IS the design."
+
+methods:
+  STONE:  "STONE [subject]"
+  CLONE:  "CLONE [seed] FOR [subject]"
+  AUDIT:  "AUDIT [file] — score against the four properties"
+  ARROWS: "ARROWS [subject] — draw the relationships block"
+  LADDER: "LADDER [file] — which resolution tier does this belong at?"
+
+lineage: [Stone Librande one-page designs, Will Wright, Chaim Gingold, Tufte]
+related: [card, prototype, moollm, design-sense]
+tier: 1

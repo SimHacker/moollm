@@ -11,7 +11,7 @@ This document comprehensively summarizes Will Wright's landmark lecture to Terry
 
 The lecture reveals Wright's core design philosophy and demonstrates ideas that directly inform MOOLLM's architecture. Don Hopkins attended this lecture, took extensive notes, and later worked with Will Wright at Maxis on The Sims from 1997-2000.
 
-**Video:** [YouTube - Will Wright - Maxis - Interfacing to Microworlds](https://www.youtube.com/watch?v=...)  
+**Video:** [YouTube - Will Wright - Maxis - Interfacing to Microworlds](https://www.youtube.com/watch?v=nsxoZXaYJSk)  
 **Notes:** [Don Hopkins' Medium article](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)  
 **Stanford Archive:** [searchworks.stanford.edu](https://searchworks.stanford.edu/view/yj113jt5999)
 
@@ -331,6 +331,20 @@ This is the revolutionary idea — **behavior lives in objects, not characters**
 Objects **advertise** their affordances:
 
 > *"A person's in a room, they have certain motivations, needs, they might be hungry, sleepy, lonely, angry. They scan the room for people and objects, and the objects are all kind of advertising: 'If you're angry, pick up me and throw me!', 'If you're hungry, eat me!'. And there's a communication there. It's all data driven."*
+
+And Wright names the mechanism he is aiming at, which places the whole design in
+a lineage:
+
+> *"All we have to do is deal with them at a very local kind of a state machine, [**Braitenberg Machine**](https://en.wikipedia.org/wiki/Braitenberg_vehicle) kind of level, and say that they're angry, and they're hungry, and they're sleepy."*
+
+**That term survives only because it was chased down.** YouTube's automatic
+captions garbled it; recovering it took looking the term up and then **asking
+Wright directly** what he had actually said. It is the most load-bearing phrase
+in the passage — a Braitenberg vehicle is precisely the claim that convincing
+behavior can come from a few local couplings and no world model, which is the
+entire Sims AI thesis — and an uncorrected transcript would have lost it
+silently. See [`../NOISY-CHANNEL.md`](../NOISY-CHANNEL.md) on why a fluent
+mistranscription is more dangerous than a gap.
 
 Even animations are distributed:
 
@@ -667,7 +681,7 @@ Wright's vision included player agency. Generative Agents shifts control to the 
 
 ## References
 
-- **Video:** [Will Wright - Maxis - Interfacing to Microworlds (YouTube)](https://www.youtube.com/watch?v=...)
+- **Video:** [Will Wright - Maxis - Interfacing to Microworlds (YouTube)](https://www.youtube.com/watch?v=nsxoZXaYJSk)
 - **Don's Medium Article:** [Will Wright on Designing User Interfaces to Simulation Games (1996)](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)
 - **Stanford Archive:** [searchworks.stanford.edu](https://searchworks.stanford.edu/view/yj113jt5999)
 - **Chaim Gingold's PhD:** [Play Design (ProQuest)](https://search.proquest.com)

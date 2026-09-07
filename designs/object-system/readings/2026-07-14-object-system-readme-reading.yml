@@ -17,13 +17,25 @@ reading:
   raw_source: youtube-asr    # noisy auto-captions; corrections ledger below
 
 timing:
-  status: pre-trim           # timestamps below reflect the ORIGINAL upload
+  status: verified           # measured 2026-09-07 against fresh captions; no correction needed
   edit: "~1s of incomplete speech cut from the start on 2026-07-14"
-  shift: unknown             # measure against fresh auto-captions once YouTube regenerates them
-  todo: >
-    When the new caption track lands, diff first-segment onsets against the raw
-    pre-trim captions to get the exact shift, subtract it from every chapter t
-    and from the youtube_description chapter list, then flip status to synced.
+  shift: none-detectable     # every chapter within ~5s, non-systematic: measurement noise, not drift
+  method: >
+    Fresh auto-captions pulled with yt-dlp, then the cleaned prose transcript
+    aligned to the caption word stream by difflib.SequenceMatcher, taking each
+    "## " heading's first word as the chapter onset. 84% of transcript words
+    aligned (cleanup edits are the gaps); all 32 chapters came out monotonic
+    and the last lands at 33:03 against a 33:22 runtime.
+    Tool: designs/voicewashing/align.py — re-runnable, and it prints the
+    coverage and monotonic counts so a bad alignment cannot pass quietly.
+  do_not: >
+    Do not measure this by searching captions for a chapter's keyword. The first
+    occurrence of a topic word is usually well before the chapter that covers
+    it, which yields negative offsets that look like real drift. That method was
+    tried first and produced deltas from -84s to +72s, all of them fictional.
+  note: >
+    The pre-trim worry was unfounded: the trim was short enough that it does not
+    move any chapter by a measurable amount. Timestamps below stand as written.
 
 corrections:
   # ASR damage -> what was actually said. Kept here so the raw captions can be
