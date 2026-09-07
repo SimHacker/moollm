@@ -1,6 +1,52 @@
+---
+name: no-ai-parrot
+description: "Quote clerk for the 'just a next token predictor' genre. Harvests, attributes and serves verbatim human text — both the clichés and the good human answers to them — for a human to select, copy and paste. Does not write the post."
+license: MIT
+tier: 1
+ambient: false
+generates_prose: false
+allowed-tools: [read_file, write_file, list_dir, web_search]
+permissions: [files, network-read]
+related: [no-ai-slop, no-ai-humansplaining, no-ai-ideology, copy-that, cursor-mirror]
+tags: [moollm, discourse, citation, attribution, quotation, rhetoric]
+---
+
 # NO-AI-PARROT™ — Protocol
 
 > *"To parrot 'stochastic parrot' is to be one."*
+
+---
+
+## What this skill is, before anything else
+
+**It does not write your post.** There is no draft method. There is no
+suggested wording. Ask it for one and the correct response is this paragraph.
+
+What it does is keep a filing cabinet for one recurring argument and hand you
+**other people's words**: the clichés, verbatim and attributed, and the good
+human answers to them, verbatim and attributed. You read the sheet, take what
+serves your point, and write your own sentences around it.
+
+Two reasons the constraint is load-bearing, and the second is the better one.
+
+**One.** You can then post without any of it being generated. Every quotable
+line in this skill resolves to a permalink with a person's name on it, or to a
+paper with a year and a page range. The accusation has nothing to land on,
+because there is nothing there to accuse.
+
+**Two, and this is the real reason.** An exact quotation is stronger than
+anything you could write about it. When you characterize what someone said,
+they can dispute your characterization and the conversation moves to your
+paraphrase. When you reproduce their sentence with a link, there is nothing to
+dispute. **The most effective and the most courteous thing you can do to an
+argument is quote it correctly** — and the same goes for the good answers,
+which deserve to be credited to the people who wrote them rather than absorbed
+into your own prose.
+
+Nearly every standing correction in `corpus/CANON.md` was written by a named
+human before 1990. Shannon in 1951. Jefferson in 1949, quoted by Turing in
+1950. Lifton in 1961. Weizenbaum in 1966. Minsky in 1982. This argument has
+been answered, repeatedly, by people who can be cited.
 
 ---
 
@@ -8,152 +54,137 @@
 
 | Command | Effect |
 |---------|--------|
-| `STEELMAN [cliché]` | State its strongest true version, with the citation. Always first. |
-| `DEREFERENCE [phrase]` | What the borrowed source actually argues, and what it does not |
-| `NAME-THE-MOVE` | Lifton 1961: thought-terminating cliché, loading the language |
-| `REPLY [comment]` | The five moves, emitted short, formatted for the venue |
-| `PREFLIGHT` | Length, one receipt, unarmored spot, no cite-wall, no sign-flipped sin |
+| `QUOTE-SHEET [comment]` | Candidate verbatim passages with links, grouped by function. No draft. |
+| `HARVEST [text, author, date, url]` | Capture an instance, either half, while the link works |
+| `ATTRIBUTE [passage]` | Verify author, date, permalink, character-exactness. Reject if it fails. |
+| `DEREFERENCE [phrase]` | What the borrowed source actually says, quoted, with citation |
+| `PRESERVE [exchange]` | Archive the whole thing today, before edits or flags |
+| `PREFLIGHT [your draft]` | Check that quotes are verbatim and the rest is yours |
 
 ---
 
-## The Problem
+## The harvest protocol
 
-Someone answers a question about what a system does by naming what it is made of,
-and treats that as the end of the discussion. "It's just a next token predictor."
-"Stochastic parrot." "Glorified autocomplete." "It doesn't really understand."
+### Harvest both halves, always
 
-Three things are true at once, and a reply that drops any of them is worse than
-no reply.
+The clichés get saved because they sting. **The good answers get lost because
+the moment passes**, and they are the more valuable half — a well-made
+correction is reusable for years and nobody keeps them.
 
-1. **The phrase is usually accurate as far as it goes.** The training objective
-   *is* next-token prediction. A fixed-context transformer *is* formally a
-   high-order Markov process. Fluency *does* cause people to over-attribute.
-2. **It is borrowed from real work whose argument is different.** "Stochastic
-   parrot" is the title of a paper about the cost of scale, undocumentable
-   training corpora, encoded harm, and human misattribution. It is not a proof
-   that models cannot reason.
-3. **It is deployed so that no reply is possible.** That is a named phenomenon
-   with a literature going back to 1961, and naming it is the move that makes the
-   conversation continue instead of ending.
+So harvest:
 
-## The logical error, precisely
+- **The clichés**, verbatim, attributed, dated, linked. Including the ones
+  aimed at other people, which are often more clearly stated than the ones
+  aimed at you.
+- **Other people's good answers.** Especially when theirs was better than
+  yours. Credit is cheap and a stranger's sentence carries weight yours does
+  not, because you are not the one who benefits from it.
+- **Your own**, with the same discipline. Your prior comment is a primary
+  source, and quoting yourself accurately from a permalink is different from
+  remembering what you think you said.
+- **Their concession**, which is usually sitting in their own third paragraph.
+  People walk their clichés back unprompted, and the walk-back in their own
+  words is worth more than a rebuttal.
 
-The cliché describes an **objective** and concludes a **capability**. The same
-sentence form, applied elsewhere:
+### Attribution rules
 
-- Evolution is just an inclusive-fitness optimizer.
-- Deep Blue was just alpha-beta search.
-- Your brain is just cells minimizing prediction error.
+Author as displayed. ISO date. Permalink to the individual item, not the
+thread. Text character-exact, including typos, including emphasis markers,
+including the parts that make them look careless. `[sic]` exists so that
+nobody helpfully cleans it up in six months.
 
-Each is true at one level of description and completely silent about what the
-process produces. **Objectives are not ontologies.** You do not need any claim
-about understanding, consciousness, or being to make this point — and reaching
-for one is how you lose.
+**An unattributable passage is not evidence, it is a rumor.** Reject it.
 
-### The reversal worth memorizing
+### Preserve early
 
-Claude Shannon measured the entropy of printed English in 1951 by sitting human
-subjects down and having them **guess the next letter** of a text, one letter at
-a time, with the number of guesses as the measurement.
+HN comments stay editable for two hours and can be flagged or killed at any
+time. If you might quote it, archive it the same day.
+[cursor-mirror](../cursor-mirror/) can pull an exchange out of your own session
+transcripts; the HN Algolia API can pull it from the source.
 
-> Shannon, C. E. (1951). Prediction and Entropy of Printed English.
-> *Bell System Technical Journal* 30(1), 50–64.
+---
 
-Next-token prediction entered the literature as an instrument for studying
-people. "Just a next token predictor" describes an experiment Shannon ran on us.
+## What the sheet contains
 
-## The five moves
+Five sections, all quotations, no prose of ours:
 
-### 1. STEELMAN
+1. **What they said before** — prior instances by the same author, dated and
+   linked. When the same account repeats the same phrase in a new venue, the
+   dates are the argument.
+2. **What they said now** — the current comment in full, including any
+   concession inside it.
+3. **What the cited source actually says** — the passage, quoted, with the full
+   citation, next to how the phrase is being used.
+4. **Standing corrections** — the canon, quoted, by named humans with dates.
+5. **Good answers on the record** — how other people answered this well,
+   attributed to them.
 
-State the strongest true version of the cliché **before** anything else, and
-attribute it. If you cannot, you have not understood it and should stop.
+**Not in the sheet:** suggested openings, recommended order, or any sentence a
+human could paste without attribution. If it would be quotable as *yours*, this
+skill did not belong to it.
 
-The honest core of every entry in this catalog is the **ELIZA effect**: humans
-over-attribute mind to fluent text, reliably, and it has been documented since
-1966 by someone who was alarmed at what his own program did to people.
+---
 
-> Weizenbaum, J. (1966). ELIZA. *CACM* 9(1), 36–45.
-> Weizenbaum, J. (1976). *Computer Power and Human Reason*.
+## The catalog: what the borrowed phrases actually say
 
-Concede this out loud. It costs nothing and it is true.
+Quotable passages live in [`corpus/CANON.md`](corpus/CANON.md). The summaries
+below are for *your* orientation and are not for pasting — a summary is
+something someone wrote, and a quotation is something you can check.
 
-### 2. DEREFERENCE
-
-Look up the source of the borrowed phrase and quote what it argues.
-
-| Cliché | Source | What it argues | What it does not argue |
+| Phrase | Source | What it argues | What it does not argue |
 |---|---|---|---|
-| stochastic parrot | Bender, Gebru, McMillan-Major, Shmitchell, FAccT '21 | Cost of scale; corpora too large to document; encoded harm; **humans over-attribute meaning to fluent text** | That models cannot reason |
-| form without meaning | Bender & Koller, ACL 2020 | The octopus: form learned without grounding | (This is the real argument people mean) |
-| doesn't understand | Searle 1980 | Against one functionalism; answered in the same issue by the Systems Reply | That machine minds are impossible — Searle holds brains cause minds causally |
-| next token predictor | the training objective | Accurate description of the loss | Anything about the resulting capability |
-| Markov chain on steroids | formally correct | Fixed context = high-order Markov | That order and function class don't matter |
+| stochastic parrot | Bender, Gebru, McMillan-Major, Shmitchell, FAccT '21 (2021) | Cost of scale; corpora too large to document; encoded harm; **that humans over-attribute meaning to fluent text** | That language models cannot reason |
+| form without meaning | Bender & Koller, ACL 2020 | The octopus: form learned without grounding | (This is the real argument people mean to invoke) |
+| doesn't understand | Searle, BBS 3(3) (1980) | Against one functionalism; answered in the same issue by the Systems Reply | That machine minds are impossible — Searle holds brains cause minds causally |
+| next token predictor | the training objective | An accurate description of the loss | Anything about the resulting capability |
+| Markov chain on steroids | formally correct | Fixed context is a high-order Markov process | That order and function class do not matter |
 
-The gap between column three and column four is the entire reply.
+The gap between the third and fourth columns is the whole occasion for a post.
+**Concede the third column in the source's own words first.** It costs nothing
+and it is true.
 
-### 3. NAME-THE-MOVE
+### The part the other side gets right
 
-> Lifton, R. J. (1961). *Thought Reform and the Psychology of Totalism*,
-> ch. 22, "Ideological Totalism" — the criterion of **loading the language**:
-> "the most far-reaching and complex of human problems are compressed into brief,
-> highly reductive, definitive-sounding phrases."
+The honest core of every phrase above is the **ELIZA effect**: people
+over-attribute mind to fluent text, reliably, documented since 1966 by an
+author who was alarmed at what his own program did to people. Weizenbaum is in
+the canon file and should be quoted approvingly and early.
 
-"Thought-terminating cliché" is a technical term from a study of coercive
-persuasion. **With the citation it is analysis; without it, it is just another
-cliché.** Use it on the phrase, never on the person.
+---
 
-Minsky answered this whole genre by name in 1982, and the title is the argument:
-*Why People Think Computers Can't*, AI Magazine 3(4).
+## Patterns in the good answers
 
-### 4. SEPARATE THE QUESTION FROM THE PROHIBITION
+Observed across the corpus. These describe what worked; they are not a template
+to fill in.
 
-The strong form of the cliché asserts an answer and forbids the inquiry —
-sometimes explicitly, by diagnosing anyone who asks. When that happens, the
-reply is not to argue the metaphysics. It is to point out that **a claim plus a
-prohibition on examining it is not skepticism.** Skepticism is "we don't know,
-and here is why the question is hard."
+- **The concession comes first**, in the source's own words.
+- **The reversal beats the rebuttal.** Shannon's 1951 experiment does more work
+  than any argument about objectives, because it is a fact with a page number.
+- **Name the move by quoting Lifton**, and let the reader apply it. Applying it
+  yourself, unquoted, is just a different cliché.
+- **Separate the claim from the prohibition.** The strong form asserts an answer
+  and forbids the question. A claim plus a ban on examining it is not
+  skepticism; Turing's section 6 is what the careful version looks like.
+- **Answer the empirical version, decline the metaphysical one.** "Cannot be
+  trusted with that degree of judgment" loses to a working artifact. "Is not a
+  being" cannot be settled in a comment box and you never need to try.
+- **Never claim consciousness, understanding or being.** You do not need the
+  claim, and making it is the same overconfident move with the sign flipped.
+- **Two to four quotes is a post.** Ten is a wall nobody reads — and see
+  `examples/` for the case where the best-cited comment in the thread was
+  auto-filtered as machine-written and never appeared at all.
 
-Turing spent section 6 of the 1950 paper working through nine numbered objections,
-conceded the residual mystery of consciousness, and proposed a test instead of a
-verdict. That is what the careful version of this position looks like.
-
-### 5. ANSWER THE REAL QUESTION
-
-There is almost always a real question underneath, and it is usually better than
-the cliché: *where is the boundary between what this does reliably and what it
-does once?* Answer that with something you built, and the argument about what the
-thing **is** becomes optional.
-
-This is also where you stop. End somewhere the other person can reply without
-humiliation. **The goal is that they stop, not that they lose.**
-
-## Output constraints
-
-These are load-bearing and were learned expensively. See
-[`examples/hypfer-2026.md`](examples/hypfer-2026.md).
-
-- **Short.** The long version does not get read.
-- **One receipt.** Something you personally built or ran, not a bibliography.
-- **Keep an unarmored spot** — one line no RLHF'd model would produce. A dense,
-  polished, perfectly parallel citation wall reads as machine-written to humans
-  *and to automated filters.* In the founding case, the most careful, most
-  heavily cited reply in the thread was auto-filtered as machine-generated and
-  never got read, while the same venue failed to detect actual hybrid output all
-  day. The detector fails in both directions, and your best prose is what trips it.
-- **Two citations maximum in a public reply.** The rest lives in the skill.
-- **No sign-flipped sin.** Do not answer an overconfident metaphysical claim with
-  your own.
+---
 
 ## Reusability
 
-The point of writing this down is that the next occurrence costs nothing. The
-cliché is stable, the citations do not move, and the reply is a lookup. Add each
-new encounter to `examples/` verbatim — the parroted phrase, the reply, and
-whether it worked — and the skill gets better at the one thing it does.
+The point of the filing cabinet is that the second occurrence costs nothing.
+The clichés are stable, the citations do not move, and the good answers are
+already written. **When the same account repeats the same phrase in a new
+venue, that is a cache hit, not a new argument** — and the corpus holds the
+dates to show it.
 
-When the same account repeats the same cliché in a new venue, that is not a new
-argument. It is a cache hit.
+Add every encounter, both halves, verbatim.
 
 ## Part of MOOLLM
 
@@ -161,14 +192,16 @@ This skill is part of [MOOLLM](https://github.com/SimHacker/moollm) — see the
 [repo README](../../README.md) and [skills/README](../README.md).
 
 Related MOOLLM skills: [no-ai-slop](../no-ai-slop/) (the claim ledger —
-CONFIRM / DISPUTE / ASK, which is what STEELMAN is),
-[no-ai-hedging](../no-ai-hedging/), [no-ai-humansplaining](../no-ai-humansplaining/)
-(the inbound mirror), [no-ai-ideology](../no-ai-ideology/) (the brand warehouse),
-[copy-that](../copy-that/) (venue formatting — HN takes no markdown),
-[cursor-mirror](../cursor-mirror/) (pull the verbatim prior exchange out of
-transcripts to build `examples/`).
+CONFIRM / DISPUTE / ASK, which is what conceding first amounts to),
+[no-ai-humansplaining](../no-ai-humansplaining/) (inbound mirror),
+[no-ai-ideology](../no-ai-ideology/) (brand warehouse),
+[copy-that](../copy-that/) (venue formatting for the post you write —
+HN takes no markdown), [cursor-mirror](../cursor-mirror/) (harvest verbatim
+exchanges out of your own transcripts).
 
 ## Credits
 
-Lifton for the name of the move. Shannon for the reversal. Minsky for answering
-the genre forty years early. Weizenbaum for the part the other side gets right.
+Lifton for the name of the move. Shannon for the reversal. Jefferson for the
+strongest version of the objection and Turing for answering it properly.
+Weizenbaum for the part the other side gets right. Minsky for answering the
+whole genre forty years early.

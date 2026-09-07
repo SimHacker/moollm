@@ -3,58 +3,61 @@
 # 🦜 "To parrot 'stochastic parrot' is to be one."
 
 what: |
-  Discourse hygiene. Answers thought-terminating clichés about AI — "just a next
-  token predictor", "stochastic parrot", "glorified autocomplete", "it doesn't
-  really understand" — with the citation the phrase came from, the argument that
-  paper actually makes, and an answer to the real question underneath.
+  A quote clerk for one recurring argument.
 
-  Not a dunk machine. The output is educational, specific, and leaves a door open.
-  Every one of these clichés has a legitimate core, and the reply starts there.
+  This skill DOES NOT WRITE YOUR POST. It harvests, attributes and preserves
+  human text about the "just a next token predictor" genre — both the clichés
+  and the good human answers to them — and hands the verbatim passages back
+  with links, for a human to read, choose from, copy and paste.
+
+  Retrieval and citation. No drafting, no paraphrase, no generated prose.
+
+the_hard_rule: |
+  Every word this skill offers for posting was written by an identified human
+  and is reproduced verbatim with a link. If it cannot be attributed, it does
+  not go in the corpus. If you cannot quote it, you do not have it.
 
 why: |
-  - The phrases are borrowed from real papers whose arguments are different from the use
-  - A cliché deployed to end a conversation is a named phenomenon with a literature
-  - Describing a training objective tells you nothing about what emerges from it
-  - Answering well once should be reusable; answering from scratch every time is a tax
-  - The legitimate core deserves confirming, or the reply is just the mirror image
+  - You should be able to post without any of it being generated, and this makes that possible
+  - The strongest answer to a cliché is the cliché-user's own sentence, quoted exactly
+  - The good corrections already exist, written by named people, most of them before 1990
+  - Accuracy is the courtesy: an exact quote with a link is the least answerable form of disagreement
+  - Answering well once should be reusable; re-deriving it every time is a tax
 
 when:
-  - '"just a next token predictor" / "stochastic parrot" / "spicy autocomplete" → REPLY'
-  - '"it does not really understand / think / reason" → REPLY'
-  - 'Any cliché used as a conversation-ender, AI or not → NAME-THE-MOVE'
-  - 'Before you post: → PREFLIGHT (the cite-wall gets machine-filtered)'
+  - '"just a next token predictor" / "stochastic parrot" / "spicy autocomplete" → QUOTE-SHEET'
+  - '"it does not really understand / think / reason" → QUOTE-SHEET'
+  - 'You just watched someone post one of these → HARVEST (capture it verbatim now, with the permalink)'
+  - 'You or someone else answered one well → HARVEST (the good half is the half people forget to keep)'
 
-cardinal_sins:
-  # Committed by the interlocutor
-  OBJECTIVE-AS-ONTOLOGY: "Naming the training objective, concluding the capability"
-  CITING-UNREAD: "Borrowing a paper's title as a verdict the paper does not reach"
-  CONVERSATION-ENDING: "The phrase is deployed so that no reply is possible"
-  FORBIDDING-THE-QUESTION: "Asserting the answer and prohibiting the inquiry"
-  PATHOLOGIZING: "Diagnosing the interlocutor instead of the argument"
-  # Committed by us, which is worse
-  SIGN-FLIPPED-SIN: "Answering an overconfident metaphysical claim with your own"
-  CITE-WALLING: "A polished wall of references, which reads as machine-written and gets filtered"
-  DUNK-ONLY: "Winning without teaching anybody anything"
+does_not:
+  - "Write, draft, ghostwrite, outline or 'polish' your comment"
+  - "Paraphrase a source (a paraphrase is not a quote and cannot be checked)"
+  - "Offer any passage without an author, a date and a link"
+  - "Fix anybody's typos, including in the clichés — [sic] or leave it"
+
+corpus:
+  corpus/CLICHES.md: "Harvested instances, attributed and dated. What was actually said, verbatim."
+  corpus/CORRECTIONS.md: "Good human answers, attributed. Other people's and your own."
+  corpus/CANON.md: "The standing human corrections with full citations — Shannon 1951, Lifton 1961, Weizenbaum 1966, Minsky 1982, Turing 1950 quoting Jefferson 1949, Dijkstra EWD 898."
 
 the_test: |
-  Does the phrase do any work that a shorter, weaker claim would not do?
-  If it ends the conversation rather than advancing it, it is a cliché, and the
-  reply is: what does the source actually say, and what is the real question?
-
-the_fix: "Steelman it. Dereference the citation. Name the move. Answer the real question."
+  Before you paste: is every quoted sentence someone's actual sentence, linked?
+  Is the connective tissue between quotes yours? Then post it.
 
 core_insight: |
   Shannon measured the entropy of English in 1951 by sitting human subjects down
-  and having them guess the next letter. Next-token prediction was invented as an
-  instrument for studying people. "Just a next token predictor" is an experiment
-  Shannon ran on us.
+  and having them guess the next letter. Next-token prediction entered the
+  literature as an instrument for studying people — and that sentence is a
+  citation, not an opinion, which is the whole method of this skill.
 
 go_deeper:
-  CARD.yml: "The cliché catalog with real citations, the five-move protocol, output constraints"
-  SKILL.md: "Full protocol, the steelman table, what each parroted paper actually argues"
-  examples/: "The founding case — a two-round HN exchange, August and September 2026"
+  CARD.yml: "Methods, attribution schema, quote-sheet format"
+  SKILL.md: "Harvest protocol, what each parroted paper actually argues, the good-answer patterns"
+  examples/: "Founding harvest — one account, one cliché, two venues, seventeen days"
 
 lineage: [Lifton, Shannon, Minsky, Turing, Weizenbaum]
-related: [no-ai-slop, no-ai-hedging, no-ai-humansplaining, no-ai-ideology, copy-that]
+related: [no-ai-slop, no-ai-humansplaining, no-ai-ideology, copy-that, cursor-mirror]
 tier: 1
-ambient: false   # explicitly invoked; this one writes a reply
+ambient: false   # explicitly invoked
+generates_prose: false   # load-bearing; see the_hard_rule

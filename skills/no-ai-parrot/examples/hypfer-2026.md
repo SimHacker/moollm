@@ -1,4 +1,9 @@
-# Founding case: the same cliché, twice, seventeen days apart
+# Founding harvest: the same cliché, twice, seventeen days apart
+
+*This is a case study of what the harvest taught, not a source of quotable text.
+The verbatim attributed passages live in [`../corpus/CLICHES.md`](../corpus/CLICHES.md)
+and [`../corpus/CORRECTIONS.md`](../corpus/CORRECTIONS.md). Nothing in this file
+should be pasted into a post; quote the corpus, with links.*
 
 One Hacker News account, one phrase, two unrelated threads. Round one was about
 metaphysics and went badly for everyone. Round two was about workflow and is
