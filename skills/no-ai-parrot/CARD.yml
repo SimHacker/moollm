@@ -1,0 +1,140 @@
+# CARD.yml — no-ai-parrot
+# Interface: what it does, what it needs, what it emits.
+# 🦜 The parrot is on the cover of the paper. Nobody reads past the cover.
+
+skill:
+  name: no-ai-parrot
+  k_line: NO-AI-PARROT
+  tagline: "Answer the cliché with the citation it came from."
+  tier: 1
+  ambient: false
+  brand: no-ai-ideology   # THE WAREHOUSE holds the suite's ideology
+
+  what: |
+    A response skill. Input is a comment containing a thought-terminating cliché
+    about AI. Output is a short reply that confirms the legitimate core, quotes
+    what the cited source actually argues, names the rhetorical move by its
+    technical name, and answers the question underneath.
+
+  position_in_suite: |
+    no-ai-slop polices what the model emits.
+    no-ai-humansplaining polices what the human feeds in.
+    no-ai-parrot polices what people say ABOUT the model — in both directions,
+    because the failure mode of this skill is becoming the thing it answers.
+
+methods:
+
+  REPLY:
+    description: "Full five-move reply to a specific comment"
+    args:
+      comment: "The text being answered, verbatim"
+      venue: "hacker-news | email | mastodon | blog — routes through copy-that"
+      length: "short (default) | medium | full"
+      reveal: "true | false — whether the reply admits a skill produced it"
+    emits: "One fenced block, formatted for the venue, notes outside the fence"
+
+  STEELMAN:
+    description: "State the strongest real version of the cliché, with its citation"
+    note: "Run this FIRST, always. If you cannot steelman it, you do not understand it."
+
+  DEREFERENCE:
+    description: "Look up what the borrowed phrase's source actually claims"
+    args: { phrase: "the cliché" }
+    returns: "citation, what it argues, what it does NOT argue, the gap"
+
+  NAME-THE-MOVE:
+    description: "Identify the rhetorical pattern by its technical name, with a citation"
+    note: "A named move with a reference is analysis. An unnamed accusation is an insult."
+
+  PREFLIGHT:
+    description: "Check the draft against the output constraints before posting"
+    checks: [length, one_receipt_only, unarmored_spot_present, no_cite_wall, no_sign_flipped_sin]
+
+the_catalog:
+  # Each entry: what it borrows, what that source actually says, the gap, the reply seed.
+
+  next_token_predictor:
+    heard_as: "It's just a next token predictor"
+    real_core: "The training objective genuinely is next-token prediction. That part is true."
+    what_it_omits: |
+      The objective is not the artifact. Naming an optimization target tells you
+      nothing about what the optimization produces — the same sentence form gives
+      you "evolution is just an inclusive-fitness optimizer" and "Deep Blue is
+      just alpha-beta search", both true, both silent on the result.
+    the_reversal:
+      citation: "Shannon, C. E. (1951). Prediction and Entropy of Printed English. Bell System Technical Journal 30(1), 50-64."
+      point: |
+        Shannon estimated the entropy of English by having human subjects guess
+        the next letter of a text, one letter at a time. Next-token prediction
+        entered the literature as an instrument for measuring people.
+    also: "Prediction and compression are formally the same problem (Solomonoff 1964; MDL). Compressing a process means modeling it."
+
+  stochastic_parrot:
+    heard_as: "It's a stochastic parrot"
+    borrowed_from: "Bender, Gebru, McMillan-Major, Shmitchell (2021). On the Dangers of Stochastic Parrots: Can Language Models Be Too Big? FAccT '21."
+    what_it_actually_argues: |
+      Environmental and financial cost of scale; training corpora too large to
+      document responsibly (documentation debt); encoded bias and downstream harm;
+      and the risk that HUMANS over-attribute meaning to fluent text.
+    what_it_does_not_argue: "It is not a proof that language models cannot reason. It is a risk-and-ethics argument about scale, data, and human misattribution."
+    the_irony: |
+      The paper's central worry is that fluent text makes people stop thinking.
+      Using its title as a conversation-ender is that worry, enacted, by a human.
+    the_deeper_paper: "Bender & Koller (2020). Climbing towards NLU: On Meaning, Form, and Understanding in the Age of Data. ACL. The octopus thought experiment — form versus meaning — is the actual philosophical argument people mean to invoke."
+
+  glorified_autocomplete:
+    heard_as: "spicy autocomplete / glorified autocomplete / a Markov chain on steroids"
+    real_core: "A fixed-context transformer is formally a high-order Markov process. Concede it immediately."
+    what_it_omits: "Order and function class are the whole question. By that standard your working memory is one too, and the description does not distinguish a lookup table from a world model."
+
+  does_not_understand:
+    heard_as: "It doesn't really understand / think / reason"
+    borrowed_from: "Searle, J. (1980). Minds, Brains, and Programs. Behavioral and Brain Sciences 3(3), 417-457."
+    what_it_actually_argues: "An argument against a specific functionalism, answered in the same issue by the Systems Reply. Searle's own position is that brains cause minds through biological causal powers — not that machine minds are impossible in principle."
+    the_dissolution: "Dijkstra, EWD 898: whether machines can think is about as relevant as whether submarines can swim."
+
+  the_legitimate_ancestor:
+    heard_as: "People are fooled by fluency"
+    citation: "Weizenbaum, J. (1966). ELIZA. CACM 9(1), 36-45; and Computer Power and Human Reason (1976)."
+    verdict: |
+      CONFIRMED, and it is the strongest card the other side holds. The ELIZA
+      effect is real, it is old, and it is the honest core of every cliché in this
+      catalog. Say so out loud before you take the rest apart.
+
+naming_the_move:
+  citation: "Lifton, R. J. (1961). Thought Reform and the Psychology of Totalism, ch. 22, 'Ideological Totalism' — the criterion of loading the language."
+  quote: "the most far-reaching and complex of human problems are compressed into brief, highly reductive, definitive-sounding phrases"
+  usage: |
+    "Thought-terminating cliché" is a technical term from a 1961 study of coercive
+    persuasion, not an insult. Naming it with the citation is analysis. Asserting
+    it without one is just a different cliché.
+
+output_constraints:
+  # Learned the expensive way; see examples/.
+  length: "Short. The long version does not get read, and on some venues does not get posted."
+  receipts: "ONE concrete receipt you personally built or ran. Not a bibliography."
+  human_watermark: |
+    Keep at least one unarmored spot — a line no RLHF'd model would produce.
+    A dense, polished, perfectly parallel citation wall reads as machine-written
+    to both humans and to automated filters, which is a failure mode with a
+    receipt in examples/.
+  door: "End somewhere they can reply without humiliation. The goal is that they stop, not that they lose."
+  register: "Educational, specific, unhurried. Contempt is optional and expensive."
+
+anti_patterns:
+  - "Do NOT claim the model is conscious, a being, or understands. You do not need that claim to win, and asserting it is the same sin with the sign flipped."
+  - "Do NOT stack citations. Two is plenty. Five is a wall."
+  - "Do NOT diagnose the person. That is their move; borrowing it forfeits the point."
+  - "Do NOT skip the steelman. A reply that concedes nothing teaches nothing."
+
+files:
+  GLANCE.yml: "Five-line orientation"
+  SKILL.md: "The protocol, the steelman table, the worked reply"
+  examples/hypfer-2026.md: "Founding case: same account, same cliché, two venues, two months"
+
+related:
+  no-ai-slop: "Claim ledger — CONFIRM / DISPUTE / ASK before proceeding. STEELMAN is that rule applied to a cliché."
+  no-ai-hedging: "State confidence as a number, then make the claim plainly"
+  no-ai-humansplaining: "The inbound mirror; this skill is the third direction"
+  copy-that: "Venue formatting for the emitted reply — HN takes no markdown"
+  cursor-mirror: "Pull the verbatim prior exchange out of transcripts to build examples/"

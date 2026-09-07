@@ -154,6 +154,10 @@ no_ai_suite:
       why: "Copy-bound content ships in fenced blocks, formatted per venue plugin; notes stay outside the fence"
       
   performance:  # MUST BE EXPLICITLY INVOKED
+    - id: no-ai-parrot
+      tagline: "Discourse hygiene"
+      why: "Answer the thought-terminating cliché with the citation it came from; steelman first, dunk never"
+
     - id: no-ai-joking
       tagline: "HUMOR IS NON-BILLABLE"
       why: "Deadpan corporate AI parody"
@@ -743,6 +747,7 @@ all_skills:
   - no-ai-joking
   - no-ai-moralizing
   - no-ai-overlord
+  - no-ai-parrot
   - no-ai-slop
   - no-ai-soul
   - no-ai-sycophancy

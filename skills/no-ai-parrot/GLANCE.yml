@@ -1,0 +1,60 @@
+# GLANCE.yml — no-ai-parrot
+# Full file: CARD.yml | SKILL.md
+# 🦜 "To parrot 'stochastic parrot' is to be one."
+
+what: |
+  Discourse hygiene. Answers thought-terminating clichés about AI — "just a next
+  token predictor", "stochastic parrot", "glorified autocomplete", "it doesn't
+  really understand" — with the citation the phrase came from, the argument that
+  paper actually makes, and an answer to the real question underneath.
+
+  Not a dunk machine. The output is educational, specific, and leaves a door open.
+  Every one of these clichés has a legitimate core, and the reply starts there.
+
+why: |
+  - The phrases are borrowed from real papers whose arguments are different from the use
+  - A cliché deployed to end a conversation is a named phenomenon with a literature
+  - Describing a training objective tells you nothing about what emerges from it
+  - Answering well once should be reusable; answering from scratch every time is a tax
+  - The legitimate core deserves confirming, or the reply is just the mirror image
+
+when:
+  - '"just a next token predictor" / "stochastic parrot" / "spicy autocomplete" → REPLY'
+  - '"it does not really understand / think / reason" → REPLY'
+  - 'Any cliché used as a conversation-ender, AI or not → NAME-THE-MOVE'
+  - 'Before you post: → PREFLIGHT (the cite-wall gets machine-filtered)'
+
+cardinal_sins:
+  # Committed by the interlocutor
+  OBJECTIVE-AS-ONTOLOGY: "Naming the training objective, concluding the capability"
+  CITING-UNREAD: "Borrowing a paper's title as a verdict the paper does not reach"
+  CONVERSATION-ENDING: "The phrase is deployed so that no reply is possible"
+  FORBIDDING-THE-QUESTION: "Asserting the answer and prohibiting the inquiry"
+  PATHOLOGIZING: "Diagnosing the interlocutor instead of the argument"
+  # Committed by us, which is worse
+  SIGN-FLIPPED-SIN: "Answering an overconfident metaphysical claim with your own"
+  CITE-WALLING: "A polished wall of references, which reads as machine-written and gets filtered"
+  DUNK-ONLY: "Winning without teaching anybody anything"
+
+the_test: |
+  Does the phrase do any work that a shorter, weaker claim would not do?
+  If it ends the conversation rather than advancing it, it is a cliché, and the
+  reply is: what does the source actually say, and what is the real question?
+
+the_fix: "Steelman it. Dereference the citation. Name the move. Answer the real question."
+
+core_insight: |
+  Shannon measured the entropy of English in 1951 by sitting human subjects down
+  and having them guess the next letter. Next-token prediction was invented as an
+  instrument for studying people. "Just a next token predictor" is an experiment
+  Shannon ran on us.
+
+go_deeper:
+  CARD.yml: "The cliché catalog with real citations, the five-move protocol, output constraints"
+  SKILL.md: "Full protocol, the steelman table, what each parroted paper actually argues"
+  examples/: "The founding case — a two-round HN exchange, August and September 2026"
+
+lineage: [Lifton, Shannon, Minsky, Turing, Weizenbaum]
+related: [no-ai-slop, no-ai-hedging, no-ai-humansplaining, no-ai-ideology, copy-that]
+tier: 1
+ambient: false   # explicitly invoked; this one writes a reply
