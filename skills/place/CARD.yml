@@ -1,0 +1,142 @@
+# CARD.yml — place
+#
+# A place is a directory. PLACE.yml is the object. Everything else in the directory
+# is evidence: photographs you took, notes you wrote, tracks you rode past on.
+#
+# The shape below is what a place IS. What a place DOES is at the bottom, and most
+# of it is arithmetic on disagreements rather than anything clever.
+
+card:
+  id: place
+  name: "Place"
+  type: [skill, primitive, geography]
+  emoji: 📍
+  rarity: common          # everything outdoors is one
+  description: |
+    A subject with a location on Earth. Holds competing coordinates with their
+    provenance, an OpenStreetMap identity, a history of who occupied it, and the
+    record of the day somebody actually went and looked.
+
+tools:
+  required: [read_file, write_file]
+  optional: [list_dir, web_search]
+
+tier: 1
+
+inherits: []
+# Multiple inheritance is the normal case, not the advanced case:
+#   a coffeeshop      inherits: [coffeeshop, room, place]
+#   a former shop     inherits: [room, place]            + closed:
+#   a bike-tour stop  inherits: [place]                  + couched onto a tour
+#   a person's local  inherits: [place, character]        (yes, really — a regular's bar)
+# Linearization is LEFT TO RIGHT: the leftmost prototype wins a field collision, so
+# `coffeeshop.name` beats `place.name`. Say what you mean by ordering, not by overriding.
+
+fields:
+
+  # IDENTITY — the address is the subject; see GLANCE.the_one_idea
+  id: "slug of street + number + huisletter, stable forever, e.g. oudezijds-voorburgwal-88h"
+  address:
+    street: "Dutch title case, particles lowercase: 'Eerste van der Helststraat'"
+    street_raw: "verbatim from the authority, usually SHOUTING"
+    number: integer
+    suffix: "huisletter or toevoeging: H, B, C, 2 — disagreed about constantly"
+    postcode: "1017AA, no space, uppercase"
+    city: string
+    as_written: "the address exactly as some source wrote it, kept for forensics"
+
+  # COORDINATES — a list, never a scalar. See GLANCE.coordinates_are_claims
+  coordinates:
+    preferred: "{ lat, lng, source } — chosen by source preference, not averaged"
+    spread_m: "greatest distance between any two claims; > 40 m means they disagree about the building"
+    claims:
+      - { lat: float, lng: float, source: "source id", observed: date, note: string }
+
+  # OSM IDENTITY — the join to the commons
+  osm:
+    type: "node | way | relation"
+    id: integer
+    version: "the version you last reconciled against, so you can tell if it moved under you"
+    tags: "the tags as fetched, verbatim; do not paraphrase the commons"
+    match: "exact | probable | conflicting | absent"
+    conflicts: "list of what disagrees: name, housenumber, position, hours"
+    sync: "unlinked | linked | proposed | submitted"
+
+  # TENANCIES — who has been here, in order. Rebrands, moves and closures all live here.
+  tenancies:
+    - name: "current or historical trading name"
+      current: bool
+      from: "date or year, best known"
+      until: "date, year, or null while trading"
+      also_known_as: "semicolon separated; no name contains a semicolon, plenty contain commas"
+      moved_to: "place id, if the business relocated rather than closed"
+      moved_from: "place id"
+      cause: "why it ended -- and be specific, because the causes are not interchangeable"
+      sources: [source ids]
+
+  # SITE HISTORY — what was here before anybody sold anything
+  site_history:
+    - what: "free text; the horse depot with the crane for lifting horses out of the canal"
+      confidence: "lead | cited | verified"
+      source: "url or 'user-lead'"
+    # Deliberately separate from tenancies. A former coffeeshop name and a former horse
+    # depot are different kinds of past and get confused the moment they share a column.
+
+  # SURVEY — the only current evidence that is also unambiguously yours
+  survey:
+    visited: date
+    by: "who"
+    photos: "paths, relative to this directory"
+    track: "the GPS trace you arrived on"
+    notes: "what the staff said, what the door said, what the street smelled like"
+    open_at_visit: bool
+
+  # REVIEW — computed, never authored
+  review:
+    priority: "high | paired | medium | low"
+    reasons: "each one names itself and says what would settle it"
+
+methods:
+
+  MATCH:
+    description: "Join an address from any source to a place, surviving Dutch spelling"
+    parameters: { address: "free text or parts" }
+    effect: "Returns a place id or nothing. Ordinals, abbreviations and diacritics normalized; huisletter deliberately IGNORED in the key and reported as a mismatch instead."
+    invoked-by: [importer, agent]
+
+  CLAIM:
+    description: "Assert a field value with a source and a date. The only way data enters."
+    parameters: { field: string, value: any, source: "source id", observed: date }
+    effect: "Appends. Never overwrites, never averages."
+
+  RESOLVE:
+    description: "Choose the preferred value for a contested field by source preference"
+    parameters: { field: string }
+    effect: "Deterministic pick + the spread, so the disagreement stays visible"
+
+  OSM-RECONCILE:
+    description: "Compare this place against OpenStreetMap and classify the match"
+    effect: "Sets osm.match, osm.conflicts; proposes nothing on its own"
+
+  PROPOSE-EDIT:
+    description: "Draft an OSM changeset from survey evidence only"
+    effect: "REFUSES any field whose source is not osm_ok. Survey and official data pass; scraped compilations and anything Google-derived do not, ever."
+    invoked-by: [surveyor]
+
+  SURVEY:
+    description: "Record a visit: date, photographs, track, what was actually true at the door"
+    effect: "The one method that can settle a review reason instead of describing it"
+
+advertisements:
+  # Sims-style: a place broadcasts what it can do for whoever is passing.
+  - { action: VISIT,   to: [rider, tourist], when: "within 200 m and open" }
+  - { action: SURVEY,  to: [surveyor],       when: "review.priority is high or paired" }
+  - { action: COUCH,   to: [tour],           when: "author is building a route" }
+  - { action: EXPLAIN, to: [anyone],         when: "always — the bare guard, per Korz" }
+
+refuses:
+  - "Averaging coordinates from sources that disagree"
+  - "Keying on a name instead of an address"
+  - "Uploading anything to OSM whose source is not marked osm_ok"
+  - "Merging site history into tenancy history"
+  - "Silently discarding a huisletter disagreement"

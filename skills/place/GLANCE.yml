@@ -1,0 +1,56 @@
+# GLANCE.yml — place
+#
+# The primitive MOOLLM was missing: a thing that is SOMEWHERE ON EARTH.
+# `room` knows what is inside it and which way is out. `place` knows where it is.
+# Almost everything interesting inherits both.
+
+skill: place
+emoji: 📍
+tier: 1
+one_line: "A subject with a location on Earth, an identity in OpenStreetMap, and a coordinate that knows who claimed it."
+
+is_not:
+  - "a room — a room has exits and contents; a place has latitude"
+  - "a coordinate — a coordinate is a claim ABOUT a place, and there are usually several"
+  - "a business — businesses come and go at a place; that is what tenancies are for"
+
+the_one_idea: |
+  THE ADDRESS IS THE SUBJECT. The business is a tenancy.
+
+  Name-keyed place data rots: the shop rebrands, the bar becomes a phone store, the
+  coffeeshop moves two doors down, and every row about it forks or lies. Address-keyed
+  data absorbs all four events as ordinary edits, and gets you "what used to be here"
+  for free, because former tenants are just earlier entries in the same list.
+
+coordinates_are_claims: |
+  A place does not HAVE a coordinate, it COLLECTS them: one from a government
+  geocoder, one from a directory, one from OSM, one from the GPS in your pocket
+  when you stood at the door. They disagree, often by a whole building. Averaging
+  them is the wrong move -- it invents a point nobody asserted. Keep them all,
+  name who said each, and let the disagreement be a number you can sort by.
+
+license_is_a_field_with_teeth: |
+  Every coordinate carries its source, and every source carries a license, because
+  the question "may this go into OpenStreetMap?" has a hard answer per source and
+  getting it wrong reverts your changeset. Google-derived: never. Your own survey:
+  always. This is the one field the build scripts enforce mechanically.
+
+files:
+  CARD.yml: "fields, methods, the OSM identity block, the survey record"
+  SKILL.md: "protocol: matching addresses, resolving conflicts, what may be uploaded"
+  templates/PLACE.yml.tmpl: "start here when authoring one by hand"
+
+inherits: []
+combines_with: [room, coffeeshop, business, character]
+
+k_lines: [PLACE, TENANCY, SURVEY, OSM, PROVENANCE, GEDOOGLIJST]
+
+see_also:
+  repo:
+    - ../room/
+    - ../../designs/webtop/OPENSTROLLMAP.md      # the subjective layer over OSM's objective geometry
+    - ../../designs/webtop/EBIKE-PATH-GRAMMAR.md # how a place is met at riding speed
+    - ../../designs/webtop/SIGNED-ASSESSMENTS.md # why every claim is signed
+  web:
+    - "OpenStreetMap verifiability — https://wiki.openstreetmap.org/wiki/Verifiability"
+    - "ODbL — https://opendatacommons.org/licenses/odbl/"
