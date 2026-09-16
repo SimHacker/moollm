@@ -12,8 +12,16 @@ This document comprehensively summarizes Will Wright's landmark lecture to Terry
 The lecture reveals Wright's core design philosophy and demonstrates ideas that directly inform MOOLLM's architecture. Don Hopkins attended this lecture, took extensive notes, and later worked with Will Wright at Maxis on The Sims from 1997-2000.
 
 **Video:** [YouTube - Will Wright - Maxis - Interfacing to Microworlds](https://www.youtube.com/watch?v=nsxoZXaYJSk)  
-**Notes:** [Don Hopkins' Medium article](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)  
-**Stanford Archive:** [searchworks.stanford.edu](https://searchworks.stanford.edu/view/yj113jt5999)
+**Stanford Archive:** [searchworks.stanford.edu](https://searchworks.stanford.edu/view/yj113jt5999)  
+**Earlier version:** [Don Hopkins' Medium article](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)
+
+**This document supersedes the Medium article.** The Medium version has the images from the
+talk and the slides; this one is the canonical text, and every quote there should appear
+here. When they disagree, this file is right and the Medium post is the draft. If a quote
+turns up in the Medium version and not here, that is a bug in this file, not a difference of
+scope: the *"data portability"* opening of the Dollhouse answer and the whole architectural
+demo narration were missing until September 2026 and the doc read as though the train set
+were the point.
 
 ---
 
@@ -290,17 +298,50 @@ This is the most remarkable part of the lecture — **four years before The Sims
 
 > **Student:** *"What projects are you working on now, and if you'd rather not talk about that, what projects or models had you considered before that were kind of interesting that you didn't do?"*
 >
+> **Will Wright:** *"You mean like what systems have I considered modeling?"*
+>
+> **Student:** *"Right."*
+>
 > **Will Wright:** *"Oh, God..."*
+>
+> **Student:** *"And also what systems are you currently working on, if you if you can talk about them?"*
 
 What followed was a preview of the project that would become the best-selling PC game of all time.
+
+### Data Portability Is the Answer
+
+Wright names the idea first, before any of the rest of it:
+
+> *"Okay, well one thing we're working on, is a — we've been kind of interested in our company for a long time about the idea of data portability."*
+
+> *"Really, let me back up just a little bit here, and this might be a little bit more of an answer than you were looking for, but…"*
+
+**Everything below is that backing up.** The hobby model, the train set and the Dollhouse
+demo are all in service of data portability, which is the thing he actually said he was
+working on. Read the train set as an argument for persistent data and it lands; read it as
+a business-model aside and the point is gone.
 
 ### The Hobby Model vs. Movie Model
 
 > *"Most of the game industry right now is built on kind of the movie model. So you spend a lot of money developing one big title, you come out with it, you advertise it, either it goes or it dies, and then you do the next one separate. Except for sequels."*
 
+> *"There's the one consistent genre that does better than any other genre in the game industry, it's sequels."*
+
 > *"Now what we've tried to do, and we're kind of working on slowly over time, is to build our games more as a hobby model. Where people buy and collect things, but they relate to the last things they collected."*
 
 > *"It's like a train set. You build this train set, and some people get into the building the hills, and the cliffs, and the mountains, and the trees, really detailed. They could care less about the train. Other people get into the village, or the track switching, and the scheduling. Everybody can kind of come into that, take their particular slant on it, their interest, and focus in that area in great detail."*
+
+Then he closes the loop back to where he started, and this is the thesis sentence of the
+entire lecture as far as MOOLLM is concerned:
+
+> *"I'd like to see the game industry kind of evolve that way, and part of that is I want the games to actually be able to have persistent data that can move from one game to another, or have a large data set that I can reuse in different ways."*
+
+> *"Let me show you something real quick here which is kind of along those lines."*
+
+**Persistent data that can move from one game to another.** Said in April 1996, as a
+statement of intent, by the person who then loaded a SimCity file into an unreleased
+prototype to prove it. The demo is not a preview that happens to follow a business
+digression; it is the evidence for the claim.
 
 **MOOLLM Parallel:** MOOLLM follows the hobby model:
 
@@ -316,9 +357,52 @@ Skills, rooms, and characters can be collected, shared, and combined. Players fo
 
 ### Loading SimCity into Dollhouse
 
-> *"This is a game I call Dollhouse. And if this looks familiar, it's because I've just loaded a SimCity file into here. So what we're seeing is a SimCity file, but now at this point I can actually zoom down to the street level."*
+> *"This is just a kind of a little — this is one of the things I'm working on, by the way. But it'll give you some sense of what I'm talking about."*
 
-**The vision:** Walk around inside the cities you built in SimCity. Data portability between games.
+> *"This is a game I call Dollhouse. And if this looks familiar, it's because I've just loaded a SimCity file into here."*
+
+> *"Okay, so what we're seeing is a SimCity file, but now at this point I can actually zoom down to the street level. This, zoom in here, this little area right there by the street is what I'm zooming into."*
+
+> *"I can keep zooming in, and now I can get a little person. This is me."*
+
+> *"I'm actually controlling this person like a puppet. I can wave, and walk around, and do things."*
+
+**The city is the save file.** The demo is one continuous zoom from a SimCity tile down to a
+person standing on a street in that tile, and the person is the presenter.
+
+> *"I can actually walk anywhere in the city here. We don't have a full database in this, but I have a database for all the roads and the terrain."*
+
+> *"It's very feasible for us to put a database in for every building in SimCity, so that I could actually walk anywhere in the city I've created, and into any building."*
+
+### The Architectural Tools
+
+> *"So the tools in this game are more architectural tools. So I can, let's see, real quickly I'll build a foundation here. Oops, yeah there we go. This is a wall tool, I have different wall styles."*
+
+> *"So what we're trying to do here is we're designing kind of like a little CAD program that a 10 year old could use, for instance. So very simple tools, kind of like you would build a little dollhouse."*
+
+**A CAD program a ten year old could use** is the design constraint, stated as such, in the
+same lecture as the Julie doll and the Calvin syndrome. It is a Papert sentence in a game
+demo.
+
+> *"So I'll just make a really quick little, quick and dirty architecture here. We also have landscaping tools, so part of this game is planting my yard."*
+
+> *"We've played around with some L-systems for generating the plants in real time, which is a little too slow actually."*
+
+> *"So these are windows. I can zoom into the house."*
+
+### Come Live In It
+
+> *"So this right now is not much of a defined game, but this is almost more of what I would consider a hobby."*
+
+> *"I could take a city that I built in SimCity and now I can come live in it."*
+
+> *"I can actually stake a claim, I can build my house, and I can decorate it, and invite my friends over."*
+
+**This is the data portability claim cashed out in one sentence.** The city you already
+built, in a game you already own, becomes the place you live in a different game. Not an
+import feature; a reason for the file to exist.
+
+> *"We're looking at actually having like a little family model inside of here. So that there will be little personality models for these guys."*
 
 **MOOLLM Parallel:** Rooms can be shared between adventures. Characters can move between worlds. Skills apply across contexts.
 
@@ -326,11 +410,21 @@ Skills, rooms, and characters can be collected, shared, and combined. Players fo
 
 This is the revolutionary idea — **behavior lives in objects, not characters**:
 
+> *"There's behavior embedded in some of these objects. So for instance I click on an object."*
+
+> *(Sim sits down on toilet — more laughter!)*
+
 > *"Now what's interesting here is that that person, in the person's data structure, there's no knowledge of any objects in this environment whatsoever. The object itself contains the descriptions of how a person interacts with it, and why, what the animation sequence would be, and the scheduling."*
+
+Autonomous Sims go in next to the puppet, and they are honest about what is not finished:
+
+> *"So this is my person, this is my little avatar. I can also add, pop in some simulated people that'll walk around and do things right now. They they're kind of ghosts, because they don't know about the walls. They'll walk around, they'll have conversations, some of them will panhandle each other."*
+
+> *"Well what's cool is that the behavior is entirely distributed in the environment."*
 
 Objects **advertise** their affordances:
 
-> *"A person's in a room, they have certain motivations, needs, they might be hungry, sleepy, lonely, angry. They scan the room for people and objects, and the objects are all kind of advertising: 'If you're angry, pick up me and throw me!', 'If you're hungry, eat me!'. And there's a communication there. It's all data driven."*
+> *"So a person's in a room, they have certain motivations, needs, they might be hungry, sleepy, lonely, angry. They scan the room for people and objects, and the objects are all kind of advertising: 'If you're angry, pick up me and throw me!', 'If you're hungry, eat me!'."*
 
 And Wright names the mechanism he is aiming at, which places the whole design in
 a lineage:
@@ -347,6 +441,10 @@ silently. See [`../NOISY-CHANNEL.md`](../NOISY-CHANNEL.md) on why a fluent
 mistranscription is more dangerous than a gap.
 
 Even animations are distributed:
+
+> *"And there's a communication there. It's all data driven. And even the animations."*
+
+> *"So the animation of these people is done through this kind of component driven geometry."*
 
 > *"So they don't have to know how to ride a bike, or sit on the toilet. The object tells them how to, when they come up and say, 'okay, you're gonna make me less hungry, I'm gonna interact with you, what do I do?'. The object tells it what to do."*
 
@@ -365,6 +463,20 @@ And fan sites like:
 - **SimFreaks** — professional custom content
 - **Simslice** — unique objects
 - **SimBabes** — wedding playsets and more
+
+### Objects That Can Move From One Game To Another
+
+Wright closes the demo by returning to the answer he started with, and this is the sentence
+the whole detour was built to reach:
+
+> *"And so to me, this is what I want to move towards."*
+
+> *"More of the hobbyist kind of a thing, distributed environment, with objects that can move from one game to another. So this might be one game I'm playing here."*
+
+**Objects that can move from one game to another.** Not levels, not save files: objects,
+carrying their own behavior with them, which is what makes the distributed AI architecture
+and the data portability goal the same design rather than two of them. An object that
+contains its own interactions is an object that can be moved somewhere else and still work.
 
 ### Doom-Compatible Data Structures
 
@@ -682,8 +794,13 @@ Wright's vision included player agency. Generative Agents shifts control to the 
 ## References
 
 - **Video:** [Will Wright - Maxis - Interfacing to Microworlds (YouTube)](https://www.youtube.com/watch?v=nsxoZXaYJSk)
-- **Don's Medium Article:** [Will Wright on Designing User Interfaces to Simulation Games (1996)](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)
 - **Stanford Archive:** [searchworks.stanford.edu](https://searchworks.stanford.edu/view/yj113jt5999)
+- **Don's Medium Article (superseded by this file):** [Will Wright on Designing User Interfaces to Simulation Games (1996)](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)
+
+**Rights on the recording**, from the Stanford University Archives record, which is why the
+quotes here are transcription and the video is linked rather than mirrored:
+
+> *"Use and reproduction: The materials are open for research use and may be used freely for non-commercial purposes with an attribution. For commercial permission requests, please contact the Stanford University Archives (universityarchives@stanford.edu)."*
 - **Chaim Gingold's PhD:** [Play Design (ProQuest)](https://search.proquest.com)
 - **SimRefinery Recovery:** [The Obscuritory](https://obscuritory.com)
 - **GDC 2001:** [Those Darned Sims: What Makes Them Tick?](https://www.gdcvault.com)

@@ -212,13 +212,26 @@ His own post mortem on Bob was that the characters were way over the top, consta
 shouting look at me, I am a character -- and that a social presence should be
 **available when wanted and absent when not.**
 
-At Ted Selker's NPUC workshop at IBM Almaden in 1996, where Nass presented "Computers as
-Social Actors" and Don was in the room, Phil Agre challenged him on embedding persuasion
-and obedience research into interfaces. Nass answered that discovering that manipulation
-works is valuable, and that using it is the ethical question, left to the individual.
-Selker closed it: "...except in your consulting role." **Everyone is now in the
-consulting role**, and that exchange is a product decision made daily, at scale, by
-people who have never heard it.
+Nass presented "Computers as Social Actors" at Ted Selker's NPUC workshop at IBM Almaden
+in 1996, and IBM published the transcript, so the exchange that followed is on the record
+rather than in anybody's memory. Phil Agre, from the floor: "Cliff I found your
+presentation ethically troubling all the way down." Nass: "It's not my fault." Agre: "No,
+I think it is." Then the question, which is the one this article exists for:
+
+> In the literature you are talking about is a great deal of research on the conditions
+> under which people are more likely to obey instructions. What do you think about
+> imbedding those principles in user interfaces. Are you comfortable with that?
+
+Nass answered that knowing the terrible ways people can be manipulated is critically
+important and socially valuable, that he had not advocated using those methods, and that
+"there is no ethical component to the discovery that these things exist, there is an
+ethical component in using them and I am not advocating which ones you use and which ones
+you don't. That's for the individual." Selker cut in: **"Except, except when you are in
+your consulting role."** Nass and Reeves had consulted for Microsoft on the social
+interface, and Bob shipped the year before, which is what gives the line its teeth.
+
+**Everyone is now in the consulting role**, and that exchange is a product decision made
+daily, at scale, by people who have never heard it.
 
 The question got answered from inside Nass's own lab, on a schedule. In 1997 Nass and his
 doctoral student BJ Fogg published "Silicon sycophants: the effects of computers that
@@ -308,8 +321,10 @@ the tension resolves toward showing, every time, because Article VII sets the or
 
 Don worked in Shneiderman's HCIL, wrote the HyperTIES authoring tools and the PostScript
 renderer, and the debate article credits HyperTIES in Shneiderman's own author bio. He
-was in the room at NPUC for Nass's talk and for Selker's. So this constitution is not
-narrating a famous argument from outside it.
+attended NPUC and saw Nass give the talk. So this constitution is not narrating a famous
+argument from outside it. Standing is not evidence, though: where an article rests on a
+recollection rather than a document, it says so, and Article VI rests on IBM's transcript
+instead.
 
 The failure mode on offer today is a matched pair, and I-Beam exists in the gap between
 them. **Anthropomorphism overcredits:** fluency gets mistaken for shared perception,
@@ -399,8 +414,12 @@ anonymous and should stay that way until somebody remembers.
   [doi:10.1145/232014.232030](https://doi.org/10.1145/232014.232030). COACH, the football
   coach metaphor, and the five-times result
 - Selker, "COACH: A Teaching Agent that Learns," *CACM* 1994
-- Reeves and Nass, *The Media Equation*, 1996; Nass's "Computers as Social Actors" at
-  NPUC, IBM Almaden, 1996; Cooper's "tragic misunderstanding" and the Agre exchange
+- Reeves and Nass, *The Media Equation*, 1996; Cooper's "tragic misunderstanding"
+- Nass, "Computers as Social Actors," NPUC, IBM Almaden, 1996 -- IBM's own transcript,
+  including the Agre exchange and Selker's consulting-role line, at
+  [almaden.ibm.com/almaden/npuc97/1996/tnass.htm](https://web.archive.org/web/19980210054622/http://www.almaden.ibm.com/almaden/npuc97/1996/tnass.htm)
+  (Wayback, 1998 snapshot; the original is long gone). Everything Article VI quotes is in
+  there verbatim, typos included
 - Fogg and Nass, "Silicon sycophants: the effects of computers that flatter," *IJHCS*
   46(5), 1997, 551-561 --
   [doi:10.1006/ijhc.1996.0104](https://doi.org/10.1006/ijhc.1996.0104). Read with

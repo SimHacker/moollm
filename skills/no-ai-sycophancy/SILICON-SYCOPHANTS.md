@@ -95,7 +95,7 @@ effect, before the industry shipped the mechanic anyway.
 
 | When | What |
 |---|---|
-| 1996 | Phil Agre asks Nass, at Selker's NPUC workshop, whether it is ethical to embed persuasion and obedience findings in interfaces. Nass separates discovery from use and puts use on the individual. Selker: "except in your consulting role" |
+| 1996 | Phil Agre asks Nass, at Selker's NPUC workshop, whether it is ethical to embed persuasion and obedience findings in interfaces. Nass separates discovery from use and puts use on the individual. Selker: "Except, except when you are in your consulting role." [IBM's transcript](https://web.archive.org/web/19980210054622/http://www.almaden.ibm.com/almaden/npuc97/1996/tnass.htm) |
 | 1997 | Fogg and Nass publish the flattery result. Fogg's dissertation, advised by Nass with Reeves, Winograd and Zimbardo, names captology and measures reciprocity and team affiliation with machines |
 | 1997 on | Fogg teaches the ethics of persuasive technology at Stanford and in industry |
 | 1999 | Fogg guest-edits a *CACM* special issue and commissions his lab to write on persuasive technology ethics |
@@ -163,6 +163,10 @@ and one class of reader is now a model that will summarize it for a product team
 - Reeves and Nass, *The Media Equation*, 1996. Nass's own post mortem on Bob: the
   characters were over the top, and a social presence should be available when wanted and
   absent when not
+- Nass, "Computers as Social Actors," NPUC, IBM Almaden, 1996 --
+  [IBM's transcript](https://web.archive.org/web/19980210054622/http://www.almaden.ibm.com/almaden/npuc97/1996/tnass.htm)
+  (Wayback). The Agre exchange, Selker's interruption and the post mortem on Bob are all
+  quoted from here, so none of it depends on somebody's memory of the room
 - Fogg, "The Facts: BJ Fogg and Persuasive Technology," Medium, 2018 --
   [the rebuttal](https://medium.com/@bjfogg/the-facts-bj-fogg-persuasive-technology-37d00a738bd1)
 - Agre, "Surveillance and Capture: Two Models of Privacy," 1994, and *Computation and
