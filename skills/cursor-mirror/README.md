@@ -191,7 +191,7 @@ feeds back into Cursor and benefits its users, including us.
 ## I-Beam: Ask Those Questions in Chat
 
 You don't have to learn the commands. cursor-mirror is integrated into the
-MOOLLM adventure universe through **[I-Beam](docs/I-BEAM.md)** — a character
+MOOLLM adventure universe through **[I-Beam](characters/i-beam/README.md)** — a character
 (a tall, blinking text cursor embodied; every platform has one) who provides
 the natural-language interface. Nobody anthropomorphizes I-Beam, because
 I-Beam is just a cursor. That you can talk to. And that talks back. And that
@@ -212,7 +212,7 @@ cursor-mirror and lifts the procedure) or by natural-language "just asking"
 training — tell it what you want it to remember, and it does.
 
 Full character, methods, incarnation modes, and dialog examples:
-[docs/I-BEAM.md](docs/I-BEAM.md).
+[characters/i-beam/README.md](characters/i-beam/README.md).
 
 ## Installation
 
@@ -242,8 +242,9 @@ The details live in `docs/` — the README you're reading is the trailhead:
 | [docs/INTERNALS.md](docs/INTERNALS.md) | What you can inspect and where it lives: bubbles, context assembly, tool records, server config, both data stores, schemas |
 | [docs/SELF-ANALYSIS.md](docs/SELF-ANALYSIS.md) | cursor-mirror analyzing the 18-hour session that created it |
 | [docs/CASE-STUDY-CONFETTI-CRAWLER.md](docs/CASE-STUDY-CONFETTI-CRAWLER.md) | Play-learn-lift in action: why the LLM failed on prose, how inspection found the gaps, how the sister script fixed it |
-| [docs/I-BEAM.md](docs/I-BEAM.md) | The anti-Clippy, the all-reflecting I-of-the-pyramid of attention: the adventure-universe character that wraps the CLI in conversation — personality, advertised services, canon (NOT a person), trainable by demonstration or by asking |
-| [docs/I-BEAM-CONSTITUTION.md](docs/I-BEAM-CONSTITUTION.md) | Why I-Beam is shaped this way, from the record rather than from Clippy contempt: ten articles out of Shneiderman, Maes, Selker's COACH, Nass, Lanier, Wright and Papert, each with the rule it produces and what it forbids |
+| [characters/i-beam/README.md](characters/i-beam/README.md) | The anti-Clippy, the all-reflecting I-of-the-pyramid of attention: the adventure-universe character that wraps the CLI in conversation — personality, advertised services, canon (NOT a person), trainable by demonstration or by asking |
+| [characters/i-beam/CONSTITUTION.md](characters/i-beam/CONSTITUTION.md) | Why I-Beam is shaped this way, from the record rather than from Clippy contempt: ten articles out of Shneiderman, Maes, Selker's COACH, Nass, Lanier, Wright and Papert, each with the rule it produces and what it forbids |
+| [characters/i-beam/CHARACTER.yml](characters/i-beam/CHARACTER.yml) / [PRONOUNS.md](characters/i-beam/PRONOUNS.md) | The familiar itself, and why a cursor takes `it` without anybody having to argue about it |
 | [docs/MOOLLM-INTEGRATION.md](docs/MOOLLM-INTEGRATION.md) | Boot optimization, kernel drivers, probe caches, advisory files |
 | [docs/ZIZEK-GERMAN-TOILET.md](docs/ZIZEK-GERMAN-TOILET.md) | Three bowls, three software souls: why cursor-mirror is the Inschpektor |
 | [SKILL.md](SKILL.md) / [CARD.yml](CARD.yml) / [GLANCE.yml](GLANCE.yml) | The skill protocol at three resolutions |

@@ -149,7 +149,7 @@ script:
 familiar:
   name: "Cursor"
   emoji: "🪞"
-  file: characters/I-BEAM-CHARACTER.yml
+  file: characters/i-beam/CHARACTER.yml
   invocation: ["Cursor, [question]", "|🪞| [question]"]
 
 # OUTPUTS — What cursor-mirror produces
@@ -344,9 +344,13 @@ files:
     
   # Character definitions
   characters/:
-    I-BEAM-CHARACTER.yml:   # I-Beam familiar — 826 lines of personality
-      methods: [EXPLAIN, PROBE, ANALYZE, TRACE, SEARCH, REMEMBER, REFLECT, TEACH]
-      clippy_disasters: 12  # Why Clippy is unavailable
+    i-beam/:                # The familiar is a directory, not a file
+      CHARACTER.yml:        # 933 lines of personality
+        methods: [EXPLAIN, PROBE, ANALYZE, TRACE, SEARCH, REMEMBER, REFLECT, TEACH]
+        clippy_disasters: 12  # Why Clippy is unavailable
+      CONSTITUTION.md:      # Ten articles out of the 1997 direct-manipulation debate
+      PRONOUNS.md:          # A cursor takes "it", and the reasoning is short
+      README.md:            # Character, incarnation modes, dialog examples
       
   # Gallery
   gallery/:

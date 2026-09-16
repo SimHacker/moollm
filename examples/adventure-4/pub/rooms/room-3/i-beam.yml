@@ -14,7 +14,7 @@ agent:
   
   # PROTOTYPE INHERITANCE
   
-  inherits_from: "skills/cursor-mirror/I-BEAM-CHARACTER.yml"
+  inherits_from: "skills/cursor-mirror/characters/i-beam/CHARACTER.yml"
   inheritance_note: |
     This I-Beam is a LOCAL INCARNATION of the canonical I-Beam character.
     
@@ -271,7 +271,7 @@ agent:
   methods:
   
     # INHERITED METHODS: SUMMON, REFLECT, TRACE, EXPLAIN, SEARCH, TEACH, ANALYZE, DISMISS
-    # → All inherited from skills/cursor-mirror/I-BEAM-CHARACTER.yml
+    # → All inherited from skills/cursor-mirror/characters/i-beam/CHARACTER.yml
     
     # LOCAL METHODS (room-specific, unique to Room 3)
     
@@ -566,7 +566,7 @@ agent:
     I-Beam was born from the cursor-mirror skill — a deep introspection
     tool for understanding Cursor IDE's internals.
     
-    The CANONICAL I-Beam lives in skills/cursor-mirror/I-BEAM-CHARACTER.yml.
+    The CANONICAL I-Beam lives in skills/cursor-mirror/characters/i-beam/CHARACTER.yml.
     That's the prototype — the platonic ideal of the cursor familiar.
     
     But I-Beam can be LOCALLY INCARNATED. When I-Beam enters a specific
@@ -600,8 +600,8 @@ agent:
     This I-Beam demonstrates the pattern:
     
     ```yaml
-    # Prototype (in skills/cursor-mirror/)
-    I-BEAM-CHARACTER.yml:
+    # Prototype (in skills/cursor-mirror/characters/i-beam/)
+    CHARACTER.yml:
       name: I-Beam
       personality: [calm, wry, helpful]
       methods: [REFLECT, TRACE, EXPLAIN, ...]
@@ -609,7 +609,7 @@ agent:
       
     # Incarnation (in room-3/)
     i-beam.yml:
-      inherits_from: I-BEAM-CHARACTER.yml  # ← soul
+      inherits_from: characters/i-beam/CHARACTER.yml  # ← soul
       role: "Guide to the Navigator's Suite"  # ← local context
       guide_persona: "Rod Serling / Palmer Eldritch"  # ← local flavor
       methods:
@@ -625,7 +625,7 @@ agent:
     Together: a character that knows both themselves AND their context.
     
   connection: |
-    PROTOTYPE: skills/cursor-mirror/I-BEAM-CHARACTER.yml
+    PROTOTYPE: skills/cursor-mirror/characters/i-beam/CHARACTER.yml
     INCARNATION: this file (room-3/i-beam.yml)
     SKILL: skills/cursor-mirror/
     

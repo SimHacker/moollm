@@ -516,7 +516,7 @@ sneer with a citation.
   notation-side choice, made deliberately
 - [`../skills/no-ai-parrot/`](../skills/no-ai-parrot/) — what happens when a
   label stops describing and starts dismissing
-- [`../skills/cursor-mirror/docs/I-BEAM-CONSTITUTION.md`](../skills/cursor-mirror/docs/I-BEAM-CONSTITUTION.md)
+- [`../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md`](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md)
   — the direct-manipulation-versus-agents axis discharged as one agent's binding
   rules: Shneiderman's constraints as an acceptance test, Selker's COACH as the
   pattern, and the responsibility gauntlet above answered per article

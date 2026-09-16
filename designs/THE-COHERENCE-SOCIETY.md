@@ -58,7 +58,7 @@ Four properties make this a society rather than a pipeline:
 
 This is Minsky's Society of Mind with concrete machinery: K-lines as event activation patterns, agents as scryer / handler / character-reviewer / engine / panel kinds, and emergence as coherence-maintenance.
 
-**Reviewers are characters, not abstract LLM-instances.** The society's reviewer-agents inhabit MOOLLM's existing character machinery (`skills/character/`, `skills/persona/`, `skills/incarnation/`, `skills/mind-mirror/`, `skills/ontology/`, `skills/hero-story/`). A REVIEW is attributed to **instrument + character + prototype chain**. Panels are *character committees* using `skills/adversarial-committee/` and `skills/debate/` formations. `skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml` is the precedent — an 826-line reviewer-familiar with methods, personality, and lineage. Full treatment in §5.
+**Reviewers are characters, not abstract LLM-instances.** The society's reviewer-agents inhabit MOOLLM's existing character machinery (`skills/character/`, `skills/persona/`, `skills/incarnation/`, `skills/mind-mirror/`, `skills/ontology/`, `skills/hero-story/`). A REVIEW is attributed to **instrument + character + prototype chain**. Panels are *character committees* using `skills/adversarial-committee/` and `skills/debate/` formations. `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` is the precedent — a 933-line reviewer-familiar with methods, personality, and lineage. Full treatment in §5.
 
 ---
 
@@ -152,7 +152,7 @@ The reviewer role is filled by **characters playing it** — not abstract model 
   - Skill prototypes: `skills/no-ai-slop`, `skills/cursor-mirror/characters/i-beam`
   - Ontology tags via `skills/ontology/`: `[real-being, historical]` triggers `skills/hero-story` protocol
 - **Existing precedents in MOOLLM:**
-  - `skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml` (826 lines) — the I-Beam familiar with methods EXPLAIN / PROBE / ANALYZE / TRACE / SEARCH / REMEMBER / REFLECT / TEACH; cursor-mirror's resident reviewer-character
+  - `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` (933 lines) — the I-Beam familiar with methods EXPLAIN / PROBE / ANALYZE / TRACE / SEARCH / REMEMBER / REFLECT / TEACH; cursor-mirror's resident reviewer-character
   - Characters in `examples/adventure-4/characters/real-people/don-hopkins/` — explicit character files with writings, projects, relationships, sessions
   - `skills/persona/`, `skills/incarnation/`, `skills/mind-mirror/` — character authorship and personality-modeling machinery
 - **Ethical gate:** reviewer-characters with `ontology_tags: [real-being]` or `[historical]` activate `skills/hero-story` — traditions are invoked, persons are not impersonated. Reviews by such characters carry `hero_story_gated: true` for audit scryer verification.
@@ -307,7 +307,7 @@ No roadmap surgery needed. One small addition: a `§2.5 The attractor` subsectio
 **Skill touchpoints:**
 - `skills/cauldron/` — cauldron is an agent-kind in the society (consumes size-limit events, produces refactored structure)
 - `skills/cursor-mirror/` — telemetry primitive; the society's shared memory for session state
-- `skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml` — **the precedent for reviewer-characters**; an 826-line familiar with methods, personality, lineage
+- `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` — **the precedent for reviewer-characters**; a 933-line familiar with methods, personality, lineage
 - `skills/skill-snitch/` — security-axis scryer; part of the society's consistency maintenance
 - `skills/skill-log/` — the society's message bus; `skill_log.py` is load-bearing society infrastructure
 - `skills/scry/` — (new at pilot step 6.5) the society's protocol authority and catalog
@@ -327,7 +327,7 @@ No roadmap surgery needed. One small addition: a `§2.5 The attractor` subsectio
   - `skills/evaluator/` — independent single-character review (no debate context)
   - `skills/card/` — portable capabilities; a reviewer-character can be invoked via their card
 - **Character-instances** (the society's first residents, already reviewing today):
-  - `skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml` — cursor-mirror's introspection familiar
+  - `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` — cursor-mirror's introspection familiar
   - `examples/adventure-4/characters/real-people/don-hopkins/` — explicit character file with writings, projects, sessions
   - Additional reviewer-characters will be authored as the pilot sequence progresses
 
