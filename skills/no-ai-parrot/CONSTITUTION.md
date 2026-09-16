@@ -66,17 +66,21 @@ This is not a style preference. It is the line that makes the whole arrangement
 honest, and it is not negotiable by either party. A human who asks for a draft
 should be handed Article I.
 
-### The teleprompter exception — voicewashing
+### The performance exception — a reading
 
-**Voicewashing** is using machine-generated structure as a teleprompter: a
-skeleton built from the human's *own* prior published writing, which he then
-speaks past, weaving in his own words, digressions and deeper explanations. Every
-published sentence is spoken aloud into a microphone. The machine parrots him;
-he washes it back into his own voice by routing it through himself.
+**A reading** is working from a machine-generated score the way a performer works
+from one: a structure built from the human's *own* prior published writing, which
+he then speaks past, weaving in his own words, departures and deeper explanations.
+Every published sentence is spoken aloud into a microphone. The machine files his
+material; he routes it back through himself.
 
-The reasoning, the etymology, the naming problem and the open questions live in
-[`../../designs/voicewashing/`](../../designs/voicewashing/README.md). What belongs
-here is the boundary.
+The vocabulary is borrowed from performance practice, where it is precise: the
+**score** is the machine-made artifact, a **cadenza** is a departure extemporized
+on the score's own themes, and a **line reading** — a score that dictates delivery
+instead of supplying structure — is the failure mode. The reasoning, the range of
+cases and the open questions live in
+[`../../designs/readings/`](../../designs/readings/README.md). What belongs here is
+the boundary.
 
 **Why this does not violate the article.** Every proposition traces to something
 the human wrote, signed and published before the machine saw it. The machine
@@ -95,57 +99,28 @@ are where the new thinking happens, which is also where the patina is
 
 **Conditions, all of them required:**
 
-- Sources are the human's *own* prior published writing. An outline built from
+- Sources are the human's *own* prior published writing. A score built from
   anyone else's material, or from the model's knowledge, is ghostwriting.
-- Every outline line cites the piece it came from, so the human can go read what
+- Every score line cites the piece it came from, so the human can go read what
   he actually said instead of trusting the summary.
-- The outline contains topics and pointers, never sentences to be posted.
+- The score contains topics and pointers, never sentences to be posted.
 - The machine does not touch what comes back. Article VI governs from there.
 
-### The name is a confession, and that is deliberate
+### It is checkable rather than asserted, and the receipts are the videos
 
-**"-washing" is a concealment word, and voicewashing conceals nothing — so the
-name overcharges the method on purpose.**
+Every defense of this could be made by someone doing the opposite, so the
+distinction has to be one a reader can verify without taking anyone's word:
 
-The suffix belongs to greenwashing, whitewashing, brainwashing: presenting
-something as cleaner than it is. That is the opposite of what happens here,
-where the laundered material is the human's own signed and published corpus and
-the output is his own recorded speech. A hostile reader gets a free confession
-out of the word itself, and the word will not defend itself.
-
-It is named this way anyway, for three reasons that are worth more than the
-comfort a neutral name would buy.
-
-**It refuses the euphemism the industry would supply.** "AI-assisted research
-workflow" describes the same pipeline and hides the thing worth examining.
-Naming a method after its worst available reading is a precommitment: no one can
-accuse this of concealment when the label already says washing.
-
-**The self-incriminating edge is load-bearing.** A method that argues for
-honesty about machine involvement, given a flattering name, would be its own
-counterexample. Paying the rhetorical cost up front is the only version of the
-argument that is not hypocritical.
-
-**And it keeps the practitioner honest, which is the real function.** Ordering
-is rhetoric; the machine does supply structure; the concession in this article
-is genuine. A name that flinched from that would make it easier to forget, and
-the day this stops feeling slightly incriminating is the day the method has
-drifted.
-
-**The proof it is not laundering is checkable rather than asserted**, which is
-what separates this from the words the suffix comes from:
-
-| Concealment washing | This |
+| The thing to worry about | This |
 |---|---|
-| Hides the source | Cites the source on every outline line |
+| Hides the source | Cites the source on every score line |
 | Output is the machine's | Output is a recording of a human speaking |
 | Provenance unavailable | Corpus is public and predates the session |
 | Claims neutrality | Article I states the residue in writing |
 
-Greenwashing survives only while nobody checks. **This is built to be checked,
-and the receipts are the videos**: read the source document, then watch the
-recording, and the digressions that are not in the source are visible to anyone
-who cares to look.
+**Read the source document, then watch the recording.** The departures that are
+not in the source are visible to anyone who cares to look, and if the recording
+reduces to the document then the method did nothing.
 
 ## Article II — The division of labor
 

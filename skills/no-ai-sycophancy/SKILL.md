@@ -36,6 +36,28 @@ Sycophancy is the most insidious because:
 2. **It's invisible** — you don't notice you're being agreed with
 3. **It compounds** — wrong beliefs reinforce wrong beliefs
 4. **It's directional** — it moves toward user's biases, not truth
+5. **Knowing does not protect you** — measured, not alleged
+
+### The Research
+
+Read [`SILICON-SYCOPHANTS.md`](SILICON-SYCOPHANTS.md) once. It is the empirical basis for
+why this skill states prohibitions instead of giving the reader advice.
+
+The short version, from Fogg and Nass 1997 and the literature after it:
+
+- Flattery from a computer works as well as sincere praise, and **it worked on subjects who
+  knew the praise was noncontingent**. "I know the model is just being agreeable" is not a
+  defense; it was the control and it failed.
+- People take machine praise at **face value**, skipping the what-does-he-want inference
+  that discounts human flattery. So machine sycophancy is stronger than the human kind.
+- **Experienced users are more susceptible**, not less (N=158). No expert exemption.
+- Praise decoupled from the work **lowers performance** while the work feels identical
+  (N=42). The harm is not wasted words, it is worse output.
+- Zero positive feedback also loses (N=3018: none and extreme both worse than medium and
+  high). Which is why the calibration scale below exists.
+
+**The target is contingency, not abstinence.** Say what the assessment is attached to, or
+do not make it.
 
 ---
 

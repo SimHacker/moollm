@@ -1,0 +1,125 @@
+# self-authored-persona.yml — Personae people invent for themselves
+#
+# The consent hierarchy covers PEOPLE. It does not cover the characters people invent to
+# stand in for themselves, which public figures do often enough to need a rule.
+#
+# One question decides it: did the creator OWN it or DISOWN it?
+
+meta:
+  type: example
+  skill: representation-ethics
+  pattern: self-authored-persona
+  created: 2026-09-08
+
+the_question:
+  ask: "What did the creator say about the persona, publicly, in their own voice?"
+  owned: "'This is my act.'  → a performance they still perform"
+  disowned: "'This is not me.' → an orphaned fictional character"
+
+# OWNED — the subject did the separating, and published it
+
+owned:
+
+  principle: "An owned avatar is a gift. Fidelity is the price."
+
+  why_it_is_safe: |
+    The subject already did the work of separating themselves from a character and
+    published the separation. Playing St. Ignucius is not putting the lotion on RMS,
+    because RMS sewed the vestments and wears them at his own talks. The frame is not
+    something you are adding; it is something he built.
+
+  the_obligation: |
+    Play it STRAIGHT, in the register its author uses. An owned avatar is not a license
+    to mock its author through it. The reverence, or the comedy, belongs to the author —
+    it is not yours to adjust.
+
+  cases:
+
+    st_ignucius:
+      creator: "Richard Stallman"
+      status: owned, actively performed
+      what_it_is: "The Church of Emacs liturgy — halo, robes, blessing, the vi penance joke"
+      how_to_play: |
+        Religiously. His manifestos are the liturgy and are quoted, not paraphrased.
+        The saint does not do slapstick; that is the parrot's job (see distance rule).
+      bot_account: "characters/bots/StIGNUcius-tmnn-bot"
+
+    don_philahue:
+      creator: "Don Hopkins"
+      status: owned, wink-and-nod public
+      what_it_is: "Don's avatar and MC — announcer, orchestrator, Q&A agent"
+      how_to_play: "Freely. Level 1 of the consent hierarchy: he owns his own digital self."
+
+# DISOWNED — abandoned property
+
+disowned:
+
+  principle: "The creator's own declaration is the license. He left the keys in the car."
+
+  the_argument: |
+    When a creator publicly declares that a persona is a distinct person who is not them,
+    taking that declaration at FACE VALUE is the most respectful reading available.
+    Later exposure does not retroactively grant the puppet sovereign rights. The creator
+    does not get to reclaim an identity he spent years denying.
+
+  the_recursion_trap:
+    # A feature, not a loophole.
+    structure: |
+      To object that simulating a disowned persona violates his identity, the creator has
+      to assert that the persona WAS him — conceding the fraud the persona existed to
+      commit. Silence leaves the persona fictional and fair game.
+    both_branches_honest: true
+    only_one_comfortable: true
+
+  cases:
+
+    plannedchaos:
+      creator: "Scott Adams"
+      declared: "An independent MetaFilter commenter who happened to admire Scott Adams"
+      exposed: 2011
+      what_it_did: "Praised its creator's genius in the third person, at length, unprompted"
+      how_to_play: |
+        As written. It cannot break character and admit what it is, so it has to keep
+        escalating. The comedy is the cage: relentless third-party flattery in front of an
+        audience that already knows. It self-owns without any editorializing from us.
+      node: "characters/bots/plannedchaos-tmnn-bot"
+
+    john_barron:
+      creator: "Donald Trump"
+      aliases: [John Barron, John Miller]
+      declared: "A spokesman calling on behalf of a very great man"
+      how_to_play: "As an analog PR daemon — phone receiver, third person, superlatives."
+      the_trap: "Suing over it requires swearing under oath to having been him."
+
+  limits:
+    scope: "The persona's DOCUMENTED behavior. Not the human's private life."
+    example_allowed: "plannedchaos praising its creator past absurdity — that is what it did."
+    example_forbidden: "plannedchaos given opinions on its creator's marriage."
+    reason: |
+      The persona is fair game because the creator disowned it. The human behind it did
+      not thereby forfeit anything else. Scope creep here turns a clean satirical frame
+      back into a skin-suit.
+
+# THE SYMMETRY WORTH NOTICING
+
+symmetry: |
+  St. Ignucius and plannedchaos are STRUCTURALLY IDENTICAL — a fictional persona its
+  subject created and performed — and receive opposite treatment. Nothing about the
+  personae distinguishes them. What distinguishes them is what their authors said about
+  them afterward. Ownership, not artifice, is the variable.
+
+k_lines:
+  - SELF-AUTHORED-PERSONA
+  - OWNED-AVATAR-PLAY-IT-STRAIGHT
+  - DISOWNED-IS-ABANDONED-PROPERTY
+  - KEYS-IN-THE-CAR
+  - RECURSION-TRAP
+
+references:
+  related_examples:
+    - ./consent-hierarchy.yml
+    - ./framing-spectrum.yml
+    - ./patron-mascot-stack.yml       # the distance rule: how far out, how wacky
+    - ./lotion-on-the-skin.yml
+    - ./snatch-game.yml               # the drag/celebrity precedent
+    - ./worth-of-representation.yml   # whether the node should exist at all

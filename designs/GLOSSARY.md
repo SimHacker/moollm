@@ -63,6 +63,21 @@ MOOLLM: compute the dependencies, referee the parallel agents, keep the
 distributed state honest. The orchestrator is the OS; the repo is the world;
 the LLM is this.
 
+**Moollmnemonic** — The word is spelled like what it does. Say it backwards and
+you get the undo button. It's the naming law behind *mood*, *loom*, *rood*,
+*moor*, and *spool*, and it has three moves. **Reversal**, where the reversed
+word names the inverse *operation* and not merely the opposite direction:
+`doom`/`mood`, `room`/`moor`, `door`/`rood`, `loot`/`tool`, `spool`/`loops`,
+`zoom`/`mooz`. **Rhyme families**, so neighbors sound like neighbors — *mood*,
+*rood*, *hood*, *door*, all built on the *oo* that MOOLLM already owns. And
+**compounding by overlap**, where the shared consonant is the seam: moollm +
+mnemonic, moollm + emulation. Coinage-by-rule has boring, solid precedent —
+Bogert, Healy, and Tukey reversed the syllables of *spectrum*, *frequency*, and
+*filter* in 1963 to get **cepstrum**, **quefrency**, and **lifter**, and all
+three are standard vocabulary in signal processing today. House rule: if it
+isn't fun to say out loud, it doesn't ship. And *pool* is reserved for whatever
+doesn't have a good name yet.
+
 ---
 
 ## The Sims Wing
@@ -80,13 +95,69 @@ dinosaur. Will Wright's principle that players imagine the simulation is far
 richer than it is, so you must design for two computers: the one on the desk
 and the one in the player's head. The second one is bigger. Wright, 2004:
 *"The digital models running on a computer are only compilers for the mental
-models users construct in their heads."* Everything else in this palace runs
-on that sentence.
+models users construct in their heads."* He said it again at the Long Now in
+2006, on tape, at
+[1:34:25](https://youtu.be/Dfc-DQorohc?t=5665): *"Those aren't the real models
+we're building; the real models we're building are in the player's head. The
+computer game is just a compiler for that mental model."* Everything else in
+this palace runs on that sentence.
+
+**Llmulation** — You don't build the machine. You describe it, and the AI runs
+it in its head. Line the family up by how much you had to build: *simulation*
+implements the mechanism, *emulation* implements somebody else's mechanism
+faithfully enough to run their software, and *llmulation* implements nothing at
+all and lets a model infer the behavior from a description. It rhymes with
+emulation on purpose, because it stands in the same relation to a described
+system that an emulator stands in to a real one — except the fidelity comes
+from priors instead of a spec sheet, which makes it plausible rather than
+exact, cheap rather than verified, and inclined to degrade instead of crash.
+An adventure world that is only YAML plus a prompt is llmulated: go look, there
+is no engine in there. Its virtue is the Simulator Effect running inside the
+machine instead of the player. Its hazard is the same effect pointed the other
+way: llmulation will cheerfully run a mechanism nobody specified, and sound
+exactly as confident about that part. Not to be confused with hallucination —
+the difference is not the mechanism, it is whether you asked for it and whether
+you can check it.
+
+**Moollmulation** — The AI runs the world, but the world is saved in folders,
+so it's still there tomorrow. Llmulation with a filesystem underneath, which is
+the whole difference between chatting a game and having one. Pure llmulation
+lives in the context window and dies with it, and you cannot inspect it because
+there is nothing to inspect. Moollmulation checkpoints into rooms on disk: the
+save file is a directory, the undo is git, the diff is a world's changelog, and
+the player can read the state the model was working from without asking the
+model to describe it. That is what turns an llmulated world from a performance
+into an artifact. The seam in the word is the shared *m*, per Moollmnemonic,
+and yes, you have to say it out loud before you're allowed to object.
 
 **Gutter Closure** — In comics, the punch happens in the white space between
 the panels, and your brain throws it. Scott McCloud named it; prompt design
 inherits it: what you don't render, the reader builds better. Say less,
 activate more.
+
+**Masking Effect** — Tintin's face is four lines so it can be *your* face; the
+city behind him is drawn brick by brick so it can be a real place. McCloud's
+other great term, from the same book, and his statement of it is the entire
+design rule in nine words: ***"One set of lines to see. Another set of lines to
+be."*** (*Understanding Comics*, p. 43, with Hergé as the marquee case.) It
+takes **both**, which is the half that everyone citing this drops. A
+photorealistic face is "the face of another," while a simplified one becomes "a
+vacuum into which our identity and awareness are pulled... we don't just observe
+the cartoon, we become it!" (p. 36) — and icons "demand your participation to
+make them work" (p. 59). The interface case is not an analogy but an instance:
+the blinking caret is past the smiley and past the face, the corpus around it is
+rendered in full detail, and so **an I-beam in a document is structurally Tintin
+in Brussels.** Requiring both sets of lines also explains the two famous
+failures at a stroke, which is this house's reading rather than McCloud's claim:
+**Bob** cartooned the *world* — cartoon room, cartoon dog, cartoon everything —
+leaving nothing to see; **Clippy** kept the realistic document but gave the mask
+eyes, eyebrows, and reactions, leaving nothing to be. And note page 33, where
+McCloud says people assign "identities and emotions where none exist": that is
+Nass and Reeves's Media Equation, arriving three years early in a comic book
+about comics. Kids: this is why the hero of the cartoon is usually the simplest
+thing on the page. Skeptics: film audiences identify with photorealistic actors
+all day long, so the theory is contestable, and the
+[objection](https://www.tcj.com/kirby-attention-paid/) is on the record.
 
 **TTP** — *Time To Penis.* Coined by the Spore team at Maxis and popularized
 at [GDC 2009](https://gdcvault.com/play/1317/%28305%29-SPORE-s-Wake-What): the
@@ -194,7 +265,21 @@ successors (*trussed*, *joist*, *stud finder*, *Ghost Rebar*, *Joist Diesel
 expiration date, including these. By the time you read this, that's the
 treadmill working.
 
-**Copy-That** — The message goes in the bottle; your doodles stay on the
+One licensed use survives, on a technicality:
+[**I-Beam**](../skills/cursor-mirror/characters/i-beam/) is load-bearing, and
+that isn't a metaphor — an I-beam is what the metaphor was borrowed from. The
+treadmill runs on referents transferring their stink to words, and a literal
+load path has no stink; nobody has ever needed a fresher word for a girder. The
+structural fact even turns out to be the design argument. Bending stress is
+highest farthest from the neutral axis, so the material goes into the flanges
+and the web stays thin: the I is what remains once everything not carrying load
+is removed. That is McCloud's masking effect in steel — the most abstract figure
+is the one a reader most completely inhabits, and the blinking caret is the
+minimum cross-section that still bears the whole load of attention and command.
+The typographic cursor was named after the beam profile in the first place, so
+the pun was installed at the foundry.
+
+**Copy-That** — The message goes in the bottle; your doodlews stay on the
 beach. Copy-bound content ships in a fenced block formatted for its
 destination venue, and private notes stay outside the fence, because the
 fence is the airlock. Founded by a July 2026 Hacker News near-miss that
@@ -247,6 +332,40 @@ facts, receipts, declarations. The `ai-` prefix names the engine, not the
 position: ai-slop and ai-lit are the same engine at opposite mileposts, and
 humans walk the same hall — content farms staffed the slop end for decades
 before LLMs showed up. Quality is a coordinate, not a species.
+
+**Model Literacy** — Learning how the robot thinks *differently*, so you can
+think with it instead of at it. An operational theory of a nonhuman
+collaborator: what it can do that you can't, what you can do that it can't, and
+what neither of you should be trusted with. **Fluency is the machine's;
+literacy is yours; mistaking the first for the second is the whole failure.**
+It isn't prompt engineering, which is ritual and magic words. It isn't a theory
+of mind borrowed from humans, which quietly projects shared perception,
+priorities, and common sense that aren't there. And it isn't the *"just
+autocomplete"* reduction, which swaps a true statement about mechanism for a
+model of capability — a CPU is just switching transistors, SimCity is just
+updating bytes, TomTom is just a next-turn predictor, and not one of those
+sentences tells you what the thing is good for. The working split: **you** bring
+purpose, taste, lived context, salience, and responsibility; **it** brings
+breadth, recombination, alternative readings, the name for something you already
+knew in your hands, and the ability to hold a great many relationships at once;
+**tools** bring exactness, wherever neither intuition nor attention deserves the
+benefit of the doubt. The test is predictive and unflattering: *can you say what
+it will get wrong before it does?* Literacy is predicting failure, not
+extracting success. And since Papert's kind of literacy includes writing, it
+includes shaping the thing's behavior with specs and skills, not just reading
+its output.
+
+This is another hall, and a strange one, because **both ends are wrong and the
+middle is the destination**: *confidant* (0.0, "it understands me") → *colleague*
+(a peer with judgment it doesn't have) → **instrument** (0.5, capabilities known,
+failures predictable, differences used rather than hidden or denied) →
+*appliance* (a fancy search box) → *typewriter* (1.0, "just autocomplete,"
+everything strange left on the table). The two errors are symmetrical:
+anthropomorphism **overcredits**, reductionism **underuses**. Both ends are
+free; the middle is paid for in experience, which is why nobody can hand it to
+you in a tutorial — you get there by predicting failures out loud and being
+wrong about them in public. Kids: the robot is not a person and not a toaster,
+and finding out which parts are which is the fun bit.
 
 ---
 

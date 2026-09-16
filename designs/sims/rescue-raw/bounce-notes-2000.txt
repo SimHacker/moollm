@@ -1,0 +1,698 @@
+Source URL: https://www.donhopkins.com/home/archive/visual-programming/bounce-notes.txt
+Title: bounce-notes.txt
+
+====
+
+Discussion of Image/ine and Bounce.
+
+====
+
+From: Don Hopkins
+Sent: Wednesday, September 20, 2000 9:47 PM
+To: lev@shoko.calarts.edu
+Subject: Image/ine plug-ins
+
+Has anybody here written any plug-ins for image/ine? 
+Is there an SDK for writing plug-ins, or any free example source code? 
+ 
+I've written a bunch of cellular automata code that I've ported to
+various frameworks, including a plug-in for AfterEffects on Mac and
+Windows.  But as powerful as it is, AfterEffects isn't any good for
+real time performance.  I've been running the same cellular automata
+code in real time with DirectX under Windows, and now I want to port
+the code over to the G4 Mac, in order to take advantage of the
+PowerPC's AltiVec processor (Velocity Engine), and to capture and
+process digital video with QuickTime.
+ 
+I'm thinking of plugging my code into image/ine, but I am not
+convinced that I will have a high enough level of control over it, as
+I do in AfterEffects.  How are parameters passed in and out of
+image/ine plug-ins, and manipulated over time?  Is there a way for
+plug-ins to expose more complex data structures and functions, or a
+way for them to provide special user interfaces for editing
+parameters?
+ 
+Several years ago, I plugged my cellular automata code into a visual
+data flow programming language called Bounce (aka Body Electric, from
+VPL).  Bounce plug-ins could define their inputs and outputs, giving
+them names and types, and they could pop up control panels for
+configuring themselves, so programmers could easily wire them together
+with other components.
+ 
+http://catalog.com/hopkins/lang/bounce/bounce.html
+ 
+Bounce is similar to Max in many ways, but also quite different.  It's
+more data flow oriented than control flow oriented, so it's like a
+whole electrical circuit all running at once, with data flowing
+between processing modules through wires, rather than control flow
+(the program counter) jumping from module to module through wires,
+like Max.  To implement conditionals, Bounce has a switching module
+like a relay, with one output that switch between two inputs under
+control of a third input; or you can enable and disable modules and
+nested sub-modules, using an implicit "power" switch that turns
+modules on and off.  To implement loops, it has a special nested
+container that executes its contents repeatedly until it returns a
+false value, but that was pretty unwieldy.
+ 
+Several years ago, I was working with the Bounce source code on a
+project at Interval Research.  I extended it to support plug-in data
+processing modules through COM interfaces (aka ActiveX), and to allow
+COM objects to travel along wires and be passed between data
+processing modules like any other data type.  So it was possible to
+extend Bounce by implementing your own new data types (like strings,
+dictionaries, pones, or whatever) as COM objects, and then implement
+plug-in data processing COM objects that could create and manipulate
+those other new data types.  That is, we used COM to create the new
+plug-in data types, as well as the plug-in components that processed
+them.  Believe it or not, COM (now known as ActiveX, from Microsoft)
+actually ran on the Mac in 1996, Internet Explorer uses it
+extensively, and it doesn't suck.
+ 
+I realize that image/ine is not trying to be a full fledged visual
+programming language, but it would be nice to have a good way to pass
+lots of different types of parameters back and forth between plug-ins,
+like the way AfterEffects plug-ins can describe any number of inputs
+and outputs of different (even custom) data types, and the user can
+wire them together with "motion math", and the system automatically
+handles the user interface for editing and keyframing the parameters
+over time.
+ 
+    -Don
+ 
+====
+
+A discussion of Bounce and other visual programming langauges, in
+response to a question about the the availability of Bounce and Body
+Electric:
+
+====
+
+From: Don Hopkins [mailto:xardox@mindspring.com] 
+Sent: Saturday, September 23, 2000 5:55 PM
+To: lev@shoko.calarts.edu
+Subject: visual programming languages
+
+[...]
+
+The harsh reality is that the rights to Bounce and Body Electric are
+totally locked up, and it's not available as a product, and probably
+won't ever be.  
+
+David Levitt legally acquired the rights to Body Electric when VPL
+broke up, instead of money they owed him for Hookup (his own visual
+programming language, that used the Macromedia Director M4 player
+library (which years later evolved into Shockwave) as a 2D display
+engine).  He named his version of Body Electric "Bounce", and
+contracted me to help him develop it on the Mac. I worked on the user
+interface, the Director engine, multimedia support, and plug-ins.
+
+David went to Interval Research, and a few years later I went to work
+with him again on a project using Bounce.  That was when I revisited
+the plug-in system, using COM to support plug-in modules as well as
+extensible datatypes.  
+
+Interval Research just closed down a few months ago. But even if they
+were still in business, they wouldn't release it, since they were just
+using it for internal research projects, not trying to make a product
+out of it.  
+
+Sun Microsystems now has the rights to the VPL patents and the
+original Body Electric, but they are being extremely tight about who
+they let use Jaron Lanier's branch of the code.  For some bizarre
+reason, Sun will only let Jaron give Body Electric out to six sites,
+and no more.  He would love for other people to be able to use it, but
+it doesn't look likely they'll let that happen.
+
+My "ulterior motive" is to help create an open source visual
+programming language, that borrows ideas from Bounce and many other
+systems, including:
+
+Hookup (David Levitt's midi data flow language he developed at MIT
+Media Labs, before joining VPL and working on Body Electric).
+
+Bounce (aka Body Electric, developed by Chuck Blanchard at VPL, extended by
+Jaron Lanier, David Levitt and myself).
+
+PSIBER (a visual PostScript programming environment for NeWS, the
+source code I distributed for free, and wrote a paper about:
+
+http://www.catalog.com/hopkins/psiber/psiber.html).
+
+HyperLook (a graphical user interface programming environment for NeWS
+written in PostScript):
+
+http://www.catalog.com/hopkins/hyperlook/index.html).
+
+SimAntics (the visual language for programming behaviors of people and
+objects in The Sims; created in Edith, a tool that Maxis hasn't yet
+released, but in which I do have a vested interest).
+
+Several throw-away prototypes I wrote in NeWS, ScriptX, C++, and XML.
+Max and jMax (commercially available and open source vpls).
+
+Python (an excellent textual programming language that would be useful
+for implementing a dynamic visual programming language).
+
+Visual Basic (mainly its plug-in component system, aka COM or ActiveX;
+not to imply that VB is really a vpl).
+
+AfterEffects "Motion Math" (scripts used to wire up dependencies
+between channels in Adobe AfterEffects).
+
+ProGraph (another commercially available vpl that's been around for a
+while).
+
+RCX Code (Lego's vpl for programming the Lego Robotics brick sets with
+motors and sensors).
+
+MaxScript and MEL (extension languages for 3D environments 3D Studio
+Max and Maya).
+
+KidSim (aka Cocoa or Stagecraft Creator, a vpl for kids developed at
+Apple).
+
+ToonTalk (Ken Kahn's cartoon visual programming language for kids):
+
+http://www.toontalk.com
+
+Tinkertoy (executable graphics based on Lisp, by M Edel, described in
+Nan C Shu's Visual Programming book).
+
+LCSI Microworlds Logo, StarLogo, Object Logo, Multi Logo, and other
+modern logo programming systems.
+
+ThingLab (a graphical Smalltalk virtual environment from Xerox PARC).
+
+The Incredible Machine and The Incredible Toons (Rube-Goldbergesque
+virtual physics simulation contraption games).
+
+SOAP (aka XML-RPC. Simple Object Access Protocol, that uses XML as a
+remote procedure call protocol. Not a visual language per se, but
+would be useful in a visual XML programming environment).
+
+Turing Complete Cellular Automata (John von Neumann's self reproducing
+cellular automata; Toffuli and Margolis's reversible billiard ball
+automata that literally compute using smoke and mirrors).
+
+Programming by Example or by Demonstration (KidSim enables kids to
+program cellular automata rules by example; Photoshop "Actions").
+
+====
+
+A reply to Michael Theodore's query about Bounce availability.
+
+====
+
+From: "Don Hopkins" <xardox@mindspring.com>
+To: "Michael Theodore" <michael.theodore@colorado.edu>
+Sent: Thursday, September 21, 2000 8:47 AM
+Subject: Re: Is Bounce available
+
+I don't know what ever became of the branch of the code that I was
+working on at Interval, but now Sun owns the patents and the rights to
+the branch of the code that Jaron has, and they're being pretty tight
+about it. Enclosed is the last exchange I had with Jaron about Body
+Electric.
+
+I am interested in writing something new from scratch, much better
+than Bounce, based on xml and com, so you can implement plug-in data
+types and components in java or any other language. Like a good lisp
+environment, with a visual user interface, but using xml as the basic
+data type for modeling data and code. 
+
+That would be useful for implementing html template and macro
+processors, real time multimedia web servers, xml-rpc (soap)
+distributed object servers, hard core ai programming, and all kinds of
+xml database queries and transformations, with the power of a
+lisp-like functional programming language.
+
+What do you think of jMax? I just downloaded and compiled it on Linux,
+but can't get it to work. The server seems to crash but the interface
+comes up (which is amazing, since the interface is the part that's
+written in java). It uses TCL as an extension language, which is kind
+of lame, but at least not activally disgusting like perl.
+
+I was thinking of using Python to write an interpreter for a visual
+programming language, since it has a lot of great tools for xml and
+networking, a robust plug-in api, and excellent support for com on
+Windows.
+
+    -Don
+
+====
+
+A discussion between Don Hokins and Jaron Lanier about visual
+programmign languages:
+
+====
+
+At 12:31 AM -0400 7/8/99, Hopkins, Don wrote:
+
+Hi, Jaron. We've met briefly once or twice - I'm a friend of David
+Levitt's.
+
+What's this about Sun acquiring the rights to the VPL patents, and
+Body Electric?
+
+http://www.advanced.org/jaron/vpl.html
+
+Does Sun actually have the Body Electric source code? What version do
+they have?
+
+Does anybody at Sun even know how to compile a Mac program?
+
+Last time I worked there (admittedly a long time ago), they were too
+embarrassed to allow Macs in the building (which might make somebody
+realize how bad Unix sucks in comparison).
+
+Has anyone tried to rewrite it in Java?
+
+
+When I was working with David at Levity and Interval, I totally
+overhauled the source code to Bounce: porting it to the latest version
+of CodeWarrior and the PowerPC, cleaning up C code translated from
+Pascal, that no human had ever touched before, and just generally
+re-indenting and adding white space so it was pretty to look at.
+
+Then I implemented a new interface for plugging in DM's, based on
+ActiveX (yes, ActiveX runs on the Mac).  I added a new data type that
+you can flow along blue wires: a COM object (aka a plug-in ActiveX
+object in a shared library).  
+
+Then we made plug-ins modules that produced and consumed the new
+plug-in data types, like strings and polymorphic dictionaries.  With
+these new data types, we were able to model very complex simulations
+as nested trees of dictionaries, strings and numbers, treat
+dictionaries as high level objects, pass them all around on wires,
+reading and modifying them at will.
+
+The thing that the original Body Electric was missing is a way to
+dynamically model structured data like Lisp s-expressions and
+association lists, which is now possible in Bounce, using
+dictionaries. (The swivel3d trees just don't cut it for representing
+"knowledge".)
+
+Bounce still had the "M4" Director player rendering engine, but it
+didn't do everything we needed, so I implemented my own graphics
+library for drawing sprites, playing sounds, and stuff like that.  We
+used it to implement a simulation of Rush Limbaugh and Jesse Jackson
+watching TV and arguing over the closed captioning stream.
+
+A big fat housefly would skitter around the screen, land on their
+faces, and tickle them into waving their hands around and
+pontificating.
+
+I just got a 400 mhz G3 powerbook, and fired up a 2 year old copy of
+Bounce and the crazy Limbaugh/Jackson demo, and it still works,
+actually like a bat out of hell! I ran into David and John Szinger
+(another Bounce programmer from Interval) a few days ago at a 4th of
+July party, and they really got a kick out of seeing the old demo that
+we worked together on, still running!
+
+I live in Oakland just south of Berkeley. Drop me a line if you're in
+the bay area, and would like to see what Bounce has evolved into.
+
+    -Don
+
+From: "Jaron Lanier" <jaron@advanced.org>
+To: "Hopkins, Don" <DHopkins@maxis.com>
+Sent: Thursday, July 08, 1999 6:13 AM
+Subject: Re: Body Electric lives?
+
+Hey there, and thanks for writing!
+
+Yup, Sun owns VPL and Body Electric, and my guess is that if anyone
+looked very closely it would turn out Interval doesn't have rights to
+Bounce.  But no one is likely to look very closely, so let's forget
+about that.  (I don't think Sun is aware of Bounce or the work at
+Interval.)
+
+I had never asked what was done with Bounce at Interval- it's
+fascinating to hear what you were up to.  I live in NYC for the most
+part, but I'd love to see it sometime when I'm in the Bay Area.  Also
+Chuck Blanchard lives in SF and you and he might want to trade demos
+sometime.
+
+There IS a community of Body Electric users.  It is STILL building the
+most interactive 3D virtual worlds of any tool (though Alice, from
+Carnegie Mellon, is the other hot contender).  That's SHAMEFUL!  While
+BE sucks in every other way, all the more recent vr design tools,
+especially the vrml ones, simply avoid the problem of deep
+interactivity. How could the community be so whimpy, at this late
+date?
+
+On the Body Electric side of things, there has also been some work
+updating to CodeWarrior/PowerPC (shame we didn't share that work!), as
+well as support for Quickdraw3D, OpenGL on the Mac, OMS, and some
+other standards.
+
+There have been some changes to the interface, but not as ambitious as
+yours.  The neatest thing is a debugger/tracer tool that is a pleasure
+to use.  Since BE is used mostly in 3D domain, there are also some
+tools dealing with textures, lights, etc.
+
+I had always thought the swivel tree was ridiculous, of course, but on
+the other hand I liked the idea that the virtual world and the
+knowledge base were the same thing- that unity encourages the
+visibility and grabbability of the underlying concepts.  I think the
+brain works that way- there isn't some barrier behind which everything
+gets abstract- instead, it's user interface all the way to the bottom!
+What I think would be the coolest long-term destination of BE would be
+extending the scenegraph so that it was as powerful a knowledge base
+as you'd want...
+
+I'd LOVE to see a fancy BE release, in JAVA, or at least spitting JAVA
+out.  The question, of course, is where the money would come from.
+I've tried to talk Sun into an open source release so the community
+could hack on it voluntarily (the source was included in the patents
+that were granted, so it's actually already released by the US
+government anyway, though only on paper).  Unfortunately, Sun doesn't
+want to do that.  What they've said instead is that I can choose up to
+six sites with free hacking privileges at a given time.  Bizarre!
+With so few sites, I think there'd need to be money to make sure the
+sites stayed focused on it...  You'd have thought Sun would know
+better by now.
+
+The body electric community is surprisingly NOT entertainment
+oriented, though I and a few others still use it that way.  There are
+people hidden away who are still using it for ergonomic simulations,
+simple surgical planners (because the fancy systems are too rigid to
+model some situations), cognitive test rigs, and some work with kids.
+
+You should know there was some tension about BE/Bounce at one point.
+The problem was that Chuck Blanchard wasn't credited as the lead
+designer/programmer of BE/Bounce when David brought the program to
+Interval.  Chuck's name was reduced in stature in the "about" and he
+was not mentioned in some important semi-public demos at Interval.  He
+was also offered a pseudo-position to help with Bounce at Interval,
+but without health benefits - and Chuck has MS and absolutely NEEDS
+health insurance.  I at one point yelled at the guy who runs Interval
+(forgot his name..)  about their treatment of Chuck- and David is
+STILL mad at me for making a fuss about it.  But I felt I had to.
+
+So that's the scoop!  Both sides of the mystery revealed!
+
+All the best,
+
+Jaron
+
+Jaron the web: www.advanced.org/jaron
+
+====
+
+From: Hopkins, Don [mailto:Hopkins, Don] 
+Sent: Monday, April 06, 1998 5:47 PM
+To: 'm k prasanna'
+Cc: Hopkins, Don
+Subject: RE: A Tale of Two SimCities
+
+A good book about Microworlds was written by one of the Unibomber's
+victims (who survived), David Gelertner, called "Mirror Worlds". He
+talks about making micro-worlds in the computer that mirror and
+complement the real world. The buzzword "microworlds" also refers to a
+dead end explored in AI research, with programs like "SHRDLU", that
+could figure out how to solve problems in an extremely simplified
+"microworld", but don't generally scale up to dealing with real-world
+situations. That was the same wall that "expert systems" hit, when you
+start applying them to the real world, they become too complex and
+fragile to manage, and don't scale up.
+
+Agentsheets is a visual programming language that makes it possible to
+program graphically by example.  There are a lot of different visual
+programming languages, each good for different kinds of applications.
+This one is useful for programming simcity-like behavior with tiles.
+They didn't implement the actual game in its entirety, but their
+langauge makes it easy to program certain behaviors like drawing roads
+that conduct traffic and wires that conduct electricity, and
+programming the behavior of traffic on the roads, etc.
+
+SimCity is essentially tile based, like a cellular automata, with a
+bunch of other programming techniques thrown in. The real SimCity is
+not programmed by example, it's just a bunch of C code. You can
+specify a pure cellular automata rule by example, with graphical
+rewrite rules, by giving an example of an initial cell configuration
+(like a road with a car on it), and an example of the next
+configuration in time, that the original configuration should be
+replaced with (the car moved to the next tile in front of it). Then
+you could specify a bunch more examples to show it how to turn the car
+around a corner, etc. There's a whole field of research called
+"programming by example" or "programming by demonstration" (Brad Myers
+has a good book on it called "Watch what I do: programming by
+demonstration".  Henry Lieberman has a good web page about the
+subject.
+
+http://lieber.www.media.mit.edu/people/lieber/PBE/Learn-About.html
+
+There are all kinds of languages that support "programming by
+demonstration", and a lot of them are graphical, like AgentSheets, but
+not all.
+
+Somebody made a text editor that you could give it a "before and
+after" example of how to edit some text (like capitalize the first
+word and put a period at the end), and it would abstract it into a
+program that it could repeatedly apply to other text.
+
+Spreadsheets like Excel are visual languages (in that they operate on
+a two dimensional grid that's displayed on the screen in real time),
+that support programming by example (by recording macros, that you can
+render as visual basic code). A spreadsheet is kind of like a cellular
+automata, but each cell can have its own rule that relates it to its
+neighbors. A true cellular automata has only one consistant rule
+that's applied to every cell. In a system like AgentSheets, that rule
+is the combination of all the examples you've supplied. So it doesn't
+matter which cell a road or a car is in, the same rules apply
+uniformly everywhere. Rewrite rules can have wildcards in them so they
+are more abstract and apply to more situations.
+
+Check out KidSim, now known as Cocoa, that was developed at Apple.
+It's a visual programming by example language for kids, that's tile
+based, and kids can use to program certain kinds of games and
+simulations.  Search around on www.apple.com for kidsim or cocoa, and
+you'll find all kinds of stuff about it.
+
+Also Maxis has a product called "Klik and Play, the Revolutionary
+Instant Game Creator", that lets kids design games, that comes with a
+bunch of pre-made games they can play, edit, learn from, and
+canibalize to make their own games. It's kind of old, and didn't sell
+very well, so I couldn't find it on the Maxis web site, but a search
+on the web and dejanews would probably turn up some interesting stuff.
+
+The basic idea these things are trying to get at, is that it should be
+possible for "end users" (a horrible term) or "non-programmers" to
+program the computer, at a high level, and to be able to understand
+and modify programs that other people have written. Some of these
+goals are at odds with each other, or self contradictory. Graphical
+languages are easy to understand visually, but difficult to input and
+edit. It's easier for a novice to use a text editor than something
+like Adobe Illustrator. Programs can be graphically represented, but
+there needs to be a good way to input the programs, better than
+drawing them.
+
+That's where programming by demonstration fits in -- at the low end,
+recording macros in a program like Excel, where the user does stuff
+the usual way by selecting cells and clicking on buttons and picking
+from menus, while recording a macro that can be played back. And at
+the high end, like KidSim, where the program is represented very
+graphically, with lots of icons and boxes and arrows, etc.
+
+Programs like Debabelizer and Photoshop allow you to perform image
+processing operations on an example image, that are recorded as a
+series of instructions, that you can go back and edit and change the
+parameters, and play back on whole batches of images en masse.
+
+"Visual programming" and "programming by example" try to simplify the
+task of programming, by limiting the domain, or inventing graphical
+representations and user interfaces to represent code. Sometimes
+they're unsuccessful because they are unwieldy, use way too much
+screen real-estate, look butt-ugly, or require tedious navagation to
+understand the program (scrolling over vast areas, flipping through
+piles of windows, sorting out tangles of wires, or worse yet 3D visual
+programming languages requiring you to roll / pitch / yaw / translate
+/ scale into just the right place to look at a part of your program).
+
+The more successful languages limit themselves to a particular domain
+(like tile based games, or image processing), and have specialized
+constructs that make them less general purpose but more appropriate to
+the task at hand (like support for animating sprites and collision
+detection, in klik-and-play).
+
+		-Don
+
+====
+
+From:	       John Bates [SMTP:johnbates@iname.com]
+Sent:	       Wednesday, March 25, 1998 5:59 PM
+To:	       don@toad.com
+Subject:      About Bounce
+
+Hi I was just following some links on the WWW about Bounce, HookUp and
+Body Electric and I seem to have come to a dead end. I saw your Bounce
+stuff on your homepage and I am wondering if you knew what happened to
+Bounce or HookUp. Is there any way I could get more info on these 2
+languages/IDEs Thanks
+
+John Bates
+Melbourne, Australia
+
+====
+
+From: Hopkins, Don [mailto:Hopkins, Don] 
+Sent: Monday, April 13, 1998 12:58 PM
+To: 'John Bates'
+Subject: RE: About Bounce
+
+Hi John. Thanks for your interest!
+
+Hookup is an old product from Hip Software, which was absorbed by VPL
+(the people who made the data glove), when David Levitt (proprietor of
+Hip) went to work for VPL. He took the ideas and integrated some of
+them into Body Electric, which was a visual programming langauge that
+Chuck Blanchard had developed at VPL in Pascal, At some time it got
+converted to C through some automatic translator on an HP unix
+system. It worked over the network with a renderer called "Isaac" that
+displayed 3d trees, which Body Electric could articulate (twist
+around, translate, hide, etc). The 3d trees were stored in Swivel 3D
+format, which is a 3D editor that ran on the Mac.  You would attach
+geometry to the trees on the SGI and move them around by visually
+programming the Mac.  The nice thing was that the simulation ran while
+you were editing it, so programming was very interactive, like
+soldering on a live circuit, or defusing an atomic bomb. When VPL
+closed down, David got the rights to Body Electric, renamed it
+"Bounce" and further developed it by adding the Macromedia Director
+display engine (the Director file player, plug-in kind of like an
+early version of Shockwave). Interval Research, where David works, now
+has the rights to Bounce. I've worked on Bounce and other stuff for
+David and for Interval.  They're just using it in research projects,
+which it's just great for, but they're not going to actually develop
+Bounce into a product.
+
+If you're looking for a product you can use, there are several good
+ones out there.  I've seen neat stuff done in ProGraph and LabView.
+Bounce was fairly specialized, but you will probably find some good
+general purpose commercial VPL's to suit your needs.
+
+	   -Don
+
+====
+
+From:	      Rajat K. Paharia [SMTP:rajat@cs.stanford.edu]
+Sent:	      Monday, August 24, 1998 10:51 PM
+To:	      Hopkins, Don
+Subject:      RE: Pie Menus
+
+Hey Don -
+
+Thanks for the pointers. Sorry for the delay in responding - been sick
+as a dog.
+
+> how big its virtual area is. You might follow his argument to the
+> logical conclusion and put menu bars along all four edges of the
+> screen.  I know you can move the Windows task bar around to any edge
+> you want, but I don't know if you can have four of them on different
+> edges at once (but it might be worth hacking that up)!
+
+Interesting idea. If they could all Auto-Hide people might actually
+use them, since a lot of people don't like giving up the extra real
+estate. I know that when you install Office it gives you another
+toolbar (that has multiple "tabs", so it's several virtual toolbars),
+so a lot have two already.
+
+> Graphical user interfaces that were designed when larger screens
+> were available (like Windows and Open Look) tend to put a separate
+> "menu bar" up at the top of each window. Not only is it closer to
+> the mouse, but it can
+
+My first computers were Apples (IIe, Mac128k). Now whenever I use a
+Mac, I get very frustrated very fast - mostly because I can never tell
+what application that I'm currently in and that the Menu Bar is
+related to.
+
+Have you tried out the ActiveX Pie menus in VB yet? If not, I can also
+use IE/VBScript as a development environment.
+
+So I read on your web page that you hooked Body Electric up to
+Director for David Levitt. Very cool. I was an intern at VPL in early
+1992 and I did a bunch of BE programming for demos and stuff and met
+David (and Chuck and the rest) there, although I doubt he remembers
+me. For years afterwards I would show BE to people as an example of a
+really interesting Visual programming/Dataflow language.
+
+Ted says "Hello!" and "Don? He's a great guy!"
+
+What are you doing at Maxis?
+
+The Avengers is the WORST movie I've seen in years. avoid at all
+costs. Even Uma in skin-tight leather doesn't make it worth it.
+
+Out of Sight, Something about Mary, and Pi are all excellent.
+
+Read much Sci Fi?
+
+- rajat
+
+====
+
+From: Hopkins, Don [mailto:Hopkins, Don] 
+Sent: Monday, August 24, 1998 11:49 PM
+To: 'Rajat K. Paharia'
+Cc: dhopkins@maxis.com
+Subject: RE: Pie Menus
+
+Wow, you programmed Body Electric? 
+
+I worked for David Levitt's own company on Bounce (what he called his
+version of BE), and then worked on it a lot more with him at
+Interval. I cleaned up the code and ported it to the PPC, then
+integrated it with the Mac version of COM (ActiveX), so you could have
+plug-in modules that emited and consumed plug-in COM data types on the
+wires (like strings, dictionaries, and multimedia data types like
+images).
+
+We used it for some weird research projects, kind of like Bounce's
+last gasp before we moved onto the Windows platform. The end result
+was an animated argument between Jesse Jackson and Rush Limbaugh about
+what they were watching on TV. I sure hope the results of that
+"research simulation" never see the light of day! :-)
+
+You might want to check out the DirectShow filter graph stuff that
+Microsoft's come out with for processing multimedia streams. It's part
+of the "DirectX Media SDK".  No real programming mechanisms, so it's
+not a language, but it is a very interesting multimedia data flow
+system, that would be nice to program with a higher level visual
+language. They have a rudimentary "filter graph editor", but no data
+types like integers and booleans, and no control constructs like
+loops, ifs, relays, etc. But you could probably design that kind of
+stuff and plug it in via COM. Somebody should use Microsoft's plug-in
+scripting engine interface, to build a visual programming language,
+that lets you program multimedia data flow graphs like Bounce, using
+all kinds of COM components. I'd love to be able to have XML data
+flowing on the wires. There's already at least one COM interface to
+XML... Imagine writing visual data flow graphs that sucked up xml and
+multimedia data and literally flowed it out into web pages using the
+document object model. Or whatever.
+
+I just fixed a few bugs that pie menus had interoperating with visual
+basic, since we last emailed.  I will test it again and make sure
+nothing's horribly broken, and then make a distribution you can use!
+
+My favorite sf authors are Phillip K Dick and Stanislaw Lem. I am a
+hard core Dick Head.  Lem wrote the story that inspired SimCity, about
+a couple of constructor robots who made a tiny simulated city for a
+deposed despot to rule over.
+
+I'm working with Will Wright (who designed SimCity) on a game called
+"The Sims", kind of like a dollhouse that you build, furnish with
+stuff, and populate with simulated people. I did the 3d body animation
+system (quaternion interpolation kind of like a multi track sound
+mixer, with a 4 dimensional rotation track per bone). And I'm working
+on the content pipeline from 3d studio max (so artists can author 3d
+graphics and animation, and export them into the game), the walking
+engine (to sequence and blend those animations to get the guy to walk
+across the room, turn corners, etc), architecture tools (drawing walls
+and floors, putting wallpaper doors and windows on the walls, moving
+objects around, etc), and anything else that needs to be done.
+
+    -Don
+
+====
+

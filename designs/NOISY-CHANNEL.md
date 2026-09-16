@@ -45,8 +45,8 @@ and where some of the failures are repairs, some are corruptions, and one is a
 policy decision.**
 
 Every argument here about transcription, dictation, patina and channel repair —
-[`voicewashing/`](voicewashing/README.md),
-[`voicewashing/DICTATE.md`](voicewashing/DICTATE.md), Article VI of
+[`readings/`](readings/README.md),
+[`readings/DICTATE.md`](readings/DICTATE.md), Article VI of
 [`../skills/no-ai-parrot/CONSTITUTION.md`](../skills/no-ai-parrot/CONSTITUTION.md)
 — is an argument about what a layer of this stack is allowed to do. Here is a
 case where seven of them ran at once and left evidence.
@@ -140,13 +140,13 @@ Note the shape of the repair, because it generalizes:
 4. They **linked the result** so the next reader inherits the work.
 
 That is what channel repair costs when it is done honestly, and it is why the
-cleanup pass in [`voicewashing/DICTATE.md`](voicewashing/DICTATE.md) is a
+cleanup pass in [`readings/DICTATE.md`](readings/DICTATE.md) is a
 *human* pass. A recognizer cannot do step 3, and a proper noun it has never
-heard is precisely where its prior does the most damage: the more specific and
-load-bearing the term, the more likely it is to be smoothed into something
-common and wrong. **The words most worth transcribing are the ones most likely
+heard is precisely where its prior does the most damage: the rarer and more
+precise the term, the likelier it is to be smoothed into something common and
+wrong. **The words most worth transcribing are the ones most likely
 to be lost.** `align.py` in
-[`voicewashing/`](voicewashing/TRANSCRIPTS.md) exists for exactly this reason —
+[`readings/`](readings/TRANSCRIPTS.md) exists for exactly this reason —
 it reports its own coverage and monotonicity so a bad alignment cannot pass
 quietly.
 
@@ -172,7 +172,7 @@ So the honest taxonomy, which is the reusable part of this document:
 
 > **Noise degrades. Priors invent. Policy censors.**
 > Only the first is what "channel repair" means, and only the first is what
-> [`DICTATE.md`](voicewashing/DICTATE.md) authorizes a cleanup pass to touch.
+> [`DICTATE.md`](readings/DICTATE.md) authorizes a cleanup pass to touch.
 
 ## The accidental Lucier
 
@@ -196,8 +196,8 @@ he is not in, arriving late, on top of himself, in Danish.
 
 **And this is the same family as video feedback and cellular automata**, which
 is not a decorative connection — it is the methodology argued for in
-[`voicewashing/README.md`](voicewashing/README.md) under "lather, rinse,
-repeat," and it appears again in the adventure compiler acting as a linter for
+[`readings/README.md`](readings/README.md) under bootstrapping,
+and it appears again in the adventure compiler acting as a linter for
 the next iteration. Iterating a system against its own output is how the
 character of the system becomes visible.
 
@@ -271,7 +271,7 @@ Dahl.`
 **For transcription work in this repository.** Three kinds of loss, distinguish
 them, and only repair the first. Record the other two rather than fixing them
 silently — the corrections ledger in
-[`voicewashing/TRANSCRIPTS.md`](voicewashing/TRANSCRIPTS.md) is the right shape,
+[`readings/TRANSCRIPTS.md`](readings/TRANSCRIPTS.md) is the right shape,
 and the Danish case argues for one addition: **log the recognizer's language and
 context**, because a prior is part of the provenance of a transcript.
 
@@ -294,9 +294,9 @@ and which loop.**
 
 ## See also
 
-- [`voicewashing/README.md`](voicewashing/README.md) — patina, channel repair,
+- [`readings/README.md`](readings/README.md) — patina, channel repair,
   and the proofreading boundary
-- [`voicewashing/DICTATE.md`](voicewashing/DICTATE.md) — what a cleanup pass may
+- [`readings/DICTATE.md`](readings/DICTATE.md) — what a cleanup pass may
   and may not touch
 - [`SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md`](SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md)
   — latency and bandwidth arithmetic

@@ -1,0 +1,36 @@
+# Snap! — first-class everything (BYOB → Snap!)
+# Public language design. Jens builds; Brian shapes and documents.
+
+meta:
+  rendered_edition: snap-first-class-everything.md
+  author: Jens Mönig
+  language: Snap!
+  formerly: "Build Your Own Blocks (BYOB)"
+  url: https://snap.berkeley.edu/about
+  curriculum: Beauty and Joy of Computing
+  kind: language
+  consent: public
+
+the_hook: |
+  Snap! extends Scratch-class accessibility with Scheme-class power: first-class lists, procedures,
+  AND continuations — enough to build the **Y combinator** out of blocks — plus prototype-based
+  objects. Brian's design input and documentation keep it teachable; Jens's Morphic.js implementation
+  keeps it live in the browser with no install.
+
+why_don_loves_it: |
+  Don's 2018 thread with Brian and Jens assumed learners should *reprogram the simulator they're
+  studying* — Micropolis, CAM6, modifiable simulators. Snap! is the blocks language honest enough
+  to carry that constructionist bet.
+
+show_hooks:
+  - "First-class everything live — build the Y combinator on air"
+  - "How far blocks go without losing beginners — Jens's design answer"
+  - "Pair with Brian — pedagogy (books) meets implementation (Snap!)"
+
+see_also:
+  - snap-first-class-everything.md
+  - y-combinator-in-blocks.md
+  - morphic-js.md
+  - micropolis-snap-2018.md
+  - ../../brian-harvey/sources/beauty-and-joy-of-computing.md
+  - ../../brian-harvey/sources/snap-macros-metaprogramming.md

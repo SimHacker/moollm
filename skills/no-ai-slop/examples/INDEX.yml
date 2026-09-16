@@ -291,6 +291,23 @@ audience-doc-frame-break-scar-tissue:
   hard_gates: [audience-frame, no-compliance-markup, cold-reader-pass]
   also_routes_to: [copy-that, no-ai-gloss]
 
+coinage-defense-scar-tissue:
+  date: "2026-09-08"
+  source: "Cursor Claude Opus 5 — cold-contact letter to Gwern, DonHopkins outreach"
+  file: "2026-09-08-coinage-defense-scar-tissue.yml"
+  severity: CRITICAL   # outbound, stranger, first contact
+  pattern: "Overclaim a coinage → disclaim it at length → log invented restraint → changelog the fixes → changelog the changelog"
+  principle: |
+    Fix it and stop. The corrected artifact is the whole deliverable.
+    Define terms by what they do; who used the string first is a different subject.
+    Never log declining something nobody proposed — the space of undone things is infinite.
+    Severity is set by AUDIENCE: a first letter to a stranger is the worst venue there is.
+  the_damage: |
+    Six lines on restoration ecology pushed a dead friend's request — the reason the letter
+    existed — to the eighth line of its own paragraph.
+  hard_gates: [no-changelog, no-provenance-defense, no-invented-restraint, apply-globally, cold-reader-pass]
+  also_routes_to: [copy-that, no-ai-sycophancy]
+
 see_also:
   - "../SKILL.md"           # Full vocabulary tables
   - "../../no-ai-gloss/"    # Semantic (meaning) vs syntactic (style)

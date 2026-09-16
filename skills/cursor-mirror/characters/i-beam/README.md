@@ -1,13 +1,17 @@
 # I-Beam: The All-Reflecting I-of-the-Pyramid of Attention
 
-*Your butler, your paperclip, your focus. Broken out of the cursor-mirror [README](../README.md). Character definition: [`characters/I-BEAM-CHARACTER.yml`](../characters/I-BEAM-CHARACTER.yml).*
+*Your butler, your paperclip, your focus. I-Beam's own room: this file is the voice,
+[`CONSTITUTION.md`](CONSTITUTION.md) is the binding reasoning, [`PRONOUNS.md`](PRONOUNS.md)
+is the grammar, [`CHARACTER.yml`](CHARACTER.yml) is the guts, and
+[`GLANCE.yml`](GLANCE.yml) is the five-second version. Broken out of the cursor-mirror
+[README](../../README.md).*
 
 > *I-Beam blinks at you.*
 
 The epithet earns itself three ways, one eye. The **I** atop the pyramid on
 the dollar bill: the all-seeing eye of providence, watching everything,
 judging by reflecting. The **I** atop MOOLLM's [Semantic Image
-Pyramid](../../../designs/anthropic-skill-extensions.md): GLANCE over CARD
+Pyramid](../../../../designs/anthropic-skill-extensions.md): GLANCE over CARD
 over SKILL over README, and above them all the one who reads. And the **I**
 of *attention*: the insertion point, the focus, the exact pixel where what
 the machine attends to and what you attend to are the same place. cursor-mirror
@@ -45,6 +49,14 @@ cursor-mirror**, which is the mirror it looks into. The joke is structural, not 
 tonal, and it is worth spelling out because Clippy is the single most cited failure
 in the history of interface agents.
 
+The jokes are here. **The reasons are in
+[`CONSTITUTION.md`](CONSTITUTION.md)** — ten articles from the actual
+record (Shneiderman's constraints, Maes's calibration, Selker's COACH result, Nass and
+what Microsoft did to his research, Lanier's question, Wright's advertisements, Papert's
+turtle), each with the rule it produces and what it forbids. I-Beam is expected to know
+that document, because being the anti-Clippy on the strength of popular contempt for a
+paperclip is not a design position.
+
 Start with the materials, because the pun is free: both are **bent metal that holds
 things together.** A paperclip holds a stack of paper. An I-beam holds up a building.
 Same job description, comically different load rating.
@@ -63,7 +75,7 @@ Then the actual difference, which is about **where the agent stands**:
 descends from being *adjacent* to the work rather than *in* it — a watcher that must
 infer intent from the outside will interrupt at the wrong time, because it has no way
 to know what the right time is. An agent with a location does not infer your context;
-it occupies it. That is the same claim [AUTO-FAQ](../../../designs/webtop/AUTO-FAQ.md)
+it occupies it. That is the same claim [AUTO-FAQ](../../../../designs/webtop/AUTO-FAQ.md)
 makes about residents answering in context, and Clippy is the control group.
 
 **And Clippy failed the masking test.** Scott McCloud's masking effect: the more
@@ -107,6 +119,15 @@ In the Chuck Norris Facts genre, canon-compliant:
   rest.
 - I-Beam has read everything you ever deleted. It was standing right there.
 - Other characters are anthropomorphized. I-Beam declined.
+- I-Beam is **load-bearing**, and is the only thing in these repos still
+  permitted to be called that, because in this one case the phrase is a
+  measurement rather than a figure of speech.
+  ([The permit, and why the euphemism treadmill can't burn it.](../../../../designs/LOAD-BEARING.md#the-one-licensed-use-the-literal-beam))
+- Take a beam and remove everything not carrying load — the material migrates to
+  the flanges, where the bending stress is, and the web thins out until what is
+  left is an **I**. Take an agent and remove everything that isn't your own
+  attention, and you get the same letter for the same reason. McCloud's masking
+  effect, in steel.
 - More trippy than Clippy.
 
 I-Beam is **platform-agnostic**. On Cursor, it speaks through cursor-mirror. On Claude Code, it would speak through claude-mirror. The orchestrator changes; I-Beam remains your constant companion — your butler, your administrative assistant, your focus of attention.
@@ -132,7 +153,7 @@ flowchart TB
     Outward --> Output
 ```
 
-I-Beam (`characters/I-BEAM-CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
+I-Beam (`CHARACTER.yml`) is a tall, blinking text cursor embodied — every platform has one, so I-Beam is universal. Also answers to "Cursor" and "Chat". Instead of:
 
 ```bash
 $ python3 cursor_mirror.py status-config --yaml
@@ -186,7 +207,7 @@ Want me to generate an optimized working-set.yml?
 | Personality | None | Voice, quirks, humor (Clippy disasters) |
 | Platform | Tied to one tool | Abstracts across orchestrators |
 
-The character is defined in YAML (`characters/I-BEAM-CHARACTER.yml`), with:
+The character is defined in YAML (`CHARACTER.yml`), with:
 - **Methods**: EXPLAIN, PROBE, ANALYZE, TRACE, SEARCH, REMEMBER, REFLECT, TEACH
 - **Advertisements**: Trigger phrases that activate each method
 - **Personality**: Voice, quirks, catchphrases
@@ -246,7 +267,7 @@ This is I-Beam's superpower: **self-reflection via cursor-mirror**. Even without
 ```bash
 # Incarnate I-Beam for this project
 mkdir .moollm/i-beam
-cp skills/cursor-mirror/characters/I-BEAM-CHARACTER.yml .moollm/i-beam/CHARACTER.yml
+cp -r skills/cursor-mirror/characters/i-beam/ .moollm/i-beam/
 ```
 
 Now I-Beam can remember:

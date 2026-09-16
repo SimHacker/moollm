@@ -153,8 +153,16 @@ elsewhere.
   behavior of The Sims." Now carried in
   [`../VISUAL-PROGRAMMING-LINEAGE.md`](../VISUAL-PROGRAMMING-LINEAGE.md),
   together with the SimCopter ancestry and Edith's live-editing property.
-- **SimAntics predates The Sims**: "The SymAntics [sic] language was used to
-  program the people in SimCopter, and Edith evolved out of that."
+- **The language predates The Sims**: "The SymAntics [sic] language was used to
+  program the people in SimCopter, and Edith evolved out of that." **Read that
+  as descent, not naming** — in 1996 the tool was not yet called Edith and
+  probably not yet called SimAntics either; the working name was *Tree
+  Programming*. Chronology, corroboration and the open questions for Jacques
+  Servin and Will Wright are in
+  [`../VISUAL-PROGRAMMING-LINEAGE.md`](../VISUAL-PROGRAMMING-LINEAGE.md).
+- On the Magic Cookie parenthetical in this email, see
+  [What the Magic Cookie actually is](#what-the-magic-cookie-actually-is-from-the-source)
+  below — the source contradicts the "256" figure.
 
 `note: the 2000 email spells it "SymAntics" — an early variant of the
 semantics pun. The established spelling is **SimAntics**, which is what the
@@ -169,10 +177,61 @@ email verbatim with [sic]; write SimAntics everywhere else.`
 
 **Transmogrifier** — Edith's complement rather than a version of it. Written
 *after* the game shipped, it changes surface appearance and not behavior. The
-note describes a pending release fixing the Magic Cookie limit of 256 objects
-per cookie, adding XML import/export of object definitions, and handling 24-bit
-images and mismatched palettes. Don also hoped to ship easy versions of the
-high-end body and animation tools against gMax.
+note describes a pending 2.0 release fixing a Magic Cookie bug, adding XML
+import/export of object definitions, and handling 24-bit images and mismatched
+palettes. Don also hoped to ship easy versions of the high-end body and
+animation tools against gMax.
+
+### What the Magic Cookie actually is, from the source
+
+The email's parenthetical — *"the previous release 1.0 only lets you create 256
+objects per cookie"* — **is not what the code does**, and the GUID layout is
+worth recording correctly because it is the identity scheme for every
+user-created Sims object.
+
+`MakeUniqueGUID()` in `SimsKit/Transmogrifier/TransmogrifierDlg.cpp` scrambles a
+timer, the clock and sixteen rounds of `rand()`, and then does this:
+
+```c
+// Mask out the middle 16 bits, and insert the object creator id.
+newGuid &= 0xff0000ff;
+newGuid |= (cookie & 0xffff) << 8;
+```
+
+So a 32-bit GUID is laid out **cookie in the middle, entropy on both ends**:
+
+| Bits | Width | Contents |
+|---|---|---|
+| 31–24 | 8 | random |
+| 23–8 | **16** | **Magic Cookie** — the object creator's id |
+| 7–0 | 8 | random |
+
+**The cookie is 16 bits and the per-object space is 16 bits** — 65 536 objects
+per cookie, not 256. The per-object bits are *split around* the cookie rather
+than sitting under it, which is why the comment says "mask out the middle."
+
+`verified: read from source. All three trees present — Transmogrifier,
+"Transmogrifier old" and "Copy of Transmogrifier" — contain byte-identical GUID
+arithmetic, and no 256-element cap on objects or GUIDs exists in any of them.`
+
+**What 2.0 did change**, by diff of `MakeUniqueGUID()` and `IsGUIDAlreadyUsed()`:
+
+1. **Session-level GUID tracking.** 2.0 adds a `gUsedGUIDs` set and calls
+   `UseGUID()` on every mint. 1.0 checked collisions only against objects in
+   *already-loaded* res file models, so GUIDs minted earlier in the same session
+   were invisible and **a batch of new objects could collide with each other.**
+2. **A random cookie fallback.** `gMagicCookie` defaults to 0; 2.0 substitutes
+   `rand() & 0xffff` when it is unset, instead of emitting every GUID with a
+   zeroed creator field.
+
+That first one is a real Magic Cookie collision bug, and it is the plausible
+referent of the email's "fixes a bug with Magic Cookies." **The "256" is the
+part no surviving source supports**, so it is recorded here as the email's claim
+rather than as fact.
+
+`todo: if the 256 figure matters, the 1.0 shipping binary is the only remaining
+witness — SimsKit/Transmogrifier/Installer/ has TransmogrifierSetup.exe
+alongside Transmogrifier_2.0_Setup.exe.`
 
 **Use these names.** The 2000 email says "SimTransmogrifier" because that was
 the name and the domain then; **do not carry that spelling into new prose.**
@@ -261,7 +320,7 @@ The specimen defines the pipeline for the rest of the Medium corpus:
 6. **Leave a forwarding address**, and leave the Medium version up. The point is
    to stop depending on it, not to erase it.
 
-## One note on the irony, since it is load-bearing
+## One note on the irony
 
 Checking whether either candidate URL resolved was impossible from the command
 line: **Medium returns HTTP 403 to a plain request for Don's own article.** The

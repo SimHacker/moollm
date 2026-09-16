@@ -1,0 +1,27 @@
+# The Y combinator in Snap! blocks
+# The stunt that proves continuations are for beginners too.
+
+meta:
+  rendered_edition: y-combinator-in-blocks.md
+  author: Jens Mönig
+  language: Snap!
+  topic: first-class continuations
+  kind: demo_beacon
+  consent: public
+
+the_hook: |
+  Enough first-class procedures, lists, AND continuations to build the **Y combinator** out of blocks.
+  Not a party trick for theorists — Brian's pedagogy insists beginners deserve real control flow,
+  not a dumbed-down subset that lies about how programs work.
+
+show_hooks:
+  - "Cold open: Y combinator live in blocks — Guy Steele would nod, Papert would smile"
+  - "Continuations as pause/resume stories kids can hold in their hands"
+  - "Brian + Jens pair beat: Brian explains *why*, Jens shows *how*"
+
+see_also:
+  - y-combinator-in-blocks.md
+  - snap-first-class-everything.md
+  - ../../brian-harvey/sources/beauty-and-joy-of-computing.md
+  - ../../brian-harvey/sources/snap-macros-metaprogramming.md
+  - ../../brian-harvey/CARD.yml

@@ -7,9 +7,9 @@ no deterministic VM can (semantic matching, latent inheritance); and
 whether the Sims advertisement economy runs on top as emergent
 behavior. Companion to
 [KORZ-PRIME](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/david-ungar/korz-prime.md)
-(the design being tested), [GAME-PIECES](GAME-PIECES.md),
-[MOODY](MOODY.md),
-[LATENT-SPACE-INHERITANCE](object-system/LATENT-SPACE-INHERITANCE.md).
+(the design being tested), [GAME-PIECES](../../GAME-PIECES.md),
+[MOODY](../../MOODY.md),
+[LATENT-SPACE-INHERITANCE](../../object-system/LATENT-SPACE-INHERITANCE.md).
 
 ## Method principles
 

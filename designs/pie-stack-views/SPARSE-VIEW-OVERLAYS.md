@@ -50,6 +50,8 @@ The payoff is serendipity with a mechanism behind it: discovering a new way of l
 
 ## Where this goes
 
+Applied at the publication layer, this model says a page *is* an overlay — a transclusion frame with a clearance parameter, entered through a pie whose antipodal items are *view source* and *source view*: [Transclusion Frames](TRANSCLUSION-FRAMES.md).
+
 What views *mean* socially — testimony, argument, curated tours — is the subject of [Views as Testimony](VIEWS-AS-TESTIMONY.md). The semantic parameters (how a node describes itself at each scale) and the radial application (pumping up a pie menu's center) are in [Pumping Up Pie Menus](PUMPING-UP-PIE-MENUS.md). The same parameter set keyed to *time* is [Temporal Semantic Zoom](TEMPORAL-SEMANTIC-ZOOM.md).
 
 ---

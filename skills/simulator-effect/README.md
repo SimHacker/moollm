@@ -182,6 +182,29 @@ bartender:
 
 You did not write the backstory. You implied it. The Simulator Effect runs in the LLM now.
 
+**One mechanism, two hosts. Name the direction; do not coin a second noun.** Wright supplies
+both words. The game is *"just a compiler for that mental model"*
+([Long Now 2006, t=5665](https://youtu.be/Dfc-DQorohc?t=5665)), and games *decompress simple
+rules into worlds*. So:
+
+- **Compile** -- sparse rules in, richer model out, elaborated by the human.
+- **Decompile** -- a few words in, a richer world out, elaborated by the machine, including
+  names for everything the spec left unnamed.
+
+Decompilation is the honest word for the second one, because a decompiler returns plausible
+source from a stripped binary and fabricates every missing symbol. Useful, coherent, not
+what you wrote. Nobody ships decompiler output unread.
+
+The round trip is the method, and it is Wright's own answer when asked to open-source
+SimCity ([t=3929](https://youtu.be/Dfc-DQorohc?t=3929)): players arguing with the
+simulation's assumptions is success, because comparing their model against the game's makes
+their tacit assumptions coalesce. Write the sparse spec, read the elaboration, diff it
+against what you meant. **The diff localizes your under-specification.** See `DIFF` in
+[`SKILL.md`](SKILL.md#diff).
+
+The mirror hazard is in there too: in this direction the risk is not imagining machinery
+that is not there, it is being credited with a specification you never wrote.
+
 ---
 
 ## The Danger: Mode-Collapse

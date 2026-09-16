@@ -129,6 +129,70 @@ Comments are read by the LLM. They shape interpretation. They are not documentat
 
 ---
 
+## The Two Directions, and the Round Trip
+
+The effect runs both ways, and it is one mechanism with two hosts rather than two
+effects. Wright named the human direction. The machine direction is the same prior
+supplying structure the signal did not contain, which is how
+[`NOISY-CHANNEL.md`](../../designs/NOISY-CHANNEL.md) identifies a recognizer hearing
+"Sådan gaves" for "Shannon gave us": *the same mechanism as the simulator effect*,
+running in a transcription pipeline with nobody steering.
+
+Do not coin a second noun for the second direction. Name the direction.
+
+| Direction | Sparse thing | Who elaborates | What you get |
+|---|---|---|---|
+| **Compile** | the machine's rules | the human | a mental model richer than the machinery. Wright's simulator effect; [reverse over-engineering](https://news.ycombinator.com/item?id=22062590) seen from the engineering side |
+| **Decompile** | the human's few words | the machine | a world richer than the spec, including names for things you never named |
+
+Both words are Wright's and Don's, not new: *"The computer game is just a compiler for
+that mental model"* ([Long Now, 2006, t=5665](https://youtu.be/Dfc-DQorohc?t=5665)), and
+*"Science compresses the world into rules; games decompress simple rules into worlds."*
+
+**Decompilation is the right frame for the machine direction because it carries its own
+warning.** A decompiler takes a stripped binary, returns plausible source that behaves
+like the original, and invents every name that was missing from the symbol table. That is
+what four words of spec get back: coherent, useful, not what you wrote, and full of
+confident nouns you never chose. Nobody ships decompiler output unread.
+
+### DIFF
+
+The round trip is the method, and it is Wright's own answer to the open-source question
+([t=3929](https://youtu.be/Dfc-DQorohc?t=3929)): when players start arguing with the
+simulation's assumptions the game has succeeded, because building a model and comparing it
+against their own viewpoint makes their previously tacit assumptions coalesce.
+
+**Input:** your sparse spec, plus the elaboration it produced
+**Output:** the list of places you had not decided anything
+
+1. Write the sparse spec.
+2. Let it decompile into a full world.
+3. Diff the elaboration against what you meant.
+4. Every invented detail marks a gap. The ones that feel *wrong* are the gaps where you
+   did hold a tacit commitment, and now you can state it.
+5. Put the ones worth keeping into the spec as seeds. Leave the rest open on purpose.
+
+The diff localizes your under-specification. That is the constructionist loop with a
+measuring instrument instead of a vibe, and it is why sparse specs are a working method
+rather than laziness.
+
+### The hazard, which is the mirror of the human one
+
+In the human direction the risk is imagining machinery that is not there. In the machine
+direction the risk is **being credited with a specification you never wrote.** When an
+agent does something surprising, the usual cause is that it decompiled a gap you did not
+know you had left, and then acted as though you had asked.
+
+In a game that is the medium. In a room full of your real files it is an unlogged decision
+attributed to you. The fix is not less elaboration, it is Eager's green pixel: show the
+interpolation before acting on it, so the inference is visible while it is still cheap to
+correct. See [`AXES-NOT-CAMPS.md`](../../designs/AXES-NOT-CAMPS.md) on where
+responsibility lands, and
+[I-Beam's constitution](../cursor-mirror/characters/i-beam/CONSTITUTION.md) for the same
+rule stated as a refusal.
+
+---
+
 ## The Astrillogical Pattern
 
 Named after The Sims' zodiac implementation (1997):

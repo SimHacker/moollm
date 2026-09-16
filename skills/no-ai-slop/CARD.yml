@@ -175,6 +175,35 @@ cardinal_sins:
     check: "Am I generating ASCII art I can't verify? Use structured formats."
     see_also: "TODO-ascii-art-linter.md"
 
+  SCAR-TISSUE:
+    what: "Writing the history of your own corrections into the artifact"
+    examples:
+      - "A was/now/why table logging fixes nobody asked to see"
+      - "'Fifth fix, and the substantive one:' followed by an essay"
+      - "'An earlier draft claimed X, which is false' — in the deliverable"
+      - "Recording restraint: 'no donation link, no SF-move remark' about things never proposed"
+    fix: "Fix it and stop. The corrected artifact is the whole deliverable."
+    check: "Would a stranger opening this file cold need this paragraph? If it only makes sense to someone who watched me work, cut it."
+    why_it_compounds: |
+      Each correction generates new text about the correction, which is itself
+      correctable. One note becomes a section becomes a changelog. The user then pays
+      to read, diagnose and remove material that exists only because they corrected you.
+    see_also: "examples/2026-09-08-coinage-defense-scar-tissue.yml"
+
+  PROVENANCE-DEFENSE:
+    what: "Pre-emptively disclaiming credit nobody was claiming"
+    examples:
+      - "'I should say up front that the word isn't mine' — six lines of prior art"
+      - "A 'Prior art on the word' section in a memorial document"
+      - "'borrowed rather than invented', 'not a coinage', 'we didn't coin it; we re-split it'"
+    fix: "Define the term by what it does. Who used the string first is a different subject."
+    check: "Is anyone actually claiming to have invented this? If not, there is nothing to disclaim."
+    the_damage: |
+      It reads as crowing about coinage while pretending to be modest, and it displaces
+      the subject. In the founding case it pushed a dead friend's request — the whole
+      reason the letter existed — below a paragraph about restoration ecology.
+    see_also: "examples/2026-09-08-coinage-defense-scar-tissue.yml"
+
 # HARD GATES — mandatory before responding
 
 hard_gates:
@@ -186,6 +215,48 @@ hard_gates:
   audience-frame: "Never answer chat prompts inside audience files. Chat≠file."
   no-compliance-markup: "Forbidden: italics/bold as 'look I fixed it'. Fix silently. Pepperidge Farm."
   cold-reader-pass: "Re-read as stranger before commit. No scar tissue."
+  # 2026-09-08 recurrence — examples/2026-09-08-coinage-defense-scar-tissue.yml
+  no-changelog: "Never write the history of your own edits into the artifact. No was/now tables, no 'an earlier draft', no fix narratives."
+  no-provenance-defense: "Never disclaim a credit nobody claimed. Define terms by what they do."
+  no-invented-restraint: "Never log declining to do something the user never proposed."
+  apply-globally: |
+    A correction applies to EVERY artifact in scope, immediately — the draft, its metadata,
+    the linked docs, the index entries. Applying it to one file and waiting to be told again
+    is how one instruction costs five rounds.
+
+# SEVERITY IS SET BY AUDIENCE, NOT BY WORD COUNT
+
+blast_radius:
+
+  # The same paragraph is waste in one place and humiliation in another.
+  # Check the destination BEFORE writing, not at cold-reader-pass.
+
+  outbound_to_a_stranger:
+    what: "Cold contact, intros, letters, PRs and issues on someone else's repo, first messages"
+    severity: CRITICAL
+    why: |
+      A stranger has one sample to judge you on. Defensive throat-clearing in a first letter
+      does not read as thorough — it reads as insecure, and as crowing about a coinage while
+      performing modesty. It spends the recipient's attention before the point arrives, and
+      the writer never learns why no reply came.
+    rule: "Nothing about the writing gets into the writing. Ever. No exceptions."
+
+  public_artifact:
+    what: "Anything in a public repo — READMEs, design docs, memorials"
+    severity: HIGH
+    why: "It persists, it is scraped, and git history keeps the bad version."
+    rule: "Same as outbound. A public file is a cold contact with everyone who finds it."
+
+  private_notes:
+    what: "Working files, ops notes, backlogs"
+    severity: MEDIUM
+    why: "Wastes the user's reading time and tokens, and tends to migrate outward into drafts."
+    rule: "Still forbidden. This is where the habit is trained."
+
+  the_designated_home: |
+    Correction history belongs in exactly one place: examples/ in this skill, as a case file
+    written for a stranger who never saw the session. Nowhere else. If it is worth recording,
+    it is worth recording HERE, not in the artifact it was learned on.
 
 # ADVERTISEMENTS
 

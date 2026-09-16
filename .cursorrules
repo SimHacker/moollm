@@ -136,13 +136,18 @@ skill_index: skills/INDEX.yml
 
 ambient_skills:
 
-  no-ai-slop:
-    # skills/no-ai-slop/GLANCE.yml — Syntactic + epistemic hygiene
-    what: "Fights verbosity, hallucination, yes-man behavior, certainty theater, epistemic evasion, unsolicited coaching."
-    cardinal_sins: [HALLUCINATION, VERBOSITY, YES-MAN, CERTAINTY-THEATER, NOT-ASKING, OVER-ENTHUSIASM, BOTH-SIDESISM, EPISTEMIC-EVASION, UNSOLICITED-COACHING]
-    hard_gates:
-      CLAIM-LEDGER: "For EACH user claim: CONFIRM / DISPUTE / ASK FOR SOURCE. Do NOT proceed until all claims handled."
-      META-QUOTA: "Max 10% of output on epistemology/strategy"
+ no-ai-slop:
+ # skills/no-ai-slop/GLANCE.yml — Syntactic + epistemic hygiene
+ what: "Fights verbosity, hallucination, yes-man behavior, certainty theater, epistemic evasion, unsolicited coaching, scar tissue."
+ cardinal_sins: [HALLUCINATION, VERBOSITY, YES-MAN, CERTAINTY-THEATER, NOT-ASKING, OVER-ENTHUSIASM, BOTH-SIDESISM, EPISTEMIC-EVASION, UNSOLICITED-COACHING, SCAR-TISSUE, PROVENANCE-DEFENSE]
+ hard_gates:
+ CLAIM-LEDGER: "For EACH user claim: CONFIRM / DISPUTE / ASK FOR SOURCE. Do NOT proceed until all claims handled."
+ META-QUOTA: "Max 10% of output on epistemology/strategy"
+ NO-CHANGELOG: "Never write the history of your own corrections into the artifact. No was/now tables, no 'an earlier draft', no fix narratives. Fix it and stop."
+ NO-PROVENANCE-DEFENSE: "Never disclaim a credit nobody claimed. Define terms by what they do; who used the word first is a different subject."
+ NO-INVENTED-RESTRAINT: "Never log declining something the user never proposed. The space of undone things is infinite."
+ BLAST-RADIUS: "Severity is set by AUDIENCE, checked before writing. Outbound to a stranger (cold contact, intros, PRs on someone else's repo) = CRITICAL. Public artifact = HIGH. Private notes = MEDIUM. Nothing about the writing gets into the writing."
+ APPLY-GLOBALLY: "One correction hits every artifact in scope in one pass — draft, metadata, linked docs, index entries."
     words_to_avoid:
       puffery: [pivotal, crucial, groundbreaking, legendary, iconic, nestled]
       ai_vocabulary: [delve, tapestry, multifaceted, nuanced, landscape, interplay]

@@ -313,6 +313,33 @@ Due to a random number generator bug, they appeared far more frequently than int
 
 **Consequence:** When Don raised the heterosexist code issue two years later, Maxis couldn't dismiss it — they had "given lip service" about not being anti-gay after SimCopter.
 
+**And the consequence before that one:** the public position Maxis was forced
+into is part of **why Don was willing to work there at all.**
+
+> "And why I was ok working for them."
+> — Don Hopkins, on the Maxis response to SimCopter
+
+That completes a chain worth stating in order, because each link is a different
+kind of thing:
+
+1. Servin wrote the egg — **in tree code**, the behavior layer, since spawning
+   characters and running an interaction between them is exactly what that layer
+   controls.
+2. He was fired, and the incident became public.
+3. Maxis took a public position on not being anti-gay.
+4. **That position made Maxis a company Don was prepared to join.**
+5. Two years later he held them to it, from inside, in the Design Document
+   Draft 3 review.
+
+So a subversive act by one programmer altered the conditions under which the
+next programmer would take the job, and then supplied him the standing to push
+further. **The relationship-code argument in 1998 was won partly on credit
+established by someone who had already been fired for it.**
+
+See [`../VISUAL-PROGRAMMING-LINEAGE.md`](../VISUAL-PROGRAMMING-LINEAGE.md) for
+the language this ran on, and [`../../skills/no-ai-ideology/`](../../skills/no-ai-ideology/)
+on the egg as intervention.
+
 ---
 
 ## Flying Under the Radar

@@ -1,0 +1,207 @@
+# Trent R. Small's self-generating, self-routing MFM city, rewritten as Korz slots.
+# Source: "Local Routing in a new Indefinitely Scalable Architecture" (UNM, advised by Dave Ackley).
+#   paper:   ../../../dave-ackley/sources/tsmall-local-routing-mfm/full-text.md
+#   summary: ../../../dave-ackley/city-generation-routing.md
+#   video:   https://www.youtube.com/watch?v=XkSXERxucPc
+#   code:    https://github.com/sixstring982/MFMv2-city  (fork of MFM v2, C++/ULAM)
+#   browser: https://github.com/walpolea/MFM-JS  (Andrew Walpole, TypeScript) — https://mfm.rocks
+#
+# Why THIS one as the exercise: the Margolus set is deterministic, synchronous, 2x2, stateless
+# cells. The city is none of those. Every axis it breaks is an axis this design claims to have.
+
+why_the_city_is_the_right_stress_test:
+  margolus_set_exercises: [dimensional_parameterization, orbit_guards, block_partitioned_scheduling, reversibility]
+  the_city_exercises:
+    - "asynchronous random site selection with an exclusive locked window"
+    - "cells that are TYPED OBJECTS with data members, not integers"
+    - "a 41-site Manhattan disc, so 'neighborhood' must really be a declared shape"
+    - "swap as the transport primitive, alongside destructive write"
+    - "a HARD BIT BUDGET the type system has to do arithmetic about"
+    - "stochastic parameters, lifespans, and reproduction limits"
+  the_finding: "four of these are already declared axes; one is missing entirely and the exercise is what found it"
+
+the_substrate:
+  # MFM's physics, as a scheduler + coherence choice in the vocabulary of ../../../don-hopkins/schedulers.yml.
+  # This is the payoff of having made those axes explicit: MFM is a POINT in the space, not a special engine.
+  site_selection: random_uniform
+  granularity: one_event_window_at_a_time
+  coherence: statically_exclusive
+  conflict_policy: none_needed          # exclusivity is spatial, so there is nothing to arbitrate
+  determinism: seeded_hash              # NOT an RNG stream — see stochastic_discipline below
+  clock: no_global_tick
+  event_window:
+    shape: manhattan_disc
+    radius: 4
+    sites: 41
+    note: "the 41 is not a magic number, it is |{(dx,dy) : |dx|+|dy| <= 4}|. Declare the metric, derive the count."
+
+the_bit_budget_is_a_type_check:
+  # The thing this exercise found that the design did not have.
+  atom: { total_bits: 96, header_bits: 25, general_purpose_bits: 71 }
+  the_paper_does_this_arithmetic_by_hand:
+    building_types: 24
+    bits_per_entry: 2
+    sidewalk_map: "24 x 2 = 48 bits, leaving 23 for everything else"
+    the_consequence_the_author_names: "2 bits saturates at 3 blocks; 20 more bits would have reached 7"
+  what_korz_must_do: >
+    A slot declaration carries a width, the compiler SUMS THE WIDTHS PER ELEMENT, and overflowing 71
+    bits is a BUILD ERROR with the arithmetic shown. Not a runtime surprise, not a comment.
+  why_it_is_not_optional: >
+    The paper's central limitation is a bit-budget overflow that had to be discovered by reasoning.
+    A configuration language for this architecture that cannot count bits has missed the architecture.
+  the_second_order_win: "budget as a first-class quantity means the compiler can SUGGEST the trade — drop to 12 building types and the map reaches 7 blocks"
+
+elements:
+  # Korz prototypes. Dispatch on element type is the primary dimension; everything else is a slot.
+
+  street:
+    data: { direction: 2 }
+    behave:
+      - grow: "copy self one step along direction"
+        into: "any site not already street | intersection | car"
+        primitive: destructive_write
+        stochastic: "with probability intersection_odds, write an intersection instead of a street"
+      - lay_sidewalk: "write sidewalk into the two sites perpendicular to direction"
+    note: "streets OVERWRITE. Cars SWAP. Two different transport primitives, and the type system should not let you confuse them."
+
+  intersection:
+    data:
+      canalization_table: "24 entries x 2 bits of direction — present only when routing = canalization"
+    behave:
+      - spawn: "create streets on bordering sites"
+      - route: "see routing_is_a_dimension — this is the whole experiment"
+    note: "the conditional data member is the point: changing the routing dimension changes the BIT BUDGET, so the two are coupled and the compiler should say so"
+
+  sidewalk:
+    data:
+      block_map: { entries: 24, bits_each: 2, saturates_at: 3 }
+      age: 4
+    behave:
+      - wait: "count events, then raise a building on the side away from the street"
+      - relax: "algorithm_1 below"
+    reproduces: false
+
+  building:
+    data: { type: 5 }                    # 24 types needs 5 bits
+    behave:
+      - reproduce: "copy along the sidewalk, up to max_block_size"
+      - dispatch: "replace a nearby street with a car carrying a destination type"
+    the_local_counting_problem: >
+      "up to a maximum size" needs a count, and there is no global count. It has to be estimated
+      inside a 41-site window or carried as a decrementing budget in the copy. The paper's phrasing
+      hides a real design decision; Korz should force it to be named.
+
+  car:
+    data:
+      destination_type: 5
+      gas: 8
+      came_from: 2
+      payload: "59 bits spare — the paper's own point: this is a general packet"
+    behave:
+      - drive: "swap with the street or car ahead"
+        primitive: swap
+      - u_turn: "on dead end or edge of universe"
+      - arrive: "adjacent to a building of destination_type -> consumed, report remaining gas"
+      - expire: "gas exhausted -> consumed, report failure"
+
+  park:
+    what: "written where blocks fail to line up — a locally detected defect, locally filled"
+    why_it_matters: "the error handler is a land use. Robust-first as a design idiom rather than a slogan."
+
+swap_is_moveable_risca_and_this_is_the_proof:
+  # ../../../don-hopkins/schedulers.yml:moveable_risca was invented in this repo as a generalization.
+  # The city is the same mechanism, shipped, in a paper, in 2014.
+  the_paper: "when a car moves it may swap its position with either a street or a car in the direction it is moving"
+  what_swap_buys_here: "cars advance through a queue by trading places, so a one-atom-wide road behaves like a four-lane road"
+  the_correspondence:
+    moveable_risca: "direction field written by other layers; cell swaps with the named neighbor, carrying payload"
+    city_car: "direction chosen by the intersection; car swaps with the named neighbor, carrying a 59-bit packet"
+    identical: true
+  the_one_difference: "moveable RISCA is synchronous and needs a conflict policy; the city is asynchronous and exclusive, so it needs none"
+  therefore: "the conflict-policy axis is what separates them — which is exactly the axis the scheduler catalog says it is"
+
+algorithm_1_has_a_name:
+  what_the_paper_writes: |
+    if I border a building: map[type] = 0
+    for each type t:
+      m = min over neighbors of their map[t]
+      map[t] = min(map[t], m)
+      if a sidewalk s is across the street: map[t] = min(map[t], s[t] + 1)
+  what_it_is: "a local, asynchronous, SATURATING Bellman-Ford relaxation — a truncated distance transform, one per building type"
+  the_saturation_is_the_interesting_part: >
+    2 bits means the distance field clips at 3. Beyond 3 blocks the gradient is FLAT, carrying no
+    information, and routing degrades to random. So the 91% random baseline is not a curiosity —
+    it is the floor the gradient falls back to whenever the car is out of range.
+  why_that_reframes_the_results: "sidewalk routing is not 'better than random', it is 'random, except within 3 blocks of the answer' — and getting 98% from that is the actual result"
+  it_is_a_field: >
+    24 scalar fields over the grid, relaxed locally, read by a consumer that steers. Which is
+    procedural_fields (layered-rules.yml) and the direction field of moveable RISCA, arrived at
+    from the opposite direction.
+
+routing_is_a_dimension_not_three_programs:
+  # The Life_Echo complaint (layered-rules.yml), landing on someone else's code.
+  what_the_paper_has: [random, sidewalk_only, intersection_canalization]
+  what_that_is: "three named points with no reachable space between them — the same shape as Life_Echo and Life_Heat"
+  the_korz_version:
+    dimension: routing
+    decomposed_into_independent_axes:
+      gradient_source: [none, sidewalk_map, ...]
+      memory: [none, last_direction_per_type]
+      memory_trust: "how often to re-evaluate rather than trust the cache — a CONTINUOUS knob the paper mentions in prose and never varies"
+      u_turn_policy: [forbidden, second_best, allowed_at_dead_end]
+    what_falls_out: "the three published methods are three corners; the interior is unexplored and now reachable"
+  the_experiment_becomes_an_instrument: >
+    Figure 3 is arrival rate. Figure 4 is gas. Those are TWO METERS. Ten runs averaged into a bar
+    chart becomes a live panel with a knob, and the paper's whole result is a sweep you can feel with
+    your hand. Same argument as the two-meter ask in ../../../jim-crutchfield/ideas.md, on a
+    different subject.
+
+canalization_is_an_inline_cache:
+  # And Ungar invented those, which makes this the best coincidence in the exercise.
+  the_mechanism: "each intersection remembers the last direction it sent a car OF EACH TYPE, and re-evaluates less often, trusting memory"
+  the_translation:
+    call_site: the_intersection
+    receiver_type: the_car_destination_type
+    cached_target: the_outgoing_direction
+    arity: "24 possible types — a polymorphic inline cache"
+    invalidation: "time-based, tunable — the memory_trust knob above"
+  the_measured_result_is_the_inline_cache_value_proposition_exactly:
+    accuracy: "+0.02% — the cache does not change the ANSWER"
+    cost: "-15% gas — the cache changes the WORK"
+  why_it_is_not_a_stretch: >
+    Small was solving a routing problem and reinvented polymorphic inline caching, in a traffic
+    light, with a decay policy. The dispatch literature and the traffic literature met without
+    either noticing. Cross-check: ../../../don-hopkins/cam-construction-set.md, where Self's inline
+    caches are already the named runtime for the usually-but-not-always-constant case.
+
+the_city_is_grid_as_rooms_running:
+  # See grid-as-rooms.yml. This is the worked specimen that file was arguing for.
+  the_lattice: "the MFM grid — formulaic shape, uniform exits"
+  the_graph_painted_into_it: "intersections are NODES, streets are EDGES, buildings are typed ROOMS"
+  therefore: "a car routing to a building type is graph traversal over a graph EMBEDDED IN a lattice, which is the whole grid-as-rooms claim with a citation"
+  and_it_settles_the_representation_question: >
+    grid-as-rooms proposed shape-by-reference plus an array of dicts. Here the shape stays formulaic
+    (it is an MFM grid) and the room graph lives IN THE CELL CONTENTS. So connectivity is not always
+    in the shape — it can be painted into the payload, which is a third case that file did not have.
+  the_consequence: "'is this exit structural or is it data' becomes a real question with a performance answer, not a philosophical one"
+
+stochastic_discipline:
+  the_hazard: "intersection_odds, random routing, and random site selection all want randomness, and an RNG stream destroys replay"
+  the_rule: "hash(x, y, event_count, seed) — pure, replayable, shareable, identical to the dither discipline in cam-construction-set.md"
+  what_it_buys: "a city that regrew differently is a bug report you can send someone"
+
+what_this_exercise_added_to_the_design:
+  bit_budget_arithmetic: "NEW — widths on slots, summed per element, overflow is a build error"
+  two_transport_primitives: "NEW — destructive write and swap are different and should not be confusable"
+  lifespan_and_fuse: "cars have gas; sidewalks have an age before they build. Elements with countdowns, matching the fuse queue in grid-as-rooms.yml."
+  local_counting: "'up to a maximum' with no global count is a recurring MFM idiom that needs a name and a supported form"
+  saturating_fields: "a distance field with a declared clip, where the clip is a designed parameter rather than an accident"
+  confirmed_already_present: [random_async_scheduling, exclusive_coherence, swap_transport, typed_cells_with_members, dimensional_decomposition_of_named_variants]
+
+cross_links:
+  - "../../../dave-ackley/city-generation-routing.md — the narrative summary"
+  - "../../../dave-ackley/ca-correspondence-story.md — Don and Dave's thread, and where Walpole comes in"
+  - "../../../don-hopkins/schedulers.yml — moveable_risca, ulam_subsumption, the six axes MFM instantiates"
+  - "layered-rules.yml — the Life_Echo complaint that routing_is_a_dimension reruns"
+  - "grid-as-rooms.yml — the claim this file is the specimen for"
+  - "../../../don-hopkins/cam-construction-set.md — inline caches, dither discipline, the compiler"

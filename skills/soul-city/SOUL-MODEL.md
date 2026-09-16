@@ -617,7 +617,7 @@ Soul City is that UI running as a microworld: directories are rooms; characters 
 
 ## Map instances
 
-Bootstrap seed: `[examples/adventure-4/](../../examples/adventure-4/)` — one Soul City instance, not the prototype itself.
+Bootstrap seed: [`examples/adventure-4/`](../../examples/adventure-4/) — one Soul City instance, not the prototype itself.
 
 
 | Place                                                                           | What it is                                                                                                                                     |

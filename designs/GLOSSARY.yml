@@ -129,9 +129,23 @@ wings:
         means: "The LLM's job title: compute dependencies, referee parallel agents, keep distributed state honest."
         kid: "The referee who also plays all the puppets and remembers where everyone left their shoes."
         deep: "The orchestrator is the OS; the LLM is the coherence engine; the repo is the microworld. One call can host many characters — see SPEED-OF-LIGHT — because coherence is cheaper inside a single context than between them."
-        k_lines: [SPEED-OF-LIGHT, CARRIER-PIGEON, SOUL-CHAT]
+        k_lines: [SPEED-OF-LIGHT, CARRIER-PIGEON, SOUL-CHAT, LLMULATION]
         see_also:
           repo: [../kernel/, ../PROTOCOLS.yml]
+
+      - term: MOOLLMNEMONIC
+        kind: coined
+        origin: "MOOLLM + mnemonic, sharing the m — the discipline behind mood, loom, rood, moor, spool, named while inventing them (ROOM-STROLLING.md)"
+        means: "A naming law: a word's FORM must carry its mechanism. The spelling is the documentation."
+        kid: "The word is spelled like what it does. Say it backwards and you get the undo button."
+        deep: "Three moves. REVERSAL, where the reversed word names the inverse OPERATION rather than merely the opposite direction — doom/mood, room/moor, door/rood, loot/tool, spool/loops, zoom/mooz. RHYME FAMILIES, so neighbors sound like neighbors — mood, rood, hood, door, all sharing the oo that MOOLLM is built on. And COMPOUNDING BY OVERLAP, where the shared consonant is the seam — moollm + mnemonic, moollm + emulation. Precedent for coinage-by-rule is strong and boring: Bogert, Healy and Tukey minted cepstrum, quefrency and lifter in 1963 by reversing the syllables of spectrum, frequency and filter, and all three are standard technical vocabulary now. House rule from meta above: if it isn't fun to say out loud it doesn't ship. And pool is reserved for whatever does not have a good name yet."
+        ambiguity: "Not a mnemonic FOR MOOLLM; a mnemonic MADE OF it. Not decoration either — a term whose form carries nothing is just a longer word."
+        k_lines: [ROOM, MEMORY-PALACE, HALLS-AND-ROOMS, MOOLLMULATION, LLMULATION]
+        see_also:
+          repo: [webtop/ROOM-STROLLING.md, webtop/KISSING-ROOMS.md]
+          web:
+            - "Cepstrum — https://en.wikipedia.org/wiki/Cepstrum"
+            - "Bogert, Healy & Tukey (1963), 'The Frequency Analysis of Time Series for Echoes' — the cepstrum/quefrency/lifter coinages"
 
   sims_wing:
     name: "The Sims Wing"
@@ -158,13 +172,38 @@ wings:
         means: "Design for two computers: the one on the desk and the one in the player's head. The second one is bigger."
         kid: "The game draws a few dots. Your brain draws the dinosaur."
         deep: "Wright, 2004: 'The digital models running on a computer are only compilers for the mental models users construct in their heads.' The product of SimCity is the intuition, not the city. WWSFF and MOOLLM both run on this — a character room compiles a person-model into every reader."
-        k_lines: [GUTTER-CLOSURE, MASKING-EFFECT, HALLS-AND-ROOMS]
+        k_lines: [GUTTER-CLOSURE, MASKING-EFFECT, HALLS-AND-ROOMS, LLMULATION]
         see_also:
-          repo: [../skills/mind-mirror/HALLS-AND-ROOMS.md]
+          repo: [../skills/simulator-effect/SKILL.md, ../skills/mind-mirror/HALLS-AND-ROOMS.md]
           wwsff: [characters/will-wright/]
           web:
             - "Will Wright — https://en.wikipedia.org/wiki/Will_Wright_(game_designer)"
             - "Wright at Stanford (Winograd HCI seminar, 2004) — the 'compilers for mental models' talk"
+            - "Verbatim, with a timestamp: Long Now, Playing with Time, 2006-06-26 — 'Those aren't the real models we're building; the real models we're building are in the player's head. The computer game is just a compiler for that mental model.' https://youtu.be/Dfc-DQorohc?t=5665"
+
+      - term: LLMULATION
+        kind: coined
+        origin: "MOOLLM — LLM + emulation, and it rhymes with emulation on purpose; the MOOLLMNEMONIC compounding rule does the rest"
+        means: "Running a system by DESCRIBING it instead of implementing it: no code for the mechanism exists, and the model supplies the behavior by implication."
+        kid: "You don't build the machine. You describe it, and the AI runs it in its head."
+        deep: "The family, in order of what you had to build: SIMULATION implements the mechanism; EMULATION implements another machine's mechanism faithfully enough to run its software; LLMULATION implements nothing and lets a model infer the behavior from a description. Fidelity is plausible instead of exact, cheap instead of verified, and it degrades instead of crashing, which is ROBUST-FIRST getting a free ride. An adventure world that is only YAML plus a prompt is llmulated, not simulated — examples/adventure-4 has no engine. SPEED-OF-LIGHT llmulates a game loop: many turns, one call. The virtue is the SIMULATOR-EFFECT running in the machine; the hazard is the decompile direction of it, since llmulation will happily run a mechanism nobody specified."
+        ambiguity: "Not emulation, which is mechanism-faithful and checkable. Not simulation, which is implemented. Not hallucination, which is llmulation you did not ask for or cannot check — the difference is authorization and inspectability, not mechanism."
+        k_lines: [SIMULATOR-EFFECT, MOOLLMULATION, MODEL-LITERACY, COHERENCE-ENGINE, SPEED-OF-LIGHT]
+        see_also:
+          repo: [../skills/simulator-effect/SKILL.md, ../skills/speed-of-light/, ../examples/adventure-4/, PRETEND-INTELLIGENCE.md]
+          web:
+            - "Emulator — https://en.wikipedia.org/wiki/Emulator"
+
+      - term: MOOLLMULATION
+        kind: coined
+        origin: "MOOLLM + emulation, sharing the m — llmulation with a filesystem under it"
+        means: "Llmulation whose state lives in rooms on disk, so the world persists between calls, diffs, and can be read by the player without asking the model."
+        kid: "The AI runs the world, but the world is saved in folders, so it's still there tomorrow."
+        deep: "The difference between chatting a game and having one. Pure llmulation is ephemeral: it lives in the context window and dies with it, and you cannot check it because there is nothing to check. Moollmulation checkpoints into files, so the save file is a directory, the undo is git, the diff is the changelog of a world, and the player can inspect the state the model was working from. That is what makes an llmulated world an artifact rather than a performance, and it is the operational-legibility half of the bargain in Article I of I-Beam's constitution."
+        ambiguity: "Say it out loud before deciding it is too silly. The seam is the shared m, same as MOOLLMNEMONIC."
+        k_lines: [LLMULATION, MOOLLM, ROOM, MOOLLMNEMONIC]
+        see_also:
+          repo: [../examples/, ../skills/room/, ../skills/adventure/]
 
       - term: GUTTER-CLOSURE
         kind: inherited
@@ -172,12 +211,27 @@ wings:
         means: "Deliberately leave gaps the reader fills. What you don't render, they build better."
         kid: "In comics, the punch happens in the white space between pictures. Your brain throws it."
         deep: "The Simulator Effect's mechanism, named. LLM prompting is gutter management: say less, activate more."
-        k_lines: [SIMULATOR-EFFECT, K-LINE]
+        k_lines: [SIMULATOR-EFFECT, MASKING-EFFECT, K-LINE]
         see_also:
           web:
             - "Understanding Comics — https://en.wikipedia.org/wiki/Understanding_Comics"
             - "Scott McCloud — https://en.wikipedia.org/wiki/Scott_McCloud"
             - "Closure (comics gutter) — Understanding Comics ch. 3, 'Blood in the Gutter'"
+
+      - term: MASKING-EFFECT
+        kind: inherited
+        origin: "Scott McCloud, Understanding Comics (1993), ch. 2 — an iconic character placed inside a realistically detailed world; Hergé's Tintin is his marquee case (p. 43)"
+        means: "Abstract the thing the reader inhabits; render the world around it in full detail. Then they can be one and see the other at the same time."
+        kid: "Tintin's face is four lines so it can be YOUR face. The city behind him is drawn brick by brick so it can be a real place."
+        deep: "McCloud's line is the whole design rule in nine words: 'One set of lines to see. Another set of lines to be' (p. 43). It takes BOTH, which is the half everyone drops when they cite this — a photorealistic face is 'the face of another' (p. 36), while a simplified one becomes 'a vacuum into which our identity and awareness are pulled... we don't just observe the cartoon, we become it!' (p. 36), and icons 'demand your participation to make them work' (p. 59). The interface case is exact: the blinking caret is past the smiley and past the face, and the corpus around it is rendered in full detail, so an I-beam in a document is structurally Tintin in Brussels. THE HOUSE READING of the two famous failures follows from requiring both sets of lines — Microsoft Bob cartooned the WORLD (cartoon room, cartoon dog, cartoon everything), leaving nothing to see; Clippy kept the realistic document but gave the mask eyes, eyebrows and reactions, leaving nothing to be. Note also p. 33, where McCloud says people assign 'identities and emotions where none exist' — that is Nass and Reeves's Media Equation, published three years earlier in a comic book about comics."
+        ambiguity: "Not audio masking, not data masking, not an image mask, not masking tape. And the theory is contestable rather than settled: film viewers identify with photorealistic actors all day long, an objection the Comics Journal raised and this house records instead of hiding."
+        k_lines: [GUTTER-CLOSURE, SIMULATOR-EFFECT, MODEL-LITERACY, LOAD-BEARING]
+        see_also:
+          repo: [webtop/READING-CURSORS.md, ../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md, LOAD-BEARING.md]
+          web:
+            - "Masking (comics) — https://en.wikipedia.org/wiki/Masking_(comics)"
+            - "Understanding Comics — https://en.wikipedia.org/wiki/Understanding_Comics"
+            - "The objection, stated by a critic who thinks it is 'highly debatable' — https://www.tcj.com/kirby-attention-paid/"
 
       - term: TTP
         kind: inherited
@@ -397,9 +451,10 @@ wings:
         kid: "The one Jenga block you must not pull. Also what happens to a word everyone's robot says."
         deep: "The euphemism treadmill inverted: humans mint terms faster than corpora ingest them, using training-data lag as proof of humanity. Every coin has a load-bearing expiration date. Successors on the treadmill: trussed, joist, stud finder, Ghost Rebar, Joist Diesel #4."
         ambiguity: "By the time you read this entry, the successors are burned too. That's the treadmill working."
-        k_lines: [SLOP, HUMANSPLAINING, PREMORIALIZING]
+        exception: "One licensed use, on a technicality: I-BEAM is load-bearing, and that is not a metaphor — an I-beam is what the metaphor was borrowed from. The treadmill runs on referents transferring their stink to words, and a literal load path has no stink. Better, the structural fact IS the design argument: the I cross-section is what remains after everything not carrying the load is removed, material driven into the flanges where bending stress is highest, which is McCloud's masking effect in steel — the minimum cross-section that still bears the whole load of attention. The typographic cursor was named after the beam profile, so the pun was installed at the foundry."
+        k_lines: [SLOP, HUMANSPLAINING, PREMORIALIZING, MODEL-LITERACY, MASKING-EFFECT]
         see_also:
-          repo: [LOAD-BEARING.md]
+          repo: [LOAD-BEARING.md, ../skills/cursor-mirror/characters/i-beam/]
           web:
             - "Euphemism treadmill — https://en.wikipedia.org/wiki/Euphemism#Euphemism_treadmill"
             - "Georg Simmel, 'Fashion' (1904) — the treadmill's mechanism, seventy years early"
@@ -454,6 +509,29 @@ wings:
             - "Imaginary Magnitude — https://en.wikipedia.org/wiki/Imaginary_Magnitude"
             - "A Perfect Vacuum — https://en.wikipedia.org/wiki/A_Perfect_Vacuum"
             - "Stanisław Lem — https://en.wikipedia.org/wiki/Stanis%C5%82aw_Lem"
+
+      - term: MODEL-LITERACY
+        kind: coined
+        origin: "Surfaced in a MOOLLM session, 2026-09-15, arguing about how a model reads a sentence differently than a reader walking it left to right — the thing 'prompt engineering' keeps failing to name"
+        means: "An operational theory of a nonhuman collaborator: what it can do that you cannot, what you can do that it cannot, and what neither of you should be trusted with."
+        kid: "Learning how the robot thinks DIFFERENTLY, so you can think with it instead of at it."
+        deep: "Fluency is the machine's; literacy is yours; mistaking the first for the second is the entire failure. It is not prompt engineering, which is ritual scaffolding and magic words. It is not a theory of mind imported from humans, which projects shared perception, priorities and common sense that are not there. And it is not the 'just autocomplete' reduction, which substitutes a true statement about mechanism for a model of capability — a CPU is just switching transistors, SimCity is just updating bytes, TomTom is just a next-turn predictor, and none of those tell you what the thing affords. The working division of labor: YOU bring purpose, taste, lived context, salience and responsibility; IT brings breadth, recombination, alternative readings, terminology for what you already know bodily, and the ability to hold many relationships at once; TOOLS bring exactness where neither intuition nor attention should be trusted. The test is predictive and unflattering: can you say what it will get wrong BEFORE it does? Literacy is predicting failure, not extracting success. And in Papert's sense literacy includes writing, so it includes shaping behavior with specs, skills and context rather than only reading output."
+        ambiguity: "Not 'AI literacy' in the policy-briefing sense of spotting deepfakes. Not model literacy in the statistics sense of reading a regression. Nothing to do with being able to name transformer layers."
+        hall: # PUPPET ↔ TYPEWRITER — both ends are errors and the middle is the target, which is unusual for a hall and is the point
+          name: "puppet/typewriter"
+          mileposts:
+            - { at: 0.0, name: CONFIDANT,  sign: "'it understands me' — fluency read as shared experience; over-attribution of judgment, memory and accountability" }
+            - { at: 0.25, name: COLLEAGUE, sign: "treated as a peer with taste it does not have; delegation without checking" }
+            - { at: 0.5, name: INSTRUMENT, sign: "the literate position — capabilities known, failures predictable, differences USED rather than hidden or denied" }
+            - { at: 0.75, name: APPLIANCE, sign: "used, but only for what a pre-LLM model of tools suggests; a fancy search box" }
+            - { at: 1.0, name: TYPEWRITER, sign: "'just autocomplete' — mechanism substituted for capability; everything strange left on the table" }
+          physics: "Both ends are free and the middle is paid for in experience. You reach INSTRUMENT by predicting failures out loud and being wrong about them in public, which is why the middle cannot be handed to anyone in a tutorial."
+          note: "The two errors are symmetrical: anthropomorphism OVERCREDITS, reductionism UNDERUSES. Article X of I-Beam's constitution is this hall stated as a design constraint, and the interface's job is to make the difference visible rather than to conceal it behind a personality or deny it exists."
+        k_lines: [LLMULATION, SIMULATOR-EFFECT, HUMANSPLAINING, SLOP, BITIC-LITERATURE, HALLS-AND-ROOMS]
+        see_also:
+          repo: [AXES-NOT-CAMPS.md, PRETEND-INTELLIGENCE.md, ../skills/no-ai-parrot/, ../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md]
+          web:
+            - "Greedy reductionism — https://en.wikipedia.org/wiki/Greedy_reductionism"
 
   portrayal_wing:
     name: "The Portrayal Wing (WWSFF)"

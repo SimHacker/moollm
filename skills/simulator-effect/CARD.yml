@@ -13,6 +13,24 @@ card:
     - SPARSE -- Deliberately omit for richness
     - ARCHETYPE -- Use cultural shortcuts
     - JAZZ -- Comments as imagination seeds
+    - DIFF -- Round-trip the sparse spec; the diff localizes your under-specification
+
+  # ONE MECHANISM, TWO HOSTS. Do not coin a second noun; name the direction.
+  directions:
+    compile:
+      sparse: "the machine's rules"
+      elaborator: human
+      result: "mental model richer than the machinery"
+      wright: "The computer game is just a compiler for that mental model (Long Now 2006, t=5665)"
+    decompile:
+      sparse: "the human's few words"
+      elaborator: machine
+      result: "a world richer than the spec, with invented names for what you never named"
+      why_that_word: |
+        A decompiler returns plausible source from a stripped binary and fabricates every
+        missing name. Carries its own warning: nobody ships decompiler output unread.
+      hazard: "being credited with a specification you never wrote"
+      fix: "Eager's green pixel -- show the interpolation before acting on it"
     
   # What needs this skill satisfies
   satisfies:

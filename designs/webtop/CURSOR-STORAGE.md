@@ -45,7 +45,7 @@ object's audit log, its HEAD is current state, and deleting it tombstones the ob
 
 > Spec: `skills/github/protocols/branch-as-object.md` in Leela's `central`, which documents the
 > convention and its live use. MOOLLM's own schemapedia already names the pattern in
-> `[skills/schema/schemas/mechanisms/github/](../../skills/schema/schemas/mechanisms/github/)` —
+> [`skills/schema/schemas/mechanisms/github/`](../../skills/schema/schemas/mechanisms/github/) —
 > theory there, operational practice in central, and this document is the reading-cursor application.
 
 ```
@@ -755,8 +755,8 @@ which is the correct speed for everything except presence. That remains true and
 - [CONTRIBUTION-BOT.md](CONTRIBUTION-BOT.md) — the layer above this one: a bot that makes the branches, writes the commits and opens the PRs for readers with no GitHub account, using the author/committer split for attribution
 - [READING-CURSORS.md](READING-CURSORS.md) — what a cursor is and why it needs a body
 - [PLAYABLE-CORPUS.md](PLAYABLE-CORPUS.md) — the static-versus-social tiers, and GitHub as a slow server
-- `[skills/inventory/](../../skills/inventory/)` — refs versus boxes, and why boxing is irreversible
-- `[skills/worm/](../../skills/worm/)` — the two-cursor organism whose limbs these worktrees are
+- [`skills/inventory/`](../../skills/inventory/) — refs versus boxes, and why boxing is irreversible
+- [`skills/worm/`](../../skills/worm/) — the two-cursor organism whose limbs these worktrees are
 - [EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md) — the same storage question for rides
 
 ↑ [webtop hub](README.md)

@@ -82,7 +82,7 @@ Defined in CARD.yml and DESIGN.md; builtin + user_path (e.g. `.moollm/skills/<na
 | **register-switching.md** | kernel or format-design | kernel/ or skill | — | Conceptual; kernel doc. |
 | **legible-social-dynamics.md** | debate or evaluator | designs/ | — | Conceptual; leave or skill. |
 | **anthropic-import-plan.md**, **anthropic-skill-upgrades.md** | skill (meta) or bootstrap | designs/ under skill | — | Migration notes; can live in skill or designs/. |
-| **snap-moollm-integration.md** | New skill or kernel | designs/ | — | If becomes skill, move. |
+| **snap/moollm-integration.md** | New skill or kernel | designs/ | — | If becomes skill, move. |
 | **NAMESPACING-SKILLS.md**, **SKILL-NAMESPACING.md** | skill (meta-skill) | DESIGN.md or kernel | — | Meta; kernel or skills/skill/. |
 | **SKILL-ECOSYSTEM.md** | skill (meta) or kernel | DESIGN.md | — | Ecosystem = INDEX + trust; kernel or skill. |
 | **MOOLLM-FOR-HACKERS.md** | moollm or kernel | README or docs | — | Top-level doc. |

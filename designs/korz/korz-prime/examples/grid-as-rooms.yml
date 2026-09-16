@@ -1,0 +1,142 @@
+# Grids and room graphs are one structure — sidecar for grid-as-rooms.md
+# The bridge between the two case studies that were already named siblings:
+#   ../case-zork.md              — irregular graph, few nodes, rich state, undecidable guards
+#   ../case-cellular-automata.md — regular graph, many nodes, tiny state, decidable guards
+# Don, Aug 2026: "modeling grids as implicitly connected rooms."
+# Flags: ⚠ = unverified.
+
+the_claim:
+  one_sentence: "a cellular automaton and an adventure map are the same data structure at opposite ends of one axis, and the axis is REGULARITY OF THE EXIT WIRING"
+  ca_end: "every node has identical exits, wired by a formula. The wiring is implicit, so nobody calls it a graph."
+  zork_end: "every node has hand-authored exits, wired by an author. The wiring is the content."
+  the_middle_is_empty: "and that is where the interesting systems are"
+
+the_vocabulary_already_matches:
+  # This is not an analogy that had to be constructed. The words are already the same.
+  the_nine: "c, n, s, e, w, ne, nw, se, sw — a Moore neighbourhood, a RISCA opcode set, an eight-item pie menu, and an adventure game's exit list, all at once"
+  zork_adds: [up, down, in, out]
+  therefore: "a 3-D CA is a room graph with up and down. The neighbourhood former is an EXIT TABLE."
+  see: "../../../don-hopkins/schedulers.yml → bresenham_particles.the_menagerie, which already found four of these five collisions"
+
+what_the_room_model_buys_the_ca:
+
+  topology_stops_being_special_cases:
+    claim: "torus, Klein bottle, projective plane, sphere, hyperbolic tiling are all just different exit wirings"
+    consequence: "the `topology` dimension that layered-rules.yml declares once and shares between grid, tool and knob turns out to BE the exit table. One mechanism, not a parameter with a switch statement behind it."
+
+  non_reciprocal_exits:
+    what: "A lists B as a neighbour; B does not list A"
+    status: "every CA engine assumes reciprocity. Zork's twisty little passages have never assumed it."
+    why_it_is_interesting: "information flows one way. Diodes, ratchets, one-way membranes — structures you cannot build on a symmetric lattice."
+    what_it_breaks: "the interference graph becomes DIRECTED, so the colouring and conflict machinery needs a directed version. ⚠ worth checking whether the (r+1)^d colouring argument survives."
+
+  portals:
+    what: "an exit that leads somewhere far away"
+    ca_name: "long-range connections"
+    the_real_science: >
+      A lattice plus a few random long edges is a SMALL-WORLD NETWORK (Watts-Strogatz), and the
+      dynamics change qualitatively — synchronisation, spreading, and the mixing time all shift.
+      So a Zork magic word is a rewiring experiment with a literature behind it. ⚠ verify claims
+      before printing specifics.
+    the_dial: "rewiring probability from 0 (pure lattice) to 1 (random graph) is one knob across the whole regularity axis"
+
+  exits_as_data:
+    claim: "if the exit table is a PLANE, the wiring is editable by rules and by hand"
+    what_it_generalises: "moveable RISCA — the direction field names an exit, so a turtle walks a GRAPH rather than a grid"
+    consequence: "self-modifying space: a CA that rewires its own connectivity, which is the honest version of what 'programs are painted' was reaching for"
+
+  rooms_contain_things:
+    observation: "an adventure room holds objects and state; a CA cell holds bits. Same slot, different budget."
+    the_useful_end: "a room whose contents are an entire sub-grid running its own rules — hierarchical CA, and exactly the_meta_iterator's 'a particle can be an engine'"
+
+what_the_ca_model_gives_BACK_to_adventure:
+  # The arrow points both ways, which is the test of whether a unification is real.
+  schedulers: >
+    Zork has exactly one scheduler: turn-based, with daemons and fuses. case-zork.md already notes
+    that daemons and fuses become slots guarded on a time dimension — and the priority-queue policy
+    in ../../../don-hopkins/schedulers.yml IS a fuse queue. So an adventure engine gets the whole
+    scheduler palette: asynchronous rooms, MFM-style event windows, rooms that tick while you are
+    elsewhere.
+  measurement: "the domain-wall and compression instruments apply to a room graph too — which regions of a game world are predictable, which carry structure"
+  the_asymmetry_worth_admitting: "the CA side is the one with the compiler. The adventure side is the one with forty-five years of players as an oracle."
+
+the_representation:
+  # Don, Aug 2026: "this is implemented with a json layer that points to the shape of the layer and
+  # has an array of json dicts."
+  # ⚠ Provenance unclear — either this is shipped code not yet located, or it is the proposal.
+  # Ask before citing it as existing.
+  form: "{shape: <ref>, cells: [ {...}, {...}, ... ]}"
+
+  why_the_split_IS_the_thesis:
+    shape: "the connectivity — the exit table, shared by reference, one copy"
+    cells: "the contents — one dict per site"
+    the_payoff: >
+      A lattice and a room graph differ ONLY in what `shape` says. The cell array is byte-identical
+      in both cases. So the unification this file argues for is not something the representation has
+      to be talked into; it is already the representation's natural shape.
+    lattice_case: "shape says '2-D torus, 256x256' and the exit table is formulaic, so the compiler specialises back to fixed offsets"
+    room_case: "shape is an explicit adjacency list"
+    portal_case: "shape is formulaic PLUS an exception list — which is the specialise-back story with a small table beside it"
+
+  two_different_shapes_are_hiding_in_one_word:
+    layer_shape: "the connectivity between sites — what `shape` refers to above"
+    cell_shape: "the SET OF KEYS a given cell dict carries — its field signature"
+    why_it_matters: "they get specialised by different machinery and should not share a name. Call the second one the cell's ARCHETYPE, following the games-industry usage."
+
+  shape_is_shared_by_reference_which_makes_it_a_prototype:
+    observation: "'points to the shape' means one shape object with many layers referencing it — Self/Korz prototype semantics, shared structure with per-instance state"
+    the_concrete_consequence: >
+      LAYERS THAT SHARE A SHAPE ARE REGISTER-COMPATIBLE AND CAN BE CROSS-WIRED. Shape sharing is the
+      precondition for the layer bus — the ganged CAM-6 cards. It is not a storage optimisation, it
+      is what makes ganging well-typed.
+    the_hazard: "editing a shared shape rewires every layer pointing at it. Powerful; wants to be deliberate rather than accidental."
+
+  the_trap_array_of_dicts_is_an_authoring_format:
+    claim: "array-of-dicts is the right SOURCE representation and the wrong RUNTIME one"
+    why_it_is_right_for_authoring: "hand-editable, diffable, sparse, heterogeneous, and readable by all three yaml-jazz audiences"
+    why_it_is_wrong_at_runtime: "a shader wants one tightly packed typed array per field, not a dict per cell"
+    the_transform: "AoS to SoA — and 'one typed array per field' is EXACTLY the plane algebra in layered-rules.yml. The planes are the compiled form of the cell dicts."
+    therefore: "this is the same pattern as everything else here — declarative source, specialised runtime, compiler in between. Rules to tables, Korz to WGSL, dicts to planes."
+    the_established_vocabulary: >
+      ECS. Components stored as arrays, entities as indices, systems iterating over ARCHETYPES.
+      The games industry solved the heterogeneous-vs-packed problem already and has names for it;
+      borrow them rather than reinventing.
+    how_the_compiler_chooses:
+      dense_and_homogeneous: "every cell carries the same keys -> planes, typed arrays, GPU-ready"
+      sparse_or_heterogeneous: "rooms with different field sets -> archetype tables, or a dict per site"
+      mixed: "the common case — pack the shared fields into planes, keep the rare ones in a side table"
+
+  json_must_not_become_canonical:
+    risk: "JSON has no comments, and in this repo comments are semantic data"
+    rule: "yaml-jazz is the source of truth; JSON is a lossy export for the wire and the runtime"
+    consequence: "a round trip through JSON silently deletes meaning, so the pipeline must never run source -> JSON -> source"
+
+the_honest_engineering_cost:
+  # Do not let a tidy unification quietly delete the performance story.
+  what_regularity_was_buying: [fixed_offset_addressing, table_indexing, tiling, space_filling_curves, gpu_coalescing, static_conflict_colouring]
+  the_problem: "an arbitrary graph destroys all six. There is no lattice to skew, no Morton index, no (r+1)^d colouring."
+  therefore: "grid-as-rooms is a SEMANTIC unification, not an implementation strategy"
+  the_fix: >
+    The compiler must SPECIALISE BACK. When the exit table is uniform, recognise it and emit the
+    lattice code with fixed offsets; when it is uniform-plus-a-few-portals, emit lattice code with an
+    exception list. That is partial evaluation again — the same move the rule tables are built on —
+    applied to connectivity instead of to rules.
+    (../../../don-hopkins/cam-construction-set.md#the-move-has-a-name-partial-evaluation-and-one-more-thing)
+  the_test: "if the uniform case does not compile to exactly the code the lattice engine would have emitted, the unification has cost something and should be rejected"
+
+on_the_method:
+  # Don, Aug 2026: "I am being brash and asking you to write hypothetical korz yaml jazz first,
+  # hoping that it will all fall out from that."
+  observation: "the method mirrors the thesis — declare the semantics, let the compiler find the schedule — applied to the design process itself"
+  the_failure_mode: "specifying things that cannot be built, or that cost far more than they look on the page"
+  the_antidote_already_in_use: "ground each abstraction in a shipped codebase and name its cost out loud. layered-rules.yml reads real CAM6.js line numbers; this file has the_honest_engineering_cost."
+  verdict: "the method works as long as every file carries its own bill"
+
+cross_links:
+  - README.md
+  - ../case-zork.md
+  - ../case-cellular-automata.md
+  - margolus-rules.yml
+  - layered-rules.yml
+  - ../../../don-hopkins/schedulers.yml
+  - ../../../don-hopkins/cam-construction-set.md

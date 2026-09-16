@@ -1,0 +1,37 @@
+# Morphic.js — Jens Mönig's live IDE substrate
+# The morphic world Snap! runs on.
+
+meta:
+  rendered_edition: morphic-js.md
+  author: Jens Mönig
+  framework: Morphic.js
+  url: https://github.com/jmoenig/Snap/blob/master/src/morphic.js
+  docs: https://github.com/jmoenig/Snap/blob/master/docs/morphic.txt
+  version_note: morphicVersion 2026-May-11 in source
+  kind: framework
+  consent: public
+
+the_hook: |
+  Direct-manipulation objects all the way down — in the browser, no install. Snap! isn't just blocks
+  on a canvas; the IDE itself is malleable Morphic-style, inheriting Smalltalk's live-system ethos
+  without requiring Squeak on every student's laptop.
+
+heritage: "Self Morphic → Squeak/Scratch morphs → Dan Ingalls Lively Kernel → Morphic.js → Snap!"
+
+show_hooks:
+  - "Morphic.js demo — edit the IDE while you're teaching in it"
+  - "Kay's 'live system underneath' criterion — Snap! as the browser answer"
+  - "Morphic heritage vs MVC cargo-cult — why textbooks teach controllers, not morphs"
+  - "Pair with Brian — the turtle (Logo) and the morph (Smalltalk) in one classroom tool"
+
+see_also:
+  - morphic-js.md
+  - gp-alan-kay-lineage.md
+  - snap-first-class-everything.md
+  - ../../brian-harvey/sources/snap-macros-metaprogramming.md
+  - ../../don-hopkins/sources/micropolis-svelte-snap-constraint-bridge.md
+  - ../../alan-kay/media/discussions/hn-mvc-morphic-watchers-2015.md
+  - ../from-alan-kay.yml
+  - ../../brian-harvey/from-alan-kay.yml
+  - ../../../palmhoo/code-and-craft/README.md
+  - ../../../repo-shows/snap-logo-brian-jens/README.md

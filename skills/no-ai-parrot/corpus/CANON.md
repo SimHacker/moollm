@@ -269,7 +269,8 @@ answers it. Palm's articulation, read aloud at
 > I'm a Dasher user with infinite screens showing infinite possible texts."
 
 `verified: ASR transcript of lL2sw2oYU98. Authored by Palm, a character; see
-designs/voicewashing/README.md Case B. Attribute to Palm, not to Don.`
+designs/readings/README.md, the figured-bass end of the range. Attribute to Palm,
+not to Don.`
 
 So: **one monkey with infinite typewriters, not infinite monkeys with one
 apiece.** The monkeys metaphor assumes the output is sampled; the Dasher

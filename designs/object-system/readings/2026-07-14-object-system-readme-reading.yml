@@ -26,7 +26,7 @@ timing:
     "## " heading's first word as the chapter onset. 84% of transcript words
     aligned (cleanup edits are the gaps); all 32 chapters came out monotonic
     and the last lands at 33:03 against a 33:22 runtime.
-    Tool: designs/voicewashing/align.py — re-runnable, and it prints the
+    Tool: designs/readings/align.py — re-runnable, and it prints the
     coverage and monotonic counts so a bad alignment cannot pass quietly.
   do_not: >
     Do not measure this by searching captions for a chapter's keyword. The first

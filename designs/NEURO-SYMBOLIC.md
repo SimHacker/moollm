@@ -39,8 +39,8 @@ specific claim before quoting it in public — this table is a map, not a source
 
 ## *Perceptrons* is the most misremembered book in the field
 
-Because it is the load-bearing exhibit for the whole "the symbolists killed
-neural networks" story, and the story does not survive reading it.
+It is the main exhibit for the whole "the symbolists killed neural networks"
+story, and the story does not survive reading it.
 
 **What Minsky and Papert actually proved** was about a specific, limited object:
 the single-layer perceptron. Parity — of which XOR is the two-input case —

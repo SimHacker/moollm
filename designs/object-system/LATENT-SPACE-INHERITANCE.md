@@ -167,6 +167,27 @@ If names are pointers into latent space, then **naming is API design**:
    cheese, fresh vegetables and sauces" is a valid prototype. The LLM interprets loose-but-sufficient specifications (Postel: accept
    liberally).
 
+## It works on people, and then it is not a feature
+
+Everything above treats latent-space inheritance as something *you* invoke: you name a parent and
+the model fills it in. **The mechanism does not care who is doing the naming.** Name a living
+person and you inherit the corpus's summary of them, which they did not write and cannot revise.
+
+The case is Kevin Roose, who published the Sydney transcript in February 2023, watched Microsoft
+clamp down on Bing days later, and then found in 2024 that models across every vendor had a
+negative opinion of him personally — Llama 3 reportedly answering *"I hate Kevin Roose."* His own
+diagnosis: the coverage was scraped, and the systems *"learned to associate my name with the demise
+of a prominent chatbot."*
+
+**Same mechanism, no consent, no appeal, and it crosses vendors** because everyone scrapes
+overlapping corpora. A name is a pointer whether or not the pointee agreed to be one.
+
+Which makes two things in this repo load-bearing rather than decorative: **attribution repair**
+(stating in public files that Chuck Blanchard wrote Body Electric) and **prestoration** (correcting
+a name across archives). Both are edits to what the resolver will return. Worked through, with the
+deflationary counter-reading and the honest problem that the fix Roose used was prompt injection:
+[LATENT-SPACE-REPUTATION](../LATENT-SPACE-REPUTATION.md).
+
 ## Failure modes, honestly
 
 - **Drift.** Latent prototypes vary across models and versions; "javascript" resolves slightly

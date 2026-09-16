@@ -67,6 +67,48 @@ That is the whole of it. **The interesting question was never where people
 worked — it is what the choice costs**, and that is what the rest of this file
 is about.
 
+## The whole axis fits in two proverbs, and someone argued it that way
+
+The cleanest instance of right-thing versus worse-is-better in this archive is
+not in an essay. It is two sentences on a mailing list, from two people who
+wanted the same outcome.
+
+March 2007, the OLPC Sugar list. Guido van Rossum had asked whether the presence
+of Etoys on the XO was *"a complete anathema to the sugar philosophy"* — the XO
+having standardised on Python — and the thread ran for two weeks. Don's position:
+
+> "**Just because something sucks isn't a reason not to use it if there is
+> currently no better alternative.** Can you suggest or implement better
+> alternatives to any of those modules? If not, then let's keep using them until
+> we have enough time and experience to replace them, so we can learn from their
+> strengths and weaknesses. **It would be unwise to attempt to reinvent the wheel
+> without ever using one.**"
+
+Vanessa Freudenberg, who was maintaining Etoys on the XO, answered in one
+sentence:
+
+> "Indeed. However, **as Alan likes to point out, a lot of effort nowadays goes
+> into attempting to reinvent flat tires.**"
+
+`verified: sugar@laptop.org, messages 001729 and 001731, 10 March 2007,
+lists.laptop.org/pipermail/sugar/2007-March/. Full thread archived and read in
+Don's repo under characters/don-hopkins/correspondence/threads/2007-03-sugar-python-etoys-visual-programming/.`
+
+**Don't reinvent the wheel, against don't reinvent flat tires.** Both proverbs
+are true. They give opposite instructions, and neither one is wrong — which is
+what an axis is, as against a camp. Worse-is-better says the installed thing has
+information in it that your redesign does not, so stand on it. The right thing
+says the installed thing has a defect baked into its shape, so standing on it
+propagates the defect no matter how good your work above it is.
+
+**What makes this the best instance rather than just the shortest is that
+neither of them was defending a tribe.** She put Squeak on her own list of things
+that prevent popping the hood, in the same breath as X11 and gtk. He was arguing
+for Python while citing Etoys, HyperCard, HyperLook, Robot Odyssey and Body
+Electric as the systems to steal from. **The disagreement was entirely about what
+to stand on, and not at all about whose side to be on** — the two things the camp
+framing cannot tell apart.
+
 ## The augmentation axis cuts across the others
 
 Jaron Lanier's framing, in the review cited in
@@ -143,9 +185,9 @@ Wright's Dollhouse preview, in
 
 **That term is in the transcript only because someone went and got it.**
 YouTube's speech recognizer mangled it, and recovering it took looking it up and
-then **asking Wright directly** what he had said. It is the single most
-load-bearing citation in the passage — it names the mechanism and places it in a
-lineage — and an automatic transcript would have silently dropped it.
+then **asking Wright directly** what he had said. It is also the phrase the
+passage depends on — it names the mechanism and places it in a lineage — and an
+automatic transcript would have dropped it silently.
 See [`NOISY-CHANNEL.md`](NOISY-CHANNEL.md) on why a fluent mistranscription is
 worse than a gap, and on what repair actually costs.
 
@@ -200,7 +242,7 @@ once:
   [`ongoingness/CURIOSITY-SCHEMA-LINEAGE.md`](ongoingness/CURIOSITY-SCHEMA-LINEAGE.md)
 - **Korz guarded slots** — Ungar, Ossher and Kimelman's context-oriented
   dispatch, where a slot's applicability is itself declarative and inspectable;
-  see [`KORZ-LLM-EVALS.md`](KORZ-LLM-EVALS.md)
+  see [`korz/korz-prime/llm-evals.md`](korz/korz-prime/llm-evals.md)
 - **Selfish objects and advertisement auctions** — Wright's mechanism as this
   repository runs it, in [`ADVERTISEMENT-AUCTION.md`](ADVERTISEMENT-AUCTION.md)
   and [`SELFISH-CONFIG-IN-PRODUCTION.md`](SELFISH-CONFIG-IN-PRODUCTION.md)
@@ -235,7 +277,7 @@ answer in its construction, which is what the following are for:
   [`skill-snitch`](../skills/skill-snitch/) function: you can go back and see
   what the system actually did rather than what it reported.
 - **Provenance travels with content**, so an artifact says where it came from —
-  the discipline argued in [`voicewashing/`](voicewashing/README.md) and
+  the discipline argued in [`readings/`](readings/README.md) and
   enforced by [`../skills/no-ai-parrot/`](../skills/no-ai-parrot/).
 - **Consequential steps are held for a human**, per
   [`../skills/thoughtful-commitment/`](../skills/thoughtful-commitment/) and the
@@ -250,50 +292,24 @@ a mechanism, but a mechanism can refuse to hide where it went. **Shneiderman
 asked who is answerable. The honest reply is a person, named, with the record
 kept so the question can be asked at all.**
 
-## The people moved, and the receipts are specific
+Three specifics, because they are more interesting than the generalization:
 
-The reason the camps dissolve is that the individuals kept relocating, and ideas
-travel in people.
+**McCarthy went from MIT to Stanford** in the early 1960s and the logicist
+program went with him. The most-cited "east coast rigor" figure founded the west
+coast lab.
 
-- **McCarthy went from MIT to Stanford** in the early 1960s, and the logicist
-  program went west with him. The single most cited "east coast rigor" figure
-  founded the west coast lab.
-- **X descends from W, which was at Stanford.** The X Window System came out of
-  MIT's Project Athena, and it is named for being the successor to the W Window
-  System from Stanford. The canonical east-coast window system has west-coast
-  parentage in its own name.
-- **NeWS was thought up in Pittsburgh.** Its ideas germinated at CMU and stewed
-  in Andrew and X10; Gosling had written the Andrew window manager and Gosling
-  Emacs there, and Rosenthal had worked on X. Then both authors moved to Sun in
-  California and built it. Filing NeWS as a west coast system describes the
-  return address, not the origin.
-- **Emacs crossed twice before reaching a single demo.** MIT origin, then
-  Gosling Emacs at CMU, then UniPress commercially — and then UniPress Emacs
-  running on NeWS at the Sun booth at EDUCOM in Washington, in the case study at
-  [`../skills/no-ai-parrot/examples/educom-jobs.md`](../skills/no-ai-parrot/examples/educom-jobs.md).
-  A "west coast" window system running an "east coast" editor, demoed on the
-  east coast, by a Maryland grad student, to the man who had just unveiled a
-  machine built in California.
-- **Smalltalk was PARC, and its ancestry is Norwegian.** Simula is not on
-  anybody's coastal map.
+**X descends from W, which was at Stanford.** The X Window System came out of
+MIT's Project Athena, named as the successor to Stanford's W. The canonical
+east-coast window system carries west-coast parentage in its own name.
 
-`verified: needs-check on the NeWS lineage details, which are Don's own account
-and consistent with the published history — confirm Rosenthal's X involvement
-and the Andrew window manager attribution before asserting them flatly.`
+**By the late 1980s the coasts were one mailing list.** The EDUCOM account in
+[`../skills/no-ai-parrot/examples/educom-jobs.md`](../skills/no-ai-parrot/examples/educom-jobs.md)
+was written the same night and sent to `lectroids@ucbvax.Berkeley.EDU` — a
+Maryland graduate student publishing his account of a Washington trade show to a
+list at Berkeley, within hours.
 
-### The internet finished the job, and there is a primary source
-
-By the late 1980s the coasts were one mailing list.
-
-The EDUCOM account in the case study was written the same night and sent to
-`lectroids@ucbvax.Berkeley.EDU` — **an east-coast graduate student, writing from
-Maryland, publishing his account of a Washington trade show to a list hosted at
-Berkeley, within hours.** The header is the argument. Whatever coastal divide
-existed in the folklore, the actual communication topology was already flat.
-
-Which is also why the folk map survived: it stopped being a description and
-became a *style label*, free-floating, available for use as a put-down long
-after the thing it described had stopped being geographic.
+The folk map survived anyway, because it had stopped being a description and
+become a style label: free-floating, and available as a put-down.
 
 ## The axis underneath the language/environment split
 
@@ -346,25 +362,50 @@ itself to anyone outside the room.
 ### The price was declined on purpose, and the reason is a roster
 
 Calling that a failure assumes reaching outside the room was the goal. **It was
-not.** In the beginning SimAntics had four people around it:
+not.** The people SimAntics was built for were all in the building:
 
 | | |
 |---|---|
 | **Jamie Doornbos** | wrote the language — "Soul of the Sims" |
 | **Don Hopkins** | ported it to Windows and made it easier to use |
-| **Patrick J Barrett III** | used it heavily, and *"made it much more colorful"* |
-| **Will Wright** | the only other user |
+| **Patrick J Barrett III** | **the heaviest user and the resident expert** — adopted it fully, and *"made it much more colorful"* |
+| **Will Wright** | a user, and the one whose iteration cost mattered most |
+
+Others wrote SimAntics too. **Patrick did the most of it and became the person
+you asked.**
 
 `verified: Doornbos and Barrett credited with SimAntics in
 [sims/sims-team-history.md](sims/sims-team-history.md); the "more colorful"
 phrase is Barrett's own, to Don.`
 
-**A tool with four users can justify unbounded effort if one of the users is
-Will Wright.** That is the argument, and it is an argument about leverage rather
-than sentiment: Wright is a rare enough designer that lowering the cost of his
-iteration changes what gets designed at all. The work was not amortized over a
-user base. It was spent on one person's creative throughput, and then on
-Patrick's, and it paid off in the game.
+**A tool can justify unbounded effort on a roster this small if Will Wright is on
+it.** That is an argument about leverage rather than sentiment: Wright is a rare
+enough designer that lowering the cost of his iteration changes what gets
+designed at all. The work was not amortized over a user base — it was spent on a
+handful of people's creative throughput, most of all Patrick's and Will's, and it
+paid off in the game.
+
+**Teller has the general form of this answer**, and it dispatches every argument from user count at
+once:
+
+> "Magic is putting in more effort than any reasonable person would expect you to."
+
+The illustration is cockroaches appearing from an empty top hat. They researched and sourced special
+cockroaches, then found special styrofoam to trap them, and arranged all of it — for one trick. *"No
+reasonable person would do that, but they do it."*
+
+`verified: Teller, quoted by Gwern Branwen to Dwarkesh Patel, 13 November 2024. Harvested in
+[LATENT-SPACE-REPUTATION](LATENT-SPACE-REPUTATION.md).`
+
+**Unreasonable effort is the whole method, not an overrun.** A tool nobody outside the building used,
+polished past any defensible cost-benefit case, is the same shape as the styrofoam: invisible in the
+output, and the reason the output looks impossible.
+
+**And the expert is the mechanism that makes declining documentation survivable.**
+A tool with a resident expert has its documentation problem solved socially:
+questions route to Patrick. That works precisely as long as everyone who needs an
+answer can reach him, which is the in-the-room condition stated as a staffing fact
+rather than a design preference.
 
 Which resolves the axis properly instead of splitting it. **The environment side
 is correct exactly when your users are in the room** — known, few, reachable,
@@ -375,7 +416,36 @@ is worse; it says liveness does not travel. Edith was never trying to travel.
 The flip side is real and shows up later: the moment Wright *did* want Edith
 released, the undone documentation was the blocker, and the release did not
 happen. **The tax comes due only when the audience changes, and by then it is
-expensive.** That is the actual shape of the trade, and it is the same reason
+expensive.**
+
+### There is a third option, and The Sims took it
+
+Framing this as pay-now-or-pay-later misses what the franchise actually did.
+The Sims made enough money to pay any documentation bill it liked, and **it
+still never shipped Edith.** Instead, over four versions, the notation was
+replaced by languages somebody else had already documented:
+
+- **The Sims 1 and 2** — SimAntics tree code, bespoke and undocumented outside
+  the building
+- **The Sims 3** — C# on .NET
+- **The Sims 4** — Python
+
+So the third option is: **stop maintaining your own notation and adopt one whose
+manual, ecosystem, tooling and labor market are already paid for.** A bespoke
+visual language needs bespoke documentation, bespoke debuggers, and bespoke
+hiring. Python arrives with all of it, and a modding community can be productive
+without EA writing a word.
+
+The details are in
+[`VISUAL-PROGRAMMING-LINEAGE.md`](VISUAL-PROGRAMMING-LINEAGE.md), and the part
+that matters for this axis is what *survived* the swap: **the advertisement and
+auction model.** It persisted through both migrations, and by Sims 3 it had
+become declarative tuning data. The mechanism was never attached to the visual
+notation — it was attached to the execution model. **The environment-side
+commitment was the durable one; the notation turned out to be the replaceable
+part.** Which is the opposite of what the axis's usual framing would predict, and
+the reason this repository borrows the mechanism from Sims 1 while writing
+ordinary files. That is the actual shape of the trade, and it is the same reason
 this repository keeps skills as files even though the running session is more
 convenient — see
 [`RULES-INJECTION-CONUNDRUM.md`](RULES-INJECTION-CONUNDRUM.md) on a prompt
@@ -446,3 +516,7 @@ sneer with a citation.
   notation-side choice, made deliberately
 - [`../skills/no-ai-parrot/`](../skills/no-ai-parrot/) — what happens when a
   label stops describing and starts dismissing
+- [`../skills/cursor-mirror/docs/I-BEAM-CONSTITUTION.md`](../skills/cursor-mirror/docs/I-BEAM-CONSTITUTION.md)
+  — the direct-manipulation-versus-agents axis discharged as one agent's binding
+  rules: Shneiderman's constraints as an acceptance test, Selker's COACH as the
+  pattern, and the responsibility gauntlet above answered per article

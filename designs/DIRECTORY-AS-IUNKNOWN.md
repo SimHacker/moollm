@@ -38,7 +38,20 @@ Key insights from COM:
 1. **Objects can have multiple interfaces** — same object, different views
 2. **Runtime polymorphism** — discover capabilities at runtime
 3. **Interface inheritance** — but NOT implementation inheritance
-4. **Aggregation instead of inheritance** — compose objects, don't subclass
+4. **Aggregation as well as inheritance** — composition *complementing* three
+   kinds of inheritance rather than replacing any of them:
+   - **Interface inheritance** — every interface still inherits IUnknown; that is
+     what makes QueryInterface askable of anything
+   - **Multiple inheritance** — the ordered `parents:` list, descended from
+     Densmore and Rosenthal's PATH-based scheme and from Self's named parent
+     slots. A directory has several parents, not one chain
+   - **[Latent-space inheritance](object-system/LATENT-SPACE-INHERITANCE.md)** —
+     inheriting from named concepts in the training data, with the LLM as
+     universal resolver. Name `IUnknown` and you inherit COM's whole contract
+     without writing it down
+
+   Aggregation is what covers **implementation** reuse, since none of the three
+   supplies it: an object holds inner objects and forwards to them.
 5. **Tear-off interfaces** — create interface on demand, with own state
 6. **Controlling unknown delegation** — QueryInterface can delegate to inner objects
 7. **Reference counting** — memory management without GC

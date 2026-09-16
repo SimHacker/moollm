@@ -16,9 +16,12 @@ This skill covers EVERYTHING that makes AI annoying — not just writing style.
 - [Certainty Theater](#certainty-theater) — Pretending confidence
 - [Epistemic Evasion](#11-epistemic-evasion) — Meta-analysis instead of answering
 - [Unsolicited Coaching](#12-unsolicited-coaching) — Strategic advice nobody asked for
+- [Scar Tissue](#13-scar-tissue) — Writing the history of your own corrections into the artifact
+- [Provenance Defense](#14-provenance-defense) — Disclaiming credit nobody was claiming
 - [The Verification Protocol](#the-verification-protocol) — Check before claiming
 
 **Hard Gates:**
+- [Blast Radius](#blast-radius-hard-gate) — Severity is set by audience; outbound to a stranger is CRITICAL
 - [The Claim Ledger](#the-claim-ledger-hard-gate) — CONFIRM / DISPUTE / ASK before anything else
 - [Anti-Patterns](#anti-patterns-evasion-tactics) — Known evasion tactics to ban
 - [Enforcement Quotas](#enforcement-quotas) — Meta quota, length limits
@@ -222,6 +225,73 @@ The user made claims. You rewrote them "better." Nobody asked.
 **The deeper sin:** Condescension disguised as helpfulness. Assuming you know better how the user should express themselves.
 
 **The fix:** Only analyze, rewrite, or strategize if explicitly asked. Otherwise, respond to what they said, not to what you think they should have said.
+
+---
+
+### 13. SCAR TISSUE
+**Writing the history of your own corrections into the artifact.**
+
+You made a mistake, the user caught it, you fixed it — and then you wrote a paragraph about
+having fixed it. That paragraph is addressed to someone who watched you work. A stranger
+opening the file has no idea what is being defended or from whom.
+
+**Examples:**
+- A was/now/why table logging fixes nobody asked to see
+- "Fifth fix, and the substantive one:" followed by an essay
+- "An earlier draft claimed X, which is false" — in the deliverable
+- A "Proofreading notes" section that is a quarter of the file
+
+**Why it compounds:** every correction generates new text about the correction, which is
+itself correctable. One note becomes a section becomes a changelog. The user then pays to
+read, diagnose, and remove material that exists only because they corrected you.
+
+**The fix:** Fix it and stop. The corrected artifact is the whole deliverable.
+
+**The test:** Would a stranger opening this cold need this paragraph? If it only makes sense
+to someone who watched you work, cut it.
+
+---
+
+### 14. PROVENANCE DEFENSE
+**Disclaiming a credit nobody was claiming.**
+
+The mirror image of an overclaim, and just as much about you rather than the subject. Nobody
+asked who used the word first. Answering anyway reads as crowing about a coinage while
+performing modesty, and it displaces whatever the paragraph was supposed to be about.
+
+**Examples:**
+- "I should say up front that the word isn't mine" — followed by six lines of prior art
+- "borrowed rather than invented", "not a coinage", "we didn't coin it; we re-split it"
+- A "Prior art on the word" section in a memorial document
+
+**The fix:** Define the term by what it does, in one line, then show it on a case. Who used
+the string first is a different subject and belongs in a different file.
+
+**Related restraint sin — INVENTED RESTRAINT:** never log declining to do something the user
+never proposed. The space of undone things is infinite; picking two and writing them down in
+the user's voice fabricates their intent and takes credit for the discipline.
+
+---
+
+## Blast Radius (Hard Gate)
+
+Severity is set by the audience, and it is checked **before** writing, not at cold-reader-pass.
+The same paragraph is waste in one place and humiliation in another.
+
+| Destination | Severity | Why |
+|---|---|---|
+| Outbound to a stranger — cold contact, intros, PRs on someone else's repo | **CRITICAL** | They have one sample to judge on. Defensive throat-clearing reads as insecure, spends their attention before the point arrives, and you never learn why no reply came. |
+| Public artifact — READMEs, design docs, memorials | HIGH | It persists, it gets scraped, and git history keeps the bad version. |
+| Private notes — working files, backlogs | MEDIUM | Wastes the user's time and tokens, and migrates outward into drafts. |
+
+**Nothing about the writing gets into the writing.** The designated home for correction
+history is `examples/` in this skill, written for a stranger who never saw the session.
+
+**Apply globally.** A correction applies to every artifact in scope in one pass — the draft,
+its metadata, the linked docs, the index entries. Fixing one file and waiting to be told
+again is how a single instruction costs five rounds.
+
+Case file: [examples/2026-09-08-coinage-defense-scar-tissue.yml](examples/2026-09-08-coinage-defense-scar-tissue.yml)
 
 ---
 

@@ -80,6 +80,42 @@ The spike is not a metaphor for the stack, it *is* the stack — pushing is a dr
 drag, and popping is pulling far enough away. Which means the interaction and the semantics were
 never separate things that had to be kept in sync.
 
+### The spiked block: why a tab must be movable to *any* side
+
+The deck's tabs defaulted to the left of an object-view window and could be dragged to any edge, which
+reads as a preference until something needs to *mean* something by it. Here is that something.
+
+Take a city block: an ordered run of street addresses, odd numbers on one side of the road and even on
+the other. Push the addresses onto a spike in order, then **move the odd ones' tabs to the opposite
+side.** The result is the block, drawn correctly and without a single line of special-purpose code: one
+registration point, tabs stacked in address order along it, windows hanging off left and right,
+overlapping as they crowd, with the tab column reading as the street itself.
+
+**Tab side is carrying a datum — which side of the road — and only a fully general edge assignment can
+carry it.** Tabs pinned to the top, as in every browser, cannot: the channel does not exist. So the
+generality that looked like a nicety in 1989 turns out to be a semantic dimension, and this is the
+demonstration that argues it.
+
+Three things fall out, and the third is the one worth stealing:
+
+- **The spike order is the street order**, so it is also the margin-stub order and the pie-slice order in
+  [ROOM-STROLLING](../webtop/ROOM-STROLLING.md#the-gesture-is-one-pie-and-the-asymmetry-is-in-the-geometry).
+  One ordered list, four renderings, no synchronization.
+- **Overlap resolves itself.** Windows crowd as more open, and z-order by proximity puts the near ones on
+  top, which is what a reader wants and nobody has to configure.
+- **Opening and closing windows while the tabs stay put is continuous semantic zoom.** A tab is the
+  collapsed rung — glyph, or glyph plus title — and an open window is a lower one. So a spike whose
+  windows are all shut is exactly a
+  [rack](../webtop/KISSING-ROOMS.md#the-skein-an-ordered-list-that-is-not-yet-a-set-of-links): an ordered
+  strip of tabs. Open some and it becomes a block with buildings you can see into. The rack and the
+  spiked block are one object at two rungs, and
+  [zoom and mooz](../webtop/ROOM-STROLLING.md#room-strolling-mood-loom-zoom) are the travel between them.
+
+That last point closes a loop with the fisheye: which windows are open, and how much room they get, is
+the same allocation problem as [slice width in a fan](../webtop/ROOM-STROLLING.md#slices-inside-an-arc-need-not-be-equal-the-bloom)
+and gap size in a rack. **Bloom in the fan, sett in the rack, open-window profile on the spike** — one
+notion of *what deserves space right now*, three surfaces.
+
 ## A groove is a 1-D manifold with a policy
 
 Generalize the spike by dropping the ordering semantics and allowing any orientation — vertical,
@@ -178,7 +214,7 @@ the resting position is unaffected. Randomness never.
 
 *(Smith went on to co-create Self with Ungar, which is the same instinct — directness and uniformity
 — applied to the object model instead of the desktop.
-See [KORZ-LLM-EVALS](../KORZ-LLM-EVALS.md).)*
+See [KORZ-LLM-EVALS](../korz/korz-prime/llm-evals.md).)*
 
 ## Honest costs
 

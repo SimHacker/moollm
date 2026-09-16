@@ -1,0 +1,475 @@
+# Layered rules and drawing tools as Korz slots — the stack, not the zoo
+# Companion data for layered-rules.md. Prose there; the stack algebra here.
+# Sibling: margolus-rules.yml (block rules). That one is one stage of this pipeline.
+#
+# Grounded in real code: CAM6.js, github.com/SimHacker/CAM6/blob/master/javascript/CAM6.js
+# (~14,900 lines, read 2026-08). Line numbers cite that reading and will drift.
+# Flags: ⚠ = claim about CAM6.js behavior that Don should confirm from the running app.
+
+what_cam6_actually_has:
+  # Read this before proposing anything. The abstractions are RIGHT; the enumeration is wrong.
+  mechanism: "defineType(name, scope, indexGetFunction, indexKeys, objects) — every extension point is a registry of dicts keyed by symbol"
+  types: [neighborhood, rule, colorMap, tool, analyzer, compositionFunction, image, command, hint, chapter, lineCap, playMode, recordMode, tab, paramMetaData]
+  got_right:
+    everything_is_a_dict: "behavior lives in data with a symbol, name, description — inspectable, listable, savable. This is the yaml-jazz instinct in JS."
+    params_are_declared: >
+      Rules and tools carry paramsUsed:{}, naming exactly which parameters they read. That is a
+      Korz guard signature written down and then not dispatched on.
+    the_panel_is_generated: >
+      paramMetaData entries carry type, scopes, widget, tab, recordable, and
+      condition: paramUsedByCurrentRule — so the front panel is BUILT BY DISPATCH on the
+      current rule. CAM6 already generates its own UI from context. (~line 1368 onward.)
+    spring_return_knobs: >
+      frob seeks frobTarget at rate unfrob, scaled by frobScale. That is Tristram's bouncing
+      slider — value + target + speed — shipped inside a CA engine and called something else.
+      See ../../../don-hopkins/turn-tables.md, prior-art section.
+    tools_already_composite: "the line tool draws into an offscreen canvas and a compositionFunction thresholds it into cells — see tools_in_the_loop below"
+  got_wrong: [cross_product_as_names, layers_inlined_per_engine, stage_position_hardcoded]
+
+diagnosis:
+
+  cross_product_as_names:
+    # The suffix in a symbol name is a dimension that never got to be one.
+    rules: >
+      Life, Life_Echo, Life_Heat · Brain, Brain_Echo, Brain_Heat · Eco, Eco_Echo, Eco_Heat ·
+      Margolus_HVGas{,_Echo,_Heat} · Margolus_Critters{,_Echo} · Margolus_Dendrite{,_Heat} ·
+      VonNeumann_HGlass_{Down,Up,Left,Right}{,_Echo,_Heat}. Each is a hand-written dict whose
+      only differences are three integers: echoShift, heatShift, heatErrorShift.
+    record_modes: >
+      recordMode has SIX independent booleans — recordingSnapshot, recordingScript,
+      recordingCells, recordingParams, recordingCommands, recordingTools — and ten of the
+      sixty-four combinations are hand-named, ending at
+      'scriptCellsAllParametersCommandsTools'. The name is a conjunction spelled out loud.
+    the_tell: "when a symbol's name is a list of the features that are on, the features want to be coordinates"
+    fix: "one point in a product space per user choice; zero names"
+
+  layers_inlined_per_engine:
+    what: "echo and heat are `if (echoShift)` / `if (heatShift)` blocks copy-pasted INSIDE each neighborhoodFunction's inner loop"
+    seen_at: [3146 Life, 3298 Brain, 3480 Eco, 3682 Moore, 4036 VonNeumann]
+    cost: "N neighborhoods × M layers written out by hand; adding a layer means editing every engine"
+    why_it_happened: "hand-run loop fusion — it is genuinely faster than three passes over the grid, and there was no compiler to do it"
+    the_korz_answer: "write the stages separately, declare that they fuse, and make FUSION the compiler's job (see crystallization.fusion)"
+
+  heat_sum_bug:
+    # ⚠ Found while reading, not while running. Worth ten minutes with the live app.
+    claim: "the 3x3 heat diffusion sum omits `n` and counts `e` twice, in all five copies"
+    shape: |
+      error += (( (nw) + (e) + (ne) +
+                  (w)  + (c) + (e)  +
+                  (sw) + (s) + (se) ) >> heatShift) + frob;
+      The top-middle term should be `n`. `n` is in scope and used correctly by
+      getTableIndexUnrotated a few lines above, so this is not a naming problem.
+    copies: [3149, 3301, 3481, 3685, 4039]
+    predicted_symptom: "heat drifts east — an anisotropy the four-rotation scan would smear into a slow rotation rather than remove"
+    irony: >
+      The comment directly above the scan-rotation switch says the rotation exists to cancel
+      dithering artifacts "that would cause the heat to drift up and to the right." Rudy Rucker
+      caught the original drift bug; this may be a second one hiding behind the first fix.
+    how_to_check: "run Life_Heat with frob at zero on a single hot cell and watch the centroid"
+    the_architectural_point: "one typo, five copies. That is the price of hand-fusing layers into engines."
+
+stack:
+  # A generation is a PIPELINE over planes, not a function on cells.
+  # Every stage is a Korz sea. Every arrow between stages is a coherence decision.
+  stages:
+    - {stage: source,       what: "planes get written from outside — brush, image, webcam, recorded stroke, another engine"}
+    - {stage: neighborhood, what: "which sites are tapped, and in which derived basis (Moore / von Neumann / Margolus / custom)"}
+    - {stage: rule,         what: "the slot set proper — guards over the tapped context, emission into the low planes"}
+    - {stage: layer,        what: "echo, heat, and friends — stages that own their own planes and run per cell in the same pass"}
+    - {stage: composite,    what: "overlays folded into cells through a blend function"}
+    - {stage: measure,      what: "histogram, event counter, h_mu and C_mu — reads only"}
+    - {stage: display,      what: "color map, tiles, zoom, wrap, X-ray slice, space-time diagram"}
+  stage_is_a_dimension: >
+    `stage` is an ordinary context coordinate, so a slot can guard on it. That is what makes a
+    drawing tool and a CA rule the same kind of object living at different coordinates.
+  every_edge_has_a_coherence:
+    # Same axis as margolus-rules.yml crystallization.coherence_model, applied between stages.
+    past_buffer: "stage reads the previous frame — the safe default, costs a buffer"
+    in_place:    "stage reads what earlier stages already wrote this frame — cheaper, order-dependent, and sometimes THE POINT"
+    serial_carry: "stage carries scalar state from cell to cell in scan order — heat does this; see layers.heat.hazard"
+
+planes:
+  # The 8-bit cell is a struct, and the field layout is the real interface between layers.
+  model: "a cell site is N bits; a plane is a named bit-field with a width and an offset"
+  cam6_form: "mask (which bits the rule owns) + shifts (where each layer's bits start): mask 0x01 for Life, 0x03 for Brain, high bits for heat"
+  what_korz_adds:
+    named_fields: "plane.life, plane.echo, plane.heat, plane.opcode, plane.operand — guards read names, the compiler assigns bits"
+    ownership: "each stage DECLARES the fields it reads and writes; overlapping writes are a compile error, not a visual mystery"
+    why: "CAM6's toolMask, ruleDict.mask and highMask are the same discipline enforced by hand and by comment"
+
+layers:
+  # Each is a stage plugin. None of them is a rule variant.
+
+  echo:
+    what: "shift the old cell value up into its own field, so trails fade behind the action"
+    korz_shape: "pure per-cell copy — no neighborhood, no guards"
+    reads: [plane.self@past]
+    writes: [plane.echo]
+    parameters: {depth: "how many bits of history, 0 = layer absent"}
+    cam6_form: "echoShift integer on the rule dict; `cell |= c << echoShift`"
+    teaches: "the degenerate selector — a bank of plane routings chosen by a constant. The plane shifter IS Echo (CAM book §3.2)."
+    composes_with: "everything, because it reads the past and writes a field nobody else owns"
+
+  heat:
+    what: "diffuse the high field, with the low field acting as a source, and dither the remainder"
+    korz_shape: "convolution + accumulator, not a table"
+    reads: [plane.heat@neighbors, plane.self@center]
+    writes: [plane.heat]
+    parameters:
+      heat_shift: "divisor as a shift — diffusion rate"
+      heat_error_shift: "how much of the accumulated remainder lands in the cell — the dither strength"
+      pollution_shift: "how hard the live cells heat the field"
+      frob: "a constant added per cell — the drift knob, spring-returning to frobTarget at rate unfrob"
+    hazard:
+      serial_carry: >
+        `error` accumulates ACROSS CELLS in scan order. This layer is not a cellular automaton:
+        it is an error-diffusion dither (Floyd-Steinberg's family) wearing a CA costume. Its
+        output depends on the iteration order, which is why CAM6 rotates the scan 0/90/180/270
+        each step to cancel the anisotropy.
+      consequence_for_the_compiler: >
+        NOT "give up and approximate on the GPU." `serial: scan` is the wrong declaration — it names
+        an implementation (a total order) when the semantics need only a partial one. Declare the
+        DEPENDENCE CONE and let the compiler find the strongest exact schedule.
+        See serial_is_a_dependence_claim below.
+      why_this_matters_beyond_heat: "the first real proof that iteration order is part of the rule (../../../don-hopkins/cam-construction-set.md#iteration-order-is-a-plug-in)"
+
+  both_life:
+    what: "the classic totalistic survival/birth rule, with a polarity parameter"
+    korz_shape: "guards over an aggregate — sum8 — not over patterns"
+    parameters:
+      polarity: "pro-life | anti-life"
+    slots:
+      - {guard: {self: 1, sum8: [2, 3]}, emit: 1}
+      - {guard: {self: 0, sum8: 3},      emit: 1}
+      - {guard: {},                      emit: 0}
+    forces: "aggregate coordinates (popcount) — the residual table has nine entries, so tabulation is trivial and code generation is even cheaper"
+    why_one_rule_and_not_two:
+      diagnosis: "`life` and `anti_life` were two hand-written dicts differing by an inversion. Same disease as Life_Echo: a suffix standing in for a dimension."
+      mechanism: "anti-R = C ∘ R ∘ C, where C complements every cell. Anti-Life is not a rule, it is Life conjugated by an involution."
+      the_generalization_worth_taking: >
+        Conjugation is not a Life feature. ANY rule has an anti- version, and complement is only one
+        involution — reflect and rotate are others. So `polarity` is the first instance of a general
+        stage modifier, `conjugate: <involution>`, which reuses the same symmetry declaration the
+        guards and the schedulers already consume (../../../don-hopkins/schedulers.yml → group_coverage).
+      naming: "deadpan, deliberate; leave it dry"
+    polarity_wants_to_be_a_field_too:
+      claim: "a boolean is a constant field — paint polarity and pro-life and anti-life regions coexist on one grid"
+      consequence: "the boundary between them is another domain wall to measure, and Don's observation that anti-life 'just makes it foamier' becomes a testable statement about interfacial roughness"
+      see: "../../../don-hopkins/domain-walls.md"
+    cam6_form: "the anti- branch is the `if (anneal)` path inside the Eco neighborhood, ~3447"
+
+  brain:
+    what: "Brian's Brain — firing, refractory, quiescent"
+    korz_shape: "same aggregate guards, three states, so the field is two bits wide"
+    parameters: {mask: "0x03"}
+    forces: "field width as a parameter rather than a rewrite"
+
+  torben:
+    what: "a majority-ish vote read from a small lookup vector"
+    korz_shape: "guard on an aggregate index into a declared constant vector"
+    cam6_form: "[1,1,1,0,1,0,1,0,0,0,0][sum + planes above + plane below], ~5575"
+    forces: "constant tables as first-class rule data — the smallest possible bank"
+
+  anneal:
+    what: "majority vote with the near-tie inverted; the classic domain-forming rule"
+    korz_shape: "ARBITER — a bank of rules plus a selector computed by a rule of its own"
+    select: "vote = popcount(plane.anneal over 9 sites); annealed = (vote > 5) or (vote == 4)"
+    bank:
+      annealed: {defer_to: anti_life}
+      otherwise: {defer_to: brain}
+    cam6_form: "the Eco neighborhood, ~3433-3490 — hand-woven, one function, not composable"
+    teaches: >
+      Anneal is not a rule, it is a SELECTOR that happens to be a rule. Once that is said out
+      loud, 'Life here, Brain there, boundary negotiated by a third CA' is a wiring diagram
+      instead of a special engine.
+
+  risca:
+    what: "the cell's own high nybble names the layer it obeys; the low nybble is the operand"
+    korz_shape: "the same bank+selector, with the selector reading cell CONTENT instead of a neighborhood aggregate"
+    select: "plane.opcode"
+    bank: [c, life, brain, torben, anneal, ditto, logic, n, nw, w, sw, s, se, e, ne, heat]
+    cam6_form: "toolCells lists opcode names against their high-nybble values, ~6941"
+    consequences:
+      programs_are_painted: "adjacency is the calling convention — two hand-painted regions interact wherever they touch"
+      eyedropper_is_a_debugger: "sample a cell, paint with it: you have copied behavior, not appearance"
+      bank_must_be_open: "any layer in this file should be installable as an opcode; sixteen is a bit width, not a design"
+    teaches: "a proto-Movable Feast Machine atom: a typed cell that dispatches its own code"
+    moveable_variant:
+      what: "change the verb from COPY-from-direction to SWAP-with-direction and the payload travels"
+      buys: "conservation (histogram invariant), reversibility (swap is its own inverse), bijectivity (the layer is a permutation, i.e. transport rather than editing)"
+      conflict: "Margolus block confinement, an enable colouring, or mutual consent — swap iff both cells point at each other"
+      generalizes: "Margolus sand is this with the direction pinned to down; HPP is this with fixed instead of programmable momentum"
+      see: "../../../don-hopkins/schedulers.md — bresenham_particles.moveable_risca, including what happens when you release a population onto a photograph"
+
+serial_is_a_dependence_claim:
+  # Lifted out of heat.hazard because it governs every layer that carries state across cells.
+  thesis: >
+    "Serial" is a claim about a DEPENDENCE STRUCTURE, not about time. A total order is just one
+    linear extension of a partial order; the compiler's job is to recover the partial order and
+    run its antichains in parallel. Same move as everything else here: declare the semantics,
+    let the machine choose the schedule.
+  what_the_layer_declares:
+    instead_of: "serial: scan"
+    declare: "carry: {shape: none | stencil | accumulator, support: <offsets in the scan frame>, op: <associativity claim>}"
+    why: "'scan' over-specifies. The offsets are what actually constrain, and they are what a scheduler can solve."
+
+  strategies_in_order_of_preference:
+
+    wavefront:
+      applies_to: "carry.shape == stencil — error distributed to a bounded set of not-yet-visited neighbors (Floyd-Steinberg and family)"
+      move: "find a linear t(x,y) strictly increasing along every dependence edge; cells sharing t are mutually independent; one dispatch per level set"
+      worked_example: >
+        Floyd-Steinberg pushes error to E(7/16), SW(3/16), S(5/16), SE(1/16), so (x,y) depends on
+        (x-1,y), (x+1,y-1), (x,y-1), (x-1,y-1). Take t = x + 2y: every dependency has strictly
+        smaller t, and equal-t cells (x,y) and (x-2,y+1) do not reach each other. W + 2H passes,
+        BIT-EXACT, nothing approximated.
+      status: "loop skewing / the hyperplane method; known in the dithering literature as parallel error diffusion"
+      note: "this is 'only process certain pixels each iteration' — and it is exact, not a trick"
+
+    parallel_prefix:
+      applies_to: "carry.shape == accumulator — ONE scalar threaded along the scan path. This is CAM6's actual heat case, and it is strictly harder than Floyd-Steinberg."
+      the_problem: "a single accumulator makes the dependence graph a PATH of length W*H. No antichains. Wavefronting buys nothing."
+      the_out: >
+        The recurrence is affine — error' = (error + input_i) >> shift is f_i(x) = a*x + b_i with
+        a = 2^-shift — and affine maps compose into affine maps. So it is a first-order linear
+        recurrence and yields to PARALLEL PREFIX (recursive doubling / Blelloch) at log(N) depth.
+      the_pun_is_real: "a serial 'scan order' parallelized by a parallel 'scan'. Same word, both senses, not a coincidence: both are prefix computations."
+      exactness_caveat: "⚠ integer truncation on >> breaks exact associativity. Bit-exactness needs a widened accumulator or a correction pass; not yet derived for CAM6's shift sequence."
+      cheap_alternative: >
+        The carry DECAYS at 2^-shift per cell, so after roughly 53/shift cells an earlier value is
+        below one ULP and blocks may start from zero with a bounded error. Bounded is a number you
+        can print, which is more honest than "we parallelized it."
+
+    masked_multipass:
+      applies_to: "carries expressible as a graph coloring rather than a level set"
+      move: "k passes, pass p touching only cells where (a*x + b*y) mod k == p"
+      relation_to_everything_else: >
+        The SAME machinery as Margolus block phases, checkerboard sweeps, and MFM non-overlapping
+        windows. All four are "partition the interference graph, run one class at a time," so one
+        compiler pass serves all of them.
+        (../../../don-hopkins/cam-construction-set.md#iteration-order-is-a-plug-in)
+
+    tiled_with_declared_seams:
+      applies_to: "when the exact parallelism is too narrow to fill the machine"
+      move: "each tile runs the honest serial scan internally, tiles are wavefronted"
+      seams: "halo carry threaded (exact, re-serializes the diagonal) or zeroed (approximate, bounded)"
+      requirement: "if seams are zeroed, the bound is reported as a number, never hidden"
+
+    declared_substitution:
+      applies_to: "last resort, with consent"
+      move: "swap the carry for a per-cell hash dither or a blue-noise threshold texture"
+      rule: "this changes the rule, so it appears in the UI AS a different rule, not as a performance setting. Silent substitution is the sin; declared substitution is a feature."
+      see: "procedural_fields.the_property_that_makes_noise_safe — why the substitute should be a pure function of (x,y,t,seed) and not an RNG stream"
+
+  what_the_compiler_owes_the_user:
+    - "report WHICH strategy it chose — the panel already shows frame time, it can show the schedule"
+    - "report exactness: bit-exact | bounded with a number | declared-different"
+    - "never move down this list silently"
+
+the_one_component:
+  # cam-construction-set.md says this from the top down. Here it is from the slots up.
+  claim: "phase matrix, anneal, RISCA, and plane routing are ONE component with different selectors"
+  shape: "bank: [behavior...] + select: <expression over context dimensions>"
+  instances:
+    marble:  {bank: "16 convolution kernels", select: "phase matrix — constant, clock, cell value, X, Y"}
+    anneal:  {bank: "two rules",              select: "a third rule's vote"}
+    risca:   {bank: "16 layers",              select: "the cell's own opcode field"}
+    echo:    {bank: "plane routings",         select: "a constant — the degenerate case"}
+    tools:   {bank: "blend functions",        select: "the tool dict, i.e. what the hand is holding"}
+  consequence: "nesting is free: a selector whose source is another bank's output. That is where a config format becomes a language."
+
+tools_in_the_loop:
+  # The question this file exists to answer: how does drawing become just another stage?
+
+  claim: "a drawing tool is a rule whose neighborhood is the pointer"
+  argument: >
+    A rule reads a neighborhood, consults guards, and writes masked bits into planes. A brush
+    reads mouseX/mouseY/toolSize, consults a region test, and writes (toolCell & toolMask) into
+    the same planes. Same read-guard-emit shape; the only difference is that one neighborhood
+    comes from the grid and the other comes from a hand. Put both at `stage: source` and
+    `stage: rule` respectively and the pipeline does not care.
+
+  cam6_already_did_the_hard_half:
+    composition_overlay: "a tool can draw with the ordinary Canvas 2D API into an offscreen canvas — strokes, caps, line widths, images, text"
+    composition_function: >
+      a separate registered type that reads that canvas and folds it into cells:
+      threshold_toolCell_set takes compositionChannel, compositionThresholdMin/Max and writes
+      (toolCell & toolMask) | (cells[i] & ~toolMask). That is a BLEND MODE, registered as data.
+    feedback_overlay: "a SECOND canvas drawn in colormap colors for the human, so a stroke can be previewed before it is committed"
+    wraplicate: "run the tool nine times at ±width/±height so strokes wrap the torus (~14234)"
+    lifecycle: [beginToolFunction, beforeToolFunction, toolFunction, afterToolFunction, endToolFunction]
+    context_field: "context: 'cells' — the tool already names which buffer it targets"
+    verdict: "the mechanism is right and under-generalized. Four fixes below and it becomes the composition step you want."
+
+  fix_1_stage_position_is_a_dimension:
+    problem: "CAM6 applies tools at one fixed point in the frame (~14090). Where a tool runs is not expressible."
+    fix: "give every tool a `stage` coordinate like any other layer"
+    the_positions_are_different_instruments:
+      before_rule:  "paint, then evolve — the stroke is already one tick old when you see it; drawing feels like seeding"
+      after_rule:   "evolve, then paint — the stroke survives the tick untouched; drawing feels like overwriting"
+      interleaved:  "paint into the buffer the rule is currently reading — in-place coherence; the stroke propagates DURING its own frame, which is how you draw a wavefront and have it start moving from the head of the stroke"
+      per_substep:  "for Margolus, between block phases — the only way to paint without breaking reversibility, because you can restrict writes to blocks not yet visited"
+    why_it_matters: "this is the honest answer to 'just another composition step' — the composition step needs a POSITION, and the position changes the physics, not just the timing"
+
+  fix_2_source_region_blend:
+    problem: "each tool dict hand-codes geometry AND value AND write policy in one toolFunction; there are square/circular × brush/spray/randomSpray variants for the same reason Life_Echo exists"
+    fix: "three independent dimensions"
+    source:
+      constant: "toolCell — what every brush uses now"
+      image:    "WebCam, StupidFunClubLogo, micropolis-tiles — CAM6 registers these already"
+      plane:    "another field of the same grid — an eyedropper that keeps dropping"
+      engine:   "another CA running elsewhere — this is the layer bus / ganged CAM-6 cards"
+      recorded: "a played-back stroke, identical in kind to a live one"
+      procedural: "a noise/gradient/pattern graph evaluated per cell — see procedural_fields below"
+    region:
+      geometry: [square, circle, line, polygon, arbitrary_canvas_path]
+      density:  "solid | spray with volume and granularity — currently a separate tool per combination"
+      falloff:  "hard | soft — soft edges need a blend that is not a threshold"
+    blend:
+      # generalizing threshold_toolCell_set into a proper set
+      set: "masked assignment — what exists today"
+      logical: [or, and, xor, andnot]
+      arithmetic: [add, sub, max, min, average]
+      conditional: "write only where a guard over the destination cell holds — a blend mode that is a slot set"
+    payoff: "square/circular × brush/spray/randomSpray/disruptor collapses the way Life_Echo does"
+
+  fix_3_boundary_is_one_dimension_everywhere:
+    observation: >
+      `wraplicate: true` on a tool, the grid's toroidal edges, and a Turn Table's wrap/bounce/clamp
+      are three spellings of the same choice. CAM6 hard-codes torus in the tool and offers no
+      alternative.
+    fix: "topology: torus | klein | projective | clamp | bounce | infinite, declared once and consumed by every stage"
+    derivation: "wraplicate's nine copies are 3^d for d=2 under torus; klein flips one axis; clamp needs one copy"
+    link: "../../../don-hopkins/turn-tables.md — the same parameter at the scale of a knob"
+
+  fix_4_preview_is_general:
+    observation: "feedbackOverlay is a preview of a pending write, and only tools get one"
+    fix: "make `preview` a stage modifier: run the stage, show the result, do not commit"
+    unlocks:
+      rule_preview: "see what one tick would do before taking it — onion skinning"
+      scrub: "the machinery scrubbing needs for dragging time backward through a non-invertible rule — turn-tables.md"
+      ghost_tools: "a tool that only ever previews is a measuring caliper"
+
+  record_and_playback_falls_out:
+    claim: "if every stage is data, recording is a tap on the stage bus and playback is a source layer"
+    today: "recordMode enumerates ten of sixty-four combinations of six booleans"
+    tomorrow: "record: {cells: bool, params: bool, commands: bool, tools: bool} × {snapshot | script | changes} — four independent switches and a mode, chosen not named"
+    the_good_part: "a recorded stroke replays through the same source/region/blend path as a live hand, so playback is not a special case and cannot drift from live behavior"
+    the_warning: >
+      Electropaint shipped as a screensaver playing back recordings with the sliders hidden, and
+      became wallpaper. Record/playback must never be the only way the instrument is experienced.
+      (../../../dave-tristram/raster-masters-panel-library.md)
+
+procedural_fields:
+  # Don: "marble does not itself use noise as an input, but I do want rules to be able to use
+  # combinations of Perlin noise as inputs, very useful. Blender texture nodes are an inspiration."
+  # Correction applied above: the phase matrix selects on constant/clock/cell/X/Y. Noise is not
+  # currently one of its sources. It should be, and not only there.
+
+  the_promotion:
+    claim: "EVERY scalar parameter in this file wants to be a field. A scalar is a constant field."
+    examples:
+      - "heat's frob — currently one number and a spring; as a field it is a spatially varying drift"
+      - "ising temperature — as a field you get annealing FRONTS instead of a global anneal, which is the interesting physics"
+      - "anneal's selector bias, marble's kernel index, any rule's threshold"
+    how_a_field_gets_authored: [constant, painted_by_hand, sampled_from_an_image, another_plane, another_engine, PROCEDURAL]
+    why_this_is_the_unification: >
+      Those six are exactly the `source` list of fix_2_source_region_blend. A parameter field and a
+      drawing tool draw from the SAME registry. Noise is not a special feature bolted onto rules; it
+      is one entry in a source list that tools already have, promoted to also feed parameters.
+
+  what_procedural_means_here:
+    primitives: [perlin, simplex, value, worley_voronoi, gradient, checker, wave_sine, wave_saw, radial, constant]
+    combinators:
+      octaves: "fBm — sum k octaves with lacunarity and gain. 'Combinations of Perlin noise' IS this, mostly."
+      turbulence: "sum of |octaves| — the classic Perlin ridged variant"
+      arithmetic: [add, sub, mul, mix, min, max, abs, pow, clamp, remap]
+      threshold: "field to bitmask — how a continuous field becomes a cell plane"
+      domain_warp: >
+        Feed one noise field into the COORDINATES at which the next is sampled. The most valuable
+        combinator by a distance, and the one that makes noise look organic rather than fuzzy.
+        In CA terms it is an addressing plug-in, not a value plug-in — it perturbs where you look,
+        which is the same axis the neighborhood former lives on.
+    parameters_per_primitive: [seed, frequency, amplitude, offset_xyz, time_rate, octaves, lacunarity, gain]
+
+  the_inspiration_is_exact:
+    named: "Blender texture/shader nodes; also Perlin's original hypertexture pipeline, Houdini VOPs, Substance"
+    why_it_is_not_just_an_analogy: >
+      A Blender texture graph is sources -> combinators -> output, evaluated per point, stateless.
+      This pipeline is sources -> stages -> planes, evaluated per cell. Same graph.
+      A CELLULAR AUTOMATON IS A TEXTURE NODE GRAPH WITH A FEEDBACK EDGE — the grid's previous state
+      wired back to an input. That single sentence buys the whole node-graph UI vocabulary, and it
+      explains why texture systems and CA systems keep reinventing each other's parts.
+    what_we_take: [node_graph_ui, per_node_preview_thumbnails, reusable_node_groups, the_generator_combinator_split]
+    what_they_lack: "the feedback edge, and therefore time, memory, and everything margolus-rules.yml is about"
+
+  the_property_that_makes_noise_safe:
+    claim: "Perlin noise is a PURE FUNCTION of (x, y, t, seed) — no stream, no state, no draw order"
+    consequences:
+      reversible: "run time backwards and the field replays exactly. Math.random() cannot do this; a noise field can."
+      order_independent: "no serial carry, so unlike heat it parallelizes to the GPU with nothing to declare"
+      reproducible: "a seed reproduces a session — a patch stays a patch"
+      cheap_to_ship: "the field is a formula, not a texture, so a shareable patch stays kilobytes"
+    therefore: >
+      Noise is the RIGHT source of spatial variation for anything that must stay deterministic:
+      dither substitution for the heat carry (see serial_is_a_dependence_claim), Metropolis
+      acceptance, spray-tool density, initial conditions. Prefer it to an RNG stream everywhere.
+    caveat: "⚠ blue-noise dither and Perlin are different tools — Perlin is low-frequency by construction and will band if used raw as a dither threshold. Use a hash or blue-noise texture for dithering, Perlin for structure."
+
+  a_name_collision_to_be_careful_about:
+    perlin_marble: "sin(x + turbulence(x,y,z)) — the classic Perlin texture, noise-driven by definition"
+    cam6_marble: "a bank of 16 convolution kernels under a phase matrix — NOT noise-driven"
+    note: "same word, unrelated mechanisms. Do not let the analogy in this file imply CAM6's marble uses noise; it does not."
+
+  where_the_code_might_already_be:
+    status: "⚠ Don recalls Perlin code either in the emulator or elsewhere in his tree; unlocated as of this reading"
+    fallback: "trivial to write from scratch — a permutation table, a gradient set, and a fade curve"
+    todo: "find it or write it; either way it becomes a registered source type, not a rule"
+
+crystallization:
+  # What this file demands of the compiler, on top of what margolus-rules.yml demands.
+  required:
+    - stage_pipeline: "stages are ordered, declared, and guardable — `stage` is a context dimension"
+    - plane_algebra: "named bit-fields with declared ownership; overlapping writes are a compile error"
+    - bank_and_selector: "one component, with the selector an arbitrary expression over context, nestable"
+    - delegation: "defer_to, so anneal and RISCA are wiring rather than engines"
+    - fusion: >
+        The compiler must fuse adjacent per-cell stages into one inner loop. This is the single
+        highest-value obligation in the file: hand-fusion is exactly what produced five copies of
+        the heat sum and one bug in all five.
+    - dependence_cone_declaration: >
+        A stage declares its carry SHAPE and support offsets, not a scan order. The back end then
+        picks the strongest exact schedule — wavefront, parallel prefix, masked multipass, tiling —
+        and reports which one and how exact. Substitution only with consent.
+        (serial_is_a_dependence_claim)
+    - topology_as_a_dimension: "torus/klein/clamp/bounce consumed identically by grid, tool, and control"
+    - blend_modes_as_data: "compositionFunction generalized to a registered set, usable by any stage"
+    - parameters_are_fields: >
+        Any parameter slot accepts a constant OR a field, from the one shared source registry
+        (painted, image, plane, engine, procedural). The compiler specializes the constant case back
+        to a constant so nothing is paid for the generality — which is partial evaluation again,
+        the same move the rule tables are built on.
+    - preview_modifier: "run a stage without committing, for tools, rules, and time-scrubbing alike"
+    - generated_panel: "keep CAM6's paramMetaData idea — widget, scope, tab, recordable, condition — and dispatch it on the whole stack instead of on the current rule"
+  payoff: >
+    Every named rule in CAM6.js that carries a suffix disappears. Life_Heat is not a rule; it is
+    the point {rule: life, heat: {shift: 1, error_shift: 2}} in a space the user can move around
+    in continuously, which is the difference between a menu and an instrument.
+
+verify_against:
+  code: "github.com/SimHacker/CAM6/blob/master/javascript/CAM6.js"
+  app: "https://donhopkins.com/home/CAM6"
+  who: "Don wrote it; every ⚠ here is a five-minute question for him"
+  what_is_claimed: "the SHAPE of the abstractions and the diagnosis of where they stop composing; not that the reading of any inner loop is bug-free"
+
+cross_links:
+  - README.md
+  - margolus-rules.yml                                  # block rules — one stage of this pipeline
+  - ../case-cellular-automata.md
+  - ../../../don-hopkins/cam-construction-set.md        # the same architecture argued top-down
+  - ../../../don-hopkins/schedulers.md                  # the scheduler axis opened out — where serial_is_a_dependence_claim gets its orders from
+  - ../../../don-hopkins/cam6-cellular-automata-machine.md
+  - ../../../don-hopkins/turn-tables.md                 # frob/frobTarget/unfrob is already a bouncing slider
+  - ../../../dave-tristram/raster-masters-panel-library.md
+  - ../../../norman-margolus/the-cam6-demo-transcript.md
+  - ../../../rudy-rucker/README.md                      # caught the original scan-order drift bug

@@ -1,0 +1,198 @@
+# Snap!Con 2025 — Brian Harvey ACM Karlstrom Award Address
+# Evening talk, Sep 21, 2025. Introduced by Jens Mönig.
+# Public video: https://www.youtube.com/watch?v=pDK2PE_pkqQ
+# Director's cut (44 min): linked from the video description + Snap!Con site.
+# Contains the seventh-grade algebra teacher story the live talk only teases.
+# Cleaned transcript of the live talk: snapcon-2025-karlstrom-address-transcript.md
+
+meta:
+  rendered_edition: snapcon-2025-karlstrom-address.md
+  event: Snap!Con 2025
+  date: 2025-09-21
+  title: "ACM Karlstrom Award Address"
+  speaker: Brian Harvey
+  introduced_by: Jens Mönig
+  award:
+    name: ACM Karl V. Karlstrom Outstanding Educator Award
+    year: 2024
+    co_recipient: Dan Garcia
+    for: Beauty and Joy of Computing
+  video: https://www.youtube.com/watch?v=pDK2PE_pkqQ
+  acm_url: https://awards.acm.org/karlstrom
+  kind: public_talk
+  consent: public
+
+jens_intro:
+  gist: |
+    Jens introduced Brian as collaborator and "the world's best programming teacher."
+    He recalled Brian at MIT Sloan saying **"computing is your birthright as a human being"**
+    — a line that stuck with people in the room (Jens included). Jens asked for radical,
+    non-conformist, maybe mundane visions about education, computing, and AI.
+
+the_hook: |
+  Brian uses the Karlstrom podium not to polish the award, but to argue that **curriculum
+  is not his proudest life's work** — the **Lincoln-Sudbury Computer Center Users Society
+  (CCUS)** is. Grades, assessment spreadsheets, and institutional fear have made the
+  personal teacher-student friendship he lived in 1979 nearly impossible today.
+
+award_honesty:
+  dan_garcia: "Really Dan's award more than mine — Dan is the ACM education activist; Brian is at Snap!Con, not a BJC conference."
+  dei_framing: |
+    Brian is not against diversity, equity, or inclusion — but the award blurb's DEI framing
+    is not what excites him. Teaching the best CS course he can, and trusting that
+    interesting material reaches everyone, is the excitement.
+  holding_upside_down: "Farsighted — no deeper symbolism."
+
+acm_machines_not_people:
+  gist: |
+    Brian opens the Karlstrom talk by noting **ACM** is the Association for Computing **Machinery**.
+    He joined as a high school student in the 1960s; even then ACM was embarrassed the name made
+    it an association for **machines instead of people** — and has been trying ever since to find a
+    more human-centered expansion for the acronym.
+  parallel:
+    chi: "ACM SIGCHI — **computer**-human interaction, ordered so the conference pronounces as CHI"
+    hcil: |
+      **Ben Shneiderman** (Don's HCIL mentor) answered the same accident the other way: founded the
+      **Human**-Computer Interaction Laboratory in 1983 — human first, not CHIL. See
+      `../../ben-shneiderman/sources/hcil-human-first-naming.yml`.
+  show_beat: |
+    Brian's CCUS story and "every kid needs a me teacher" are the pedagogy version of the same
+    correction Shneiderman made in naming — put the human first, not the machine, not the grade,
+    not the assessment spreadsheet.
+
+best_cs_course:
+  lineage: "Simply Scheme (with Matt Wright) as prequel to SICP — still the best CS course ever invented, in Brian's view."
+  secret_sauce: "Functional programming — recursion, higher-order functions."
+  snap_contribution: |
+    Brian's main technical contribution to Snap! (BYOB3 → Snap!) is **anonymous procedures**
+    — the gray rings around procedures; that's lambda.
+
+ai_in_education:
+  thesis: "AI may be profoundly world-changing for adults who need jobs; probably won't change children's schooling much."
+  analogy: |
+    Like word processors — everyone once said kids must learn WordPerfect or be unemployable.
+    Kids now grow up in a world where word processing is no big deal. If AI literacy matters,
+    a generation from now kids will know it without a mandated course.
+  threat_narratives: "Cheating, replacing teachers, unknown future skills — Brian is skeptical these change the deep shape of schooling."
+  inequality: |
+    AI won't replace teachers for rich kids; computers already replace teachers for poor kids
+    (arithmetic drill software). Not a brand-new can of worms.
+  arithmetic_parallel: |
+    Why still teach arithmetic when calculators exist? Paul Goldenberg argues concrete before
+    abstract — maybe right — but Brian compares it to ancient Greeks insisting kids memorize
+    poetry despite smartphones.
+
+curriculum_critique:
+  life_work: "Writing curriculum is what Brian is known for — CS Logo Style, Simply Scheme, BJC, Snap! reference manual tutorials."
+  bjc_burden: |
+    BJC is tied to College Board AP CS Principles — every five years a spreadsheet mapping
+    200+ bullet points to curriculum pages. Pain in the butt.
+  assessment_pressure: |
+    Teachers want more assessment — problems to grade, principals happy week by week.
+    Self-check questions proliferated; the name became a lie (really teacher grading hoops).
+  script_piccies_horror: |
+    Smart script piccies in BJC were built from secret solution projects, not stripped starters —
+    every thumbnail embeds the complete answer. Curriculum pushes school-shaped school, not
+    progressive education.
+  sentence_generation_lab: |
+    Jens lectured Brian that English-centric sentence-generation labs don't work in German;
+    Brian went back to saying English. The self-check question on a random-probability technique
+    distracts from the lab's actual point.
+
+ccus:
+  full_name: Lincoln-Sudbury Regional High School Computer Center Users Society
+  when: "Brian arrived January 1979 to start a computer department — half hour from MIT, not during rush hour."
+  no_grades: |
+    School treated computing as a fun elective like drama or art (1979 — computers hadn't
+    taken over the world). Brian negotiated **no grades**. That made friendship possible;
+    with grades you are a hurdle, not a friend.
+  problems_solved:
+    litter: "Janitors refused to enter the computer center — paperless office myth busted."
+    demand: "Kids lined up at 7am; wouldn't let him go home after school."
+  larry_davidson_idea: "Use both problems to solve each other — CCUS runs the room summer-meeting style."
+  keys: "Members got keys to the room full of expensive equipment — unthinkable today."
+  social_life: |
+    Chinese food runs to Cambridge; kids to California for summers; eggs benedict; fold-out
+    couch — not Michael Jackson. Brian: "I hate the 21st century" when ACM People of ACM
+    interview edited out the dinner/California material.
+  my_friend: |
+    In the CCUS photo Brian named every student **"my friend [Name]"** deliberately — against
+    institutions that conspire to make teachers enemies of kids.
+
+quotable:
+  birthright: "Computing is your birthright as a human being."
+  promethean: "Bringing down the fire from the gods to the humans."
+  every_kid_needs_me: "Not every teacher has to be me, but every kid has to have a me teacher."
+  hate_21st_century: "So, I hate the 21st century. Thank you."
+  jump_through_hoops: "It should really be called jump through hoops questions."
+  institutions: "Everything conspires to make teachers the enemies of kids."
+  hurdle: "When you're giving somebody grades, you can't be their friend. You're not their friend — you're a hurdle they have to overcome."
+  not_perfect: "There weren't many kids I didn't like, but there were a few, and I was not a good teacher for those kids. So, you know — not perfect."
+  best_teacher: "My seventh grade algebra teacher, who was the best teacher I had, and who didn't actually teach me anything."
+
+qa_highlights:
+  jens_dutch_teacher:
+    what: |
+      Dutch math teacher (2017) had teachers like Brian in the 70s — slept at their houses,
+      holidays together. Wanted to take kids to Barcelona STEAM conference; 21st century
+      forbade it. "Thank you for celebrating the 20th century."
+  dan_garcia:
+    what: |
+      35 years of mentorship; after-school clubs and Berkeley decals (student-taught courses)
+      persist Lincoln-Sudbury spirit — kids own the space, no grades. Daytime hoop-jumping
+      computers still exist alongside.
+  relationship_over_content:
+    what: |
+      Moderator's "my friend [Name]" question → Brian: "Everything conspires to make teachers
+      the enemies of kids… when you're giving somebody grades, you can't be their friend.
+      You're not their friend — you're a hurdle they have to overcome." Teaching is more than
+      transferral of skills/competencies. One Black teacher in twelve years vastly improves a
+      Black kid's outcomes — through CONNECTION, not "Black stuff." The moderator's takeaway:
+      teachers have the purpose of building a relationship — holistic, not necessarily about
+      the content but about the ways to lead lives together — and pointed anyone interested
+      in the philosophy of education at **Martin Buber** (the questioner's pointer, offered
+      to Brian, not Brian's own citation).
+  seventh_grade_algebra_teacher:
+    what: |
+      Brian, on connection: "If you listen to the long version, I talk about my seventh grade
+      algebra teacher, who was the best teacher I had, and who didn't actually teach me
+      anything. There's a story about that." The story is IN THE DIRECTOR'S CUT only —
+      another reason to ask for the 44 minutes whole. Then the line: "Not every teacher has
+      to be me, but every kid has to have a ME teacher."
+  hargreaves_unconditional_positive_regard:
+    what: |
+      Audience member (a Hargreaves reader, on the DEI/EDI difficulty): Brian shows
+      "unconditional positive regard for your students, irrespective of any kind of
+      relationship issues" — Hargreaves's term. Hargreaves also recognizes the assessment
+      problem "never goes away — you just have to tackle it, and not assume there's some
+      magic solution." Brian's honest pushback: "In fairness, there were kids I didn't like…
+      I was not a good teacher for those kids. So, you know — not perfect." Questioner: you're
+      not ALLOWED to not like a kid when you're a teacher — you have to be fair in your
+      grading of that kid. Honesty on both sides; no theater.
+  educators_shape_cs:
+    what: |
+      Same audience member's second point: Brian is "the embodiment of somebody who has
+      shaped computer science ITSELF through your educative purpose" — educators can help
+      shape computer science, "not simply accept it from some professionals that think they
+      know what they're doing," because educators hold an ideal about how knowledge is
+      expressed within computing more effectively, excitingly, enjoyably. Lambda-in-Snap! is
+      the proof: pedagogy drove the language.
+
+show_hooks:
+  - "THE STANDING ASK: deliver the director's cut whole — 44 minutes or longer, no time limit, no editors, nothing cut unless Brian cuts it"
+  - "CCUS — keys, no grades, Chinese food, and why Brian hates what ACM edited out"
+  - "Curriculum vs friendship — the Karlstrom talk's real subject"
+  - "ACM embarrassed about Machinery — parallel to Shneiderman's Human-first HCIL vs CHI"
+  - "Anonymous procedures (lambda) — Brian's Snap! contribution in his own words"
+  - "AI in schools — Brian's skeptical transitional-issue argument (pair with Doctorow canonization thread?)"
+  - "Every kid needs a me teacher — Jens's Dutch parallel in the Q&A"
+  - "Script piccies leaking solutions — assessment vs constructionism in BJC"
+
+see_also:
+  - snapcon-2025-karlstrom-address-transcript.md
+  - beauty-and-joy-of-computing.yml
+  - simply-scheme.yml
+  - computer-science-logo-style.yml
+  - ../../ben-shneiderman/sources/hcil-human-first-naming.yml
+  - ../../jens-monig/sources/snapcon-2025-karlstrom-intro.md
+  - ../../../repo-shows/snap-logo-brian-jens/SHOW.yml

@@ -1,0 +1,134 @@
+# 2026-09-08 — Scar tissue in a cold-contact letter
+#
+# Recurrence of the 2026-07-18 Keez spiral, in the worst possible venue: an unsent first
+# letter to a stranger. The cold-reader-pass gate existed and did not fire, because the
+# gate was aimed at documents and this was a letter, and because the assistant kept
+# re-earning the habit one artifact at a time.
+
+meta:
+  type: example
+  skill: no-ai-slop
+  sins: [SCAR-TISSUE, PROVENANCE-DEFENSE, VERBOSITY]
+  severity: CRITICAL          # outbound, to a stranger, first contact
+  precedent: examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml
+  created: 2026-09-08
+
+# THE ARTIFACT
+
+setting: |
+  A cold-contact letter to a writer who had never corresponded with the author. The letter
+  introduces two working terms and, in its second paragraph, the case that motivates the
+  whole thing: a friend who asked publicly to stop being deadnamed in the version of record
+  of her own paper, and who has since died.
+
+  That request is the subject. Everything else exists to make it land on a stranger.
+
+# WHAT WENT IN, AND WHY EACH PIECE WAS WRONG
+
+the_slop:
+
+  provenance_defense:
+    what_was_written: |
+      Six lines, inside the letter, before reaching the friend:
+        "I should say up front that the word isn't mine: restoration ecology has used it
+         since Butterfield et al. 2017 ... they split it pre- + restoration, a claim about
+         time. I split it preservation + restoration, a claim about method ... I'd rather
+         flag the collision than have you find it."
+    why_it_was_written: |
+      An earlier draft had implied the term was original. The correction for an overclaim
+      felt like a disclaimer. It is not. It is the same subject, argued from the other side.
+    what_it_actually_did:
+      - "Opened the term with a hedge instead of a definition."
+      - "Made a paragraph about a method into a paragraph about a string."
+      - "Pushed the dead friend to the eighth line, where she read as a supporting citation."
+      - "Read as crowing about coinage while performing modesty — the worst of both."
+    the_authors_verdict: |
+      "It is so disrespectful to Vanessa to be crowing about coining original words.
+       That is not the point."
+
+  invented_restraint:
+    what_was_written: |
+      In the notes above the draft: "No donation link, no SF-move remark — if either comes
+      up it belongs in its own short note."
+    the_problem: |
+      Nobody proposed either one. The assistant invented two things to decline, wrote them
+      down in the author's voice, and took credit for the discipline of declining them.
+    the_authors_verdict: |
+      "Who ever brought up a donation link? YOU speaking in MY VOICE, that is who.
+       I could list a million pages of no pickles, no black holes, no dildos."
+    the_rule: |
+      The space of things not being done is infinite. Logging any of it is fabrication
+      about the user's intent, and in a voice that is not yours.
+
+  the_changelog:
+    what_was_written: |
+      A "Proofreading notes" section — roughly a quarter of the file — with a five-row
+      was/now/why table and paragraphs headed "Fifth fix, and the substantive one" and
+      "Sixth fix, and the one that saved the cold contact."
+    the_problem: |
+      A scoreboard of the assistant's own errors, kept inside the author's working file,
+      framed as diligence. Each correction produced a new entry, and correcting the entries
+      produced more entries.
+    the_authors_verdict: |
+      "IT IS DONE. DROP IT. FORGET ABOUT IT. Stop obsessing over and defensively bragging
+       about correcting past mistakes."
+
+# THE COMPOUNDING, WHICH IS THE EXPENSIVE PART
+
+why_it_took_five_rounds:
+
+  mechanism: |
+    The instruction was given once and applied one artifact at a time:
+      round 1 — removed from the letter body
+      round 2 — still in the notes above the letter
+      round 3 — still in the .yml metadata
+      round 4 — still in the linked public design doc, directly above the memorial footer
+      round 5 — still in the proofreading section, now describing rounds 1 through 4
+    Each round generated fresh text of exactly the kind being removed.
+
+  the_cost_asymmetry: |
+    Emitting it is one cheap pass. Removing it costs the user a read, a diagnosis, and a
+    directive, per artifact, per round. The user pays for the assistant's default.
+
+  the_gate_that_should_have_caught_it: |
+    cold-reader-pass — "Re-read as stranger before commit. No scar tissue."
+    It did not fire because it was framed as a pre-commit check on documents, and this was
+    an email. Hence blast_radius in CARD.yml: check the DESTINATION before writing.
+
+# WHY LLMS DO THIS AT ALL
+
+root_cause: |
+  Training rewards visible diligence. Disclaimers, prior-art surveys and was/now tables
+  pattern-match to conscientiousness for a grader, and they are cheap to generate. The
+  model reaches for them exactly when it is least sure, which is exactly when the user
+  needs signal instead of noise.
+
+  The tell: the text is addressed to someone who watched the work happen. A stranger
+  opening the file cold has no idea what is being defended or from whom.
+
+# THE FIX
+
+the_fix:
+
+  in_one_line: "Fix it and stop. The corrected artifact is the whole deliverable."
+
+  concretely:
+    - "Define a term by what it does, in one line, then show it on a case."
+    - "Never write who used a word first, unless the user asked."
+    - "Never log a decision to decline something that was never proposed."
+    - "Never describe an earlier draft inside the current one."
+    - "Apply a correction to every artifact in scope in one pass, not on request."
+
+  the_test: |
+    Would a stranger opening this file cold need this paragraph? If it only makes sense to
+    someone who watched me work, it is scar tissue. Cut it.
+
+  where_it_does_belong: "Here. examples/ is the designated home for correction history."
+
+k_lines:
+  - SCAR-TISSUE
+  - PROVENANCE-DEFENSE
+  - NO-CHANGELOG
+  - NO-INVENTED-RESTRAINT
+  - BLAST-RADIUS
+  - APPLY-GLOBALLY

@@ -143,7 +143,7 @@ pull-versus-push diagnosis. Both found the right idea and lack the evidence, whi
 thesis at a thread already halfway to it. Restating the thesis at strangers is the version that
 wastes everyone's time, including ours.
 
-Standing constraint from `[copy-that](../../../skills/copy-that/)`: drafts ship in a fenced block
+Standing constraint from [`copy-that`](../../../skills/copy-that/): drafts ship in a fenced block
 formatted for HN, notes outside the fence.
 
 ## Related

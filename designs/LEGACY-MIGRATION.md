@@ -428,7 +428,7 @@ down before the cleanup starts, and expensive to discover afterward.
 | Content belongs in git; files are the program | [GIT-AS-FOUNDATION](GIT-AS-FOUNDATION.md), [kernel/DIRECTORY-AS-OBJECT.md](../kernel/DIRECTORY-AS-OBJECT.md) |
 | Override directories holding only diffs | [skills/prototype/](../skills/prototype/), [SELF-ISH-INFLUENCES](SELF-ISH-INFLUENCES.md) |
 | Flattened names → directory tree | [skills/file-system-object/](../skills/file-system-object/), [skills/room/](../skills/room/) |
-| Delegation must be inspectable | [MOO-HERITAGE](MOO-HERITAGE.md), [KORZ-LLM-EVALS](KORZ-LLM-EVALS.md) |
+| Delegation must be inspectable | [MOO-HERITAGE](MOO-HERITAGE.md), [KORZ-LLM-EVALS](korz/korz-prime/llm-evals.md) |
 | Structure in YAML, prose in Markdown sidecars | [skills/yaml-jazz/](../skills/yaml-jazz/) |
 | Strict core, rich overlay; contract both ways | [object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) |
 | Resurrect and keep the genome, then absorb | [object-system/ENDOSYMBIOSIS.md](object-system/ENDOSYMBIOSIS.md) |

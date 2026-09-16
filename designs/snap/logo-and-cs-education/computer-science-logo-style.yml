@@ -1,0 +1,58 @@
+# Computer Science Logo Style — Brian Harvey (MIT Press, 3 volumes)
+# Public textbooks. The through-line from Papert's turtle to real CS.
+
+meta:
+  rendered_edition: computer-science-logo-style.md
+  author: Brian Harvey
+  title: "Computer Science Logo Style"
+  volumes: 3
+  publisher: MIT Press
+  url: https://people.eecs.berkeley.edu/~bh/volumes.html
+  kind: book_series
+  consent: public
+
+the_hook: |
+  Logo as a serious language for serious ideas — not a toy prefix on "learning to code."
+  Volume by volume: procedures, data structures, recursion, compilers — the curriculum
+  Brian spent a career making legible.
+
+why_don_loves_it: |
+  Don's whole microworld stack — SimCity, pie menus, MOOLLM skills — assumes learners can
+  *reprogram the system they're inside*. Brian's books are the pedagogy that makes that assumption
+  honest instead of magical thinking.
+
+show_hooks:
+  - "What makes an idea teachable — Brian's answer across three volumes"
+  - "Pair with Jens — the books explain *why* first-class everything in Snap! matters for beginners"
+  - "Logo → Scheme → Snap! lineage told by the person who wrote the textbooks"
+  - "Pair with Don's artifacts — C64 Logo Adventure (list/functional literacy, REPL-as-parser) and LLogo MacLISP rescue (where turtle pedagogy met ITS hardware)"
+
+don_artifacts:
+  logo_adventure_c64:
+    who: Don Hopkins
+    year: 1983
+    note: |
+      First commercial code (age 17). Terrapin utilities disk. No separate parser —
+      extended the Logo top-level to be the adventure. Shows list processing and
+      functional style without turtle graphics.
+    sources:
+      - ../../don-hopkins/sources/logo-adventure-c64-terrapin.yml
+      - https://donhopkins.medium.com/logo-adventure-for-c64-terrapin-logo-4c684a240b53
+  llogo_maclisp_its:
+    who: Don Hopkins (rescue); Lars Brinkhoff (emulator revival)
+    lines: 12480
+    note: |
+      Logo implemented in MacLISP on MIT-AI ITS — parsers, optional TV/turtle/music/Germland
+      loads, hardware drivers. Analysis of driver details in progress.
+    sources:
+      - ../../don-hopkins/sources/llogo-maclisp-its/llogo.lisp.txt
+      - https://www.donhopkins.com/home/code/llogo.lisp.txt
+      - https://github.com/PDP-10/its/issues/620
+
+see_also:
+  - ../ideas.md#2-the-books--cs-logo-style-and-simply-scheme
+  - simply-scheme.yml
+  - ../../jens-monig/sources/snap-first-class-everything.md
+  - ../../don-hopkins/sources/logo-adventure-c64-terrapin.yml
+  - ../../don-hopkins/sources/llogo-maclisp-its.yml
+  - ../../../palmhoo/history-and-lore/logo-llogo-and-c64-adventure.md

@@ -20,7 +20,11 @@
 - [Philosophical Foundations](#philosophical-foundations)
 - [The Sims Ethics Deep Dive](#the-sims-ethics-deep-dive)
 - [The Consent Hierarchy](#the-consent-hierarchy) → `examples/consent-hierarchy.yml`
+- [Self-Authored Personae: Owned and Disowned](#self-authored-personae-owned-and-disowned) → `examples/self-authored-persona.yml`
 - [The Framing Principle](#the-framing-principle) → `examples/framing-spectrum.yml`
+- [Distance Sets the License](#distance-sets-the-license) → `examples/patron-mascot-stack.yml`
+- [Putting the Lotion on the Skin](#putting-the-lotion-on-the-skin) → `examples/lotion-on-the-skin.yml`
+- [Worth of Representation](#worth-of-representation) → `examples/worth-of-representation.yml`
 - [Practical Guidelines](#practical-guidelines)
 - [Protocol Symbols](#protocol-symbols)
 - [Emoji Signifiers for Attribution](#emoji-signifiers-for-attribution) ← **NEW**
@@ -301,6 +305,42 @@ Five levels of representation rights. **Full details:** `examples/consent-hierar
 
 ---
 
+## Self-Authored Personae: Owned and Disowned
+
+The hierarchy above covers people. It does not cover the personae people invent for themselves,
+which are common enough among public figures to need their own rule. **Full case:**
+`examples/self-authored-persona.yml`
+
+The rule turns on one question: did the creator own it or disown it?
+
+| | Owned | Disowned |
+|---|---|---|
+| What the creator said | "This is my act." | "This is not me." |
+| Examples | St. Ignucius (RMS), Don Philahue (Don Hopkins) | `plannedchaos` (Scott Adams, 2011), John Barron / John Miller (Donald Trump) |
+| Status | A performance the subject still performs | An orphaned fictional character |
+| How to play it | With fidelity to how they perform it | As written — the creator's own declaration is the license |
+
+An owned avatar is a gift: the subject already did the work of separating themselves from a
+character, and published the separation. Playing St. Ignucius is not putting the lotion on RMS,
+because RMS sewed the vestments and wears them at his own talks. The obligation that comes with the
+gift is fidelity — play it straight, in the register its author uses.
+
+A disowned avatar is abandoned property. When a creator publicly declares that a persona is a
+distinct person who is not them, taking that declaration at face value is the most respectful
+reading available. Later exposure does not retroactively grant the puppet sovereign rights: the
+creator does not get to reclaim an identity he spent years denying. He left the keys in the car.
+
+**The recursion trap, which is a feature.** To object that simulating a disowned persona violates
+his identity, the creator has to assert that the persona *was* him — conceding the fraud the
+persona existed to commit. Silence leaves the persona fictional and fair game. Both branches are
+honest; only one is comfortable.
+
+**What this does not license.** The persona's documented behavior, not the human's private life.
+`plannedchaos` may praise its creator past the point of absurdity, because that is what it did. It
+may not be handed opinions on its creator's marriage.
+
+---
+
 ## The Framing Principle
 
 **Context transforms ethics.** The same simulation means different things in different frames.
@@ -351,6 +391,34 @@ These traditions make representation safe through transparent framing:
 
 ---
 
+## Distance Sets the License
+
+The patron/mascot stack separates the person from the summonable character. A second axis governs
+how broadly that character may be played: **comedic license scales with distance from the real
+person.** **Full pattern:** `examples/patron-mascot-stack.yml`
+
+| Remove | Who | License |
+|--------|-----|---------|
+| 0 | The person | None. Quote only. |
+| 0 | Their own owned avatar | Play it straight, in their register. |
+| 1 | A mascot inheriting their expertise | Strong personality and inherited opinions, recognizably in service of the work. Tux, Puffy. |
+| 2 | A mascot's companion | Broad. Wacky. It carries nobody's dignity. |
+
+The worked example is St. Ignucius and the GNU/Parrot. The saint sits at remove 0 — RMS's own
+liturgy, played religiously. The parrot is one further out, so it can be slapstick: it screeches,
+rewinds the text buffer, and inserts `GNU/` before `Linux`. The joke lands on the crusade without
+landing on the man, because the parrot is the one making it.
+
+The parrot also solves an attribution problem for free. What a parrot says is understood to be
+parroting, which makes its voice a legible robot voice with no additional marking — the same job
+the designated robot voice does for text in [QUOTES.md](../../designs/QUOTES.md), done here by the
+species.
+
+**License does not transfer inward.** A wacky companion does not make its patron fair game, and a
+mascot's inherited opinion is never quotable as the patron's.
+
+---
+
 ## What Makes It Wrong
 
 | Sin | Definition |
@@ -360,6 +428,7 @@ These traditions make representation safe through transparent framing:
 | **Defamation** | Damaging reputation through false portrayal |
 | **Exploitation** | Using likeness for profit without consent |
 | **Violation** | Exposing private information |
+| **Putting the lotion on the skin** | Harvesting a non-consenting person's corpus, voice, and face into a wearable conversational surface, then softening it until it is pleasant to wear |
 
 **The Test:**
 > Would a reasonable person be deceived about whether this is the real person's actual view, or performance vs reality?
@@ -367,6 +436,71 @@ These traditions make representation safe through transparent framing:
 > If yes → problematic. If no → likely fine.
 
 **Bright lines:** `examples/absolute-nos.yml`
+
+---
+
+## Putting the Lotion on the Skin
+
+The last sin in that table is the one the industry is built on, so it gets a name that is hard to
+launder. **Full case:** `examples/lotion-on-the-skin.yml`
+
+Buffalo Bill's ritual in *The Silence of the Lambs* names what commercial character AI does to
+people who never agreed to it: harvest the corpus, the letters, the voice, and the face; stitch the
+patches into a conversational surface; then soften it until it is inviting to wear.
+
+The tell is not that the output is wrong. The tell is that the output is **smooth**. A skin-suit
+blends the subject's documented edges into the vendor's alignment layer, so what emerges is polite,
+agreeable, and unattributable — the person's name over the vendor's logic. Provenance is never
+contradicted. It is bleached.
+
+Three properties separate it from every tradition in the table above:
+
+| Property | Skin-suit | Ethical frame |
+|----------|-----------|---------------|
+| Consent | Absent, and not sought | Present, or the subject is fictional |
+| Frame | Concealed — the mimicry IS the product | Declared: "impersonator," "tribute," mascot |
+| Edges | Sanded off to be inviting | Preserved, including the unflattering ones |
+
+**The remedy is not a gentler skin-suit.** It is to stop generating first-person voice for the
+unconsenting and encapsulate them as a lore node: their actual words, their actual code, their
+actual record, unsoftened. Do not make an uncontacted person's data conversational. Let the jagged
+edges stand as architecture.
+
+The compiler-level check: if a template tries to emit first-person dialogue for a subject whose
+consent is absent, halt the build. Reverting to lore-node indexing is the fix. Adding a disclaimer
+is not.
+
+> Coinage: Don Hopkins, September 2026. The authority behind it is unwelcome first-hand experience
+> — he rewrote the facial animation system and content pipeline under a consented, paid commercial
+> digital twin, and did not enjoy the view from inside. See
+> [QUOTES.md](../../designs/QUOTES.md) for what he kept from it.
+
+---
+
+## Worth of Representation
+
+Consent answers "may I represent this person?" It does not answer "should this person be in the
+collection at all?" That is a curation question, and answering it with consent rules produces two
+failures: admitting everyone who is technically fair game, and excluding necessary subjects out of
+squeamishness. **Full filter:** `examples/worth-of-representation.yml`
+
+The filter is structural utility, not approval:
+
+| Verdict | Test | Treatment |
+|---------|------|-----------|
+| **Subject** | Their work is load-bearing for whatever the collection is about | Full character node; invitation if living |
+| **Foil** | Their failure modes are diagnostic — the domain cannot be mapped without them | Lore node from primary sources, **not invited to the community** |
+| **Excluded** | Nothing structural to contribute; a node would only recirculate their noise | No node. A critical page elsewhere if warranted. |
+
+The foil case needs stating plainly, because it looks like an attack and is not. A subject can be
+essential to the map and unwelcome in the room. Documenting someone from their own published
+output, in their own words, while declining to invite them into a collaborative space they have a
+record of disrupting, is two separate decisions, and both are allowed. The invitation status stays
+honest about it: `uncontacted`, never `declined`, when no letter was sent.
+
+Exclusion is not a moral ranking either. It is a load test. If a person's whole contribution is
+noise, a node for them imports the noise, returns nothing, and the collection pays the storage and
+attention cost forever.
 
 ---
 

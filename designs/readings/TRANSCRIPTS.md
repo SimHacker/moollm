@@ -1,6 +1,6 @@
 # Transcripts — capture, cleanup, and linking
 
-Plumbing for [voicewashing](README.md). Four videos, ~87 minutes, 12,364 words
+Plumbing for [readings](README.md). Four videos, ~87 minutes, 12,364 words
 of speech.
 
 **The finished artifacts do not live here.** The convention already exists in

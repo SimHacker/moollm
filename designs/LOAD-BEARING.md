@@ -168,6 +168,36 @@ means. Confident correct answer = burned, rotate. Confused guess from surface
 semantics ("polar = emotionally distant?") = still bearing. The adversary
 helpfully reports its own cache state.
 
+## The one licensed use: the literal beam
+
+There is exactly one place in these repos where the phrase is permitted, and the
+permit is granted on a technicality: **[I-Beam](../skills/cursor-mirror/characters/i-beam/)
+is load-bearing, and that is not a metaphor.** An I-beam is the thing the
+metaphor was borrowed from. Steel first, then buildings, then comments, then
+model output, then the morgue.
+
+The treadmill cannot burn it, because the treadmill runs on referents
+transferring their stink to words. Pinker's version needs a taboo; this
+document's version needs a slop signal. A literal load path has neither. "The
+I-beam is load-bearing" is not a tired figure of speech, it is a description
+with units, and nobody has ever needed to coin a fresher word for a girder.
+
+Better, the structural fact turns out to *be* the design argument. An I-beam has
+that cross-section because bending stress is highest farthest from the neutral
+axis, so the material goes into the flanges and the web is left thin: the shape
+is what remains after everything that was not carrying the load has been removed,
+optimized for stiffness per unit mass. Which is precisely the case for the
+blinking caret as the tip of the pyramid. McCloud's masking effect says the more
+abstract the figure, the more completely a reader inhabits it, and the caret is
+past the smiley and past the face — the minimum cross-section that still carries
+the whole load of attention and command. **Same shape, same reason, same word.**
+The typographic cursor got its name from the beam profile in the first place, so
+the pun was installed at the foundry.
+
+So: the phrase stays interred for prose. It is allowed when the subject is an
+actual beam, or the one character in this repository named after one, and in
+that case it is not being reached for, it is being *cited*.
+
 ## The honest floor under the whole thing
 
 The treadmill is real, playable, and fun. It is also, finally, a palliative —

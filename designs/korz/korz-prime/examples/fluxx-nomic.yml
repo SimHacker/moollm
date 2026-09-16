@@ -1,0 +1,144 @@
+# Fluxx and Nomic as Korz's CONTEXT — sidecar for fluxx-nomic.md
+# mtg-layers.yml covered the dispatch half: a slot sea with a legislated total order.
+# This is the other half, the part Magic never modeled: the context itself as physical
+# state, with rebinding as the only operation — and behind it, Nomic's self-amendment.
+# Flags: ⚠ = unverified.
+
+the_claim:
+  one_sentence: "Fluxx's tableau IS a Korz context — dimensions with exactly one coordinate bound each, and playing a card is a rebind"
+  why_it_beats_magic_as_an_example: "Magic needed CR 613 because it STACKS conflicting effects and must order them. Fluxx makes conflict unrepresentable, so there is nothing to order."
+  the_kicker: "demonstrated in a $16 card game a decade before the Korz papers"
+
+fluxx:
+  designer: "Andrew Looney (Looney Labs, with Kristin Looney as CEO — both former NASA employees)"
+  built: 1996-07-24
+  released: 1997
+  first_edition: "84 cards, four types — Keepers, Goals, Actions, New Rules"
+
+  the_context_mechanic:
+    basic_rules_card: "sits in the center, never leaves — draw one card, play one card"
+    conflict_rule: >
+      "There can only be one of each kind of New Rule card in play (i.e. one Draw rule, one Play
+      rule). When a New Rule gets played that contradicts one that's already in play, the one in
+      play gets discarded."
+    mystery_fluxx_states_it_outright: "\"Max of 4 Rules in play at a time: one each of Draw, Play, Limit, and Other. Each New Rule replaces any previous such rule.\""
+    korz_translation:
+      dimensions: [Draw, Play, Limit, Other]
+      coordinate: "a New Rule card"
+      invariant: "exactly one coordinate bound per dimension at any moment"
+      operation: "rebind — the displaced binding goes to the discard pile"
+      absent: [layers, timestamps, dependency graph]
+    source: https://fluxx.fandom.com/wiki/Introduction
+
+  shadowing_is_physical:
+    rule: "\"New Rules that override the Basic Rules are placed overlapping the part they supersede.\""
+    reading: "a more specific slot is placed ON TOP of the slot it shadows, covering exactly the part it overrides — Self-style overriding as a hand gesture"
+    source: https://www.looneylabs.com/sites/default/files/literature/ChemistryFluxxRules.pdf
+
+  the_win_condition_is_a_slot:
+    # This goes past Magic, and past most languages.
+    goal_cards: "define how to win; only one in play; a new one discards the old"
+    initial_state: "\"The game begins with no Goal in play, so no one can win until one is played.\""
+    reading: "the TERMINATION PREDICATE is a coordinate, and its initial stance is UNMENTIONED — Korz's don't-care guard applied to whether the program can halt"
+    continuous_check: "the moment anyone satisfies the current Goal they win, NO MATTER WHO PLAYED IT — you can hand the win to an opponent instantly"
+    same_discipline_as: "Magic's state projector — pull-evaluated, re-derived rather than announced. Here it governs the halt condition."
+
+  surprises:
+    what: "playable at any time, even out of turn; two different functions, one for your turn and one for out of turn; can cancel another Surprise"
+    reading: "one card, two guards, dispatching on a whose_turn coordinate — and cancelling is a guard on a slot that is itself mid-dispatch"
+
+  meta_rules:
+    what: "stay in force for the whole game"
+    the_loop_closer: "\"(The Basic Rules are a Meta Rule.)\" — there is NO privileged rulebook layer; the base rules are in the sea wearing a marker that says immovable"
+    history: "first appeared as a subtype in edition 4.0 (Dec 2008), derived from a 1997 Origins tournament rule"
+
+  a_dimension_retracted_by_its_author:
+    creepers: "introduced in 4.0, removed in 5.0 — \"we took those cards back out because we decided the original game is better without them\""
+    why_it_belongs_here: "a shipped dimension withdrawn after the fact; a maintenance story any language designer recognizes"
+  edition_variance: "⚠ Creepers, Ungoals, Surprises, Dangers and Meta Rules vary by set — cite the specific edition's rules sheet, not 'Fluxx'"
+
+nomic:
+  designer: "Peter Suber — philosopher of law and logic"
+  invented: 1982
+  published: "with Suber's commentary and Douglas Hofstadter's reflections, in Hofstadter's Metamagical Themas column, Scientific American, June 1982"
+  initial_rules: "do almost nothing except REGULATE THE RULE-CHANGING PROCESS; the one substantive rule is deliberately boring so players will amend it"
+  suber_on_why: >
+    "It was intended to illustrate and embody the thesis of my book, The Paradox of Self-Amendment,
+    that a legal 'rule of change' such as a constitutional amendment clause may apply to itself and
+    authorize its own amendment." (Nomic is the third appendix of the book.)
+  source: https://legacy.earlham.edu/~peters/nomic.htm
+  looney_credits_it_directly: >
+    "Fluxx was inspired by a conceptual game engine called Nomic, in which the game rules are
+    created by the players as the game is played. I found Nomic to be an interesting idea, but felt
+    I could do better…" — Andrew Looney, 2016
+    (https://puzzculture.com/2016/07/22/5-questions-with-game-designer-andrew-looney/)
+
+  why_korz_should_care:
+    magic_613_8a: "a PROCEDURE for effects that rewrite other effects"
+    suber: "the THEORY of whether the procedure may apply to itself"
+    therefore: "any dispatcher whose specificity lattice is data has this problem whether it names it or not — and a legal philosopher got there first and did not find it fatal"
+
+  repo_history_hooks:
+    arpanet: "Nomic games \"were regularly played, and kicked off, the ARPANET\""
+    federation: "games \"sent ambassadors to other Nomic games, formed federations, and played Meta-Nomic\" — federated rule systems negotiating across a boundary, on the network Don was on"
+    failure_literature: "games \"experienced revolution, oppressive coups, and the restoration of popular sovereignty\""
+
+the_real_axis:
+  # Better than "does it have dimensions": WHEN is the lattice authored, and by whom?
+  question: "when is the lattice authored, and by whom"
+  spectrum:
+    - { system: The Sims,        author: designers,             when: "design time — dimensions frozen; ambiguity by scoring and dither", see: examples/sims-advertisements.md }
+    - { system: Magic,           author: "designers, on cards", when: "press time — conflict by legislated order",                       see: examples/mtg-layers.md }
+    - { system: Fluxx,           author: "designers, on cards", when: "PLAY TIME BY REBINDING — one coordinate per dimension, conflict unrepresentable" }
+    - { system: Nomic,           author: players,               when: "PLAY TIME BY AMENDMENT, including amending the amendment rule" }
+    - { system: "1000 Blank White Cards", author: players,      when: "play time by INVENTION — the cards start blank ⚠" }
+    - { system: Dwarf Fortress,  author: "a generator",         when: "world-gen, from a creation myth, with runtime rule flips",        see: examples/df-procedural-magic.md }
+    - { system: "Korz (as specified)", author: "a programmer",  when: "compile time" }
+    - { system: Korz′,           author: "programmer + model",  when: "compile time plus soft-tier improvisation that crystallizes",     see: design.md }
+  the_finding: >
+    Korz sits at the most static end of a spectrum whose other end has been commercially successful
+    since 1997. Not an argument against Korz — declared dimensions are what make dispatch decidable,
+    and Fluxx's elegance comes from FIXING the dimension set and letting only coordinates move. It is
+    an argument that the interesting space is the MIDDLE, and that Korz′'s two tiers are one way to
+    straddle it.
+  fluxx_proves: "you can move coordinates at runtime and keep the semantics trivial, as long as you refuse to let two bindings share a dimension"
+
+where_korz_prime_takes_it:
+  fluxx_as_the_missing_ui:
+    problem: "the Korz prototype needed an IDE to show slot groupings (ask-david.md asks how much of that was the language vs the Self image)"
+    fluxx_answer_in_cardboard: "current bindings face up in the middle of the table, one per dimension, overrides physically covering what they shadow, discard pile as rebinding history"
+    moollm_rendering: "dimensions as named piles, bound coordinate face up on each — and hosting-moollm.md's interface files are already the durable version of that view"
+  nomic_as_the_governance_model:
+    korz_prime_loop: "soft tier improvises → stable improvisations crystallize into decidable slots"
+    nomic_name_for_it: "an amendment process with a ratification step"
+    the_warning: "a self-amending dispatcher is a constitution, and constitutions have a failure literature — forty years of played-out Nomic experience with coups and restorations"
+
+repo_note:
+  # CONFIRMED by Don, 1 Sep 2026, answering the question this note used to ask.
+  relationship: "Don has known Andrew and Kristin Looney since his UMD and SF-convention years — long-time friends, who have visited him in Amsterdam"
+  source: "Don, in session"
+  consequence: >
+    This is a WARM thread, not a cold citation. Fluxx-as-Korz's-context is a show segment with the
+    designer in the room, and the Nomic → Fluxx translation decision ("I found Nomic to be an
+    interesting idea, but felt I could do better") is exactly the kind of design-decision story
+    the archive exists to capture — from the person who made it, not from a wiki.
+  what_to_ask_andrew:
+    - "Why categories? Was one-rule-per-category (Draw/Play/Limit/Other) there from the 1996 build, or discovered after conflicts got confusing in play?"
+    - "Nomic permits amending the amendment rule. Fluxx does not. Was dropping self-amendment a playability decision, a termination decision, or both?"
+    - "The overlap-the-card-you-supersede layout — designed, or did players start doing it?"
+    - "Creepers in 4.0, out in 5.0. What did the retraction cost, and how do you decide a dimension is a mistake?"
+    - "Looney Pyramids as a component platform other designers build games on — the same shape as a skill library. What makes a platform get adopted?"
+  # CORRECTION: the guest rooms already existed when this example was written — the flag above was
+  # asking a question the repo had already answered. Only the Korz link was missing.
+  existing_rooms:
+    - { path: ../../../andy-looney/, note: "Andrew (Andy) Looney — consent_level 2, invitation draft, warm_contact; show seed repo-shows/fluxx-rules-change-as-you-play/" }
+    - { path: ../../../kristin-looney/, note: "Kristin Looney — co-guest, same show seed" }
+  suber: "no characters/peter-suber/ — Nomic's inventor; unclaimed, and a different kind of ask (philosopher of law and architect of open access, not a game designer)"
+
+connects:
+  - { path: examples/mtg-layers.md, why: "the dispatch half — stacked effects and a legislated total order" }
+  - { path: examples/df-procedural-magic.md, why: "a generator authoring the lattice instead of a designer" }
+  - { path: examples/sims-advertisements.md, why: "frozen dimensions, ambiguity by scoring" }
+  - { path: ask-david.md, why: "the self-amendment question this sharpens" }
+  - { path: hosting-moollm.md, why: "interface files as the durable version of the Fluxx tableau" }
+  - { what: "Mao, Aight (Alex Fink), Dvorak (Kevan Davis), 1000 Blank White Cards", why: "other rule-changing games, if a second specimen is wanted" }

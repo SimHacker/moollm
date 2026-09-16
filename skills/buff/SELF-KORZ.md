@@ -96,7 +96,7 @@ need for and games cannot live without. Laid out as a ladder:
 
 ⚠ The claim that Korz bindings are strictly dynamic-extent is a reading of the
 design, not a quotation. It is [question 9 for David
-Ungar](../../../WillWrightShowForFood/characters/david-ungar/korz/ask-david.md)
+Ungar](../../designs/korz/ask-david.md)
 — *what is the lifetime of a coordinate binding, and does Korz want an `until`?*
 
 ### Phase extent — dynamic extent, with a scene instead of a stack
@@ -249,6 +249,6 @@ Concrete gaps, each traceable to the Self-level restriction above:
 - [buffopedia/](buffopedia/) — eighteen dialects, four axes, one fidelity ladder
 - [EFFECTIVE-VALUES.md](EFFECTIVE-VALUES.md) — base is truth, effective is reality
 - [designs/SELF-ISH-INFLUENCES.md](../../designs/SELF-ISH-INFLUENCES.md) — the Self lineage in MOOLLM
-- [designs/KORZ-LLM-EVALS.md](../../designs/KORZ-LLM-EVALS.md) — Korz′ evaluation work
-- WWSFF: [korz/examples/](../../../WillWrightShowForFood/characters/david-ungar/korz/examples/)
+- [designs/korz/korz-prime/llm-evals.md](../../designs/korz/korz-prime/llm-evals.md) — Korz′ evaluation work
+- [korz/korz-prime/examples/](../../designs/korz/korz-prime/examples/)
   — sims-advertisements, mtg-layers, fluxx-nomic, df-procedural-magic

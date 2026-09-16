@@ -1,0 +1,106 @@
+# Micropolis reactive bridge — Svelte 5 runes, Garnet/OL constraints, Snap! blocks
+# How the WASM façade binds UI ↔ engine and how Snap! extends it for constructionist play.
+
+meta:
+  rendered_edition: micropolis-svelte-snap-constraint-bridge.md
+  title: "Micropolis × Svelte runes × Snap! — constraint bridge"
+  kind: architecture_digest
+  code_home: MicropolisCore/apps/micropolis/src/lib/
+  span: "2024–2026 MicropolisCore SvelteKit app"
+
+gist: |
+  **MicropolisReactive.svelte.ts** is the bidirectional reactive façade over the WASM C++ engine:
+  Embind **callbacks push** into `$state`; **peek/poke** pull/write authoritative sim state;
+  Svelte components **derive** HUD and panels with `$derived`. Same braid as **Garnet KR
+  constraints** and **OpenLaszlo** declarative bindings — now compiler-driven Svelte 5 runes.
+  **Snap!** sits above as the constructionist authoring layer: custom JS blocks call the same
+  façade students can inspect live. **Bounce** (dataflow) wires streams between engines; runes
+  wire presentation to simulation.
+
+constraint_lineage:
+  garnet:
+    what: "KR constraints in Common Lisp (Brad Myers CMU ~1992) — declare relationships, solver keeps truth"
+    don: "Opal layer, PostScript driver, GLASS acronym"
+    see: ../garnet-to-svelte-constraint-ui-lineage.md
+  openlaszlo:
+    what: "LZX XML + constraint system; Instance-First (Oliver Steele); AMF bridge to Python Micropolis server"
+    parallel: "OL compiler + constraints → Svelte compiler + runes"
+    see: ../../../../MicropolisCore/documentation/openlaszlo/README.md
+  svelte5_runes:
+    push: "$state — reactive sources (callback-fed city stats, tool hover, zone query)"
+    derive: "$derived — computed views (HUD labels, disaster panel coords) without manual DOM wiring"
+    effect: "$effect — coarse invalidation hooks (mapRevision → redraw layers)"
+    hybrid: "Push from engine callbacks; pull via peek when authoritative read needed — Garnet demon + lazy read"
+
+micropolis_reactive:
+  file: MicropolisReactive.svelte.ts
+  pattern: "`.svelte.ts` runes module — shared singleton `micropolisReactive`"
+  push_path:
+    - "JSCallback singleton — updateFunds, updateMap, showZoneStatus, sendMessage, …"
+    - "Each callback assigns `$state` fields → Svelte components auto-refresh"
+  pull_path:
+    - "peek.scalars / peek.tile — read live Micropolis object"
+    - "syncFromEngine — batch refresh after attach or ambiguous state"
+  write_path:
+    - "poke.doTool, poke.setCityTax, poke.setTile, … — mutations bump mapRevision / syncFromEngine"
+  revision_counters:
+    what: "mapRevision, budgetRevision, evaluationRevision — coarse-grained invalidation (like constraint demons firing)"
+    consumers: "TileView, WebGPU layers, BudgetPanel — subscribe via $derived(mapRevision)"
+  memory:
+    what: "Zero-copy mapU16/mopU16/heapU16 views into WASM linear memory"
+    snap_hook: "Advanced blocks scan map buffers for CA rules / zoning pedagogy"
+  snapshot:
+    what: "getSnapshot() — plain JSON for MCP, tests, Snap! block I/O"
+    bridge: "Snap! reporters read snapshot; command blocks call poke.*"
+
+ui_layers:
+  presentation:
+    - "GameHud.svelte — $derived(micropolisReactive.totalFunds) etc."
+    - "ZoneStatusPanel.svelte — $derived zone + toolState gate"
+    - "ToolState.svelte.ts — separate runes module for input chrome"
+  separation: "Engine truth in micropolisReactive; tool UX in toolState — same pattern as Garnet separating model from view constraints"
+
+three_paradigms_one_platform:
+  snap_blocks:
+    role: "Control flow + reified procedures — author city rules, policies, CA overlays"
+    doc: ../snap-visual-engines-fundable-goals.md
+  bounce_patchcords:
+    role: "Dataflow — wire live streams between Micropolis, CAM6, VitaMoo, media"
+    doc: bounce-dataflow-control-flow.yml
+  svelte_runes:
+    role: "Constraint-style binding — presentation stays consistent with sim without hand-written sync"
+  wasm_engine:
+    role: "Authoritative simulation — C++ Micropolis, Embind surface"
+
+snap_bridge_sketch:
+  extension_model: "Snap! custom blocks → JavaScript primitives (same runtime as Morphic.js)"
+  read_blocks:
+    - "city tax / funds / demand reporters → micropolisReactive.cityTax, getSnapshot()"
+    - "tile at (x,y) reporter → peek.tile"
+    - "zone status when query tool active → zoneStatus"
+  write_blocks:
+    - "set tax / speed / tool → poke.*"
+    - "place road / zone → poke.doTool with EditingTool enum from wasmModule"
+  live_inspection:
+    - "Gray rings + split/join on block AST for rules that *generate* poke sequences"
+    - "Watchers mirror micropolisReactive fields — Brian's constructionist glass-box"
+  constraint_blocks_future:
+    - "Declare: when crime > N, highlight tiles — compile to $derived-like dependency or Bounce enable subgraph"
+    - "Garnet multi-way constraints → Snap! unified blocks (two-way) is harder; start one-way reporters/commands"
+
+see_also:
+  - ../../brian-harvey/sources/micropolis-snap-2018.yml
+  - ../../jens-monig/sources/micropolis-snap-2018.md
+  - ../garnet-to-svelte-constraint-ui-lineage.md
+  - ../snap-visual-engines-fundable-goals.md
+  - bounce-dataflow-control-flow.yml
+  - ../../../process/constructionist-simcity-response.yml
+  - ../../../repo-shows/snap-logo-brian-jens/README.md
+  - ../../../repo-shows/openlaszlo/README.md
+  - ../../../repo-shows/brad-myers-garnet-vpl/brad-myers-garnet-vpl.yml
+
+show_hooks:
+  - "Live: Garnet constraint on whiteboard → same relationship as $derived in GameHud.svelte"
+  - "Brian + Jens: Snap! block palette over getSnapshot/poke — finish 2018 thread with working demo"
+  - "Brad Myers reunion: KR constraints → Svelte runes → Snap! blocks — three generations one braid"
+  - "OpenLaszlo reunion: AMF bridge vs MicropolisReactive — what survived, what Wasm obsoleted"

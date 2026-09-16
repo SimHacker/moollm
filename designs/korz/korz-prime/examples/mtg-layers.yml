@@ -1,0 +1,114 @@
+# Magic: The Gathering CR 613 as a shipped context dispatcher — sidecar for mtg-layers.md
+# Why it earns a slot in the cauldron: Korz (FOOL 2014) claims a LAYER IS A GUARD.
+# Magic is the largest layer system in production, and it hit two walls Korz has not:
+#   1. effects that rewrite other effects' guards  (CR 613.8a — dependency)
+#   2. ambiguity that is not permitted to be an error (a game in progress must proceed)
+# Flags: ⚠ = unverified.
+
+the_claim:
+  one_sentence: "Magic arrived at dimensioned dispatch over a slot sea with no PL theory in the room, and its scar tissue is a map of what Korz has not specified yet"
+  scale: "27,000+ printed cards, paid judge program, half a dozen independent engine implementations"
+  korz_thesis_under_test: "FOOL 2014 — a subject is a coordinate, a layer is a guard, composition rules collapse into dispatch specificity"
+
+the_rules:
+  cr: 613
+  layers:                      # always applied in this order, no exceptions
+    1: copy                    # this permanent IS now a copy of that one
+    2: control                 # who owns it
+    3: text                    # rewriting the words   ← guard-mutating
+    4: type                    # land becomes creature ← guard-mutating
+    5: color
+    6: abilities               # added or removed      ← guard-mutating
+    7: "power/toughness, sublayers 7a–7e"
+  within_a_layer:
+    default: "613.7 — timestamp order, oldest first"
+    override: "613.8 — dependency overrides timestamp"
+    loop_fallback: "613.8b — dependency loop: ignore dependencies, use timestamps"
+  history: "⚠ verify — layers introduced in the 6th Edition rules overhaul (1999); dependency and sublayers refined later"
+  sources:
+    wiki: https://mtg.wiki/page/Layer
+    judges: https://blogs.magicjudges.org/ftw/l2-prep/rules-and-policy/continuous-effects/
+    walkthrough: https://draftsim.com/mtg-layers/
+
+e_prime_enforced:
+  # The Korz README: "red lives in the dispatch, not in the rose." Magic makes that a rule of play.
+  forbidden_question: "what IS this creature's power"
+  only_legal_question: "what does it project to, right now, recomputed from the printed card up"
+  engine_shape:
+    base_state: "what the card says — the sea of slots"
+    projected_state: "what players see — a gather along a chosen coordinate, cached"
+    source: https://wingedsheep.com/building-argentum-a-magic-the-gathering-rules-engine/
+  evaluation_strategy:
+    magic: "PULL — continuous effects skip the stack and are re-derived whenever the engine looks. A fixpoint over the whole sea."
+    korz: "PUSH — dispatch happens per send"
+    note: "same slot sea, two strategies. layered-rules.md already met the pull discipline as pipeline stages."
+
+the_wall_korz_has_not_hit:
+  name: guard-mutating effects
+  what: "layers 3, 4 and 6 change WHAT OTHER EFFECTS MATCH — the lattice mutates during play"
+  canonical_pair:
+    cards: [Blood Moon, "Urborg, Tomb of Yawgmoth"]
+    problem: "apply Blood Moon first and Urborg's ability ceases to exist; the question is not which is newer but which is still THERE to ask"
+    therefore: "timestamps cannot settle it — hence 613.8"
+  cr_613_8a_is_a_definition_of_guard_mutation: "A depends on B if applying B would change A's text, existence, what it applies to, or what it does"
+  self_referential_horror:
+    cards: [Humility, Opalescence]
+    why: "Humility makes all creatures 1/1 with no abilities; Opalescence makes enchantments creatures; Humility IS an enchantment"
+    engine_workaround: "trial application — tentatively apply, watch which outcomes move, derive the order, apply for real"
+  in_korz_vocabulary: "a slot whose guard is not decidable until you have provisionally run the other slots. Unique-most-specific-match has no room for this yet."
+
+ambiguity_policy:
+  # troll-blend.md offers sample and blend. Magic supplies the third, and it is the one
+  # a SHIPPED system is forced into: you cannot tell a player the board is undefined.
+  korz: "ambiguity is an error"
+  korz_prime_soft: [sample, blend]
+  magic: "legislate a total order, in tiers, with a fallback at every tier"
+  tiers: ["layer order (hand-authored)", "dependency (derived from guard mutation)", "timestamp (last-write-wins)", "loop → drop a tier"]
+  robust_first: "a crashed game is infinitely wrong — degrade to a defensible order instead"
+  the_honest_admission: >
+    Judges state the design goal outright: make the answer to any continuous-effects question
+    "what we would intuitively expect as often as possible." The order is not principled, it is
+    TUNED TO EXPECTATION — which is the honest name for what specificity heuristics do anywhere.
+
+what_the_tuning_costs:
+  memorization: "judges call layer order the part people have the most trouble with"
+  implementations_diverge:
+    forge: "⚠ per third-party notes — adds an 8th layer for rule-changing effects, folds 7d into 7c, leaves 7e (P/T switching) unimplemented"
+    source: https://github.com/witchesofthehill/manabrew/blob/main/docs/forge-dsl-semantics.md
+    lesson: "seven layers is a LOWER bound on a real engine"
+  turing_complete: "⚠ verify citation — Churchill, Biderman & Herrick, universal machine from legal cards and a legal board state"
+  the_fair_counter_pitch: >
+    Korz says most of this is the price of not having declared dimensions, so the order would be
+    derived rather than legislated. But layers 3/4/6 mean Magic's lattice CHANGES DURING PLAY, and
+    no declared lattice survives that. Both can be true; that is the conversation.
+
+where_korz_prime_takes_it:
+  prose_to_guard_corpus:
+    what: "the largest prose-to-formal-guard translation corpus in existence"
+    chain: ["printed card (prose rule)", "Oracle text (maintained canonical form)", "Comprehensive Rules (formal semantics)", "engine DSL (compiled)", "errata (change history)"]
+    why_it_matters: "supervision for Korz′'s CRYSTALLIZE direction at a scale no language ecosystem can match"
+    bonus: "it ships the governance a two-tier dispatcher eventually needs — rules manager, public errata, judge program"
+  working_soft_tier_with_a_human:
+    loop: "rules underdetermine a board → judge rules → ruling published → rule sometimes changes"
+    equals: "Korz′ architecture in production since before most working programmers started"
+
+the_pair:
+  # Two shipped dispatchers in this collection, opposite answers to one problem.
+  sims: "score and sample — advertisements compete in an auction, find-best-N keeps the dither"
+  magic: "order and rewrite — no scores anywhere, total order all the way down"
+  requirement: "Korz′ needs an ambiguity policy that can express both"
+
+the_cheap_way_out_magic_did_not_take:
+  # Fluxx is the control experiment, and it is humbling.
+  fluxx: "rule cards sorted into categories (Draw, Play, Limit, Other), AT MOST ONE of each in play; a new one discards what it contradicts"
+  result: "conflict cannot be represented → nothing to order → no layers, no timestamps, no dependency graph, no judge program"
+  why_magic_cannot_retrofit_it: "its effects are additive by design ('creatures you control get +1/+1' must stack with three more), and its identity is a card pool where any two cards may meet"
+  the_sharpened_pitch: "CR 613 is not the price of continuous effects. It is the price of letting two effects bind the same dimension."
+  see: examples/fluxx-nomic.md
+
+connects:
+  - { path: examples/sims-advertisements.md, why: "the other shipped dispatcher; the opposite ambiguity policy" }
+  - { path: examples/df-procedural-magic.md, why: "dimensions generated per world instead of printed on cards" }
+  - { path: examples/troll-blend.md, why: "sample vs blend — Magic adds legislated total order as the third policy" }
+  - { path: examples/layered-rules.md, why: "the pull discipline as pipeline stages, in CAM6" }
+  - { path: ask-david.md, why: "the two questions this example raises" }

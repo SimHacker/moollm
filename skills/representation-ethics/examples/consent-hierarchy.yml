@@ -103,6 +103,27 @@ consent_hierarchy:
       We wouldn't invoke someone's recently deceased parent without care.
       Time and fame create implicit license — but not unlimited.
 
+# CROSS-CUTTING: SELF-AUTHORED PERSONAE
+#
+# The five levels cover PEOPLE. They do not cover the characters people invent to stand
+# in for themselves, which cuts across all five. Full case: ./self-authored-persona.yml
+
+self_authored_personae:
+  owned:
+    what: "The creator says 'this is my act' and still performs it."
+    examples: ["St. Ignucius (RMS)", "Don Philahue (Don Hopkins)"]
+    treatment: "Play it straight, in their register. Fidelity is the price of the gift."
+  disowned:
+    what: "The creator publicly declared 'this is not me.'"
+    examples: ["plannedchaos (Scott Adams, 2011)", "John Barron / John Miller"]
+    treatment: "An orphaned fictional character. The declaration is the license."
+  the_variable: "Ownership, not artifice. The personae are structurally identical."
+
+# CURATION IS A SEPARATE QUESTION
+#
+# This file answers "may I?" It does not answer "should this node exist?"
+# Full filter: ./worth-of-representation.yml — subject / foil / excluded.
+
 # K-LINES — Traditions this activates
 
 k_lines:
@@ -128,6 +149,9 @@ references:
     - ./emoji-disclosure.yml
     - ./self-consent-card.yml
     - ./performance-frames.yml
+    - ./self-authored-persona.yml     # owned vs disowned avatars
+    - ./worth-of-representation.yml   # whether the node should exist at all
+    - ./lotion-on-the-skin.yml        # the named sin, and the lore-node remedy
     
   # Character examples
   character_examples:

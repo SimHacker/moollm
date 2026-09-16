@@ -86,6 +86,59 @@ The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Stev
 
 ---
 
+### Snap!, cellular automata, and teaching without a manual
+
+Material that used to live in a private character repo and belongs here, because
+it is general design work rather than anything about a particular person:
+
+| Document | Description |
+|----------|-------------|
+| [snap/](./snap/) | Brian Harvey and Jens Mönig's Snap! — first-class procedures, lists and continuations in a language you drag; the Y combinator in blocks; Morphic.js; the SnapCon 2025 Karlström address transcript; and Snap! wired to a live city simulator |
+| [cellular-automata/](./cellular-automata/) | The CAM6 lineage: rule composition, turn tables, iteration order as a plug-in, partial evaluation, reading the anneal boundary, and indefinitely scalable local routing |
+| [teaching-complicated-systems-without-a-manual.md](./teaching-complicated-systems-without-a-manual.md) | Implication beats simulation; Goldilocks complexity; objects advertise and people scan; masking; multiple toys in one box — with the Papert, Kay, McCloud, Norman and Bogost reading behind each |
+| [kaleida-scriptx-dreamscape-multimedia-lisp-machine.md](./kaleida-scriptx-dreamscape-multimedia-lisp-machine.md) | ScriptX and DreamScape: an object-oriented multimedia Lisp machine, live objects and time-based media, and the sparse-shadow-tree pattern it prefigures |
+
+### Korz and Korz′
+
+The **[korz/](./korz/)** subdirectory holds everything about Korz — David Ungar,
+Harold Ossher and Doug Kimelman's subjective, context-oriented language (Onward!
+2014), the third step of a subtraction that ran Smalltalk → Self → Korz: classes
+go, then objects go, and what remains is a sea of slots dispatched against a
+context of dimensions. **Korz′** is the LLM-age reading, in a subdirectory of its
+own, standing to Korz as MOOLLM stands to Self:
+
+| Document | Description |
+|----------|-------------|
+| [korz/README.md](./korz/README.md) | **Start here.** What Korz is, the papers, and the Self : MOOLLM :: Korz : Korz′ analogy |
+| [korz/deconstruct-oriented-programming.md](./korz/deconstruct-oriented-programming.md) | Declassification and deobjectification; Oriented versus Disoriented Programming |
+| [korz/case-zork.md](./korz/case-zork.md) | Zork and Adventure as shipped five-dimensional dispatch, 1979 |
+| [korz/case-cellular-automata.md](./korz/case-cellular-automata.md) | Cellular automata as Korz at absolute zero: Margolus blocks, GPU crystallization |
+| [korz/korz-notes.md](./korz/korz-notes.md) · [korz/ask-david.md](./korz/ask-david.md) | Working notes on the papers, and the open questions collected as an agenda |
+| [korz/korz-prime/](./korz/korz-prime/) | **Korz′** — one semantics, two dispatchers: a strict tier (exact guards, ambiguity is an error) and a soft tier (the LLM — semantic matches, prose guards, improvisation from latent space), with crystallize/deoptimize between them. KORZ spells ZORK: Korz compiles, Zork improvises |
+| [korz/korz-prime/llm-evals.md](./korz/korz-prime/llm-evals.md) | The evaluation ladder: can a model *be* a dispatcher, or only an improviser? Mechanical battery, anti-Korz control, latent inheritance, the advertisement economy |
+| [korz/sources/](./korz/sources/) | The paper deep-dive and MOOLLM mapping, Lang.NEXT notes, and the email that started it |
+
+Used in anger by [revolutionary-chess/AGENCY.md](./revolutionary-chess/AGENCY.md),
+where a pie menu is a dispatch that takes the viewer as a context dimension.
+
+### Revolutionary Chess
+
+The **[revolutionary-chess/](./revolutionary-chess/)** subdirectory documents Don
+Hopkins' chess variant in which checkmate is a change of subject rather than an
+ending, and eliminated aristocrats' move-sets are deposited into a commons that
+only commoners inherit:
+
+| Document | Description |
+|----------|-------------|
+| [revolutionary-chess/README.md](./revolutionary-chess/README.md) | **Start here.** The design: one invariant (bottom-up inheritance), capture as enfranchisement, move-sets as data held by delegation, monotonic politics as an append-only ledger, the modes and phases, and the layering that keeps the game model independent of any simulation of the people playing it |
+| [revolutionary-chess/AGENCY.md](./revolutionary-chess/AGENCY.md) | Work in progress: the pie menu as a Korz subjective dispatch with the viewer as a context dimension, clicking a square to ask which pieces can reach it, Civ-style standing goals whose routes shorten as the commons grows, the clock as a clickable object, and the workshop of triggers by which a piece stops being anyone's to move |
+| [revolutionary-chess/RULES.md](./revolutionary-chess/RULES.md) | Normative spec: setup, the intercepted end condition, the pawn's additive widening, capture policy per mode, the aristocrats' three options, end conditions, and the opt-in variant axes |
+| [revolutionary-chess/BRINGING-IT-HOME.md](./revolutionary-chess/BRINGING-IT-HOME.md) | What the game is a model of: the frontier is half the job and the return trip is the other half. Inheritance read as pedagogy, where the metaphor breaks, and Jens Mönig's Snap! 11 perceptron as the existence proof that the frontier can be brought home to children |
+
+> *"When you see a checkmate, don't see an ending. See the first move of what comes next."*
+
+---
+
 ### Migration & Legacy Systems
 
 | Document | Description |
@@ -106,9 +159,10 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [object-system/SELF-AND-MOOLLM.md](./object-system/SELF-AND-MOOLLM.md) | Self as OO RISC (via SOAR); Flavors/CLOS/MOP; Drescher→Leela schemas; NeWS/TNT/HyperLook/patent lineage; Anthropic skill extensions |
 | [object-system/LATENT-SPACE-INHERITANCE.md](./object-system/LATENT-SPACE-INHERITANCE.md) | **Core discovery:** multiple inheritance from named concepts in training data — the LLM as universal resolver; inherit whole systems by name |
 | [object-system/YOUTRACKDB-VS-MOOLLM.md](./object-system/YOUTRACKDB-VS-MOOLLM.md) | Case study: JetBrains' class-based OO graph DB, compared in order to inherit from it |
-| [KORZ-LLM-EVALS.md](./KORZ-LLM-EVALS.md) | Experiment ladder: LLM as Korz dispatcher — mechanical dispatch, soft matching, latent inheritance, the advertisement economy (poison-buff flagship) |
+| [korz/](./korz/) | Korz and Korz′ — subjective, context-oriented dispatch; see the section below |
 | [object-system/LIVE-OBJECTS-EXAMPLES.md](./object-system/LIVE-OBJECTS-EXAMPLES.md) | The system running: Soul City / MicropolisCore + adventure-4 |
 | [object-system/HUMANSPLAINING.md](./object-system/HUMANSPLAINING.md) | The anti-pattern: wasting tokens telling an LLM what it already knows |
+| [LATENT-SPACE-REPUTATION.md](./LATENT-SPACE-REPUTATION.md) | The mechanism pointed at people: the Kevin Roose / Sydney case, corpus sentiment as infrastructure, injection versus archive, and why attribution repair and prestoration are edits to the resolver. Harvested from Gwern × Dwarkesh, Nov 2024 |
 | [object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](./object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) | Strict executable core + rich overlay; the adventure compiler as the leading instance |
 | [object-system/ANNOTATED-BIBLIOGRAPHY.md](./object-system/ANNOTATED-BIBLIOGRAPHY.md) | Cited YAML sources annotated as human-readable prose |
 

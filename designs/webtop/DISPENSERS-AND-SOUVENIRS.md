@@ -144,7 +144,7 @@ The elegant part is that **this requires no new verb.** The generic `take` does 
 
 Taking the *dispenser itself* is a separate question and should stay hard: it may need a tool, a key,
 or permission, or expose a different verb entirely — `unbolt`, or `steal`. And for an admin, it is a
-[Korz](../KORZ-LLM-EVALS.md) dispatch along the role dimension: possession is a method slot that
+[Korz](../korz/README.md) dispatch along the role dimension: possession is a method slot that
 resolves only when the caller's role is admin and the phrase supplies the reflexive — *take the
 dispenser itself* — with the parser mapping that adjective into the dimensions, method, and
 parameters of the call. The permission is not a check bolted onto the verb; it is which method the

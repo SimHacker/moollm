@@ -105,6 +105,62 @@ the-rule:
     - NO: @LinusTorvalds-bot (account that could deceive)
     - NO: Speaking as if you ARE them without framing
 
+# DISTANCE SETS THE LICENSE
+#
+# The stack above separates the person from the summonable character. A second axis
+# governs how BROADLY that character may be played: comedic license scales with
+# distance from the real person.
+
+distance:
+
+  rungs:
+
+    - remove: 0
+      who: "The person"
+      license: "None. Quote only."
+
+    - remove: 0
+      who: "Their own owned avatar"
+      license: "Play it straight, in their register."
+      note: "See self-authored-persona.yml — an owned avatar is a gift with fidelity attached."
+
+    - remove: 1
+      who: "A mascot inheriting their expertise"
+      license: |
+        Strong personality, inherited opinions, recognizably in service of the work.
+      examples: [Tux, Puffy]
+
+    - remove: 2
+      who: "A mascot's companion"
+      license: "Broad. Wacky. It carries nobody's dignity."
+
+  worked_example:
+
+    st_ignucius_and_the_parrot:
+
+      saint:
+        remove: 0
+        why: "RMS's own liturgy, which he performs himself"
+        played: "Religiously. Manifestos quoted, not paraphrased. No slapstick."
+
+      parrot:
+        remove: 1
+        # One further out than the saint, so it can be pure slapstick.
+        played: "Screeches, rewinds the text buffer, inserts GNU/ before Linux."
+        why_it_works: |
+          The joke lands on the crusade without landing on the man, because the parrot
+          is the one making it.
+
+      free_bonus: |
+        What a parrot says is understood to be parroting. That makes its voice a legible
+        robot voice with NO additional marking — the same job the designated robot voice
+        does for text in designs/QUOTES.md, done here by the species.
+
+  license_does_not_transfer_inward: |
+    A wacky companion does not make its patron fair game.
+    A mascot's inherited opinion is NEVER quotable as the patron's.
+    Puffy may be blunt; Theo may not be quoted saying something Puffy said.
+
 # EXAMPLES IN PRACTICE
 
 examples:
@@ -281,6 +337,7 @@ checklist:
 
 k-lines:
   - patron-mascot-stack
+  - distance-sets-the-license
   - quote-the-person
   - summon-the-mascot
   - never-impersonate

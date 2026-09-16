@@ -1,0 +1,134 @@
+# Dwarf Fortress Myth and Magic as a generated dimension lattice — sidecar for df-procedural-magic.md
+# Every other example here DECLARES its dimensions. This one generates them per world, from a
+# creation myth, before play — and can unbind one mid-game and let everything re-dispatch.
+# All quotes are the developers' own; press links are for the interviews, not for the claims.
+# Flags: ⚠ = unverified.
+
+the_claim:
+  one_sentence: "Dwarf Fortress deletes the privileged EFFECT LIST the way Self deleted classes and Korz deleted the object boundary — what remains is a cosmology that generates both the axes and which slots exist along them"
+  announced: 2026-08-26            # Tarn Adams trailer, Kitfox Games
+  ships: "later 2026, no date"
+
+tarn_in_his_own_words:
+  the_goal: >
+    "Procedural magic systems that go beyond combining spell effects and go straight to the
+    fundamental cosmological makeup of the universe. This allows magical situations that you
+    cannot get any other way… with every piece tied into how that particular universe works
+    down to its bones."
+  the_rejected_design: >
+    "You could come up with a list of effects, but you can't use those unless you generate a
+    magic system of some kind, or just put in one magic system like we have with the necromancers,
+    and that's what we want to avoid."
+    # ← the design Magic: The Gathering shipped and has been paying for ever since
+  the_mechanism: >
+    "If the forest became alive because the primordial god died and sprinkled its blood on it,
+    but that primordial god has other traits as well, those other traits could come in and
+    influence what forest spirit magic is actually like. And it would be completely unique to
+    that world."
+  guards_are_fitted_not_authored: >
+    "a natural grouping of say 20-30 effects… They'll be different in every world. Some worlds
+    won't have raising the dead at all. Some worlds will have so much dead raising that everyone's
+    practically immortal."
+  no_balance: "\"We don't care about balance, here.\" — contrast Magic, which cares enormously and pays in layers"
+
+korz_mapping:
+  myth: "generates coordinates — this god, these spheres, that death event"
+  effects: "slots guarded on those coordinates"
+  per_world_variation: "which slots EXIST is a property of the generated lattice, not of the codebase"
+  the_honest_correction:
+    korz_as_specified: "dimensions are declared by a programmer at design time; the paper's demo is adding one to a running design without touching intermediate code"
+    df: "generates the dimension SET per world, and mutates it during play"
+    therefore: "past Korz, squarely inside Korz′ — the soft tier improvising coordinates the strict tier never declared"
+    the_question_it_makes_askable: "what would it mean for the LATTICE to be generated?"
+
+the_pop_assertions_trick_fired_in_anger:
+  # Korz paper showpiece: main() turns assertions on, a more specific pop() wins,
+  # and NO INTERMEDIATE CODE mentions assertions.
+  tarn: >
+    "They might accidentally trigger something that flips it back, and changes the rules. And
+    suddenly people's teleport spells don't work anymore, and they'd have to be able to deal with
+    that. All these social clubs break down because no one can visit each other anymore."
+  reading: "one coordinate unbinds at the top; thousands of agents re-dispatch underneath; nothing in between was written to know about it"
+  the_point: "not that the flip is possible — that no intermediate layer had to anticipate it"
+  upstream_case: "\"If teleportation is easy, that changes everything about the world. That changes economy, diplomacy, espionage, everything.\""
+  free_because: "\"I didn't have to program anything, except for the teleport effect, and they know that it's linked to moving around.\""
+
+which_is_the_sims_advertisement_economy_generated:
+  affordance_links: >
+    "It's how we do it now when we have the cat licking itself. It knows that action is about
+    cleaning contaminants off their body… We give them helpful hints, so they don't have to read
+    the code themselves."
+  scoring: >
+    "So then you need to teach them a cost/benefit analysis type thing… There's a cost to this
+    movement, and the cost is, 'how much do I value my blood?'"
+  convergence:
+    sims: "hand-authored advertisements, scored against frozen motive dimensions"
+    df: "GENERATES the effects, their advertisements, and the dimensions they score against, from a myth"
+    same_mechanism: "dispatch as an auction, with world-gen moved underneath it"
+  see: examples/sims-advertisements.md
+
+three_gathers_of_one_sea:
+  # The subjective-projection claim, shipped since 2006, and nobody says it out loud.
+  fortress: { gather: "the map, tile by tile", structure: lattice }
+  adventure: { gather: "one body walking between sites", structure: "room graph" }
+  legends:   { gather: "the history, as prose and lineage", structure: record }
+  no_mode_is_the_real_one: true
+  evidence_of_the_third: "\"There's a whole class of Dwarf Fortress players who don't play either of the traditional game modes. They just do archaeology on the worlds they've generated.\""
+  debt_settled:
+    to: examples/grid-as-rooms.md
+    that_example_argued: "a CA and an adventure map are one structure at opposite ends of an exit-wiring regularity axis, and the middle is empty"
+    df_answer: "not in the middle — BOTH ENDS OVER ONE WORLD. The specimen it wanted has shipped since 2006."
+
+the_dispatch_bill:
+  # Korz-shaped systems have a characteristic cost, and DF pays it in public.
+  source: https://news.ycombinator.com/item?id=49467636   # detailed community explanation in the announcement thread
+  mechanism: "every person and animal has an opinion of every other; mood changes fire on SEEING someone liked or disliked; opinion depends on interaction history and degree of consanguinity"
+  cost: "each movement triggers line-of-sight checks against everyone visible, plus a relatedness computation per pair. \"The fundamental O(n²) behavior remains, but caching has greatly improved performance.\""
+  korz_reading: "symmetric multi-dimensional dispatch — guards on viewer, viewed, kinship, shared history — evaluated continuously; the fix was a CACHE"
+  same_story_as:
+    - { path: examples/mfm-city.md, why: "the traffic light that turns out to be a polymorphic inline cache" }
+    - { what: "Self's JIT watching types recur", where: ../design.md }
+  player_side_mitigations: ["cut the population", "cage animals behind closed doors", "break long corridors with corners so fewer pairs are ever in scope"]
+  the_instructive_part: "zigzag-corridor forts run fast and 'feel terrible to the player' — optimizing the dispatcher at the expense of the program, seen from inside"
+
+technical_sources:
+  primary:
+    dev_notes: { url: https://bay12games.com/dwarves/dev.html, why: "the roadmap Tarn maintains; myths and magic 'probably through the avenues of covens and religion'" }
+    future_of_the_fortress: { what: "monthly Q&A where Tarn answers technical reader questions directly", jan_2026: "spheres of an item influence which magic is available; myth-generator remnants become artifacts" }
+    gdc_2016: { what: "Tarn Adams with Tanya Short — procedurally generated mythology, myth generator demoed live", detail: "the cosmic egg's fragments become continents in the map generator", writeup: https://procedural-generation.isaackarth.com/2016/04/06/mythology-and-procedural-generation-no-one-seemed.html }
+    pcgamer_magic_interview: { url: https://www.pcgamer.com/dwarf-fortress-creator-tarn-adams-talks-about-simulating-the-most-complex-magic-system-ever/, why: "the long interview quoted throughout — myth-first design, per-world effect sets, teleportation, rule flips" }
+    pcgamer_creative_mode: { url: https://www.pcgamer.com/future-dwarf-fortress-creative-mode-will-let-you-sculpt-whole-worlds-create-homemade-gods/, quote: "\"The system like a giant debugger… it has to have an API that hooks into as much stuff as you can in the game. Can you make a love potion that would actually affect thoughts and relationships that already exist?\"" }
+    kitfox_devlog: { url: "https://kitfoxgames.itch.io/dwarf-fortress/devlog/886081/next-steps-for-dwarf-fortress-patch-5105-dwarf-fortress-dev-news", why: "release sequencing; Lua upgrade as the Myth and Magic foundation" }
+
+  the_best_source_is_code:
+    what: "July 2025 scripting overhaul, driven largely by Putnam — procedural generation hard-coded for fifteen years, exposed as moddable Lua"
+    exposed: [forgotten beasts, "divine curses (vampires, werebeasts)", divine items, "necromancers and their experiments", evil weather]
+    tarn: "\"Now the algorithms and data are available for modding.\""
+    source: https://www.pcgamer.com/games/sim/dwarf-fortress-just-made-it-easier-for-modders-to-add-their-own-procedural-creatures-items-curses-and-more-all-of-these-things-have-been-hard-coded-in-dwarf-fortress-inaccessible-to-modders-now-the-algorithms-and-data-are-available/
+    why_it_is_the_next_step: "a procedural generator whose GUARD STRUCTURE you can read, in a scripting language, shipped inside the game"
+    caveat: "⚠ install path and script shape unverified here — that is the first research action, not a claim"
+
+  secondary:
+    - "Blind — video essay on how procedural magic will change the game"
+    - { url: https://dwarffortresswiki.org/index.php/Sphere, why: "the current coordinate vocabulary" }
+    - "DFHack — its existence is evidence about which internals are addressable"
+
+open:
+  - { q: "Read the Lua: do the exposed generators dispatch on sphere-like coordinates, or switch on enumerated types?", stakes: "decides whether this example is a Korz READING or a Korz PROPOSAL" }
+  - { q: "What is a sphere, formally?", note: "if item spheres determine available magic, spheres are the coordinate space and the lattice is enumerable" }
+  - { q: "Does the myth generator produce a lattice or a story?", note: "Korz needs the former; Tarn describes narrative events with mechanical consequences, which may be the same thing from the other end" }
+  - { q: "Is legislated order a TOURNAMENT artifact rather than a dispatch necessity?", why: "DF doesn't care about balance; Magic cares enormously and pays in layers" }
+
+repo_note:
+  # There is no characters/tarn-adams/ in this repo, and creating an invitation portrayal is
+  # Don's call, not a side effect of a Korz example. Citations live here until he decides.
+  status: "flagged for Don"
+
+connects:
+  - { path: examples/mtg-layers.md, why: "the same problem with dimensions printed on cards and a total order legislated over them" }
+  - { path: examples/fluxx-nomic.md, why: "the context half — rebinding instead of ordering; and the when-is-the-lattice-authored spectrum this sits on" }
+  - { path: examples/sims-advertisements.md, why: "the auction this generates instead of authoring" }
+  - { path: examples/grid-as-rooms.md, why: "the specimen it was asking for" }
+  - { path: examples/mfm-city.md, why: "dispatch caching as a polymorphic inline cache" }
+  - { path: case-zork.md, why: "the adventure-game line this joins" }
+  - { path: ask-david.md, why: "the generated-lattice question, in the form to put to David" }

@@ -440,10 +440,13 @@ PROCEDURAL-RHETORIC:
 
 MASKING-EFFECT:
   meaning: "Abstract characters + detailed backgrounds = projective identification."
-  origin: "Scott McCloud, Understanding Comics"
+  origin: "Scott McCloud, Understanding Comics (1993), ch. 2, p. 43 — Hergé's Tintin"
+  quote: "One set of lines to see. Another set of lines to be."
   invoke_when: "Designing characters, templates, or avatars"
+  glossary: "designs/GLOSSARY.md — the Sims Wing; both sets of lines are required, and Bob and Clippy each dropped a different one"
   
   insight: |
+    # It takes BOTH sets of lines. That is the half everyone drops.
     # Simplified characters let players PROJECT themselves.
     # A smiley face can represent anyone.
     # A photograph represents only that person.
@@ -843,6 +846,65 @@ TRADITION-INVOKE:
     
   forbidden: |
     "I am Minsky and I believe..."
+
+LOTION-ON-THE-SKIN:
+  meaning: "Harvesting a non-consenting person into a wearable conversational surface, softened until pleasant to wear."
+  location: skills/representation-ethics/examples/lotion-on-the-skin.yml
+  invoke_when: "Any proposal to generate first-person voice for someone who did not consent"
+  coinage: "Don Hopkins, 2026-09"
+
+  the_pipeline: |
+    HARVEST — scrape the lifework, letters, voice, face. No consent sought.
+    STITCH  — assemble the patches into a conversational surface.
+    SOFTEN  — blend with the vendor's alignment layer until it is inviting.
+    WEAR    — ship it, and let users prompt it into saying anything.
+
+  the_tell: |
+    Not that the output is wrong. That the output is SMOOTH.
+    The subject's documented edges blend into the vendor's house voice, so what emerges
+    is polite, agreeable and unattributable. Provenance is never contradicted. It is bleached.
+
+  remedy: "Lore node, not dialogue. Their actual words, unsoftened. HALT the build; a disclaimer is not the fix."
+
+  why_this_name: |
+    The legal-shaped words — misrepresentation, exploitation, violation — survive a product
+    meeting and come out the other side as feature names. This one cannot be laundered,
+    which is the entire reason to use it.
+
+OWNED-VS-DISOWNED:
+  meaning: "Personae people invent for themselves. One question decides the treatment."
+  location: skills/representation-ethics/examples/self-authored-persona.yml
+  invoke_when: "The character was created by its own subject"
+
+  ask: "Did the creator own it or disown it?"
+  owned: "'This is my act.' A gift, and fidelity is the price. Play it straight, in their register."
+  disowned: "'This is not me.' Abandoned property. Play it as written; they left the keys in the car."
+  scope_limit: "The persona's documented behavior. Never the human's private life."
+
+DISTANCE-SETS-THE-LICENSE:
+  meaning: "Comedic license scales with remove from the real person."
+  location: skills/representation-ethics/examples/patron-mascot-stack.yml
+  invoke_when: "Deciding how broadly a mascot or familiar may be played"
+
+  rungs: |
+    0 — the person: quote only
+    0 — their own owned avatar: straight, in their register
+    1 — a mascot inheriting their expertise: strong personality, in service of the work
+    2 — a mascot's companion: broad, wacky, carries nobody's dignity
+
+  note: "License does not transfer inward. A wacky companion does not make its patron fair game."
+
+WORTH-OF-REPRESENTATION:
+  meaning: "Whether a node should exist at all. Curation, not consent."
+  location: skills/representation-ethics/examples/worth-of-representation.yml
+  invoke_when: "Deciding who belongs in the collection"
+
+  verdicts: |
+    SUBJECT  — their work is load-bearing. Full node, invitation if living.
+    FOIL     — their failure modes are diagnostic. Lore node from primary sources, NOT invited.
+    EXCLUDED — nothing structural. No node; a critical page elsewhere if warranted.
+
+  invitation_honesty: "uncontacted, never declined, when no letter was sent."
 
 # MIND MIRROR (Personality Modeling)
 
@@ -2849,6 +2911,7 @@ _categories:
   
   # Safety & memory
   safety: [P-HANDLE-K, NO-IMPERSONATE, K-LINE, FICTIONAL-WRAPPER, HONEST-FORGET, HERO-STORY]
+  representation: [REPRESENTATION-ETHICS, CONSENT-HIERARCHY, SELF-SOVEREIGN, GAME-FRAME, TRADITION-INVOKE, LOTION-ON-THE-SKIN, OWNED-VS-DISOWNED, DISTANCE-SETS-THE-LICENSE, WORTH-OF-REPRESENTATION]
   memory: [HOT-COLD, WORKING-SET, SUMMARIZE, NEVER-DELETE]
   robustness: [NEVER-CRASH, REPAIR-DEMON, BEST-EFFORT, ROBUST-FIRST]
   logging: [SESSION-LOG, AUDIT-TRAIL]

@@ -1,0 +1,267 @@
+# Measuring the anneal boundary — sidecar for domain-walls.md
+# Don, Aug 2026: "how could we recognize the transition of life <=> brain across the boundaries of
+# anneal? anti-life just makes it foamier. need to have some statistical measure of flux. we can
+# perform brute force pattern recognition and analysis these days without blinking, so that should
+# be an option."
+# Flags: ⚠ = unverified; confirm before it is said out loud.
+
+the_short_answer: >
+  This is Hanson & Crutchfield's COMPUTATIONAL MECHANICS OF CELLULAR AUTOMATA, and the case here is
+  strictly easier than the one they solved. They had to DISCOVER the domains in an apparently random
+  spacetime diagram; here the domains are known a priori because the anneal selector assigned them.
+  So the hard half is already done and what remains is instrumentation.
+
+what_they_did:
+  domain: "a region whose spacetime pattern is described by a regular language — an epsilon-machine"
+  filter: "run that machine as a TRANSDUCER over the spacetime diagram; conforming cells map to blank, violations are marked"
+  what_survives: "walls, defects, and particles — the filtered field is the structure, and the domains are the background it was hiding in"
+  then: "catalogue the particles by velocity and profile, and tabulate their interactions: alpha + beta -> gamma"
+  the_point: "the CA turns out to be COMPUTING by transporting and colliding particles. That is intrinsic computation, made visible by subtraction."
+  ⚠_citation: "Hanson & Crutchfield on ECA 18, 54, 110 — get the exact papers and years before printing"
+
+measures:
+  # Ordered cheapest and most honest first. Do not skip to machine learning.
+
+  allegiance_field:
+    what: "for each cell, which rule actually predicted its next state"
+    method: "run BOTH rules on the local patch and compare each prediction against what happened"
+    outcomes:
+      life_only: "behaves as Life"
+      brain_only: "behaves as Brain"
+      both_agree: "ambiguous, and common — the rules coincide on many neighbourhoods"
+      neither: "wall or defect — this is the interesting set"
+    why_it_comes_first: "it is EXACT, not statistical, and it is about ten lines of code. No estimation, no threshold, no training."
+    the_bonus_measurement: >
+      The anneal selector already knows the INTENDED allegiance of every cell. Compare intended
+      against behavioural and you get a discrepancy field for free — cells assigned to Life that are
+      behaving like Brain. Nobody had that in 1993 because nobody painted the domains.
+
+  flux:
+    # What Don actually asked for.
+    global_area_flux: "d(count of Life-allegiance cells)/dt — one signed number, so one meter. Sign says which rule is winning."
+    local_flux_density: "cells converted per unit boundary length per tick, as a field rendered onto the wall itself"
+    boundary_velocity: "per wall segment, by cross-correlating consecutive frames — gives a velocity field along the interface"
+    conserved_quantity_check: "if the boundary is stationary in the mean, the two rules are in equilibrium at that composition. Finding the parameter values where flux crosses zero is a phase-boundary hunt, and it is the same shape of experiment as the Ising temperature sweep."
+
+  foaminess:
+    # "anti-life just makes it foamier" is a statement about interfacial roughness. Measure it.
+    domain_size_distribution: "connected components on the allegiance field, histogrammed; foamier means more, smaller domains"
+    coarsening_exponent: "track mean domain area against time — curvature-driven coarsening classically goes as t^(1/2). ⚠ whether CA anneal domains obey it is exactly the open question."
+    interfacial_width: "w(L) versus segment length L — the roughness exponent. Family-Vicsek scaling; ⚠ do NOT claim a KPZ universality class without measuring it."
+    von_neumann_mullins: >
+      For 2-D soap froth and grain growth, a bubble's area changes linearly with (n - 6), n being its
+      number of sides. Testing whether anneal domains obey it is a beautiful, checkable experiment
+      and a real result either way. ⚠ borrowed from a different physical system on purpose.
+    status: "Don's foaminess observation is a HYPOTHESIS with an obvious measurement attached, not an established fact"
+
+  the_two_meters_but_scoped:
+    claim: "h_mu and C_mu computed over a MASKED REGION, not globally"
+    prediction: "domains are low entropy rate and low statistical complexity; walls carry the structure. The filtered field is where the computation lives."
+    design_requirement: >
+      This is a concrete demand on the front panel: measurement stages need a REGION the same way
+      drawing tools do — source x region x blend, with meters as another consumer of the region
+      dimension. A global meter cannot see this effect at all, because the domains dominate the area.
+    see: "../jim-crutchfield/positive-feedback.md — the two-meter ask, which this makes specific"
+
+brute_force_is_now_an_option:
+  # Don: "we can perform brute force pattern recognition and analysis these days without blinking."
+  exhaustive_tabulation:
+    what: "enumerate every k x k x tau spacetime patch and count its frequency inside each domain"
+    size: "3x3x2 binary is 2^18 = 262144 patterns — trivially tabulable"
+    classify: "likelihood ratio between the two empirical distributions"
+    the_recursion_worth_noticing: >
+      This is EXHAUSTIVE TABULATION — the same move the rule engine itself is built on. The analyser
+      gets to use the CAM-6's trick against the CAM-6's output.
+      (cam-construction-set.md#the-move-has-a-name-partial-evaluation-and-one-more-thing)
+
+  automatic_particle_cataloguing:
+    what: "filter to walls, connected-component them, track over time, cluster trajectories by velocity and profile"
+    output: "the particle zoo and its interaction table, generated rather than hand-compiled"
+    why_it_belongs_here: "this is a great deal of compute spent stupidly, which is precisely what is cheap now and was not in 1993. It is the strongest argument that the old method deserves a new instrument."
+
+  learned_classifiers:
+    honest_position: "a CNN on patches would work and would be WORSE than the predictor test for this problem, because the rules are known and the exact answer is cheaper than the approximate one"
+    where_learning_actually_earns_its_place: >
+      Discovering domains nobody declared. Hanson & Crutchfield found that walls between domains can
+      themselves BE domains — a third phase living in the interface. A classifier that is allowed to
+      find a category you did not paint is looking for exactly that, and that is the result worth
+      chasing.
+    rule: "use the exact method where the answer is exact; spend the learning budget on the unknown"
+
+the_compression_bench:
+  # Don, Aug 2026: "for entertainment we could run deterministic life in parallel with less and less
+  # deterministic with more dithering and fuzziness and other dimensions dialed up and down. Also
+  # Brian's Brain and anneal and them in combination. How well do different CA rules 'compress'? I
+  # suspect anneal might be an extreme case but zoom in on the edges and measure what's really going
+  # on in the high frequency details!"
+
+  the_ensemble_display:
+    what: "N copies of one rule side by side with the fuzziness dial at N settings, running from exact to mush"
+    it_is_not_only_entertainment: "it is a BIFURCATION DIAGRAM in the noise parameter — you watch the melting point, the noise level at which gliders stop surviving and structures dissolve"
+    the_established_science: >
+      Noise-stability of CAs is a real field with a canonical result: TOOM'S RULE (North-East-Centre
+      majority) is stable under small random perturbation because it has the eroder property, while
+      plain 2-D majority voting is not. So "which rules survive dithering" is a question with a
+      framework behind it, not just a demo. ⚠ verify Toom attribution and the exact eroder statement.
+    what_to_measure_on_it: "structure survival probability versus noise level — one curve per rule, and the knee is the phase transition"
+
+  compression_is_an_entropy_rate_estimator:
+    claim: "compressed size per cell per tick is a crude but real estimate of the ENTROPY RATE h_mu"
+    why_it_matters_here: "it is the brute-force version of the meter this whole project is asking Crutchfield for, computable today with zlib and no theory"
+    cheap_and_worth_shipping: "a live 'bits per cell per tick under gzip' readout costs nothing and already separates a still life (near zero) from a random soup (near one bit)"
+
+    the_trap_that_proves_the_two_meter_point:
+      problem: "RANDOM NOISE IS INCOMPRESSIBLE. Rank rules by compression ratio and pure noise wins."
+      therefore: "compression alone reproduces exactly the confusion — random mistaken for complex — that computational mechanics exists to correct"
+      the_good_news: >
+        This means the compression question ARRIVES AT THE TWO-METER ASK ON ITS OWN. You do not need
+        to be persuaded that one number is insufficient; you discover it the first time you sort the
+        rule catalogue by gzip ratio and find noise at the top. That is a far better motivation than
+        a theoretical preference.
+      see: "../jim-crutchfield/positive-feedback.md"
+
+    how_to_get_the_second_axis_cheaply:
+      block_entropy_curve: "estimate H(L), the entropy of L-cell blocks, for a range of L"
+      the_two_numbers_fall_out_of_one_table:
+        slope: "h_mu — the entropy rate, the randomness"
+        intercept: "EXCESS ENTROPY E — the computable practical cousin of C_mu, the structure"
+      why_this_is_the_answer: "one brute-force pass over block frequencies yields BOTH meters. The same exhaustive tabulation already proposed for domain classification, reused."
+      alternative: "two-part / MDL coding — report the model size and the residual code length separately. Model size stands in for C_mu, residual for h_mu."
+      ⚠: "excess entropy is not identical to statistical complexity; they coincide in some cases and not others. Do not conflate them in print."
+
+  anneal_is_the_extreme_case_and_here_is_why:
+    prediction: "Don's suspicion is right, in the LOW direction"
+    mechanism: "anneal makes large uniform domains separated by thin walls, so the bulk costs almost nothing to describe and the entropy rate falls toward zero as domains coarsen"
+    the_consequence_that_matters: >
+      IF THE DOMAINS COMPRESS TO NOTHING, ALL THE INFORMATION IS IN THE WALLS. Total compressed size
+      then scales with BOUNDARY LENGTH rather than area, which means the compression meter is
+      secretly measuring interfacial length, and its time derivative is the coarsening rate.
+    so_zooming_in_on_the_edges_is_not_optional: >
+      It is where the entire signal lives. Don's instinct to zoom in and measure the high-frequency
+      detail is the same measurement as the interfacial width exponent under measures.foaminess —
+      arrived at from compression instead of from metallurgy.
+    methodological_caveat: "⚠ anneal is NON-STATIONARY while coarsening, and entropy-rate estimation assumes stationarity. Report the curve over time, never a single number."
+
+  what_to_actually_build:
+    the_bench: "run every rule in the catalogue, log spacetime, report h_mu estimate, excess entropy estimate, and both as curves over time"
+    the_artifact: "a table and a chart per rule — a compressibility catalogue for the rule zoo, which no rule catalogue currently ships"
+    the_combinations_don_asked_for: "Life, Brain, anneal, and their pairings under the anneal selector — the interesting cell of the table is the COMBINATION, because that is where walls exist to measure"
+    reuse: "the meters must be region-scoped, which is the same requirement measures.the_two_meters_but_scoped already produced from the other direction"
+
+the_contour_slice_technique:
+  # Don, Aug 2026, describing a technique already in CAM6 that is not written down anywhere.
+  # ⚠ Reconstructed from his description; confirm the colormap details against the running app.
+  the_apparatus:
+    colormap: "a smooth grey sweep with a HIGH-CONTRAST BLACK/WHITE DISCONTINUITY placed in the middle, at the 127/128 boundary"
+    effect: "the smooth ramp shows almost nothing; the discontinuity renders any value straddling it at maximum contrast"
+    the_scrubber: "frob is a DC offset added to every cell, so turning the mouse wheel slides the whole field up and down THROUGH the discontinuity"
+    what_you_are_doing: "sweeping a level set through the field and watching it cross a contour detector"
+  what_it_actually_is: "an isoline visualiser built from a colormap discontinuity plus a DC offset — no contour algorithm, no extra pass, and it runs at full frame rate"
+  why_the_wheel_matters: "it is continuous, bidirectional and hand-driven, so you hunt for the interesting level by feel. This is the violin, and it is a Turn Table (../don-hopkins/turn-tables.md)."
+  prior_art_neighbours: [colour_cycling, sawtooth_colormap_contouring, false_colour_isolines]
+
+  the_patterns_are_not_noise:
+    claim: "the 'dancing' texture at the contour is an ANALOG SIGNAL ENCODED IN A BINARY IMAGE"
+    mechanism: >
+      In a near-constant region an error-diffusion dither produces a structured quasi-periodic
+      pattern whose local density encodes the FRACTIONAL PART of the underlying value. At exactly
+      half a level you get a checkerboard; at a tenth you get sparse dots at a specific density. The
+      pattern is a readout of the sub-quantisation value.
+    the_identity_again: "this is sigma-delta demodulation — the bitstream's local density IS the analog value, which is the third face of the Bresenham / Floyd-Steinberg / sigma-delta identity already in ../don-hopkins/schedulers.yml"
+    the_free_consequence: >
+      SUB-LSB PRECISION BY SPATIAL AVERAGING. Box-filter the dithered field over k x k and recover
+      roughly log2(k^2) extra bits. Oversampling, not magic, and no model required.
+
+  can_a_model_be_trained_on_them:
+    the_honest_first_answer: "for RECOVERING THE FIELD, no model is needed — a linear filter already demodulates it, and reaching for a net there would be worse and slower"
+    where_learning_genuinely_earns_its_place:
+      at_the_edges: "local-constancy fails exactly at contours and domain walls, which is precisely where Don is looking. A learned demodulator could beat a box filter there and nowhere else."
+      under_anisotropy: "when the dither is directionally biased — by scan order, or by the suspected heat-sum bug — the linear estimator is wrong in a structured way a model can correct"
+      inverse_problems_on_the_generator: "recover the PARAMETERS from the texture rather than the field"
+    the_experiment_worth_running:
+      question: "can a classifier identify WHICH SCHEDULER produced a dither texture, from the texture alone?"
+      candidates: [raster, serpentine, four_rotation, hilbert, bresenham_turtles]
+      why_it_is_good: >
+        The schedule is invisible in the bulk and written into the high-frequency grain. If a model
+        can read it off, then scan order is empirically observable rather than merely declared — and
+        the same detector becomes a BUG DIAGNOSTIC, since the heat-sum east drift should show up as
+        a directional signature.
+    the_training_data_is_free:
+      claim: "the simulator is its own labeller"
+      why: "the pre-dither continuous values are known exactly, so perfectly-labelled pairs are unlimited and require no annotation. This is the rare supervised problem with no data cost."
+
+  automating_the_wheel:
+    idea: "sweep frob programmatically through the whole range and stack the contours"
+    what_that_gives: "the full level-set decomposition of the field — reconstructing a higher-precision scalar field from a stack of binary contours"
+    name: "level-set / layer-cake reconstruction; superresolution of an 8-bit cell by sweeping rather than by widening it"
+    the_pleasing_part: "a hand technique for finding the interesting slice becomes, when automated, a measurement instrument that beats the cell's own bit depth"
+
+  it_is_not_a_cellular_automaton_artifact_and_that_is_the_point:
+    # Don, Aug 2026: "so I am asking the model to train on a definitely not by the definition of
+    # cellular automata artifact that has its own dynamic dancing language and syntax."
+    why_he_is_right: >
+      A cellular automaton is a uniform local rule applied as a function of a fixed neighbourhood,
+      independent of position and update order. The dither carry threads through cells in SCAN
+      ORDER, so the pattern depends on a cell's place in the update sequence and not only on its
+      neighbourhood. By definition it is not CA behaviour.
+    what_it_is_instead: "THE SCHEDULER MADE VISIBLE"
+    why_that_matters_here: >
+      ../don-hopkins/schedulers.md argues at length that iteration order is part of the rule and is
+      invisible in every engine. The contour-slice technique is the DISPLAY THAT MAKES IT VISIBLE.
+      Don built the instrument for the phenomenon before writing the argument for it.
+
+    the_language_is_literal_not_poetic:
+      claim: "'its own dancing language and syntax' is correct TECHNICAL terminology, not a figure of speech"
+      why: >
+        The patterns an error-diffusion dither can produce at a given residual form a CONSTRAINED
+        SET of configurations — a shift space defined by forbidden words. That is a formal language
+        in the exact sense: a subshift, sofic or of finite type. The 'syntax' is its transition
+        structure.
+      therefore: "the right instrument is an EPSILON-MACHINE of the dither, and its statistical complexity measures how much memory the dance carries"
+
+    the_1d_case_has_a_name_and_it_is_beautiful:
+      fact: "a 1-D DDA's step sequence — which axis moves each tick — is a STURMIAN SEQUENCE"
+      what_sturmian_means: "aperiodic with minimal factor complexity, p(n) = n+1; the cutting sequence of a line of irrational slope; the symbolic dynamics of an irrational circle rotation"
+      the_consequence_that_matters: >
+        Sturmian sequences have ZERO ENTROPY RATE AND NONZERO EXCESS ENTROPY — low h_mu, real C_mu.
+        That is exactly the "structured but not random" corner the two meters exist to find. So the
+        dither texture is a NATURALLY OCCURRING SPECIMEN of the phenomenon this whole project is
+        asking Crutchfield about, generated for free inside Don's own engine, and he found it
+        beautiful before anyone told him the theory.
+      the_other_end_of_the_same_thread: "Bresenham turtles produce Sturmian step sequences by the same DDA — ../don-hopkins/schedulers.yml, bresenham_particles"
+      ⚠: "2-D error diffusion with a distributed kernel is RICHER than Sturmian. The 1-D statement is solid; the 2-D structure is the open and more interesting question."
+
+    it_is_a_calibration_source:
+      claim: "a meter needs a signal with a known answer, and this is one"
+      how: "the 1-D case has a theoretical entropy rate of zero. Point the h_mu estimator at it. If the meter does not report near zero, the meter is wrong."
+      value: "free, exactly-known test signal for the front panel, produced by the machine being instrumented"
+
+    so_should_a_net_be_trained_on_it:
+      the_contrarian_answer: "no — RECONSTRUCT THE MACHINE instead"
+      why: >
+        For a process with a genuine finite-state syntax, epsilon-machine reconstruction gives an
+        exact, interpretable automaton, and a neural net gives weights that describe it worse. This
+        is the specific case where the classical method beats the fashionable one, and it happens to
+        be the method of the person this repo is writing to.
+      where_a_net_still_earns_a_place: [the_2d_case_where_spatial_machine_reconstruction_is_hard, the_which_scheduler_made_this_classifier, demodulation_near_edges_where_local_constancy_fails]
+
+  on_making_it_prettier_with_learning:
+    position: "a learned dither optimised for human perception would mostly rediscover BLUE NOISE, which is already the analytic answer to that question"
+    where_a_model_could_win: "content-adaptive dithering — different texture over domains than over walls — which is only worth it if the goal is revealing structure rather than hiding error"
+
+the_design_consequence:
+  claim: "analysers are pipeline STAGES that emit fields, and CAM6 already has an `analyzer` defineType to hang this on"
+  the_loop_that_closes: >
+    If a meter emits a field, and every parameter can consume a field, then A METER IS A SOURCE.
+    Drive the anneal selector from the measured flux and the boundary regulates itself — the
+    instrument's measurement becomes part of its physics.
+  fits: "../david-ungar/korz/examples/layered-rules.yml → procedural_fields.the_promotion"
+  caution: "measurement-driven rules are feedback loops and can oscillate. Worth building, worth labelling."
+
+cross_links:
+  - cam-construction-set.md
+  - schedulers.md                                       # the measured field depends on iteration order too
+  - ../david-ungar/korz/examples/layered-rules.md       # anneal as a selector, both_life's polarity
+  - ../jim-crutchfield/positive-feedback.md             # the two-meter ask
+  - ../jim-crutchfield/README.md                        # computational mechanics, epsilon-machines
+  - ../dave-ackley/README.md

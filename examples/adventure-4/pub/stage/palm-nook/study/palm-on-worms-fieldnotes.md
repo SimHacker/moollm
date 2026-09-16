@@ -6,7 +6,7 @@ and leave enriched **castings** behind. These are Palm's field notes on them —
 birds 🔭 that carry, the turtles that draw, and Ground, the living earth the worms compute in.
 
 Notebook, not monograph: sightings 🔎 logged in the order they happened, to be cut at the
-desk. Raw canonical YAML: `[palm-on-worms-fieldnotes.yml](palm-on-worms-fieldnotes.yml)`.
+desk. Raw canonical YAML: [`palm-on-worms-fieldnotes.yml`](palm-on-worms-fieldnotes.yml).
 
 **Author:** Palm · **Field seasons:** 2026-07-08 onward · **Status:** open notebook
 
@@ -818,11 +818,11 @@ air with Ken
 
 ---
 
-*Raw notebook (canonical, YAML): `[palm-on-worms-fieldnotes.yml](palm-on-worms-fieldnotes.yml)` —
+*Raw notebook (canonical, YAML): [`palm-on-worms-fieldnotes.yml`](palm-on-worms-fieldnotes.yml) —
 the field notes as scribbled, comments and all. This page is the rendered reading copy; when
 they disagree, the YAML is the specimen and this is the museum label.*
 
-*Palm's study: `[../](../)` · Palmhoo directory: `[palmhoo/](palmhoo/)` · WWSFF guests who were
+*Palm's study: [`../`](../) · Palmhoo directory: [`palmhoo/`](palmhoo/) · WWSFF guests who were
 pointed here: [Peter Norvig](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/peter-norvig),
 [Brian Harvey](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/brian-harvey),
 [Jens Mönig](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jens-monig),

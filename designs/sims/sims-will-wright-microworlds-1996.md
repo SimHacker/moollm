@@ -339,8 +339,8 @@ a lineage:
 
 **That term survives only because it was chased down.** YouTube's automatic
 captions garbled it; recovering it took looking the term up and then **asking
-Wright directly** what he had actually said. It is the most load-bearing phrase
-in the passage — a Braitenberg vehicle is precisely the claim that convincing
+Wright directly** what he had actually said. The whole passage turns on it — a
+Braitenberg vehicle is precisely the claim that convincing
 behavior can come from a few local couplings and no world model, which is the
 entire Sims AI thesis — and an uncorrected transcript would have lost it
 silently. See [`../NOISY-CHANNEL.md`](../NOISY-CHANNEL.md) on why a fluent

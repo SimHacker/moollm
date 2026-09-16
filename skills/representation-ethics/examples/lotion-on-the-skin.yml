@@ -1,0 +1,134 @@
+# lotion-on-the-skin.yml — The named sin
+#
+# Harvest a non-consenting person's corpus, voice and face; stitch the patches into a
+# conversational surface; soften it until it is pleasant to wear.
+#
+# Buffalo Bill's ritual, The Silence of the Lambs. The metaphor is doing work no polite
+# term does: it names the softening, which is the part the industry markets as a feature.
+
+meta:
+  type: example
+  skill: representation-ethics
+  pattern: lotion-on-the-skin
+  coinage: "Don Hopkins, 2026-09-08"
+  created: 2026-09-08
+
+the_name:
+
+  why_this_one: |
+    The five sins in SKILL.md's table are legal-shaped: deception, misrepresentation,
+    defamation, exploitation, violation. Each is true and none is vivid enough to survive
+    a product meeting. "Putting the lotion on the skin" cannot be laundered into a
+    feature name, which is the entire reason to use it.
+
+  what_it_names: |
+    Not one act but a pipeline:
+      1. HARVEST   — scrape the lifework, letters, voice, face. No consent sought.
+      2. STITCH    — assemble the patches into a conversational surface.
+      3. SOFTEN    — blend with the vendor's alignment layer until it is inviting.
+      4. WEAR      — ship it, and let users prompt it into saying anything.
+
+  the_tell: |
+    Not that the output is wrong. That the output is SMOOTH.
+    A skin-suit blends the subject's documented edges into the vendor's house voice, so
+    what emerges is polite, agreeable and unattributable — the person's name over the
+    vendor's logic. Provenance is never contradicted. It is bleached.
+
+# WHAT SEPARATES IT FROM THE LEGITIMATE TRADITIONS
+
+three_properties:
+
+  consent:
+    skin_suit: "Absent, and not sought."
+    ethical_frame: "Present, or the subject is fictional."
+
+  frame:
+    skin_suit: "Concealed. The mimicry IS the product; disclosure would defeat the sale."
+    ethical_frame: "Declared. 'Impersonator', 'tribute', mascot — the label carries the disclaimer."
+
+  edges:
+    skin_suit: "Sanded off to be inviting."
+    ethical_frame: "Preserved, including the unflattering ones."
+    note: |
+      This is the diagnostic property, because it is the one vendors will not give up.
+      An unsoftened representation does not sell as a companion.
+
+# THE REMEDY IS NOT A GENTLER SKIN-SUIT
+
+remedy:
+
+  wrong_fix: "Add a disclaimer, keep generating first-person voice."
+  right_fix: "Stop generating first-person voice. Encapsulate as a lore node."
+
+  lore_node:
+    what: "Their actual words, actual code, actual record — unsoftened, cited, addressable."
+    what_it_does_not_do: "Talk back. It is not conversational and is not meant to be."
+    why_this_is_respect: |
+      Do not make an uncontacted person's data conversational. Let the jagged edges stand
+      as architecture. The record is more use to a reader than a pleasant impostor, and it
+      cannot be prompted into saying something the subject never said.
+
+  compiler_check: |
+    If a template tries to emit first-person dialogue for a subject whose consent is
+    absent, HALT the build. Reverting to lore-node indexing is the fix.
+    Failure mode to avoid: a warning that gets suppressed and a build that ships.
+
+# WORKED CASE — the authority behind the coinage
+
+provenance:
+
+  first_hand: |
+    Don rewrote the facial animation system and content pipeline under a consented, paid
+    commercial digital twin (AI Foundation "Mind Twins"), in Unity3D. Blend-shape pipeline,
+    52 ARKit micro-expressions, Blender/FaceIt rigging, 60fps at under 1ms GPU frame time.
+    Speech-to-text mapped input to plugs — pre-recorded things the subject actually said —
+    and played them back. The engine never synthesized speech in the subject's voice.
+
+  why_it_matters_here: |
+    The critique is not from the outside. That pipeline was CONSENTED and PAID, and the
+    experience of building it is what makes the unconsented version legible as desecration
+    rather than as a product category.
+
+  what_was_kept: |
+    The plug architecture itself is sound and is now the basis of the Quotes content type:
+    verified recordings play as recordings, text without a recording is spoken in a
+    designated robot voice the listener chose. See designs/QUOTES.md.
+
+  what_was_rejected: |
+    Everything in the softening step.
+
+# CONTRAST
+
+contrast:
+
+  seaman:
+    what: "Sega Dreamcast, 1999. Leonard Nimoy narrating a sarcastic fish."
+    why_it_is_clean: |
+      It never claimed to be a person. It said outright: "I exist as part of your
+      consciousness. I become real because you see me." It insulted the player, ignored
+      commands, and demanded real time. Un-softened, and honest about being computational.
+    the_lesson: "An artificial character that admits it is artificial owes nobody an apology."
+
+  digital_twin:
+    what: "A real person's face and recorded voice, animated, flattering, on-brand."
+    why_it_is_the_hard_case: |
+      Consent and payment make it legal and make it survivable. They do not make the
+      softening disappear — they just mean the subject agreed to be softened.
+    the_lesson: "Consent moves it out of desecration. It does not move it into honesty."
+
+k_lines:
+  - LOTION-ON-THE-SKIN
+  - NO-SKIN-SUIT
+  - LORE-NODE-NOT-DIALOGUE
+  - EDGES-PRESERVED
+  - BLEACHED-PROVENANCE
+
+references:
+  related_examples:
+    - ./consent-hierarchy.yml
+    - ./self-authored-persona.yml
+    - ./patron-mascot-stack.yml
+    - ./absolute-nos.yml
+  design_docs:
+    - ../../../designs/QUOTES.md                # plugs, and the robot voice as audio quote marks
+    - ../../../designs/readings/README.md       # the honest inverse: your voice at your own corpus

@@ -73,6 +73,9 @@ All 4 logged violations. [Browse →](examples/)
 
 - `CARD.yml` — Sniffable interface
 - `SKILL.md` — Full protocol
+- [`SILICON-SYCOPHANTS.md`](SILICON-SYCOPHANTS.md) — The research. Flattery from a computer
+  works as well as sincere praise, and keeps working on people who know it is fake, so the
+  rules here bind the model rather than warning you
 - `examples/` — Self-correction learning corpus
 
 ## See Also

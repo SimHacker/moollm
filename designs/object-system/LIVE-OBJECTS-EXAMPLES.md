@@ -32,12 +32,12 @@ and its unfinished business open.
 
 ### Souls: bringing game characters to life as objects
 
-[`apps/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/soul-angel) is
+[`modules/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel) is
 the outreach vehicle: an always-on game companion whose **Soul Bridges** read and write a game's
 own soul — saves, albums, characters — from a web overlay. A Sim pulled out of a Sims 1 save
 isn't a screenshot; it's an object: a directory of YAML slots with provenance, ready to be
 cloned, edited, narrated, recombined, and written back. The
-[Soul Album](https://github.com/SimHacker/MicropolisCore/blob/main/apps/soul-angel/SOUL-ALBUM.yml)
+[Soul Album](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/SOUL-ALBUM.yml)
 is the cross-game schema; each per-game bridge maps native vocabulary (The Sims' *Family Album*)
 onto the uplifted game-independent schema — Postel at the file-format boundary.
 

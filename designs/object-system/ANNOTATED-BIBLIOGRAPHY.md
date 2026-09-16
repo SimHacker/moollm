@@ -157,9 +157,9 @@ index — Sims-style 'what's available here?'"
 ## soul-angel — the Soul City app object (external, MicropolisCore)
 
 Sources:
-[GLANCE.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/soul-angel/GLANCE.yml) ·
-[SOUL-ALBUM.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/soul-angel/SOUL-ALBUM.yml) ·
-[README.md](https://github.com/SimHacker/MicropolisCore/blob/main/apps/soul-angel/README.md)
+[GLANCE.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/GLANCE.yml) ·
+[SOUL-ALBUM.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/SOUL-ALBUM.yml) ·
+[README.md](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/README.md)
 
 The app directory cited in [LIVE-OBJECTS-EXAMPLES](LIVE-OBJECTS-EXAMPLES.md) — itself a
 filesystem object with a GLANCE (read order: README → ARCHITECTURE → SOUL-ALBUM → DVR →

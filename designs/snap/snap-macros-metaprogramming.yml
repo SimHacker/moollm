@@ -1,0 +1,214 @@
+# Snap! metaprogramming, rings as quote, and Lisp-family macros
+# Brian Harvey — design + Reference Manual; Jens Mönig — implementation.
+# Public: Snap! Reference Manual ch. 6 + 11, Snap! forum threads, Snap!Con 2022 keynote title.
+# Don's synthesis for Repo Show / HN accuracy — not attributed quotes unless marked.
+
+meta:
+  rendered_edition: snap-macros-metaprogramming.md
+  title: "Snap! rings, AST metaprogramming, and macros"
+  kind: technical_digest
+  consent: public
+  manual:
+    procedures_as_data: https://docs.snap.berkeley.edu/procedures-as-data/
+    metaprogramming: https://docs.snap.berkeley.edu/metaprogramming/
+    continuations: https://docs.snap.berkeley.edu/continuations/
+    version_note: "Manual v12 on docs.snap.berkeley.edu; macro section describes partial v8+ ship state"
+  forum_threads:
+    hygienic_macros: https://forum.snap.berkeley.edu/t/hygienic-macros/3258
+    script_builder: https://forum.snap.berkeley.edu/t/script-builder-library-part-1/3361
+    do_macros_work: https://forum.snap.berkeley.edu/t/do-macros-actually-work-in-snap/14431
+  snapcon:
+    history_keynote: "Snap!Con 2022 — Brian Harvey, A History of Metaprogramming (Logo/Scheme → Snap! 8)"
+  pair_show: repo-shows/snap-logo-brian-jens/
+  audience_questions: repo-shows/snap-logo-brian-jens/audience/palm/questions.yml
+
+the_hook: |
+  Snap! carries Scheme-class ideas in a visual language: gray **rings** are essentially **quote**;
+  **split by blocks** / **join** / **define** (v8+) treat blocks as AST data; **macros** follow the
+  Lisp-family model (unevaluated inputs, expand in the caller's environment) — not C preprocessor
+  text — but hygiene and the block-editor macro checkbox are still unfinished. Brian documented the
+  pedagogy; Jens ships the interpreter.
+
+two_layers:
+  procedures_as_data:
+    chapter: 6
+    what: "First-class functions — lambda, HOFs, closures"
+    mechanism: "Gray ring / ringify; call (reporters) and run (commands)"
+    quote_analog: "Ring = quote — evaluation does not pass through until explicit invocation"
+    brian_claim: "Anonymous procedures (lambda) — gray rings — are Brian's main Snap! code contribution (Karlstrom 2025)"
+  metaprogramming_proper:
+    chapter: 11
+    since: "Snap! 8.0"
+    what: "Manipulate block syntax trees — what you see on screen is the data"
+    primitives:
+      - "split _ by blocks — script/expression → syntax tree"
+      - "join — tree → ringed script/expression"
+      - "define _ _ _ — create custom blocks programmatically"
+      - "set _ of block _ to _ — category, type, scope, slot types"
+      - "definition of, attribute of block, delete block"
+    distinction: "Not the same as procedures-as-data (Ch. 6) — AST vs procedure values"
+
+ring_visual_syntax:
+  user_reading: |
+    The insulating gray oval with a gap is deliberate pedagogy: enclosed blocks are **data**, not
+    orders to run now. Invocation (`call`/`run`, or a HOF) reaches through at the **call site**.
+  shapes:
+    command: "Jigsaw interior — command ring"
+    reporter: "Oval interior — reporter ring"
+    predicate: "Hexagonal interior — predicate ring"
+  invisible_rings:
+    - "C-shaped control slots — unevaluated scripts (Scratch already used this)"
+    - "Any (unevaluated) inputs — special forms; look like white rectangles, delay eval like macro args"
+  special_forms: |
+    Reporter if-then-else without infinite-loop on factorial: unevaluated branches + call inside
+    implementor — user sees Scratch-normal UI.
+
+macro_model:
+  tradition: "Lisp family — not C #define text substitution"
+  rules:
+    - "Macro call looks like procedure call"
+    - "Macro inputs are NOT pre-evaluated"
+    - "Macro reports a ringed script or expression"
+    - "Result evaluated in CALLER's environment — splice at call site"
+  why_needed: |
+    Declare script variables in caller; change caller flow (report/stop from macro expansion);
+    derived special forms (COND → nested IFs) — things a normal procedure cannot do.
+  canonical_example:
+    name: "script list variables"
+    problem: "Helper that script-variables a,b,c inits to [] — vars bind in helper, not caller"
+    macro_fix: "Macro reports ringed script; that script runs inside caller where macro was invoked"
+    ring_environment: "Gray ring remembers macro's environment for free vars (e.g. input list VARS)"
+  v8_partial_ship:
+    mechanism: "of block — run code in another context (like tell sprite to)"
+    example_pattern: "if _ report _ caller _ — fizzbuzz reports from inside map"
+    manual_admits:
+      - "Caller context should be invisible input — future checkbox in make-a-block dialog"
+      - "Command macros vs reporter macros — notation still TBD"
+      - "Macro vs caller variable name collisions possible"
+      - "Hygienic macros NOT implemented — 'one substantial Scheme feature we don't yet implement'"
+  forum_2020_brian: "No macros at all yet — 'one big hole'; continuations already there; leaning FEXPR first"
+  forum_2023: "Users couldn't distinguish macro from ordinary call of ring; Brian hoped Snap!Con cleanup"
+
+problem_solution_space:
+  lisp_advantage: "Code surface IS lists — quote/quasiquote trivial"
+  snap_obstacle_pre_v8: "Scripts first-class but atomic — no inspectable interior"
+  ast_design_questions:
+    - "Variable refs — special AST nodes vs niladic variable blocks?"
+    - "Block headers — title spread across UI, not one symbol like (define foo ...)"
+    - "Command macro — stacks like command, reports script like reporter"
+    - "Caller splice — call/cc workaround discussed; primitive caller context via of"
+  trajectory:
+    - "2020 script-builder library — community AST hack; Brian wanted SLOT OF, programmatic define"
+    - "8.0 primitives split/join/define + partial caller-context macros"
+    - "Future — macro checkbox in block editor; possible macro library atop primitives"
+  brian_target: "CSLS chapters on program-as-data and macros — Logo lineage, not only SICP"
+
+hygiene_and_fexpr:
+  hygienic_macros: "NOT in Snap! — manual explicit"
+  brian_2020_position:
+    - "Was at comp.lang.scheme when hygienic macros invented; knows arguments"
+    - "FEXPR-style simpler for learners — teach name-capture danger explicitly"
+    - "Hygiene = compile-time analogue of lexical scope; FEXPR = dynamic-scope analogue"
+    - "Ship FEXPR first, hygiene after AST layer debugged"
+  jens_2020_pushback: "Dynamic scope horror for learners and abstraction — separate from macro thread"
+  pattern_matching: "Brian: syntax-rules poor fit for blocks — 'they're blocks, not S-expressions'"
+
+dynamic_binding_and_scope:
+  brian_controversial_position: |
+    Brian wishes Snap! used **dynamic binding** (at least for learners). Grounded in decades teaching
+    Logo to kids — not industry programmers. Forum 2020 (hygienic-macros thread): he was at the original
+    hygienic-macro debates; argues FEXPR/dynamic is *easier to explain*; hygiene is compile-time
+    lexical scope analogue.
+  brian_arguments_for:
+    - "In Logo without lambda, dynamic env is superset of lexical — more caller variables visible"
+    - "Name capture unlikely unless multiple programmers / no modules — kids write one-off helpers"
+    - "Wanted name capture: Logo MAP + ? — callee reads variable set in caller (scale 3 [4 5 6])"
+    - "Logo debugging: REPL uses same language; all relevant locals visible at error — no special debug dialect"
+    - "Helper procedures meant for 1-3 specific callers can assume caller's environment"
+  brian_arguments_against_acknowledged:
+    - "Jens: blocks must be interchangeable; dynamic scope = same block behaves differently per caller"
+    - "Jens: interpreter cost — shallow binding, tail-call elimination breaks Brian's hybrid-scope fix"
+    - "Industry / abstraction purists: name capture bugs at scale"
+    - "Snap! answer to HOF caller-vars: gray rings + hyperblocks — not dynamic scope"
+  brian_proposals_not_shipped:
+    - "Full dynamic scope for Snap!"
+    - "Hybrid scope — dynamic lookup only when no lexical/global match (Brian 2020)"
+    - "DYNAMIC VARIABLES block — like SCRIPT VARIABLES but permits dynamic reference if no lexical candidate"
+  jens_position: |
+    Lexical scope only. Dynamic scope has no benefits except trivial implementation (which Snap! still
+    pays for if done efficiently). Kids deserve interchangeable blocks. Debugging may need dynamic-flavored
+    access but that's not a license for dynamic binding in the language.
+  snap_actual_scope:
+    default: "Lexical — global, sprite-local, script variables (script variables block)"
+    special_forms: "Any (unevaluated), C-slots — delayed evaluation, not dynamic binding"
+    closures: "Gray rings remember defining environment (lexical)"
+    globals_workaround: "Users sometimes use globals when helper needs caller state — Brian cites as pain"
+    debugging_exception: |
+      pause all / right-click suspended script — show watchers for script vars; Jens allows access to
+      variables of all suspended scripts (Brian: 'Jens does understand you need dynamic scope for debugging')"
+    macro_caller_context: "of block — run in another procedure/sprite context (not full dynamic scope)"
+    oo_primitive: "self in my block — Don's RISC-for-OOP metaphor; sprites first-class"
+    not_in_snap: "fluid-let, full dynamic scope, hybrid scope, DYNAMIC VARIABLES primitive (as of manual/forum)"
+  palm_question_hook: |
+    Ask Brian to state for/against on air; ask Jens what shipped vs what was argued. Is there one atomic
+    primitive (ring env? of? self?) or a pile of special cases?
+
+dataflow_forum_2020:
+  date: "2020-09"
+  participants: [spdegabrielle, brian-harvey]
+  spdegabrielle:
+    - "Snap! light-years ahead of Blockly/Scratch; macros was question not proposal"
+    - "Hybrid lexical-scope language (unnamed) — user not CSE expert"
+    - "Dataflow more interesting than scope or macros; Pure Data fan"
+  brian_harvey:
+    - "Thanks; asks which hybrid-scope language"
+    - "Thought about dataflow; hung up on conditional eval without explicit CPS"
+    - "Admits dataflow fits visual metaphor; will look into more"
+  don_counterexample: |
+    Bounce/Body Electric (David Levitt) — switch icon (pure dataflow if), enable line (gate/sequence),
+    while encapsulation (telescoping loop) — no CPS. Digest:
+    ../../don-hopkins/sources/bounce-dataflow-control-flow.yml
+  lineage: "spdegabrielle Pure Data → Miller Puckette; David Levitt Hookup/MIT Music Hacker's Hangout"
+
+scheme_sicp_scorecard:
+  yes:
+    - "Functional style, recursion, HOFs"
+    - "Closures via rings + environment"
+    - "Continuations — call w/continuation, catch/throw (experimental limits)"
+    - "Quote / delayed eval — rings, special forms, unevaluated inputs"
+    - "Program-as-data — block AST since 8.0"
+  partial:
+    - "Macros — caller-context expansion via of; UI incomplete; user confusion reported 2023"
+  not_yet:
+    - "Hygienic define-syntax / syntax-rules"
+    - "Full metacircular evaluator chapter out-of-box (pieces exist via AST)"
+  hn_claim_calibration: |
+    "Everything you can do with Scheme in Snap!" is directionally right for BJC/SICP *ideas* but
+    oversells macro polish. Safer: functional programming + continuations + metaprogramming AST +
+    Lisp-family macro *model* (partial implementation).
+
+show_beats:
+  brian:
+    - "Draw the ring on a whiteboard — quote, gap, call/run as eval"
+    - "Special forms — why Scratch if/forever already had invisible rings"
+    - "FEXPR vs hygiene pedagogy — why learners aren't industrial macro shops"
+    - "Dynamic binding — Brian's most controversial take; Logo decades vs Jens lexical commitment"
+    - "Dataflow vs CPS — Brian's 2020 hang-up; Bounce switch/enable/while as Don's counterexample"
+    - "CSLS macro examples — what still missing for full faithfulness"
+  jens:
+    - "split/join/define live — hexagon from square block"
+    - "Interpreter cost of caller-context — of block internals"
+    - "What's blocked on macro checkbox / command-macro notation"
+    - "Dynamic scope debate (2020) vs lexical commitment for Snap!"
+  pair:
+    - "Logo disguised as Scratch → lambda made it Scheme disguised as Scratch"
+    - "Palm's Theo turtle meets the ring — code you can see and touch"
+  palm_audience: repo-shows/snap-logo-brian-jens/audience/palm/questions.yml
+
+see_also:
+  - snapcon-2025-karlstrom-address.yml
+  - computer-science-logo-style.yml
+  - simply-scheme.yml
+  - ../../don-hopkins/sources/bounce-dataflow-control-flow.yml
+  - ../../jens-monig/sources/snap-first-class-everything.md
+  - ../../jens-monig/sources/y-combinator-in-blocks.md

@@ -1,0 +1,533 @@
+# The scheduler design space — sidecar for schedulers.md
+# Split out of cam-construction-set.md#iteration-order-is-a-plug-in, which had it as a bullet list.
+# A list was the wrong shape: these are ORTHOGONAL AXES, and the interesting schedulers are
+# points nobody has visited rather than entries nobody has enumerated.
+#
+# Provenance: Don, Aug 2026 — "schedulers are a WIDE OPEN INTERESTING space to explore, esp with
+# moveable feast and parallelism as requirements or inspiration."
+# Flags: ⚠ = unverified, confirm before it is said out loud.
+
+thesis: >
+  Nearly every CA engine hardcodes one scheduler and hides it, so the space has never been
+  catalogued and there is no vocabulary for it. Once the scheduler is a plug-in, "which order"
+  stops being an implementation detail and becomes the part of the machine with the most unclaimed
+  territory in it. It is also where INDEFINITE SCALABILITY is decided: Ackley's argument is that a
+  global clock cannot scale, so the scheduler is not one component among many — it is the component
+  that determines whether the machine can grow.
+
+axes:
+  # A scheduler is a point in this product, not a name from a list. Same disease as Life_Echo.
+
+  site_selection:
+    what: "which sites, in what sequence"
+    values:
+      synchronous: "all of them, no sequence — the textbook default and one option among many"
+      raster: "row-major; required the moment a layer carries state across cells"
+      serpentine: "raster with alternating direction — boustrophedon"
+      rotating: "the whole traversal rotated 0/90/180/270 on successive generations"
+      space_filling: "Hilbert, Peano, Moore curve, Z-order/Morton, Gray code"
+      carrier_driven: "a population of moving agents; the cells they land on are the cells that update — see bresenham_particles"
+      permutation: "a fixed random permutation — deterministic, locality-destroying"
+      poisson: "independent exponential clocks per site — true asynchrony, MFM"
+      event_driven: "only sites whose neighborhood changed; an active set with a frontier"
+    note: "these are not mutually exclusive; see composition below"
+
+  granularity:
+    what: "the atomic unit that updates indivisibly"
+    values: [cell, block_2x2_margolus, block_kxk, event_window_mfm, tile_workgroup, whole_grid]
+    note: "granularity is what buys reversibility in the Margolus case — the atomicity, not the shape"
+
+  conflict_policy:
+    what: "how concurrent units avoid stepping on each other"
+    values:
+      none: "serial, by construction"
+      static_coloring: "checkerboard, Margolus phases, (a*x + b*y) mod k — a compile-time partition"
+      dynamic_nonoverlap: "test windows for intersection at runtime — MFM's rule"
+      ownership: "regions with locked borders — Ackley's hardware"
+      optimistic: "run, detect conflict, roll back — ⚠ nobody has tried this in a CA engine that I know of"
+    unifying_claim: >
+      static_coloring, Margolus phases, checkerboard sweeps and MFM non-overlap are ONE mechanism:
+      partition the interference graph, run one class at a time. One compiler pass serves all four.
+      (../david-ungar/korz/examples/layered-rules.yml → serial_is_a_dependence_claim.masked_multipass)
+
+  clock:
+    what: "where time comes from"
+    values:
+      global_counter: "one integer, incremented per generation"
+      phase_word: >
+        THE IMPORTANT ONE. Low bits of the counter, published as a coordinate. CAM6's four-rotation
+        scan takes the low TWO bits (step & 3); the Margolus partition takes the low ONE (step & 1);
+        serpentine takes the low bit of the ROW index, a spatial phase. Concatenate and you have a
+        phase word whose width is the budget for how much symmetry the schedule can cover.
+      local_clocks: "per-site, no global time — the MFM position"
+      continuous: "an event queue with real-valued times — Gillespie"
+      external: "audio clock, MIDI, frame rate, a hand on a Turn Table (../don-hopkins/turn-tables.md)"
+    cam6_has_two_readers_of_the_same_clock:
+      dispatch: "phaseTime is a neighbor in the Moore address — (phaseTime) << 12 — so it feeds the RULE TABLE"
+      scheduling: "step & 3 selects the scan rotation, in a separate switch"
+      diagnosis: "same clock, two ad-hoc readers, no shared coordinate. Publish one phase word and let dispatcher, scheduler and basis change all consume it."
+      consequence: >
+        Then "iteration order is part of the rule" stops being a slogan and becomes a TYPE: the rule
+        guards on the same coordinate the scheduler indexes on, so there is no principled line
+        between the rule and the schedule.
+
+  coherence:
+    what: "what a read sees — the memory model, orthogonal to all of the above"
+    values: [past_buffer, in_place, locked_window, statically_exclusive, history_depth_k]
+    see: "cam-construction-set.md#the-second-axis-what-a-read-sees"
+
+  determinism:
+    what: "reproducibility and invertibility"
+    values:
+      pure_function_of_phase: "reproducible AND reversible — run the phase word backwards"
+      seeded_pure: "reproducible, reversible if the generator is invertible (Perlin, hashes)"
+      rng_stream: "reproducible only by replaying the stream; NOT reversible"
+      nondeterministic: "wall-clock or hardware asynchrony; neither"
+    design_rule: >
+      Prefer a pure function of (position, phase, seed) over an RNG stream everywhere. It costs
+      nothing and it keeps reversibility, replay, and shareable patches alive.
+      (layered-rules.yml → procedural_fields.the_property_that_makes_noise_safe)
+
+group_coverage:
+  # Why serpentine and four-rotation are not alternatives. Don, Aug 2026.
+  claim: "a scan schedule is a walk over a symmetry group, and you want the walk to COVER the group"
+  worked:
+    serpentine: "supplies the REFLECTION — the carry drifts east on one row, west on the next"
+    four_rotation: "supplies the ROTATIONS — the residual direction turns 90° per generation"
+    together: "serpentine inside each of four rotations averages the kernel over the full dihedral group D4, which is exactly the symmetry group of a square lattice"
+    alone: "rotation-only keeps a handedness; serpentine-only keeps a preferred axis. Each covers half the group."
+  generalization: "declare the lattice's group and the anisotropy-cancelling schedule falls out. In 3D, cover the octahedral group; the sentence survives."
+  the_reuse: >
+    This is the SAME group declaration the rule guards use to match orbits instead of points —
+    C_k, D_k, E in ../david-ungar/korz/examples/margolus-rules.yml. One declaration, two consumers:
+    it tells the dispatcher which contexts are equivalent, and it tells the scheduler which orders
+    average out.
+
+space_filling_curves:
+  why_they_belong_here:
+    continuity: >
+      Raster TELEPORTS an accumulator from the right edge back to the left once per row, injecting a
+      discontinuity into a quantity that is supposed to be a local remainder. Serpentine never
+      teleports but is still one-dimensionally local: adjacent rows are H apart in time. A Hilbert
+      order is local in BOTH axes.
+    the_real_statement: "a scan order is a map from 1D time to nD space, and a space-filling curve is the answer to 'which map preserves locality best'"
+  variants:
+    hilbert: "best worst-case locality for 2D; no long jumps; expensive-ish to compute, cheap to table"
+    peano: "3x3 base instead of 2x2; different artifact texture"
+    moore_curve: "a closed Hilbert variant — the traversal is a LOOP, so the carry never needs a start or an end. ⚠ verify the closure property before relying on it."
+    morton_z_order: "bit-interleave; cheap, hierarchical, has long quadrant jumps. Already what GPU texture swizzling uses."
+    gray_code: "consecutive indices differ in one bit"
+  three_separate_payoffs:
+    carry_locality: "the error-diffusion remainder stays near where it was made — established in dithering (⚠ Velho & Gomes, verify)"
+    cache_locality: "raster needs two rows resident; a curve traversal keeps a compact working set, which is real speed on big grids, not aesthetics"
+    parallel_decomposition: >
+      Cut the curve into P equal arcs and you get P compact, low-surface-area domains — minimal halo
+      traffic. This is standard practice for load balancing in adaptive mesh refinement, and it is
+      exactly what a distributed MFM needs. ⚠ verify the AMR citation.
+  the_catch_and_its_fix:
+    catch: "Hilbert is not isotropic either — it has a characteristic blobby quadrant grain of its own"
+    fix: "cycle the curve's orientation across generations. The Hilbert base has 4 rotations x 2 reflections = 8 variants, which is D4 again — so the group_coverage argument applies unchanged."
+    result: "a Hilbert scheduler that walks D4 over successive generations. Deterministic, locality-preserving, and anisotropy-free."
+  morton_is_the_bridge: >
+    Take the high k bits of a Morton index as a tile ID and the low bits as intra-tile order, and one
+    curve is SIMULTANEOUSLY a serial scan and a parallel decomposition. That is the join between
+    "serial carry" and "tiled dispatch" that the compiler ladder needs.
+
+bresenham_particles:
+  # Don, Aug 2026: "as an artform and mathematical amusement — little turtles with a one-cell-per-tick
+  # speed and a fractional direction."
+  what: "a population of walkers, each stepping exactly one cell per tick along a rational slope; the cells they land on are the cells that update"
+  mechanism: "position + integer direction + an error accumulator; the accumulator decides which axis steps. Bresenham 1962."
+
+  the_identity_that_makes_it_serious:
+    claim: "BRESENHAM, FLOYD-STEINBERG, AND SIGMA-DELTA ARE THE SAME ALGORITHM"
+    why: "each accumulates a fractional residual and emits a discrete step when it overflows — a first-order DDA"
+    they_differ_only_in_target: {bresenham: position, error_diffusion: intensity, sigma_delta: voltage}
+    consequence: >
+      The scheduler and the dither are one mechanism pointed at different quantities. So a walker can
+      CARRY the heat remainder along its own trajectory instead of along the raster path — the carry
+      becomes continuous by construction, because the walker is continuous by construction.
+      That solves the serial-carry problem from the ART direction and it lands on the same answer the
+      compiler ladder reaches from the parallelism direction. Multiple walkers are multiple
+      independent carries, i.e. natural threads.
+
+  the_menagerie:
+    # Don, Aug 2026: "you start with a menagerie of particle turtles. c just sits there. n w e and s
+    # go in their nominal straight directions, nw ne sw and se go in their diagonominal directions,
+    # and they are the patron saints of 8 item pie menus (plus tap for the center). Then you can
+    # combine them and breed their coordinates to make new ones of any direction."
+    the_nine: {c: [0,0], n: [0,-1], s: [0,1], e: [1,0], w: [-1,0], ne: [1,-1], nw: [-1,-1], se: [1,1], sw: [-1,1]}
+    ⚠_sign_convention: "y-down assumed above, matching screen coordinates. Fix against the engine before printing."
+    the_same_nine_are_already_four_things:
+      moore_offsets: "the nine cells of a Moore neighborhood"
+      risca_opcodes: "c, n, nw, w, sw, s, se, e, ne are ALREADY opcode names in CAM6's RISCA bank — 'copy from that direction'"
+      pie_menu_targets: "eight wedges plus a center tap — the layout Don's pie menu work settled on"
+      seed_turtles: "this menagerie"
+      why_it_matters: "a walker is the MOVING version of the RISCA copy opcode. One vocabulary, four subsystems, no translation layer."
+    the_center_is_the_identity:
+      claim: "c = (0,0) is the additive identity of the breeding algebra, and it is also the pie menu's center tap, and it is also the turtle that does nothing"
+      note: "the neutral element of the group is the neutral gesture of the control. Not a pun — the same fact twice."
+    the_control_is_the_parameter: >
+      A pie menu selects by ANGLE and a walker's direction IS an angle, so the control's geometry and
+      the parameter's geometry are the same geometry. That is the Turn Table thesis with nothing left
+      over: quantized to eight detents it is a pie menu picking a patron saint, unquantized it is a
+      dial sweeping every direction between them. (turn-tables.md)
+    d4_acts_on_it: "the four orthogonals are one orbit, the four diagonals are another, and c is fixed — so the menagerie carries the same group that group_coverage above is about"
+
+  moveable_risca:
+    # Don, Aug 2026: "moveable RISCA can perform a swap and carry its payload in any of 9 directions
+    # (including center, stays put). Then higher level layers and rules can decide which direction it
+    # should travel and when. Imagine letting a bunch of these loose on a photo at once!"
+    what: "the cell's direction field names one of the nine; the cell SWAPS with that neighbor, carrying its payload"
+    the_word_that_changes_everything: "SWAP, not copy"
+    what_swap_buys:
+      conservative: "no cell is created or destroyed — population and histogram are exactly preserved, which is the CAM book's conservation theme arriving for free"
+      reversible: "a swap IS ITS OWN INVERSE. Replay the direction sequence and the grid returns exactly. Undo costs nothing."
+      bijective: "a conflict-free set of swaps is a PERMUTATION of the grid, so this layer is a transport network, not a rule that edits"
+
+    the_conflict_and_three_answers:
+      problem: "two cells cannot both swap into the same target"
+      margolus_partition: "swaps confined inside a 2x2 block are atomic and provably conflict-free — which makes moveable RISCA a LATTICE GAS with per-cell programmable momentum"
+      enable_predicate: "enable only a non-conflicting colour class — the_meta_iterator, applied here"
+      mutual_consent:
+        rule: "swap if and only if a points at b AND b points back at a; otherwise neither moves"
+        why_it_is_the_pretty_one: "conflict-free, local, deterministic and reversible with NO partition and no global arbiter"
+        what_it_produces: "cells pointing at cells that do not point back simply stall — so jams, pressure and traffic phenomena emerge from the protocol rather than being modelled"
+
+    the_direction_field_is_a_plane:
+      claim: "'higher level layers decide which direction and when' means the direction is a FIELD written by other stages"
+      therefore: "this layer is programmable ADVECTION — transport of payload along a vector field the rest of the machine computes"
+      who_can_write_it: [a_painted_flow, a_noise_or_gradient_field, another_CA, a_gravity_constant, the_cell_itself]
+      bit_budget: "nine directions need 4 bits, so on an 8-bit cell the payload gets 4. A photo needs 24. The direction field wants to be its OWN plane — plane algebra, not bit-stuffing."
+
+    what_it_generalizes:
+      margolus_sand: "sand IS moveable RISCA with the direction hardcoded to down, with se/sw as the conflict fallback. Already catalogued in ../david-ungar/korz/examples/margolus-rules.yml."
+      hpp_lattice_gas: "one particle per cell with programmable rather than fixed momentum"
+      risca_copy_opcodes: "the existing c/n/nw/w/sw/s/se/e/ne opcodes mean 'copy from there'; these mean 'trade places with there'"
+
+    the_bridge_to_the_turtles:
+      claim: "a Bresenham turtle and a moveable RISCA cell differ ONLY IN WHERE THE ERROR ACCUMULATOR LIVES"
+      turtle: "accumulator in the agent, which sits above the grid and has sub-cell direction precision"
+      moveable_risca: "accumulator in the cell payload, which sits in the grid and has nine directions"
+      consequence: "give a moveable RISCA cell a fractional accumulator and it IS a Bresenham walker implemented as swaps. Same DDA, two addressing precisions."
+
+    let_them_loose_on_a_photo:
+      why_it_is_the_demo: >
+        CAM6 already registers images as sources — WebCam, the Stupid Fun Club logo, micropolis
+        tiles. Load one, release a population, and the pixels are TRANSPORTED rather than recoloured.
+      the_property_that_makes_it_art: "because swaps conserve, the photo's histogram is invariant. Every frame is a permutation of the original image — it can be smeared beyond recognition and still contains exactly the same pixels."
+      undo_is_free: "run the direction sequence backwards and the photograph reassembles itself, exactly. That is a performance in its own right."
+      neighbours_in_the_genre: "pixel sorting, slit-scan, flow warping — but local, conservative, reversible, and live off a webcam"
+
+  breeding:
+    operation: "add the coordinates componentwise: (p,q) + (r,s) = (p+r, q+s)"
+    the_identity_that_makes_it_serious:
+      claim: "componentwise addition of direction coordinates IS the STERN-BROCOT MEDIANT"
+      why: "the mediant of p/q and r/s is (p+r)/(q+s) — literally 'breed their coordinates'"
+      consequence: >
+        Repeated breeding from the patron saints walks the Stern-Brocot tree, which enumerates every
+        positive rational EXACTLY ONCE. So "combine them to make new ones of any direction" is not a
+        loose hope; it is a theorem. Every rational direction is reachable, by exactly one lineage.
+      direction_is_projective: "(2,2) and (1,1) are the same turtle, so the space of directions is P^1(Q) — precisely what Stern-Brocot enumerates"
+    the_payoff_nobody_would_guess:
+      mediants_are_best_approximations: "the Stern-Brocot tree is the continued-fraction tree, so each breeding step toward a target direction is the BEST rational approximation available at that denominator"
+      therefore: "breeding toward an irrational direction gives optimal quasi-uniform coverage at every generation — the equidistribution property is not something you tune for, it is what breeding DOES"
+      the_fibonacci_turtle: >
+        Breed toward the golden ratio and the slopes are 1/1, 2/1, 3/2, 5/3, 8/5 — Fibonacci. The
+        most-irrational direction, the best equidistribution, and the same phi as phyllotaxis, so the
+        visit pattern looks like a sunflower. Cheapest beautiful thing on this page.
+    bresenham_is_already_doing_the_arithmetic:
+      claim: "Bresenham's error recurrence is the subtractive Euclidean algorithm on (p, q)"
+      consequence: "the turtle computes the gcd of its own direction as it walks — the number theory is not decoration bolted on, it is the walker's inner loop"
+      ⚠: "state the correspondence precisely before printing it"
+    other_breedings_worth_having:
+      negate: "n <-> s; the D4 action, and the reversibility operator"
+      rotate: "the pie menu's own symmetry, applied to a whole population at once"
+      scale_time: "same direction, k cells per tick — a faster turtle, a different proper-time field"
+      crossover: "take x from one parent and y from the other; genetic rather than arithmetic, and it does NOT stay in the Stern-Brocot tree, which is either a bug or a mutation operator"
+
+  the_number_theory_is_the_amusement:
+    coprime_slopes_are_permutations: >
+      A walker with slope p/q on a W×H torus is a discrete geodesic. With the right coprimality it
+      visits every cell exactly once before closing — a complete, fair sweep that happens to look
+      like diagonal stripes. ⚠ get the exact coprimality condition right before printing it.
+    one_knob_sweeps_the_whole_range: >
+      slope 1/0 is a column scan; 1/1 is diagonal; a good rational approximation to an irrational
+      gives quasi-uniform coverage (Weyl equidistribution) that LOOKS random and is perfectly
+      deterministic. One angular parameter from raster to quasi-random — and it is an ANGLE, so it is
+      a Turn Table. The knob rotates and the walker direction rotates: the same control.
+      (turn-tables.md)
+    non_coprime_leaves_holes: "cells never visited — a bug, or frozen regions as a feature. Either way it is measurable: show a visit-count heatmap as a meter."
+
+  update_rate_becomes_a_field:
+    claim: "N walkers on W×H means a mean update rate of N/(W·H) per cell per tick, but the DISTRIBUTION is whatever the walker dynamics produce"
+    consequence: "regions visited more often evolve faster — local proper time varies across the grid. A relativistic CA, by accident, from an aesthetic choice."
+    fits_the_larger_pattern: "another scalar promoted to a field (layered-rules.yml → procedural_fields.the_promotion)"
+
+  reversible: "negate direction and error and the walker retraces exactly — so this is a deterministic scheduler with a stochastic appearance, and it keeps reversibility that a random scheduler destroys"
+
+  iterators_with_handlers:
+    # Don, Aug 2026: "Bresenham particles are iterators, turtles, that can have handlers installed
+    # that make them do things when they hit boundaries or other particles and obstacles, or are
+    # within a certain distance of something."
+
+    iterator_is_the_load_bearing_word:
+      claim: "ITERATOR IS THE INTERFACE, and it collapses this whole file's site_selection axis into one protocol"
+      protocol: "Scheduler = Iterator<Site>. next() yields the next site to update."
+      everything_is_one: "raster, serpentine, Hilbert, Morton, a fixed permutation, MFM's random draw, an event-driven frontier, and a turtle are all THE SAME TYPE"
+      composition_is_flatmap: "the {outer, inner} tree below is outer.flatMap(unit => inner(unit)). Nesting schedulers needs no new mechanism."
+      laziness_is_free: "the schedule is produced on demand, not precomputed — which is what unbounded and indefinitely scalable grids require"
+      the_ordinary_combinators_apply: [take, filter, zip, chain, tee, cycle, interleave]
+
+    a_handler_is_a_rule_whose_neighborhood_is_the_event:
+      # Third instance of one sentence shape in this repo. That is a pattern, not a coincidence.
+      rule: "neighborhood comes from the grid"
+      drawing_tool: "neighborhood comes from the hand (layered-rules.md → tools_in_the_loop)"
+      particle_handler: "neighborhood comes from the collision"
+      therefore: "handlers are Korz slot sets, guarded and dispatched exactly like rules. No second mechanism."
+
+    events:
+      on_step: "every tick — the default, where the site actually gets scheduled"
+      on_boundary: "reached a grid edge"
+      on_collision: "another walker is on, or entering, this site"
+      on_obstacle: "the CELL CONTENT is a guard — walked into a wall the rules built"
+      on_proximity: "within distance d of a target — walker, cell class, or region"
+      on_spawn / on_death / on_timer: "lifecycle"
+
+    actions:
+      steering: [turn, reflect, refract, scatter, stop, reverse, accelerate, set_direction]
+      population: [spawn, split, merge, die, breed_with_the_other_walker]
+      grid_effects: [write_cell, deposit_trail, read_and_carry]
+      schedule_effects: [skip_this_site, update_twice, hand_off_to_another_scheduler]
+
+    on_boundary_is_the_topology_dimension_again:
+      claim: "wrap | bounce | clamp | kill | teleport is the SAME choice as the grid's toroidal edges and a Turn Table's wrap/bounce/clamp"
+      count: "third appearance of one parameter — declare topology once, let walker, grid, and knob all consume it"
+      the_closure: >
+        A 1-D Bresenham particle with a bounce handler IS Tristram's bouncing slider, and CAM6's
+        frob/frobTarget/unfrob is that same object under a different name. The prior art turns out to
+        be a one-dimensional special case of the turtle.
+        (turn-tables.md, ../dave-tristram/raster-masters-panel-library.md)
+
+    proximity_needs_an_index_and_the_grid_is_already_one:
+      naive: "all-pairs is O(N^2) and dies at interesting population sizes"
+      the_cheap_answer: "walkers register in an occupancy PLANE of the CA, so a proximity query is an ordinary neighborhood read"
+      consequence: "the particles use the automaton to find each other — no separate spatial data structure, and the query cost is the cost the engine already pays"
+
+    what_handlers_turn_this_into:
+      ballistic: "no handlers — pure number theory, the breeding tree, equidistribution"
+      turmite: "on_obstacle -> turn. Langton's ant and Paterson's worms are one handler away."
+      billiard_ball: "on_collision -> scatter. The BBM has ballistic particles in the RULE; installing this handler puts them in the SCHEDULE."
+      flocking: "on_proximity -> steer. Boids as a scan order."
+      mfm: "a walker whose on_proximity radius IS its event window, with on_collision -> yield. Ballistic MFM."
+
+    hazards_to_name_honestly:
+      population_explosion: "if handlers can spawn, the update-rate field is dynamic and can blow up. Needs a population budget — which is the same scarcity economy as bits and address space."
+      collision_order: "two walkers reaching one site must resolve deterministically — tiebreak on walker id or on the phase word, never on iteration accident"
+      reversibility_survives_only_some_handlers: "elastic reflect and scatter are invertible; absorb, die, and merge are not. A reversible session must restrict the handler palette, and the UI should say so rather than silently breaking undo."
+      turing_completeness: "handlers make the scheduler programmable, so 'is this schedule fair?' becomes undecidable in general. Hence the visit-count heatmap: measure it, do not prove it."
+
+  relation_to_everything_else:
+    mfm: "a walker carrying a WINDOW rather than a point, with a non-overlap test between walkers, IS the Movable Feast Machine with ballistic instead of random site selection"
+    margolus: "a walker whose atomic unit is a 2x2 block is a moving Margolus partition"
+    billiard_ball: "the BBM has ballistic particles in the RULE; this puts them in the SCHEDULE. One pattern, two scales."
+    physics_reading: "nothing happens until something arrives — causality carried by particles rather than by a global clock, which is the concrete form of Ackley's no-global-clock argument"
+
+  the_feedback_spectrum:
+    # A sub-axis, and a natural tech-tree ordering.
+    ballistic: "direction fixed — Bresenham particles, no feedback from the grid"
+    reactive: "direction depends on the cell read — Langton's ant, turmites, Paterson's worms"
+    interacting: "walkers see each other — collide, scatter, breed, annihilate"
+    note: "the ballistic case is the one with number theory in it; the reactive case is the one with universality in it"
+
+  as_an_artform:
+    visible_schedule: "the walkers are on screen. You watch the machine update itself, which is the front-panel argument applied to the one component every engine hides."
+    trails: "the echo layer already exists and is exactly the right decoration — phosphor behind each turtle"
+    audible: "a walker's path is a scan; a scan is a waveform. ⚠ speculative, but cheap to try."
+  prior_art_to_credit: [bresenham_1962, papert_logo_turtles, langtons_ant_and_turmites, patersons_worms]
+
+parallel_decomposition:
+  # Don, Aug 2026: "if a rule only needs a 3x3 neighborhood then we can have the gpu perform non
+  # overlapping subsets of them in a grid at a time, so a correlated foreach loop. or some better
+  # metaphor, there must be a mathematical name for this kind of decomposition into gpu friendly
+  # chunks, over time."
+  # There is a name. Several, for genuinely different things. But first:
+
+  the_correction_that_redirects_the_question:
+    claim: "a synchronous double-buffered CA needs NO non-overlapping decomposition at all"
+    why: "every cell reads the past buffer and writes the future one, so all N cells are independent. Embarrassingly parallel, one dispatch, done."
+    when_non_overlap_is_actually_required:
+      in_place_update: "single buffer — a cell's write is another cell's read"
+      rules_that_write_neighbors: "moveable RISCA swaps, any transport layer"
+      carried_state: "the heat accumulator and anything else with a dependence cone"
+    the_real_reason_to_tile_a_3x3_stencil: >
+      NOT correctness — BANDWIDTH. A 3x3 stencil reads nine cells and writes one, so it is
+      arithmetically trivial and entirely memory-bound. Every cell is fetched nine times across the
+      frame. The whole game is reducing traffic to global memory, and that is what the techniques
+      below are for.
+
+  when_conflicts_are_real_the_name_is_colouring:
+    general: "distance-k colouring of the conflict graph; two sites conflict when their read/write footprints overlap"
+    concrete: "read radius 1, write self, in place -> class members must be pairwise Chebyshev distance > 1 -> (x mod 2, y mod 2) -> FOUR passes, each updating a quarter of the grid"
+    general_count: "(r+1)^d classes for read-radius r in d dimensions. r=1, d=2 gives 4."
+    the_established_name: "RED-BLACK / MULTICOLOUR ORDERING, from iterative linear solvers — red-black Gauss-Seidel is exactly this trick. A 5-point stencil needs 2 colours; a 9-point (which is Moore) needs 4."
+    what_it_unifies: "Margolus block phases, checkerboard sweeps, MFM non-overlap and this are one mechanism — see axes.conflict_policy.unifying_claim"
+
+  the_name_for_chunks_over_time:
+    # This is what Don was reaching for.
+    umbrella: "TEMPORAL BLOCKING, also called time skewing or time tiling. The general framework is the POLYHEDRAL MODEL."
+    the_ancestor: "Lamport's hyperplane method, 1974 — the original 'find a linear schedule over the iteration space'"
+    the_shapes:
+      overlapped_tiling: "each tile redundantly computes a shrinking halo so it can advance k steps without talking to anyone. Also called ghost zones."
+      trapezoidal: "Frigo & Strumpen's cache-oblivious stencil computation — cut spacetime into trapezoids, recursively. The elegant one."
+      diamond_tiling: "the modern best practice, because diamonds permit CONCURRENT START where a plain wavefront makes tiles wait for their neighbours. ⚠ Bandishti/Bondhugula — verify."
+      hexagonal: "same motivation, different packing"
+    the_order_theory_name: "each parallel step is an ANTICHAIN of the dependence partial order; a schedule is a chain decomposition. That is the same vocabulary as serial_is_a_dependence_claim in layered-rules.yml."
+    the_systems_name: "communication-avoiding — trade redundant compute for fewer synchronisations. ⚠ Demmel et al., verify."
+
+  the_better_metaphor_don_asked_for:
+    it_is_not_a_metaphor: >
+      A CA has an EXACT speed of light: information moves at most r cells per tick. So the set of
+      cells that can affect (x, t+k) is precisely the backward LIGHT CONE of radius r*k. Temporal
+      tiling is not "like" cutting spacetime along causal structure — it IS that, exactly, with no
+      approximation, because the light cone is a hard combinatorial fact about the stencil.
+    therefore: "trapezoids and diamonds are CAUSAL DIAMONDS. A tile is a region of spacetime that is causally self-contained, so it can be computed without consulting anything outside it."
+    why_this_is_the_right_picture: "it makes the cost model obvious — grow the tile in time and the cone widens, so you must either carry more halo or communicate. That tension IS the tuning parameter."
+
+  the_cost_model:
+    setup: "to produce an SxS output tile after k steps, load (S + 2rk) squared inputs"
+    redundancy: "((S + 2rk)/S)^2 — wasted compute, grows with k"
+    traffic: "global memory traffic per cell-update falls roughly as 1/k"
+    conclusion: "there is an optimum k, it depends on shared memory size, and it is a MEASUREMENT not a derivation. Put it on the panel next to frame time."
+    gpu_form: "a workgroup loads a tile plus halo into shared memory, advances k steps there, writes back once"
+
+  what_this_costs_the_design:
+    honest: "temporal blocking assumes the rule is the SAME for k steps. Anything reading a phase word, a hand-drawn tool, or a live parameter breaks the tile."
+    consequence: "k is bounded by how often the machine is interactive. An instrument you are playing wants k=1; a long unattended run can take k=8."
+    the_good_news: "that is a declared property, not a mystery — the compiler knows which stages read time-varying context and can pick k accordingly"
+
+  see_also:
+    - "../david-ungar/korz/examples/layered-rules.yml — serial_is_a_dependence_claim, the exact-parallelism ladder"
+    - "space_filling_curves.morton_is_the_bridge — one index that is both a serial order and a tiling"
+
+ulam_subsumption:
+  # Don, Aug 2026: "Dave Ackley's MFM programming language could be subsumed into this!"
+  # ⚠ Every ULAM detail below is from reading, not from writing ULAM in anger. Ackley can
+  # correct the whole table in one sitting.
+  claim: "ULAM's element model maps onto this design piece for piece, and moveable_risca is the piece that closes it"
+
+  correspondences:
+    element:        "a typed atom -> the RISCA opcode field. layered-rules.yml already calls RISCA 'a proto-Movable Feast Machine atom: a typed cell that dispatches its own code'."
+    behave:         "the method invoked on an event -> a rule stage guarded on the cell's type"
+    event_window:   "radius-4, 41 sites -> the neighborhood former, with a radius parameter"
+    site_selection: "random site, asynchronous -> site_selection.poisson in the axes above"
+    non_overlap:    "concurrent events must not intersect -> conflict_policy.dynamic_nonoverlap, or equivalently an enable-by-conflict predicate in the_meta_iterator"
+    swap:           "atoms physically relocate -> MOVEABLE RISCA. The 'Movable' in Movable Feast is this primitive."
+    data_members:   "bitfield-packed typed fields, e.g. Unsigned(3) -> plane algebra with named fields and declared widths"
+    quarks:         "mixin value types -> Korz slot inheritance and defer_to delegation"
+    dreg:           "the dynamic regulator that injects and deletes -> a source stage, noise-driven"
+
+  the_inversion_that_makes_it_interesting:
+    observation: "ULAM HARDCODES ITS SCHEDULER. MFM is always random-site, asynchronous, non-overlapping."
+    why_ackley_did_that: "it is not an oversight, it is the thesis. Asynchrony with no global clock is what buys indefinite scalability and robustness; welding it in is the argument."
+    what_subsumption_actually_buys: >
+      Making MFM's scheduler ONE POINT in the scheduler space. Then the same element set can be run
+      under a raster scan, a Margolus partition, a Hilbert order, or a population of turtles — and
+      COMPARED.
+    the_experiment_this_enables: >
+      Ackley's claim is that asynchrony plus non-overlap buys robustness. If the scheduler is a knob,
+      that claim becomes testable by ablation: run identical elements under different schedulers and
+      measure. This is not a rebuttal, it is the instrument that could support the claim with numbers
+      instead of argument.
+    the_open_design_question: "is a removable scheduler a gift or a heresy? Worth asking plainly — the answer changes what the default should be."
+
+  what_subsumption_does_NOT_mean:
+    - "ULAM is a mature language with a compiler and a standard library. 'Expressible in this model' is not 'replaceable in a weekend'. ⚠"
+    - "the exact 41-site event window numbering matters for porting real ULAM code and is not reproduced here. ⚠"
+    - "the MFM HARDWARE story — distributed tiles, no global clock — is architecture, not language. Subsuming the language subsumes none of it."
+    - "ULAM is deterministic per event but globally nondeterministic through random site choice; reproducibility needs the seeded-pure-function discipline from axes.determinism"
+
+  see: "../dave-ackley/README.md"
+
+the_meta_iterator:
+  # Don, Aug 2026: "one meta iterator would be 'for each particle that is enabled' for some
+  # definition of particle and enabled."
+  form: "for each PARTICLE that is ENABLED, take a step"
+  why_it_is_the_whole_design: >
+    Both nouns are deliberately undefined, and that is the point. A meta-iterator over enabled
+    particles is ITSELF an iterator, so it can be a particle in another meta-iterator. That closure
+    is what makes the {outer, inner} tree work to arbitrary depth with no new mechanism at any level.
+
+  for_some_definition_of_particle:
+    claim: "anything with next() is a particle"
+    instances:
+      turtle: "a Bresenham walker"
+      scan: "a raster or Hilbert traversal — a particle that happens to visit everything"
+      tile: "a region with its own interior order"
+      engine: "an entire sub-grid running its own rules — this is the layer bus, i.e. ganged CAM-6 cards (layered-rules.yml → fix_2_source_region_blend.source.engine)"
+      tool: "a hand-driven stroke, which is a particle whose direction comes from a mouse"
+    consequence: "ganging engines, nesting schedulers, and running turtles are one facility"
+
+  for_some_definition_of_enabled:
+    claim: "`enabled` is a GUARD — a Korz predicate over context, dispatched rather than stored"
+    predicates:
+      by_phase: "enabled when (step & k) == p — and this reproduces Margolus alternation and checkerboard sweeps exactly"
+      by_region: "inside a painted area"
+      by_cell_content: "the cell under the particle satisfies a guard"
+      by_budget: "population cap, frame-time cap — enable until the budget is spent"
+      by_field: "a noise or painted field over a threshold"
+      by_conflict: "not overlapping any in-flight window — which IS the MFM main loop"
+      by_hand: "a toggle on the panel"
+    the_collapse: >
+      The conflict_policy axis above is entirely expressible as an enable predicate. Margolus phases,
+      checkerboard coloring, and MFM non-overlap stop being three mechanisms and become three
+      predicates over one loop.
+
+  enabled_is_a_field_too:
+    claim: "an enable mask is a PLANE, so it can be painted, noise-driven, or computed by another CA"
+    the_good_part: "PAINT WHERE THE MACHINE RUNS. The brush now drives the scheduler, not just the cells — freeze a region, run another one hot."
+    what_it_produces: "the proper-time field from update_rate_becomes_a_field, but authored by hand instead of emerging from walker dynamics"
+    fits: "layered-rules.yml → procedural_fields.the_promotion — every scalar wants to be a field, including this one"
+
+  the_interleaving_policy_is_its_own_dimension:
+    # "For each" hides a choice, and the choices are different physics.
+    round_robin: "every enabled particle steps once per tick — what 'one cell per tick' implies"
+    chain: "run particle A to exhaustion, then B — a completely different machine"
+    weighted: "a particle of speed k gets k steps per tick"
+    priority_queue: >
+      each particle carries its next-event TIME; pop the earliest. Variable-speed turtles and the
+      continuous-time / Gillespie clock in the axes above turn out to be the same thing under this
+      policy, which is a decent sign the factoring is right.
+    random: "draw an enabled particle at random — MFM's actual discipline"
+
+  hazards:
+    enable_cost: "evaluating the predicate over every particle every tick is O(N) before any work happens; if the predicate is expensive it dominates"
+    the_fix: "maintain the enabled set incrementally with dirty flags — which is exactly the event_driven frontier from site_selection, arrived at from the other direction"
+    determinism: "round_robin needs a defined particle order; use id or the phase word, never insertion accident"
+
+composition:
+  claim: "schedulers are a TREE, not a flat choice — this is where the unvisited points are"
+  mechanism: "the_meta_iterator, applied recursively; the tree below is what its nesting looks like written out"
+  form: "schedule: {outer: <scheduler>, inner: <scheduler>, phase: <group walk>}"
+  examples:
+    - "{outer: hilbert_tiles, inner: serpentine, phase: rotate_d4}"
+    - "{outer: mfm_random, inner: margolus_blocks}"
+    - "{outer: morton_tiles_parallel, inner: bresenham_walkers}"
+    - "{outer: event_driven_frontier, inner: raster_within_active_tile}"
+  why_it_matters: "the hierarchy is how a locality-preserving serial order and a parallel dispatch coexist instead of competing"
+
+what_the_front_panel_shows:
+  # Same argument as the two meters: if it is not visible it is not an instrument.
+  - "the traversal, animated — watch the scan"
+  - "visit-count heatmap — is the schedule fair?"
+  - "which strategy the compiler chose, and how exact it is"
+  - "frame time per stage, so the cost of a schedule is a number"
+
+cross_links:
+  - cam-construction-set.md                                  # the architecture this is one axis of
+  - turn-tables.md                                           # the walker's direction is an angle, i.e. a knob
+  - ../david-ungar/korz/examples/layered-rules.yml           # serial_is_a_dependence_claim — the compiler side
+  - ../david-ungar/korz/examples/margolus-rules.yml          # C_k/D_k/E — the group declaration reused here
+  - ../dave-ackley/README.md                                 # MFM, indefinite scalability, no global clock
+  - ../norman-margolus/the-cam6-demo-for-norman.md           # the block partition as a scheduling decision
+  - ../rudy-rucker/README.md                                 # caught the original scan-order drift bug

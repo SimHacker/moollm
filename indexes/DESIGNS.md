@@ -158,7 +158,7 @@ Critical analysis of Steve Yegge's competing approach.
 - [postmodern-deconstruction.md](../designs/postmodern-deconstruction.md) — Postmodern lens on code
 - [antirez-ai-hype-analysis.md](../designs/antirez-ai-hype-analysis.md) — Redis creator on AI hype
 - [kaleida-scriptx-dreamscape.md](../designs/kaleida-scriptx-dreamscape.md) — Kaleida Labs history
-- [snap-moollm-integration.md](../designs/snap-moollm-integration.md) — Snap! (visual programming) integration
+- [snap/moollm-integration.md](../designs/snap/moollm-integration.md) — Snap! (visual programming) integration
 
 ---
 

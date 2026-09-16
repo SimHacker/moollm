@@ -158,7 +158,7 @@ Add emojis **after the folder icon** for narrative sections:
 ### Index Rules
 
 1. **Internal links** use anchor syntax: `[Title](#anchor-name)`
-2. **External links** use relative paths: `[File](../../examples/adventure-4/pub/pie-table.yml)`
+2. **External links** use relative paths: [`File`](../../examples/adventure-4/pub/pie-table.yml)
 3. **Update retroactively** — every append is a chance to improve the index
 4. **Group by day/arc** — natural narrative divisions
 

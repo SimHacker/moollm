@@ -1,0 +1,106 @@
+# worth-of-representation.yml — The curation filter
+#
+# Consent answers "MAY I represent this person?"
+# This answers "SHOULD this person be in the collection at all?"
+#
+# Two different questions. Answering the second with consent rules produces two failures:
+# admitting everyone who is technically fair game, and excluding necessary subjects out
+# of squeamishness.
+
+meta:
+  type: example
+  skill: representation-ethics
+  pattern: worth-of-representation
+  created: 2026-09-08
+
+the_filter:
+  basis: "Structural utility. Not approval, not agreement, not likability."
+  question: "Does representing this person let a reader understand the domain better?"
+
+verdicts:
+
+  subject:
+    test: "Their work is load-bearing for whatever the collection is about."
+    treatment: "Full character node. Invitation if living, under the usual consent rules."
+    examples: ["Will Wright", "Alan Kay", "David Ungar", "Heinz Lemke", "Michael Tiemann"]
+
+  foil:
+    test: |
+      Their failure modes are DIAGNOSTIC — the domain cannot be mapped without them.
+      Not "they are bad and I want to say so." The test is whether removing them leaves
+      a hole in the explanation.
+    treatment: |
+      Lore node, documented from primary sources — their own published output, their own
+      code, their own record. NOT invited to the community.
+    stated_plainly: |
+      This looks like an attack and is not. A subject can be essential to the map and
+      unwelcome in the room. Documenting someone from their own words while declining to
+      invite them into a collaborative space they have a record of disrupting is TWO
+      SEPARATE DECISIONS, and both are allowed.
+    example:
+      who: "Eric S. Raymond"
+      why_foil: |
+        The architecture of modern software collaboration cannot be explained without the
+        failure modes of the atomized, conflict-driven approach. His own flagship
+        pre-CatB project is the primary source, and it is public.
+      why_not_invited: "Documented record of disrupting collaborative spaces and opposing codes of conduct."
+      right_to_rebut: "Open an issue. Factual corrections are welcome and will be integrated."
+
+  excluded:
+    test: |
+      Nothing structural to contribute. A node would only recirculate their noise.
+    treatment: "No node. A critical page elsewhere if warranted."
+    not_a_moral_ranking: |
+      This is a LOAD TEST, not a verdict on the person. If someone's whole contribution
+      is noise, a node imports the noise, returns nothing, and the collection pays the
+      storage and attention cost forever. Including them would be doomscrolling in
+      structured YAML.
+    example:
+      who: "Scott Adams (the cartoonist)"
+      why_excluded: "Writes no systems, builds no frameworks. Adds no architectural insight."
+      note: |
+        Distinct from Scott Adams the Adventure pioneer, who is a SUBJECT —
+        see repo-shows/woods-and-adams-adventurers/.
+        Disambiguate by full context every time; the collision is unavoidable.
+      exception_that_applies: |
+        His disowned sock puppet IS represented, because a disowned persona is a
+        fictional character and the vanity mechanism is the diagnostic content.
+        See self-authored-persona.yml. The man gets no dignified biographical folder;
+        the puppet gets a cage.
+
+# INVITATION STATUS MUST STAY HONEST
+
+invitation_vocabulary:
+
+  # A foil node is where the temptation to log a flattering falsehood is strongest.
+  # Do not.
+
+  unsent: "The letter is written and public. It was never pushed to their inbox."
+  uncontacted: "Accurate for anyone who has not been approached. THE DEFAULT."
+  declined: "ONLY after they actually declined. Never as a stand-in for silence."
+  no_response: "Sent, and nothing came back. Distinct from declined."
+
+  the_rule: |
+    Never log a transaction that did not happen. "Declined" for someone who was never
+    written to is a false entry in the ledger, and a collection built on provenance
+    cannot afford one — least of all about the people it is most critical of.
+
+  community_clearance:
+    # Separate axis from invitation. A person can be documented and barred.
+    open: "Welcome to participate."
+    barred: "Documented; not invited. Rebuttal via public issue only."
+
+k_lines:
+  - WORTH-OF-REPRESENTATION
+  - SUBJECT-FOIL-EXCLUDED
+  - DIAGNOSTIC-NOT-PUNITIVE
+  - DOCUMENTED-BUT-NOT-INVITED
+  - UNCONTACTED-NOT-DECLINED
+
+references:
+  related_examples:
+    - ./consent-hierarchy.yml
+    - ./self-authored-persona.yml
+    - ./lotion-on-the-skin.yml         # how a foil node is rendered: lore, never dialogue
+  design_docs:
+    - ../../../designs/SKILL-CHARACTER-DESIGN-NOTES.md   # patron/familiar, for the subject case

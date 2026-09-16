@@ -1,0 +1,300 @@
+# Margolus block rules as Korz slots — the deterministic machinery, crystallized
+# Companion data for margolus-rules.md. Prose there; guard algebra here.
+# Flags: ⚠ = exact table unverified against Toffoli & Margolus (1987); the SHAPE is the claim.
+
+frame:
+  # Dimensionally parameterizable: everything below is written for arbitrary d.
+  dimension_count: d                      # 2 for the classic CAM-6 case
+  block: 2^d sites                        # 4 in 2D, 8 in 3D — the partition cell
+  no_center: true                         # 2^d is even; there is no middle site to privilege
+
+  phase_dimensions:
+    # One spatial parity per axis, plus time. This is the whole partition scheme.
+    T: {kind: parity, of: time,   arity: 2, note: "which tick's partition you are in"}
+    P_i: {kind: parity, of: axis_i, arity: 2, count: d, note: "V and H when d=2; add D when d=3"}
+    generalization: >
+      T need not be parity. A cycle of k partition offsets gives arity k — the classic
+      Margolus scheme is the k=2 special case, not the definition. See rules.escher.
+
+  derived_coordinates:
+    # Second species of derived dimension: coordinate transforms, not aggregates.
+    # Life's live_neighbors is a SUM of dimensions; CW is a PERMUTATION of dimensions
+    # indexed by other dimensions. Same machinery, different species. (case-cellular-automata.md)
+    C:   "the site you are — a function of (P_1..P_d)"
+    OPP: "antipode within the block"
+    CW:  "next site under the rotation group, indexed by your corner and the tick"
+    CCW: "inverse of CW"
+    basis_note: >
+      These are computed from the compass rose plus the phase dimensions. CAM-6 ran the
+      Margolus neighborhood on plain Moore hardware precisely because it is a change of
+      basis, not new silicon.
+
+  partition_is_a_coloring:
+    # Why Ising forces this into the open: you cannot flip interacting spins simultaneously.
+    claim: "A block partition is a proper coloring of the interaction graph — sites of one color don't interact, so they update together safely."
+    instances:
+      margolus_block: "2^d sites per block, disjoint by construction, offsets cycle over time"
+      checkerboard:   "2-coloring of a nearest-neighbor lattice — the classic Ising sublattice sweep"
+      mfm_window:     "the same guarantee found at runtime by locking instead of by construction"
+    consequence: "Neighborhood, schedule, and coherence are three views of one coloring decision."
+
+  aggregates:
+    population: "count of occupied sites in the block"
+    arrangement: "orbit label of the occupancy pattern under the declared group"
+    energy:      "sum over adjacent unlike pairs — real-valued, used by ising"
+
+  groups:
+    # Symmetry declared, not enumerated. A rule matches the ORBIT, not the point.
+    C_k: "cyclic — rotations only"
+    D_k: "dihedral — rotations and reflections"
+    E:   "trivial — no quotient; every point is its own orbit (anisotropic rules)"
+
+  emissions:
+    # A Margolus slot writes the whole block: 2^d receivers, 2^d outputs, one atomic send.
+    identity:   "block unchanged"
+    complement: "invert every site"
+    rotate:     {by: "±1 step of the group", note: "rotate180 = two steps in C4"}
+    permute:    "an arbitrary bijection of sites — the general reversible emission"
+
+dispatch_contract:
+  totality: "every context matches exactly one slot — the strict tier, fully crystallized"
+  tie: error
+  fallback: "least-specific slot with empty guard = identity"
+  reversibility_test: "the slot set, read as a function on block states, is a bijection"
+
+rules:
+
+  rotate:
+    what: "turn every block one step of the group"
+    archetype: the-group-action-itself
+    forces: "nothing — the baseline against which every other rule is a deviation"
+    group: C4
+    reversible: true
+    conserves: [population, arrangement]
+    slots:
+      - {guard: {}, emit: {rotate: +1}}
+
+  tron:
+    what: "complement the block iff all sites agree"
+    archetype: degeneracy                 # the smallest interesting rule
+    forces: "orbit guards — 'uniform' is an equivalence class, not a pattern"
+    group: D4
+    reversible: true
+    conserves: []                          # reversible without conserving anything
+    teaches: "reversibility and conservation are independent properties"
+    slots:
+      - {guard: {arrangement: uniform}, emit: {complement: true}}
+      - {guard: {}, emit: {identity: true}}
+
+  billiard_ball:
+    what: "a lone particle travels diagonally; head-on pairs scatter"
+    archetype: reversible-logic            # collisions as gates — BBM computes
+    forces: "bijectivity checking, and running the slot set backwards"
+    group: C4
+    reversible: true
+    conserves: [population]
+    slots:
+      - {guard: {population: 1}, emit: {rotate: 2}, note: "180° = free diagonal flight"}
+      - {guard: {population: 2, arrangement: diagonal}, emit: {identity: true}, note: "⚠ the collision that makes it compute"}
+      - {guard: {population: 2, arrangement: adjacent}, emit: {rotate: 2}}         # ⚠
+      - {guard: {population: 3}, emit: {rotate: 2}}                                 # ⚠
+      - {guard: {population: [0, 4]}, emit: {identity: true}}
+
+  critters:
+    what: "complement unless exactly half the block is occupied"
+    archetype: reversible-without-conservation
+    forces: "the same bijection machinery as BBM, with population NOT invariant"
+    group: C4
+    reversible: true
+    conserves: []
+    slots:
+      - {guard: {population: 2}, emit: {identity: true}}                            # ⚠
+      - {guard: {population: 3}, emit: {complement: true, rotate: 2}}               # ⚠
+      - {guard: {}, emit: {complement: true}}                                        # ⚠
+
+  hpp_gas:
+    what: "diagonal free flight; head-on pairs scatter at right angles"
+    archetype: conservation-laws           # mass AND momentum, both invariant
+    forces: "invariant checking as a first-class guard obligation"
+    group: C4
+    reversible: true
+    conserves: [population, momentum]
+    slots:
+      - {guard: {population: 2, arrangement: diagonal}, emit: {rotate: 1}, note: "⚠ scatter"}
+      - {guard: {}, emit: {rotate: 2}}
+
+  diffusion:
+    what: "turn each block one step, direction chosen at random"
+    archetype: stochastic-dispatch
+    forces: "a random dimension — the soft tier's foot in the door"
+    group: C4
+    reversible: false
+    conserves: [population]
+    slots:
+      - {guard: {random: cw},  emit: {rotate: +1}}
+      - {guard: {random: ccw}, emit: {rotate: -1}}
+    note: "the first rule here whose context is not a function of the grid alone"
+
+  sand:
+    what: "occupied sites fall toward one axis"
+    archetype: symmetry-breaking
+    forces: "group: E — you must be able to DECLINE the quotient"
+    group: E
+    reversible: false
+    conserves: [population]
+    slots:
+      - {guard: {arrangement: top-heavy}, emit: {permute: settle-down}}             # ⚠
+      - {guard: {}, emit: {identity: true}}
+    teaches: "gravity is a rule that refuses rotational symmetry; the group is a parameter"
+
+  dendrite:
+    what: "random-walking gas sticks on contact with the aggregate"
+    archetype: absorbing-states            # DLA — book §15.7, on Norman's neighborhood
+    forces: "non-bijective slot sets, and a second plane read as a guard"
+    group: C4
+    reversible: false
+    conserves: [population]
+    layered_on: diffusion                  # a plugin over the gas, not a rule from scratch
+    slots:
+      - {guard: {plane.crystal: adjacent}, emit: {permute: freeze}}
+      - {guard: {}, emit: {defer_to: diffusion}}
+    teaches: "layering: a rule whose default case delegates to the rule underneath it"
+
+  swap_on_diagonal:
+    what: "exchange the diagonal pairs, nothing else"
+    archetype: pure-permutation
+    forces: "the minimal case: information moves, nothing is created or destroyed"
+    group: C4
+    reversible: true
+    conserves: [population, arrangement]
+    slots:
+      - {guard: {}, emit: {permute: swap-diagonals}}
+
+  # Two Isings. The CONTRAST is the lesson, so they belong side by side, not as variants.
+  # Both need a partition where updated sites don't interact — see frame.partition_is_a_coloring.
+
+  ising_metropolis:
+    what: "accept a spin exchange with probability depending on an external temperature"
+    archetype: energy-guarded-open-system
+    forces: "real-valued guards, and a coordinate supplied from OUTSIDE the grid"
+    group: C4
+    reversible: false
+    conserves: [population]
+    context_inputs:
+      temperature: "not on the grid — set from the environment. A Turn Table drives it."
+    slots:
+      - {guard: {delta_energy: {le: 0}}, emit: {permute: exchange}}
+      - {guard: {delta_energy: {gt: 0}, random: {lt: "exp(-delta_energy/temperature)"}}, emit: {permute: exchange}}
+      - {guard: {}, emit: {identity: true}}
+    temperature_is: an INPUT you set
+
+  ising_creutz:
+    what: "spin flips trade energy with a demon carried in the cell's own bits"
+    archetype: microcanonical-closed-system     # the CAM book's move
+    forces: "state that is neither spin nor scratch — a conserved currency living in bit planes"
+    group: C4
+    reversible: true
+    conserves: [population, total_energy]        # lattice + demon, EXACTLY
+    demon:
+      where: "a few bits per cell or per block, inside the cell array"
+      why: "the heat bath is part of the grid, so there is no external RNG and nothing leaks"
+    slots:
+      - {guard: {delta_energy: {le: "demon_energy"}}, emit: {permute: exchange, demon: "-= delta_energy"}}
+      - {guard: {}, emit: {identity: true}}
+    temperature_is: >
+      an OUTPUT you measure. The demon's energy is exponentially distributed,
+      P(E) ~ exp(-E/kT), so you fit the histogram and read T off the lattice
+      instead of dialing it in.
+    credit: "Creutz microcanonical Monte Carlo, ⚠ Phys. Rev. Lett. 50 (1983) 1411 — verify"
+    teaches: >
+      Whether a quantity is an input or an output is a WIRING choice, not a fact about the
+      quantity. Same physics, same lattice; one has a temperature knob, the other has a
+      temperature meter.
+
+invented:
+  # "And make up some more." Each exists to force one more piece of machinery.
+
+  chirality:
+    what: "handedness is read from a plane, so rotation direction is data"
+    archetype: parameterized-group-action
+    forces: "the symmetry group itself becomes a dimension — quotient chosen per cell"
+    group: "C4, orientation from plane.hand"
+    reversible: true
+    conserves: [population]
+    slots:
+      - {guard: {plane.hand: right}, emit: {rotate: +1}}
+      - {guard: {plane.hand: left},  emit: {rotate: -1}}
+    why: "if the group is declared, it can also be dispatched on — paint left-handed regions"
+
+  recombinase:
+    what: "the block permutation is selected by an opcode stored in the cells"
+    archetype: dispatch-on-stored-code     # RISCA meets Margolus
+    forces: "derived coordinate whose source is cell CONTENT, and an open emission bank"
+    group: E
+    reversible: "per-opcode — declared, then checked"
+    slots:
+      - {guard: {opcode: k}, emit: {permute: "bank[k]"}}
+    why: >
+      Margolus gives receiverless dispatch; RISCA gives cells that carry their own rule.
+      Together: painted programs that update as atomic reversible blocks. This is also the
+      closest thing here to a Movable Feast Machine atom with a type.
+
+  tollbooth:
+    what: "a permission plane gates transport across block boundaries"
+    archetype: guards-that-read-a-layer
+    forces: "guards over planes rather than sites — the layer stack becomes context"
+    group: C4
+    conserves: [population]
+    slots:
+      - {guard: {plane.gate: closed}, emit: {identity: true}}
+      - {guard: {}, emit: {defer_to: hpp_gas}}
+
+  escher:
+    what: "k partition offsets in a cycle instead of two"
+    archetype: generalized-partition
+    forces: "T with arity > 2 — the partition schedule as a first-class plugin"
+    group: C4
+    parameters: {k: "cycle length", offsets: "k lattice vectors"}
+    why: >
+      The classic even/odd offset is k=2. Nothing in the algebra requires that. With k=3 on a
+      triangular partition the reachable dynamics change and reversibility must be re-derived
+      per schedule — which is the point: it proves iteration order is part of the rule.
+
+crystallization:
+  # What this set of examples demands of the compiler. The reason to write them first.
+  required:
+    - orbit_guards: "match equivalence classes under a declared group, not enumerated points"
+    - derived_coordinates: "permutations of dimensions indexed by other dimensions"
+    - bijectivity_check: "prove or refute reversibility from the slot set alone"
+    - invariant_check: "verify declared conservation laws over the whole table"
+    - stochastic_dimension: "random as a context coordinate, not a side effect"
+    - real_valued_guards: "ising's energy and temperature — soft tier reaching into strict"
+    - delegation: "defer_to, so rules layer instead of fork"
+    - open_emission_bank: "recombinase needs permutations supplied as plugins"
+    - partition_schedule: "escher needs T's arity to be a parameter"
+    - coherence_model: >
+        Orthogonal to the schedule: what a read sees. past-buffer / in-place /
+        exclusive-window / history(k). Margolus rules need exclusive-window, which the static
+        partition satisfies with no locking — the same guarantee MFM buys at runtime.
+        Reversibility is a JOINT property of rule, schedule, and history depth; none of the
+        three can certify it alone.
+  payoff: >
+    Every item above is machinery the CAM Construction Set needs anyway. Writing the classic
+    rules in Korz first means the engine is designed by its hardest known examples rather
+    than by the easiest one.
+  target: "compile each rule to a lookup table where it fits, to generated code where it does not"
+
+verify_against:
+  book: "Toffoli & Margolus, Cellular Automata Machines (MIT Press, 1987)"
+  who: "Norman Margolus can settle every ⚠ in one sitting"
+  what_is_claimed: "the Korz SHAPE of each rule; not the bit-exact table"
+
+cross_links:
+  - README.md                                        # this directory's exhibit table
+  - ../case-cellular-automata.md
+  - ../../../don-hopkins/cam-construction-set.md
+  - ../../../don-hopkins/turn-tables.md
+  - ../../../norman-margolus/the-cam6-demo-for-norman.md
+  - ../../../dave-ackley/README.md
+  - ../../../rudy-rucker/README.md                   # CelLab's rule catalog — the other enumeration of this same space
+  - ../../../jim-crutchfield/ideas.md                # what to MEASURE while these run: h_mu and C_mu on the front panel

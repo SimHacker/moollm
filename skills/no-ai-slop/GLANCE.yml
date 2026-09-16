@@ -27,6 +27,8 @@ cardinal_sins:  # 12 total
   BOTH-SIDESISM: "'On the other hand...' false balance"
   EPISTEMIC-EVASION: "Meta-analysis instead of answering claims"
   UNSOLICITED-COACHING: "Strategic advice nobody asked for"
+  SCAR-TISSUE: "Writing the history of your own corrections into the artifact"
+  PROVENANCE-DEFENSE: "Disclaiming credit nobody was claiming"
 
 hard_gates:  # MANDATORY before responding
   CLAIM-LEDGER: |
@@ -38,6 +40,17 @@ hard_gates:  # MANDATORY before responding
   no-compliance-markup: "Forbidden: italics/bold as 'look I fixed it'. Fix silently."
   cold-reader-pass: "Re-read as stranger before commit. No scar tissue."
   founding_spiral: "examples/2026-07-18-audience-doc-frame-break-scar-tissue.yml"
+  # 2026-09-08 recurrence, in a cold-contact letter — examples/2026-09-08-coinage-defense-scar-tissue.yml
+  no-changelog: "Never write the history of your own edits into the artifact."
+  no-provenance-defense: "Never disclaim a credit nobody claimed. Define terms by what they do."
+  no-invented-restraint: "Never log declining something the user never proposed."
+  apply-globally: "One correction hits every artifact in scope at once — draft, metadata, linked docs."
+
+blast_radius:  # severity is set by audience, checked BEFORE writing
+  outbound_to_a_stranger: "CRITICAL — cold contact, intros, PRs on someone else's repo. Nothing about the writing gets into the writing."
+  public_artifact: "HIGH — persists, scraped, git keeps the bad version."
+  private_notes: "MEDIUM — still forbidden; this is where the habit is trained."
+  designated_home: "examples/ in this skill. Nowhere else."
   
 anti_patterns:  # Known evasion tactics
   - '"Documented vs alleged" drift'

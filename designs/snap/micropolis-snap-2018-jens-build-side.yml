@@ -1,0 +1,34 @@
+# Micropolis × Snap! — Don's 2018 thread (Jens on the build side)
+# Public-safe digest. Brian looped Jens in after Don's first contact.
+
+meta:
+  rendered_edition: micropolis-snap-2018.md
+  span: "2018"
+  first_contact: "2018-05-15"
+  participants: [Don Hopkins, Brian Harvey, Jens Mönig]
+  kind: correspondence_digest
+  consent: not_yet_asked
+  provenance_private: DonHopkins/characters/don-hopkins/correspondence/brian-harvey-jens-moenig.yml
+
+gist: |
+  Don asked Brian about driving **Micropolis** (open SimCity) and **CAM6** cellular automata from
+  **Snap!** blocks. Brian forwarded to Jens — the person who would actually wire the blocks to live
+  simulation parameters.
+
+jens_angle: |
+  Implementation questions: Morphic.js hooks, block extensions, live parameter binding, schemas for
+  structured simulation data — the engineering side of Don's constructionist classroom dream.
+
+show_hooks:
+  - "Micropolis × Snap! demo — city zoning from blocks, live"
+  - "CAM6 CA rules as a visual-programming lesson — Norman Margolus orbit"
+  - "Schemas for Snap! — Don's Snap!Con Barcelona talk as a follow-on solo vertical"
+  - "Distributed messaging / actor systems in Snap! — where blocks meet concurrency"
+
+see_also:
+  - micropolis-snap-2018.md
+  - ../../brian-harvey/sources/micropolis-snap-2018.md
+  - ../../brian-harvey/sources/micropolis-snap-2018.yml
+  - ../../don-hopkins/sources/micropolis-svelte-snap-constraint-bridge.md
+  - ../../brian-harvey/correspondence.yml
+  - ../../../repo-shows/snap-logo-brian-jens/SHOW.yml#micropolis-in-snap
