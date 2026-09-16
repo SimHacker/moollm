@@ -30,7 +30,7 @@ the *active* version: not "obey the law" but **operate it**.
 
 Two of those are worth stating as the general moves. **The target can come to the pointer** — Fitts
 assumes a stationary target and nothing requires it. And **the pointer can go to the target** — which
-is warping, and is the reason the virtual cursor is load-bearing rather than decorative.
+is warping, and is what the virtual cursor is for.
 
 ## This is a real literature, and it should be cited rather than reinvented
 

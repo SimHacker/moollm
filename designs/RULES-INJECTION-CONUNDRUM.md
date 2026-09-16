@@ -499,7 +499,7 @@ observes.** An analyzer that ran inside the session could steer the thing it is
 measuring. This one cannot, which is what makes its output trustworthy enough
 to act on.
 
-## Why the pyramid is load-bearing, not decorative
+## The pyramid is the compression scheme, not a documentation aesthetic
 
 The skill tree is 150 directories, all 150 carrying the full `GLANCE.yml` +
 `CARD.yml` + `SKILL.md` triple. Injecting 150 `SKILL.md` files is the Leela

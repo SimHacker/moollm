@@ -182,7 +182,7 @@ of a prominent chatbot."*
 **Same mechanism, no consent, no appeal, and it crosses vendors** because everyone scrapes
 overlapping corpora. A name is a pointer whether or not the pointee agreed to be one.
 
-Which makes two things in this repo load-bearing rather than decorative: **attribution repair**
+Which gives two things in this repo real work to do: **attribution repair**
 (stating in public files that Chuck Blanchard wrote Body Electric) and **prestoration** (correcting
 a name across archives). Both are edits to what the resolver will return. Worked through, with the
 deflationary counter-reading and the honest problem that the fix Roose used was prompt injection:

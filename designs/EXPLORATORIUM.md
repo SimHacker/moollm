@@ -10,7 +10,7 @@ Nothing is behind glass, because behind glass it does nothing.
 That is the model for this site, and naming it is most of the work. Everything below is either
 what the word already carries or a note on what it forbids.
 
-## The distinction is load-bearing, not decorative
+## Each property of the building lands on the site as a constraint
 
 Each of these is a real property of the place, and each one lands on the site as a constraint.
 

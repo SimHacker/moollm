@@ -462,7 +462,7 @@ Skills can live **anywhere** on the filesystem. There is no central registry, no
 
 **A CARD-only directory is first-class.** Not a degraded skill — a lightweight form for when narrative isn't warranted yet. Write `CARD.yml` when you have methods to declare; write `SKILL.md` when you have a protocol to teach. The two files answer different questions (*"what can this DO?"* vs *"how does this WORK?"*), and not every object needs a teaching narrative. Any additional UPPERCASE marker file (`CHARACTER.yml`, `MECHANISM.yml`, `ALERT.yml`, …) adds another interface in classic COM-style multi-interface fashion.
 
-> 🎴 The **CARD** name is a rich pun stacking HyperCard (Atkinson), IDL / OLE Control / ActiveX TypeLib (interface definition + dispatch metadata), Actor (Hewitt; message-receiving autonomous entity), Thread (dispatchable unit of control), Smalltalk/Self message surface, and the portable token / business card idiom. That richness is load-bearing, not decorative. See [`skills/card/SKILL.md` § "The Card Pun Stack"](../skills/card/SKILL.md#the-card-pun-stack--what-a-card-is).
+> 🎴 The **CARD** name is a rich pun stacking HyperCard (Atkinson), IDL / OLE Control / ActiveX TypeLib (interface definition + dispatch metadata), Actor (Hewitt; message-receiving autonomous entity), Thread (dispatchable unit of control), Smalltalk/Self message surface, and the portable token / business card idiom. Each layer of the pun contributes a different piece of what a CARD does. See [`skills/card/SKILL.md` § "The Card Pun Stack"](../skills/card/SKILL.md#the-card-pun-stack--what-a-card-is).
 
 None of these require registration, packaging, publication, or any build step. **Mount the repo, the skills show up.**
 

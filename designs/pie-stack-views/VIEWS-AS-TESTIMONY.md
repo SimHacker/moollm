@@ -69,10 +69,17 @@ editable.** A visible clipboard whose contents are still frozen would be worse t
 because it would display its uselessness. Held to it here, this is cheap — a clipping is a file in a
 tree, and files are editable by construction. You get it by not building a special case.
 
-This is precisely what [Alan Kay means by things that hang on because they only kind of
-work](../../skills/design-sense/masters/randall-smith.md): the single-slot clipboard works *just*
-well enough for the copy-one-thing-paste-it-once case that nobody's daily workflow breaks, so the
-pressure to fix it never accumulates, and forty years later it is still one slot. Nelson's fury is
+Alan Kay put the mechanism as a question, in his 2016 HN AMA:
+
+> The real question is "does a hack reset 'normal'?" For most people it tends to, and this makes it
+> very difficult for them to think about the actual issues.
+>
+> — [alankay1](https://news.ycombinator.com/item?id=11940512)
+
+The single-slot clipboard reset normal. It works *just* well enough for the
+copy-one-thing-paste-it-once case that nobody's daily workflow breaks, the hack became the baseline
+against which nothing is measured, so the pressure to fix it never accumulates and forty years later
+it is still one slot. Nelson's fury is
 proportionate — he coined the terms for the visible rearrangement of writing, and the survivor is a
 hidden buffer that only kind of works.
 

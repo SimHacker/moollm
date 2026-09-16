@@ -53,10 +53,16 @@ to another device, or show it to anyone. Which is a complaint with a known autho
 Ted Nelson's rage against the clipboard is that it is invisible, singular, and uneditable — a thing
 that holds something of yours that you are not allowed to look at
 ([VIEWS-AS-TESTIMONY](../pie-stack-views/VIEWS-AS-TESTIMONY.md#github-is-the-clipboard-bus)). The
-browser bookmark fails on the same axes, and nobody notices because it *kind of* works — which is
-[Alan Kay's diagnosis of why bad designs
-survive](../../skills/design-sense/masters/randall-smith.md): it is good enough for the common case
-that nobody's day breaks, so the pressure to fix it never accumulates. Compare:
+browser bookmark fails on the same axes, and nobody notices because it *kind of* works. Alan Kay
+named that mechanism in one question, in his 2016 HN AMA:
+
+> The real question is "does a hack reset 'normal'?" For most people it tends to, and this makes it
+> very difficult for them to think about the actual issues.
+>
+> — [alankay1](https://news.ycombinator.com/item?id=11940512)
+
+The single-slot clipboard reset normal. Once it is normal, it is not experienced as a missing
+feature at all, so nobody's day breaks and the pressure to fix it never accumulates. Compare:
 
 | | Clipboard | Bookmark | What a reading cursor would be |
 |---|---|---|---|
@@ -71,7 +77,7 @@ A bookmark records a *URL*. It does not record where in the page you were, what 
 to get there, what you had picked up on the way, or what rung you were reading at. It is a pointer to
 the front door of a building you were on the fourth floor of.
 
-## The pun is load-bearing in more directions than three
+## The pun names a real type, and every field solved a different part of it
 
 The shared type: **a position in a substrate, with state, that moves — and has history.** Nearly
 every field that needed this invented it, named it separately, and solved a different part of it.

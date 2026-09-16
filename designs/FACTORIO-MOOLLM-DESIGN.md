@@ -2,7 +2,7 @@
 
 > *"The factory must grow."* — Factorio vocabulary maps to computing at every scale. LLMs know it deeply.
 
-Factorio is a factory automation game with a comprehensive wiki (2000+ pages of game mechanics, ratios, circuit logic), a rich subreddit culture of base designs and throughput analysis, and a Lua modding API with extensive documentation, and an industry of youtube video tutorials and playthroughs. All deeply indexed in LLM training data. When you describe a system using Factorio vocabulary — belts, inserters, assemblers, backpressure, blueprints — the LLM activates spatial reasoning, throughput intuition, and bottleneck analysis that transfer directly to real infrastructure. The metaphor isn't decorative; it's load-bearing.
+Factorio is a factory automation game with a comprehensive wiki (2000+ pages of game mechanics, ratios, circuit logic), a rich subreddit culture of base designs and throughput analysis, and a Lua modding API with extensive documentation, and an industry of youtube video tutorials and playthroughs. All deeply indexed in LLM training data. When you describe a system using Factorio vocabulary — belts, inserters, assemblers, backpressure, blueprints — the LLM activates spatial reasoning, throughput intuition, and bottleneck analysis that transfer directly to real infrastructure. The vocabulary is the mechanism, not the packaging.
 
 ---
 
@@ -18,7 +18,7 @@ The core translation table. Factorio concepts on the left become MOOLLM abstract
 | Assembler | LLM node | Cloud Function / Model endpoint, Looker, Thinker |
 | Recipe | [Skill](../skills/INDEX.yml) | Processing logic |
 | Blueprint | [Skill template](../skills/bootstrap/templates/) | DevOps/GitOps Scripts and GitHub Actions |
-| Logistics network | [Carrier pigeons](../kernel/BEAD-ORCHESTRATION.yml) | Async Pub/Sub |
+| Logistics network | [Carrier pigeons](gastown/BEAD-ORCHESTRATION.yml) | Async Pub/Sub |
 | Circuit network | Metrics / signals | PDA / Concept Viewer / Grafana |
 | Research lab | [Play-Learn-Lift](../skills/play-learn-lift/) | **PDA chat** — query and analyze the factory and data |
 | Science packs | Refined insights | SQL results, aggregated analytics, alerts, reports |
