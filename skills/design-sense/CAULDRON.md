@@ -93,6 +93,13 @@ items), game (advertisement economy as UI, Sims storytelling spectrum), software
   germinated the seed set: lenses fitts, foveation, stage-magic; methods
   design-by-accretion, tuned-emergence; masters will-wright, david-ungar,
   chris-trottier.
+- 2026-09-17 — **keep-the-seed planted.** Don's multiplayer SimCity city-proposal
+  design, from the notes in the Micropolis source: page through proposed cities,
+  recover generated terrain because the RNG seed was saved, and proposing clears
+  everyone's votes. Grown into the method that generative content owes six visible
+  verbs (generate, reroll, edit, revise, reset, clear) and a history. New methods
+  ad: working-with-generated-content. Registries now 31 lenses / 33 methods /
+  59 masters.
 - 2026-08-22 (afternoon) — **the great planting.** Format decision: all plugins
   are Markdown, not YAML (human-readable first; the yml originals converted and
   removed). Germinated nearly the whole queue: 28 lenses, 28 methods. Session
