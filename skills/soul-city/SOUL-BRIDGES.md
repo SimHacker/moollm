@@ -178,6 +178,87 @@ somewhere. And roles step back **out** — move a mayor into a life sim and fort
 "Mayor, the citizens demand a stadium" suddenly has a face that has to sleep, eat, and pay
 for a bathroom.
 
+### The job that needs no gate
+
+Both gates so far need the game to cooperate: one needs a population number it will let you
+change, the other needs an office it already models. There is a third position that needs
+neither, and it is the widest door in the building.
+
+Some jobs consist entirely of watching and telling. A journalist needs a screen and a clock.
+That is the same floor the album stands on ([SOUVENIRS.md](SOUVENIRS.md)) — so any job built
+out of capture, caption, and narrative can be held in a game that has no bridge, no
+documented save format, and no idea anyone is there. The reporter is posted *to* the game
+rather than *into* it. She watches it play, captures what matters on her beat, and files.
+Nothing in the game changes, which is exactly why nothing in the game has to allow it.
+
+Several can work at once, and that is the point rather than a scaling concern. Invite five
+photographers to a wedding and you get five different weddings back: one shot the children,
+one shot the food, one shot the two relatives who weren't speaking. A game session with four
+correspondents on it yields a sports desk, a gossip column, an obituary page, and an
+architecture critic — same footage, four papers. Each capture carries a **byline**, so the
+stream sorts itself: events credited to one correspondent correlate into that
+correspondent's story, album, or column, in her voice about her subject. Named styles are
+already a thing you can plug in; MOOLLM ships a shelf of photographers with signature looks
+in [`skills/visualizer/photographers/`](../visualizer/photographers/INDEX.yml).
+
+A bridge, where one exists, upgrades her sourcing rather than authorizing her presence.
+Unbridged she has pixels and a timestamp: something burned down at 14:02. Bridged she has
+names, relationships, and causes: the fire took the house two Sims had just moved into, and
+one of them was already the other's ex. The job is the same job. The reporting gets better
+because the facts get better.
+
+The correspondent can also exist twice. A photographer can be a character running inside the
+game — a Sim with her own behavior, walking to the thing worth shooting — while the same soul
+runs a mind at the host layer, watching the screen and writing copy. The in-game body takes
+the picture; the outside mind knows what the picture is *of* and what it means three weeks
+later. Those are two organelles under one soul, and the coupling between them is the credited
+event stream: [CHARACTER-ENDOSYMBIOSIS.md § Two minds, two layers](CHARACTER-ENDOSYMBIOSIS.md#two-minds-two-layers).
+
+One constraint governs all of it. **A job offers work; it never takes the work away.** Every
+story a correspondent can draft, the player can write instead, edit afterward, or do from
+scratch with the same tools — and nothing gets published because a model thought it should
+be. Staff, not editor. This is the Maes/Shneiderman argument settled in favor of both:
+[INTERFACE-TO-AGENCY.md](../../designs/INTERFACE-TO-AGENCY.md) ·
+[AXES-NOT-CAMPS.md](../../designs/AXES-NOT-CAMPS.md).
+
+### The errand: a job in another game
+
+There is one more crossing shape, and it is the cheapest one that actually returns something.
+A character leaves, does something in another game, and comes back changed — while the world
+she left **holds her place instead of continuing to run her.** Call it an errand.
+
+Suspension is what makes it cheap. Fork and sync (§6) keeps both incarnations alive and
+reconciles the overlap, which is the right answer when both worlds keep playing. An errand
+doesn't need it: the origin stops running her, and in her place stands a **placeholder** — a
+visible object meaning a call is outstanding and this is where she comes back. Nothing
+diverges, so nothing has to merge, and the hardest question fork-and-sync has to answer never
+comes up, because only one copy is running at a time.
+
+The second trick is that **the return value is small and written in advance.** The origin does
+not have to understand the destination; it only has to enumerate what could come back — a good
+day, an ordinary day, a bad one, fired. The destination produces one of those. Anything the
+origin cannot express it cannot receive, which sounds like a limit and is the actual
+interoperability guarantee: two games that share no formats, no engine, and no era agree on a
+four-item list, and that is enough to move a life event between them.
+
+So the destination can be anything. A shift at the office can be played as a dungeon crawl or
+a 1983 arcade game running in an emulator — which is [an organelle still running its own
+ancient metabolism](CHARACTER-ENDOSYMBIOSIS.md), doing a day's work. The mapping layer supplies
+the meaning: what the player did is a score, what it *means* is authored.
+
+The Sims left a hole shaped exactly like this. The carpool arrives, the Sim is gone for six
+hours, and she returns with a promotion nobody witnessed. Every life sim has that hole, because
+building the office is a second game. Borrowing one is not. Worked out in MicropolisCore:
+[`OUT-OF-GAME-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/OUT-OF-GAME-JOBS.yml),
+with the request and the reply riding an
+[optical channel](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml)
+that needs nothing from the game but a bitmap and a menu.
+
+One rule holds it to the same standard as every other crossing: **nobody is left in the
+placeholder.** An errand that never resolves times out into the most ordinary outcome and gives
+her back. Conservation applies to a character out on an errand exactly as it applies to a
+thousand souls in a pipe — the world she left has to be able to account for her.
+
 ## 4. One protocol, two populations
 
 The reason to build the role gate carefully is that it is not only for fictional imports.

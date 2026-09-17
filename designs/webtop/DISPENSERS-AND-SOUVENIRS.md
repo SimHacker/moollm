@@ -332,6 +332,42 @@ already-maintained, multilingual, and free, and the creator's redirector only ha
 object → article rather than object → a page they must keep alive for 26 years. The catalog then
 inherits an encyclopedia's upkeep instead of paying its own.
 
+### The universal About item — one affordance, two audiences
+
+The dialog is worth more than a place to hide a code. Give **every** object we author or wrap the
+same item, always in the same place — **north on the pie menu**, the one slot anybody can hit
+without reading the menu — and the whole catalog becomes self-describing on demand. Behind it:
+what this is, who made it, where it came from, what it cites, what rights it carries, where to
+discuss it, and the code that carries all of that out of the game.
+
+**The two audiences want the same record, which is why one menu can serve both.** A player wants
+to know what a thing is, who made it, whether it is safe to install, and where the real thing
+behind it lives. An automation layer watching the screen wants identity, type, version, and
+provenance. That is one Dublin Core record with two renderings: text in the dialog for the
+person, a code in the same dialog for the machine, a page on the far side of the link for
+whoever followed it. Nothing has to be authored twice, and a game with no API acquires
+introspection as a *menu item*.
+
+It is the interface-level form of the discipline in
+[DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER](../object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md#the-core-speaks-gamer-borrow-words-that-are-already-load-bearing):
+one artifact, dual-audience by construction, where the validating engine sees a schema and the
+reader sees a genre. Here the engine sees a payload and the player sees a story about a lamp.
+
+**The fixed position is the protocol.** Because About is always north, a watching layer can
+interrogate content it has never seen and was never told about: click, flick north, read. That is
+what keeps a closed vocabulary extensible — unknown objects remain askable, so new content does
+not require a new integration. The
+[Screen Angel spec](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml)
+works this out as a four-level ladder, where the sprite is the glance, an optional colored band
+code carries small live values, the About dialog holds the full payload, and the web page holds
+everything else — the same read-no-deeper-than-you-must discipline MOOLLM uses for skills.
+
+And provenance stops being paperwork. **A world where you can ask any prop where it came from**
+is Alvey's citation apparatus generalized from *what the object teaches* to everything about it:
+creator, source, license, the real referent, the thread where people are arguing about it. The
+menu is also the social surface — the object's own front door to the site, in the object, in the
+game, in the room.
+
 ## Honest costs
 
 **Geo-privacy is the serious one.** A souvenir collection is a movement log with photographs

@@ -75,6 +75,42 @@ Some organelles are extraordinary. An **emulated runtime** — a real Apple ][ b
 web emulator, say Timothy Leary's *Mind Mirror* (1986) — is an organelle **still running its own
 ancient metabolism**: a living mitochondrion you feed a character and read back transformed.
 
+## Two minds, two layers
+
+Every organelle so far has been a game. But there is one more site a mind can live in, and it
+isn't a game: **the layer that watches the games.** The overlay, the recorder, the album — the
+thing holding the screen and the clock. A soul can keep an organelle there too, and for some
+characters that is the more interesting half.
+
+Take a photographer. Inside the game she is a character with her own behavior: she walks to the
+thing worth shooting and takes the picture the game knows how to take. Outside, in the layer,
+the same soul runs a mind that watches the screen, holds a beat, and writes the copy. The body
+takes the picture; the outside mind knows what the picture is *of*, and what it will mean three
+weeks later when it is page four of a story.
+
+**They are not redundant, because they have different senses and different clocks.** The in-game
+mind perceives only what the game represents — a Sim cannot notice that a moment is a good lede,
+because "lede" is not in the world's ontology. The outside mind sees the screen, the history, the
+album, and every other game, and cannot walk across a room or exist in a save file. Neither one
+is the real one. Squashing them together would mean throwing away one of the two sensoriums.
+
+The coupling is not shared memory. It is a stream of **credited events**: the inside raises them,
+the outside receives them and attaches them to a beat. The membrane holds — neither mind reads
+the other's internals, which is the same discipline every other organelle boundary obeys. And
+either half runs alone: an in-game photographer with no outside mind still takes in-game
+pictures, and an outside correspondent with nobody in the game still watches the screen and
+files.
+
+The word for this shape is **bicameral** — two chambers, with one voice arriving from somewhere
+the other chamber cannot see. We borrow Jaynes's picture, not his theory about ancient minds.
+
+The same structure explains why a character can be *away*. When she goes on an errand into
+another game, what's left behind is an in-game organelle standing in for a mind that is
+temporarily elsewhere — a placeholder that can still be talked to
+([SOUL-BRIDGES.md § The errand](SOUL-BRIDGES.md#the-errand-a-job-in-another-game)). And it
+explains the limit that keeps the whole arrangement honest: an outside mind has no hands inside
+the game except the ones the membrane offers it, which is usually a menu.
+
 ## Why this framing earns its keep
 
 It fuses three vocabularies into a single intuition — the **filesystem** (directories and data),

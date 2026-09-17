@@ -223,6 +223,18 @@ distance travelled.
 format and currency, never naturalizing. An **immigrant** trades in citizenship and takes a
 seat, with value marked to the local market.
 
+**Errand**
+
+*Known:* a short trip made for a specific purpose, with the return assumed. Historically also a
+message carried on someone else's behalf, which is where "knight-errant" comes from — errantry was
+travelling *under commission*.
+
+*Here:* the cheapest crossing that brings something back. A character leaves for another game,
+does one bounded thing there, and returns changed, while the world she left **suspends her rather
+than continuing to run her** — so nothing diverges and nothing has to be merged. The commission is
+the interesting part: she goes with a small list of possible outcomes, and comes home carrying one
+of them. See [SOUL-BRIDGES.md § The errand](SOUL-BRIDGES.md#the-errand-a-job-in-another-game).
+
 **Souvenir**
 
 *Known:* French for "to remember", from Latin *subvenire*, to come to mind. A thing kept because
@@ -251,6 +263,16 @@ in a governing body. An office is a post with duties attached to it rather than 
 *Here:* how a named character enters a game that represents no individuals. Scope is the price
 of the visa — a character can cross as big as a mayor or as small as three minutes at a public
 microphone, and every scope is a seat.
+
+**Byline**
+
+*Known:* the line naming who wrote it. In newsrooms it is currency, negotiated and fought over,
+because credit is what a reporter is paid in besides money.
+
+*Here:* the smallest standing a character can hold in a world, and also the routing key. A
+correspondent needs no body in a game to cover it, only a name on what she files — and because
+every capture carries that name, a session's events sort themselves into one story per
+correspondent with nobody writing a dispatcher. Credit is the index.
 
 **Factory / fondaco / kontor** (in the older, trading-post sense)
 
@@ -304,6 +326,19 @@ cares about.
 *Here:* the identity rule. A character crossing a border is forked, not moved: both incarnations
 live, shared fields sync, and each side keeps what only it can represent.
 
+**Egg**
+
+*Known:* two unrelated things, both useful. A **promise** or future in programming — an object
+standing for a result that has not arrived, which something later settles. And a coat-check
+ticket: proof that a thing of yours is elsewhere, and the means of getting it back.
+
+*Here:* what stands in a game where a character used to be, while she is out on an errand. A
+visible, clickable object meaning *a call is outstanding and this is where she returns* — drawn
+big and colour-coded so both the player and the watching layer can tell at a glance which eggs
+have news. Its menu of possible outcomes is the return type, written by the content author in
+advance, which is how a result gets back into a game nobody can patch: something picks one of
+the answers the game already knows how to receive.
+
 **Save file**
 
 *Known:* the serialized state of a game, on disk, in whatever format its authors chose.
@@ -336,6 +371,18 @@ by motive.
 *Here:* the interop socket. Objects carry their own behavior and advertise; a world's only
 obligation is to evaluate conditions and honor effects. Small enough a contract that games from
 different decades compose without knowing about each other.
+
+**Bicameral mind**
+
+*Known:* two chambers. In government, an upper and a lower house that must agree. In Julian
+Jaynes's 1976 theory, an archaic mind in which one part issued instructions the other part
+experienced as an outside voice.
+
+*Here:* the picture, not Jaynes's history. One soul can run a mind inside a game and another in
+the layer watching the game, and the two have genuinely different senses: the inside mind
+perceives only what the world models, the outside one sees the screen, the clock, the album and
+every other game, and cannot walk across a room. Neither is the real one. See
+[CHARACTER-ENDOSYMBIOSIS.md § Two minds, two layers](CHARACTER-ENDOSYMBIOSIS.md#two-minds-two-layers).
 
 **Microworld**
 
