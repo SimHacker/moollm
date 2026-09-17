@@ -2,9 +2,9 @@
 
 *Mobile navigation of a room graph, using the one gesture two billion thumbs already know.*
 
-Related: `[READING-CURSORS.md](READING-CURSORS.md)` · `[PLAYABLE-CORPUS.md](PLAYABLE-CORPUS.md)` ·
-`[EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md)` · `[TREE-NAVIGATION.md](TREE-NAVIGATION.md)` ·
-`[GLYPH-BENCHMARK.md](GLYPH-BENCHMARK.md)` · `[../korz/README.md](../korz/README.md)`
+Related: [`READING-CURSORS.md`](READING-CURSORS.md) · [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) ·
+[`EBIKE-PATH-GRAMMAR.md`](EBIKE-PATH-GRAMMAR.md) · [`TREE-NAVIGATION.md`](TREE-NAVIGATION.md) ·
+[`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md) · [`../korz/README.md`](../korz/README.md)
 
 ## The naming, first, because the naming is the design
 
@@ -164,7 +164,7 @@ to.
 
 ## The model
 
-A room graph with named exits. Nothing new; `[PLAYABLE-CORPUS.md](PLAYABLE-CORPUS.md)` already says an
+A room graph with named exits. Nothing new; [`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) already says an
 article *is* a room. What is new is the projection onto a phone.
 
 **The strip is computed from the current room, not stored.** Take the current room, walk its
@@ -473,7 +473,7 @@ the whole point of holding it that way is lost.
 
 But a corpus may have been *authored* for one orientation — a timeline that reads down, a river of
 argument, a stack of tower floors where up genuinely means up
-(`[../pie-stack-views/THE-TOWER.md](../pie-stack-views/THE-TOWER.md)`). Rotating the screen would
+([`../pie-stack-views/THE-TOWER.md`](../pie-stack-views/THE-TOWER.md)). Rotating the screen would
 then rotate the reader's frame out from under the author's intent.
 
 Both are available, because renaming exits is a relabelling of a compass and there are exactly eight
@@ -530,7 +530,7 @@ rung of the pyramid was built for.
 
 - **An edge stub, not a chevron.** The left and right margins of a room carry the destination's
 **glyph** and, at the next rung up, its title — the emoji-or-SVG rung from
-`[GLYPH-BENCHMARK.md](GLYPH-BENCHMARK.md)`. A blank arrow says "there is more"; a glyph says
+[`GLYPH-BENCHMARK.md`](GLYPH-BENCHMARK.md). A blank arrow says "there is more"; a glyph says
 "there is a *pub* over there", which is the difference between a feed and a place.
 - **Count is content.** Seven exits east and one west is a fact about the shape of the corpus at this
 point, and rendering it as seven stubs tells the reader they are at a hub without a word of prose.
@@ -556,8 +556,8 @@ or arc length, monotonic and unbroken — so the ride is a warp thread and the c
 doors you enter and come back from, cross streets that re-warp the frame, and your own earlier passes
 through the same point. A roundabout turns out to implement the loom fan exactly, lane choice
 included. Worked out in
-`[EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md#a-ride-is-a-warp-thread-and-the-city-is-what-crosses-it)`.
-- **Scroll velocity picks the rung.** `[EBIKE-PATH-GRAMMAR.md](EBIKE-PATH-GRAMMAR.md)` already argues
+[`EBIKE-PATH-GRAMMAR.md`](EBIKE-PATH-GRAMMAR.md#a-ride-is-a-warp-thread-and-the-city-is-what-crosses-it).
+- **Scroll velocity picks the rung.** [`EBIKE-PATH-GRAMMAR.md`](EBIKE-PATH-GRAMMAR.md) already argues
 that velocity is the register dial: address-level detail is wasted at speed and earned when you
 stop. **Speed moozes out and stopping zooms in**: fast mood scrolling renders titles and glyphs,
 slowing down lets the body arrive. Depth is therefore partly automatic, and dwelling is the explicit
@@ -570,7 +570,7 @@ is no such thing as *your* place in a feed.
 - **One command set, three input paths.** `MOOD-NEXT`, `MOOD-PREV`, `LOOM(exit)`, `ZOOM`, `MOOZ`,
 `BACK`, `FORWARD` are named commands; thumb gestures, pie menus and keyboard are three
 bindings of them, never three implementations. The lint is
-`[TREE-NAVIGATION.md](TREE-NAVIGATION.md)`'s, and it applies here unchanged.
+[`TREE-NAVIGATION.md`](TREE-NAVIGATION.md)'s, and it applies here unchanged.
 
 
 

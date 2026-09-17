@@ -43,6 +43,38 @@ Tiny Life's pixel art demonstrates Scott McCloud's masking in practice:
 
 The low-resolution characters become vessels for player imagination, just as MOOLLM's text-based characters become vessels for LLM-assisted storytelling.
 
+**You can trade resolution for identification** — the essence of *Understanding Comics*, and an
+exchange rate rather than a compromise. So "Tiny" in the name is a claim about identification, not an
+apology about pixels: every specific a face carries is a specific that can contradict the player, so
+subtracting detail buys the player room inside the character. A photorealistic face is somebody else's. A
+six-pixel face is yours. Keep the world concrete and the person iconic and the player wears the
+person while believing the place — which is the masking effect exactly, and it is what The Sims did
+with mumbling low-poly people in carefully detailed rooms.
+
+Lowering the resolution is like taking the batteries out of a talking doll. A doll that talks says
+the same sentence forever in someone else's voice; take the batteries out and it says whatever the
+child needs it to say this afternoon. Simlish is that removal in the audio channel, pixel art is the
+same removal in the visual one, and in both cases the removal is what hands the part to the player.
+
+The same purchase buys participation, which is why this is not only an aesthetic argument.
+Low-resolution art has a low authoring floor: a player can draw a sprite or recolour a tile in an
+afternoon with free tools, where a photoreal asset needs a pipeline and a professional skill set.
+Every increment of fidelity a game demands of its own art it also demands of anyone who wants to
+add to it — so resolution is the setting that quietly decides whether user-created content is
+something a fan can make on a laptop or something only a studio can. Tiny Life's open modding and
+Little Computer People's one-disk scale are the same decision at both ends of the lineage, and
+Wright's hobby model needed exactly this property to work: people collect and extend what they can
+also *make* ([sims-will-wright-microworlds-1996.md](sims-will-wright-microworlds-1996.md)).
+
+So the trade is not pixels *for* soul as if soul were compensation. Lower resolution is the
+mechanism by which the binding gets tighter, and the mechanism by which strangers can join in. Tiny Life is small in the same direction its ancestor
+was: one man on one floppy, drawn in a handful of pixels, and players named him and worried about
+him for forty years.
+
+See [`masking`](../../skills/design-sense/lenses/masking.md) ·
+[`scott-mccloud`](../../skills/design-sense/masters/scott-mccloud.md) ·
+[`sims-inclusivity.md`](sims-inclusivity.md#masking-abstract-characters-realistic-worlds)
+
 ---
 
 ## Key Features
@@ -179,7 +211,8 @@ designed-and-dropped game in it: the LCP apartment complex Activision prototyped
 Life is the honest occupant of that slot — not because it is small, but because of what kind of small.
 One author's decisions all the way through, scope you can hold in your head, households the player
 exports, files that stay on the player's disk. Those are the practices that make it feel retro, and
-none of them are the pixel art.
+none of them are the pixel art — the pixel art is doing a different job, described above: turning up
+the identification knob by giving the player less to disagree with.
 
 See [sims-0-the-missing-game.md](./sims-0-the-missing-game.md) for the numbering, the dropped sequel,
 and the four games that stood in the gap — including Creatures, which shipped character export between
