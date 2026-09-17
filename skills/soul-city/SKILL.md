@@ -43,16 +43,23 @@ Souls may bridge to characters, personas, and minds in other games. Each game ke
 organization — one mind per game, as an **organelle**, in that game's own format, unflattened.
 [incarnation](../incarnation/) — grant and author architectures.
 
-Two things cross a save-file border, and they are different primitives:
+Two kinds of crossing at a save-file border, and they are different primitives:
 
-| Gate | Cargo | Crosses as |
-|------|-------|------------|
-| Hydraulics | Population | Conserved fluid — `measure` / `drain` / `squirt` |
-| Role gate | A named character | An office, a byline, a seat |
+| Gate | Who crosses | Received as |
+|------|-------------|-------------|
+| Hydraulics | A displaced population | Conserved quantity — `measure` / `drain` / `squirt` |
+| Role gate | A named traveler | An office, a byline, a seat |
+
+The act is **transmigration**, not import/export — souls are travelers, and most are refugees
+(delisted games, retired servers, formats locked on purpose), so the statuses that apply are
+the ones borders use: traveler, expat, immigrant, refugee. Never cargo.
 
 Identity rule: **fork and sync, never transport.** Both sides stay alive; shared fields sync;
-the soul is saved before any ending is played. Protocol: [SOUL-BRIDGES.md](SOUL-BRIDGES.md).
-World-to-world (non-save-file) travel: [PORTABLE-NPCS.md](PORTABLE-NPCS.md).
+the soul is saved before any ending is played. Conservation means nobody vanishes at the border,
+and no soul is returned to a world that can no longer hold it.
+
+Protocol: [SOUL-BRIDGES.md](SOUL-BRIDGES.md) · terms: [GLOSSARY.md](GLOSSARY.md) ·
+world-to-world (non-save-file) travel: [PORTABLE-NPCS.md](PORTABLE-NPCS.md).
 
 ## Instances
 
@@ -62,6 +69,7 @@ World-to-world (non-save-file) travel: [PORTABLE-NPCS.md](PORTABLE-NPCS.md).
 | [`examples/adventure-4/`](../../examples/adventure-4/) | Bootstrap walkable seed; three imported games interoperating |
 | [`examples/soul-city/`](../../examples/soul-city/) | Sims-citizen seed |
 | [MicropolisCore](https://github.com/SimHacker/MicropolisCore) | Design + implementation: product, roadmap, bridge SDK |
+| [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) | Platform layer — object shops, content pipeline, GUID registry, distribution and rights |
 
 ## Bound documents
 

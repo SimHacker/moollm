@@ -101,6 +101,7 @@ describe their own thinking.
 | [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) | Why is a game an organelle, and what does a membrane charge to let something through? |
 | [PORTABLE-NPCS.md](PORTABLE-NPCS.md) | How do characters — and the games they embody — travel between worlds? |
 | [SOUL-BRIDGES.md](SOUL-BRIDGES.md) | How does anything cross into a *shipped* game's save file? |
+| [GLOSSARY.md](GLOSSARY.md) | What did each of these words already mean, before we borrowed it? |
 | [GLANCE.yml](GLANCE.yml) · [CARD.yml](CARD.yml) · [SKILL.md](SKILL.md) | Machine-facing summary, interface, protocol |
 
 ## Three ideas doing the work
@@ -154,12 +155,49 @@ a normal character with scoped permissions, living in a directory under git — 
 both ends, translate, and narrate what just happened. Not a tutorial overlay, not an assistant
 pane, no hidden agent. The first face a newly uplifted character meets is a character.
 
+## Travelers, not cargo
+
+The act is **transmigration**: what theology calls a soul moving between worlds, and what
+databases call a migration. Both meanings come free. What it isn't is import and export — that
+pair belongs to file conversion (*flatten this into my schema*, the exact thing an organelle
+refuses) and to freight (*ship this crate*, which makes a character into property).
+
+The distinction is not decoration, because the romantic version of this work is a traveler with
+luggage and **the actual corpus is displacement.** A game gets delisted. A server retires and an
+account-bound license stops resolving. A format is undocumented on purpose, a save is bound to
+hardware, an EULA forbids extraction, a studio closes and takes its worlds along. Those souls
+didn't book a trip. Their world became uninhabitable while they were in it, and the exits were
+*designed* shut — policy, not a technical limit. That is what a walled garden looks like from
+inside: an enclosure whose residents have no exit and no standing to ask for one.
+
+So the statuses are the ones borders actually use, and each one owes something different: a
+**traveler** gets customs and a way home; an **expat** gets residency without having to
+naturalize (the organelle case exactly — resident here, still thinking in the old format); an
+**immigrant** trades citizenship for a seat; a **refugee** gets asylum. Two rules follow, and
+they are the moral content of what otherwise look like bookkeeping constraints:
+
+- **Conservation means nobody vanishes at the border.** A crossing whose ledger doesn't balance
+  is one where people disappeared. The count is an audit, not a flourish.
+- **Never return a soul to a world that can't hold it.** Round trips are a feature only where
+  the origin still runs.
+
+Which leaves one honest question about the plumbing register — pumping souls by the thousand,
+drains and ledgers and consignments. It stays, and it stays *marked*, because it describes what
+the **receiving system** can perceive: a city sim has one integer where a crowd should be. Flows,
+waves, influx, surge are also precisely the words institutions use for displaced human beings,
+which is not a coincidence — hydraulic language is what a system reaches for when it has no
+representation for a person. The role gate is the part that hands one of them a name back.
+
+Every borrowed term, with the meaning it already had before we borrowed it:
+[GLOSSARY.md](GLOSSARY.md).
+
 ## The map
 
 **In this skill:** [SOUL-MODEL.md](SOUL-MODEL.md) (ontology) ·
 [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) (organelles, membranes, exchange rates) ·
 [PORTABLE-NPCS.md](PORTABLE-NPCS.md) (world-to-world travel) ·
 [SOUL-BRIDGES.md](SOUL-BRIDGES.md) (save-file borders) ·
+[GLOSSARY.md](GLOSSARY.md) (every borrowed word, and who we borrowed it from) ·
 [examples/characters/robin/](examples/characters/robin/) (worked character)
 
 **Elsewhere in MOOLLM** — the narrative and architecture behind the Sims bridge:

@@ -5,22 +5,95 @@ where both ends speak YAML and the socket is ours to define. This document cover
 harder border: a **shipped game's save file** sitting on a disk, in its own format, written
 by a program that has never heard of us and may never be updated again.
 
-Two different things can cross that border, and conflating them is why most bridge designs
-stall:
+Two different kinds of crossing happen at that border, and conflating them is why most bridge
+designs stall:
 
-| | Cargo | Crosses as | Grain |
+| | Who crosses | Received as | Grain |
 |---|---|---|---|
-| **Hydraulics** | Population | A conserved fluid, by the thousand | Statistical |
-| **The role gate** | A named character | An office, a byline, a seat | Individual |
+| **Hydraulics** | A displaced population | A conserved quantity, by the thousand | Statistical |
+| **The role gate** | A named traveler | An office, a byline, a seat | Individual |
 
-A city sim has no individuals to receive; a life sim has no aggregate to pour. Pick one gate
-and half the games on the board become unbridgeable. Build both and the same pipe serves
-both kinds.
+A city sim has no individuals to receive; a life sim has no aggregate to settle. Pick one gate
+and half the games on the board become unbridgeable. Build both and the same border serves
+both kinds of arrival.
 
 One prior distinction governs everything below. A bridge **moves data**; it does not depict
 another game. An object in one game that plays a decorative toy version of another is a
 prop, and it has been built many times. A bridge links actual save files, so that state
 changed on one side is state changed on the other. Only the second kind can carry a soul.
+
+## Who is crossing, and why the word matters
+
+The act is **transmigration** — the theological term for a soul moving between worlds, and
+what everyone in databases calls a migration. Both meanings are already paid for, so the word
+needs no glossary to work; it has [an entry](GLOSSARY.md#religion-myth-and-the-crossing) anyway,
+along with everything else borrowed here.
+
+What it is *not* is import and export. That pair belongs to file conversion and to freight:
+*convert this foreign thing into my schema*, and *ship this crate*. The first names the
+flattening this model exists to refuse, since an organelle keeps the other game's own format.
+The second makes a character into property — and cargo does not consent, does not arrive
+anywhere, and cannot hold an office. Keep import/export for File menus and for tonnage. For
+anybody with a name, the register is **migration and standing**:
+
+| Status | Left because | Keeps citizenship? | What the destination owes |
+|---|---|---|---|
+| **Traveler / tourist** | Wanted to see it | Yes — round trip assumed | Customs, and a way home |
+| **Expat** | Chose to, comfortably | Yes — never naturalizes | Residency without assimilation |
+| **Immigrant** | Chose to, for good | Trades it in | A seat, and marking to the local market |
+| **Refugee / evacuee** | **Did not choose** — the world became uninhabitable | Origin unreachable | **Asylum** |
+| ~~Deportee, trafficked~~ | Someone else's decision | Irrelevant — no standing | The anti-pattern. This is what "export" quietly describes |
+
+An **expat** is the organelle case, precisely: a soul with a Sims-mind resident in another
+world, thinking in its own format, paying in its own currency, declining to naturalize. (The
+line between expat and immigrant is drawn by status, not by the act. Worth remembering when
+choosing which one a character gets called.)
+
+### Most real cases are refugees
+
+The romantic version of this work is a traveler with luggage. The actual corpus is displacement.
+
+A game gets delisted. A server is retired and the account-bound license stops resolving. A
+format is undocumented on purpose, a save is bound to hardware, an EULA forbids extraction, a
+studio is shut and its worlds go with it. The souls in those saves did not book a trip. Their
+world became uninhabitable while they were in it, and the exits were **designed** shut — a
+policy choice, not a technical limit. Sixty thousand souls on an unreadable drive are not
+cargo awaiting shipment. They are a population that cannot leave.
+
+That is what a walled garden is, from inside: an enclosure whose residents have no exit and no
+standing to ask for one. Evacuating them is asylum work, not logistics, and it sets the
+posture for everything downstream — you are not harvesting assets, you are resettling
+somebody who lost a world.
+
+Two constraints follow, and they are the moral content of rules that otherwise look like
+bookkeeping:
+
+- **Conservation means nobody vanishes at the border.** The count that leaves is the count that
+  arrives. A border where the ledger doesn't balance is a border where people disappear, and
+  that is the failure this rule exists to make auditable.
+- **Never return a soul to a world that cannot hold it.** Round-tripping is a feature only
+  where the origin still runs. Pushing a refugee back into a save that no longer loads is not
+  a sync; it is deletion with extra steps.
+
+### The hydraulic register is a diagnosis, not a description
+
+Then why does half this document talk about pumping fluid by the thousand?
+
+Because that is what the **destination** can perceive. A city sim has one integer where a crowd
+should be, so an arriving population is received as a quantity — and the vocabulary that falls
+out is flows, waves, influx, surge, drain. Those are also, exactly, the words institutions use
+for displaced human beings, which is not a coincidence and not a joke: hydraulic language is
+what a system reaches for when it has no representation for a person.
+
+So the fluid register stays, and it stays *marked*. It describes a receiving system's poverty,
+never the travelers' nature. The [role gate](#3-the-role-gate-entering-a-game-that-has-no-individuals)
+is the part that gives one of them a name back. Where the register is played for laughs —
+consignments, ledgers, artisanal sourcing — the joke is on the supply chain, and it only lands
+if the design underneath treats the souls as people.
+
+One line to keep the framing honest: it earns its keep by **constraining the design** — asylum,
+non-return, standing, nobody lost at the border — and not by decorating a save-file utility
+with other people's catastrophes. If it ever becomes garnish, cut it.
 
 ## 1. Three verbs on a save file
 

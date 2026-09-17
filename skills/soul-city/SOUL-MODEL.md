@@ -627,7 +627,8 @@ Bootstrap seed: [`examples/adventure-4/`](../../examples/adventure-4/) — one S
 | [ADVENTURE.yml](../../examples/adventure-4/ADVENTURE.yml)                       | Live simulation state                                                                                                                          |
 | Nested minds seed                                                               | [don-hopkins/](../../examples/adventure-4/characters/real-people/don-hopkins/) — `dents/` + `slats/` under a host                              |
 | MicropolisCore                                                                  | Product compose — engine + Sims companion ([design](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)) |
-| Create · publish · share                                                        | [soul-angel modules](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel) — bridge SDK, album, DVR, emigration |
+| Bridge SDK, album, DVR, emigration                                              | [soul-angel modules](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel)                                |
+| Create · publish · share                                                        | [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) — object shops, content pipeline, GUID registry, distribution and rights |
 
 
 Directory = room. Character directory = soul or mind. YAML comments are data.
@@ -672,6 +673,7 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 | Duckmouse            | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie)                                                     |
 | Front door           | [README.md](README.md) — the 1996 lecture, the map, honest status                                                                                      |
 | Cross-game           | [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) · [SOUL-BRIDGES.md](SOUL-BRIDGES.md)                                                          |
+| Soul Plaza / catalog | [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) — the platform layer: shops, pipeline, GUIDs, rights |
 | Adventure ↔ loci     | [HN 29330901](https://news.ycombinator.com/item?id=29330901)                                                                                          |
 | Product              | [MicropolisCore soul-city](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)                                  |
 

@@ -34,6 +34,28 @@ files:
     - SOUL-MODEL.yml
     - PORTABLE-NPCS.md # world-to-world travel: advertisements, treaties, customs
     - SOUL-BRIDGES.md  # save-file borders: two gates, fork-and-sync, psychopomp
+    - CHARACTER-ENDOSYMBIOSIS.md  # membranes, diffusion, exchange rates — where "organelle" comes from
+    - GLOSSARY.md      # every borrowed term, KNOWN meaning first, then ours
+
+# ── Register — the words are chosen, not decorative. GLOSSARY.md has the full account. ──
+register:
+  the_act: transmigration        # theology + databases, same word, both meanings prepaid
+  not: [import, export]          # file-conversion register (= flatten) and freight register (= property)
+  keep_import_export_for: "File menus and actual tonnage"
+  statuses:                      # what the destination OWES differs per status
+    traveler: "customs, and a way home"
+    expat: "residency without naturalizing — this is the organelle case"
+    immigrant: "a seat, and value marked to the local market"
+    refugee: "asylum. THE COMMON CASE: delisted games, retired servers, locked formats"
+    deportee: "ANTI-PATTERN — moved by another's decision, no standing. What 'export' names."
+  hydraulic_register: |
+    Marked, always. Fluid-by-the-thousand describes what the RECEIVING system can perceive
+    (one integer where a crowd should be), never the travelers' nature. Same vocabulary
+    institutions use for displaced people — flows, waves, influx — which is the diagnosis.
+  two_rules:
+    conservation: "Nobody vanishes at the border. The ledger is an audit."
+    non_refoulement: "Never return a soul to a world that can no longer hold it."
+  honesty_check: "The framing earns its keep by constraining design, not by decorating a file utility."
   ethics:
     - skills/soul/ETHICS.md
     - skills/mind/ETHICS.md
@@ -79,9 +101,11 @@ k-lines:
     - SOUL-PLAZA
     - CITY-PROTOTYPE
     - LIMINAL-PLACE
-    - SOUL-BRIDGE      # cross a save-file border: which gate, which cargo
+    - SOUL-BRIDGE      # cross a save-file border: which gate, who is crossing
     - THE-ROLE-GATE    # a named character enters a game with no individuals
     - FORK-AND-SYNC    # both alive, neither is the copy
+    - TRANSMIGRATION   # the act, in both its senses
+    - ASYLUM           # souls stranded by delisting, retired servers, locked formats
   related:
     - { ref: soul, relation: "continuity bodies that inhabit the city" }
     - { ref: mind, relation: "agencies on souls; free-form graphs" }
