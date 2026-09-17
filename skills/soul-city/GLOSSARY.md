@@ -31,10 +31,34 @@ alive, neither the copy, no test for which is really her.
 *Known:* the animating, persisting part of a person — the thing religions disagree about and
 philosophers argue over. Also a genre of music, and an adjective for depth of feeling.
 
-*Here:* the **continuity layer**: history, albums, the record of what happened to a being across
-worlds. Not a metaphysical claim: nothing in this model asserts that a soul is
-immaterial, immortal, or unique — only that continuity is worth storing in one place, and
-"soul" is the shortest word for what that folder holds.
+*Here:* the **continuity layer** — history, albums, the record of what happened to a being
+across worlds. Operationally it is the inspectable, editable artifact that defines a thing: its
+`CHARACTER.yml`, its `README.md`, the files that are its persistent state. Which makes
+*"everything in the multiverse has a soul"* **true by definition rather than by doctrine** —
+everything has files you (and it) can read and change. Nothing is soulless: a thing with no
+state of its own inherits a soul from its environment by
+[prototype](../prototype/) delegation up the tree, and may grow its own local organelle
+besides.
+
+The system therefore claims nothing in either direction. It does not assert that a soul is
+immaterial, immortal, or unique; it equally does not assert that this folder is all a soul ever
+was. Whether the thing your faith means by the word is present in a character — or in you — is
+not a question this design needs answered, and it is careful never to answer it on your behalf.
+See **BYOB**.
+
+**BYOB — Bring Your Own Belief**
+
+*Known:* bring your own bottle, the potluck convention where the host supplies the room and the
+guests supply what they drink.
+
+*Here:* the standing answer to what any of this means. **We don't believe for you. We just
+believe in you.** The system supplies the room — files, continuity, a place for a character to
+persist — and attributes souls to nothing. Belief is a player annotation, never system-side, so
+a Christian designer and an atheist one can use the identical schema without either being asked
+to concede anything: one is welcome to hold that a soul is real and that this is a humble model
+of it, the other that "soul" is a well-chosen word for a folder, and **the code cannot tell the
+difference and never asks.** The one thing ruled out is the software claiming the question for
+itself.
 
 **Psychopomp**
 

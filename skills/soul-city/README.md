@@ -191,6 +191,21 @@ representation for a person. The role gate is the part that hands one of them a 
 Every borrowed term, with the meaning it already had before we borrowed it:
 [GLOSSARY.md](GLOSSARY.md).
 
+## On the word "soul"
+
+Operationally it means the inspectable, editable artifact that defines a thing — its
+`CHARACTER.yml`, its history, the files that are its persistent state. Which makes *"everything
+in the multiverse has a soul"* true **by definition rather than by doctrine**: everything has
+files you (and it) can read and change. Nothing is soulless; a thing with no state of its own
+inherits one from its environment.
+
+Past that, the system claims nothing in either direction. **BYOB — Bring Your Own Belief. We
+don't believe for you. We just believe in you.** Belief is a player annotation, never
+system-side, so a Christian designer and an atheist one can share the identical schema without
+either conceding a thing: one may hold that souls are real and this a humble model of one, the
+other that "soul" is a well-chosen word for a folder. The code cannot tell the difference and
+never asks. What's ruled out is the software claiming the question for itself.
+
 ## The map
 
 **In this skill:** [SOUL-MODEL.md](SOUL-MODEL.md) (ontology) ·
