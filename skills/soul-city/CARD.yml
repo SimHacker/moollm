@@ -95,17 +95,42 @@ bound:
   vocabulary_mapping: README.md#one-vocabulary-two-repos
   direction: "This skill DEFINES; MicropolisCore IMPLEMENTS and cites. Never restate — link."
 
+# ── Topology — the layout is derived from the connectivity, not chosen for flavor ──
+topology:
+  shape: island        # bridges leave from edges; bridging many games at once makes a coastline
+  becomes: continent   # as more games arrive
+  rule: "Distance from the water is generality."
+  coast: |
+    One port per bridged game. That game's quarter sits behind its port and holds everything
+    specific to it: adapters, format tools, its own jargon and quirks. Translation lives here.
+  centre: |
+    Universal services: editors, generators, albums, shops, GUID registry, provenance, rights,
+    distribution. Everything every game's content passes through.
+  content_authoring_side: soul-city   # NOT inside the games
+  why: |
+    A 1996 DOS binary cannot host a modern editor, but it can accept a file. So the tools live
+    in the hub and compile DOWN to each destination format.
+  known_as_elsewhere:
+    software: "ports and adapters / hexagonal architecture — translation at the boundary, domain in the core"
+    history: "factory, fondaco, kontor — foreign compounds at the waterfront, host city inland"
+  liminality: |
+    Van Gennep's three phases ARE the bridge: drain = separation, Soul City = liminal middle,
+    squirt = incorporation. And liminal spaces do not stay liminal — build the transit lounge
+    expecting it to become the destination.
+  marketplace_layer: "WWSFF catalogs/soul-city — object shops, content pipeline, GUID registry, rights"
+
 k-lines:
   activates:
     - SOUL-CITY
     - SOUL-PLAZA
     - CITY-PROTOTYPE
-    - LIMINAL-PLACE
+    - LIMINAL-PLACE    # betwixt and between; and it won't stay that way
     - SOUL-BRIDGE      # cross a save-file border: which gate, who is crossing
     - THE-ROLE-GATE    # a named character enters a game with no individuals
     - FORK-AND-SYNC    # both alive, neither is the copy
     - TRANSMIGRATION   # the act, in both its senses
     - ASYLUM           # souls stranded by delisting, retired servers, locked formats
+    - THE-MARKETPLACE  # tools, editors, shops — on the Soul City side of the bridge
   related:
     - { ref: soul, relation: "continuity bodies that inhabit the city" }
     - { ref: mind, relation: "agencies on souls; free-form graphs" }

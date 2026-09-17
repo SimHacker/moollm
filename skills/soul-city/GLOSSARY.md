@@ -240,6 +240,21 @@ in a governing body. An office is a post with duties attached to it rather than 
 of the visa — a character can cross as big as a mayor or as small as three minutes at a public
 microphone, and every scope is a seat.
 
+**Factory / fondaco / kontor** (in the older, trading-post sense)
+
+*Known:* before a factory was a place that manufactured things, it was a foreign merchants'
+compound at a port. The Thirteen Factories at Canton; the Hanseatic *kontore*, like the Steelyard
+in London and the Peterhof at Novgorod; the Venetian *fondaci*, including the Fondaco dei
+Tedeschi for German traders; Dejima, the artificial island in Nagasaki harbour where Dutch trade
+was confined for two centuries. Foreign business happened at the water's edge, each partner in
+its own compound, while the host city's own life carried on inland.
+
+*Here:* the shape Soul City takes, for the same reason those cities took it. Every bridged game
+lands at its own port, that game's formats and adapters and vocabulary cluster in the quarter
+behind it, and the universal services — editors, generators, albums, shops, the GUID registry,
+provenance and rights — sit inland. Distance from the water is generality. Software calls the
+same discipline *ports and adapters*; here the ports are ports.
+
 **Cargo**
 
 *Known:* freight. Goods, moved by someone else's decision, with no standing of their own. (Also

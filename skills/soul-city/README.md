@@ -225,6 +225,40 @@ grandchildren. Any place every traveler passes through accumulates regulars, bus
 history until it is somewhere in its own right. So Soul City is built as a destination on
 purpose: the transit lounge is going to become a game space, and it may as well be a good one.
 
+### The shape the bridges force
+
+What grows there is a **marketplace**: services, tools, editors, generators, shops, sharing.
+User-created content is authored on the *Soul City side* of the bridge, never inside the games —
+a 1996 DOS binary cannot host a modern editor, but it can accept a file. So the tools live in
+the hub and compile down to each destination's format.
+
+Bridges leave from edges, and this hub bridges to many games at once, which pushes it into the
+shape of an **island** — a continent, if enough games arrive. Each game's bridge lands at its own
+port, and what accretes behind that port is that game's particular business: its formats, its
+adapters, its jargon, its quirks. Walk inland and things get more universal. **Distance from the
+water is generality.**
+
+```
+  ≈≈≈ The Sims ≈≈≈≈ Micropolis ≈≈≈≈ Afterlife ≈≈≈≈ Stardew ≈≈≈
+        ║ port          ║ port         ║ port        ║ port
+  ┌─────╫───────────────╫──────────────╫─────────────╫─────┐
+  │  per-game quarters — adapters, format tools, local jargon │
+  │        ┌───────────────────────────────────────┐         │
+  │        │  shared services: editors, generators, │        │
+  │        │  albums, shops, GUID registry,         │        │
+  │        │  provenance, rights, distribution      │        │
+  │        └───────────────────────────────────────┘         │
+  └───────────────────────────────────────────────────────────┘
+       coast = game-specific            centre = universal
+```
+
+That gradient is the discipline software already calls **ports and adapters** — translation at
+the boundary, domain logic in the core — except here the ports are literally ports. It is also
+how trading cities actually arranged themselves: Dejima, the Thirteen Factories at Canton, the
+Hanseatic *kontore*, the Venetian *fondaci*. Each foreign partner got its own compound at the
+waterfront while the host city's own life carried on inland
+([glossary](GLOSSARY.md#borders-migration-and-standing)).
+
 ## The map
 
 **In this skill:** [SOUL-MODEL.md](SOUL-MODEL.md) (ontology) ·
