@@ -88,6 +88,47 @@ The discipline that keeps this honest: **the chat channel may only do things tha
 diff.** No hidden memory, no learned preferences, no state in the assistant. If it cannot be
 expressed as a change to a file, it did not happen.
 
+## The showcase: automation that drives the user's own controls
+
+The strongest form of this argument is not an essay, it is a system where the automation has no
+private controls at all. Every action an agent takes, it takes through an affordance that is
+visible on screen, reachable by hand, and takeable over mid-flight.
+
+The worked case is the cross-game errand in MicropolisCore. A character in a shipped, closed game
+goes to work somewhere else; the game leaves behind an object — an egg — that means *a call is
+outstanding*, sitting at the exact spot the character vanished from. The result comes back by
+selecting from that egg's own pie menu, whose nested submenus enumerate every consequence the job
+is permitted to have. The menu is the return type, so the space of what can happen to your
+character is a readable list rather than a promise.
+
+Four properties are doing the work, and each one is a direct-manipulation requirement met rather
+than argued about:
+
+**The automation's interface is the user's interface.** The layer clicks the same pie items a
+person clicks. There is no API path that bypasses the visible controls, which means there is no
+capability the user cannot exercise and no action the user cannot watch.
+
+**Pending work is an object, not a notification.** A promise with a location and a sprite can be
+walked past, pointed at, asked what it is, and acted on next Tuesday. A toast can only be missed.
+
+**Taking over is one click, at any moment.** Hatch the egg early and the character is back
+immediately, wherever she was standing. Cancellation is the empty return value, so the safest
+outcome is also the cheapest one to produce — for a person in a hurry or for a timeout.
+
+**The dial between hands is explicit and live.** Manual, confirm each, timeout with a named
+default, auto, yolo — switchable while the operation is outstanding. Consent is a setting the user
+holds, not a mode the agent infers.
+
+Which is the answer to the objection that this settlement is nostalgic. The reason to make
+automation navigable is not that a human will always want to drive; it is that a system whose
+automation uses the visible controls is inspectable, testable, and repairable by the person whose
+data it is — and a system with a private control channel is none of those, whatever it promises.
+
+Specs: [`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
+[`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml) ·
+[`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
+protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/sims/sims-pkd-perky-pat-and-a-scanner-darkly.md`](sims/sims-pkd-perky-pat-and-a-scanner-darkly.md)
+
 ## Where this sits
 
 - [`DIRECTORY-AS-IUNKNOWN.md`](./DIRECTORY-AS-IUNKNOWN.md) — the mechanism: a directory as an interface-bearing object

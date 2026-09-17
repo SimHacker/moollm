@@ -112,27 +112,40 @@ describe their own thinking.
 | [`examples/adventure-4/maze/`](../../examples/adventure-4/maze/) | What does cross-game interop look like when it actually runs? |
 | [GLANCE.yml](GLANCE.yml) · [CARD.yml](CARD.yml) · [SKILL.md](SKILL.md) | Machine-facing summary, interface, protocol |
 
-## Four ideas doing the work
+## Five ideas doing the work
 
 **A mind can be an organelle.** Keep one mind per game you project into. Your Sims-mind
 thinks in motives and relationships; your mayor-mind thinks in zones and budgets. Neither
 gets flattened into the other, and neither has to win. Bridges carry only what's shared.
 This is what makes cross-game identity tractable instead of lossy.
 
-**Characters travel by advertisement.** The interop socket is the one The Sims proved at
-scale: objects carry their own behavior and broadcast scored offers, and characters are
-markets sampling those offers against their motives. A world's only obligation is to evaluate
-conditions and honor effects. That contract is small enough that a 1973 wumpus, a 1980 grue,
-and a 1977 vending machine share one maze without knowing about each other — which they do,
-in [`examples/adventure-4/maze/`](../../examples/adventure-4/maze/), including a crossover
-nobody wrote: a Wumpus hazard teleported an adventurer into a Zork monster's jaws, because
-the plugins composed it.
+**Characters decide what to do next by advertisement.** The mechanism is the one The Sims
+proved at scale: objects carry their own behavior and broadcast personally scored offers, and
+characters are markets sampling those offers against their motives. That is also what makes a
+stranger usable — drop a character into a world it has never seen and it can act immediately,
+because the local objects say what they offer and it scores those offers itself. Nobody writes
+glue. A world's only obligation is to evaluate conditions and honor effects, a contract small
+enough that a 1973 wumpus, a 1980 grue, and a 1977 vending machine share one maze without
+knowing about each other — which they do, in
+[`examples/adventure-4/maze/`](../../examples/adventure-4/maze/), including a crossover nobody
+wrote: a Wumpus hazard teleported an adventurer into a Zork monster's jaws, because the plugins
+composed it.
 
-**A save file has two gates, not one.** Population crosses as a conserved fluid — `measure`,
-`drain`, `squirt`, nothing created or destroyed at the bridge. A *named* character crosses as
-a **role**: mayor, city planner, advice columnist, a byline in letters to the editor, three
-minutes at the microphone during open comment. Scope is the price of the visa, and every
-scope is a seat. Details in [SOUL-BRIDGES.md](SOUL-BRIDGES.md).
+**Whether a character can arrive as a person depends on the game.** The Sims stores a record
+for every individual, so a named character can arrive as an actual Sim in a household, with
+their own traits and relationships. SimCity stores a population number, and there is nobody in
+there to be — so the only thing that can move is a count: this many people left that game, this
+many arrived here, and the receiving city grows the neighborhoods it already has instead of
+inventing new ones. Both cases are worked out in [SOUL-BRIDGES.md](SOUL-BRIDGES.md).
+
+**A character can hold a job in a game that has no people in it.** SimCity has no bodies to
+give anyone, but it does have work that changes the city: mayor, city planner, the advice
+columnist whose column runs in the paper. The game tracks what the job does without ever
+tracking the person doing it, so a named character gets to matter there without the game needing
+to know they exist. How much they can touch is decided when they take the job. Build this
+properly and nothing in the code can tell whether the new police chief is a character from
+another game or a nine-year-old in a classroom sharing the city. Moving characters between games
+and letting real people into them turn out to be the same piece of engineering.
 
 **The album is the floor, and it needs nothing from the game.** Characters need a save parser,
 objects need an asset pipeline, zones need a tile map — but a photograph and a caption need a
@@ -142,11 +155,6 @@ typed objects with [Dublin Core](GLOSSARY.md#engineering) metadata. Where a
 bridge exists it round-trips the game's own album pages; where none does, capture and caption
 still work and provenance degrades to game plus timestamp. Details in
 [SOUVENIRS.md](SOUVENIRS.md).
-
-That third one has a payoff worth stating. Build the role gate properly and you cannot tell
-from the API whether the new police chief is a fictional import or a nine-year-old in a
-classroom sharing a city. Character portability and human participation are one engineering
-problem wearing two costumes.
 
 ## Fork and sync, never transport
 
@@ -192,20 +200,17 @@ So the statuses are the ones borders actually use, and each one owes something d
 want, where you send a character somewhere, something happens, and she comes back *enriched* with
 a skill, a friendship, a souvenir, photographs for the album. An **expat** gets residency without
 having to naturalize (the organelle case exactly — resident here, still thinking in the old
-format). An **immigrant** trades citizenship for a seat. A **refugee** gets asylum. Two rules follow, and
+format). An **immigrant** gives up the old citizenship and takes a place in the new game on its terms. A
+**refugee** gets asylum. Two rules follow, and
 they are the moral content of what otherwise look like bookkeeping constraints:
 
-- **Conservation means nobody vanishes at the border.** A crossing whose ledger doesn't balance
-  is one where people disappeared. The count is an audit, not a flourish.
-- **Never return a soul to a world that can't hold it.** Round trips are a feature only where
-  the origin still runs.
+- **Nobody disappears in transit.** If a thousand leave one game, a thousand arrive in the
+  other. When the numbers don't match, people were lost, and the count is how you catch it.
+- **Never send a character back to a world that can't run anymore.** Round trips work only while
+  the game they came from still opens.
 
-Which leaves one honest question about the plumbing register — pumping souls by the thousand,
-drains and ledgers and consignments. It stays, and it stays *marked*, because it describes what
-the **receiving system** can perceive: a city sim has one integer where a crowd should be. Flows,
-waves, influx, surge are also precisely the words institutions use for displaced human beings,
-which is not a coincidence — hydraulic language is what a system reaches for when it has no
-representation for a person. The role gate is the part that hands one of them a name back.
+A game that only counts its population can take in a thousand arrivals and name none of them.
+Giving one of them a job is how that person gets a name back.
 
 Every borrowed term, with the meaning it already had before we borrowed it:
 [GLOSSARY.md](GLOSSARY.md).

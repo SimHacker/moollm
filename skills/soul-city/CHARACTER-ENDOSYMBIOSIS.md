@@ -132,6 +132,18 @@ files.
 The word for this shape is **bicameral** — two chambers, with one voice arriving from somewhere
 the other chamber cannot see. We borrow Jaynes's picture, not his theory about ancient minds.
 
+One of the jobs an outside mind can take is watching *her own household* while her body is away:
+who came by, who fought, what the children did with the afternoon. She comes back with a journal.
+The novel about this is *A Scanner Darkly*, where an agent is assigned to surveil the house he
+lives in, reports on himself under a name his superiors cannot connect to him, and eventually
+cannot make the connection either. The two chambers came apart because the **credit** came apart —
+the disguise existed so the watcher would have no identity.
+
+Which is why the credited event stream above is not bookkeeping. Both minds publish under one
+soul's name, into one album, and a journal written by the watching half says who wrote it and about
+whom. Drop the attribution and you have rebuilt the scramble suit
+([the deeper roots](../../designs/sims/sims-pkd-perky-pat-and-a-scanner-darkly.md)).
+
 The same structure explains why a character can be *away*. When she goes on an errand into
 another game, what's left behind is an in-game organelle standing in for a mind that is
 temporarily elsewhere — a placeholder that can still be talked to
