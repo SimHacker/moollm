@@ -259,6 +259,16 @@ placeholder.** An errand that never resolves times out into the most ordinary ou
 her back. Conservation applies to a character out on an errand exactly as it applies to a
 thousand souls in a pipe — the world she left has to be able to account for her.
 
+And one property makes the whole arrangement worth trusting: **every step can be performed by
+either hand.** The placeholder, its menu, the dialogs, the request itself — all of it is ordinary
+game interface, so a person can drive the entire round trip manually, an automated layer can drive
+it unattended, and the same content serves both. A player can sit at each decision, or let a
+named default apply after a countdown, or pre-authorize the whole loop, and can change that
+setting while a character is still out. Nothing is reachable only through automation, which means
+nothing breaks when the automation isn't there — and because the manual path is the same path, it
+is never the untested one. This is the earlier argument about who does the creative work,
+generalized from authorship to every mechanical step.
+
 ## 4. One protocol, two populations
 
 The reason to build the role gate carefully is that it is not only for fictional imports.

@@ -75,6 +75,34 @@ Some organelles are extraordinary. An **emulated runtime** — a real Apple ][ b
 web emulator, say Timothy Leary's *Mind Mirror* (1986) — is an organelle **still running its own
 ancient metabolism**: a living mitochondrion you feed a character and read back transformed.
 
+That one is not a hypothetical, and it is closer than it looks: the `mind_mirror` block every
+soul carries — four thought planes, eight traits each — is named after that program and copied
+from its model. Sending a character to *visit the shrink*, letting the player edit a mind in the
+1986 app, reading the floppy back, and diffusing the result onto her Sims stats is the first
+errand worth building, because the outbound mapping is nearly an identity. It also audits us:
+a `mind_mirror` block that cannot survive a round trip through the program it was named after
+has drifted from the schema, which the
+[62-character survey](../../designs/mind-mirror-survey-2026-02-07.md) found is the normal
+condition. Worked out in
+[`OUT-OF-GAME-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/OUT-OF-GAME-JOBS.yml).
+
+### Three honest ways to compute a transform
+
+The exchange rate above is a *policy*, and it can be computed three ways. Thirty-two trait values
+becoming five Sims axes is a lossy projection with no single correct answer, so the mechanism is a
+choice the player should get to make and see:
+
+| Way | What it is | What you get | What you give up |
+|---|---|---|---|
+| **Linear** | A weight matrix, authored once | Offline, instant, free, identical on every machine forever, explainable term by term | Interactions between traits that a matrix flattens |
+| **Learned** | A small model fit to examples, including the player's own corrections | Catches those interactions, still local, still repeatable | Line-by-line explainability |
+| **Imagined** | A language model reads the whole profile and history and proposes changes with reasons | Judgment: that *this* profile on *this* character means she came home quieter | Determinism, and the arithmetic audit |
+
+Linear is the default and the fallback, because a character's stats should not depend on network
+weather. The other two are things the player asks for. Whichever runs, the diffusion arrives as a
+**proposal with its method named** rather than as a silent side effect — which is the same
+discipline the whole skill applies to arrival, publication, and crossing.
+
 ## Two minds, two layers
 
 Every organelle so far has been a game. But there is one more site a mind can live in, and it
