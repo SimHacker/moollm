@@ -117,6 +117,7 @@ organism?*
 
 | Skill | One-liner |
 |-------|-----------|
+| [soul-city/](./soul-city/) | Beings that outlive the games they were made in — cross-game souls, save-file bridges, the album |
 | [character/](./character/) | Core patterns — home, location, relationships |
 | [incarnation/](./incarnation/) | Gold-standard creation — characters write their own souls |
 | [persona/](./persona/) | Identity layers (WHO vs WHAT) |

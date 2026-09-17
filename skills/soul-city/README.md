@@ -3,6 +3,11 @@
 A model for **beings that outlive the games they were made in**, and a protocol for moving
 them across save-file borders.
 
+This is one skill inside [MOOLLM](../../README.md), where a directory *is* the thing it
+describes: a character is a folder of YAML and Markdown, legible to a person, an LLM, and a
+program at the same time. There is nothing to install in order to read any of it — the
+documents and the worked examples below are the design, and they are all on disk.
+
 ## It starts with a question from the audience in 1996
 
 On 26 April 1996, Will Wright gave a lecture to Terry Winograd's user interface class at
@@ -103,6 +108,8 @@ describe their own thinking.
 | [SOUL-BRIDGES.md](SOUL-BRIDGES.md) | How does anything cross into a *shipped* game's save file? |
 | [SOUVENIRS.md](SOUVENIRS.md) | What can a traveler carry, and what crosses between *any* two games? |
 | [GLOSSARY.md](GLOSSARY.md) | What did each of these words already mean, before we borrowed it? |
+| [`examples/characters/robin/`](examples/characters/robin/) | What does one of these beings look like on disk? |
+| [`examples/adventure-4/maze/`](../../examples/adventure-4/maze/) | What does cross-game interop look like when it actually runs? |
 | [GLANCE.yml](GLANCE.yml) · [CARD.yml](CARD.yml) · [SKILL.md](SKILL.md) | Machine-facing summary, interface, protocol |
 
 ## Four ideas doing the work
@@ -269,15 +276,9 @@ Hanseatic *kontore*, the Venetian *fondaci*. Each foreign partner got its own co
 waterfront while the host city's own life carried on inland
 ([glossary](GLOSSARY.md#borders-migration-and-standing)).
 
-## The map
+## Where the rest of it lives
 
-**In this skill:** [SOUL-MODEL.md](SOUL-MODEL.md) (ontology) ·
-[CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) (organelles, membranes, exchange rates) ·
-[PORTABLE-NPCS.md](PORTABLE-NPCS.md) (world-to-world travel) ·
-[SOUL-BRIDGES.md](SOUL-BRIDGES.md) (save-file borders) ·
-[SOUVENIRS.md](SOUVENIRS.md) (the universal objects, and the album) ·
-[GLOSSARY.md](GLOSSARY.md) (every borrowed word, and who we borrowed it from) ·
-[examples/characters/robin/](examples/characters/robin/) (worked character)
+The documents in this skill are listed above. Two other bodies of work continue it.
 
 **Elsewhere in MOOLLM** — the narrative and architecture behind the Sims bridge:
 
