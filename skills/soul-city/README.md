@@ -170,10 +170,12 @@ didn't book a trip. Their world became uninhabitable while they were in it, and 
 *designed* shut — policy, not a technical limit. That is what a walled garden looks like from
 inside: an enclosure whose residents have no exit and no standing to ask for one.
 
-So the statuses are the ones borders actually use, and each one owes something different: a
-**traveler** gets customs and a way home; an **expat** gets residency without having to
-naturalize (the organelle case exactly — resident here, still thinking in the old format); an
-**immigrant** trades citizenship for a seat; a **refugee** gets asylum. Two rules follow, and
+So the statuses are the ones borders actually use, and each one owes something different. A
+**traveler** gets customs in both directions and a way home — the case most players actually
+want, where you send a character somewhere, something happens, and she comes back *enriched* with
+a skill, a friendship, a souvenir, photographs for the album. An **expat** gets residency without
+having to naturalize (the organelle case exactly — resident here, still thinking in the old
+format). An **immigrant** trades citizenship for a seat. A **refugee** gets asylum. Two rules follow, and
 they are the moral content of what otherwise look like bookkeeping constraints:
 
 - **Conservation means nobody vanishes at the border.** A crossing whose ledger doesn't balance
@@ -205,6 +207,23 @@ system-side, so a Christian designer and an atheist one can share the identical 
 either conceding a thing: one may hold that souls are real and this a humble model of one, the
 other that "soul" is a well-chosen word for a folder. The code cannot tell the difference and
 never asks. What's ruled out is the software claiming the question for itself.
+
+## Why the waiting room has shops in it
+
+Soul City is a **place** — streets, rooms, a plaza, shops, a pub — and not an import queue.
+That's a deliberate consequence of what it is between games.
+
+Van Gennep split any passage into three phases: separation, a liminal middle, incorporation.
+That is exactly the bridge — `drain` is separation, Soul City is the liminal middle, `squirt` is
+incorporation — and a character in transit is genuinely *betwixt and between*, no longer what
+she was and not yet what she will be. Turner's word for what strangers share in that condition
+is *communitas*, and a hub full of arrivals from incompatible games is nothing if not that.
+
+But **liminal spaces don't stay liminal.** Caravanserais became towns, ports became cities,
+waiting rooms grow shops, and camps raised for an emergency end up with markets, schools, and
+grandchildren. Any place every traveler passes through accumulates regulars, businesses, and
+history until it is somewhere in its own right. So Soul City is built as a destination on
+purpose: the transit lounge is going to become a game space, and it may as well be a good one.
 
 ## The map
 

@@ -49,7 +49,7 @@ See **BYOB**.
 **BYOB — Bring Your Own Belief**
 
 *Known:* bring your own bottle, the potluck convention where the host supplies the room and the
-guests supply what they drink.
+guests supply what they drink. "Bring Your Own Beer".
 
 *Here:* the standing answer to what any of this means. **We don't believe for you. We just
 believe in you.** The system supplies the room — files, continuity, a place for a character to
@@ -68,6 +68,27 @@ of death in many traditions; the Jungian sense of a guide between conscious and 
 *Here:* the character who meets an arrival at the border — reads both sides, translates, hands
 them off to a room that suits them. Scoped, inspectable permissions, living in a directory
 under git like everyone else. Not a hidden agent, not a tutorial overlay.
+
+**Liminal / liminality**
+
+*Known:* from *limen*, a threshold. Arnold van Gennep's *Rites of Passage* (1909) split any
+passage into three phases — separation, the liminal middle, incorporation — and Victor Turner
+made the middle famous: betwixt and between, no longer what you were and not yet what you will
+be, stripped of rank and briefly equal with everyone else in the same condition, which Turner
+called *communitas*. Colloquially: airports, waiting rooms, the corridor between two places
+that matter.
+
+*Here:* Soul City's own condition, and van Gennep's three phases are the bridge itself —
+`drain` is separation, Soul City is the liminal middle, `squirt` is incorporation. A character
+in transit is between formats and between worlds, which is a real state with its own rules
+rather than a gap in a pipeline.
+
+The part worth designing for: **liminal spaces don't stay liminal.** Caravanserais became
+towns, ports became cities, waiting rooms grow shops, and refugee camps become permanent
+settlements with markets, schools, and grandchildren. Anywhere every traveler passes through
+accumulates regulars, businesses, and history until it is somewhere in its own right — which is
+why Soul City has streets, a plaza, shops and a pub instead of an import queue. Build the
+transit lounge expecting it to become the destination.
 
 **Bifrost**
 
@@ -156,15 +177,39 @@ obligation: asylum, not asset recovery.
 place of refuge, and an institution for the mentally ill.
 
 *Here:* what the destination world offers a displaced population: a place to be, with standing,
-without a return ticket being the price of entry.
+without a return ticket being the price of entry. The older sense applies literally — Soul City
+is itself the place of refuge, not merely the paperwork for one, and like every other camp that
+outlasts the emergency it turns into a town (see **Liminal**).
 
 **Non-refoulement**
 
 *Known:* the core prohibition of refugee law — you may not return a person to a place where
 they face harm. Binding even on states that grant no other rights.
 
-*Here:* the design rule that a round trip is a feature only where the origin still runs.
-Pushing a soul back into a save that no longer loads is deletion with extra steps.
+*Here:* the design rule that a round trip is a feature only where the origin still runs
+and is habitable. Pushing a soul back into a save that no longer loads is deletion with 
+extra steps.
+
+**Visitor / vacationer / traveler / explorer**
+
+*Known:* the journey with a return built into it. The guild **journeyman** who wandered for
+years and came home a master; the Grand Tour that sent young aristocrats abroad to return
+cultivated; the pilgrim who brought back a scallop shell as proof of Santiago; the naturalist
+home from the voyage with notebooks and specimens; the exchange student; the tourist with a tan
+and a camera. Homer's word for the homecoming is *nostos*, which is where nostalgia comes
+from — the ache is specifically *for the return*.
+
+*Here:* the mainstream case, and the friendliest one. Most players will not want to emigrate a
+character permanently; they want to send her somewhere, have something happen, and get her back
+**enriched** — new skills, new relationships, souvenirs in the inventory, photographs in the
+album, a story she did not leave with. Sims went on vacation and came home with memories and
+souvenirs in 2002. This is that, between games that were never built to know about each other.
+
+Two consequences follow. The bridge has to run **customs in both directions**, because what
+comes home is the entire point and the origin world must be able to accept it. And enrichment
+pays the same exchange rate as everything else: a skill learned abroad may convert to nothing at
+home, while a memory, a souvenir object, or a friendship usually survives the trip intact. Where
+a refugee needs asylum, a traveler needs a return ticket and somewhere to put the photographs.
 
 **Expat / immigrant**
 
@@ -278,8 +323,9 @@ economic independence in the rural South. It received federal backing, then lost
 project was largely undone by the mid-seventies. The name also belongs to soul music culture and
 to several records and venues.
 
-*Here:* the shared hub that bridged games trade through. Unrelated to McKissick's Soul City and
-named without any claim on it.
+*Here:* the shared hub bridged games trade through — a **liminal** space between games that is
+turning into a game space itself, since a place everybody passes through stops being a corridor.
+Unrelated to McKissick's Soul City and named without any claim on it.
 
 **Afterlife**
 

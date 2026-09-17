@@ -38,7 +38,7 @@ anybody with a name, the register is **migration and standing**:
 
 | Status | Left because | Keeps citizenship? | What the destination owes |
 |---|---|---|---|
-| **Traveler / tourist** | Wanted to see it | Yes — round trip assumed | Customs, and a way home |
+| **Traveler / tourist / explorer** | Wanted to see it | Yes — round trip assumed | Customs both ways, a way home, and room for what she brings back |
 | **Expat** | Chose to, comfortably | Yes — never naturalizes | Residency without assimilation |
 | **Immigrant** | Chose to, for good | Trades it in | A seat, and marking to the local market |
 | **Refugee / evacuee** | **Did not choose** — the world became uninhabitable | Origin unreachable | **Asylum** |
@@ -48,6 +48,14 @@ An **expat** is the organelle case, precisely: a soul with a Sims-mind resident 
 world, thinking in its own format, paying in its own currency, declining to naturalize. (The
 line between expat and immigrant is drawn by status, not by the act. Worth remembering when
 choosing which one a character gets called.)
+
+The **traveler** is the case most players actually want, and the one that makes the machinery
+worth building for fun rather than for rescue: send a character somewhere, let something happen,
+bring her home *enriched* — a skill, a friendship, a souvenir, photographs for the album. Which
+means customs runs **in both directions**, since what comes back is the whole point, and the
+origin world has to be able to receive it. The exchange rate still applies on the return leg: a
+skill learned abroad may convert to nothing at home, while a memory or a souvenir object usually
+survives the trip.
 
 ### Most real cases are refugees
 
