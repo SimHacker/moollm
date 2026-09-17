@@ -14,12 +14,26 @@ card:
     Souls inhabit with free-form mind graphs (0+ minds) and may bridge to
     characters/personas/minds in other games. Instances supply maps and rails.
 
+  inspiration: |
+    Will Wright, Stanford, 26 April 1996 — asked what he was working on, he named DATA
+    PORTABILITY first, then demoed an unreleased Dollhouse by loading a SimCity city into it:
+    "I want the games to actually be able to have persistent data that can move from one game
+    to another." designs/sims/sims-will-wright-microworlds-1996.md
+
+  do_characters_first: |
+    Characters are the hydrogen — lightest, most abundant, highest valence, the atom everything
+    else binds to. A character is what a player grieves when a game shuts down, and once
+    characters move, every other content-atom has something to bind to.
+
 files:
   docs:
+    - README.md        # front door — the 1996 story, the map, status
     - SKILL.md
     - GLANCE.yml
-    - SOUL-MODEL.md
+    - SOUL-MODEL.md    # ontology: soul / mind / organelle / persona
     - SOUL-MODEL.yml
+    - PORTABLE-NPCS.md # world-to-world travel: advertisements, treaties, customs
+    - SOUL-BRIDGES.md  # save-file borders: two gates, fork-and-sync, psychopomp
   ethics:
     - skills/soul/ETHICS.md
     - skills/mind/ETHICS.md
@@ -34,7 +48,30 @@ files:
     - examples/adventure-4/
     - examples/soul-city/
     - https://github.com/SimHacker/MicropolisCore
-    - https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city
+
+# ── Bound documents — this skill is the substrate; these are the design + implementation ──
+bound:
+  moollm_side:   # the Sims-bridge architecture and narrative, same repo
+    the_uplift:  designs/sim-obliterator/THE-UPLIFT.md        # a 25-year-old save wakes up
+    bifrost:     designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md  # the crossing + the guide
+    field_map:   designs/sim-obliterator/BRIDGE.md            # Sims data <-> soul file, field level
+    iff_layers:  designs/sim-obliterator/IFF-LAYERS.md        # L0-L3, monotonic up, round-trip down
+    pet_shop:    designs/sim-obliterator/THE-PET-SHOP.md      # smallest honest demo
+    event_bus:   designs/sim-obliterator/ANGEL-EVENT-BUS.md   # objects calling outward
+    inspiration: designs/sims/sims-will-wright-microworlds-1996.md
+
+  micropoliscore:  # https://github.com/SimHacker/MicropolisCore
+    product:     documentation/designs/soul-city.md              # two-resolution world, zone binding, scope
+    hydrogen:    documentation/designs/characters-as-hydrogen.md # why characters first; periodic table
+    roadmap:     documentation/designs/soul-city-uplift-roadmap.md  # phases 0-5
+    agent_layer: documentation/designs/moollm-microworld-os.md   # Bifrost as cross-resolution sync
+    role_sheets: documentation/designs/micropolis-role-sheets.md # the role gate, implemented
+    peer_games:  documentation/designs/federation-peer-games.md  # graded roster incl. anti-targets
+    afterlife:   documentation/designs/afterlife-soul-bridge.md  # worked hydraulics case
+    modules:     apps/screen-angel/modules/soul-angel/           # SDK, roster, album, DVR, emigration
+
+  vocabulary_mapping: README.md#one-vocabulary-two-repos
+  direction: "This skill DEFINES; MicropolisCore IMPLEMENTS and cites. Never restate — link."
 
 k-lines:
   activates:
@@ -42,6 +79,9 @@ k-lines:
     - SOUL-PLAZA
     - CITY-PROTOTYPE
     - LIMINAL-PLACE
+    - SOUL-BRIDGE      # cross a save-file border: which gate, which cargo
+    - THE-ROLE-GATE    # a named character enters a game with no individuals
+    - FORK-AND-SYNC    # both alive, neither is the copy
   related:
     - { ref: soul, relation: "continuity bodies that inhabit the city" }
     - { ref: mind, relation: "agencies on souls; free-form graphs" }
@@ -59,14 +99,19 @@ k-lines:
 invoke_when:
   - "Define or instantiate a Soul City"
   - "Public soul + city ontology entry point"
-  - "Compose MicropolisCore / WWSFF with MOOLLM place grain"
+  - "Compose MicropolisCore with MOOLLM place grain"
   - "Add rooms, shops, tools, roads to a city instance"
+  - "Move a character or a population into or out of a shipped game's save file"
 
 methods:
   INSTANTIATE: { signature: "INSTANTIATE soul-city AS [path] (FROM bootstrap|blank)" }
   STATUS:      { signature: "STATUS [city] → map, shops, souls present" }
   COMPOSE:     { signature: "COMPOSE [city] WITH [micropolis|catalog|adventure]" }
   WALK:        { signature: "WALK [soul] IN [city] TO [room|road|plaza|shop]" }
+  MEASURE:     { signature: "MEASURE [save] → soul count", doc: SOUL-BRIDGES.md }
+  DRAIN:       { signature: "DRAIN [n] SOULS FROM [save] → carried, counted", doc: SOUL-BRIDGES.md }
+  SQUIRT:      { signature: "SQUIRT [n] SOULS INTO [save] — evolves existing structure only", doc: SOUL-BRIDGES.md }
+  CROSS:       { signature: "CROSS [character] INTO [game] AS [role] — scope is the visa", doc: SOUL-BRIDGES.md }
 
 contains:
   rooms: "skills/room"

@@ -1,23 +1,33 @@
 # GLANCE.yml — soul-city
-# Full file: CARD.yml | SKILL.md | SOUL-MODEL.md
+# Front door: README.md | Full file: CARD.yml | SKILL.md | SOUL-MODEL.md
 # 🏙️ "Liminal place — rooms, shops, tools, objects; souls walk here."
 
 what: |
   Reusable Soul City prototype: liminal place of rooms, roads, shops,
   tools, objects, plazas, vehicles. Souls and other beings inhabit it.
-  Many instances compose.
+  Many instances compose. Plus the protocol for moving souls across
+  save-file borders into and out of shipped games.
 
 why: |
   - Place grain reusable across instances
   - Soul ontology in skills/soul; this skill is the city
-  - MicropolisCore / WWSFF / adventures compose
+  - MicropolisCore / adventures compose
   - Cross-game bridges; each game keeps its model
+  - Characters are the hydrogen — do souls first, everything else binds to them
+
+inspiration: |
+  Will Wright, Stanford, 26 April 1996: asked what he was working on, he said DATA PORTABILITY
+  before anything else, then demoed the unreleased Dollhouse by loading a SimCity city into it.
+  "Persistent data that can move from one game to another." Thirty years on, still mostly open.
+  → designs/sims/sims-will-wright-microworlds-1996.md
 
 when:
   - '"Stand up a Soul City instance" → INSTANTIATE'
   - '"Soul City / soul ontology" → SOUL-MODEL.md'
   - '"Compose Micropolis + MOOLLM city" → micropolis + this'
-  - '"Public entry / newcomer intro" → SOUL-MODEL.md'
+  - '"Public entry / newcomer intro" → README.md'
+  - '"Move a character into another game" → SOUL-BRIDGES.md (which gate?)'
+  - '"Import a crowd / drain a save" → SOUL-BRIDGES.md hydraulics'
 
 contains:
   - rooms
@@ -32,12 +42,15 @@ instances:
   worked_character: examples/characters/robin/   # Robin, the SOUL-MODEL sketch made real
   bootstrap: examples/adventure-4/
   sims_citizens: examples/soul-city/
-  product_vision: MicropolisCore designs
-  platform_catalog: WWSFF catalogs/soul-city
+  design_and_build: MicropolisCore              # documentation/designs/soul-city.md + soul-angel modules
 
+front_door: README.md
 ontology: SOUL-MODEL.md
 twin: SOUL-MODEL.yml
+bridges: SOUL-BRIDGES.md      # two gates: hydraulics (population) + role gate (named character)
+portability: PORTABLE-NPCS.md # world-to-world: advertisements, treaties, customs
 soul_skill: ../soul/
 ethics_hub: ../soul/ETHICS.md
+bound_docs: CARD.yml#bound    # moollm sim-obliterator suite + MicropolisCore design docs
 related: [soul, mind, character, persona, room, object, vehicle, adventure, micropolis, incarnation, party, inventory]
 tier: 1

@@ -627,7 +627,7 @@ Bootstrap seed: [`examples/adventure-4/`](../../examples/adventure-4/) — one S
 | [ADVENTURE.yml](../../examples/adventure-4/ADVENTURE.yml)                       | Live simulation state                                                                                                                          |
 | Nested minds seed                                                               | [don-hopkins/](../../examples/adventure-4/characters/real-people/don-hopkins/) — `dents/` + `slats/` under a host                              |
 | MicropolisCore                                                                  | Product compose — engine + Sims companion ([design](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)) |
-| WWSFF catalog                                                                   | [create·publish·share](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)                                        |
+| Create · publish · share                                                        | [soul-angel modules](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel) — bridge SDK, album, DVR, emigration |
 
 
 Directory = room. Character directory = soul or mind. YAML comments are data.
@@ -644,8 +644,8 @@ Sideways inheritance again: a soul in Soul City can carry a Sims family album, a
 
 Soul containing minds is common. Also fine: nested minds, sub-souls, several game organelles under one traveler mind.
 
-- [CHARACTER-ENDOSYMBIOSIS.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/CHARACTER-ENDOSYMBIOSIS.md)
-- [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
+- [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) — where the word *organelle* comes from: membranes, diffusion, exchange rates
+- [SOUL-BRIDGES.md](SOUL-BRIDGES.md) — crossing into a shipped game's save file: two gates, fork-and-sync
 
 ---
 
@@ -670,8 +670,8 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 | -------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Jesus Mouse          | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse) · [HN](https://news.ycombinator.com/item?id=34398396) |
 | Duckmouse            | [memorial](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie)                                                     |
-| Soul Plaza / catalog | [WWSFF Soul City](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)                                                    |
-| Cross-game           | [CHARACTER-ENDOSYMBIOSIS](https://github.com/SimHacker/WillWrightShowForFood/blob/main/process/CHARACTER-ENDOSYMBIOSIS.md)                            |
+| Front door           | [README.md](README.md) — the 1996 lecture, the map, honest status                                                                                      |
+| Cross-game           | [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) · [SOUL-BRIDGES.md](SOUL-BRIDGES.md)                                                          |
 | Adventure ↔ loci     | [HN 29330901](https://news.ycombinator.com/item?id=29330901)                                                                                          |
 | Product              | [MicropolisCore soul-city](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)                                  |
 
