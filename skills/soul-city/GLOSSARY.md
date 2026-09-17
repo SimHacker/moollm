@@ -19,24 +19,17 @@ Kernel vocabulary (skill, CARD, K-line, ambient, yaml-jazz) is defined upstream 
 **Transmigration**
 *Known:* metempsychosis — a soul passing out of one body and into another. Pythagoras and the
 Orphics; *saṃsāra* in Hindu and Buddhist thought; the doctrine Plato has Socrates entertain in
-the *Phaedo*. Independently, the word every database administrator uses for moving data between
-systems.
+the *Phaedo*. Philip K. Dick's last completed novel, *The Transmigration of Timothy Archer*
+(1982), in which a dead bishop's survivors must decide whether he came back in somebody else,
+narrated by the daughter-in-law who keeps the record and never settles it. Independently, the
+word every database administrator uses for moving data between systems.
 
-And, for most readers who will recognize the word as a title at all: Philip K. Dick's *The
-Transmigration of Timothy Archer* (1982), the last novel he completed, published the year he
-died. A bishop — modeled on Dick's friend Bishop James Pike — chases evidence that the sayings
-of Jesus predate Jesus, loses his son and his mind to it, and dies in the desert; afterwards
-the survivors have to decide whether he came back in somebody else. It is narrated by Angel
-Archer, his daughter-in-law, the sane one, who keeps the record and never settles the question.
-
-*Here:* the act this skill is about, in every one of those senses at once. A soul leaves one
-game and arrives in another; preferred over "import/export" for anything with a name. The novel
-earns its place in the definition rather than the footnotes, because it is about the part that
-stays hard: transmigration is a **claim the living make about the dead**, and no amount of
-record-keeping closes it. That is the honest shape of
-[fork-and-sync](SOUL-BRIDGES.md#6-identity-fork-and-sync-never-transport) too — two incarnations
-alive at once, neither of them the copy, and no test that tells you which is really her. Dick
-declined to resolve it and put an archivist in charge of the evidence. So do we.
+*Here:* the act this skill is about, in all of those senses at once — a soul leaves one game and
+arrives in another. Preferred over "import/export" for anything with a name. Dick's version
+names the part that stays hard: transmigration is a **claim the living make about the dead**,
+which no amount of record-keeping closes. Same shape as
+[fork-and-sync](SOUL-BRIDGES.md#6-identity-fork-and-sync-never-transport) — both incarnations
+alive, neither the copy, no test for which is really her.
 
 **Soul**
 *Known:* the animating, persisting part of a person — the thing religions disagree about and
