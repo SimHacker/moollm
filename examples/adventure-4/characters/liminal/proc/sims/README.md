@@ -39,7 +39,7 @@ The `/proc/sims/pomegranate` file tracks what data flows both ways:
 
 ## See Also
 
-- [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) — The Bifrost model
-- [THE-UPLIFT.md](../../../../../../designs/sim-obliterator/THE-UPLIFT.md) — The full uplift vision
-- [BRIDGE.md](../../../../../../designs/sim-obliterator/BRIDGE.md) — Technical field mappings
+- [SOUL-BRIDGES.md](../../../../../../skills/soul-city/SOUL-BRIDGES.md) — the crossing: two gates, conservation, fork-and-sync
+- [soul-city skill](../../../../../../skills/soul-city/) — souls, minds, organelles, and the vocabulary for all of it
+- [`packages/sims-io`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) — the field mappings, in TypeScript
 - [character skill](../../../../../../skills/character/) — sims: block schema

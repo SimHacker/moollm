@@ -101,10 +101,10 @@ Field-proven patterns, all currently in production in this repo:
   ([GASTOWN-VS-MOOLLM-ANALYSIS](../gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md): "we lean into
   knowledge already well-represented in the LLM's training data"; its inverse is the Gas Town
   failure mode — invented jargon like "bead" and "polecat" with no training-data support).
-- **Double inheritance through one name.** "Bester" in
-  [PSYCHOPOMP-AND-THE-BIFROST](../sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) inherits both
-  Alfred Bester the author and the B5 character named after him — one token, two lineages, and
-  the LLM holds both.
+- **Double inheritance through one name.** "Bester" among
+  [Proc's](../../examples/adventure-4/characters/liminal/proc/) parents inherits both Alfred
+  Bester the author and the B5 character named after him — one token, two lineages, and the LLM
+  holds both.
 
 ## Inheriting whole systems by name
 

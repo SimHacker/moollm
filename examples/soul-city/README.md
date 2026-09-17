@@ -26,7 +26,7 @@ Read Marusek's wedding-day recordings as **Sims 1 save files from 2001** and the
 
 ### Runtime: TypeScript, browser and server
 
-Soul City no longer depends on the Python **SimObliterator Suite** at runtime. That codebase was the proving ground — field indices, IFF layers, uplift narrative — and remains a **reference and regression guide** while we rewrite the same contracts in TypeScript.
+Soul City does not depend on the Python **SimObliterator Suite**. That codebase was the proving ground — field indices, IFF layers, uplift narrative — and it is retired; the same contracts now live in TypeScript.
 
 The implementation lives in **[MicropolisCore `packages/sims-io`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io)**: a pure TypeScript I/O stack (FAR, IFF, FAMI/NBRS, PersonData) that runs **in the browser and on the server** — same library, two hosts. No Python interpreter, no subprocess, no venv.
 
@@ -35,7 +35,7 @@ The implementation lives in **[MicropolisCore `packages/sims-io`](https://github
 | **Browser** | Player picks a local Sims folder or drops a `.FAM` / `.iff`. Parsing, preview, editing, and export stay on-device. WebGPU preview via [vitamoo](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo). |
 | **Server** (optional) | Node hosts the same `sims-io` APIs for batch jobs, archive recovery, and collaborative sessions — only when the player opts in. |
 
-Design contracts and MOOLLM bridge specs: [sim-obliterator designs](../../designs/sim-obliterator/) · [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) · [MicropolisCore TS port notes](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md).
+Protocol and vocabulary: [skills/soul-city/](../../skills/soul-city/) — [SOUL-BRIDGES.md](../../skills/soul-city/SOUL-BRIDGES.md), [GLOSSARY.md](../../skills/soul-city/GLOSSARY.md). Layered I/O contracts: [MicropolisCore TS stack](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md).
 
 ### Player in the middle
 
@@ -194,9 +194,9 @@ Drop a `.FAM` into Soul City (browser) or point `sims-io` at a neighborhood fold
 
 - [Soul City vision (MicropolisCore)](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md) — Strategic umbrella, Soul City (né Micropolis Home) + Micropolis City
 - [OBLITERATOR-TYPESCRIPT.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) — Python → TypeScript port plan
-- [The Uplift design](../../designs/sim-obliterator/THE-UPLIFT.yml) — Full narrative arc
-- [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) — PersonData ↔ CHARACTER.yml field mapping
-- [SimObliterator skill](../../skills/sim-obliterator/CARD.yml) — MOOLLM orchestration (contracts, not Python runtime)
+- [skills/soul-city/](../../skills/soul-city/) — the model and the crossing protocol, in current vocabulary
+- [SOUL-BRIDGES.md](../../skills/soul-city/SOUL-BRIDGES.md) — the two gates, conservation, fork-and-sync
+- [`packages/sims-io`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) — `PersonData` ⇄ soul file, field level, in TypeScript
 - [Mind Mirror skill](../../skills/mind-mirror/CARD.yml) — Leary personality system
 - [Adventure 4](../adventure-4/ADVENTURE.yml) — The Gezelligheid Grotto (connected via bridge)
 - [Characters](./characters/README.md) — All imported Sims

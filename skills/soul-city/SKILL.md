@@ -79,12 +79,11 @@ world-to-world (non-save-file) travel: [PORTABLE-NPCS.md](PORTABLE-NPCS.md).
 
 ## Bound documents
 
-MOOLLM-side architecture for the Sims bridge:
-[THE-UPLIFT.md](../../designs/sim-obliterator/THE-UPLIFT.md) ·
-[PSYCHOPOMP-AND-THE-BIFROST.md](../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) ·
-[BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) ·
-[IFF-LAYERS.md](../../designs/sim-obliterator/IFF-LAYERS.md) ·
-[THE-PET-SHOP.md](../../designs/sim-obliterator/THE-PET-SHOP.md)
+MOOLLM-side machinery underneath the soul files:
+[object-system/](../../designs/object-system/) ·
+[LATENT-SPACE-INHERITANCE.md](../../designs/object-system/LATENT-SPACE-INHERITANCE.md) ·
+[ENDOSYMBIOSIS.md](../../designs/object-system/ENDOSYMBIOSIS.md) ·
+[sims-design-index.md](../../designs/sims/sims-design-index.md)
 
 MicropolisCore-side design + implementation:
 [soul-city.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md) ·
@@ -92,6 +91,9 @@ MicropolisCore-side design + implementation:
 [roadmap](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md) ·
 [role sheets](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md) ·
 [peer games](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md) ·
+[pet shop](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) ·
+[sims-io](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) (field mapping, TypeScript) ·
+[vitamoo](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) (layered resource I/O) ·
 [soul-angel modules](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel)
 
 Vocabulary mapping between the two repos: [README.md](README.md#one-vocabulary-two-repos).

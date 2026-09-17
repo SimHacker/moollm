@@ -280,16 +280,18 @@ waterfront while the host city's own life carried on inland
 
 The documents in this skill are listed above. Two other bodies of work continue it.
 
-**Elsewhere in MOOLLM** — the narrative and architecture behind the Sims bridge:
+**Elsewhere in MOOLLM** — the object system this rests on, and the characters that prove it
+works:
 
 | Document | What it holds |
 |---|---|
-| [THE-UPLIFT.md](../../designs/sim-obliterator/THE-UPLIFT.md) | The pipeline and the story: a 25-year-old save file wakes up and can speak |
-| [PSYCHOPOMP-AND-THE-BIFROST.md](../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) | The crossing itself, the guide character, fork-and-sync |
-| [BRIDGE.md](../../designs/sim-obliterator/BRIDGE.md) | Field-level mapping between Sims data and soul files |
-| [IFF-LAYERS.md](../../designs/sim-obliterator/IFF-LAYERS.md) | Multi-resolution resource layers; information monotonic going up, round-trippable coming down |
-| [THE-PET-SHOP.md](../../designs/sim-obliterator/THE-PET-SHOP.md) | The smallest honest demo: healing a sick guinea pig by editing its soul |
-| [ANGEL-EVENT-BUS.md](../../designs/sim-obliterator/ANGEL-EVENT-BUS.md) | How in-game objects make system calls outward without hijacking the player |
+| [object-system/](../../designs/object-system/) | Self-style prototypes over the filesystem, with the LLM as universal resolver — the machinery underneath every soul file here |
+| [LATENT-SPACE-INHERITANCE.md](../../designs/object-system/LATENT-SPACE-INHERITANCE.md) | Inheriting from *names* as well as files: "Zork troll" is an ancestor you can delegate to |
+| [ENDOSYMBIOSIS.md](../../designs/object-system/ENDOSYMBIOSIS.md) | Where "organelle" comes from, with the live specimens listed |
+| [`characters/fictional/troll/`](../../examples/adventure-4/characters/fictional/troll/) | **Two-Toll the Troll** — one soul, two minds, two heads: the same gatekeeper working the 1977 Adventure bridge and the 1980 Zork room, each mind an organelle in that game's own terms |
+| [`characters/fictional/wumpus-snorax/`](../../examples/adventure-4/characters/fictional/wumpus-snorax/) | **Snorax** — a character who *is* a game: the rules, the dodecahedron, and his own 1973 BASIC source in four editions live inside him |
+| [`characters/fictional/grue/`](../../examples/adventure-4/characters/fictional/grue/) | **The Grue** — the countdown and the fear of light live in the monster, so the darkness rule travels with it into other people's worlds |
+| [sims-design-index.md](../../designs/sims/sims-design-index.md) | The Sims architecture as MOOLLM inherited it: [objects](../../designs/sims/sims-object-model.md), [portable objects](../../designs/sims/sims-portable-objects.md), [SimAntics](../../designs/sims/sims-simantics-vm.md), [motives](../../designs/sims/sims-personality-motives.md) |
 
 **In [MicropolisCore](https://github.com/SimHacker/MicropolisCore)** — the design and
 implementation this skill is the substrate for:
@@ -303,7 +305,11 @@ implementation this skill is the substrate for:
 | [micropolis-role-sheets.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md) | The role gate, implemented: a mayor's role sheet as a game organelle under a soul |
 | [federation-peer-games.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/federation-peer-games.md) | Candidate games, graded honestly, including the anti-targets |
 | [afterlife-soul-bridge.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/afterlife-soul-bridge.md) | The worked hydraulics case: draining an abandonware afterlife |
+| [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) | The smallest honest demo: curing a sick guinea pig by editing its soul, and the object hot-patch behind it |
+| [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) | The field-level mapping, in TypeScript: `PersonData` and neighborhood records decoded into soul files |
+| [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) · [layered stack](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) | Resource I/O through save domain in four layers, browser and Node, no Python |
 | [`apps/screen-angel/modules/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel) | Running code and specs: bridge SDK, game roster, album, DVR, emigration ritual |
+| [`screen-angel/MEDIAFLOW.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MEDIAFLOW.yml) | How events and media leave a running game — pull-based graph rather than a push bus, so nothing hijacks the player |
 
 ### One vocabulary, two repos
 

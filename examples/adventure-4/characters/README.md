@@ -62,6 +62,18 @@ When someone misrepresents an expert's work, **the actual expert can appear to c
 | **[👨🪞🧬 Dave Ungar](./real-people/)** | Self, prototypes | Clone and modify, not class and instantiate |
 | **[👨🌈🧠 Timothy Leary](./real-people/)** | Mind Mirror | 8-circuit personality modeling |
 
+### 🕹️ Characters Who Are Entire Games
+
+Each of these swallowed a game and kept it running inside itself — map, rules, pieces, and in
+one case the original source code. Details and the crossover they produced without being asked:
+[LIVE-OBJECTS-EXAMPLES.md](../../../designs/object-system/LIVE-OBJECTS-EXAMPLES.md#three-characters-who-are-entire-games).
+
+| Character | Source | What lives inside them |
+|-----------|--------|------------------------|
+| **[🧌🌉🪓 Two-Toll the Troll](./fictional/troll/)** | Adventure (1977) + Zork I (1980) | One soul, two minds, two heads: the treasure-toll troll and the bloody-axe troll, declared the same commuter. Each [mind](./fictional/troll/minds/) is an organelle carrying its own [navigable realm](./fictional/troll/realms/) |
+| **[🐗🕳️🎲 Snorax the Patient](./fictional/wumpus-snorax/)** | Hunt the Wumpus (1973) | *Is* the game: rules, dodecahedron, [1973 BASIC source in four editions](./fictional/wumpus-snorax/sources/), [plug-in cave topologies](./fictional/wumpus-snorax/topologies/), [hazards as prototypes](./fictional/wumpus-snorax/hazards/) |
+| **[🕳️🌑🦷 The Grue](./fictional/grue/)** | Zork (1980) | *Is* the game "Don't Go In The Dark": the countdown and the fear of light live in the monster, so the rule travels into [other worlds' closets](../coatroom/) |
+
 ### 🎭 From the Fictional Lounge
 
 | Character | Source | Why They Matter |

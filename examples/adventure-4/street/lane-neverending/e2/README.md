@@ -47,7 +47,7 @@ lots **in place**; no new street segments until the center is dense enough.*
 | Address | Name | Status |
 |---------|------|--------|
 | 10 (south) | MOOLLM Milk Bar | Planned — kid-friendly, Clockwork Orange wink |
-| 12 (south) | Pet Shop / Vet | Planned — heal Nibbles ([THE-PET-SHOP](../../../designs/sim-obliterator/THE-PET-SHOP.md)) |
+| 12 (south) | Pet Shop / Vet | Planned — heal Nibbles ([pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md)) |
 | 14 (north) | Wig-O-Rama | Planned — Wig-O-Matic machines |
 | 16 (north) | Rug-O-Porium | Planned — Rug-O-Matic machines |
 | 18 (north) | Transmogrifier World HQ | Planned — conglomerate HQ |

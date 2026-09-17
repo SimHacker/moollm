@@ -121,7 +121,7 @@ Defined in CARD.yml and DESIGN.md; builtin + user_path (e.g. `.moollm/skills/<na
 | **gastown/** | GASTOWN-VS-MOOLLM, YEGGE-ARC, MOOLLM-TASK-TRACKING, CONSTRUCTIONIST-TERMINOLOGY, BEADS-2026-01, BEAD-ORCHESTRATION.yml, README | **kernel** (critique, positioning) | Move to kernel/gastown/ or keep designs/gastown/; no skill. |
 | **postscript/** | LINGUISTIC-MOTHERBOARD, BRIAN-REID-POSTSCRIPT-HISTORY | **kernel** or card skill | CARD.yml lineage; keep in designs/ or kernel. |
 | **openclaw/** | CHARACTERS-AS-AGENTS, MMORPG-GATEWAY, INVASION-PLAN, A2UI-DEEP-DIVE, ARCHITECTURE-ANALYSIS, SECURITY-AUDIT, SKILL-BRIDGE, README | **External repo** (openclaw) or designs/ | Leave in designs/openclaw/; not MOOLLM skill. |
-| **sim-obliterator/** | PSYCHOPOMP-AND-THE-BIFROST, BATTLE-PLAN, BRIDGE, IFF-LAYERS, THE-UPLIFT, README, *.yml | **External or sim-obliterator skill** | If skill exists in moollm, move designs into it; else leave. |
+| **sim-obliterator/** | PSYCHOPOMP-AND-THE-BIFROST, BATTLE-PLAN, BRIDGE, IFF-LAYERS, THE-UPLIFT, THE-PET-SHOP, ANGEL-EVENT-BUS, README, *.yml | **RETIRED** — done | Protocol went to `skills/soul-city/`; code and per-game work to MicropolisCore. Forwarding table in `designs/sim-obliterator/README.md`. |
 | **indexes/** | BACKSTORY-NARRATIVE, PROCEDURAL-RHETORIC-INDEX, CHARACTER-SIMULATION-INDEX, AI-ETHICS-INDEX, CONSTRUCTIONIST-INDEX, INDEX.md | **indexes/** (repo level) or kernel | Keep in designs/indexes/ or move to indexes/ at repo root; not a skill. |
 | **pr/** | All PR-*.md session logs | **Leave in designs/pr/** | Archival; no skill. Link from skill READMEs where relevant. |
 | **raw-chats/**, **email/** | Transcripts, correspondence | **Leave in designs/** | Archival. |

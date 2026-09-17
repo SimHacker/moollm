@@ -9,8 +9,9 @@ storefronts and south-side lots. **No new street blocks yet** (Don, 2026-07-09):
 center dense, walkable, intense, and colorful before splicing `e4`/`w4` onto the loop.
 
 **Lineage:** [Soul City](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
-(browser craft + creation) meets Habitat's zoned neighbors meets the MOOLLM Mall from
-[THE-UPLIFT](../../../../designs/sim-obliterator/THE-UPLIFT.md) — but **on the street**,
+(browser craft + creation) meets Habitat's zoned neighbors meets the
+[marketplace the bridges force](../../../../skills/soul-city/README.md#the-shape-the-bridges-force)
+— but **on the street**,
 walkable, with sandwich boards. The lane [loops and splices](README.md#splice-topology-how-the-loop-grows);
 shops are **lots on the ring**, not a separate mall map.
 
@@ -76,7 +77,7 @@ up and down the lane.
 | **Tombstone Studio** | 22 Lane Neverending (north) | Memorial objects (name + eulogy + photo) |
 | **Mesh Lab** | 24 Lane Neverending (north) | glTF ↔ SKN, 3D editing |
 | **Photo Book Press** | 26 Lane Neverending (north) | Pageable in-game books (guinea pig maintenance!) |
-| **Pet Shop / Vet** | 12 Lane Neverending (south) | [THE-PET-SHOP](../../../../designs/sim-obliterator/THE-PET-SHOP.md) — heal Nibbles |
+| **Pet Shop / Vet** | 12 Lane Neverending (south) | [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) — heal Nibbles |
 | **Simplifier Annex** | 28 Lane Neverending (north) | Don's object simplification lineage |
 
 Stubs: [`e2/transmogrifier-world/`](e2/transmogrifier-world/) · [`e2/wig-o-rama/`](e2/wig-o-rama/) · [`e2/rug-o-porium/`](e2/rug-o-porium/) · [`e2/pet-shop-vet/`](e2/pet-shop-vet/)

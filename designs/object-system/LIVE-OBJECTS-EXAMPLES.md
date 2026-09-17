@@ -119,6 +119,64 @@ scales: a pub with a bartender assembled from four TV traditions, and a platform
 walks out of a 2000-era binary save into a git-versioned object graph, gets a new story, and
 walks back in.
 
+### Three characters who are entire games
+
+The sharpest demonstration is a character that swallowed a whole game and kept it running
+inside itself. Each of these carries its own microworld map, its own game pieces as prototypes,
+and in one case its own source code in four languages:
+
+- **[Two-Toll the Troll](../../examples/adventure-4/characters/fictional/troll/)** — one soul,
+  two minds, two heads, two of the oldest jobs in adventure gaming. The 1977 Colossal Cave
+  troll who wants a treasure thrown to him, and the 1980 Zork troll with the bloody axe who
+  wants steel, declared to be **the same troll commuting between dungeons** and
+  context-switching protocols like anyone working two jobs. Each mind is an organelle in its
+  own game's terms ([adventure-mind](../../examples/adventure-4/characters/fictional/troll/minds/adventure-mind.yml),
+  [zork-mind](../../examples/adventure-4/characters/fictional/troll/minds/zork-mind.yml)) and
+  each carries its own navigable realm
+  ([the chasm bridge](../../examples/adventure-4/characters/fictional/troll/realms/ADVENTURE-CHASM-BRIDGE.yml),
+  [the troll room](../../examples/adventure-4/characters/fictional/troll/realms/ZORK-TROLL-ROOM.yml)).
+  The joke is the ontology: "gatekeeper who demands payment" shipped twice in five years with
+  different currencies, and has been reinstantiated in every boss door and paywall since.
+- **[Snorax the Patient](../../examples/adventure-4/characters/fictional/wumpus-snorax/)** — not
+  a wumpus in a game but a character who **is** *Hunt the Wumpus*. The rules, the dodecahedron
+  topology, the [1973 BASIC source in four editions](../../examples/adventure-4/characters/fictional/wumpus-snorax/sources/)
+  with code-review sidecars, plug-in [cave topologies](../../examples/adventure-4/characters/fictional/wumpus-snorax/topologies/),
+  and [hazards as templated prototypes](../../examples/adventure-4/characters/fictional/wumpus-snorax/hazards/)
+  that instantiate into any cave. Hunt the wumpus and you are hunting Snorax; when Snorax
+  hunts you, the game is hunting you.
+- **[The Grue](../../examples/adventure-4/characters/fictional/grue/)** — the countdown and the
+  fear of light live inside the monster rather than in a rules file, so *Don't Go In The Dark*
+  travels wherever the grue goes. Transplanted into
+  [another world's coatroom](../../examples/adventure-4/coatroom/), its dark-detection trigger
+  reads the **host** world's light levels.
+
+Put them in one maze and the crossovers write themselves — in
+[`maze/`](../../examples/adventure-4/maze/) a Wumpus hazard once teleported an adventurer
+directly into a Zork monster's jaws, which nobody authored. A 1973 BASIC game, a 1977
+mainframe cave, and a 1980 Infocom dungeon share a world without knowing about each other,
+because each arrived as an organelle with its own genome and the only shared contract is the
+advertisement.
+
+---
+
+## Not improvisation: what the files buy
+
+The obvious comparison is the GPT-3-era wave of generated adventure games — AI Dungeon and
+relatives, surveyed by gwern in [Choose-Your-Own-Adventure](https://gwern.net/cyoa). Those
+improvise text turn by turn, which is why they drift: nothing is written down, so nothing can be
+inspected, corrected, versioned, or replayed.
+
+Here the world is files. That single difference is what makes it **authorable** (edit the
+troll's mind and the change persists), **inspectable** (every claim about a character is a line
+in a file with git history behind it), and **coherent across long sessions** (state lives on
+disk, not in a context window). It also makes the endgame available: the LLM can compile the
+world, schemas, and rules down into a **deterministic engine** — natural-language guards
+resolved into `guard_js`, worlds emitted as data that runs in a browser with no model in the
+loop ([DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md),
+[`skills/adventure/dist/world.json`](../../skills/adventure/dist/world.json),
+[adventure-4 `build/`](../../examples/adventure-4/build/)). The lineage for that move is Self's
+compiler: run it dynamically, watch what it actually does, then specialize.
+
 ---
 
 ## Why these examples matter for the argument

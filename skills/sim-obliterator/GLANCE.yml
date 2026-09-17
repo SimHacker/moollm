@@ -1,10 +1,19 @@
 # GLANCE.yml — sim-obliterator
-# 🏠 "Drag a 25-year-old save file in. Watch the character wake up."
+# ⚠️ RETIRED. Do not invoke. Do not link from front doors.
+
+status: retired
+retired_because: "Shells out to a Python sister repo that has been rewritten in TypeScript; vocabulary superseded"
+superseded_by:
+  protocol: skills/soul-city/SOUL-BRIDGES.md        # two gates, conservation, fork-and-sync
+  vocabulary: skills/soul-city/GLOSSARY.md          # transmigration, not import/export
+  field_mapping: "MicropolisCore packages/sims-io"  # PersonData <-> soul file, in TypeScript
+  resource_layers: "MicropolisCore packages/vitamoo"
+  build: "MicropolisCore documentation/designs/soul-city-uplift-roadmap.md"
+forwarding_table: designs/sim-obliterator/README.md  # every old doc mapped to its current home
 
 what: |
-  Two-way bridge between The Sims 1 save files and MOOLLM.
-  Characters step between a 26-year-old game VM and an LLM universe.
-  Uses SimObliterator Suite (sister repo) for binary parsing.
+  RETIRED: two-way bridge between The Sims 1 save files and MOOLLM, via a Python
+  sister repo. Kept for provenance. Start at skills/soul-city/README.md instead.
 
 why: |
   - UPLIFT: Sims save → CHARACTER.yml with LLM enrichment

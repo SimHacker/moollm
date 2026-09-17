@@ -96,7 +96,7 @@ on day one; the graph grows as rooms are built.
 | Slug | Address | Side | GLANCE | Skill / design |
 |------|---------|------|--------|----------------|
 | [milk-bar](shops/milk-bar/) | 10 | south | ✓ | kid third place, dreaming sessions |
-| [pet-shop-vet](shops/pet-shop-vet/) | 12 | south | ✓ | [THE-PET-SHOP](../../../../designs/sim-obliterator/THE-PET-SHOP.md) |
+| [pet-shop-vet](shops/pet-shop-vet/) | 12 | south | ✓ | [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) |
 | [wig-o-rama](shops/wig-o-rama/) | 14 | north | ✓ | Wig-O-Matic |
 | [rug-o-porium](shops/rug-o-porium/) | 16 | north | ✓ | Rug-O-Matic |
 | [transmogrifier-hq](shops/transmogrifier-hq/) | 18 | north | ✓ | IFF / GUID pipeline |
@@ -127,5 +127,5 @@ on day one; the graph grows as rooms are built.
 
 - [Lane Neverending](../../README.md)
 - [Soul City](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city)
-- [THE-UPLIFT](../../../../designs/sim-obliterator/THE-UPLIFT.md)
+- [soul-city skill](../../../../../../skills/soul-city/) — the model, the crossing, the marketplace
 - [Zach Mama NPC](../../../../characters/real-people/zach-mama/)

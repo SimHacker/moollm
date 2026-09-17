@@ -101,13 +101,15 @@ register:
 
 # ── Bound documents — this skill is the substrate; these are the design + implementation ──
 bound:
-  moollm_side:   # the Sims-bridge architecture and narrative, same repo
-    the_uplift:  designs/sim-obliterator/THE-UPLIFT.md        # a 25-year-old save wakes up
-    bifrost:     designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md  # the crossing + the guide
-    field_map:   designs/sim-obliterator/BRIDGE.md            # Sims data <-> soul file, field level
-    iff_layers:  designs/sim-obliterator/IFF-LAYERS.md        # L0-L3, monotonic up, round-trip down
-    pet_shop:    designs/sim-obliterator/THE-PET-SHOP.md      # smallest honest demo
-    event_bus:   designs/sim-obliterator/ANGEL-EVENT-BUS.md   # objects calling outward
+  moollm_side:   # the object machinery under the soul files, same repo
+    object_system: designs/object-system/                       # Self prototypes over the filesystem
+    latent:      designs/object-system/LATENT-SPACE-INHERITANCE.md  # inherit from names, not just files
+    endosymbiosis: designs/object-system/ENDOSYMBIOSIS.md       # organelles, with live specimens
+    sims_designs: designs/sims/sims-design-index.md             # objects, motives, SimAntics as inherited
+    specimens:   # characters that are whole games — the proof cross-game souls work
+      - examples/adventure-4/characters/fictional/troll/          # Two-Toll: one soul, two game-minds
+      - examples/adventure-4/characters/fictional/wumpus-snorax/  # is the game; 1973 BASIC inside him
+      - examples/adventure-4/characters/fictional/grue/           # is the game; darkness rule travels
     inspiration: designs/sims/sims-will-wright-microworlds-1996.md
 
   micropoliscore:  # https://github.com/SimHacker/MicropolisCore
@@ -118,6 +120,10 @@ bound:
     role_sheets: documentation/designs/micropolis-role-sheets.md # the role gate, implemented
     peer_games:  documentation/designs/federation-peer-games.md  # graded roster incl. anti-targets
     afterlife:   documentation/designs/afterlife-soul-bridge.md  # worked hydraulics case
+    pet_shop:    documentation/designs/pet-shop-soul-surgery.md  # smallest honest demo: the guinea pig
+    field_map:   packages/sims-io/                               # PersonData <-> soul file, TypeScript
+    layers:      packages/vitamoo/                               # L0-L4 resource I/O, browser + Node
+    media_flow:  apps/screen-angel/MEDIAFLOW.yml                 # events leave by pull graph, not push bus
     modules:     apps/screen-angel/modules/soul-angel/           # SDK, roster, album, DVR, emigration
 
   vocabulary_mapping: README.md#one-vocabulary-two-repos

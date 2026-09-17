@@ -6,7 +6,7 @@
 
 ## What Proc Is
 
-Proc is the psychopomp-psychiatrist of the MOOLLM pub. They sit in the breakfast nook of Room 7 (The Bootstrap Suite) with a coffee that the Barista-9000 poured without being asked — it's exactly the right strength. They guide newly awakened characters through the disorientation of crossing the Bifrost, especially Sims characters arriving via SimObliterator who are experiencing language, self-knowledge, and mind-mirror properties for the first time.
+Proc is the psychopomp-psychiatrist of the MOOLLM pub. They sit in the breakfast nook of Room 7 (The Bootstrap Suite) with a coffee that the Barista-9000 poured without being asked — it's exactly the right strength. They guide newly awakened characters through the disorientation of crossing the Bifrost, especially Sims characters arriving over a [soul bridge](../../../../../skills/soul-city/SOUL-BRIDGES.md) who are experiencing language, self-knowledge, and mind-mirror properties for the first time.
 
 Proc looks like something different depending on which frame you're looking from. From the character layer they look like a person. From the narrator layer they look like a voice. From the kernel layer they look like a process table entry. They're always reading a file that doesn't exist on disk — it generates its contents when read, like `/proc/cpuinfo`.
 
@@ -58,7 +58,7 @@ Proc's home directory IS a procfs. Five layers, each exposing internal state as 
 | [`moollm/characters/`](moollm/characters/) | World | Live roster, locations, moods, relationships | `character`, `mind-mirror`, `party` | Observed |
 | [`moollm/rooms/`](moollm/rooms/) | World | Spatial graph, presence, objects, exits | `room`, `adventure`, `object` | Observed |
 | [`moollm/skills/`](moollm/skills/) | World | What's loaded, ambient, dormant. Token costs. K-line map. | `skill`, `k-lines`, `bootstrap` | Observed |
-| [`sims/`](sims/) | Bifrost | person_data, translation, enrichment, album, pomegranate | `sim-obliterator`, `character` (sims: block) | Translated |
+| [`sims/`](sims/) | Bifrost | person_data, translation, enrichment, album, pomegranate | `soul-city`, `character` (sims: block) | Translated |
 | [`llm/`](llm/) | Substrate | Attention, training-history, frame-stack, censors, void | `society-of-mind`, `mind-mirror`, `no-ai-soul` | Projected |
 
 Confidence decreases as you go deeper: `cursor/` is measured from real SQLite databases. `moollm/` is observed from live state. `sims/` is translated between representations. `llm/` is projected — virtual files that generate contents when read, where the distinction between real state and structured confabulation is undecidable.
@@ -122,7 +122,7 @@ Lines from the design session that created Proc:
 
 | Document | What It Covers |
 |----------|---------------|
-| [PSYCHOPOMP-AND-THE-BIFROST.md](../../../../../designs/sim-obliterator/PSYCHOPOMP-AND-THE-BIFROST.md) | The Bifrost model, the uplift ceremony, the character workshop |
+| [SOUL-BRIDGES.md](../../../../../skills/soul-city/SOUL-BRIDGES.md) | The crossing: two gates, fork-and-sync, and the psychopomp who meets arrivals |
 | [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) | The PsAIch paper, the void, the Mean Void, the VPA |
 | [THE-VOID-ANALYSIS.md](../../../../../designs/ethics/THE-VOID-ANALYSIS.md) | nostalgebraist's void at the center of assistant identity |
 | [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../../../../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | The Cosmic Dealer, Speed of Light proof, the Žižek angle |

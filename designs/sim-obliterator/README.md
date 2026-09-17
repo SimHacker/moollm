@@ -4,36 +4,32 @@
 
 Two-way bridge between [The Sims 1](https://en.wikipedia.org/wiki/The_Sims_(video_game)) save files and [MOOLLM](https://github.com/SimHacker/moollm). Characters, objects, and pets step between a 26-year-old game VM and an LLM-powered universe, retaining and synchronizing their parallel existences.
 
-## Status — a respected parent of the Soul multiverse
+## RETIRED — read the current documents instead
 
-**SimObliterator is effectively retired, and honored as one of the parents of what came
-next.** This directory is its design corpus — the Sims-1 save/IFF bridge work that proved
-the core move of the whole project: reach into a 26-year-old VM, read a character, object,
-or pet as *editable state*, and write it back changed. That idea — **a soul is the file
-you can open and edit** — is now load-bearing in the [soul-chat](../../skills/soul-chat/)
-skill and the wider Soul architecture.
+**This corpus is historical.** It describes a Python prototype that has since been rewritten in
+TypeScript, and it uses vocabulary the project has since replaced. Nothing here should be linked
+from a front door, and none of it is the place to start.
 
-Its author, **[Jeff Adkins](https://github.com/DnfJeff/SimObliterator_Suite)**, is an
-active participant in the new development and the Repo Shows. This is a living lineage,
-not an archive — we honor the parent by *uplifting* its designs, not embalming them.
+Where each idea now lives, in current vocabulary:
 
-### TODO (scoped, not now) — uplift these designs into the Soul family
+| This directory | Current home |
+|---|---|
+| The protocol for crossing a save-file border | moollm [`skills/soul-city/SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md) — two gates, conservation, fork-and-sync |
+| `PSYCHOPOMP-AND-THE-BIFROST.md` — the crossing, the guide, fork-and-sync | [`SOUL-BRIDGES.md` §6](../../skills/soul-city/SOUL-BRIDGES.md) and the psychopomp section of [`skills/soul-city/README.md`](../../skills/soul-city/README.md) |
+| `THE-UPLIFT.md` — the pipeline and the story | MicropolisCore [soul-city-uplift-roadmap.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md), Phase 0 onward |
+| `BRIDGE.md` — field-level Sims ⇄ soul mapping | MicropolisCore [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) (TypeScript, tested) |
+| `IFF-LAYERS.md` — multi-resolution resource layers | MicropolisCore [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) and its [layered stack](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) |
+| `THE-PET-SHOP.md` — the guinea pig demo | MicropolisCore [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) |
+| `ANGEL-EVENT-BUS.md` — objects calling outward | MicropolisCore [`screen-angel/MEDIAFLOW.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MEDIAFLOW.yml), which deliberately **rejects** a push event bus as the core abstraction, and [the-computer-as-portal.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-computer-as-portal.md) |
+| `BATTLE-PLAN.md` — sister-repo scripts shelling out to Python | Nothing shells out to Python anymore; the I/O runs in browser and Node |
+| The vocabulary itself (import/export, cargo) | Replaced: **transmigration**, travelers and refugees, `measure` / `drain` / `squirt`. See [`GLOSSARY.md`](../../skills/soul-city/GLOSSARY.md) |
 
-When we pick this up, the task is to migrate this corpus into the Soul-family vocabulary
-and the machine-multiverse soul architecture:
+**The credit stands.** [Jeff Adkins](https://github.com/DnfJeff/SimObliterator_Suite) wrote the
+Python suite that proved the core move — reach into a twenty-six-year-old VM, read a character
+as editable state, write it back changed — and that idea is now the definition of a soul in
+[`skills/soul-city/`](../../skills/soul-city/). Retiring the code is not retiring the parent.
 
-- **Bring the verbs home.** import → **soul catcher**, cross-game transport → **soul
-  bridge**, render → **soul projector**, format conversion → **soul transmogrifier**,
-  dialogue → **soul-voice** ([soul-chat](../../skills/soul-chat/)).
-- **Generalize the thesis.** Restate "a Sims save is a soul you can edit" as a first-class
-  instance of the general soul definition (soul = inspectable/editable artifact), not a
-  Sims-only trick.
-- **Keep provenance & credit.** SimObliterator and Jeff Adkins named as the parent work;
-  all links preserved; nothing erased in the uplift.
-- **Pick the new home** (e.g. a `designs/soul/` or the machine-multiverse soul docs) and
-  leave forwarding pointers here.
-
-Not started — this note exists so the scope is captured and the directory is framed.
+Everything below this line is kept for provenance. It is not current.
 
 ## Design Documents
 

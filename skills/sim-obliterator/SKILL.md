@@ -11,11 +11,28 @@ related: [character, mind-mirror, incarnation, needs, adventure]
 tags: [sims, bridge, transport, uplift, download, save-file]
 ---
 
-# SimObliterator — The Sims ↔ MOOLLM Bridge
+# SimObliterator — The Sims ↔ MOOLLM Bridge (RETIRED)
 
 > *"What would your Sims say if they could finally talk to you?"*
 
-## What It Does
+## ⚠️ Retired — do not invoke this skill
+
+It drives a Python sister repo whose job has been rewritten in TypeScript, and it uses
+vocabulary the project has replaced. Go here instead:
+
+| For | Read |
+|---|---|
+| The protocol, and the words for it | [`skills/soul-city/`](../soul-city/) — [SOUL-BRIDGES.md](../soul-city/SOUL-BRIDGES.md), [GLOSSARY.md](../soul-city/GLOSSARY.md) |
+| Field-level Sims ⇄ soul mapping | MicropolisCore [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) |
+| Resource layers and IFF | MicropolisCore [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) |
+| The build, phase by phase | MicropolisCore [roadmap](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md) |
+
+Every retired document is mapped to its current home in
+[designs/sim-obliterator/README.md](../../designs/sim-obliterator/README.md).
+
+Everything below is kept for provenance.
+
+## What It Did
 
 Reads and writes The Sims 1 save files via the SimObliterator Suite, a binary format parser that understands IFF files — the container format EA used for everything in The Sims.
 

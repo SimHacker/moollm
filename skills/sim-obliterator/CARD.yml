@@ -1,15 +1,17 @@
 # CARD.yml — sim-obliterator
 #
-# The Sims ↔ MOOLLM Bridge
-# "What would your Sims say if they could finally talk to you?"
+# ⚠️ RETIRED — superseded by skills/soul-city (protocol) and MicropolisCore (implementation).
+# Forwarding table for every document: designs/sim-obliterator/README.md
 
 card:
   id: sim-obliterator
-  name: "The Sims ↔ MOOLLM Bridge"
+  status: retired
+  name: "The Sims <-> MOOLLM Bridge (retired)"
   type: [skill, tool, bridge, sims]
   emoji: "🏠"
   tier: 2
-  tagline: "Drag a 25-year-old save file in. Watch the character wake up."
+  tagline: "RETIRED — start at skills/soul-city/README.md"
+  superseded_by: [skills/soul-city/, "MicropolisCore packages/sims-io", "MicropolisCore packages/vitamoo"]
 
   description: |
     Two-way bridge between The Sims 1 save files and MOOLLM.
