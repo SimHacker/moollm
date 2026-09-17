@@ -361,7 +361,7 @@ A MOOLLM room's furniture becomes Sims objects. A character's journal becomes a 
 
 Don is writing this one for real, in **TypeScript, isomorphic across browser and Node**. That choice
 is not incidental. A compiler that runs in the browser is not a build tool with a web frontend bolted
-on — it means the whole pipeline ships as a [webtop](../webtop/README.md) app with no install, and
+on — it means the whole pipeline ships as a [webtop](../../../designs/webtop/README.md) app with no install, and
 the audience is Sims content creators, who are overwhelmingly **artists rather than programmers**.
 CLI-only would exclude most of the people the tool is for. Pointy and clicky is the requirement, not
 the polish.
@@ -374,7 +374,7 @@ actually work.
 **YAML, because comments.** This disqualifies JSON outright: object behavior needs to explain itself,
 and a format with nowhere to say *why* forces the reasoning into a separate file that rots. XML is
 rejected on experience rather than principle — Transmogrifier's XML was enough XML for one lifetime.
-This is [yaml-jazz](../../skills/yaml-jazz/) arrived at independently from a working constraint,
+This is [yaml-jazz](../../../skills/yaml-jazz/) arrived at independently from a working constraint,
 which is the best evidence a design principle can get.
 
 #### The trap: SimAntics is goto-based, so YAML must be a *language*, not a serialization

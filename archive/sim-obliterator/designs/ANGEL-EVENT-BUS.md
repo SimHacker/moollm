@@ -185,7 +185,7 @@ the user's. Which turns an event from a request into a small dialog with a schem
 So every event type needs a declared **`parameters:`** block — name, type, default, and
 range. That is ordinary typed-field work, and its home already exists: the adventure
 compiler's typed-event registry
-([`skills/adventure/events/INDEX.yml`](../../skills/adventure/events/INDEX.yml)) is the
+([`skills/adventure/events/INDEX.yml`](../../../skills/adventure/events/INDEX.yml)) is the
 schema store, extended with parameters and their editors.
 
 This also **collapses the `open_url` permission ladder above**. The ladder existed only
@@ -290,7 +290,7 @@ actually interpreting SimAntics. That is not a fantasy — FreeSO does it, and
 [`bhav_ast.py`](https://github.com/DnfJeff/SimObliterator_Suite/tree/main/src/formats/iff/chunks/bhav_ast.py)
 already parses BHAVs into a tree — so a browser-side interpreter is a real option rather than
 a hand-wave. It is also the point where the two compilers in this project converge: the
-[buff-in-time compiler](../../skills/buff/BUFF-IN-TIME-COMPILER.md) turns guards into
+[buff-in-time compiler](../../../skills/buff/BUFF-IN-TIME-COMPILER.md) turns guards into
 runnable `_js`, and the adventure compiler already targets the browser, so a mini-simulator
 is those compiled behaviors running client-side with sliders attached.
 
@@ -359,7 +359,7 @@ objects is the same story told from the tooling side.
 the MOOLLM adventure compiler — one map, many targets. What follows is narrower: not the
 export path, but the **request/response protocol**, which is also already built and running
 in
-[`skills/adventure/`](../../skills/adventure/): the linter walks the world, emits **typed
+[`skills/adventure/`](../../../skills/adventure/): the linter walks the world, emits **typed
 request events** for things it cannot do itself, an LLM answers each one, and the answer is
 written back beside its source. `COMPILE_EXPRESSION` is a request object; the compiled
 `guard_js` is the reply.
@@ -409,5 +409,5 @@ every remaining event type is a variation on a proven path with a schema attache
 - [BRIDGE.md](BRIDGE.md) — the data mapping this protocol rides on, and the event-driven VM citation
 - [IFF-LAYERS.md](IFF-LAYERS.md) — resource architecture, for where generated objects go
 - [PSYCHOPOMP-AND-THE-BIFROST.md](PSYCHOPOMP-AND-THE-BIFROST.md) — the named, equipped, accountable agent that crosses over
-- [`skills/adventure/ADVENTURE-COMPILER.md`](../../skills/adventure/ADVENTURE-COMPILER.md) — the same protocol, already working
-- [`skills/buff/BUFF-IN-TIME-COMPILER.md`](../../skills/buff/BUFF-IN-TIME-COMPILER.md) — English in, runnable snippets out, deopt back to prose
+- [`skills/adventure/ADVENTURE-COMPILER.md`](../../../skills/adventure/ADVENTURE-COMPILER.md) — the same protocol, already working
+- [`skills/buff/BUFF-IN-TIME-COMPILER.md`](../../../skills/buff/BUFF-IN-TIME-COMPILER.md) — English in, runnable snippets out, deopt back to prose

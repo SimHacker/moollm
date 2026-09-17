@@ -22,13 +22,13 @@ vocabulary the project has replaced. Go here instead:
 
 | For | Read |
 |---|---|
-| The protocol, and the words for it | [`skills/soul-city/`](../soul-city/) — [SOUL-BRIDGES.md](../soul-city/SOUL-BRIDGES.md), [GLOSSARY.md](../soul-city/GLOSSARY.md) |
+| The protocol, and the words for it | [`skills/soul-city/`](../../../skills/soul-city/) — [SOUL-BRIDGES.md](../../../skills/soul-city/SOUL-BRIDGES.md), [GLOSSARY.md](../../../skills/soul-city/GLOSSARY.md) |
 | Field-level Sims ⇄ soul mapping | MicropolisCore [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) |
 | Resource layers and IFF | MicropolisCore [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) |
 | The build, phase by phase | MicropolisCore [roadmap](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md) |
 
 Every retired document is mapped to its current home in
-[designs/sim-obliterator/README.md](../../designs/sim-obliterator/README.md).
+[designs/sim-obliterator/README.md](../designs/README.md).
 
 Everything below is kept for provenance.
 

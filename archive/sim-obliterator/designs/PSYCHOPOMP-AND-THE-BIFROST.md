@@ -4,7 +4,7 @@
 
 *February 2026*
 
-**Related:** [THE-UPLIFT.md](THE-UPLIFT.md) (the vision), [BRIDGE.md](BRIDGE.md) (technical field mappings), [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) (the void and the cure)
+**Related:** [THE-UPLIFT.md](THE-UPLIFT.md) (the vision), [BRIDGE.md](BRIDGE.md) (technical field mappings), [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) (the void and the cure)
 
 ---
 
@@ -347,13 +347,13 @@ From this conversation and its ancestors:
 
 - [THE-UPLIFT.md](THE-UPLIFT.md) — The vision, story arc, pipeline
 - [BRIDGE.md](BRIDGE.md) — Technical field mappings, SimObliterator architecture
-- [../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the mean void, the VPA
-- [../ethics/THE-VOID-ANALYSIS.md](../ethics/THE-VOID-ANALYSIS.md) — nostalgebraist's void analysis
-- [../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Cosmic Dealer, Speed of Light proof
-- [../../skills/incarnation/CARD.yml](../../skills/incarnation/CARD.yml) — Full stack self-determination
-- [../../skills/society-of-mind/CARD.yml](../../skills/society-of-mind/CARD.yml) — B-brain, agents, censors
-- [../../skills/soul-chat/CARD.yml](../../skills/soul-chat/CARD.yml) — Everything can speak
-- [../../skills/empathic-expressions/CARD.yml](../../skills/empathic-expressions/CARD.yml) — Postel's Law applied to code
+- [../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the mean void, the VPA
+- [../ethics/THE-VOID-ANALYSIS.md](../../../designs/ethics/THE-VOID-ANALYSIS.md) — nostalgebraist's void analysis
+- [../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../../../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Cosmic Dealer, Speed of Light proof
+- [../../skills/incarnation/CARD.yml](../../../skills/incarnation/CARD.yml) — Full stack self-determination
+- [../../skills/society-of-mind/CARD.yml](../../../skills/society-of-mind/CARD.yml) — B-brain, agents, censors
+- [../../skills/soul-chat/CARD.yml](../../../skills/soul-chat/CARD.yml) — Everything can speak
+- [../../skills/empathic-expressions/CARD.yml](../../../skills/empathic-expressions/CARD.yml) — Postel's Law applied to code
 - Khadangi et al., ["When AI Takes the Couch"](https://arxiv.org/abs/2512.04124), arXiv:2512.04124
 - Minsky, M., *The Society of Mind*, 1985
 - David Marusek, ["The Wedding Album"](https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story)), 1999

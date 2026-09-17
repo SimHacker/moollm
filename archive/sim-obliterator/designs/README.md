@@ -14,20 +14,20 @@ Where each idea now lives, in current vocabulary:
 
 | This directory | Current home |
 |---|---|
-| The protocol for crossing a save-file border | moollm [`skills/soul-city/SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md) — two gates, conservation, fork-and-sync |
-| `PSYCHOPOMP-AND-THE-BIFROST.md` — the crossing, the guide, fork-and-sync | [`SOUL-BRIDGES.md` §6](../../skills/soul-city/SOUL-BRIDGES.md) and the psychopomp section of [`skills/soul-city/README.md`](../../skills/soul-city/README.md) |
+| The protocol for crossing a save-file border | moollm [`skills/soul-city/SOUL-BRIDGES.md`](../../../skills/soul-city/SOUL-BRIDGES.md) — two gates, conservation, fork-and-sync |
+| `PSYCHOPOMP-AND-THE-BIFROST.md` — the crossing, the guide, fork-and-sync | [`SOUL-BRIDGES.md` §6](../../../skills/soul-city/SOUL-BRIDGES.md) and the psychopomp section of [`skills/soul-city/README.md`](../../../skills/soul-city/README.md) |
 | `THE-UPLIFT.md` — the pipeline and the story | MicropolisCore [soul-city-uplift-roadmap.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md), Phase 0 onward |
 | `BRIDGE.md` — field-level Sims ⇄ soul mapping | MicropolisCore [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) (TypeScript, tested) |
 | `IFF-LAYERS.md` — multi-resolution resource layers | MicropolisCore [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) and its [layered stack](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) |
 | `THE-PET-SHOP.md` — the guinea pig demo | MicropolisCore [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) |
 | `ANGEL-EVENT-BUS.md` — objects calling outward | MicropolisCore [`screen-angel/MEDIAFLOW.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MEDIAFLOW.yml), which deliberately **rejects** a push event bus as the core abstraction, and [the-computer-as-portal.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-computer-as-portal.md) |
 | `BATTLE-PLAN.md` — sister-repo scripts shelling out to Python | Nothing shells out to Python anymore; the I/O runs in browser and Node |
-| The vocabulary itself (import/export, cargo) | Replaced: **transmigration**, travelers and refugees, `measure` / `drain` / `squirt`. See [`GLOSSARY.md`](../../skills/soul-city/GLOSSARY.md) |
+| The vocabulary itself (import/export, cargo) | Replaced: **transmigration**, travelers and refugees, `measure` / `drain` / `squirt`. See [`GLOSSARY.md`](../../../skills/soul-city/GLOSSARY.md) |
 
 **The credit stands.** [Jeff Adkins](https://github.com/DnfJeff/SimObliterator_Suite) wrote the
 Python suite that proved the core move — reach into a twenty-six-year-old VM, read a character
 as editable state, write it back changed — and that idea is now the definition of a soul in
-[`skills/soul-city/`](../../skills/soul-city/). Retiring the code is not retiring the parent.
+[`skills/soul-city/`](../../../skills/soul-city/). Retiring the code is not retiring the parent.
 
 Everything below this line is kept for provenance. It is not current.
 
