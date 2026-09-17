@@ -172,6 +172,19 @@ MOOLLM's equivalent:
 
 ---
 
+## The slot it fills
+
+Between Little Computer People (1985) and The Sims (2000) there is a fifteen-year gap with a
+designed-and-dropped game in it: the LCP apartment complex Activision prototyped and abandoned. Tiny
+Life is the honest occupant of that slot — not because it is small, but because of what kind of small.
+One author's decisions all the way through, scope you can hold in your head, households the player
+exports, files that stay on the player's disk. Those are the practices that make it feel retro, and
+none of them are the pixel art.
+
+See [sims-0-the-missing-game.md](./sims-0-the-missing-game.md) for the numbering, the dropped sequel,
+and the four games that stood in the gap — including Creatures, which shipped character export between
+players in 1996 and had nowhere to send them.
+
 ## See Also
 
 - [sims-design-index.md](./sims-design-index.md) — Master Sims document index

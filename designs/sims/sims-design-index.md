@@ -64,6 +64,7 @@ MOOLLM inherits these solutions, translated for the LLM era.
 | [sims-inclusivity.md](./sims-inclusivity.md) | LGBTQ+, gender, tolerance | Representation ethics |
 | [sims-queer-identity-formation.md](./sims-queer-identity-formation.md) | "Did The Sims Make You Gay?" video essay | Identity, mirror stage, Lacan, Althusser |
 | [sims-tiny-life.md](./sims-tiny-life.md) | Indie Sims-like, pixel art, modding | Community, abstraction, solo dev |
+| [sims-0-the-missing-game.md](./sims-0-the-missing-game.md) | LCP 1985 to The Sims 2000 | The dropped LCP sequel, Alter Ego, Jones, Tamagotchi, Creatures shipping export in 1996 |
 | [sims-pkd-perky-pat-and-a-scanner-darkly.md](./sims-pkd-perky-pat-and-a-scanner-darkly.md) | Philip K. Dick, 1963/1965/1977 | Layouts as rule sets, the aftermarket, the incompatible-doll wager, the watching mind |
 
 ---
