@@ -58,7 +58,13 @@ Identity rule: **fork and sync, never transport.** Both sides stay alive; shared
 the soul is saved before any ending is played. Conservation means nobody vanishes at the border,
 and no soul is returned to a world that can no longer hold it.
 
-Protocol: [SOUL-BRIDGES.md](SOUL-BRIDGES.md) · terms: [GLOSSARY.md](GLOSSARY.md) ·
+What a traveler may carry is a third layer, and the only one guaranteed for **any** game at all:
+souvenirs are self-describing objects whose type is an interpretation of their properties, the
+album is an ordered sequence of them, and Dublin Core is the metadata floor. Characters need a
+save parser; a photograph and a caption need a screen and a clock.
+
+Protocol: [SOUL-BRIDGES.md](SOUL-BRIDGES.md) · luggage: [SOUVENIRS.md](SOUVENIRS.md) ·
+terms: [GLOSSARY.md](GLOSSARY.md) ·
 world-to-world (non-save-file) travel: [PORTABLE-NPCS.md](PORTABLE-NPCS.md).
 
 ## Instances

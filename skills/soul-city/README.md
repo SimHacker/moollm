@@ -101,10 +101,11 @@ describe their own thinking.
 | [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) | Why is a game an organelle, and what does a membrane charge to let something through? |
 | [PORTABLE-NPCS.md](PORTABLE-NPCS.md) | How do characters — and the games they embody — travel between worlds? |
 | [SOUL-BRIDGES.md](SOUL-BRIDGES.md) | How does anything cross into a *shipped* game's save file? |
+| [SOUVENIRS.md](SOUVENIRS.md) | What can a traveler carry, and what crosses between *any* two games? |
 | [GLOSSARY.md](GLOSSARY.md) | What did each of these words already mean, before we borrowed it? |
 | [GLANCE.yml](GLANCE.yml) · [CARD.yml](CARD.yml) · [SKILL.md](SKILL.md) | Machine-facing summary, interface, protocol |
 
-## Three ideas doing the work
+## Four ideas doing the work
 
 **A mind can be an organelle.** Keep one mind per game you project into. Your Sims-mind
 thinks in motives and relationships; your mayor-mind thinks in zones and budgets. Neither
@@ -126,7 +127,16 @@ a **role**: mayor, city planner, advice columnist, a byline in letters to the ed
 minutes at the microphone during open comment. Scope is the price of the visa, and every
 scope is a seat. Details in [SOUL-BRIDGES.md](SOUL-BRIDGES.md).
 
-That last one has a payoff worth stating. Build the role gate properly and you cannot tell
+**The album is the floor, and it needs nothing from the game.** Characters need a save parser,
+objects need an asset pipeline, zones need a tile map — but a photograph and a caption need a
+screen and a clock. So one thing is portable for *any* game whatsoever, including one that will
+never be patched again and one whose format nobody has reversed: the album, as a sequence of
+typed objects with [Dublin Core](GLOSSARY.md#engineering) metadata. Where a
+bridge exists it round-trips the game's own album pages; where none does, capture and caption
+still work and provenance degrades to game plus timestamp. Details in
+[SOUVENIRS.md](SOUVENIRS.md).
+
+That third one has a payoff worth stating. Build the role gate properly and you cannot tell
 from the API whether the new police chief is a fictional import or a nine-year-old in a
 classroom sharing a city. Character portability and human participation are one engineering
 problem wearing two costumes.
@@ -265,6 +275,7 @@ waterfront while the host city's own life carried on inland
 [CHARACTER-ENDOSYMBIOSIS.md](CHARACTER-ENDOSYMBIOSIS.md) (organelles, membranes, exchange rates) ·
 [PORTABLE-NPCS.md](PORTABLE-NPCS.md) (world-to-world travel) ·
 [SOUL-BRIDGES.md](SOUL-BRIDGES.md) (save-file borders) ·
+[SOUVENIRS.md](SOUVENIRS.md) (the universal objects, and the album) ·
 [GLOSSARY.md](GLOSSARY.md) (every borrowed word, and who we borrowed it from) ·
 [examples/characters/robin/](examples/characters/robin/) (worked character)
 

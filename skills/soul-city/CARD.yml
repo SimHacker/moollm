@@ -35,7 +35,35 @@ files:
     - PORTABLE-NPCS.md # world-to-world travel: advertisements, treaties, customs
     - SOUL-BRIDGES.md  # save-file borders: two gates, fork-and-sync, psychopomp
     - CHARACTER-ENDOSYMBIOSIS.md  # membranes, diffusion, exchange rates — where "organelle" comes from
+    - SOUVENIRS.md     # universal objects + the album; type is an interpretation of the object
     - GLOSSARY.md      # every borrowed term, KNOWN meaning first, then ours
+
+# ── Souvenirs — the one class of thing that crosses between ANY two games ──
+souvenirs:
+  doc: SOUVENIRS.md
+  guarantee: |
+    THE ALBUM IS THE FLOOR. Characters need a save parser, objects an asset pipeline, zones a
+    tile map. A photograph and a caption need a screen and a clock. So album import/export is
+    guaranteed for any game whatsoever — including one that will never be patched and one whose
+    format nobody has reversed.
+  degradation:              # robust-first: degrade, never fail
+    full_bridge: "round-trip native album pages; provenance = save id + souls in frame + recorded moment"
+    photo_mode: "import native captures, export back to its format"
+    nothing_at_all: "capture + caption + narrate + publish; provenance = game + timestamp"
+  object_model:
+    rule: "Every souvenir is an object. Its TYPE is an interpretation of its properties, not another storage format."
+    self_describing: true
+    inheritance: "multiple, from skills and capabilities — prototype delegation, not a class tree"
+    unknown_types: "read the properties, keep every unparsed one, pass it on whole. NEVER drop unknown fields."
+  album: "a polymorphic ordered array of typed objects — sequence is the only structure it imposes"
+  metadata_floor: dublin-core   # if a field has a DC name, use the DC name
+  dc_extensions:
+    coverage: "TWO geographies at once — real-world GPS and in-game location, plus in-world time"
+    relation: "pointers to souls, objects, places in the scene; the album; the save; the moment cited"
+    beyond_dc: [in_game_coordinates, save_id, recorded_moment, souls_present]
+  types: [scene, card, post, clip, letter, receipt, place, portrait]
+  vocabulary_rule: "A game's own name for its album stays the game's. We uplift; we do not annex."
+  implementation: "MicropolisCore soul-angel/SOUL-ALBUM.yml + DVR.yml"
 
 # ── Register — the words are chosen, not decorative. GLOSSARY.md has the full account. ──
 register:
@@ -131,6 +159,8 @@ k-lines:
     - TRANSMIGRATION   # the act, in both its senses
     - ASYLUM           # souls stranded by delisting, retired servers, locked formats
     - THE-MARKETPLACE  # tools, editors, shops — on the Soul City side of the bridge
+    - SOUVENIR         # a titled object with a payload; survives customs when skills don't
+    - THE-ALBUM        # polymorphic array of typed objects; guaranteed for any game
   related:
     - { ref: soul, relation: "continuity bodies that inhabit the city" }
     - { ref: mind, relation: "agencies on souls; free-form graphs" }

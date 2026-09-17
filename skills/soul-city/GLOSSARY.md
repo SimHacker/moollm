@@ -209,7 +209,8 @@ Two consequences follow. The bridge has to run **customs in both directions**, b
 comes home is the entire point and the origin world must be able to accept it. And enrichment
 pays the same exchange rate as everything else: a skill learned abroad may convert to nothing at
 home, while a memory, a souvenir object, or a friendship usually survives the trip intact. Where
-a refugee needs asylum, a traveler needs a return ticket and somewhere to put the photographs.
+a refugee needs asylum, a traveler needs a return ticket and somewhere to put the photographs —
+which is [SOUVENIRS.md](SOUVENIRS.md).
 
 **Expat / immigrant**
 
@@ -221,6 +222,17 @@ distance travelled.
 *Here:* an **expat** is the organelle case — resident in a world while keeping another game's
 format and currency, never naturalizing. An **immigrant** trades in citizenship and takes a
 seat, with value marked to the local market.
+
+**Souvenir**
+
+*Known:* French for "to remember", from Latin *subvenire*, to come to mind. A thing kept because
+of what it brings back: the pilgrim's scallop shell, the holiday snapshot, the ticket stub in a
+shoebox. Its value is almost never intrinsic — a pebble is a pebble until it is *that* beach.
+
+*Here:* the class of object that crosses between any two games at all, and the reason a round trip
+is worth taking. An object with a title, a payload, a description, and metadata, which survives
+customs when skills and currency do not, because it needs nothing from the destination except
+somewhere to put a picture. The album is a sequence of them. See [SOUVENIRS.md](SOUVENIRS.md).
 
 **Customs**
 
@@ -299,6 +311,19 @@ live, shared fields sync, and each side keeps what only it can represent.
 *Here:* the border itself — usually undocumented, written by a program that never heard of us
 and may never be updated again. The hard case that
 [SOUL-BRIDGES.md](SOUL-BRIDGES.md) exists for.
+
+**Dublin Core**
+
+*Known:* the fifteen-element metadata standard from a 1995 invitational workshop in Dublin, Ohio —
+title, creator, subject, description, publisher, contributor, date, type, format, identifier,
+source, language, relation, coverage, rights. Deliberately small, deliberately generic, and by now
+underneath a great deal of the web's cataloguing.
+
+*Here:* the floor for souvenir metadata, adopted rather than reinvented: if a field has a Dublin
+Core name, that is the name it gets. Two elements do extra duty — `coverage` carries **both**
+geographies (real-world GPS and in-game location, plus in-world time), and `relation` carries the
+pointers to the souls, objects, and places in a scene, which is what lets a photograph find its
+character again after both have moved worlds.
 
 ## Games and interfaces
 

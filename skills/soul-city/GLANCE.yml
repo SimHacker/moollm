@@ -28,6 +28,7 @@ when:
   - '"Public entry / newcomer intro" → README.md'
   - '"Move a character into another game" → SOUL-BRIDGES.md (which gate?)'
   - '"Import a crowd / drain a save" → SOUL-BRIDGES.md hydraulics'
+  - '"Album / photos / souvenirs / what can it carry?" → SOUVENIRS.md (the guaranteed floor)'
 
 contains:
   - rooms
@@ -50,6 +51,7 @@ twin: SOUL-MODEL.yml
 bridges: SOUL-BRIDGES.md      # two gates: hydraulics (population) + role gate (named character)
 portability: PORTABLE-NPCS.md # world-to-world: advertisements, treaties, customs
 endosymbiosis: CHARACTER-ENDOSYMBIOSIS.md  # games as cells; where "organelle" comes from
+souvenirs: SOUVENIRS.md       # what a traveler carries; the album, guaranteed for ANY game
 glossary: GLOSSARY.md         # borrowed terms, KNOWN meaning first — nothing here was coined
 
 register: |
