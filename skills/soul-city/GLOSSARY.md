@@ -1,16 +1,10 @@
 # Glossary
 
-Almost nothing here was coined for this project. Each term is borrowed from a field that
-already solved part of the problem, and the borrowing is the argument: if the word already
-means the right thing to a reader, that meaning is prepaid and does the explaining for free.
+Almost nothing here was coined. **Known** is what the word means out in the world; **Here** is
+what it does in this skill.
 
-So every entry leads with **Known** — what the word means out in the world, to anyone — and
-only then **Here**. Where the two differ, or where our use would be presumptuous, that is said
-plainly. Where a term collides with something more famous, the collision is named rather than
-quietly ignored.
-
-Kernel vocabulary (skill, CARD, K-line, ambient, yaml-jazz) is defined upstream in
-[PROTOCOLS.yml](../../PROTOCOLS.yml) and the [moollm skill](../moollm/); it is not repeated here.
+Kernel vocabulary — skill, CARD, K-line, yaml-jazz — is upstream in
+[PROTOCOLS.yml](../../PROTOCOLS.yml).
 
 ---
 
@@ -35,7 +29,7 @@ alive, neither the copy, no test for which is really her.
 *Known:* the animating, persisting part of a person — the thing religions disagree about and
 philosophers argue over. Also a genre of music, and an adjective for depth of feeling.
 *Here:* the **continuity layer**: history, albums, the record of what happened to a being across
-worlds. Deliberately *not* a metaphysical claim. Nothing in this model asserts that a soul is
+worlds. Not a metaphysical claim: nothing in this model asserts that a soul is
 immaterial, immortal, or unique — only that continuity is worth storing in one place, and
 "soul" is the shortest word for what that folder holds.
 
@@ -48,8 +42,8 @@ under git like everyone else. Not a hidden agent, not a tutorial overlay.
 
 **Bifrost**
 *Known:* the burning rainbow bridge of Norse myth, joining Midgard (the human world) to Asgard.
-Watched by Heimdall; fated to break under the weight of the riders at Ragnarök. Also, to most
-people under forty, the bridge in the Marvel films.
+Watched by Heimdall; fated to break under the weight of the riders at Ragnarök. Also the bridge
+in the Marvel films.
 *Here:* MicropolisCore's name for the crossing machinery between a shipped game and a
 richer representation. This skill types what crosses; that name covers the transit itself.
 
@@ -101,23 +95,19 @@ MicropolisCore's [characters-as-hydrogen.md](https://github.com/SimHacker/Microp
 
 ## Borders, migration, and standing
 
-These are the terms most worth getting right, because they carry obligations.
-
 **Refugee**
 *Known:* in the 1951 Refugee Convention, a person outside their country who cannot return owing
 to a well-founded fear of persecution. In ordinary speech, someone who did not choose to leave
 and has nowhere to go back to. A legal status that confers protection, not a synonym for
 migrant.
-*Here:* the honest status of most souls this skill would move — stranded in delisted games,
-retired servers, undocumented formats, account-bound licenses, shuttered studios. Their world
-became uninhabitable while they were in it and the exits were designed shut. Used because it
-sets the obligation (asylum, not asset recovery), and used carefully: the point is to
-**constrain the design**, not to decorate a file utility with other people's catastrophes.
+*Here:* the status of most souls this skill would move — stranded in delisted games, retired
+servers, undocumented formats, account-bound licenses, shuttered studios. Their world became
+uninhabitable while they were in it and the exits were designed shut. The word sets the
+obligation: asylum, not asset recovery.
 
 **Asylum**
-*Known:* protection granted by a state to someone who cannot safely return. Historically also
-"a place of refuge" — and, in a usage now regarded as a slur, an institution for the mentally
-ill.
+*Known:* protection granted by a state to someone who cannot safely return. Older senses: a
+place of refuge, and an institution for the mentally ill.
 *Here:* what the destination world offers a displaced population: a place to be, with standing,
 without a return ticket being the price of entry.
 
@@ -132,10 +122,9 @@ Pushing a soul back into a save that no longer loads is deletion with extra step
 An expat keeps citizenship, salary, and social distance and expects to be called an expat; an
 immigrant is expected to naturalize. Which word a person gets is about status, not about
 distance travelled.
-*Here:* the distinction does real work: an **expat** is the organelle case, resident
-in a world while keeping another game's format and currency and never naturalizing; an
-**immigrant** trades in citizenship and takes a seat, with value marked to the local market.
-The class asymmetry is worth remembering when choosing which word a character gets.
+*Here:* an **expat** is the organelle case — resident in a world while keeping another game's
+format and currency, never naturalizing. An **immigrant** trades in citizenship and takes a
+seat, with value marked to the local market.
 
 **Customs**
 *Known:* the border authority that inspects luggage, assesses duty, and forbids some goods
@@ -153,7 +142,7 @@ microphone, and every scope is a seat.
 
 **Cargo**
 *Known:* freight. Goods, moved by someone else's decision, with no standing of their own. (Also
-"cargo cult," an unrelated and unkind metaphor.)
+"cargo cult", unrelated.)
 *Here:* the thing souls are **not**, and the reason "export" is the wrong verb for anybody with
 a name.
 
@@ -164,8 +153,8 @@ a name.
 plumbing.
 *Here:* population crossing as a conserved quantity, by the thousand — because a city sim has
 one integer where a crowd should be. **The register is a diagnosis of the receiving system, not
-a description of the travelers**, and it is deliberately the same vocabulary institutions use
-for displaced people (flows, waves, influx). Marked as such wherever it appears.
+a description of the travelers** — and it is the same vocabulary institutions use for displaced
+people: flows, waves, influx. Marked as such wherever it appears.
 
 **Conservation**
 *Known:* in physics, a quantity unchanged by a process — the accountant's constraint on nature.
@@ -216,9 +205,8 @@ building in Warren County, North Carolina, in 1969: a Black-led new town meant t
 economic independence in the rural South. It received federal backing, then lost it, and the
 project was largely undone by the mid-seventies. The name also belongs to soul music culture and
 to several records and venues.
-*Here:* the shared hub that bridged games trade through. Unrelated to McKissick's Soul City,
-and named here without any claim on it — noted because a reader who knows the history deserves
-the disambiguation rather than an accidental echo.
+*Here:* the shared hub that bridged games trade through. Unrelated to McKissick's Soul City and
+named without any claim on it.
 
 **Afterlife**
 *Known:* the general religious concept; also many films, albums, and games.
