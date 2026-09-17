@@ -349,7 +349,9 @@ Stanford lecture *Interfacing to Microworlds*.
 
 *Known:* Star Trek's teleporter, and the personal-identity puzzle it stages — if the original is
 destroyed and a copy assembled, was that travel or death? Parfit's *Reasons and Persons* runs
-the argument seriously.
+the argument seriously; Larry Niven's "The Theory and Practice of Teleportation" (*Galaxy*, March
+1969) works through the practical consequences instead, on the assumption that nobody will stop
+using it while the philosophers argue.
 
 *Here:* the thing this design refuses, by name. Fork and sync, never transport.
 
