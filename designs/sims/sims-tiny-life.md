@@ -66,6 +66,12 @@ Little Computer People's one-disk scale are the same decision at both ends of th
 Wright's hobby model needed exactly this property to work: people collect and extend what they can
 also *make* ([sims-will-wright-microworlds-1996.md](sims-will-wright-microworlds-1996.md)).
 
+And participation is the whole of Papert's argument: people build knowledge by building things
+other people can look at. A game a fourteen-year-old can add to on a school laptop is teaching,
+whatever the box says, and resolution is one of the sliders on that floor
+([masking](../../skills/design-sense/lenses/masking.md),
+[low-floor-no-ceiling](../../skills/design-sense/methods/low-floor-no-ceiling.md)).
+
 So the trade is not pixels *for* soul as if soul were compensation. Lower resolution is the
 mechanism by which the binding gets tighter, and the mechanism by which strangers can join in. Tiny Life is small in the same direction its ancestor
 was: one man on one floppy, drawn in a handful of pixels, and players named him and worried about

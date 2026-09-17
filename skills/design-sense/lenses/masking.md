@@ -22,11 +22,19 @@ one.
 Identification is what McCloud was buying. Two more things come off the same purchase, and
 they are why this lens keeps showing up in content economies rather than only in comics:
 
-**Participation.** Low resolution lowers the authoring floor. A player can draw a 16×16 sprite
-or recolour a tile in an afternoon with free tools; nobody makes a photoreal asset without a
-pipeline, a suite, and a skill set. Every increment of fidelity you demand of your own art you
-also demand of anyone who wants to add to it, which quietly decides whether the game has a
-modding community or an asset store.
+**Participation.** Low resolution lowers the floor. A player can draw a 16×16 sprite or recolour
+a tile in an afternoon with free tools; nobody makes a photoreal asset without a pipeline, a
+suite, and a skill set. Every increment of fidelity you demand of your own art you also demand of
+anyone who wants to add to it, which quietly decides whether the game has a modding community or
+an asset store.
+
+That is Papert's floor, arrived at from the art department. Constructionism says people build
+knowledge by building things other people can look at, so anything that lowers the cost of making
+a thing is a teaching decision, whether or not the box mentions learning
+([low-floor-no-ceiling](../methods/low-floor-no-ceiling.md),
+[seymour-papert](../masters/seymour-papert.md), whole skill at `skills/constructionism/`).
+Resolution is one of the sliders on that floor, and it is usually set by people who think they
+are only choosing a look.
 
 **Portability.** Abstract assets compose across styles. A low-res chair fits almost any world;
 a photoreal chair clashes with everything not lit the same way. So abstraction is also what
