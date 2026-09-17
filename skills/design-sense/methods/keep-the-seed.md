@@ -22,23 +22,45 @@ turned a shared generator from a weapon into a conversation. (Whether the origin
 Mac release had this is unconfirmed; the design is in the multiplayer notes in the
 Micropolis source.)
 
-## The verb set
+## The primitives, and the buttons
 
-Anything generative owes the user all six, visibly:
+Most of the verbs people ask for are not primitives. There are four operations
+underneath, and everything else is the interface weaving them together:
 
-| Verb | What it must guarantee |
+| Primitive | What it does |
 |---|---|
-| **Generate** | Produce a candidate *and* record its seed as a new entry |
-| **Reroll** | Another candidate, without discarding the last one |
-| **Edit** | Hand-authored change on top of a generated base, tracked as its own entry |
-| **Revise** | Regenerate *within* constraints the user has pinned |
-| **Reset** | Back to the last committed state, not to nothing |
-| **Clear** | Deliberately to nothing, and itself undoable |
+| **Produce** | Run the generator with a given set of inputs; append the result as a new entry |
+| **Edit** | Apply a hand-authored change to an entry; append the result as a new entry |
+| **Select** | Make any entry in the history the current one |
+| **Delete** | Remove entries. The *only* destructive operation, and itself undoable |
 
-Two rules keep the set honest. **Reset and clear are different verbs** — collapsing
-them is how people lose work while pressing the button that promised safety. And
-**an edit on generated content must not be silently overwritten by the next roll**:
-if a reroll would clobber hand-work, that is a question to ask, not a thing to do.
+The familiar buttons are combinations. *Generate* is produce with new inputs.
+*Reroll* is produce with the **same** inputs. *Revise* is produce with the inputs
+the user has pinned. *Reset* is select — an earlier entry, not a special state.
+*Clear* is select-the-empty-entry, or produce-nothing. None of them destroys
+anything, which is what lets the interface be direct-manipulation and reversible
+at the same time: the user drags, picks and rerolls freely, and the only button
+that removes work says *delete* on it.
+
+Storage is cheap enough that this is not a trade. Keep every roll.
+
+## When the generator is not deterministic
+
+A seeded terrain generator returns the same world for the same seed, so rolling
+again means changing the seed. A model does not: **the same prompt and parameters
+produce a different result every time.** That makes *produce with identical inputs*
+a genuinely useful operation rather than a no-op, and it is what "reroll" actually
+means in a generative-model workflow.
+
+So an entry records **all** its inputs — seed if there is one, prompt, parameters,
+model and version, and the sampling temperature — because the honest question is
+not "what seed was that" but "what would it take to get this again, or something
+near it."
+
+Which gives the useful knob: **heat**. Low heat rerolls hover near the last result
+(a gentle variation on something almost right); high heat leaves the neighbourhood.
+One control that spans "again, but a little different" to "surprise me," instead of
+two differently-named buttons.
 
 ## Why it matters more with generators in the loop
 
