@@ -94,19 +94,34 @@ The strongest form of this argument is not an essay, it is a system where the au
 private controls at all. Every action an agent takes, it takes through an affordance that is
 visible on screen, reachable by hand, and takeable over mid-flight.
 
-The worked case is the cross-game errand in MicropolisCore. A character in a shipped, closed game
-goes to work somewhere else; the game leaves behind an object — an egg — that means *a call is
-outstanding*, sitting at the exact spot the character vanished from. The result comes back by
-selecting from that egg's own pie menu, whose nested submenus enumerate every consequence the job
-is permitted to have. The menu is the return type, so the space of what can happen to your
-character is a readable list rather than a promise.
+The worked case is **The Sims 1** — the 2000 game, running as it shipped, no source, no patch, no
+injected code. What it does have is a content pipeline: custom objects are `.iff` files with their own
+art, behaviour trees and pie menus, and the community has been minting them for twenty-five years. So
+the egg is not a hypothetical engine feature. It is a **custom object**, built the way Sims objects have
+always been built, and everything below is a use of machinery Maxis shipped rather than a change to it.
+
+The errand is **remote work in the sense the phrase never means**: not a different lot, not a downtown
+tile — a job in a *different game*. A Sim walks to the carpool and vanishes, and what she is doing for
+the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
+between two save files. Where she stood, the egg is left behind: a custom object whose presence means
+*a call is outstanding*, sitting at the exact spot she disappeared from, at the car door.
+
+The result comes home through that egg's own pie menu, whose nested submenus enumerate every
+consequence the job is permitted to have. The menu is the return type. That matters more across games
+than it would across rooms, because the other game has its own rules, its own units and its own idea of
+what a promotion is worth — and none of that can reach into this household except by being an item a
+player selects. The space of what a foreign game may do to your Sim is a readable list rather than a
+promise, and the list is in the object, in the Downloads folder, on your disk.
 
 Four properties are doing the work, and each one is a direct-manipulation requirement met rather
 than argued about:
 
 **The automation's interface is the user's interface.** The layer clicks the same pie items a
 person clicks. There is no API path that bypasses the visible controls, which means there is no
-capability the user cannot exercise and no action the user cannot watch.
+capability the user cannot exercise and no action the user cannot watch. In a closed game this is
+enforced rather than promised: the automation reads the screen and moves the mouse, because that is
+the only way in that exists. A design constraint that started as the price of working with a
+twenty-six-year-old binary turns out to be the property you would want anyway.
 
 **Pending work is an object, not a notification.** A promise with a location and a sprite can be
 walked past, pointed at, asked what it is, and acted on next Tuesday. A toast can only be missed.
