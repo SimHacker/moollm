@@ -113,15 +113,70 @@ what a promotion is worth — and none of that can reach into this household exc
 player selects. The space of what a foreign game may do to your Sim is a readable list rather than a
 promise, and the list is in the object, in the Downloads folder, on your disk.
 
+### The layer doing the clicking
+
+The thing on the other side of that pie menu is **Screen Angel**, and it needs introducing, because
+the whole argument depends on what it is allowed to be.
+
+It is a scriptable layer over *any* application's interface — selecting and querying components,
+matching visual patterns, handling events, driving widgets from outside, without modifying the
+application. Don named it aQuery in a 2013 email to Peter Korn, on the analogy that it is to native
+interface components what jQuery is to the DOM, and renamed it in 2026 when the borrowed morpheme
+had aged worse than the idea. The new name is the ladder: **a screen scraper takes, a screen reader
+reads to you, a screen angel acts for you** — and it describes the implementation literally, since
+the thing is a transparent, always-topmost, click-through overlay. Invisible, above you, intervening.
+**Soul Angel** is its first application, the module that knows about characters and souls, and The
+Sims 1 is Soul Angel's first bridge.
+
+What it can do is bounded by one sentence: **anything a player can do.** Concretely, that is a lot.
+It sees the screen and it moves the mouse and presses keys. It navigates menus, walks the camera
+around a world, clicks a pie item. It can save and quit a game, read the save file, edit or
+regenerate it, and start the game again — which is the high-bandwidth channel, used between sessions
+because it costs a restart. During play it uses the low-bandwidth one: pie menus, dialog trees, codes
+on screen, typed parameters. Two channels, neither a fallback for the other, and the reason routine
+cross-game play does not require a save-quit-edit-relaunch cycle.
+
+How it perceives depends on how cooperative the application is, and games are the least cooperative
+software there is:
+
+- **The accessibility tree**, where one exists — real element bounds, real names, real events. Most
+  applications. Almost no games.
+- **Pixels**, where it does not. Anchor art located by correlation to find the window and its scale,
+  the game's own bitmap font read glyph by glyph to recover text nobody exposes, QR codes for
+  anything long, and the egg's colour band codes for live state at a distance.
+- **Models**, on top of both. Machine vision, visual language models, and LLM completions supply the
+  judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
+  what to do about it.
+- **The network**, when the answer is elsewhere — HTTP and API calls, which is how a job in another
+  game gets asked and answered.
+
+And the far end is not a screen at all. The world's representation lives in **git repositories of
+YAML microworlds** — moollm's selfish objects, places, characters, the simulated worlds themselves —
+so the Angel edits and generates files, commits them, and simulates from them, while the same objects
+stay open to a person with a text editor. That is what makes the whole arrangement a bridge rather
+than a scraper: **a closed binary on one side, an open filesystem on the other, and both ends
+directly manipulable.** The user's content is not inside the automation; it is on disk, in a repo,
+diffable.
+
+Which is where the ceiling matters. The Angel has **no privileged verb**. Everything in that list is
+something a person could do with a mouse, a text editor and patience — the layer supplies reach and
+stamina, not authority. Nothing it can reach is unreachable by hand, and nothing it does is invisible
+while it does it, because it does it through the controls that are on the screen.
+
+Two honest caveats. **The layer does not exist yet** — eleven years of prose, one prototype of the
+shell it would live in, and the bridge work described here. And **this is a keylogger-shaped
+capability set**: on macOS a single Accessibility grant covers reading the tree, writing attributes
+and synthesizing input, so the operating system's coarse yes is coarser than what the design wants to
+promise. The fine-grained promise has to be ours, which means it has to be visible: every action goes
+on a timestamped event ring, and an Angel's afternoon is reviewable the way a diff is.
+
 Four properties are doing the work, and each one is a direct-manipulation requirement met rather
 than argued about:
 
-**The automation's interface is the user's interface.** The layer clicks the same pie items a
-person clicks. There is no API path that bypasses the visible controls, which means there is no
-capability the user cannot exercise and no action the user cannot watch. In a closed game this is
-enforced rather than promised: the automation reads the screen and moves the mouse, because that is
-the only way in that exists. A design constraint that started as the price of working with a
-twenty-six-year-old binary turns out to be the property you would want anyway.
+**The automation's interface is the user's interface.** In a closed game this is enforced rather than
+promised — there is no API to bypass the visible controls with, because there is no API. A constraint
+that started as the price of working with a twenty-six-year-old binary turns out to be the property
+you would want anyway, and would never have kept voluntarily.
 
 **Pending work is an object, not a notification.** A promise with a location and a sprite can be
 walked past, pointed at, asked what it is, and acted on next Tuesday. A toast can only be missed.
@@ -139,7 +194,10 @@ automation navigable is not that a human will always want to drive; it is that a
 automation uses the visible controls is inspectable, testable, and repairable by the person whose
 data it is — and a system with a private control channel is none of those, whatever it promises.
 
-Specs: [`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
+Specs: the layer in [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml)
+and what it is permitted in [`CAPABILITIES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml) ·
+what it can see in [`RECOGNIZER.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECOGNIZER.yml) ·
+[`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
 [`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml) ·
 [`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
 protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/sims/sims-pkd-perky-pat-and-a-scanner-darkly.md`](sims/sims-pkd-perky-pat-and-a-scanner-darkly.md)
