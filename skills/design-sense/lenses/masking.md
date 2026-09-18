@@ -32,7 +32,7 @@ That is Papert's floor, arrived at from the art department. Constructionism says
 knowledge by building things other people can look at, so anything that lowers the cost of making
 a thing is a teaching decision, whether or not the box mentions learning
 ([low-floor-no-ceiling](../methods/low-floor-no-ceiling.md),
-[seymour-papert](../masters/seymour-papert.md), whole skill at `skills/constructionism/`).
+[seymour-papert](../masters/seymour-papert.md), whole skill at [`skills/constructionism/`](../../constructionism/)).
 Resolution is one of the sliders on that floor, and it is usually set by people who think they
 are only choosing a look.
 

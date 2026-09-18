@@ -19,7 +19,7 @@ lenses and methods were ground from, with the connective tissue intact.
 
 Votes and vetoes are the operating interface: load a master before a design
 session and the votes push, the vetoes block. Load several for an adversarial
-committee (moollm `skills/adversarial-committee/`) — [Gabriel](richard-gabriel.md)
+committee (moollm [`skills/adversarial-committee/`](../../adversarial-committee/)) — [Gabriel](richard-gabriel.md)
 vs [Ungar](david-ungar.md) on what "simple" means is a genuinely productive
 fight.
 

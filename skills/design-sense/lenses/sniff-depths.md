@@ -23,7 +23,7 @@ meetings (agenda → headlines → discussion).
 moollm [skills/sniffable-python/](../../sniffable-python/) (CARD.yml for the
 structure rules)
 
-**Sources:** moollm `skills/sniffable-python/`
+**Sources:** moollm [`skills/sniffable-python/`](../../sniffable-python/)
 
 **See:** [semantic-mipmap](semantic-mipmap.md) — the same pyramid, for published
 artifacts · [directories-as-advertisements](directories-as-advertisements.md) —

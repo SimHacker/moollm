@@ -1,7 +1,7 @@
 # Dave Ackley
 
 **Class:** master · **Head:** robust-first computation; survivability over correctness
-**Dispatch:** whole skill at moollm `skills/robust-first/` — load it; this entry is the design-sense pointer.
+**Dispatch:** whole skill at moollm [`skills/robust-first/`](../../robust-first/) — load it; this entry is the design-sense pointer.
 
 A crashed system is infinitely wrong: rank survivability above correctness, and
 design for living computation under failure — degrade gracefully, log, self-repair,
@@ -13,7 +13,7 @@ reliable.
 ## Votes
 
 - **Rank survivability above correctness** — a crashed system is infinitely wrong;
-  degrade gracefully, log, continue (moollm `skills/robust-first/`)
+  degrade gracefully, log, continue (moollm [`skills/robust-first/`](../../robust-first/))
 - **Follow the priority order** — survive, heal, function, optimize, adapt,
   reproduce; six words that triage every engineering decision
 - **Design best-effort, not guaranteed** — in an indefinitely scalable world no
@@ -38,5 +38,5 @@ robust-first (whole skill; ambient in moollm)
 
 ## Sources
 
-moollm `skills/robust-first/` · Ackley's robust-first computing writings and the
+moollm [`skills/robust-first/`](../../robust-first/) · Ackley's robust-first computing writings and the
 Movable Feast Machine / T2 Tile Project demos

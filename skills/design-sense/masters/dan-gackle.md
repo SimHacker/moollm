@@ -48,7 +48,7 @@ emergent system with one gardener adjusting parameters
 [HN Guidelines](https://news.ycombinator.com/newsguidelines.html) — the whole
 design doc fits on one page (Librande would approve) ·
 ["The Lonely Work of Moderating Hacker News" (The New Yorker, 2019)](https://www.newyorker.com/news/letter-from-silicon-valley/the-lonely-work-of-moderating-hacker-news) ·
-moollm `temp/lloooomm/00-Characters/dang/` · moollm `skills/copy-that/formats/`
+moollm `temp/lloooomm/00-Characters/dang/` · moollm [`skills/copy-that/formats/`](../../copy-that/formats/)
 (the HN house style plugin)
 
 ## See

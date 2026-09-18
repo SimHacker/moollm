@@ -23,7 +23,7 @@ moollm [skills/yaml-jazz/](../../yaml-jazz/) (CARD.yml for notation rules,
 SKILL.md for the reading/writing protocol) ·
 moollm [kernel/constitution-core.md](../../../kernel/constitution-core.md) §3
 
-**Sources:** moollm `skills/yaml-jazz/`
+**Sources:** moollm [`skills/yaml-jazz/`](../../yaml-jazz/)
 
 **See:** [three-axis-accessibility](three-axis-accessibility.md) — why the
 channel matters to all three audiences ·

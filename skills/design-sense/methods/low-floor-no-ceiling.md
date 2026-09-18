@@ -22,7 +22,7 @@ not instead of it — stage magic for capability: simple view until complex trut
 [Wikipedia: Snap! (programming language)](https://en.wikipedia.org/wiki/Snap!_(programming_language)) ·
 Resnick et al., "Scratch: Programming for All" (CACM 2009) — low floor / wide walls framing
 
-**Sources:** moollm `skills/constructionism/` (Papert lineage)
+**Sources:** moollm [`skills/constructionism/`](../../constructionism/) (Papert lineage)
 
 **See:** [../lenses/stage-magic.md](../lenses/stage-magic.md), [play-learn-lift](play-learn-lift.md),
 [worse-is-better](worse-is-better.md) — the tension worth holding: simple that wins vs. simple that caps.

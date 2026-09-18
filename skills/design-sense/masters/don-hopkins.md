@@ -9,8 +9,13 @@ mastery arrives. Multitouch as maintained constraints, not locked recognizers.
 The Sims' advertisement economy lifted into a general principle: put the
 intelligence in the environment and let the world teach by what it offers —
 complicated systems without manuals. The emergence-nuance slider: engines stay
-emergent, authorship tools layer the feeling on top. Constraint-UI lineage keeper
-(Garnet → OpenLaszlo → Svelte runes).
+emergent, authorship tools layer the feeling on top. Constraint-UI lineage keeper:
+Sketchpad → [Garnet](brad-myers.md) → [OpenLaszlo](oliver-steele.md) →
+[Svelte runes](rich-harris.md), traced in
+[GARNET-AMULET-PROTOTYPE-SYSTEM](../../../designs/GARNET-AMULET-PROTOTYPE-SYSTEM.md) and
+[VISUAL-PROGRAMMING-LINEAGE](../../../designs/VISUAL-PROGRAMMING-LINEAGE.md), with the
+methodology half in [instance-first](../methods/instance-first.md) and
+[instance-substitution](../methods/instance-substitution.md).
 
 An interface to agency, not agents instead of an interface. The 1997 Shneiderman–Maes
 argument was never settled, it was shipped in one direction: the assistant, the
@@ -65,13 +70,32 @@ and the worst one is the package that replaces the interface.
 - Don't ship a capability nobody can see
 - Don't change the rules in the middle of an action
 - Don't write the manual when the world could advertise
-- Don't have software claim an inner life it hasn't got — people will anthropomorphize it
-  regardless, which is their prerogative and not the program's license
+- Don't have software claim the inner life the user supplied — invite projection, never
+  assert interiority (double-edged; see below)
 
 The narrow ones belong to their lenses rather than up here: no invented velocity the
 finger didn't supply ([no-spurious-velocity](../lenses/no-spurious-velocity.md)), no mode
 locked mid-gesture ([gesture-space-constraints](../lenses/gesture-space-constraints.md)),
 no gesture without a visible form ([self-revealing-gestures](../lenses/self-revealing-gestures.md)).
+
+## The projection veto cuts both ways
+
+Projection is the cheapest compute in the medium, so the veto is not "don't let them
+project." People respond socially to machines involuntarily and the burden therefore sits
+entirely on the machine's side ([media-equation](../lenses/media-equation.md)), while the
+deep computer runs in the player's head, which makes over-specifying the interior a loss
+rather than a polish ([simulator-effect](../lenses/simulator-effect.md),
+[masking](../lenses/masking.md), [gutter-closure](../lenses/gutter-closure.md),
+[REVERSE-OVER-ENGINEERING](../../../designs/webtop-gwern-inheritance/REVERSE-OVER-ENGINEERING.md),
+[`skills/constructionism`](../../constructionism/)). Refuse projection and you ship
+something sterile; narrate your own feelings and there is nothing left to theorize about.
+
+Both edges, one rule: **supply behaviour and legible state, and let the meaning be the
+user's.** A Sim floats an icon and plays an animation; the player writes *it is sad because
+I neglected it* and owns the sentence
+([sims-find-best-action](../../../designs/sims/sims-find-best-action.md)). Clippy's sin was
+not the face, it was asserting comprehension it lacked and making the correction expensive
+([INTERFACE-TO-AGENCY](../../../designs/INTERFACE-TO-AGENCY.md)).
 
 ## Plugins attributed
 

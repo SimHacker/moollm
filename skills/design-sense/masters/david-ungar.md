@@ -46,7 +46,7 @@ a design stance: run the optimistic simple version until forced to deepen.
 [wwsff characters/david-ungar/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/david-ungar)
 ([fitts-and-foveation.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/david-ungar/fitts-and-foveation.md),
 reflecting-on-self.md, korz/) ·
-moollm `skills/prototype/`, `designs/object-system/SELF-AND-MOOLLM.md` ·
+moollm [`skills/prototype/`](../../prototype/), [`designs/object-system/SELF-AND-MOOLLM.md`](../../../designs/object-system/SELF-AND-MOOLLM.md) ·
 [Self: The Power of Simplicity (OOPSLA 1987)](https://bibliography.selflanguage.org/self-power.html) ·
 [selflanguage.org](https://selflanguage.org/) ·
 [Wikipedia: David Ungar](https://en.wikipedia.org/wiki/David_Ungar) ·

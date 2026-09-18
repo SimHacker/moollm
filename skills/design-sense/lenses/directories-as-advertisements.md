@@ -7,7 +7,7 @@
 In The Sims, objects broadcast advertisements — scored offers of need
 satisfaction — and agents choose by scanning what the environment yells. The
 filesystem version: a directory listing is a capability index, and filenames are
-its advertisements. `skills/design-sense/lenses/` answers "what ways of seeing
+its advertisements. [`skills/design-sense/lenses/`](./) answers "what ways of seeing
 live here?" before a single file opens; a well-named directory teaches its
 contents the way a Sims kitchen advertises hunger relief. Filenames are
 [K-lines](k-line-activation.md): `angle-at-release.md` *activates* the principle

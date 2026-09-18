@@ -26,7 +26,7 @@ moollm [skills/no-ai-humansplaining/](../../no-ai-humansplaining/) (the sin
 catalog: MANUAL-PASTING, RESPELLING, GUID-NAMING…) ·
 moollm [designs/object-system/LATENT-SPACE-INHERITANCE.md](../../../designs/object-system/LATENT-SPACE-INHERITANCE.md)
 
-**Sources:** moollm `skills/no-ai-humansplaining/`
+**Sources:** moollm [`skills/no-ai-humansplaining/`](../../no-ai-humansplaining/)
 
 **See:** [k-line-activation](k-line-activation.md) — the mechanism this lens
 exploits · [../methods/latent-space-inheritance.md](../methods/latent-space-inheritance.md) —

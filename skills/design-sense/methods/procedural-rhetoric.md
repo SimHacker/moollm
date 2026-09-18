@@ -1,7 +1,7 @@
 # Procedural Rhetoric
 
 **Class:** method · **Attribution:** Ian Bogost (*Persuasive Games*, MIT Press 2007)
-**Dispatch:** whole skill at moollm `skills/procedural-rhetoric/` — load it; this entry is the design-sense pointer.
+**Dispatch:** whole skill at moollm [`skills/procedural-rhetoric/`](../../procedural-rhetoric/) — load it; this entry is the design-sense pointer.
 
 > **Rules are arguments. Design them on purpose or they design themselves.**
 
@@ -24,7 +24,7 @@ The method cuts both ways:
 *Persuasive Games: The Expressive Power of Videogames* (MIT Press, 2007) ·
 Bogost, ["Video Games Are Better Without Characters"](https://www.theatlantic.com/technology/archive/2015/03/video-games-are-better-without-characters/387556/) (The Atlantic, 2015)
 
-**Sources:** moollm `skills/procedural-rhetoric/` ·
+**Sources:** moollm [`skills/procedural-rhetoric/`](../../procedural-rhetoric/) ·
 wwsff `characters/ian-bogost/sources/procedural-rhetoric-quote.yml` ·
 wwsff `bits/theme-procedural-rhetoric/` · wwsff `catalogs/simprov/` (the Wedding
 Playset as a procedural-rhetoric anthology)

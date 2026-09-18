@@ -1,7 +1,7 @@
 # Seymour Papert
 
 **Class:** master · **Head:** constructionism; microworlds; objects to think with
-**Dispatch:** whole skill at moollm `skills/constructionism/` — load it; this entry is the design-sense pointer.
+**Dispatch:** whole skill at moollm [`skills/constructionism/`](../../constructionism/) — load it; this entry is the design-sense pointer.
 
 Learning is building inspectable things in public — constructionism, learning by
 making shareable artifacts. Microworlds: bounded, honest little universes
@@ -16,7 +16,7 @@ the lineage through Resnick's wide walls to Snap!'s no ceiling).
 
 - **Let them build shareable things** — knowledge is constructed by making an
   artifact someone else can inspect (constructionism: moollm
-  `skills/constructionism/`, [*Mindstorms*](https://en.wikipedia.org/wiki/Mindstorms_(book)))
+  [`skills/constructionism/`](../../constructionism/), [*Mindstorms*](https://en.wikipedia.org/wiki/Mindstorms_(book)))
 - **Make the bug the curriculum** — debugging is the most honest form of thinking
   about thinking ([play-learn-lift](../methods/play-learn-lift.md))
 - **Build microworlds with honest laws** — small enough to live in, true enough to
@@ -50,4 +50,4 @@ constructionist practice) · microworld thinking behind
 *Mindstorms: Children, Computers, and Powerful Ideas* (1980) ·
 [Wikipedia: Seymour Papert](https://en.wikipedia.org/wiki/Seymour_Papert) ·
 [Wikipedia: Constructionism](https://en.wikipedia.org/wiki/Constructionism_(learning_theory)) ·
-moollm `skills/constructionism/`
+moollm [`skills/constructionism/`](../../constructionism/)

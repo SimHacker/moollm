@@ -23,7 +23,7 @@ moollm [kernel/constitution-core.md](../../../kernel/constitution-core.md) §3 �
 the constitutional statement · moollm [skills/yaml-jazz/](../../yaml-jazz/) —
 the format that motivated the axiom
 
-**Sources:** moollm `kernel/constitution-core.md` §3
+**Sources:** moollm [`kernel/constitution-core.md`](../../../kernel/constitution-core.md) §3
 
 **See:** [comments-as-data](comments-as-data.md) — the channel that keeps axis
 two alive · [sniff-depths](sniff-depths.md) ·

@@ -1,7 +1,7 @@
 # Worse Is Better
 
 **Class:** method · **Attribution:** Richard Gabriel, "Lisp: Good News, Bad News, How to Win Big" (1989)
-**Dispatch:** kin skill at moollm `skills/format-design/` — this entry is the design-sense pointer.
+**Dispatch:** kin skill at moollm [`skills/format-design/`](../../format-design/) — this entry is the design-sense pointer.
 
 > **Can you remove more?**
 
@@ -32,7 +32,7 @@ Gabriel's own hub, with the original essay and the decade of self-rebuttals ·
 ["The Rise of Worse Is Better"](https://dreamsongs.com/RiseOfWorseIsBetter.html) ·
 [Wikipedia: Worse is better](https://en.wikipedia.org/wiki/Worse_is_better)
 
-**Sources:** moollm `skills/format-design/`
+**Sources:** moollm [`skills/format-design/`](../../format-design/)
 
 **See:** [../masters/richard-gabriel.md](../masters/richard-gabriel.md) ·
 [power-of-simplicity](power-of-simplicity.md) — Ungar's simplicity is about the

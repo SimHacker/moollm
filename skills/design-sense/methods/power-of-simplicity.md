@@ -10,6 +10,6 @@ cleverly arranged. Keeping the surface feature while losing the simplicity (the
 JavaScript veneer) misses the entire point.
 
 **Sources:** wwsff `characters/david-ungar/` (CHARACTER.yml, ideas.md) ·
-moollm `designs/object-system/SELF-AND-MOOLLM.md`
+moollm [`designs/object-system/SELF-AND-MOOLLM.md`](../../../designs/object-system/SELF-AND-MOOLLM.md)
 
 **See:** [everything-is-concrete](everything-is-concrete.md), [worse-is-better](worse-is-better.md)

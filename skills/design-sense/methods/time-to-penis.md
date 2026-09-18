@@ -20,10 +20,10 @@ TTP is not (only) a joke — it's a design method with teeth:
   gallery quarantine vs. leaning in) is procedural rhetoric about who your world
   belongs to.
 
-**Go deeper:** moollm `designs/GLOSSARY.md` (TTP entry) — Spore coinage and the
+**Go deeper:** moollm [`designs/GLOSSARY.md`](../../../designs/GLOSSARY.md) (TTP entry) — Spore coinage and the
 design implications · Mythic Quest S1 (the shovel arc)
 
-**Sources:** moollm `designs/GLOSSARY.md` · wwsff eBike Safari catalog notes
+**Sources:** moollm [`designs/GLOSSARY.md`](../../../designs/GLOSSARY.md) · wwsff eBike Safari catalog notes
 
 **See:** [failure-as-entertainment](failure-as-entertainment.md) — Calvin Syndrome
 is TTP's cousin: players probe with destruction before they build. Also

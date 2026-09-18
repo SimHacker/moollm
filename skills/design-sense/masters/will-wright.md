@@ -55,8 +55,8 @@ user-created content over movie-model lock-in.
 
 [wwsff characters/will-wright/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/will-wright)
 (README, sources: 1996 Winograd talk, 2001 GDC Design Plunder, 2006 Long Now with
-Eno, 2006 New Yorker profile) · moollm `skills/simulator-effect/`,
-`skills/advertisement/`, `skills/needs/` ·
+Eno, 2006 New Yorker profile) · moollm [`skills/simulator-effect/`](../../simulator-effect/),
+[`skills/advertisement/`](../../advertisement/), [`skills/needs/`](../../needs/) ·
 [Long Now: "Playing with Time" with Eno (2006)](https://longnow.org/seminars/02006/jun/26/playing-with-time/) ·
 [Wikipedia: Will Wright](https://en.wikipedia.org/wiki/Will_Wright_(game_designer)) ·
 see [brian-eno](brian-eno.md), [yoot-saito](yoot-saito.md), [craig-reynolds](craig-reynolds.md)

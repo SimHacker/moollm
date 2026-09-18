@@ -1,7 +1,7 @@
 # Richard Gabriel
 
 **Class:** master · **Head:** worse is better; poetry of systems
-**Dispatch:** kin skill at moollm `skills/format-design/` — this entry is the design-sense pointer.
+**Dispatch:** kin skill at moollm [`skills/format-design/`](../../format-design/) — this entry is the design-sense pointer.
 
 "Worse is Better" (1989): simplicity of implementation beats completeness,
 correctness, and even consistency at winning the world — the New Jersey approach
@@ -20,12 +20,12 @@ poet-programmer.
   and nowhere; plan the repair phase honestly
 - **Argue with yourself in public** — the decade of self-rebuttals (as Nickieben
   Bourbaki) is the model: hold the position and its critique at once (moollm
-  `skills/no-ai-sycophancy/` — respect is not agreement, even with yourself)
+  [`skills/no-ai-sycophancy/`](../../no-ai-sycophancy/) — respect is not agreement, even with yourself)
 - **Workshop the writing like code, and the code like writing** — patterns,
   writers' workshops, *Patterns of Software*: systems are literature with a
   compiler ([sister-script](../methods/sister-script.md) kin)
 - **Keep asking: can you remove more?** — the format-design checklist's last
-  question is the whole method (moollm `skills/format-design/`)
+  question is the whole method (moollm [`skills/format-design/`](../../format-design/))
 
 ## Vetoes
 
@@ -41,4 +41,4 @@ poet-programmer.
 
 ["Worse Is Better" (dreamsongs.com)](https://dreamsongs.com/WorseIsBetter.html) ·
 [Wikipedia: Worse is better](https://en.wikipedia.org/wiki/Worse_is_better) ·
-moollm `skills/format-design/`
+moollm [`skills/format-design/`](../../format-design/)

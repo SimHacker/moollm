@@ -80,7 +80,7 @@ a new candidate starts the agreement over.
 [Wikipedia: Undo](https://en.wikipedia.org/wiki/Undo) ·
 [Wikipedia: Random seed](https://en.wikipedia.org/wiki/Random_seed)
 
-**Sources:** [MicropolisCore `documentation/designs/generative-history-and-proposals.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/generative-history-and-proposals.md) (the implementation spec) · [moollm `designs/INTERFACE-TO-AGENCY.md`](../../../designs/INTERFACE-TO-AGENCY.md) (who is allowed to drive)
+**Sources:** [MicropolisCore `documentation/designs/generative-history-and-proposals.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/generative-history-and-proposals.md) (the implementation spec) · [moollm [`designs/INTERFACE-TO-AGENCY.md`](../../../designs/INTERFACE-TO-AGENCY.md)](../../../designs/INTERFACE-TO-AGENCY.md) (who is allowed to drive)
 
 **See:** [instance-first](instance-first.md) · [tuned-emergence](tuned-emergence.md) ·
 [find-best-n-dither](find-best-n-dither.md) — pick among candidates instead of trusting one ·
