@@ -100,6 +100,26 @@ art, behaviour trees and pie menus, and the community has been minting them for 
 the egg is not a hypothetical engine feature. It is a **custom object**, built the way Sims objects have
 always been built, and everything below is a use of machinery Maxis shipped rather than a change to it.
 
+It is called an egg for both meanings at once, and both are accurate. An **Easter egg** is a hidden
+surprise you find by looking, which is what a small object sitting in a room is; a literal egg contains
+something and opens exactly once, which is what a pending result does. The name teaches the mechanic
+instead of decorating it — and the pun keeps paying, because an egg that brightens for a known few
+frames to signal the layer is winking at the camera in every sense of the phrase.
+
+It carries its value in the open, as colour bands up its body read like a resistor: position is the
+digit, colour is the value, with a white cap above a black cap to mark where the stack starts and ends,
+set the scale (a cap is exactly one band tall, so the egg is self-describing at any zoom), and hand the
+reader a known white and a known black to correct colour against. That last job matters because there
+are two ways to read one and they are wildly different work. **From a screen grab it is cheap and
+exact**: the frame comes off the compositor with no optics in the way, every pixel is the pixel the game
+drew, and two pixels a band decodes reliably. **Through a phone camera pointed at a monitor it is
+hard**: perspective, sensor noise, a warm cast off the room's lighting, soft focus, glare, and moire
+between the pixel grid and the sensor grid — and the measured floor rises to six pixels a band. The
+caps are what make the second case survivable, since a photograph taken in evening light corrects
+itself against them rather than needing to be told what the light was. Both numbers are measured rather
+than asserted, and the camera path is not a stunt: it is how you read a screen you do not own — a
+stream, a friend's monitor, a photograph of a game running on a machine you will never touch.
+
 The errand is **remote work in the sense the phrase never means**: not a different lot, not a downtown
 tile — a job in a *different game*. A Sim walks to the carpool and vanishes, and what she is doing for
 the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
