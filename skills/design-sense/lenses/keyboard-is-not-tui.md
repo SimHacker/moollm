@@ -8,6 +8,11 @@
 > information density, and remote reach — none of which require a character
 > cell.**
 
+Terms first: CLI, TUI and GUI are defined in
+[cli-not-tui](cli-not-tui.md#the-three-things-since-the-whole-lens-is-that-people-conflate-them).
+Short version for this page: a TUI paints character cells and captures keystrokes, so it is
+a graphical application whose framebuffer happens to be a text grid.
+
 The strongest TUI arguments in the thread were not about terminals. They were
 about a Papa John's order-entry screen that beat every later GUI restaurant
 system because it was keyboard-speed; about Magit and k9s and ncdu being
