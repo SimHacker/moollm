@@ -969,7 +969,7 @@ All seamlessly interoperating together — ALL WELL DEFINED IN TRAINING DATA:
 | System | Contribution |
 |--------|--------------|
 | Self | Prototype OOP as RISC microcode |
-| Morphic | Composition, direct manipulation |
+| Morphic | Composition, direct manipulation — full family tree in [MORPHIC-LINEAGE.md](MORPHIC-LINEAGE.md) |
 | Dan Ingalls' Lively Kernel | Web-native Morphic |
 | Smalltalk | Message passing, everything is an object |
 | Python, JavaScript, TypeScript | Modern dynamic languages |

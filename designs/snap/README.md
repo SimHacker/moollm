@@ -24,6 +24,7 @@ Each `.md` has a `.yml` sidecar carrying the same material as structured data.
 | [y-combinator-in-blocks.md](y-combinator-in-blocks.md) | The Y combinator built out of blocks — recursion without a name to recurse on, made visible |
 | [snap-macros-metaprogramming.md](snap-macros-metaprogramming.md) | Brian on macros, unevaluated inputs, and blocks that build blocks |
 | [morphic-js.md](morphic-js.md) | Jens' Morphic in JavaScript: the live direct-manipulation object world Snap! is built on, from Self through Squeak |
+| [../MORPHIC-LINEAGE.md](../MORPHIC-LINEAGE.md) | The whole Morphic family tree Snap! sits in: Self, Squeak, Tweak, Cuis's Morphic 3, Lively's three generations, GP/MicroBlocks, and the Common Lisp attempts |
 | [gp-alan-kay-lineage.md](gp-alan-kay-lineage.md) | GP, and the line back through Alan Kay's group — John Maloney, Yoshiki Ohshima |
 | [sap-research-and-snap.md](sap-research-and-snap.md) | Jens' day job and how the research work relates to Snap! |
 

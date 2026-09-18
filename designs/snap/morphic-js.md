@@ -25,7 +25,7 @@ Self Morphic → Squeak/Scratch morphs → Dan Ingalls Lively Kernel → Morphic
 | -------------------- | ------------------------------ | --------------------------------------------------------------- |
 | **Self**             | David Ungar & Randall Smith    | Object soup on screen — morphs you grab and reshape             |
 | **Squeak / Scratch** | MIT lineage                    | Morphs in every student's hands before blocks languages split   |
-| **Lively Kernel**    | Dan Ingalls                    | Full live system — `lively-kernel-morphic.md` |
+| **Lively Kernel**    | Dan Ingalls                    | Full live system — [the Ingalls JS branch](../MORPHIC-LINEAGE.md#branch-3--javascript-the-ingalls-line) |
 | **Morphic.js**       | Jens Mönig                     | Single-file kernel; Snap!'s canvas, menus, halos, IDE chrome |
 | **Snap!**            | Jens + Brian Harvey's pedagogy | Blocks on top; Morphic underneath                               |
 
@@ -170,7 +170,8 @@ Contributors include Nathan Dinsmore (mouse wheel, perf), Bartosz Leper (retina)
 | `world.schedule()` / stepping | Replay scrubber, smell diffusion ticks, animal herding sim |
 | External `droppedImage` + PNG metadata | Drop YAML-jazz / peerboard stains onto map morphs |
 
-Full lineage map: Alan Kay — morphic-lineage.md.
+Full lineage map: [MORPHIC-LINEAGE.md](../MORPHIC-LINEAGE.md) — Self, Squeak, Tweak, Cuis,
+the two JavaScript branches, GP/MicroBlocks, and the Common Lisp attempts.
 
 ---
 
@@ -193,7 +194,7 @@ Full lineage map: Alan Kay — morphic-lineage.md.
 | Blocks + metaprogramming           | [Brian's macros digest](snap-macros-metaprogramming.md)                                    |
 | Micropolis × Snap! (2018)          | micropolis-snap-2018.yml · readable |
 | Constraint bridge (runes + blocks) | [micropolis-svelte-snap-constraint-bridge.md](micropolis-svelte-snap-constraint-bridge.md)  |
-| Dan Ingalls — Lively lineage       | Dan's Lively Web digest |
+| Dan Ingalls — Lively lineage       | [MORPHIC-LINEAGE.md § Ingalls line](../MORPHIC-LINEAGE.md#branch-3--javascript-the-ingalls-line) |
 | David Ungar — Self / Morphic birth | David's room                                                                           |
 | Palmhoo shelf                      | Code & Craft — Morphic.js                                                |
 | Palm's Snap! questions             | questions.yml                                 |
