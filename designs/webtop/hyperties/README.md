@@ -160,8 +160,11 @@ HyperTIES
 TIES
 ```
 
-The census across the storyboard databases in the archive: **261 articles, 142 of which declare
-synonyms** — `.synonyms` used 109 times and `.synonym` 33. Full directive table in
+The census across the storyboard databases in the archive: **264 storyboards, 136 of which declare
+synonyms** — `.synonyms` used 107 times and `.synonym` 29, which the formatter aliases to one field.
+And the names resolve into **three namespaces, not one**: the index manager indexes documents,
+pictures and targets in parallel, so a phrase in prose can land on an article, an image, or a live
+arbitrarily-shaped region inside an image. Full directive table, alias table and index structure in
 [ARTICLE-SCHEMA.md](ARTICLE-SCHEMA.md).
 
 The 1991 paper names the property this creates, in passing, while explaining why graphical links are

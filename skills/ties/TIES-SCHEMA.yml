@@ -157,7 +157,7 @@ fields:
     type: string
     rung: name
     what: "canonical, human-facing. What a synonym resolves TO."
-    ancestor: ".title, 261 uses in the 1988 archive"
+    ancestor: ".title, 254 uses in the 1988 archive — the index manager's n_principals"
 
   id:
     required: false
@@ -178,7 +178,14 @@ fields:
     type: [string]
     rung: name
     what: "every alias under which this node may be mentioned in prose"
-    ancestor: ".synonyms — 142 of 261 articles declared them"
+    ancestor: ".synonyms — 136 of 264 storyboards declared them, counting the .synonym alias"
+    resolves_to_three_kinds: >
+      Weiland's index manager is `struct index *documents, *pictures, *targets` — one resolution
+      mechanism over THREE namespaces. A name in prose could land on a storyboard, a picture, or a
+      target (an arbitrarily-shaped live region inside a picture: an embedded menu with pop-up
+      shapes, an applet addressed by name). Aliasing is in the index's shape, not layered on it —
+      n_principals counts titles, n_entries counts titles plus synonyms — so a synonym costs exactly
+      what a title costs to resolve.
     why_load_bearing: >
       The 1991 paper's aside is the whole argument: text links are "self-naming", graphical ones are
       not. The synonym list is the mechanism that makes self-naming true. You write the sentence you
@@ -228,7 +235,11 @@ fields:
     the_point_of_declaring_a_pointer: >
       `description: CARD.yml` does not inline anything. It says THIS RUNG EXISTS AND IS THERE, which
       is what an orchestrator needs in order to plan. Declaring presence is the job.
-    ancestor: ".description — 62 uses"
+    ancestor: >
+      NONE — and this is the only rung without one. `.description` was an ALIAS for `.definition`
+      (`alias .description .definition`, fmt.f), so HyperTIES had one prose preview slot and this
+      rung is not descended from anything in 1988. It stands on MOOLLM's own use of CARD.yml.
+      See RUNGS.yml → description.no_ancestor_because.
 
   body:
     required: false

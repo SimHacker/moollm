@@ -27,18 +27,34 @@ definition**, and a single click showed it; a double click followed the link. Th
 
 The surviving archive census is in
 [`../../designs/webtop/hyperties/ARTICLE-SCHEMA.md`](../../designs/webtop/hyperties/ARTICLE-SCHEMA.md),
-and it is a receipt rather than a recollection:
+and it is a receipt rather than a recollection. **The article has exactly four parts**, because the
+formatter aliases the second spellings to the same FORTH word — `alias .description .definition`,
+`alias .synonym .synonyms`, `alias .content .contents` in `fmt.f` — so counting the spellings
+separately invents fields that never existed:
 
-| Directive | Uses | What it was |
-|---|---|---|
-| `.title` | 261 | canonical article name — one per article |
-| `.definition` | **197** | the mandatory abstract shown on single click |
-| `.contents` | 112 | the body |
-| `.description` | 62 | the longer prose one |
-| `.target` | 186 | arbitrarily-shaped embedded graphical regions |
+| Field | Uses | Spellings | What it was |
+|---|---|---|---|
+| `.title` | 254 | — | canonical name, one per article, the index's *principal* |
+| `.definition` | **246** | `.definition` + `.description` | the mandatory abstract shown on single click |
+| `.target` | 187 | — | arbitrarily-shaped live regions: embedded menus inside pictures |
+| `.synonyms` | **136** | `.synonyms` + `.synonym` | every alias that resolves to this article |
+| `.contents` | 118 | `.contents` + `.content` | the body |
 
-261 articles, **197 carrying a definition, 142 declaring synonyms.** The schema was the working
+264 storyboards, **246 carrying a definition, 136 declaring synonyms.** The schema was the working
 discipline, not an aspiration, because the authoring tool refused to let an article exist without one.
+
+### Resolution is one mechanism over three namespaces
+
+Weiland's index manager indexes **documents, pictures and targets** in parallel — `struct index
+*documents, *pictures, *targets` is the whole of `MASTER_INDEX` — so a name in prose resolves to a
+storyboard, a picture, or a target, where a target is an arbitrarily-shaped live region inside a
+picture: **an embedded menu with pop-up shapes, an applet addressed by name.** One namespace
+mechanism, three kinds of destination, and the prose does not have to know which it got.
+
+Aliasing is in the index's shape rather than layered on top of it — `n_principals` counts titles,
+`n_entries` counts titles plus synonyms — which is why resolving a synonym costs exactly what
+resolving a title costs. And the master index is itself a generated article carrying the synonym
+`!index`, so the index lives inside the encyclopedia it indexes.
 
 Don Hopkins built the NeWS implementation, the pie menus, and the Emacs-based authoring tools —
 see [`TEAM.md`](../../designs/webtop/hyperties/TEAM.md). The synonym mechanism is why a link in prose

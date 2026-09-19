@@ -1,8 +1,9 @@
 # The HyperTIES article schema
 
-**An article had a title, a synonym list, a description, and a body.** Four parts, required by the
-markup, in 1988. That schema is the semantic pyramid with an addressing layer bolted to the front,
-and it is the single most important thing in this pack.
+**An article had a title, a synonym list, a definition, and a body.** Four parts, required by the
+markup, in 1988 — and exactly four, because three of the six directives people count are second
+spellings aliased to the same field (see below). That schema is the semantic pyramid with an
+addressing layer bolted to the front, and it is the single most important thing in this pack.
 
 The schema itself is settled by the storyboard source below. **Authorship of the code that
 implemented it is a separate question, and the division of labor was real.** Don wrote the page
@@ -62,22 +63,103 @@ are whitespace-delimited, so the space after `.~` was required by the tokenizer.
 parser accepted the clean `~name~` instead. The archive is prototype-era throughout; see
 [LINK-RESOLUTION.md](LINK-RESOLUTION.md) for which form to revive and why.
 
+## Three of the directives are two spellings of one field
+
+**Read the formatter's alias table before counting anything.** From `fmt.f` (and identically in
+`foremat.c`), the whole of it:
+
+```forth
+alias .left      .line
+alias .buttonl   .buttonline
+alias .synonym   .synonyms
+alias .description .definition
+alias .content   .contents
+```
+
+So `.description` **is** `.definition` — the same slot, under a second spelling, dispatching to the
+same FORTH word. There is no separate longer-prose field, and `ties-doc.txt`, the authoritative
+internal spec, documents only `.definition`: *"Starts with the line `.definition`."* The archive
+agrees by the strongest available test — **no article anywhere carries both**, because they cannot;
+they are one field. Same for `.synonym`/`.synonyms` and `.content`/`.contents`. The index manager
+makes the equivalence explicit in its parse, accepting both in one command string:
+
+```c
+FindCommand ("synonyms synonym ", &start, &args, &next, storyboard);
+```
+
+Which is why the opening sentence of this document is exactly right and the census table below it
+used to disagree with it: **four parts, not six.**
+
 ## Directive census
 
-Counted across the storyboard databases in the local archive. This is not a feature that existed on
-paper — it was used everywhere.
+Counted across `archive/` and `ties/` in `Leela/git/lloooomm-imports`, 264 `.st0` files, editor
+backups (`.st0~`, `.BAK`) excluded because they double-count. Alias pairs summed, since the parser
+sums them:
 
-| Directive | Uses | Role |
-|---|---|---|
-| `.title` | 261 | Canonical article name |
-| `.definition` | 197 | The mandatory abstract shown on single click |
-| `.contents` | 112 | The body |
-| `.synonyms` / `.synonym` | 109 / 33 | Alternate names that resolve to this article |
-| `.description` | 62 | Longer prose description |
-| `.target` | 186 | Arbitrarily-shaped graphical embedded menu regions |
+| Field | Uses | Spellings | Role |
+|---|---|---|---|
+| `.title` | **254** | — | canonical article name; one per article, and the index's principal |
+| `.definition` | **246** | `.definition` 190 + `.description` 56 | the mandatory abstract shown on single click |
+| `.target` | **187** | — | arbitrarily-shaped graphical regions; embedded menus inside pictures |
+| `.synonyms` | **136** | `.synonyms` 107 + `.synonym` 29 | alternate names resolving to this article |
+| `.contents` | **118** | `.contents` 108 + `.content` 10 | the body |
+| `.picture` | **38** | — | an image, itself a resolvable name |
 
-261 articles; 197 of them carry a definition; 142 declare synonyms. The schema was the working
-grain of the system, not an aspiration.
+264 storyboards, 254 with a title, **246 carrying a definition, 136 declaring synonyms.** The schema
+was the working grain of the system, not an aspiration. Reproduce with:
+
+```bash
+cd Leela/git/lloooomm-imports
+find archive ties -name '*.st0' -print0 | xargs -0 rg --no-filename '^\.definition\b' -o | wc -l
+```
+
+`provenance:` counted 19 Sep 2026 from the archive on disk. Earlier revisions of this table gave
+261/197/112/62/186 and listed `.description` as a separate "longer prose" field — the field was an
+alias, and the totals came from a file set that included backups.
+
+## The index manager resolves three namespaces, not one
+
+Weiland's index manager does not index documents. It indexes **documents, pictures, and targets**,
+in parallel, and that is the entire structure (`master-index.h`):
+
+```c
+typedef struct master_index
+    {
+    struct index *documents, *pictures, *targets;
+    }
+    MASTER_INDEX;
+```
+
+So a name resolves to a storyboard, *or* to a picture, *or* to a target — a target being an
+arbitrarily-shaped live region inside a picture, which is to say **an embedded menu with pop-up
+shapes, an applet addressed by name.** One resolution mechanism, three kinds of destination. The
+generated master index is one file with `----- PICTURES -----` and `----- TARGETS -----` section
+markers (`make-index.c`), so the three namespaces are visible in the artifact.
+
+Each index distinguishes canonical names from aliases in its own counters (`index.h`):
+
+```c
+typedef struct index
+    {
+    long n_entries;
+    long n_principals;
+    struct tree *root;
+    }
+    INDEX;
+```
+
+**`n_principals` is titles; `n_entries` is titles plus synonyms.** Aliasing is not a layer on top of
+the index — it is in the index's shape, which is what makes resolution by synonym cost the same as
+resolution by title.
+
+And the master index is itself an article, reachable by a synonym (`make-index.c`):
+
+```c
+fputs (".title\nMaster Index\n\n.synonyms\n!index\n\n.content\n\n", master_index);
+```
+
+A generated article, named `!index`, in the same namespace it describes. The index is in the
+encyclopedia.
 
 ## Why synonyms are the load-bearing part
 
