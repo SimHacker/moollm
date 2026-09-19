@@ -93,6 +93,15 @@ items), game (advertisement economy as UI, Sims storytelling spectrum), software
   germinated the seed set: lenses fitts, foveation, stage-magic; methods
   design-by-accretion, tuned-emergence; masters will-wright, david-ungar,
   chris-trottier.
+- 2026-09-19 — **view-state-is-the-users planted**, straight from Don's rant about
+  Quora's three independent folding mechanisms: expansion state a reader assembled
+  by hand is the reader's, and one wrong click that destroys it with no undo and no
+  address is a data-loss bug. Third sighting of the same principle (Nelson's
+  clipboard in READING-CURSORS, the Google Maps shake-UNDO on the bike mount, now
+  Quora), so it earned a file instead of a seed. Tests: how many actions back to
+  where I was, and can you link to the expanded view. New lenses ad:
+  designing-reading-and-navigation. Registries now 32 lenses / 33 methods /
+  59 masters.
 - 2026-09-17 — **keep-the-seed planted.** Don's multiplayer SimCity city-proposal
   design, from the notes in the Micropolis source: page through proposed cities,
   recover generated terrain because the RNG seed was saved, and proposing clears

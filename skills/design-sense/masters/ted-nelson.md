@@ -29,17 +29,26 @@ computers NOW."
   belongs to everyone ([tourist-policy](../methods/tourist-policy.md) as a
   publishing program)
 
+- **Let the reader see and edit the machinery of reading** — his case against the
+  clipboard is that it is invisible, singular and uneditable: it holds something of
+  yours that you are not allowed to look at. Accumulated view state fails on the same
+  three axes ([view-state-is-the-users](../lenses/view-state-is-the-users.md),
+  [READING-CURSORS](https://github.com/SimHacker/moollm/blob/main/designs/webtop/READING-CURSORS.md),
+  [VIEWS-AS-TESTIMONY](https://github.com/SimHacker/moollm/blob/main/designs/pie-stack-views/VIEWS-AS-TESTIMONY.md))
+
 ## Vetoes
 
 - Don't cut the link back to context — a quote without its source route is theft by interface
 - Don't let the file-and-folder metaphor dictate what knowledge can be
 - Don't build one-way links and call the rot inevitable
+- Don't hold the user's own material somewhere they can't see, name, keep, or edit it
 
 ## Plugins attributed
 
 Conscience behind [point-dont-copy](../methods/point-dont-copy.md) (when planted —
-transclusion is its gold standard) and the K-line/pointer discipline in
-[../lenses/k-line-activation.md](../lenses/k-line-activation.md).
+transclusion is its gold standard), the K-line/pointer discipline in
+[../lenses/k-line-activation.md](../lenses/k-line-activation.md), and the clipboard
+argument under [view-state-is-the-users](../lenses/view-state-is-the-users.md).
 
 ## Sources
 

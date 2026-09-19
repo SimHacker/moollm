@@ -45,13 +45,20 @@ advertisements:
 
   exploring-data:
     offer: "Queries, dashboards, filters, information seeking"
-    load: [dynamic-queries, direct-manipulation, p-pyramid-attention]
+    load: [dynamic-queries, direct-manipulation, p-pyramid-attention,
+           view-state-is-the-users]
+
+  designing-reading-and-navigation:
+    offer: "Long documents, threaded discussions, feeds, anything with folds,
+            expansion, scroll position or a back button"
+    load: [view-state-is-the-users, semantic-mipmap, foveation,
+           p-pyramid-attention, level-band, calm-not-invisible]
 
   auditing-an-existing-ui:
     offer: "Something feels wrong; name which principle broke"
     load: [direct-manipulation, calm-not-invisible, no-spurious-velocity,
            fitts, memorably-differentiate-commands, cli-not-tui,
-           keyboard-is-not-tui]
+           keyboard-is-not-tui, view-state-is-the-users]
 
   choosing-an-interface-substrate:
     offer: "CLI, TUI, native, web — which surface, and why"
