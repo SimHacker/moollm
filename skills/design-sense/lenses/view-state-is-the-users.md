@@ -53,6 +53,25 @@ by hand once and re-publish it flat, top to bottom, quotable and linkable. When
 readers start maintaining mirrors of your content in a different medium, that is
 the bug report.
 
+## The layer underneath: a verdict, not a position
+
+Expansion state says where you *were*. It does not say what you **concluded**, which is the
+state that decides whether a thread can be read twice. `visited` is a fact about the
+machine's history; *read* is a verdict a reader issues, and it is not one bit — browser
+history paints "skimmed" and "extracted three quotes from" the same purple.
+
+Two additions to the test, then, for any reader interface:
+
+- **Can the reader mark a verdict, and is the marking gesture one they are already
+  performing?** Pointing and lingering is the candidate, because dwell has been instrumented
+  since OpenLaszlo and is currently spent on predicting the next click and discarded.
+- **Does a change arrive as a relit room on a map you know, or as a badge with a number?**
+  Unread is a *diff* against the version you judged, not a flag — and the flag is why every
+  feed makes you re-find your place.
+
+Worked out, with the verdict lattice and the existing verb set it composes from:
+[designs/webtop/READ-UNREAD.md](https://github.com/SimHacker/moollm/blob/main/designs/webtop/READ-UNREAD.md)
+
 ## The test
 
 **After a wrong click, how many actions to get back to where I was?** Zero (it
