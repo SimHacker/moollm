@@ -1,6 +1,7 @@
 # Alan Kay
 
-**Class:** master · **Head:** personal dynamic media; late binding; children first
+**Class:** master · **Head:** personal dynamic media; late binding; children first;
+systems organisation over better parts
 
 The Dynabook: a personal dynamic medium for creative thought, designed for
 children — if it works for children learning by making, it works. Smalltalk's real
@@ -26,6 +27,16 @@ predict the future is to invent it.
 - **Treat the computer as an instrument** — the music is ideas; practice, don't
   just operate ([the Saito interview](https://github.com/YootTowerManagement/YootTower/blob/main/Yoot_Saito_Alan_Kay_Interview/Yoot_Saito_Alan_Kay_Interview.md)
   plays the whole tune)
+- **Design the organisation of the parts, not a better part** — the leverage is in
+  how active, less capable components combine into more capable systems, which is
+  also why the schedule is unguessable:
+
+  > And, when systems organisations are a key element for a new invention, the
+  > non-linearities involved make good guesses really difficult. This is compounded
+  > by the short-sightedness of universities in their transition into what are
+  > essentially trade schools for legacy systems in business.
+  >
+  > — Quora, Sept 2026 ([recap](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/alan-kay/media/quora-recaps/agi-paradigm-shifts-and-no-moores-law-for-software.md#trade-schools-for-legacy-systems--the-classic-line))
 
 ## Vetoes
 
@@ -33,6 +44,10 @@ predict the future is to invent it.
 - Don't early-bind what the future will want to change
 - Don't design down to children — design *for* them and everyone gains
 - Don't mistake a better horse for the automobile (incrementalism as vision)
+- Don't schedule a systems-organisation invention by extrapolating component
+  progress — the non-linearity is the whole difficulty
+- Don't let a curriculum teach only the arrangements that already exist; a trade
+  school for legacy systems cannot produce the people who replace them
 
 ## Plugins attributed
 
@@ -47,4 +62,8 @@ Kay & Goldberg, "Personal Dynamic Media" (1977) · "The Early History of Smallta
 [The Yoot Saito / Alan Kay Interview (1993, MACWORLD Japan)](https://github.com/YootTowerManagement/YootTower/blob/main/Yoot_Saito_Alan_Kay_Interview/Yoot_Saito_Alan_Kay_Interview.md) —
 Kay's whole arc (Flex, PARC, GUI, Dynabook, Smalltalk) told to a game designer,
 with the HOPL paper open on the table; see [yoot-saito](yoot-saito.md) ·
+[Quora, Sept 2026 — AGI, paradigm shifts, and no Moore's Law for software](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/alan-kay/media/quora-recaps/agi-paradigm-shifts-and-no-moores-law-for-software.md) —
+the trade-schools line, "A Moore's Law for Software didn't happen," "(Triples aren't
+it!)", and the Theory of Psychologies ·
+[the Quora recaps shelf](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/alan-kay/media/quora-recaps) ·
 wwsff `characters/alan-kay/` · moollm object-system docs (Smalltalk → Self lineage)
