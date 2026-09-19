@@ -12,6 +12,7 @@ Exit 0 clean, 1 on any error, 0 on warnings alone.
 """
 
 import argparse
+import os
 import pathlib
 import re
 import sys
@@ -120,7 +121,13 @@ def path_exists(parent: pathlib.Path, ref: str) -> bool:
     return (parent / ref).exists()
 
 
-def organelles(path: pathlib.Path, doc: dict, rep: Report, inherited: dict | None = None) -> None:
+def organelles(
+    path: pathlib.Path,
+    doc: dict,
+    rep: Report,
+    inherited: dict | None = None,
+    sources: dict | None = None,
+) -> None:
     """Validate the membrane, never the contents. The guest keeps its own genome."""
     guests = doc.get("x")
     if guests is None:
@@ -134,47 +141,106 @@ def organelles(path: pathlib.Path, doc: dict, rep: Report, inherited: dict | Non
         if not isinstance(body, dict):
             rep.error(path.name, f"x.{name} must be a sub-object — a membrane, not a bare value")
             continue
-        schema = body.get("schema") or (from_proto.get(name) or {}).get("schema")
+        schema = body.get("schema")
+        # Say which ancestor supplied it. An inherited schema is a real answer from a real
+        # file, so it is indistinguishable from a local one unless the source is named --
+        # and a guest whose genome comes from four piles up is worth seeing.
+        via = ""
+        if not schema:
+            schema = (from_proto.get(name) or {}).get("schema")
+            if schema:
+                via = f" (inherited from {(sources or {}).get('x', 'an ancestor')})"
         if not schema:
             rep.error(path.name, f"x.{name} has no schema: pointer here or in its prototype — an organelle without its own genome is just clutter in the host")
         elif name not in KNOWN_GUESTS:
-            rep.info(path.name, f"x.{name} is an unrecognised guest schema, preserved as-is ({schema})")
+            rep.info(path.name, f"x.{name} is an unrecognised guest schema, preserved as-is ({schema}){via}")
 
 
-def inheritance(path: pathlib.Path, doc: dict, text: str, rep: Report) -> dict:
-    """Resolve proto: far enough to check it exists and that the diff is actually a diff.
+def proto_target(path: pathlib.Path, proto: str) -> pathlib.Path:
+    """Where a proto: pointer lands on disk. `..` means the pile above."""
+    return path.parent.parent / "TIES.yml" if proto == ".." else path.parent / str(proto)
 
-    Returns the effective inherited mapping so later checks can see what the leaf did not restate.
+
+def inheritance(path: pathlib.Path, doc: dict, text: str, rep: Report) -> tuple[dict, dict]:
+    """Resolve the proto: CHAIN and record which ancestor each value came from.
+
+    Returns (inherited values, key -> ancestor filename) so later checks can say where a
+    value came from instead of only that it exists.
+
+    Walking the whole chain rather than one link, and naming the ancestor, is the same
+    correction the reader's Pile.resolve needed. This kind of lookup fails by succeeding:
+    stop early and a leaf that inherits from its grandparent looks unbound, so a check
+    consults a value that is merely the nearest one still reachable. Ubik's regression of
+    form is this algorithm with the horror left in -- the ancestor answers, and it runs
+    (designs/pkd/ubik.md). A fallback that cannot name its source cannot be audited.
     """
     proto = doc.get("proto")
     if proto is None:
-        return {}
-    if str(proto).startswith("~"):
-        return {}  # named prototype, resolved by scope walk at read time, not on disk
-    target = path.parent.parent / "TIES.yml" if proto == ".." else path.parent / str(proto)
-    if not target.exists():
-        rep.error(path.name, f"proto: {proto!r} resolves to {target}, which does not exist")
-        return {}
-    try:
-        parent = yaml.safe_load(target.read_text()) or {}
-    except yaml.YAMLError as exc:
-        rep.error(path.name, f"proto: {proto!r} does not parse: {exc}")
-        return {}
+        return {}, {}
 
-    # A prototype states shared values under `inherited:` so its own screen fields stay its own.
-    # Without that, every child would inherit the parent's name, label and definition.
-    parent = {**parent, **(parent.get("inherited") or {})}
+    # A named prototype is resolved by scope walk at read time, so this linter cannot see
+    # it. Say so: returning an empty mapping silently would let every check that depends on
+    # inherited values pass while examining nothing, which is a false pass, not a clean one.
+    if str(proto).startswith("~"):
+        rep.warn(
+            path.name,
+            f"proto: {proto!r} is a named prototype, resolved by scope walk at read time — "
+            "inherited values are NOT checked here, so a missing field will not be caught",
+        )
+        return {}, {}
+
+    merged: dict = {}
+    source: dict[str, str] = {}
+    seen: list[pathlib.Path] = [path.resolve()]
+    hop = proto
+    at = path
+
+    # Nearest ancestor wins, so walk outward and never overwrite: the first writer of a key
+    # is the most specific one, exactly as the dict stack resolves a name.
+    while hop is not None:
+        if str(hop).startswith("~"):
+            rep.warn(path.name, f"proto chain reaches named prototype {hop!r} — resolution stops here, values beyond it are unchecked")
+            break
+        target = proto_target(at, str(hop))
+        if not target.exists():
+            rep.error(path.name, f"proto: {hop!r} resolves to {target}, which does not exist")
+            break
+        if target.resolve() in seen:
+            rep.error(path.name, f"proto chain loops at {target.name} — a cycle resolves forever and answers plausibly")
+            break
+        seen.append(target.resolve())
+        try:
+            parent = yaml.safe_load(target.read_text()) or {}
+        except yaml.YAMLError as exc:
+            rep.error(path.name, f"proto: {hop!r} does not parse: {exc}")
+            break
+
+        # A prototype states shared values under `inherited:` so its own screen fields stay
+        # its own. Without that, every child would inherit the parent's name and definition.
+        # Named relative to the file being linted. Every ancestor in a pile chain is called
+        # TIES.yml, so a basename identifies nothing: ../TIES.yml and ../../TIES.yml are
+        # the whole point of saying where a value came from.
+        label = os.path.relpath(target, path.parent)
+        offered = {**parent, **(parent.get("inherited") or {})}
+        for key, value in offered.items():
+            if key not in merged:
+                merged[key] = value
+                source[key] = label
+
+        at = target
+        hop = parent.get("proto")
 
     for key, value in doc.items():
         if key in ("proto", "name", "ties_schema"):
             continue
-        if key in parent and parent[key] == value:
-            rep.warn(path.name, f"{key} repeats the prototype verbatim — delete it and inherit, or the diff is not a diff")
+        if key in merged and merged[key] == value:
+            rep.warn(path.name, f"{key} repeats {source[key]} verbatim — delete it and inherit, or the diff is not a diff")
     for key in doc.get("unset") or []:
         root = str(key).split(".")[0]
-        if root not in parent:
-            rep.warn(path.name, f"unset: {key!r} tombstones something the prototype does not have")
-    return parent
+        if root not in merged:
+            rep.warn(path.name, f"unset: {key!r} tombstones something no ancestor has")
+
+    return merged, source
 
 
 def lint_one(path: pathlib.Path, doc: dict, text: str, rep: Report) -> None:
@@ -238,8 +304,8 @@ def lint_one(path: pathlib.Path, doc: dict, text: str, rep: Report) -> None:
             rep.error(where, f"{tag} points at {at!r}, which matches nothing")
 
     undeclared_cache(path, doc, rep)
-    inherited = inheritance(path, doc, text, rep)
-    organelles(path, doc, rep, inherited)
+    inherited, sources = inheritance(path, doc, text, rep)
+    organelles(path, doc, rep, inherited, sources)
 
     if isinstance(doc.get("cache"), str) and not (parent / doc["cache"]).exists():
         rep.error(where, f"cache: points at {doc['cache']!r}, which does not exist")
