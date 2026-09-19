@@ -50,6 +50,7 @@ A filesystem-incarnated skill framework — a microworld OS for LLM agents. 117 
 
 | What | Where |
 |------|-------|
+| **Why any of it** | [designs/PROSTHETICS.md](./designs/PROSTHETICS.md) — what this stack *is*, in one page: five prosthetics, and the question that tells one from a slot machine |
 | **Skills** | [skills/INDEX.md](./skills/INDEX.md) — 117 skills in one dense read |
 | **The World** | [examples/adventure-4/](./examples/adventure-4/) — pub, rooms, 46 characters |
 | **Dreams** | [indexes/DREAMS.md](./indexes/DREAMS.md) — visitor dreams, healing dreams, pie table chats |
@@ -75,6 +76,12 @@ YAML comments are not decoration — they are inner monologue. You can read its 
 ### It contains multitudes
 
 117 skills. Minsky's agents. Wright's Sims. Papert's microworlds. Curtis's MUD rooms. Ungar's prototypes. All composing, delegating, inheriting. Intelligence emerges from the ensemble.
+
+### It is a prosthetic, not an oracle
+
+Science had to be *invented*, because the unaided apparatus is unreliable — which means confidence in your own reasoning is the symptom the device was built for, not permission to set it down. Six of the eleven ambient skills exist to argue with you, and they load whether or not you ask, because a check you can switch off when it disagrees with you is a crutch.
+
+So it has no purposes of its own and shouldn't: the setpoint stays with the person, and the motives are in YAML with an author and a date, where you can read them and change them. **Whose loop is this closing?** is a question this repo can answer by pointing at a file. [designs/PROSTHETICS.md](./designs/PROSTHETICS.md)
 
 ---
 

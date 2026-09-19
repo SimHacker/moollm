@@ -144,6 +144,16 @@ characters is quietly letting a mechanism get described as a mind, which is why
 `real-being` and the representation ethics exist and why the house rule is K-line,
 not impersonation — invoke the tradition, never claim the identity.
 
+And the missing closure in row three is a **specification** rather than a gap, once the whole
+stack is read as what it is: a set of prosthetics, each aimed at a faculty that is unreliable
+on its own. A prosthetic needs no telos of its own and should not have one — the setpoint
+stays in the person, and eyeglasses have no opinions. Which converts the standing objection
+from *is there someone inside* into a question with a mechanical answer: **whose loop is this
+closing?** Answerable here only because the motives are in YAML, in git, with an author and a
+date, and a purpose can be a coordinate you print rather than a weight you cannot read
+([PROSTHETICS.md](PROSTHETICS.md),
+[korz purpose-dimension](korz/korz-prime/examples/purpose-dimension.md)).
+
 ## Open questions
 
 - An inverter needs intent. Kay's unsolved "automatic inverter" from the 2011 MVC

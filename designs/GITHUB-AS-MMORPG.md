@@ -263,6 +263,14 @@ as game mechanics that were there all along, waiting to be named.
 
 ## See Also
 
+- [PROSTHETICS.md](PROSTHETICS.md) — the same mechanics read as **repairs** rather than as
+  building material: GitHub as a prosthetic *community*, aimed at the room emptying while it
+  still feels like the arguments are going well. Asynchrony means you can join late, public
+  written disagreement means nobody loses face settling it, the artifact carries the state so
+  a departure deletes nothing, and standing is cheap enough that a stranger with a fork has a
+  founder's access. The LARP is load-bearing — a character is a lower-stakes handle than a
+  reputation — and the portrayal ethics are what keep a stage with real people on it from
+  being ventriloquism
 - [GIT-AS-FOUNDATION.md](GIT-AS-FOUNDATION.md) — Git as universal substrate
 - [STANFORD-GENERATIVE-AGENTS-WELCOME.md](STANFORD-GENERATIVE-AGENTS-WELCOME.md) — Relationship to Park et al.
 - [skills/micropolis/](../skills/micropolis/) — SimCity integration plans
