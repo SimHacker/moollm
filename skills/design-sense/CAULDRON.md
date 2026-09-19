@@ -104,6 +104,23 @@ items), game (advertisement economy as UI, Sims storytelling spectrum), software
   New lenses ad: deciding-whether-you-know-it. Also corrected two stale registry counts
   (lenses/GLANCE.yml said 31, methods/GLANCE.yml said 32). Registries now 33 lenses /
   33 methods / 59 masters.
+- 2026-09-19 — **reasoning-is-not-science deepened**, same day, out of Don disputing a
+  character-based dismissal and demanding the specific charge. Three things earned their
+  way in. (1) The floating referent in the first test got a definition — you grade a
+  *practice*, not a person, which is what makes it better than tribal sorting; Don's four
+  calibrations (gwern yes, Tetlock and prediction markets yes, MIRI's decision theory
+  mostly no, Adams structurally no) are now the worked table. (2) **The martyr's
+  exemption**: a price paid continuously for a belief looks like the opposite of armchair
+  certainty and measures sincerity, which was never in doubt — a cost you choose and can
+  keep choosing has been removed from the circuit rather than wired into it. So the
+  question is what the last *update* cost, never what the position has cost. (3) The
+  economics under it: money, status, and fluency all let you absorb consequences
+  indefinitely, and all three are normally read as qualifications — the same inversion the
+  top of the file runs, now with Veblen in it. If you can pay not to be corrected, you
+  won't be. Plus a specimen where the premise shipped and lost anyway (the cypherpunk
+  sufficiency thesis, falsified by its own success rather than by its failure), and a new
+  what-to-do-instead: precommit in observable terms, as a Ulysses pact aimed at a future
+  self who will have better arguments than you do now.
 - 2026-09-19 — **view-state-is-the-users planted**, straight from Don's rant about
   Quora's three independent folding mechanisms: expansion state a reader assembled
   by hand is the reader's, and one wrong click that destroys it with no undo and no

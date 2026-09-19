@@ -77,8 +77,23 @@ could be found.
 
 ## The test
 
-**Does the practice generate a claim that could embarrass you, and is the grade
-recorded somewhere you cannot quietly lose it?**
+Grade a *practice* — a person's working method, a field's, a community's, or your own
+on one particular question. Not a person, and not a tribe.
+
+**Does the practice generate a claim that could embarrass whoever holds it, and is the
+grade recorded somewhere they cannot quietly lose it?**
+
+It is a test with answers, which is what makes it better than sorting people into camps:
+
+| Practice | Verdict | Why |
+|---|---|---|
+| gwern's self-experiments and meta-analyses | **yes** | Blinded trials, published negative results, pages annotated as wrong years later |
+| Tetlock's forecasting tournaments; prediction markets | **yes** | A date, a number, a scoreboard someone else keeps |
+| MIRI's decision-theory output | **mostly no** | Enormous argumentative volume, very little that a year could falsify |
+| Scott Adams' persuasion frame | **structurally no** | Built so that being contradicted confirms it — no year can return a verdict |
+
+The same person can score differently on different practices, which is the point. The
+unit is the method, not the human.
 
 Second test, for a person or a field: **what did the last update cost?** If no
 position has been given up in years, no check is attached — and volume of argument
@@ -86,6 +101,67 @@ is evidence of the disease rather than the cure.
 
 Third test, for a design review: **what leaves the room?** A decision is reasoning.
 A thing someone outside the room can operate is science.
+
+## Cost is not evidence — the martyr's exemption
+
+The strongest-looking defence against this whole lens is a price paid. *I am no armchair
+theorist; my position has cost me, continuously, for years.* It is a real distinction and
+it measures the wrong quantity.
+
+A cost you chose, and can keep choosing, is still internally authored. The world only
+gets a vote if it can make you change your mind, so a price you are willing to pay
+forever has been **removed from the circuit** rather than wired into it. Martyrdom feels
+like empiricism from the inside and does none of the same work: suffering for a belief
+demonstrates sincerity, which was never the thing in doubt.
+
+So the question is never *what has this position cost you*. It is **what did the last
+update cost** — and a practice with a large bill and no updates is the failure mode
+wearing its most convincing disguise.
+
+### And the ability to absorb the cost is what disables the check
+
+Which gives the mechanism its economics. External validation arrives as consequences, so
+anything that lets you absorb consequences indefinitely severs the feedback loop:
+
+- **Money**, which buys the ability to be unbudgeable — your own infrastructure, your own
+  platform, no editor, and the option of outlasting everyone's patience.
+- **Status**, which removes the people who would have said no, and replaces peers with an
+  audience.
+- **Fluency**, which converts every incoming objection into one more argument to win.
+
+Note what these have in common: each is normally read as a *qualification*. This is the
+same inversion as the top of the file — the prosthetic exists because the apparatus is
+unreliable, so the attributes that make you feel entitled to set it down are the ones
+that make setting it down most dangerous. Conspicuous capacity is Veblen's insight in
+Minsky's territory: the expense buys visibility and endurance, and endurance is exactly
+what a mind needs to never be corrected.
+
+The live specimen is any sufficiently rich founder whose beliefs no longer meet
+resistance from anyone whose livelihood does not depend on him.
+
+## Specimen: a premise that shipped and still lost
+
+The cypherpunk thesis of the 1990s: strong cryptography, deployed widely enough, routes
+around politics. Reasoned from first principles, internally airtight, and stated as a law
+of nature —
+
+> The Net interprets censorship as damage and routes around it.
+> — John Gilmore, the movement's canonical aphorism
+
+Twenty-five years later the deployment argument was **won**. TLS is everywhere, Signal
+exists, disk encryption is on by default, and Snowden's own conclusion was that the math
+held. Mass surveillance arrived anyway.
+
+The falsified claim was *sufficiency*, and the reason is that content was never where the
+leverage was. Metadata sits outside the envelope. Endpoints get owned. Centralisation
+parked the plaintext with a dozen companies who answer subpoenas and sell the remainder.
+Law compels what ciphers refuse. And the surveillance that actually showed up was a
+business model people opted into, not a man on a wire.
+
+Which is the lens in one sentence: the threat model was audited internally for twenty
+years and was wrong about the *world*, not about the math. No amount of further reasoning
+about ciphers could have returned that verdict, and the movement's own success is what
+makes it unarguable — you cannot blame the outcome on insufficient adoption.
 
 ## What to do instead
 
@@ -105,6 +181,12 @@ Put the check outside the reasoner.
   point is the formal statement of this lens: no quantity of correlation answers a
   counterfactual without a causal model. A machine that only reasons over what
   co-occurred has the same disease, and it is now being baked into weights.
+- **Precommit while the values are intact, in observable terms.** A Ulysses contract for
+  epistemics: write down the tripwires *other people can see* — who may invoke them, and
+  what you owe when they do, which is never a rebuttal. Aimed at a future self who will
+  have arguments and be fluent, so it cannot route through that self's judgment. The rule
+  that makes it work rather than decorate: log the outcome when you were right too, or you
+  will stop logging.
 
 And the reason to keep the prosthetic on: the Palaeolithic brain does not get
 upgraded. Announcing that you have debiased yourself is the most Palaeolithic move
@@ -116,6 +198,12 @@ Richard Feynman, ["Cargo Cult Science"](https://calteches.library.caltech.edu/51
 person to fool" ·
 [Wikipedia: Bias blind spot](https://en.wikipedia.org/wiki/Bias_blind_spot) ·
 [Wikipedia: Replication crisis](https://en.wikipedia.org/wiki/Replication_crisis) ·
+[Philip Tetlock, *Superforecasting*](https://en.wikipedia.org/wiki/Superforecasting) —
+the scoreboard as method ·
+[Thorstein Veblen, conspicuous consumption](https://en.wikipedia.org/wiki/Conspicuous_consumption)
+— why the capacity to absorb a cost is displayed rather than hidden ·
+[Ulysses pact](https://en.wikipedia.org/wiki/Ulysses_pact) — binding the future self who
+will have better arguments ·
 [Judea Pearl, *The Book of Why*](https://en.wikipedia.org/wiki/The_Book_of_Why) ·
 [the Kay answer this came out of](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/alan-kay/media/quora-recaps/agi-paradigm-shifts-and-no-moores-law-for-software.md)
 
