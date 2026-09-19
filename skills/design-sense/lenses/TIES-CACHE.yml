@@ -1,0 +1,16 @@
+# Derived values for lenses/TIES.yml. Recomputable, read only when auditing.
+
+ties_cache: 1
+for: TIES.yml
+
+count:
+  command: "ls *.md | grep -v README | wc -l"
+  as_of: 2026-09-19
+  value: 35
+  used_by: "inside['*.md'].what"
+
+sidecars:
+  command: "ls *.TIES.yml | wc -l"
+  as_of: 2026-09-19
+  value: 1
+  note: "selective by policy, not by backlog — a lens earns a sidecar only if it has synonyms, ties or glyphs of its own. The other 34 are covered by CARD.yml."

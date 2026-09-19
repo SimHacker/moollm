@@ -153,7 +153,10 @@ name in the plural.
 4. **Grep for inferred content.** If you cannot distinguish what a machine guessed from what a
    person established, the pile has no seal.
 
-**See also:** [README.md](README.md) — dimensions, guards, and why no decomposition is dominant ·
+**See also:** [repo-as-everything.md](repo-as-everything.md) — the prior art for "the path is the
+guard expression": Densmore and Rosenthal's US 5,187,786 put classes, instances, inheritance, `Self`
+and `Super` into a plain hierarchical filesystem in 1991, with the path file as the dictionary stack ·
+[README.md](README.md) — dimensions, guards, and why no decomposition is dominant ·
 [../../skills/yaml-jazz/](../../skills/yaml-jazz/) — directories as advertisements, filenames as
 K-lines · [korz-prime/README.md](korz-prime/README.md) — crystallize what has stabilized,
 deoptimize what has not, which is the same traffic a pump runs ·

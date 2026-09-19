@@ -1,0 +1,624 @@
+# TIES-SCHEMA.yml — what a TIES.yml file is allowed to say
+#
+# TIES.yml is a NODE MANIFEST. It beats `ls` at the one job `ls` is used for and cannot do:
+# telling an orchestrator what is here, how much each part costs, and which part to read first.
+#
+# The rung ladder it declares against lives in RUNGS.yml. Do not restate weights here.
+
+ties_schema: 1
+
+# ─ the design driver: TIES.yml is a SCREEN, not a scorer ─
+read_in_bulk:
+
+  claim: >
+    TIES.yml is not read one at a time. A hundred are read at once to decide what to page in next.
+    It is a lightweight way to SCREEN CONTEXT INCLUSION — a coarse gate that rejects most candidates
+    cheaply so that the expensive machinery only ever runs on a few.
+
+  not_an_advertisement:
+    # The boundary that keeps this file small. Getting it wrong grows TIES.yml into a second CARD.yml.
+    where_advertisements_live: CARD.yml
+    what_they_have: >
+      Their own yaml-jazz and their own natural-language grammar: triggers, conditions, scores,
+      scopes, resolutions, rationales. Declared structures, addressable and arguable.
+    what_a_TIES_comment_is: >
+      An advisory note on a parameter or a pointer. Lighter by design, and NOT a scoring grammar. If
+      you find yourself writing a trigger with a score in here, you are writing an advertisement and
+      it belongs in the CARD.
+    the_division:
+      TIES_screens_on: [presence, cost, staleness, whether a richer declaration exists at all]
+      CARD_scores_on: [value to this asker, under these conditions, at this moment]
+    and_so: >
+      The most useful thing a screen can say is often "there is a CARD here" — `description: CARD.yml`
+      declares that a full advertisement exists to fetch. The screen decides whether it is worth
+      fetching. Two stages, deliberately unequal in weight.
+
+  what_the_sims_model_contributes_and_where_it_stops:
+    # Borrowed for one insight only. designs/sims/sims-find-best-action.md is the real thing.
+    the_borrowed_insight: >
+      A static size is not enough, because usefulness is a DELTA against what the reader already has.
+      The Sims scores a person twice — current motives, then motives plus the advertisement — and
+      subtracts; "+50 Hunger" is worth nothing to a full Sim. Likewise "693 KB of masters" is worth
+      nothing to a reader who already holds the index. So a screen hint should name the condition
+      under which its value collapses, not just its size.
+    where_it_stops: >
+      That is as far as the borrowing goes. Motives, check trees, cutoff curves and attenuated
+      scoring are the advertisement model's, they live in the CARD, and reimplementing them here
+      would be the duplication dry-piles exists to prevent.
+
+  therefore:
+
+    inline_the_screening_set: >
+      glyphs, label, name and definition are INLINE because they are what the screen reads. Type,
+      menu text, canonical name, and should-I-go-there.
+
+    point_at_the_rest: >
+      description and body are POINTERS because they are what you read after passing the screen.
+      Inlining them puts the answer inside the thing you were deciding whether to open.
+
+    the_split_is_not_arbitrary: "the inline/pointer boundary IS the screening boundary"
+
+    hints_state_conditions_not_properties: >
+      `cost: large` already says the size. A comment earns its tokens by naming a condition — "index
+      is enough", "only if authoring", "open exactly one, named", "stale since August, prefer the
+      body". Advisory, in prose, on the pointer it qualifies.
+
+  budget:
+    # The screen must cost less than what it screens, or it has screened itself out.
+    leaf: "500 bytes. Inherit from a prototype and say only the diff."
+    hub: "3 KB — a node with many children and no parent to inherit from"
+    hub_scales_with_breadth: >
+      A hub's bytes are mostly `inside` entries at ~100 each, so the target is breadth-dependent and a
+      flat number punishes a wide node for being wide. Measured, not guessed: 415 bytes for an
+      inheriting leaf, 1397 for a pile prototype, 2755 for a nine-child skill root with nothing
+      redundant left in it.
+    hard_limit: "4 KB, and a hub near it should be asked why its children are not a pile with a prototype"
+    rationale: "100 leaves at 500 bytes is 50 KB. That is the number that decides whether bulk read is a real technique."
+    the_self_referential_check: "if reading the manifest costs more than the cheapest thing it points at, delete the manifest"
+    keep_out: "derived values (→ cache:), drift findings (→ prose), anything a sibling also says (→ proto:)"
+
+  manifest_only_what_is_not_derivable:
+    # Generally, not absolutely. dry-piles states the licence: duplication is allowed when it is
+    # declared, validatable and recomputable. See designs/korz/dry-piles.md.
+    rule: >
+      Carry what nothing else can tell the reader. Every line that restates something already
+      available spends budget without adding any basis for the decision — and worse, it is a second
+      copy that will disagree with the first one later.
+
+    already_available_from:
+      the_filesystem: "names, counts, sizes, mtimes, extensions. `ls` and `wc` produce these, and they go stale the moment anyone edits."
+      the_path: "type, class, id. dry-piles: lenses/fitts.md already says {class: lens, id: fitts} and nobody typed it. The path IS the guard expression."
+      the_pointee: "the definition lives in the CARD; restating its prose here forks it. Point, do not paraphrase."
+      the_schema: "field meanings. A manifest explaining what `cost:` means is documentation in the wrong file."
+
+    the_test: >
+      Could a script have produced this line, and will it still be true next month? If a script could
+      produce it, let the script produce it. If it will rot, either drop it or mark it as cached.
+
+    redundancy_is_a_cache:
+      claim: >
+        Inline duplication in a manifest is a CACHE — kept because bulk reads want it inline rather
+        than computed. A cache is legitimate if and only if it can be invalidated and recomputed. So
+        the line between good and bad redundancy is not how much, it is whether it is DECLARED.
+      declared: "listed in provenance.generated, refreshable by a script, diffable against the source. A cache."
+      undeclared: "typed by hand, drifting silently, authoritative-looking. Not a cache, a fork."
+      so: "if you want the count inline, generate it and say so. Do not hand-type it and hope."
+
+    what_survives_the_test:
+      # This is the actual payload of a screen, and none of it is derivable from anything.
+      - "cost — a judgment about read expense, not a byte count"
+      - "the read condition — 'index is enough', 'open exactly one, named', 'skip unless gardening'"
+      - "staleness — that a file moves often, which no timestamp conveys"
+      - "synonyms — what people actually call it, including k-lines, which appear nowhere in the path"
+      - "why a tie exists — the rel and the reason, which no link can state about itself"
+
+# ─ why this exists when the filesystem already is a mipmap ─
+versus_ls:
+  what_ls_already_does: >
+    dry-piles is right that the path is the guard expression and `ls` is a gather along the axis
+    the tree was cut on. lenses/fitts.md already says {class: lens, id: fitts} and nobody typed it.
+    That is real and TIES.yml does not replace it.
+  what_ls_cannot_do:
+    - "say which of these files is the CHEAP one — `ls -S` sorts by bytes, which is not cost-to-read"
+    - "say that a subdirectory is derived and should be skipped"
+    - "say that two of these files are the same thing at different rungs"
+    - "give a name its aliases"
+    - "editorialize — 'start here', 'this one is stale', 'big but only the index matters'"
+    - "describe siblings and children in one read instead of one `ls` per directory"
+  the_summary: "`ls` reports what exists. TIES.yml reports what is worth opening, and why."
+  not_a_replacement: "when TIES.yml disagrees with the directory, the directory wins and the lint says so"
+
+# ─ order is a guarantee, not a style ─
+order_implies_cost:
+  rule: "top-level rung keys MUST appear in RUNGS.yml ladder order: glyphs, label, name, definition, description, body"
+  consequence: "walking a TIES.yml top to bottom is walking from cheapest to dearest, always"
+  enforced_by: check.key_order
+  why_a_check_and_not_a_convention: >
+    Don's point is that the order of the declarations should imply their size. That is only true if
+    it cannot be violated. A convention that is sometimes violated is worse than no convention,
+    because a reader who trusts it gets surprised by the one file that broke it.
+  the_honest_limit:
+    what: "cost is predictable for rungs and unpredictable for directories"
+    why: "a rung's size is bounded by its definition; a subdirectory can hold three files or three thousand"
+    therefore: "`inside:` entries MUST carry an explicit cost hint, because it cannot be inferred from position"
+    and: "absence of a cost hint means UNKNOWN, never small"
+
+# ─ the fields ─
+fields:
+
+  ties_schema:
+    required: true
+    type: integer
+    what: "schema version. 1."
+
+  # IDENTITY — the addressing layer. HyperTIES .title + .synonyms, relocated.
+  name:
+    required: true
+    type: string
+    rung: name
+    what: "canonical, human-facing. What a synonym resolves TO."
+    ancestor: ".title, 261 uses in the 1988 archive"
+
+  id:
+    required: false
+    type: slug
+    what: "machine-stable identifier that never changes even when name does"
+    default: "derived from the containing directory, per dry-piles: the path is the guard expression"
+    when_to_declare: "only when the directory name and the identity genuinely differ"
+
+  type:
+    required: false
+    type: string
+    what: "which namespace this node lives in: room, character, lens, skill, plate, article"
+    default: "inferred from the enclosing plural container — characters/ declares characters"
+    when_to_declare: "when the container is ambiguous, or to let the lint verify the inference"
+
+  synonyms:
+    required: false
+    type: [string]
+    rung: name
+    what: "every alias under which this node may be mentioned in prose"
+    ancestor: ".synonyms — 142 of 261 articles declared them"
+    why_load_bearing: >
+      The 1991 paper's aside is the whole argument: text links are "self-naming", graphical ones are
+      not. The synonym list is the mechanism that makes self-naming true. You write the sentence you
+      meant to write and the prose links itself. This is the rung NOTHING modern has rebuilt —
+      not Roam, not Obsidian, not Notion. Wikipedia has redirects, which is the same idea as a
+      workaround.
+    renaming: "add the old name as a synonym and nothing breaks. Linkrot defense pointed inward."
+    generation: "an LLM proposing aliases is the single best LLM fit in this design; a human confirms a list cheaply"
+    danger: "see check.synonym_collision — this is the field that fails SILENTLY and it must be linted from day one"
+
+  # THE RUNGS — in ladder order. Cheap ones inline, dear ones by pointer.
+  glyphs:
+    required: false
+    type: string
+    rung: glyphs
+    inline: true
+    what: "big-endian emoji sequence, type glyph first, truncatable from the right to 1"
+    rules_live_in: RUNGS.yml
+
+  label:
+    required: false
+    type: string
+    rung: label
+    inline: true
+    what: "1 to 4 words for a tab, a pie slice, a breadcrumb"
+    not: "a truncated name. An iconified window must show a sensible short word."
+
+  definition:
+    required: true
+    type: string
+    rung: definition
+    inline: true
+    what: "1 to 3 sentences answering SHOULD I GO THERE"
+    ancestor: ".definition — MANDATORY in 1988, and this schema keeps it mandatory"
+    why_still_required: >
+      This is the rung the web dropped. gwern rebuilt it by hand, per link, as annotations, and it
+      reads as a revelation because of how rare it is. HyperTIES got it free because the markup
+      refused to let an article exist without one.
+    required_never_means_blocked: "an LLM can draft one from the body; the human edits. Missing is a lint, not a wall."
+
+  description:
+    required: false
+    type: [string, path]
+    rung: description
+    inline: false
+    what: "a paragraph to a page. Usually a POINTER."
+    the_point_of_declaring_a_pointer: >
+      `description: CARD.yml` does not inline anything. It says THIS RUNG EXISTS AND IS THERE, which
+      is what an orchestrator needs in order to plan. Declaring presence is the job.
+    ancestor: ".description — 62 uses"
+
+  body:
+    required: false
+    type: path
+    rung: body
+    inline: false
+    must_not_be_inline: true
+    what: "the whole document. Always a pointer."
+    ancestor: ".contents — 112 uses"
+
+  # WHAT ELSE IS HERE — the editorialized `ls`.
+  inside:
+    required: false
+    type: [entry]
+    what: "children and neighbours worth knowing about, each with a cost hint and a reason"
+    entry:
+      at: {required: true, what: "relative path. A trailing slash means a directory."}
+      what: {required: true, what: "one line. What is in there."}
+      cost: {required: true, enum: [tiny, small, large, huge], what: "cost to READ, not bytes on disk"}
+      read: {required: false, what: "editorial: where to start, what to skip, what is enough"}
+      derived: {required: false, type: boolean, what: "true means recomputable — skip unless auditing. See dry-piles."}
+      stale: {required: false, what: "a date or a reason. Say it here rather than letting a reader discover it."}
+    why_cost_is_required_here: "see order_implies_cost.the_honest_limit — position cannot imply a directory's size"
+
+  # THE TIES — typed outbound relations. HyperTIES links were untyped jumps; this is the fix.
+  ties:
+    required: false
+    type: [tie]
+    what: "the links, typed. The name of the format is the name of this field."
+    tie:
+      to: {required: true, what: "a ~name~ reference, resolved by scope walk. Not a path."}
+      rel: {required: true, enum_open: [binds, cross, lit_from, sustains, ties_with, part_of, defines, cites, supersedes]}
+      why: {required: false, what: "one line. Why this tie exists, for a reader deciding whether to follow it."}
+    the_five_senses:
+      # The word already carried the vocabulary. The relation names come from its senses.
+      binds: "a binding — the Korz sense. This node binds that name to a meaning."
+      cross: >
+        A CROSS-TIE. A railroad tie does not run along the direction of travel; it holds two parallel
+        rails at gauge, across the grain. That is a bidirectional relation, and it is exactly what
+        HyperTIES did not have — links were one-way jumps, the limitation the web shipped with and
+        that Engelbart and Nelson both complained about. The sense sitting inside the name is the
+        backlink the system lacked.
+      lit_from: "provenance — whose flame this came off. See webtop/READ-UNREAD.md candles."
+      sustains: "a musical tie: two notes, one duration. Continuity across a boundary you would otherwise read as a break."
+      ties_with: >
+        A TIE IN A VOTE — two candidates matching with no dominant cut. NOT an error. See
+        check.synonym_collision and cross_exclusion below.
+    resolution_lives_in: ../../designs/webtop/hyperties/LINK-RESOLUTION.md
+
+  # RETRIEVAL
+  tags:
+    required: false
+    type: [string]
+    what: "semantic tags. Flat, many, none of them the tree."
+    per_dry_piles: "a tag is an index into the flat pile, not a subdirectory below the type level"
+
+  # ORGANELLES — foreign schemas, engulfed and kept whole. See organelles: below for the model.
+  x:
+    required: false
+    type: map
+    what: "one sub-object per guest schema, keyed by its short name. The host never interprets the contents."
+    terse_on_purpose: "one byte, because a hundred of these are read at once"
+    each_organelle:
+      schema: {required: true, what: "pointer to the guest's own genome — a URI for a standard, a repo path for a local one"}
+      rest: "whatever that schema says. Not this schema's business."
+    standard_guests:
+      dc:
+        schema: "http://purl.org/dc/elements/1.1/"
+        what: "Dublin Core. The mitochondrion: ancient, universal, so integrated nobody argues about it."
+        why_at_all: >
+          TIES is an interior addressing scheme and DC is an exterior one. A corpus meant to outlive
+          its author needs both: names for the inside, stable citable metadata for the outside.
+        rule: "absence means unknown. Do not emit empty elements to look complete."
+      note: "schema.org, PROV-O, SKOS, CIDOC-CRM belong here on identical terms. None gets promoted to core."
+    experimental_guests:
+      what: "local, unstable, possibly single-use. Same membrane, same rules, lower expectations."
+      convention: "name it for the thing that owns it — korz, webtop, wwsff — and point schema: at the repo path"
+      no_blessing_required: "an organelle needs no permission to exist. That is the point of a membrane."
+
+  proto:
+    required: false
+    what: "prototype to inherit from. Carry the DIFF here, not a copy of the parent."
+    forms:
+      "..": "the nearest enclosing TIES.yml. The common case, and the tree is already the chain."
+      relative_path: "an explicit TIES.yml elsewhere, when the filesystem parent is not the conceptual one"
+      "~name~": "a named prototype resolved by scope walk, for when the shared thing is not a directory at all"
+    why: >
+      A hundred sibling manifests that each restate creator, language, tags and type are a hundred
+      copies of one fact. Hoist it to the pile's own TIES.yml and let the children say only what
+      differs. This is the single biggest lever on bulk-read cost, and it is the same move dry-piles
+      makes with directories.
+
+  cache:
+    required: false
+    what: "pointer to a sidecar holding derived values. NEVER inline."
+    default_name: TIES-CACHE.yml
+    why_external: >
+      A cache is bulky, it churns, and it is exactly what a screen does not need to read. Inlining it
+      taxes every bulk read to serve the rare audit. Point at it; the auditor follows the pointer.
+    contains: "the derived value, the command that regenerates it, the date it was taken"
+
+  provenance:
+    required: false
+    what: "who said this and when, for fields a machine proposed. Keep it to two lines."
+    fields:
+      generated: {what: "which fields an LLM drafted rather than a human wrote"}
+      confirmed: {what: "date a human confirmed them"}
+    not_here: "derived values, refresh commands, drift findings. Those are cache: and prose docs."
+
+# ─ STRUCTURAL NODES: a manifest needs no object to describe ─
+structural_nodes:
+
+  claim: >
+    The common case is not a rich object. It is a plain structural or intermediate directory —
+    scripts/, designs/, src/, sources/, a dated folder, a staging area — which is not an object, has no
+    type worth declaring, and will never have a CARD. Dropping a TIES.yml into it is still worth doing,
+    purely to guide navigation, activation and context management.
+
+  why_this_matters_most: >
+    If manifests only described objects, most of a tree would stay opaque and the technique would cover
+    the part that was already legible. A waypoint is exactly where a reader is lost. This is also why
+    the file has to stay self-contained and cheap: it must be droppable anywhere, with no schema
+    registration, no parent to inherit from, and nothing else on disk to make it valid.
+
+  minimal_shape:
+    # Everything else is optional. This is a legal, useful, complete manifest.
+    required: [name, definition]
+    usual: [label, inside]
+    typically_absent: [type, synonyms, glyphs, ties, x, proto, cache]
+    example: |
+      ties_schema: 1
+      name: sources
+      label: Sources
+      definition: >
+        Cached primary material — papers, screenshots, saved pages. Nothing here is authored; every
+        file has a provenance line in INDEX.yml. Read INDEX.yml, not the directory.
+      inside:
+        - {at: INDEX.yml, what: what each file is and where it came from, cost: tiny, read: always start here}
+        - {at: "*.pdf", what: cached papers, verbatim, cost: huge, read: named, from the index}
+
+  do_not_invent_objecthood:
+    rule: "omit type: rather than inventing one. A directory that is just a place is just a place."
+    per_absence_means_unknown: "no type is not type: none. It is no claim, which is the honest state."
+    anti_pattern: >
+      Declaring type: directory. That is what the filesystem already says, it is the derivable-content
+      sin, and it invites a reader to look for a class that does not exist.
+
+  the_value_is_the_read_condition: >
+    A structural node's whole contribution is usually two things: the order to read its children in, and
+    which ones to skip. Those are not derivable and not available anywhere else, which is why a
+    five-line waypoint can be worth more per byte than a rich object's manifest.
+
+# ─ OPEN: what belongs where. Nothing decided, nothing deleted. ─
+placement_experiments:
+
+  status: OPEN, 19 Sep 2026. Deliberately unresolved — leave both copies in place and watch which one gets used.
+  method: "play with it. Do not delete from CARD.yml to prove a point about TIES.yml."
+
+  candidates:
+
+    keywords:
+      what: "free-text retrieval terms, as distinct from the controlled tags: vocabulary"
+      for_ties: "navigation and grep are screening jobs, and a keyword is exactly how someone who does not know the name arrives"
+      against_ties: "three overlapping vocabularies already exist — tags:, x.dc.subject, and synonyms: — and a fourth invites drift between them"
+      the_real_question: "whether tags: is doing two jobs badly (controlled classification AND search) and should split"
+
+    structural_hints:
+      what: "entry point, read order for a whole subtree, where a newcomer should start"
+      for_ties: "purely navigational, cheap, and the thing a waypoint exists for"
+      against_ties: "inside[].read already carries per-child advice; a second mechanism may be redundant"
+
+    activation_hints:
+      what: "when this node becomes relevant at all"
+      for_card: "this is an advertisement, and advertisements have a grammar and a home"
+      for_ties: "a structural node has no CARD and never will, so its activation hint has nowhere else to live"
+      unresolved: >
+        The honest tension. If waypoints need activation hints and waypoints have no CARDs, either the
+        screen grows a light activation field or waypoints stay unactivatable. Watch for the case where
+        this actually bites before choosing.
+
+  guard: >
+    Whatever migrates, the budget does not move. A field that earns its place must displace something or
+    justify the bytes against read_in_bulk. "It is useful" is not sufficient; a hundred copies of
+    slightly useful is how a manifest becomes a document.
+
+# ─ ORGANELLES: extension by endosymbiosis, not by extending the core ─
+organelles:
+
+  the_model: >
+    A schema this file does not own arrives the way a mitochondrion did: engulfed whole, kept inside
+    a membrane, still carrying its own genome. It is not digested into the host and the host does not
+    grow fields to accommodate it. Every guest lives under `x:` in a sub-object named for itself, with
+    a `schema:` pointer to its own definition.
+
+  what_the_metaphor_buys:
+    own_genome: "schema: is the guest's DNA, and it stays the guest's. The host validates the membrane, never the contents."
+    own_membrane: "one sub-object. No leaking into core keys, no prefix conventions, no x_dc_creator flattening."
+    host_stays_small: "the core never grows to accommodate a guest, which is how schemas bloat to death"
+    a_guest_can_leave: "delete the sub-object. Nothing in the core referenced it, so nothing breaks."
+    ancient_and_recent_coexist: >
+      Dublin Core is the mitochondrion — universal, stable, boring, fully integrated. A korz: block
+      written this afternoon is a recent acquisition that may not survive the month. SAME MECHANISM,
+      and that is the whole claim: standard and experimental differ in age and adoption, not in kind,
+      so the schema needs exactly one extension mechanism rather than a blessed list plus an escape hatch.
+
+  preserve_what_you_do_not_understand:
+    # postel and robust-first, stated as a hard requirement on tools rather than an aspiration.
+    rule: >
+      An unrecognised key, an unrecognised organelle, and every comment attached to either MUST
+      survive a read-modify-write byte-identical. A tool that drops what it cannot parse is not
+      conservative, it is lossy, and the loss is silent.
+    why_comments_specifically: >
+      In yaml-jazz the comments ARE data. A round-trip that preserves structure and eats comments has
+      destroyed the payload and kept the packaging. That failure looks like success in every diff of
+      parsed values.
+    implementation_constraint:
+      never: "PyYAML safe_load/dump. It discards comments, key order and anchors. Read-only use ONLY."
+      use: "ruamel.yaml in round-trip mode for anything that writes"
+      not_installed_yet: >
+        Checked 19 Sep 2026: ruamel.yaml is absent from this machine's python3. So the preservation
+        rule is currently guaranteed by the fact that NOTHING WRITES — ties_lint.py is a pure reader
+        and the manifests are hand-authored. The first tool that wants to write must add the dependency
+        first, and should assert round-trip byte-identity on a file with comments as its own first test.
+      corollary: "ties_lint.py never writes. It is a reader, so safe_load is honest there and nowhere else."
+    unknown_is_not_invalid: "report unknown organelles as INFO, never error. An unblessed guest is the design working."
+
+# ─ PROTOTYPES: say the diff, inherit the rest ─
+prototypes:
+
+  claim: >
+    Manifests come in families. Every lens in a pile shares a creator, a language, a type, a licence
+    and most of its tags; what differs is a name, a definition and a few ties. Repeating the shared
+    part per file is the redundancy that actually dominates a corpus, because it scales with the
+    number of files rather than their size.
+
+  how: "the pile's own TIES.yml is the prototype. Children declare proto: .. and carry only overrides."
+
+  resolution:
+    scalars: "child wins"
+    maps: "deep merge, child wins per leaf"
+    lists: >
+      CHILD REPLACES. Not append, because append makes a child's meaning depend on a parent it does
+      not show you, and a reader scanning a hundred files cannot hold the chain. To add, restate; to
+      extend deliberately, use the explicit append form below.
+    explicit_append: "tags+: [extra] — the + is a visible request to merge rather than replace"
+    absence: >
+      Absence means NOT OVERRIDDEN HERE, resolving to the prototype's value. If the prototype lacks
+      it too, absence means unknown, as everywhere else. The two senses compose and neither means false.
+    tombstone:
+      form: "unset: [tags, x.dc.subject]"
+      why: >
+        Needed precisely because absence means inherit. Without a tombstone there is no way to say
+        "this child genuinely has none" as distinct from "this child did not mention it", and dotted
+        paths let a single organelle element be dropped without restating the organelle.
+
+  budget_is_amortised:
+    # This is why prototypes change the numbers rather than just tidying them.
+    root: "may be chattier — it is read ONCE for N children, so its cost divides by N"
+    leaf: "target 500 bytes. A leaf that needs 2 KB is either not a leaf or not inheriting."
+    the_test: "if two siblings share a line, it belongs in the prototype"
+
+  keep_the_chain_short: "one or two hops. A deep prototype chain is a class hierarchy, which is the thing Yertle warns about."
+
+  sidecars:
+    # Decided 19 Sep 2026. Both halves matter: the naming, and the refusal to generate them wholesale.
+    form: "<subject>.TIES.yml, beside the thing it describes"
+    naming_rationale: "big-endian — the subject leads, matching name.yml / name.md / name.png sidecar practice"
+    policy: SELECTIVE
+    a_member_earns_one_when_it_has:
+      - "synonyms or k-lines that must resolve to it — the collision-risk case, and the one that fails silently"
+      - "outbound ties worth declaring, which an index line cannot carry"
+      - "its own glyphs, because something renders it as a pie slice, a minimap dot or a tab"
+      - "references from outside its own pile, so it is addressed as a node rather than browsed as a member"
+    otherwise: "the pile's CARD.yml index line is enough, and a sidecar would be a file whose whole content is inherited"
+    why_not_all_of_them:
+      # The tempting move, declined.
+      reason: >
+        Generating one per member produces hundreds of files whose entire content is `proto:` plus a
+        name already on disk as the filename. That is not screening, it is ceremony: it costs bytes in
+        every bulk read, adds a second place for the name to drift from the file it names, and buys
+        nothing the index did not already give.
+      the_asymmetry: "a sidecar is cheap to add later for one member; hundreds are expensive to delete once anything links to them"
+
+# ─ what the comments are for ─
+yaml_jazz_audience:
+  # yaml-jazz says comments are first-class data for three audiences. In THIS file type the
+  # third audience is specific and it changes how you write them.
+  humans: "read the comments"
+  machines: "parse the structure"
+  the_orchestrator: >
+    Reads BOTH, and is deciding what to page in at what detail RIGHT NOW. So a comment in a TIES.yml
+    should be addressed to that decision: "index is enough, do not open the 33 files", "this rung is
+    stale, prefer the body", "large but the first section answers most questions". Editorial aimed at
+    a budget.
+  anti_pattern: "commentary about the schema, about the format, or about how carefully the file was written. Nothing about the writing gets into the writing."
+
+# ─ cross-exclusion, which is a real join and not a metaphor ─
+cross_exclusion:
+  the_find: >
+    One name resolving to several nodes IS a cross-exclusion group in AIM-516's sense: agents that
+    inhibit each other so it is hard for more than one to be active, and resetting the group means
+    forcing exactly one member on. The disambiguation pie menu is literally that force-to-on.
+  therefore:
+    - "ambiguity is a GROUP, not an error — LINK-RESOLUTION.md rule 4 and Minsky's radio buttons are one mechanism"
+    - "persistence comes free: forcing one member on tends to stick, which is why the reader's pick can be recorded"
+    - "a recorded pick is a synonym, which turns the menu into a one-time cost per phrase"
+    - "conflict means zoom out: if two candidates tie hard, raise attention to the parent rather than averaging"
+  candidates_need_two_rungs: >
+    A ranked list of bare names cannot be chosen from. Each candidate needs its LABEL on the item and
+    its DEFINITION in a companion pane — which is the definition-preview interaction relocated into
+    the menu, and the reason `definition` is required rather than encouraged.
+
+# ─ deterministic checks. All of these are build-time and none need a model. ─
+deterministic_checks:
+
+  definition_present:
+    rule: "every TIES.yml declares a definition"
+    severity: error
+    fix: "draft one from the body with an LLM, mark it in provenance.generated, let a human confirm"
+
+  key_order:
+    rule: "top-level rung keys appear in RUNGS.yml ladder order"
+    severity: error
+    how: "read raw top-level keys in file order, filter to rung names, compare to the ladder"
+    why: "order_implies_cost is a guarantee or it is nothing"
+
+  no_inline_body:
+    rule: "body is a path, never prose"
+    severity: error
+    why: "read_in_bulk. An inlined body defeats the entire file."
+
+  budget:
+    rule: "under 4 KB"
+    severity: warn
+    why: "a hundred of these get read at once"
+
+  pointers_resolve:
+    rule: "every path in description, body and inside.at exists"
+    severity: error
+
+  inside_has_cost:
+    rule: "every inside entry declares cost"
+    severity: error
+    why: "position implies cost for rungs and cannot for directories"
+
+  type_matches_container:
+    rule: "declared type agrees with the enclosing plural container"
+    severity: warn
+    why: "the path is the guard expression; a disagreement means one of them is wrong"
+
+  synonym_collision:
+    rule: "one canonical name claimed twice in one namespace in one scope"
+    severity: error
+    canonicalization:
+      casefold: true
+      collapse: "[ \\n\\t<>~]+ to a single space — the tilde is whitespace, so ~Founders~ and founders are one name"
+      strip_punctuation: true
+      the_1988_evidence: >
+        The original canonicalizer did NOT normalize , or . and the surviving NeWS index shows the
+        cost: one article carrying "alphabetically", "alphabetically," and "alphabetically." as three
+        hand-registered synonyms, because a link picked out of running prose drags its trailing
+        punctuation into the lookup key. Widen the class and the author stops paying for it.
+    shadowing: {severity: warn, rule: "a nearer scope shadowing an enclosing one is legal and must be REPORTED"}
+    why_from_day_one: >
+      This is the failure that leaves no artifact. A reference resolves to a PLAUSIBLE WRONG node,
+      the page looks fine, and nothing reports anything. A corpus accumulates these faster than
+      anyone re-reads it. The 1988 tool refused duplicate claims within a namespace at claim time
+      and checked only the top index; the shadowing half is the part it left unbuilt.
+
+  synonym_distinctness:
+    rule: "reject generated aliases that are generic"
+    severity: error_at_generation
+    why: "'the forge' is a good alias; 'the thing where you do the work' is mean-regression and will collide with everything"
+
+  glyph_set_contrast:
+    rule: "siblings of one type share their first glyph and differ after it"
+    severity: warn
+    how: "group TIES.yml files by type within a scope, compare glyph strings"
+
+see_also:
+  RUNGS.yml: "the ladder, its weights, and the level-band argument"
+  ../../designs/webtop/hyperties/ARTICLE-SCHEMA.md: "the 1988 four-part schema, the directive census, and the receipt"
+  ../../designs/webtop/hyperties/LINK-RESOLUTION.md: "the ~name~ markup, scope walking, type-from-position, the build index, and the honest costs"
+  ../../designs/webtop/hyperties/EMACS-INDEX-MANAGER.md: "what the 1988 authoring tool actually enforced"
+  ../../designs/korz/dry-piles.md: "why the pile stays flat and why tags are indexes rather than directories"
+  ../../designs/korz/repo-as-everything.md: >
+    WHY THIS FILE TYPE EXISTS AT ALL. Kell's PLOS'13 diagnosis is that the filesystem has no
+    meta-level descriptive facility analogous to classes, so semantic diversity has nothing to
+    describe it — which is the gap this schema fills. Also Densmore and Rosenthal's US 5,187,786,
+    which put a class hierarchy with Self and Super into a plain filesystem in 1991 using nothing but
+    directories, files and path conventions, proving the in-band budget is large enough.
+  ../../designs/P-PYRAMID.md: "the agent-side selection over the rungs this file declares"
+  ../../designs/webtop-gwern-inheritance/K-PYRAMID-ATTENTION-MAPS.md: "saved selections, weights, and the interaction model"

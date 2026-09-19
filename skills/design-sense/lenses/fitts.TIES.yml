@@ -1,0 +1,16 @@
+ties_schema: 1
+proto: TIES.yml
+
+name: fitts
+synonyms: [Fitts' law, big close or it costs]
+glyphs: 👁️🎯
+label: Fitts
+definition: "Pointing cost grows with distance and shrinks with target size. Radial beats linear; the screen edge is free."
+body: fitts.md
+
+ties:
+  - {to: ~pie-menus~, rel: defines, why: the law that makes a wedge cheaper than a list}
+
+x:
+  dc:
+    subject: [Fitts' law, pointing, pie menus]

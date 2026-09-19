@@ -1,0 +1,41 @@
+# Screen for the lenses pile, and the PROTOTYPE every lens sidecar inherits from.
+# Two jobs in one file on purpose: what is true of all 35 lenses is stated once, here.
+
+ties_schema: 1
+
+name: lenses
+type: pile
+member_type: lens            # what a child inherits as its own type
+label: Lenses
+
+definition: >
+  Ways of seeing. Each lens constrains attention while you look at a design — one file, one claim,
+  loaded as a set rather than consulted as a reference. Contrast methods/, which constrain process
+  while you build.
+
+description: CARD.yml
+body: README.md
+
+inside:
+  - {at: CARD.yml, what: the index, one line per lens, cost: tiny, read: usually enough — start here}
+  - {at: GLANCE.yml, what: count and the one-sentence what, cost: tiny, read: orientation only}
+  - {at: README.md, what: what a lens is and how the pile works, cost: small, read: before authoring one}
+  - at: "*.md"
+    what: 35 lenses, flat, one claim each
+    cost: large
+    read: "named, from the index. The pile is not meant to be read through."
+
+# ─ inherited by every <lens>.TIES.yml that declares proto: TIES.yml ─
+inherited:
+  type: lens
+  tags: [design, lens, ambient]
+  ties:
+    - {to: ~design-sense~, rel: part_of, why: the skill that hosts this pile}
+  x:
+    dc:
+      schema: "http://purl.org/dc/elements/1.1/"
+      creator: Don Hopkins
+      type: Text
+      language: en
+
+cache: TIES-CACHE.yml

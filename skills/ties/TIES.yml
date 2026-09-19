@@ -1,0 +1,58 @@
+# Screen for skills/ties/ — the skill that defines this file type, described by one.
+
+ties_schema: 1
+
+name: ties
+type: skill
+synonyms:
+  - TIES.yml                   # the file type is how people will refer to the skill
+  - HyperTIES                  # the ancestor; a reader arriving by that name wants this
+  - READ THE SCREEN            # k-line, resolves here
+  - WRITE A SCREEN
+  - LINT THE CORPUS
+
+glyphs: 🪢👁️📇
+label: TIES
+
+definition: >
+  A manifest file type and authoring discipline that make a directory legible without opening it. A
+  cheap-to-dear rung ladder (RUNGS.yml) plus synonyms, typed links and per-child costs. From HyperTIES
+  (HCIL, 1988), which required every article to carry a previewable definition. Screens; does not
+  advertise.
+
+description: CARD.yml          # where the advertisements are, per the boundary this skill enforces
+body: SKILL.md
+
+inside:
+  # Read order, and each entry says when it stops being worth reading.
+  - {at: GLANCE.yml, what: is this relevant, and the one idea, cost: tiny, read: first, always}
+  - {at: CARD.yml, what: advertisements, methods, budgets, cost: tiny, read: enough to USE the skill}
+  - {at: SKILL.md, what: the protocol, self-contained, publishable alone, cost: small, read: authoring or extending}
+  - {at: README.md, what: the Shneiderman debt, decisions, what is not built, cost: small, read: why it is like this}
+
+  - {at: TIES-SCHEMA.yml, what: field-by-field reference plus the open questions, cost: large, read: one field at a time}
+  - {at: RUNGS.yml, what: the ladder, sizes, canonical weights, level bands, cost: small, read: "single source — cite, never retype"}
+  - {at: scripts/ties_lint.py, what: every deterministic check, cost: small, read: run it rather than read it}
+  - {at: examples/, what: pointers at live manifests elsewhere, cost: tiny, read: no mocks here by policy}
+
+ties:
+  - {to: ~hyperties~, rel: lit_from, why: "mandatory definitions, single-click preview, self-naming links"}
+  - {to: ~repo-as-everything~, rel: lit_from, why: Kell's diagnosis is why this file type exists at all}
+  - {to: ~yaml-jazz~, rel: binds, why: the notation; comments carry the read conditions no field expresses}
+  - {to: ~dry-piles~, rel: cross, why: the path is the guard expression, and declared duplication is licensed there}
+  - {to: ~k-lines~, rel: cross, why: "~name~ resolution and scope walking — the late-binding half"}
+  - {to: ~design-sense~, rel: sustains, why: first dogfood — hub, pile prototype and leaf sidecar}
+
+tags: [manifest, metadata, hypertext, context, schema, navigation, prototypes]
+
+x:
+  dc:
+    schema: "http://purl.org/dc/elements/1.1/"
+    title: "TIES — manifests that make a tree legible without opening it"
+    creator: Don Hopkins
+    subject: [hypertext, metadata, context management, HyperTIES]
+    source: "HyperTIES, Human-Computer Interaction Laboratory, University of Maryland, 1988"
+
+provenance:
+  generated: [synonyms, glyphs]
+  confirmed: pending          # k-lines are real; prose aliases want a human eye

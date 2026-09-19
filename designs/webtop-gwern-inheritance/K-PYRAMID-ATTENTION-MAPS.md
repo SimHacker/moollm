@@ -36,7 +36,7 @@ a two-way mapping, so the weight is the model and everything else is projection:
 | Derived from weight | Mapping |
 |---------------------|---------|
 | Font / point size | PSIBER pretty-plotter scaling — partial attention renders smaller |
-| Level of detail | Pyramid mip level: README 1.0 · SKILL 0.8 · CARD 0.5 · GLANCE 0.2 · LABEL/GLYPH below |
+| Level of detail | Which **rung** of the node's mip stack — the ladder and its canonical weights are [`skills/ties/RUNGS.yml`](../../skills/ties/RUNGS.yml), not restated here |
 | Window state | open ↔ shaded ↔ tab ↔ icon thresholds |
 | Opacity / lighting | fog-of-war dimming at the fringes |
 
@@ -155,20 +155,20 @@ mechanics ([WWSFF storymaker scenes-and-stories](https://github.com/SimHacker/Wi
 a show is a graph walk over StoryMaker content, and a Repo Show episode is a guided
 safari), new territory: the corpus.
 
-## The UI summary pyramid: two levels below GLANCE
+## The UI summary pyramid: two rungs below GLANCE
 
-The standard MOOLLM pyramid (README → SKILL → CARD → GLANCE) bottoms out at ~5 lines.
-Zoomable UI needs shorter:
-
-| Level | Size | Used for |
-|-------|------|----------|
-| GLANCE | 5-70 lines | smallest readable document |
-| **LABEL** | 1-4 words | tab title, shaded window title, tree node, breadcrumb |
-| **GLYPHS** | emoji sequence, truncatable to 1 | iconified window, pie menu slice, tab badge, minimap dot |
+The standard MOOLLM pyramid (README → SKILL → CARD → GLANCE) bottoms out at ~5 lines, and
+zoomable UI needs shorter — so the ladder continues down into **LABEL** and **GLYPHS**.
+Those two rungs were specified here first and this section is why they exist; the ladder
+itself, with sizes and canonical weights, now lives once in
+[`skills/ties/RUNGS.yml`](../../skills/ties/RUNGS.yml) so it can be cited rather than
+retyped. What stays here is the part that is about *interaction and generation*, which is
+this document's job.
 
 When a window iconifies to a tab it must still show a *sensible short word* — not a
-truncated URL. These levels are generated, cached like any other pyramid level, and
-regenerated when content changes.
+truncated URL. These rungs are generated, cached like any other rung, and regenerated when
+content changes. A node that declares them is a [TIES.yml](../../skills/ties/SKILL.md)
+node.
 
 ### GLYPHS: big-endian, purposefully truncatable
 

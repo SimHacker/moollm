@@ -173,6 +173,42 @@ items), game (advertisement economy as UI, Sims storytelling spectrum), software
   Don's master file gained a vote. Registries now 31 lenses / 32 methods /
   59 masters / 6 seed batches.
 
+## Count drift
+
+**Six files claim this skill's registry sizes and no two agree.** Found 19 Sep 2026 while writing
+`TIES.yml`, by the cheap method of running `ls` instead of trusting any of them.
+
+| Source | lenses | methods | masters | seeds |
+|---|---|---|---|---|
+| **disk, 19 Sep 2026** | **35** | **34** | **60** | **7** |
+| `GLANCE.yml` — *this skill's own front door* | 34 | 33 | 59 | — |
+| `.cursorrules` — *ambient, every session* | 33 | 33 | 59 | — |
+| `.cursor/rules/moollm-core.mdc` — *ambient, every session* | 31 | 32 | 59 | — |
+| harvest log above, last entry | 33 | 33 | 59 | — |
+| `TIES.yml`, first draft | 37 | 36 | 62 | 9 |
+
+The `GLANCE.yml` row is the most embarrassing one: it is the file a reader hits first, and it
+disagrees with the disk by one lens. Nobody was careless — the count was correct when typed, and
+every later `PLANT A SEED` was a chance to miss it.
+
+Two distinct failures, and they want different fixes:
+
+**Stale hand-typed counts.** The log, `.cursorrules` and `moollm-core.mdc` were each right when
+written and have been decaying since. The two ambient files are the expensive case: they load into
+every session, so every boot pays tokens for a wrong number. They are bootstrap-compiled, so the fix
+belongs at compile time — either compute the counts from disk or **stop stating them in an
+always-loaded file**, which is the cheaper answer given that nothing downstream branches on 33 versus
+35.
+
+**A wrong formula, not a stale number.** `TIES.yml`'s 37/36/62/9 was `ls | wc -l`, which counts each
+pile's own `CARD.yml` and `GLANCE.yml` as members. Every pile overcounted by exactly two. Worth
+separating from the first failure because refreshing on a schedule would never have caught it — the
+recipe was wrong, so it would have kept producing the same wrong answer, on time, forever.
+
+The general rule this pushed into the TIES schema: a count is derivable, so either leave it out or
+declare it as a cache with the command that regenerates it. Undeclared duplication is not a cache,
+it is a fork. See `../ties/TIES-SCHEMA.yml` → `manifest_only_what_is_not_derivable`.
+
 ## Germination queue
 
 Remaining Todo seeds (see seeds/ batch files for the journal of record):

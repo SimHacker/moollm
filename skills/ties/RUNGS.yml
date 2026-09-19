@@ -1,0 +1,131 @@
+# RUNGS.yml — the canonical rung ladder
+#
+# THE SINGLE SOURCE OF TRUTH for the semantic image pyramid's levels and their weights.
+# Cited by, and no longer restated in:
+#   designs/P-PYRAMID.md                                  (agent-side selection over this ladder)
+#   designs/webtop-gwern-inheritance/K-PYRAMID-ATTENTION-MAPS.md  (saved selections over it)
+#   skills/ties/TIES-SCHEMA.yml                           (the file format that declares rungs)
+#   designs/pie-stack-views/TREEMAPS-AND-PARTICLES.md     (a renderer: area selects the rung,
+#                                                          and glyphs bottom out as particles)
+#
+# Before this file the ladder was stated in two places with DIFFERENT BOTTOMS — P-PYRAMID.md
+# stopped at GLANCE, the webtop doc extended to LABEL and GLYPHS. Undeclared duplication, and it
+# drifted, exactly as dry-piles predicts. Edit here; the citations follow.
+
+rungs: 1   # ladder version. Adding a rung is a minor bump; renumbering weights is a major one.
+
+what_this_is_not:
+  # The three things get confused constantly, and Minsky already separated them in AIM-516.
+  not_a_p_pyramid: >
+    A P-pyramid is one AGENT'S WEIGHTED SELECTION across many nodes, at chosen rungs, right now.
+    Transient. This ladder is what it selects FROM.
+  not_a_k_pyramid: >
+    A K-line is a SAVED selection; the K-pyramid is the accumulation of saved selections, lying
+    against the P-pyramid with information flowing the other way. Memory. This ladder is what
+    memory ATTACHES TO.
+  what_it_is: >
+    ONE NODE'S MIP STACK. Object-side. The same node rendered at six costs. A TIES.yml file is a
+    node's declaration of its own rungs, which is why the format owns this ladder.
+  the_sentence_that_settles_it: >
+    P-PYRAMID.md's own relations table: "Object-side resolution ladder (GLANCE->CARD->SKILL->README).
+    The P-pyramid is the agent-side selection over it: which object, at which mip level, right now,
+    for P."
+
+why_the_bands_are_load_bearing:
+  # This is the argument for the whole schema, and it is Minsky's, not ours.
+  source: "AIM-516, the level-band principle, which the memo calls its most important idea"
+  lower_limit: "do not reach far down, 'for this would impose false perceptions and conceal the real details of the present problem'"
+  upper_limit: "do not reach up near P, 'for that would make us hallucinate the present problem as already solved'"
+  the_consequence: >
+    A K-line must attach to an INTERMEDIATE band. A node that is one undifferentiated blob of prose
+    HAS NO BAND TO ATTACH TO. So declaring rungs is not documentation hygiene — it is the
+    precondition for the level-band principle being implementable at all.
+  restated_as_a_rule: "no rungs, no bands; no bands, no memory that is not hallucination"
+
+# The ladder. Big-endian by cost: cheapest first, so any prefix is a valid coarser view.
+ladder:
+
+  - rung: glyphs
+    weight: 0.05
+    size: "1 to 5 emoji, big-endian, truncatable to 1"
+    answers: "what KIND of thing is this"
+    used_for: [pie slice, minimap dot, tab badge, iconified window, tree decoration]
+    rules:
+      big_endian: "type glyph FIRST, then holistic impression, then qualifiers, strictly decreasing importance"
+      truncation_is_rendering: "cutting from the right is a view decision, never data loss"
+      set_contrastive: >
+        WITHIN A PILE: first glyph shared across members, the rest distinguishing. The scope is the
+        pile — one directory of same-typed things read together in one menu — and NOT a type globally.
+        A pile of 35 lenses wants a shared lead saying "same kind of thing"; 150 skills, each addressed
+        by name and rendered alone, want their first glyph to be their most identifying byte, and could
+        not be told apart after a shared prefix anyway.
+    hyperties_ancestor: ".target — an arbitrarily shaped graphical region that popped out. 186 uses in the archive."
+
+  - rung: label
+    weight: 0.1
+    size: "1 to 4 words"
+    answers: "what do I call this in a menu"
+    used_for: [tab title, shaded window title, breadcrumb, pie item text, tree node]
+    rules:
+      not_a_truncated_title: "an iconified window must show a SENSIBLE SHORT WORD, not a clipped name"
+      set_contrastive: "label siblings TOGETHER or eight of them come back reading 'Settings'"
+
+  - rung: name
+    weight: 0.15
+    size: "one line"
+    answers: "what is this called, canonically"
+    used_for: [headings, citations, the thing a synonym resolves TO]
+    hyperties_ancestor: ".title — 261 uses, one per article"
+    note: "distinct from label: a name may be long and formal, a label must fit a tab"
+
+  - rung: definition
+    weight: 0.2
+    size: "1 to 3 sentences"
+    answers: "should I go there"
+    required: true
+    used_for: [link preview, disambiguation pane, hover, GLANCE-level read]
+    hyperties_ancestor: ".definition — MANDATORY in 1988. 197 of 261 articles carry one."
+    why_required: >
+      This is the rung the web dropped, and the reason gwern's popups feel like a revelation is that
+      he rebuilt it by hand, per link, as annotations. HyperTIES got it free because the schema
+      refused to let an article exist without one. An LLM can generate a candidate, so required
+      never has to mean blocked.
+    moollm_equivalent: GLANCE.yml
+
+  - rung: description
+    weight: 0.5
+    size: "a paragraph to a page"
+    answers: "what can it do, what is in it"
+    used_for: [card view, interface sniff, deciding whether to open the body]
+    hyperties_ancestor: ".description — 62 uses, the longer prose one"
+    moollm_equivalent: CARD.yml
+
+  - rung: body
+    weight: 1.0
+    size: "whole document"
+    answers: "how does it actually work"
+    used_for: [reading it]
+    hyperties_ancestor: ".contents — 112 uses"
+    moollm_equivalent: "SKILL.md at 0.8, README.md at 1.0"
+    usually_a_pointer: "the body lives in its own file; TIES.yml points at it rather than inlining it"
+
+bands:
+  # Named spans, so a K-line can say which band it attaches to without listing rungs.
+  fringe:       {rungs: [glyphs, label],          weight: "0.05 - 0.1",  note: "attaches weakly; behaves like a frame default assignment"}
+  intermediate: {rungs: [name, definition, description], weight: "0.15 - 0.5", note: "THE BAND. What a K-line should restore: structural understanding."}
+  leaves:       {rungs: [body],                   weight: "1.0",         note: "refetch from the current corpus; do not restore from memory or you hallucinate an old page"}
+  level_band_policy: "restore the intermediate band, leave the top free for the present goal and the bottom free for present facts"
+
+two_way_mapping:
+  # From K-PYRAMID-ATTENTION-MAPS.md, which is right and stays the authority on INTERACTION.
+  weight_is_the_model: "all view properties derive from one scalar; direct manipulation writes back to it"
+  derived: [font size, rung selection, window state, opacity]
+  written_back_by: [zoom, resize, open, collapse, iconify]
+  consequence: "the user never edits a number; they edit the weight whenever they touch the window"
+
+see_also:
+  TIES-SCHEMA.yml: "the file format that declares these rungs per node"
+  ../../designs/P-PYRAMID.md: "the agent-side selection over this ladder, and the AIM-516 reading"
+  ../../designs/webtop-gwern-inheritance/K-PYRAMID-ATTENTION-MAPS.md: "saved selections, weights, and the interaction model"
+  ../../designs/webtop/hyperties/ARTICLE-SCHEMA.md: "the 1988 four-part schema this ladder extends, with the directive census"
+  ../../designs/korz/dry-piles.md: "why this file exists rather than the ladder being restated twice"

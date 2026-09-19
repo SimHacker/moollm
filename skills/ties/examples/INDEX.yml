@@ -1,0 +1,40 @@
+# Examples are POINTERS AT LIVE MANIFESTS, never copies of them.
+#
+# There was a copy here once and it earned ten lint errors the moment the corpus check ran, because a
+# manifest's pointers are relative to the node it describes. Two directories away, every one dangles.
+# The copy could only be linted by exempting it from the check that matters most — that its pointers
+# are real. So examples live where they work, and are listed here.
+
+examples:
+
+  - at: ../../design-sense/TIES.yml
+    role: hub
+    why: "a skill root with nine children and four plural piles. Delegates to each pile's own screen rather than describing it."
+    demonstrates: [cost hints, conditional read advice, staleness, k-line synonyms, external cache, dc organelle]
+
+  - at: ../../design-sense/lenses/TIES.yml
+    role: "pile screen AND prototype"
+    why: >
+      Two jobs in one file: it screens the pile, and its `inherited:` block is what every lens sidecar
+      inherits. Members are addressed as a glob, because naming 35 files is the thing to avoid.
+    demonstrates: [inherited block, glob member addressing, member_type]
+
+  - at: ../../design-sense/lenses/fitts.TIES.yml
+    role: leaf
+    why: "the whole point of prototypes — carries a name, glyphs, a definition, one tie and one dc subject, and inherits the rest"
+    demonstrates: [proto, diff-only authoring, organelle completed by its prototype]
+
+  - at: ../../design-sense/TIES-CACHE.yml
+    role: cache sidecar
+    why: "derived values with the command that regenerates them, kept out of the manifest so bulk reads never pay for them"
+
+sidecar_naming:
+  form: "<subject>.TIES.yml, beside the thing it describes"
+  rationale: "big-endian — the subject leads, matching name.yml / name.md / name.png sidecar practice elsewhere in the repo"
+  status: decided 19 Sep 2026
+  policy: "SELECTIVE — see TIES-SCHEMA.yml prototypes.sidecars for the four things that earn a member one"
+  so_fitts_has_one_because: "it carries synonyms that must resolve, glyphs for a pie slice, and a tie to pie-menus"
+
+the_rule: >
+  If an example cannot be linted by the same command that lints production manifests, it is not an
+  example, it is a mock. Write it in place or do not write it.

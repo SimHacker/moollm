@@ -1,0 +1,62 @@
+# Screen for skills/design-sense/. Hub: four plural piles, each with its own prototype and index.
+
+ties_schema: 1
+
+name: design-sense
+type: skill
+synonyms:
+  - the designer's head
+  - lenses and methods         # what it gets called in practice, more than by its own name
+  - LOAD LENSES                # k-lines are aliases; the activator resolves to the skill
+  - LOAD MASTER
+
+glyphs: 🛠️👁️🎛️
+label: Design Sense
+
+definition: >
+  Constraints and methods that stay resident while designing UI, games and software. Ambient, already
+  loaded. Four registries: lenses, methods, masters, seeds. Never tells you what colours to use.
+
+description: CARD.yml          # the advertisements live there; this screen only says they exist
+body: SKILL.md
+
+inside:
+  # Ordered by what to read first.
+  - {at: GLANCE.yml, what: registry counts, the two axes, the k-lines, cost: tiny, read: is any of this relevant}
+  - {at: CARD.yml, what: methods, plugin schema, curing protocol, advertisements, cost: tiny, read: enough to use without reading a lens}
+  - {at: SKILL.md, what: how to author a lens or a method, cost: small, read: only when writing one}
+
+  # The four piles each carry their own TIES.yml. Read that, not a second description of it here.
+  - {at: lenses/, what: ways of seeing — constrain attention while you look, cost: large, read: its own screen, then its CARD.yml index}
+  - {at: methods/, what: ways of working — constrain process while you build, cost: large, read: its own screen, then its CARD.yml index}
+  - {at: masters/, what: heads to borrow, each with votes and vetoes, cost: large, read: "open ONE, named"}
+  - {at: seeds/, what: raw harvests, not yet lenses, cost: small, read: skip unless gardening}
+
+  - at: CAULDRON.md
+    what: planning, the graduation queue, and the count-drift finding
+    cost: small
+    stale: "moves often; check the date before trusting the queue"
+
+ties:
+  - {to: ~yaml-jazz~, rel: cross, why: the notation lenses are authored in}
+  - {to: ~korz~, rel: cross, why: "interfaces-to-agency and view-state-is-the-users argue Korz as lenses"}
+  - {to: ~case-mystery-and-art~, rel: sustains, why: its visual registers were decided here and cite its masters}
+  - {to: ~play-learn-lift~, rel: binds, why: the method this skill's authoring loop runs on}
+
+tags: [ambient, design, ui, games, registry, plugin-host]
+
+# No cache: sidecar — this hub states no derived value. Each pile caches its own count, because each
+# pile is what states it. The counts moved out of here when the piles gained their own screens.
+
+x:
+  dc:
+    schema: "http://purl.org/dc/elements/1.1/"
+    title: Design Sense
+    creator: Don Hopkins
+    subject: [interaction design, game design, software design]
+    type: Collection
+    language: en
+
+provenance:
+  generated: [synonyms]
+  confirmed: pending          # LOAD LENSES and LOAD MASTER are real k-lines from GLANCE.yml; the prose aliases are drafts

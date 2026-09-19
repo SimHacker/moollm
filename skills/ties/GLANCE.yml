@@ -1,0 +1,52 @@
+# GLANCE.yml — ties
+# Full file: CARD.yml | SKILL.md | TIES-SCHEMA.yml (the schema) | RUNGS.yml (the ladder)
+# 🪢 "A name is not a description. `ls` gives you names."
+
+what: |
+  A file type and a discipline: TIES.yml, a small manifest that lets an orchestrator
+  decide what to page in WITHOUT opening it. Descends from HyperTIES (Shneiderman's
+  HCIL, 1988), whose articles were required to carry a one-paragraph definition, so a
+  link could be previewed before it was followed. The web dropped that rung. This
+  puts it back, generalised: a semantic pyramid from emoji to full body, plus
+  identity, synonyms, typed links, and foreign schemas as organelles.
+
+why: |
+  - A hundred manifests get read at once to choose the next file. `ls` cannot serve that.
+  - Kell (PLOS'13): the filesystem has no "descriptive facility analogous to classes",
+    so semantic diversity has nothing describing it. TIES.yml is that facility, in-band.
+  - Densmore and Rosenthal (US 5,187,786, 1991) proved a full class system fits in plain
+    directories and files with no new attributes — which is also git's exact budget.
+  - Every rung the author does not write, a reader guesses or an LLM invents.
+
+when:
+  - '"What is in this directory and what should I open?" -- READ THE SCREEN'
+  - '"Write a manifest for this node" -- WRITE A SCREEN'
+  - '"Does this corpus have silent name collisions?" -- LINT THE CORPUS'
+  - '"Attach a foreign schema (Dublin Core, schema.org, something local)" -- ADD AN ORGANELLE'
+
+the_one_idea: |
+  Position implies cost. Keys run cheap to dear — glyphs, label, name, definition,
+  description, body — so reading top-down is reading cheapest-first, and stopping early
+  is a decision rather than an accident.
+
+not_this: |
+  TIES.yml does not score and does not advertise. It SCREENS: presence, cost, staleness,
+  and whether a richer declaration exists. Advertisements live in CARD.yml with their own
+  grammar. A trigger with a score in a TIES.yml is in the wrong file.
+
+parts:
+  TIES-SCHEMA.yml: "the schema: fields, organelles, prototypes, budgets, deterministic checks"
+  RUNGS.yml: "the rung ladder and its canonical weights — cited, never retyped"
+  scripts/ties_lint.py: "every check that needs no model. Pure reader; it never writes."
+  examples/INDEX.yml: "pointers at live manifests, never copies of them"
+
+go_deeper:
+  CARD.yml: "advertisements, methods, the screen/advertisement boundary"
+  SKILL.md: "the protocol, the authoring loop, and what the 1988 system actually enforced"
+  TIES-SCHEMA.yml: "field-by-field, with the arguments"
+
+related: [yaml-jazz, design-sense, k-lines, dry-piles, postel, robust-first]
+lineage: [Ben Shneiderman, Don Hopkins, Stephen Kell, Owen Densmore, David Rosenthal,
+          Marvin Minsky, Rob Pike, Alan Kay, gwern]
+tier: 1
+ambient: false

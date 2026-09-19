@@ -1,0 +1,125 @@
+# CARD.yml — ties
+# Interface card. Protocol: SKILL.md. Schema: TIES-SCHEMA.yml. Ladder: RUNGS.yml.
+
+skill:
+  id: ties
+  emoji: 🪢
+  tagline: "The rung the web dropped, put back and generalised"
+  type: file-type + discipline
+  parts: [TIES-SCHEMA.yml, RUNGS.yml, scripts/ties_lint.py, examples/INDEX.yml]
+
+# ─ THE ADVERTISEMENTS ─
+# These live here and not in a TIES.yml, which is the boundary this skill is most careful about.
+# A TIES.yml screens on presence, cost and staleness. Scoring — value to THIS asker under THESE
+# conditions — is an advertisement, and an advertisement is a CARD-level declaration with a grammar.
+advertisements:
+
+  - trigger: "arrived in an unfamiliar directory and need to choose what to open"
+    action: READ-THE-SCREEN
+    score_hint: high
+    condition: "a TIES.yml is present"
+    cutoff: "nothing, if you already hold the parent's screen and only needed the child's name"
+
+  - trigger: "a directory whose contents cannot be guessed from `ls` — mixed types, many files, or costs that differ by orders of magnitude"
+    action: WRITE-A-SCREEN
+    score_hint: high
+    condition: "no TIES.yml yet, and the node will be visited more than once"
+    cutoff: "low for a two-file directory; the manifest would cost more than the files"
+
+  - trigger: "a corpus where ~name~ references resolve, or names are claimed in more than one scope"
+    action: LINT-THE-CORPUS
+    score_hint: high
+    why_high: >
+      Synonym collision is the failure that leaves no artifact. A reference resolves to a PLAUSIBLE
+      WRONG node, the page looks fine, nothing reports anything, and a corpus accumulates these faster
+      than anyone re-reads it. This is the advertisement to take seriously.
+
+  - trigger: "attaching external metadata — Dublin Core for citation, schema.org, PROV-O, or a local experimental schema"
+    action: ADD-AN-ORGANELLE
+    score_hint: medium
+    condition: "the corpus is meant to be cited or harvested from outside"
+
+  - trigger: "a flat pile whose members share most of their metadata"
+    action: HOIST-A-PROTOTYPE
+    score_hint: medium
+    cutoff: "zero if the members already inherit; the win is per-shared-line, not per-file"
+
+  - trigger: "authoring UI that needs a short label or an emoji for a node — tab, pie slice, minimap dot, iconified window"
+    action: READ-A-RUNG
+    score_hint: medium
+    note: "RUNGS.yml, not TIES-SCHEMA.yml. The ladder is the single source and is cited elsewhere."
+
+methods:
+
+  READ-THE-SCREEN:
+    does: "read TIES.yml top-down and stop when the answer arrives"
+    why_top_down: "keys run cheap to dear, so reading order IS cost order and stopping early is free"
+    then: "follow description: for the CARD, body: for the real thing, inside[] for children with costs"
+
+  WRITE-A-SCREEN:
+    does: "author a TIES.yml for a node"
+    requires: [name, definition]
+    loop:
+      - "state name and a definition that answers 'should I go there' in one to three sentences"
+      - "point description: and body: at existing files; never inline them"
+      - "list inside[] in READ ORDER, each with a cost and a read condition"
+      - "add synonyms only if something must resolve to this node by another name"
+      - "run ties_lint.py and fix what it says"
+    hard_rule: "carry only what nothing else can tell the reader. See the non-redundancy test below."
+
+  LINT-THE-CORPUS:
+    does: "run every deterministic check, including cross-file collision and glyph contrast"
+    how: "python3 skills/ties/scripts/ties_lint.py --corpus DIR"
+    exit: "0 clean or warnings only, 1 on any error"
+    finds: [synonym collisions, shadowing, dangling pointers, undeclared caches, redundant inheritance, budget overruns]
+
+  ADD-AN-ORGANELLE:
+    does: "attach a foreign schema under x:, in its own sub-object, with its own schema: pointer"
+    rule: "the host validates the membrane and never the contents"
+    unknown_is_fine: "an unrecognised guest is reported INFO and preserved untouched"
+
+  HOIST-A-PROTOTYPE:
+    does: "move shared values into the pile's TIES.yml under inherited:, and give children proto:"
+    test: "if two siblings share a line, it belongs in the prototype"
+    lists: "child REPLACES by default; tags+: is the explicit append"
+    delete: "unset: [key, x.dc.subject] — needed because absence now means inherit"
+
+  READ-A-RUNG:
+    does: "consult RUNGS.yml for the ladder, its sizes, and its canonical weights"
+    warning: "do not restate the weights anywhere. They were stated twice with different bottoms once, and drifted."
+
+the_non_redundancy_test:
+  # The rule that governs every authoring decision, stated compactly enough to hold while writing.
+  ask: "could a script have produced this line, and will it still be true next month?"
+  already_available_from:
+    filesystem: "names, counts, sizes, mtimes — `ls` and `wc` produce these and they rot"
+    the_path: "type and class. dry-piles: lenses/fitts.md already says {class: lens, id: fitts}."
+    the_pointee: "the definition is in the CARD; restating its prose forks it"
+  redundancy_is_a_cache: "legal if and only if DECLARED and recomputable — a cache: sidecar with the command and the date. Undeclared duplication is a fork, not a cache."
+  what_survives: [cost, the read condition, staleness, synonyms, why a tie exists]
+
+budgets:
+  leaf: "500 bytes, inheriting from a prototype"
+  hub: "3 KB, scaling with breadth — mostly inside[] entries at ~100 bytes each"
+  hard_limit: "4 KB"
+  measured: "415 for a real leaf, 1397 for a pile prototype, 2755 for a nine-child skill root"
+
+hyperties_receipts:
+  # What the 1988 system actually enforced, which is why the required rung is required.
+  definition_was_mandatory: "197 of 261 surviving articles carry one; the schema would not let an article exist without it"
+  single_click_summarised: "and double-click followed — the preview was a first-class interaction, not a hover affordance"
+  synonyms_made_links_self_naming: "a link in running prose could be any alias, resolved at build time"
+  the_punctuation_lesson: >
+    The original canonicaliser did not fold , or . so one article carried "alphabetically",
+    "alphabetically," and "alphabetically." as three hand-registered synonyms. Widen the class and the
+    author stops paying for it.
+
+related:
+  yaml-jazz: "the notation. Comments are first-class data, and in a TIES.yml they carry the read conditions."
+  design-sense: "the first real dogfood — hub, pile prototype, and a leaf sidecar"
+  dry-piles: "the path is the guard expression, so type comes free from position"
+  k-lines: "~name~ references and scope-walk resolution — the late binding half"
+  postel: "accept messy manifests, emit clean ones, ask when a name is ambiguous"
+  robust-first: "an unknown organelle degrades to preserved-and-reported, never to an error"
+
+justification: ../../designs/korz/repo-as-everything.md

@@ -28,8 +28,10 @@ anchored attention mask over a graph:
 - **Attention mask** — a weight on every node in view: **0** closed (a collapsed outline
   item; a tab; fog of war), **1** fully open, **0..1** partial — rendered smaller,
   summarized shallower. In PSIBER Space Deck terms the weight is the pretty-plotter point
-  size; in MOO-Map terms it selects the mip level (GLANCE at 0.2, CARD at 0.5, SKILL at
-  0.8, source at 1.0).
+  size; in MOO-Map terms it selects a **rung**, and the ladder of rungs with their canonical
+  weights is [`skills/ties/RUNGS.yml`](../skills/ties/RUNGS.yml) — glyphs, label, name,
+  definition, description, body. **Do not restate the weights here.** They were stated in two
+  places with different bottoms until that file existed, and they drifted.
 
 The mask is a **remembered view**: it does not modify the graph, it records how P last
 looked at it. And that is precisely what a K-line stores. The memo's two-step mechanism:
