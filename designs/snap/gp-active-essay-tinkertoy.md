@@ -9,9 +9,42 @@ Ohshima and Maloney built a web version whose examples are running GP projects t
 and edit. Children build Grey Walter's conditioned reflex out of three toilet tanks.
 
 **This file exists because, in September 2026, Alan said in a Quora comment: "I should put this
-paper online …".** It is already online, in both versions, and he did not have the links. That is
-the whole problem this repository is aimed at, so the links, the dependency inventory, and a
-run-verification are recorded here rather than in a bookmark.
+paper online …".** Two versions were already online and he did not have the links, so the links, the
+dependency inventory, and a run-verification are recorded here rather than in a bookmark.
+
+## The published chapter is an abridgement, and the cut is the subject
+
+**Correction, 19 September 2026, from Alan, in reply to the comment that pointed him at the DOI
+below.** Quoted whole, because it invalidates the tidy version of this document's own premise:
+
+> The problem was that the whole account about making a "conditioned reflex analogue" (as Walter
+> called it) was excised from the MIT press book because it was too long (they said). So the chapter
+> they published missed the most important part IMO.
+>
+> I'll send you an email of what I originally gave them.
+
+So "it is already online in both versions" was wrong in the way that matters most. **The print
+artifact is a cut, and what was cut is CORA** — Walter's conditioned reflex analogue, the seven steps
+from chance to meaning, the mechanism this entire document is about. The chapter that has the DOI, the
+publisher and the deposit libraries is the one missing the argument.
+
+Three consequences, and the third is the one worth sitting with:
+
+1. **The active essay is the only complete public version.** It builds the conditioned reflex — three
+   memories at three decay rates, and the nudibranch learns. The thing the press cut for length is
+   the thing the web version *implements and runs*.
+2. **The unexcised original is unpublished and exists nowhere public.** Alan has offered to send it.
+   That is not a link to collect; it is a primary source arriving, and it needs a permanent home with
+   his name on it.
+3. **The durability row in the table below reverses.** This document was going to argue that the inert
+   half got the permanence while the live half sat on one abandoned host. That is still true, and it
+   is now worse: the half that got the permanence **got edited down**, and nobody reading it can tell.
+   A DOI guarantees that a thing stays findable. It guarantees nothing about whether the thing is
+   whole.
+
+`status: awaiting the email. When it arrives: verbatim, under Alan's byline, with the excision noted`
+`and the published chapter linked beside it so the two can be diffed. Slot is`
+[`sources/kay-cora-unexcised/`](#awaiting-the-unexcised-original)`.`
 
 ## The two artifacts
 
@@ -20,9 +53,10 @@ run-verification are recorded here rather than in a bookmark.
 | **What** | "Afterword to Essay 1" | "Marvin Minsky And The Ultimate TinkerToy" |
 | **Where** | <https://doi.org/10.7551/mitpress/11558.003.0007> | <https://tinlizzie.org/tinkertoy/> |
 | **Access** | Open access, free PDF, MIT Press | Free, no login |
+| **Complete?** | **No — the CORA account was excised for length** | **Yes, and it runs** |
 | **Also** | In the OA volume, chapter 194044 | Japanese: [`ja.html`](https://tinlizzie.org/tinkertoy/ja.html), trans. Ohshima |
 | **Byline** | Alan Kay | Alan Kay, *web adaptation by Yoshiki Ohshima and John Maloney* |
-| **Durability** | DOI, publisher, deposit libraries | One host, one abandoned VM |
+| **Durability** | DOI, publisher, deposit libraries — **for an abridgement** | One host, one abandoned VM — **for the whole argument** |
 
 Minsky's essay it answers was written for *LogoWorks: Challenging Programs in Logo* (1986) and is
 reprinted beside it at [`construction.html`](https://tinlizzie.org/tinkertoy/construction.html).
@@ -214,6 +248,27 @@ everywhere.
 **The cheap fix is a mirror**, because the whole thing is static and self-relocating. Offered to
 Alan in the thread; not done unilaterally, because the credit and the provenance belong to Ohshima
 and Maloney and the offer should be theirs to accept.
+
+## Awaiting the unexcised original
+
+Alan has offered to send what he originally gave MIT Press, before the CORA account was cut for
+length. **This is the one item in this document that is not a link to something that exists in
+public, and it is the most valuable.** Slot, prepared so the material does not sit in an inbox:
+
+| | |
+|---|---|
+| **Destination** | `characters/alan-kay/sources/2026-09-19-grey-walter-minsky-essay/kay-cora-unexcised/` in WWSFF, beside the cached published chapter and the run screenshots |
+| **Form** | verbatim, whatever he sends, unedited, under his byline |
+| **Beside it** | the published abridgement, so the two can be diffed and the excision made visible rather than asserted |
+| **What not to do** | do not summarise it in place of publishing it, do not fold it into this document's prose, do not let an LLM paraphrase a primary source that exists in one copy |
+| **Permission** | sending it is not publishing it. Ask before it goes public, name the ask plainly, and keep the private copy either way |
+
+The last row is the one that matters. An email is a private act; a repo is not. The offer to receive
+is not an offer to broadcast, and the difference has to be stated before the file lands rather than
+negotiated after.
+
+`status: open, 19 Sep 2026. Close this section when the email arrives, and again when permission is`
+`settled — those are two separate closures.`
 
 ## See also
 
