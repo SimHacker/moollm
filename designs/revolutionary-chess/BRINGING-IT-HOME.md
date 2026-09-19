@@ -215,11 +215,47 @@ https://www.youtube.com/watch?v=U9W04TEMBUk&t=4502s
 
 https://www.youtube.com/watch?v=U9W04TEMBUk&t=3739s
 
-The full talk, and the design notes on Snap! and MOOLLM's shared lineage:
+The full talk, the timestamped harvest of it, and the design notes on Snap! and
+MOOLLM's shared lineage:
 
 https://www.youtube.com/watch?v=U9W04TEMBUk
 
+[snap/snapcon-2025/closing-keynote-jens-neural-networks.md](../snap/snapcon-2025/closing-keynote-jens-neural-networks.md)
+
 [snap/moollm-integration.md](../snap/moollm-integration.md)
+
+## The same trip, carrying a needle
+
+Backpropagation is not the only thing that has been brought all the way down. The
+other direction the return trip travels is *out of the screen*.
+
+TurtleStitch is a fork of Snap! by Andrea Mayr-Stalder and Michael Aschauer in
+which the turtle is the needle of a programmable embroidery machine. The blocks a
+child assembles come out as thread in fabric they can carry home in their hands.
+Papert's "low threshold, high ceiling" with a physical artifact at the end of it —
+and the ceiling is the same ceiling, because it is still Snap! underneath, still
+Scheme's power under a palette.
+
+https://www.turtlestitch.org/
+
+Don programmed one at Snap!Con 2023 in Barcelona: multi-color thread in felt, a
+circle of zigzag stitches tapering from wide to narrow. What was worth watching was
+not the stitching. It was a room of kids of every background combining what lazy
+stereotypes file under "boy programming" and "girl sewing" with no
+self-consciousness at all, one of them visibly proud of a sewing-machine project he
+had programmed himself.
+
+And the ledger rule from the game shows up in Jens' reaction to being forked:
+
+> One of my favorite Snap! forks is TurtleStitch... She was afraid because she
+> "ripped off" Snap!, and I said "No, it's fantastic!"
+
+[snap/moollm-integration.md](../snap/moollm-integration.md)
+
+An aristocrat asked whether her taking the move-set was theft. The answer was that
+this is what the move-set is *for*. **Nothing is ever removed**, and the deposit
+only grows the commons — which is easy to write as a rule and rarer than it should
+be as a reflex.
 
 ## Understanding by using, before understanding by explanation
 

@@ -1,0 +1,47 @@
+# GLANCE.yml — quora-harvest
+# Full file: CARD.yml | SKILL.md | scripts/quora-extract.js
+# 🪤 "Open every fold once, then never hike it again."
+
+what: |
+  Gets a Quora thread out of Quora, intact. Opens all three of Quora's folding
+  mechanisms to a fixpoint, then writes the whole exchange — answer, comments,
+  nested replies, permalinks — as flat Markdown you can read, quote, and cite.
+  Runs in your own logged-in browser; no credentials leave it.
+
+why: |
+  - Alan Kay and the people arguing with him publish substance into a walled garden
+    that makes reading it twice a manual reconstruction job
+  - One accidental click collapses twenty minutes of expansion with no undo and no
+    address (skills/design-sense/lenses/view-state-is-the-users.md)
+  - A recap you can link and quote is what you bring back to the author and ask
+    "what do you think now?"
+
+when:
+  - '"Archive this Quora thread" -> HARVEST-PAGE'
+  - '"Get all of X''s answers" -> HARVEST-PROFILE'
+  - '"I already have the tab open" -> SNIPPET (devtools, one keystroke)'
+  - '"Just open the folds, I''ll read it myself" -> EXPAND'
+
+three_folds:
+  answer_truncation: "(more) / Continue Reading on the answer body itself"
+  comment_collapse: "'N comments' mounts the list; 'View more comments' pages it"
+  reply_collapse: "'View N replies' under individual comments, recursively"
+  why_a_loop: "Opening one reveals more of the others, so expansion runs to a fixpoint"
+
+design_note: |
+  Expansion matches visible LABEL TEXT, not class names — labels are the product
+  and stay put; Quora's classes are obfuscated and rot. The structured parse is
+  explicitly best-effort; the full expanded page text is always included so a
+  degraded parse still leaves you everything.
+
+scripts:
+  quora-extract.js: "runs in the page: expand to fixpoint, extract, emit Markdown"
+  quora_harvest.py: "drives your own Chrome over CDP; one file per answer, resumable"
+
+no_scrape_paths:
+  pre_2023_corpus: "natecull's capture, archive.org/details/alan-kay-quora-2023-11"
+  single_pages: "web.archive.org, when someone already saved it"
+
+related: [copy-that, sister-script, design-sense, cursor-mirror]
+tier: 1
+ambient: false

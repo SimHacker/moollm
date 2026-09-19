@@ -291,6 +291,7 @@ How MOOLLM builds on Anthropic's skill model as its compatibility ABI and extend
 |----------|-------------|
 | [AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md) | Right-thing/worse-is-better, neat/scruffy, augmentation/automation, direct-manipulation/agents, language/environment — real axes, fake tribes. Two assign the coasts to *opposite* poles; one has both poles on the same coast. Includes the Shneiderman/Maes rematch, and how Wright shipped the synthesis first |
 | [NEURO-SYMBOLIC.md](./NEURO-SYMBOLIC.md) | Symbols against networks: what *Perceptrons* actually proved, what Cyc actually taught, Sutton's bitter lesson answered honestly, and where this repo stands |
+| [TELEOLOGY.md](./TELEOLOGY.md) | Purpose: whodunit (phenomenology) / howcatchem (cybernetics, Society of Mind) / wherecatchem (affordances, advertisement economies). Teleonomy as the domesticated version, Kant's as-if, autopoietic closure as the argument the objector missed — and why modern AI didn't drop teleology, it outsourced the setpoint to whoever pays for the GPUs |
 | [RULES-INJECTION-CONUNDRUM.md](./RULES-INJECTION-CONUNDRUM.md) | What reaches the prompt, what it costs, bear traps in other people's repos, and why skills beat rules files |
 | [NOISY-CHANNEL.md](./NOISY-CHANNEL.md) | Alan Kay praising Shannon's noisy-channel theorem while a nine-layer feedback loop garbles him. Noise degrades, priors invent, policy censors — and only the first is channel repair |
 

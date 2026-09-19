@@ -93,6 +93,17 @@ items), game (advertisement economy as UI, Sims storytelling spectrum), software
   germinated the seed set: lenses fitts, foveation, stage-magic; methods
   design-by-accretion, tuned-emergence; masters will-wright, david-ungar,
   chris-trottier.
+- 2026-09-19 — **reasoning-is-not-science planted**, out of Kay's Quora answer (science
+  as a heuristic prosthetic for poor commonsense thinking, and "more concern about
+  reasoning as opposed to science") crossed with Don's question about thinkers who
+  reason themselves into corners. The mechanism that earned it a file: reasoning is
+  audited internally and science externally, so fluency accelerates the failure instead
+  of protecting against it, and the fix has to be structural rather than an exhortation
+  to be humble. Tests: does the practice generate a claim that could embarrass you with
+  the grade recorded, what did the last update cost, and what leaves the design review.
+  New lenses ad: deciding-whether-you-know-it. Also corrected two stale registry counts
+  (lenses/GLANCE.yml said 31, methods/GLANCE.yml said 32). Registries now 33 lenses /
+  33 methods / 59 masters.
 - 2026-09-19 — **view-state-is-the-users planted**, straight from Don's rant about
   Quora's three independent folding mechanisms: expansion state a reader assembled
   by hand is the reader's, and one wrong click that destroys it with no undo and no

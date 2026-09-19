@@ -30,11 +30,13 @@ Each `.md` has a `.yml` sidecar carrying the same material as structured data.
 
 ## SnapCon 2025
 
-Brian Harvey's Karlström Award address, with Jens' introduction — the talk this
-material keeps quoting.
+Heidelberg. Brian Harvey's Karlström Award address with Jens' introduction in the
+evening, and Jens' closing keynote — backpropagation in Snap! itself — at the end.
+The two talks this material keeps quoting.
 
 | Doc | What it is |
 |---|---|
+| [snapcon-2025/closing-keynote-jens-neural-networks.md](snapcon-2025/closing-keynote-jens-neural-networks.md) | Jens' closing keynote: the perceptron as a sprite, 18 months to compress backprop, "this might be the last algorithm we get to teach" — every quote timestamped |
 | [snapcon-2025/karlstrom-address-transcript.md](snapcon-2025/karlstrom-address-transcript.md) | The transcript, where the quotes come from |
 | [snapcon-2025/karlstrom-address-brian.md](snapcon-2025/karlstrom-address-brian.md) | Digest of the address |
 | [snapcon-2025/karlstrom-intro-jens.md](snapcon-2025/karlstrom-intro-jens.md) | Jens' introduction |

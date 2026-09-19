@@ -1,0 +1,92 @@
+# CARD.yml — quora-harvest
+# Machine-readable interface. Full protocol: SKILL.md | Glance: GLANCE.yml
+
+card:
+  id: quora-harvest
+  name: "Quora Harvest"
+  type: [skill, utility, archival, publishing]
+  emoji: "🪤"
+  tier: 1
+  status: active
+  tagline: "Open every fold to a fixpoint, then read the thread out flat."
+
+description: |
+  Extracts Quora answers and their full comment trees into flat Markdown plus a
+  JSON sidecar, using your own logged-in browser. Two pieces: an in-page script
+  that clicks every expander until a round finds nothing new and then reads the
+  DOM, and a Playwright driver that attaches to a running Chrome over CDP and
+  walks a URL list or a profile's answers tab.
+
+k-lines:
+  activates: [QUORA-HARVEST, EXPAND-ALL-FOLDS, RECAP-A-THREAD]
+  related:
+    - { ref: design-sense, relation: "view-state-is-the-users — the lens this tool is the workaround for" }
+    - { ref: copy-that, relation: "the harvested recap ships in a fence, formatted for its venue" }
+    - { ref: sister-script, relation: "doc-first: the script's docstring is the manual" }
+    - { ref: cursor-mirror, relation: "same shape of tool, aimed at your own transcripts" }
+
+methods:
+
+  EXPAND:
+    signature: "EXPAND ()"
+    where: "browser console, on the page"
+    call: "await __quoraExpand()"
+    description: "Click every fold to a fixpoint. Changes nothing else; you read it yourself."
+    returns: { rounds: int, clicked: array }
+
+  SNIPPET:
+    signature: "SNIPPET ()"
+    where: "devtools → Sources → Snippets"
+    call: "__quoraCopy()"
+    description: |
+      Paste scripts/quora-extract.js as a devtools Snippet once; thereafter one
+      keystroke expands the page and puts the Markdown on the clipboard. The
+      fastest path when the tab is already open.
+    returns: { clipboard: markdown }
+
+  HARVEST-PAGE:
+    signature: "HARVEST-PAGE (url_list_file) (out_dir)"
+    call: "python3 scripts/quora_harvest.py urls urls.txt --out DIR"
+    description: "Drive Chrome over CDP through a list of answer URLs; skips what is already on disk."
+    returns: { files: "one .md + one .json per answer" }
+
+  HARVEST-PROFILE:
+    signature: "HARVEST-PROFILE (profile_slug) (out_dir) [--limit N]"
+    call: "python3 scripts/quora_harvest.py profile Alan-Kay-11 --out DIR --limit 50"
+    description: "Scroll a profile's answers tab for URLs, write the index, then harvest each."
+    returns: { index: "<profile>-answer-urls.txt", files: "one .md + one .json per answer" }
+
+  RECAP:
+    signature: "RECAP (harvested_md) (destination)"
+    description: |
+      Turn raw harvest into a readable recap in the house pattern: source URL and
+      capture date up top, verbatim quotes, one section per commenter thread,
+      related recaps linked, and a clearly marked section for your own reading.
+      Gold standard: the Alan Kay shelf in WillWrightShowForFood.
+    returns: { recap_path: string }
+
+expansion_labels:
+  matched_on: "visible label text, not class names"
+  patterns: ["(more)", "Continue Reading", "View N comments", "View more replies",
+             "N comments", "See more", "Show more", "Load more"]
+  extend_here: "scripts/quora-extract.js → EXPANDERS array"
+  rationale: "labels are the product and stay put; Quora's classes are obfuscated and rot"
+
+setup:
+  chrome: "quit Chrome, relaunch with --remote-debugging-port=9222"
+  python: "pip install playwright && playwright install"
+  session: "reuses the login already in that browser; no cookie export, nothing stored"
+
+limits:
+  - "Sibling answers to a question are separate URLs — '1 of 6 answers' means five more to fetch"
+  - "Upvoter and sharer lists stay collapsed; not content, not chased"
+  - "Structured parse degrades when Quora reshuffles the DOM; full page text always included"
+  - "Automated access is against Quora's terms of service; this reads what you can already read,
+     from the browser you were reading it in, at human pace"
+
+pacing:
+  default_delay_s: 3.0
+  settle_ms: 1200
+  resumable: "already-harvested URLs are skipped unless --force"
+
+see_also: [GLANCE.yml, SKILL.md, scripts/quora-extract.js, scripts/quora_harvest.py]
