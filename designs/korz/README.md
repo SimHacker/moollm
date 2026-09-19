@@ -143,6 +143,7 @@ it sits in [`korz-prime/`](korz-prime/). Suggested reading order:
 | [deconstruct-oriented-programming.md](deconstruct-oriented-programming.md) | **Morningstar-style deconstruction** — declassification (Class→Object), deobjectification (Object→slot soup), Oriented vs Disoriented Programming |
 | [case-zork.md](case-zork.md) | Case study: Zork and Adventure as shipped five-dimensional dispatch, and the plan to rebuild them as Korz slots |
 | [case-cellular-automata.md](case-cellular-automata.md) | Case study: cellular automata as Korz at absolute zero — Margolus blocks, multiple dispatch, Minsky's Single Agent, GPU crystallization |
+| [case-mystery-and-art.md](case-mystery-and-art.md) | Case study running the other direction: **a genre is a dispatch configuration**. Howcatchem crystallizes who, whodunit computes who; the whydunit is the `purpose` dimension; a locked room is a type error; cosmic horror is a lookup miss; dramatic irony is differential binding; Cubism is symmetric dispatch and melodrama is the is-of-identity |
 | [korz-notes.md](korz-notes.md) | Don's Q&A working notes on the papers (nulls, JIT, Linda, layers, mirrors, Emacs buffer-locals…) |
 | [ask-david.md](ask-david.md) | The open questions, collected — the agenda for the conversation |
 | [trajectory.md](trajectory.md) | Session log of how these documents grew — a K-line paging record |

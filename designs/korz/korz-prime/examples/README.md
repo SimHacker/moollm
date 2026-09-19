@@ -33,6 +33,7 @@ Each example states which end of the spectrum it sits on, up front.
 | [mtg-layers.md](mtg-layers.md) · [`.yml`](mtg-layers.yml) | Self-contained (the published rules are the canon) | The dispatcher that shipped to millions: Magic's CR 613 as ordered dimensions, base state vs projected state as E-Prime enforced by tournament rules, effects that **rewrite other effects' guards** (the wall Korz has not hit), and ambiguity resolved by legislated total order because a game in progress may not raise an exception — plus the largest prose-to-guard translation corpus in existence, with a judge program as its soft tier |
 | [df-procedural-magic.md](df-procedural-magic.md) · [`.yml`](df-procedural-magic.yml) | Self-contained (a shipped game's announced design, in the developers' words) | **Generating the dimension lattice**: Dwarf Fortress deletes the privileged effect list the way Self deleted classes. Per-world magic fitted to a procedural creation myth, one coordinate unbinding mid-game so thousands of agents re-dispatch (the paper's assertions trick with a body count), affordance advertisements as generated Sims auctions, three modes gathering one world along different axes — and an O(n²) opinion dispatch whose fix was a cache |
 | [fluxx-nomic.md](fluxx-nomic.md) · [`.yml`](fluxx-nomic.yml) | Self-contained (published rules and the designers' own words) | **The context, made physical**: Fluxx's tableau *is* a Korz context — Draw, Play, Limit, Other as dimensions, one coordinate bound each, rebinding as the only operation, so conflict is unrepresentable and no layer system is needed. Overrides physically cover the slot they shadow; the win predicate is a coordinate that starts *unmentioned*. Behind it, Suber's Nomic (1982, Hofstadter's column) poses the self-amendment fixpoint as jurisprudence — with a failure literature |
+| [purpose-dimension.md](purpose-dimension.md) · [`.yml`](purpose-dimension.yml) | MOOLLM-integrated | **The dimension that answers *why***: `rcvr` is the *what*, and the paper's four axes never say what a call is *for*. Ambient propagation is exactly what a setpoint needs, so Wiener's 1943 move lands in the guard lattice whole — reference signal as coordinate, pursuit as dispatch, error reduction as specificity. One `explain()` with four guards instead of a mode flag; a fridge that advertises nothing during an evacuation; a bare-name guard that refuses to run without a why. And the three breakages: a normative tie is a dilemma rather than a compile error (so it deopts and gets logged), goals are simultaneous while a context binds one coordinate per dimension, and whoever binds it at the top owns the telos underneath — which is fine when the binding is a coordinate you can print, and is a loss function when it is not |
 
 The Margolus set is the runnable companion the
 [cellular automata case study](../../case-cellular-automata.md) was waiting
@@ -63,6 +64,17 @@ commercially successful since 1997.
 Dwarf Fortress also settles `grid-as-rooms`'s open bet a second time:
 it does not sit in the middle of the regularity axis, it serves *both
 ends over one world*.
+
+`purpose-dimension` is the odd one out, and deliberately: it is the
+only example proposing a dimension the paper does not have, rather
+than recognizing one in somebody's shipped system. Its evidence comes
+from the other direction — [case-mystery-and-art.md](../../case-mystery-and-art.md)
+reads narrative genres as dispatch configurations and finds that the
+**whydunit**, the form with every coordinate bound except the motive,
+is the one audiences find least bearable to leave open. Several
+thousand years of people optimizing for whether an audience can follow
+a configuration is a strange corpus for language design, and it is
+still a corpus.
 
 More are planned as the case studies mature — the
 [Zork](../../case-zork.md) case study still

@@ -68,6 +68,25 @@ documents that raise them — the agenda for the conversation.*
   0.3}` turns a binding into a mixture and sampling into a special
    case of blending. Is that still Korz, or a different (worse?
    better?) language wearing its clothes?
+4. **Is `purpose:` a dimension, and is it one axis or a family?** The
+  paper names `rcvr`, `assertions`, `device`, `user` — what, what
+   mode, where, who is looking. Nothing answers **what for**, and
+   ambient propagation is exactly what a setpoint wants: bind the why
+   at `main()`, have a decision a hundred frames down dispatch
+   correctly without any intermediate code mentioning it. The
+   specificity lattice is already there in goal hierarchies. Three
+   things we cannot settle without you
+   ([the worked example](korz-prime/examples/purpose-dimension.md)):
+   (a) real goals are **simultaneous and weighted** — Sims motives are
+   a vector, and a context binds one coordinate per dimension. One
+   axis, a split family (`purpose`/`constraint`/`audience`), or a
+   composite coordinate with a domination relation? (b) A tie between
+   `purpose ≤ safety` and `purpose ≤ honesty` is a *dilemma*, not a
+   compile error — Korz′ escalates it to the soft tier and logs it,
+   which we think is right; is legislating ties away still correct when
+   the dimension is normative? (c) A bare-name guard on `purpose`
+   means "refuse to run without a why," which looks like the cheapest
+   safety primitive anyone has proposed. Too cheap?
 4. **The null family.** Korz has no null coordinate — dodged bullet
   or missing feature? Korz′ splits null's meanings into unmentioned
    / `isKnown` / named sentinels / deopt

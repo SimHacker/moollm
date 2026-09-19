@@ -1,0 +1,108 @@
+# `purpose:` as a Korz dimension — sidecar for purpose-dimension.md
+# Why it earns a slot in the cauldron: Korz names rcvr / assertions / device / user.
+# Between them they answer WHAT, WHAT MODE, WHERE, WHO-IS-LOOKING. None answers WHAT FOR.
+# Purpose is the one dimension no language ever had a place for, so programs smuggle it
+# through globals, thread-locals, mode flags on forty signatures, or nothing at all.
+# Flags: ⚠ = unverified or undecided.
+
+the_claim:
+  one_sentence: "A setpoint is a coordinate; the pursuit is dispatch; specificity is error reduction"
+  rcvr_answers: what          # Self's self, demoted by Korz to one axis among many
+  purpose_answers: why
+  korz_property_that_makes_it_work: "implicit propagation — main() binds it, nothing in between mentions it, every send underneath sees it"
+  the_papers_own_demo: "assertions:true is the same trick on a debug flag; purpose is the same trick on the thing programs actually lack"
+
+cybernetics_mapping:
+  # designs/TELEOLOGY.md reconstructs Rosenblueth, Wiener & Bigelow 1943: purpose mechanized
+  # as reference signal + negative feedback + error reduction. It lands in the lattice whole.
+  reference_signal: "the bound purpose coordinate"
+  the_pursuit: "dispatch — 'given the setpoint, all of the science is in the pursuit'"
+  error_reduction: "specificity ordering: most specific behavior available FOR THIS WHY wins"
+  consequence: "purpose stops being something a system mysteriously HAS and becomes something a context CARRIES"
+
+the_lattice:
+  # Guards need a partial order. Goals have one natively — and skills/robust-first ships it.
+  robust_first: [survive, heal, function, optimize, adapt, reproduce]   # ≥ ordered, already in the ambient skills
+  worked_example:
+    teaching:
+      - teaching-a-child
+      - teaching-an-expert
+      - teaching-a-teacher
+    note: "purpose ≤ teaching matches all three; purpose ≤ teaching-a-child matches only the narrowest"
+  prior_art_to_lean_on: "HTN planning, goal decomposition — the oldest hierarchy in AI; nothing here is being invented"
+
+worked_guards:
+
+  explain_by_why:
+    # One artifact, four explanations, selected by why rather than by what.
+    # No conditional, no mode parameter, no strategy object, no visitor.
+    slots:
+      - {slot: explain, guards: {rcvr: "≤ perceptron"},                               body: "weights, bias, activation, update rule"}
+      - {slot: explain, guards: {rcvr: "≤ perceptron", purpose: "≤ teaching"},         body: "one neuron that leans toward a guess and gets corrected"}
+      - {slot: explain, guards: {rcvr: "≤ perceptron", purpose: "≤ teaching-a-child"}, body: "duplicate the sprite to add a layer — no hidden magic, this is it"}
+      - {slot: explain, guards: {rcvr: "≤ perceptron", purpose: "≤ debugging"},        body: "dump the gradient per layer, say which saturated"}
+    source: designs/snap/snapcon-2025/closing-keynote-jens-neural-networks.md
+
+  advertisement_modulated_by_scene:
+    # The half the Sims economy is missing: an ad is scored against the RECEIVER's motives,
+    # and the receiver is the only source of context. Purpose makes the scene a source too.
+    slots:
+      - {slot: advertise, guards: {rcvr: "≤ fridge"},                              body: {hunger: 40}}
+      - {slot: advertise, guards: {rcvr: "≤ fridge", purpose: "≤ fire-evacuation"}, body: {}}
+    win: "no motive override, no special case, and no code between the alarm and the fridge"
+
+  refuse_without_a_why:
+    # A bare-name guard means MUST BE BOUND TO SOMETHING. One guard, no runtime, no policy engine.
+    slots:
+      - {slot: launch, guards: {purpose: bare}}
+    effect: "absence of a purpose becomes a dispatch failure instead of a silent default"
+
+tie_policy:
+  # Korz: ambiguity is an error. Correct for a compiler, wrong for ethics.
+  # Korz′ already has the escalation path, so a dilemma is a deopt rather than a crash.
+  example:
+    context: {purpose: [safety, honesty]}
+    matched: [tell-the-truth, protect-the-patient]
+    specificity: tie
+    action: deopt                  # strict tier → soft tier, with the tie in the transcript
+  principle: "a value conflict should go upstairs and leave a trace, not be settled by whoever wrote the narrower guard"
+  anti_pattern: "resolving a moral tie by adding a more specific guard — that is hiding the conflict in the lattice"
+
+open_questions:
+  is_purpose_one_axis:
+    status: ⚠ undecided — for David
+    problem: "Sims motives are a VECTOR; real goals are simultaneous and weighted. A Korz context binds one coordinate per dimension."
+    options:
+      one_axis: "cheapest; loses simultaneity — possibly fine, since a scene usually IS for one thing and the rest are constraints"
+      split_the_family: "purpose / constraint / audience / deadline — more dimensions, clean lattices, interactions move into specificity where they are at least visible"
+      composite_coordinate: "weighted goal vector with a domination relation — most expressive, and the first place ties stop being rare"
+    logged_in: designs/korz/ask-david.md
+
+  whose_purpose:
+    observation: "whoever binds it at the top owns the telos of everything beneath — exactly the outsourcing a loss function performs"
+    why_this_version_is_better: "the binding is a coordinate in a context you can PRINT: ask any frame what it is for, see who bound it, see where it changed"
+    house_position: "the outsourcing is not the problem; hiding it is"
+    source: designs/TELEOLOGY.md
+
+  inverter:
+    claim: "a purpose-bound stack says what each level was FOR, not merely how you got here"
+    connects_to: "Kay's unsolved automatic inverter — needs to know what a change was for to run the mapping backwards"
+    status: ⚠ speculative — this puts the intent at the site instead of requiring reconstruction, which is not the same as solving it
+
+e_prime_for_teleology:
+  # Korz is E-Prime for objects: the rose is not red, redness lives in the dispatch.
+  the_extension: "the act is not good; goodness lives in the dispatch against a bound purpose"
+  relocated_objection:
+    who: "Haig Shahinian, in the comments of Kay's Sept 2026 Quora answer on AGI"
+    his_demand: "purpose as intrinsic — a property a subjective unity possesses"
+    korzybski_reply: "the intrinsic reading is the error the map/territory distinction names"
+    the_surviving_structural_form: "can a system bind its own purpose coordinate?"
+    equals: "autopoietic closure — the argument he had available on the merits"
+    moollm_answer_today: "no. No closure, no self-maintenance, nothing that would be worse off if it stopped."
+    where_recorded: designs/TELEOLOGY.md
+
+see_also:
+  moody-temperature.md: "mood is how the room feels; purpose is what the scene is for — same mechanism, sibling dimensions"
+  sims-advertisements.md: "what purpose modulates"
+  ../../case-mystery-and-art.md: "the whydunit is the detective genre of this dimension"
+  ../../../TELEOLOGY.md: "where the setpoint argument comes from"
