@@ -35,7 +35,18 @@ advertisements:
 
   designing-agents-and-characters:
     offer: "Voices, assistants, screen characters, anything with social presence"
-    load: [media-equation, calm-not-invisible, masking, simulator-effect]
+    load: [media-equation, calm-not-invisible, masking, simulator-effect,
+           interfaces-to-agency]
+
+  giving-an-agent-capabilities:
+    offer: "Tool calls, MCP servers, automation, 'let the agent just do it' —
+            anywhere a machine is about to be handed a power a person has, or
+            handed one a person does not have"
+    load: [interfaces-to-agency, direct-manipulation, self-revealing-gestures,
+           reasoning-is-not-science]
+    note: "The audit is a grep: every capability guarded on `via` must be
+           justified. Withholding a capability instead of metering it is a
+           policy decision wearing an engineering costume."
 
   structuring-repos-docs-and-context:
     offer: "Files, formats, naming, LLM context budgets, progressive disclosure"
@@ -58,7 +69,7 @@ advertisements:
     offer: "Something feels wrong; name which principle broke"
     load: [direct-manipulation, calm-not-invisible, no-spurious-velocity,
            fitts, memorably-differentiate-commands, cli-not-tui,
-           keyboard-is-not-tui, view-state-is-the-users]
+           keyboard-is-not-tui, view-state-is-the-users, interfaces-to-agency]
 
   deciding-whether-you-know-it:
     offer: "Design reviews, roadmap arguments, AI claims, anything where the
@@ -67,8 +78,9 @@ advertisements:
            goldilocks-complexity]
 
   choosing-an-interface-substrate:
-    offer: "CLI, TUI, native, web — which surface, and why"
-    load: [cli-not-tui, keyboard-is-not-tui, direct-manipulation, fitts]
+    offer: "CLI, TUI, native, web, chat — which surface, and why"
+    load: [cli-not-tui, keyboard-is-not-tui, direct-manipulation, fitts,
+           interfaces-to-agency]
 
 kin:
   methods: ../methods/CARD.yml    # constraints on process, not perception

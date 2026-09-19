@@ -1,0 +1,85 @@
+# cosmic-horror-no-slot-matches — the girders
+# Human surface: cosmic-horror-no-slot-matches.md  ·  Artifact: cosmic-horror-no-slot-matches.png
+# Essay section: "Whatdunit is the horror case, and it is a guard failure rather than a search"
+# Family: dispatch_failure — 1930s draughtsman's survey plate (see INDEX.yml house_style)
+
+concept: cosmic-horror-no-slot-matches
+essay: ../README.md
+claim: >
+  Cosmic horror is the genre where the unbound dimension CANNOT BE BOUND by the reader's
+  vocabulary. No coordinate in the reader's sea fits, so no slot matches, and the dread IS the
+  dispatch failure. Lovecraft's adjectives — unnameable, indescribable, non-Euclidean — are the
+  transcript of a lookup returning nothing. He is not being lazy. He is reporting a miss.
+
+korz:
+  mechanism: "guard failure, total — not a search with a hidden answer"
+  unbound_dimension: "the CLASS itself. Whatdunit: whether there was an act, and of what kind"
+  contrast_with_locked_room: >
+    The locked room is a MISSING AXIS — one coordinate absent from the list, recoverable, and the
+    solution supplies it. Cosmic horror is NO MATCHING COORDINATE AT ALL, and nothing supplies it.
+    One is a diagnostic you can act on; the other is the diagnostic with no repair available. Same
+    register, deliberately, because they are two verdicts from one instrument.
+
+the_visual_argument: >
+  THE HORROR IS IN THE PAPERWORK. No creature, no tentacle, no eye, no void — the moment you draw
+  the monster you have bound the class and destroyed the claim. What the plate shows instead is a
+  COMPETENT DRAUGHTSMAN'S FAITHFUL RECORD THAT CONTRADICTS ITSELF: three orthographic views of one
+  object whose measurements disagree with each other. The instrument worked. The hand was steady.
+  The numbers do not reconcile.
+  That is the difference between laziness and a miss, rendered as evidence: a lazy draughtsman
+  leaves the sheet blank; this one filled it in completely and the completed sheet is impossible.
+
+visual:
+  read_order:
+    - "an official survey plate, aged, competent, entirely ordinary in manner"
+    - "three orthographic views of some object — plan, elevation, section"
+    - "then the dimension figures, which disagree with each other about the same edges"
+    - "then the classification table, every field violently struck out"
+    - "then the stamp"
+  subject: "a 1930s draughtsman's measured survey plate of an object that cannot be measured"
+  composition: >
+    A single large sheet filling the frame, aged paper, ink and bister wash, drawn in the precise
+    manner of an institutional survey plate: ruled borders, a title block in the lower right, fine
+    hatching, a scale bar.
+    THREE ORTHOGRAPHIC VIEWS arranged conventionally — plan above, elevation below it, section to
+    the right — of a single angular stone mass, part architectural and part geological, with no
+    recognisable function. It must be plainly a SOLID OBJECT drawn straight, not a swirl or a blur:
+    competent, sober, geometric.
+    THE CONTRADICTION, which must be legible as contradiction: dimension arrows and figures run
+    between the same pair of edges in two views and give plainly different numbers. Angle callouts
+    on one triangular face sum visibly wrong. A single edge is drawn convex in the elevation and
+    concave in the section. The three views cannot be the same object and are clearly labelled as
+    the same object.
+    LOWER LEFT: a printed classification table, five short field labels in a left column, and every
+    entry in the right column violently struck through with ink — several attempts, each cancelled,
+    the scratching illegible. One field has been struck through and the paper worn thin from erasing.
+    ACROSS THE PLATE, diagonally, a rubber stamp in faded red.
+  palette: "aged cream paper, sepia and bister ink, one faded red stamp, occasional blue pencil correction"
+  light: "flat, even, document-scan light. It is a photographed artifact, not a scene"
+  typography: >
+    Five short printed field labels in the table: GENUS, ORDER, DIMENSION, MATERIAL, ANGLE.
+    Dimension numerals along the arrows, mutually contradictory.
+    One diagonal red rubber stamp reading NO SLOT MATCHES.
+    All struck-out entries must be ILLEGIBLE scratching, not readable words.
+    No title, no author name, no Latin, no incantation, no marginal narrative.
+
+constraints:
+  must:
+    - "the object must be drawn SOBERLY and geometrically, as a real survey subject"
+    - "the contradiction must be in the MEASUREMENTS and between the views, not in the rendering style"
+    - "the classification entries must all be struck out; the labels must remain printed and readable"
+    - "exactly one rubber stamp: NO SLOT MATCHES"
+    - "same hand, same paper stock and same border treatment as the locked-room and as-any plates"
+  must_not:
+    - "NO creature, tentacle, eye, mouth, limb, silhouette or suggestion of a living thing"
+    - "no void, no portal, no stars, no cosmos, no glow, no green"
+    - "no melting, warping, swirling or impressionistic rendering — the draughtsman was steady"
+    - "no Lovecraft quotations, no invented language, no runes, no Necronomicon"
+    - "no blood, no human figure, no hand in frame"
+    - "do not make it look damaged or burnt; it is a clean competent sheet that happens to be impossible"
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "4:3"
+  prompt_author: "assistant, from the essay's whatdunit row"
+  generated: 2026-09-19

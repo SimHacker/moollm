@@ -19,7 +19,9 @@ Primary sources:
 
 ## Definition
 
-A **P-pyramid** is an anchored attention mask over a graph:
+A **P-pyramid** — Minsky also calls it the **P-tree**, and the memo is explicit that *the network
+as a whole need not be pyramidal; the pyramid is an illusion of an agent's perspective* — is an
+anchored attention mask over a graph:
 
 - **Anchored** — at P, the agent whose perspective projects the hierarchy. Move the anchor,
   get a different pyramid over the same graph.

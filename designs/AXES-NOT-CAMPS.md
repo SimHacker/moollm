@@ -255,6 +255,54 @@ that answers *what do I do next* can consult a rich, human-readable market
 instead of a scalar one, while the market stays inspectable, authorable and
 diffable in exactly the way Shneiderman demanded.
 
+### The synthesis restated as a lint, which is what makes the axis dissolve
+
+The Sims composition is a proof that both poles can be satisfied at once, but it is a proof by
+example, and an example is not a rule you can apply on Monday. The rule underneath it is
+**symmetry of access**, and this repository already ships the three-modality version of it.
+
+[`webtop/TREE-NAVIGATION.md`](webtop/TREE-NAVIGATION.md) requires that every structural operation
+be reachable by **keyboard, pie menu, and drag**, all three invoking the same named command — not
+three code paths that happen to agree — and states it as a lint rather than a taste. Add **agent**
+as a fourth row and the whole 1997 argument turns into a checkable property:
+
+> **Every capability an agent can reach, a human can reach, through the same named command — and
+> the other way round.**
+
+In [Korz](korz/README.md) terms it becomes mechanical rather than aspirational. The capability is a
+slot; keyboard, pie, drag and agent are coordinates on a `via` dimension; and a properly factored
+capability is guarded on its receiver while **saying nothing about `via`**. So an asymmetry is a
+guard you can see, and the audit is a grep: *find every slot whose guard mentions `via`, and justify
+it.* Agent-only powers and human-only powers both become visible in the same place, instead of
+hiding in the gap between two implementations of the same intent.
+
+**The tradeoff the axis assumes was never real.** Shneiderman wanted a comprehensible, predictable,
+authored command set with responsibility locatable in it. Maes wanted something proactive that did
+not need more sliders. Factor the capability out of the surface and those are the same object in two
+hands — the agent drives the commands a person drives, and therefore leaves a trace that is
+replayable, diffable, teachable and refusable. **Neither camp owns a slot.**
+
+The claim needs one refinement to survive contact with spam: **symmetry of capability, asymmetry of
+throughput.** A human cannot send ten thousand messages a second and an agent can; rate limits and
+`robots.txt` are legitimate. What is not legitimate is *withholding* a capability rather than
+metering it, and the distinction is diagnostic — when a service withholds instead of meters, that is
+a policy decision wearing an engineering costume.
+
+The specimen is in this repo and it points the uncomfortable way.
+[`skills/quora-harvest`](../skills/quora-harvest/) exists because a human reading a Quora thread
+must defeat three independent fold mechanisms by hand while a script does it in one pass. The
+capability existed; it was not offered through the surface aimed at people; and the only available
+correction was to take the machine's side. Full treatment, with the tests:
+[`../skills/design-sense/lenses/interfaces-to-agency.md`](../skills/design-sense/lenses/interfaces-to-agency.md).
+
+**Ken Kahn's divergence has the same shape.** He puts it as *growing* an architecture of interacting
+elements being more promising than building it by hand — and he hand-built Pictorial Janus,
+ToonTalk's robots and birds, and the eCraft2Learn blocks so that children could grow behavior
+through them. The part is hand-built, the behavior is grown, and the join is the interface. Which is
+the crystallize/deoptimize loop of [`korz/korz-prime/`](korz/korz-prime/) with people in it: his
+"grow it" is the deopt direction, Alan's "design the organisation of the parts" is the crystallize
+direction, and the architecture is the traffic between them rather than a choice of side.
+
 ### The gauntlet
 
 > **"To me, responsibility will be the central issue in this debate."**

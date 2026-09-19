@@ -1,0 +1,94 @@
+# oedipus-aliasing-bug — the girders
+# Human surface: oedipus-aliasing-bug.md  ·  Artifact: oedipus-aliasing-bug.png
+# Essay sections: "The mystery table" (Oedipus row) · "Two passes minimum, and the second one is lit"
+# Family: point_of_view — theatrical register (see INDEX.yml house_style)
+
+concept: oedipus-aliasing-bug
+essay: ../README.md
+claim: >
+  Two names resolve to one referent, and the tragedy is the DISCOVERY OF THE ALIAS rather than
+  the identity. Oedipus the investigator and Oedipus the killer are the same coordinate the whole
+  time. Every "you were the monster" reveal is this one bug.
+
+second_claim:
+  # Added 19 Sep 2026 when Don's shadowed/bright account made Oedipus the limiting case.
+  what: "the play is built to be watched EXCLUSIVELY in the bright pass"
+  why: "the Athenian audience knew the myth walking in — all of them, no exceptions"
+  consequence: "dramatic irony is not a second-time bonus here; it is the only reading ever available"
+  therefore: "the bright pass is not derivative or lesser. You can build the whole work for it."
+  the_gift: >
+    AND THE VENUE ENFORCES IT PHYSICALLY. Greek drama was performed outdoors in daylight, at the
+    festival, in an open amphitheatre with no way to darken the house. You cannot stage a shadowed
+    pass at midday in the sun. The architecture makes the lit reading the only available one, which
+    is why this plate looks OUT at the audience instead of at the stage.
+
+korz:
+  mechanism: "aliasing — two paths, one object"
+  the_bug: "{detective: oedipus} and {culprit: oedipus} are one binding wearing two names"
+  why_it_is_a_bug_and_not_a_twist: >
+    Nothing is substituted and nothing is withheld. The two references were always to the same
+    thing; only the knowledge that they were is missing. Which is exactly the failure that makes
+    aliasing hard in real programs: both paths are valid, both dispatch correctly, and the harm
+    comes from the code assuming they are distinct.
+  relation_to_whodunit_plate: >
+    The diptych shows one text under two lightings. This shows one REFERENT under two names. The
+    first is about the reader's context; the second is about the sea itself.
+
+the_visual_argument: >
+  Two moves, and neither may be dropped.
+  ONE: the plate must point the camera the wrong way — out from the orchestra at a fully sunlit
+  audience — because the argument is about who already knows, and in this theatre that is
+  everybody, visibly, in daylight. Every other plate in this family looks at a stage. This one
+  looks at the house, and the house is lit.
+  TWO: the alias must be a physical impossibility rendered plainly. TWO labelled pegs, TWO cords,
+  and ONE mask hanging from both. Not two masks that resemble each other — a single object with
+  two names attached, which is the difference between a resemblance and an alias.
+
+visual:
+  read_order:
+    - "an ancient stone amphitheatre, and the camera is facing the AUDIENCE"
+    - "full midday sun, every tier occupied, not one face in shadow"
+    - "in the foreground on the orchestra floor: a mask stand with two pegs"
+    - "two cords from two pegs, and they hold ONE mask between them"
+    - "the two carved plaques beneath the pegs, which name the bug"
+  subject: "a Greek amphitheatre from the performer's position, looking out at a sunlit audience, with one tragic mask hung from two labelled pegs in the foreground"
+  composition: >
+    Viewpoint: standing in the orchestra, the circular performance floor, looking up and out at the
+    seating. The stone tiers sweep up and fill most of the frame, packed with spectators in Greek
+    dress. Harsh clear midday light from high and slightly behind camera, so the whole audience is
+    evenly and unforgivingly lit — no pools of shadow anywhere in the seating, no darkened house.
+    A strip of bright sky above the top tier. Worn pale limestone, dry grass at the edges.
+    FOREGROUND, lower third, close and sharply lit: a simple weathered wooden mask stand on the
+    orchestra floor. It has TWO pegs set apart at the same height. From each peg hangs a cord, and
+    the two cords converge to carry ONE single tragic mask between them — the mask plainly supported
+    by both, unmistakably one object with two attachments. Classical Greek tragic mask: pale, open
+    mouth, hollow eyes, the face turned slightly toward the audience rather than toward camera.
+    Beneath each peg, a small carved stone plaque set into the stand's base.
+    No performers. No chorus. The orchestra floor is otherwise empty, which is deliberate — the
+    mask is the subject and the audience is the witness.
+  palette: "bleached limestone, dry ochre, white sun, pale terracotta and dusty white garments; the mask a shade paler than the stone"
+  light: "flat brutal midday sun, everywhere at once. The ABSENCE of shadow in the seating is the argument"
+  typography: >
+    Exactly two words, carved into the two small stone plaques beneath the pegs:
+    left plaque DETECTIVE, right plaque CULPRIT. Roman capitals, incised, weathered.
+    Nothing else. No title, no Greek lettering, no names.
+
+constraints:
+  must:
+    - "the camera MUST face the audience, not a stage. This is the plate's first argument"
+    - "the seating must be fully and evenly sunlit with no shadowed sections — the house cannot be darkened"
+    - "ONE mask only, held by TWO cords from TWO pegs. A single object with two attachments"
+    - "exactly two words, on the two plaques"
+  must_not:
+    - "NOT two masks, not a pair, not a mirrored mask, not a split or half-and-half mask — that is resemblance, and it destroys the claim"
+    - "no actor, no chorus, no figure in the orchestra"
+    - "no blood, no eyes, no wound, no self-blinding imagery"
+    - "no Sphinx, no crossroads, no crown"
+    - "no arrows, no lines drawn between the pegs and the mask beyond the two physical cords"
+    - "no Greek text, no theatre masks of comedy alongside"
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "16:9"
+  prompt_author: "assistant, from the essay's Oedipus row plus Don's shadowed/bright account"
+  generated: 2026-09-19

@@ -1,0 +1,86 @@
+# whodunit-and-howcatchem — the girders
+# Human surface: whodunit-and-howcatchem.md  ·  Artifact: whodunit-and-howcatchem.png
+# Essay sections: "The mystery table" · "The conversion, which is the finding"
+# Family: point_of_view — theatrical register (see INDEX.yml house_style)
+
+concept: whodunit-and-howcatchem
+essay: ../README.md
+claim: >
+  A whodunit re-read IS a howcatchem. Same text, no edit, no retraction — the genre changed
+  because the READER'S CONTEXT changed. The first pass is shadowed, dispatching with
+  foreknowledge unbound; the second is lit, and the pleasure relocates from WHO to HOW.
+  Genre is a coordinate in the reader, not a property of the book.
+
+korz:
+  mechanism: "differential binding — one rcvr, two contexts, two results"
+  the_two_dispatches:
+    shadowed: "{rcvr: the-text, foreknowledge: none} → whodunit. The culprit coordinate is unbound."
+    bright: "{rcvr: the-text, foreknowledge: the-ending} → howcatchem. It is bound, so the question moves to mechanism."
+  the_test: >
+    A work survives re-reading exactly when it has slots guarded on a coordinate the first pass
+    cannot bind. Guard everything on position-in-the-plot and the second pass dispatches
+    identically — one surprise, already spent.
+  credit: >
+    Don, 19 Sep 2026, correcting the essay's thin "re-readable" claim into a mechanism: the
+    shadowed pass and the bright pass. Two is the floor, not the count.
+
+the_visual_argument: >
+  The whole plate rests on the viewer noticing that NOTHING MOVED. If the two halves differ in
+  blocking, furniture, or cast, the image says "two scenes" — which is a comparison, and wrong.
+  Identical set, identical positions, identical props, ONE change: the lighting rig. That is why
+  the theatrical register is right and why it must read as a STAGE rather than a room. A stage is
+  the one place where an audience already understands that the set is fixed and the light is the
+  variable.
+  Chosen before Don articulated the shadowed/bright mechanism; the register's own note reads
+  "the same scene lit for different houses," which turned out to be literally the concept.
+
+visual:
+  read_order:
+    - "two panels, and a beat of confusion because they look like the same photograph"
+    - "then: the left is almost all shadow, the right is fully lit"
+    - "then: in the right one, one figure is plainly readable and small objects are visible that were black before"
+    - "then the two brass plates, which name what changed"
+  subject: "one theatrical drawing-room set, photographed twice from an identical angle, under two lighting states"
+  composition: >
+    A diptych, two equal panels, hairline gap between them, both showing THE SAME stage set from
+    THE SAME viewpoint with THE SAME five figures in THE SAME postures.
+    The set: a country-house drawing room built as an obvious stage flat — painted panelling with
+    visible seams, a practical door, a fireplace, a small round table, an armchair, a longcase
+    clock. Above and at the edges, frankly visible: battens, a fly bar, the top of a ladder,
+    the edge of the proscenium. It is a set, not a room, and it admits it.
+    The five figures: standing in a loose arc, formally dressed, 1930s. One stands slightly apart,
+    nearest the clock, right hand lowered toward the table.
+    LEFT PANEL — the shadowed pass: hard raking light from the extreme side, almost everything in
+    deep shadow. The five figures are near-silhouettes, faces unreadable, indistinguishable from
+    one another. The table top is black. The clock face is black. You can see the room's shape and
+    nothing of its contents.
+    RIGHT PANEL — the lit pass: the identical frame under a full warm wash from front and above.
+    Now readable: the faces; the figure by the clock, whose lowered hand is open and empty; and on
+    the table, plainly present, a small key, a folded note, and a glass. The clock face now shows
+    its hands. Nothing has been added — these objects are in the left panel too, in the black.
+  palette: "left: near-monochrome, bister and lamp-black, one cold shaft. right: warm amber footlight and gold, full value range"
+  light: "the ONLY variable. Left: single hard raking side source, 90 percent in shadow. Right: full frontal wash plus warm overhead."
+  typography: >
+    Two small engraved brass plates, one centred beneath each panel, theatre-signage style:
+    LEFT reads WHODUNIT. RIGHT reads HOWCATCHEM.
+    Nothing else anywhere. No title, no numerals, no per-object labels.
+
+constraints:
+  must:
+    - "IDENTICAL blocking, identical furniture, identical figure count and posture across both panels — this is the entire argument"
+    - "identical camera position and focal length; the two panels must read as one photograph relit"
+    - "the key, the note and the glass must be physically present in the left panel, merely unlit — not absent"
+    - "visible stage apparatus in both panels: battens, fly bar, proscenium edge. It must be a SET"
+    - "exactly two words in the image, one per brass plate"
+  must_not:
+    - "no body, no blood, no violence, no chalk outline"
+    - "no arrows, no circles, no spotlight cones, no diagram overlays pointing at the clues"
+    - "no figure may move, turn, or change posture between panels"
+    - "no Holmes, no deerstalker, no Columbo likeness, no raincoat"
+    - "do not make the right panel a close-up or a different angle — same frame, only relit"
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "16:9"
+  prompt_author: "assistant, from Don's shadowed/bright account and the essay's mystery table"
+  generated: 2026-09-19

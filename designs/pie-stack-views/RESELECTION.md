@@ -32,7 +32,27 @@ Pie menus stand in a precise relationship to direct manipulation — aligned, no
 
 Reselection creates a feedback channel that recognition-based input structurally cannot have. Because the menu tracks continuously, it can expose tracking hooks at every level of granularity: highlight-change events for the *candidate* selection, but also raw pointer motion within a slice, hover dwell past a timeout, and periodic timer ticks while the menu is up. An application can respond to what the user is considering, how they are moving, and how long they have hesitated — not just what they finally committed to.
 
-This instrumentation has shipped. The OpenLaszlo Micropolis pie menus timestamp every highlight change and accumulate per-item dwell totals (`enterTime`, `exitTime`, `totalTime` in `laszlo/micropolis/classes/piemenu.lzx`), and the OLPC Python/GTK/Cairo implementation carries the identical logic (`pyMicropolis/piemenu/piemenu.py`). The idea traces to a demonstration by Ted Selker of menus that timed how long the cursor lingered over each item and reported it as interest analysis. People point at what they are attending to; a menu positioned to watch that can notice that you *said* your favorite color was green, but your cursor spent longer on red.
+**The idea is not mine and did not originate in any of my implementations.** It came out of the MIT Media Lab — a student project in Ted Selker's orbit — demonstrating menus that timed how long the cursor lingered over each item and reported it back as interest analysis. I saw it there, and then built it.
+
+**Which implementation, settled by the recording rather than by memory.** The dwell-prediction feature belongs to the **JavaScript pie menus**, not to the earlier NeWS or ScriptX work — and the attribution is spoken aloud in the demo, at 4:27:
+
+> *"Now this was inspired by some research at MIT Media Labs. This is a demonstration of pie menus that try to guess what your second choice would be."*
+
+> *"I think your favorite color is red, but I guess your second favorite color is blue — and that's based on the fact that when I popped it up, even though I selected red, I spent the most time selecting blue. So people tend to browse the pie menus like this, looking at things, and then when they find what they like they click it, but then they'll pause to consider things."*
+
+**[JavaScript Pie Menus](https://www.youtube.com/watch?v=R5k4gJK-aWw)** — pie menus for JavaScript on Internet Explorer 5, configured in XML, rendered with dynamic HTML, using IE5 behaviors to turn raw input events into higher-level semantics. Published to YouTube 8 January 2016; the work is IE5-era, so 1999 or later.
+
+**That resolves the chronology, and in the direction that makes the credit land.** IE5 shipped in March 1999 and Selker arrived at the Media Lab in September 1998, so the demo precedes the implementation it inspired by months rather than conflicting with it by a decade. The earlier guess that this went "possibly as far back as NeWS" was wrong and is withdrawn: NeWS and ScriptX had reselection and tracking hooks, but **the dwell-to-interest inference arrived with the JavaScript version.**
+
+`needs-check: the student's name and the project's title, which would let this credit land on a person instead of a lab. That is the only thing still missing; the venue, the direction of influence, and the implementation are now established by Don's own recorded narration. The exact year within the IE5 window is not pinned.`
+
+**Two details in that demo are load-bearing for the verdict layer and are easy to miss.**
+
+First, **cancelling still writes.** At 5:16: *"I can pop up the menu, go yellow, oh no no I'll just cancel it — and now it's guessing that my favorite color is yellow, although I didn't select one."* A menu dismissed with no selection at all still produced a verdict, from attention alone. That is exactly the gesture [READ-UNREAD](../webtop/READ-UNREAD.md) needs — *linger writes, and pen-up is not required* — demonstrated on video roughly twenty-seven years before the document specifying it.
+
+Second, **he named the application.** At 5:23: *"This was a really simple, elegant idea that I applied to pie menus, and it can be applied to a lot of other things, and used for e-commerce and art galleries or whatever."* Art galleries. Attention-as-signal pointed at looking-at-pictures, in 1999, as an aside.
+
+This instrumentation has since shipped in my own code more than once. The OpenLaszlo Micropolis pie menus timestamp every highlight change and accumulate per-item dwell totals (`enterTime`, `exitTime`, `totalTime` in `laszlo/micropolis/classes/piemenu.lzx`), and the OLPC Python/GTK/Cairo implementation carries the identical logic (`pyMicropolis/piemenu/piemenu.py`). People point at what they are attending to; a menu positioned to watch that can notice that you *said* your favorite color was green, but your cursor spent longer on red.
 
 ## Feedback in the center and in the world
 

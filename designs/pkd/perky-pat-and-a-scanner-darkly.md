@@ -1,9 +1,20 @@
 # PKD wrote three of these design documents first
 
+*Part of [designs/pkd/](README.md). Siblings:
+[palmer-eldritch-captured-purpose.md](palmer-eldritch-captured-purpose.md) reads the 1965 novel again
+for the dimension it breaks rather than the business it describes · [ubik.md](ubik.md).*
+
 Philip K. Dick specified the dollhouse with an aftermarket, the incompatible-rules problem two doll
 worlds hit when they meet, and the job where you watch your own household on a screen. 1963, 1965,
-1977. None of this is "inspired by" — the mechanisms are the same mechanisms, and in two cases his
-version states the constraint more clearly than our specs did.
+1977. The mechanisms are the same mechanisms, and in two cases his version states the constraint more
+clearly than our specs did.
+
+**This document argues *same mechanism* and stops deliberately short of *influence*, because those
+are two claims and only one of them is established here.** Don makes the stronger one — that Perky
+Pat inspired The Sims, and that he can support it — and it is recorded as his claim, with the
+specific citation still outstanding, in
+[the Eldritch doc](palmer-eldritch-captured-purpose.md#dons-claim-about-the-sims-recorded-as-a-claim).
+Do not read the hedge here as a rebuttal of it; read it as the weaker claim being separately true.
 
 ## The Days of Perky Pat (1963) — the layout is the rule set
 
@@ -41,7 +52,7 @@ precog whose job is predicting which accessories will sell.
 So: sell the dollhouse, sell furniture for it in perpetuity, sell the thing that lets people
 *inhabit* it, and staff a department to forecast taste. Will Wright described the same structure in
 1996 as the hobby model, where people "buy and collect things, but they relate to the last things
-they collected" ([the 1996 lecture](sims-will-wright-microworlds-1996.md)), and Maxis shipped it as
+they collected" ([the 1996 lecture](../sims/sims-will-wright-microworlds-1996.md)), and Maxis shipped it as
 expansion packs. Dick's version merely has the decency to name the drug.
 
 The novel also supplies the counter-example. Palmer Eldritch returns from Proxima selling **Chew-Z**,
@@ -56,6 +67,13 @@ files that people can inspect, edit, and compare, rather than worlds generated o
 person by a system that cannot be examined. The analogy has limits — generation is not sinister and
 Eldritch is not a language model — but the distinction it draws is exactly the one that matters.
 Shared, inspectable layout, or private, unauditable world.
+
+**The sharper version of that paragraph has its own document now**, because "cannot be audited" was
+the right instinct aimed slightly wrong: Chew-Z withholds nothing and is *better* than Can-D on every
+axis a user would name, so the failure is not a missing capability but a captured `whose_purpose` —
+the vendor bound as a silent co-receiver on every dispatch inside the world. Worked out, with the
+Can-D/Chew-Z pair mapped onto The Sims Online and Spore and with *Do Androids Dream* as the control
+group, in [palmer-eldritch-captured-purpose.md](palmer-eldritch-captured-purpose.md).
 
 ## A Scanner Darkly (1977) — the job of watching your own household
 
@@ -97,8 +115,10 @@ instead of given by a person.
 He is already in the vocabulary. *The Transmigration of Timothy Archer* is the citation under
 [**transmigration**](../../skills/soul-city/GLOSSARY.md), the word this project uses instead of
 import and export. *Ubik* is half the name of Ubikam, the semantic camera in the LLOOOOMM corpus,
-crossed with Mark Weiser's ubiquitous computing. And the three texts above cover the dollhouse, its
-economy, the bridge, and the observer.
+crossed with Mark Weiser's ubiquitous computing — **and it turned out to owe a document of its own**,
+because its regression of form is specificity ordering failing downward, dramatised
+([ubik.md](ubik.md)). The three texts above cover the dollhouse, its economy, the bridge, and the
+observer.
 
 The reason is not mysticism. Dick wrote almost exclusively about the two questions this whole design
 keeps hitting: **is this world authored, and by whom** — and **when a person is split across
@@ -119,5 +139,5 @@ your own house without telling you it is your house, and no private world nobody
 - "The Days of Perky Pat", *Amazing Stories*, December 1963 — collected in *The Minority Report and Other Classic Stories*
 - *The Three Stigmata of Palmer Eldritch*, 1965 — [Can-D, translation, P. P. Layouts, minning, Chew-Z](https://en.wikipedia.org/wiki/The_Three_Stigmata_of_Palmer_Eldritch)
 - *A Scanner Darkly*, 1977
-- Will Wright's hobby model, in his own words: [`sims-will-wright-microworlds-1996.md`](sims-will-wright-microworlds-1996.md)
+- Will Wright's hobby model, in his own words: [`sims-will-wright-microworlds-1996.md`](../sims/sims-will-wright-microworlds-1996.md)
 - The mechanisms: [`SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md) · [`CHARACTER-ENDOSYMBIOSIS.md`](../../skills/soul-city/CHARACTER-ENDOSYMBIOSIS.md) · [`GLOSSARY.md`](../../skills/soul-city/GLOSSARY.md)

@@ -9,6 +9,87 @@ This is the hub. Everything below either lives here or is linked from here.
 
 ---
 
+## The name is the architecture
+
+The word was borrowed from OpenLaszlo, where **webtop** meant web plus *desktop* — Laszlo Mail, a
+calendar, windows and apps in a browser, LZX compiled to Flash and then DHTML. That is a skeuomorph:
+a metaphor imported from another medium because it was the one everybody already had. Set it aside.
+
+Read literally, the word says something better and it is what this directory actually describes: a
+**top** for the web. A covering. A sparse layer laid over documents you did not write and cannot
+edit, which can be viewed as pages, tiled or overlapping windows, popups, outlines, headings,
+tables, embedded data islands, [YAML jazz](../../skills/yaml-jazz/). The substrate is the web of
+intertwingled documents. The top is yours.
+
+**One item in that word-family is not wordplay, and it carries the addressing scheme.** *Topic* is
+Greek *tópos*, **place**. Aristotle's *Topics* are argument-places you visit and collect from; the
+*loci communes* are literally common places, which is what a commonplace book is a book of; the
+method of loci stores thoughts in rooms because rooms are the only addressing scheme human memory
+ships with. *Topology* is the same root. So "a reader's attention becoming an object with a
+location" is not a metaphor pushed onto topics — **it is the original sense of the word, restored
+after two thousand years of drift toward "subject matter."** The rooms in
+[`PLAYABLE-CORPUS.md`](PLAYABLE-CORPUS.md) are not a conceit laid over topics. They are what topics
+were. `topos` is already carried as a term of art in
+[`SUMMARY-GENRES.md`](SUMMARY-GENRES.md).
+
+### What the covering sense commits you to
+
+Reading *top* as a lid rather than a desk is the difference between an overlay and a fork, and it
+decides three things that would otherwise be arguments:
+
+- **The top is a separate artifact with its own address.** You cannot edit gwern.net. So a view
+  record, a reading cursor, and a verdict are files somewhere else that *point*, which is why
+  [`READ-UNREAD.md`](READ-UNREAD.md) can have an author and a diff per torch.
+- **The substrate must be recoverable without the top.** Lift the lid and the document is
+  unchanged — the same discipline the amsterdank rules impose on OSM material: reference by ID,
+  never merge, or the licence swallows the repo.
+- **Tops are diffable and shareable independently.** "My reading of this corpus" versus "yours"
+  becomes a coherent thing to say, and two rigs can be compared without either reader's marks
+  contaminating the text.
+
+The rest of the family earns its keep at varying rates, and two of them are working parts rather
+than puns. A **spinning top** is stable *because* it is moving, falls over when it stops, and
+precesses instead of resisting when pushed — which is a fair description of a live session and an
+unfair one for a saved file. **Spinning thread** is nearly literal: spinning twists short staple
+fibres into continuous yarn, which is exactly what this shell does to glances too brief to be worth
+anything one at a time, and *thread* is already the word for a conversation. **Weaving** is not a
+metaphor in this repository at all — Lovelace's engine "weaves algebraical patterns just as the
+Jacquard loom weaves flowers and leaves," Jacquard's punched cards run through Hollerith into
+computing, [`ROOM-STROLLING.md`](ROOM-STROLLING.md) is built on warp and weft, and TurtleStitch is
+a Snap! fork whose turtle *is* an embroidery needle, so a child takes the cloth home. **Topping
+out** is the ceremony for placing the highest structural member. Straw into gold is the same
+spinning wheel.
+
+### The objection, and the graveyard that supports it
+
+Nelson's answer is that a top is only necessary because the web discarded transclusion and the
+two-way link, so this whole directory is a prosthetic for a substrate that should have carried it
+natively — see [`nelson/`](nelson/) and [`../PROSTHETICS.md`](../PROSTHETICS.md). The record of
+attempts supports him, and it teaches one specific thing rather than a general pessimism:
+
+| Layer | Ran | Died | Of |
+|---|---|---|---|
+| **Third Voice** | 1999 | April 2001 | No ad revenue, plus a "Say No to Third Voice" campaign by web hosts calling it *web graffiti* |
+| **Wikalong** | 2004 | 2009 | A public MediaWiki page in every margin. Link spam, then the storage wiki went offline |
+| **Google Sidewiki** | Sept 23, 2009 | Dec 2011 | Platform whim. Its quality fix was tying comments to Google Profiles — *"People stop making trivial comments when it ties back to them"* |
+| **Genius web annotator** | 2016 | ~2022 | `needs-check: extensions reportedly gone May 2022, new annotations Aug 2022` |
+| **Hypothes.is** | 2011 | **alive** | Went non-profit and institutional, added **private and group** scopes, and standardised: W3C Web Annotation Data Model, Recommendation **23 February 2017** |
+
+`verified: Third Voice shutdown per Wired, 4 April 2001. Sidewiki dates and the Sengupta quote per
+its Wikipedia entry and TechCrunch, 23 Sept 2009. W3C Recommendation date per w3.org publication
+history; working group formed 2014, first public draft 11 Dec 2014. Hypothes.is founded 2011 after
+a Kickstarter. CritSuite, JotBot, ComMentor and Xanadu all predate Third Voice.`
+
+**The pattern is not that annotation fails. It is that the three public-by-default layers died and
+the one with private and group scopes is still running.** A stranger's verdicts on someone else's
+page is a moderation problem with no revenue attached; a reader's own verdicts on their own reading
+are neither. So: **verdicts are private by default and sharing is an explicit act** — which is the
+same conclusion the fog-of-war framing reaches from the opposite direction, and the reason
+[`SIGNED-ASSESSMENTS.md`](SIGNED-ASSESSMENTS.md) makes an assessment owned and signed rather than
+universal metadata on a node.
+
+---
+
 ## Two ideas
 
 ### The semantic pyramid

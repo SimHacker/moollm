@@ -53,6 +53,39 @@ by hand once and re-publish it flat, top to bottom, quotable and linkable. When
 readers start maintaining mirrors of your content in a different medium, that is
 the bug report.
 
+### The full chain, logged live, 19 September 2026
+
+Worth recording because the anatomy above describes one fold mechanism failing, and what actually
+happens is **five independent failures composing**, none of which is individually a scandal:
+
+1. **`⌘W` while looking at a window on another screen.** Input focus and visual attention
+   disagreed, so a one-keystroke destructive command hit a target the user was not looking at. The
+   command names no object and confirms nothing.
+2. **`⌘⇧T` restored the tab to the wrong page** — Quora's front page, not the question. The tab's
+   restorable identity was the *site*, not the location.
+3. **The original location did not survive a refresh at all.** The reading position was never in
+   the URL, so there was nothing for restoration to restore. A client-side route is not an address.
+4. **All three fold mechanisms reset**, so the assembled view went with it.
+5. **The only recovery path ran outside the application.** The way back was to search *email* for
+   the original link and start over.
+
+That last one is the finding. **The most durable bookmark in the system was a piece of mail** —
+an artifact in a different application, authored by a third party, which outperformed every
+affordance the site offers for returning to a place inside it. When a reader's most reliable
+address for your content lives in someone else's inbox, the addressing scheme is not merely weak,
+it has been outsourced.
+
+Don's term for the three folds, preserved because it names the register precisely and the register
+is the point: *baboons showing me their asshole* — a **dominance display**, not an oversight.
+(Aimed at the interface design, and he was careful to say so: not at anyone in the discussion.)
+A fold that re-collapses your work is not saving space, it is asserting whose screen it is. Three
+of them stacked is the assertion made three times.
+
+The composition is also the lesson for the repair. Fixing any one link in that chain leaves the
+chain intact — a real address (3) is what makes 2 and 4 recoverable, which is why
+[READ-UNREAD](https://github.com/SimHacker/moollm/blob/main/designs/webtop/READ-UNREAD.md) puts
+the reading position in a file with a name rather than in a tab's memory.
+
 ## The layer underneath: a verdict, not a position
 
 Expansion state says where you *were*. It does not say what you **concluded**, which is the

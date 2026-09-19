@@ -1,0 +1,224 @@
+# Illustration pile for case-mystery-and-art
+#
+# A dry pile, per designs/korz/dry-piles.md: FLAT, one concept per prefix, three files each.
+# No subdirectories below this one. Sorting the directory groups each triple, which is the
+# "thinner membrane of big-endian overlapping prefix hierarchies in the same directory" —
+# a lighter binding than a directory per concept, and the right weight for a sidecar set.
+#
+#   <concept>.yml   the girders    — machine-readable prompt, dimension states, constraints
+#   <concept>.md    the surface    — figurative human page, embeds the png, links to the yml
+#   <concept>.png   the artifact   — what the generator returned
+#
+# This file is a GATHER over that pile, not the tree. It groups the same files by essay
+# section; group them by Korz mechanism or by visual register instead and nothing moves.
+
+essay: ../README.md
+
+naming:
+  convention: big-endian
+  why: |
+    Concept first so the triple sorts adjacent and the pile reads as an advertisement index.
+    Never <type>/<concept> — that would assert file-type as the dominant decomposition, which
+    is the exact Korz sin the essay is about. The pile is the sea; this file is one gather.
+
+one_picture_one_concept:
+  rule: "Each plate carries ONE claim. A plate that argues two things illustrates neither."
+  corollary: "The headline plate is the only composite, and it is generated LAST, from the others."
+
+# ─ gather: by essay section ─ (the order a reader meets them)
+plates:
+
+  - concept: locked-room-missing-axis
+    section: "And a locked room is a type error"
+    claim: "Constraints over-determine, nothing matches, and the answer is an axis nobody knew was in the sea"
+    status: generated
+
+  - concept: as-any-secret-passage
+    section: "And the genre bans the same repair a type system bans"
+    claim: "`as any` is the secret passage nobody told you about — it deletes the evidence an axis was missing"
+    status: generated
+    pairs_with: locked-room-missing-axis   # the two repairs for one failure; read them together
+
+  - concept: art-in-the-blood
+    section: "The Canon already said it"
+    claim: "Doyle's own hinge: detection is a strange form of painting, not a strange form of logic"
+    status: generated
+
+  - concept: three-locks-polysemy
+    section: "The Three Locks is polysemy used as structure"
+    claim: "One word gathered along three axes — pick, escape, raise — and the novel's construction IS the gather"
+    status: generated
+
+  - concept: cubism-symmetric-dispatch
+    section: "Cubism is symmetric dispatch"
+    claim: "Perspective is single-receiver dispatch; Cubism gathers along several viewer coordinates and refuses a dominant one"
+    status: generated
+    note: "Generated before this pile existed, in the conversation that started it. Prompt reconstructed, not invented."
+
+  - concept: whodunit-and-howcatchem
+    section: "The mystery table · The conversion, which is the finding"
+    claim: "Unbound rcvr versus crystallized rcvr, as two states of one drawing room"
+    status: generated
+    # Don, 19 Sep 2026, expanding the essay's thin "re-readable" claim into a mechanism.
+    # This plate got bigger and is now the point_of_view family's anchor.
+    also_carries: "THE CONVERSION — a whodunit re-read IS a howcatchem. Same text, no edit, genre changed under re-dispatch."
+    the_two_passes:
+      shadowed: "first reading, {foreknowledge: none} — the dark side, unilluminated by the fate of the story"
+      bright: "second reading, {foreknowledge: the-ending} — all the connections visible"
+      floor_not_count: "two is the MINIMUM. The good ones keep paying past two."
+      the_test: "a work survives re-reading exactly when it has slots guarded on a coordinate the first pass cannot bind"
+    composition_hint: |
+      ONE drawing room, ONE set, drawn once — and lit twice. Not two different rooms.
+      Left/first: raked hard shadow, the guests as silhouettes, the murderer indistinguishable.
+      Right/second: the SAME blocking under full warm wash, one figure now plainly readable,
+      and the clues that were in shadow now visibly present where they always were.
+      Nothing added between the panels. Only the lighting rig changed. That is the argument.
+    lucky_register: |
+      The point_of_view register below was chosen before Don articulated the shadowed/bright
+      mechanism, and reads "the same scene lit for different houses." It turned out to be
+      literally the concept rather than a sympathetic style. Keep it.
+
+  - concept: oedipus-aliasing-bug
+    section: "The mystery table (Oedipus row) · the limiting case in the two-passes section"
+    claim: "detective and culprit are the same coordinate; the tragedy is discovering the alias"
+    status: generated
+    carries_two: >
+      ONE: the alias, drawn as one mask hung from TWO pegs with two names. NOT two masks — that
+      would be a resemblance, i.e. the twin Knox banned.
+      TWO: the camera faces the AUDIENCE, because Greek drama played outdoors in daylight with no
+      way to darken the house. You cannot stage a shadowed pass at midday. The venue enforces the
+      bright pass physically, which turns dramatic irony from an authorial gift into an
+      architectural constraint.
+    found_while_drawing: "Greek theatre had no dimmer. That fact was not in the essay and now is."
+
+  - concept: cosmic-horror-no-slot-matches
+    section: "Whatdunit is the horror case, and it is a guard failure rather than a search"
+    claim: "Lovecraft's adjectives are the transcript of a lookup returning nothing"
+    status: generated
+    the_move: >
+      NO CREATURE. Drawing the monster binds the class and destroys the claim. Instead: a complete,
+      competent 1934 survey plate whose three orthographic views give contradictory dimensions for
+      one object. A lazy draughtsman leaves the sheet blank; this one filled it in and the finished
+      sheet is impossible. The instrument worked; the world did not fit the form.
+    gift_from_the_generator: >
+      The title block's DRAWN BY and CHECKED BY fields came back BLANK, unrequested. An
+      unattributed observer — the scramble-suit failure from the other direction. Kept and written up.
+    pairs_with: locked-room-missing-axis   # missing axis (recoverable) vs no matching axis (not)
+
+  - concept: melodrama-and-tragedy
+    section: "Melodrama is the is-of-identity; tragedy is E-Prime"
+    claim: "Moral property welded into the object ages into camp; left relational, it survives"
+    status: generated
+    the_move: >
+      THE CAMP IS RENDERED AS MATERIAL DECAY, not as exaggeration. Two flats from one shop, one
+      vintage: the labelled villain is curling off the canvas WORST AT THE FACE AND THE WORD — a
+      hardcoded constant rotting at the constant — while the unlabelled, equally lit pair is sound.
+    deliberately_not_a_diptych: "the whodunit plate owns that construction; this is one photograph of one room, so the comparison is found rather than imposed"
+    gift_from_the_generator: "the two sound figures' hands nearly touch and do not. The property is in the gap, which is where a relation lives."
+
+  - concept: bildungsroman-binding-your-own-setpoint
+    section: "Widening: the same move outside the mystery — the Bildungsroman row"
+    claim: "Coming of age is binding your own purpose coordinate, which is closure"
+    status: generated
+    register: "formation — NEW, decided 19 Sep 2026. See house_style.registers_by_family.formation"
+    the_move: >
+      THE FAILURES ARE MOUNTED TOO, with equal care, because the mistakes are the mechanism and not
+      the obstacle. A plate of the finished joint alone would illustrate competence, which is the
+      residue rather than the formation.
+      AND THE MARK IS THE BOUND COORDINATE: five worn identical stamps on the early pieces, one
+      different stamp struck fresh on the last. Guild practice — your work went out under your
+      master's mark until you were granted your own — so whose_purpose changing hands is a real
+      historical act performed with a steel punch.
+    regenerated_once: "first pass gave all six pieces near-identical marks, which loses the whole closure argument. Second pass used the first as a reference to keep the progression while forcing the stamps apart."
+
+  - concept: headline-mystery-and-art
+    section: "the top of the essay"
+    claim: "Narrative forms are dispatch configurations — the genre is the name on the open, empty drawer"
+    status: generated LAST, and FROM the pile
+    register: "none, or rather ALL FOUR — the headline's register is THE ROOM THAT HOLDS THE REGISTERS"
+    method: >
+      Four plates passed as reference_image_paths, one per register family, so the tip of the pyramid
+      is composed FROM the pile rather than guessed before it. They came back as objects on the walls:
+      the still life is art-in-the-blood, the flaking villain is melodrama-and-tragedy, the pinned
+      survey sheets are locked-room-missing-axis, the trial board is the Bildungsroman.
+      Ten references returned HTTP 400. Four is the working number.
+    the_central_device:
+      what: "a card-index cabinet, drawers labelled WHO WHAT WHEN WHERE WHY HOW, one pulled out and EMPTY"
+      the_claim: "every row of the mystery table is a different empty drawer; the genre is the name on the open one"
+      why_words_are_allowed: "house style permits text only where the claim IS a word. The interrogatives ARE the axis names."
+      which_drawer: "WHY — the whydunit is the detective genre of the purpose dimension, and an unbound purpose is the least bearable of the gaps"
+    why_a_room: >
+      A directory is a room, a room is an activation context, and this INDEX is a gather over a flat
+      pile. The headline is that gather RENDERED — which is the only reason the four registers are
+      allowed to disagree. A working room is the one container in which a survey sheet, a Victorian
+      oil, a rotting theatre flat and a board of broken dovetails can all sit without any of them
+      being in the wrong style.
+    known_flaw:
+      what: "WHY appears TWICE — correctly on the open drawer, spuriously on a small closed drawer at upper right"
+      attempts: "five generations. The model re-anchored on its own output; blanking passes deleted WHEN once and stripped the open drawer's own label once"
+      status: "left in, and recorded. It is an ARTIFACT, not a reading."
+      the_tempting_lie: >
+        The repo does split the why-axis into purpose and whose_purpose, so a second closed WHY drawer
+        is something the argument could absorb. Claiming that was the intent would be a lie about
+        provenance. Do not let it drift into being the official reading.
+      the_fix: "fresh generation from the .yml with NO reference image and a cabinet of exactly six drawers"
+
+# ─ declined: recorded rather than silently dropped ─
+declined:
+  - concept: three-ways-a-work-survives
+    claim: "Revelation, ambiguity and anticipation are three different second-pass mechanisms, not one"
+    decided: 2026-09-19
+    status: STAYS PROSE — reversible; say the word and it gets drawn
+    reasoning: >
+      It is a taxonomy of three, and three claims in one frame is precisely what
+      one_picture_one_concept exists to prevent. As a triptych it becomes three plates wearing one
+      filename; as a single composite it becomes a diagram with three labelled regions, which is a
+      chart. The essay already carries it as a table, and a table is the right instrument for a
+      taxonomy. The rule only earns its keep when it is applied somewhere it costs something.
+    but_the_members_are_covered: >
+      revelation → whodunit-and-howcatchem (a layer present and unsatisfiable) ·
+      ambiguity → cubism-symmetric-dispatch (a coordinate with no dominant cut) ·
+      anticipation → has no plate and wants none, because a fired k-line is a social event rather
+      than an object. Which is itself the interesting result: two of the three modes are picturable
+      and the third is a thing people do together.
+    specimens: {revelation: "the fair-play locked room, High Castle", ambiguity: "Blade Runner's Deckard, 2001's monolith", anticipation: "Holy Grail, Rocky Horror, and the con that quotes it aloud"}
+
+# ─ queued: nothing. The pile is complete. ─
+queued: []
+
+house_style:
+  # Don's call, 19 Sep 2026: REGISTER PER CONCEPT FAMILY, not one register throughout and not
+  # free-for-all. Each family internally consistent, so the set reads as a book carrying plates
+  # from several traditions — which is itself the essay's argument about gathers.
+  registers_by_family:
+    dispatch_failure:
+      register: "1930s draughtsman's survey plate — ink and bister on aged paper, dimension arrows, title block, rubber stamp"
+      why: "a failure of the axis list is a documentation failure, so draw it as a document"
+      members: [locked-room-missing-axis, as-any-secret-passage, cosmic-horror-no-slot-matches]
+      continuity: "same hand, same paper, plate numbers may repeat deliberately when two plates indict one draughtsman"
+    art_and_canon:
+      register: "painterly museum plate — Victorian oil, warm gallery light, colourman's labels, engraved gallery caption"
+      why: "the claim is that detection is a form of painting; argue it in paint"
+      members: [art-in-the-blood, three-locks-polysemy, cubism-symmetric-dispatch]
+    point_of_view:
+      register: "theatrical — stage flats, raked light, the same scene lit for different houses"
+      why: "differential binding is a lighting problem, and the theatre solved it first"
+      members: [whodunit-and-howcatchem, oedipus-aliasing-bug, melodrama-and-tragedy]
+    formation:
+      register: "GUILD WORKSHOP — apprentice's trial board. Waxed oak, pale test pieces, iron brackets, struck steel punches. Warm low raking light."
+      decided: 2026-09-19
+      why: >
+        The other four registers each hold a MOMENT — a survey plate records a state, a gallery oil a
+        composition, a lit stage a configuration. This subject is DURATION: a coordinate becoming
+        bound over time. A trial board is the only artifact that is time made into one object, so it
+        carries a formation in a single frame without becoming a storyboard.
+      why_not_panels: "a sequence of panels is a storyboard and breaks one_picture_one_concept"
+      the_register_chose_itself: "the archetype is Wilhelm Meister's APPRENTICESHIP and the protagonist is named MEISTER. The guild vocabulary was in the founding title."
+      members: [bildungsroman-binding-your-own-setpoint]
+      house_rule_exception: "the only plate in the pile with NO legible text. The claim is a mark, and a mark that spelled something would be a label."
+  text_in_image: "sparing, and only where the claim IS a word — NO SLOT MATCHES, as any, LOCK"
+  forbidden:
+    - "UI chrome, screenshots, code editors — the essay is about narrative, not IDEs"
+    - "glowing neon 'AI' aesthetic, lens flare, chrome gradients"
+    - "literal Sherlock Holmes cosplay in the Korz plates; Doyle appears only where cited"
+    - "more than one claim per plate"

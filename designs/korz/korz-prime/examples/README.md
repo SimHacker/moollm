@@ -68,7 +68,7 @@ ends over one world*.
 `purpose-dimension` is the odd one out, and deliberately: it is the
 only example proposing a dimension the paper does not have, rather
 than recognizing one in somebody's shipped system. Its evidence comes
-from the other direction — [case-mystery-and-art.md](../../case-mystery-and-art.md)
+from the other direction — [case-mystery-and-art/](../../case-mystery-and-art/)
 reads narrative genres as dispatch configurations and finds that the
 **whydunit**, the form with every coordinate bound except the motive,
 is the one audiences find least bearable to leave open. Several

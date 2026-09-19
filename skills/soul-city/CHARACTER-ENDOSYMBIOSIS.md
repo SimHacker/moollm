@@ -142,7 +142,7 @@ the disguise existed so the watcher would have no identity.
 Which is why the credited event stream above is not bookkeeping. Both minds publish under one
 soul's name, into one album, and a journal written by the watching half says who wrote it and about
 whom. Drop the attribution and you have rebuilt the scramble suit
-([the deeper roots](../../designs/sims/sims-pkd-perky-pat-and-a-scanner-darkly.md)).
+([the deeper roots](../../designs/pkd/perky-pat-and-a-scanner-darkly.md)).
 
 The same structure explains why a character can be *away*. When she goes on an errand into
 another game, what's left behind is an in-game organelle standing in for a mind that is

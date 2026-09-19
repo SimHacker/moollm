@@ -1,0 +1,85 @@
+# three-locks-polysemy — the girders
+# Human surface: three-locks-polysemy.md  ·  Artifact: three-locks-polysemy.png
+# Essay section: "The Three Locks is polysemy used as structure"
+# Family: art_and_canon — painterly museum register (see INDEX.yml house_style)
+
+concept: three-locks-polysemy
+essay: ../README.md
+claim: >
+  Three locks, and the word means something different each time — a lock you pick, a lock you
+  escape, a lock that raises a river. The title is ONE NAME GATHERED ALONG THREE AXES, and the
+  novel's construction is the gather. That is the rcvr-versus-place distinction run as a plot
+  device rather than a diagram.
+
+source:
+  novel: "The Three Locks"
+  author: Bonnie MacBird
+  published: 2021
+  publisher: HarperCollins
+  setting: 1887
+  the_three:
+    - sense: "a lock you pick"
+      thing: "an impenetrable engraved silver box sent to Watson, carrying a secret from his own past"
+      dimension_joke: "the lock is a GUARD on a container"
+    - sense: "a lock you escape"
+      thing: "the escape artist Dario Borelli burned alive on stage inside the Cauldron of Death illusion designed by his wife"
+      dimension_joke: "the lock is a CONSTRAINT on a body, and the apparatus has an author"
+    - sense: "a lock that raises a river"
+      thing: "Jesus Lock on the River Cam, where a Cambridge don's daughter's dismembered lookalike doll is found floating before she herself is found drowned"
+      dimension_joke: "the lock is INFRASTRUCTURE — it changes the level of the world, not the state of a thing"
+
+korz:
+  mechanism: gather
+  one_name: lock
+  axes: [container, body, infrastructure]
+  why_it_belongs: >
+    A gather takes one name and asks it along several coordinates, returning a different view
+    each time, none of them the dominant one. MacBird did it with a common English noun and
+    built a novel out of the disagreement.
+
+the_visual_argument: >
+  The plate must make the WORD the subject and the three referents the evidence. So: a
+  triptych, three panels of equal weight, and ONE label set beneath all three rather than one
+  per panel. If each panel gets its own caption the image says "three kinds of lock," which is
+  a glossary. One caption under three panels says "one name, three axes," which is a gather.
+
+visual:
+  read_order:
+    - "three panels, equal, obviously a set"
+    - "each one a completely different kind of scene"
+    - "the single word beneath all three, doing the work"
+  subject: "a three-panel museum triptych, one word captioning all three"
+  composition: >
+    Three equal vertical panels in one gilt-edged frame, painted as Victorian oils.
+    LEFT: close still life of a small engraved silver box on dark cloth, ornate, with a single
+    fine keyhole and a set of slender steel picks laid beside it, unopened.
+    CENTRE: a theatre stage from the wings — a great riveted iron cauldron on boards, stage
+    rigging and counterweights and gas battens frankly visible, the apparatus of illusion shown
+    as machinery rather than magic; empty, no figure, a wisp of smoke.
+    RIGHT: a river lock at dawn on a flat English river, heavy timber gates closed, water
+    visibly at two different levels on either side, a child's porcelain doll afloat near the
+    gates, willows and a stone parapet behind.
+    Beneath all three panels, spanning the full width: a single engraved brass plate bearing
+    one word.
+  palette: "Victorian oil — each panel its own key: silver and black, warm gaslight amber, cold green dawn"
+  light: "per panel: raking side light; theatrical from below; flat overcast morning"
+  typography: >
+    ONE brass plate spanning the full width, engraved: LOCK. Nothing else. No per-panel
+    captions, no numerals, no title.
+
+constraints:
+  must:
+    - "exactly one caption, spanning all three panels — this is the whole argument of the plate"
+    - "three panels of equal size and equal dignity; no centre-panel dominance"
+    - "the theatre panel must show the machinery — the effects have an author, which is the point"
+  must_not:
+    - "no figures in any panel, no burning man, no body in the water"
+    - "the doll must be whole and simply afloat — restrained, not dismembered, no gore"
+    - "no per-panel labels; a glossary defeats the image"
+    - "no Holmes, no Watson, no deerstalker"
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "16:9"
+  prompt_author: "assistant, from Don's essay text"
+  generated: 2026-09-19

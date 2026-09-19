@@ -1,0 +1,71 @@
+# cubism-symmetric-dispatch — the girders
+# Human surface: cubism-symmetric-dispatch.md  ·  Artifact: cubism-symmetric-dispatch.png
+# Essay section: "Cubism is symmetric dispatch"
+
+concept: cubism-symmetric-dispatch
+essay: ../README.md
+claim: >
+  Renaissance perspective is single-receiver dispatch: one privileged station point, the
+  picture composed TO a particular eye, every other viewpoint wrong. Cubism gathers the
+  same object along several viewer coordinates at once and declines to make one dominant,
+  which is Korz's central claim rendered in paint twenty years before Korzybski named the
+  error and eighty before Ungar formalized it.
+
+korz:
+  perspective:
+    dispatch: single-receiver
+    guard: "{viewer: the_station_point}"
+    everything_else: "a wrong answer"
+  cubism:
+    dispatch: symmetric
+    guard: "silent on viewer, deliberately"
+    dominant_decomposition: refused
+  the_complaint: >
+    "It doesn't look like anything" is exactly the Smalltalk programmer's complaint about a
+    slot sea: WHERE IS THE OBJECT? Gathered, if you ask along an axis. Not before.
+
+provenance_note: |
+  IMPORTANT, and the reason this file reads differently from its siblings.
+  This plate was generated BEFORE this pile existed, in the conversation that produced the
+  essay, from a prompt written live in chat and not saved. The `prompt` field below is a
+  RECONSTRUCTION from the image and the conversation, not the string that produced the file.
+  It is recorded as a reconstruction rather than silently presented as the original, because
+  a pile whose provenance lies is worse than a pile with a gap.
+  status: reconstructed
+  original_prompt: lost
+  to_regenerate_faithfully: "rewrite the prompt from the essay and regenerate; do not trust this field as the source"
+
+visual:
+  # What the surviving image actually does, described from the artifact.
+  subject: "a comparative teaching plate contrasting the two dispatch regimes"
+  composition: >
+    Paired panels: Renaissance one-point perspective with construction lines converging on a
+    single marked station point, against a Cubist treatment of a comparable subject gathered
+    along several viewpoints simultaneously. Subsidiary vignettes extend the claim into
+    architecture, theatre, literature and music.
+  register: "museum comparative plate — the kind mounted between two galleries"
+
+constraints:
+  must:
+    - "both regimes given equal dignity; this is a comparison, not a verdict"
+    - "the station point of the perspective panel must be explicitly marked, since that mark IS the guard"
+  must_not:
+    - "no pastiche of a specific famous painting"
+    - "no suggestion that Cubism is 'better' — the essay's claim is about mechanism, not quality"
+
+prompt: |
+  RECONSTRUCTION, NOT THE ORIGINAL — see provenance_note above.
+  A comparative museum teaching plate on dispatch as a way of seeing. Left: a Renaissance
+  interior in strict one-point perspective, construction lines ruled and converging on a
+  single explicitly marked station point, labelled as the one eye the picture is composed
+  for. Right: the same subject rendered in analytic Cubist facets, the object gathered along
+  several viewer coordinates at once with no single viewpoint privileged. Below, small
+  subsidiary vignettes extending the contrast into architecture, theatre, literature and
+  music. Restrained museum typography, muted palette, equal visual dignity given to both
+  panels.
+
+provenance:
+  generator: "cursor GenerateImage"
+  generated: 2026-09-19
+  original_filename: dispatch-as-a-way-of-seeing.png
+  prompt_author: "assistant, live in conversation; string not retained"

@@ -1,0 +1,90 @@
+# art-in-the-blood — the girders
+# Human surface: art-in-the-blood.md  ·  Artifact: art-in-the-blood.png
+# Essay section: "The Canon already said it, and somebody in Alan Kay's house is still working the seam"
+# Family: art_and_canon — painterly museum register (see INDEX.yml house_style)
+
+concept: art-in-the-blood
+essay: ../README.md
+claim: >
+  This document's title claims mystery and art are one mechanism differently configured.
+  Doyle claims it outright in 1893: asked where his faculty comes from, Holmes credits not
+  logic but inherited ARTISTIC temperament. Detection as a strange form of painting, from
+  the man who invented the detective.
+
+source:
+  quote: "Art in the blood is liable to take the strangest forms."
+  speaker: Sherlock Holmes
+  story: "The Greek Interpreter"
+  published: 1893
+  context: "Holmes attributes his gift to descent from the French painter Vernet, his grandmother's brother"
+  downstream: >
+    Bonnie MacBird took the sentence for the title of her first Holmes novel, "Art in the
+    Blood" (2015). She paints, acts, narrates her own prologues, co-wrote TRON, and has been
+    married to Alan Kay since 1983 — which is why this plate sits in a Korz document.
+
+korz:
+  the_claim: "detection and painting are ONE mechanism under different bindings, not two skills that rhyme"
+  consequence: "the perspective panel and the Cubist panel were never separate arguments"
+
+the_visual_argument: >
+  The temptation is to draw Holmes, and it must be resisted — a deerstalker makes this a
+  pastiche illustration rather than an argument. The claim is about EQUIPMENT and LINEAGE:
+  the tools of detection are a painter's tools, held the same way, labelled the same way.
+  So draw the kit, not the man. One palette, and the wells hold evidence instead of pigment.
+  And one well holds blood, because the title says so.
+
+visual:
+  read_order:
+    - "a painter's palette, unmistakably a painter's, thumb through the hole"
+    - "the wells — and the slow realisation that none of them is paint"
+    - "the colourman's labels naming each one in a fine hand"
+    - "the easel behind it, holding a mounted evidence card where a canvas should be"
+  subject: "a nineteenth-century artist's palette whose pigment wells contain forensic materials"
+  composition: >
+    Centre, filling most of the frame: an oval mahogany palette, well used, scraped and
+    stained, seen slightly from above. In the pigment wells arranged around its edge, instead
+    of colours: a grey smear of cigar ash; a small coil of dark fibre; a pinch of red brick
+    dust; a curl of pale hair; a grey-white wax impression of a bootnail pattern; and one well
+    of dark venous red. Each well has a small gummed colourman's label beneath it, lettered
+    in a fine copperplate hand. Resting in the thumb hole and across the palette, a pair of
+    fine steel dividers and a jeweller's lens where brushes would be. Behind, slightly out of
+    focus: a studio easel holding not a canvas but a mounted card of pinned specimens.
+  palette: "Victorian oil painting — warm umber, bone black, lead white, one true crimson in the blood well"
+  light: "north-facing studio light from the left, warm gallery varnish, soft shadow"
+  typography: >
+    Copperplate labels on the wells, small and legible but not the subject. An engraved
+    gallery caption on a brass plate at the lower edge: ART IN THE BLOOD IS LIABLE TO TAKE
+    THE STRANGEST FORMS.
+  frame: "suggestion of a gilt gallery frame edge at the extreme border"
+
+constraints:
+  must:
+    - "it must read FIRST as a painter's palette and only second as an evidence kit"
+    - "the blood well must be the only saturated colour on the plate"
+    - "painterly oil handling, visible brushwork — this family argues in paint"
+  must_not:
+    - "NO Sherlock Holmes: no deerstalker, no pipe, no figure at all"
+    - "no magnifying glass held dramatically; the lens lies on the palette as a tool among tools"
+    - "no blood spatter, no gore — one clean well of dark red, nothing else"
+    - "no modern forensics, no gloves, no evidence bags, no photography"
+
+prompt: |
+  A Victorian oil painting in warm gallery varnish, in the manner of a nineteenth-century
+  still life. Centre, filling most of the frame: a well-used oval mahogany artist's palette,
+  scraped and stained, seen slightly from above, thumb hole visible. In the pigment wells
+  around its edge, instead of paint: a grey smear of cigar ash, a small coil of dark fibre, a
+  pinch of red brick dust, a curl of pale hair, a grey-white wax impression of a bootnail
+  pattern, and one well of dark venous red — the only saturated colour in the picture. Beneath
+  each well, a small gummed colourman's label lettered in fine copperplate. Lying across the
+  palette where brushes would be: a pair of fine steel dividers and a jeweller's lens, resting
+  as tools among tools. Behind, softly out of focus, a studio easel holding not a canvas but a
+  mounted card of pinned specimens. North studio light from the left, warm umber and bone black
+  and lead white, visible brushwork, a hint of gilt frame at the extreme edge. An engraved
+  brass gallery plate along the lower edge reads: ART IN THE BLOOD IS LIABLE TO TAKE THE
+  STRANGEST FORMS. No people, no deerstalker, no pipe, no gore.
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "4:3"
+  prompt_author: "assistant, from Don's essay text"
+  generated: 2026-09-19

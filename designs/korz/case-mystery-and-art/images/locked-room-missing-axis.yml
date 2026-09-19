@@ -1,0 +1,82 @@
+# locked-room-missing-axis — the girders
+# Human surface: locked-room-missing-axis.md  ·  Artifact: locked-room-missing-axis.png
+# Essay section: "And a locked room is a type error"
+
+concept: locked-room-missing-axis
+essay: ../README.md
+claim: >
+  A locked room is not a hard search. It is a dispatch failure: the constraints
+  over-determine, no slot matches, and the solution is ALWAYS the discovery of a
+  dimension nobody knew was in the sea.
+
+korz:
+  # The state of the context at the moment the detective is stuck. This is the
+  # whole reason the plate is worth drawing: the bug is not in the guards, it is
+  # in the axis list.
+  context_at_impasse:
+    rcvr: bound          # there is a body, it is this body
+    place: bound         # this room, measured, bolted
+    time: bound          # the clock, the snow, the last sighting
+    method: unbound      # what you THINK you are solving for
+    "?": absent          # the axis that resolves it is not in the context at all
+  diagnosis: "guards written over the wrong axes"
+  wrong_move: "relax a guard until the mismatch stops being reported"
+  right_move: "extend the context with a coordinate that was present all along"
+
+literary:
+  invented_by: Poe, "The Murders in the Rue Morgue", 1841
+  codified_by: John Dickson Carr, "The Hollow Man", 1935, ch. 17 lecture
+  fair_play: "the author must have put the dimension in the sea before the reveal"
+
+visual:
+  # Read order matters more than subject here. The eye must first believe the room
+  # is sealed, and only then notice that the sealing is drawn in one fewer dimension
+  # than the room needs. If the missing axis is obvious at first glance, the plate fails.
+  read_order:
+    - "the sealed room, convincing, over-labelled"
+    - "the measurements — every one of them consistent"
+    - "the absence: one axis of the coordinate cross is simply not there"
+  subject: "a cross-section of a bolted room rendered as a draughtsman's plate"
+  composition: >
+    Centre: an interior elevation of a small room, door bolted from inside, window
+    barred, unmarked snow outside the sill, a lamp, a mirror, a stopped clock. Margins:
+    survey annotations in a fine architectural hand, dimension arrows closing neatly on
+    every side. Lower left: a coordinate cross with three labelled arms — WHO, WHERE,
+    WHEN — and a fourth arm that is an empty socket, a small blank ferrule where an arm
+    should seat, drawn with the same precision as the others so it reads as MISSING
+    rather than as decoration.
+  palette: "ink and bister on aged paper, one cold slate accent on the empty socket only"
+  typography: "engraved small caps for the axis labels; the words NO SLOT MATCHES set once, small, in the title block, as if stamped"
+  light: "flat, documentary, no drama — this is evidence, not atmosphere"
+
+constraints:
+  must:
+    - "the room must look genuinely sealed; the impossibility has to land before the diagnosis"
+    - "the empty socket is the subject; everything else is the setup"
+    - "draughtsman's register — plate, not painting"
+  must_not:
+    - "no detective, no corpse, no blood, no crime-scene theatrics"
+    - "no glowing effects; the missing axis is an ABSENCE, never a light source"
+    - "do not draw the solution — no secret passage visible anywhere in this plate"
+    - "no more than the six words of text specified"
+
+prompt: |
+  A 1930s draughtsman's teaching plate, ink and bister on aged paper. Centre: a precise
+  architectural cross-section of a small sealed room — a heavy door bolted from the inside,
+  a barred window, smooth unmarked snow on the sill outside, an oil lamp, a mirror on the
+  far wall, a stopped mantel clock. Every side carries fine dimension arrows and surveyor's
+  annotations in a neat engraved hand, all of them consistent and closing exactly, so the
+  room reads as genuinely impossible to enter or leave. Lower left corner: a coordinate
+  cross with three arms labelled in engraved small caps WHO, WHERE, WHEN — and a fourth
+  arm that is missing, drawn as a precise empty socket or blank ferrule where an arm should
+  seat, rendered with the same care as the other three so it reads unmistakably as an
+  absence rather than a flourish, picked out in a single cold slate accent. A small title
+  block at the lower right, stamped in tiny letters: NO SLOT MATCHES. Flat documentary
+  lighting, no atmosphere, no people, no corpse, no visible secret passage. Muted ink,
+  bister, aged paper, one slate accent.
+
+provenance:
+  generator: "cursor GenerateImage"
+  aspect_ratio: "4:3"
+  prompt_author: "assistant, from Don's essay text"
+  generated: 2026-09-19

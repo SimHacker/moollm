@@ -84,6 +84,40 @@ open_questions:
     house_position: "the outsourcing is not the problem; hiding it is"
     source: designs/TELEOLOGY.md
 
+    specimen:
+      # The best fictional case of this dimension failing, and it fails in the
+      # direction nobody expects: NOT by withholding a capability.
+      text: "Philip K. Dick, The Three Stigmata of Palmer Eldritch, 1965"
+      the_trap: "reads as a `via` guard — a gatekeeper standing between user and capability. WRONG."
+      what_is_actually_true: "Chew-Z withholds NOTHING. Strictly more capable than Can-D on every axis a user would name."
+      the_single_broken_coordinate:
+        can_d: {rcvr: perky-pat-layout, whose_purpose: the_colonists}
+        chew_z: {rcvr: whatever-you-want, whose_purpose: [you, eldritch]}   # ← unset by you, unsettable
+      fails_the_criterion_how:
+        not_printed: "Eldritch wears other people's faces; identifiable only by the three stigmata"
+        not_reversible: "the exit from a Chew-Z world is another Chew-Z world"
+      the_trade: "plasticity is purchased by admitting the vendor — every migration from a local artifact to a hosted service"
+      why_can_d_is_auditable: "the shared physical layout is a REFERENT; two users can compare notes. Remove it and you remove the second witness."
+
+      control_group:
+        # What makes the pair evidence rather than an anecdote.
+        text: "Philip K. Dick, Do Androids Dream of Electric Sheep?, 1968"
+        mechanism: "Mercerism — empathy box, many users fused into one shared climb"
+        the_flip: "Buster Friendly proves Mercer is an actor on a soundstage, ON AIR"
+        result: "Mercerism keeps working. The binding was never the vendor's to hold."
+        the_finding: "A REAL product with a captured purpose is worse than a FAKE product with a clean one."
+        consequence: "authenticity audits cannot see this failure — verify every vendor claim, learn nothing about whose setpoint is bound"
+
+      ships_as:
+        can_d: "The Sims Online — synchronous, real people, one shared world that cannot be authored"
+        chew_z: "Spore — Wright's 'massively single-player online game', with one publisher instead of a million players"
+
+      full_reading: ../../../pkd/palmer-eldritch-captured-purpose.md
+      sibling_case:
+        what: "a DECAYING binding rather than a captured one — specificity ordering falls back to an ancestor while the world stays internally consistent"
+        text: "Philip K. Dick, Ubik, 1969 — the regression of form"
+        where: ../../../pkd/ubik.md
+
   inverter:
     claim: "a purpose-bound stack says what each level was FOR, not merely how you got here"
     connects_to: "Kay's unsolved automatic inverter — needs to know what a change was for to run the mapping backwards"
@@ -104,5 +138,6 @@ e_prime_for_teleology:
 see_also:
   moody-temperature.md: "mood is how the room feels; purpose is what the scene is for — same mechanism, sibling dimensions"
   sims-advertisements.md: "what purpose modulates"
-  ../../case-mystery-and-art.md: "the whydunit is the detective genre of this dimension"
+  ../../case-mystery-and-art/: "the whydunit is the detective genre of this dimension"
   ../../../TELEOLOGY.md: "where the setpoint argument comes from"
+  ../../../pkd/: "Philip K. Dick as design source: the Chew-Z specimen, the Ubik fallback case, the dollhouse and its aftermarket"

@@ -160,6 +160,16 @@ corresponding prosthetic is competing against, and each is better funded.
 | Model-skepticism | opening the source | "explainable AI," which Jens Mönig is right to call a lie once there is one hidden layer | procurement |
 | Society of mind | parts that disagree, ambient | one confident assistant that agrees | retention |
 | Community | a fork with standing | a follower count | the platform |
+| Agency | an agent driving the same named commands you drive | a chat box where the surface used to be | whoever owns the model |
+
+**That last row is the newest and the one currently being installed everywhere**, so it is worth
+stating the mechanism rather than the complaint. Replacing an interface with an agent removes two
+things at once: your ability to do the thing, and anybody's ability to see how it was done. A
+capability reachable only by asking cannot be inspected, scripted, taught, or refused — which is the
+anti-prosthetic definition exactly, since the loop now closes on a setpoint you cannot read. The
+repair is not fewer agents; it is **symmetry of access**, stated as a lint in
+[interfaces-to-agency](../skills/design-sense/lenses/interfaces-to-agency.md) and as the dissolution
+of a famous axis in [AXES-NOT-CAMPS](AXES-NOT-CAMPS.md).
 
 The diagnostic is the same in every row and it is not about features: **who set the
 setpoint.** Which is why the folding-thread rage that started this whole line of work was

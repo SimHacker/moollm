@@ -440,6 +440,48 @@ entire Sims AI thesis — and an uncorrected transcript would have lost it
 silently. See [`../NOISY-CHANNEL.md`](../NOISY-CHANNEL.md) on why a fluent
 mistranscription is more dangerous than a gap.
 
+### The lineage the term opens, in three beats, and the third one is this talk
+
+Braitenberg's vehicles are **Grey Walter's tortoises continued** — the same two photocells, two
+motors, and phototaxis, run forward as a thought experiment through fourteen vehicles. Michael
+Arbib puts it plainly: *Vehicles* is "very much in the spirit of *M. speculatrix* and its
+elaboration," sharing even the method — Walter's *M. speculatrix* → *M. docilis* and Braitenberg's
+1 → 14 are both "adding features to a model 'to see what happens'." So when Wright reached for
+Braitenberg in 1996 he was reaching, at one remove, for a pair of robots built out of valves in
+Bristol in 1948.
+
+What makes the lineage worth stating is that **all three men hit the same effect and stood in a
+different relation to it.**
+
+| | Who | What happened |
+|---|---|---|
+| **1949** | W. Grey Walter | Mounted lit candles on Elmer and Elsie and photographed their paths on long exposures. Captioned the result **"Social Organisation. The formation of a co-operative and a competitive society"** — two machines with headlamps and photocells. Holland, going back to the archive decades later, calls that description *"rather misleading."* |
+| **1984** | Valentino Braitenberg | **Named the temptation and warned about it in his own preface:** "we will be tempted... to use psychological language in describing their behavior. And yet we know very well that **there is nothing in these vehicles that we have not put in ourselves.** This will be an interesting educational game." |
+| **1996** | Will Wright | **Engineered the temptation on purpose.** Keep them at the Braitenberg level — angry, hungry, sleepy — because the Julie doll proved that a character explaining itself *destroys* the projection. Simlish is the fix. |
+
+Walter produced the effect and described it in the language it invites. Braitenberg identified
+exactly that as the thing to be careful about, and called it educational. Wright treated it as the
+product. **Nobody in the chain disagrees about the mechanism** — they disagree about whether it is
+an error, a lesson, or a feature.
+
+Whether Walter was fooled by his own machines or was doing Festival of Britain showmanship is not
+settled by the documents, and the ambiguity is the interesting part: the effect does not spare the
+builder. Which is the strongest available form of Wright's claim — the Simulator Effect worked on
+the man who wired the thing, before there was a player to run it on.
+
+`verified: Arbib, "Rana computatrix to human language," Phil. Trans. R. Soc. A 361 (2003), on
+Vehicles being "very much in the spirit of M. speculatrix." Braitenberg, Vehicles, MIT Press 1984,
+preface. Walter's caption and Holland's assessment: Holland, "The first biologically inspired
+robots," Robotica 21(4), 2003, from the Burden Neurological Institute archive. Wright's line is
+verbatim from the 1996-04-26 lecture transcript.`
+
+**The thirty-year round trip:** on 19 September 2026, in a Quora thread, Alan Kay pointed Don at
+Grey Walter's "seven steps from chance to meaning" as something children should build from
+scratch — beat one of this table — thirty years after Will Wright handed him beat three in
+Winograd's classroom. Braitenberg's own word for it was *educational game*, which is both men's
+position at once. See
+[`../../../../git/WillWrightShowForFood/characters/alan-kay/sources/2026-09-19-grey-walter-minsky-essay/`](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/alan-kay/sources/2026-09-19-grey-walter-minsky-essay).
+
 Even animations are distributed:
 
 > *"And there's a communication there. It's all data driven. And even the animations."*

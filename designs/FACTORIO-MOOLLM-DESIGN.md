@@ -140,6 +140,8 @@ Factorio is a 100-hour course in systems thinking disguised as a game. The progr
 
 **The key insight:** You can't start at Stage 5. Must play first. Then the cycle repeats at higher levels — blueprints become the playground for the next tier.
 
+**And the game never takes Stage 1 away, which is the part most software gets wrong.** The hand-crafting menu and the assembler recipes are the same recipe graph: the machine never gets a recipe the player lacks, and building the machine never revokes the player's. Throughput differs by orders of magnitude and is *rendered on screen* as belt saturation rather than administered as a hidden quota. That is symmetry of capability with asymmetry of throughput, shipped — argued as a design lens, with the handful of genuine exceptions (no hand-smelting, no fluid recipes) audited rather than excused, in [`skills/design-sense/lenses/interfaces-to-agency.md`](../skills/design-sense/lenses/interfaces-to-agency.md).
+
 ---
 
 ## Factorio Wisdom

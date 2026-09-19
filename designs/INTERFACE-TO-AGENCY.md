@@ -220,7 +220,7 @@ what it can see in [`RECOGNIZER.yml`](https://github.com/SimHacker/MicropolisCor
 [`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
 [`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml) ·
 [`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
-protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/sims/sims-pkd-perky-pat-and-a-scanner-darkly.md`](sims/sims-pkd-perky-pat-and-a-scanner-darkly.md)
+protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/pkd/perky-pat-and-a-scanner-darkly.md`](pkd/perky-pat-and-a-scanner-darkly.md)
 
 ## The other showcase: a control channel software cannot enter
 
