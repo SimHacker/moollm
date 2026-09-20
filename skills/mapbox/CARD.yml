@@ -1,0 +1,200 @@
+# CARD.yml — Mapbox
+#
+# The interface. Read GLANCE.yml first; read SKILL.md for the protocol.
+# This card is an index plus a map of what is deliberately absent.
+
+card:
+  id: mapbox
+  name: "Mapbox"
+  type: [skill, tool, router]
+  emoji: 🗺️
+  rarity: uncommon
+
+  description: |
+    Orchestrates the twenty official Mapbox Agent Skills rather than restating them.
+    Resolves a sibling checkout at runtime, routes questions to the right two or three,
+    names the subjects upstream does not cover, and owns the operator-local reality:
+    token locations, restriction behaviour measured against the live API, and the
+    framework traps that bake secrets into builds.
+
+tools:
+  required: []
+  optional:
+    - mapbox          # official CLI: curl -fsSL https://cli.mapbox.com/install.sh | sh
+    - op              # 1Password, resolves token references
+    - curl            # the most composable surface
+    - jq              # shaping REST responses
+    - npx             # runs the three MCP servers without installing them
+tier: 2
+
+methods:
+  ROUTE:
+    description: "Name the official skills that answer a question"
+    parameters: { question: "Plain words" }
+    invocation: "python3 scripts/mapbox_router.py route '<question>'"
+    output: chat (skill names, descriptions, optional paths)
+    invoked-by: [any]
+
+  DIAGNOSE:
+    description: "Probe a token live and classify it; catch the traps upstream omits"
+    parameters: { probe_domain: "Domain that should pass" }
+    invocation: "python3 scripts/mapbox_router.py doctor"
+    output: chat (per-referer status table, verdict, warnings)
+    invoked-by: [any]
+
+  KEYS:
+    description: "Resolve a token by role from 1Password, never by paste"
+    parameters: { role: "prod | dev" }
+    invocation: "op read <ref> --account groundupsoftware.1password.com"
+    output: value to stdout, never to chat
+    invoked-by: [player, agent]
+
+  SURFACE:
+    description: "Choose CLI, REST, MCP or SDK for a task"
+    parameters: { task: "What needs doing" }
+    output: chat (recommendation and reason)
+    invoked-by: [any]
+
+  MEASURE:
+    description: "Probe, then add the finding to the measured table"
+    parameters: { claim: "What is believed true" }
+    output: edit to scripts/mapbox_router.py MEASURED
+    invoked-by: [player]
+    rule: "No entry without a reproducible probe. Three runs minimum."
+
+  WHERE:
+    description: "Report the resolved upstream checkout, or how to mount one"
+    invocation: "python3 scripts/mapbox_router.py where"
+    output: chat (path, how resolved, refresh command)
+    invoked-by: [any]
+
+state: {}
+
+# UPSTREAM — mounted, not merged.
+upstream:
+  repo: "https://github.com/mapbox/mapbox-agent-skills"
+  license: MIT
+  skills: 20
+  total_skill_md_lines: 6128
+  per_skill_files: [SKILL.md, AGENTS.md, "evals/evals.json", "references/"]
+  three_mcp_servers:
+    "@mapbox/mcp-server": "runtime — geocoding, search, directions, isochrone, matrix, static"
+    "@mapbox/mcp-devkit-server": "account — styles, tokens, validation, bounding boxes (23 tools)"
+    "@mapbox/mcp-docs-server": "documentation lookup"
+
+why_not_vendored: |
+  Four reasons, in order of force.
+  Freshness: the repo moved four days before this skill was written; a vendored copy is
+  a fork with no maintainer.
+  House rule: no-ai-humansplaining names RESPELLING as a sin — restating what the agent
+  can already read is billed per call, forever.
+  Provenance: MIT permits copying, which is exactly why the copy would go unnoticed and
+  unattributed as it drifted.
+  Honesty: a router that cannot find its upstream should say so, not pretend from a stale
+  snapshot. The resolver degrades to the URL.
+
+resolution_order:
+  - "$MAPBOX_AGENT_SKILLS (explicit override)"
+  - "~/GroundUp/git/mapbox-agent-skills, ~/git/..., ~/src/..."
+  - "./mapbox-agent-skills, ../, ../../ (sibling checkout in a workspace)"
+  - "~/.agents/skills, ~/.claude/skills (installed by npx skills add)"
+  - "fall back to the GitHub URL and say the catalog is unavailable"
+
+# THE TWENTY — grouped by the question that reaches for them.
+official_skills:
+  security:
+    mapbox-token-security: "pk/sk/tk, scopes, URL restrictions, rotation. Says nothing about referer or 403"
+  platform:
+    mapbox-web-integration-patterns: "React, Vue, Svelte, Angular, Next, Web Components"
+    mapbox-web-performance-patterns: "initialization waterfall, layer cost, fps"
+    mapbox-ios-patterns: "Swift, SwiftUI, UIKit"
+    mapbox-android-patterns: "Kotlin, Jetpack Compose"
+    mapbox-flutter-patterns: "mapbox_maps_flutter"
+  design:
+    mapbox-cartography: "colour, hierarchy, typography, legibility"
+    mapbox-style-patterns: "layer recipes for common scenarios"
+    mapbox-style-quality: "validation and optimisation"
+    mapbox-data-visualization-patterns: "clusters, heatmaps, choropleths"
+  domain:
+    mapbox-search-patterns: "which search tool, which parameters"
+    mapbox-search-integration: "end-to-end search workflow"
+    mapbox-navigation-patterns: "directions, optimisation, traffic, voice"
+    mapbox-geospatial-operations: "Turf offline vs routing API — crow flies vs crow drives"
+    mapbox-store-locator-patterns: "locator and finder UIs"
+  migration:
+    mapbox-google-maps-migration: "from Google Maps Platform"
+    mapbox-maplibre-migration: "both directions, GL JS and MapLibre"
+  agentic:
+    mapbox-mcp-runtime-patterns: "pydantic-ai, Mastra, LangChain, custom agents"
+    mapbox-mcp-devkit-patterns: "devkit setup, style and token workflows"
+    mapbox-location-grounding: "cited answers from live data instead of training data"
+
+# NOT COVERED by the twenty. Routing here answers with the CLI, not a near-miss skill.
+uncovered:
+  tilesets: "mapbox tilesets, or the separate tilesets binary, or tippecanoe offline"
+  fonts_sprites: "mapbox fonts / mapbox sprites"
+  accounts_usage: "mapbox accounts; billing itself is dashboard-only"
+  atlas: "self-hosted product, out of scope"
+  data_products: "Movement, Boundaries, Traffic — licensed, not skill-covered"
+
+# OPERATOR-LOCAL. The only machine-specific block; the reason this is a skill not a link.
+keys:
+  store: "1Password, account groundupsoftware.1password.com, item Mapbox, vault Employee"
+  vault_note: "Employee, not Personal — there is no Personal vault on this account"
+  roles:
+    prod:
+      ref: "op://Employee/Mapbox/ebike-safari-token"
+      restriction: "URL list: https://ebike-safari.com, http://localhost:5173"
+      use: "browser only — 403 without a referer"
+    dev:
+      ref: "op://Employee/Mapbox/token"
+      restriction: none
+      use: "CLI, MCP servers, CI, scripts. Never in a shipped bundle"
+  scopes_note: |
+    DATASETS:READ and VISION:READ are enabled deliberately for experimentation. Both are
+    read-only. The caveat is that a browser-delivered token makes anything they can read
+    readable by whoever lifts it from the page.
+
+# MEASURED, not read. Probe before adding. See SKILL.md#measure.
+measured:
+  date: 2026-09-20
+  endpoint: "api.mapbox.com/v4/mapbox.mapbox-streets-v8/1/0/0.vector.pbf"
+  findings:
+    no_referer_403: "curl, CI, server fetch and MCP all send no referer, so all get 403"
+    per_endpoint_enforcement: "tiles enforce; /styles/v1/<user>/<id> metadata answered 200 from every origin"
+    propagation_lag: "edits take minutes; mid-propagation, one referer variant passed while another failed"
+    exact_port_pins: "localhost:5173 listed refuses 4173 and 3000 — vite preview breaks"
+    apex_covers_www: "https://ebike-safari.com listed also admits www.ebike-safari.com"
+    editable_in_place: "changing public scopes or URLs leaves the pk. string unchanged; no redeploy"
+    secret_scopes_differ: "secret scopes yield an sk. token, shown once, never for a browser"
+
+# PROJECT BINDINGS — traps that belong to these repos, not to Mapbox.
+projects:
+  ebike-safari:
+    repo: WillWrightShowForFood/apps/ebike-safari
+    trap: |
+      SvelteKit prerendered with ssr=false. A PUBLIC_ variable is compiled into the static
+      bundle at build time and baked into the Docker image, so rotating it means rebuilding.
+      Name it MAPBOX_TOKEN, read it in a +server.ts via $env/dynamic/private, hand it to the
+      browser at runtime — then rotation is a container restart.
+    files: ["viewer/.env.local (gitignored)", "deploy/.env (on the VM, chmod 600)", "deploy/README.md"]
+  amsterdank:
+    trap: |
+      osm_ok: false sources may never reach an OSM changeset, and ODbL material stays in
+      data/osm/ referenced by ID. Geocoding a place through Mapbox produces a claim with
+      provenance, not a fact: record source, date and confidence, and never average two
+      coordinates — the mean of two buildings is a canal.
+
+principles:
+  point-dont-respell: "The official text is one read away. Name it; do not paraphrase it"
+  measure-dont-assume: "A claim about restriction behaviour needs three probes"
+  degrade-dont-crash: "No checkout still yields a useful answer and a URL (robust-first)"
+  restricted-is-not-safer-everywhere: "The token that protects the browser breaks the shell"
+  one-token-per-role: "Roles differ by where they run, not by who owns them"
+
+related:
+  - sister-script      # this skill's script is its own documentation
+  - yaml-jazz          # these cards are semantic YAML
+  - no-ai-humansplaining  # the argument against vendoring the twenty
+  - robust-first        # the resolver degrades instead of failing
+  - postel              # route liberally on messy questions, emit exact skill names

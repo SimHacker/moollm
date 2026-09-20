@@ -1,0 +1,73 @@
+# GLANCE.yml — mapbox
+# Full file: CARD.yml | SKILL.md | scripts/mapbox_router.py --help
+# 🗺️ "Mapbox wrote twenty skills. This one decides which two you need."
+
+what: |
+  A router, not an encyclopedia. Mapbox publishes twenty Agent Skills
+  (mapbox/mapbox-agent-skills, MIT) totalling 6128 lines. Loading all of them is
+  worse than loading none. This skill indexes them, names the two or three that
+  answer the question at hand, and carries the part Mapbox cannot know: where this
+  operator's keys live, and how restrictions behave when measured instead of read.
+
+why: |
+  - Twenty skills and no router — upstream ships no "which one?" layer
+  - Upstream never says "referer" or "403" in 6128 lines, so a restricted-token
+    failure is undiagnosable from their text alone
+  - Vendoring would fork a repo that moved four days ago; point instead
+  - Key locations, vault names and framework traps are per-operator, not per-vendor
+
+when:
+  - '"Which skill covers X?" -> ROUTE'
+  - '"403 from the map / token broken" -> DIAGNOSE'
+  - '"Where do the keys live?" -> KEYS'
+  - '"Do I need MCP for this?" -> SURFACE'
+  - '"What is not covered?" -> ROUTE (answers with the CLI instead)'
+
+methods:
+  ROUTE: "Question in, two or three official skill names out"
+  DIAGNOSE: "Probe a token live; classify restricted vs unrestricted"
+  KEYS: "Resolve tokens from 1Password by role, never by paste"
+  SURFACE: "Choose among CLI, REST, three MCP servers, SDKs"
+  MEASURE: "Add a finding to the measured table — probe first, claim second"
+
+# Four surfaces, and MCP is rarely the right one. Ordered most composable first.
+surfaces:
+  cli: "mapbox — unified, agent-first, install script. Auth, styles, search, tilesets"
+  rest: "curl + jq. Every service is plain HTTP with a token param. Most composable"
+  mcp: "three servers: mcp-server (runtime), mcp-devkit-server (account), mcp-docs-server"
+  sdk: "mapbox-gl (browser), @mapbox/mapbox-sdk (node). Python client is stale since 2022"
+
+upstream:
+  repo: "https://github.com/mapbox/mapbox-agent-skills"
+  license: MIT
+  vendored: false            # deliberate — see CARD.yml#why-not-vendored
+  mount: "sibling checkout, resolved at runtime with fallbacks to the URL"
+  refresh: "git -C <checkout> pull"
+
+# Endosymbiosis, in the Margulis sense moollm already uses (skills/soul-city,
+# designs/korz): the organelle is engulfed but keeps its own genome. Mitochondria
+# still carry mitochondrial DNA and still divide on their own schedule.
+endosymbiosis: |
+  The official repo is an organelle, not a transplant. It keeps its own remote, its own
+  license, its own release cadence; the host supplies the envelope — routing, local keys,
+  measured behaviour — and reads the genome in place. Vendoring would be the opposite
+  move: copying the DNA into the nucleus and inheriting the maintenance forever.
+  A resolver, not a copy, is what keeps the boundary alive.
+
+# The reason this skill is not just a pointer. All measured against the live API.
+measured_not_read:
+  no_referer_is_403: "A URL-restricted token is dead from curl, CI, servers and MCP"
+  per_endpoint: "Tiles enforce; style metadata answers 200 from anywhere"
+  propagation: "URL-list edits take minutes, and look like matching bugs meanwhile"
+  exact_port_pins: "localhost:5173 listed refuses 4173, so vite preview breaks"
+
+borrowed_upward: |
+  Upstream ships evals/evals.json per skill — prompts, expected outputs, per-expectation
+  checklists. moollm has no equivalent rung. Worth adopting repo-wide, not just here.
+
+key_insight: |
+  The scarce resource is not Mapbox knowledge, it is attention.
+  Point at what exists; spend the tokens on what only you can know.
+
+lineage: [Don Hopkins, Mapbox Agent Skills, no-ai-humansplaining, sister-script]
+tier: 2

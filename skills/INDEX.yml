@@ -1,10 +1,10 @@
-# MOOLLM Skill Registry — 135 Skills
+# MOOLLM Skill Registry — 153 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 138
-last_updated: 2026-07-29
+skill_count: 153          # counted from skills/*/SKILL.md, not hand-maintained
+last_updated: 2026-09-20
 
 # FOUNDATION — Load These First
 
@@ -636,9 +636,14 @@ orchestration:
 # DOMAIN SPECIFIC — Real World Applications
 
 domain:
+  - id: mapbox
+    tagline: "Mapbox wrote twenty skills; this one picks two"
+    why: "Routes to mapbox/mapbox-agent-skills (MIT, mounted not vendored); owns key roles, measured 403/referer behaviour, and the CLI-vs-REST-vs-MCP choice"
+
   - id: urban-safari
     tagline: "FIT rides → one map → video sync"
     why: "Urban safari content pipeline: map all rides, sync video frame paths to GPS; Bosch Flow + XOSS adapters"
+    uses: [mapbox]
 
   - id: change-name
     tagline: "Say my name right — everywhere it's written"
@@ -731,6 +736,7 @@ all_skills:
   - lighthouse-log
   - logistic-container
   - manufacturing-intelligence
+  - mapbox
   - markdown
   - memory-palace
   - micropolis
