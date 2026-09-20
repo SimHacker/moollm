@@ -106,11 +106,14 @@ Read the result like this. **No referer is 403** for any restricted token, which
 token is dead from curl, CI, a server-side `fetch`, and every MCP server — they all send
 none. Keep an unrestricted token for those and never ship it in a bundle. **An unrelated
 origin answering 200** means the restriction is not in force; check the list actually saved.
-**The dev port passing while the preview port fails** means the entry is an exact port:
-prefer the wildcard `http://localhost:*`, which is Mapbox's own advice in
-`mapbox-token-security`.
+**The dev port passing while the preview port fails** means the entry is an exact port, and
+each origin has to be listed explicitly. You cannot fix it the documented way: the console
+rejects `http://localhost:*` with "Wildcard characters (\*) are not supported in URL
+restrictions", so the patterns upstream's `mapbox-token-security` lists as recommended
+cannot be entered at all. The field accepts a comma-separated list, and an apex entry
+covers the `www` host for free.
 
-Two measured traps will otherwise cost you an afternoon.
+Three measured traps will otherwise cost you an afternoon.
 
 Enforcement is per-endpoint. Tile and data requests enforce the restriction; style metadata
 at `/styles/v1/<user>/<id>` answered 200 from every origin tried. A passing metadata call

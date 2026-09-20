@@ -125,12 +125,15 @@ MEASURED = [
      "for several minutes http://localhost:5173 answered 200 while http://localhost:5173/ "
      "answered 403, which reads exactly like a matching bug and is not one. "
      "Re-probe a few minutes after saving before concluding anything."),
-    ("An exact port pins you to one dev server",
+    ("Every port needs its own entry, and wildcards are rejected",
      "With http://localhost:5173 listed, referer http://localhost:5173/ passes but "
      "http://localhost:4173/ and http://localhost:3000/ are refused, so vite preview and "
-     "any second port break. Use the wildcard http://localhost:* as Mapbox's own "
-     "token-security skill advises. An apex entry does cover www: with "
-     "https://ebike-safari.com listed, www.ebike-safari.com passes too."),
+     "any second port break. The console refuses to fix this the documented way: entering "
+     "http://localhost:* returns 'Wildcard characters (*) are not supported in URL "
+     "restrictions', which contradicts the patterns upstream's own mapbox-token-security "
+     "skill lists as recommended. List each origin explicitly, comma-separated. "
+     "One thing is free: an apex entry covers the www host, so https://ebike-safari.com "
+     "also admits www.ebike-safari.com."),
     ("Scopes are editable, the token string is not reissued",
      "Changing public scopes or URL restrictions leaves the pk. string unchanged, so "
      "nothing needs redeploying. Secret scopes are the exception: they produce an sk. "
@@ -388,7 +391,7 @@ def cmd_doctor(args):
         if restricted and checks[3][1] == 200:
             print("          -> WARNING restricted token answers an unrelated origin; check the URL list")
         if restricted and checks[1][1] == 200 and checks[2][1] == 403:
-            print("          -> pinned to one port: vite preview (4173) is refused. Prefer http://localhost:*")
+            print("          -> one port only: 4173 refused. Add it explicitly; wildcards are rejected")
     return 0
 
 

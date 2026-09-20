@@ -164,6 +164,12 @@ measured:
     per_endpoint_enforcement: "tiles enforce; /styles/v1/<user>/<id> metadata answered 200 from every origin"
     propagation_lag: "edits take minutes; mid-propagation, one referer variant passed while another failed"
     exact_port_pins: "localhost:5173 listed refuses 4173 and 3000 — vite preview breaks"
+    wildcards_rejected: |
+      The console refuses http://localhost:* with "Wildcard characters (*) are not
+      supported in URL restrictions" — so the patterns upstream's mapbox-token-security
+      lists as recommended (http://localhost:*, https://myapp.com/*) cannot be entered.
+      List every origin explicitly, comma-separated. Upstream is wrong here; this is the
+      clearest case for why measured beats read.
     apex_covers_www: "https://ebike-safari.com listed also admits www.ebike-safari.com"
     editable_in_place: "changing public scopes or URLs leaves the pk. string unchanged; no redeploy"
     secret_scopes_differ: "secret scopes yield an sk. token, shown once, never for a browser"
