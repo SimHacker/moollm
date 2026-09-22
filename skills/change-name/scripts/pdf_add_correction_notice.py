@@ -30,8 +30,10 @@ Config fields (all overridable on CLI):
   layout.margin          pt (default 72)
   layout.font_size       pt (default 7.5)
   layout.leading         pt (default 9.5)
-  layout.wrap_width      chars (default 88)
-  layout.y_top           pt baseline for first line when placement=top
+  layout.full_width      wrap to page text block (default true)
+  layout.wrap_width      chars when full_width is false
+  layout.top_pad         pt below page top for first baseline (default 24)
+  layout.y_top           pt baseline override for first line when placement=top
   layout.y_base          pt baseline for last line when placement=bottom
 """
 
@@ -52,8 +54,9 @@ DEFAULT_LAYOUT = {
     "margin": 72.0,
     "font_size": 7.5,
     "leading": 9.5,
+    "full_width": True,
     "wrap_width": 88,
-    "y_top": 748.0,
+    "top_pad": 24.0,
     "y_base": 108.0,
 }
 
@@ -118,11 +121,27 @@ def compose_body(cfg: dict[str, Any], sha256: str | None) -> str:
     return " ".join(parts)
 
 
-def notice_lines(cfg: dict[str, Any], sha256: str | None) -> list[str]:
+def page_size(page: pikepdf.Page) -> tuple[float, float]:
+    box = page.mediabox
+    return float(box[2]), float(box[3])
+
+
+def wrap_width_for_page(page_width: float, layout: dict[str, Any]) -> int:
+    margin = float(layout["margin"])
+    font_size = float(layout["font_size"])
+    text_width = page_width - 2 * margin
+    if layout.get("full_width", True):
+        # Helvetica ~0.48 em average width at this size.
+        return max(40, int(text_width / (font_size * 0.48)))
+    return int(layout["wrap_width"])
+
+
+def notice_lines(
+    cfg: dict[str, Any], sha256: str | None, *, page_width: float, layout: dict[str, Any]
+) -> list[str]:
     label = str(cfg["label"]).strip()
-    layout = {**DEFAULT_LAYOUT, **(cfg.get("layout") or {})}
     body = compose_body(cfg, sha256)
-    wrapped = textwrap.wrap(body, width=int(layout["wrap_width"]))
+    wrapped = textwrap.wrap(body, width=wrap_width_for_page(page_width, layout))
     return [label, *wrapped]
 
 
@@ -143,7 +162,9 @@ def pdf_escape(text: str) -> str:
     return text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
 
 
-def build_overlay(lines: list[str], layout: dict[str, Any]) -> bytes:
+def build_overlay(
+    lines: list[str], layout: dict[str, Any], *, page_width: float, page_height: float
+) -> bytes:
     margin = float(layout["margin"])
     font_size = float(layout["font_size"])
     leading = float(layout["leading"])
@@ -151,13 +172,17 @@ def build_overlay(lines: list[str], layout: dict[str, Any]) -> bytes:
     parts: list[str] = ["q"]
 
     if placement == "top":
-        y_top = float(layout["y_top"])
+        y_top = layout.get("y_top")
+        if y_top is None:
+            y_top = page_height - float(layout["top_pad"])
+        else:
+            y_top = float(y_top)
         rule_y = y_top - len(lines) * leading - 4.0
         parts += [
             "0.25 w",
             "0 0 0 RG",
             f"{margin} {rule_y} m",
-            f"{612 - margin} {rule_y} l",
+            f"{page_width - margin} {rule_y} l",
             "S",
             "BT",
             f"{leading} TL",
@@ -246,12 +271,15 @@ def add_notice(
 ) -> None:
     layout = {**DEFAULT_LAYOUT, **(cfg.get("layout") or {})}
     sha256 = resolve_sha256(cfg, config_dir)
-    lines = notice_lines(cfg, sha256)
-    overlay = build_overlay(lines, layout)
     note = compose_docinfo_note(cfg, sha256)
 
     with pikepdf.open(input_path) as pdf:
         page = pdf.pages[0]
+        page_width, page_height = page_size(page)
+        lines = notice_lines(cfg, sha256, page_width=page_width, layout=layout)
+        overlay = build_overlay(
+            lines, layout, page_width=page_width, page_height=page_height
+        )
         ensure_fonts(page)
         append_overlay(page, pdf, overlay)
         pdf.docinfo["/Note"] = note

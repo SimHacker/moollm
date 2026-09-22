@@ -30,7 +30,7 @@ as the original; byline and links corrected per Vanessa's stated wish.
 - Visible notice on page 1 (top margin; see
   [change-name skill](../../../skills/change-name/SKILL.md#visible-correction-notice-required))
 - Attachment: `prestored-change-list.txt` (full enumerated edits)
-- sha256: `9c13dabb101df2ca0b5fd97c14f9853e625fde380b71dfdb3aca8072c13bcdda`
+- sha256: `66c49801b8494d26d8f240de5ff2a8cc963830a82f92333f941888f3495d51e2`
 
 Content edits (2026-07-20, from v1 base):
 
