@@ -1,0 +1,20 @@
+# Example notice config — founding case (Vanessa Freudenberg / SqueakJS).
+# Usage:
+#   python3 ../scripts/pdf_add_correction_notice.py \
+#     INPUT.pdf OUTPUT.pdf --config notice-config.example.yml
+
+label: "CORRECTED MEMORIAL EDITION - September 2026."
+
+not_version_of_record: "doi:10.1145/2661088.2661100"
+changes: "Author name and email above, footnote 2 URL, and PDF metadata updated to Vanessa Freudenberg"
+standing: "news.ycombinator.com/item?id=29125515"
+original_repo: "github.com/SimHacker/moollm/tree/main/designs/prestoration/sources"
+original_file: "Freudenberg-2014-SqueakJS-original.pdf"
+attachment_ref: "Full change list attached"
+canonical_fix: "ACM name-change correction in progress"
+
+change_list_file: "prestored-change-list.example.txt"
+
+layout:
+  placement: top
+  wrap_width: 88

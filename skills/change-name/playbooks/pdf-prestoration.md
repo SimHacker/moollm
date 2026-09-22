@@ -63,6 +63,32 @@ case's sans ended one glyph short of `v`):
 7. `pdf.docinfo['/Author']`, XMP `dc:creator`; add `/Note` docinfo stating what
    changed, when, why, by whom — the artifact must disclose itself.
 
+**Visible correction notice (required — page 1):**
+
+Metadata, filename, README, and a sibling original are necessary but not sufficient. A
+renamed or printed copy loses all of them. Page 1 must carry a visible notice.
+
+8. **Draft the notice** in DISCUSS — agree wording with the human. Required facts:
+   honest label + date; not the version of record (DOI if any); what changed; standing /
+   wish citation; original path + SHA-256; pointer to full change list; canonical fix in
+   progress.
+
+9. **Place it** — default: footer band **above** the publisher reference format / copyright
+   block (3–4 lines at 7–7.5 pt). Alternative: top margin above the title (1–2 lines;
+   full list in attachment). Avoid the author-to-abstract gap and the abstract body.
+
+10. **Set it** — overlay with pikepdf (new content stream or Form XObject on page 1):
+    7–7.5 pt sans or house footer face; small caps label line; 0.25 pt rule above; full
+    text-block width. Condense for page 1; attach the enumerated edit list as a PDF
+    attachment when needed.
+
+11. **OpenTimestamps** (when publishing publicly): proof both original and edition hashes.
+
+See [SKILL.md § Visible correction notice](../SKILL.md#visible-correction-notice-required)
+for the full placement table, typography, and example copy. Working overlay script:
+[`../scripts/pdf_add_correction_notice.py`](../scripts/pdf_add_correction_notice.py)
+(founding case: `designs/prestoration/sources/Freudenberg-2014-SqueakJS-memorial-edition.pdf`).
+
 ### VERIFY
 
 ```bash
@@ -71,7 +97,9 @@ gs -q -dNOPAUSE -dBATCH -sDEVICE=txtwrite -sOutputFile=all.txt EDITION.pdf
 gs -q -dNOPAUSE -dBATCH -sDEVICE=nullpage EDITION.pdf   # all pages render clean
 ```
 
-- Look at the render: centering, family match, no keming.
+- Look at the render: centering, family match, no keming; page-1 notice visible and
+  legible at 100% zoom.
+- Extract page 1 only — notice text must appear in plain extraction.
 - `grep -c "Old Name" all.txt` must be 0 in agreed scope; new strings present.
 - Re-run the scanner against the edition to confirm only planned deltas remain.
 - `shasum -a 256` both files.
@@ -95,3 +123,7 @@ of the disclosure.
   displays the old name. Fix the visible text too.
 - **`/tmp` is not an archive**: stage working files somewhere durable; re-verify hashes
   after any gap.
+- **Metadata-only disclosure**: `/Note` in docinfo, README, and filename do not survive
+  rename or print. Always add the visible page-1 notice.
+- **Notice too small or buried**: 6 pt and side-margin rotation fail legibility and plain
+  extraction. Footer band at 7–7.5 pt is the default.

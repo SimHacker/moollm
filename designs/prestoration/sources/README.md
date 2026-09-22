@@ -21,26 +21,42 @@ bearing her deadname — preserved unmodified.
 - All Wayback snapshots of that URL (2024-07 through 2025-01) share this one
   digest: the PDF was never re-typeset with her name during her lifetime
 
-## Freudenberg-2014-SqueakJS-memorial-edition.pdf — after
+## Freudenberg-2014-SqueakJS-memorial-edition.pdf — current edition
 
-The same paper with the front-page byline corrected to **Vanessa
-Freudenberg**, matching her 2020 name change and the DLS 2024 award credit.
-Technical content byte-for-byte unchanged. All edits made 2026-07-20:
+**Start here.** The corrected memorial edition with a **visible page-1 notice**,
+embedded change-list attachment, and updated PDF metadata. Same technical content
+as the original; byline and links corrected per Vanessa's stated wish.
 
-- Page 1 byline: "Bert Freudenberg" → "Vanessa Freudenberg" (re-centered
-  over her affiliation column)
-- Page 1 email: → `vanessa@codefrau.net` (her address per freudenbergs.de)
+- Visible notice on page 1 (top margin; see
+  [change-name skill](../../../skills/change-name/SKILL.md#visible-correction-notice-required))
+- Attachment: `prestored-change-list.txt` (full enumerated edits)
+- sha256: `9c13dabb101df2ca0b5fd97c14f9853e625fde380b71dfdb3aca8072c13bcdda`
+
+Content edits (2026-07-20, from v1 base):
+
+- Page 1 byline: "Bert Freudenberg" → "Vanessa Freudenberg" (re-centered)
+- Page 1 email: → `vanessa@codefrau.net`
 - Page 4 footnote 2 + link: `github.com/bertfreudenberg/SqueakJS` →
-  [`github.com/codefrau/SqueakJS`](https://github.com/codefrau/SqueakJS/),
-  where the repository lives today
-- PDF Author metadata updated to match; a `Note` field in the document info
-  records this provenance
-- sha256: `b54bc844204b5c1e4dd6a6abcf472651885564b2c2d866378814a77296e52332`
+  [`github.com/codefrau/SqueakJS`](https://github.com/codefrau/SqueakJS/)
+- PDF Author metadata updated
 
-How the edits were made, step by step:
+Notice edition (2026-09): page-1 overlay + attachment + `/Note` metadata update.
+Produced by
+[`pdf_add_correction_notice.py`](../../../skills/change-name/scripts/pdf_add_correction_notice.py).
+
+How the byline edits were made:
 [play-by-play](../play-by-play.md), and the lifted
 [pdf-prestoration playbook](../../../skills/change-name/playbooks/pdf-prestoration.md).
 Ethics: [alignment-and-forgery.md](../alignment-and-forgery.md).
+
+## Freudenberg-2014-SqueakJS-memorial-edition-v1.pdf — prior edit (archived)
+
+July 2026 edit: byline, email, and footnote corrected; disclosure in filename, README,
+and PDF `/Note` only — **no visible page-1 notice**. Kept as the intermediate state
+before the September 2026 notice pass. Do not cite by default; use
+`Freudenberg-2014-SqueakJS-memorial-edition.pdf` above.
+
+- sha256: `b54bc844204b5c1e4dd6a6abcf472651885564b2c2d866378814a77296e52332`
 
 ## hn-thread-2021-squeakjs.md — her request, in her own words
 

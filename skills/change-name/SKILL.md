@@ -43,8 +43,10 @@ with good manners:
    words), or those closest to them act on documented evidence of their identity.
    Standing order: self > subject's recorded request > family/co-authors > community.
 2. **Original preserved** — bit-for-bit, sha256-pinned, adjacent to the edition.
-3. **Total disclosure** — every change enumerated, in the artifact (embedded note) and
-   beside it (README).
+3. **Total disclosure** — every change enumerated, **visible on page 1** (see
+   [Visible correction notice](#visible-correction-notice-required)), in PDF metadata
+   and attachments, and beside the file (README). Metadata-only disclosure fails: a
+   renamed or printed copy loses the filename, README, and sibling original.
 4. **Honest labeling** — the filename says what the file is (`-memorial-edition`,
    `-corrected`, never a silent replacement).
 5. **Canonical fix pursued** — the edited derivative is a bridge to the institutional
@@ -89,9 +91,58 @@ Present the evidence, then agree, explicitly:
   URL that redirects still *displays* the old handle; update visible text).
 - **Typography** — in-font where the subset allows (recompute kerning), matched fallback
   face where it doesn't (base-14 Helvetica for sans, Times for serif).
-- **Labeling** — the edition's filename and the embedded provenance note text.
+- **Labeling** — the edition's filename, the visible page-1 notice (wording and
+  placement), and the embedded provenance note / attachment text.
 - **The gate** — confirm all five conditions; record the wish/standing evidence in the
   ledger.
+
+## Visible correction notice (required)
+
+Every prestored PDF must carry a **visible correction notice on page 1**. Outside-the-page
+disclosure (filename, README, sibling original, PDF `/Note` metadata) is necessary but not
+sufficient — those signals vanish when someone renames, re-hosts, or prints the file.
+
+The notice must be **explicit and machine-parseable** — clear enough that a human skimming
+page 1 and plain text extraction (`pdftotext`, Ghostscript `txtwrite`) both recover: this is
+not the version of record; what changed; where the unaltered original lives; that a canonical
+fix is being pursued.
+
+**Required content** (condense for page 1; full list may live in a PDF attachment):
+
+- Honest label (`CORRECTED MEMORIAL EDITION`, `CORRECTED EDITION`, etc.) and date
+- **Not the version of record** — cite DOI or publisher identifier when one exists
+- What was updated (byline, email, footnote URLs, metadata) and the new identity used
+- Standing / wish — link the subject's own words when they exist
+- Unaltered original preserved — repository path and **SHA-256** (full hash, or labeled
+  prefix with ellipsis)
+- Pointer to full change list (embedded attachment or README)
+- Canonical correction in progress (publisher petition, registry update, etc.)
+
+**Placement recommendations** (least disruptive first):
+
+| Placement | When to use |
+|-----------|-------------|
+| **Footer band above the publisher reference / copyright block** | Default. Page 1 already has small legal text there; the notice reads as metadata, not content. Room for 3–4 lines. |
+| **Top margin above the title** | When the footer is crowded. One or two lines; keep the full notice in the attachment. |
+| **Avoid** | Between author block and abstract; inside the abstract; rotated side-margin text — all read as content tampering or archival stickers. |
+
+**Typography recommendations:**
+
+- **7–7.5 pt** minimum (7 pt floor; do not go to 6 pt)
+- Match the document's house style — sans used for affiliations, or base-14 Helvetica
+- Full text-block width (~468 pt on US Letter), centered or aligned with existing footer
+- **Small caps** on the label line (`CORRECTED MEMORIAL EDITION`)
+- Thin rule (0.25 pt) above the notice to separate it from body content
+- Monospace or distinct treatment for hashes and URLs aids both reading and extraction
+
+**Example** (4-line footer; adapt labels to the case):
+
+```
+CORRECTED MEMORIAL EDITION — September 2026. Not the ACM version of record (doi:…).
+Author name, email (above), footnote URLs, and PDF metadata updated to [New Name] per
+[standing citation]. Unaltered original: [repo path] (SHA-256 …). Full change list
+attached; [publisher] name-change correction in progress.
+```
 
 ### 3. EDIT — perform the surgery
 
@@ -103,13 +154,19 @@ With pikepdf, on a **copy** (never the original):
   shifting the text matrix half the width delta; `assert count == 1` for every pattern
   before replacing — bytes, not regex, wherever possible.
 - **Annotations**: update `/A//URI` and resize `/Rect` hotspots to the new text width.
+- **Visible notice**: overlay the agreed correction notice on page 1 (footer band or top
+  margin per recommendations above). Render-check at print resolution.
 - **Metadata**: `/Author`, XMP `dc:creator`; embed a `/Note` docinfo field stating what
   changed, when, why, and by whom.
+- **Attachment**: embed the full enumerated change list as a PDF attachment when the page-1
+  notice is condensed.
 
 ### 4. VERIFY — prove it
 
 - **Render** the edited pages (Ghostscript → PNG) and *look at them* — centering, font
-  match, no keming. Zoom against an unedited neighbor for comparison.
+  match, no keming; **the page-1 correction notice is visible and legible**. Zoom against
+  an unedited neighbor for comparison.
+- **Extract page 1** — the notice text must appear in plain extraction, not only in rendered glyphs.
 - **Extract** full text (`gs -sDEVICE=txtwrite`) — the old string's count in agreed
   scope must be **zero**; the new string must appear where planned.
 - **Regression** — all pages render clean (`-sDEVICE=nullpage`).

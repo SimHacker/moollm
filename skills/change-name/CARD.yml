@@ -61,12 +61,12 @@ methods:
     parameters:
       plan: "Agreed edit plan"
     output: "New labeled file (never overwrite the original)"
-    effect: "Content streams, annotations, metadata edited; kerning recomputed; provenance note embedded in the artifact"
+    effect: "Content streams, annotations, metadata edited; kerning recomputed; visible page-1 notice + provenance note/attachment embedded"
     invoked-by: [any]
 
   VERIFY:
     description: "Prove the edit did what was agreed and nothing else"
-    output: "Render pages (vision check), extract text (old name count must be 0 in agreed scope), hash both files"
+    output: "Render pages (vision check; page-1 notice legible), extract text (notice + old name count 0 in agreed scope), hash both files"
     effect: "Evidence attached to the provenance record"
     invoked-by: [EDIT]
 
@@ -104,7 +104,7 @@ ethics:
   five_conditions:
     - "Documented wish or clear standing (self > subject's request > family/co-authors > community)"
     - "Original preserved bit-for-bit, hash-pinned, adjacent"
-    - "Total disclosure: every change enumerated, in the artifact and beside it"
+    - "Total disclosure: visible page-1 notice + metadata + attachment + README beside original"
     - "Honest labeling: the filename says what the file is"
     - "Canonical fix pursued: the derivative is a bridge, not a substitute"
   never: "Out anyone. Auditing exposure is also auditing safety."
