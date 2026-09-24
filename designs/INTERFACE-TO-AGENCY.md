@@ -17,10 +17,10 @@ object of interest is immediately visible." His remedy is not a chat window park
 GUI. It is to make the interaction techniques themselves more intelligent while keeping what made
 them work.
 
-This doc takes the same position from the programming-by-demonstration side.
+This essay takes the same position from the programming-by-demonstration side.
 
 *"An interface to agency" is Don's formulation of Shneiderman's position, not a phrase of
-Shneiderman's. His own vocabulary is direct manipulation, universal usability, supertools,
+Shneiderman's. Ben's own vocabulary is direct manipulation, universal usability, supertools,
 and human-centered AI. The formulation is a good one because it names what the alternative
 gets wrong: agency is the thing you want, and an agent is only one way to package it.*
 
@@ -33,13 +33,19 @@ memory and bandwidth to a task. It may not have a different set of verbs.
 People want agency. An agent is one way to package it, and a good interface is still required
 either way.
 
-Programming by demonstration depends on this rule, in both directions. The systems collected in
-*Watch What I Do* (Allen Cypher, ed., 1993, with chapters by Henry Lieberman, Brad Myers and
-others) could only generalize from actions they could see the user take. Turn that around: a
-person cannot demonstrate anything through an interface the agent has hidden, and cannot learn
-from an agent whose work happens somewhere they cannot watch. An agent that works through the
-visible controls gives a demonstration every time it acts, and it can take one back from you
-just as easily.
+**Programming by demonstration is a two-way street, and so is programming by dictation.** The
+systems collected in *Watch What I Do* (Allen Cypher, ed., 1993, with chapters by Henry
+Lieberman, Brad Myers and others) ran one way: the person demonstrates, the system watches and
+generalizes. With a shared interface it runs both ways.
+
+| | Person to agent | Agent to person |
+|---|---|---|
+| **Demonstration** | you do it by hand; the agent watches and generalizes | the agent does it through the same visible controls; you watch and learn how |
+| **Dictation** | you say what you want; the agent proposes the edit | the agent says what it did or wants to do, pointing at what changed |
+
+All four need the same condition: one interface that both parties can see and operate. Hide the
+controls from the person and three of the four stop working, and the one that is left is
+the agent watching you, with nothing coming back.
 
 ## Start with the classic case
 
