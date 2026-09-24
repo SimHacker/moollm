@@ -99,12 +99,23 @@ carries an autonomy threshold that decides whether a Sim will choose it unprompt
 you tell it to. Either way the choice lands in the same action queue, visible at the top of the
 screen, and you can cancel any of it with a click.
 
-So the pie menus are direct manipulation of the Sims' behaviour, through the same channel the Sims
-use to decide for themselves what to do with objects and with each other. You don't override the
-agent from outside; you reach into its decision and pick for it, from the list it was already
-choosing from. The player and the agents have one set of verbs, advertised by the objects, not
-owned by the agents. Even the pointing is tuned for it: a Sim under the cursor slows down, like
-the tilt on a pinball machine, so you can catch someone walking past and pop up a menu on them.
+It takes an ensemble of interaction techniques, and together they amount to direct manipulation
+of agent behaviour:
+
+- **Selecting a character.** Click on a Sim, or press space to switch between them. A Sim under
+  the cursor slows down, like the tilt on a pinball machine, so you can catch someone walking
+  past. That is Fitts's law in time: a moving target stays under the cursor longer, which grows
+  its effective size.
+- **Pie menus** on people and objects, generated from the same advertisements autonomy scores.
+- **The action queue** of the selected character, showing what you queued and what the Sim queued
+  for itself, side by side.
+- **Cancelling** any queued action with a click on it.
+
+You don't override the agent from outside; you reach into its decision and pick for it, from the
+list it was already choosing from, and you watch the result. The player and the agents have one
+set of verbs, advertised by the objects, not owned by the agents. It is also much easier than
+editing a YAML file by hand, which is the point of the next sections: the repository is the floor,
+and this is what should stand on it.
 
 That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
 other designs that worked. In MOOLLM, objects, rooms and characters advertise what can be done
