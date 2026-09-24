@@ -208,198 +208,281 @@ not happen.
 
 ## The showcase: automation that drives the user's own controls
 
-The strongest form of this argument is not an essay, it is a system where the automation has no
-private controls at all. Every action an agent takes, it takes through an affordance that is
-visible on screen, reachable by hand, and takeable over mid-flight.
+The strongest form of this argument is not an essay. It is a system where the automation has no
+private controls at all: every action an agent takes goes through an affordance that is visible on
+screen, reachable by hand, and can be taken over mid-flight.
 
-**The bridge.** Everything above has been argued one piece at a time: agents get no verbs people
-lack; objects advertise and agents choose from the same menu; one visible queue holds everyone's
-actions; demonstration and dictation run both ways; people are agents; files are the floor. This
-section puts all of those into one working design, and takes them literally outside the box: out
-of one program and into another, with no cooperation from either.
+### The bridge from the argument above
 
-**The claim.** *An agent can do real work across closed programs, reaching into them only through
-the controls a person has — the screen, the mouse, the keyboard — and everything it does can stay
-visible, interruptible and readable by that person.* What it calls outside the programs, a person
-could call too. If that holds for a twenty-six-year-old game with no API, it holds
-for any interface.
+Everything above was argued one piece at a time:
 
-Three names, defined once:
+- agents get no verbs people lack;
+- objects advertise, and agents choose from the same menu people do;
+- one visible queue holds everyone's actions;
+- demonstration and dictation run both ways;
+- people are agents;
+- files are the floor.
+
+This section puts all of them into one working design, and takes them literally outside the box:
+out of one program and into another, with no cooperation from either.
+
+### The claim
+
+*An agent can do real work across closed programs, reaching into them only through the controls a
+person has — the screen, the mouse, the keyboard — and everything it does can stay visible,
+interruptible and readable by that person.*
+
+What it calls outside the programs, a person could call too. If this holds for a twenty-six-year-old
+game with no API, it holds for any interface.
+
+### Three names
 
 - **Screen Angel** is a layer that sits over any application as a transparent, always-on-top,
   click-through overlay. It reads what is on screen — the accessibility tree where there is one,
-  the pixels where there is not — and it acts on an application by moving the mouse and pressing
-  keys. Outward it can call any service: LLM text completion, vision language models for
+  the pixels where there is not — and acts on an application by moving the mouse and pressing keys.
+  Spec: [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml) ·
+  what it may do: [`CAPABILITIES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml).
+- Outward, Screen Angel can call any service: LLM text completion, vision language models for
   understanding images, speech recognition and synthesis, or ordering a pizza. It is written in
-  TypeScript and runs in Electron, and its abilities come as modules, some specific to one game and
-  some cutting across all of them, that can be plugged in, downloaded and upgraded over time
-  without reinstalling the agent. Spec:
-  [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml).
+  TypeScript and runs in Electron. Its abilities come as modules — some for one game, some cutting
+  across all of them — that can be plugged in, downloaded and upgraded without reinstalling it.
+  Module system: [`MODULES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MODULES.yml) ·
+  agent surface: [`AGENT.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/AGENT.yml) ·
+  code: [`apps/screen-angel/src/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/src).
 - **Soul Angel** is Screen Angel's module for games about people. It knows about characters, their
-  relationships and their save files, and it can carry a character from one game to another. Spec:
-  [`modules/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel).
+  relationships and their save files, and it can carry a character from one game to another.
+  Module: [`modules/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel) ·
+  which games and why: [`GAME-BRIDGES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/GAME-BRIDGES.yml).
 - **Micropolis** is the original SimCity, released as open source under that name in 2008. The
-  player's role in it is mayor of the city. Code: [MicropolisCore](https://github.com/SimHacker/MicropolisCore).
+  player's role in it is mayor of the city.
+  Code: [MicropolisCore](https://github.com/SimHacker/MicropolisCore) ·
+  the mayor as an office a character can hold: [`micropolis-role-sheets.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/micropolis-role-sheets.md).
 
-**The story, in one paragraph.** A Sim in an unmodified copy of The Sims 1 takes a job as mayor of
-a city in Micropolis. She walks out to the carpool, the car drives off with her in it, and for the
-afternoon she is running a city in a different game. Soul Angel carries the errand across. It has
-no API into either game; it sees the screen and uses the mouse and keyboard, as a player does. While
-she is away, a painted **Easter egg** stands by the road where the car door was. Its paint tells
-both you and Soul Angel what state the job is in. Its pie menu lists every outcome the job is
-allowed to have, so the result comes home as a choice from a readable list.
+### The story
+
+A Sim in an unmodified copy of The Sims 1 takes a job as mayor of a city in Micropolis. She walks out
+to the carpool, the car drives off with her in it, and for the afternoon she is running a city in a
+different game.
+
+Soul Angel carries the errand across. It has no API into either game. It sees the screen and uses the
+mouse and keyboard, as a player does.
+
+While she is away, a painted **Easter egg** stands by the road where the car door was. Its paint tells
+both you and Soul Angel what state the job is in. Its pie menu lists every outcome the job is allowed
+to have, so the result comes home as a choice from a readable list.
 
 When the job is done, Soul Angel clicks the egg and picks from that pie menu, exactly as you would.
-The egg does the rest itself, as a Sims object: it rematerializes her by the road, changes her
-state, and rewards her according to how the job went. Soul Angel has no special API into the
-game. Its only way in is the one every player has — picking from the pie menus of objects — and a
-custom object can do anything in the game that any Sims object can. You can click the same egg
-at any time and pick for yourself, and she comes back.
+The egg does the rest itself, as a Sims object: it rematerializes her by the road, changes her state,
+and rewards her according to how the job went.
+
+Soul Angel's only way into the game is the one every player has: picking from the pie menus of
+objects. A custom object can do anything in the game that any Sims object can, so that one way in is
+enough. You can click the same egg at any time and pick for yourself, and she comes back.
 
 Nothing in that loop is hidden from the player, and nothing Soul Angel does is a verb the player
 lacks. The closed game enforces this rather than merely allowing it: with no API to go around the
-visible controls, there is no other way to do it. The rest of this section is the detail — the
-egg, the errand, the layer doing the clicking, and the four properties that make it direct
-manipulation rather than delegation. The protocol for what may cross between games is in
-[`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md).
+visible controls, there is no other way to do it.
 
-The worked case is **The Sims 1** — the 2000 game, running as it shipped, no source, no patch, no
-injected code. What it does have is a content pipeline: custom objects are `.iff` files with their own
-art, behaviour trees and pie menus, and the community has been minting them for twenty-five years.
+The rules for what may cross between games — conservation, fork and sync, roles as offices — are in
+[`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md). The rest of this section is
+the detail: the game, the egg, the errand, the layer doing the clicking, and the four properties that
+make it direct manipulation rather than delegation.
 
-The showcase is built from one such object, the **Easter egg**: a small, colourfully painted
-custom object that stands in the room for a piece of work in progress — a pending result, sitting
-where you can see it, with a pie menu on it like any other object. It is not a hypothetical engine
-feature. It is built the way Sims objects have been built for 26 years, and everything below is a use of
-machinery Maxis shipped rather than a change to it.
+### The game, as it shipped
 
-The full name matters because the paint is the point. An Easter egg is **painted so it can be
-recognized**, and here the paint does that job for two readers at once: the player, who sees at a
-glance that something is outstanding and what state it is in, and **Soul Angel**, the accessibility
-agent introduced below (the Screen Angel module for The Sims), which finds and reads the same egg
-from the same pixels. One painted
-surface, legible to the person and to the agent, is this whole doc in a single object. The other
-meanings come along for free: an Easter egg is something you find by looking, and an egg holds
-something and hatches exactly once, which is what a pending result does.
+The worked case is **The Sims 1** — the 2000 game, running as it shipped: no source, no patch, no
+injected code.
 
-Think of the egg as **a colourful QR code** that happens to be an object in the game. Two readers can
-recognize it and decode it: Screen Angel reading the screen directly, and a phone app pointed at the
-screen. Neither needs anything from the game but its pixels.
+What it does have is a content pipeline. Custom objects are `.iff` files with their own art, behaviour
+trees and pie menus, and the community has been making them for twenty-five years. How those objects
+work: [`designs/sims/sims-object-model.md`](sims/sims-object-model.md),
+[`sims-pie-menus.md`](sims/sims-pie-menus.md),
+[`sims-find-best-action.md`](sims/sims-find-best-action.md) (autonomy choosing among advertisements),
+[`sims-simantics-vm.md`](sims/sims-simantics-vm.md).
 
-It carries its value in the open, as colour bands up its body read like a resistor: position is the
-digit, colour is the value, with a white cap above a black cap to mark where the stack starts and ends,
-set the scale (a cap is exactly one band tall, so the egg is self-describing at any zoom), and hand the
-reader a known white and a known black to correct colour against. That last job matters because there
-are two ways to read one and they are wildly different work. **From a screen grab it is cheap and
-exact**: the frame comes off the compositor with no optics in the way, every pixel is the pixel the game
-drew, and two pixels a band decodes reliably. **Through a phone camera pointed at a monitor it is
-hard**: perspective, sensor noise, a warm cast off the room's lighting, soft focus, glare, and moire
-between the pixel grid and the sensor grid — and the measured floor rises to six pixels a band. The
-caps are what make the second case survivable, since a photograph taken in evening light corrects
-itself against them rather than needing to be told what the light was. Both numbers are measured rather
-than asserted, and the camera path is not a stunt: it is how you read a screen you do not own — a
-stream, a friend's monitor, a photograph of a game running on a machine you will never touch.
+### The Easter egg
 
-The errand is **remote work in the sense the phrase never means**: not a different lot, not a downtown
-tile — a job in a *different game*. What she is doing for the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
-between two save files. The carpool drives off with her in it and disappears, and the egg is left
-behind: a custom object whose presence means *a call is outstanding*, sitting by the side of the road
-where the car door was.
+The Easter egg is a custom Sims object: small, colourfully painted, standing in the room for a piece
+of work in progress. It is a pending result you can see, with a pie menu on it like any other Sims
+object.
 
-The result comes home through that egg's own pie menu, whose nested submenus enumerate every
-consequence the job is permitted to have. The menu is the return type. That matters more across games
-than it would across rooms, because the other game has its own rules, its own units and its own idea of
-what a promotion is worth — and none of that can reach into this household except by being an item a
-player selects. The space of what a foreign game may do to your Sim is a readable list rather than a
+The Easter egg is not a hypothetical engine feature. It is built the way Sims objects have been built
+for 26 years, and everything below uses machinery Maxis shipped rather than changing it.
+Spec: [`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml).
+
+The name "Easter egg" matters because **the paint is the point**. Easter eggs are painted so they can
+be recognized, and this one's paint does that job for two readers at once:
+
+- the player, who sees at a glance that a job is outstanding and what state it is in;
+- Soul Angel, which finds and reads the same egg from the same pixels.
+
+One painted surface, legible to the person and to the agent, is this whole doc in a single object.
+The name's other meanings come along for free: an Easter egg is something you find by looking, and
+an egg holds something and hatches once, which is what a pending result does.
+
+### The Easter egg is a colourful QR code
+
+Think of the Easter egg as a QR code that happens to be an object in the game. Two readers can recognize and
+decode it: Screen Angel reading the screen directly, and a phone app pointed at the screen. Neither
+needs anything from the game but its pixels.
+
+The code is colour bands up the egg's body, read like a resistor: position is the digit, colour is the
+value. A white cap above a black cap marks where the stack starts and ends. The caps also set the
+scale — a cap is exactly one band tall, so the egg describes itself at any zoom — and give the reader
+a known white and a known black to correct colour against.
+
+Reading from a screen grab is cheap and exact. The frame comes off the compositor with no optics in
+the way, every pixel is the pixel the game drew, and two pixels a band decodes reliably.
+
+Reading through a phone camera is hard: perspective, sensor noise, a warm cast from the room's
+lighting, soft focus, glare, and moiré between the pixel grid and the sensor grid. The measured floor
+rises to six pixels a band. The caps make it survivable, because a photo taken in evening light
+corrects itself against them.
+
+Both numbers are measured, not asserted. Code:
+[`packages/optical-codec/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/optical-codec)
+(including [`measure-eggs.ts`](https://github.com/SimHacker/MicropolisCore/blob/main/packages/optical-codec/scripts/measure-eggs.ts)) ·
+what it can see: [`RECOGNIZER.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECOGNIZER.yml) ·
+the phone path: [`MOBILE-CAMERA.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MOBILE-CAMERA.yml) ·
+longer messages: [`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml).
+
+The camera path is not a stunt. It is how you read a screen you do not own: a stream, a friend's
+monitor, a game running on a machine you will never touch.
+
+### The errand
+
+The errand is **remote work in the sense the phrase never means**: not a different lot, not a
+downtown tile, but a job in a *different game*. What she does for the afternoon happens in Micropolis,
+or in another title entirely, on the other side of a bridge between two save files.
+
+The Easter egg's presence by the road means *a call is outstanding*. The result comes home through its pie
+menu, whose nested submenus list every consequence the job is permitted to have. **The menu is the
+return type.**
+
+That matters more across games than across rooms. The other game has its own rules, its own units and
+its own idea of what a promotion is worth, and none of that can reach into this household except as
+an item a player selects. What a foreign game may do to your Sim is a readable list rather than a
 promise, and the list is in the object, in the Downloads folder, on your disk.
+
+Jobs that need no bridge at all, only a screen and a clock:
+[`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
+jobs outside games: [`OUT-OF-GAME-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/OUT-OF-GAME-JOBS.yml) ·
+the errand protocol: [`SOUL-BRIDGES.md` § the errand](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game).
 
 ### The layer doing the clicking
 
-The thing on the other side of that pie menu is **Screen Angel**, and it needs more than the
-one-line definition above, because the whole argument depends on what it is allowed to be.
+Screen Angel needs more than the one-line definition above, because the whole argument depends on
+what it is allowed to be.
 
-It is a scriptable layer over *any* application's interface — selecting and querying components,
-matching visual patterns, handling events, driving widgets from outside, without modifying the
-application. Don first described it in a 2013 email to Peter Korn and named it in 2026. The name
-is the ladder: **a screen scraper takes, a screen reader
-reads to you, a screen angel acts for you** — and it describes the implementation literally, since
-the thing is a transparent, always-topmost, click-through overlay. Invisible, above you, intervening.
-**Soul Angel** is its first application, the module that knows about characters and souls, and The
-Sims 1 is Soul Angel's first bridge.
+It is a scriptable layer over *any* application's interface: selecting and querying components,
+matching visual patterns, handling events, and driving widgets from outside without modifying the
+application. Don first described it in a 2013 email to Peter Korn
+([thread](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/sources/2013-email-thread.md)),
+refined it across a decade of Hacker News comments
+([progression](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/sources/hacker-news-progression.md)),
+and named it in 2026.
 
-What it can do is bounded by one sentence: **anything a player can do.** Concretely, that is a lot.
-It sees the screen and it moves the mouse and presses keys. It navigates menus, walks the camera
-around a world, clicks a pie item. It can save and quit a game, read the save file, edit or
-regenerate it, and start the game again — which is the high-bandwidth channel, used between sessions
-because it costs a restart. During play it uses the low-bandwidth one: pie menus, dialog trees, codes
-on screen, typed parameters. Two channels, neither a fallback for the other, and the reason routine
-cross-game play does not require a save-quit-edit-relaunch cycle.
+The name is a ladder: **a screen scraper takes, a screen reader reads to you, a screen angel acts for
+you.** It also describes the implementation literally — a transparent, always-topmost, click-through
+overlay. Invisible, above you, intervening.
+
+What it can do is bounded by one sentence: **anything a player can do.** That is a lot:
+
+- see the screen, move the mouse, press keys;
+- navigate menus, walk the camera around a world, click a pie item;
+- save and quit a game, read the save file, edit or regenerate it, and start the game again.
+
+Saving, editing and relaunching is the high-bandwidth channel, used between sessions because it costs
+a restart. During play it uses the low-bandwidth one: pie menus, dialog trees, codes on screen, typed
+parameters. Neither is a fallback for the other, and the second is why routine cross-game play does
+not need a save-quit-edit-relaunch cycle.
+
+### How it sees
 
 How it perceives depends on how cooperative the application is, and games are the least cooperative
 software there is:
 
-- **The accessibility tree**, where one exists — real element bounds, real names, real events. Most
-applications. Almost no games.
-- **Pixels**, where it does not. Anchor art located by correlation to find the window and its scale,
-the game's own bitmap font read glyph by glyph to recover text nobody exposes, QR codes for
-anything long, and the egg's colour band codes for live state at a distance.
-- **Models**, on top of both. Machine vision, visual language models, and LLM completions supply the
-judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
-what to do about it.
-- **The network**, when the answer is elsewhere — HTTP and API calls, which is how a job in another
-game gets asked and answered.
+- **The accessibility tree**, where one exists: real element bounds, real names, real events. Most
+  applications have one. Almost no games do.
+- **Pixels**, where there is none. Anchor art located by correlation finds the window and its scale.
+  The game's own bitmap font, read glyph by glyph, recovers text nobody exposes — 12 faces and 2,340
+  glyphs for The Sims 1
+  ([`FONT-RECOGNITION.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/bridges/sims1/FONT-RECOGNITION.yml),
+  [bridge code](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel/bridges/sims1)).
+  QR codes carry anything long, and the egg's bands carry live state at a distance.
+- **Models**, on top of both. Machine vision, visual language models and LLM completions supply the
+  judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
+  what to do about it.
+- **The network**, when the answer is elsewhere: HTTP and API calls, which is how a job in another
+  game gets asked and answered.
 
-And the far end is not a screen at all. The world's representation lives in **git repositories of
-YAML microworlds** — moollm's selfish objects, places, characters, the simulated worlds themselves —
-so the Angel edits and generates files, commits them, and simulates from them, while the same objects
-stay open to a person with a text editor. That is what makes the whole arrangement a bridge rather
-than a scraper: **a closed binary on one side, an open filesystem on the other, and both ends
-directly manipulable.** The user's content is not inside the automation; it is on disk, in a repo,
-diffable.
+### Both ends are open
 
-Which is where the ceiling matters. The Angel has **no privileged verb**. Everything in that list is
-something a person could do with a mouse, a text editor and patience — the layer supplies reach and
-stamina, not authority. Nothing it can reach is unreachable by hand, and nothing it does is invisible
-while it does it, because it does it through the controls that are on the screen.
+The far end is not a screen at all. The world's representation lives in **git repositories of YAML
+microworlds** — MOOLLM's objects, places and characters, and the simulated worlds themselves. The
+Angel edits and generates those files, commits them, and simulates from them, while the same objects
+stay open to a person with a text editor.
 
-Two honest caveats. **The layer does not exist yet** — eleven years of prose, one prototype of the
-shell it would live in, and the bridge work described here. And **this is a keylogger-shaped
-capability set**: on macOS a single Accessibility grant covers reading the tree, writing attributes
-and synthesizing input, so the operating system's coarse yes is coarser than what the design wants to
-promise. The fine-grained promise has to be ours, which means it has to be visible: every action goes
-on a timestamped event ring, and an Angel's afternoon is reviewable the way a diff is.
+That is what makes the arrangement a bridge rather than a scraper: **a closed binary on one side, an
+open filesystem on the other, and both ends directly manipulable.** The user's content is not inside
+the automation. It is on disk, in a repo, diffable.
 
-Four properties are doing the work, and each one is a direct-manipulation requirement met rather
-than argued about:
+### No privileged verb
+
+The Angel has **no privileged verb**. Everything above is something a person could do with a mouse, a
+text editor and patience. The layer supplies reach and stamina, not authority. Nothing it can reach is
+unreachable by hand, and nothing it does is invisible while it does it, because it does it through
+the controls on the screen.
+
+### What is built, and the hard part
+
+What exists today, with each spec's `built:` and `not_built:` lists as the record:
+
+- **Built:** the Electron shell with macOS and Windows native backends, screen capture, the overlay,
+  and the module host; the optical codec with the egg renderer and reader and the measured band
+  heights; the Sims 1 font reader and anchor matcher with tests; an MCP server for the agent surface.
+- **Not built yet:** the egg as a Sims object, compiling its menu tree, hatching, the phone app,
+  per-module capability checks, and the agent's planning loop. The readers have been verified
+  against rendered fixtures, not yet against live frames.
+
+The hard part is that **this is a keylogger-shaped capability set.** On macOS a single Accessibility
+grant covers reading the tree, writing attributes and synthesizing input, so the operating system's
+yes is coarser than what the design wants to promise. The fine-grained promise has to be ours, which
+means it has to be visible: every action goes on a timestamped event ring
+([`ANGEL-EVENT-BUS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/ANGEL-EVENT-BUS.yml),
+[`RECORDER.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECORDER.yml)),
+and an Angel's afternoon is reviewable the way a diff is.
+
+### Four properties
+
+Four properties do the work. Each is a direct-manipulation requirement met rather than argued about.
 
 **The automation's interface is the user's interface.** In a closed game this is enforced rather than
-promised — there is no API to bypass the visible controls with, because there is no API. A constraint
-that started as the price of working with a twenty-six-year-old binary turns out to be the property
-you would want anyway, and would never have kept voluntarily.
+promised: there is no API to bypass the visible controls, because there is no API. A constraint that
+started as the price of working with a twenty-six-year-old binary turns out to be the property you
+would want anyway, and would never have kept voluntarily.
 
 **Pending work is an object, not a notification.** A promise with a location and a sprite can be
 walked past, pointed at, asked what it is, and acted on next Tuesday. A toast can only be missed.
 
 **Taking over is one click, at any moment.** Hatch the egg early and the character is back
-immediately, wherever she was standing. Cancellation is the empty return value, so the safest
-outcome is also the cheapest one to produce — for a person in a hurry or for a timeout.
+immediately. Cancellation is the empty return value, so the safest outcome is also the cheapest one
+to produce, for a person in a hurry or for a timeout.
 
-**The dial between hands is explicit and live.** Manual, confirm each, timeout with a named
-default, auto, yolo — switchable while the operation is outstanding. Consent is a setting the user
-holds, not a mode the agent infers.
+**The dial between hands is explicit and live.** Manual, confirm each, timeout with a named default,
+auto, yolo — switchable while the operation is outstanding. Consent is a setting the user holds, not
+a mode the agent infers.
 
-Which is the answer to the objection that this settlement is nostalgic. The reason to make
-automation navigable is not that a human will always want to drive; it is that a system whose
-automation uses the visible controls is inspectable, testable, and repairable by the person whose
-data it is — and a system with a private control channel is none of those, whatever it promises.
+That answers the objection that this settlement is nostalgic. The reason to make automation
+navigable is not that a human will always want to drive. It is that a system whose automation uses
+the visible controls is inspectable, testable and repairable by the person whose data it is, and a
+system with a private control channel is none of those, whatever it promises.
 
-Specs: the layer in `[SCREEN-ANGEL.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml)`
-and what it is permitted in `[CAPABILITIES.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml)` ·
-what it can see in `[RECOGNIZER.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECOGNIZER.yml)` ·
-`[EGGS.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml)` ·
-`[OPTICAL-CHANNEL.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml)` ·
-`[UNIVERSAL-JOBS.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml)` ·
-protocol in `[skills/soul-city/SOUL-BRIDGES.md](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game)` · literary roots in `[designs/pkd/a-scanner-darkly.md](pkd/a-scanner-darkly.md)`
+Further reading: the Screen Angel skill
+([`SKILL.md`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/skills/screen-angel/SKILL.md)) ·
+the Soul City design
+([`soul-city.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)) ·
+literary roots in [`designs/pkd/a-scanner-darkly.md`](pkd/a-scanner-darkly.md).
 
 ## The other showcase: a control channel software cannot enter
 
