@@ -7,8 +7,17 @@ Shneiderman's objection was not that software should be dumb. It was that automa
 arrive as **comprehensible, predictable, and controllable** machinery, with the object of
 interest continuously visible and every action rapid, incremental, and reversible.
 
-That objection describes a filesystem in a git repository, and nobody involved planned it
-that way.
+Brad Myers restates the objection from the interaction-technique side in his 2026 proposal for
+intelligent interaction techniques ([arXiv:2609.16295](https://arxiv.org/abs/2609.16295)). He
+argues that graphical interfaces stay relevant after language and speech interfaces get good,
+because some tasks are easier to say and others are easier to do, and Shneiderman's list tells you
+which: direct manipulation earns its place when it is feasible to have "continuous representation
+of the object of interest" with "rapid, incremental, reversible operations whose impact on the
+object of interest is immediately visible." His remedy is not a chat window parked beside a dumb
+GUI. It is to make the interaction techniques themselves more intelligent while keeping what made
+them work.
+
+This doc takes the same position from the programming-by-demonstration side.
 
 *"An interface to agency" is Don's formulation of Shneiderman's position, not a phrase of
 Shneiderman's. His own vocabulary is direct manipulation, universal usability, supertools,
@@ -17,76 +26,56 @@ gets wrong: agency is the thing you want, and an agent is only one way to packag
 
 ## The claim
 
-**A MOOLLM repository is a direct-manipulation interface to a population of agents, where
-the agents are files.** A coffeeshop is a directory. A cat is a YAML file. A memorial is a
-file with citations in it. A consent record is a file that gates whether another file may be
-rendered at all. Every one of them can be opened, read, edited by hand, diffed, reverted, and
-grepped -- and every one of them can equally be operated on by an LLM through chat.
+**Anything an agent can do, a person should be able to do through an interface, and no
+capability should be reachable only by asking the agent.** The agent may bring more attention,
+memory and bandwidth to a task. It may not have a different set of verbs.
 
-Two interfaces onto one set of continuously visible objects. Neither is privileged, and
-neither hides state from the other.
+People want agency. An agent is one way to package it, and a good interface is still required
+either way.
 
-## Why this satisfies the direct-manipulation test
+Programming by demonstration depends on this rule, in both directions. The systems collected in
+*Watch What I Do* (Allen Cypher, ed., 1993, with chapters by Henry Lieberman, Brad Myers and
+others) could only generalize from actions they could see the user take. Turn that around: a
+person cannot demonstrate anything through an interface the agent has hidden, and cannot learn
+from an agent whose work happens somewhere they cannot watch. An agent that works through the
+visible controls gives a demonstration every time it acts, and it can take one back from you
+just as easily.
 
-Shneiderman's 1983 criteria, checked against the artifact rather than asserted:
+## Start with the classic case
 
-| Criterion | How the repo does it |
-|---|---|
-| Continuous representation of the object of interest | the directory listing; `PLACE.yml` is the shop, not a description of a record about the shop |
-| Physical action instead of syntax | edit the file; drop a photograph into `survey/`; delete a character to remove them |
-| Immediate visible feedback | the diff |
-| Rapid, incremental, reversible | commit, revert, branch. Reversibility is the substrate rather than a feature |
-| Overview first, zoom and filter, details on demand | `ls`, then `GLANCE.yml`, then `CARD.yml`, then `SKILL.md`. The semantic image pyramid is his visual information-seeking mantra with a different sensor |
+The argument is easiest to make where direct manipulation is least arguable. In The Sims you put
+a window in a wall by picking the window up and moving it along the wall. The window is visible
+the whole time, the game shows you whether it fits before you let go, and if you don't like where
+it went you pick it up again. Nobody needs to be persuaded that this is direct manipulation.
 
-The last row is the one that surprised me. MOOLLM's reading-order discipline was designed to
-manage LLM context, and it independently reinvented "overview first, zoom and filter, then
-details on demand" -- because the constraint is the same whether the reader is an eye with a
-fovea or a model with a window.
+Now add an assistant, built one of two ways.
 
-## What the agent-as-interface pattern takes away
+The antagonistic assistant takes "put a window in the kitchen" and does it out of sight. The
+better it gets, the less reason you have to open build mode at all, until the placement tool is
+the thing the assistant exists to hide. When it guesses wrong you have one recourse, which is to
+describe the wall more carefully.
 
-An assistant with private state is unfalsifiable. You cannot open it, diff it, or revert it,
-and when it is wrong about you there is no artifact to correct -- only more conversation,
-which is why every such product eventually feels like arguing with a hotel clerk.
+The cooperative assistant takes the same sentence and uses the same tool, on screen. The window
+appears under the cursor, slides along the wall, and you can grab it mid-drag and put it somewhere
+else. The sentence was a faster way to start the gesture, not a replacement for having one. That
+is what an intelligent interaction technique looks like from the user's chair: the technique is
+still there, it just got better at guessing where you were going.
 
-The MOOLLM inversion: **the agent has no state that is not a file you can open.** What the
-cat at the 420 Café knows about John Sinclair is `memorial/john-sinclair.yml`, and if the cat
-says something wrong, you fix the file. What the robot budtender may say is bounded by
-`refuses:` in its own YAML. Whether a real person may be portrayed at all is decided by
-`characters/consent.yml`, which a human wrote and can delete.
-
-Control stops being a promise in a privacy policy and becomes a readable fact on disk. That
-is the whole difference, and it is the reason the licensing, the provenance, and the consent
-records in [amsterdank](https://github.com/SimHacker/amsterdank) are files rather than
-policies: **a constraint that lives in the object travels with it.**
-
-## Tangible agents
-
-The objects are agents in the MOO sense -- they advertise what can be done to them, they hold
-their own methods, they refuse things -- and simultaneously ordinary files. A coffeeshop
-advertises `VISIT` and `READ-BOARD`. A cat advertises stories and refuses to speak as the dead.
-A place refuses to average two coordinates. None of that requires a running process, because
-the LLM supplies the interpreter and the directory supplies the state.
-
-This is what makes them tangible rather than metaphorically tangible. You can `cp` a cat. You
-can `git blame` a memorial and find out who claimed what, when. You can hand somebody the file
-that is them, which is the design principle underneath
-[portrayal standards](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md),
-a budtender's tier-4 self-authored character, and a patron's `incarnate` grant. Handing over a
-file is a transfer of authorship that no assistant-shaped product can offer, because there is
-nothing to hand over.
+The difference between those two is not the language model. It is whether the object of interest
+stays in front of you, and whether the agent's hand and yours are on the same control.
 
 ## Chat is a second manipulator, not the interface
 
-The natural-language channel earns its place by being **one of two ways in**, and it is
-strongest exactly where direct manipulation is weakest: across many objects at once, on
-underspecified intent, and on work that needs judgment about wording. Editing 228 places by
-hand is miserable; asking for them all to be regenerated is easy. Conversely, fixing one
-comment in one file by hand is instant, and doing it through chat is silly.
+Myers's point cuts both ways. The natural-language channel earns its place by being **one of two
+ways in**, and it is strongest exactly where direct manipulation is weakest: across many objects
+at once, on underspecified intent, and on work that needs judgment about wording. Placing 228
+windows by hand is miserable; asking for a window on every south wall is easy. Conversely, nudging
+one window one tile left by hand is instant, and doing it through chat is silly.
 
-The discipline that keeps this honest: **the chat channel may only do things that leave a
-diff.** No hidden memory, no learned preferences, no state in the assistant. If it cannot be
-expressed as a change to a file, it did not happen.
+The discipline that keeps this honest: **the chat channel may only do things that show up in the
+object** — on screen as the controls moving, or on disk as a diff. No hidden memory, no learned
+preferences, no state in the assistant. If the change cannot be seen in the thing itself, it did
+not happen.
 
 ## The showcase: automation that drives the user's own controls
 
@@ -220,7 +209,7 @@ what it can see in [`RECOGNIZER.yml`](https://github.com/SimHacker/MicropolisCor
 [`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
 [`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml) ·
 [`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
-protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/pkd/perky-pat-and-a-scanner-darkly.md`](pkd/perky-pat-and-a-scanner-darkly.md)
+protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/pkd/a-scanner-darkly.md`](pkd/a-scanner-darkly.md)
 
 ## The other showcase: a control channel software cannot enter
 
@@ -282,10 +271,82 @@ manipulation says nothing about that — it is a criteria set for a workstation 
 [`privacy.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/privacy.md)
 and why consent is a file. The 1997 debate is not the only argument this design has to survive.
 
+## Behind the scenes: the state is a file
+
+The classic case needs a graphical interface that already exists, and most things agents work on
+have none. There is no build mode for a memorial, a consent record, or what a character is allowed
+to say. MOOLLM's answer is to put that state where a person can reach it anyway: in a git
+repository, as files.
+
+This is the weaker direct-manipulation claim and should be made as one. Editing YAML in a text
+editor is editing a representation of the object, not the object, which puts it closer to a
+command language than to dragging a window along a wall. Cursor lets you type the edit, dictate
+it, or describe it and have it made, and that narrows the gap without closing it. What the
+repository does keep is the other half of Shneiderman's list: nothing hidden, everything
+reversible, every change visible as a diff. It is the floor under the interface, not a substitute
+for one — and it is what a proper interface should be editing underneath, so that the person
+holding the mouse and the agent holding the text are changing the same thing.
+
+**So the repository is a direct-manipulation interface to a population of agents, where the agents
+are files.** A coffeeshop is a directory. A cat is a YAML file. A memorial is a file with citations
+in it. A consent record is a file that gates whether another file may be rendered at all. Every one
+of them can be opened, read, edited by hand, diffed, reverted, and grepped, and every one of them
+can equally be operated on by an LLM through chat. Two ways in to one set of objects, neither
+privileged, neither hiding state from the other.
+
+Shneiderman's 1983 criteria, checked against the artifact rather than asserted:
+
+| Criterion | How the repo does it |
+|---|---|
+| Continuous representation of the object of interest | the directory listing; `PLACE.yml` is the shop, not a description of a record about the shop |
+| Physical action instead of syntax | the weakest row: editing a file is syntax. Dropping a photograph into `survey/` or deleting a character's directory comes closer. It is fully met only when a real interface edits the files for you |
+| Immediate visible feedback | the diff |
+| Rapid, incremental, reversible | commit, revert, branch. Reversibility is the substrate rather than a feature |
+| Overview first, zoom and filter, details on demand | `ls`, then `GLANCE.yml`, then `CARD.yml`, then `SKILL.md`. The semantic image pyramid is his visual information-seeking mantra with a different sensor |
+
+The last row is the one that surprised me. MOOLLM's reading-order discipline was designed to
+manage LLM context, and it independently reinvented "overview first, zoom and filter, then
+details on demand" -- because the constraint is the same whether the reader is an eye with a
+fovea or a model with a window.
+
+### What the agent-as-interface pattern takes away
+
+An assistant with private state is unfalsifiable. You cannot open it, diff it, or revert it,
+and when it is wrong about you there is no artifact to correct -- only more conversation,
+which is why every such product eventually feels like arguing with a hotel clerk.
+
+The MOOLLM inversion: **the agent has no state that is not a file you can open.** What the
+cat at the 420 Café knows about John Sinclair is `memorial/john-sinclair.yml`, and if the cat
+says something wrong, you fix the file. What the robot budtender may say is bounded by
+`refuses:` in its own YAML. Whether a real person may be portrayed at all is decided by
+`characters/consent.yml`, which a human wrote and can delete.
+
+Control stops being a promise in a privacy policy and becomes a readable fact on disk. That
+is the whole difference, and it is the reason the licensing, the provenance, and the consent
+records in [amsterdank](https://github.com/SimHacker/amsterdank) are files rather than
+policies: **a constraint that lives in the object travels with it.**
+
+### Tangible agents
+
+The objects are agents in the MOO sense -- they advertise what can be done to them, they hold
+their own methods, they refuse things -- and simultaneously ordinary files. A coffeeshop
+advertises `VISIT` and `READ-BOARD`. A cat advertises stories and refuses to speak as the dead.
+A place refuses to average two coordinates. None of that requires a running process, because
+the LLM supplies the interpreter and the directory supplies the state.
+
+This is what makes them tangible rather than metaphorically tangible. You can `cp` a cat. You
+can `git blame` a memorial and find out who claimed what, when. You can hand somebody the file
+that is them, which is the design principle underneath
+[portrayal standards](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md),
+a budtender's tier-4 self-authored character, and a patron's `incarnate` grant. Handing over a
+file is a transfer of authorship that no assistant-shaped product can offer, because there is
+nothing to hand over.
+
 ## Where this sits
 
 - [`DIRECTORY-AS-IUNKNOWN.md`](./DIRECTORY-AS-IUNKNOWN.md) — the mechanism: a directory as an interface-bearing object
 - [`skills/design-sense/masters/ben-shneiderman.md`](../skills/design-sense/masters/ben-shneiderman.md) — his votes and vetoes as a loadable head
+- Brad Myers, intelligent interaction techniques proposal, [arXiv:2609.16295](https://arxiv.org/abs/2609.16295) (2026), and *Pick, Click, Flick! The Story of Interaction Techniques* ([ixtbook.com](https://www.ixtbook.com)) — the same settlement argued from inside the interaction technique
 - [`skills/design-sense/lenses/direct-manipulation.md`](../skills/design-sense/lenses/direct-manipulation.md) — the lens
 - [`skills/cursor-mirror/characters/i-beam/CONSTITUTION.md`](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
 - [`skills/representation-ethics/`](../skills/representation-ethics/) — consent as a file, which is control as a fact
