@@ -19,6 +19,7 @@ nobody has improved on. This directory credits him for it, keeps his words exact
 | [SELECTIONS-AND-CUT-BUFFERS.md](SELECTIONS-AND-CUT-BUFFERS.md) | X11 standardized an eight-deep clipboard ring with a backward rotate in 1988, and shipped no interface for it. Quoted from the ICCCM. |
 | [KEYBOARDS.md](KEYBOARDS.md) | Dedicated Cut/Copy/Paste/Undo keys already shipped, twice. Star and Sun had them; the Lisp machines spent the key budget on modifiers and never lost a clipping. |
 | [BRANCHING-TIMELINES.md](BRANCHING-TIMELINES.md) | The proposal: visible, revisioned, branching, merging, reviewable, multi-user. |
+| [CLIPPING-SERVICE.md](CLIPPING-SERVICE.md) | An agent on the clipping repo: reads, files, links, resurfaces by context, proposes by pull request. Clippings from photos, voice and places; an Ebike Safari layer. |
 
 ## What Nelson demanded
 
