@@ -44,8 +44,8 @@ generalizes. With a shared interface it runs both ways.
 | **Dictation** | you say what you want; the agent proposes the edit | the agent says what it did or wants to do, pointing at what changed |
 
 All four need the same condition: one interface that both parties can see and operate. Hide the
-controls from the person and three of the four stop working, and the one that is left is
-the agent watching you, with nothing coming back.
+controls and demonstration stops in both directions; dictation survives only as requests going
+in and reports coming out, with nothing on screen to check either against.
 
 ## Start with the classic case
 
