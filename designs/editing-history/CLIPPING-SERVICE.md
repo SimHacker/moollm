@@ -65,6 +65,10 @@ A tenant in the sense of
 - **Resurfaces by place.** Stop at the same drawbridge next month and the schedule photo you took
   there comes back, with the date you took it. Slow down past a shop you clipped and it waits for
   the next red light rather than interrupting the ride.
+- **Shares by occasion.** Riders stopped at the same bridge opening can pool their photos of the
+  boats going through into one album for that opening
+  ([wait points](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/wait-points.md#boats-through-the-bridge)).
+  Each photo stays the rider's clipping; the album links them.
 - **Publishes by pull request.** A clipping that is evidence about a place (a sign, a door, a
   menu board) can be offered to an information layer such as amsterdank as a claim with source,
   date and confidence. Nothing leaves without the rider.
