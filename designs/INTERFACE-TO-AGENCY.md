@@ -114,7 +114,7 @@ of agent behaviour:
 You don't override the agent from outside; you reach into its decision and pick for it, from the
 list it was already choosing from, and you watch the result. The player and the agents have one
 set of verbs, advertised by the objects, not owned by the agents. It is also much easier than
-editing a YAML file by hand, which is the point of the next sections: the repository is the floor,
+editing a YAML file by hand, which is the point of "Behind the scenes" below: the repository is the floor,
 and this is what should stand on it.
 
 That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
