@@ -32,6 +32,19 @@ Commercially, Cognetics *"made a modestly successful commercial run with it, doi
 corporate projects, most notably the Hewlett-Packard user manual for their Laserjet 4 was
 distributed as a Hyperties disk."*
 
+## Platforms
+
+As Don remembers it: the original TIES was developed on MS-DOS, long before Windows, and so were
+the touchscreen lift-off work and many of the other HCIL demos of the time. People in the lab used
+Quarterdeck's DESQview (the original, not the later DESQview/X). Other people developed a SunView
+version of TIES before Don arrived. He joined as the lab was getting Sun workstations with X10 and
+NeWS, did no MS-DOS development himself, and architected and wrote the new NeWS version, the one
+demonstrated to Steve Jobs and Bill Joy and reimplemented for the browser at
+[hyperties.org](https://hyperties.org/).
+
+Macintosh work ran alongside, under Apple's sponsorship: Richard Potter's Triggers (below) was a
+Macintosh program.
+
 ## The lab
 
 **Ben Shneiderman** — director. The embedded menu, the empirical method, and the discipline of
@@ -73,7 +86,12 @@ computing at PARC.
 (1989/1991).
 
 **Richard Potter, Linda Weldon** — with Shneiderman, *Improving the accuracy of touch screens*,
-CHI '88 — the lift-off strategy paper.
+CHI '88 — the lift-off strategy paper. Potter also wrote **Triggers**, a macro system that reads the
+screen's pixels to reach data and controls inside closed applications: 12,000 lines of C on the
+Think C class library, a MultiFinder application, 1991, funded by Apple. Chapter 17 of Cypher's
+*Watch What I Do: Programming by Demonstration* (1993,
+[online](http://acypher.com/wwid/Chapters/17Triggers.html)); his "Just-in-time Programming" is
+chapter 27.
 
 **Greg Kearsley** — co-author of *Hypertext Hands-On!*, 1988.
 

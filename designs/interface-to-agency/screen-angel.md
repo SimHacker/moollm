@@ -21,10 +21,11 @@ The name places it in a sequence: a screen scraper takes from the screen, a scre
 to you, and a screen angel acts on it for you. It is also literally an overlay, transparent and
 above the application.
 
-It has two research precedents. Richard Potter's Triggers, at the HCIL, was a macro system that
-found the data and controls it acted on by reading the screen's pixels ("Triggers: Guiding
-Automation with Pixels to Achieve Data Access", in Allen Cypher's *Watch What I Do: Programming by
-Demonstration*, 1993). Morgan Dixon and James Fogarty's
+It has two research precedents. Richard Potter's Triggers, at the HCIL, was a Macintosh macro
+system that found the data and controls it acted on by reading the screen's pixels, and added
+behaviour the applications lacked, such as a floating tool palette for MacDraw II made from a bitmap
+(["Triggers: Guiding Automation with Pixels to Achieve Data Access"](http://acypher.com/wwid/Chapters/17Triggers.html),
+in Allen Cypher's *Watch What I Do: Programming by Demonstration*, 1993). Morgan Dixon and James Fogarty's
 [Prefab](http://homes.cs.washington.edu/~mdixon/research/prefab/) at the University of Washington
 does pixel-based reverse engineering of interface structure: it recovers widgets from screen pixels
 and adds behaviour to applications without their source, across toolkits and platforms. Screen
