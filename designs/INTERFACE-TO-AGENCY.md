@@ -33,6 +33,13 @@ memory and bandwidth to a task. It may not have a different set of verbs.
 People want agency. An agent is one way to package it, and a good interface is still required
 either way.
 
+**People are agents.** The interface should not care which kind is holding the pen. In The Sims
+the people are objects that advertise interactions to each other, and the player is one more
+chooser in the same loop. In DreamScape the user's head and the butterfly are both things in the
+room. In PIXIE the demo's light pen and yours go into the same channel. In MOOLLM a character is a
+file whether it is played by a person, by an LLM, or by both at different times. Same objects,
+same verbs, same queue, whoever is acting.
+
 **Programming by demonstration is a two-way street, and so is programming by dictation.** The
 systems collected in *Watch What I Do* (Allen Cypher, ed., 1993, with chapters by Henry
 Lieberman, Brad Myers and others) ran one way: the person demonstrates, the system watches and
