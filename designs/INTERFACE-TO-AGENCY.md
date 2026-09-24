@@ -247,8 +247,14 @@ afternoon she is running a city in a different game. Soul Angel carries the erra
 no API into either game; it sees the screen and uses the mouse and keyboard, as a player does. While
 she is away, a painted **Easter egg** stands by the road where the car door was. Its paint tells
 both you and Soul Angel what state the job is in. Its pie menu lists every outcome the job is
-allowed to have, so the result comes home as a choice from a readable list. Click it at any time
-and she comes back.
+allowed to have, so the result comes home as a choice from a readable list.
+
+When the job is done, Soul Angel clicks the egg and picks from that pie menu, exactly as you would.
+The egg does the rest itself, as a Sims object: it rematerializes her by the road, changes her
+state, and rewards her according to how the job went. Soul Angel has no special API into the
+game. Its only way in is the one every player has — picking from the pie menus of objects — and a
+custom object can do anything in the game that any Sims object can. You can click the same egg
+at any time and pick for yourself, and she comes back.
 
 Nothing in that loop is hidden from the player, and nothing Soul Angel does is a verb the player
 lacks. The closed game enforces this rather than merely allowing it: with no API to go around the
