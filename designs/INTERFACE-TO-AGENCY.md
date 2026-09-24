@@ -45,10 +45,12 @@ systems collected in *Watch What I Do* (Allen Cypher, ed., 1993, with chapters b
 Lieberman, Brad Myers and others) ran one way: the person demonstrates, the system watches and
 generalizes. With a shared interface it runs both ways.
 
-| | Person to agent | Agent to person |
-|---|---|---|
+
+|                   | Person to agent                                      | Agent to person                                                              |
+| ----------------- | ---------------------------------------------------- | ---------------------------------------------------------------------------- |
 | **Demonstration** | you do it by hand; the agent watches and generalizes | the agent does it through the same visible controls; you watch and learn how |
-| **Dictation** | you say what you want; the agent proposes the edit | the agent says what it did or wants to do, pointing at what changed |
+| **Dictation**     | you say what you want; the agent proposes the edit   | the agent says what it did or wants to do, pointing at what changed          |
+
 
 All four need the same condition: one interface that both parties can see and operate. Hide the
 controls and demonstration stops in both directions; dictation survives only as requests going
@@ -74,7 +76,8 @@ The antagonistic assistant takes "put a window in the kitchen" and does it out o
 better it gets, the less reason you have to open build mode at all, until the placement tool is
 the thing the assistant exists to hide. When it guesses wrong you have one recourse, which is to
 describe the wall more carefully. And it has thrown away the fun: The Sims is a game people play
-*because* building the house and dressing the Sims with their own hands is the pleasure. An agent
+*because* building the house with their own hands, and directing its people through pie menus in
+real time, is the pleasure. An agent
 that insists on doing that for you has misunderstood what the product is, and it has also cut
 itself off from the best teacher it could have, which is you doing the thing while it watches.
 
@@ -105,7 +108,7 @@ the tilt on a pinball machine, so you can catch someone walking past and pop up 
 
 That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
 other designs that worked. In MOOLLM, objects, rooms and characters advertise what can be done
-with them ([`skills/advertisement/`](../skills/advertisement/)), and the LLM choosing an action
+with them (`[skills/advertisement/](../skills/advertisement/)`), and the LLM choosing an action
 reads the same advertisements a person browsing the directory reads. Applying it to LLMs has
 worked: the model gets a menu instead of a blank page, and the person gets to see the menu.
 
@@ -126,23 +129,23 @@ Apple's Worldwide Developers Conference on 11 May 1995
 It put the user and an agent in the same world, with the same objects and the same verbs.
 
 - **Rooms connected by a map, and a head that is you.** The head is the user's representation.
-  Throw it off the edge of the screen and the view follows it into the linked room, the way
-  next and previous work in a slide show. Click the head and you get the map, centred on where
-  you are, and you can edit the map by hand — disconnect rooms, rewire them, run the
-  presentation backwards.
+Throw it off the edge of the screen and the view follows it into the linked room, the way
+next and previous work in a slide show. Click the head and you get the map, centred on where
+you are, and you can edit the map by hand — disconnect rooms, rewire them, run the
+presentation backwards.
 - **Tools are objects in the room.** A flower is a drawing tool: drag it around and it drops
-  petals on the background, "a vertical painting tool, for painting with dandelions." A
-  duplicator dropped on the flower fissions it into two. Press and drag on the background and
-  you blow wind — actually warped gravity — across everything that moves.
+petals on the background, "a vertical painting tool, for painting with dandelions." A
+duplicator dropped on the flower fissions it into two. Press and drag on the background and
+you blow wind — actually warped gravity — across everything that moves.
 - **Parts snap into trees.** Robot parts, puppet bodies and spirals plug together at
-  registration points drawn in Director, "Barrel of Monkeys or Mr. Potato Head type things."
-  The result is an animated skeleton, and a web inspector served from inside ScriptX showed the
-  same tree as a nested list with forms to edit each part's elasticity, "isomorphic to an
-  outliner."
+registration points drawn in Director, "Barrel of Monkeys or Mr. Potato Head type things."
+The result is an animated skeleton, and a web inspector served from inside ScriptX showed the
+same tree as a nested list with forms to edit each part's elasticity, "isomorphic to an
+outliner."
 - **The butterfly is autonomous.** "You could call that an agent if you want." It flies where it
-  likes, you can grab it and move it, and your wind pushes it like anything else. In the demo it
-  picked up the head and flew off the edge of the screen, and the view went with it: "So now the
-  butterfly's in control of the presentation."
+likes, you can grab it and move it, and your wind pushes it like anything else. In the demo it
+picked up the head and flew off the edge of the screen, and the view went with it: "So now the
+butterfly's in control of the presentation."
 
 The butterfly could grab the flower and draw, just as you could. That is the point. Now compose
 them. Put the flower at the end of a waving robot arm and hand the arm to the butterfly. The
@@ -264,15 +267,15 @@ How it perceives depends on how cooperative the application is, and games are th
 software there is:
 
 - **The accessibility tree**, where one exists — real element bounds, real names, real events. Most
-  applications. Almost no games.
+applications. Almost no games.
 - **Pixels**, where it does not. Anchor art located by correlation to find the window and its scale,
-  the game's own bitmap font read glyph by glyph to recover text nobody exposes, QR codes for
-  anything long, and the egg's colour band codes for live state at a distance.
+the game's own bitmap font read glyph by glyph to recover text nobody exposes, QR codes for
+anything long, and the egg's colour band codes for live state at a distance.
 - **Models**, on top of both. Machine vision, visual language models, and LLM completions supply the
-  judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
-  what to do about it.
+judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
+what to do about it.
 - **The network**, when the answer is elsewhere — HTTP and API calls, which is how a job in another
-  game gets asked and answered.
+game gets asked and answered.
 
 And the far end is not a screen at all. The world's representation lives in **git repositories of
 YAML microworlds** — moollm's selfish objects, places, characters, the simulated worlds themselves —
@@ -318,13 +321,13 @@ automation navigable is not that a human will always want to drive; it is that a
 automation uses the visible controls is inspectable, testable, and repairable by the person whose
 data it is — and a system with a private control channel is none of those, whatever it promises.
 
-Specs: the layer in [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml)
-and what it is permitted in [`CAPABILITIES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml) ·
-what it can see in [`RECOGNIZER.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECOGNIZER.yml) ·
-[`EGGS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml) ·
-[`OPTICAL-CHANNEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml) ·
-[`UNIVERSAL-JOBS.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml) ·
-protocol in [`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game) · literary roots in [`designs/pkd/a-scanner-darkly.md`](pkd/a-scanner-darkly.md)
+Specs: the layer in `[SCREEN-ANGEL.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml)`
+and what it is permitted in `[CAPABILITIES.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml)` ·
+what it can see in `[RECOGNIZER.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/RECOGNIZER.yml)` ·
+`[EGGS.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/EGGS.yml)` ·
+`[OPTICAL-CHANNEL.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/OPTICAL-CHANNEL.yml)` ·
+`[UNIVERSAL-JOBS.yml](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/UNIVERSAL-JOBS.yml)` ·
+protocol in `[skills/soul-city/SOUL-BRIDGES.md](../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game)` · literary roots in `[designs/pkd/a-scanner-darkly.md](pkd/a-scanner-darkly.md)`
 
 ## The other showcase: a control channel software cannot enter
 
@@ -341,11 +344,11 @@ you are in it, and the walls were already drawn by OpenStreetMap. Physical actio
 not a metaphor either — `ROUNDABOUT(counterclockwise)` means whisk cream, and it is performed by riding
 around a roundabout counterclockwise. There is no command language to be spared; the spell IS the
 manoeuvre. The brake lever is the flipper: stop and the place comes into focus, roll on and the
-interface melts ([`geometry-as-language.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/geometry-as-language.md)).
+interface melts (`[geometry-as-language.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/geometry-as-language.md)`).
 
 His visual information-seeking mantra lands somewhere he never put it: **velocity is the zoom control.**
 Rolling is the overview, slowing is the filter, stopped at a red light is details on demand — and the
-wait is where [`patience.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/patience.md)
+wait is where `[patience.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/patience.md)`
 mints something spendable. Same shape as the egg's zoom rungs, where the far view says only *I am here*:
 resolution follows attention, and attention has a physical proxy.
 
@@ -366,7 +369,7 @@ is a legitimate value that schedules a revisit, and a guess is not a value.
 ### The nudge is where this can still go wrong
 
 The bike is not a pure input device. It has two actuators — motor assist, and a suggested heading —
-and [`navigation-smell-steer.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/navigation-smell-steer.md)
+and `[navigation-smell-steer.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/navigation-smell-steer.md)`
 has the map drifting toward the suggested smell heading with silence committing it. A suggestion that
 takes effect before it was legible is a private control channel, and being a gentle one does not exempt
 it; that is Shneiderman's objection arriving on a bicycle. The answer there is Don's own pie menu idiom
@@ -383,7 +386,7 @@ and never to the route.
 He assumed the object of interest was yours, and visible only to you. A city is other people's, a ride
 is legible to everyone on the street, and an exposure log is a record of other people's homes. Direct
 manipulation says nothing about that — it is a criteria set for a workstation — which is why there is a
-[`privacy.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/privacy.md)
+`[privacy.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/privacy.md)`
 and why consent is a file. The 1997 debate is not the only argument this design has to survive.
 
 ## Behind the scenes: the state is a file
@@ -401,14 +404,16 @@ it, or describe it and have it made, and that narrows the gap without closing it
 It is still the strong claim among the ways to change an agent. Compare them by how directly the
 thing you edit maps onto the behaviour you get:
 
-| How you change the agent | What you can see | What you can edit | Can you undo it? |
-|---|---|---|---|
-| Training or fine-tuning | loss curves and samples | the data, never the result | retrain |
-| Preference tuning from thumbs up and down | nothing | a vote | no |
-| Vendor "memory" | a summary, if the product shows one | delete an entry, sometimes | partly |
-| A hidden system prompt | nothing | nothing | no |
-| An instructions box | the text you wrote, not the rest of the prompt | your text | by retyping |
-| A MOOLLM file | all of it, in the repo | all of it, one line at a time | `git revert` |
+
+| How you change the agent                  | What you can see                               | What you can edit             | Can you undo it? |
+| ----------------------------------------- | ---------------------------------------------- | ----------------------------- | ---------------- |
+| Training or fine-tuning                   | loss curves and samples                        | the data, never the result    | retrain          |
+| Preference tuning from thumbs up and down | nothing                                        | a vote                        | no               |
+| Vendor "memory"                           | a summary, if the product shows one            | delete an entry, sometimes    | partly           |
+| A hidden system prompt                    | nothing                                        | nothing                       | no               |
+| An instructions box                       | the text you wrote, not the rest of the prompt | your text                     | by retyping      |
+| A MOOLLM file                             | all of it, in the repo                         | all of it, one line at a time | `git revert`     |
+
 
 The first rows edit an agent the way you would edit a person, by influence and hope. The last
 row is a one-to-one, continuously visible, reversible definition: the character's knowledge,
@@ -438,10 +443,10 @@ times and you can make the next edit yourself.
 So PBD can also stand for **programming by dictation**, and it runs both ways:
 
 - **You to the agent.** Say or type the intention; get back an edit you can see, judge and revise.
-  Or do it by hand and let the agent watch and generalize — the original direction.
+Or do it by hand and let the agent watch and generalize — the original direction.
 - **The agent to you.** It dictates back what it did or wants to do, in text or a synthesized
-  voice, pointing at the lines it changed. The explanation is checkable because the thing it
-  describes is on the screen next to it.
+voice, pointing at the lines it changed. The explanation is checkable because the thing it
+describes is on the screen next to it.
 
 Dictation is not demonstration. One states intent in words; the other shows it in action, and
 each covers cases the other handles badly. They need the same condition, though: a representation
@@ -457,13 +462,15 @@ privileged, neither hiding state from the other.
 
 Shneiderman's 1983 criteria, checked against the artifact rather than asserted:
 
-| Criterion | How the repo does it |
-|---|---|
-| Continuous representation of the object of interest | the directory listing; `PLACE.yml` is the shop, not a description of a record about the shop |
-| Physical action instead of syntax | the weakest row: editing a file is syntax. Dropping a photograph into `survey/` or deleting a character's directory comes closer. It is fully met only when a real interface edits the files for you |
-| Immediate visible feedback | the diff |
-| Rapid, incremental, reversible | commit, revert, branch. Reversibility is the substrate rather than a feature |
-| Overview first, zoom and filter, details on demand | `ls`, then `GLANCE.yml`, then `CARD.yml`, then `SKILL.md`. The semantic image pyramid is his visual information-seeking mantra with a different sensor |
+
+| Criterion                                           | How the repo does it                                                                                                                                                                                 |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Continuous representation of the object of interest | the directory listing; `PLACE.yml` is the shop, not a description of a record about the shop                                                                                                         |
+| Physical action instead of syntax                   | the weakest row: editing a file is syntax. Dropping a photograph into `survey/` or deleting a character's directory comes closer. It is fully met only when a real interface edits the files for you |
+| Immediate visible feedback                          | the diff                                                                                                                                                                                             |
+| Rapid, incremental, reversible                      | commit, revert, branch. Reversibility is the substrate rather than a feature                                                                                                                         |
+| Overview first, zoom and filter, details on demand  | `ls`, then `GLANCE.yml`, then `CARD.yml`, then `SKILL.md`. The semantic image pyramid is his visual information-seeking mantra with a different sensor                                               |
+
 
 The last row is the one that surprised me. MOOLLM's reading-order discipline was designed to
 manage LLM context, and it independently reinvented "overview first, zoom and filter, then
@@ -505,13 +512,13 @@ nothing to hand over.
 
 ## Where this sits
 
-- [`DIRECTORY-AS-IUNKNOWN.md`](./DIRECTORY-AS-IUNKNOWN.md) — the mechanism: a directory as an interface-bearing object
-- [`skills/design-sense/masters/ben-shneiderman.md`](../skills/design-sense/masters/ben-shneiderman.md) — his votes and vetoes as a loadable head
+- `[DIRECTORY-AS-IUNKNOWN.md](./DIRECTORY-AS-IUNKNOWN.md)` — the mechanism: a directory as an interface-bearing object
+- `[skills/design-sense/masters/ben-shneiderman.md](../skills/design-sense/masters/ben-shneiderman.md)` — his votes and vetoes as a loadable head
 - Brad Myers, intelligent interaction techniques proposal, [arXiv:2609.16295](https://arxiv.org/abs/2609.16295) (2026), and *Pick, Click, Flick! The Story of Interaction Techniques* ([ixtbook.com](https://www.ixtbook.com)) — the same settlement argued from inside the interaction technique
-- [`skills/design-sense/lenses/direct-manipulation.md`](../skills/design-sense/lenses/direct-manipulation.md) — the lens
-- [`skills/cursor-mirror/characters/i-beam/CONSTITUTION.md`](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
-- [`skills/representation-ethics/`](../skills/representation-ethics/) — consent as a file, which is control as a fact
-- [wwsff `characters/ben-shneiderman/agents-debate-1997.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md) — the debate itself, and he is an [invited guest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/invitation.md), so this doc should expect to be corrected by its subject
+- `[skills/design-sense/lenses/direct-manipulation.md](../skills/design-sense/lenses/direct-manipulation.md)` — the lens
+- `[skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md)` — the anti-Clippy constitution, which is this argument applied to one character
+- `[skills/representation-ethics/](../skills/representation-ethics/)` — consent as a file, which is control as a fact
+- [wwsff `characters/ben-shneiderman/agents-debate-1997.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md)` — the debate itself, and he is an [invited guest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/invitation.md), so this doc should expect to be corrected by its subject
 
 ## The uncomfortable part
 
