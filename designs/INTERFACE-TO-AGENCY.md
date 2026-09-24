@@ -212,6 +212,21 @@ The strongest form of this argument is not an essay, it is a system where the au
 private controls at all. Every action an agent takes, it takes through an affordance that is
 visible on screen, reachable by hand, and takeable over mid-flight.
 
+In short: a Sim in an unmodified copy of The Sims 1 goes off to do a job in *another game*. The
+agent that carries the errand, Soul Angel, has no API into either game. It sees the screen and
+moves the mouse and keyboard, exactly as a player does, so everything it does happens through
+controls you could use yourself, in plain view. While the Sim is away, a painted **Easter egg**
+stands where she left. Its paint tells both you and the agent what state the job is in. Its pie
+menu lists every outcome the job is allowed to have, so the result comes home as a choice from a
+readable list. Click it at any time and she comes back. The game's world state lives in files on
+disk that a person can open too.
+
+Nothing in that loop is hidden from the player, and nothing the agent does is a verb the player
+lacks. The closed game enforces this rather than merely allowing it: with no API to go around the
+visible controls, there is no other way to do it. The rest of this section is the detail — the
+egg, the errand, the layer doing the clicking, and the four properties that make it direct
+manipulation rather than delegation.
+
 The worked case is **The Sims 1** — the 2000 game, running as it shipped, no source, no patch, no
 injected code. What it does have is a content pipeline: custom objects are `.iff` files with their own
 art, behaviour trees and pie menus, and the community has been minting them for twenty-five years.
