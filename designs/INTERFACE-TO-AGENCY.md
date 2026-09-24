@@ -212,20 +212,45 @@ The strongest form of this argument is not an essay, it is a system where the au
 private controls at all. Every action an agent takes, it takes through an affordance that is
 visible on screen, reachable by hand, and takeable over mid-flight.
 
-In short: a Sim in an unmodified copy of The Sims 1 goes off to do a job in *another game*. The
-agent that carries the errand, Soul Angel, has no API into either game. It sees the screen and
-moves the mouse and keyboard, exactly as a player does, so everything it does happens through
-controls you could use yourself, in plain view. While the Sim is away, a painted **Easter egg**
-stands where she left. Its paint tells both you and the agent what state the job is in. Its pie
-menu lists every outcome the job is allowed to have, so the result comes home as a choice from a
-readable list. Click it at any time and she comes back. The game's world state lives in files on
-disk that a person can open too.
+**The bridge.** Everything above has been argued one piece at a time: agents get no verbs people
+lack; objects advertise and agents choose from the same menu; one visible queue holds everyone's
+actions; demonstration and dictation run both ways; people are agents; files are the floor. This
+section puts all of those into one working design, and takes them literally outside the box: out
+of one program and into another, with no cooperation from either.
 
-Nothing in that loop is hidden from the player, and nothing the agent does is a verb the player
+**The claim.** *An agent can do real work across closed programs using only the controls a person
+has — the screen, the mouse, the keyboard — and everything it does can stay visible, interruptible
+and readable by that person.* If that holds for a twenty-six-year-old game with no API, it holds
+for any interface.
+
+Three names, defined once:
+
+- **Screen Angel** is a layer that sits over any application as a transparent, always-on-top,
+  click-through overlay. It reads what is on screen — the accessibility tree where there is one,
+  the pixels where there is not — and it acts by moving the mouse and pressing keys. It is to
+  desktop applications what jQuery is to web pages. Spec:
+  [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml).
+- **Soul Angel** is Screen Angel's module for games about people. It knows about characters, their
+  relationships and their save files, and it can carry a character from one game to another. Spec:
+  [`modules/soul-angel/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel).
+- **Micropolis** is the original SimCity, released as open source under that name in 2008. The
+  player's role in it is mayor of the city. Code: [MicropolisCore](https://github.com/SimHacker/MicropolisCore).
+
+**The story, in one paragraph.** A Sim in an unmodified copy of The Sims 1 takes a job as mayor of
+a city in Micropolis. She walks out to the carpool, the car drives off with her in it, and for the
+afternoon she is running a city in a different game. Soul Angel carries the errand across. It has
+no API into either game; it sees the screen and uses the mouse and keyboard, as a player does. While
+she is away, a painted **Easter egg** stands by the road where the car door was. Its paint tells
+both you and Soul Angel what state the job is in. Its pie menu lists every outcome the job is
+allowed to have, so the result comes home as a choice from a readable list. Click it at any time
+and she comes back.
+
+Nothing in that loop is hidden from the player, and nothing Soul Angel does is a verb the player
 lacks. The closed game enforces this rather than merely allowing it: with no API to go around the
 visible controls, there is no other way to do it. The rest of this section is the detail — the
 egg, the errand, the layer doing the clicking, and the four properties that make it direct
-manipulation rather than delegation.
+manipulation rather than delegation. The protocol for what may cross between games is in
+[`skills/soul-city/SOUL-BRIDGES.md`](../skills/soul-city/SOUL-BRIDGES.md).
 
 The worked case is **The Sims 1** — the 2000 game, running as it shipped, no source, no patch, no
 injected code. What it does have is a content pipeline: custom objects are `.iff` files with their own
