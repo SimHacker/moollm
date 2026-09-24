@@ -34,6 +34,20 @@ Angel adds accessibility trees where they exist
 the DOM), models on top, and an agent at the controls. The problem both address is the same:
 software people depend on and cannot change, replace or get an API into.
 
+Two more chapters of Cypher's book set requirements. Potter's
+["Just-in-time Programming"](http://acypher.com/wwid/Chapters/27JITP.html) lists five obstacles to
+automating a task while doing it: inaccessible data and operators, the effort of entering the
+algorithm, limited computational generality, the effort of invoking it, and risk. He chose not to
+automate a source-code fix because of the risk, and proposed reducing it by letting the user work by
+hand and automate in parallel, so that either can be dropped. That is the property below that taking
+over is one click at any moment. David Kosbie and Brad Myers's
+["A System-Wide Macro Facility Based on Aggregate Events"](http://acypher.com/wwid/Chapters/22Aggregate.html)
+explains why system-wide recorders such as Tempo II and QuicKeys produced brittle macros: they
+record a flat list of events outside the application and lose what the events meant. People work in
+nested tasks, such as typing a name inside saving a file inside an editing session, and undo or
+replay applied to a flat list acts at the wrong level. Screen Angel's event ring has to meet that
+requirement for an afternoon of its actions to be reviewable the way the person thinks of them.
+
 Its limit is anything a player can do, with the tools players already use:
 
 - see the screen, move the mouse, press keys;

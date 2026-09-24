@@ -42,8 +42,16 @@ NeWS, did no MS-DOS development himself, and architected and wrote the new NeWS 
 demonstrated to Steve Jobs and Bill Joy and reimplemented for the browser at
 [hyperties.org](https://hyperties.org/).
 
-Macintosh work ran alongside, under Apple's sponsorship: Richard Potter's Triggers (below) was a
-Macintosh program.
+He came to HCIL from a summer at UniPress in New Jersey, working with Mike Gallaher on the NeWS
+user interface to UniPress Emacs. He brought that work back to the lab and used it for the
+HyperTIES editor, which ran side by side with the HyperTIES browser and with the content creation
+and editing tools he wrote in PostScript for NeWS, such as the shape editor for embedded menu image
+popups. He graduated and left for Sun in 1990.
+
+Macintosh work ran alongside, under Apple's sponsorship. Richard Potter's Triggers (below) was a
+Macintosh program from 1991, after Don had left. The platform mattered to it: a Macintosh screen
+has buttons, sliders and menus whose pixel patterns a program can find and operate, where MS-DOS
+and DESQview screens offered at most coloured text.
 
 ## The lab
 

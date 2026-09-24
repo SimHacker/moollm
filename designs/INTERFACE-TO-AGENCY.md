@@ -50,7 +50,8 @@ read on its own.
    weaker direct-manipulation claim. Agents defined in visible, revertible files, compared with
    training, vendor memory and hidden prompts. The text is what demonstration and dictation
    program.
-- **[Chat is a second manipulator](#chat-is-a-second-manipulator-not-the-interface)** and
+- **[Chat is a second manipulator](#chat-is-a-second-manipulator-not-the-interface)**,
+  **[What *Watch What I Do* already found](#what-watch-what-i-do-already-found)** and
   **[Where this sits](#where-this-sits)**, on this page.
 
 ## The claim
@@ -103,11 +104,54 @@ The rule is that the chat channel may only do things that show up in the object:
 controls moving, or on disk as a diff. No hidden memory, no learned preferences, no state kept in
 the assistant.
 
+## What *Watch What I Do* already found
+
+Most of the problems agent designers face now were written down in 1993. Brad Myers's chapter,
+["Demonstrational Interfaces: A Step Beyond Direct Manipulation"](http://acypher.com/wwid/Chapters/26Demonstrational.html),
+separates systems that infer from systems that do not: "a system that guesses can propose an
+incorrect action even when the user makes no mistakes." By that test every LLM agent is an
+inferencing system, and his list of their problems is still the list: feedback, undo,
+predictability, and procedures that are wrong without anyone noticing.
+
+He also records the argument this essay opens with, six years before IUI. On a CHI '91 panel
+Shneiderman said, "If the computer performs complex inferences then the users lose control,
+predictability can vanish, and the risk of uncertainty increases." Myers's answer in the chapter is
+that proper attention to feedback can overcome those problems. This essay takes both positions:
+inference is allowed, and the feedback is the shared interface itself. The agent's guess appears as
+an action in the same controls, queued where it can be seen and cancelled.
+
+His chapter already has the evidence for that:
+
+- Eager, Cypher's HyperCard system, usually guessed the loop correctly, but "users were nervous to
+  let the system go ahead and do the rest of the iterations," because the stopping criterion was
+  not visible. The Sims queue shows what an agent will do next and lets you cancel it
+  ([Part 1](interface-to-agency/the-sims.md)).
+- Question-and-answer feedback fails in a known way: "Users tend to answer every question with
+  'yes' (perhaps assuming that the computer knows best)." A confirm-each setting is not enough by
+  itself; the pending work has to be an object you can inspect
+  ([Part 4](interface-to-agency/screen-angel.md)).
+- Replaying a procedure that has "potentially damaging side effects (such as deleting files)"
+  cannot be naive: "some of the operations will have to be simulated or not carried out." That is
+  the case for running agents on copies of state ([Part 6](interface-to-agency/the-state-is-a-file.md))
+  and for leaving irreversible acts with the person ([Part 5](interface-to-agency/ebike-safari.md)).
+- Among future applications he proposed a "character video game construction kit," with behaviours
+  defined by demonstration. The Sims shipped seven years later with behaviours attached to objects
+  instead, which is the design [Part 1](interface-to-agency/the-sims.md) describes.
+
+Two other chapters bear on [Screen Angel](interface-to-agency/screen-angel.md). Richard Potter's
+["Just-in-time Programming"](http://acypher.com/wwid/Chapters/27JITP.html) names five obstacles to
+automating a task while doing it, starting with inaccessible data and operators and ending with
+risk; his Triggers attacked the first by reading pixels. David Kosbie and Myers's
+["A System-Wide Macro Facility Based on Aggregate Events"](http://acypher.com/wwid/Chapters/22Aggregate.html)
+argues that a macro recorder working across applications has to keep the nesting of the user's
+tasks, or undo and replay act at the wrong level.
+
 ## Where this sits
 
 - [DIRECTORY-AS-IUNKNOWN.md](./DIRECTORY-AS-IUNKNOWN.md) — the mechanism: a directory as an interface-bearing object
 - [skills/design-sense/masters/ben-shneiderman.md](../skills/design-sense/masters/ben-shneiderman.md) — his votes and vetoes as a loadable head
 - Brad Myers, intelligent interaction techniques proposal, [arXiv:2609.16295](https://arxiv.org/abs/2609.16295) (2026), and *Pick, Click, Flick! The Story of Interaction Techniques* ([ixtbook.com](https://www.ixtbook.com)) — the same settlement argued from inside the interaction technique
+- Allen Cypher (ed.), *Watch What I Do: Programming by Demonstration*, MIT Press, 1993, full text at [acypher.com/wwid](http://acypher.com/wwid/) — the book the two-way-street claim extends
 - [skills/design-sense/lenses/direct-manipulation.md](../skills/design-sense/lenses/direct-manipulation.md) — the lens
 - [skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
 - [skills/representation-ethics/](../skills/representation-ethics/) — consent records as files
