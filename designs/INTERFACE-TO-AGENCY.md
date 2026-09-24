@@ -64,7 +64,16 @@ else. The sentence was a faster way to start the gesture, not a replacement for 
 is what an intelligent interaction technique looks like from the user's chair: the technique is
 still there, it just got better at guessing where you were going.
 
-The difference between those two is not the language model. It is whether the object of interest
+The Sims already worked this way in 2000, for its own agents. Every object advertises what it can
+do, and those advertisements are the interactions in its pie menu. When you click the fridge and
+pick "Have Snack," you choose from that menu. When a Sim acts on its own, its autonomy scores the
+same advertisements against its needs and picks from the same list. Either way the choice lands in
+the same action queue, visible at the top of the screen, and you can cancel any of it with a
+click. The player and the agents have one set of verbs, advertised by the objects, not by the
+agents — which is also what [`skills/advertisement/`](../skills/advertisement/) borrows for MOOLLM.
+The idea is not a response to LLMs. LLMs just make it urgent again.
+
+The difference between the two assistants is not the language model. It is whether the object of interest
 stays in front of you, and whether the agent's hand and yours are on the same control. Any
 visible control can carry a demonstration — pressing buttons and picking from menus demonstrate
 fine, and neither is direct manipulation. What direct manipulation adds is a rich channel: where
