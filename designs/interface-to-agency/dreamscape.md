@@ -2,8 +2,7 @@
 
 *Part 2 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
 
-This is an old argument, and it has been demonstrated before, with sprites instead of LLMs.
-DreamScape was a "constructive experience" Don built on Kaleida Labs' ScriptX and demoed at
+Don demonstrated this in 1995, with sprites instead of LLMs. DreamScape was a "constructive experience" Don built on Kaleida Labs' ScriptX and demoed at
 Apple's Worldwide Developers Conference on 11 May 1995
 ([video](https://www.youtube.com/watch?v=5NytloOy7WM),
 [transcript](https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-demo-64271dd65570)).
@@ -28,40 +27,33 @@ likes, you can grab it and move it, and your wind pushes it like anything else. 
 picked up the head and flew off the edge of the screen, and the view went with it: "So now the
 butterfly's in control of the presentation."
 
-The butterfly could grab the flower and draw, just as you could. That is the point. Now compose
-them. Put the flower at the end of a waving robot arm and hand the arm to the butterfly. The
-petals land along the sum of three motions — the butterfly's flight, the arm's wave, and the wind
-you are blowing — and every one of those contributions is a node in a tree you can see, pick up,
-take apart and rebuild. Agency stops being a property of one actor and becomes something you
-distribute across a structure: some of the motion is yours, some is the agent's, some is a
-mechanism's, and the drawing is what they do together.
+The butterfly could grab the flower and draw, just as you could. The pieces also compose. Put the
+flower at the end of a waving robot arm and hand the arm to the butterfly. The petals land along
+the sum of three motions — the butterfly's flight, the arm's wave, and the wind you are blowing —
+and each of those is a node in a tree you can see, pick up, take apart and rebuild. Some of the
+motion is yours, some is the agent's and some is a mechanism's. Deciding which part the agent
+holds is itself done by direct manipulation.
 
-That is the thing worth building now. People and agents plug together in many ways, and the
-plugging is itself direct manipulation.
+The demo also had the opposite gap. The butterfly could steal the head but could not edit the map,
+so the user had a verb the agent lacked. That is less dangerous than an agent with a verb the user
+lacks, but it is still a weakness: an agent cannot help with a verb it cannot use, or learn it by
+watching.
 
-The demo also shows the failure in the other direction. The butterfly could steal the head but
-could not edit the map; the user had a verb the agent lacked. That was a weakness. It is less
-dangerous than the reverse, but a verb the agent cannot use is one it cannot help with and cannot
-learn by watching. The goal is the same verbs in both hands.
+There is a case for that gap. Few presenters would let a butterfly choose the next slide in the
+middle of a talk, let alone rewire the slides. That demo did let it choose the next slide. WWDC had
+a rule that year: if your demo crashed, you did push-ups. Don was switching between ScriptX,
+Macromedia Director and Netscape on a PowerBook 540c, any of which could have taken the machine
+down, and he let the butterfly steer the presentation anyway. It didn't crash.
 
-There is a fair case for the gap. Few presenters would hand a butterfly the choice of the next
-slide, let alone the wiring between slides, in the middle of a talk. But handing it the next slide
-was already the point of that demo. WWDC had a rule that year: if your demo crashed, you did
-push-ups. Don was flipping between ScriptX, Macromedia Director and Netscape on a PowerBook 540c,
-any of which could have taken the machine down, and he let an autonomous butterfly steer the
-presentation anyway. It didn't crash. The risk was the performance: ceding agency on stage, live,
-is how you show that you mean it.
+MOOLLM closes the gap. The map is rooms as directories and exits as entries in their files. Don
+can edit it by hand, type or dictate what he wants and have the LLM make the edit, or play a
+character inside the world who can dig new rooms, connect them and walk through them. An LLM
+playing a character has the same verbs, and every change is a diff.
 
-MOOLLM closes the gap. The map is rooms as directories and exits as entries in their files, so
-every way in reaches it: Don edits it by hand, types or dictates what he wants and has the LLM
-make the edit, or plays a character inside the world who has the agency to dig new rooms, connect
-them, and walk through them. The LLM playing a character has the same verbs. The butterfly can
-edit the map now, and so can you, through the same files, and every change is a diff.
-
-In the same demo, the reason for all the other metaphors, and for the web inspector: "As
-Negroponte says, Direct Manipulation is only good for driving and sex." Direct manipulation was
-never supposed to be the only interface — the argument is that it must never be the one taken
-away.
+Don quoted Negroponte in the same demo, to explain why DreamScape also had other metaphors and a
+web inspector: "As Negroponte says, Direct Manipulation is only good for driving and sex." The
+argument here is not that direct manipulation should be the only interface, only that it should
+not be removed.
 
 ---
 
