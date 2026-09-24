@@ -233,7 +233,7 @@ Three names, defined once:
   understanding images, speech recognition and synthesis, or ordering a pizza. It is written in
   TypeScript and runs in Electron, and its abilities come as modules, some specific to one game and
   some cutting across all of them, that can be plugged in, downloaded and upgraded over time
-  without reinstalling the agent. It is to desktop applications what jQuery is to web pages. Spec:
+  without reinstalling the agent. Spec:
   [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml).
 - **Soul Angel** is Screen Angel's module for games about people. It knows about characters, their
   relationships and their save files, and it can carry a character from one game to another. Spec:
@@ -311,9 +311,8 @@ one-line definition above, because the whole argument depends on what it is allo
 
 It is a scriptable layer over *any* application's interface — selecting and querying components,
 matching visual patterns, handling events, driving widgets from outside, without modifying the
-application. Don named it aQuery in a 2013 email to Peter Korn, on the analogy that it is to native
-interface components what jQuery is to the DOM, and renamed it in 2026 when the borrowed morpheme
-had aged worse than the idea. The new name is the ladder: **a screen scraper takes, a screen reader
+application. Don first described it in a 2013 email to Peter Korn and named it in 2026. The name
+is the ladder: **a screen scraper takes, a screen reader
 reads to you, a screen angel acts for you** — and it describes the implementation literally, since
 the thing is a transparent, always-topmost, click-through overlay. Invisible, above you, intervening.
 **Soul Angel** is its first application, the module that knows about characters and souls, and The
