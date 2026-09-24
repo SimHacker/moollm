@@ -42,7 +42,7 @@ One of the old apps makes this doc's point on its own. **Bongo Bingo** (2011) de
 whose squares were coffeeshops, and the only way to mark a square was to physically go there and
 check in on Foursquare. Foursquare pushed each check-in to the Amsterdank server, which matched the
 venue to a coffeeshop and marked your card
-([Bongo Bingo](https://github.com/SimHacker/amsterdank/blob/main/skills/coffeeshop/BONGO-BINGO.md)).
+([Bongo Bingo](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/bongo-bingo.md)).
 
 The challenge is the trip. You directly manipulate your position in the city itself — the map only
 shows it, and the map is not the territory ([Korzybski](../korz/)) — and the only way to move it is to

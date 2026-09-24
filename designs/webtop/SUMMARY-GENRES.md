@@ -109,7 +109,7 @@ actual space, not just as a summary layout, which connects the genre directly to
 [dispensers and souvenirs](DISPENSERS-AND-SOUVENIRS.md): claiming a square is taking a stamped
 souvenir, and a completed line is a set. It shipped at amsterdank.nl for the Amsterdam Cannabis
 Cup in November 2011, marking squares from your Foursquare venue history; the write-up is
-[BONGO-BINGO.md](https://github.com/SimHacker/amsterdank/blob/main/skills/coffeeshop/BONGO-BINGO.md).
+[bongo-bingo.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/bongo-bingo.md).
 
 **BLOGO BINGO** — proposed. A card for someone's **entire blog** rather than one post, which is
 where the predictive property gets its best test: a corpus of one author's writing is precisely a
