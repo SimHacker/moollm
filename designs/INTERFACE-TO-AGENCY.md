@@ -65,9 +65,11 @@ is what an intelligent interaction technique looks like from the user's chair: t
 still there, it just got better at guessing where you were going.
 
 The difference between those two is not the language model. It is whether the object of interest
-stays in front of you, and whether the agent's hand and yours are on the same control. Direct
-manipulation is what makes programming by demonstration possible, and an agent that takes the
-controls away takes the demonstrations with them.
+stays in front of you, and whether the agent's hand and yours are on the same control. Any
+visible control can carry a demonstration — pressing buttons and picking from menus demonstrate
+fine, and neither is direct manipulation. What direct manipulation adds is a rich channel: where
+you dropped the window, how you slid it, what you tried first and moved. An agent that takes the
+controls away takes the demonstrations with them, and the richest ones first.
 
 ## Same world, same hands: DreamScape, 1995
 
