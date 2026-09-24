@@ -248,8 +248,9 @@ stream, a friend's monitor, a photograph of a game running on a machine you will
 The errand is **remote work in the sense the phrase never means**: not a different lot, not a downtown
 tile — a job in a *different game*. A Sim walks to the carpool and vanishes, and what she is doing for
 the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
-between two save files. Where she stood, the egg is left behind: a custom object whose presence means
-*a call is outstanding*, sitting at the exact spot she disappeared from, at the car door.
+between two save files. The carpool drives off with her in it and disappears, and the egg is left
+behind: a custom object whose presence means *a call is outstanding*, sitting by the side of the road
+where the car door was.
 
 The result comes home through that egg's own pie menu, whose nested submenus enumerate every
 consequence the job is permitted to have. The menu is the return type. That matters more across games
