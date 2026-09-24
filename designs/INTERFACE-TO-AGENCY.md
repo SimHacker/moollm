@@ -70,8 +70,13 @@ pick "Have Snack," you choose from that menu. When a Sim acts on its own, its au
 same advertisements against its needs and picks from the same list. Either way the choice lands in
 the same action queue, visible at the top of the screen, and you can cancel any of it with a
 click. The player and the agents have one set of verbs, advertised by the objects, not by the
-agents — which is also what [`skills/advertisement/`](../skills/advertisement/) borrows for MOOLLM.
-The idea is not a response to LLMs. LLMs just make it urgent again.
+agents.
+
+That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
+other designs that worked. In MOOLLM, objects, rooms and characters advertise what can be done
+with them ([`skills/advertisement/`](../skills/advertisement/)), and the LLM choosing an action
+reads the same advertisements a person browsing the directory reads. Applying it to LLMs has
+worked: the model gets a menu instead of a blank page, and the person gets to see the menu.
 
 The difference between the two assistants is not the language model. It is whether the object of interest
 stays in front of you, and whether the agent's hand and yours are on the same control. Any
