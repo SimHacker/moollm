@@ -156,9 +156,17 @@ That is the thing worth building now. People and agents plug together in many wa
 plugging is itself direct manipulation.
 
 The demo also shows the failure in the other direction. The butterfly could steal the head but
-could not edit the map; the user had a verb the agent lacked. That gap is less dangerous than
-the reverse, but it is still a gap: a verb the agent cannot use is one it cannot help with and
-cannot learn by watching. The goal is the same verbs in both hands.
+could not edit the map; the user had a verb the agent lacked. That was a weakness. It is less
+dangerous than the reverse, but a verb the agent cannot use is one it cannot help with and cannot
+learn by watching. The goal is the same verbs in both hands.
+
+There is a fair case for the gap. Few presenters would hand a butterfly the choice of the next
+slide, let alone the wiring between slides, in the middle of a talk. But handing it the next slide
+was already the point of that demo. WWDC had a rule that year: if your demo crashed, you did
+push-ups. Don was flipping between ScriptX, Macromedia Director and Netscape on a PowerBook 540c,
+any of which could have taken the machine down, and he let an autonomous butterfly steer the
+presentation anyway. It didn't crash. The risk was the performance: ceding agency on stage, live,
+is how you show that you mean it.
 
 In the same demo, the reason for all the other metaphors, and for the web inspector: "As
 Negroponte says, Direct Manipulation is only good for driving and sex." Direct manipulation was
