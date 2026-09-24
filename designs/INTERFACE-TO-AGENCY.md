@@ -361,6 +361,32 @@ is what a proper interface should be editing underneath, the way DreamScape's ou
 rooms were two views of one tree, so that the person holding the mouse and the agent holding the
 text are changing the same thing.
 
+### The text is what demonstration programs
+
+A visible, editable text of the agents, the objects and the world gives programming by
+demonstration something to program. Demonstrations have always needed a target: a macro, a
+script, a rule the system writes down from what it watched. Here the target is the same file the
+person can already read.
+
+That lets the flow run backwards. You type or dictate what you want, and the agent does the text
+editing for you. The original text, the proposed edit, and the result are all on the screen, and
+you accept it, reject it, or change it by hand. The agent is now demonstrating to you how the
+agents are programmed, one edit at a time, in answer to what you said. Watch it do that enough
+times and you can make the next edit yourself.
+
+So PBD can also stand for **programming by dictation**, and it runs both ways:
+
+- **You to the agent.** Say or type the intention; get back an edit you can see, judge and revise.
+  Or do it by hand and let the agent watch and generalize — the original direction.
+- **The agent to you.** It dictates back what it did or wants to do, in text or a synthesized
+  voice, pointing at the lines it changed. The explanation is checkable because the thing it
+  describes is on the screen next to it.
+
+Dictation is not demonstration. One states intent in words; the other shows it in action, and
+each covers cases the other handles badly. They need the same condition, though: a representation
+both parties can see and both can change. Without it, demonstration has nothing to write into, and
+dictation produces changes nobody can check.
+
 **So the repository is a direct-manipulation interface to a population of agents, where the agents
 are files.** A coffeeshop is a directory. A cat is a YAML file. A memorial is a file with citations
 in it. A consent record is a file that gates whether another file may be rendered at all. Every one
