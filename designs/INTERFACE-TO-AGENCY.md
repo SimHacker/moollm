@@ -270,7 +270,7 @@ art, behaviour trees and pie menus, and the community has been minting them for 
 The showcase is built from one such object, the **Easter egg**: a small, colourfully painted
 custom object that stands in the room for a piece of work in progress — a pending result, sitting
 where you can see it, with a pie menu on it like any other object. It is not a hypothetical engine
-feature. It is built the way Sims objects have always been built, and everything below is a use of
+feature. It is built the way Sims objects have been built for 26 years, and everything below is a use of
 machinery Maxis shipped rather than a change to it.
 
 The full name matters because the paint is the point. An Easter egg is **painted so it can be
@@ -282,7 +282,11 @@ surface, legible to the person and to the agent, is this whole doc in a single o
 meanings come along for free: an Easter egg is something you find by looking, and an egg holds
 something and hatches exactly once, which is what a pending result does.
 
-The egg carries its value in the open, as colour bands up its body read like a resistor: position is the
+Think of the egg as **a colourful QR code** that happens to be an object in the game. Two readers can
+recognize it and decode it: Screen Angel reading the screen directly, and a phone app pointed at the
+screen. Neither needs anything from the game but its pixels.
+
+It carries its value in the open, as colour bands up its body read like a resistor: position is the
 digit, colour is the value, with a white cap above a black cap to mark where the stack starts and ends,
 set the scale (a cap is exactly one band tall, so the egg is self-describing at any zoom), and hand the
 reader a known white and a known black to correct colour against. That last job matters because there
@@ -297,8 +301,7 @@ than asserted, and the camera path is not a stunt: it is how you read a screen y
 stream, a friend's monitor, a photograph of a game running on a machine you will never touch.
 
 The errand is **remote work in the sense the phrase never means**: not a different lot, not a downtown
-tile — a job in a *different game*. A Sim walks to the carpool and vanishes, and what she is doing for
-the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
+tile — a job in a *different game*. What she is doing for the afternoon is happening in Micropolis, or in another title entirely, on the other side of a bridge
 between two save files. The carpool drives off with her in it and disappears, and the egg is left
 behind: a custom object whose presence means *a call is outstanding*, sitting by the side of the road
 where the car door was.
