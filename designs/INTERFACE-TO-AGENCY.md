@@ -168,6 +168,12 @@ any of which could have taken the machine down, and he let an autonomous butterf
 presentation anyway. It didn't crash. The risk was the performance: ceding agency on stage, live,
 is how you show that you mean it.
 
+MOOLLM closes the gap. The map is rooms as directories and exits as entries in their files, so
+every way in reaches it: Don edits it by hand, types or dictates what he wants and has the LLM
+make the edit, or plays a character inside the world who has the agency to dig new rooms, connect
+them, and walk through them. The LLM playing a character has the same verbs. The butterfly can
+edit the map now, and so can you, through the same files, and every change is a diff.
+
 In the same demo, the reason for all the other metaphors, and for the web inspector: "As
 Negroponte says, Direct Manipulation is only good for driving and sex." Direct manipulation was
 never supposed to be the only interface — the argument is that it must never be the one taken
