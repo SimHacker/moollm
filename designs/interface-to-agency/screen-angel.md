@@ -21,6 +21,15 @@ The name places it in a sequence: a screen scraper takes from the screen, a scre
 to you, and a screen angel acts on it for you. It is also literally an overlay, transparent and
 above the application.
 
+The closest research precedent is Morgan Dixon and James Fogarty's
+[Prefab](http://homes.cs.washington.edu/~mdixon/research/prefab/) at the University of Washington:
+pixel-based reverse engineering of interface structure, which recovers widgets from screen pixels
+and adds behaviour to applications without their source, across toolkits and platforms. Screen
+Angel adds accessibility trees where they exist
+([aQuery](https://donhopkins.com/mediawiki/index.php/AQuery) was Don's name for querying them like
+the DOM), models on top, and an agent at the controls. The problem both address is the same:
+software people depend on and cannot change, replace or get an API into.
+
 Its limit is anything a player can do, with the tools players already use:
 
 - see the screen, move the mouse, press keys;
@@ -99,7 +108,10 @@ Four properties make this direct manipulation rather than delegation.
 
 **The automation's interface is the user's interface.** In a closed game this is enforced: there is
 no API to bypass the visible controls, because there is no API. The constraint comes from working
-with a closed binary from 2000, and it is also the property the design wants.
+with a closed binary from 2000, and it is also the property the design wants. It is the same
+constraint most people meet at work, in software that is proprietary, embedded in how the job is
+done, and not theirs to change or replace. A design that has to work on The Sims cannot quietly
+depend on an API that the real case will not have either.
 
 **Pending work is an object, not a notification.** An egg can be walked past, pointed at, asked what
 it is, and acted on days later. A notification that has scrolled away cannot.
