@@ -301,8 +301,8 @@ promise, and the list is in the object, in the Downloads folder, on your disk.
 
 ### The layer doing the clicking
 
-The thing on the other side of that pie menu is **Screen Angel**, and it needs introducing, because
-the whole argument depends on what it is allowed to be.
+The thing on the other side of that pie menu is **Screen Angel**, and it needs more than the
+one-line definition above, because the whole argument depends on what it is allowed to be.
 
 It is a scriptable layer over *any* application's interface — selecting and querying components,
 matching visual patterns, handling events, driving widgets from outside, without modifying the
