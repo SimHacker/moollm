@@ -47,6 +47,13 @@ All four need the same condition: one interface that both parties can see and op
 controls and demonstration stops in both directions; dictation survives only as requests going
 in and reports coming out, with nothing on screen to check either against.
 
+The agent-to-person demonstration has a working example you can click. PIXIE, Heinz Lemke's
+light-pen radial menus, runs in a PDP-7 emulator in the browser
+([pixie-live](https://hyperties.org/databases/pixie/pixie-live/)). Its **Demo** button plays
+virtual light-pen input into the emulator: the same channel a person's pen would use, driving
+the same program, on the same display. Nothing is faked on the screen side. You watch the menus
+being used, then pick up the pen and use them yourself.
+
 ## Start with the classic case
 
 The argument is easiest to make where direct manipulation is least arguable. In The Sims you put
