@@ -119,7 +119,7 @@ and this is what should stand on it.
 
 That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
 other designs that worked. In MOOLLM, objects, rooms and characters advertise what can be done
-with them (`[skills/advertisement/](../skills/advertisement/)`), and the LLM choosing an action
+with them ([skills/advertisement/](../skills/advertisement/)), and the LLM choosing an action
 reads the same advertisements a person browsing the directory reads. Applying it to LLMs has
 worked: the model gets a menu instead of a blank page, and the person gets to see the menu.
 
@@ -507,11 +507,11 @@ you are in it, and the walls were already drawn by OpenStreetMap. Physical actio
 not a metaphor either — `ROUNDABOUT(counterclockwise)` means whisk cream, and it is performed by riding
 around a roundabout counterclockwise. There is no command language to be spared; the spell IS the
 manoeuvre. The brake lever is the flipper: stop and the place comes into focus, roll on and the
-interface melts (`[geometry-as-language.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/geometry-as-language.md)`).
+interface melts ([geometry-as-language.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/geometry-as-language.md)).
 
 His visual information-seeking mantra lands somewhere he never put it: **velocity is the zoom control.**
 Rolling is the overview, slowing is the filter, stopped at a red light is details on demand — and the
-wait is where `[patience.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/patience.md)`
+wait is where [patience.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/patience.md)
 mints something spendable. Same shape as the egg's zoom rungs, where the far view says only *I am here*:
 resolution follows attention, and attention has a physical proxy.
 
@@ -519,9 +519,25 @@ resolution follows attention, and attention has a physical proxy.
 ride. The kilometres are spent, the exposure happened, the wheels do not turn backwards. So the
 reversibility had to migrate entirely into the interpretation: the ride file, the derived gestures, the
 exposure log and the stories are files that regenerate and revert, while the world itself is
-append-only. Which is the same split as the two channels into a closed game, and the same discipline as
-[amsterdank](https://github.com/SimHacker/amsterdank)'s rule that claims accumulate and resolution
-happens at read time. The design's own joke makes the point: a clockwise roundabout is mapped to UNDO,
+append-only. Which is the same split as the two channels into a closed game.
+
+It is also the discipline of **[amsterdank](https://github.com/SimHacker/amsterdank)**, a database
+of Amsterdam's coffeeshops that Don built years ago with several apps on top of it, and is now
+redeveloping as a layer for Ebike Safari. Its rule is that claims about a place accumulate and are
+resolved at read time, reversibly: when two sources disagree about an address, both claims are kept,
+because averaging two coordinates puts a shop in a canal. The lineage is Don's own:
+[Urban Safari](../skills/urban-safari/) and its StoryMaker, which grew out of the branching stories
+Will Wright's Stupid Fun Club made for Bar Karma; [iLoci](iloci.md); and
+[DreamScape](kaleida-scriptx-dreamscape.md).
+
+One of the old apps makes this doc's point on its own. **Bongo Bingo** (2009) dealt you a bingo card
+whose squares were coffeeshops, and the only way to mark a square was to physically go there and
+check in on Foursquare
+([history](https://github.com/SimHacker/amsterdank/blob/main/skills/coffeeshop/GEOTOKING.md#bongo-bingo-which-already-existed)).
+That is direct manipulation of your position in the real world, not of a map. In the redevelopment
+the marks are your own geotagged photographs instead of check-ins.
+
+The design's own joke makes the point about reversibility: a clockwise roundabout is mapped to UNDO,
 and what it can undo is the reading of the ride, never the ride.
 
 One more thing 1983 did not have to handle. "Continuous representation" is singular in the paper and
@@ -532,7 +548,7 @@ is a legitimate value that schedules a revisit, and a guess is not a value.
 ### The nudge is where this can still go wrong
 
 The bike is not a pure input device. It has two actuators — motor assist, and a suggested heading —
-and `[navigation-smell-steer.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/navigation-smell-steer.md)`
+and [navigation-smell-steer.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/navigation-smell-steer.md)
 has the map drifting toward the suggested smell heading with silence committing it. A suggestion that
 takes effect before it was legible is a private control channel, and being a gentle one does not exempt
 it; that is Shneiderman's objection arriving on a bicycle. The answer there is Don's own pie menu idiom
@@ -549,7 +565,7 @@ and never to the route.
 He assumed the object of interest was yours, and visible only to you. A city is other people's, a ride
 is legible to everyone on the street, and an exposure log is a record of other people's homes. Direct
 manipulation says nothing about that — it is a criteria set for a workstation — which is why there is a
-`[privacy.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/privacy.md)`
+[privacy.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/privacy.md)
 and why consent is a file. The 1997 debate is not the only argument this design has to survive.
 
 ## Behind the scenes: the state is a file
@@ -675,12 +691,12 @@ nothing to hand over.
 
 ## Where this sits
 
-- `[DIRECTORY-AS-IUNKNOWN.md](./DIRECTORY-AS-IUNKNOWN.md)` — the mechanism: a directory as an interface-bearing object
-- `[skills/design-sense/masters/ben-shneiderman.md](../skills/design-sense/masters/ben-shneiderman.md)` — his votes and vetoes as a loadable head
+- [DIRECTORY-AS-IUNKNOWN.md](./DIRECTORY-AS-IUNKNOWN.md) — the mechanism: a directory as an interface-bearing object
+- [skills/design-sense/masters/ben-shneiderman.md](../skills/design-sense/masters/ben-shneiderman.md) — his votes and vetoes as a loadable head
 - Brad Myers, intelligent interaction techniques proposal, [arXiv:2609.16295](https://arxiv.org/abs/2609.16295) (2026), and *Pick, Click, Flick! The Story of Interaction Techniques* ([ixtbook.com](https://www.ixtbook.com)) — the same settlement argued from inside the interaction technique
-- `[skills/design-sense/lenses/direct-manipulation.md](../skills/design-sense/lenses/direct-manipulation.md)` — the lens
-- `[skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md)` — the anti-Clippy constitution, which is this argument applied to one character
-- `[skills/representation-ethics/](../skills/representation-ethics/)` — consent as a file, which is control as a fact
+- [skills/design-sense/lenses/direct-manipulation.md](../skills/design-sense/lenses/direct-manipulation.md) — the lens
+- [skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
+- [skills/representation-ethics/](../skills/representation-ethics/) — consent as a file, which is control as a fact
 - [wwsff `characters/ben-shneiderman/agents-debate-1997.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md)` — the debate itself, and he is an [invited guest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/invitation.md), so this doc should expect to be corrected by its subject
 
 ## The uncomfortable part
