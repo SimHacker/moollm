@@ -218,17 +218,22 @@ actions; demonstration and dictation run both ways; people are agents; files are
 section puts all of those into one working design, and takes them literally outside the box: out
 of one program and into another, with no cooperation from either.
 
-**The claim.** *An agent can do real work across closed programs using only the controls a person
-has — the screen, the mouse, the keyboard — and everything it does can stay visible, interruptible
-and readable by that person.* If that holds for a twenty-six-year-old game with no API, it holds
+**The claim.** *An agent can do real work across closed programs, reaching into them only through
+the controls a person has — the screen, the mouse, the keyboard — and everything it does can stay
+visible, interruptible and readable by that person.* What it calls outside the programs, a person
+could call too. If that holds for a twenty-six-year-old game with no API, it holds
 for any interface.
 
 Three names, defined once:
 
 - **Screen Angel** is a layer that sits over any application as a transparent, always-on-top,
   click-through overlay. It reads what is on screen — the accessibility tree where there is one,
-  the pixels where there is not — and it acts by moving the mouse and pressing keys. It is to
-  desktop applications what jQuery is to web pages. Spec:
+  the pixels where there is not — and it acts on an application by moving the mouse and pressing
+  keys. Outward it can call any service: LLM text completion, vision language models for
+  understanding images, speech recognition and synthesis, or ordering a pizza. It is written in
+  TypeScript and runs in Electron, and its abilities come as modules, some specific to one game and
+  some cutting across all of them, that can be plugged in, downloaded and upgraded over time
+  without reinstalling the agent. It is to desktop applications what jQuery is to web pages. Spec:
   [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml).
 - **Soul Angel** is Screen Angel's module for games about people. It knows about characters, their
   relationships and their save files, and it can carry a character from one game to another. Spec:
