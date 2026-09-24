@@ -53,7 +53,10 @@ Now add an assistant, built one of two ways.
 The antagonistic assistant takes "put a window in the kitchen" and does it out of sight. The
 better it gets, the less reason you have to open build mode at all, until the placement tool is
 the thing the assistant exists to hide. When it guesses wrong you have one recourse, which is to
-describe the wall more carefully.
+describe the wall more carefully. And it has thrown away the fun: The Sims is a game people play
+*because* building the house and dressing the Sims with their own hands is the pleasure. An agent
+that insists on doing that for you has misunderstood what the product is, and it has also cut
+itself off from the best teacher it could have, which is you doing the thing while it watches.
 
 The cooperative assistant takes the same sentence and uses the same tool, on screen. The window
 appears under the cursor, slides along the wall, and you can grab it mid-drag and put it somewhere
@@ -62,7 +65,58 @@ is what an intelligent interaction technique looks like from the user's chair: t
 still there, it just got better at guessing where you were going.
 
 The difference between those two is not the language model. It is whether the object of interest
-stays in front of you, and whether the agent's hand and yours are on the same control.
+stays in front of you, and whether the agent's hand and yours are on the same control. Direct
+manipulation is what makes programming by demonstration possible, and an agent that takes the
+controls away takes the demonstrations with them.
+
+## Same world, same hands: DreamScape, 1995
+
+This is an old argument, and it has been demonstrated before, with sprites instead of LLMs.
+DreamScape was a "constructive experience" Don built on Kaleida Labs' ScriptX and demoed at
+Apple's Worldwide Developers Conference on 11 May 1995
+([video](https://www.youtube.com/watch?v=5NytloOy7WM),
+[transcript](https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-demo-64271dd65570)).
+It put the user and an agent in the same world, with the same objects and the same verbs.
+
+- **Rooms connected by a map, and a head that is you.** The head is the user's representation.
+  Throw it off the edge of the screen and the view follows it into the linked room, the way
+  next and previous work in a slide show. Click the head and you get the map, centred on where
+  you are, and you can edit the map by hand — disconnect rooms, rewire them, run the
+  presentation backwards.
+- **Tools are objects in the room.** A flower is a drawing tool: drag it around and it drops
+  petals on the background, "a vertical painting tool, for painting with dandelions." A
+  duplicator dropped on the flower fissions it into two. Press and drag on the background and
+  you blow wind — actually warped gravity — across everything that moves.
+- **Parts snap into trees.** Robot parts, puppet bodies and spirals plug together at
+  registration points drawn in Director, "Barrel of Monkeys or Mr. Potato Head type things."
+  The result is an animated skeleton, and a web inspector served from inside ScriptX showed the
+  same tree as a nested list with forms to edit each part's elasticity, "isomorphic to an
+  outliner."
+- **The butterfly is autonomous.** "You could call that an agent if you want." It flies where it
+  likes, you can grab it and move it, and your wind pushes it like anything else. In the demo it
+  picked up the head and flew off the edge of the screen, and the view went with it: "So now the
+  butterfly's in control of the presentation."
+
+The butterfly could grab the flower and draw, just as you could. That is the point. Now compose
+them. Put the flower at the end of a waving robot arm and hand the arm to the butterfly. The
+petals land along the sum of three motions — the butterfly's flight, the arm's wave, and the wind
+you are blowing — and every one of those contributions is a node in a tree you can see, pick up,
+take apart and rebuild. Agency stops being a property of one actor and becomes something you
+distribute across a structure: some of the motion is yours, some is the agent's, some is a
+mechanism's, and the drawing is what they do together.
+
+That is the thing worth building now. People and agents plug together in many ways, and the
+plugging is itself direct manipulation.
+
+The demo also shows the failure in the other direction. The butterfly could steal the head but
+could not edit the map; the user had a verb the agent lacked. That gap is less dangerous than
+the reverse, but it is still a gap: a verb the agent cannot use is one it cannot help with and
+cannot learn by watching. The goal is the same verbs in both hands.
+
+In the same demo, the reason for all the other metaphors, and for the web inspector: "As
+Negroponte says, Direct Manipulation is only good for driving and sex." Direct manipulation was
+never supposed to be the only interface — the argument is that it must never be the one taken
+away.
 
 ## Chat is a second manipulator, not the interface
 
@@ -281,11 +335,31 @@ repository, as files.
 This is the weaker direct-manipulation claim and should be made as one. Editing YAML in a text
 editor is editing a representation of the object, not the object, which puts it closer to a
 command language than to dragging a window along a wall. Cursor lets you type the edit, dictate
-it, or describe it and have it made, and that narrows the gap without closing it. What the
-repository does keep is the other half of Shneiderman's list: nothing hidden, everything
-reversible, every change visible as a diff. It is the floor under the interface, not a substitute
-for one — and it is what a proper interface should be editing underneath, so that the person
-holding the mouse and the agent holding the text are changing the same thing.
+it, or describe it and have it made, and that narrows the gap without closing it.
+
+It is still the strong claim among the ways to change an agent. Compare them by how directly the
+thing you edit maps onto the behaviour you get:
+
+| How you change the agent | What you can see | What you can edit | Can you undo it? |
+|---|---|---|---|
+| Training or fine-tuning | loss curves and samples | the data, never the result | retrain |
+| Preference tuning from thumbs up and down | nothing | a vote | no |
+| Vendor "memory" | a summary, if the product shows one | delete an entry, sometimes | partly |
+| A hidden system prompt | nothing | nothing | no |
+| An instructions box | the text you wrote, not the rest of the prompt | your text | by retyping |
+| A MOOLLM file | all of it, in the repo | all of it, one line at a time | `git revert` |
+
+The first rows edit an agent the way you would edit a person, by influence and hope. The last
+row is a one-to-one, continuously visible, reversible definition: the character's knowledge,
+refusals and consent are the bytes on the screen, and changing a byte changes what the agent is
+given. The model that reads those bytes is as opaque as ever; the definition is not. That is as
+close to direct manipulation as editing a definition gets.
+
+It is also the other half of Shneiderman's list: nothing hidden, everything reversible, every
+change visible as a diff. It is the floor under the interface, not a substitute for one — and it
+is what a proper interface should be editing underneath, the way DreamScape's outliner and its
+rooms were two views of one tree, so that the person holding the mouse and the agent holding the
+text are changing the same thing.
 
 **So the repository is a direct-manipulation interface to a population of agents, where the agents
 are files.** A coffeeshop is a directory. A cat is a YAML file. A memorial is a file with citations
