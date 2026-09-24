@@ -1,8 +1,8 @@
 # The other showcase: a control channel software cannot enter
 
-*Part 4 of 5 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 5 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
 
-The [Easter egg settlement](screen-angel.md) is *shared* controls — the layer clicks the pie item a person clicks, and either
+The [Easter egg settlement](the-errand.md) is *shared* controls — the layer clicks the pie item a person clicks, and either
 hand can drive. [Ebike Safari](https://github.com/SimHacker/WillWrightShowForFood/tree/main/apps/ebike-safari)
 is the other settlement, and it is the stronger one because it is not a policy: **no agent can pedal.**
 The primary action channel is physically closed to software, so whatever agency the system has must
@@ -29,25 +29,9 @@ reversibility had to migrate entirely into the interpretation: the ride file, th
 exposure log and the stories are files that regenerate and revert, while the world itself is
 append-only. Which is the same split as the two channels into a closed game.
 
-It is also the discipline of **[amsterdank](https://github.com/SimHacker/amsterdank)**, a database
-of Amsterdam's coffeeshops that Don built years ago with several apps on top of it, and is now
-redeveloping as a layer for Ebike Safari. Its rule is that claims about a place accumulate and are
-resolved at read time, reversibly: when two sources disagree about an address, both claims are kept,
-because averaging two coordinates puts a shop in a canal. The lineage is Don's own:
-[Urban Safari](../../skills/urban-safari/) and its StoryMaker, which grew out of the branching stories
-Will Wright's Stupid Fun Club made for Bar Karma; [iLoci](../iloci.md); and
-[DreamScape](../kaleida-scriptx-dreamscape.md).
-
-One of the old apps makes this doc's point on its own. **Bongo Bingo** (2011) dealt you a bingo card
-whose squares were coffeeshops, and the only way to mark a square was to physically go there and
-check in on Foursquare. Foursquare pushed each check-in to the Amsterdank server, which matched the
-venue to a coffeeshop and marked your card
-([Bongo Bingo](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/bongo-bingo.md)).
-
-The challenge is the trip. You directly manipulate your position in the city itself — the map only
-shows it, and the map is not the territory ([Korzybski](../korz/)) — and the only way to move it is to
-carry yourself there. In the redevelopment the marks are your own geotagged photographs instead of
-check-ins, and the card is one game among many over the same ride log.
+Other information layers and games sit on top of the ride the same way, each reading what the rider
+already did and none of them able to pedal
+([layers and games](https://github.com/SimHacker/WillWrightShowForFood/blob/main/apps/ebike-safari/design/layers-and-games.md)).
 
 The design's own joke makes the point about reversibility: a clockwise roundabout is mapped to UNDO,
 and what it can undo is the reading of the ride, never the ride.
@@ -82,4 +66,4 @@ and why consent is a file. The 1997 debate is not the only argument this design 
 
 ---
 
-Previous: [The showcase: Screen Angel](screen-angel.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [Behind the scenes: the state is a file](the-state-is-a-file.md)
+Previous: [Screen Angel: the layer doing the clicking](screen-angel.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [Behind the scenes: the state is a file](the-state-is-a-file.md)

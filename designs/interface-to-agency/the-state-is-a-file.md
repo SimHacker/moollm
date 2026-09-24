@@ -1,6 +1,6 @@
 # Behind the scenes: the state is a file
 
-*Part 5 of 5 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 6 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
 
 The [classic case](the-sims.md) needs a graphical interface that already exists, and most things agents work on
 have none. There is no build mode for a memorial, a consent record, or what a character is allowed

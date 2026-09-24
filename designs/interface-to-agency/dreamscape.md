@@ -1,6 +1,6 @@
 # Same world, same hands: DreamScape, 1995
 
-*Part 2 of 5 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 2 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
 
 This is an old argument, and it has been demonstrated before, with sprites instead of LLMs.
 DreamScape was a "constructive experience" Don built on Kaleida Labs' ScriptX and demoed at
@@ -65,4 +65,4 @@ away.
 
 ---
 
-Previous: [The classic case: The Sims](the-sims.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [The showcase: Screen Angel](screen-angel.md)
+Previous: [The classic case: The Sims](the-sims.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [The showcase: a Sim goes to work in another game](the-errand.md)

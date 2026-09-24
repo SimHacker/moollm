@@ -26,7 +26,7 @@ gets wrong: agency is the thing you want, and an agent is only one way to packag
 
 ## Contents
 
-This page is the argument in brief. The five parts make it with worked examples, and each can be
+This page is the argument in brief. The six parts make it with worked examples, and each can be
 read on its own.
 
 - **[The claim](#the-claim)**, on this page. No capability reachable only by asking the agent.
@@ -38,21 +38,23 @@ read on its own.
 2. **[Same world, same hands: DreamScape, 1995](interface-to-agency/dreamscape.md).** The user's
    head and an autonomous butterfly in one world with the same tools, and agency composed across a
    structure you can take apart. The butterfly could not edit the map. MOOLLM closes that gap.
-3. **[The showcase: Screen Angel](interface-to-agency/screen-angel.md).** An agent working across
-   closed programs through nothing but the screen, the mouse and the keyboard. A Sim in an
-   unmodified copy of The Sims 1 takes a job as mayor in Micropolis, and comes home when someone
-   picks from the pie menu of a painted Easter egg. What is built, what is not, and the hard part.
-4. **[The other showcase: Ebike Safari](interface-to-agency/ebike-safari.md).** A control channel
+3. **[The showcase: a Sim goes to work in another game](interface-to-agency/the-errand.md).** An
+   agent working across closed programs through nothing but the screen, the mouse and the
+   keyboard. A Sim in an unmodified copy of The Sims 1 takes a job as mayor in Micropolis, and
+   comes home when someone picks from the pie menu of a painted Easter egg.
+4. **[Screen Angel: the layer doing the clicking](interface-to-agency/screen-angel.md).** What the
+   layer may do, how it sees a game with no API, why it has no privileged verb, what is built and
+   what is not, the hard part, and the four properties that make it direct manipulation.
+5. **[The other showcase: Ebike Safari](interface-to-agency/ebike-safari.md).** A control channel
    no software can enter: no agent can pedal. Shneiderman's criteria met more literally than a GUI
-   can meet them, reversibility moved into the interpretation of the ride, Bongo Bingo, and where
-   his criteria run out.
-5. **[Behind the scenes: the state is a file](interface-to-agency/the-state-is-a-file.md).** The
+   can meet them, reversibility moved into the interpretation of the ride, and where his criteria
+   run out.
+6. **[Behind the scenes: the state is a file](interface-to-agency/the-state-is-a-file.md).** The
    weaker direct-manipulation claim, made as one. Agents defined in visible, revertible files,
    compared with training, vendor memory and hidden prompts. The text is what demonstration and
    dictation program.
-- **[Chat is a second manipulator](#chat-is-a-second-manipulator-not-the-interface)**,
-  **[Where this sits](#where-this-sits)** and **[The uncomfortable part](#the-uncomfortable-part)**,
-  on this page.
+- **[Chat is a second manipulator](#chat-is-a-second-manipulator-not-the-interface)** and
+  **[Where this sits](#where-this-sits)**, on this page.
 
 ## The claim
 
@@ -116,14 +118,3 @@ not happen.
 - [skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
 - [skills/representation-ethics/](../skills/representation-ethics/) — consent as a file, which is control as a fact
 - [wwsff `characters/ben-shneiderman/agents-debate-1997.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md) — the debate itself, and he is an [invited guest](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/invitation.md), so this doc should expect to be corrected by its subject
-
-## The uncomfortable part
-
-Shneiderman's veto list includes *don't ship an irreversible operation and call it power*, and
-an LLM writing files is exactly that unless the reversibility is real. It is real here only
-because of git, and only while the human keeps reading diffs. An agent that commits without
-review, or a human who stops reading, converts this whole arrangement back into the thing it
-was built to avoid -- an opaque process with private state, wearing a repository as a costume.
-
-The interface to agency is not a property of the file format. It is a practice, and the diff
-is where it is enforced.

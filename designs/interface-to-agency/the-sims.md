@@ -1,6 +1,6 @@
 # Start with the classic case
 
-*Part 1 of 5 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 1 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
 
 The argument is easiest to make where direct manipulation is least arguable. In The Sims you put
 a window in a wall by picking the window up and moving it along the wall. The window is visible
