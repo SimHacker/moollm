@@ -214,17 +214,24 @@ visible on screen, reachable by hand, and takeable over mid-flight.
 
 The worked case is **The Sims 1** — the 2000 game, running as it shipped, no source, no patch, no
 injected code. What it does have is a content pipeline: custom objects are `.iff` files with their own
-art, behaviour trees and pie menus, and the community has been minting them for twenty-five years. So
-the egg is not a hypothetical engine feature. It is a **custom object**, built the way Sims objects have
-always been built, and everything below is a use of machinery Maxis shipped rather than a change to it.
+art, behaviour trees and pie menus, and the community has been minting them for twenty-five years.
 
-It is called an egg for both meanings at once, and both are accurate. An **Easter egg** is a hidden
-surprise you find by looking, which is what a small object sitting in a room is; a literal egg contains
-something and opens exactly once, which is what a pending result does. The name teaches the mechanic
-instead of decorating it — and the pun keeps paying, because an egg that brightens for a known few
-frames to signal the layer is winking at the camera in every sense of the phrase.
+The showcase is built from one such object, the **Easter egg**: a small, colourfully painted
+custom object that stands in the room for a piece of work in progress — a pending result, sitting
+where you can see it, with a pie menu on it like any other object. It is not a hypothetical engine
+feature. It is built the way Sims objects have always been built, and everything below is a use of
+machinery Maxis shipped rather than a change to it.
 
-It carries its value in the open, as colour bands up its body read like a resistor: position is the
+The full name matters because the paint is the point. An Easter egg is **painted so it can be
+recognized**, and here the paint does that job for two readers at once: the player, who sees at a
+glance that something is outstanding and what state it is in, and **Soul Angel**, the accessibility
+agent introduced below (the Screen Angel module for The Sims), which finds and reads the same egg
+from the same pixels. One painted
+surface, legible to the person and to the agent, is this whole doc in a single object. The other
+meanings come along for free: an Easter egg is something you find by looking, and an egg holds
+something and hatches exactly once, which is what a pending result does.
+
+The egg carries its value in the open, as colour bands up its body read like a resistor: position is the
 digit, colour is the value, with a white cap above a black cap to mark where the stack starts and ends,
 set the scale (a cap is exactly one band tall, so the egg is self-describing at any zoom), and hand the
 reader a known white and a known black to correct colour against. That last job matters because there
