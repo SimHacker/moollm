@@ -386,11 +386,19 @@ The name is a ladder: **a screen scraper takes, a screen reader reads to you, a 
 you.** It also describes the implementation literally — a transparent, always-topmost, click-through
 overlay. Invisible, above you, intervening.
 
-What it can do is bounded by one sentence: **anything a player can do.** That is a lot:
+What it can do is bounded by one sentence: **anything a player can do, with the tools players
+already use.** That is a lot:
 
 - see the screen, move the mouse, press keys;
 - navigate menus, walk the camera around a world, click a pie item;
 - save and quit a game, read the save file, edit or regenerate it, and start the game again.
+
+The last item is where Screen Angel goes past what a player does by hand. Nobody reads a save file
+by eye. But players have edited Sims content with tools for twenty-five years — the Transmogrifier
+for cloning and repainting objects, community editors such as FreeSO's Volcanic for SimAntics —
+and Screen Angel is a bridge into that ecosystem of user-created content tools, not a replacement
+for it. It reads and writes the same files those tools do, so anything it changes, a person can open
+in one of them, or in a text editor once it has been converted to YAML.
 
 Saving, editing and relaunching is the high-bandwidth channel, used between sessions because it costs
 a restart. During play it uses the low-bandwidth one: pie menus, dialog trees, codes on screen, typed
@@ -430,7 +438,7 @@ the automation. It is on disk, in a repo, diffable.
 ### No privileged verb
 
 The Angel has **no privileged verb**. Everything above is something a person could do with a mouse, a
-text editor and patience. The layer supplies reach and stamina, not authority. Nothing it can reach is
+text editor, the community's tools and patience. The layer supplies reach and stamina, not authority. Nothing it can reach is
 unreachable by hand, and nothing it does is invisible while it does it, because it does it through
 the controls on the screen.
 
