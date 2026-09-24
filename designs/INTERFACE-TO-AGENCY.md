@@ -64,13 +64,24 @@ else. The sentence was a faster way to start the gesture, not a replacement for 
 is what an intelligent interaction technique looks like from the user's chair: the technique is
 still there, it just got better at guessing where you were going.
 
-The Sims already worked this way in 2000, for its own agents. Every object advertises what it can
-do, and those advertisements are the interactions in its pie menu. When you click the fridge and
-pick "Have Snack," you choose from that menu. When a Sim acts on its own, its autonomy scores the
-same advertisements against its needs and picks from the same list. Either way the choice lands in
-the same action queue, visible at the top of the screen, and you can cancel any of it with a
-click. The player and the agents have one set of verbs, advertised by the objects, not by the
-agents.
+The Sims already worked this way in 2000, for its own agents
+([demo video](https://www.youtube.com/watch?v=-exdu4ETscs)). The people know how to walk around,
+but they don't know how to use the objects; the objects know how to make the people use them.
+Every object advertises what it can do — "I can do this, you can do that with me" — and each
+advertisement says which motives it satisfies. The pie menu is generated from those
+advertisements, filtered by mood, personality and relationship, so the menu on a stranger has
+"Ask to Leave" and the menu on a lover does not. When a Sim acts on its own, its autonomy scores
+the same advertisements against its needs and picks from the same list; each advertisement even
+carries an autonomy threshold that decides whether a Sim will choose it unprompted or only when
+you tell it to. Either way the choice lands in the same action queue, visible at the top of the
+screen, and you can cancel any of it with a click.
+
+So the pie menus are direct manipulation of the Sims' behaviour, through the same channel the Sims
+use to decide for themselves what to do with objects and with each other. You don't override the
+agent from outside; you reach into its decision and pick for it, from the list it was already
+choosing from. The player and the agents have one set of verbs, advertised by the objects, not
+owned by the agents. Even the pointing is tuned for it: a Sim under the cursor slows down, like
+the tilt on a pinball machine, so you can catch someone walking past and pop up a menu on them.
 
 That idea is old, and it is at the heart of MOOLLM, which borrows heavily from The Sims and
 other designs that worked. In MOOLLM, objects, rooms and characters advertise what can be done
