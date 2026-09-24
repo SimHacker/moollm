@@ -21,9 +21,12 @@ The name places it in a sequence: a screen scraper takes from the screen, a scre
 to you, and a screen angel acts on it for you. It is also literally an overlay, transparent and
 above the application.
 
-The closest research precedent is Morgan Dixon and James Fogarty's
-[Prefab](http://homes.cs.washington.edu/~mdixon/research/prefab/) at the University of Washington:
-pixel-based reverse engineering of interface structure, which recovers widgets from screen pixels
+It has two research precedents. Richard Potter's Triggers, at the HCIL, was a macro system that
+found the data and controls it acted on by reading the screen's pixels ("Triggers: Guiding
+Automation with Pixels to Achieve Data Access", in Allen Cypher's *Watch What I Do: Programming by
+Demonstration*, 1993). Morgan Dixon and James Fogarty's
+[Prefab](http://homes.cs.washington.edu/~mdixon/research/prefab/) at the University of Washington
+does pixel-based reverse engineering of interface structure: it recovers widgets from screen pixels
 and adds behaviour to applications without their source, across toolkits and platforms. Screen
 Angel adds accessibility trees where they exist
 ([aQuery](https://donhopkins.com/mediawiki/index.php/AQuery) was Don's name for querying them like
