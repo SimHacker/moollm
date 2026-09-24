@@ -534,8 +534,9 @@ One of the old apps makes this doc's point on its own. **Bongo Bingo** (2009) de
 whose squares were coffeeshops, and the only way to mark a square was to physically go there and
 check in on Foursquare
 ([history](https://github.com/SimHacker/amsterdank/blob/main/skills/coffeeshop/GEOTOKING.md#bongo-bingo-which-already-existed)).
-The challenge is the trip. You directly manipulate your position on the map, and the only way to
-drag it is to carry yourself across the city. In the redevelopment
+The challenge is the trip. You directly manipulate your position in the city itself — the map only
+shows it, and the map is not the territory ([Korzybski](korz/)) — and the only way to move it is to
+carry yourself there. In the redevelopment
 the marks are your own geotagged photographs instead of check-ins.
 
 The design's own joke makes the point about reversibility: a clockwise roundabout is mapped to UNDO,
