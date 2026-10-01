@@ -165,6 +165,7 @@ The **[object-system/](./object-system/)** subdirectory documents MOOLLM's objec
 | [LATENT-SPACE-REPUTATION.md](./LATENT-SPACE-REPUTATION.md) | The mechanism pointed at people: the Kevin Roose / Sydney case, corpus sentiment as infrastructure, injection versus archive, and why attribution repair and prestoration are edits to the resolver. Harvested from Gwern × Dwarkesh, Nov 2024 |
 | [object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](./object-system/DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md) | Strict executable core + rich overlay; the adventure compiler as the leading instance |
 | [object-system/ANNOTATED-BIBLIOGRAPHY.md](./object-system/ANNOTATED-BIBLIOGRAPHY.md) | Cited YAML sources annotated as human-readable prose |
+| [INTERFACE-FILES-AND-TICKS.md](./INTERFACE-FILES-AND-TICKS.md) | COM-style interface files (`CHARACTER.yml` mounts a skill on a folder), the object-model library, the generated semantic-pyramid index, simulation ticks (double buffering, mailboxes, one commit per tick), LSP-shaped diagnostics, Play → Learn → Lift by diagnostic code |
 
 ---
 
