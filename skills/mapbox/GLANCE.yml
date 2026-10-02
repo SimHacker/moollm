@@ -29,6 +29,16 @@ methods:
   KEYS: "Resolve tokens from 1Password by role, never by paste"
   SURFACE: "Choose among CLI, REST, three MCP servers, SDKs"
   MEASURE: "Add a finding to the measured table — probe first, claim second"
+  SNITCH: "Audit the twenty upstream skills, and this one, into skill-snitches/"
+
+# Routing to a dependency inherits its failure modes, so all twenty were read. Reports are ours and
+# live here, outside their repo. 19 green, 1 blue; the only yellow issued is this skill's own,
+# because this skill is the only one in the comparison that can read a live credential.
+audits:
+  dir: skill-snitches/            # one report per official skill, plus findings.yml and CORPUS.yml
+  self: skill-snitch-report.md    # same scanner, pointed at us — yellow, and why
+  scanner: scripts/snitch_mapbox_skills.py
+  basis: "script measures and cannot conclude; findings.yml judges and is signed"
 
 # Four surfaces, and MCP is rarely the right one. Ordered most composable first.
 surfaces:
@@ -54,6 +64,14 @@ endosymbiosis: |
   move: copying the DNA into the nucleus and inheriting the maintenance forever.
   A resolver, not a copy, is what keeps the boundary alive.
 
+map_and_territory: |
+  A map of a map company's maps of its own platform (korz — Ungar/Ossher/Kimelman
+  2014, after Korzybski; designs/korz). The map both is and is not the territory:
+  the world for the agent, a representation for the author, resolver as the seam.
+  The doc pyramid is a tile pyramid — z0 world to z18 doorway, no teleporting.
+  ROUTE returns ties instead of erroring on them: HyperTIES's menu, not Korz's
+  unique-most-specific rule, because ambiguity is the answer worth having.
+
 # The reason this skill is not just a pointer. All measured against the live API.
 measured_not_read:
   no_referer_is_403: "A URL-restricted token is dead from curl, CI, servers and MCP"
@@ -63,8 +81,10 @@ measured_not_read:
   wildcards_rejected: "the console refuses http://localhost:* — upstream recommends patterns it will not accept"
 
 borrowed_upward: |
-  Upstream ships evals/evals.json per skill — prompts, expected outputs, per-expectation
-  checklists. moollm has no equivalent rung. Worth adopting repo-wide, not just here.
+  Upstream ships evals/evals.json per skill — 89 items, 386 expectations scored 0-3 by a
+  judge model, diffed against a stored baseline. moollm has no measurement rung; every
+  other artifact is description. Parked, not adopted: see CAULDRON.md, and
+  skills/INDEX.yml planned: eval-harness.
 
 key_insight: |
   The scarce resource is not Mapbox knowledge, it is attention.

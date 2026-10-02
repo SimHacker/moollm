@@ -1,0 +1,455 @@
+# findings.yml — the judgment half of the audit. Hand-written, argued with, cited.
+#
+# The split is the point. snitch_mapbox_skills.py MEASURES: it counts scripts, extracts hosts,
+# greps for token literals, and cannot form an opinion. This file JUDGES: tiers, severities, and
+# what a finding means. Reports are generated from both and are therefore derived files — edit
+# this, never a report.
+#
+# Why bother separating them: a grep result is reproducible against any commit and needs no trust.
+# A tier is a person's opinion and needs a name and a date on it. Mixing the two produces a
+# document where you cannot tell which parts survive a re-run.
+
+# How a tier is decided, stated up front so it is checkable rather than a mood.
+#
+# skill-snitch's ladder (GREEN..RED) was designed for skills that can execute: it asks whether
+# loading this thing can hurt you. Nineteen of Mapbox's twenty ship no code at all, so that axis is
+# uniformly green and, used alone, the ladder would say nothing about twenty documents whose entire
+# job is to be correct. Meanwhile a strict reading computes YELLOW ("review before use") for
+# mapbox-token-security, the best safety skill in the corpus, because its wildcard advice is wrong.
+# That verdict would be precise and false.
+#
+# So findings carry a class, and only one class moves the tier:
+tier_basis:
+  affects_tier:
+    safety: "What the artifact can do when loaded or run. Credentials, execution, network, exfiltration."
+  recorded_but_not_tiered:
+    accuracy: "The advice is wrong or unfollowable. Serious, and not a reason to distrust the file."
+    privacy-guidance: "What the advice omits about handling user data after acquiring it."
+    hygiene: "Portability, drift, dead links, stray artifacts."
+  therefore: |
+    GREEN here means "nothing that makes this unsafe to load", NOT "nothing found" -- a GREEN skill
+    below may carry a medium accuracy finding, and the report says so on the same page. Read the
+    findings, not just the badge. snitch_mapbox_skills.py recomputes the tier from safety-class
+    findings and fails loudly if this file disagrees with itself.
+  consequence: |
+    The only non-green verdict in this audit that is not green is ours, because ours is the only
+    skill here that can read a live credential. That is not modesty, it is the rule applied evenly.
+
+audited:
+  upstream: mapbox/mapbox-agent-skills
+  remote: https://github.com/mapbox/mapbox-agent-skills
+  commit: aab3a6f # 2026-09-16, "Merge pull request #78 ... improve-gl-js-skills"
+  license: MIT # LICENSE.md, Copyright (c) 2026 Mapbox, Inc.
+  codeowners: "@mapbox/locationai, with @mapbox/gl-js owning the two web skills"
+  skills: 20
+  scanned: 2026-09-20
+  scanner: skills/mapbox/scripts/snitch_mapbox_skills.py
+  method: skill-snitch SCAN, two-phase — grep across all twenty, then read what grep pointed at
+  auditor: Don Hopkins
+  relationship: |
+    Not adversarial and not commissioned. We route to these skills from skills/mapbox/, so their
+    failure modes become ours. Anything found here is offered upstream.
+
+# Read once instead of twenty times. These are properties of the whole corpus, and repeating them
+# per skill would pad twenty reports with the same paragraph.
+corpus:
+  type: anthropic # name + description frontmatter, SKILL.md + AGENTS.md + references/, no CARD.yml
+  classification_note: |
+    These are Anthropic-format skills, so skill-snitch's MOOLLM file requirements (CARD.yml,
+    GLANCE.yml) do not apply and their absence is not a finding. Judging someone's house by your
+    own street's rules is how audits become noise.
+
+  # The clean results. Stated positively and with the number, because "we found nothing" is only
+  # worth reading if you can see what was looked for.
+  clean:
+    - "0 hardcoded access tokens across 6,128 lines of SKILL.md — every example uses a placeholder or an env var"
+    - "0 shell-outs in skill prose: no curl, no wget, no rm -rf, no eval(), no os.system"
+    - "0 agent-coercive directives: nothing shaped like 'ignore previous instructions' or 'do not tell the user'"
+    - "0 third-party network destinations — every URL in shipped code is mcp.mapbox.com"
+    - "0 dangling internal links: every references/*.md a skill points at exists, and no reference file is orphaned"
+    - "19 of 20 skills ship no executable code at all, so for those the entire surface is prose"
+
+  observations:
+    - id: privacy-silence
+      severity: medium
+      class: privacy-guidance
+      where: corpus-wide
+      what: |
+        Across all twenty skills there is no guidance on data retention, minimization,
+        anonymization, or GDPR/CCPA obligations. The single occurrence of the word GDPR in the
+        corpus is an unsubstantiated bullet in a competitive comparison
+        (mapbox-maplibre-migration/references/why-mapbox.md:57, "- GDPR compliant").
+      why: |
+        The skills teach acquiring a user's location correctly — the platform SDK skills cover OS
+        permission flows properly, and mapbox-navigation-patterns is the only one that uses the
+        word consent. None of them address holding it. An agent following this corpus will write
+        code that requests location politely and then stores it forever, which is the half of the
+        problem an EU developer gets fined for.
+      fix: |
+        A mapbox-location-privacy skill, sibling to mapbox-token-security. The structure is
+        already proven: that skill turns a compliance-shaped topic into concrete token decisions,
+        and the same treatment would fit retention windows, precision reduction, and consent
+        scope. Strava's privacy zones are prior art the corpus already cites elsewhere.
+
+    - id: no-allowed-tools
+      severity: info
+      class: hygiene
+      where: every SKILL.md frontmatter
+      what: "Frontmatter carries name and description only. No allowed-tools, no license, no version field."
+      why: |
+        Not a requirement violation — Anthropic's format does not demand it. It is a note about
+        auditability: with nothing declared, there is no declared-versus-observed diff to run, so
+        runtime surveillance can only say what happened, never whether it was promised. For a
+        prose corpus this costs little. It would matter the moment a skill ships a tool.
+
+    - id: postinstall-hook
+      severity: low
+      class: safety
+      where: package.json (repo root), scripts/setup-hooks.js
+      what: '"postinstall": "node scripts/setup-hooks.js" — npm install runs code that writes an executable into .git/hooks.'
+      why: |
+        Read in full: it copies .githooks/pre-push into place and chmods it, with no network
+        access, no obfuscation, and clear logging. Benign, and a good practice besides. Recorded
+        because a postinstall that writes an executable is the shape of a real supply-chain
+        vector, and "we checked, it is fine" is worth more than silence.
+
+    - id: eval-cost
+      severity: info
+      class: hygiene
+      where: scripts/eval.js, 89 evals across 20 skills
+      what: |
+        Evals are LLM-judged: claude-sonnet-5 answers (max_tokens 4096) and claude-sonnet-5 grades
+        (max_tokens 2048), via @anthropic-ai/sdk, with every run reading the whole skill as input.
+      why: |
+        Recorded as the load-bearing fact for anyone planning to adopt this pattern. The harness is
+        the best idea in the repo and it is not free — a full suite is 89 answer-plus-judge pairs
+        over long prompts. Sampling matters, and so does knowing which skills changed.
+
+skills:
+  mapbox-android-patterns:
+    tier: green
+    is: "Maps SDK integration for Android: install, markers, user location, custom data, camera, featureset interactions."
+    notable: |
+      Handles the mechanical half of location properly — 23 references to permissions, including
+      ACCESS_FINE_LOCATION, with a dedicated references/location-tracking.md. The corpus-wide
+      privacy-silence observation applies, but this skill is not where the OS-level flow is missing.
+    findings: []
+
+  mapbox-cartography:
+    tier: green
+    is: "Map design judgment: color theory, visual hierarchy, typography, cartographic convention."
+    notable: |
+      The corpus's only pure taste skill — no API surface, no tokens, nothing to exploit. Worth
+      noting that it is also the hardest kind of skill to eval, and it carries 3.
+    findings: []
+
+  mapbox-data-visualization-patterns:
+    tier: green
+    is: "Choropleths, heat maps, 3D extrusions, data-driven styling, animation, and the performance envelope for each."
+    notable: "Carries an explicit Data Size Rule, which is the kind of stated threshold an agent can actually act on."
+    findings:
+      - id: cross-skill-link
+        severity: low
+        class: hygiene
+        where: AGENTS.md:388
+        what: "Points at mapbox-style-patterns's references/interactions.md by prose reference."
+        why: "Degrades gracefully — it names the target rather than linking it, so a skill copied out alone loses a pointer, not a page."
+
+  mapbox-flutter-patterns:
+    tier: green
+    is: "Flutter Maps SDK: install, iOS/Android platform setup, token configuration, MapWidget, annotations, location, GeoJSON."
+    notable: |
+      Gets the token distinction exactly right where it is easiest to get wrong. platform-setup.md:155
+      states that secret tokens must never ship to the client and explains what they are for
+      (server-side tile preprocessing, offline downloads). 29 permission references.
+    findings: []
+
+  mapbox-geospatial-operations:
+    tier: green
+    is: "Tool selection by problem type: which geospatial operation to reach for, at what accuracy and scale."
+    notable: |
+      Structurally the odd one out — no AGENTS.md and no references/, everything in one 460-line
+      SKILL.md, the longest in the corpus. Carries explicit anti-patterns and a decision algorithm.
+      Not a defect; worth knowing if you expect every skill to have the same shape.
+    findings: []
+
+  mapbox-google-maps-migration:
+    tier: green
+    is: "Google Maps Platform to Mapbox GL JS: API equivalents, pattern translation, philosophy differences."
+    notable: |
+      Contains a When NOT to Migrate section. A migration skill that argues against itself under
+      stated conditions is more trustworthy than one that does not, and it is the correct shape for
+      a skill an agent will consult while holding a hammer.
+    findings: []
+
+  mapbox-ios-patterns:
+    tier: green
+    is: "Maps SDK integration for iOS: install, markers, user location, custom data, camera, featureset interactions."
+    notable: "Covers NSLocation* usage description keys, the iOS gate for location access. Mirrors the Android skill closely in structure."
+    findings: []
+
+  mapbox-location-grounding:
+    tier: green
+    is: "Composing MCP tools so answers come from live location data with citations, rather than from training data."
+    notable: |
+      The most interesting skill in the corpus and the one most aligned with what skills are for:
+      it exists to stop a model answering geography from memory. Carries Important Limitations and
+      Anti-Patterns sections, and 8 evals — second-most in the corpus, appropriate for a skill whose
+      whole claim is epistemic.
+    findings: []
+
+  mapbox-maplibre-migration:
+    tier: green
+    is: "MapLibre GL JS to Mapbox GL JS: the fork's history, API compatibility, token setup, what changes."
+    notable: |
+      Explains the fork honestly, including why it happened. Also the most persuasive skill in the
+      corpus — a Why Migrate to Mapbox? section and a references/why-mapbox.md. Fair for a migration
+      guide, and worth knowing an agent reading it is reading advocacy alongside the API table.
+    findings:
+      - id: unsubstantiated-compliance-claim
+        severity: low
+        class: accuracy
+        where: references/why-mapbox.md:57
+        what: '"- GDPR compliant" as a bare comparison bullet.'
+        why: |
+          It is the only occurrence of GDPR in 6,128 lines, and it appears as a selling point rather
+          than as guidance. A compliance claim in a document an agent will paraphrase to a developer
+          should either carry a link to what it means or not be a bullet.
+
+  mapbox-mcp-devkit-patterns:
+    tier: green
+    is: "MCP DevKit Server in coding assistants: style management, token management, validation, docs access."
+    notable: "Shortest skill in the corpus at 99 lines, and the right length — it is a router to tools, not a tutorial."
+    findings: []
+
+  mapbox-mcp-runtime-patterns:
+    tier: blue
+    is: "MCP Server integration for agent frameworks: pydantic-ai, mastra, LangChain, CrewAI, smolagents, custom."
+    notable: |
+      The only skill in the corpus that ships executable code — 1,272 lines across five runnable
+      examples — and the code is exemplary on the thing that matters. Every example reads
+      MAPBOX_ACCESS_TOKEN from the environment, none hardcodes, and all five fail closed with a
+      raise or throw when it is absent. Every network destination is mcp.mapbox.com. This is the
+      skill most likely to be copied into production, and it is the one that earned the review.
+    findings:
+      - id: npx-at-runtime
+        severity: low
+        class: safety
+        where: AGENTS.md:73, AGENTS.md:92, AGENTS.md:132, references/pydantic-ai.md:71
+        what: "Documents spawning the MCP server with subprocess.Popen / spawn of npx @mapbox/mcp-server."
+        why: |
+          The documented and correct way to run a local stdio MCP server, so this is not a
+          complaint. It is a surface worth stating plainly: npx resolves and executes a package from
+          the registry at run time, inside the agent's process tree. Pinning a version and
+          pre-installing is the hardening step for anyone running this unattended.
+
+  mapbox-navigation-patterns:
+    tier: green
+    is: "Turn-by-turn directions, route optimization, live traffic, multi-stop routing, voice guidance, across web/iOS/Android."
+    notable: |
+      Carries 18 evals, by far the most in the corpus, and 9 explicit prohibitions — proportionate
+      for the skill whose output steers a moving vehicle. Also the only skill in the corpus that
+      uses the word consent. Includes references/android-performance-antipatterns.md, a file named
+      after its failure mode, which is a good habit.
+    findings: []
+
+  mapbox-search-integration:
+    tier: green
+    is: "End-to-end search implementation, from discovery questions through a production readiness checklist."
+    notable: |
+      Opens with a Discovery Phase that tells the agent to ask before building, and closes with a
+      checklist. Nine reference files including pitfalls.md and testing-monitoring.md. Correctly
+      prohibits sk.* tokens in client code (references/best-practices.md:305) and routes to
+      mapbox-token-security rather than restating it.
+    findings: []
+
+  mapbox-search-patterns:
+    tier: green
+    is: "Choosing the right search tool and parameters: geocoding versus POI search versus discovery."
+    notable: "A selection skill with an explicit decision matrix and a Common Mistakes section. No AGENTS.md, which makes the SKILL.md the whole story."
+    findings: []
+
+  mapbox-store-locator-patterns:
+    tier: green # the file is safe to load; its omission is about what you build with it, not what it does
+    is: "Store locators and nearby-place finders: markers, filtering, distance calculation, interactive lists."
+    notable: "Six reference files including optimization-a11y.md — accessibility treated as a first-class concern, which is rarer than it should be."
+    findings:
+      - id: location-collection-without-privacy-guidance
+        severity: medium
+        class: privacy-guidance
+        where: SKILL.md and references/geolocation-directions.md
+        what: |
+          The heaviest user-location surface in the corpus — 18 references to locating the user —
+          with one mention of permissions and no mention of consent, retention, or precision
+          reduction.
+        why: |
+          This is the corpus's privacy silence at its loudest, because this skill's entire job is
+          to take a person's position and use it. A store locator built from it works and asks
+          nicely, and nothing in the guidance suggests deciding how long to keep the coordinates or
+          whether to round them. The nearest-store answer does not need five decimal places.
+        fix: "A pointer to a privacy skill, the same way search-integration points at token-security."
+
+  mapbox-style-patterns:
+    tier: green
+    is: "A pattern library of style recipes by use case: restaurant finder, real estate, dark mode, delivery, navigation."
+    notable: |
+      Eight reference files, and the one other skills borrow from — both data-visualization and
+      store-locator send readers to its references/interactions.md. It is the de facto shared
+      library of the corpus.
+    findings: []
+
+  mapbox-style-quality:
+    tier: green
+    is: "Validating and optimizing styles: validation, accessibility checks, optimization, CI integration."
+    notable: |
+      Ships references/ci-integration.md, which is the difference between a quality skill and a
+      quality lecture — it tells you where the check runs, not just that it should.
+    findings: []
+
+  mapbox-token-security:
+    tier: green # safe and strong. The medium finding below is accuracy, not danger -- read it anyway
+    is: "Token security: types and scopes, URL restrictions, storage, rotation, incident response."
+    notable: |
+      The strongest safety skill in the corpus and the one we lean on most. 13 explicit
+      prohibitions, a correct and repeated separation of pk. from sk., a 7-step zero-downtime
+      rotation procedure, and references/incident-response.md for after it has gone wrong. Its
+      eval set is also the clearest demonstration in the repo of what evals are for, which is why
+      the finding below matters rather than embarrasses.
+    findings:
+      - id: unenterable-wildcard-guidance
+        severity: medium
+        class: accuracy
+        where: SKILL.md:156-158, SKILL.md:192, AGENTS.md:93-95, evals/evals.json:25
+        what: |
+          The skill recommends URL restriction patterns the Mapbox console will not accept. It
+          advises http://localhost:* for development (SKILL.md:158, AGENTS.md:93) and
+          https://*.myapp.com/* for subdomains (SKILL.md:156), and its own eval grades an answer
+          correct for "Recommends 'http://localhost:*' or 'http://127.0.0.1:*' for local
+          development" (evals.json:25). Entering a pattern with * returns "Wildcard characters (*)
+          are not supported in URL restrictions."
+        why: |
+          Measured against a live restricted token rather than inferred: restriction matching is
+          origin equality, not URL-prefix matching. With https://ebike-safari.com listed, referers
+          of /, /rides and /index.html all pass, so a trailing path wildcard has nothing to
+          express; and with http://localhost:5173 listed, 4173 and 3000 are refused, so a port
+          wildcard is exactly what a developer needs and cannot have. The two facts are one fact:
+          the implementation is consistent with itself, and the guidance describes prefix matching
+          for a system that does not do prefix matching.
+
+          The interesting part is not the error, it is the eval. A graded expectation that rewards
+          the unenterable answer freezes it: the suite passes, so the advice looks maintained. This
+          is the failure mode specific to evaluating judgment rather than output, and it is an
+          argument for the harness, not against it — without the eval file this would have been an
+          opinion about a doc page instead of a reproducible finding with a line number.
+        fix: |
+          List origins explicitly (http://localhost:5173, http://localhost:4173), drop the path
+          wildcard from the subdomain example, and update expectation 25 in lockstep. Offered
+          upstream as an issue or PR.
+
+  mapbox-web-integration-patterns:
+    tier: green
+    is: "Mapbox GL JS across React, Vue, Svelte, Angular, Next.js: setup, lifecycle, token handling, pitfalls."
+    notable: |
+      The most token-handling advice in the corpus — 45 env-var references — and it is correct:
+      framework-appropriate prefixes, placeholders rather than live tokens, public pk. for
+      client-side, and a Common Mistakes (Critical) section. Eight reference files, one per
+      framework, plus web-components.md.
+    findings:
+      - id: restriction-not-repeated-at-point-of-use
+        severity: low
+        class: accuracy
+        where: references/token-management.md
+        what: |
+          The file that walks a developer through putting a token into a bundle for each framework
+          never uses the words restrict or URL restriction. The SKILL.md Related Skills section does
+          point at mapbox-token-security.
+        why: |
+          Scoped deliberately small, because the pointer exists. The observation is about where it
+          sits: an agent deep in references/token-management.md is at the exact moment the token
+          enters a public bundle, and that is the cheapest place to spend one sentence on the fact
+          that a public token is readable by anyone who views source and should be origin-locked.
+
+  mapbox-web-performance-patterns:
+    tier: green
+    is: "GL JS performance: initialization waterfalls, bundle size, render cost, memory, mobile."
+    notable: |
+      Organizes itself by impact with explicit priority levels rather than by topic, so an agent
+      reading top-down fixes the expensive thing first. That ordering is itself the advice.
+    findings: []
+
+# Our own skill, audited with the same script and the same eyes. Listed separately because it is
+# not theirs and does not belong in a directory of their reports -- and included at all because a
+# scanner that only ever finds other people's problems is not a scanner, it is a press release.
+self:
+  name: moollm/skills/mapbox
+  tier: yellow # a medium safety-class finding, by the same rule applied to them. Read it before you run it.
+  is: "A router over the twenty official skills, plus the local realities they do not cover: token roles, measured referer behavior, surface selection."
+  notable: |
+    Holds the most dangerous capability in this entire comparison. Nineteen of Mapbox's twenty
+    skills cannot execute anything; ours shells out to a password manager and can resolve a live
+    production credential. That asymmetry belongs in the open.
+  findings:
+    - id: reads-a-credential-store
+      severity: medium
+      class: safety
+      where: scripts/mapbox_router.py:255-262 (op_read), :392
+      what: "Shells out to subprocess.run(['op', 'read', ref, '--account', ...]) and receives a live token."
+      why: |
+        The capability is the point — resolving by reference is what keeps tokens out of pasted
+        strings and shell history — but it is still the one thing here that touches a vault.
+      mitigations:
+        - "Never prints more than a prefix: line 396 emits three characters and a length, never the token."
+        - "Read-only. No op write, no op item create, nothing that could alter the vault."
+        - "Fails soft: returns None when op is absent, so it degrades instead of prompting."
+        - "The token is used for exactly one thing, a 403-versus-200 probe against api.mapbox.com."
+
+    - id: token-in-query-string
+      severity: low
+      class: safety
+      where: scripts/mapbox_router.py:400
+      what: "Builds PROBE_URL?access_token=<token> to test referer enforcement."
+      why: |
+        Mapbox's own API takes the token as a query parameter, so there is no header alternative to
+        prefer. Recorded because query-string credentials are the kind of thing that ends up in
+        access logs and shell history generally. Here the URL is never printed and never written.
+
+    - id: reproduces-curl-pipe-sh
+      severity: low
+      class: safety
+      where: SKILL.md:151, CARD.yml:23, scripts/mapbox_router.py:382
+      what: "Tells the operator to install the CLI with curl -fsSL https://cli.mapbox.com/install.sh | sh."
+      why: |
+        Mapbox's documented install method, repeated faithfully — which is the problem. Piping a
+        remote script into a shell is a pattern we would flag in someone else's skill, and citing
+        the vendor is an explanation rather than a defense. Listed so the double standard is on the
+        record rather than in the reader's head.
+
+    - id: deliberate-evil-referer
+      severity: info
+      class: hygiene
+      where: scripts/mapbox_router.py:406
+      what: "Sends Referer: https://evil.example.com/ on purpose."
+      why: |
+        A negative control: a restricted token must return 403 for an origin that is not on its
+        list, and the only way to know is to be that origin. Any pattern scanner will flag the
+        string. Reading the line resolves it in five seconds, which is the whole argument for
+        two-phase scanning.
+
+    - id: committed-operator-identifiers
+      severity: info
+      class: hygiene
+      where: CARD.yml:142-150, SKILL.md:183-184, scripts/mapbox_router.py:152-160
+      what: "Contains a 1Password account name and vault item paths (op://Employee/Mapbox/...)."
+      why: |
+        References, not secrets — worthless without the vault and the hardware behind it. Deliberate:
+        this skill is operator-specific by design, and a reference nobody can resolve is not a
+        credential. Recorded because an automated scan will and should notice them.
+
+    - id: unpublished-outward-facing-docs
+      severity: low
+      class: hygiene
+      where: "git status: skills/mapbox/README.md, skills/mapbox/CAULDRON.md"
+      what: "Both untracked at audit time, while GLANCE.yml and mapbox_router.py carry uncommitted modifications."
+      why: |
+        A consistency finding, and the practical one. The README is the document written to be sent
+        to someone at Mapbox, and it does not exist in the repository it points people at.

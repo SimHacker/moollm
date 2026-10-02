@@ -54,6 +54,11 @@ Xanadu promised a medium that keeps faith with its documents. MOOLLM's wager is 
 
 Not a tool you use. A place you can live in. Directories are rooms; the door is open.
 
+The unit you send is not the graph. It is a **trail**: path plus attention mask.
+Bush called the mask a skip trail. Minsky called the view a P-pyramid. Ted's test,
+BayCHI 2021: sendable, a point of view, a person made it. Same file. Git already
+stores it. [TRAILS.md](../designs/TRAILS.md).
+
 - [README.md](../README.md) — what this place is.
 - [QUICKSTART.md](../QUICKSTART.md) — get playing in two minutes.
 - [PIONEERS.md](./PIONEERS.md) — the lineage, 22 giants.

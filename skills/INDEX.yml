@@ -684,6 +684,19 @@ planned:
   - id: yaml-coltrane
     description: "YAML Jazz lifecycle"
 
+  - id: eval-harness
+    description: "Rubric-graded regression tests for a skill's judgment"
+    status: "parked 2026-09-20 — interesting, not scheduled"
+    cauldron: skills/mapbox/CAULDRON.md
+    why: |
+      Mapbox ships evals/evals.json per skill: hard prompts, expectations scored 0-3 by a
+      judge model, diffed against a baseline. moollm has no measurement rung — GLANCE, CARD,
+      SKILL and README are all description. The draw is the ambient eleven, whose behavioural
+      claims are currently untested; the upgrade upstream lacks is a without-skill ablation
+      arm, which turns "did my edit regress?" into "does this skill do anything at all?"
+      The trap: an eval preserves its author's errors: theirs now rewards wildcard URL
+      patterns the Mapbox console rejects.
+
 # INDEX
 
 all_skills:

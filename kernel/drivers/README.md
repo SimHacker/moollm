@@ -17,6 +17,7 @@ hardware, MOOLLM drivers adapt to different LLM orchestrators.
 
 | Driver | Orchestrator | Tier | Key Features |
 |--------|-------------|------|--------------|
+| `copilot.yml` | GitHub Copilot in VS Code | 4 | Agent tools, search, terminal, host integrations |
 | `cursor.yml` | Cursor IDE | 4 | File tools, search, terminal |
 | `claude-code.yml` | Claude Code | 5 | MCP, custom tools possible |
 | `antigravity.yml` | Antigravity | 5 | Browser, native tools, agentic loop |

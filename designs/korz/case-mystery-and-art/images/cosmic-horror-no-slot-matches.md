@@ -54,7 +54,7 @@ a scale and a stamp, and no name in either signature field. The drawing was made
 **no one would attach themselves to it.**
 
 That is an unattributed observer — the same failure the
-[scramble suit](../../../pkd/perky-pat-and-a-scanner-darkly.md) names from the other direction, where
+[scramble suit](../../../pkd/a-scanner-darkly.md) names from the other direction, where
 severing the watcher's identity is what severs the mind. Here it arrives as institutional
 self-protection: the record exists, the verdict is `NO SLOT MATCHES`, and the accountability line is
 blank. A plate that reports an unbindable class and declines to say who reports it.

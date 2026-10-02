@@ -7,4 +7,4 @@ This repository is a MOOLLM-enabled microworld. It is not itself a skill, but it
 - Kernel and drivers live in `kernel/`
 - Current adventure: `examples/adventure-4/ADVENTURE.yml`
 
-See `kernel/drivers/cursor.yml` for Cursor advisory behavior and `skills/bootstrap/` for the bootstrap sequence (PROBE → DETECT-DRIVER → SETUP → WARM-CONTEXT → SELF-DESCRIBE → STARTUP).
+See `kernel/drivers/copilot.yml` for GitHub Copilot in VS Code, `kernel/drivers/cursor.yml` for Cursor-specific behavior, and `skills/bootstrap/` for the bootstrap sequence (PROBE → DETECT-DRIVER → SETUP → WARM-CONTEXT → SELF-DESCRIBE → STARTUP).

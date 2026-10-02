@@ -71,5 +71,5 @@ name is *Meister*. The guild vocabulary was in the title the whole time.
 
 **Up:** [the essay](../README.md) · **Pile:** [`INDEX.yml`](INDEX.yml) · **See also:**
 [`purpose-dimension.md`](../../korz-prime/examples/purpose-dimension.md) — where `whose_purpose` is
-specified · [`../../../pkd/palmer-eldritch-captured-purpose.md`](../../../pkd/palmer-eldritch-captured-purpose.md)
+specified · [`../../../pkd/perky-pat-and-palmer-eldritch.md`](../../../pkd/perky-pat-and-palmer-eldritch.md)
 — the same coordinate captured instead of earned

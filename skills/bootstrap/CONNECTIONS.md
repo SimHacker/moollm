@@ -275,6 +275,7 @@ MOOLLM provides **abstract high-level interfaces** that work differently on diff
 
 ```
 kernel/drivers/
+├── copilot.yml     # Tier 4 — GitHub Copilot in VS Code
 ├── cursor.yml       # Tier 4 — Cursor IDE
 ├── claude-code.yml  # Tier 5 — Claude Code + MCP
 ├── custom.yml       # Tier 6 — Full orchestrator control
@@ -290,18 +291,21 @@ At bootstrap, ask yourself:
 ```yaml
 # Step 1: What does my system prompt say?
 system_prompt_check:
+  "GitHub Copilot in VS Code"       → GitHub Copilot
   "You operate in Cursor"           → Cursor IDE
   "Claude Code"                     → Claude Code
   "MOOLLM_DRIVER"                   → Custom orchestrator
   
 # Step 2: What tools do I have?
 tool_check:
+  read_file + apply_patch + semantic_search + run_in_terminal → Copilot (confirm system identity)
   codebase_search + search_replace  → Cursor (99% confidence)
   View + Edit + mcp_*               → Claude Code
   tools with 'why' parameter        → Custom MOOLLM orchestrator
   
 # Step 3: Select driver and adapt behavior
 driver_selection:
+  copilot:    { tier: 4, hot_cold: advisory }
   cursor:     { tier: 4, hot_cold: advisory }
   claude_code: { tier: 5, hot_cold: hybrid }
   custom:     { tier: 6, hot_cold: magic }

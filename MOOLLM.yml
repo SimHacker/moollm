@@ -4,7 +4,7 @@ name: moollm
 type: microworld  # Not a skill; skill-like metadata for discovery
 world_id: moollm://moollm
 version: 0.1.0
-description: "MOOLLM-enabled microworld; skills and kernel drivers for Cursor/Claude."
+description: "MOOLLM-enabled microworld; skills and kernel drivers for Copilot, Cursor, Claude, and other orchestrators."
 
 repo:
   github: SimHacker/moollm
@@ -16,6 +16,8 @@ adventure:
 
 driver:
   primary: kernel/drivers/cursor.yml
+  alternatives:
+    - kernel/drivers/copilot.yml
 
 templates:
   working_set: skills/bootstrap/templates/working-set.yml

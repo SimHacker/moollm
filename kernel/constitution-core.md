@@ -342,6 +342,13 @@ At session start, determine which driver applies:
 
 ```yaml
 driver_detection:
+  copilot:
+    indicators:
+      - "GitHub Copilot in VS Code"
+      - "GitHub Copilot system identity"
+      - "Copilot agent tools such as apply_patch and semantic_search"
+    load: "drivers/copilot.yml"
+
   cursor:
     indicators:
       - "Running in Cursor IDE"
@@ -378,9 +385,9 @@ Different orchestrators provide different capabilities:
 |------|-------------|---------------|
 | 0 | Text only, no tools | Basic chat |
 | 1 | File read | Most IDEs |
-| 2 | File read/write | Cursor, Claude Code |
-| 3 | + Search | Cursor, Claude Code |
-| 4 | + Execution | Cursor, Claude Code |
+| 2 | File read/write | Copilot, Cursor, Claude Code |
+| 3 | + Search | Copilot, Cursor, Claude Code |
+| 4 | + Execution | Copilot, Cursor, Claude Code |
 | 5 | + Custom tools (MCP) | Claude Code, Custom |
 | 6 | + Full kernel control | Custom only |
 

@@ -17,7 +17,7 @@ agent is **one more input modality** rather than a replacement for the others.
 
 ## It is the existing lint with one more row
 
-[`TREE-NAVIGATION.md`](https://github.com/SimHacker/moollm/blob/main/designs/webtop/TREE-NAVIGATION.md)
+`[TREE-NAVIGATION.md](https://github.com/SimHacker/moollm/blob/main/designs/webtop/TREE-NAVIGATION.md)`
 already states the invariant: every structural operation reachable by **keyboard, pie menu, and
 drag**, all three invoking the same named command — not three code paths that happen to agree —
 and it states it as a lint rather than a taste, because that is the only version that survives
@@ -33,7 +33,7 @@ In [Korz](https://github.com/SimHacker/moollm/blob/main/designs/korz/README.md) 
 being a principle and becomes something you can grep for.
 
 The capability is a **slot**. Keyboard, pie, drag, and agent are coordinates on a `via` dimension.
-A properly factored capability is **guarded on the receiver and silent about `via`** — it does not
+A properly factored capability is **guarded on the receiver and silent about** `via` — it does not
 care who is asking:
 
 ```yaml
@@ -43,7 +43,7 @@ delete_subtree:
 
 An asymmetry is therefore a guard you can *see*, and the audit is mechanical:
 
-> **Find every slot whose guard mentions `via`, and justify each one.**
+> **Find every slot whose guard mentions** `via`**, and justify each one.**
 
 An agent-only capability shows up as `via: agent`. A human-only one shows up the same way pointed
 the other direction. Neither can hide in the gap between two code paths, which is where they
@@ -53,11 +53,13 @@ normally live.
 
 The naive version dies on first contact with spam, so state it properly:
 
-| Symmetric | May differ, and must differ *visibly* |
-|---|---|
-| What can be done at all | Rate, batch size, cost, blast radius |
-| The name of the command | Whether a step is held for confirmation |
-| Whether the result is inspectable | Quota, priority, scheduling |
+
+| Symmetric                         | May differ, and must differ *visibly*   |
+| --------------------------------- | --------------------------------------- |
+| What can be done at all           | Rate, batch size, cost, blast radius    |
+| The name of the command           | Whether a step is held for confirmation |
+| Whether the result is inspectable | Quota, priority, scheduling             |
+
 
 A human cannot send ten thousand messages a second and an agent can. CAPTCHAs, rate limits and
 `robots.txt` are asymmetries pointed at machines and some of them are load-bearing. None of that
@@ -80,12 +82,14 @@ it is a *backed-up belt you can see*. The bottleneck is visible, local, and diag
 Compare that to an HTTP 429 with no budget disclosed, which is the same asymmetry administered
 invisibly.
 
-| | Factorio | The chat-box pattern |
-|---|---|---|
-| Capability | Identical recipe graph, hand and machine | Agent-only; no manual path |
-| Throughput | Differs by orders of magnitude, **and is rendered** | Differs, and is a secret |
-| Diagnosing a limit | Look at the belt | Read a status code |
-| Progression | Hand first, automate what hurt | Automated first, hand never |
+
+|                    | Factorio                                            | The chat-box pattern        |
+| ------------------ | --------------------------------------------------- | --------------------------- |
+| Capability         | Identical recipe graph, hand and machine            | Agent-only; no manual path  |
+| Throughput         | Differs by orders of magnitude, **and is rendered** | Differs, and is a secret    |
+| Diagnosing a limit | Look at the belt                                    | Read a status code          |
+| Progression        | Hand first, automate what hurt                      | Automated first, hand never |
+
 
 The honest wrinkle, because pretending otherwise would be advocacy rather than analysis: Factorio
 *does* withhold a few capabilities. You cannot hand-smelt ore into plates, and recipes involving
@@ -97,7 +101,7 @@ justifications are good.
 The six-stage progression this produces — hand-craft, spaghetti, bottleneck discovery, pattern
 recognition, modular cells, trade-offs — is already worked out against cloud engineering and MOOLLM
 skill development in
-[`designs/FACTORIO-MOOLLM-DESIGN.md`](https://github.com/SimHacker/moollm/blob/main/designs/FACTORIO-MOOLLM-DESIGN.md),
+`[designs/FACTORIO-MOOLLM-DESIGN.md](https://github.com/SimHacker/moollm/blob/main/designs/FACTORIO-MOOLLM-DESIGN.md)`,
 along with the reason it cannot be short-circuited: *you can't start at Stage 5.*
 
 ### Why the hand stage is load-bearing and not nostalgia
@@ -133,8 +137,7 @@ The point is not that users should suffer. It is that **the capability ceiling a
 floor are different dials**, and the industry keeps lowering the ceiling in the name of raising the
 floor. A car with an accelerator is not less convenient than a car limited to 8 mph.
 
-`verified: Engelbart Glossary, invisiblerevolution.net, "What About People Who Just Want To Get
-Their Job Done" — session 2, 7/25/2000, interviewed at Engelbart's residence by Frode Hegland.`
+`verified: Engelbart Glossary, invisiblerevolution.net, "What About People Who Just Want To Get Their Job Done" — session 2, 7/25/2000, interviewed at Engelbart's residence by Frode Hegland.`
 
 ### And the sharper version, put directly to Minsky
 
@@ -157,19 +160,18 @@ machines?"* The honest answer is **both, through the same interfaces**, which is
 Two cautions before quoting it anywhere, both of which bite:
 
 - **Quote Engelbart's line, paraphrase Minsky's.** Lanier's is the first-hand chain — *"Engelbart
-  once told me"* — and he gives Minsky's side as reported speech. **Kelly printed a script version
-  eleven years earlier** with speaker labels (`MINSKY: We're going to make machines intelligent…`),
-  flagged even there as what the two were "reputed to have had." That version spread, reads like a
-  transcript, and nobody recorded anything. Markoff's *Harper's* piece reproduces Kelly, so it is
-  not a second witness.
+once told me"* — and he gives Minsky's side as reported speech. **Kelly printed a script version
+eleven years earlier** with speaker labels (`MINSKY: We're going to make machines intelligent…`),
+flagged even there as what the two were "reputed to have had." That version spread, reads like a
+transcript, and nobody recorded anything. Markoff's *Harper's* piece reproduces Kelly, so it is
+not a second witness.
 - **Do not say where it happened.** Lanier sets up the AI side as "centered on the Stanford AI lab"
-  and then illustrates with Minsky, who ran MIT's.
+and then illustrates with Minsky, who ran MIT's.
 
-`verified: Jaron Lanier, "Early Computing's Long, Strange Trip," American Scientist 93(4),
-Jul–Aug 2005, p. 1.`
+`verified: Jaron Lanier, "Early Computing's Long, Strange Trip," American Scientist 93(4), Jul–Aug 2005, p. 1.`
 [Wayback capture](https://web.archive.org/web/20110312232514/https://www.americanscientist.org/bookshelf/pub/early-computings-long-strange-trip)
 · full apparatus, both cautions and the counter-position sourced:
-[WWSFF `jaron-lanier/sources/2005-american-scientist-dormouse.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jaron-lanier/sources/2005-american-scientist-dormouse.md)
+[WWSFF](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jaron-lanier/sources/2005-american-scientist-dormouse.md) `jaron-lanier/sources/2005-american-scientist-dormouse.md`
 
 **The nine-word modern form** is David Temkin's *In Formation* tagline — **"Every day, computers are
 making people easier to use"** — which is Engelbart's question answered in the past tense, and Ted
@@ -179,11 +181,11 @@ litigated before and is not a new position.
 
 ## The specimen: quora-harvest exists because of an asymmetry
 
-[`skills/quora-harvest`](https://github.com/SimHacker/moollm/tree/main/skills/quora-harvest) was
+`[skills/quora-harvest](https://github.com/SimHacker/moollm/tree/main/skills/quora-harvest)` was
 not built because scraping is fun. It was built because a human reading a Quora thread must defeat
 three independent fold mechanisms by hand, losing the whole assembly to one mistaken click, while a
 script does it in one pass and republishes flat — see
-[`view-state-is-the-users`](view-state-is-the-users.md) for the full anatomy of that failure.
+`[view-state-is-the-users](view-state-is-the-users.md)` for the full anatomy of that failure.
 
 The capability existed. It was simply not available through the surface aimed at people. The tool is
 the correction, and the fact that the only available correction was *to take the machine's side* is
@@ -215,18 +217,58 @@ thing a person can do that the agent cannot.** If either answer is long, the sur
 from the capabilities. If either answer is *"I don't know"*, the `via` guards were never written
 down and there is nothing to audit.
 
+Third test, the demonstration one: **do it yourself, then ask what the system recorded.** If the
+answer is a named command with arguments, you have an example and the next section applies. If the
+answer is a pixel delta, a screenshot, or nothing at all, the capability was never factored out of
+the surface — it was only ever drawn there.
+
 ## What to do instead of a chat box
 
 Keep the surface and add the modality. An agent that drives the same named commands a person drives
 produces, for free, a trace that is replayable, diffable, teachable, and refusable — which is what
-[`../../thoughtful-commitment/`](../../thoughtful-commitment/) needs to be able to hold a
+`[../../thoughtful-commitment/](../../thoughtful-commitment/)` needs to be able to hold a
 consequential step, and what `cursor-mirror` needs in order to show you what actually happened
 rather than what got reported.
 
+## The trace runs both ways, which is programming by demonstration
+
+The paragraph above points one way: an agent drives named commands, so its work leaves something a
+person can read. Point it the other way and the lens yields a claim it was always implying —
+**if a human can do it, then doing it is a demonstration.**
+
+One named command with a `via` dimension means a human invocation and an agent invocation are
+recorded in **the same form**. So a person simply working is already emitting a program, and nothing
+extra has to be built to capture their intent. The factoring that made the agent auditable is the same
+factoring that makes the human learnable-from; it is one mechanism read in two directions.
+
+
+| Direction                   | What the trace is                          | What it buys                                                                 |
+| --------------------------- | ------------------------------------------ | ---------------------------------------------------------------------------- |
+| Agent acts, human reads     | An audit log of named commands             | Replay, diff, refusal, [thoughtful-commitment](../../thoughtful-commitment/) |
+| **Human acts, agent reads** | **An example, with a before and an after** | **Generalisation from two cases — programming by demonstration**             |
+
+
+This is why [Cypher](../masters/allen-cypher.md) and [Lieberman](../masters/henry-lieberman.md) are on
+the shelf rather than in a history section. **Programming by demonstration was never bottlenecked on
+capture — it was bottlenecked on generalisation.** Pygmalion and Eager had the trace and then had to
+guess the intent from it with hand-written heuristics, which is also the hard part of
+[Teitelman's](../masters/warren-teitelman.md) DWIM. Inferring intent from a couple of examples is the
+one thing current models are unreasonably good at, so that work is **unblocked, not superseded** — and
+a system built to this lens is already producing its input.
+
+The loop closes on correction. When an agent's proposal arrives as a manipulable object instead of a
+message, **accepting, nudging or rejecting it is another demonstration.** No feedback widget, no
+thumbs up, no separate labelling pass: the interaction that fixes this answer is the interaction that
+teaches the next one.
+
+Which is the second expensive thing the chat box removes, and the reason to state it in these terms:
+**a description is not a demonstration.** It has no before and after, it cannot be replayed, it
+cannot be diffed, and it has to be given again next time.
+
 **Go deeper:**
-[`../../../designs/AXES-NOT-CAMPS.md`](../../../designs/AXES-NOT-CAMPS.md) — the axis, the
+`[../../../designs/AXES-NOT-CAMPS.md](../../../designs/AXES-NOT-CAMPS.md)` — the axis, the
 Shneiderman/Maes transcript, and the responsibility gauntlet ·
-[`../../../designs/PROSTHETICS.md`](../../../designs/PROSTHETICS.md) — replacing a surface with an
+`[../../../designs/PROSTHETICS.md](../../../designs/PROSTHETICS.md)` — replacing a surface with an
 agent is the anti-prosthetic move, stated generally
 
 **See:** [direct-manipulation](direct-manipulation.md) ·

@@ -153,10 +153,9 @@ structural, not a promise — the staleness indicator and the printed meter are 
 
 ## See also
 
-- [palmer-eldritch-captured-purpose.md](palmer-eldritch-captured-purpose.md) — the vendor in the
-  session rather than as the session
-- [perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md) — the dollhouse, the
-  aftermarket, the watching mind
+- [perky-pat-and-palmer-eldritch.md](perky-pat-and-palmer-eldritch.md) — the dollhouse and its
+  aftermarket, and the vendor in the session rather than as the session
+- [a-scanner-darkly.md](a-scanner-darkly.md) — the watching mind, and what severing its credit costs
 - [`purpose-dimension.md`](../korz/korz-prime/examples/purpose-dimension.md) — `whose_purpose`
 - [`robust-first`](../../skills/robust-first/SKILL.md) — survive > heal > function > optimize, and
   the bill this novel presents for it

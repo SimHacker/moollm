@@ -1,34 +1,46 @@
 # Philip K. Dick wrote the design documents first
 
-*The literary-deconstruction room. Four texts that specify mechanisms this project independently
-arrived at, in two cases more clearly than our own specs did. Moved out of
-[`designs/sims/`](../sims/) because the material cross-cuts the sims work, Korz, soul-city and the
-webtop, and belongs to none of them.*
+*The literary-deconstruction room. Texts that specify mechanisms this project independently arrived at,
+in several cases more clearly than our own specs did. Moved out of [`designs/sims/`](../sims/) because
+the material cross-cuts the sims work, Korz, soul-city and the webtop, and belongs to none of them.*
 
-## The pile
+**This page describes all of them. The readings live in the story documents below.**
 
-| Text | Year | What it specifies | Read it for |
-|---|---|---|---|
-| **The Days of Perky Pat** | 1963 | the dollhouse, its accessory aftermarket, its modding community, and the incompatible-doll wager | [perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md) |
-| **The Three Stigmata of Palmer Eldritch** | 1965 | the business model; and separately, **a capability that works perfectly with a captured `whose_purpose`** | [business model](perky-pat-and-a-scanner-darkly.md) · [captured purpose](palmer-eldritch-captured-purpose.md) |
-| **Ubik** | 1969 | **specificity ordering failing downward, as an experience**; a receiver metered by reading it; the audit log as the thing that convicts the operator | [ubik.md](ubik.md) |
-| **Do Androids Dream of Electric Sheep?** | 1968 | the control group — a **fraudulent** product with an **uncaptured** purpose, which keeps working after exposure | [inside the Eldritch reading](palmer-eldritch-captured-purpose.md#the-control-group-arrives-three-years-later) |
-| **The Man in the High Castle** | 1962 | **the bright pass applied to ontology** — a book containing a re-reading of its own world | [below](#the-man-in-the-high-castle-is-the-re-reading-novel) |
-| **A Scanner Darkly** | 1977 | the job of watching your own household; the scramble suit as the failure mode of an unattributed observer | [perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md) |
+## The story documents
 
-## The three findings, if you read nothing else
+| Document | Texts | The mechanism it specifies |
+|---|---|---|
+| [**perky-pat-and-palmer-eldritch.md**](perky-pat-and-palmer-eldritch.md) | *The Days of Perky Pat* (1963) · *The Three Stigmata of Palmer Eldritch* (1965) · *Do Androids Dream of Electric Sheep?* (1968) | The dollhouse, its accessory aftermarket, and the incompatible-doll wager — then the same layout sold as a business, and what breaks when the shared object is removed: **a capability that works perfectly with a captured `whose_purpose`**. *Do Androids Dream* is the control group |
+| [**ubik.md**](ubik.md) | *Ubik* (1969) | **Specificity ordering failing downward, as an experience**; a receiver metered by reading it; the audit log as the thing that convicts the operator |
+| [**a-scanner-darkly.md**](a-scanner-darkly.md) | *A Scanner Darkly* (1977) | The job of watching your own household; the scramble suit as the failure mode of an unattributed observer |
+
+*The Man in the High Castle* (1962) is read [below](#the-man-in-the-high-castle-is-the-re-reading-novel)
+rather than in its own document, because what it specifies is a property of **re-reading** rather than a
+mechanism in the running system.
+
+**Why the first two novels share a page:** the novel reuses the short story's object — Can-D translates
+the colonists *into the Perky Pat layout* — so they are one argument in sequence. A shared object on a
+table, then furniture sold for it forever, then the shared object removed and the vendor moving into the
+room. Splitting them made readers hop mid-argument. What does *not* carry across between them is
+[tabulated on that page](perky-pat-and-palmer-eldritch.md#where-the-two-texts-diverge).
+
+## The findings, if you read nothing else
 
 **A real product with a captured purpose is worse than a fake product with a clean one.** Chew-Z is
 genuine and better than its competitor in every dimension a user would name, and it binds the vendor
 as a silent co-receiver on every dispatch. Mercerism is a proven fraud filmed on a soundstage, and it
 keeps working after the exposure, because the binding was never the vendor's to hold. Authenticity
 audits cannot see the difference; `whose_purpose` can.
-→ [palmer-eldritch-captured-purpose.md](palmer-eldritch-captured-purpose.md)
+→ [perky-pat-and-palmer-eldritch.md](perky-pat-and-palmer-eldritch.md#the-control-group-arrives-three-years-later)
 
 **Plasticity is purchased by admitting the vendor.** Can-D's world is a rigid physical layout you
 cannot change from inside, and that rigidity is what makes it auditable — the shared object is the
 referent that lets two users compare notes. Chew-Z's world is infinitely plastic and has the
 proprietor in it. Every migration from a local artifact to a hosted service is this trade.
+
+**Anything the origin cannot express, it cannot receive.** Two shelters' layouts meet, and the fight is
+that one of them has no way to represent a change in marital status. That is the
+[soul bridge](../../skills/soul-city/SOUL-BRIDGES.md) problem, made a wager in 1963.
 
 **Graceful degradation is invisible from inside.** *Ubik*'s regression of form is a prototype chain
 showing through: the specific binding stops matching and dispatch resolves against an ancestor that
@@ -36,6 +48,10 @@ was always there, producing a world that is internally consistent at every stage
 1939 car runs. So if a system may fall back, **the view must say which rung it is standing on** —
 which is the bill for [`robust-first`](../../skills/robust-first/SKILL.md), presented by a novel.
 → [ubik.md](ubik.md)
+
+**Severing credit severs the mind.** The scramble suit exists so the watcher has no identity, and Fred
+stops being able to tell that he is watching Bob. Attribution is the mechanism, not the paperwork.
+→ [a-scanner-darkly.md](a-scanner-darkly.md)
 
 ## The Man in the High Castle is the re-reading novel
 
@@ -87,6 +103,17 @@ the LLOOOOMM corpus — is *Ubik* crossed with Weiser's ubiquitous computing.
 | the advertisement economy | *Ubik*'s chapter epigraphs, addressed to a frame **above** the story |
 | a shared inspectable referent | the Perky Pat layout, versus a generated private world |
 | expressible state at a boundary | the Connie Companion wager — Pinole's layout cannot represent marriage |
+| credited event stream | the scramble suit, inverted |
+
+## What we take, and what we refuse
+
+**Take:** the layout as an inspectable shared object; the expressible-state argument from the Connie
+Companion wager; the aftermarket as the business; the observing mind as a real job; and the credited
+stream as the thing that keeps a split person one person.
+
+**Refuse:** the scramble suit, and the private world nobody else can check. No unattributed observer,
+no institution that assigns you to watch your own house without telling you it is your house, and no
+world whose vendor is a silent passenger on every dispatch inside it.
 
 ## One open claim, kept open
 
@@ -94,7 +121,7 @@ Don has consistently held that **Perky Pat inspired The Sims** and says he can s
 structural case is strong and documented; the citation that would settle *influence* rather than
 *parallel* is not in hand, and the two claims are kept separate on purpose. Details and the specific
 question outstanding:
-[Don's claim, recorded as a claim](palmer-eldritch-captured-purpose.md#dons-claim-about-the-sims-recorded-as-a-claim).
+[Don's claim, recorded as a claim](perky-pat-and-palmer-eldritch.md#dons-claim-about-the-sims-recorded-as-a-claim).
 
 ## Adjacent case files elsewhere
 

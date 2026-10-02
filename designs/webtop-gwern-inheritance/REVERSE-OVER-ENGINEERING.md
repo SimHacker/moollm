@@ -11,8 +11,12 @@ the [gwern.net repo](https://github.com/gwern/gwern.net) is large because the pr
 2. **Underneath is still static** — Hakyll + Pandoc + generated HTML + vanilla JS pub/sub
    ([unofficial docs summary](https://gwern.pleometric.net/)). No React; intentional.
 3. **We are not forking Gwern** — we inherit patterns into MOOLLM/Micropolis/Repo Show.
-4. **Reverse over-engineering** — Will Wright's phrase: infer design intent from behavior +
-   artifacts; hold hypotheses lightly.
+4. **Reverse over-engineering** — Don's phrase, not Will's. From the first day
+   he played SimCity, then while working with Will on SimCity, The Sims, and
+   later games: recover more design than the artifact contained; mark guesses
+   as guesses. Will's **simulation effect** is the other direction — players
+   imagine a richer model than the code ran. This file does Don's move to
+   gwern.net. Building a city so players do Will's move is a different job.
 
 ## Mirror targets
 

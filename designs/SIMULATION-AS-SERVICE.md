@@ -139,11 +139,11 @@ collar:
 cat:
   name: Napoleon
   collar: home-automation/gps-collars/blue-collar.yml  # Two-way link
-  color: "orange tabby"
+  color: "Chocolate Tuxedo"
   
   sims_stats:
     hunger: 65
-    comfort: 80
+    comfort: 95      # *blink* *blink* *puurrrrr*
     hygiene: 70
     energy: 45       # Nap time approaching
     fun: 60
@@ -180,7 +180,7 @@ The simulator responds to:
    - energy: -5 (adventure is tiring)
    - fun: +10 (adventure is fun!)
 5. Ring camera captures cat at gate
-6. Vision stack confirms: "orange tabby, 95% confidence"
+6. Vision stack confirms: "chocolate tuxedo, 95% confidence"
 7. GitHub issue created: "Napoleon went on adventure"
 8. SMS alert to owner (configurable)
 ```

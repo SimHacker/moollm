@@ -15,6 +15,7 @@ one axis that matters here: browsing a large corpus without losing your place.
 | [**FOCUS-FLOW.md**](FOCUS-FLOW.md) | Reveal-all-links plus the missing dimension, order: OpenLaszlo's animated chevrons between tab stops applied to the whole focus sequence, text and pop-out image targets on one path, with the 1991 paper's own "slight movement... readily detectable to the eye" as the argument that the motion is load-bearing |
 | [**HN-ARCHIVE.md**](HN-ARCHIVE.md) | Don's Medium archive of the HN threads and Shneiderman correspondence, **distilled** — sorted by claim, receipts attached, redundancy collapsed |
 | [**TEAM.md**](TEAM.md) | Shneiderman's lab: who did what, over a decade, with the timeline and the papers |
+| [**THE-GOOD-PARTS.md**](THE-GOOD-PARTS.md) | HyperTIES lives: EDL as IR, views as the right-grain feed, the server jump is a CORS proxy plus saved views, Xanadu's good parts as organelles |
 
 Primary source: [HyperTIES Discussions from Hacker News](https://donhopkins.medium.com/hyperties-discussions-from-hacker-news-937d156f0330),
 Don Hopkins, Medium, 13 January 2022 — 74 minutes of "rough wall of text and redundancy" that he
@@ -224,7 +225,9 @@ one IDE), Frontier (outline as code and data, object DB, view state in the docum
 (popups as windows, annotation, local archives, semantic zoom), Declare and Mesa (constraints,
 zoomable spatial canvas shared with an agent).
 
-None of them ever met each other.
+None of them ever met each other. The meeting is [THE-GOOD-PARTS.md](THE-GOOD-PARTS.md):
+HyperTIES as the host that goes to them, speaking their addresses, keeping the 1988
+definition rung.
 
 ↑ [webtop hub](../README.md) · [gwern](../gwern/) · [winer](../winer/) ·
 [view state as commentary](../../pie-stack-views/VIEW-STATE-ANCESTORS.md)

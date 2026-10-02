@@ -157,6 +157,7 @@ binds the cycle without walking it forever. Attention decay as a base case.
 | Strassmann butterfly diagrams ([mind-mirror](../skills/mind-mirror/HALLS-AND-ROOMS.md)) | A butterfly is a minimal local P-pyramid: P at the head, one level of inbound links on the left wing, outbound on the right. Growing a wing is raising that node's weight. |
 | [Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind) | The memo's own frame: agents in a lattice, inputs from below and the side, outputs upward. P at the tip is not the boss of the network; P is where this particular look-down happens to stand. |
 | Context window | The context IS a P-pyramid over the repo: a curated, weighted, hierarchical selection from a graph that is not hierarchical. Context assembly = pyramid construction. Compaction = global attention decay — and the level-band principle says what compaction should keep: the middle. |
+| [Bush skip trail / TRAILS.md](TRAILS.md) | Same object, 1945 name. A skip trail "stops only on the salient items" — an attention mask over a rank, sendable, versionable. P-pyramid is Minsky's spelling of the deployed view. |
 
 ## The philosophical point
 

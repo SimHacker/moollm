@@ -535,6 +535,8 @@ The trail was.
 
 ## Related
 
+- [`designs/TRAILS.md`](TRAILS.md) -- skip trail, attention mask, and P-pyramid are one object
+- [`designs/P-PYRAMID.md`](P-PYRAMID.md) -- Minsky's name for the deployed mask
 - [`designs/editing-history/`](editing-history/README.md) -- clipboard and undo as history; Nelson's
   transclusion and provenance stripe
 - [`designs/webtop/ROOM-STROLLING.md`](webtop/ROOM-STROLLING.md) -- traversal as motion through a

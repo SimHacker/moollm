@@ -1,0 +1,153 @@
+# GitHub Copilot Driver
+# Adapts MOOLLM to GitHub Copilot Chat in VS Code
+
+driver:
+  name: "copilot"
+  tier: 4
+  description: "GitHub Copilot Chat in VS Code with agent tools"
+  hot_cold_mode: advisory
+  orchestrator_type: generic
+
+detection:
+  system_prompt_indicators:
+    - "GitHub Copilot"
+    - "GitHub Copilot Chat"
+    - "VS Code coding assistant"
+
+  tool_indicators:
+    strong_signals:
+      - read_file
+      - apply_patch
+      - semantic_search
+      - run_in_terminal
+      - vscode_listCodeUsages
+
+capabilities:
+  file_read: true
+  file_write: true
+  file_search: true
+  semantic_search: true
+  terminal: true
+  sandboxed_terminal: "host-dependent"
+  custom_tools: false
+  mcp: "host-dependent"
+  browser_automation: "host-dependent"
+  why_parameter: false
+  append_only_enforcement: false
+  context_introspection: false
+  background_indexing: "host-dependent"
+
+limits:
+  context:
+    token_limit: "not exposed to the agent"
+    hidden_context_visibility: false
+  indexing:
+    status_visibility: "host-dependent"
+  integrations:
+    mcp_servers: "configured by the VS Code host; availability varies"
+
+paths:
+  session_root: ".moollm/"
+  output_sink: ".moollm/output.md"
+  session_log: ".moollm/session-log.md"
+  working_set: ".moollm/working-set.yml"
+  hot_cache: ".moollm/hot.yml"
+  cold_cache: ".moollm/cold.yml"
+  summaries: ".moollm/summaries/"
+  artifacts: ".moollm/artifacts/"
+  scratch: ".moollm/"
+  probe_file: ".moollm/bootstrap-probe.yml"
+
+tools:
+  read_file:
+    tool: "read_file"
+
+  write_file:
+    tool: "apply_patch"
+    create: "create_file"
+
+  edit_file:
+    tool: "apply_patch"
+
+  list_dir:
+    tool: "list_dir"
+
+  delete_file:
+    tool: null
+
+  semantic_search:
+    tool: "semantic_search"
+    fallback: "grep_search"
+
+  text_search:
+    tool: "grep_search"
+
+  file_search:
+    tool: "file_search"
+
+  terminal:
+    tool: "run_in_terminal"
+
+  browser:
+    tool: "open_browser_page"
+    actions: [navigate_page, read_page, click_element, type_in_page, screenshot_page]
+
+  todo_write:
+    tool: "manage_todo_list"
+
+  append_file:
+    tool: null
+    workaround: "read the current file, then append with apply_patch"
+
+context_assembly:
+  sources:
+    - "System and workspace instructions supplied by VS Code"
+    - "User-selected files, folders, and editor context"
+    - "User messages and attached content"
+    - "Tool results from the current session"
+  introspection:
+    prompt_contents: "not fully visible"
+    context_usage: "not exposed"
+    copilot_internal_state: "not accessible"
+
+adaptations:
+  why_parameter:
+    supported: false
+    fallback: "state intent in the response before the action"
+
+  append_only:
+    supported: false
+    fallback: "preserve append-only files by adding content at the end"
+
+  event_logging:
+    supported: false
+    fallback: "append concise Markdown entries to session-log.md"
+
+  working_set:
+    supported: "manual"
+    behavior: "working-set.yml is a hint; it does not command Copilot context assembly"
+
+  hot_cold:
+    mode: "advisory"
+    behavior: "read the files when relevant; do not assume automatic loading or eviction"
+
+  vscode_rules:
+    behavior: "follow instructions actually supplied by the host; do not assume Cursor rules"
+
+introspection:
+  available:
+    - "Inspect accessible workspace files and tool results"
+    - "Use terminal commands when needed and permitted"
+  unavailable:
+    - "Cursor composer database and cursor-mirror state"
+    - "Complete hidden prompt or context listing"
+    - "Reliable model context-window and token-usage measurements"
+
+boot:
+  sequence:
+    - "Read .moollm/hot.yml and skills/INDEX.yml"
+    - "Detect Copilot from the system identity and available tools"
+    - "Load this driver and preserve existing runtime state"
+    - "Read constitution-core.md and PROTOCOLS.yml"
+    - "Warm only the relevant priorities from hot.yml"
+    - "Use an explicit startup mode when one is configured"

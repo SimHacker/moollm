@@ -134,6 +134,7 @@ advertisements:
 # PLATFORM ADAPTATION (brief — see SKILL.md)
 
 drivers:
+  copilot:    { tier: 4, hot_cold: advisory }
   cursor:     { tier: 4, hot_cold: advisory }
   claude-code: { tier: 5, hot_cold: hybrid }
   custom:     { tier: 6, hot_cold: magic }

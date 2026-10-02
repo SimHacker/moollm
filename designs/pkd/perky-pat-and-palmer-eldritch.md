@@ -1,14 +1,76 @@
-# Palmer Eldritch: the capability works perfectly and the purpose is captured
+# Perky Pat and Palmer Eldritch: the layout, the aftermarket, and the vendor who moves in
 
-*Part of [designs/pkd/](README.md). The Korz reading of* The Three Stigmata of Palmer Eldritch
-*(1965). Its sibling [perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md) reads the
-same novel for its business model; this one reads it for the dimension it breaks.*
+*Part of [designs/pkd/](README.md). Philip K. Dick, 1963 and 1965, on one page because they are one
+argument — the novel reuses the short story's object, so splitting them makes a reader hop mid-thought.
+[*Do Androids Dream of Electric Sheep?*](#the-control-group-arrives-three-years-later) (1968) arrives at
+the end as the control group. Siblings: [ubik.md](ubik.md) — the same machinery with the vendor inside
+the frame and a spray can for a product · [a-scanner-darkly.md](a-scanner-darkly.md).*
+
+The arc, in one line: **a shared object on a table → sell furniture for it forever → remove the shared
+object, and the vendor moves into the room.** Perky Pat is the first term. Eldritch completes it.
+
+## The Days of Perky Pat (1963) — the layout is the rule set
+
+Survivors of a nuclear war live in California fallout shelters, kept alive by airdrops. The adults
+are obsessed with **layouts**: a Barbie-like doll called Perky Pat, her boyfriend, and a miniature
+world through which they run the routines of pre-war life — putting a dime in a parking meter — while
+their children ignore all of it and hunt mutants on the surface. Store-bought accessories are
+supplemented with handmade furniture, and the better-furnished layouts confer status.
+
+That is the dollhouse, its content economy, and its modding community, in a short story published
+thirty-seven years before The Sims shipped.
+
+**Note the inversion, which is the story's own joke and has no equivalent in the novel:** the *adults*
+are the ones escaping into the toy, re-enacting errands, while the children treat the ruined surface as
+the real world and go hunting in it. Eldritch makes escape universal; here it is specifically a
+generational failure.
+
+## The Connie Companion wager, which stands apart
+
+**This is the one finding in Perky Pat that Eldritch never touches**, and it is worth reading on its
+own terms: it is about two implementations meeting, not about a vendor.
+
+Pinole's shelter wagers Perky Pat against Oakland's rival doll, **Connie Companion**, and the visitors
+discover two things at once: Connie is carved wood with real hair rather than plastic, and Connie and
+her companion Paul are **married and living together**, while Pat and Leonard can only date — *because
+the Pinole layout has no way to express a change in marital status.* The Pinole players object that
+this is an unfair advantage.
+
+Two implementations of the same doll world, with different fidelities and different expressible
+states, meeting for the first time, and the argument at the border is about whose rules govern and
+whether the richer state is legitimate. That is the [soul bridge](../../skills/soul-city/SOUL-BRIDGES.md)
+problem, worked as fiction, in 1963. Our version of Pinole's complaint is stated in
+[`SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md#the-errand-a-job-in-another-game): anything
+the origin cannot express, it cannot receive. Dick got there first and made it a wager.
+
+## Same mechanism, and that is the weaker claim on purpose
+
+**The layout sections above argue *same mechanism* and stop deliberately short of *influence*, because
+those are two claims and only one of them is established here.** Don makes the stronger one — that
+Perky Pat inspired The Sims, and that he can support it — and it is recorded as his claim, with the
+specific citation still outstanding, [below](#dons-claim-about-the-sims-recorded-as-a-claim). Do not
+read the hedge as a rebuttal of it; read it as the weaker claim being separately true.
+
+## The business model it describes first
+
+Mars colonists endure their draft-and-dust lives by chewing **Can-D**, which translates a group of
+users into the dolls of a shared Perky Pat layout: the women all inhabit Pat, the men all inhabit
+Walt. The layouts and their **minned** accessories — everyday objects miniaturized, forever, as a
+product line — are sold by **P. P. Layouts**, whose chairman Leo Bulero also controls, through a
+concealed subsidiary, the drug that makes translation work. The company's most valuable employee is a
+precog whose job is predicting which accessories will sell.
+
+So: sell the dollhouse, sell furniture for it in perpetuity, sell the thing that lets people
+*inhabit* it, and staff a department to forecast taste. Will Wright described the same structure in
+1996 as the hobby model, where people "buy and collect things, but they relate to the last things
+they collected" ([the 1996 lecture](../sims/sims-will-wright-microworlds-1996.md)), and Maxis shipped it as
+expansion packs. Dick's version merely has the decency to name the drug.
 
 ## The mistake worth correcting first
 
-The obvious reading of Chew-Z is that Eldritch **withholds** something — that he stands between the
-user and a capability, a gatekeeper taking a cut. That reading is wrong, and getting it wrong is the
-whole lesson.
+The obvious reading of Chew-Z — Palmer Eldritch's rival product, brought back from Proxima — is that
+Eldritch **withholds** something: that he stands between the user and a capability, a gatekeeper taking
+a cut. That reading is wrong, and getting it wrong is the whole lesson.
 
 **Chew-Z withholds nothing. It is strictly more capable than Can-D in every dimension a user would
 name.** Can-D needs a physical layout assembled in advance, translates you only into the two dolls
@@ -67,6 +129,10 @@ what makes it auditable — *the shared layout is the referent that lets two peo
 Remove the shared object and you remove the possibility of a second witness, which is why Chew-Z
 cannot be checked rather than merely happens not to be.
 
+**This is where the 1963 story pays off.** The layout was always the thing two people could both point
+at. Take it away and the Connie Companion argument becomes impossible to have — not settled, just
+unavailable, because there is no shared object left to disagree about.
+
 The theological argument the colonists have about Can-D — is translation genuine transubstantiation
 or merely a shared hallucination — is not decoration. **It is a dispute about the receiver, conducted
 by users, in public, which Chew-Z makes impossible.** Can-D's users can argue about what happened
@@ -114,16 +180,14 @@ precisely Can-D's auditability. A second witness, by construction.
 
 ## Don's claim about the Sims, recorded as a claim
 
-Don has consistently held that **this story inspired The Sims**, and says he can support it.
+Don has consistently held that **this material inspired The Sims**, and says he can support it.
 Recording it as *his* claim rather than as settled history, because the two are different objects and
-the sibling doc deliberately made the weaker one.
+the structural sections above deliberately made the weaker one.
 
-**What is structurally established**, and it is a lot — the dollhouse, the perpetual accessory
-aftermarket, the taste-forecasting department, status conferred by furnishing — is laid out in
-[perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md), which argues *same
-mechanism* and stops short of *influence* on purpose. The Sims began at Maxis as **Project
-Dollhouse**, and the name was a liability internally, which is a fact about the project's own
-understanding of what it was.
+**What is structurally established**, and it is a lot: the dollhouse, the perpetual accessory
+aftermarket, the taste-forecasting department, status conferred by furnishing. The Sims began at Maxis
+as **Project Dollhouse**, and the name was a liability internally, which is a fact about the project's
+own understanding of what it was.
 
 **What would settle the stronger claim** is Wright on the record naming the story, or a participant
 who heard him. Don worked at Maxis on The Sims, which makes his testimony first-hand about the room
@@ -156,23 +220,46 @@ the whole finding, and it is the reason authenticity audits keep missing the thi
 can verify a vendor's claims completely and learn nothing about whether the purpose coordinate is
 yours. Eldritch would pass; Mercer would fail; Mercer is the one you want.
 
+## Where the two texts diverge
+
+Colocated because they are continuous, but they are not identical, and a reader should know which
+parts do not carry across:
+
+| | Only in *Perky Pat* (1963) | Only in *Palmer Eldritch* (1965) |
+|---|---|---|
+| Finding | the **Connie Companion wager** — expressible state at a boundary | the **captured `whose_purpose`**, and its exchange rate |
+| Who escapes | the adults; the children refuse the toy | everyone, as a condition of the colony |
+| The rival | another shelter's layout, hand-carved | another *vendor's* product, with no layout at all |
+| Scale | one wager between two shelters | an industry, a concealed subsidiary, and a precog |
+| Brings in | — | *Do Androids Dream* as the control group |
+
+And one continuity detail, so it does not read as an error in either direction: the male doll is
+**Leonard** in the short story and **Walt** in the novel. Dick carried the layout forward and changed
+the boyfriend. `needs-check: verify both names against the texts before citing the change as
+deliberate revision rather than simple reuse.`
+
 ## See also
 
 - [`purpose-dimension.md`](../korz/korz-prime/examples/purpose-dimension.md) — where `whose_purpose`
   is specified, and where this novel is filed as its specimen
-- [perky-pat-and-a-scanner-darkly.md](perky-pat-and-a-scanner-darkly.md) — the same novel for its
-  business model, plus the 1963 story and the 1977 one
-- [ubik.md](ubik.md) — the third variation: the world is fake, the vendor is *inside the frame*, and
+- [ubik.md](ubik.md) — the next variation: the world is fake, the vendor is *inside the frame*, and
   the product is a can of reality
+- [a-scanner-darkly.md](a-scanner-darkly.md) — the observer, and the failure mode of severing credit
 - [`interfaces-to-agency`](../../skills/design-sense/lenses/interfaces-to-agency.md) — symmetry of
   capability with asymmetry of throughput; Chew-Z is symmetric capability with captured purpose,
   the case the lens has to answer
 - [`TELEOLOGY.md`](../TELEOLOGY.md) — setpoints installed from outside
+- [`SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md) — the Connie Companion problem, specified
 
 ## Sources
 
-- *The Three Stigmata of Palmer Eldritch*, Philip K. Dick, Doubleday, 1965
+- "The Days of Perky Pat", *Amazing Stories*, December 1963 — collected in *The Minority Report and
+  Other Classic Stories*
+- *The Three Stigmata of Palmer Eldritch*, Philip K. Dick, Doubleday, 1965 —
+  [Can-D, translation, P. P. Layouts, minning, Chew-Z](https://en.wikipedia.org/wiki/The_Three_Stigmata_of_Palmer_Eldritch)
 - *Do Androids Dream of Electric Sheep?*, Philip K. Dick, Doubleday, 1968
+- Will Wright's hobby model, in his own words:
+  [`sims-will-wright-microworlds-1996.md`](../sims/sims-will-wright-microworlds-1996.md)
 - Wright's "massively single-player online game" for Spore — his own phrase for the Sporepedia
   architecture
 - `needs-check: the Chew-Z advertising slogan is quoted from memory as "GOD PROMISES ETERNAL LIFE.`

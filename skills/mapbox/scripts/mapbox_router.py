@@ -123,8 +123,14 @@ MEASURED = [
     ("Restriction edits take minutes to reach the edge",
      "A saved URL list does not apply at once, and the intermediate state is per-variant: "
      "for several minutes http://localhost:5173 answered 200 while http://localhost:5173/ "
-     "answered 403, which reads exactly like a matching bug and is not one. "
+     "answered 403, which reads exactly like a trailing-slash matching bug and is not one. "
+     "Confirmed by re-probing 85 minutes later: every variant answered 200. "
      "Re-probe a few minutes after saving before concluding anything."),
+    ("Matching is origin equality, and the path is never consulted",
+     "With https://ebike-safari.com listed, referers of /, /rides and /index.html all pass, "
+     "so the comparison is scheme + host + port and nothing more. This is the likely reason "
+     "the console rejects wildcards: a path wildcard such as https://myapp.com/* has nothing "
+     "to match. Treat every entry as an origin, never as a URL prefix."),
     ("Every port needs its own entry, and wildcards are rejected",
      "With http://localhost:5173 listed, referer http://localhost:5173/ passes but "
      "http://localhost:4173/ and http://localhost:3000/ are refused, so vite preview and "
@@ -289,11 +295,28 @@ def cmd_list(args):
     return 0
 
 
+# Keys match on letter boundaries, plus a short list of inflections so that "clustering"
+# still reaches `cluster` and "restrictions" still reaches `restrict`. Plain substring
+# matching looks equivalent and is not: "cluster 50k points" hit `poi` inside "points" and
+# recommended a search skill for a rendering question. A router that fires on fragments of
+# unrelated words is worse than no router, because the extra skill looks deliberate.
+#
+# The guards are letter lookarounds rather than \b, because \b counts a digit as a word
+# character: "60fps" has no boundary between "0" and "f", so \bfps\b silently stops matching
+# the most natural way to write the question.
+_INFLECTIONS = r"(?:s|es|ed|ing|ion|ions|or|ors)?"
+
+
+def keyword_hit(key, text):
+    pattern = rf"(?<![a-z]){re.escape(key)}{_INFLECTIONS}(?![a-z])"
+    return re.search(pattern, text) is not None
+
+
 def cmd_route(args):
     q = " ".join(args.question).lower()
     hits, why = [], {}
     for key, skills in ROUTES.items():
-        if key in q:
+        if keyword_hit(key, q):
             for s in skills:
                 if s not in hits:
                     hits.append(s)
@@ -301,7 +324,7 @@ def cmd_route(args):
     cat, how = load_catalog()
     known = {s["name"]: s for s in cat}
 
-    gaps = {k: v for k, v in UNCOVERED.items() if k in q}
+    gaps = {k: v for k, v in UNCOVERED.items() if keyword_hit(k, q)}
     if gaps:
         print(f"  question: {q}\n")
         print("  no official skill covers this. Use the CLI surface instead:\n")
@@ -328,7 +351,7 @@ def cmd_route(args):
             print("      not in the local checkout — name may have changed upstream")
         else:
             print(f"      no local checkout; read it at {UPSTREAM_REPO}")
-    if any(k in q for k in ("token", "403", "restrict", "secret", "scope")):
+    if any(keyword_hit(k, q) for k in ("token", "403", "restrict", "secret", "scope")):
         print("\n  also read this skill's measured findings, which upstream lacks:")
         print("    mapbox_router.py measured")
     return 0

@@ -329,7 +329,7 @@ nothing about whose setpoint is bound.
 
 Full reading, including why disintermediating the purchase layer is how you earn permission to
 intermediate the experience layer, and the mapping of Can-D and Chew-Z onto The Sims Online and
-Spore: [`designs/pkd/palmer-eldritch-captured-purpose.md`](../../../pkd/palmer-eldritch-captured-purpose.md).
+Spore: [`designs/pkd/perky-pat-and-palmer-eldritch.md`](../../../pkd/perky-pat-and-palmer-eldritch.md).
 The sibling case of a *decaying* binding — specificity ordering falling back to an ancestor while the
 world stays internally consistent — is [`designs/pkd/ubik.md`](../../../pkd/ubik.md).
 

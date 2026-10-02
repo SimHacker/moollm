@@ -199,6 +199,7 @@ Ask yourself these questions:
 introspection:
   # What does my system prompt say?
   system_prompt_mentions:
+    - "GitHub Copilot" → likely GitHub Copilot in VS Code
     - "Cursor" → likely Cursor IDE
     - "Claude Code" → likely Claude Code
     - "Antigravity" → likely Antigravity (Gemini)
@@ -206,6 +207,12 @@ introspection:
     
   # What tools do I have?
   tools_available:
+    copilot_indicators:
+      - read_file, apply_patch       # VS Code agent file operations
+      - semantic_search, grep_search # Workspace search
+      - run_in_terminal              # Terminal execution
+      - vscode_listCodeUsages        # VS Code language services
+
     cursor_indicators:
       - codebase_search      # Cursor's semantic search
       - search_replace       # Cursor's file editing
@@ -238,6 +245,7 @@ Based on introspection, load the appropriate driver from `kernel/drivers/`:
 
 | If You Detect | Load Driver | Tier | hot/cold Mode |
 |---------------|-------------|------|---------------|
+| System identifies GitHub Copilot in VS Code; agent file/search tools available | `copilot.yml` | 4 | ADVISORY |
 | `codebase_search` + `search_replace` + system says "Cursor" | `cursor.yml` | 4 | ADVISORY |
 | MCP tools + system says "Claude Code" | `claude-code.yml` | 5 | HYBRID |
 | `view_file` + system says "Antigravity" | `antigravity.yml` | 5 | HYBRID |
@@ -288,7 +296,7 @@ custom_driver:
     - "Be explicit about context management"
 ```
 
-## For This Session: I Am Running on Cursor
+## Example: Cursor Driver
 
 **Detected indicators:**
 - System prompt says "You operate in Cursor"
@@ -303,11 +311,22 @@ custom_driver:
 - I should trust Cursor's built-in vector search and context management
 - hot.yml and working-set.yml are suggestions, not commands
 
+## Example: GitHub Copilot Driver
+
+When the system identifies GitHub Copilot in VS Code and exposes its agent tool surface:
+
+- Driver: `kernel/drivers/copilot.yml`
+- Tier: 4 baseline (file operations, search, and terminal)
+- hot/cold mode: **ADVISORY** — MOOLLM files guide the agent but do not control VS Code context assembly
+- Use only the tools actually exposed in the current session; browser and MCP integrations vary by host
+- Do not claim access to Copilot's hidden prompt, internal state, or exact token budget
+
 ## Platform Adaptation (Summary)
 
 | Platform | hot/cold/working-set Behavior |
 |----------|------------------------------|
 | **Custom Orchestrator** | **MAGIC** — Files DIRECT the orchestrator what to page in/out |
+| **GitHub Copilot** | **ADVISORY** — The agent can read these hints, but they do not command Copilot context assembly |
 | **Cursor** | **ADVISORY** — Cursor manages context automatically; files are suggestions or can be generated *in reverse* to reflect Cursor's focus |
 | **Claude Code** | **HYBRID** — MCP tools give more control, some context automatic |
 | **Antigravity** | **HYBRID** — User/Agent manages context with explicit tools, respecting hints |

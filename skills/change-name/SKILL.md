@@ -130,7 +130,9 @@ fix is being pursued.
 
 - **7–7.5 pt** minimum (7 pt floor; do not go to 6 pt)
 - Match the document's house style — sans used for affiliations, or base-14 Helvetica
-- Full text-block width (~468 pt on US Letter), centered or aligned with existing footer
+- Full text-block width (~468 pt on US Letter) — wrap across the whole page, not a
+  narrow column; fewer lines means less vertical stack and no collision with existing
+  header text like "Accepted for DLS"
 - **Small caps** on the label line (`CORRECTED MEMORIAL EDITION`)
 - Thin rule (0.25 pt) above the notice to separate it from body content
 - Monospace or distinct treatment for hashes and URLs aids both reading and extraction

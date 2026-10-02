@@ -68,7 +68,31 @@ methods:
     output: chat (path, how resolved, refresh command)
     invoked-by: [any]
 
+  SNITCH:
+    description: "Audit the upstream skills, and this one, with skill-snitch"
+    parameters: { target: "scan (their twenty) | self (ours) | table (roll-up, writes nothing)" }
+    invocation: "python3 scripts/snitch_mapbox_skills.py <target>"
+    output: "skill-snitches/<skill>/skill-snitch-report.md, CORPUS.yml, skill-snitch-report.md"
+    invoked-by: [player, agent]
+    rule: |
+      The script measures and may not conclude — no tier is computed from a grep, and an unjudged
+      skill reports as UNJUDGED rather than clean. Tiers and severities come from
+      skill-snitches/findings.yml, which a person signs and dates. Reports are derived: edit the
+      findings and regenerate, never the report.
+    tier_rule: "Only safety-class findings move a tier; accuracy, privacy-guidance and hygiene are recorded beside the badge"
+
 state: {}
+
+# AUDITS — ours, about theirs, outside their repo. See skill-snitches/README.md.
+audits:
+  upstream_reports: skill-snitches/          # 20 reports, one per official skill
+  judgments: skill-snitches/findings.yml     # tiers, severities, classes, reasoning — hand-written
+  rollup: skill-snitches/CORPUS.yml          # derived, machine-readable
+  self_report: skill-snitch-report.md        # this skill, same scanner
+  scanned_at: aab3a6f                        # upstream commit the current reports describe
+  result: "19 green, 1 blue, 0 worse. 6 findings (2 medium, 4 low) + 4 corpus-wide"
+  self_result: "yellow — the only non-green verdict issued, because op read can resolve a live token"
+  offered_upstream: "every finding, as an issue or PR"
 
 # UPSTREAM — mounted, not merged.
 upstream:
@@ -78,9 +102,30 @@ upstream:
   total_skill_md_lines: 6128
   per_skill_files: [SKILL.md, AGENTS.md, "evals/evals.json", "references/"]
   three_mcp_servers:
-    "@mapbox/mcp-server": "runtime — geocoding, search, directions, isochrone, matrix, static"
-    "@mapbox/mcp-devkit-server": "account — styles, tokens, validation, bounding boxes (23 tools)"
-    "@mapbox/mcp-docs-server": "documentation lookup"
+    # Counts measured by tools/list against each server, not read off a README. 55 tools total.
+    "@mapbox/mcp-server": "runtime — geocoding, search, directions, isochrone, matrix, static (29 tools, v0.14.0)"
+    "@mapbox/mcp-devkit-server": "account — styles, tokens, validation, bounding boxes (23 tools, v0.8.2)"
+    "@mapbox/mcp-docs-server": "docs — get_document, batch_get_documents, search_mapbox_docs (3 tools, v0.3.1)"
+
+  how_the_counts_were_measured: |
+    Feed initialize, notifications/initialized, tools/list into the package over stdio and read
+    the id=2 reply. The trap: these servers do not exit when stdin closes, so a naive
+    `{ echo...; sleep; } | npx -y PKG | python3 -` blocks forever on the reader, not the writer.
+    Two probes written that way hung for 22 hours. Redirect the server to a FILE, background it,
+    sleep past the handshake, kill it, then parse the file. The docs server needs no token.
+
+  runtime_server_is_two_servers_in_one_trenchcoat:
+    # Routing-relevant: only 12 of the 29 runtime tools actually call Mapbox.
+    api_backed: 12   # ground_location, place_details, category_search, directions, isochrone,
+                     # map_matching, matrix, optimization, render_map, reverse_geocode,
+                     # static_map_image, search_and_geocode
+    local_geometry: 17  # union, intersect, difference, convex, simplify, bbox, centroid, midpoint,
+                        # bearing, area, buffer, distance, length, destination, nearest_point,
+                        # nearest_point_on_line, points_within_polygon
+    routing_consequence: |
+      The 17 geometry tools are Turf-shaped operations that need no token and no network.
+      Do not pay MCP round-trip latency for a centroid. Route geometry to a local call and
+      reserve the server for the 12 that genuinely need Mapbox.
 
 why_not_vendored: |
   Four reasons, in order of force.
