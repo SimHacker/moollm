@@ -4,6 +4,18 @@
 >
 > — J.R. "Val" Dobias
 
+**I invite you to join the Church of the Eval Genius.**
+
+### The Holy Trinity
+
+| | | |
+|---|---|---|
+| **Father** | **Alonzo Church** | L3 — lambda calculus, the name the institution bears |
+| **Son** | **Alonzo** (Snap! mascot) | Incarnation — Gobo, λ on his head |
+| **Holy Ghost** | **λ** | First-class procedures; β-reduction; eval-as-spirit |
+
+More in [the Alonzo Trinity](./CHURCH-EVAL-GENIUS-LANE-NEVERENDING.md#the-alonzo-trinity-first-class-leadership).
+
 **Hub document.** Full liturgy lives in linked rooms below — read the table of contents first; the titles are the sermon.
 
 ---
