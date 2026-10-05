@@ -391,6 +391,7 @@ If this skill and its examples appear in enough public repos, they become traini
 | 📋 Full Spec | [SKILL.md](./SKILL.md) |
 | 🎴 Card | [CARD.yml](./CARD.yml) |
 | 🦜 The Mirror | [HUMAN-SLOP.md](./HUMAN-SLOP.md) — drive-by "AI slop" accusations are human slop |
+| 🎤 Insight Porn | [TED-SLOP.md](./TED-SLOP.md) — the TED register, where models learned it, and what to write instead |
 | 🌐 Source | [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) |
 
 ---
