@@ -15,7 +15,7 @@ than the world in exactly the right ways.
 - **Read the shipped system closely** — diagram it until the black box opens; the
   running artifact is the true design doc
   ([reverse-diagrams](../methods/reverse-diagrams.md),
-  [the SimCity reverse diagrams](https://smalltalkzoo.thechm.org/users/Dan/uploads/SimCityReverseDiagrams/))
+  [the SimCity reverse diagrams](https://github.com/SimHacker/MicropolisCore/tree/main/images/diagrams))
 - **Build magic crayons** — creative tools should push back wonderfully; the
   user draws, the tool answers ([Spore's Creature Creator](https://en.wikipedia.org/wiki/Spore_Creature_Creator);
   [time-to-penis](../methods/time-to-penis.md) is the tax on getting this right)
@@ -44,4 +44,7 @@ than the world in exactly the right ways.
 *Building SimCity: How to Put the World in a Machine* (MIT Press, 2024) ·
 "Play Design" (PhD thesis, UC Santa Cruz) · *Earth Primer* ·
 [levitylab.com](https://levitylab.com/) ·
-[SimCity Reverse Diagrams (CHM mirror)](https://smalltalkzoo.thechm.org/users/Dan/uploads/SimCityReverseDiagrams/)
+[SimCity Reverse Diagrams, our copy](https://github.com/SimHacker/MicropolisCore/tree/main/images/diagrams) ·
+[the PDF at the Computer History Museum](https://smalltalkzoo.computerhistory.org/users/Dan/uploads/SimCityReverseDiagrams.pdf) ·
+Don Hopkins, [Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d) ·
+[Building SimCity on Hacker News](https://news.ycombinator.com/item?id=40698442)

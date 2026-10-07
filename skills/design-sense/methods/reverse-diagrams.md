@@ -18,7 +18,14 @@ simulator.
 
 **Go deeper:**
 *Building SimCity: How to Put the World in a Machine* (MIT Press, 2024) ·
-[SimCity Reverse Diagrams (CHM mirror)](https://smalltalkzoo.thechm.org/users/Dan/uploads/SimCityReverseDiagrams/)
+[SimCity Reverse Diagrams, our copy](https://github.com/SimHacker/MicropolisCore/tree/main/images/diagrams)
+(six pages and the PDF, with Chaim's permission) ·
+[the PDF at the Computer History Museum](https://smalltalkzoo.computerhistory.org/users/Dan/uploads/SimCityReverseDiagrams.pdf)
+
+**Articles:** Don Hopkins,
+[Designing User Interfaces to Simulation Games](https://donhopkins.medium.com/designing-user-interfaces-to-simulation-games-bd7a9d81e62d)
+(the diagrams with Will Wright's 1996 talk) ·
+[Building SimCity on Hacker News, with Chaim](https://news.ycombinator.com/item?id=40698442)
 
 **Sources:** MicropolisCore `images/diagrams/` · MicropolisCore
 `documentation/notes/PIE-TAB-WINDOWS.md` (the live-cards plan and permission note)
