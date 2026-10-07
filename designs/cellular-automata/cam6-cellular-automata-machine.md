@@ -94,6 +94,17 @@ details).
 The proposed replacement is a declared pipeline where drawing tools are ordinary stages, and the
 [CAM Construction Set](cam-construction-set.md) is the back end that compiles it.
 
+## Don's 2013 wiki notes, backed up
+
+The dead `donhopkins.com/mediawiki` page "CAM6 Simulator", where Don pasted his running notes and
+Rudy Rucker's and Chaim Gingold's replies, is preserved in WillWrightShowForFood
+([index](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/cam6-simulator-wiki/README.md)),
+whole and harvested:
+[engine techniques](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/cam6-simulator-wiki/engine-techniques.md) ·
+[correspondents](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/cam6-simulator-wiki/correspondents.md) ·
+[CAM hardware history](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/cam6-simulator-wiki/cam-hardware-history.md) ·
+[ideas and where they went](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/sources/cam6-simulator-wiki/ideas-from-the-page.md).
+
 ## Credits & connections
 - **Source material:** Tommaso Toffoli & **Norman Margolus**, *Cellular Automata Machines* (MIT
   Press, 1987). Don's simulator follows their book and hardware directly.
