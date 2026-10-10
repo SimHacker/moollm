@@ -3,7 +3,7 @@
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 153          # counted from skills/*/SKILL.md, not hand-maintained
+skill_count: 154          # counted from skills/*/SKILL.md, not hand-maintained
 last_updated: 2026-09-20
 
 # FOUNDATION — Load These First
@@ -572,6 +572,10 @@ introspection:
     tagline: "Deep IDE introspection"
     why: "Tool provenance, timeline, post-mortems"
     
+  - id: mail-digest
+    tagline: "Read each message once"
+    why: "Strip quoting from exported email, dedupe, digest private then public"
+
   - id: mooco-mirror
     tagline: "Cross-orchestrator"
     why: "Compare MOOCO and Cursor traces"
@@ -754,6 +758,7 @@ all_skills:
   - memory-palace
   - micropolis
   - mind
+  - mail-digest
   - mind-mirror
   - mooco
   - mooco-mirror

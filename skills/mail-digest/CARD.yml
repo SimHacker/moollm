@@ -1,0 +1,38 @@
+# CARD.yml — mail-digest
+# Machine-readable interface. Full protocol: SKILL.md | Glance: GLANCE.yml
+
+card:
+  id: mail-digest
+  name: "Mail Digest"
+  type: [skill, utility, archival]
+  emoji: "📬"
+  tier: 1
+  status: active
+  tagline: "Read each message once: strip the quoting, keep one copy, digest private then public."
+
+description: |
+  Boils exported email threads down to each message's own new text, one copy each,
+  then digests it in two passes: a private archive of facts, offers and personal
+  matter, and a public harvest drawn from that archive. The dedup script cut the
+  1.5 MB PIXIE correspondence to 213 KB of new text in 116 messages.
+
+k-lines:
+  activates: [MAIL-DIGEST, MAIL-DEDUP, DIGEST-CORRESPONDENCE, HARVEST-EMAIL]
+  related:
+    - { ref: quora-harvest, relation: "same job for a walled-garden web thread" }
+    - { ref: cursor-mirror, relation: "same job for your own agent transcripts" }
+    - { ref: copy-that, relation: "harvested text leaving for another venue ships in a fence" }
+    - { ref: representation-ethics, relation: "what a real person's file may say about them" }
+
+methods:
+  DEDUP:
+    does: "scripts/mail_dedup.py INPUT [-o OUT] [--split NAME]: one block per message, quoting cut, duplicates dropped"
+  DIGEST-PRIVATE:
+    does: "Read the deduped text (others first) and write a dated, per-person private digest, including money, health, contracts and offers"
+  HARVEST-PUBLIC:
+    does: "Draw public facts from the private digest only, credited, in the person's own published words where possible"
+
+rules:
+  - "The raw export is never committed. temp/ in a private repo, or nowhere."
+  - "Public harvest reads the private digest, never the mail, so the privacy call is made once."
+  - "When unsure whether something is public, it is private. Ask."

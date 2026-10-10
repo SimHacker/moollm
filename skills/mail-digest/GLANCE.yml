@@ -1,0 +1,21 @@
+# GLANCE.yml — mail-digest
+# Full file: CARD.yml | SKILL.md | scripts/mail_dedup.py
+# 📬 "Read each message once."
+
+what: |
+  Strips the quoting out of exported email threads and keeps one copy of each
+  message, so a correspondence can be read, by you or a model, once instead of
+  ten times. Then digests it: private archive first, public harvest from that.
+
+why: |
+  - Every reply quotes the thread under it; a 1.5 MB export held 213 KB of new text
+  - Reading the pile reads each message many times, and costs a model that many tokens
+  - Deciding what's private once, in a private digest, keeps it from leaking into public docs
+
+when:
+  - '"Digest this email export" -> DEDUP, then DIGEST-PRIVATE'
+  - '"What did everyone say in this thread?" -> DEDUP --split, read the others file'
+  - '"Put the good parts in the public docs" -> HARVEST-PUBLIC, from the private digest'
+
+script:
+  mail_dedup.py: "split at header blocks, cut at quoting, dedupe on (sender, opening), --split mine/others"
