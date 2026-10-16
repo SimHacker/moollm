@@ -1914,8 +1914,8 @@ audit_entry:
   - [Self: The Power of Simplicity](http://bibliography.selflanguage.org/self-power.html)
   - Massively represented via JavaScript, Lua, influenced Java
   
-- **Densmore & Rosenthal Patent** — US 5,696,962 (1997)
-  - *"Method and apparatus for organizing a file system"*
+- **Densmore & Rosenthal Patent** — [US 5,187,786](https://patents.google.com/patent/US5187786A/en) (filed 1991, granted 1993, expired)
+  - *"Method and apparatus for implementing a class hierarchy of objects in a hierarchical file system"*
   - Proves prototype inheritance works in file systems
   - Unix paths + delegation = multiple inheritance
   
