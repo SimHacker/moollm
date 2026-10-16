@@ -126,7 +126,8 @@ roughly August 2016**. Don's write-up is in WWSFF at
 `characters/don-hopkins/tom-ngo-embedded-constraint-graphics-at-interval.md`, with the Breakfast
 Simplex as the worked example — recipes parameterized by `{egg, milk, flour}` ratios on a simplex,
 where adding an ingredient adds a dimension and changing prep method creates an adjacent region. A
-paired repo-show with Tom Ngo and Golan Levin on ECG and Mouther is already seeded.
+paired repo-show with Tom Ngo and Golan Levin on ECG and Mouther is already seeded. The reimplementation is being designed as courseware in WWSFF
+[`packages/ecg/`](https://github.com/SimHacker/WillWrightShowForFood/tree/main/packages/ecg).
 
 That second point is the same mechanism the synonym compiler needs: two articles claiming one name
 is a link error, and two documents claiming one glyph is a link error, and in both cases the right
