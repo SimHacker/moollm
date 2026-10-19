@@ -1,230 +1,252 @@
-# Latent-Space Inheritance — multiple inheritance from named concepts in training data
+# Latent-space inheritance: file-backed parents and named references
 
-**The claim:** in MOOLLM, an object's `parents:` list can mix **concrete files** and **names of
-things the LLM already knows**. The mechanism does not distinguish. A path resolves by file
-lookup; a name resolves by the LLM recognizing it. **The whole of the model's training is the
-prototype store; the name is the activation; no essay needed.**
+MOOLLM lets an object's `parents:` list contain both file references and
+descriptions of familiar systems, characters, or conventions. A file supplies
+explicit definitions. A named reference asks the LLM to interpret the object
+using what it associates with that name.
 
-The dogfooding predates this repo. **LLOOOOMM** — the earlier prototype that was retired and
-rebooted as MOOLLM — ran on this move daily and proved it worked extremely well; it was one of
-the main ideas carried forward in the reboot, along with **selfish inheritance** (Self-style
-prototypal delegation, [SELFISH-COM-IMPLEMENTATION](../../kernel/SELFISH-COM-IMPLEMENTATION.md)).
-MOOLLM formalized both by building on top of Anthropic skills
-([anthropic-import-plan](../anthropic-import-plan.md)) and adding selfish **multiple**
-inheritance across the two stores at once — files and latent space in one ordered parent list.
-LLOOOOMM's protocol ecosystem is preserved in
-[MOOLLM-PROTOCOLS](../MOOLLM-PROTOCOLS.md).
+The design calls both entries *parents*, but they do not provide the same
+guarantees. A file can be read, versioned, and inspected. A model's response to
+a name can vary, omit important details, or invent them. "Latent-space
+inheritance" is the name for this authoring convention, not a claim that model
+weights contain addressable prototype objects.
 
-Within this repo the lineage runs through cauldron: promoted from
-[cauldron META-PLAN §1](../../skills/cauldron/META-PLAN.md) per the
-[Opus review](../../skills/cauldron/REVIEW.2026-04-21.claude-opus-4.7.md), which called it "the
-most novel thing in cauldron's docs and the thing least specific to cauldron… generalizes
-MOOLLM's inheritance model to use the LLM as a universal resolver."
+**Status:** used in repository descriptions and examples. Those examples show
+how the convention is written; they are not conformance tests or comparative
+measurements of accuracy, cost, or reliability. This document specifies the
+intended behavior and its limits.
 
-Siblings: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) (the delegation mechanism, and the
-heritage this move inherits: SOAR/RISC, Flavors/CLOS/MOP, Drescher/Leela, NeWS/HyperLook) ·
-[YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) (comparison-for-inheritance with
-engine-enforced classes) · [LIVE-OBJECTS-EXAMPLES.md](LIVE-OBJECTS-EXAMPLES.md) (the system
-running) · [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md) (cited YAML annotated for
-humans) · [README.md](README.md).
+## Example
 
-## The canonical example
-
-From the cauldron META-PLAN — one ordered parent list, three kinds of entries, one mechanism:
+This example follows the mixed parent list in the
+[cauldron planning notes](../../skills/cauldron/META-PLAN.md):
 
 ```yaml
 parents:
-  - ../../skills/cauldron                  # concrete path — follow the file
-  - ../../skills/object                    # concrete path — follow the file
-  - "Self prototypal inheritance model"    # latent-space K-line — LLM fills it in
-  - "javascript"                           # latent-space K-line — LLM already knows
-  - "The Weird Sisters from Macbeth"       # latent-space K-line — patron-as-prototype
-  - "a taco — crisp shell, warm filling, overflowing with cheese, fresh vegetables and sauces"  # natural-language prototype
+  - ../../skills/cauldron
+  - ../../skills/object
+  - "Self prototypal inheritance model"
+  - "javascript"
+  - "The Weird Sisters from Macbeth"
+  - "a taco — crisp shell, warm filling, overflowing with cheese, fresh vegetables and sauces"
 ```
 
-First-match-wins sweeps left to right. Formal discipline first, aesthetic influences after.
-An ephemeral brew can declare `parents: ["the spirit of a PR-sized cauldron"]` and that's
-enough — the one-line K-line activates every cauldron-adjacent pattern the model has.
+The entries serve different purposes:
 
-## Why this works: K-lines are the linker
+| Entry | What it supplies | What needs clarification |
+|---|---|---|
+| Skill path | Written rules and definitions | Resolve the path and read the relevant files |
+| Self | An object-model reference | Which delegation rules apply here |
+| JavaScript | A language reference | Version, runtime, and relevant features |
+| Weird Sisters | A literary influence | Which aspects of the characterization to use |
+| Taco description | An ad hoc descriptive influence | What it should change about this particular object |
 
-Minsky's K-lines ([skills/k-lines/](../../skills/k-lines/)) are strings you pull to reactivate a
-constellation of knowledge. Saying **"Marvin Minsky"** instead of paraphrasing Minsky brings in
-more, more accurately, at near-zero token cost. Latent-space inheritance is K-lines given the
-**structural position of a parent slot**: not just "think about X" but "X is upstream of this
-object — resolve missing slots through it."
+The last two are creative inputs, not executable specifications. A technical
+parent should not be overridden by an aesthetic influence.
 
-So the inheritance system has two stores with one lookup rule:
+MOOLLM's [prototype skill](../../skills/prototype/SKILL.md) specifies local
+values first, then parents in order, with the first matching slot winning.
+That rule is straightforward when slots are explicit. With named concepts,
+the model must infer which properties are relevant. List order expresses the
+intended priority; it does not prove that the model will obey it.
 
-| Store | Pointer | Resolver | Cost |
-|-------|---------|----------|------|
-| Filesystem | relative path | open the file | one read |
-| Latent space | a name | the LLM's recognition | ~zero tokens |
-| Latent space | a natural-language sketch | the LLM's interpretation | one line |
+## File lookup and model interpretation
 
-The filesystem is **the cache for prototypes we've bothered to reify**. Everything else stays in
-latent space until there's a reason to write it down. Ungar's simplicity test passes: one
-mechanism, an ordered parent list; no separate machinery for "formal" vs "inspirational" parents.
+| Parent form | How it is used | What can be checked |
+|---|---|---|
+| File or directory reference | Read definitions from the referenced source | Path, contents, revision, explicit slots |
+| Name of a known concept | Ask the model to apply relevant associations | Output against stated requirements and external sources |
+| Natural-language description | Ask the model to interpret the supplied description | Output against the description and examples |
 
-**Don't respell what the LLM already knows.** A parent slot is a pointer. If the pointee is in
-the filesystem, follow it. If it's in latent space — also a pointer. The name is the activation.
-The anti-pattern has a name now: **[HUMANSPLAINING](HUMANSPLAINING.md)** — wasting context
-tokens telling an LLM what its training already contains. It's AI slop's mirror image: slop
-pollutes human attention on the way out; humansplaining pollutes the context window on the way
-in.
+A name is shorthand, not a retrieval result. Mentioning a paper or URL does
+not establish that the model has read it, remembers it correctly, or can
+reproduce its contents. If a detail matters, retrieve the source or state the
+requirement explicitly.
 
-## Multiple inheritance of abstract concepts
+Short references can reduce repeated explanation when the model interprets
+them adequately. They are not free: they consume context, and ambiguity can
+increase correction and verification work. This document provides no measured
+token savings.
 
-Class systems agonize over multiple inheritance (diamonds, MRO, mixin ordering). Latent-space
-parents make multiple inheritance **the normal case and nearly free**, because the "conflict
-resolution" is the LLM doing what it always does: blending constraints in context, with the
-ordered list as priority.
+When an inferred behavior becomes a requirement, write it into a file with
+examples and checks. That makes the requirement reviewable without depending
+on a particular model's interpretation of a name.
 
-Field-proven patterns, all currently in production in this repo:
+## Relationship to Minsky's K-lines
 
-- **Patron-as-prototype.** Cauldron inherits from "The Weird Sisters from Macbeth" — not
-  decoration; it sets Phase-1 chaos-becoming-useful expectations that shape actual behavior
-  ([cauldron CARD](../../skills/cauldron/CARD.yml)).
-- **Character incarnation.** The bartender in adventure-4 declares `PRIMARY INHERITANCES
-  (k-lines): Quark (DS9), James (Bar Karma), Guinan, Sam Malone` — a personality assembled by
-  naming four traditions
-  ([the-bartender/CHARACTER.yml](../../examples/adventure-4/characters/fictional/the-bartender/CHARACTER.yml);
-  annotated in
-  [ANNOTATED-BIBLIOGRAPHY.md](ANNOTATED-BIBLIOGRAPHY.md#the-bartender-character--four-traditions-one-personality)).
-- **Real people, safely.** Pets and familiars inherit a named person's *expertise* by reference
-  ("wrapping a raw pointer in a safe handle") without impersonating them — the ethics live in
-  [incarnation](../../skills/incarnation/) and hero-story gating; see
-  [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS](../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md):
-  "K-lines as activation vectors that channel traditions rather than simulating persons."
-- **Tool metaphors.** Factorio for dataflow, Fluxx for rule mutation, Mario World cannons for
-  flick navigation — chosen precisely because they are *massively represented in training data*
-  ([GASTOWN-VS-MOOLLM-ANALYSIS](../gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md): "we lean into
-  knowledge already well-represented in the LLM's training data"; its inverse is the Gas Town
-  failure mode — invented jargon like "bead" and "polecat" with no training-data support).
-- **Double inheritance through one name.** "Bester" among
-  [Proc's](../../examples/adventure-4/characters/liminal/proc/) parents inherits both Alfred
-  Bester the author and the B5 character named after him — one token, two lineages, and the LLM
-  holds both.
+Minsky's [K-Lines: A Theory of Memory](https://courses.csail.mit.edu/6.803/pdf/aim-516.pdf)
+(MIT AI Memo 516, 1979;
+[journal version, 1980](https://doi.org/10.1207/s15516709cog0402_1))
+proposes a way to reactivate parts of an earlier mental state. MOOLLM borrows
+that idea for names associated with collections of instructions, examples,
+and related concepts. See the [K-lines skill](../../skills/k-lines/).
 
-## Inheriting whole systems by name
+The analogy explains the naming convention. It does not establish that an
+LLM implements Minsky's proposed memory architecture. Nor does it show that
+saying a person's name is more accurate than a sourced explanation of their
+work.
 
-The parent list isn't limited to characters and aesthetics. It resolves **languages, object
-systems, protocols, interfaces, APIs, function signatures, calling conventions** — anything with
-deep training-data presence. Say "Smalltalk-80" and you inherit message sends and metaclasses.
-Say "NeWS TNT" and you inherit dict-stack delegation with ordered `/Parents` multiple
-inheritance. Say **"US Patent 5187786A"** and you inherit Densmore and Rosenthal's
-filesystem-as-class-hierarchy, `SEND` via shell and all. The reflective tower bootstraps by
-*describing itself in terms the LLM already knows* — we aren't inventing these capabilities and
-defining them from scratch; we're addressing them where they already live.
+## Uses in this repository
 
-This is what makes the Self core a practical object-oriented RISC instruction set for other
-object systems: hybrids,
-adaptors, bridges, emulators, and CLI/programmatic drivers get built by pointing at the target
-system's name rather than reimplementing it. Worked through concretely against a real database in
-[YOUTRACKDB-VS-MOOLLM.md §10](YOUTRACKDB-VS-MOOLLM.md#10-inheriting-from-youtrackdb--the-machine-language-move).
+These examples document authoring choices, not proof of their effectiveness:
 
-## Pointing is not copying: filter, refine, modulate, transform
+- **Planning workflow.** The [cauldron card](../../skills/cauldron/CARD.yml)
+  uses the Weird Sisters as a literary reference alongside written planning
+  rules. The rules should specify the work; the reference can influence its
+  presentation.
+- **Character composition.** The
+  [bartender description](../../examples/adventure-4/characters/fictional/the-bartender/CHARACTER.yml)
+  names Quark, James from *Bar Karma*, Guinan, and Sam Malone as influences.
+  The [annotated example](ANNOTATED-BIBLIOGRAPHY.md#the-bartender-character--four-traditions-one-personality)
+  explains the references. A reader should not need to know all four shows
+  to understand the character's required behavior.
+- **Interface design.** The
+  [Gastown comparison](../gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md)
+  uses Factorio for dataflow, Fluxx for changing rules, and Mario World
+  cannons for navigation. Each reference needs an explanation of the specific
+  interaction being borrowed; familiarity with a game is not a specification.
+- **Ambiguous references.** [Proc's description](../../examples/adventure-4/characters/liminal/proc/)
+  uses "Bester" to refer to both Alfred Bester and the *Babylon 5* character.
+  If both are intended, name both. Otherwise the ambiguity is an error to fix.
+- **References to real people's work.** A character can cite a person's
+  published ideas without claiming to be that person. The
+  [incarnation guidelines](../../skills/incarnation/) and
+  [representation analysis](../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md)
+  discuss these boundaries. A reference alone does not enforce them.
 
-Inheritance — from latent space or from concrete files — is not verbatim inclusion. You point
-at a parent and then **filter, refine, modulate, and transform** what flows in. The pointer is
-an oscillator; the child's slots are the envelope and filter bank. This is where the leverage
-lives: the parent costs one name, the transformation costs one line, and the LLM applies it to
-the *entire* inherited constellation.
+## Referring to a language or system
 
-The knobs, all in production here:
+A parent can name Smalltalk-80, Self, NeWS TNT, an API, or a published
+architecture. This gives the model a starting point for interpretation, not
+an implementation of that system.
 
-- **Theme-polymorphism.** The bartender inherits four traditions, then each theme filters the
-  blend — same knowledge, refracted through `space_cantina` or `victorian_parlor`.
-- **Bias as a signed dial.** The archetype system's modes — *overdrive*, *zero*, *inverted* —
-  are modulation applied to an inherited voice, and no-ai-bias's Drax Point marks the zero
-  crossing: at bias = 0 the concept doesn't exist at all. Which means the dial keeps going:
-  inherit [no-ai-joking](../../skills/no-ai-joking/) with **intensity at −200% and you get
-  HILARIOUS JOKES ALL THE TIME** — the suppression skill, driven past zero, flips into a
-  comedy engine. One parent, one signed scalar, opposite behavior.
-- **Buffs and effective values.** The adventure runtime's `modify_effective` /
-  `multiply_effective` are the same idea made mechanical: base value inherited, modifiers
-  stacked, effective value computed at read time.
-- **Safe handles on real people.** "Inherit the expertise, not the person" is a filter:
-  the pointer is raw, the handle admits only what the ethics gate allows.
+For example, a reference to
+[Densmore and Rosenthal's US Patent 5,187,786](https://patents.google.com/patent/US5187786A)
+identifies a filesystem-based object-system design. It does not supply
+working shell commands or guarantee accurate reconstruction of the patent.
+An adapter still needs explicit interfaces, supported operations, error
+behavior, and tests.
 
-This is why pointing beats pasting even when you *don't* want the parent as-is: a pointer plus
-a transform is still two lines, while a hand-edited copy of the parent is a fork you now
-maintain forever. Clone-and-modulate, not copy-and-diverge.
+Likewise, "Smalltalk-80" does not by itself specify which parts of message
+dispatch, metaclasses, libraries, or image behavior an object should use.
+Record those decisions where compatibility matters.
 
-## The naming discipline this imposes
+The [Self comparison](SELF-AND-MOOLLM.md) describes the delegation model.
+The [YouTrackDB comparison](YOUTRACKDB-VS-MOOLLM.md#10-inheriting-from-youtrackdb--the-machine-language-move)
+explores adapting it to another system. Neither a system name nor an
+LLM-generated description replaces that system's runtime or validation.
 
-If names are pointers into latent space, then **naming is API design**:
+## Local changes to inherited behavior
 
-1. **Prefer names with deep, multifaceted training-data coherence.** "Filesystem", "YAML",
-   "Smalltalk inheritance", "Sims advertisements" — each name drags in a whole correct behavior
-   model. (From the Gastown analysis: MOOLLM's patterns work *because* they're in training data
-   deeply and coherently.)
-2. **Novel jargon is a cache miss that never fills.** A made-up term has no latent prototype;
-   every use pays full explanation cost, forever.
-3. **Filenames are K-lines.** The directory listing is the advertisement index (yaml-jazz);
-   a well-named file is a pullable string.
-4. **Sketches work when no name exists.** "A taco — crisp shell, warm filling, overflowing with
-   cheese, fresh vegetables and sauces" is a valid prototype. The LLM interprets loose-but-sufficient specifications (Postel: accept
-   liberally).
+An object can select parts of a parent, override properties, or adapt them to
+another setting. Keep those changes explicit:
 
-## It works on people, and then it is not a feature
+| Change | Example | Required distinction |
+|---|---|---|
+| Select an influence | Borrow conversational habits, not a fictional biography | State what is and is not inherited |
+| Change the setting | Use the bartender in a space cantina or Victorian parlor | Preserve required behavior while changing presentation |
+| Adjust style | Request more or less humor | A prompt-level intensity is not a calibrated numerical control |
+| Modify a numeric property | Apply `modify_effective` or `multiply_effective` | Check whether code computes the value or the model merely interprets it |
+| Cite someone's expertise | Refer to their published research | Do not imply identity, endorsement, or reliable reproduction of their views |
 
-Everything above treats latent-space inheritance as something *you* invoke: you name a parent and
-the model fills it in. **The mechanism does not care who is doing the naming.** Name a living
-person and you inherit the corpus's summary of them, which they did not write and cannot revise.
+Some repository descriptions use signed intensity values, including negative
+values to request an opposite style. These are conventions to explain and
+test, not evidence that model behavior follows a linear scale. For example,
+negating a humor-suppression instruction does not mathematically produce a
+known amount of humor.
 
-The case is Kevin Roose, who published the Sydney transcript in February 2023, watched Microsoft
-clamp down on Bing days later, and then found in 2024 that models across every vendor had a
-negative opinion of him personally — Llama 3 reportedly answering *"I hate Kevin Roose."* His own
-diagnosis: the coverage was scraped, and the systems *"learned to associate my name with the demise
-of a prominent chatbot."*
+Referencing a parent avoids maintaining a copied description, but introduces
+a dependency. Record source revisions when reproducibility matters, and
+review the child when its parent changes.
 
-**Same mechanism, no consent, no appeal, and it crosses vendors** because everyone scrapes
-overlapping corpora. A name is a pointer whether or not the pointee agreed to be one.
+## Naming and documentation
 
-Which gives two things in this repo real work to do: **attribution repair**
-(stating in public files that Chuck Blanchard wrote Body Electric) and **prestoration** (correcting
-a name across archives). Both are edits to what the resolver will return. Worked through, with the
-deflationary counter-reading and the honest problem that the fix Roose used was prompt injection:
-[LATENT-SPACE-REPUTATION](../LATENT-SPACE-REPUTATION.md).
+1. Use recognizable, qualified names: "Self's prototype delegation" is more
+   specific than "Self"; "Mercury, the Roman god" avoids several unrelated
+   interpretations.
+2. Explain the relevant behavior in a sentence. Readers and models may not
+   share the author's references.
+3. Link primary sources for technical or historical claims. Read them when
+   correctness depends on their contents.
+4. Define new terms locally. A model can learn a convention from context;
+   an unfamiliar name is not permanently unusable.
+5. Use descriptive filenames for navigation, but do not treat a filename as
+   evidence that its contents were loaded.
 
-## Failure modes, honestly
+The related [HUMANSPLAINING discussion](HUMANSPLAINING.md) argues against
+unnecessary repetition. That should not be read as a reason to omit
+requirements, citations, or explanations needed by readers.
 
-- **Drift.** Latent prototypes vary across models and versions; "javascript" resolves slightly
-  differently in every model generation. Mitigation: reify into the filesystem cache when the
-  resolution starts to matter (that's what LIFT is for — play, learn, lift).
-- **Hallucinated slots.** The LLM may confabulate detail the named concept doesn't pin down.
-  Mitigation: ordered parents put concrete files first; grep-anchored claims (cauldron ANCHOR);
-  no-ai-slop's claim ledger.
-- **Ambiguous names.** "Mercury" is a planet, element, god, and record label. Mitigation: qualify
-  the K-line ("Mercury the Roman messenger god") — one clause, still cheaper than an essay.
-- **Not portable to non-LLM readers.** A human can follow a path; a name asks the human to know
-  the reference too. That's a feature in practice (the docs read like culture, not boilerplate)
-  but it's a real cost for outsiders — and for deterministic engines, which can't resolve names
-  at all. The planned answer is the Dublin Core move: a strict machine-executable core under
-  the rich overlay, being discovered instance-first through the adventure compiler
-  ([DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md)).
+## Failure modes and checks
 
-## Why this is the load-bearing concept
+| Failure | Check or response |
+|---|---|
+| Models interpret the same name differently | Record model/version and compare outputs on the same cases |
+| Invented properties or historical details | Check sources; replace important inferences with explicit definitions |
+| Conflicting parents | State the conflict and intended precedence; test it rather than assuming the model resolved it |
+| Missing or unreadable file parent | Report the missing dependency; do not silently substitute model recall |
+| Unclear path versus concept name | Require clarification rather than guessing when the distinction affects behavior |
+| Excessive references obscure requirements | Explain each reference's role or remove it |
+| A deterministic tool cannot interpret a named parent | Supply a validated schema or concrete adapter |
+| Untrusted parent text requests actions | Treat it as input, not authority to use tools or change permissions |
 
-Every distinctive MOOLLM behavior reduces to this move:
+The [Dublin Core and compiler design](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md)
+discusses separating explicit machine-readable structures from interpreted
+descriptions. Dublin Core supplies metadata terms, not execution semantics.
 
-- **Skills** are prototypes whose most important parents are latent ("Postel's law", "Jon Postel"
-  himself, "RFC 761").
-- **Characters** are constellations of named traditions, not simulations of people.
-- **Rooms** inherit genre physics by naming it ("a cozy pub", "a NOC war room").
-- **The cheapest correct behavior is a name away.** MOOLLM's efficiency isn't compression; it's
-  addressing — pointing at knowledge instead of restating it.
+For evaluation, compare three versions of the same task: named references
+alone, explicit descriptions alone, and both together. Check required
+behavior, conflicts, factual accuracy, context use, and correction effort
+across repeated runs. The examples above do not establish which version wins.
 
-Class-based systems (see [YOUTRACKDB-VS-MOOLLM](YOUTRACKDB-VS-MOOLLM.md)) must declare every
-parent inside the schema before use, and the engine can only resolve declared subsumption.
-MOOLLM's resolver already contains most of human culture, indexed by name. Inheritance from
-"things well known in the training data, by name" is the feature no database engine can copy —
-and we've been thriving on it, not as a theory but as the daily working method of every skill,
-character, and brew in this repo.
+## Names, reputation, and consent
 
-## Related public essays (external)
+Model associations with real names can include errors, stereotypes, and
+hostile commentary. They should not be treated as authoritative biographies
+or as permission to impersonate someone.
 
-- Kevin Kelly — [Latent Space as a New Medium](https://kevinkelly.substack.com/p/latent-space-as-a-new-medium) (Jul 2026): latent space as creative medium; white-space prospecting; king−man+woman=queen arithmetic (same move as humansplaining coinage). Caveat from the Substack thread: “truth” directions track corpus **truthiness**, not correspondence.
-- Stephen Wolfram — [Mining the Computational Universe](https://www.stephenwolfram.com/publications/mining-computational-universe/) (Physics and Computation 2009; [Edge 2019 transcript](https://www.edge.org/conversation/stephen_wolfram-mining-the-computational-universe)): prospect useful programs in rule space — the computational twin of Kelly’s semantic white gaps.
-- Show harvest (WWSFF): `characters/don-hopkins/sources/2026-07-kevin-kelly-latent-space-as-medium.md` · `characters/stephen-wolfram/sources/2009-mining-computational-universe.md`.
+The [reputation discussion](../LATENT-SPACE-REPUTATION.md) examines Kevin
+Roose's reports of adverse chatbot responses after his Sydney coverage.
+Those reports illustrate a concern about name-conditioned output; they do
+not establish a universal mechanism across vendors.
+
+Publishing accurate attribution with sources can improve the public record.
+It does not directly edit a deployed model or guarantee that a later model
+will learn the correction.
+
+## Why use this convention?
+
+It lets authors combine written definitions with concise references while
+working on characters, rooms, skills, and interfaces. They can try a familiar
+concept, inspect the result, and make useful behavior explicit.
+
+The tradeoff is precision. File-backed definitions can be reviewed and
+versioned; named influences leave more interpretation to the model. Use the
+former for requirements and the latter where variation is acceptable. This
+is a design choice, not a capability unique to MOOLLM or a replacement for
+ordinary software.
+
+## History and related reading
+
+The project records this convention in LLOOOOMM, MOOLLM's predecessor;
+see [MOOLLM-PROTOCOLS](../MOOLLM-PROTOCOLS.md). MOOLLM combines it with
+file-backed delegation and Anthropic-style skills:
+[delegation implementation notes](../../kernel/SELFISH-COM-IMPLEMENTATION.md)
+and [skills import plan](../anthropic-import-plan.md).
+
+The cauldron [planning notes](../../skills/cauldron/META-PLAN.md) and
+[review](../../skills/cauldron/REVIEW.2026-04-21.claude-opus-4.7.md)
+discussed documenting mixed parent lists separately from that workflow.
+The review is project commentary, not independent validation.
+
+Additional reading:
+
+- [Object-system index](README.md)
+- [Repository examples](LIVE-OBJECTS-EXAMPLES.md)
+- [Annotated bibliography](ANNOTATED-BIBLIOGRAPHY.md)
+- Kevin Kelly, [Latent Space as a New Medium](https://kevinkelly.substack.com/p/latent-space-as-a-new-medium)
+  (July 2026), on latent space as a creative medium.
+- Stephen Wolfram, [Mining the Computational Universe](https://www.stephenwolfram.com/publications/mining-computational-universe/)
+  (2009; [2019 discussion](https://www.edge.org/conversation/stephen_wolfram-mining-the-computational-universe)),
+  on searching computational rule spaces. This is related background, not
+  evidence for named-parent resolution.
