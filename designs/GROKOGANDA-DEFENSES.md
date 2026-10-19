@@ -1331,9 +1331,9 @@ Same **oligarch-protection cascade** as 2026-07-18 (CSAM), new costume: **fascis
 
 ## Files written
 
-- [`skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml`](file:///Users/a2deh/GroundUp/Leela/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml) — C→A→R + HARD-GATEs  
-- [`.../2026-08-01-fascist-troll-offramp-gaslight-cascade.yml`](file:///Users/a2deh/GroundUp/Leela/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-offramp-gaslight-cascade.yml) — staged cascade  
-- [`.../2026-08-01-fascist-troll-oligarch-protection-REPORT.md`](file:///Users/a2deh/GroundUp/Leela/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-REPORT.md) — detection + routes  
+- [`skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml`](file:///Users/a2deh/GroundUp/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-schemas.yml) — C→A→R + HARD-GATEs  
+- [`.../2026-08-01-fascist-troll-offramp-gaslight-cascade.yml`](file:///Users/a2deh/GroundUp/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-offramp-gaslight-cascade.yml) — staged cascade  
+- [`.../2026-08-01-fascist-troll-oligarch-protection-REPORT.md`](file:///Users/a2deh/GroundUp/git/moollm/skills/no-ai-gloss/examples/2026-08-01-fascist-troll-oligarch-protection-REPORT.md) — detection + routes  
 - `no-ai-gloss/GLANCE.yml` — canonical patterns + hard gates updated  
 
 ---

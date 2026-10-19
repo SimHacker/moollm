@@ -217,7 +217,7 @@ files_read:
   # GLOB SEARCHES — File discovery
   glob_searches:
     - pattern: "**/monkey*"
-      target: "/Users/a2deh/GroundUp/Leela/git/moollm"
+      target: "/Users/a2deh/GroundUp/git/moollm"
       results: 1
       found: "examples/adventure-4/pub/stage/palm-nook/study/monkey-chair.yml"
       
@@ -456,8 +456,8 @@ cursor_context:
     shell: "bash"
     workspaces:
       - "/Users/a2deh/GroundUp/Leela/git/central"
-      - "/Users/a2deh/GroundUp/Leela/git/moollm"
-      - "/Users/a2deh/GroundUp/Leela/git/mooco"
+      - "/Users/a2deh/GroundUp/git/moollm"
+      - "/Users/a2deh/GroundUp/git/mooco"
     date: "Thursday Jan 22, 2026"
     
   git_status:
@@ -489,7 +489,7 @@ cursor_context:
   workspace_rules:
     always_applied:
       - "/Users/a2deh/GroundUp/Leela/git/central/.cursorrules"
-      - "/Users/a2deh/GroundUp/Leela/git/moollm/.cursorrules"
+      - "/Users/a2deh/GroundUp/git/moollm/.cursorrules"
     moollm_rules:
       boot_sequence: "Read kernel/drivers/cursor.yml, PROTOCOLS.yml, skills/bootstrap/"
       focus_files: [".moollm/working-set.yml", ".moollm/hot.yml", "kernel/drivers/cursor.yml"]

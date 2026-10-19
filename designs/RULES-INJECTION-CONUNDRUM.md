@@ -22,8 +22,8 @@ Always-injected, in that session's system context:
 
 | File | Bytes |
 |---|---|
-| `Leela/git/moollm/.cursorrules` | 12,874 |
-| `Leela/git/moollm/.cursor/rules/moollm-core.mdc` | 6,819 |
+| `git/moollm/.cursorrules` | 12,874 |
+| `git/moollm/.cursor/rules/moollm-core.mdc` | 6,819 |
 | `Leela/git/central/.cursorrules` | 5,660 |
 | `~/.cursor/plugins/cache/cursor-public/svelte/.../svelte-mcp-tools.mdc` | — |
 
@@ -69,7 +69,7 @@ reference is a context leak until proven otherwise.** It is also an argument for
 provenance in the manifest, since "why did you mention that?" should be
 answerable by the tool rather than by an investigation.
 
-The same shape is sitting in the tree right now: `Leela/git/openclaw/AGENTS.md`
+The same shape is sitting in the tree right now: `git/openclaw/AGENTS.md`
 is 41,953 bytes, 5,555 words — call it 10–11K tokens at a repo root, eligible
 for always-injection the moment that folder is open. Nobody put it there
 maliciously. It grew.

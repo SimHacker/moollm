@@ -92,7 +92,7 @@ used to disagree with it: **four parts, not six.**
 
 ## Directive census
 
-Counted across `archive/` and `ties/` in `Leela/git/lloooomm-imports`, 264 `.st0` files, editor
+Counted across `archive/` and `ties/` in `git/lloooomm-imports`, 264 `.st0` files, editor
 backups (`.st0~`, `.BAK`) excluded because they double-count. Alias pairs summed, since the parser
 sums them:
 
@@ -109,7 +109,7 @@ sums them:
 was the working grain of the system, not an aspiration. Reproduce with:
 
 ```bash
-cd Leela/git/lloooomm-imports
+cd git/lloooomm-imports
 find archive ties -name '*.st0' -print0 | xargs -0 rg --no-filename '^\.definition\b' -o | wc -l
 ```
 
@@ -240,7 +240,7 @@ Primary sources are on disk, outside version control, in the LLOOOOMM import tre
 
 | What | Where |
 |---|---|
-| Storyboard source (`.st0`) | `Leela/git/lloooomm-imports/ties/doc/demos/hyperties.st0`, `archive/HyperTIES/news-paper/hyperties.st0` |
+| Storyboard source (`.st0`) | `git/lloooomm-imports/ties/doc/demos/hyperties.st0`, `archive/HyperTIES/news-paper/hyperties.st0` |
 | Markup language spec (scan) | `lloooomm-imports/ties/scans/HyperTIESMarkupLanguage.pdf` |
 | Database format (scans) | `HyperTIESDatabase.pdf`, `NewHyperTIESDatabaseFormat.pdf` |
 | Emacs authoring tool (scan) | `EmacsAuthoringToolsForHyperTIES.pdf` |

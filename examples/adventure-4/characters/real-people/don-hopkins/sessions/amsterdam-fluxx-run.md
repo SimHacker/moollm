@@ -49,8 +49,8 @@ workspace:
   repos: 3
   paths:
     - /Users/a2deh/GroundUp/Leela/git/central
-    - /Users/a2deh/GroundUp/Leela/git/moollm
-    - /Users/a2deh/GroundUp/Leela/git/mooco
+    - /Users/a2deh/GroundUp/git/moollm
+    - /Users/a2deh/GroundUp/git/mooco
 ```
 
 **Boot sequence:** `BOOTSTRAP → DETECT-DRIVER(cursor) → WARM-CONTEXT → STARTUP(adventure)`

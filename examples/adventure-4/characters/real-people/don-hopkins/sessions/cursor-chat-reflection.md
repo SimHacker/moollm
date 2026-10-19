@@ -2307,7 +2307,7 @@ terminals:
   files:
     - id: 1
       pid: 45636
-      cwd: /Users/a2deh/GroundUp/Leela/git/moollm
+      cwd: /Users/a2deh/GroundUp/git/moollm
       last_command: ls -lt designs/ |head -10
       last_exit_code: 0
 ```
