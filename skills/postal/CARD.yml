@@ -144,6 +144,11 @@ card:
         base_time: 2
         cost: 10
         guaranteed: true
+      logistics:
+        base_time: 0          # Internal container transfers
+        cost: 0
+        
+    lifecycle: [draft, outbox, in_transit, delivered, read]
         
     distance:
       unit: hops              # Room graph distance

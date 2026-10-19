@@ -36,6 +36,7 @@ delivery_methods:
   express: { time: 1, cost: 5, tracking: true }
   freight: { time: 10, cost: "0.5/kg" }
   courier: { time: 2, cost: 10, guaranteed: true }
+  logistics: { time: 0, cost: 0, note: "internal container transfers" }
 
 attachment_types: [object, gold, image, buff, room, message]
 
