@@ -35,12 +35,15 @@ Prompt engineering, described in 1979.
 
 Primary sources:
 
-- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF)](https://dspace.mit.edu/bitstream/handle/1721.1/5739/AIM-516.pdf)
+- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF, CSAIL mirror)](https://courses.csail.mit.edu/6.803/pdf/aim-516.pdf)
 - [MIT DSpace catalog entry](https://dspace.mit.edu/handle/1721.1/5739)
-- [CSAIL mirror (aim-516.pdf)](https://courses.csail.mit.edu/6.803/pdf/aim-516.pdf)
 - [Journal version, Cognitive Science 4(2):117-133, 1980](https://doi.org/10.1207/s15516709cog0402_1)
 - [Wikipedia: K-line (artificial intelligence)](https://en.wikipedia.org/wiki/K-line_(artificial_intelligence))
 - [Wikipedia: Society of Mind](https://en.wikipedia.org/wiki/Society_of_Mind)
+
+Link check, 19 October 2026: the legacy DSpace PDF URL returned HTML;
+the CSAIL mirror returned `application/pdf`. Use the catalog entry for
+repository metadata, not as a direct PDF link.
 
 Wikipedia URLs are themselves K-lines: every Wikipedia page is in the training data, associated with its URL. Citing the URL activates the article without pasting it.
 
@@ -108,4 +111,3 @@ The K-lines aren't documentation. They're **semantic rails** the model rides str
 | UPPER-CASE-HYPHENATED | \`YAML-JAZZ\` |
 | Findable via grep | \`grep YAML-JAZZ\` |
 | Self-documenting | Name implies behavior |
-

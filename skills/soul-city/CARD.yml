@@ -41,11 +41,10 @@ files:
 # ── Souvenirs — the one class of thing that crosses between ANY two games ──
 souvenirs:
   doc: SOUVENIRS.md
-  guarantee: |
-    THE ALBUM IS THE FLOOR. Characters need a save parser, objects an asset pipeline, zones a
-    tile map. A photograph and a caption need a screen and a clock. So album import/export is
-    guaranteed for any game whatsoever — including one that will never be patched and one whose
-    format nobody has reversed.
+  capture_scope: |
+    Screenshots and captions do not require save parsing or game modifications,
+    where capture is available and permitted. Native album import/export needs
+    a game-specific adapter. Pages may also be authored without a source game.
   degradation:              # robust-first: degrade, never fail
     full_bridge: "round-trip native album pages; provenance = save id + souls in frame + recorded moment"
     photo_mode: "import native captures, export back to its format"
@@ -55,7 +54,13 @@ souvenirs:
     self_describing: true
     inheritance: "multiple, from skills and capabilities — prototype delegation, not a class tree"
     unknown_types: "read the properties, keep every unparsed one, pass it on whole. NEVER drop unknown fields."
-  album: "a polymorphic ordered array of typed objects — sequence is the only structure it imposes"
+  album: "Pages form a graph; linear albums, slideshows, and books are ordered routes through it."
+  route: "Chosen start page and length, traversal choices, and a resolved sequence of page revisions."
+  content_generation:
+    status: design
+    inputs: "Pages or routes plus target-specific templates and build metadata."
+    identity: "Retain source IDs, recipe revision, and allocated game object IDs for later updates."
+    placement: "Record each save and instance separately; definition rebuilds do not automatically update placed instances."
   metadata_floor: dublin-core   # if a field has a DC name, use the DC name
   dc_extensions:
     coverage: "TWO geographies at once — real-world GPS and in-game location, plus in-world time"
@@ -63,7 +68,7 @@ souvenirs:
     beyond_dc: [in_game_coordinates, save_id, recorded_moment, souls_present]
   types: [scene, card, post, clip, letter, receipt, place, portrait]
   vocabulary_rule: "A game's own name for its album stays the game's. We uplift; we do not annex."
-  implementation: "MicropolisCore soul-angel/SOUL-ALBUM.yml + DVR.yml"
+  specifications: "MicropolisCore soul-angel/SOUL-ALBUM.yml + DVR.yml; these files are plans, not implementation evidence."
 
 # ── Register — the words are chosen, not decorative. GLOSSARY.md has the full account. ──
 register:
@@ -166,7 +171,7 @@ k-lines:
     - ASYLUM           # souls stranded by delisting, retired servers, locked formats
     - THE-MARKETPLACE  # tools, editors, shops — on the Soul City side of the bridge
     - SOUVENIR         # a titled object with a payload; survives customs when skills don't
-    - THE-ALBUM        # polymorphic array of typed objects; guaranteed for any game
+    - THE-ALBUM        # reusable page graph; bounded routes; generated-object update records
   related:
     - { ref: soul, relation: "continuity bodies that inhabit the city" }
     - { ref: mind, relation: "agencies on souls; free-form graphs" }

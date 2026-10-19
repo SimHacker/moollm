@@ -531,7 +531,13 @@ An **organelle** is a folder that holds one game’s way of organizing a person 
 
 ### Universal sequence: album · blog · storybook · playlist
 
-Same membrane pattern everywhere people tell stories in order — and the same pattern for **any** series of objects:
+An ordered collection is a view, not the full storage model. Pages can belong
+to a graph with branches, merges, and shared references. Albums, slideshows,
+and books select a bounded route from a chosen start. Preserve the resolved
+sequence and page revisions for reproducible publication or object generation.
+See [the page-graph and generation design](SOUVENIRS.md).
+
+The following are familiar linear views of that content:
 
 | Name people use | Same shape |
 |-----------------|------------|
@@ -669,4 +675,3 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 | Soul Plaza / catalog | [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) — the platform layer: shops, pipeline, GUIDs, rights |
 | Adventure ↔ loci     | [HN 29330901](https://news.ycombinator.com/item?id=29330901)                                                                                          |
 | Product              | [MicropolisCore soul-city](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)                                  |
-

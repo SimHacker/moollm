@@ -13,7 +13,7 @@ is really a tangled graph.
 
 Primary sources:
 
-- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF)](https://dspace.mit.edu/bitstream/handle/1721.1/5739/AIM-516.pdf)
+- [K-Lines: A Theory of Memory, MIT AI Memo 516, June 1979 (PDF, CSAIL mirror)](https://courses.csail.mit.edu/6.803/pdf/aim-516.pdf)
   — full OCR text cached at [skills/k-lines/sources/aim-516-k-lines-1979-ocr.txt](../skills/k-lines/sources/aim-516-k-lines-1979-ocr.txt)
 - [Cognitive Science 4(2):117-133, 1980](https://doi.org/10.1207/s15516709cog0402_1)
 

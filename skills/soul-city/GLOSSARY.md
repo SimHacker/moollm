@@ -354,11 +354,30 @@ title, creator, subject, description, publisher, contributor, date, type, format
 source, language, relation, coverage, rights. Deliberately small, deliberately generic, and by now
 underneath a great deal of the web's cataloguing.
 
-*Here:* the floor for souvenir metadata, adopted rather than reinvented: if a field has a Dublin
-Core name, that is the name it gets. Two elements do extra duty — `coverage` carries **both**
-geographies (real-world GPS and in-game location, plus in-world time), and `relation` carries the
-pointers to the souls, objects, and places in a scene, which is what lets a photograph find its
-character again after both have moved worlds.
+*Here:* shared media metadata using the
+[published DCMI definitions](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/).
+Game coordinates, character references, and build instructions need documented
+extensions. Rights, provenance, and location are distinct; do not infer
+publication permission from a source citation.
+
+**Page graph and edition**
+
+*Known:* a directed graph stores nodes and links. A walk is an ordered sequence
+following links and may revisit nodes; an edition fixes selected content.
+
+*Here:* media pages are reusable nodes. An album, slideshow, or book selects
+a bounded walk with a start, branch choices, and a length. Published editions
+record the resolved page revisions. See [SOUVENIRS.md](SOUVENIRS.md#3-pages-form-a-graph-editions-select-routes).
+
+**Generated object and placed instance**
+
+*Known:* an asset definition can be referenced by multiple instances in saved
+worlds; editing the definition and migrating instance state are different tasks.
+
+*Here:* a build record maps source pages and a recipe to allocated game object
+IDs. Rebuilds retain those IDs; intentional forks allocate new ones. Save
+placement records track individual copies. See
+[content generation](SOUVENIRS.md#6-use-pages-as-inputs-to-content-creation-tools).
 
 ## Games and interfaces
 

@@ -1,37 +1,34 @@
-# Souvenirs — the universal objects, and the album that holds them
+# Media pages, album graphs, and generated game content
 
-*Souvenir*, from French, "to remember" — from Latin *subvenire*, to come to mind. A souvenir's
-entire job is to make something come back to you later. That is also the job of every object in
-this document.
+**Status: design and planning.** Updated from Don Hopkins's 19 October 2026
+notes. This document does not establish that the described generators,
+save editors, or native album adapters are implemented.
 
-[SOUL-BRIDGES.md](SOUL-BRIDGES.md) covers who may cross a save-file border and what the
-destination owes them. This document covers **what they can carry**, and the one class of thing
-that crosses between *any* two games whatsoever.
+Here a *page* is a reusable media record: images, text, audio, or other
+material with metadata. An album can organize pages as a graph; a linear
+edition selects a route through it. Content-creation tools can use those
+same records to generate and update objects in games.
 
-## 1. The album is the floor, because it needs nothing from the game
+[SOUL-BRIDGES.md](SOUL-BRIDGES.md) addresses character interchange. This
+document addresses media and content authoring, including work that never
+involves an imported character or a source game.
 
-Every other crossing needs format work. Characters need a save parser. Objects need an asset
-pipeline. Zones need a tile map.
+## 1. Capture without a save parser
 
-A photograph and a caption need a screen and a clock.
-
-So the **album is guaranteed** — for a game with no album feature, a game that will never be
-patched again, a 1996 DOS binary under emulation, a game whose format nobody has reversed. Every
-game can be photographed. Which makes the album both the first thing to build and the last thing
-you would ever lose:
+Screenshots and captions can work without parsing a save, modifying a game,
+or knowing its file formats. This includes older games, where capture is
+available and permitted. It is not a guarantee that every platform permits
+capture or that every game has a writable album format.
 
 | What the destination supports | What the album still does |
 |---|---|
-| A full bridge | Round-trips native album pages both ways; provenance carries save id, souls in frame, the exact DVR moment |
-| A photo or replay mode | Imports its native captures, exports back into its format |
-| **Nothing at all** | Capture, caption, narrate, publish. Provenance degrades to game plus timestamp — [degraded, not failed](../robust-first/) |
+| Native album adapter | Import/export supported pages; preserve available save, character, and recording references |
+| Photo or replay mode | Import supported captures; export only where its format permits |
+| No game-specific integration | User capture, caption, narration, and optional publication; record only known provenance |
+| No source game | User-created or imported media with creator, source, and rights information |
 
-That bottom row is the whole guarantee. Nothing above it is required for a soul to come home
-with something in its hands.
-
-Cheapest crossing in the whole design, cheaper even than
-[a letter to the editor](SOUL-BRIDGES.md#3-the-role-gate-entering-a-game-that-has-no-individuals):
-one picture, one caption, one timestamp.
+Unknown provenance stays unknown. A game name and timestamp do not identify
+the people in an image, establish copyright, or prove an event occurred.
 
 ## 2. A souvenir is an object; its type is an interpretation of it
 
@@ -45,29 +42,44 @@ skills and capabilities rather than sitting in a single-parent class tree. A thi
 photograph *and* a place record *and* a receipt at once, borrowing behavior from each. Prototype
 delegation, the same as everything else in MOOLLM.
 
-The payoff is what happens on the receiving end when the type is unknown, which will be most of
-the time. A world that has never heard of a type can still read the properties, keep every one it
-does not understand, and pass the whole thing on intact — [accept liberally, emit
-conservatively](../postel/). An unrecognized souvenir still has a title, a picture, and a date,
-so it degrades to something a human can look at rather than to an error.
+Preserve unknown fields and media references even when an editor cannot use
+them. A fallback view can display available title, caption, date, and media;
+it must not claim support for an unknown behavior. Validate imported files
+and references rather than executing instructions found in metadata.
 
-**Never drop unknown fields.** A bridge that discards what it cannot parse is a bridge that
-skims the traveler on the way through.
+## 3. Pages form a graph; editions select routes
 
-## 3. The album is a polymorphic array
+Pages have stable identifiers. Directed, typed links express continuation,
+alternatives, related events, or derivation, following the
+[StoryMaker scene design](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/family-album-as-storymaker.md).
+Branches may merge, and routes may revisit a page. Media and page records can
+be shared without copying them into every edition.
 
-The album is an **ordered sequence of typed objects**, and it does not care which types. Scenes,
-cards, blog posts, clips, letters, receipts, maps, portraits — sequence is the only structure it
-imposes, and sequence is what turns a pile of souvenirs into a story.
+A family album, slideshow, playlist, or coffee-table book is an ordered
+trip through that graph, with a chosen start and length. A route specifies
+branch choices or selection rules; a published edition records the resolved
+page IDs and revisions, order, and any timing or layout. Define length units
+explicitly (pages, clips, or duration), what happens at a dead end, and a
+limit for cycles. Do not assume chronological order is the only useful route.
 
-Prior art, all of it the same shape: HyperCard's stack of cards, a blog's feed of posts, a
-scrapbook, a commonplace book, a photo album with captions in the margin.
+Distinguish narrative edges from general metadata relations: a link to the
+photographer is not a next-page instruction. Shared nodes do not imply all
+routes have permission to publish every page.
 
-## 4. The Dublin Core floor
+Editing a shared page may affect several views. Preserve revisions and let
+users choose whether a route follows updates or pins a particular edition.
+An exported linear album is one view of the graph; importing it cannot
+recover branches that its source format never stored. Preserve an external
+graph manifest where needed rather than claiming a lossless native round trip.
 
-Standard metadata is a solved problem and we do not get to re-solve it. **If a field has a Dublin
-Core equivalent, use the Dublin Core name.** New fields only where a souvenir genuinely has a
-property the world outside games does not.
+## 4. Dublin Core metadata
+
+Use existing Dublin Core terms where their meanings fit. Keep game-specific
+fields and generation instructions in documented extensions rather than
+changing the meanings of standard terms.
+
+References: [DCMI terms](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+and the [fifteen-element set](https://www.dublincore.org/specifications/dublin-core/dces/).
 
 The fifteen elements of the Dublin Core Metadata Element Set (DCMI, from a 1995 workshop in
 Dublin, Ohio), and what each one carries here:
@@ -76,35 +88,25 @@ Dublin, Ohio), and what each one carries here:
 |---|---|
 | `title` | The caption's headline — what this souvenir is called |
 | `description` | The caption body, the narration, the story |
-| `creator` | Who made it: a player, a character, an assistant draft a human then edited |
+| `creator` | Entity responsible for making the resource; distinguish actual authorship from a fictional narrator |
 | `contributor` | Everyone else with a hand in it |
 | `publisher` | Who published it, if it left the album |
 | `date` | When — real time, and see `coverage` for in-world time |
-| `type` | **The interpretation of the object.** Scene, card, post, clip, letter, receipt |
+| `type` | Nature or genre of the resource; document application-specific types separately |
 | `format` | Media format of the payload |
 | `identifier` | Stable id, so a souvenir can be cited and re-found after it travels |
-| `source` | The game, save, or capture it came out of |
-| `language` | For captions, and for games that speak their own (Simlish is a language) |
-| `relation` | **Pointers to the people, items, and places in the scene** — the connective tissue |
-| `coverage` | **Both geographies at once**: real-world GPS *and* in-game location, plus in-world time |
-| `rights` | Provenance and permissions — who may republish this, and who appears in it |
+| `source` | A related resource from which this resource is derived |
+| `language` | Language of the resource; use documented identifiers where available |
+| `relation` | A related resource; use specific terms or extensions when a relationship needs a defined role |
+| `coverage` | Spatial or temporal topic/applicability; distinguish depicted locations from capture-device location |
+| `rights` | Rights information, licenses, and applicable restrictions; not a substitute for source provenance |
 | `subject` | What it is about, for search and for shelving |
 
-Two of those do more work here than they do in a library.
-
-**`coverage` carries two geographies.** A souvenir photographed in a game has an in-game location
-(a lot, a tile, a room, a coordinate in a world that may not exist anymore) and often a
-real-world one too (where the player was sitting, where a stream was broadcast from, where a
-photograph was originally taken before somebody scanned it into a game). Neither substitutes for
-the other, and collapsing them loses the more interesting half. Keep both.
-
-**`relation` is what makes a souvenir more than a picture.** Pointers to the souls in frame, the
-objects on the table, the place it happened, the album it belongs to, the save it cites, the
-moment in the recording. This is the field that lets a photograph reunite with the character it
-depicts after both have crossed into a game that has never heard of either.
-
-Beyond Dublin Core, the additions worth standardizing are the ones about being *in a simulation*:
-in-game coordinates, save identifier, the recorded moment cited, and the ids of souls present.
+Keep in-game world/lot/tile coordinates, in-world time, source save, recording
+timecode, and depicted character/object IDs in documented extensions. Real-world
+capture location is separate and may be private: do not publish GPS by default.
+Use these references to find related records without treating them as
+narrative next-page instructions.
 
 ## 5. Types worth standardizing early
 
@@ -114,30 +116,73 @@ metadata.**
 | Type | What it is |
 |---|---|
 | `scene` | A moment: still or clip, captioned, with who and where and when |
-| `card` | An album page — the unit of sequence |
+| `card` | A reusable album page — a graph node that a route may visit |
 | `post` | A blog entry: longer prose, published, dated, commentable |
 | `clip` | Video or audio with narration; a run of these in order is machinima |
-| `letter` | Correspondence — the cheapest way a voice enters a world that has no body for it |
+| `letter` | Correspondence, with author, recipient, and publication permissions |
 | `receipt` | A manifest of what crossed a border, and at what exchange rate |
 | `place` | A location record, in either geography or both |
 | `portrait` | A depiction of a soul, citable by that soul afterwards |
 
-More specific kinds are expected and cost nothing, because an unknown type still reads as a
-titled object with a picture in it.
+Editors should preserve unfamiliar types and offer a metadata/media view
+without pretending to support their specialized behavior.
 
-## 6. Why souvenirs survive customs when other things don't
+## 6. Use pages as inputs to content-creation tools
 
-[Value is world-relative and gets marked to the local market](PORTABLE-NPCS.md#6-customs-the-trolls-luggage),
-and for most things the rate can be zero: a skill learned in one world may convert to nothing at
-all in the next.
+Source pages may come from another game's album with rich metadata, from
+a screenshot with little metadata, or entirely from user authoring. Editors
+can attach target-specific build settings and use the pages as templates.
+The shared media records remain usable independently of a game.
 
-Souvenirs are the exception, and structurally so. A photograph with a caption and a date does not
-need the destination to model photography, or skills, or economies, or anything else — it needs
-somewhere to put a picture. So the thing a traveler brings home is the thing most likely to
-arrive intact, which is why the enrichment a round trip promises is mostly made of souvenirs:
-memories, pictures, letters, and the album they live in.
+Examples: a selected route supplies slides to a slide projector, recordings
+to a jukebox, or pages to a book. The build recipe specifies the template,
+target game and format, input revisions, order, media conversion, captions,
+and supported interactions. Missing audio or unsupported formats require
+an explicit user choice or error, not an invented successful result.
 
-## Where this is implemented
+Keep three identities separate:
+
+| Record | Purpose |
+|---|---|
+| Source page and route IDs | Cite reusable material and the selected sequence |
+| Generated game object ID | Identify the definition allocated on first creation |
+| Save and placed-instance IDs | Identify particular copies placed in houses |
+
+For The Sims, allocate a collision-checked object GUID on first creation
+and retain it with the build recipe. A multi-object template may need several
+GUIDs; retain their mapping. Adding records or replacing slides should update
+the existing definition, not mint unrelated GUIDs each time. A deliberate
+fork creates a new object identity. Record builds, revisions, and outputs so
+retries do not allocate duplicate objects.
+
+Placement is a separate operation. Let users choose houses and place one
+or several instances, or request automated placement with a preview.
+Updating an installed definition does not necessarily rewrite state in
+instances already saved in houses. Track both, validate each target save,
+back it up, and report any unsupported migration or partial failure.
+Do not overwrite a running game's saves without a supported workflow.
+
+See the [object-shop plan](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/soul-city/object-shops.md),
+[GUID registry design](https://github.com/SimHacker/WillWrightShowForFood/blob/main/catalogs/soul-city/guid-registry.md),
+and [Sims resource tooling](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io).
+These are references to designs and available tooling, not evidence that
+the complete media-to-object workflow is operational.
+
+## 7. Planning checks
+
+- Resolve a bounded route through branches, merges, and cycles; reproduce a
+  pinned edition after the graph changes.
+- Preserve unknown metadata and source IDs through edits; disclose losses
+  at native-format boundaries.
+- Build from authored media with no source game as well as imported albums.
+- Rebuild a jukebox with another recording while retaining its GUID; test
+  intentional forks and multi-GUID templates separately.
+- Place multiple instances and account for each save update; preserve the
+  original on validation failure and make retries safe.
+- Check source licenses, attribution, privacy, and output rights before
+  publishing. Capture alone does not grant redistribution permission.
+
+## Related specifications and implementation references
 
 | Layer | Home |
 |---|---|
@@ -148,9 +193,9 @@ memories, pictures, letters, and the album they live in.
 | Objects and albums as in-game artifacts | [`the-computer-as-portal.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/the-computer-as-portal.md) |
 | Shops, pipeline, GUID registry, rights — the marketplace these are traded in | [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) |
 
-A per-game album bridge translates vocabulary and format in both directions and **leaves the
-game's own name for the feature alone.** The Sims has a Family Album; that is what it is called
-there. We uplift; we do not annex.
+A per-game album adapter uses the game's own feature names. The Sims has a
+Family Album. Each adapter must document supported versions, tested
+read/write behavior, and information its target format cannot preserve.
 
 ## See also
 

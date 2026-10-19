@@ -60,10 +60,18 @@ Identity rule: **fork and sync, never transport.** Both sides stay alive; shared
 the soul is saved before any ending is played. Conservation means nobody vanishes at the border,
 and no soul is returned to a world that can no longer hold it.
 
-What a traveler may carry is a third layer, and the only one guaranteed for **any** game at all:
-souvenirs are self-describing objects whose type is an interpretation of their properties, the
-album is an ordered sequence of them, and Dublin Core is the metadata floor. Characters need a
-save parser; a photograph and a caption need a screen and a clock.
+Media pages are a separate interoperability layer: capture and caption do not
+require a save parser, although capture availability and permissions still
+apply. Pages use Dublin Core metadata and form a graph. Linear albums,
+slideshows, and books are selected routes through that graph, not its only
+storage structure. Users can also author pages without a source game.
+
+Planned content tools consume pages and routes, attach target-specific build
+metadata, and generate or update game objects. Keep stable source IDs,
+generated object IDs, and save-placement records separate. Rebuilding an
+object should reuse its allocated ID; changing instances in saves requires
+an explicit placement/update operation. Preserve unknown metadata, disclose
+lossy conversions, and check rights before publication or redistribution.
 
 Protocol: [SOUL-BRIDGES.md](SOUL-BRIDGES.md) · luggage: [SOUVENIRS.md](SOUVENIRS.md) ·
 terms: [GLOSSARY.md](GLOSSARY.md) ·

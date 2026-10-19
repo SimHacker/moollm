@@ -144,14 +144,19 @@ properly and nothing in the code can tell whether the new police chief is a char
 another game or a nine-year-old in a classroom sharing the city. Moving characters between games
 and letting real people into them turn out to be the same piece of engineering.
 
-**The album is the floor, and it needs nothing from the game.** Characters need a save parser,
-objects need an asset pipeline, zones need a tile map — but a photograph and a caption need a
-screen and a clock. So one thing is portable for *any* game whatsoever, including one that will
-never be patched again and one whose format nobody has reversed: the album, as a sequence of
-typed objects with [Dublin Core](GLOSSARY.md#engineering) metadata. Where a
-bridge exists it round-trips the game's own album pages; where none does, capture and caption
-still work and provenance degrades to game plus timestamp. Details in
-[SOUVENIRS.md](SOUVENIRS.md).
+Screenshots and captions let us work with games without parsing their saves or
+modifying their code, where capture is available and permitted. Users can also
+create pages from scratch. [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/)
+provides shared metadata; game adapters can preserve additional information.
+
+Pages form a graph, like scenes in StoryMaker. A family album, slideshow, or
+coffee-table book is an ordered route through it, beginning at a chosen page
+and continuing for a chosen length. Content tools can use that route to build
+a book, slide projector, or jukebox. The proposed update records retain source
+page references and the generated object's game ID, so editing the collection
+can update the same object later. See [SOUVENIRS.md](SOUVENIRS.md) for the
+graph, metadata, generation, and save-placement design. These are plans, not
+a claim that every adapter or generator is implemented.
 
 ## Fork and sync, never transport
 
