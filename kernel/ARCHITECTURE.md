@@ -8,6 +8,11 @@
 
 This document captures the **philosophy and design rationale** behind the MOOLLM kernel. The kernel itself (`kernel/`) contains lean operational files; this document explains *why* they work the way they do.
 
+**Current workflow:** Don uses Copilot in VS Code. Start with the
+[Copilot driver](drivers/copilot.yml). Cursor remains a supported host, but
+its session database, rules files, and inspection tools are not Copilot
+interfaces. Host capabilities must be checked in the current session.
+
 **See also:**
 - `README.md` — Kernel quick reference (this directory)
 - `drivers/README.md` — Driver structure
@@ -17,21 +22,11 @@ This document captures the **philosophy and design rationale** behind the MOOLLM
 
 ## The Three Layers
 
-```
-┌─────────────────────────────────────────────────────┐
-│  USERLAND (skills/)                                 │
-│  Soul chat, rooms, cards, advertisements, games     │
-│  → Semantic meaning, application logic              │
-├─────────────────────────────────────────────────────┤
-│  KERNEL (kernel/)                                   │
-│  Tools, context assembly, memory, repair, logging   │
-│  → Infrastructure, plumbing, adaptation             │
-├─────────────────────────────────────────────────────┤
-│  HARDWARE (LLM + Orchestrator)                      │
-│  Stateless token predictor + context management     │
-│  → Raw computation, I/O                             │
-└─────────────────────────────────────────────────────┘
-```
+| Layer | Responsibility |
+|-------|----------------|
+| Skills | Rooms, characters, advertisements, games, and application behavior |
+| Kernel protocols | Tool use, context selection, persistent state, repair, and logging conventions |
+| Model and host | Model inference, supplied context, tool execution, permissions, and session lifecycle |
 
 The kernel provides **infrastructure**, not **semantics**. It doesn't know what "rooms" or "soul chat" mean — that's userland's job.
 
@@ -41,7 +36,8 @@ The kernel provides **infrastructure**, not **semantics**. It doesn't know what 
 
 ### The Core Distinction
 
-**Generic Orchestrators** (like Cursor, ChatGPT):
+**Generic Orchestrators** (such as Copilot in VS Code, Cursor, and ChatGPT,
+without a MOOLLM-specific integration):
 - Cannot parse MOOLLM-specific files
 - Don't understand CARD.yml advertisements
 - Can't inject ambient skills automatically
@@ -82,9 +78,9 @@ The **same skill files work on both orchestrator types** — the mechanism adapt
 ### Reverse Generation Pattern
 
 On generic orchestrators, these files can work **in reverse**:
-- Instead of commanding what to load, they **document what Cursor loaded**
+- Instead of commanding what to load, they record files explicitly read or requested
 - Generate them to reflect what the orchestrator's attention is focused on
-- The files become **mirrors** rather than **commands**
+- These records are partial: they do not reveal the host's complete hidden context
 
 ---
 
@@ -109,7 +105,7 @@ A driver specifies:
 | 1 | Minimal — bare essentials | `generic.yml` |
 | 2 | Basic — read/write/terminal | Basic CLI |
 | 3 | Standard — search, some MCP | ChatGPT |
-| 4 | Advanced — full file ops, MCP | Cursor |
+| 4 | Advanced — file operations, search, execution; integrations vary | Copilot in VS Code, Cursor |
 | 5 | Premium — custom tools, full MCP | Claude Code, Antigravity |
 | 6 | Custom — full kernel control | MOOCO |
 
@@ -157,28 +153,13 @@ On generic orchestrators, these are **advisory** — the LLM consults them to re
 
 Inspired by CPU cache hierarchies:
 
-```
-┌─────────────────────────────────────────┐
-│  CONTEXT WINDOW (~30K tokens)           │
-│  What the LLM can see RIGHT NOW         │
-├─────────────────────────────────────────┤
-│  HOT CACHE (.moollm/hot.yml)            │
-│  High-priority items to keep loaded     │
-│  "Page these in frequently"             │
-├─────────────────────────────────────────┤
-│  WARM (working-set.yml)                 │
-│  Currently relevant files               │
-│  "These are my focus right now"         │
-├─────────────────────────────────────────┤
-│  COLD CACHE (.moollm/cold.yml)          │
-│  Recently evicted items                 │
-│  "I used to care about these"           │
-├─────────────────────────────────────────┤
-│  REPO (files on disk)                   │
-│  Everything else                        │
-│  "I can page this in if needed"         │
-└─────────────────────────────────────────┘
-```
+| Record | Purpose | Copilot behavior |
+|--------|---------|------------------|
+| Context window | Inputs supplied to the current model call | Host-managed; complete contents and limits are not exposed |
+| `.moollm/hot.yml` | Priorities for subsequent reads | Advisory; does not pin content in the model |
+| `.moollm/working-set.yml` | Relevant file references | Advisory; not a complete context manifest |
+| `.moollm/cold.yml` | References to revisit if needed | Does not evict content from Copilot |
+| Repository files | Persistent definitions and state | Read explicitly when needed |
 
 ### Resolution Hints
 
@@ -234,186 +215,71 @@ advertisements:
 
 ---
 
-## Cursor Optimization System
+## Copilot in VS Code: startup and context
 
-On Cursor, several skills work together as a **unified context management system**:
+The current workflow uses the [Copilot driver](drivers/copilot.yml).
+It describes file access, search, terminal tools, and advisory context records.
+Actual tool names and permissions depend on the host and session; the driver
+is not a guarantee that every integration is available.
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                    CURSOR OPTIMIZATION SYSTEM                   │
-├─────────────────────────────────────────────────────────────────┤
-│                                                                 │
-│  INTROSPECTION          COMPILATION           BOOTSTRAP         │
-│  (cursor-mirror)        (OPTIMIZE)            (bootstrap)       │
-│                                                                 │
-│  ┌─────────────┐       ┌─────────────┐       ┌─────────────┐   │
-│  │ Watch self  │──────▶│ Compile     │──────▶│ Fast boot   │   │
-│  │ think       │       │ .cursorrules│       │ next time   │   │
-│  └─────────────┘       └─────────────┘       └─────────────┘   │
-│        │                      │                      │          │
-│        ▼                      ▼                      ▼          │
-│  ┌─────────────┐       ┌─────────────┐       ┌─────────────┐   │
-│  │ Analyze     │       │ User prefs  │       │ Pre-loaded  │   │
-│  │ sessions    │       │ + skill     │       │ context     │   │
-│  │ & patterns  │       │ examples    │       │ & skills    │   │
-│  └─────────────┘       └─────────────┘       └─────────────┘   │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+```mermaid
+flowchart LR
+    Host["Host instructions and available tools"] --> Driver["Select Copilot driver"]
+    Driver --> Read["Read relevant kernel and skill files"]
+    Read --> Work["Perform task and validate results"]
+    Work --> Record["Save useful state and file references"]
+    Record --> Next["Read relevant records in a later session"]
 ```
 
-### The Optimization Loop
+### Startup
 
-1. **Work** — Use Cursor normally with MOOLLM skills
-2. **Introspect** — cursor-mirror analyzes what was needed
-3. **Compile** — cursor-mirror OPTIMIZE generates optimized `.cursorrules`
-4. **Boot** — Next session starts with everything pre-loaded
-5. **Repeat** — Each iteration refines the context
+1. Identify the host from its supplied identity and available tools.
+2. Read the matching driver and follow instructions actually supplied by the host.
+3. Use the [bootstrap skill](../skills/bootstrap/SKILL.md) to find the relevant
+   kernel protocols and skill descriptions.
+4. Consult existing working-set and priority records where applicable.
+   Do not replace unrelated session state.
+5. Read the files needed for the task. Merely listing a skill does not load
+   its contents.
 
-### cursor-mirror: Introspection
+Copilot manages its own context assembly. The model can request file reads
+and maintain references, but cannot assume that a file remains in context
+indefinitely or that it can inspect the complete hidden prompt.
 
-The `skills/cursor-mirror/` skill enables **meta-cognition** — the LLM watching itself think.
+### Persistent records and instructions
 
-```bash
-cursor-mirror status          # Quick health check
-cursor-mirror tree            # Navigate sessions
-cursor-mirror thinking @1     # Watch reasoning blocks
-cursor-mirror tools @1        # Trace tool calls
-cursor-mirror deep-snitch     # Security audit
-```
+| Item | Purpose | Limit |
+|------|---------|-------|
+| Host-supplied instructions | Rules applicable to the current session | Use the supported host mechanism; Cursor configuration is not portable |
+| Skill cards and protocols | Capability descriptions and detailed instructions | Read them when relevant; no automatic MOOLLM advertisement selection is assumed |
+| `.moollm/hot.yml` | Priority references | Does not pin content in Copilot |
+| `.moollm/working-set.yml` | Record of relevant files | Not a complete record of host context |
+| `.moollm/cold.yml` | References that may be useful later | Does not control eviction |
+| Saved summaries and examples | Continuity and reusable guidance | Follow host storage rules; review before sharing or committing |
 
-This is especially powerful on Cursor, where the skill can:
-- Read conversation history from LevelDB
-- Analyze boot sequences
-- Track tool call patterns
-- Debug context assembly
+Repository guidance intended for future sessions must be saved through an
+instruction mechanism the host supports or explicitly read on startup.
+Writing arbitrary YAML does not make Copilot consume it automatically.
 
-### cursor-mirror: The MOOLLM Compiler
+### Session inspection
 
-The OPTIMIZE command compiles user preferences + skill examples into optimized output:
+Use conversation, session, and tool-history interfaces only when the current
+host exposes them. They may help explain which files were read and which
+actions occurred. They do not provide access to model weights, complete
+internal reasoning, or an exact inventory of retained context.
 
-```bash
-cursor-mirror optimize .cursorrules    # Compile to .cursorrules
-cursor-mirror optimize context         # Compile to hot.yml context
-cursor-mirror optimize --dry-run       # Preview without writing
-```
+Cursor's LevelDB history and `.cursorrules` are not Copilot interfaces.
+The [cursor-mirror skill](../skills/cursor-mirror/SKILL.md) remains available
+for Cursor-specific work; its commands must not be presented as Copilot
+commands or as required MOOLLM startup steps.
 
-**How it works:**
+### Other hosts
 
-1. **Reads skill examples** from `skills/*/examples/`
-2. **Overlays user preferences** from `.moollm/skills/*/examples/`
-3. **Applies user exclusions** from `.moollm/skills/*/exclusions.yml`
-4. **Compiles into optimized output** — deduped, prioritized, compressed
-
-**Why this matters:**
-
-Instead of the LLM manually loading all skills and examples every session, it loads the **compiled result**. The compilation:
-- Removes redundant examples
-- Prioritizes frequently-used patterns
-- Excludes user-rejected examples
-- Pre-loads ambient skills
-- Fits within `.cursorrules` token limits
-
-### Local Preference Management
-
-```bash
-# List your local preferences
-cursor-mirror prefs list
-
-# Create preference from what just happened
-cursor-mirror prefs create no-ai-slop --from-session
-
-# Exclude a central example you don't like
-cursor-mirror prefs exclude no-ai-slop verbose-option-example.yml
-
-# Include it again
-cursor-mirror prefs include no-ai-slop verbose-option-example.yml
-```
-
-Your preferences live in `.moollm/skills/*/` (gitignored), overlaid on central skills during compilation.
-
-### Contribution Workflow (Play-Learn-Lift)
-
-When you develop a good local preference, share it back:
-
-```bash
-# Stage your example for contribution
-cursor-mirror stage add no-ai-slop my-example.yml
-
-# Consolidate with existing example if overlapping
-cursor-mirror stage consolidate my-example.yml existing-example.yml
-
-# Create thoughtful commit
-cursor-mirror stage commit
-
-# Create PR
-cursor-mirror stage pr
-```
-
-This is **Play-Learn-Lift** in action:
-- **Play** — Discover patterns through use
-- **Learn** — Capture as local preferences
-- **Lift** — Share back via contribution workflow
-
-### bootstrap: Fast Boot
-
-The `skills/bootstrap/` skill provides application-specific boot sequences.
-
-After introspecting your sessions, you know:
-- Which skills are always needed for this project
-- What context should be pre-loaded
-- Which examples are most relevant
-
-**Optimize boot by rewriting `.cursorrules`:**
-
-```yaml
-# In .cursorrules (compiled from cursor-mirror optimize)
-
-# Pre-loaded skills for this project
-skills:
-  always_load:
-    - no-ai-slop         # This team hates filler
-    - yaml-jazz          # Heavy YAML usage
-    - room               # Adventure game project
-    - character          # Character simulations
-    
-  on_demand:
-    - incarnation        # Only when creating souls
-    - speed-of-light     # Only for benchmarks
-    
-# Pre-loaded context hints
-context:
-  hot:
-    - examples/adventure-4/pub/ROOM.yml
-    - characters/real-people/don-hopkins/CHARACTER.yml
-  
-  warm:
-    - skills/room/CARD.yml
-    - skills/character/CARD.yml
-```
-
-### The Full Stack
-
-| Layer | Component | Purpose |
-|-------|-----------|---------|
-| `.cursorrules` | Compiled config | What Cursor loads at boot |
-| `hot.yml` | Runtime hints | What to keep loaded during session |
-| `working-set.yml` | Focus snapshot | What's currently relevant |
-| `cold.yml` | Breadcrumbs | What was evicted (for archaeology) |
-| Skill CARDs | Advertisements | What activates when |
-| cursor-mirror | Introspection | Watch, analyze, optimize |
-| bootstrap | Boot sequence | PROBE → DETECT-DRIVER → WARM → STARTUP |
-
-### Introspection on Other Orchestrators
-
-The same introspection **concept** applies everywhere, but implementation varies:
-- Cursor: Deep LevelDB access via cursor-mirror
-- Claude Code: MCP history access
-- Custom: Whatever the orchestrator exposes
-
-The **compilation** concept also generalizes:
-- Cursor: `.cursorrules` optimization
-- Claude Code: MCP tool preloading
-- Custom: Context pre-assembly
+Keep host-specific behavior in the [drivers](drivers/README.md). Cursor,
+Claude Code, and other hosts can use the same MOOLLM files through different
+tools and instruction mechanisms. A custom integration may implement
+automatic skill selection and context loading, but those capabilities must
+be implemented and verified, not inferred from the presence of a driver.
 
 ---
 
@@ -638,31 +504,23 @@ graph TB
 
 ## File Organization (This Directory)
 
-```
-kernel/
-├── README.md                    # Quick reference
-├── ARCHITECTURE.md              # This file — design philosophy
-├── constitution-core.md         # Universal principles
-├── constitution-template.md     # Full constitution template
-├── context-assembly-protocol.md # How context is built
-├── memory-management-protocol.md# Hot/cold/working-set
-├── event-logging-protocol.md    # Append-only logging
-├── self-healing-protocol.md     # Repair and recovery
-├── tool-calling-protocol.md     # How tools work
-├── NAMING.yml                   # Naming conventions
-├── naming/                      # Detailed naming docs
-│   ├── NAMING-K-LINES.yml       # Names as K-lines
-│   ├── NAMING-RELATIONSHIPS.yml # See-also annotations
-│   └── ...
-├── drivers/
-│   ├── README.md                # Driver docs
-│   ├── cursor.yml               # Cursor IDE adapter
-│   ├── claude-code.yml          # Claude Code adapter
-│   ├── antigravity.yml          # Antigravity adapter
-│   ├── generic.yml              # Fallback adapter
-│   └── custom.yml               # Full-control template
-└── ...
-```
+| File or directory | Purpose |
+|-------------------|---------|
+| [README.md](README.md) | Kernel quick reference |
+| [constitution-core.md](constitution-core.md) | Shared principles |
+| [constitution-template.md](constitution-template.md) | Constitution template |
+| [context-assembly-protocol.md](context-assembly-protocol.md) | Context selection |
+| [memory-management-protocol.md](memory-management-protocol.md) | Persistent context records |
+| [event-logging-protocol.md](event-logging-protocol.md) | Event logging |
+| [self-healing-protocol.md](self-healing-protocol.md) | Repair and recovery |
+| [tool-calling-protocol.md](tool-calling-protocol.md) | Tool-use conventions |
+| [naming/](naming/) | Naming documentation |
+| [drivers/](drivers/) | Host adapters |
+| [drivers/copilot.yml](drivers/copilot.yml) | Current Copilot workflow |
+| [drivers/cursor.yml](drivers/cursor.yml) | Cursor-specific adapter |
+| [drivers/claude-code.yml](drivers/claude-code.yml) | Claude Code adapter |
+| [drivers/generic.yml](drivers/generic.yml) | Fallback adapter |
+| [drivers/custom.yml](drivers/custom.yml) | Custom integration template |
 
 ---
 
@@ -683,12 +541,13 @@ kernel/
 | **Skills** | |
 | Skill architecture | `../skills/skill/SKILL.md` |
 | CARD.yml format | `../skills/card/CARD.yml` |
-| **Cursor Optimization** | |
-| cursor-mirror skill | `../skills/cursor-mirror/CARD.yml` |
-| cursor-mirror SKILL.md | `../skills/cursor-mirror/SKILL.md` |
-| bootstrap skill | `../skills/bootstrap/CARD.yml` |
+| **Startup and host-specific inspection** | |
+| Copilot capabilities and limits | [Copilot driver](drivers/copilot.yml) |
+| Cursor-only session inspection | [cursor-mirror](../skills/cursor-mirror/SKILL.md) |
+| Startup protocol | [bootstrap](../skills/bootstrap/CARD.yml) |
 | **Orchestrators** | |
-| Cursor driver | `drivers/cursor.yml` |
+| Copilot driver | [drivers/copilot.yml](drivers/copilot.yml) |
+| Cursor driver | [drivers/cursor.yml](drivers/cursor.yml) |
 | MOOCO orchestrator | Orchestrator architecture (see orchestrator docs) |
 
 ---
