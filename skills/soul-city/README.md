@@ -80,17 +80,14 @@ a game that has never heard of her.
 
 Here is one, live on disk at [`examples/characters/robin/`](examples/characters/robin/):
 
-```
-robin/                        ← character: the body on the map
-  CHARACTER.yml               ← location, inventory, relationships
-  personas/
-    worn → courier/           ← costume: satchel, route patter, delivery voice
-  soul/                       ← continuity: history, albums
-    minds/
-      navigator/              ← knows the map; fronts while riding
-      archivist/              ← keeps the albums; fronts at day's end
-      sims-self/              ← organelle: Robin's Sims traits + album, in Sims format
-```
+| Path within `robin/` | Role |
+|---|---|
+| `CHARACTER.yml` | Body on the map: location, inventory, relationships |
+| `personas/worn` → `courier/` | Costume: satchel, route patter, delivery voice |
+| `soul/` | Continuity: history and albums |
+| `soul/minds/navigator/` | Knows the map; fronts while riding |
+| `soul/minds/archivist/` | Keeps the albums; fronts at day's end |
+| `soul/minds/sims-self/` | Organelle: Robin's Sims traits and album, in Sims format |
 
 One body, one worn costume, one soul, three minds — two homegrown agencies plus one that
 carries a whole other game's version of Robin **in that game's own format, unflattened**.
@@ -260,18 +257,29 @@ port, and what accretes behind that port is that game's particular business: its
 adapters, its jargon, its quirks. Walk inland and things get more universal. **Distance from the
 water is generality.**
 
-```
-  ≈≈≈ The Sims ≈≈≈≈ Micropolis ≈≈≈≈ Afterlife ≈≈≈≈ Stardew ≈≈≈
-        ║ port          ║ port         ║ port        ║ port
-  ┌─────╫───────────────╫──────────────╫─────────────╫─────┐
-  │  per-game quarters — adapters, format tools, local jargon │
-  │        ┌───────────────────────────────────────┐         │
-  │        │  shared services: editors, generators, │        │
-  │        │  albums, shops, GUID registry,         │        │
-  │        │  provenance, rights, distribution      │        │
-  │        └───────────────────────────────────────┘         │
-  └───────────────────────────────────────────────────────────┘
-       coast = game-specific            centre = universal
+```mermaid
+flowchart TB
+    sims["The Sims"] --- simsPort["Sims port"]
+    micropolis["Micropolis"] --- micropolisPort["Micropolis port"]
+    afterlife["Afterlife"] --- afterlifePort["Afterlife port"]
+    stardew["Stardew"] --- stardewPort["Stardew port"]
+    subgraph coast["Coast: game-specific quarters"]
+        simsPort
+        micropolisPort
+        afterlifePort
+        stardewPort
+        adapters["Adapters, format tools, local jargon"]
+    end
+    simsPort --- adapters
+    micropolisPort --- adapters
+    afterlifePort --- adapters
+    stardewPort --- adapters
+    adapters --- shared
+    subgraph centre["Centre: universal services"]
+        shared["Editors, generators, albums, shops"]
+        registry["GUID registry, provenance, rights, distribution"]
+        shared --- registry
+    end
 ```
 
 That gradient is the discipline software already calls **ports and adapters** — translation at

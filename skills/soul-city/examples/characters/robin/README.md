@@ -2,18 +2,15 @@
 
 The character sketched at the top of [SOUL-MODEL.md](../../../SOUL-MODEL.md), incarnated so you can walk the tree instead of imagining it.
 
-```
-robin/                        ← character: the body on the map
-  CHARACTER.yml               ← location, inventory, relationships
-  personas/
-    worn → courier/           ← costume: satchel, route patter, delivery voice
-  soul/                       ← continuity: history, albums
-    albums/route-log/         ← numbered beats — the archivist's pages
-    minds/
-      navigator/              ← knows the map; fronts while riding
-      archivist/              ← keeps the albums; fronts at day's end
-      sims-self/              ← organelle: Robin's Sims traits + album, in Sims format
-```
+| Path within `robin/` | Role |
+|---|---|
+| `CHARACTER.yml` | Body on the map: location, inventory, relationships |
+| `personas/worn` → `courier/` | Costume: satchel, route patter, delivery voice |
+| `soul/` | Continuity: history and albums |
+| `soul/albums/route-log/` | Numbered beats: the archivist's pages |
+| `soul/minds/navigator/` | Knows the map; fronts while riding |
+| `soul/minds/archivist/` | Keeps the albums; fronts at day's end |
+| `soul/minds/sims-self/` | Organelle: Robin's Sims traits and album, in Sims format |
 
 One body, one costume currently worn, one soul, three minds. Every number is adjustable; the model page explains which numbers you can turn.
 

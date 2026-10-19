@@ -20,13 +20,15 @@ it — [lecture notes](../../designs/sims/sims-will-wright-microworlds-1996.md).
 
 ## Grain
 
-```text
-skills/soul/               ← continuity body (0+ minds; free-form)
-skills/soul-city/          ← place (rooms, shops, tools, …)
-    ↓ INSTANTIATE / COMPOSE
-instance map               ← concrete rooms, roads, plazas, shops
-    ↓ inhabit
-soul + mind[] + character  ← bridges to other games OK
+```mermaid
+flowchart TD
+    soul["skills/soul/: continuity body, zero or more minds"]
+    city["skills/soul-city/: rooms, shops, tools"]
+    map["Instance map: concrete rooms, roads, plazas, shops"]
+    inhabitant["Soul + minds + character; bridges to other games"]
+    soul -->|Instantiate / compose| map
+    city -->|Instantiate / compose| map
+    inhabitant -->|Inhabit| map
 ```
 
 ## Contents

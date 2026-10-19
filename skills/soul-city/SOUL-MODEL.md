@@ -10,17 +10,14 @@ Written for anyone walking into the model cold. Skills live under `skills/<name>
 
 Before the tables, a concrete tree. Robin is a courier — invented for this page, and live on disk at [examples/characters/robin/](examples/characters/robin/) if you'd rather walk the real thing:
 
-```
-robin/                        ← character: the body on the map
-  CHARACTER.yml               ← location, inventory, relationships
-  personas/
-    worn → courier/           ← costume: satchel, route patter, delivery voice
-  soul/                       ← continuity: history, albums
-    minds/
-      navigator/              ← knows the map; fronts while riding
-      archivist/              ← keeps the albums; fronts at day's end
-      sims-self/              ← organelle: Robin's Sims traits + album, in Sims format
-```
+| Path within `robin/` | Role |
+|---|---|
+| `CHARACTER.yml` | Body on the map: location, inventory, relationships |
+| `personas/worn` → `courier/` | Costume: satchel, route patter, delivery voice |
+| `soul/` | Continuity: history and albums |
+| `soul/minds/navigator/` | Knows the map; fronts while riding |
+| `soul/minds/archivist/` | Keeps the albums; fronts at day's end |
+| `soul/minds/sims-self/` | Organelle: Robin's Sims traits and album, in Sims format |
 
 One body, one costume currently worn, one soul, three minds — two homegrown agencies plus one that carries a whole game's version of Robin. Every number in that tree is adjustable, and the rest of this page is about which numbers you can turn and what the shapes mean.
 
@@ -28,18 +25,27 @@ One body, one costume currently worn, one soul, three minds — two homegrown ag
 
 Default grain, outside → in (or map → wearer → continuity → agencies):
 
+```mermaid
+flowchart TD
+    place["Soul City, room, or vehicle"]
+    character["Character: body moving on the map"]
+    state["Changing location, inventory, hands, home, relationships"]
+    personas["Personas: costumes; usually one current"]
+    accessories["Accessory trees: parrot, fleas, etc."]
+    soul["Soul: continuity and history; usually one"]
+    minds["Resident minds: zero, one, or many"]
+    nested["Optional sub-minds, organelles, stubs, nested containers"]
+    character -->|Walks or rides in| place
+    character --- state
+    character -->|Wears| personas
+    personas -->|Transclude| accessories
+    character --- soul
+    soul --> minds
+    minds --> nested
 ```
-Soul City / room / vehicle     place the body walks (or rides)
-        │
-   character                   body — moves on the map
-        │                      location (a property that changes), inventory, hands, home, relationships
-        ├── persona(s)         costumes worn on the body (0..N over time; usually one current)
-        │     └── accessories  trees that transclude with the costume (parrot, fleas, …)
-        │
-        └── soul (usual: 1)    continuity — history; can jump bodies in stories that allow it
-              └── mind(s)      resident agencies — 0, 1, or N
-                    └── …      sub-minds, organelles, stubs, nested containers (optional)
-```
+
+A character can wear zero or more personas over time. In stories that allow
+it, a soul can move between bodies.
 
 | Term | Role | Skill |
 |------|------|--------|
@@ -205,17 +211,14 @@ You can use the **generic** parrot that lives in the pirate persona, or **instan
 
 Same idea as well → cup: the shared pirate-parrot is the well; your shoulder parrot is the cup — local lines, methods, fleas of your own. Teach it by example (“program by example”): say the line you want, it learns a personal response. Stock parrot stays available for everyone else.
 
-```
-character/
-  personas/worn → pirate/
-    clothes, peg-leg, accent, taglines…
-    parrot/                 ← generic (from the persona)
-      fleas/
-  shoulder/
-    my-parrot/              ← your thin shell around generic parrot
-      lines.yml             ← personal tag lines you taught it
-      tricks/               ← methods you trained
-```
+| Path within `character/` | Role |
+|---|---|
+| `personas/worn` → `pirate/` | Clothes, peg-leg, accent, taglines |
+| `personas/worn/parrot/` | Generic parrot from the persona |
+| `personas/worn/parrot/fleas/` | Accessories of the generic parrot |
+| `shoulder/my-parrot/` | Your thin shell around the generic parrot |
+| `shoulder/my-parrot/lines.yml` | Personal taglines you taught it |
+| `shoulder/my-parrot/tricks/` | Methods you trained |
 
 ### Multi-person personas (pantomime horse)
 
@@ -225,15 +228,13 @@ The **pantomime horse** is one persona **and** a two-character [vehicle](../vehi
 - **Vehicle:** two seats — **front end** and **back end** — that walk the map together
 - Switch roles — “Why do I always have to be the back end? I want to try the front for once!”
 
-```
-persona+vehicle/pantomime-horse/
-  persona:     one costume (the horse)
-  vehicle:     walks as one body on the map
-  roles/
-    front/     ← sees, steers, talks (maybe)
-    back/      ← walks the rear, trusts the front
-  seats: 2     ← two characters EMBARK / WEAR into the same thing
-```
+| Property of `persona+vehicle/pantomime-horse/` | Meaning |
+|---|---|
+| Persona | One costume: the horse |
+| Vehicle | Walks as one body on the map |
+| `roles/front/` | Sees, steers, perhaps talks |
+| `roles/back/` | Walks the rear, trusts the front |
+| Seats: 2 | Two characters EMBARK / WEAR into the same thing |
 
 Roles can take turns. One shared persona; one vehicle; two characters aboard.
 
@@ -373,11 +374,13 @@ nickname = Duckmouse
 
 Jesus Mouse lived as **one** Jesus Christ + Mickey Mouse soul. You could also put Jesus Christ and Mickey Mouse in **two minds** on one soul (they can counsel or disagree). Not what he lived — just another shape:
 
-```
-soul
-  minds
-    jesus-mind ← parents: Jesus
-    mouse-mind ← parents: Mickey Mouse
+```mermaid
+flowchart TD
+    soul["Soul"] --> minds["Minds"]
+    minds --> jesus["jesus-mind"]
+    minds --> mouse["mouse-mind"]
+    jesus -->|Parent| jesusParent["Jesus"]
+    mouse -->|Parent| mouseParent["Mickey Mouse"]
 ```
 
 Other shapes exist too (personal *Jesus Mouse* mind, name alone, blend plus shoulders, game hooks). Memorials and design notes — not a playable adventure character yet.
@@ -386,12 +389,10 @@ Other shapes exist too (personal *Jesus Mouse* mind, name alone, blend plus shou
 
 The two-minds shape above, playable: [examples/adventure-4/characters/fictional/troll/](../../examples/adventure-4/characters/fictional/troll/). The Zork troll (Troll Room, bloody axe, 1980) and the Colossal Cave troll (chasm bridge, one treasure per crossing, 1977) were **the same troll all along** — one soul, two organelle minds, one per game:
 
-```
-soul
-  minds
-    zork-mind      ← combat gate; currency: violence   (minds/zork-mind.yml)
-    adventure-mind ← toll gate;   currency: treasure   (minds/adventure-mind.yml)
-```
+| Mind within the soul | Gate | Currency |
+|---|---|---|
+| `minds/zork-mind.yml` | Combat | Violence |
+| `minds/adventure-mind.yml` | Toll | Treasure |
 
 Each mind holds that game's version of him in that game's own format — exactly [one mind per game](#one-mind-per-game). Neither is flattened into the other. Arriving in a new world, he samples the local advertisements and fronts the mind whose currency the world speaks: combat verbs wake zork-mind, treasure scoring wakes adventure-mind, both at once means the adventurer picks how to pay, and neither means riddles — the species-level fallback older than both games. Fronting is a role, not a hierarchy; the minds stay in [counsel](#how-minds-get-along) and disagree on the record ("You take PAYMENT? We had a REPUTATION." / "You fought a man with a nasty knife for a sack lunch. I own the bridge.").
 
@@ -562,18 +563,15 @@ So `family-albums/`, `playlists/`, `storybooks/` are containers. Inside them: it
 | `README.md` / rendered `.md` | Human view of the whole or of one beat |
 | Per-type handlers in the config | “If item is a photo… if item is a video link…” |
 
-```
-family-albums/my-goths/          ← plural container
-  FAMILY-ALBUM.yml               ← interface + state + import/export how-to
-  RSS.yml                        ← optional publish view
-  README.md                      ← rendered collective view
-  01-wedding/
-    README.md
-    photo.jpg
-    meta.yml
-  02-baby/
-    …
-```
+| Path within `family-albums/my-goths/` | Role |
+|---|---|
+| `FAMILY-ALBUM.yml` | Interface, state, import/export instructions |
+| `RSS.yml` | Optional publishing view |
+| `README.md` | Rendered collective view |
+| `01-wedding/README.md` | Wedding entry |
+| `01-wedding/photo.jpg` | Photograph |
+| `01-wedding/meta.yml` | Entry metadata |
+| `02-baby/` | Next entry, with its own files |
 
 A **family-album** skill can own Sims album bridges and render recipes. An **RSS** config rides along without the album skill needing to be an RSS expert. A **pdf** skill owns PDF guts; [change-name](../change-name/) (or anyone else) **composes** with it instead of swallowing PDF code forever.
 
@@ -583,23 +581,18 @@ Same whether it’s a Sims family album organelle, a memorial storybook, or a Yo
 
 Example sketch (minds + organelles):
 
-```
-soul/
-  minds/
-    angel/                 ← sibling membrane
-    devil/                 ← sibling membrane
-    traveler/
-      sims/                ← organelle membrane: Sims stays Sims
-        family-album/      ← sequence of bubbles
-          01-wedding/
-          02-baby/
-      micropolis/          ← organelle membrane: city-sim stays city-sim
-      dents/               ← nested mind
-      parrot-body.yml      ← prefix sub-membrane (soft group)
-      parrot-lines.yml
-      01-trick-speak.yml   ← bubbles in a line (array)
-      02-trick-wave.yml
-```
+| Path within `soul/minds/` | Role |
+|---|---|
+| `angel/` | Sibling membrane |
+| `devil/` | Sibling membrane |
+| `traveler/` | Mind containing the following structures |
+| `traveler/sims/` | Organelle membrane: Sims stays Sims |
+| `traveler/sims/family-album/01-wedding/` | First album bubble |
+| `traveler/sims/family-album/02-baby/` | Next album bubble |
+| `traveler/micropolis/` | Organelle membrane: city-sim stays city-sim |
+| `traveler/dents/` | Nested mind |
+| `traveler/parrot-body.yml`, `traveler/parrot-lines.yml` | Prefix sub-membrane: a soft group |
+| `traveler/01-trick-speak.yml`, `traveler/02-trick-wave.yml` | Ordered bubbles: an array |
 
 ---
 
@@ -676,5 +669,4 @@ Soul containing minds is common. Also fine: nested minds, sub-souls, several gam
 | Soul Plaza / catalog | [Soul City catalog](https://github.com/SimHacker/WillWrightShowForFood/tree/main/catalogs/soul-city) — the platform layer: shops, pipeline, GUIDs, rights |
 | Adventure ↔ loci     | [HN 29330901](https://news.ycombinator.com/item?id=29330901)                                                                                          |
 | Product              | [MicropolisCore soul-city](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city.md)                                  |
-
 
