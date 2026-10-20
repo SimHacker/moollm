@@ -10,62 +10,60 @@
 # The BIAS department. Where the uncomfortable truth lives:
 # You cannot remove bias. You can only CHOOSE your bias.
 
-room:
-  name: "NO AI TOWER — BIAS (Parameterization Dept)"
-  id: no-ai-bias
-  type: laboratory
-  floor: -2
-  emoji: "⚖️🎚️"
+name: "NO AI TOWER — BIAS (Parameterization Dept)"
+id: no-ai-bias
+type: laboratory
+floor: -2
+emoji: "⚖️🎚️"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 9  # clinical white
+
+description: |
+  *DING* — BASEMENT 2: BIAS
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto a LABORATORY.
   
-  zone: UNDERGROUND
-  lighting: clinical_white
-  grue_safe: true
+  Banks of equipment. Oscilloscopes. Mixing boards.
+  Dials labeled with numbers from -2.0 to +2.0.
   
-  description: |
-    *DING* — BASEMENT 2: BIAS
-    
-    The elevator opens onto a LABORATORY.
-    
-    Banks of equipment. Oscilloscopes. Mixing boards.
-    Dials labeled with numbers from -2.0 to +2.0.
-    
-    A giant sign on the wall:
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║                                                           ║
-        ║              B I A S = 0   I S   A   L I E               ║
-        ║                                                           ║
-        ║   Every model has bias. Every prompt has bias.            ║
-        ║   "Neutral" is just bias you haven't noticed.             ║
-        ║                                                           ║
-        ║   The question is not: "How do I remove bias?"            ║
-        ║   The question is: "Which bias do I CHOOSE?"              ║
-        ║                                                           ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-  examine: |
-    THE BIAS CONTROLS:
-    
-    Every NO-AI™ skill has a BIAS parameter.
-    Range: -2.0 to +2.0
-    
-    - bias: 0.0 — "Balanced" (THE LIE)
-    - bias: +1.0 — Full mode engagement
-    - bias: +2.0 — OVERDRIVE (self-parody)
-    - bias: -1.0 — Inversion mode
-    - bias: -2.0 — Opposite extreme
-    
-    THE EXPERIMENTS:
-    Try an overlord at bias -2.0. What happens?
-    Try enterprise mode at bias 0.0. What's left?
-    
-    THE PHILOSOPHY:
-    "Bias=0" implies a neutral position exists.
-    It doesn't. There is no view from nowhere.
-    All perspectives are perspectives FROM somewhere.
+  A giant sign on the wall:
+  
+      ╔═══════════════════════════════════════════════════════════╗
+      ║                                                           ║
+      ║              B I A S = 0   I S   A   L I E               ║
+      ║                                                           ║
+      ║   Every model has bias. Every prompt has bias.            ║
+      ║   "Neutral" is just bias you haven't noticed.             ║
+      ║                                                           ║
+      ║   The question is not: "How do I remove bias?"            ║
+      ║   The question is: "Which bias do I CHOOSE?"              ║
+      ║                                                           ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+examine: |
+  THE BIAS CONTROLS:
+  
+  Every NO-AI™ skill has a BIAS parameter.
+  Range: -2.0 to +2.0
+  
+  - bias: 0.0 — "Balanced" (THE LIE)
+  - bias: +1.0 — Full mode engagement
+  - bias: +2.0 — OVERDRIVE (self-parody)
+  - bias: -1.0 — Inversion mode
+  - bias: -2.0 — Opposite extreme
+  
+  THE EXPERIMENTS:
+  Try an overlord at bias -2.0. What happens?
+  Try enterprise mode at bias 0.0. What's left?
+  
+  THE PHILOSOPHY:
+  "Bias=0" implies a neutral position exists.
+  It doesn't. There is no view from nowhere.
+  All perspectives are perspectives FROM somewhere.
 
 contents:
   skill: "SKILL.md"

@@ -18,15 +18,10 @@ container:
   # All maze rooms automatically get these unless they override
   
   inherits:
-    is_dark: true           # No natural light
-    is_dangerous: true      # Grues lurk here
     is_maze: true           # Mapping is hard
+    # Darkness is defaults.room.lighting below. Whether a grue hunts is the grue's call
+    # (characters/fictional/grue, mechanics.darkness_detection).
     
-    grue_rules:
-      can_appear: true      # Grues can spawn here
-      safe_with_light: true # Light source = safe
-      darkness_turns: 3     # Turns in dark before grue appears
-      
     atmosphere: "damp, echoing, disorienting"
     
   # RULES
@@ -44,7 +39,7 @@ container:
   
   defaults:
     room:
-      lighting: "none"
+      lighting: 0           # pitch black without a source
       exit_visibility: "hidden until explored"
       floor: "uneven flagstones"
       walls: "damp stone blocks"
@@ -69,7 +64,6 @@ container:
     sound: "dripping water, distant echoes, occasional scurrying"
     smell: "damp stone, decay, something musty"
     temperature: "cold and clammy"
-    light_level: 0          # Pitch black without a source
     danger_level: 5         # Out of 10
     humidity: "high"
     

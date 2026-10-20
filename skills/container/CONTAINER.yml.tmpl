@@ -19,8 +19,7 @@
 # 2. JUST INHERIT — Pass properties, not really a "thing"
 #      container:
 #        inherits:
-#          is_dark: true
-#          grue_rules: { can_appear: true }
+#          lighting: 0
 #        # Children get these defaults, that's all
 #
 # 3. BOTH — Organized grouping WITH shared properties
@@ -28,7 +27,7 @@
 #        name: "The Twisty Maze"
 #        description: "A labyrinth of passages"
 #        inherits:
-#          is_dark: true
+#          lighting: 0
 #        rules:
 #          - "Breadcrumbs disappear after 3 turns"
 #
@@ -102,12 +101,8 @@ container:
   inherits:                           # OPTIONAL: Properties children inherit
     
     # Example: Maze rooms inherit these
-    # is_dark: true
-    # is_dangerous: true
+    # lighting: 0                    # 0..10; the grue decides what dark means
     # ambient_sound: "dripping water"
-    # grue_rules:
-    #   can_appear: true
-    #   light_required: true
     
     # Example: Animal characters inherit these
     # species: "animal"
@@ -265,7 +260,6 @@ container:
     # sound: "distant echoes"
     # smell: "damp stone"
     # temperature: "cold"
-    # light_level: 0
     # danger_level: 5
 
 # EXAMPLE: MAZE CONTAINER
@@ -275,11 +269,6 @@ container:
 #   description: "A collection of passages, all alike... or are they?"
 #   
 #   inherits:
-#     is_dark: true
-#     is_dangerous: true
-#     grue_rules:
-#       can_appear: true
-#       safe_with_light: true
 #     atmosphere: "damp, echoing, disorienting"
 #     
 #   rules:
@@ -289,14 +278,13 @@ container:
 #     
 #   defaults:
 #     room:
-#       is_dark: true
+#       lighting: 0
 #       exit_visibility: "hidden until explored"
 #       
 #   ambient:
 #     sound: "dripping water, distant footsteps"
 #     smell: "wet stone, decay"
 #     temperature: "cold"
-#     light_level: 0
 #
 # EXAMPLE: CHARACTER CATEGORY CONTAINER
 #

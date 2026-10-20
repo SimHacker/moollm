@@ -1,7 +1,7 @@
 # Maze Room H
 # A twisty little passage — NOW WITH EXTRA WATCHING
 # Adjacent to: B(bats east)
-# GRUE-SAFE: The Eye watches
+# The Eye watches
 
 # HUNT THE WUMPUS WARNINGS
 wumpus_warnings:
@@ -9,117 +9,106 @@ wumpus_warnings:
     - "Bats nearby!"         # B is east
   adjacent_hazards:
     east: superbats          # room-b
-  note: "Safe from grue (The Eye), but bats still roost nearby"
+  note: "The Eye watches here, but bats still roost nearby"
 
-room:
-  name: The Watching Chamber (Mushrooms)
-  type: maze_room
-  
-  # NOW GRUE SAFE — The Thing That Watches has made this room... unwelcoming to grues
-  lighting: none
-  grue_safe: true # The casserole-eye keeps them away!
-  requires_light: true
-  
-  # The grue will not come here. The eye unnerves even void-beasts.
-  grue_repellent: |
-    The grue approaches the threshold, drawn by darkness.
-    Then it sees THE EYE. The eye that watches.
-    The grue hesitates. Grues do not like being SEEN.
-    The grue retreats. Even void-beasts have standards.
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one has MUSHROOMS growing everywhere. Luminescent fungi
-    that provide a faint, sickly green glow — not enough to
-    light your way properly, but enough to make everything look
-    deeply unsettling. Some of them pulse gently.
-    
-    In the center of the room, merging with the mushrooms,
-    is THE THING THAT WATCHES. Aunt Petunia's Suspicious Casserole,
-    transformed through Captain Ashford's digestive system, now
-    pulses in perfect rhythm with the fungi. Its single EYE
-    follows your every movement.
-    
-    Mother would say not to touch them. Mother would be right.
-    But it's too late now. The watching has begun.
-  
-  feature: mushrooms
-  marked_by: "The Thing That Watches (transformed Suspicious Casserole)"
-  
-  # Slight ambient light but NOW augmented by casserole-eye glow
-  ambient_light: "faint green glow + unsettling eye-light"
-  
-  objects:
-    - the-thing-that-watches.yml
-  
-  exits:
-    north:
-      to: ../garden/
-      description: "Is that... sunlight? And grass?"
-    south:
-      to: ../room-f/
-      description: "It gets colder down there."
-    east:
-      to: ../room-b/
-      description: "You hear an echo from this direction."
-    west:
-      to: ../room-d/
-      description: "A golden glow — warmer than mushroom light!"
-    up:
-      to: ../room-j/
-      description: "The mushrooms thin out this way."
-  
-  ambience: |
-    The mushrooms pulse in a rhythm that almost sounds like breathing.
-    You try not to think about what's breathing. You fail.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # THE WHISPERING MUSHROOM REJECTION
-  biscuit_markings:
-    date: "2026-01-06"
-    marked: []  # DELIBERATELY EMPTY
-    why_no_marking: |
-      Biscuit explicitly chose NOT to mark this room.
-      "Some things should not know about me."
-    detected_smells:
-      - smell: "STRANGE"
-        location: "everywhere"
-        assessment: "Not food-strange. Brain-strange. Ideas in my nose?"
-      - smell: "whispering"
-        location: "large central mushroom"
-        assessment: "This one whispers. I do not like the whispering mushroom."
-        action_taken: "Backed away. Rejected."
-    the_whispering_mushroom:
-      detected: true
-      response: "Ears back, backed away, refused interaction"
-      judgment: "Some things should not know about me"
-      instinct_rating: "GOOD (Don approved)"
-    biscuit_says: |
-      I will not mark the whispering mushroom.
-      Some rooms do not need to know about me.
-      This room knows enough.
+name: The Watching Chamber (Mushrooms)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  # Terpy Jr.'s Chaos Route
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks: []  # NONE — even Terpy Jr. knew better
-    
-    terpy_jr_visit:
-      reason: "Got lost on chaos route to garden"
-      reaction: |
-        Sniffed Biscuit's non-marking.
-        "The dog didn't mark here. The dog was wise."
-        "The mushrooms whisper."
-        Looked at whispering mushroom.
-        "NOPE."
-        Left quickly.
-        
-    assessment: |
-      Even the most chaotic kitten respected
-      Biscuit's wisdom about this room.
-      The whispering mushroom remains unmarked
-      by both dog AND cat.
+# The Thing That Watches lives here. Grues won't be seen (the grue's CHARACTER.yml).
+lighting: 1  # faint green mushroom glow and the Eye's light; not enough to see by
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one has MUSHROOMS growing everywhere. Luminescent fungi
+  that provide a faint, sickly green glow — not enough to
+  light your way properly, but enough to make everything look
+  deeply unsettling. Some of them pulse gently.
+  
+  In the center of the room, merging with the mushrooms,
+  is THE THING THAT WATCHES. Aunt Petunia's Suspicious Casserole,
+  transformed through Captain Ashford's digestive system, now
+  pulses in perfect rhythm with the fungi. Its single EYE
+  follows your every movement.
+  
+  Mother would say not to touch them. Mother would be right.
+  But it's too late now. The watching has begun.
+
+feature: mushrooms
+marked_by: "The Thing That Watches (transformed Suspicious Casserole)"
+
+# Slight ambient light but NOW augmented by casserole-eye glow
+
+objects:
+  - the-thing-that-watches.yml
+
+exits:
+  north:
+    to: ../garden/
+    description: "Is that... sunlight? And grass?"
+  south:
+    to: ../room-f/
+    description: "It gets colder down there."
+  east:
+    to: ../room-b/
+    description: "You hear an echo from this direction."
+  west:
+    to: ../room-d/
+    description: "A golden glow — warmer than mushroom light!"
+  up:
+    to: ../room-j/
+    description: "The mushrooms thin out this way."
+
+ambience: |
+  The mushrooms pulse in a rhythm that almost sounds like breathing.
+  You try not to think about what's breathing. You fail.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# THE WHISPERING MUSHROOM REJECTION
+biscuit_markings:
+  date: "2026-01-06"
+  marked: []  # DELIBERATELY EMPTY
+  why_no_marking: |
+    Biscuit explicitly chose NOT to mark this room.
+    "Some things should not know about me."
+  detected_smells:
+    - smell: "STRANGE"
+      location: "everywhere"
+      assessment: "Not food-strange. Brain-strange. Ideas in my nose?"
+    - smell: "whispering"
+      location: "large central mushroom"
+      assessment: "This one whispers. I do not like the whispering mushroom."
+      action_taken: "Backed away. Rejected."
+  the_whispering_mushroom:
+    detected: true
+    response: "Ears back, backed away, refused interaction"
+    judgment: "Some things should not know about me"
+    instinct_rating: "GOOD (Don approved)"
+  biscuit_says: |
+    I will not mark the whispering mushroom.
+    Some rooms do not need to know about me.
+    This room knows enough.
+
+# CAT MARKINGS (Midnight Prowl)
+# Terpy Jr.'s Chaos Route
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks: []  # NONE — even Terpy Jr. knew better
+  
+  terpy_jr_visit:
+    reason: "Got lost on chaos route to garden"
+    reaction: |
+      Sniffed Biscuit's non-marking.
+      "The dog didn't mark here. The dog was wise."
+      "The mushrooms whisper."
+      Looked at whispering mushroom.
+      "NOPE."
+      Left quickly.
       
-      Some things should not know about us.
+  assessment: |
+    Even the most chaotic kitten respected
+    Biscuit's wisdom about this room.
+    The whispering mushroom remains unmarked
+    by both dog AND cat.
+    
+    Some things should not know about us.

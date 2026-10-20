@@ -41,10 +41,7 @@ container:
   name: "The Twisty Maze"
   
   inherits:
-    is_dark: true
-    is_dangerous: true
-    grue_rules:
-      can_appear: true
+    lighting: 0
 ```
 
 All rooms inside `maze/` automatically inherit these properties!
@@ -82,11 +79,11 @@ Properties in `inherits:` flow to ALL descendants:
 
 ```
 maze/
-├── CONTAINER.yml       # inherits: { is_dark: true }
+├── CONTAINER.yml       # inherits: { lighting: 0 }
 ├── room-a/
-│   └── ROOM.yml        # Inherits is_dark: true
+│   └── ROOM.yml        # Inherits lighting: 0
 ├── room-b/
-│   └── ROOM.yml        # Inherits is_dark: true
+│   └── ROOM.yml        # Inherits lighting: 0
 └── deep/
     └── CONTAINER.yml   # Can add MORE inherits
         └── room-c/
@@ -101,7 +98,7 @@ Children can override inherited values:
 # maze/room-f/ROOM.yml
 room:
   name: "The Treasure Chamber"
-  is_dark: false  # Override! This room has magical light
+  lighting: 7  # Override! This room has magical light
 ```
 
 ### Merge, Don't Replace
@@ -136,7 +133,7 @@ Result: room-g has BOTH rules.
 container:
   # Every child room IS dark (forced)
   inherits:
-    is_dark: true
+    lighting: 0
     
   # If a room doesn't define atmosphere, use this
   defaults:
@@ -157,11 +154,7 @@ container:
   description: "Passages all alike... or are they?"
   
   inherits:
-    is_dark: true
-    is_dangerous: true
-    grue_rules:
-      can_appear: true
-      safe_with_light: true
+    lighting: 0     # the grue reads this; rooms don't say whether they're grue-safe
       
   rules:
     - "No teleportation"

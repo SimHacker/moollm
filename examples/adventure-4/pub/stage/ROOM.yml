@@ -1,40 +1,39 @@
 # 🎭 THE GEZELLIGHEID GROTTO STAGE
 # A sub-region of the pub — a step up, no walls, occasional curtains
 
-room:
-  id: stage
-  name: "The Gezelligheid Grotto Stage"
-  type: [sub-room, performance-zone, elevated]
-  emoji: 🎭
+id: stage
+name: "The Gezelligheid Grotto Stage"
+type: [sub-room, performance-zone, elevated]
+emoji: 🎭
+
+description: |
+  A raised wooden platform at the far end of the pub, maybe two feet off
+  the main floor. The boards creak with decades of footsteps, scuffed
+  by countless performers. A single spotlight hangs overhead, slightly
+  askew, its warm glow creating a circle of courage.
   
-  description: |
-    A raised wooden platform at the far end of the pub, maybe two feet off
-    the main floor. The boards creak with decades of footsteps, scuffed
-    by countless performers. A single spotlight hangs overhead, slightly
-    askew, its warm glow creating a circle of courage.
+  No walls separate stage from audience — just a step up and the
+  understanding that when you're up here, you're ON.
+  
+  Faded velvet curtains hang at the back, red once, now a dignified
+  burgundy. They can be drawn for dramatic reveals or left open
+  to show the brick wall behind, covered in signatures and sketches
+  from performers past.
+  
+atmosphere:
+  lighting: single spotlight, warm amber, slightly dusty
+  sound: creaking boards, expectant silence, then applause (or not)
+  feeling: vulnerable, exciting, terrifying, alive
+  
+exits:
+  down:
+    to: ../
+    description: "Step down to the main pub floor"
     
-    No walls separate stage from audience — just a step up and the
-    understanding that when you're up here, you're ON.
-    
-    Faded velvet curtains hang at the back, red once, now a dignified
-    burgundy. They can be drawn for dramatic reveals or left open
-    to show the brick wall behind, covered in signatures and sketches
-    from performers past.
-    
-  atmosphere:
-    lighting: single spotlight, warm amber, slightly dusty
-    sound: creaking boards, expectant silence, then applause (or not)
-    feeling: vulnerable, exciting, terrifying, alive
-    
-  exits:
-    down:
-      to: ../
-      description: "Step down to the main pub floor"
-      
-    palm-nook:
-      to: palm-nook/
-      description: "A hidden alcove behind the stage curtain — Palm's sanctuary"
-      aliases: [nook, palm, curtain, behind]
+  palm-nook:
+    to: palm-nook/
+    description: "A hidden alcove behind the stage curtain — Palm's sanctuary"
+    aliases: [nook, palm, curtain, behind]
 
 # PERFORMANCE FRAMING — This is a stage!
 # Everything here is understood as PERFORMANCE, not reality.

@@ -1,28 +1,27 @@
-room:
-  name: "The Narthex of Declared Bias"
-  type: church_entry
-  
-  description: |
-    A clean entry hall with a long table, a sign-in ledger, and
-    a rack of laminated rubrics. The air smells like pencil shavings
-    and fresh paper.
-    
-  examine: |
-    A sign reads: "DECLARE BIAS BEFORE YOU SPEAK."
-    Another reads: "IF IT'S NOT WRITTEN, IT DIDN'T HAPPEN."
-    
-  exits:
-    out:
-      to: ../
-      description: "Back to the main nave."
-      aliases: [back, nave]
+name: "The Narthex of Declared Bias"
+type: church_entry
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
-      why: "Bias declaration as sacrament — what the registration desk is for"
-    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-CONSTITUTION.md
-      why: "The rules you agree to by crossing the lintel"
+description: |
+  A clean entry hall with a long table, a sign-in ledger, and
+  a rack of laminated rubrics. The air smells like pencil shavings
+  and fresh paper.
+  
+examine: |
+  A sign reads: "DECLARE BIAS BEFORE YOU SPEAK."
+  Another reads: "IF IT'S NOT WRITTEN, IT DIDN'T HAPPEN."
+  
+exits:
+  out:
+    to: ../
+    description: "Back to the main nave."
+    aliases: [back, nave]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
+    why: "Bias declaration as sacrament — what the registration desk is for"
+  - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-CONSTITUTION.md
+    why: "The rules you agree to by crossing the lintel"

@@ -1,27 +1,26 @@
-room:
-  name: "The Bias Library"
-  type: archive
-  
-  description: |
-    Shelves of declared biases, each cataloged by date, author, and
-    domain. Dissenting notes are clipped to the margins, not erased.
-    
-  examine: |
-    A sign above the stacks:
-    "Neutrality is not an option. Index it anyway."
-    
-  exits:
-    out:
-      to: ../
-      description: "Back to the nave."
-      aliases: [back, nave]
+name: "The Bias Library"
+type: archive
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/EVAL-ARTIFACTS.md
-      why: "Declared biases as durable artifacts, archived with dissent margins"
-    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
-      why: "Why declaration is mandatory and dissent is kept"
+description: |
+  Shelves of declared biases, each cataloged by date, author, and
+  domain. Dissenting notes are clipped to the margins, not erased.
+  
+examine: |
+  A sign above the stacks:
+  "Neutrality is not an option. Index it anyway."
+  
+exits:
+  out:
+    to: ../
+    description: "Back to the nave."
+    aliases: [back, nave]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/EVAL-ARTIFACTS.md
+    why: "Declared biases as durable artifacts, archived with dissent margins"
+  - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
+    why: "Why declaration is mandatory and dissent is kept"

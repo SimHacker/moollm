@@ -3,373 +3,372 @@
 # Integrates all systems: docks, floors, drones, tubes, elevators, signals
 # See: skills/logistic-container, designs/factorio-logistics-protocol.md
 
-room:
-  name: Leela Logistics Center
-  type: control_center
+name: Leela Logistics Center
+type: control_center
+
+lighting: 3  # screen glow
+atmosphere: mission_control
+
+# Skills integration
+skills:
+  - logistic-container
+  - manufacturing-intelligence
+  - postal  # For instant internal transfers
+  - data-flow
+  - signal-networks
+
+description: |
+  The LOGISTICS CENTER is the nerve center of Leela Manufacturing.
+  Banks of screens line the walls. Status lights blink in patterns
+  only the operators understand. The hum of servers. The click of
+  keyboards. The occasional pneumatic WHOOSH of a capsule arriving.
   
-  lighting: screen_glow
-  atmosphere: mission_control
+  From here, everything is visible:
+  • Loading docks — trucks arriving, departing
+  • Factory floors — production flowing
+  • Rooftop drones — launches, landings, routes
+  • Pneumatic network — capsules zipping through tubes
+  • Elevators — movement between floors
+  • Signal networks — data flowing everywhere
   
-  # Skills integration
-  skills:
-    - logistic-container
-    - manufacturing-intelligence
-    - postal  # For instant internal transfers
-    - data-flow
-    - signal-networks
+  A massive central display shows a real-time map of the entire
+  facility. Everything connected. Everything monitored.
+  Everything optimized.
   
-  description: |
-    The LOGISTICS CENTER is the nerve center of Leela Manufacturing.
-    Banks of screens line the walls. Status lights blink in patterns
-    only the operators understand. The hum of servers. The click of
-    keyboards. The occasional pneumatic WHOOSH of a capsule arriving.
-    
-    From here, everything is visible:
-    • Loading docks — trucks arriving, departing
-    • Factory floors — production flowing
-    • Rooftop drones — launches, landings, routes
-    • Pneumatic network — capsules zipping through tubes
-    • Elevators — movement between floors
-    • Signal networks — data flowing everywhere
-    
-    A massive central display shows a real-time map of the entire
-    facility. Everything connected. Everything monitored.
-    Everything optimized.
-    
-    This is where Leela watches itself work.
-    
-  examine: |
-    LOGISTICS CENTER — NERVE CENTER OF OPERATIONS
-    
-    ┌─────────────────────────────────────────────────────────────┐
-    │                     CENTRAL DISPLAY                          │
-    │  ┌─────────────────────────────────────────────────────┐    │
-    │  │     ROOFTOP          ══╦══  DRONE PAD              │    │
-    │  │        ↑               ║                            │    │
-    │  │     FLOOR 3  ════════╬════════  SHIPPING           │    │
-    │  │        ↑               ║                            │    │
-    │  │     FLOOR 2  ════════╬════════  FACTORY             │    │
-    │  │        ↑               ║                            │    │
-    │  │     FLOOR 1  ════════╬════════  INTAKE             │    │
-    │  │        ↑               ║                            │    │
-    │  │     LOBBY    ════════╬════════  [YOU ARE HERE]     │    │
-    │  │        ↑               ║                            │    │
-    │  │     BASEMENT ════════╬════════  R&D                │    │
-    │  │                        ║                            │    │
-    │  │     ════ LOADING DOCKS ════                        │    │
-    │  │                                                     │    │
-    │  │  ════════════ PNEUMATIC NETWORK ════════════       │    │
-    │  │  ○───○───○───○───○───○───○───○───○───○───○         │    │
-    │  └─────────────────────────────────────────────────────┘    │
-    └─────────────────────────────────────────────────────────────┘
-    
-    OPERATOR STATIONS
-    
-    STATION A — DOCK CONTROL
-    Monitors all 8 loading bays. Truck scheduling. Bay assignments.
-    Current: Bay 2 backing in, Bay 5 departing in 10 minutes.
-    
-    STATION B — FLOOR OPERATIONS  
-    Factory floor status. Production flow. Bottleneck alerts.
-    Current: Cell E running hot, Cell G philosophizing (normal).
-    
-    STATION C — AERIAL OPERATIONS
-    Drone fleet management. Flight paths. Weather monitoring.
-    Current: 12 drones active, 6 charging, 2 maintenance.
-    
-    STATION D — PNEUMATIC NETWORK
-    Tube routing. Capsule tracking. Pressure management.
-    Current: 847 capsules in transit, average delivery 4.2 seconds.
-    
-    STATION E — VERTICAL TRANSPORT
-    Elevator status. Freight lift scheduling. Emergency protocols.
-    Current: All lifts operational, freight elevator at Floor 2.
-    
-    STATION F — SIGNAL NETWORKS
-    Data flow monitoring. Network health. Bandwidth allocation.
-    Current: 12.4 TB/hour throughput, 0 errors, 99.97% uptime.
-    
-    STATION G — CENTRAL DATABASE
-    The heart of all knowledge. Every record. Every transaction.
-    Current: 847 PB stored, 12,000 queries/sec, replication healthy.
-    
-    STATION H — SECURITY & SURVEILLANCE
-    All cameras, all access points, all the eyes of Leela.
-    Current: 12 cameras live, 0 anomalies, Dolly's dancing again.
-    
-    THE BIG BOARD
-    
-    Real-time metrics displayed on the main wall:
-    
-    │ INBOUND  ████████████░░░░ 73%  │  OUTBOUND ██████████████░░ 87%  │
-    │ PROCESS  █████████░░░░░░░ 58%  │  STORAGE  ████████████░░░░ 74%  │
-    │ DRONES   ████████░░░░░░░░ 50%  │  TUBES    █████████████░░░ 82%  │
-    │ NETWORK  ████████████████ 99%  │  POWER    █████████████░░░ 85%  │
-    
-    PNEUMATIC HUB
-    
-    A gleaming brass junction where 12 pneumatic tubes converge.
-    Capsules arrive with a satisfying THWUMP, are scanned, routed,
-    and dispatched with a WHOOSH. A small display shows:
-    
-    INCOMING: Floor 3 → Shipping manifest
-    OUTGOING: Lobby → Welcome packet to Floor 1
-    QUEUED: 3 capsules awaiting routing
-    
-    COFFEE STATION
-    
-    Essential infrastructure. Industrial-grade espresso machine.
-    Sign: "UPTIME CORRELATES WITH CAFFEINE LEVELS"
-    
-  exits:
-    lobby:
-      to: ../
-      description: "To the main lobby"
-      aliases: [front, reception]
-      
-    docks:
-      to: ../loading-docks/
-      description: "Direct access to the Loading Docks"
-      aliases: [loading, bays]
-      
-    floor_1:
-      to: ../floor-1/
-      description: "Elevator to Floor 1 — Intake"
-      aliases: [1, intake]
-      
-    floor_2:
-      to: ../floor-2/
-      description: "Elevator to Floor 2 — Factory"
-      aliases: [2, factory]
-      
-    floor_3:
-      to: ../floor-3/
-      description: "Elevator to Floor 3 — Shipping"
-      aliases: [3, shipping]
-      
-    rooftop:
-      to: ../rooftop/
-      description: "Elevator to Rooftop — Drone Operations"
-      aliases: [roof, drones, up]
-      
-    basement:
-      to: ../basement/
-      description: "Elevator to Basement — R&D"
-      aliases: [down, rd, research]
-      
-    storage:
-      to: ../storage/
-      description: "To the Storage Complex"
-      aliases: [warehouse, containers]
-      
-  objects:
-    - camera-log1.yml       # Leela's First Eye
-    - central-display.yml   # The main operations map
-    - pneumatic-hub.yml     # Where the tubes converge
-    - operator-stations.yml # The eight control stations
-    - big-board.yml         # Real-time metrics display
-    - signal-rack.yml       # Network infrastructure
-    - central-database.yml  # The heart of all knowledge
-    - coffee-station.yml    # Essential operations support
-    
-  # INTEGRATED SYSTEMS MONITORING
+  This is where Leela watches itself work.
   
-  monitors:
-    loading_docks:
-      source: ../loading-docks/
-      displays:
-        - bay_status
-        - truck_queue
-        - throughput
-      alerts:
-        - bay_overflow
-        - truck_waiting_too_long
-        - forklift_collision
-        
-    factory_floors:
-      sources:
-        - ../floor-1/
-        - ../floor-2/
-        - ../floor-3/
-      displays:
-        - production_flow
-        - cell_status
-        - bottlenecks
-      alerts:
-        - cell_offline
-        - quality_deviation
-        - capacity_warning
-        
-    aerial_operations:
-      source: ../rooftop/
-      displays:
-        - drone_positions
-        - flight_paths
-        - weather
-      alerts:
-        - drone_low_battery
-        - weather_warning
-        - airspace_conflict
-        
-    pneumatic_network:
-      nodes:
-        - lobby
-        - floor-1
-        - floor-2
-        - floor-3
-        - rooftop
-        - loading-docks
-        - storage
-        - mail-room
-      displays:
-        - capsule_tracking
-        - tube_pressure
-        - routing_queue
-      alerts:
-        - tube_blockage
-        - capsule_stuck
-        - pressure_anomaly
-        
-    elevators:
-      units:
-        - passenger_elevator
-        - freight_elevator
-        - service_lift
-      displays:
-        - position
-        - load
-        - queue
-      alerts:
-        - elevator_stuck
-        - overweight
-        - maintenance_due
-        
-    signal_networks:
-      networks:
-        - wifi
-        - industrial_control
-        - camera_feeds
-        - sensor_mesh
-      displays:
-        - bandwidth
-        - latency
-        - error_rate
-      alerts:
-        - network_congestion
-        - node_offline
-        - security_event
-        
-    central_database:
-      role: "Heart of all knowledge"
-      displays:
-        - storage_capacity
-        - query_rate
-        - replication_status
-        - backup_status
-        - index_health
-      stores:
-        - production_records
-        - inventory_state
-        - shipping_manifests
-        - camera_metadata
-        - sensor_timeseries
-        - employee_records
-        - customer_orders
-        - knowledge_graph
-        - audit_logs
-        - session_history
-      alerts:
-        - replication_lag
-        - storage_threshold
-        - query_timeout
-        - backup_failure
-        - corruption_detected
-        
-  # CIRCUIT NETWORK SIGNALS
+examine: |
+  LOGISTICS CENTER — NERVE CENTER OF OPERATIONS
   
-  signals:
-    receives:
-      - from: "../loading-docks/"
-        signals: [bay-status, inbound-capacity, outbound-ready]
-      - from: "../floor-1/"
-        signals: [intake-rate, sorting-status]
-      - from: "../floor-2/"
-        signals: [processing-load, cell-status]
-      - from: "../floor-3/"
-        signals: [shipping-queue, packaging-rate]
-      - from: "../rooftop/"
-        signals: [drone-count, weather-status]
-      - from: "../storage/"
-        signals: [capacity-used, aisle-status]
-        
-    emits:
-      - signal: "facility-status"
-        value: "aggregate of all systems"
-      - signal: "alert-level"
-        value: "max(all alerts)"
-      - signal: "throughput-rate"
-        value: "items/hour facility-wide"
-        
-  # PNEUMATIC NETWORK ROUTING
+  ┌─────────────────────────────────────────────────────────────┐
+  │                     CENTRAL DISPLAY                          │
+  │  ┌─────────────────────────────────────────────────────┐    │
+  │  │     ROOFTOP          ══╦══  DRONE PAD              │    │
+  │  │        ↑               ║                            │    │
+  │  │     FLOOR 3  ════════╬════════  SHIPPING           │    │
+  │  │        ↑               ║                            │    │
+  │  │     FLOOR 2  ════════╬════════  FACTORY             │    │
+  │  │        ↑               ║                            │    │
+  │  │     FLOOR 1  ════════╬════════  INTAKE             │    │
+  │  │        ↑               ║                            │    │
+  │  │     LOBBY    ════════╬════════  [YOU ARE HERE]     │    │
+  │  │        ↑               ║                            │    │
+  │  │     BASEMENT ════════╬════════  R&D                │    │
+  │  │                        ║                            │    │
+  │  │     ════ LOADING DOCKS ════                        │    │
+  │  │                                                     │    │
+  │  │  ════════════ PNEUMATIC NETWORK ════════════       │    │
+  │  │  ○───○───○───○───○───○───○───○───○───○───○         │    │
+  │  └─────────────────────────────────────────────────────┘    │
+  └─────────────────────────────────────────────────────────────┘
   
-  pneumatic_hub:
-    type: junction-8
-    connections:
+  OPERATOR STATIONS
+  
+  STATION A — DOCK CONTROL
+  Monitors all 8 loading bays. Truck scheduling. Bay assignments.
+  Current: Bay 2 backing in, Bay 5 departing in 10 minutes.
+  
+  STATION B — FLOOR OPERATIONS  
+  Factory floor status. Production flow. Bottleneck alerts.
+  Current: Cell E running hot, Cell G philosophizing (normal).
+  
+  STATION C — AERIAL OPERATIONS
+  Drone fleet management. Flight paths. Weather monitoring.
+  Current: 12 drones active, 6 charging, 2 maintenance.
+  
+  STATION D — PNEUMATIC NETWORK
+  Tube routing. Capsule tracking. Pressure management.
+  Current: 847 capsules in transit, average delivery 4.2 seconds.
+  
+  STATION E — VERTICAL TRANSPORT
+  Elevator status. Freight lift scheduling. Emergency protocols.
+  Current: All lifts operational, freight elevator at Floor 2.
+  
+  STATION F — SIGNAL NETWORKS
+  Data flow monitoring. Network health. Bandwidth allocation.
+  Current: 12.4 TB/hour throughput, 0 errors, 99.97% uptime.
+  
+  STATION G — CENTRAL DATABASE
+  The heart of all knowledge. Every record. Every transaction.
+  Current: 847 PB stored, 12,000 queries/sec, replication healthy.
+  
+  STATION H — SECURITY & SURVEILLANCE
+  All cameras, all access points, all the eyes of Leela.
+  Current: 12 cameras live, 0 anomalies, Dolly's dancing again.
+  
+  THE BIG BOARD
+  
+  Real-time metrics displayed on the main wall:
+  
+  │ INBOUND  ████████████░░░░ 73%  │  OUTBOUND ██████████████░░ 87%  │
+  │ PROCESS  █████████░░░░░░░ 58%  │  STORAGE  ████████████░░░░ 74%  │
+  │ DRONES   ████████░░░░░░░░ 50%  │  TUBES    █████████████░░░ 82%  │
+  │ NETWORK  ████████████████ 99%  │  POWER    █████████████░░░ 85%  │
+  
+  PNEUMATIC HUB
+  
+  A gleaming brass junction where 12 pneumatic tubes converge.
+  Capsules arrive with a satisfying THWUMP, are scanned, routed,
+  and dispatched with a WHOOSH. A small display shows:
+  
+  INCOMING: Floor 3 → Shipping manifest
+  OUTGOING: Lobby → Welcome packet to Floor 1
+  QUEUED: 3 capsules awaiting routing
+  
+  COFFEE STATION
+  
+  Essential infrastructure. Industrial-grade espresso machine.
+  Sign: "UPTIME CORRELATES WITH CAFFEINE LEVELS"
+  
+exits:
+  lobby:
+    to: ../
+    description: "To the main lobby"
+    aliases: [front, reception]
+    
+  docks:
+    to: ../loading-docks/
+    description: "Direct access to the Loading Docks"
+    aliases: [loading, bays]
+    
+  floor_1:
+    to: ../floor-1/
+    description: "Elevator to Floor 1 — Intake"
+    aliases: [1, intake]
+    
+  floor_2:
+    to: ../floor-2/
+    description: "Elevator to Floor 2 — Factory"
+    aliases: [2, factory]
+    
+  floor_3:
+    to: ../floor-3/
+    description: "Elevator to Floor 3 — Shipping"
+    aliases: [3, shipping]
+    
+  rooftop:
+    to: ../rooftop/
+    description: "Elevator to Rooftop — Drone Operations"
+    aliases: [roof, drones, up]
+    
+  basement:
+    to: ../basement/
+    description: "Elevator to Basement — R&D"
+    aliases: [down, rd, research]
+    
+  storage:
+    to: ../storage/
+    description: "To the Storage Complex"
+    aliases: [warehouse, containers]
+    
+objects:
+  - camera-log1.yml       # Leela's First Eye
+  - central-display.yml   # The main operations map
+  - pneumatic-hub.yml     # Where the tubes converge
+  - operator-stations.yml # The eight control stations
+  - big-board.yml         # Real-time metrics display
+  - signal-rack.yml       # Network infrastructure
+  - central-database.yml  # The heart of all knowledge
+  - coffee-station.yml    # Essential operations support
+  
+# INTEGRATED SYSTEMS MONITORING
+
+monitors:
+  loading_docks:
+    source: ../loading-docks/
+    displays:
+      - bay_status
+      - truck_queue
+      - throughput
+    alerts:
+      - bay_overflow
+      - truck_waiting_too_long
+      - forklift_collision
+      
+  factory_floors:
+    sources:
+      - ../floor-1/
+      - ../floor-2/
+      - ../floor-3/
+    displays:
+      - production_flow
+      - cell_status
+      - bottlenecks
+    alerts:
+      - cell_offline
+      - quality_deviation
+      - capacity_warning
+      
+  aerial_operations:
+    source: ../rooftop/
+    displays:
+      - drone_positions
+      - flight_paths
+      - weather
+    alerts:
+      - drone_low_battery
+      - weather_warning
+      - airspace_conflict
+      
+  pneumatic_network:
+    nodes:
       - lobby
       - floor-1
-      - floor-2  
+      - floor-2
       - floor-3
       - rooftop
       - loading-docks
       - storage
       - mail-room
-    routing: automatic
-    queue_capacity: 20
-    delivery_time_avg: "4.2 seconds"
-    
-  # OPERATIONS STAFF
-  
-  occupants:
-    shift_supervisor:
-      name: "The Coordinator"
-      role: "Overall operations oversight"
-      location: "Central desk"
+    displays:
+      - capsule_tracking
+      - tube_pressure
+      - routing_queue
+    alerts:
+      - tube_blockage
+      - capsule_stuck
+      - pressure_anomaly
       
-    operators:
-      - station: A
-        role: "Dock Controller"
-        
-      - station: B
-        role: "Floor Operations"
-        
-      - station: C
-        role: "Aerial Operations"
-        
-      - station: D
-        role: "Pneumatic Network"
-        
-      - station: E
-        role: "Vertical Transport"
-        
-      - station: F
-        role: "Signal Networks"
-        
-      - station: G
-        role: "Central Database"
-        
-      - station: H
-        role: "Security & Surveillance"
-        
-  ambience:
-    sounds:
-      - "Soft hum of servers and screens"
-      - "Keyboard clicks"
-      - "Radio chatter (low)"
-      - "WHOOSH of pneumatic capsules"
-      - "Occasional alert chime"
-      - "Coffee machine gurgling"
-    visual:
-      - "Screen glow in dim room"
-      - "Status lights blinking"
-      - "Real-time map updating"
-      - "Capsules arriving/departing"
+  elevators:
+    units:
+      - passenger_elevator
+      - freight_elevator
+      - service_lift
+    displays:
+      - position
+      - load
+      - queue
+    alerts:
+      - elevator_stuck
+      - overweight
+      - maintenance_due
+      
+  signal_networks:
+    networks:
+      - wifi
+      - industrial_control
+      - camera_feeds
+      - sensor_mesh
+    displays:
+      - bandwidth
+      - latency
+      - error_rate
+    alerts:
+      - network_congestion
+      - node_offline
+      - security_event
+      
+  central_database:
+    role: "Heart of all knowledge"
+    displays:
+      - storage_capacity
+      - query_rate
+      - replication_status
+      - backup_status
+      - index_health
+    stores:
+      - production_records
+      - inventory_state
+      - shipping_manifests
+      - camera_metadata
+      - sensor_timeseries
+      - employee_records
+      - customer_orders
+      - knowledge_graph
+      - audit_logs
+      - session_history
+    alerts:
+      - replication_lag
+      - storage_threshold
+      - query_timeout
+      - backup_failure
+      - corruption_detected
+      
+# CIRCUIT NETWORK SIGNALS
+
+signals:
+  receives:
+    - from: "../loading-docks/"
+      signals: [bay-status, inbound-capacity, outbound-ready]
+    - from: "../floor-1/"
+      signals: [intake-rate, sorting-status]
+    - from: "../floor-2/"
+      signals: [processing-load, cell-status]
+    - from: "../floor-3/"
+      signals: [shipping-queue, packaging-rate]
+    - from: "../rooftop/"
+      signals: [drone-count, weather-status]
+    - from: "../storage/"
+      signals: [capacity-used, aisle-status]
+      
+  emits:
+    - signal: "facility-status"
+      value: "aggregate of all systems"
+    - signal: "alert-level"
+      value: "max(all alerts)"
+    - signal: "throughput-rate"
+      value: "items/hour facility-wide"
+      
+# PNEUMATIC NETWORK ROUTING
+
+pneumatic_hub:
+  type: junction-8
+  connections:
+    - lobby
+    - floor-1
+    - floor-2  
+    - floor-3
+    - rooftop
+    - loading-docks
+    - storage
+    - mail-room
+  routing: automatic
+  queue_capacity: 20
+  delivery_time_avg: "4.2 seconds"
+  
+# OPERATIONS STAFF
+
+occupants:
+  shift_supervisor:
+    name: "The Coordinator"
+    role: "Overall operations oversight"
+    location: "Central desk"
+    
+  operators:
+    - station: A
+      role: "Dock Controller"
+      
+    - station: B
+      role: "Floor Operations"
+      
+    - station: C
+      role: "Aerial Operations"
+      
+    - station: D
+      role: "Pneumatic Network"
+      
+    - station: E
+      role: "Vertical Transport"
+      
+    - station: F
+      role: "Signal Networks"
+      
+    - station: G
+      role: "Central Database"
+      
+    - station: H
+      role: "Security & Surveillance"
+      
+ambience:
+  sounds:
+    - "Soft hum of servers and screens"
+    - "Keyboard clicks"
+    - "Radio chatter (low)"
+    - "WHOOSH of pneumatic capsules"
+    - "Occasional alert chime"
+    - "Coffee machine gurgling"
+  visual:
+    - "Screen glow in dim room"
+    - "Status lights blinking"
+    - "Real-time map updating"
+    - "Capsules arriving/departing"

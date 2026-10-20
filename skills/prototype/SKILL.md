@@ -171,7 +171,10 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 | 1986 | Ungar & Smith begin Self at Xerox PARC |
 | 1987 | Self paper published |
 | 1991 | Self 2.0 with compilation |
+| 1990 | LambdaMOO: parented objects, inherited properties and verbs, wizard bits |
 | 1995 | JavaScript created (heavily Self-influenced) |
+| 1996 | Steve Yegge starts Wyvern with property-list "archetypes", reinventing prototypes independently |
+| 2008 | Yegge, "The Universal Design Pattern", argues for prototypes in open-ended systems |
 | 2024 | MOOLLM applies Self to LLM filesystems |
 
 ---
@@ -191,4 +194,5 @@ MOOLLM applies this: directories are objects, files are slots, resolution is del
 - Smith, R. B. & Ungar, D. (1995). *Programming as an Experience: The Inspiration for Self* — [bibliography](http://bibliography.selflanguage.org/programming-as-experience.html), [PDF](http://bibliography.selflanguage.org/_static/programming-as-experience.pdf)
 - Ungar, D. (1995). *Organizing Programs Without Classes*
 - [selflanguage.org](http://selflanguage.org/)
+- Yegge, S. (2008). *The Universal Design Pattern* — [blog](http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html) (property lists with parent links; Wyvern's archetypes; single parent, where this skill allows a list)
 - Curtis, P. (1997). *LambdaMOO Programmer's Manual* — [HTML](https://www.hayseed.net/MOO/manuals/ProgrammersManual.html) (objects, verbs, and the virtual reality as a programmable database)

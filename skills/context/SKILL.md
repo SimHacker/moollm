@@ -61,8 +61,7 @@ world.room           // Current room
   .path
   .exits
   .objects
-  .is_dark
-  .is_dangerous
+  .lighting          // 0..10
 
 world.party          // Party state
   .members
@@ -191,8 +190,8 @@ simulate_js: (world) => {
       world.extinguish();                   // Call object method
       world.emit("The lamp sputters and dies!");
       
-      if (world.room.is_dark && world.room.is_dangerous) {
-        world.trigger_event("GRUE_APPROACHES");
+      if (world.room.lighting <= 2) {
+        world.trigger_event("DARKNESS_FELL");  // the grue's guard decides whether to hunt
       }
     }
   }
@@ -205,7 +204,7 @@ simulate_js: (world) => {
 
 ```yaml
 guard: "player has the key AND room is not dark"
-guard_js: (world) => world.has("brass-key") && !world.room.is_dark
+guard_js: (world) => world.has("brass-key") && world.room.lighting > 2
 ```
 
 ---
@@ -214,7 +213,7 @@ guard_js: (world) => world.has("brass-key") && !world.room.is_dark
 
 ```yaml
 score_if: "player is tired OR room is dark"
-score_if_js: (world) => world.has_buff("tired") || world.room.is_dark
+score_if_js: (world) => world.has_buff("tired") || world.room.lighting <= 2
 ```
 
 ---
@@ -295,8 +294,8 @@ world.consume_fuel(1)  // Works!
 guard: "player has the key AND room is not dark"
 
 # BOTH generated:
-guard_js: (world) => world.has("brass-key") && !world.room.is_dark
-guard_py: lambda world: world.has("brass-key") and not world.room.is_dark
+guard_js: (world) => world.has("brass-key") && world.room.lighting > 2
+guard_py: lambda world: world.has("brass-key") and world.room.lighting > 2
 ```
 
 ### Why Dual Runtimes?

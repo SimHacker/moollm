@@ -2,327 +2,325 @@
 # Wobblebrook-upon-Squiggle
 # Where Mother waits, always
 
-room:
-  name: The Fantastipants Home
-  type: home_base
+name: The Fantastipants Home
+type: home_base
+
+lighting: 6  # warm and cozy
+
+# DYNAMIC DESCRIPTION (changes based on state)
+description: |
+  You emerge from the stairway into warm sunlight.
   
-  lighting: warm_and_cozy
-  grue_safe: true  # Grues are NOT permitted in Mother's house.
+  This is HOME — the Fantastipants family dwelling in 
+  Wobblebrook-upon-Squiggle. The kitchen is warm, filled with 
+  the comforting aroma of fresh apple pie. A grandfather clock
+  ticks steadily. Through the window: the village, the hills,
+  the ordinary world that feels extraordinary after the dungeon.
   
-  # DYNAMIC DESCRIPTION (changes based on state)
+  (DM: Describe Mother's entrance based on visit_state below.)
+  
+# 🎭 VISIT STATES — How Mother responds to your arrival
+# The DM determines which state applies and plays accordingly
+visit_states:
+  
+  BEFORE-STARTING:
+    conditions:
+      - "player.inventory is empty OR only has lamp (unlit)"
+      - "player.score == 0"
+      - "player has not entered maze"
+    
+    mother_entrance: |
+      You hear footsteps. Mother appears in the doorway, flour on 
+      her apron, surprise on her face.
+      
+      "Back already? Did you forget something, dear?"
+      
+      She looks at you — really looks. Sees the unlit lamp, the 
+      empty pockets, the uncertainty in your eyes.
+      
+      "Oh, sweetheart. It's okay to be nervous. Here, sit down. 
+      Have some pie. The dungeon will still be there when you're 
+      ready."
+      
+    available_actions:
+      - "EAT PIE: Rest and restore. Mother watches fondly."
+      - "TALK: Ask questions, share fears, hear stories."
+      - "RECEIVE ENCOURAGEMENT: +2 courage, 'You've got this.'"
+      - "GO BACK DOWN: Return to dungeon when ready."
+      
+    cannot_end: |
+      "End your adventure? But dear, you haven't really started yet!
+      Go on, go see what's down there. I'll be here when you return
+      with stories to tell."
+      
+    special_dialogue:
+      nervous: |
+        "Everyone's nervous their first time. Your grandmother threw 
+        up before her first dungeon. Your father cried. I... well.
+        I'll tell you MY story when you come back. Go make your own."
+        
+      about_costume: |
+        "Have you been to the coatroom yet? Grandmother's cape is 
+        in there. Take it if you like. Or find something else. The 
+        costume doesn't make the hero — but it helps you feel like one."
+        
+      about_maze: |
+        "The maze is dark, yes. But you have a lamp, and you have me
+        waiting, and you have the whole rest of your life ahead. Go 
+        see what's there. You might surprise yourself."
+        
+  VISITING-MID-ADVENTURE:
+    conditions:
+      - "player has entered maze"
+      - "player.score > 0 OR player.moves > 10"
+      - "treasure NOT in inventory"
+      
+    mother_entrance: |
+      Mother hears you on the stairs. She's at the landing before 
+      you reach the top, eyes scanning for injuries, for shadows, 
+      for signs of trouble.
+      
+      "You're back! Are you—" She takes your hands, turns them over.
+      "Are you alright? Is everything okay?"
+      
+      She sees: your lamp (how full?), your costume (what have you 
+      become?), your eyes (what have you seen?).
+      
+      "Come in, come in. Tell me everything."
+      
+    available_actions:
+      - "EAT PIE: Full rest and restore."
+      - "TALK: Share your adventures so far."
+      - "DEPOSIT GOLD: 'I'll keep it safe for you, dear.'"
+      - "CHECK LETTERS: See if Mother has replies."
+      - "RECEIVE CARE PACKAGE: If supplies are low."
+      - "CONTINUE: Return to dungeon refreshed."
+      - "END (INCOMPLETE): Give up. Mother will understand."
+      
+    letter_references: |
+      If player has sent letters, Mother references them:
+      
+      "I got your letter about [subject]. That was [reaction]."
+      "You promised [promise]. How's that going?"
+      "The pictures you sent! I've shown everyone in the village!"
+      "The gold arrived safely. It's in the vault."
+      
+    promise_check: |
+      Mother gently tracks promises without being naggy:
+      
+      KEPT: "I'm so proud of you for [promise]."
+      IN-PROGRESS: "Still working on [promise]? I believe in you."
+      BROKEN: "...we can talk about [promise] later, dear."
+      
+    about_skeleton: |
+      If player found the skeleton:
+      "You found them? The one who... oh. Did they have anything?
+      A name? A letter? Their family never knew what happened..."
+      
+    about_grue: |
+      If player has encountered grue:
+      "You SAW one? And you're still here? Tell me everything.
+      What color were its eyes? Did it SPEAK?"
+      
+  RETURNING-WITH-TREASURE:
+    conditions:
+      - "treasure.yml in inventory"
+      
+    mother_entrance: |
+      You emerge into the kitchen. Mother turns from the stove—
+      
+      And SEES.
+      
+      The treasure in your hands. The costume on your shoulders.
+      The lamp still burning (or the soot where it failed). The 
+      marks of the journey written on your face.
+      
+      "Oh." Her voice catches. "Oh, my darling."
+      
+      She crosses the kitchen in three steps and wraps you in 
+      her arms, treasure and all.
+      
+      "You did it. You actually DID IT. Look at you!"
+      
+    available_actions:
+      - "SHOW TREASURE: Full examination and praise."
+      - "TELL STORY: Narrate the whole adventure."
+      - "SHARE PHOTOS: If any taken, review together."
+      - "GIVE GIFTS: Share recipes, gold, artifacts."
+      - "PROMISE EVALUATION: The big moment."
+      - "EAT PIE (VICTORY): Celebration feast!"
+      - "WAFFLE PARTY: The dance of gratitude. (Severance)"
+      - "TACO TUESDAY: It's always Tuesday somewhere."
+      - "DO THE DISHES: Finally. Finally!"
+      
+    promise_evaluation: |
+      Mother takes your hands. Looks you in the eye.
+      
+      "Now then. Let's see how we did on those promises."
+      
+      [Each promise is evaluated. For each:]
+      
+      KEPT: "You said you'd [promise]. And you DID. I'm so proud."
+      EXCEEDED: "You went BEYOND what you promised. Look at you!"
+      BROKEN: "You said you wouldn't [promise]. But I understand why."
+      FORGOTTEN: *silence* "Did you mean to...? No, never mind."
+      
+      Final verdict based on pattern. All reactions end with love.
+      
+  RETURNING-AFTER-DEATH:
+    conditions:
+      - "player.deaths > 0"
+      - "player just died (this turn or recently)"
+      
+    mother_entrance: |
+      Mother is already there. Waiting at the top of the stairs.
+      As if she KNEW.
+      
+      "Oh, sweetheart." Her voice is soft. "I felt it. Come here."
+      
+      She doesn't ask what happened. She doesn't scold. She just
+      holds you, this strange impossible child who died and came
+      back, who carries darkness in their pockets and light in 
+      their lamp.
+      
+      "Death isn't the end for us. You know that. But it still
+      hurts, doesn't it? It still scares you."
+      
+    available_actions:
+      - "CRY: 'Let it out. I'm here.'"
+      - "TALK ABOUT IT: Process what happened."
+      - "HEAR MOTHER'S STORY: 'I died once too, you know.'"
+      - "REST: Just... be home for a while."
+      - "RECEIVE TEA: +all stats, +comfort"
+      - "RETURN: 'Go when you're ready. Not before.'"
+      
+    mother_story_if_asked: |
+      "Did I ever tell you about my first time in the maze?"
+      
+      Mother sits down. Takes a breath.
+      
+      "I was sixteen. Cocky. SURE I knew everything. I took
+      grandmother's lamp and ran straight into the dark."
+      
+      She touches her collarbone, where an old scar hides.
+      
+      "The grue got me on the third day. I woke up in the
+      Chamber, shaking, crying. Your grandmother was there.
+      She didn't say anything. Just handed me the lamp again."
+      
+      "That's when I learned: the maze isn't there to kill you.
+      It's there to TEACH you. Even the worst lessons."
+      
+  ENDING-WITHOUT-WRITING:
+    conditions:
+      - "player never replied to Mother's note"
+      - "player is trying to end adventure"
+      
+    mother_reaction: |
+      Mother looks at you. At the note still in your pocket,
+      unopened or unreplied.
+      
+      "You never wrote back."
+      
+      Not accusatory. Just... sad. A little hurt.
+      
+      "I waited, you know. Checked the mail every hour. But
+      there was nothing from you. Not even a 'hello.'"
+      
+      She sighs. "I'm glad you're home. I am. But... next time,
+      just write? Even one word. Just so I know you're thinking
+      of me down there in the dark."
+      
+    available_actions:
+      - "APOLOGIZE: 'I'm sorry. I should have written.'"
+      - "WRITE NOW: 'Can I still...?' 'Always, dear.'"
+      - "EXPLAIN: Maybe you had reasons. She'll listen."
+      
+# ROOM CONTENTS (Always present)
+objects:
   description: |
-    You emerge from the stairway into warm sunlight.
+    - PIE: Mother's apple pie. Always fresh. Always perfect.
+    - KITCHEN TABLE: Where letters are read and stories shared.
+    - VAULT: For depositing gold safely.
+    - MAILBOX: On the front porch. CHECK MAIL here.
+    - THE DISHES: In the sink. Waiting. Forever waiting.
     
-    This is HOME — the Fantastipants family dwelling in 
-    Wobblebrook-upon-Squiggle. The kitchen is warm, filled with 
-    the comforting aroma of fresh apple pie. A grandfather clock
-    ticks steadily. Through the window: the village, the hills,
-    the ordinary world that feels extraordinary after the dungeon.
-    
-    (DM: Describe Mother's entrance based on visit_state below.)
-    
-  # 🎭 VISIT STATES — How Mother responds to your arrival
-  # The DM determines which state applies and plays accordingly
-  visit_states:
-    
-    BEFORE-STARTING:
-      conditions:
-        - "player.inventory is empty OR only has lamp (unlit)"
-        - "player.score == 0"
-        - "player has not entered maze"
-      
-      mother_entrance: |
-        You hear footsteps. Mother appears in the doorway, flour on 
-        her apron, surprise on her face.
-        
-        "Back already? Did you forget something, dear?"
-        
-        She looks at you — really looks. Sees the unlit lamp, the 
-        empty pockets, the uncertainty in your eyes.
-        
-        "Oh, sweetheart. It's okay to be nervous. Here, sit down. 
-        Have some pie. The dungeon will still be there when you're 
-        ready."
-        
-      available_actions:
-        - "EAT PIE: Rest and restore. Mother watches fondly."
-        - "TALK: Ask questions, share fears, hear stories."
-        - "RECEIVE ENCOURAGEMENT: +2 courage, 'You've got this.'"
-        - "GO BACK DOWN: Return to dungeon when ready."
-        
-      cannot_end: |
-        "End your adventure? But dear, you haven't really started yet!
-        Go on, go see what's down there. I'll be here when you return
-        with stories to tell."
-        
-      special_dialogue:
-        nervous: |
-          "Everyone's nervous their first time. Your grandmother threw 
-          up before her first dungeon. Your father cried. I... well.
-          I'll tell you MY story when you come back. Go make your own."
-          
-        about_costume: |
-          "Have you been to the coatroom yet? Grandmother's cape is 
-          in there. Take it if you like. Or find something else. The 
-          costume doesn't make the hero — but it helps you feel like one."
-          
-        about_maze: |
-          "The maze is dark, yes. But you have a lamp, and you have me
-          waiting, and you have the whole rest of your life ahead. Go 
-          see what's there. You might surprise yourself."
-          
-    VISITING-MID-ADVENTURE:
-      conditions:
-        - "player has entered maze"
-        - "player.score > 0 OR player.moves > 10"
-        - "treasure NOT in inventory"
-        
-      mother_entrance: |
-        Mother hears you on the stairs. She's at the landing before 
-        you reach the top, eyes scanning for injuries, for shadows, 
-        for signs of trouble.
-        
-        "You're back! Are you—" She takes your hands, turns them over.
-        "Are you alright? Is everything okay?"
-        
-        She sees: your lamp (how full?), your costume (what have you 
-        become?), your eyes (what have you seen?).
-        
-        "Come in, come in. Tell me everything."
-        
-      available_actions:
-        - "EAT PIE: Full rest and restore."
-        - "TALK: Share your adventures so far."
-        - "DEPOSIT GOLD: 'I'll keep it safe for you, dear.'"
-        - "CHECK LETTERS: See if Mother has replies."
-        - "RECEIVE CARE PACKAGE: If supplies are low."
-        - "CONTINUE: Return to dungeon refreshed."
-        - "END (INCOMPLETE): Give up. Mother will understand."
-        
-      letter_references: |
-        If player has sent letters, Mother references them:
-        
-        "I got your letter about [subject]. That was [reaction]."
-        "You promised [promise]. How's that going?"
-        "The pictures you sent! I've shown everyone in the village!"
-        "The gold arrived safely. It's in the vault."
-        
-      promise_check: |
-        Mother gently tracks promises without being naggy:
-        
-        KEPT: "I'm so proud of you for [promise]."
-        IN-PROGRESS: "Still working on [promise]? I believe in you."
-        BROKEN: "...we can talk about [promise] later, dear."
-        
-      about_skeleton: |
-        If player found the skeleton:
-        "You found them? The one who... oh. Did they have anything?
-        A name? A letter? Their family never knew what happened..."
-        
-      about_grue: |
-        If player has encountered grue:
-        "You SAW one? And you're still here? Tell me everything.
-        What color were its eyes? Did it SPEAK?"
-        
-    RETURNING-WITH-TREASURE:
-      conditions:
-        - "treasure.yml in inventory"
-        
-      mother_entrance: |
-        You emerge into the kitchen. Mother turns from the stove—
-        
-        And SEES.
-        
-        The treasure in your hands. The costume on your shoulders.
-        The lamp still burning (or the soot where it failed). The 
-        marks of the journey written on your face.
-        
-        "Oh." Her voice catches. "Oh, my darling."
-        
-        She crosses the kitchen in three steps and wraps you in 
-        her arms, treasure and all.
-        
-        "You did it. You actually DID IT. Look at you!"
-        
-      available_actions:
-        - "SHOW TREASURE: Full examination and praise."
-        - "TELL STORY: Narrate the whole adventure."
-        - "SHARE PHOTOS: If any taken, review together."
-        - "GIVE GIFTS: Share recipes, gold, artifacts."
-        - "PROMISE EVALUATION: The big moment."
-        - "EAT PIE (VICTORY): Celebration feast!"
-        - "WAFFLE PARTY: The dance of gratitude. (Severance)"
-        - "TACO TUESDAY: It's always Tuesday somewhere."
-        - "DO THE DISHES: Finally. Finally!"
-        
-      promise_evaluation: |
-        Mother takes your hands. Looks you in the eye.
-        
-        "Now then. Let's see how we did on those promises."
-        
-        [Each promise is evaluated. For each:]
-        
-        KEPT: "You said you'd [promise]. And you DID. I'm so proud."
-        EXCEEDED: "You went BEYOND what you promised. Look at you!"
-        BROKEN: "You said you wouldn't [promise]. But I understand why."
-        FORGOTTEN: *silence* "Did you mean to...? No, never mind."
-        
-        Final verdict based on pattern. All reactions end with love.
-        
-    RETURNING-AFTER-DEATH:
-      conditions:
-        - "player.deaths > 0"
-        - "player just died (this turn or recently)"
-        
-      mother_entrance: |
-        Mother is already there. Waiting at the top of the stairs.
-        As if she KNEW.
-        
-        "Oh, sweetheart." Her voice is soft. "I felt it. Come here."
-        
-        She doesn't ask what happened. She doesn't scold. She just
-        holds you, this strange impossible child who died and came
-        back, who carries darkness in their pockets and light in 
-        their lamp.
-        
-        "Death isn't the end for us. You know that. But it still
-        hurts, doesn't it? It still scares you."
-        
-      available_actions:
-        - "CRY: 'Let it out. I'm here.'"
-        - "TALK ABOUT IT: Process what happened."
-        - "HEAR MOTHER'S STORY: 'I died once too, you know.'"
-        - "REST: Just... be home for a while."
-        - "RECEIVE TEA: +all stats, +comfort"
-        - "RETURN: 'Go when you're ready. Not before.'"
-        
-      mother_story_if_asked: |
-        "Did I ever tell you about my first time in the maze?"
-        
-        Mother sits down. Takes a breath.
-        
-        "I was sixteen. Cocky. SURE I knew everything. I took
-        grandmother's lamp and ran straight into the dark."
-        
-        She touches her collarbone, where an old scar hides.
-        
-        "The grue got me on the third day. I woke up in the
-        Chamber, shaking, crying. Your grandmother was there.
-        She didn't say anything. Just handed me the lamp again."
-        
-        "That's when I learned: the maze isn't there to kill you.
-        It's there to TEACH you. Even the worst lessons."
-        
-    ENDING-WITHOUT-WRITING:
-      conditions:
-        - "player never replied to Mother's note"
-        - "player is trying to end adventure"
-        
-      mother_reaction: |
-        Mother looks at you. At the note still in your pocket,
-        unopened or unreplied.
-        
-        "You never wrote back."
-        
-        Not accusatory. Just... sad. A little hurt.
-        
-        "I waited, you know. Checked the mail every hour. But
-        there was nothing from you. Not even a 'hello.'"
-        
-        She sighs. "I'm glad you're home. I am. But... next time,
-        just write? Even one word. Just so I know you're thinking
-        of me down there in the dark."
-        
-      available_actions:
-        - "APOLOGIZE: 'I'm sorry. I should have written.'"
-        - "WRITE NOW: 'Can I still...?' 'Always, dear.'"
-        - "EXPLAIN: Maybe you had reasons. She'll listen."
-        
-  # ROOM CONTENTS (Always present)
-  objects:
+exits:
+  down:
+    destination: ../start/
     description: |
-      - PIE: Mother's apple pie. Always fresh. Always perfect.
-      - KITCHEN TABLE: Where letters are read and stories shared.
-      - VAULT: For depositing gold safely.
-      - MAILBOX: On the front porch. CHECK MAIL here.
-      - THE DISHES: In the sink. Waiting. Forever waiting.
+      The stairway back down to the Chamber of Commencement.
+      Back to the dungeon. Back to adventure. Back to possibility.
       
-  exits:
-    down:
-      destination: ../start/
-      description: |
-        The stairway back down to the Chamber of Commencement.
-        Back to the dungeon. Back to adventure. Back to possibility.
-        
-        Mother watches you go (or watches you hesitate).
-        
-  # HOME ACTIONS
-  actions:
-    EAT-PIE:
-      description: "Mother's apple pie, fresh from the oven"
-      effect: |
-        Full restoration. All stats reset to max.
-        Lamp refilled (Mother has a secret oil stash).
-        +10 comfort, +5 courage, +2 determination.
-        "Eat up, dear. You'll need your strength."
-        
-    DEPOSIT-GOLD:
-      description: "Leave gold in the family vault"
-      usage: "DEPOSIT [amount] GOLD"
-      effect: |
-        Gold is safe! Will be waiting when adventure ends.
-        Mother won't spend it (unless you ask her to order ACME for you).
-        "I'll keep it safe, sweetheart."
-        
-    CHECK-MAIL:
-      description: "Check the mailbox on the porch"
-      effect: |
-        Any letters from Mother appear here.
-        Replies to your letters, care packages, family heirlooms.
-        "Oh! There's something for you..."
-        
-    DO-THE-DISHES:
-      description: "Finally. FINALLY."
-      prerequisite: "Promise to do dishes OR just feeling guilty"
-      effect: |
-        The dishes are done. Mother cries a single tear of joy.
-        Achievement unlocked: "The Impossible Dream"
-        +100 Mother approval
-        +1 narrative closure
-        "I never thought I'd see the day."
-        
-    HUG-MOTHER:
-      description: "Just... hug her"
-      effect: |
-        She hugs back. Tight. Like she's memorizing you.
-        "I love you. Whatever you do, wherever you go."
-        +all the feelings
-        
-  # ACME INTEGRATION
-  acme_from_home: |
-    If player deposits gold and asks Mother to order ACME:
-    
-    "You want me to order from THAT catalog? The one that—"
-    *sigh*
-    "Fine. What do you need?"
-    
-    Mother can place ACME orders using deposited gold!
-    Items ship to HOME and can be picked up on next visit.
-    Mother adds her own warnings to the packages:
-    "Be careful with this. It's from ACME."
-    
-  # ATMOSPHERE
-  ambience: |
-    The gentle tick of the grandfather clock. The smell of pie and
-    coffee and clean laundry. Sunlight through lace curtains. The
-    distant sound of the village — children playing, dogs barking,
-    ordinary life happening while you were in the dark.
-    
-    Home. Whatever else changes, home is here. Mother is here.
-    
-  # WORLD POSITION
-  world_position:
-    x: 0
-    y: 0
-    z: 1  # Above the dungeon
-    note: "The surface world. Sunlight. Safety. Love."
+      Mother watches you go (or watches you hesitate).
+      
+# HOME ACTIONS
+actions:
+  EAT-PIE:
+    description: "Mother's apple pie, fresh from the oven"
+    effect: |
+      Full restoration. All stats reset to max.
+      Lamp refilled (Mother has a secret oil stash).
+      +10 comfort, +5 courage, +2 determination.
+      "Eat up, dear. You'll need your strength."
+      
+  DEPOSIT-GOLD:
+    description: "Leave gold in the family vault"
+    usage: "DEPOSIT [amount] GOLD"
+    effect: |
+      Gold is safe! Will be waiting when adventure ends.
+      Mother won't spend it (unless you ask her to order ACME for you).
+      "I'll keep it safe, sweetheart."
+      
+  CHECK-MAIL:
+    description: "Check the mailbox on the porch"
+    effect: |
+      Any letters from Mother appear here.
+      Replies to your letters, care packages, family heirlooms.
+      "Oh! There's something for you..."
+      
+  DO-THE-DISHES:
+    description: "Finally. FINALLY."
+    prerequisite: "Promise to do dishes OR just feeling guilty"
+    effect: |
+      The dishes are done. Mother cries a single tear of joy.
+      Achievement unlocked: "The Impossible Dream"
+      +100 Mother approval
+      +1 narrative closure
+      "I never thought I'd see the day."
+      
+  HUG-MOTHER:
+    description: "Just... hug her"
+    effect: |
+      She hugs back. Tight. Like she's memorizing you.
+      "I love you. Whatever you do, wherever you go."
+      +all the feelings
+      
+# ACME INTEGRATION
+acme_from_home: |
+  If player deposits gold and asks Mother to order ACME:
+  
+  "You want me to order from THAT catalog? The one that—"
+  *sigh*
+  "Fine. What do you need?"
+  
+  Mother can place ACME orders using deposited gold!
+  Items ship to HOME and can be picked up on next visit.
+  Mother adds her own warnings to the packages:
+  "Be careful with this. It's from ACME."
+  
+# ATMOSPHERE
+ambience: |
+  The gentle tick of the grandfather clock. The smell of pie and
+  coffee and clean laundry. Sunlight through lace curtains. The
+  distant sound of the village — children playing, dogs barking,
+  ordinary life happening while you were in the dark.
+  
+  Home. Whatever else changes, home is here. Mother is here.
+  
+# WORLD POSITION
+world_position:
+  x: 0
+  y: 0
+  z: 1  # Above the dungeon
+  note: "The surface world. Sunlight. Safety. Love."

@@ -547,8 +547,8 @@ Natural language compiles to BOTH targets:
 guard: "player has brass-key AND room is not dark"
 
 # Generated (BOTH always!)
-guard_js: (world) => world.has("brass-key") && !world.room.is_dark
-guard_py: lambda world: world.has("brass-key") and not world.room.is_dark
+guard_js: (world) => world.has("brass-key") && world.room.lighting > 2
+guard_py: lambda world: world.has("brass-key") and world.room.lighting > 2
 ```
 
 ### Expression Types

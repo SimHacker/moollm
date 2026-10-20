@@ -82,7 +82,7 @@ portal files so the undergrid is navigable without leaking to unrelated district
 South-side shops share a **service alley** behind the Bartle/Hopkins row. North-side
 shops share a **loading court** behind the Transmogrifier chain. Below both: the
 **SERVICE UNDERGRID** — brick tunnels, steam pipes, cloned-GUID maintenance hatches,
-occasional grue-adjacent darkness (but `grue_safe: true` on the public street above).
+occasional grue-adjacent darkness (the public street above is lit, `lighting: 8`).
 
 See [tunnels/README.md](tunnels/README.md) · [tunnels/SERVICE-ALLEY.yml](tunnels/SERVICE-ALLEY.yml)
 

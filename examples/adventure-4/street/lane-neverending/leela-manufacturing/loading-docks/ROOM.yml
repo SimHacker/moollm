@@ -9,238 +9,237 @@
 #
 # See: skills/logistic-container, skills/leela-ai
 
-room:
-  name: Leela Loading Docks
-  type: industrial_loading
-  emoji: "🚛👁️📦"
+name: Leela Loading Docks
+type: industrial_loading
+emoji: "🚛👁️📦"
+
+lighting: 7  # industrial
+atmosphere: busy
+
+# Leela vision is watching (helpfully!)
+leela_cameras:
+  - camera-doc1.yml   # Main dock overview
+  - name: forklift-safety
+    purpose: "Pedestrian detection in forklift zones"
+  - name: package-tracking  
+    purpose: "Every box annotated with destination"
+  - name: ergonomics
+    purpose: "Worker posture and PPE compliance monitoring"
+
+# What this represents
+anti_acme: |
+  ACME couldn't track a falling anvil.
+  Leela tracks everything. Safely. Helpfully.
   
-  lighting: industrial
-  atmosphere: busy
+  Unlike ACME's "ship and pray" approach,
+  every package here is annotated, every forklift
+  is tracked, every worker is protected.
+
+# Factorio-style logistics integration
+skills:
+  - logistic-container
+  - manufacturing-intelligence
+  - leela-ai
+
+description: |
+  The LOADING DOCKS wrap around the back of Leela Manufacturing.
+  Eight bays — four in, four out — each with a truck-sized door,
+  dock levelers, and the constant activity of logistics in motion.
   
-  # Leela vision is watching (helpfully!)
-  leela_cameras:
-    - camera-doc1.yml   # Main dock overview
-    - name: forklift-safety
-      purpose: "Pedestrian detection in forklift zones"
-    - name: package-tracking  
-      purpose: "Every box annotated with destination"
-    - name: ergonomics
-      purpose: "Worker posture and PPE compliance monitoring"
+  ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
+  │ B1  │ B2  │ B3  │ B4  │ B5  │ B6  │ B7  │ B8  │
+  │ IN  │ IN  │ IN  │ IN  │ OUT │ OUT │ OUT │ OUT │
+  └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
   
-  # What this represents
-  anti_acme: |
-    ACME couldn't track a falling anvil.
-    Leela tracks everything. Safely. Helpfully.
-    
-    Unlike ACME's "ship and pray" approach,
-    every package here is annotated, every forklift
-    is tracked, every worker is protected.
+  Forklifts beep. Pallets stack. Workers in safety vests
+  coordinate the flow of knowledge in and out of the building.
   
-  # Factorio-style logistics integration
-  skills:
-    - logistic-container
-    - manufacturing-intelligence
-    - leela-ai
+  A truck is currently backing into Bay 2, loaded with
+  "BULK QUESTIONS — HANDLE WITH CURIOSITY."
   
-  description: |
-    The LOADING DOCKS wrap around the back of Leela Manufacturing.
-    Eight bays — four in, four out — each with a truck-sized door,
-    dock levelers, and the constant activity of logistics in motion.
+examine: |
+  LOADING DOCKS — BACK OF BUILDING
+  
+  THE BAYS (4 IN, 4 OUT):
+  Bay 1 (INBOUND): Currently unloading raw data shipment
+  Bay 2 (INBOUND): Truck backing in with bulk questions
+  Bay 3 (INBOUND): Empty, awaiting confusion tanker
+  Bay 4 (INBOUND): Reserved for paradox-safe deliveries
+  Bay 5 (OUTBOUND): Insight Express #1 loading
+  Bay 6 (OUTBOUND): Bulk wisdom shipment staging
+  Bay 7 (OUTBOUND): Reserved for premium/rush orders
+  Bay 8 (OUTBOUND): Pigeon post & small parcel dispatch
+  
+  DOCK OFFICE:
+  A small windowed office overlooking the bays.
+  Dispatch coordinator with clipboard, headset, coffee.
+  Schedules on the wall. Radio chatter constant.
+  Sign: "IF IT MOVES, LOG IT"
+  
+  EQUIPMENT AREA:
+  • Forklifts (3, electric)
+  • Pallet jacks (many)
+  • Shrink wrap station
+  • Scale (for weighing knowledge — heavier = more valuable?)
+  • First aid station (forklifts are unforgiving)
+  
+  THE BREAK ROOM:
+  A small room off to the side for dock workers.
+  Vending machines. Microwave. Table with yesterday's newspaper.
+  A sign: "HONK FOR SERVICE" (truckers can honk from the yard)
+  
+  SAFETY NOTICES:
+  • "HARD HATS REQUIRED BEYOND THIS POINT"
+  • "FORKLIFTS HAVE RIGHT OF WAY"
+  • "MIND THE GAP" (painted on every dock edge)
+  • "NO PARADOXES ACCEPTED AT DOCK LEVEL"
+  
+current_activity:
+  bay_1: "Unloading raw data from Data Hauler Prime"
+  bay_2: "Bulk questions arriving, inspection in progress"
+  bay_3: "Empty — confusion tanker ETA 15 minutes"
+  bay_4: "Paradox delivery (sealed, don't peek)"
+  bay_5: "Insight Express #1 — 50% loaded"
+  bay_6: "Bulk wisdom pallets stacking"
+  bay_7: "Premium order staging"
+  bay_8: "Pigeon crates ready for flight"
+  
+exits:
+  inside:
+    to: ../floor-1/
+    description: "Door to Floor 1 — Intake (for incoming shipments)"
+    aliases: [1, intake, in]
     
-    ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┐
-    │ B1  │ B2  │ B3  │ B4  │ B5  │ B6  │ B7  │ B8  │
-    │ IN  │ IN  │ IN  │ IN  │ OUT │ OUT │ OUT │ OUT │
-    └─────┴─────┴─────┴─────┴─────┴─────┴─────┴─────┘
+  shipping:
+    to: ../floor-3/
+    description: "Door to Floor 3 — Shipping (for outgoing shipments)"
+    aliases: [3, shipping]
     
-    Forklifts beep. Pallets stack. Workers in safety vests
-    coordinate the flow of knowledge in and out of the building.
+  yard:
+    to: ../logistics/
+    description: "Out to the Logistics Yard — truck parking, rail siding"
+    aliases: [logistics, trucks, rail, outside]
     
-    A truck is currently backing into Bay 2, loaded with
-    "BULK QUESTIONS — HANDLE WITH CURIOSITY."
+  street:
+    to: ../../center/
+    description: "Around the building to Lane Neverending"
+    aliases: [lane, street, front]
     
-  examine: |
-    LOADING DOCKS — BACK OF BUILDING
-    
-    THE BAYS (4 IN, 4 OUT):
-    Bay 1 (INBOUND): Currently unloading raw data shipment
-    Bay 2 (INBOUND): Truck backing in with bulk questions
-    Bay 3 (INBOUND): Empty, awaiting confusion tanker
-    Bay 4 (INBOUND): Reserved for paradox-safe deliveries
-    Bay 5 (OUTBOUND): Insight Express #1 loading
-    Bay 6 (OUTBOUND): Bulk wisdom shipment staging
-    Bay 7 (OUTBOUND): Reserved for premium/rush orders
-    Bay 8 (OUTBOUND): Pigeon post & small parcel dispatch
-    
-    DOCK OFFICE:
-    A small windowed office overlooking the bays.
-    Dispatch coordinator with clipboard, headset, coffee.
-    Schedules on the wall. Radio chatter constant.
-    Sign: "IF IT MOVES, LOG IT"
-    
-    EQUIPMENT AREA:
-    • Forklifts (3, electric)
-    • Pallet jacks (many)
-    • Shrink wrap station
-    • Scale (for weighing knowledge — heavier = more valuable?)
-    • First aid station (forklifts are unforgiving)
-    
-    THE BREAK ROOM:
-    A small room off to the side for dock workers.
-    Vending machines. Microwave. Table with yesterday's newspaper.
-    A sign: "HONK FOR SERVICE" (truckers can honk from the yard)
-    
-    SAFETY NOTICES:
-    • "HARD HATS REQUIRED BEYOND THIS POINT"
-    • "FORKLIFTS HAVE RIGHT OF WAY"
-    • "MIND THE GAP" (painted on every dock edge)
-    • "NO PARADOXES ACCEPTED AT DOCK LEVEL"
-    
-  current_activity:
-    bay_1: "Unloading raw data from Data Hauler Prime"
-    bay_2: "Bulk questions arriving, inspection in progress"
-    bay_3: "Empty — confusion tanker ETA 15 minutes"
-    bay_4: "Paradox delivery (sealed, don't peek)"
-    bay_5: "Insight Express #1 — 50% loaded"
-    bay_6: "Bulk wisdom pallets stacking"
-    bay_7: "Premium order staging"
-    bay_8: "Pigeon crates ready for flight"
-    
-  exits:
-    inside:
+# Factorio Logistics — Bay Configurations
+# See: skills/logistic-container/CARD.yml
+
+logistics_bays:
+  
+  # INBOUND BAYS (1-4)
+  
+  bay_1:
+    chest_mode: buffer        # 📦🟢 Green — staging for inbound
+    emoji: "📦🟢"
+    receives:
+      - tags: ["raw-data", "bulk"]
+    buffer_for:
       to: ../floor-1/
-      description: "Door to Floor 1 — Intake (for incoming shipments)"
-      aliases: [1, intake, in]
+      when: "intake.ready"
       
-    shipping:
-      to: ../floor-3/
-      description: "Door to Floor 3 — Shipping (for outgoing shipments)"
-      aliases: [3, shipping]
+  bay_2:
+    chest_mode: buffer
+    emoji: "📦🟢"
+    receives:
+      - tags: ["questions", "problems"]
+    buffer_for:
+      to: ../floor-1/
+      when: "sorting.available"
       
-    yard:
-      to: ../logistics/
-      description: "Out to the Logistics Yard — truck parking, rail siding"
-      aliases: [logistics, trucks, rail, outside]
+  bay_3:
+    chest_mode: requester     # 📦🔵 Blue — actively requesting
+    emoji: "📦🔵"
+    request_list:
+      - tags: ["confusion"]
+        count: unlimited
+        note: "Confusion tankers always welcome"
+        
+  bay_4:
+    chest_mode: buffer
+    emoji: "📦🟢"
+    receives:
+      - tags: ["paradox", "hazardous", "sealed"]
+    buffer_for:
+      to: ../basement/
+      when: "containment.ready"
+    notes: "Paradox-safe deliveries route to R&D basement"
+        
+  # OUTBOUND BAYS (5-8)
+        
+  bay_5:
+    chest_mode: active-provider  # 📦🔴 Red — pushing OUT
+    emoji: "📦🔴"
+    push_to:
+      - match: { tags: ["insight", "knowledge"] }
+        to: logistics/truck-yard/
+      - match: { tags: ["express"] }
+        to: logistics/drone-pad/
+        
+  bay_6:
+    chest_mode: active-provider
+    emoji: "📦🔴"
+    push_to:
+      - match: { tags: ["wisdom", "bulk"] }
+        to: logistics/rail-siding/
+      - default: logistics/truck-yard/
+        
+  bay_7:
+    chest_mode: active-provider
+    emoji: "📦🔴"
+    push_to:
+      - match: { tags: ["premium", "rush"] }
+        to: logistics/drone-pad/
+      - match: { tags: ["courier"] }
+        to: logistics/truck-yard/
+        
+  bay_8:
+    chest_mode: active-provider
+    emoji: "📦🔴"
+    push_to:
+      - match: { tags: ["small", "letter", "pigeon"] }
+        to: ../mail-room/
+      - match: { tags: ["parcel"] }
+        to: logistics/truck-yard/
+        
+# Circuit signals for bay status
+signals:
+  emit:
+    - signal: "bay-1-status"
+      value: "bay_1.fullness"
+    - signal: "bay-2-status"
+      value: "bay_2.fullness"
+    - signal: "bay-3-status"
+      value: "bay_3.fullness"
+    - signal: "bay-4-status"
+      value: "bay_4.fullness"
+    - signal: "inbound-capacity"
+      value: "(bay_1.capacity + bay_2.capacity + bay_3.capacity + bay_4.capacity) - (bay_1.items + bay_2.items + bay_3.items + bay_4.items)"
+    - signal: "outbound-ready"
+      value: "bay_5.items > 0 OR bay_6.items > 0 OR bay_7.items > 0 OR bay_8.items > 0"
       
-    street:
-      to: ../../center/
-      description: "Around the building to Lane Neverending"
-      aliases: [lane, street, front]
-      
-  # Factorio Logistics — Bay Configurations
-  # See: skills/logistic-container/CARD.yml
+objects:
+  - dock-office.yml
+  - forklift-bay.yml
+  - drone-station.yml
+  - carriage-house.yml
+  - current-trucks.yml
+  - camera-doc1.yml  # Dock Watcher — feeds to video pipeline
   
-  logistics_bays:
+# Inserters — automated item transfer
+inserters:
+  
+  bay_to_intake:
+    type: stack-inserter
+    stack_size: 50
+    input: { source: "bay_1", filter: { tags: ["ready"] } }
+    output: { to: "../floor-1/#sorting-line" }
     
-    # INBOUND BAYS (1-4)
-    
-    bay_1:
-      chest_mode: buffer        # 📦🟢 Green — staging for inbound
-      emoji: "📦🟢"
-      receives:
-        - tags: ["raw-data", "bulk"]
-      buffer_for:
-        to: ../floor-1/
-        when: "intake.ready"
-        
-    bay_2:
-      chest_mode: buffer
-      emoji: "📦🟢"
-      receives:
-        - tags: ["questions", "problems"]
-      buffer_for:
-        to: ../floor-1/
-        when: "sorting.available"
-        
-    bay_3:
-      chest_mode: requester     # 📦🔵 Blue — actively requesting
-      emoji: "📦🔵"
-      request_list:
-        - tags: ["confusion"]
-          count: unlimited
-          note: "Confusion tankers always welcome"
-          
-    bay_4:
-      chest_mode: buffer
-      emoji: "📦🟢"
-      receives:
-        - tags: ["paradox", "hazardous", "sealed"]
-      buffer_for:
-        to: ../basement/
-        when: "containment.ready"
-      notes: "Paradox-safe deliveries route to R&D basement"
-          
-    # OUTBOUND BAYS (5-8)
-          
-    bay_5:
-      chest_mode: active-provider  # 📦🔴 Red — pushing OUT
-      emoji: "📦🔴"
-      push_to:
-        - match: { tags: ["insight", "knowledge"] }
-          to: logistics/truck-yard/
-        - match: { tags: ["express"] }
-          to: logistics/drone-pad/
-          
-    bay_6:
-      chest_mode: active-provider
-      emoji: "📦🔴"
-      push_to:
-        - match: { tags: ["wisdom", "bulk"] }
-          to: logistics/rail-siding/
-        - default: logistics/truck-yard/
-          
-    bay_7:
-      chest_mode: active-provider
-      emoji: "📦🔴"
-      push_to:
-        - match: { tags: ["premium", "rush"] }
-          to: logistics/drone-pad/
-        - match: { tags: ["courier"] }
-          to: logistics/truck-yard/
-          
-    bay_8:
-      chest_mode: active-provider
-      emoji: "📦🔴"
-      push_to:
-        - match: { tags: ["small", "letter", "pigeon"] }
-          to: ../mail-room/
-        - match: { tags: ["parcel"] }
-          to: logistics/truck-yard/
-          
-  # Circuit signals for bay status
-  signals:
-    emit:
-      - signal: "bay-1-status"
-        value: "bay_1.fullness"
-      - signal: "bay-2-status"
-        value: "bay_2.fullness"
-      - signal: "bay-3-status"
-        value: "bay_3.fullness"
-      - signal: "bay-4-status"
-        value: "bay_4.fullness"
-      - signal: "inbound-capacity"
-        value: "(bay_1.capacity + bay_2.capacity + bay_3.capacity + bay_4.capacity) - (bay_1.items + bay_2.items + bay_3.items + bay_4.items)"
-      - signal: "outbound-ready"
-        value: "bay_5.items > 0 OR bay_6.items > 0 OR bay_7.items > 0 OR bay_8.items > 0"
-        
-  objects:
-    - dock-office.yml
-    - forklift-bay.yml
-    - drone-station.yml
-    - carriage-house.yml
-    - current-trucks.yml
-    - camera-doc1.yml  # Dock Watcher — feeds to video pipeline
-    
-  # Inserters — automated item transfer
-  inserters:
-    
-    bay_to_intake:
-      type: stack-inserter
-      stack_size: 50
-      input: { source: "bay_1", filter: { tags: ["ready"] } }
-      output: { to: "../floor-1/#sorting-line" }
-      
-    shipping_to_bay:
-      type: long-arm-inserter
-      range: 2
-      input: { source: "../floor-3/#outbound" }
-      output: { to: "bay_4" }
+  shipping_to_bay:
+    type: long-arm-inserter
+    range: 2
+    input: { source: "../floor-3/#outbound" }
+    output: { to: "bay_4" }

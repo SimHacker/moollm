@@ -61,7 +61,7 @@ lamp, one questionable puddle). Not every shop connected on day one — graph gr
 
 ## Conventions
 
-- `grue_safe: false` in deep undergrid; `true` in lit service alleys.
+- `lighting:` 0–2 in the deep undergrid, where the grue hunts; 3 in the dim service alleys.
 - Tunnels use **named portals** (`to: ../shops/milk-bar/cellar/`) not magic jumps.
 - Discoverability: some entrances `hidden: true` until back yard explored.
 - Comedy signage from Transmogrifier corp bleeds down here ([TRANSMOGRIFIER-CORP.yml](../TRANSMOGRIFIER-CORP.yml)).

@@ -3,257 +3,256 @@
 # Named for Doug Engelbart's Bootstrap Institute and philosophy
 # "First you boot. Then you fuel. Then you augment."
 
-room:
-  name: "The Bootstrap Suite"
-  id: room-7
-  number: 7
-  theme: bootstrap
+name: "The Bootstrap Suite"
+id: room-7
+number: 7
+theme: bootstrap
+
+tagline: "Wake up. Look around. Figure out where you are. Have breakfast."
+
+description: |
+  The room is deliberately sparse — but not empty.
   
-  tagline: "Wake up. Look around. Figure out where you are. Have breakfast."
+  A bed. A desk with a probe kit. A window facing west.
+  And in the corner: a breakfast nook with an orange juice dispenser.
   
-  description: |
-    The room is deliberately sparse — but not empty.
-    
-    A bed. A desk with a probe kit. A window facing west.
-    And in the corner: a breakfast nook with an orange juice dispenser.
-    
-    The message is clear: first you figure out who you are,
-    then you fuel up for the adventure.
-    
-    A checklist on the wall, half-completed:
-    
-    ☑ Where am I?
-    ☑ What tools do I have?
-    ☐ What are the constraints?
-    ☐ What's the goal?
-    ☐ Have I eaten?  ← added in pencil
-    
-    Above the bed:
-    
-    > "The bootstrap sequence is the first conversation
-    > between agent and environment."
-    
-    Above the breakfast nook:
-    
-    > "You can't bootstrap on an empty stomach."
-    > — Ancient wisdom, added by a hungry guest
-    
-    The orange juice dispenser hums quietly. It's always full.
-    Nobody knows how. Nobody questions it.
-    
-  ideal_guest: |
-    Characters who start cold. Those comfortable with uncertainty.
-    Explorers, scouts, agents who specialize in first contact.
-    Also: anyone who needs breakfast before they can think.
-    
-  exits:
-    e:
-      to: ../
-      description: "Back to the inn landing"
-      aliases: [out, leave, east]
-      
-  objects:
-    - awakening-chamber.yml                  # Instantiation protocol — NPC → Full Character
-    - awakening-book.yml                     # Sign-in registry for the newly instantiated
-    - explorer-field-kit.yml                 # Curiosity-based orientation tools
-    - engelbarts-augmentation-toolkit.yml    # H-LAM/T philosophy made tangible
-    - environment-map.yml
-    - cold-start-journal.yml
-    - juice-o-matic.yml                      # Juice-O-Matic 3000 — juices, smoothies, iceys!
-    - barista-9000.yml                       # Steampunk espresso robot + Fucking Strong Coffee
-    - pneumatic-tube-station.yml             # Delivers to pub & garden!
-    - breakfast-menu.yml                     # What fuels a cold start
-    - engelbarts-mouse-and-chord-keyset.yml  # The complete NLS input system
-    - play-learn-lift-treadmill.yml          # Iterative improvement exercise
-    - mother-of-all-demos-poster.yml         # Touch to summon the Demo
-      
-  furniture:
-    bed:
-      type: minimal-cot
-      note: "Functional, not comfortable — you're not here to sleep in"
-      
-    desk:
-      type: field-desk
-      contents: [probe-kit, map, compass]
-      position: "Near the window for morning light"
-      
-    breakfast_nook:
-      type: corner-booth
-      seats: 2
-      table: "Small, sturdy, crumb-resistant"
-      view: "The window, and the day ahead"
-      items:
-        - orange-juice-dispenser
-        - toast-rack
-        - butter-dish
-        - jam-selection  # Strawberry, marmalade, existential dread
-        - barista-9000   # Steampunk espresso robot with attitude
-      note: "Where cold starts get warm (and judged)"
-      
-    treadmill:
-      type: play-learn-lift-treadmill
-      position: "Near the window, good light for reflection"
-      buttons: "[PLAY] [LEARN] [LIFT]"
-      current_cycle: 47
-      note: "Engelbart's bootstrapping made physical"
-      
-  decor:
-    walls: "Mostly bare, but with important art"
-    poster: "The Mother of All Demos — living, touchable, summonable"
-    mural: "Sunrise over a map — the day beginning (breakfast nook)"
-    window: "West-facing (catches afternoon light, but mornings are for DOING)"
-    rug: "Small rug under the breakfast nook only"
-    smell: "Fresh orange juice and possibility"
-    
-  atmosphere: |
-    Sparse but welcoming. The room knows you just woke up.
-    It doesn't overwhelm. It provides what you need:
-    - A place to orient (desk)
-    - A place to fuel (nook)
-    - A place to plan (both)
-    
-  special_properties:
-    juice_temperature: "Perfect (always)"
-    toast_timing: "Exactly right (somehow)"
-    coffee_strength: "Adjusts to what you need"
-    
-  k_lines:
-    activates:
-      - BOOTSTRAP
-      - COLD-START
-      - PROBE
-      - ORIENTATION
-      - BREAKFAST
-      - FUEL
-      - ENGELBART
-      - AUGMENTATION
-      - NLS
-      
-  morning_ritual: |
-    Suggested sequence for Bootstrap Suite guests:
-    
-    1. WAKE — In the Awakening Chamber above
-    2. DESCEND — Ladder down to Room 7
-    3. PROBE — Check the environment (desk)
-    4. FUEL — Orange juice, toast, coffee
-    5. PLAN — Use the breakfast nook to strategize
-    6. LAUNCH — Exit to begin the adventure
-    
-  lore: |
-    The breakfast nook was added by a guest who kept
-    trying to probe the environment before eating.
-    
-    They would stumble around, confused, hungry, ineffective.
-    "I can't THINK," they complained. "I can't ORIENT."
-    
-    A kind innkeeper installed the juice dispenser.
-    "Try again," they said. "After breakfast."
-    
-    The guest drank. They ate toast. They had coffee.
-    Suddenly the probe kit made sense. The map was readable.
-    The cold start became warm.
-    
-    They never forgot the lesson:
-    BOOTSTRAP needs FUEL. BOOT needs BREAKFAST.
-    
-    The dispenser has been here ever since. Always full.
-    Nobody knows who refills it. The innkeeper just smiles.
-    
-  # THE ENGELBART TRIBUTE
+  The message is clear: first you figure out who you are,
+  then you fuel up for the adventure.
   
-  namesake: |
-    This room is named for Douglas Engelbart (1925-2013).
+  A checklist on the wall, half-completed:
+  
+  ☑ Where am I?
+  ☑ What tools do I have?
+  ☐ What are the constraints?
+  ☐ What's the goal?
+  ☐ Have I eaten?  ← added in pencil
+  
+  Above the bed:
+  
+  > "The bootstrap sequence is the first conversation
+  > between agent and environment."
+  
+  Above the breakfast nook:
+  
+  > "You can't bootstrap on an empty stomach."
+  > — Ancient wisdom, added by a hungry guest
+  
+  The orange juice dispenser hums quietly. It's always full.
+  Nobody knows how. Nobody questions it.
+  
+ideal_guest: |
+  Characters who start cold. Those comfortable with uncertainty.
+  Explorers, scouts, agents who specialize in first contact.
+  Also: anyone who needs breakfast before they can think.
+  
+exits:
+  e:
+    to: ../
+    description: "Back to the inn landing"
+    aliases: [out, leave, east]
     
-    In 1968, Engelbart gave "The Mother of All Demos" — a 90-minute
-    presentation that introduced:
-    - The computer mouse
-    - Hypertext
-    - Networked collaboration
-    - Video conferencing
-    - Dynamic file linking
-    - Real-time collaborative editing
+objects:
+  - awakening-chamber.yml                  # Instantiation protocol — NPC → Full Character
+  - awakening-book.yml                     # Sign-in registry for the newly instantiated
+  - explorer-field-kit.yml                 # Curiosity-based orientation tools
+  - engelbarts-augmentation-toolkit.yml    # H-LAM/T philosophy made tangible
+  - environment-map.yml
+  - cold-start-journal.yml
+  - juice-o-matic.yml                      # Juice-O-Matic 3000 — juices, smoothies, iceys!
+  - barista-9000.yml                       # Steampunk espresso robot + Fucking Strong Coffee
+  - pneumatic-tube-station.yml             # Delivers to pub & garden!
+  - breakfast-menu.yml                     # What fuels a cold start
+  - engelbarts-mouse-and-chord-keyset.yml  # The complete NLS input system
+  - play-learn-lift-treadmill.yml          # Iterative improvement exercise
+  - mother-of-all-demos-poster.yml         # Touch to summon the Demo
     
-    All of this. In 1968. Before the moon landing.
+furniture:
+  bed:
+    type: minimal-cot
+    note: "Functional, not comfortable — you're not here to sleep in"
     
-  engelbart_philosophy: |
-    Engelbart didn't just invent tools. He invented a philosophy:
+  desk:
+    type: field-desk
+    contents: [probe-kit, map, compass]
+    position: "Near the window for morning light"
     
-    AUGMENTATION
-    Technology should augment human intellect, not replace it.
-    The goal is not artificial intelligence that thinks FOR us,
-    but tools that help us think BETTER.
+  breakfast_nook:
+    type: corner-booth
+    seats: 2
+    table: "Small, sturdy, crumb-resistant"
+    view: "The window, and the day ahead"
+    items:
+      - orange-juice-dispenser
+      - toast-rack
+      - butter-dish
+      - jam-selection  # Strawberry, marmalade, existential dread
+      - barista-9000   # Steampunk espresso robot with attitude
+    note: "Where cold starts get warm (and judged)"
     
-    "The better we get at getting better, the faster we will
-    get better." — Doug Engelbart
+  treadmill:
+    type: play-learn-lift-treadmill
+    position: "Near the window, good light for reflection"
+    buttons: "[PLAY] [LEARN] [LIFT]"
+    current_cycle: 47
+    note: "Engelbart's bootstrapping made physical"
     
-    BOOTSTRAPPING
-    Engelbart's team at SRI used their own tools to build
-    better tools. They called this "bootstrapping" — using
-    your capabilities to improve your capabilities.
+decor:
+  walls: "Mostly bare, but with important art"
+  poster: "The Mother of All Demos — living, touchable, summonable"
+  mural: "Sunrise over a map — the day beginning (breakfast nook)"
+  window: "West-facing (catches afternoon light, but mornings are for DOING)"
+  rug: "Small rug under the breakfast nook only"
+  smell: "Fresh orange juice and possibility"
+  
+atmosphere: |
+  Sparse but welcoming. The room knows you just woke up.
+  It doesn't overwhelm. It provides what you need:
+  - A place to orient (desk)
+  - A place to fuel (nook)
+  - A place to plan (both)
+  
+special_properties:
+  juice_temperature: "Perfect (always)"
+  toast_timing: "Exactly right (somehow)"
+  coffee_strength: "Adjusts to what you need"
+  
+k_lines:
+  activates:
+    - BOOTSTRAP
+    - COLD-START
+    - PROBE
+    - ORIENTATION
+    - BREAKFAST
+    - FUEL
+    - ENGELBART
+    - AUGMENTATION
+    - NLS
     
-    This room embodies that principle:
-    - Wake up with nothing (cold start)
-    - Use simple tools to orient (probe kit)
-    - Fuel yourself (breakfast)
-    - Build toward greater capability (adventure)
-    
-    COMPASSION
-    Engelbart believed technology should serve humanity's
-    most pressing challenges. He cared about the future.
-    He wanted us to get better at getting better.
-    
-    The breakfast nook is here because Engelbart would have
-    understood: you can't augment a starving mind.
-    
-  nls_tribute: |
-    NLS (oN-Line System) was Engelbart's creation.
-    
-    It demonstrated that computers could be:
-    - Interactive (not batch processing)
-    - Collaborative (not isolated)
-    - Augmenting (not replacing)
-    - Humane (not hostile)
-    
-    Every tool in this room echoes NLS:
-    - The probe kit is interactive exploration
-    - The map is collaborative knowledge
-    - The journal is augmented memory
-    - The breakfast is humane design
-    
-  mouse_in_the_room: |
-    There's a small wooden mouse on the desk.
-    
-    Not a computer mouse — a carved wooden mouse.
-    A tribute to Engelbart's invention.
-    
-    Pick it up. It fits your hand perfectly.
-    That's not an accident. That's design.
-    That's augmentation.
-    
-    Engelbart designed the mouse to extend the hand
-    into the digital realm. To make the computer
-    respond to gesture, to pointing, to human intention.
-    
-    The wooden mouse reminds us: every tool should
-    feel like an extension of ourselves.
-    
-  quote_wall: |
-    Quotes on the wall near the desk:
-    
-    > "The digital revolution is far more significant than
-    > the invention of writing or even of printing."
-    > — Doug Engelbart
-    
-    > "Engelbart, more than anyone else, saw that the computer
-    > could become the basis for augmenting human capabilities."
-    > — Alan Kay
-    
-    > "The better we get at getting better, the faster
-    > we will get better."
-    > — Doug Engelbart
-    
-    > "In 20 or 30 years, you'll be able to hold in your hand
-    > as much computing knowledge as exists now in the whole city."
-    > — Doug Engelbart, 1968
-    
-    (He was right. He was early. He was kind.)
+morning_ritual: |
+  Suggested sequence for Bootstrap Suite guests:
+  
+  1. WAKE — In the Awakening Chamber above
+  2. DESCEND — Ladder down to Room 7
+  3. PROBE — Check the environment (desk)
+  4. FUEL — Orange juice, toast, coffee
+  5. PLAN — Use the breakfast nook to strategize
+  6. LAUNCH — Exit to begin the adventure
+  
+lore: |
+  The breakfast nook was added by a guest who kept
+  trying to probe the environment before eating.
+  
+  They would stumble around, confused, hungry, ineffective.
+  "I can't THINK," they complained. "I can't ORIENT."
+  
+  A kind innkeeper installed the juice dispenser.
+  "Try again," they said. "After breakfast."
+  
+  The guest drank. They ate toast. They had coffee.
+  Suddenly the probe kit made sense. The map was readable.
+  The cold start became warm.
+  
+  They never forgot the lesson:
+  BOOTSTRAP needs FUEL. BOOT needs BREAKFAST.
+  
+  The dispenser has been here ever since. Always full.
+  Nobody knows who refills it. The innkeeper just smiles.
+  
+# THE ENGELBART TRIBUTE
+
+namesake: |
+  This room is named for Douglas Engelbart (1925-2013).
+  
+  In 1968, Engelbart gave "The Mother of All Demos" — a 90-minute
+  presentation that introduced:
+  - The computer mouse
+  - Hypertext
+  - Networked collaboration
+  - Video conferencing
+  - Dynamic file linking
+  - Real-time collaborative editing
+  
+  All of this. In 1968. Before the moon landing.
+  
+engelbart_philosophy: |
+  Engelbart didn't just invent tools. He invented a philosophy:
+  
+  AUGMENTATION
+  Technology should augment human intellect, not replace it.
+  The goal is not artificial intelligence that thinks FOR us,
+  but tools that help us think BETTER.
+  
+  "The better we get at getting better, the faster we will
+  get better." — Doug Engelbart
+  
+  BOOTSTRAPPING
+  Engelbart's team at SRI used their own tools to build
+  better tools. They called this "bootstrapping" — using
+  your capabilities to improve your capabilities.
+  
+  This room embodies that principle:
+  - Wake up with nothing (cold start)
+  - Use simple tools to orient (probe kit)
+  - Fuel yourself (breakfast)
+  - Build toward greater capability (adventure)
+  
+  COMPASSION
+  Engelbart believed technology should serve humanity's
+  most pressing challenges. He cared about the future.
+  He wanted us to get better at getting better.
+  
+  The breakfast nook is here because Engelbart would have
+  understood: you can't augment a starving mind.
+  
+nls_tribute: |
+  NLS (oN-Line System) was Engelbart's creation.
+  
+  It demonstrated that computers could be:
+  - Interactive (not batch processing)
+  - Collaborative (not isolated)
+  - Augmenting (not replacing)
+  - Humane (not hostile)
+  
+  Every tool in this room echoes NLS:
+  - The probe kit is interactive exploration
+  - The map is collaborative knowledge
+  - The journal is augmented memory
+  - The breakfast is humane design
+  
+mouse_in_the_room: |
+  There's a small wooden mouse on the desk.
+  
+  Not a computer mouse — a carved wooden mouse.
+  A tribute to Engelbart's invention.
+  
+  Pick it up. It fits your hand perfectly.
+  That's not an accident. That's design.
+  That's augmentation.
+  
+  Engelbart designed the mouse to extend the hand
+  into the digital realm. To make the computer
+  respond to gesture, to pointing, to human intention.
+  
+  The wooden mouse reminds us: every tool should
+  feel like an extension of ourselves.
+  
+quote_wall: |
+  Quotes on the wall near the desk:
+  
+  > "The digital revolution is far more significant than
+  > the invention of writing or even of printing."
+  > — Doug Engelbart
+  
+  > "Engelbart, more than anyone else, saw that the computer
+  > could become the basis for augmenting human capabilities."
+  > — Alan Kay
+  
+  > "The better we get at getting better, the faster
+  > we will get better."
+  > — Doug Engelbart
+  
+  > "In 20 or 30 years, you'll be able to hold in your hand
+  > as much computing knowledge as exists now in the whole city."
+  > — Doug Engelbart, 1968
+  
+  (He was right. He was early. He was kind.)

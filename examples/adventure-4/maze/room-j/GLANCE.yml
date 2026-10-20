@@ -2,9 +2,7 @@ name: Twisty Passage (Crossroads)
 type: maze_room
 description: Deliberate junction. Four exits. ACME LAMP REFUELING vending machine hums.
 
-lighting: none (vending machine glow not enough)
-grue_safe: false
-requires_light: true
+lighting: 1  # none (vending machine glow not enough)
 
 wumpus_warnings:
   on_enter: I feel a draft!

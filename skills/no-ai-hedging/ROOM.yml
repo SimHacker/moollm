@@ -10,57 +10,55 @@
 # The HEDGING department. Where weasel words come to die.
 # Confidence calibration. Say it or don't.
 
-room:
-  name: "NO AI TOWER — HEDGING (Confidence Dept)"
-  id: no-ai-hedging
-  type: patrol_station
-  floor: -4
-  emoji: "🦡🚔"
+name: "NO AI TOWER — HEDGING (Confidence Dept)"
+id: no-ai-hedging
+type: patrol_station
+floor: -4
+emoji: "🦡🚔"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 9  # interrogation
+
+description: |
+  *DING* — BASEMENT 4: HEDGING
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto a PATROL STATION.
   
-  zone: UNDERGROUND
-  lighting: interrogation
-  grue_safe: true
+  Wanted posters on the walls. Weasel words, captured.
+  An interrogation room marked "QUALIFIER QUESTIONING"
   
-  description: |
-    *DING* — BASEMENT 4: HEDGING
-    
-    The elevator opens onto a PATROL STATION.
-    
-    Wanted posters on the walls. Weasel words, captured.
-    An interrogation room marked "QUALIFIER QUESTIONING"
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║                                                           ║
-        ║            WEASEL WORD PATROL — ACTIVE DUTY              ║
-        ║                                                           ║
-        ║   WANTED:                                                 ║
-        ║   • "It might be worth considering..."                   ║
-        ║   • "Some experts suggest..."                            ║
-        ║   • "In certain circumstances..."                        ║
-        ║   • "It could potentially..."                            ║
-        ║                                                           ║
-        ║   REWARD: Clearer communication                          ║
-        ║                                                           ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-  examine: |
-    THE WANTED POSTERS:
-    
-    "MISTAKES WERE MADE" — Passive evasion
-    "EXPERTS SAY" — Authority without source  
-    "IT DEPENDS" — Infinite regression
-    "I WOULD ARGUE" — Arguing without arguing
-    
-    THE PATROL PHILOSOPHY:
-    If you know, say it.
-    If you don't know, say that.
-    Don't hedge knowing with not-knowing.
-    
-    Calibrated uncertainty is fine.
-    Performative hedging is cowardice.
+      ╔═══════════════════════════════════════════════════════════╗
+      ║                                                           ║
+      ║            WEASEL WORD PATROL — ACTIVE DUTY              ║
+      ║                                                           ║
+      ║   WANTED:                                                 ║
+      ║   • "It might be worth considering..."                   ║
+      ║   • "Some experts suggest..."                            ║
+      ║   • "In certain circumstances..."                        ║
+      ║   • "It could potentially..."                            ║
+      ║                                                           ║
+      ║   REWARD: Clearer communication                          ║
+      ║                                                           ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+examine: |
+  THE WANTED POSTERS:
+  
+  "MISTAKES WERE MADE" — Passive evasion
+  "EXPERTS SAY" — Authority without source  
+  "IT DEPENDS" — Infinite regression
+  "I WOULD ARGUE" — Arguing without arguing
+  
+  THE PATROL PHILOSOPHY:
+  If you know, say it.
+  If you don't know, say that.
+  Don't hedge knowing with not-knowing.
+  
+  Calibrated uncertainty is fine.
+  Performative hedging is cowardice.
 
 contents:
   skill: "SKILL.md"

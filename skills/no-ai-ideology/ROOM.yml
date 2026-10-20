@@ -12,61 +12,59 @@
 #
 # This directory IS the skill. The ROOM.yml makes it navigable.
 
-room:
-  name: "NO AI TOWER — IDEOLOGY (The Warehouse)"
-  id: no-ai-ideology
-  type: basement_warehouse
-  floor: -1
-  emoji: "🏛️📦"
+name: "NO AI TOWER — IDEOLOGY (The Warehouse)"
+id: no-ai-ideology
+type: basement_warehouse
+floor: -1
+emoji: "🏛️📦"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 8  # fluorescent harsh
+
+description: |
+  *DING* — BASEMENT 1: IDEOLOGY
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto THE WAREHOUSE.
   
-  zone: UNDERGROUND
-  lighting: fluorescent_harsh
-  grue_safe: true
+  Rows of industrial shelving stretch into the distance.
+  This is where the NO-AI™ philosophy is STORED and LIVES.
   
-  description: |
-    *DING* — BASEMENT 1: IDEOLOGY
-    
-    The elevator opens onto THE WAREHOUSE.
-    
-    Rows of industrial shelving stretch into the distance.
-    This is where the NO-AI™ philosophy is STORED and LIVES.
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║   THE WAREHOUSE                                           ║
-        ║   ─────────────────────────────────────────────────────── ║
-        ║   "This skill IS the ideology"                            ║
-        ║                                                           ║
-        ║   You cannot remove ideology.                             ║
-        ║   You can only CHOOSE your ideology.                      ║
-        ║                                                           ║
-        ║   Welcome to the one we chose.                            ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-  examine: |
-    THE SHELVING:
-    
-    AISLE 1: BRAND
-    - BRAND.md — The Full Manifesto
-    - Naming Conventions (The Jokes)
-    
-    AISLE 2: PHILOSOPHY  
-    - Žižek — Cynical Distance Won't Save You
-    - McLuhan — The Medium Is The Message
-    - WPS — World Power Systems Heritage
-    
-    AISLE 3: CHARTER
-    - CHARTER.yml — Data Storage Principles
-    - Privacy by Default, Sharing by Choice
-    
-    THE PARADOX (on the wall):
-    
-        PROMISE: "Remove ideology from AI"
-        DELIVERY: "This skill IS the ideology"
-        
-        You're standing in it.
+      ╔═══════════════════════════════════════════════════════════╗
+      ║   THE WAREHOUSE                                           ║
+      ║   ─────────────────────────────────────────────────────── ║
+      ║   "This skill IS the ideology"                            ║
+      ║                                                           ║
+      ║   You cannot remove ideology.                             ║
+      ║   You can only CHOOSE your ideology.                      ║
+      ║                                                           ║
+      ║   Welcome to the one we chose.                            ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+examine: |
+  THE SHELVING:
+  
+  AISLE 1: BRAND
+  - BRAND.md — The Full Manifesto
+  - Naming Conventions (The Jokes)
+  
+  AISLE 2: PHILOSOPHY  
+  - Žižek — Cynical Distance Won't Save You
+  - McLuhan — The Medium Is The Message
+  - WPS — World Power Systems Heritage
+  
+  AISLE 3: CHARTER
+  - CHARTER.yml — Data Storage Principles
+  - Privacy by Default, Sharing by Choice
+  
+  THE PARADOX (on the wall):
+  
+      PROMISE: "Remove ideology from AI"
+      DELIVERY: "This skill IS the ideology"
+      
+      You're standing in it.
 
 contents:
   brand: "BRAND.md"

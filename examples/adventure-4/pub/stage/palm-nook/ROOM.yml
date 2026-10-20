@@ -1,49 +1,48 @@
 # Palm's Nook — A Cozy Alcove Beside the Stage
 # Home of Palm, the freed monkey
 
-room:
-  name: "Palm's Nook"
-  id: palm-nook
-  type: "personal_space"
-  owner: "characters/animals/monkey-palm/"
+name: "Palm's Nook"
+id: palm-nook
+type: "personal_space"
+owner: "characters/animals/monkey-palm/"
+
+description: |
+  A cozy alcove beside the Grotto's stage, carved out just for Palm.
+  Warm lighting. Cushioned nest. A curtain for privacy when needed.
+  View of the stage — Palm watches all the stories unfold.
   
-  description: |
-    A cozy alcove beside the Grotto's stage, carved out just for Palm.
-    Warm lighting. Cushioned nest. A curtain for privacy when needed.
-    View of the stage — Palm watches all the stories unfold.
-    
-    This is home. Palm's first real home in 122 years.
+  This is home. Palm's first real home in 122 years.
+
+location:
+  parent: "pub/stage/"
+  position: "Stage left, beside the curtains"
+  accessibility: "Open to all (Palm welcomes visitors)"
   
-  location:
-    parent: "pub/stage/"
-    position: "Stage left, beside the curtains"
-    accessibility: "Open to all (Palm welcomes visitors)"
+exits:
+  stage:
+    to: ../
+    description: "Back to the stage"
+    aliases: [out, back]
     
-  exits:
-    stage:
-      to: ../
-      description: "Back to the stage"
-      aliases: [out, back]
-      
-    gym:
-      to: gym/
-      description: "Palm's exercise area — ropes, bars, and climbing things"
-      aliases: [exercise, climb]
-      
-    play:
-      to: play/
-      description: "The play area — toys, puzzles, and fun"
-      aliases: [toys, puzzles]
-      
-    rest:
-      to: rest/
-      description: "The resting area — quiet contemplation"
-      aliases: [quiet, sleep]
-      
-    study:
-      to: study/
-      description: "The study area — books and learning"
-      aliases: [books, learn]
+  gym:
+    to: gym/
+    description: "Palm's exercise area — ropes, bars, and climbing things"
+    aliases: [exercise, climb]
+    
+  play:
+    to: play/
+    description: "The play area — toys, puzzles, and fun"
+    aliases: [toys, puzzles]
+    
+  rest:
+    to: rest/
+    description: "The resting area — quiet contemplation"
+    aliases: [quiet, sleep]
+    
+  study:
+    to: study/
+    description: "The study area — books and learning"
+    aliases: [books, learn]
 
 physical:
   size: "Small alcove (capuchin-sized comfort)"

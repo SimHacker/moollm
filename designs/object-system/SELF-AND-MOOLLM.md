@@ -66,6 +66,10 @@ and Self's three instructions are the target they all lower to
 - **COM/IUnknown** — `QueryInterface` is checking whether a slot exists
   ([DIRECTORY-AS-IUNKNOWN](../DIRECTORY-AS-IUNKNOWN.md))
 - **Lua metatables** — `__index` delegation, same idea
+- **Wyvern archetypes** — Steve Yegge's multiplayer RPG with player-wizards (begun 1996): every game object a property
+  list with one parent "archetype", designed before he'd heard of Self. Written up as
+  ["The Universal Design Pattern"](http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html)
+  (2008), the best popular essay on why prototypes suit open-ended, long-lived systems
 
 The LLM doesn't need any one language's ceremony because the underlying move is always the same.
 When context calls for a class hierarchy it produces one; when it calls for HyperCard-style

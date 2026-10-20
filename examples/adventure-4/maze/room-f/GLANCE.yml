@@ -2,9 +2,7 @@ name: The Cold Spot
 type: maze_room
 description: Supernaturally cold. Something drinks the heat. The GRUE lives here.
 
-lighting: none
-grue_safe: false
-requires_light: true
+lighting: 0
 
 wumpus_warnings:
   on_enter: I smell a wumpus!

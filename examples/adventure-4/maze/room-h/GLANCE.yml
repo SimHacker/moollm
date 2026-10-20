@@ -2,9 +2,7 @@ name: The Watching Chamber (Mushrooms)
 type: maze_room
 description: Luminescent fungi provide sickly green glow. THE THING THAT WATCHES keeps grues away.
 
-lighting: none (mushroom glow)
-grue_safe: true (The Eye watches, grues retreat)
-requires_light: true
+lighting: 1  # none (mushroom glow)
 
 wumpus_warnings:
   on_enter: Bats nearby!

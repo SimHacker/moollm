@@ -4,131 +4,130 @@
 # Soul <=> Self
 # The pun is the philosophy.
 
-room:
-  name: "The Self/Soul Suite"
-  id: room-8
-  number: 8
-  theme: prototypes
-  tribute_to: "Dave Ungar, creator of Self (1987)"
+name: "The Self/Soul Suite"
+id: room-8
+number: 8
+theme: prototypes
+tribute_to: "Dave Ungar, creator of Self (1987)"
+
+tagline: "No classes. Just clones. Objects all the way down."
+
+description: |
+  The room is a nursery for Selves. Not empty vessels waiting for
+  templates — but PROTOTYPES ready to be cloned and customized.
   
-  tagline: "No classes. Just clones. Objects all the way down."
+  A portrait of Dave Ungar hangs over the glowing forge.
+  Beneath it: "You don't instantiate. You clone."
   
-  description: |
-    The room is a nursery for Selves. Not empty vessels waiting for
-    templates — but PROTOTYPES ready to be cloned and customized.
+  The walls are covered with character sheets, each one
+  pointing to its parent with a slot labeled "prototype*".
+  Inheritance is visible. Lineage is traceable.
+  
+  Above the bed:
+  
+  > "Every character is an example. Clone, diverge, become."
+  
+namesake: |
+  Dave Ungar created Self in 1987, asking: what if there were
+  no classes? What if objects just cloned from other objects?
+  
+  Self influenced:
+    - JavaScript (prototypes!)
+    - NewtonScript
+    - Lua metatables
+    - MOOLLM's character composition
     
-    A portrait of Dave Ungar hangs over the glowing forge.
-    Beneath it: "You don't instantiate. You clone."
+  The "soul file" IS a Self object.
+  We just write it in YAML.
+  
+ideal_guest: |
+  Programmers who understand that classes are a lie.
+  Character creators who clone from examples, not abstractions.
+  Anyone who prefers "show me one" over "describe the category."
+  
+  Rocky stayed here once. Now every rock can clone from Rocky.
+  
+exits:
+  se:
+    to: ../
+    description: "Back to the inn landing"
+    aliases: [out, leave, southeast]
     
-    The walls are covered with character sheets, each one
-    pointing to its parent with a slot labeled "prototype*".
-    Inheritance is visible. Lineage is traceable.
+objects:
+  - self-soul-forge.yml     # The forge where prototypes become beings
+  - selfie.yml              # The room's familiar — living prototype inheritance
+  - clone-o-matic.yml       # "You don't instantiate. You clone."
+  - transmogrifier.yml      # Clone → Edit → Become (uses Clone-O-Matic)
+  - slot-inspector.yml      # See inside any object — all the way down
+  - morphic-workbench.yml   # Direct manipulation UI design
+  - outliner.yml            # Self's famous object browser
+  - delegation-compass.yml  # Navigate the prototype chain
+  - sun-labs-badge.yml      # Where Self was developed
     
-    Above the bed:
+furniture:
+  bed:
+    type: morphic-bed
+    note: "Direct manipulation — grab any corner, resize your dreams"
+    tribute: "Self's Morphic UI pioneered direct manipulation"
     
-    > "Every character is an example. Clone, diverge, become."
+  desk:
+    type: prototype-desk
+    contents: [example-characters, lineage-charts, parent-pointers]
     
-  namesake: |
-    Dave Ungar created Self in 1987, asking: what if there were
-    no classes? What if objects just cloned from other objects?
-    
-    Self influenced:
-      - JavaScript (prototypes!)
-      - NewtonScript
-      - Lua metatables
-      - MOOLLM's character composition
+  portrait:
+    subject: "Dave Ungar"
+    position: "Above the forge"
+    plaque: |
+      Dave Ungar
+      Creator of Self
+      "Objects all the way down"
       
-    The "soul file" IS a Self object.
-    We just write it in YAML.
+decor:
+  walls: "Character sheets with visible prototype* slots"
+  forge: "Glowing with Self-awareness"
+  window: "Northwest-facing (starlight for contemplation)"
+  arrows: "Visible delegation arrows between objects"
+  
+atmosphere: |
+  Warm, concrete, example-oriented.
+  
+  You don't feel like you're in a room of abstractions.
+  You feel like you're in a room of BEINGS.
+  Each one real. Each one clonable.
+  
+  The air hums with delegation.
+  When something's missing, it asks upward.
+  
+special_properties:
+  prototype_chain: |
+    Everything in this room has a visible parent:
     
-  ideal_guest: |
-    Programmers who understand that classes are a lie.
-    Character creators who clone from examples, not abstractions.
-    Anyone who prefers "show me one" over "describe the category."
+    bed.prototype* → Morphic.bed
+    desk.prototype* → furniture.desk
+    Dave's portrait.prototype* → portrait.famous_computer_scientist
     
-    Rocky stayed here once. Now every rock can clone from Rocky.
-    
-  exits:
-    se:
-      to: ../
-      description: "Back to the inn landing"
-      aliases: [out, leave, southeast]
-      
-  objects:
-    - self-soul-forge.yml     # The forge where prototypes become beings
-    - selfie.yml              # The room's familiar — living prototype inheritance
-    - clone-o-matic.yml       # "You don't instantiate. You clone."
-    - transmogrifier.yml      # Clone → Edit → Become (uses Clone-O-Matic)
-    - slot-inspector.yml      # See inside any object — all the way down
-    - morphic-workbench.yml   # Direct manipulation UI design
-    - outliner.yml            # Self's famous object browser
-    - delegation-compass.yml  # Navigate the prototype chain
-    - sun-labs-badge.yml      # Where Self was developed
-      
-  furniture:
-    bed:
-      type: morphic-bed
-      note: "Direct manipulation — grab any corner, resize your dreams"
-      tribute: "Self's Morphic UI pioneered direct manipulation"
-      
-    desk:
-      type: prototype-desk
-      contents: [example-characters, lineage-charts, parent-pointers]
-      
-    portrait:
-      subject: "Dave Ungar"
-      position: "Above the forge"
-      plaque: |
-        Dave Ungar
-        Creator of Self
-        "Objects all the way down"
-        
-  decor:
-    walls: "Character sheets with visible prototype* slots"
-    forge: "Glowing with Self-awareness"
-    window: "Northwest-facing (starlight for contemplation)"
-    arrows: "Visible delegation arrows between objects"
-    
-  atmosphere: |
-    Warm, concrete, example-oriented.
-    
-    You don't feel like you're in a room of abstractions.
-    You feel like you're in a room of BEINGS.
-    Each one real. Each one clonable.
-    
-    The air hums with delegation.
-    When something's missing, it asks upward.
-    
-  special_properties:
-    prototype_chain: |
-      Everything in this room has a visible parent:
-      
-      bed.prototype* → Morphic.bed
-      desk.prototype* → furniture.desk
-      Dave's portrait.prototype* → portrait.famous_computer_scientist
-      
-    cloning_enabled: true
-    class_hierarchy: null  # We don't do that here
-    
-  k_lines:
-    - SELF-LANGUAGE
-    - DAVE-UNGAR
-    - PROTOTYPE-INHERITANCE
-    - SLOTS
-    - DELEGATION
-    - SOUL-FILES
-    - MORPHIC
-    - OBJECTS_ALL_THE_WAY_DOWN
-    - CLONE_AND_DIVERGE
-    
-  lore: |
-    This room was originally called "The Incarnation Suite."
-    Then someone noticed that "soul file" and "Self object"
-    were the same thing — concrete beings, not abstract types.
-    
-    The name changed. The forge stayed.
-    Dave Ungar's portrait went up.
-    
-    Now every character that's forged here knows:
-    they come from someone, not something.
-    Ancestors, not blueprints.
+  cloning_enabled: true
+  class_hierarchy: null  # We don't do that here
+  
+k_lines:
+  - SELF-LANGUAGE
+  - DAVE-UNGAR
+  - PROTOTYPE-INHERITANCE
+  - SLOTS
+  - DELEGATION
+  - SOUL-FILES
+  - MORPHIC
+  - OBJECTS_ALL_THE_WAY_DOWN
+  - CLONE_AND_DIVERGE
+  
+lore: |
+  This room was originally called "The Incarnation Suite."
+  Then someone noticed that "soul file" and "Self object"
+  were the same thing — concrete beings, not abstract types.
+  
+  The name changed. The forge stayed.
+  Dave Ungar's portrait went up.
+  
+  Now every character that's forged here knows:
+  they come from someone, not something.
+  Ancestors, not blueprints.

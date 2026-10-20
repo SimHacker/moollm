@@ -1,0 +1,10 @@
+# Flat: slots at the top level; the filename says this is a room.
+name: The Garden
+exits:
+  north: ../pub
+objects:
+  bench:
+    description: Worn oak, carved initials.
+  gnome:
+    inherits: [../cat]       # an embedded object with its own parent
+    name: Gnome

@@ -3,214 +3,213 @@
 # The staff-only area. Where the magic happens.
 # Being in this directory means you're BEHIND the bar.
 
-room:
-  id: pub/bar  # Match directory structure
-  name: "Behind the Bar"
-  type: [service, restricted, staff]
+id: pub/bar  # Match directory structure
+name: "Behind the Bar"
+type: [service, restricted, staff]
+
+emoji: 🍺
+
+parent: ../  # The main pub
+
+description: |
+  The sacred space behind the bar. Bottles gleam on shelves.
+  Glasses hang overhead like crystalline stalactites.
+  The ice bin hums. The taps wait, patient.
   
-  emoji: 🍺
+  This is where bartenders work their craft.
+  This is where the cat cave hides.
+  This is NOT for customers.
   
-  parent: ../  # The main pub
+atmosphere:
+  lighting: warm, reflected off bottles
+  sound: clinking glass, ice dropping, quiet conversation
+  smell: hops, wood polish, secrets
+  feeling: competent, busy, private
   
-  description: |
-    The sacred space behind the bar. Bottles gleam on shelves.
-    Glasses hang overhead like crystalline stalactites.
-    The ice bin hums. The taps wait, patient.
+# ACCESS CONTROL
+#
+# IMPORTANT: This is a SOCIAL boundary, not a physical wall!
+# 
+# Customers at the bar (pub/seating.yml#stool-*) can:
+#   - SEE the bartender working
+#   - TALK to the bartender across the counter
+#   - ORDER drinks (bartender brings them)
+#   - WATCH what happens behind the bar
+#
+# They just can't WALK behind the bar themselves.
+# The counter is the boundary, not a wall.
+#
+access:
+  boundary_type: social  # Not a wall! Just "staff side" vs "customer side"
+  
+  interaction_across_boundary:
+    description: |
+      Characters in the main pub (especially at bar stools) can
+      freely interact with characters behind the bar. The counter
+      is a workspace boundary, not a communication barrier.
+    allowed:
+      - TALK to bartender
+      - ORDER drinks
+      - ASK questions
+      - WATCH activities
+      - RECEIVE items passed across
+      - FLIRT (bartender's discretion)
+    not_allowed:
+      - WALK behind bar (without permission)
+      - GRAB bottles or buds yourself
+      - ACCESS the cash box
+      - ENTER cat-cave (must go through bar first)
+  
+  # Who can physically BE in this directory
+  physical_access:
+    default: denied
     
-    This is where bartenders work their craft.
-    This is where the cat cave hides.
-    This is NOT for customers.
-    
-  atmosphere:
-    lighting: warm, reflected off bottles
-    sound: clinking glass, ice dropping, quiet conversation
-    smell: hops, wood polish, secrets
-    feeling: competent, busy, private
-    
-  # ACCESS CONTROL
-  #
-  # IMPORTANT: This is a SOCIAL boundary, not a physical wall!
-  # 
-  # Customers at the bar (pub/seating.yml#stool-*) can:
-  #   - SEE the bartender working
-  #   - TALK to the bartender across the counter
-  #   - ORDER drinks (bartender brings them)
-  #   - WATCH what happens behind the bar
-  #
-  # They just can't WALK behind the bar themselves.
-  # The counter is the boundary, not a wall.
-  #
-  access:
-    boundary_type: social  # Not a wall! Just "staff side" vs "customer side"
-    
-    interaction_across_boundary:
-      description: |
-        Characters in the main pub (especially at bar stools) can
-        freely interact with characters behind the bar. The counter
-        is a workspace boundary, not a communication barrier.
-      allowed:
-        - TALK to bartender
-        - ORDER drinks
-        - ASK questions
-        - WATCH activities
-        - RECEIVE items passed across
-        - FLIRT (bartender's discretion)
-      not_allowed:
-        - WALK behind bar (without permission)
-        - GRAB bottles or buds yourself
-        - ACCESS the cash box
-        - ENTER cat-cave (must go through bar first)
-    
-    # Who can physically BE in this directory
-    physical_access:
-      default: denied
-      
-      allowed:
-        - role: staff
-          reason: "Work here"
-        - role: bartender
-          reason: "This is their domain"
-        - role: cat
-          reason: "Cats go where they please"
-        - permission: behind_bar
-          reason: "Explicitly granted"
-          
-      denied:
-        - role: customer
-          message: "Sorry, staff only behind the bar."
-        - role: player
-          unless: "has_permission('behind_bar') OR is_staff"
-          message: "The bartender gives you a look. 'Other side, friend.'"
-        - role: standing_on_bar
-          message: "Sir, this is a Wendy's."
-          
-    how_to_gain_access:
-      - "Get hired as staff"
-      - "Befriend the bartender enough to be trusted"
-      - "Be a cat"
-      - "Have a REALLY good reason"
-      - "Emergency (fire, fight, medical)"
-      
-  # SPATIAL LAYOUT
-  layout:
-    front: "The bar counter (customer side)"
-    back: "Bottle shelves and storage"
-    under: "Ice bins, kegs, hidden things"
-    left: "The taps and glasses"
-    right: "The cash box and ledger"
-    behind: "Door to cat-cave/"
-    
-  # WHAT'S HERE
-  contents:
-    bottles:
-      description: "Rows of bottles, some dusty, some frequently poured"
-      notable:
-        - "The good whiskey (top shelf, requires ladder)"
-        - "The mysterious green bottle (no label, glows faintly)"
-        - "The house ale tap (always flowing)"
+    allowed:
+      - role: staff
+        reason: "Work here"
+      - role: bartender
+        reason: "This is their domain"
+      - role: cat
+        reason: "Cats go where they please"
+      - permission: behind_bar
+        reason: "Explicitly granted"
         
-    equipment:
-      - "Ice bin (cold, wet, sometimes contains surprises)"
-      - "Glass rack (hanging overhead, requires care)"
-      - "Cash box (locked, bartender has key)"
-      - "Ledger (who owes tabs, who's banned)"
-      - "Emergency gong mallet (for summoning silence)"
-      
-    secrets:
-      - location: "under_counter"
-        item: "A loaded crossbow (just in case)"
-      - location: "false_bottom_drawer"
-        item: "The REAL ledger"
-      - location: "behind_green_bottle"
-        item: "A note: 'If you're reading this, it's too late'"
+    denied:
+      - role: customer
+        message: "Sorry, staff only behind the bar."
+      - role: player
+        unless: "has_permission('behind_bar') OR is_staff"
+        message: "The bartender gives you a look. 'Other side, friend.'"
+      - role: standing_on_bar
+        message: "Sir, this is a Wendy's."
         
-  # STAFF
-  #
-  # DESIGN NOTE: Character vs Persona vs Skill
-  #
-  # - SKILL (bartender, budtender) = Capabilities (methods, knowledge)
-  # - PERSONA = Personality (voice, warmth, appearance)
-  # - CHARACTER = Physical body (location, inventory)
-  #
-  # The bartender.yml is a CHARACTER with the bartender SKILL.
-  # Their PERSONA changes with pub theme (Grim/Nyx/Reginald/etc).
-  #
-  # Marieke is a CHARACTER with budtender SKILL (which inherits bartender).
-  # Her PERSONA is always Marieke (warm, Dutch, kind).
-  #
-  staff:
-    bartender:
-      file: bartender.yml
-      description: "The pub's bartender — identity changes with theme"
-      skills: [skills/bartender]
-      persona: "${pub.theme.bartender_persona}"  # Grim, Nyx, Z-4RT, etc.
-      always_here: true
-      
-    budtender:
-      file: budtender-marieke.yml
-      description: "Marieke — the constant through theme changes"
-      skills: [skills/budtender]  # Inherits bartender
-      persona: marieke            # Always herself
-      schedule: "evenings"
-      note: |
-        Marieke doesn't change with theme. She's always Marieke.
-        The theme changes the WORLD, not her. She's the constant.
-        When the pub becomes a space cantina, she's still Marieke
-        — just serving different products.
-      
-  # MENU/INVENTORY
-  inventory:
-    menu: menu-strains.yml
-    stock_level: "well-stocked"
+  how_to_gain_access:
+    - "Get hired as staff"
+    - "Befriend the bartender enough to be trusted"
+    - "Be a cat"
+    - "Have a REALLY good reason"
+    - "Emergency (fire, fight, medical)"
     
-  # EXITS
-  exits:
-    out:
-      direction: out
-      to: ../
-      description: "Step back into the main pub"
-      access: anyone
+# SPATIAL LAYOUT
+layout:
+  front: "The bar counter (customer side)"
+  back: "Bottle shelves and storage"
+  under: "Ice bins, kegs, hidden things"
+  left: "The taps and glasses"
+  right: "The cash box and ledger"
+  behind: "Door to cat-cave/"
+  
+# WHAT'S HERE
+contents:
+  bottles:
+    description: "Rows of bottles, some dusty, some frequently poured"
+    notable:
+      - "The good whiskey (top shelf, requires ladder)"
+      - "The mysterious green bottle (no label, glows faintly)"
+      - "The house ale tap (always flowing)"
       
-    cat-cave:
-      direction: back
-      to: cat-cave/
-      description: "A small door, cat-sized, leads to the cat cave"
-      access: cats_only
+  equipment:
+    - "Ice bin (cold, wet, sometimes contains surprises)"
+    - "Glass rack (hanging overhead, requires care)"
+    - "Cash box (locked, bartender has key)"
+    - "Ledger (who owes tabs, who's banned)"
+    - "Emergency gong mallet (for summoning silence)"
+    
+  secrets:
+    - location: "under_counter"
+      item: "A loaded crossbow (just in case)"
+    - location: "false_bottom_drawer"
+      item: "The REAL ledger"
+    - location: "behind_green_bottle"
+      item: "A note: 'If you're reading this, it's too late'"
       
-  # ACTIONS
-  advertisements:
-    POUR:
-      description: "Pour a drink"
-      parameters: [drink, glass]
-      requires: [staff, bartender]
-      effect: "Create drink object"
-      
-    CHECK-STOCK:
-      description: "See what's available"
-      requires: [staff]
-      effect: "List inventory status"
-      
-    READ-LEDGER:
-      description: "Check tabs and bans"
-      requires: [bartender]
-      effect: "Show financial/social state"
-      
-    RING-LAST-CALL:
-      description: "Announce last call"
-      requires: [bartender]
-      effect: "Pub enters closing mode"
-      
-    REFUSE-SERVICE:
-      description: "Cut someone off"
-      parameters: [patron]
-      requires: [bartender]
-      effect: "Patron can no longer order"
-      
-    GRANT-ACCESS:
-      description: "Let someone behind the bar"
-      parameters: [character]
-      requires: [bartender]
-      effect: "Character gains behind_bar permission"
+# STAFF
+#
+# DESIGN NOTE: Character vs Persona vs Skill
+#
+# - SKILL (bartender, budtender) = Capabilities (methods, knowledge)
+# - PERSONA = Personality (voice, warmth, appearance)
+# - CHARACTER = Physical body (location, inventory)
+#
+# The bartender.yml is a CHARACTER with the bartender SKILL.
+# Their PERSONA changes with pub theme (Grim/Nyx/Reginald/etc).
+#
+# Marieke is a CHARACTER with budtender SKILL (which inherits bartender).
+# Her PERSONA is always Marieke (warm, Dutch, kind).
+#
+staff:
+  bartender:
+    file: bartender.yml
+    description: "The pub's bartender — identity changes with theme"
+    skills: [skills/bartender]
+    persona: "${pub.theme.bartender_persona}"  # Grim, Nyx, Z-4RT, etc.
+    always_here: true
+    
+  budtender:
+    file: budtender-marieke.yml
+    description: "Marieke — the constant through theme changes"
+    skills: [skills/budtender]  # Inherits bartender
+    persona: marieke            # Always herself
+    schedule: "evenings"
+    note: |
+      Marieke doesn't change with theme. She's always Marieke.
+      The theme changes the WORLD, not her. She's the constant.
+      When the pub becomes a space cantina, she's still Marieke
+      — just serving different products.
+    
+# MENU/INVENTORY
+inventory:
+  menu: menu-strains.yml
+  stock_level: "well-stocked"
+  
+# EXITS
+exits:
+  out:
+    direction: out
+    to: ../
+    description: "Step back into the main pub"
+    access: anyone
+    
+  cat-cave:
+    direction: back
+    to: cat-cave/
+    description: "A small door, cat-sized, leads to the cat cave"
+    access: cats_only
+    
+# ACTIONS
+advertisements:
+  POUR:
+    description: "Pour a drink"
+    parameters: [drink, glass]
+    requires: [staff, bartender]
+    effect: "Create drink object"
+    
+  CHECK-STOCK:
+    description: "See what's available"
+    requires: [staff]
+    effect: "List inventory status"
+    
+  READ-LEDGER:
+    description: "Check tabs and bans"
+    requires: [bartender]
+    effect: "Show financial/social state"
+    
+  RING-LAST-CALL:
+    description: "Announce last call"
+    requires: [bartender]
+    effect: "Pub enters closing mode"
+    
+  REFUSE-SERVICE:
+    description: "Cut someone off"
+    parameters: [patron]
+    requires: [bartender]
+    effect: "Patron can no longer order"
+    
+  GRANT-ACCESS:
+    description: "Let someone behind the bar"
+    parameters: [character]
+    requires: [bartender]
+    effect: "Character gains behind_bar permission"
 
 # BEHAVIORAL NOTES
 #

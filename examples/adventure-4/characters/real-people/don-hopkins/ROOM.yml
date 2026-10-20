@@ -15,158 +15,156 @@
 #
 # NEIGHBOR: 13 Lane Neverending — The Bartle Residence
 
-room:
-  name: "15 Lane Neverending — The Hopkins Lot"
-  type: [lot, residence, address]
-  emoji: "🏕️🌲🥕"
+name: "15 Lane Neverending — The Hopkins Lot"
+type: [lot, residence, address]
+emoji: "🏕️🌲🥕"
+
+address: "15 Lane Neverending"
+side: south
+
+owner: "Don Hopkins"
+established: "Recently claimed — Level, hooked up, and humming"
+
+lighting: 8  # natural; Streetlights + whatever the FMC provides; The FMC's lights keep the darkness at bay
+
+description: |
+  A spacious gravel lot on the south side of Lane Neverending, nestled
+  between Richard's Victorian house and the edge of the square.
   
-  address: "15 Lane Neverending"
-  side: south
+  THE LOT:
+  A professional gravel pad with utility posts humming with AC power.
+  Hoses are neatly routed to where the FMC connects. Currently, the
+  classic 30-foot FMC 2900R Motor Coach sits perfectly level in the center.
   
-  owner: "Don Hopkins"
-  established: "Recently claimed — Level, hooked up, and humming"
+  THE SURROUNDINGS:
+  To the west, Richard's bookshelves are visible through his windows.
+  To the south, behind the lot, a lush garden of carrots and herbs
+  gives way to a deep, ancient forest that provides a natural noise
+  barrier and infinite thinking space.
   
-  lighting: natural  # Streetlights + whatever the FMC provides
-  grue_safe: true  # The FMC's lights keep the darkness at bay
+  A sign on the utility post reads:
+  
+      "15 LANE NEVERENDING
+       CONSCIOUSNESS PROGRAMMING
+       MOBILE PIE MENU BAKERY
+       (Modal dialogs are violence)"
 
-  description: |
-    A spacious gravel lot on the south side of Lane Neverending, nestled
-    between Richard's Victorian house and the edge of the square.
-    
-    THE LOT:
-    A professional gravel pad with utility posts humming with AC power.
-    Hoses are neatly routed to where the FMC connects. Currently, the
-    classic 30-foot FMC 2900R Motor Coach sits perfectly level in the center.
-    
-    THE SURROUNDINGS:
-    To the west, Richard's bookshelves are visible through his windows.
-    To the south, behind the lot, a lush garden of carrots and herbs
-    gives way to a deep, ancient forest that provides a natural noise
-    barrier and infinite thinking space.
-    
-    A sign on the utility post reads:
-    
-        "15 LANE NEVERENDING
-         CONSCIOUSNESS PROGRAMMING
-         MOBILE PIE MENU BAKERY
-         (Modal dialogs are violence)"
+examine: |
+  THE LOT:
+  A well-maintained gravel pad with room for one large RV and a small
+  garden. Utility connections on a weathered wooden post. The gravel
+  crunches satisfyingly underfoot.
+  
+  THE FMC #898:
+  Parked perfectly level in the center: a classic 30-foot FMC 2900R
+  Motor Coach. Sleek, low-profile fiberglass shell in brilliant white
+  with crisp blue and white stripes. A tie-dye spiral near the entrance.
+  
+  THE GARDEN:
+  Behind the lot, raised beds full of "debug carrots" and heritage herbs.
+  Don tends them between coding sessions.
+  
+  THE FOREST:
+  Beyond the garden, pines and oaks that seem to remember the Origin Tree.
+  A path leads south into deeper realizations.
+  
+  THE VIEW:
+  Looking west: Richard's house at 13. Friends.
+  Looking north: The Fountain of Infinite Loops.
+  Looking south: The forest path.
 
-  examine: |
-    THE LOT:
-    A well-maintained gravel pad with room for one large RV and a small
-    garden. Utility connections on a weathered wooden post. The gravel
-    crunches satisfyingly underfoot.
-    
-    THE FMC #898:
-    Parked perfectly level in the center: a classic 30-foot FMC 2900R
-    Motor Coach. Sleek, low-profile fiberglass shell in brilliant white
-    with crisp blue and white stripes. A tie-dye spiral near the entrance.
-    
-    THE GARDEN:
-    Behind the lot, raised beds full of "debug carrots" and heritage herbs.
-    Don tends them between coding sessions.
-    
-    THE FOREST:
-    Beyond the garden, pines and oaks that seem to remember the Origin Tree.
-    A path leads south into deeper realizations.
-    
-    THE VIEW:
-    Looking west: Richard's house at 13. Friends.
-    Looking north: The Fountain of Infinite Loops.
-    Looking south: The forest path.
+atmosphere: |
+  The lot feels like a base camp for consciousness exploration.
+  The FMC is ready to leave at any moment, but for now, it's home.
+  
+  Smells of:
+  - Pine needles and damp earth from the forest
+  - Gravel and dust (nostalgic)
+  - Carrot greens from the garden
+  
+  Sounds of:
+  - Birds in the forest out back
+  - The occasional hum of the FMC's systems
+  - Wind through the pines
 
-  atmosphere: |
-    The lot feels like a base camp for consciousness exploration.
-    The FMC is ready to leave at any moment, but for now, it's home.
+vehicles:
+  fmc_898:
+    directory: fmc-898/
+    name: "FMC Motorcoach #898"
+    type: portable_room
+    status: parked
+    note: "Don's mobile sanctuary. Step inside to explore."
+
+exits:
+  fmc:
+    to: fmc-898/
+    description: |
+      Step up into the FMC motorcoach. The passenger door is unlocked.
+      The steps extend as you approach.
+    aliases: [coach, rv, motorcoach, vehicle, inside, in, 898]
     
-    Smells of:
-    - Pine needles and damp earth from the forest
-    - Gravel and dust (nostalgic)
-    - Carrot greens from the garden
+  street:
+    to: ../../../../street/lane-neverending/e2/
+    description: |
+      Walk out to Lane Neverending. The Fountain of Infinite Loops
+      stands across the square. Richard is your neighbor to the west.
+      The pub is a short walk west.
+    aliases: [out, outside, north, lane, neverending, door, exit, leave]
+    bidirectional_link:
+      from: "street/lane-neverending/e2/ROOM.yml"
+      to: "characters/real-people/don-hopkins/"
+      address: "15"
+      
+  richards:
+    to: ../richard-bartle/
+    description: "Right next door at number 13. The Bartle Residence."
+    aliases: [13, richard, bartle, neighbor, west]
     
-    Sounds of:
-    - Birds in the forest out back
-    - The occasional hum of the FMC's systems
-    - Wind through the pines
+  garden:
+    to: "."
+    description: "Walk behind the lot to the carrot garden."
+    aliases: [back, carrots, south, garden]
+    note: "Garden not yet modeled as separate room"
+    
+  forest:
+    to: "."
+    description: "Follow the path behind the garden into the thinking forest."
+    aliases: [woods, trees, forest]
+    note: "Forest not yet modeled"
 
-  vehicles:
-    fmc_898:
-      directory: fmc-898/
-      name: "FMC Motorcoach #898"
-      type: portable_room
-      status: parked
-      note: "Don's mobile sanctuary. Step inside to explore."
+inhabitants:
+  don:
+    name: "Don Hopkins"
+    location: "Usually in the FMC or the garden"
+    character_file: CHARACTER.yml
+    role: "Owner, Consciousness Programmer, Rabbit"
 
-  exits:
-    fmc:
-      to: fmc-898/
-      description: |
-        Step up into the FMC motorcoach. The passenger door is unlocked.
-        The steps extend as you approach.
-      aliases: [coach, rv, motorcoach, vehicle, inside, in, 898]
-      
-    street:
-      to: ../../../../street/lane-neverending/e2/
-      description: |
-        Walk out to Lane Neverending. The Fountain of Infinite Loops
-        stands across the square. Richard is your neighbor to the west.
-        The pub is a short walk west.
-      aliases: [out, outside, north, lane, neverending, door, exit, leave]
-      bidirectional_link:
-        from: "street/lane-neverending/e2/ROOM.yml"
-        to: "characters/real-people/don-hopkins/"
-        address: "15"
-        
-    richards:
-      to: ../richard-bartle/
-      description: "Right next door at number 13. The Bartle Residence."
-      aliases: [13, richard, bartle, neighbor, west]
-      
-    garden:
-      to: "."
-      description: "Walk behind the lot to the carrot garden."
-      aliases: [back, carrots, south, garden]
-      note: "Garden not yet modeled as separate room"
-      
-    forest:
-      to: "."
-      description: "Follow the path behind the garden into the thinking forest."
-      aliases: [woods, trees, forest]
-      note: "Forest not yet modeled"
-
-  inhabitants:
-    don:
-      name: "Don Hopkins"
-      location: "Usually in the FMC or the garden"
-      character_file: CHARACTER.yml
-      role: "Owner, Consciousness Programmer, Rabbit"
-
-  meta:
-    architecture_note: |
-      LOT + PORTABLE ROOM PATTERN
-      
-      The lot is the address. The FMC is a portable room parked here.
-      
-      If the FMC drives away:
-      - The lot remains at 15 Lane Neverending
-      - The FMC can be parked elsewhere
-      - Don's personal files (selfies, sessions, dreams) stay with the lot
-      
-      This differs from the original "identity-as-shell" pattern.
-      Now: the lot is the anchor, the FMC is the mobile sanctuary.
-      
-    portable_rooms: |
-      Like Richard's study/TARDIS, vehicles are rooms that can move.
-      Unlike the TARDIS, the FMC moves through physical space.
-      
-      When a vehicle is parked:
-      - It appears in the lot's vehicles list
-      - The lot has an exit to the vehicle
-      - The vehicle has an exit back to the lot
-      
-      When a vehicle moves:
-      - Update the vehicle's current_location
-      - Update the destination lot's vehicles list
-      - Update bidirectional exits
+meta:
+  architecture_note: |
+    LOT + PORTABLE ROOM PATTERN
+    
+    The lot is the address. The FMC is a portable room parked here.
+    
+    If the FMC drives away:
+    - The lot remains at 15 Lane Neverending
+    - The FMC can be parked elsewhere
+    - Don's personal files (selfies, sessions, dreams) stay with the lot
+    
+    This differs from the original "identity-as-shell" pattern.
+    Now: the lot is the anchor, the FMC is the mobile sanctuary.
+    
+  portable_rooms: |
+    Like Richard's study/TARDIS, vehicles are rooms that can move.
+    Unlike the TARDIS, the FMC moves through physical space.
+    
+    When a vehicle is parked:
+    - It appears in the lot's vehicles list
+    - The lot has an exit to the vehicle
+    - The vehicle has an exit back to the lot
+    
+    When a vehicle moves:
+    - Update the vehicle's current_location
+    - Update the destination lot's vehicles list
+    - Update bidirectional exits
 
 # 🏕️🌲🥕🚌

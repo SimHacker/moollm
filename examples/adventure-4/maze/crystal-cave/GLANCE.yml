@@ -2,9 +2,7 @@ name: The Crystal Cave
 type: maze_room
 description: Breathtaking. Crystals everywhere — blues, purples, pale greens. Light shifts and dances.
 
-lighting: crystal_glow
-grue_safe: true (crystals provide light)
-requires_light: false
+lighting: 4  # crystal glow
 
 wumpus_warnings:
   on_enter: [I smell a wumpus!, I feel a draft!]

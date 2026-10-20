@@ -1,21 +1,20 @@
 # ⚙️ THE ENGINE BAY — The Heart of the Pusher
 # Where the heavy lifting happens.
 
-room:
-  name: "FMC #898 — The Engine Bay"
-  type: engine_room
-  emoji: "⚙️⛽🔥"
-  
-  description: |
-    The rear compartment of the motorcoach. It is accessible through
-    exterior hatches and internal access panels. This is where the 
-    massive 440 V8 lives, along with the generator and various systems.
+name: "FMC #898 — The Engine Bay"
+type: engine_room
+emoji: "⚙️⛽🔥"
 
-  exits:
-    out:
-      to: ../../
-      description: "Exit the engine compartment to the lot."
-      aliases: [outside, lot, out]
+description: |
+  The rear compartment of the motorcoach. It is accessible through
+  exterior hatches and internal access panels. This is where the 
+  massive 440 V8 lives, along with the generator and various systems.
+
+exits:
+  out:
+    to: ../../
+    description: "Exit the engine compartment to the lot."
+    aliases: [outside, lot, out]
 
 objects:
   - chrysler-440.yml

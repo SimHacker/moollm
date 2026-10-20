@@ -1,32 +1,31 @@
 # 🚪 THE HALLWAY — The Transition Zone
 # Connecting life and dreams.
 
-room:
-  name: "FMC #898 — The Hallway"
-  type: hallway
-  emoji: "🚪👔🤳"
-  
-  description: |
-    A narrow but functional transition zone between the lounge and 
-    the master suite. On one side is the cedar storage closet;
-    on the other, the entrance to the bathroom.
-    
-    A large hallway mirror is the primary location for documenting
-    transformation status.
+name: "FMC #898 — The Hallway"
+type: hallway
+emoji: "🚪👔🤳"
 
-  exits:
-    front:
-      to: ../lounge/
-      description: "Step forward into the lounge."
-      aliases: [lounge, salon, front]
-    back:
-      to: ../bedroom/
-      description: "Step back into the master suite."
-      aliases: [bedroom, master suite, rear]
-    bathroom:
-      to: ../bathroom/
-      description: "Open the door to the bathroom."
-      aliases: [bath, washroom, toilet]
+description: |
+  A narrow but functional transition zone between the lounge and 
+  the master suite. On one side is the cedar storage closet;
+  on the other, the entrance to the bathroom.
+  
+  A large hallway mirror is the primary location for documenting
+  transformation status.
+
+exits:
+  front:
+    to: ../lounge/
+    description: "Step forward into the lounge."
+    aliases: [lounge, salon, front]
+  back:
+    to: ../bedroom/
+    description: "Step back into the master suite."
+    aliases: [bedroom, master suite, rear]
+  bathroom:
+    to: ../bathroom/
+    description: "Open the door to the bathroom."
+    aliases: [bath, washroom, toilet]
 
 objects:
   - cedar-closet.yml

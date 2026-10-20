@@ -2,111 +2,109 @@
 # The goal achieved, the treasure attained
 # "You won! Imagine the points!" — every adventure, always
 
-room:
-  name: Treasury of Modest Proportions
-  type: room
-  
-  # This room is safe!
-  lighting: magical
-  grue_safe: true
-  
-  description: |
-    You emerge into a small but decidedly impressive chamber. The walls
-    are lined with empty pedestals — this place was clearly cleaned out
-    by previous adventurers, those inconsiderate loot-hoggers.
-    
-    But wait! One pedestal remains occupied. Upon it sits a JEWELED CHALICE
-    of the sort that belongs in a museum, or possibly your inventory.
-    A shaft of golden light from an implausible source illuminates it
-    dramatically. Someone really thought this through.
-    
-    The exit SOUTH leads back into the maze — that twisty, grue-infested
-    nightmare you just escaped. You'd have to navigate it again to return
-    to the start. Worth considering. (Or just stay here with your chalice.)
-    
-    (Your score is still 0 until you actually GET the treasure. We're
-    not just giving points away here.)
-  
-  # Who and what is here
-  occupants: []     # Empty until the hero arrives
-  
-  objects:
-    - treasure.yml  # The whole point of this exercise
-  
-  # Ways out
-  exits:
-    north:
-      to: ../maze/room-d/
-      description: |
-        The archway back into the maze. The twisty passages await, ready
-        to confuse you all over again. Going this way would mean braving
-        the maze BACKWARDS. Are you sure? You have the treasure now.
-        You could just... stay here. Forever. With your chalice.
-        
-        No? Back into the maze it is. Mother would be proud. Insufferably so.
-        
-    up:
-      to: ../home/
-      description: |
-        A spiral staircase winds upward toward warm light. The smell of 
-        home cooking wafts down — pie, clean laundry, safety.
-        
-        Mother awaits. With your treasure, you can finally make her proud.
-        (She was already proud, but she'll NEVER admit it.)
-  
-  # Position in world space  
-  world_position:
-    x: 0
-    y: 1             # North of start (y increases northward)
-    
-  # Atmosphere
-  ambience: |
-    A faint hum of significance fills the air. This is clearly an
-    Important Place where Important Things happen to Important People.
-    Like you. Right now. Congratulations on your importance.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # TREASURE PHILOSOPHY
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "gold statue base"
-        type: territorial
-        note: "The gold knows about me now. Maybe it will think about its life choices."
-    detected_smells:
-      - smell: "cold metal, shiny rocks"
-        location: "everywhere"
-        assessment: "Nothing to eat. Nothing to chase. Nothing to cuddle."
-      - smell: "sweaty human (historical)"
-        location: "a crown"
-        assessment: "I can tell you their diet if you want. Don declined."
-    treasure_philosophy:
-      gold_assessment: "Cold metal. Shiny rocks. Uninteresting."
-      true_treasure_found: "An old blanket in the corner"
-      blanket_action: "Curled up briefly, claiming it"
-    biscuit_wisdom: |
-      Gold is for humans. Blankets are for dogs.
-      This is established.
-    biscuit_says: |
-      I found the real treasure.
-      It is soft and it smells like comfort.
-      The gold can stay. The blanket remembers me.
+name: Treasury of Modest Proportions
+type: room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks: []  # NONE — cats went to the garden, not the treasury
+# This room is safe!
+lighting: 7  # magical
+
+description: |
+  You emerge into a small but decidedly impressive chamber. The walls
+  are lined with empty pedestals — this place was clearly cleaned out
+  by previous adventurers, those inconsiderate loot-hoggers.
+  
+  But wait! One pedestal remains occupied. Upon it sits a JEWELED CHALICE
+  of the sort that belongs in a museum, or possibly your inventory.
+  A shaft of golden light from an implausible source illuminates it
+  dramatically. Someone really thought this through.
+  
+  The exit SOUTH leads back into the maze — that twisty, grue-infested
+  nightmare you just escaped. You'd have to navigate it again to return
+  to the start. Worth considering. (Or just stay here with your chalice.)
+  
+  (Your score is still 0 until you actually GET the treasure. We're
+  not just giving points away here.)
+
+# Who and what is here
+occupants: []     # Empty until the hero arrives
+
+objects:
+  - treasure.yml  # The whole point of this exercise
+
+# Ways out
+exits:
+  north:
+    to: ../maze/room-d/
+    description: |
+      The archway back into the maze. The twisty passages await, ready
+      to confuse you all over again. Going this way would mean braving
+      the maze BACKWARDS. Are you sure? You have the treasure now.
+      You could just... stay here. Forever. With your chalice.
+      
+      No? Back into the maze it is. Mother would be proud. Insufferably so.
+      
+  up:
+    to: ../home/
+    description: |
+      A spiral staircase winds upward toward warm light. The smell of 
+      home cooking wafts down — pie, clean laundry, safety.
+      
+      Mother awaits. With your treasure, you can finally make her proud.
+      (She was already proud, but she'll NEVER admit it.)
+
+# Position in world space  
+world_position:
+  x: 0
+  y: 1             # North of start (y increases northward)
+  
+# Atmosphere
+ambience: |
+  A faint hum of significance fills the air. This is clearly an
+  Important Place where Important Things happen to Important People.
+  Like you. Right now. Congratulations on your importance.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# TREASURE PHILOSOPHY
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "gold statue base"
+      type: territorial
+      note: "The gold knows about me now. Maybe it will think about its life choices."
+  detected_smells:
+    - smell: "cold metal, shiny rocks"
+      location: "everywhere"
+      assessment: "Nothing to eat. Nothing to chase. Nothing to cuddle."
+    - smell: "sweaty human (historical)"
+      location: "a crown"
+      assessment: "I can tell you their diet if you want. Don declined."
+  treasure_philosophy:
+    gold_assessment: "Cold metal. Shiny rocks. Uninteresting."
+    true_treasure_found: "An old blanket in the corner"
+    blanket_action: "Curled up briefly, claiming it"
+  biscuit_wisdom: |
+    Gold is for humans. Blankets are for dogs.
+    This is established.
+  biscuit_says: |
+    I found the real treasure.
+    It is soft and it smells like comfort.
+    The gold can stay. The blanket remembers me.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks: []  # NONE — cats went to the garden, not the treasury
+  
+  explanation: |
+    The 10 cats of the Midnight Prowl chose the GARDEN
+    as their destination, not the Treasury.
     
-    explanation: |
-      The 10 cats of the Midnight Prowl chose the GARDEN
-      as their destination, not the Treasury.
-      
-      Why? Because cats have priorities:
-      - Treasury: Cold metal. Shiny rocks. No grass.
-      - Garden: Real grass. Sunlight. Perfect poop spots.
-      
-      Biscuit was right: "Gold is for humans. Blankets are for dogs."
-      Cats would add: "Grass is for cats."
-      
-      The chalice remains unmarked. It may never know
-      the honor of feline acknowledgment.
+    Why? Because cats have priorities:
+    - Treasury: Cold metal. Shiny rocks. No grass.
+    - Garden: Real grass. Sunlight. Perfect poop spots.
+    
+    Biscuit was right: "Gold is for humans. Blankets are for dogs."
+    Cats would add: "Grass is for cats."
+    
+    The chalice remains unmarked. It may never know
+    the honor of feline acknowledgment.

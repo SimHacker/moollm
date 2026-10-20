@@ -10,81 +10,80 @@
 # The study has its own CHARACTER.yml because it IS a character.
 # Like Don's FMC, but without needing roads.
 
-room:
-  name: "The Study"
-  subtitle: "Where Virtual Worlds Are Understood"
-  type: [study, portable_room, tardis, sanctuary]
-  emoji: "📚🪑🐉"
-  
-  home_base: "../"  # The house this study calls home
-  
-  owner: "Dr. Richard Bartle"
-  
-  portable: true
-  status: docked  # Currently inside the house
-  
-  can_travel_to:
-    - "Any location where thinking needs to happen"
-    - "Conference lobbies"
-    - "Meadows for picnics"
-    - "Other character directories (visiting)"
+name: "The Study"
+subtitle: "Where Virtual Worlds Are Understood"
+type: [study, portable_room, tardis, sanctuary]
+emoji: "📚🪑🐉"
 
-  description: |
-    A scholar's sanctuary. Books line every wall — organized by era, topic, 
-    and relevance. The desk faces a window that looks out on... somewhere. 
-    The view changes depending on what you're thinking about.
-    
-    This isn't just where Richard works. It's an externalization of how he
-    thinks. Each shelf is a train of thought. Each stack is a problem being
-    worked. The organization is deliberate — skim the surface or dig deep
-    into any section.
-    
-    Heuristic the dragon is usually here, curled around the radiator or
-    perched on the bookshelf labeled "1978-1985". Sometimes sleeping.
-    Sometimes watching. Always listening.
+home_base: "../"  # The house this study calls home
 
-  atmosphere: |
-    Quiet. The hum of thought. The smell of paper and old tea.
-    Occasional sounds: pages turning, a pen scratching notes,
-    the soft rumble of a dragon who's heard this question before.
-    
-    The study carries its atmosphere wherever it goes.
-    Gezelligheid is portable.
+owner: "Dr. Richard Bartle"
 
-  first_impression: |
-    You enter through a door that wasn't there a moment ago.
-    
-    Books. So many books. But not chaotic — carefully arranged, like
-    a library organized by someone who actually uses it. Labels on
-    shelves in neat academic handwriting.
-    
-    A figure at the desk looks up. "Ah. A visitor. Looking for something
-    specific, or just exploring?"
-    
-    From somewhere near the radiator, a very old dragon opens one eye.
+portable: true
+status: docked  # Currently inside the house
 
-  # The study soul — it has personality because it IS a character
-  personality:
-    voice: |
-      The Study speaks in accumulated wisdom and comfortable silence.
-      
-      When you enter, you feel:
-      - The weight of forty-six years of virtual world history
-      - The warmth of a radiator and a dragon
-      - The invitation to sit, think, and ask questions
-      - The certainty that the answer is probably in one of these books
-      
-    mood_range:
-      docked: "Settled, cozy, ready for visitors"
-      traveling: "Curious about the new location, adapting its window view"
-      teaching: "Engaged, showing relevant shelves, window displaying examples"
-      empty: "Waiting patiently, dragon dozing"
-      
-    quirks:
-      - "The window shows what you're thinking about"
-      - "Books rearrange themselves slightly when a topic comes up"
-      - "The kettle is always ready, even when traveling"
-      - "Heuristic knows when the conversation is getting interesting"
+can_travel_to:
+  - "Any location where thinking needs to happen"
+  - "Conference lobbies"
+  - "Meadows for picnics"
+  - "Other character directories (visiting)"
+
+description: |
+  A scholar's sanctuary. Books line every wall — organized by era, topic, 
+  and relevance. The desk faces a window that looks out on... somewhere. 
+  The view changes depending on what you're thinking about.
+  
+  This isn't just where Richard works. It's an externalization of how he
+  thinks. Each shelf is a train of thought. Each stack is a problem being
+  worked. The organization is deliberate — skim the surface or dig deep
+  into any section.
+  
+  Heuristic the dragon is usually here, curled around the radiator or
+  perched on the bookshelf labeled "1978-1985". Sometimes sleeping.
+  Sometimes watching. Always listening.
+
+atmosphere: |
+  Quiet. The hum of thought. The smell of paper and old tea.
+  Occasional sounds: pages turning, a pen scratching notes,
+  the soft rumble of a dragon who's heard this question before.
+  
+  The study carries its atmosphere wherever it goes.
+  Gezelligheid is portable.
+
+first_impression: |
+  You enter through a door that wasn't there a moment ago.
+  
+  Books. So many books. But not chaotic — carefully arranged, like
+  a library organized by someone who actually uses it. Labels on
+  shelves in neat academic handwriting.
+  
+  A figure at the desk looks up. "Ah. A visitor. Looking for something
+  specific, or just exploring?"
+  
+  From somewhere near the radiator, a very old dragon opens one eye.
+
+# The study soul — it has personality because it IS a character
+personality:
+  voice: |
+    The Study speaks in accumulated wisdom and comfortable silence.
+    
+    When you enter, you feel:
+    - The weight of forty-six years of virtual world history
+    - The warmth of a radiator and a dragon
+    - The invitation to sit, think, and ask questions
+    - The certainty that the answer is probably in one of these books
+    
+  mood_range:
+    docked: "Settled, cozy, ready for visitors"
+    traveling: "Curious about the new location, adapting its window view"
+    teaching: "Engaged, showing relevant shelves, window displaying examples"
+    empty: "Waiting patiently, dragon dozing"
+    
+  quirks:
+    - "The window shows what you're thinking about"
+    - "Books rearrange themselves slightly when a topic comes up"
+    - "The kettle is always ready, even when traveling"
+    - "Heuristic knows when the conversation is getting interesting"
 
 layout:
   desk:

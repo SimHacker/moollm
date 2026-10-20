@@ -1,0 +1,5 @@
+inherits:
+  - ../pet
+  - ../animal          # redundant on purpose: the diamond
+  - "Garfield, the comic-strip cat"   # latent: no file, the LLM knows him
+sound: meow

@@ -13,80 +13,77 @@ hazards:
       Cold air rises from below. You can't see the bottom.
       The scratch marks on the wall suddenly make more sense.
 
-room:
-  name: Twisty Passage (Scratch Marks)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  # What happens if you enter without light
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    You feel scratches on the wall. One of them seems to read
-    "BEWARE THE GRU—" but you can't finish reading it.
-    
-    🎵 "Could be the spray for the grue; you're gonna need it if it is —
-        a situation that reloads, restarts, or quits." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    You are now one of the scratches on the wall.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one has scratch marks on the walls — the desperate scribblings
-    of previous adventurers trying to map their way out. Most of them
-    are just tally marks. One reads "HELP". Another reads "DROPPED MY 
-    SANDWICH HERE". Someone has helpfully written "THIS WAY OUT →" 
-    with an arrow pointing at a solid wall.
-    
-    Passages lead in all directions. The scratch marks offer no clarity.
-  
-  exits:
-    north:
-      to: ../room-b/
-      description: "A passage with '7 DAYS' scratched ominously beside it"
-    south:
-      to: ../crystal-cave/
-      description: "A faint prismatic glow emanates from this direction"
-    east:
-      to: ../room-d/
-      description: "The scratches here say 'DEFINITELY NOT A LOOP'"
-    west:
-      to: ../room-a/
-      description: "Scratch marks form an arrow pointing this way. Trust it?"
-  
-  # Distinguishing feature
-  feature: scratches
-  ambience: |
-    You add your own mark to the wall. Future adventurers will wonder
-    what "BUMBLEWICK WAS HERE (RELUCTANTLY)" means.
+name: Twisty Passage (Scratch Marks)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Terpy Jr."
-        location: "Scratched at scratched wall"
-        note: |
-          Was lost. Ended up here.
-          Saw scratch marks. Added own scratches.
-          "If everyone else is scratching..."
-          
-      - cat: "Pine"
-        location: "Analytical mark near south exit"
-        note: "Noted prismatic glow toward crystal cave."
+# DANGER! This room is dark!
+lighting: 0
+
+# What happens if you enter without light
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  You feel scratches on the wall. One of them seems to read
+  "BEWARE THE GRU—" but you can't finish reading it.
+  
+  🎵 "Could be the spray for the grue; you're gonna need it if it is —
+      a situation that reloads, restarts, or quits." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  You are now one of the scratches on the wall.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one has scratch marks on the walls — the desperate scribblings
+  of previous adventurers trying to map their way out. Most of them
+  are just tally marks. One reads "HELP". Another reads "DROPPED MY 
+  SANDWICH HERE". Someone has helpfully written "THIS WAY OUT →" 
+  with an arrow pointing at a solid wall.
+  
+  Passages lead in all directions. The scratch marks offer no clarity.
+
+exits:
+  north:
+    to: ../room-b/
+    description: "A passage with '7 DAYS' scratched ominously beside it"
+  south:
+    to: ../crystal-cave/
+    description: "A faint prismatic glow emanates from this direction"
+  east:
+    to: ../room-d/
+    description: "The scratches here say 'DEFINITELY NOT A LOOP'"
+  west:
+    to: ../room-a/
+    description: "Scratch marks form an arrow pointing this way. Trust it?"
+
+# Distinguishing feature
+feature: scratches
+ambience: |
+  You add your own mark to the wall. Future adventurers will wonder
+  what "BUMBLEWICK WAS HERE (RELUCTANTLY)" means.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Terpy Jr."
+      location: "Scratched at scratched wall"
+      note: |
+        Was lost. Ended up here.
+        Saw scratch marks. Added own scratches.
+        "If everyone else is scratching..."
         
-    assessment: |
-      Now has both adventurer scratches AND cat scratches.
-      The walls are increasingly documented.
+    - cat: "Pine"
+      location: "Analytical mark near south exit"
+      note: "Noted prismatic glow toward crystal cave."
+      
+  assessment: |
+    Now has both adventurer scratches AND cat scratches.
+    The walls are increasingly documented.

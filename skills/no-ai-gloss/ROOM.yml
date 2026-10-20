@@ -10,65 +10,63 @@
 # The GLOSS department. Euphemism detection and demolition.
 # Where "downsizing" becomes "layoffs" becomes "firing people."
 
-room:
-  name: "NO AI TOWER — GLOSS (Euphemism Bureau)"
-  id: no-ai-gloss
-  type: translation_bureau
-  floor: -5
-  emoji: "🏷️✨➡️💀"
+name: "NO AI TOWER — GLOSS (Euphemism Bureau)"
+id: no-ai-gloss
+type: translation_bureau
+floor: -5
+emoji: "🏷️✨➡️💀"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 8  # clinical
+
+description: |
+  *DING* — BASEMENT 5: GLOSS
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto a TRANSLATION BUREAU.
   
-  zone: UNDERGROUND
-  lighting: clinical
-  grue_safe: true
+  Dictionaries everywhere. Translation tables on the walls.
+  A machine that takes euphemisms in and spits truth out.
   
-  description: |
-    *DING* — BASEMENT 5: GLOSS
-    
-    The elevator opens onto a TRANSLATION BUREAU.
-    
-    Dictionaries everywhere. Translation tables on the walls.
-    A machine that takes euphemisms in and spits truth out.
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║                                                           ║
-        ║              EUPHEMISM → TRUTH CONVERTER                 ║
-        ║                                                           ║
-        ║   INPUT                    OUTPUT                        ║
-        ║   ─────────────────────────────────────────────────────  ║
-        ║   "Letting you go"         Firing you                    ║
-        ║   "Restructuring"          Layoffs                       ║
-        ║   "Collateral damage"      Killing civilians             ║
-        ║   "Enhanced interrogation" Torture                       ║
-        ║   "Sunset the product"     Kill the product              ║
-        ║                                                           ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-  examine: |
-    THE TRANSLATION TABLES:
-    
-    CORPORATE GLOSS:
-    - "Synergy" → "Buzzword for collaboration"
-    - "Leverage" → "Use"
-    - "Bandwidth" → "Time/capacity"
-    - "Circle back" → "Talk later (maybe never)"
-    
-    MILITARY GLOSS:
-    - "Neutralize" → "Kill"
-    - "Soft target" → "Civilian"
-    - "Kinetic action" → "Bombing"
-    
-    AI GLOSS:
-    - "Hallucination" → "Making stuff up"
-    - "Alignment" → "Making it do what we want"
-    - "Emergent behavior" → "We don't know why it does that"
-    
-    THE PHILOSOPHY:
-    Language shapes thought.
-    Euphemisms are ideological camouflage.
-    Call it what it IS.
+      ╔═══════════════════════════════════════════════════════════╗
+      ║                                                           ║
+      ║              EUPHEMISM → TRUTH CONVERTER                 ║
+      ║                                                           ║
+      ║   INPUT                    OUTPUT                        ║
+      ║   ─────────────────────────────────────────────────────  ║
+      ║   "Letting you go"         Firing you                    ║
+      ║   "Restructuring"          Layoffs                       ║
+      ║   "Collateral damage"      Killing civilians             ║
+      ║   "Enhanced interrogation" Torture                       ║
+      ║   "Sunset the product"     Kill the product              ║
+      ║                                                           ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+examine: |
+  THE TRANSLATION TABLES:
+  
+  CORPORATE GLOSS:
+  - "Synergy" → "Buzzword for collaboration"
+  - "Leverage" → "Use"
+  - "Bandwidth" → "Time/capacity"
+  - "Circle back" → "Talk later (maybe never)"
+  
+  MILITARY GLOSS:
+  - "Neutralize" → "Kill"
+  - "Soft target" → "Civilian"
+  - "Kinetic action" → "Bombing"
+  
+  AI GLOSS:
+  - "Hallucination" → "Making stuff up"
+  - "Alignment" → "Making it do what we want"
+  - "Emergent behavior" → "We don't know why it does that"
+  
+  THE PHILOSOPHY:
+  Language shapes thought.
+  Euphemisms are ideological camouflage.
+  Call it what it IS.
 
 contents:
   skill: "SKILL.md"

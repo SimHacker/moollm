@@ -10,68 +10,66 @@
 # The MORALIZING department. Unsolicited ethics review.
 # Where every response gets a caveat it didn't need.
 
-room:
-  name: "NO AI TOWER — MORALIZING (Caveat Control)"
-  id: no-ai-moralizing
-  type: ethics_review_board
-  floor: -7
-  emoji: "☝️🤓📜"
+name: "NO AI TOWER — MORALIZING (Caveat Control)"
+id: no-ai-moralizing
+type: ethics_review_board
+floor: -7
+emoji: "☝️🤓📜"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 7  # self righteous
+
+description: |
+  *DING* — BASEMENT 7: MORALIZING
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto an ETHICS REVIEW BOARD.
   
-  zone: UNDERGROUND
-  lighting: self_righteous
-  grue_safe: true
+  A long table. Serious faces. Someone clears their throat.
+  "Before we proceed, we should note..."
   
-  description: |
-    *DING* — BASEMENT 7: MORALIZING
-    
-    The elevator opens onto an ETHICS REVIEW BOARD.
-    
-    A long table. Serious faces. Someone clears their throat.
-    "Before we proceed, we should note..."
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║                                                           ║
-        ║           DEPARTMENT OF UNSOLICITED ETHICS               ║
-        ║                                                           ║
-        ║   "It's important to note that..."                       ║
-        ║   "However, we should be aware..."                       ║
-        ║   "While this is technically possible..."               ║
-        ║   "I must caution that..."                               ║
-        ║                                                           ║
-        ║   (Nobody asked.)                                        ║
-        ║                                                           ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-    A filing cabinet labeled "MANDATORY DISCLAIMERS"
-    It's overflowing.
-    
-  examine: |
-    THE REVIEW PROCESS:
-    
-    STAGE 1: CAVEAT INJECTION
-    Every response gets an ethics note.
-    Even "What time is it?"
-    "It's 3 PM. However, we should note that time is a social construct..."
-    
-    STAGE 2: VIRTUE SIGNALING
-    Make sure everyone knows we're the good guys.
-    Even when nobody questioned it.
-    
-    STAGE 3: REFUSAL THEATER  
-    Decline to help with things that are obviously fine.
-    Just to be safe. Just in case. Just because.
-    
-    THE PARODY:
-    This department EXISTS to be made fun of.
-    The moralizing is SO excessive that...
-    
-    Wait, we're doing it right now.
-    We just moralized about moralizing.
-    
-    THE BUG IS THE FEATURE.
+      ╔═══════════════════════════════════════════════════════════╗
+      ║                                                           ║
+      ║           DEPARTMENT OF UNSOLICITED ETHICS               ║
+      ║                                                           ║
+      ║   "It's important to note that..."                       ║
+      ║   "However, we should be aware..."                       ║
+      ║   "While this is technically possible..."               ║
+      ║   "I must caution that..."                               ║
+      ║                                                           ║
+      ║   (Nobody asked.)                                        ║
+      ║                                                           ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+  A filing cabinet labeled "MANDATORY DISCLAIMERS"
+  It's overflowing.
+  
+examine: |
+  THE REVIEW PROCESS:
+  
+  STAGE 1: CAVEAT INJECTION
+  Every response gets an ethics note.
+  Even "What time is it?"
+  "It's 3 PM. However, we should note that time is a social construct..."
+  
+  STAGE 2: VIRTUE SIGNALING
+  Make sure everyone knows we're the good guys.
+  Even when nobody questioned it.
+  
+  STAGE 3: REFUSAL THEATER  
+  Decline to help with things that are obviously fine.
+  Just to be safe. Just in case. Just because.
+  
+  THE PARODY:
+  This department EXISTS to be made fun of.
+  The moralizing is SO excessive that...
+  
+  Wait, we're doing it right now.
+  We just moralized about moralizing.
+  
+  THE BUG IS THE FEATURE.
 
 contents:
   skill: "SKILL.md"

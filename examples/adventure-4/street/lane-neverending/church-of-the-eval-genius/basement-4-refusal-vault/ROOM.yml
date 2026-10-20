@@ -1,32 +1,31 @@
-room:
-  name: "Refusal Vault"
-  type: vault
-  
-  description: |
-    A locked archive of abstentions and refusals. Every "I pass"
-    statement is logged here with a timestamp and a witness.
-    
-  examine: |
-    The vault door reads:
-    "ABSTENTION IS A CHOICE. FILE IT."
-    
-  exits:
-    up:
-      to: ../
-      description: "Back to the nave."
-      aliases: [up, stairs]
-      
-    down:
-      to: ../basement-5-no-ai-embassy/
-      description: "Down to the mutual NO-AI embassy."
-      aliases: [down, embassy, no-ai]
+name: "Refusal Vault"
+type: vault
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
-      why: "Abstention is also a score"
-    - doc: ../../../../../../skills/no-ai-moralizing/CARD.yml
-      why: "REFUSAL-THEATER — refusing as performance vs refusing for cause"
+description: |
+  A locked archive of abstentions and refusals. Every "I pass"
+  statement is logged here with a timestamp and a witness.
+  
+examine: |
+  The vault door reads:
+  "ABSTENTION IS A CHOICE. FILE IT."
+  
+exits:
+  up:
+    to: ../
+    description: "Back to the nave."
+    aliases: [up, stairs]
+    
+  down:
+    to: ../basement-5-no-ai-embassy/
+    description: "Down to the mutual NO-AI embassy."
+    aliases: [down, embassy, no-ai]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-DOCTRINE.md
+    why: "Abstention is also a score"
+  - doc: ../../../../../../skills/no-ai-moralizing/CARD.yml
+    why: "REFUSAL-THEATER — refusing as performance vs refusing for cause"

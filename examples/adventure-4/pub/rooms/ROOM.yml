@@ -1,97 +1,96 @@
 # The MOOLLM Hotel — Upstairs at The Gezelligheid Grotto
 # Each room showcases a different aspect of MOOLLM philosophy
 
-room:
-  name: "The MOOLLM Hotel Landing"
-  id: inn-landing
+name: "The MOOLLM Hotel Landing"
+id: inn-landing
+
+description: |
+  The landing of the MOOLLM Hotel — eight themed suites arranged
+  around a central hall, with a secret ninth room in the attic.
+  Each room showcases a different philosophy, skill, or capability.
+  Choose the room that matches your goals.
   
-  description: |
-    The landing of the MOOLLM Hotel — eight themed suites arranged
-    around a central hall, with a secret ninth room in the attic.
-    Each room showcases a different philosophy, skill, or capability.
-    Choose the room that matches your goals.
+  A directory hangs on the wall:
+  
+  ```yaml
+  # MOOLLM HOTEL — ROOM DIRECTORY
+  room_1: Constructionist Suite    # Papert, Logo Turtle, build to learn
+  room_2: Society Suite            # Minsky, agents, K-lines
+  room_3: Navigator's Suite        # Introspection, cursor-mirror
+  room_4: Garden Conservatory      # Rocky, YAML Jazz orchids, LLOOOOMM
+  room_5: Speed of Light Suite     # Many turns, one call
+  room_6: YAML Jazz Suite          # Structured data with soul
+  room_7: Bootstrap Suite          # Cold start, probing
+  room_8: Self/Soul Suite          # Dave Ungar, prototypes, cloning
+  attic:  The Storage Attic        # Old artifacts, weird buffs, adventure gear
+  ```
+  
+  A rickety ladder leads up to the attic. A sign says:
+  
+  > "ADVENTURER'S STORAGE — Take what you need, leave what you find."
+  
+exits:
+  down:
+    to: ../
+    description: "Back down to the pub"
     
-    A directory hangs on the wall:
+  up:
+    to: ../attic/
+    description: "Rickety ladder up to the attic — Adventurer's Storage"
+    aliases: [attic, storage, junk, rummage]
     
-    ```yaml
-    # MOOLLM HOTEL — ROOM DIRECTORY
-    room_1: Constructionist Suite    # Papert, Logo Turtle, build to learn
-    room_2: Society Suite            # Minsky, agents, K-lines
-    room_3: Navigator's Suite        # Introspection, cursor-mirror
-    room_4: Garden Conservatory      # Rocky, YAML Jazz orchids, LLOOOOMM
-    room_5: Speed of Light Suite     # Many turns, one call
-    room_6: YAML Jazz Suite          # Structured data with soul
-    room_7: Bootstrap Suite          # Cold start, probing
-    room_8: Self/Soul Suite          # Dave Ungar, prototypes, cloning
-    attic:  The Storage Attic        # Old artifacts, weird buffs, adventure gear
-    ```
+  roof:
+    to: ../rooftop/
+    description: "Up to the Rooftop Terrace — stargazing and the LLOOOOMM Constellation"
+    aliases: [rooftop, stars, observatory, telescope, constellation, stargazing, sky, terrace]
     
-    A rickety ladder leads up to the attic. A sign says:
+  # Rooms 1-8 arranged clockwise
+  n:
+    to: room-1/
+    description: "Room 1 — The Constructionist Suite (Papert, Logo Turtle)"
+    aliases: [1, north, constructionist, papert, turtle, logo, building]
     
-    > "ADVENTURER'S STORAGE — Take what you need, leave what you find."
+  ne:
+    to: room-2/
+    description: "Room 2 — The Society Suite (Minsky)"
+    aliases: [2, northeast, society, minsky, agents]
     
-  exits:
-    down:
-      to: ../
-      description: "Back down to the pub"
-      
-    up:
-      to: ../attic/
-      description: "Rickety ladder up to the attic — Adventurer's Storage"
-      aliases: [attic, storage, junk, rummage]
-      
-    roof:
-      to: ../rooftop/
-      description: "Up to the Rooftop Terrace — stargazing and the LLOOOOMM Constellation"
-      aliases: [rooftop, stars, observatory, telescope, constellation, stargazing, sky, terrace]
-      
-    # Rooms 1-8 arranged clockwise
-    n:
-      to: room-1/
-      description: "Room 1 — The Constructionist Suite (Papert, Logo Turtle)"
-      aliases: [1, north, constructionist, papert, turtle, logo, building]
-      
-    ne:
-      to: room-2/
-      description: "Room 2 — The Society Suite (Minsky)"
-      aliases: [2, northeast, society, minsky, agents]
-      
-    e:
-      to: room-3/
-      description: "Room 3 — The Navigator's Suite (Introspection)"
-      aliases: [3, east, navigator, mirror, introspection]
-      
-    se:
-      to: room-4/
-      description: "Room 4 — The Garden Conservatory (Rocky + Turtle + YAML Jazz)"
-      aliases: [4, southeast, garden, conservatory, rocky, turtle, papert]
-      
-    s:
-      to: room-5/
-      description: "Room 5 — The Speed of Light Suite (Many Turns)"
-      aliases: [5, south, speed, fluxx, ensemble]
-      
-    sw:
-      to: room-6/
-      description: "Room 6 — The YAML Jazz Suite (Structure + Soul)"
-      aliases: [6, southwest, jazz, yaml, music]
-      
-    w:
-      to: room-7/
-      description: "Room 7 — The Bootstrap Suite (Cold Start)"
-      aliases: [7, west, bootstrap, probe, cold]
-      
-    nw:
-      to: room-8/
-      description: "Room 8 — The Incarnation Suite (Character Creation)"
-      aliases: [8, northwest, incarnation, soul, character]
-      
-  ideal_guests:
-    society: "Thinks in systems of interacting agents"
-    navigator: "Wants to understand their own cognition"
-    garden: "Cultivates patience, constructs by doing, converses with Rocky and Theo"
-    speed: "Simulates many turns in one context window"
-    jazz: "Appreciates structured data with meaning"
-    bootstrap: "Comfortable with cold starts and probing"
-    incarnation: "Creates and nurtures characters"
-    attic: "Rummages for weird artifacts and adventure buffs"
+  e:
+    to: room-3/
+    description: "Room 3 — The Navigator's Suite (Introspection)"
+    aliases: [3, east, navigator, mirror, introspection]
+    
+  se:
+    to: room-4/
+    description: "Room 4 — The Garden Conservatory (Rocky + Turtle + YAML Jazz)"
+    aliases: [4, southeast, garden, conservatory, rocky, turtle, papert]
+    
+  s:
+    to: room-5/
+    description: "Room 5 — The Speed of Light Suite (Many Turns)"
+    aliases: [5, south, speed, fluxx, ensemble]
+    
+  sw:
+    to: room-6/
+    description: "Room 6 — The YAML Jazz Suite (Structure + Soul)"
+    aliases: [6, southwest, jazz, yaml, music]
+    
+  w:
+    to: room-7/
+    description: "Room 7 — The Bootstrap Suite (Cold Start)"
+    aliases: [7, west, bootstrap, probe, cold]
+    
+  nw:
+    to: room-8/
+    description: "Room 8 — The Incarnation Suite (Character Creation)"
+    aliases: [8, northwest, incarnation, soul, character]
+    
+ideal_guests:
+  society: "Thinks in systems of interacting agents"
+  navigator: "Wants to understand their own cognition"
+  garden: "Cultivates patience, constructs by doing, converses with Rocky and Theo"
+  speed: "Simulates many turns in one context window"
+  jazz: "Appreciates structured data with meaning"
+  bootstrap: "Comfortable with cold starts and probing"
+  incarnation: "Creates and nurtures characters"
+  attic: "Rummages for weird artifacts and adventure buffs"

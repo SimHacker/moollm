@@ -13,74 +13,71 @@ hazards:
       Something LARGE sleeps in the shadows.
       The smell is overpowering — wet fur and old death.
 
-room:
-  name: Twisty Passage (Cobwebs)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    You walk face-first into a cobweb. While you're distracted
-    wiping spider silk off your face, the grue strikes.
-    
-    🎵 "Never peered at the clues with invisible ink.
-        No SM goddesses ever gave them pause to think." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one is FULL of cobwebs. Ancient, dusty cobwebs that
-    suggest the spiders who made them have long since moved on
-    to more profitable real estate. The webs catch your lamp
-    light and sparkle like... well, like dusty spider webs.
-    
-    You resist the urge to scream. Barely.
-  
-  feature: cobwebs
-  
-  exits:
-    north:
-      to: ../room-f/
-      description: "Cobwebs thin out this way. Relatively."
-    south:
-      to: ../crystal-cave/
-      description: "A prismatic glow cuts through the cobwebs"
-    east:
-      to: ../room-g/
-      description: "More passages. More twistiness."
-    west:
-      to: ../room-c/
-      description: "Is that scratching you hear?"
-  
-  ambience: |
-    The cobwebs drift gently in unfelt breezes. Nothing moves.
-    But you can't shake the feeling of being watched by eight
-    eyes. Or possibly eighty. Or eight hundred.
+name: Twisty Passage (Cobwebs)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Terpy Jr."
-        location: "Tangled in cobwebs, marked while escaping"
-        note: |
-          Got stuck in cobwebs on chaos route.
-          Panicked. Thrashed. Got free.
-          Left chaotic marking while fleeing.
-          "COBWEBS! WHY COBWEBS!"
-          
-    cobweb_status: |
-      Some cobwebs now have kitten fur in them.
-      The spiders are probably confused.
+# DANGER! This room is dark!
+lighting: 0
+
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  You walk face-first into a cobweb. While you're distracted
+  wiping spider silk off your face, the grue strikes.
+  
+  🎵 "Never peered at the clues with invisible ink.
+      No SM goddesses ever gave them pause to think." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one is FULL of cobwebs. Ancient, dusty cobwebs that
+  suggest the spiders who made them have long since moved on
+  to more profitable real estate. The webs catch your lamp
+  light and sparkle like... well, like dusty spider webs.
+  
+  You resist the urge to scream. Barely.
+
+feature: cobwebs
+
+exits:
+  north:
+    to: ../room-f/
+    description: "Cobwebs thin out this way. Relatively."
+  south:
+    to: ../crystal-cave/
+    description: "A prismatic glow cuts through the cobwebs"
+  east:
+    to: ../room-g/
+    description: "More passages. More twistiness."
+  west:
+    to: ../room-c/
+    description: "Is that scratching you hear?"
+
+ambience: |
+  The cobwebs drift gently in unfelt breezes. Nothing moves.
+  But you can't shake the feeling of being watched by eight
+  eyes. Or possibly eighty. Or eight hundred.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Terpy Jr."
+      location: "Tangled in cobwebs, marked while escaping"
+      note: |
+        Got stuck in cobwebs on chaos route.
+        Panicked. Thrashed. Got free.
+        Left chaotic marking while fleeing.
+        "COBWEBS! WHY COBWEBS!"
+        
+  cobweb_status: |
+    Some cobwebs now have kitten fur in them.
+    The spiders are probably confused.

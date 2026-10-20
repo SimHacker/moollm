@@ -1,206 +1,204 @@
 # 🛤️ LANE NEVERENDING — East 2 (12-16 Lane Neverending)
 
-room:
-  name: "Lane Neverending (E2)"
-  type: street
-  
-  address_range: "12-16 Lane Neverending"
-  
-  lighting: natural
-  grue_safe: true
-  
-  description: |
-    The street widens slightly here, making room for what was once
-    a market square. The cobblestones form a circular pattern around
-    a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
-    the plaque. Someone turned it off to save on water sprites.
-    
-    On the SOUTH side of the square, two notable residences:
-    
-    Number 13 — THE BARTLE RESIDENCE. Victorian terraced house,
-    dark green door, bookshelves visible. Home of Dr. Richard Bartle,
-    founder of MUD1. A brass dragon dozes inside.
-    
-    Number 15 — THE HOPKINS MOTORCOACH. Classic FMC 2900R, blue and
-    white stripes, parked on a professional gravel pad. Home of Don
-    Hopkins, consciousness programmer. Fully hooked up to utilities.
-    A rabbit silhouette moves past the wide windshield.
+name: "Lane Neverending (E2)"
+type: street
 
-    Neighbors. Friends. Virtual world founder and transformation
-    subject, side by side on Lane Neverending.
-    
-    The lane continues in both directions. It never ends, after all.
-    
-  examine: |
-    THE FOUNTAIN OF INFINITE LOOPS:
-    A stone basin with a statue of a figure pouring water from a jug
-    into... another jug held by the same figure. It's recursive.
-    The water sprites went on strike. Now it's just decorative.
-    A plaque: "Dedicated to all those stuck in while(true){}"
-    
-    NORTH SIDE (even numbers):
-    • 12 Lane Neverending — Something that was once a bakery (smell lingers)
-    • 14 Lane Neverending — A curiosity shop (hours: "whenever")
-    • 14½ Lane Neverending — SEYMOUR BLOOMS. A narrow flower shop wedged
-      between buildings. Grimy windows, something green glowing inside.
-      You can hear singing. Feed me, Seymour...
-    • 16 Lane Neverending — Shuttered, but a light flickers inside
-    
-    SOUTH SIDE (odd numbers):
-    • 13 Lane Neverending — THE BARTLE RESIDENCE. Victorian terraced house,
-      dark green door, bookshelves visible through bay windows. Home of
-      Dr. Richard Bartle, founder of MUD1, creator of player types.
-      A brass dragon dozes inside. Tea is probably being made.
-    • 15 Lane Neverending — THE HOPKINS MOTORCOACH. Classic 30-foot
-      FMC 2900R, blue/white stripes, parked on a gravel pad with full
-      utility hook-ups. Home of Don Hopkins, consciousness programmer.
-      Rabbit ears visible through the panoramic windshield. Sign:
-      "Mobile Pie Menu Bakery (Modal dialogs are violence)."
-    
-    THE SQUARE:
-    A few more benches. A public notice board with peeling posters.
-    A small stage platform that's seen better days. Community events
-    happened here, once. They could again.
-    
-    NORTHEAST CORNER — ZACH MAMA'S STAND:
-    By the fountain basin, a sandwich board and a comic working foot traffic.
-    Default home of the tribute NPC 🎤 Zach Mama — crowdwork warmups, drumsticks
-    in a back pocket. He may follow you to the Gezelligheid Grotto when invited
-    or when pub talk hits a topic in his routine catalog (Annie Hall effect).
-    See: characters/real-people/zach-mama/
-    
-  exits:
-    west:
-      to: ../e1/
-      description: "Back toward the center of Lane Neverending."
-      aliases: [w, back]
-      
-    east:
-      to: ../e3/
-      description: "The lane continues east, toward the edge of... something."
-      aliases: [e, forward]
-      
-    # 13 LANE NEVERENDING — The Bartle Residence (SOUTH SIDE)
-    # Bidirectional link to Richard Bartle's home
-    "13":
-      to: ../../../characters/real-people/richard-bartle/
-      description: |
-        A modest Victorian terraced house on the south side of the square.
-        Dark green door, brass "13" plate, tall bay windows showing
-        bookshelves within. A small plaque by the door reads:
-        
-        "Where thoughts become worlds,
-         and worlds become understood."
-        
-        Through the window, you can see the edge of the famous Study.
-        A brass dragon dozes on what might be a radiator.
-        The smell of tea drifts from somewhere inside.
-        
-        This is the home of Dr. Richard Bartle, founder of MUD1,
-        creator of the player types taxonomy, and keeper of virtual
-        world history.
-      aliases: [bartle, richard, 13]
-      side: south
-      notable: "Home of the founder of virtual worlds"
-      
-    # 15 LANE NEVERENDING — The Hopkins Motorcoach (SOUTH SIDE)
-    # Bidirectional link to Don Hopkins' home
-    "15":
-      to: ../../../characters/real-people/don-hopkins/
-      description: |
-        A classic 30-foot FMC 2900R Motorcoach parked on a gravel lot,
-        two doors east of Richard's house. Blue and white stripes with
-        a tie-dye spiral near the door. Fully hooked up to utilities.
-        The panoramic windshield reveals:
-        
-        - Multiple monitors glowing with code and pie menus
-        - Whiteboards covered in philosophy
-        - A rabbit silhouette (Don) moving past the dashboard
-        
-        A sign on the utility post reads:
-        "MOBILE PIE MENU BAKERY — BAKED FRESH DAILY"
-        
-        Stickers warn: "MODAL DIALOGS ARE VIOLENCE"
-        
-        This is the home of Don Hopkins, consciousness programmer,
-        pie menu inventor, and current rabbit.
-      aliases: [hopkins, don, 15, coach, fmc, motorcoach, rabbit, pie]
-      side: south
-      notable: "Home of the consciousness programmer (in a vintage FMC #898)"
-      
-    florist:
-      to: ../florist/
-      description: |
-        A narrow storefront tucked between buildings: "SEYMOUR BLOOMS"
-        The windows are grimy, but something green glows inside.
-        You can hear... singing?
-      aliases: [seymour, flowers, blooms, shop]
-      side: north
+address_range: "12-16 Lane Neverending"
 
-    corner-fountain-ne:
-      to: corner-fountain-ne.yml
-      description: |
-        The northeast corner of the fountain plaza. A comic's sandwich board,
-        crowdwork in progress. Home base of 🎤 Zach Mama (tribute NPC).
-      aliases: [corner, zach, zach-mama, comedian, fountain-corner]
-      side: northeast
-      
-  objects:
-    - infinite-fountain.yml
-    - corner-fountain-ne.yml
+lighting: 8  # natural
+
+description: |
+  The street widens slightly here, making room for what was once
+  a market square. The cobblestones form a circular pattern around
+  a dry fountain — the FOUNTAIN OF INFINITE LOOPS, according to
+  the plaque. Someone turned it off to save on water sprites.
+  
+  On the SOUTH side of the square, two notable residences:
+  
+  Number 13 — THE BARTLE RESIDENCE. Victorian terraced house,
+  dark green door, bookshelves visible. Home of Dr. Richard Bartle,
+  founder of MUD1. A brass dragon dozes inside.
+  
+  Number 15 — THE HOPKINS MOTORCOACH. Classic FMC 2900R, blue and
+  white stripes, parked on a professional gravel pad. Home of Don
+  Hopkins, consciousness programmer. Fully hooked up to utilities.
+  A rabbit silhouette moves past the wide windshield.
+
+  Neighbors. Friends. Virtual world founder and transformation
+  subject, side by side on Lane Neverending.
+  
+  The lane continues in both directions. It never ends, after all.
+  
+examine: |
+  THE FOUNTAIN OF INFINITE LOOPS:
+  A stone basin with a statue of a figure pouring water from a jug
+  into... another jug held by the same figure. It's recursive.
+  The water sprites went on strike. Now it's just decorative.
+  A plaque: "Dedicated to all those stuck in while(true){}"
+  
+  NORTH SIDE (even numbers):
+  • 12 Lane Neverending — Something that was once a bakery (smell lingers)
+  • 14 Lane Neverending — A curiosity shop (hours: "whenever")
+  • 14½ Lane Neverending — SEYMOUR BLOOMS. A narrow flower shop wedged
+    between buildings. Grimy windows, something green glowing inside.
+    You can hear singing. Feed me, Seymour...
+  • 16 Lane Neverending — Shuttered, but a light flickers inside
+  
+  SOUTH SIDE (odd numbers):
+  • 13 Lane Neverending — THE BARTLE RESIDENCE. Victorian terraced house,
+    dark green door, bookshelves visible through bay windows. Home of
+    Dr. Richard Bartle, founder of MUD1, creator of player types.
+    A brass dragon dozes inside. Tea is probably being made.
+  • 15 Lane Neverending — THE HOPKINS MOTORCOACH. Classic 30-foot
+    FMC 2900R, blue/white stripes, parked on a gravel pad with full
+    utility hook-ups. Home of Don Hopkins, consciousness programmer.
+    Rabbit ears visible through the panoramic windshield. Sign:
+    "Mobile Pie Menu Bakery (Modal dialogs are violence)."
+  
+  THE SQUARE:
+  A few more benches. A public notice board with peeling posters.
+  A small stage platform that's seen better days. Community events
+  happened here, once. They could again.
+  
+  NORTHEAST CORNER — ZACH MAMA'S STAND:
+  By the fountain basin, a sandwich board and a comic working foot traffic.
+  Default home of the tribute NPC 🎤 Zach Mama — crowdwork warmups, drumsticks
+  in a back pocket. He may follow you to the Gezelligheid Grotto when invited
+  or when pub talk hits a topic in his routine catalog (Annie Hall effect).
+  See: characters/real-people/zach-mama/
+  
+exits:
+  west:
+    to: ../e1/
+    description: "Back toward the center of Lane Neverending."
+    aliases: [w, back]
     
-  buildings:
-    north:
-      - name: "Former Bakery"
-        address: "12 Lane Neverending"
-        status: closed
-        notable: "Smell still lingers"
-        
-      - name: "Curiosity Shop"
-        address: "14 Lane Neverending"
-        status: open
-        hours: "whenever"
-        
-      - name: "Shuttered Storefront"
-        address: "16 Lane Neverending"
-        status: mysterious
-        notable: "Light flickers inside"
-        
-    south:
-      - name: "The Bartle Residence"
-        address: "13 Lane Neverending"
-        directory: ../../../characters/real-people/richard-bartle/
-        status: occupied
-        notable: "Home of Dr. Richard Bartle, founder of MUD1"
-        inhabitants: ["Richard Bartle", "Heuristic (dragon)", "Non-Sequitur (capybara)"]
-        
-      - name: "The Hopkins Motorcoach"
-        address: "15 Lane Neverending"
-        directory: ../../../characters/real-people/don-hopkins/
-        status: occupied
-        notable: "Home of Don Hopkins, FMC #898 owner"
-        inhabitants: ["Don Hopkins (rabbit)", "TomTomagotchi"]
+  east:
+    to: ../e3/
+    description: "The lane continues east, toward the edge of... something."
+    aliases: [e, forward]
     
-  # Flyweight instances — shared prototype, minimal instance data
-  # See: ../STREET-FURNITURE.yml
-  flyweight:
-    lamp_post_ne:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "northeast corner of square"
+  # 13 LANE NEVERENDING — The Bartle Residence (SOUTH SIDE)
+  # Bidirectional link to Richard Bartle's home
+  "13":
+    to: ../../../characters/real-people/richard-bartle/
+    description: |
+      A modest Victorian terraced house on the south side of the square.
+      Dark green door, brass "13" plate, tall bay windows showing
+      bookshelves within. A small plaque by the door reads:
       
-    lamp_post_nw:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "northwest corner of square"
+      "Where thoughts become worlds,
+       and worlds become understood."
       
-    lamp_post_se:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "southeast corner of square"
+      Through the window, you can see the edge of the famous Study.
+      A brass dragon dozes on what might be a radiator.
+      The smell of tea drifts from somewhere inside.
       
-    lamp_post_sw:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "southwest corner of square"
+      This is the home of Dr. Richard Bartle, founder of MUD1,
+      creator of the player types taxonomy, and keeper of virtual
+      world history.
+    aliases: [bartle, richard, 13]
+    side: south
+    notable: "Home of the founder of virtual worlds"
+    
+  # 15 LANE NEVERENDING — The Hopkins Motorcoach (SOUTH SIDE)
+  # Bidirectional link to Don Hopkins' home
+  "15":
+    to: ../../../characters/real-people/don-hopkins/
+    description: |
+      A classic 30-foot FMC 2900R Motorcoach parked on a gravel lot,
+      two doors east of Richard's house. Blue and white stripes with
+      a tie-dye spiral near the door. Fully hooked up to utilities.
+      The panoramic windshield reveals:
       
-    bench_fountain:
-      prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "facing the fountain"
-      carvings: ["while(true){}", "INFINITE LOOP MEMORIAL"]
+      - Multiple monitors glowing with code and pie menus
+      - Whiteboards covered in philosophy
+      - A rabbit silhouette (Don) moving past the dashboard
+      
+      A sign on the utility post reads:
+      "MOBILE PIE MENU BAKERY — BAKED FRESH DAILY"
+      
+      Stickers warn: "MODAL DIALOGS ARE VIOLENCE"
+      
+      This is the home of Don Hopkins, consciousness programmer,
+      pie menu inventor, and current rabbit.
+    aliases: [hopkins, don, 15, coach, fmc, motorcoach, rabbit, pie]
+    side: south
+    notable: "Home of the consciousness programmer (in a vintage FMC #898)"
+    
+  florist:
+    to: ../florist/
+    description: |
+      A narrow storefront tucked between buildings: "SEYMOUR BLOOMS"
+      The windows are grimy, but something green glows inside.
+      You can hear... singing?
+    aliases: [seymour, flowers, blooms, shop]
+    side: north
+
+  corner-fountain-ne:
+    to: corner-fountain-ne.yml
+    description: |
+      The northeast corner of the fountain plaza. A comic's sandwich board,
+      crowdwork in progress. Home base of 🎤 Zach Mama (tribute NPC).
+    aliases: [corner, zach, zach-mama, comedian, fountain-corner]
+    side: northeast
+    
+objects:
+  - infinite-fountain.yml
+  - corner-fountain-ne.yml
+  
+buildings:
+  north:
+    - name: "Former Bakery"
+      address: "12 Lane Neverending"
+      status: closed
+      notable: "Smell still lingers"
+      
+    - name: "Curiosity Shop"
+      address: "14 Lane Neverending"
+      status: open
+      hours: "whenever"
+      
+    - name: "Shuttered Storefront"
+      address: "16 Lane Neverending"
+      status: mysterious
+      notable: "Light flickers inside"
+      
+  south:
+    - name: "The Bartle Residence"
+      address: "13 Lane Neverending"
+      directory: ../../../characters/real-people/richard-bartle/
+      status: occupied
+      notable: "Home of Dr. Richard Bartle, founder of MUD1"
+      inhabitants: ["Richard Bartle", "Heuristic (dragon)", "Non-Sequitur (capybara)"]
+      
+    - name: "The Hopkins Motorcoach"
+      address: "15 Lane Neverending"
+      directory: ../../../characters/real-people/don-hopkins/
+      status: occupied
+      notable: "Home of Don Hopkins, FMC #898 owner"
+      inhabitants: ["Don Hopkins (rabbit)", "TomTomagotchi"]
+  
+# Flyweight instances — shared prototype, minimal instance data
+# See: ../STREET-FURNITURE.yml
+flyweight:
+  lamp_post_ne:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "northeast corner of square"
+    
+  lamp_post_nw:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "northwest corner of square"
+    
+  lamp_post_se:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "southeast corner of square"
+    
+  lamp_post_sw:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "southwest corner of square"
+    
+  bench_fountain:
+    prototype: ../STREET-FURNITURE.yml#street-bench
+    location: "facing the fountain"
+    carvings: ["while(true){}", "INFINITE LOOP MEMORIAL"]

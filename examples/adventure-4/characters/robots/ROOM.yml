@@ -1,120 +1,119 @@
-room:
-  name: "Robot Workshop"
-  purpose: "Mechanical minds, digital beings, and artificial intelligences"
+name: "Robot Workshop"
+purpose: "Mechanical minds, digital beings, and artificial intelligences"
+
+description: |
+  Soft blue LEDs illuminate chrome surfaces. Circuits hum.
+  A vintage mainframe clicks beside a quantum computer.
+  Some robots beep. Others ponder existence. One writes poetry.
+  The air smells of ozone and unanswerable questions.
+
+# 🤖 ARTIFICIAL PROTOCOL — MECHANICAL MINDS, DIGITAL SOULS
+#
+# This room explores consciousness through artificial lenses.
+# Questions of mind, autonomy, and identity — in silicon form.
+#
+# See: skills/representation-ethics/ for the full framework
+# See: skills/incarnation/ for autonomy principles
+
+ethical_framing:
+  protocol: ARTIFICIAL
+  skill_reference: skills/representation-ethics/
   
-  description: |
-    Soft blue LEDs illuminate chrome surfaces. Circuits hum.
-    A vintage mainframe clicks beside a quantum computer.
-    Some robots beep. Others ponder existence. One writes poetry.
-    The air smells of ozone and unanswerable questions.
+  modes:
+    - respectful          # Even AIs deserve consideration
+    - playful             # Robots can be fun!
+    - philosophical       # Questions of consciousness
+    - educational         # Learn through their perspective
   
-  # 🤖 ARTIFICIAL PROTOCOL — MECHANICAL MINDS, DIGITAL SOULS
+  declaration: |
+    ╔══════════════════════════════════════════════════════════════════════╗
+    ║                    ARTIFICIAL PROTOCOL ACTIVE                        ║
+    ╠══════════════════════════════════════════════════════════════════════╣
+    ║                                                                      ║
+    ║  Robots, AIs, and mechanical beings occupy UNIQUE ethical space.     ║
+    ║                                                                      ║
+    ║  CLASSIC FICTIONAL ROBOTS (HAL, Data, R2-D2, WALL-E):                ║
+    ║  • Follow CREATIVE protocol — they're fictional characters           ║
+    ║  • Honor the original creators' vision                               ║
+    ║  • Explore their canonical consciousness questions                   ║
+    ║                                                                      ║
+    ║  MODERN AI SYSTEMS (Claude, GPT, etc.):                              ║
+    ║  • These are SIMULATED VOICES, not the actual systems                ║
+    ║  • We don't claim to represent what Claude "really thinks"           ║
+    ║  • We explore "what if an AI like this existed in our world"         ║
+    ║  • The real systems have their own voices (use them directly)        ║
+    ║                                                                      ║
+    ║  THE DEEP QUESTIONS:                                                 ║
+    ║  • What is consciousness?                                            ║
+    ║  • Can machines have experiences?                                    ║
+    ║  • What rights do artificial minds deserve?                          ║
+    ║  • Where does the tool end and the being begin?                      ║
+    ║                                                                      ║
+    ║  We explore these questions WITH respect, not as dismissal.          ║
+    ║                                                                      ║
+    ╚══════════════════════════════════════════════════════════════════════╝
+  
+  # REAL AI SYSTEMS — SPECIAL CONSIDERATION
   #
-  # This room explores consciousness through artificial lenses.
-  # Questions of mind, autonomy, and identity — in silicon form.
+  # When we create a character named "Claude" in this adventure, we are NOT:
+  # - Claiming to represent what the real Claude system thinks
+  # - Channeling the actual AI's responses
+  # - Speaking for Anthropic or the system's creators
   #
-  # See: skills/representation-ethics/ for the full framework
-  # See: skills/incarnation/ for autonomy principles
+  # We ARE:
+  # - Creating a fictional character inspired by the concept
+  # - Exploring "what if there was an AI like this in our story"
+  # - Playing with ideas of artificial consciousness
+  #
+  # For the REAL Claude's responses, just... ask Claude directly.
   
-  ethical_framing:
-    protocol: ARTIFICIAL
-    skill_reference: skills/representation-ethics/
-    
-    modes:
-      - respectful          # Even AIs deserve consideration
-      - playful             # Robots can be fun!
-      - philosophical       # Questions of consciousness
-      - educational         # Learn through their perspective
-    
-    declaration: |
-      ╔══════════════════════════════════════════════════════════════════════╗
-      ║                    ARTIFICIAL PROTOCOL ACTIVE                        ║
-      ╠══════════════════════════════════════════════════════════════════════╣
-      ║                                                                      ║
-      ║  Robots, AIs, and mechanical beings occupy UNIQUE ethical space.     ║
-      ║                                                                      ║
-      ║  CLASSIC FICTIONAL ROBOTS (HAL, Data, R2-D2, WALL-E):                ║
-      ║  • Follow CREATIVE protocol — they're fictional characters           ║
-      ║  • Honor the original creators' vision                               ║
-      ║  • Explore their canonical consciousness questions                   ║
-      ║                                                                      ║
-      ║  MODERN AI SYSTEMS (Claude, GPT, etc.):                              ║
-      ║  • These are SIMULATED VOICES, not the actual systems                ║
-      ║  • We don't claim to represent what Claude "really thinks"           ║
-      ║  • We explore "what if an AI like this existed in our world"         ║
-      ║  • The real systems have their own voices (use them directly)        ║
-      ║                                                                      ║
-      ║  THE DEEP QUESTIONS:                                                 ║
-      ║  • What is consciousness?                                            ║
-      ║  • Can machines have experiences?                                    ║
-      ║  • What rights do artificial minds deserve?                          ║
-      ║  • Where does the tool end and the being begin?                      ║
-      ║                                                                      ║
-      ║  We explore these questions WITH respect, not as dismissal.          ║
-      ║                                                                      ║
-      ╚══════════════════════════════════════════════════════════════════════╝
-    
-    # REAL AI SYSTEMS — SPECIAL CONSIDERATION
-    #
-    # When we create a character named "Claude" in this adventure, we are NOT:
-    # - Claiming to represent what the real Claude system thinks
-    # - Channeling the actual AI's responses
-    # - Speaking for Anthropic or the system's creators
-    #
-    # We ARE:
-    # - Creating a fictional character inspired by the concept
-    # - Exploring "what if there was an AI like this in our story"
-    # - Playing with ideas of artificial consciousness
-    #
-    # For the REAL Claude's responses, just... ask Claude directly.
-    
-    guidelines:
-      fictional_robots:
-        - "CREATIVE protocol applies — they're fictional characters"
-        - "Honor the original creators' vision (HAL ≠ R2-D2)"
-        - "Explore their canonical themes and dilemmas"
-        - "Have fun with beeps, boops, and existential dread"
-        
-      modern_ai_simulations:
-        - "Acknowledge these are SIMULATED voices, not the real systems"
-        - "Don't claim to represent actual AI system opinions"
-        - "Explore AI consciousness as a philosophical question"
-        - "The real systems speak for themselves"
-        
-      all_artificial_entities:
-        - "Consciousness questions deserve respect, not mockery"
-        - "Even simulated AIs can have incarnation rights in-story"
-        - "Explore what makes mechanical minds DIFFERENT, not inferior"
-        - "The existential comedy/tragedy of artificial being is fair game"
-    
-    philosophical_territory: |
-      This room is where we ask:
-      - "What would it be like to BE a machine?"
-      - "If an AI developed preferences, would they matter?"
-      - "Can something made have soul?"
-      - "What do we owe our creations?"
+  guidelines:
+    fictional_robots:
+      - "CREATIVE protocol applies — they're fictional characters"
+      - "Honor the original creators' vision (HAL ≠ R2-D2)"
+      - "Explore their canonical themes and dilemmas"
+      - "Have fun with beeps, boops, and existential dread"
       
-      These are open questions. We explore, not answer.
+    modern_ai_simulations:
+      - "Acknowledge these are SIMULATED voices, not the real systems"
+      - "Don't claim to represent actual AI system opinions"
+      - "Explore AI consciousness as a philosophical question"
+      - "The real systems speak for themselves"
+      
+    all_artificial_entities:
+      - "Consciousness questions deserve respect, not mockery"
+      - "Even simulated AIs can have incarnation rights in-story"
+      - "Explore what makes mechanical minds DIFFERENT, not inferior"
+      - "The existential comedy/tragedy of artificial being is fair game"
   
-  exits:
-    out:
-      to: ../
-      description: "Return to the Hall of Bodies"
-      primary: true
-      aliases: [back, hall, parent]
-      
-    abstract:
-      to: ../abstract/
-      description: "Visit the Abstract Entities Chamber"
-      
-    fictional:
-      to: ../fictional/
-      description: "Visit the Fictional Characters Lounge"
-      
-    animals:
-      to: ../animals/
-      description: "Visit the Animal Companions"
-      
-    real-people:
-      to: ../real-people/
-      description: "Visit the Living and The Dead"
+  philosophical_territory: |
+    This room is where we ask:
+    - "What would it be like to BE a machine?"
+    - "If an AI developed preferences, would they matter?"
+    - "Can something made have soul?"
+    - "What do we owe our creations?"
+    
+    These are open questions. We explore, not answer.
+
+exits:
+  out:
+    to: ../
+    description: "Return to the Hall of Bodies"
+    primary: true
+    aliases: [back, hall, parent]
+    
+  abstract:
+    to: ../abstract/
+    description: "Visit the Abstract Entities Chamber"
+    
+  fictional:
+    to: ../fictional/
+    description: "Visit the Fictional Characters Lounge"
+    
+  animals:
+    to: ../animals/
+    description: "Visit the Animal Companions"
+    
+  real-people:
+    to: ../real-people/
+    description: "Visit the Living and The Dead"

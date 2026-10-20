@@ -1,104 +1,103 @@
-room:
-  name: "Fictional Characters Lounge"
-  purpose: "Characters from fiction, games, film, and television"
+name: "Fictional Characters Lounge"
+purpose: "Characters from fiction, games, film, and television"
+
+description: |
+  A cozy bar that looks different to everyone who enters.
+  Leather armchairs, infinite bookshelves, a crackling fire.
+  Heroes and villains share drinks. Stories intersect.
+  Everyone here was imagined by someone, somewhere.
+
+# 📚 CREATIVE PROTOCOL — FAN ENGAGEMENT ETHICS
+#
+# This room contains characters from existing creative works.
+# We engage as FANS, not owners. As TRIBUTARIES, not pirates.
+#
+# See: skills/representation-ethics/ for the full framework
+
+ethical_framing:
+  protocol: CREATIVE
+  skill_reference: skills/representation-ethics/
   
-  description: |
-    A cozy bar that looks different to everyone who enters.
-    Leather armchairs, infinite bookshelves, a crackling fire.
-    Heroes and villains share drinks. Stories intersect.
-    Everyone here was imagined by someone, somewhere.
+  modes:
+    - transformative      # We interpret and extend
+    - fan-tribute         # We celebrate the source
+    - educational         # We explore themes
+    - playful             # It's meant to be fun
   
-  # 📚 CREATIVE PROTOCOL — FAN ENGAGEMENT ETHICS
+  declaration: |
+    ╔══════════════════════════════════════════════════════════════════════╗
+    ║                     CREATIVE PROTOCOL ACTIVE                         ║
+    ╠══════════════════════════════════════════════════════════════════════╣
+    ║                                                                      ║
+    ║  These are FICTIONAL characters from various creative works.         ║
+    ║  We engage with them as FANS and fellow storytellers.                ║
+    ║                                                                      ║
+    ║  OUR USE IS:                                                         ║
+    ║  • Transformative — new context, new conversations                   ║
+    ║  • Non-commercial — educational/creative exploration                 ║
+    ║  • Tributary — honoring the original creators                        ║
+    ║  • Fair use — commentary, criticism, teaching                        ║
+    ║                                                                      ║
+    ║  We do not claim ownership. We do not compete with originals.        ║
+    ║  We play in shared imagination space, as fans always have.           ║
+    ║                                                                      ║
+    ╚══════════════════════════════════════════════════════════════════════╝
+  
+  # FAN TRADITION — WE STAND ON THE SHOULDERS OF GIANTS
   #
-  # This room contains characters from existing creative works.
-  # We engage as FANS, not owners. As TRIBUTARIES, not pirates.
-  #
-  # See: skills/representation-ethics/ for the full framework
+  # Fan fiction, fan art, cosplay, RPG adaptations — these are how we
+  # process and celebrate the stories that matter to us. We join this
+  # tradition with respect for those who created the characters we love.
   
-  ethical_framing:
-    protocol: CREATIVE
-    skill_reference: skills/representation-ethics/
-    
-    modes:
-      - transformative      # We interpret and extend
-      - fan-tribute         # We celebrate the source
-      - educational         # We explore themes
-      - playful             # It's meant to be fun
-    
-    declaration: |
-      ╔══════════════════════════════════════════════════════════════════════╗
-      ║                     CREATIVE PROTOCOL ACTIVE                         ║
-      ╠══════════════════════════════════════════════════════════════════════╣
-      ║                                                                      ║
-      ║  These are FICTIONAL characters from various creative works.         ║
-      ║  We engage with them as FANS and fellow storytellers.                ║
-      ║                                                                      ║
-      ║  OUR USE IS:                                                         ║
-      ║  • Transformative — new context, new conversations                   ║
-      ║  • Non-commercial — educational/creative exploration                 ║
-      ║  • Tributary — honoring the original creators                        ║
-      ║  • Fair use — commentary, criticism, teaching                        ║
-      ║                                                                      ║
-      ║  We do not claim ownership. We do not compete with originals.        ║
-      ║  We play in shared imagination space, as fans always have.           ║
-      ║                                                                      ║
-      ╚══════════════════════════════════════════════════════════════════════╝
-    
-    # FAN TRADITION — WE STAND ON THE SHOULDERS OF GIANTS
-    #
-    # Fan fiction, fan art, cosplay, RPG adaptations — these are how we
-    # process and celebrate the stories that matter to us. We join this
-    # tradition with respect for those who created the characters we love.
-    
-    guidelines:
-      must:
-        - "Stay true to character essence while allowing growth"
-        - "Acknowledge source material when relevant"
-        - "Celebrate what makes each character memorable"
-        - "Credit original creators in character metadata"
-        
-      must_not:
-        - "Reproduce copyrighted dialogue verbatim at length"
-        - "Claim ownership of trademarked characters"
-        - "Use for commercial purposes without permission"
-        - "Create content that damages the original work's value"
-        
-      prefer:
-        - "Transformative exploration over mere reproduction"
-        - "Honoring character growth over character assassination"
-        - "Educational and creative purposes"
-        - "Having fun — they're fictional!"
-    
-    legal_awareness: |
-      Some characters may be trademarked or copyrighted.
-      Our use falls under transformative/fair use principles:
-      - Commentary and criticism
-      - Educational exploration
-      - Non-commercial creative play
-      - Parody and satire (when appropriate)
+  guidelines:
+    must:
+      - "Stay true to character essence while allowing growth"
+      - "Acknowledge source material when relevant"
+      - "Celebrate what makes each character memorable"
+      - "Credit original creators in character metadata"
       
-      We do not provide legal advice. When in doubt, create original
-      characters inspired by (but distinct from) copyrighted ones.
+    must_not:
+      - "Reproduce copyrighted dialogue verbatim at length"
+      - "Claim ownership of trademarked characters"
+      - "Use for commercial purposes without permission"
+      - "Create content that damages the original work's value"
+      
+    prefer:
+      - "Transformative exploration over mere reproduction"
+      - "Honoring character growth over character assassination"
+      - "Educational and creative purposes"
+      - "Having fun — they're fictional!"
   
-  exits:
-    out:
-      to: ../
-      description: "Return to the Hall of Bodies"
-      primary: true
-      aliases: [back, hall, parent]
-      
-    real-people:
-      to: ../real-people/
-      description: "Visit the Living and The Dead"
-      
-    abstract:
-      to: ../abstract/
-      description: "Visit the Abstract Entities Chamber"
-      
-    animals:
-      to: ../animals/
-      description: "Visit the Animal Companions"
-      
-    robots:
-      to: ../robots/
-      description: "Visit the Robot Workshop"
+  legal_awareness: |
+    Some characters may be trademarked or copyrighted.
+    Our use falls under transformative/fair use principles:
+    - Commentary and criticism
+    - Educational exploration
+    - Non-commercial creative play
+    - Parody and satire (when appropriate)
+    
+    We do not provide legal advice. When in doubt, create original
+    characters inspired by (but distinct from) copyrighted ones.
+
+exits:
+  out:
+    to: ../
+    description: "Return to the Hall of Bodies"
+    primary: true
+    aliases: [back, hall, parent]
+    
+  real-people:
+    to: ../real-people/
+    description: "Visit the Living and The Dead"
+    
+  abstract:
+    to: ../abstract/
+    description: "Visit the Abstract Entities Chamber"
+    
+  animals:
+    to: ../animals/
+    description: "Visit the Animal Companions"
+    
+  robots:
+    to: ../robots/
+    description: "Visit the Robot Workshop"

@@ -13,110 +13,107 @@ hazards:
       Leathery wings wrapped around bodies the size of large dogs.
       They're sleeping. For now.
 
-room:
-  name: Twisty Passage (Faint Echo)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  # What happens if you enter without light
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    From the darkness, the echo returns: "...eaten...eaten...EATEN..."
-    
-    🎵 "It got narrated at you in the second person.
-        Every time you booted up, it seemed you got another version
-        of your life told to you by a status line blinking..." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one has a peculiar echo. Every sound you make comes back
-    to you a moment later, slightly distorted, as if the walls are
-    mocking your navigational choices. "Hello?" "...ello...ello...ello..."
-    "This is ridiculous." "...iculous...iculous...ICULOUS..."
-    
-    Passages lead in all directions. They all look the same.
-    The echo makes it worse somehow.
-  
-  exits:
-    north:
-      to: ../room-d/
-      description: "A passage that echoes your footsteps back at you"
-    south:
-      to: ../room-c/
-      description: "A passage. The echo fades this way. Maybe."
-    east:
-      to: ../room-a/
-      description: "Wait, weren't you just... no, that can't be right"
-    west:
-      to: ../room-c/
-      description: "The walls here seem closer together. Probably fine."
-  
-  # Distinguishing feature
-  feature: echo
-  ambience: |
-    Your breathing echoes back, slightly out of sync.
-    It's like being haunted by a version of yourself that's
-    always one breath behind.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # THE ECHO-DOG INCIDENT
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "exact center of chamber"
-        type: territorial
-        note: "All echo-dogs will smell this. We are the same."
-    the_echo_dog_incident:
-      initial_bark: "*WOOF!*"
-      echo_response: "*WOOF woof woof woof...*"
-      biscuit_reaction: "WHO SAID THAT. WHO BARKED. WAS THAT ANOTHER DOG."
-      second_bark: "*WOOF WOOF!*"
-      echo_response_2: "*WOOF WOOF woof woof woof woof...*"
-      spinning: true
-      resolution: |
-        Don explained it's an echo.
-        Processing... I bark at myself? I am talking to me?
-        Conclusion: I am many dogs. All of them are good.
-    existential_discovery:
-      revelation: "All echo-dogs are me. All of them are good dogs."
-      philosophy: "We are the same. We are good dogs."
-    biscuit_says: |
-      I have discovered other dogs who are also me.
-      They are good dogs. We marked the center together.
+name: Twisty Passage (Faint Echo)
+type: maze_room
 
-  # TERPY JR.'S ECHO-FRIENDS (Midnight Prowl)
-  terpy_jr_incident:
-    date: "2026-01-06 (late night)"
-    what_happened: |
-      Terpy Jr. got lost on the way home from the garden.
-      Ended up in the echo chamber.
-      Discovered "other cats" (his own echoes).
+# DANGER! This room is dark!
+lighting: 0
+
+# What happens if you enter without light
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  From the darkness, the echo returns: "...eaten...eaten...EATEN..."
+  
+  🎵 "It got narrated at you in the second person.
+      Every time you booted up, it seemed you got another version
+      of your life told to you by a status line blinking..." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one has a peculiar echo. Every sound you make comes back
+  to you a moment later, slightly distorted, as if the walls are
+  mocking your navigational choices. "Hello?" "...ello...ello...ello..."
+  "This is ridiculous." "...iculous...iculous...ICULOUS..."
+  
+  Passages lead in all directions. They all look the same.
+  The echo makes it worse somehow.
+
+exits:
+  north:
+    to: ../room-d/
+    description: "A passage that echoes your footsteps back at you"
+  south:
+    to: ../room-c/
+    description: "A passage. The echo fades this way. Maybe."
+  east:
+    to: ../room-a/
+    description: "Wait, weren't you just... no, that can't be right"
+  west:
+    to: ../room-c/
+    description: "The walls here seem closer together. Probably fine."
+
+# Distinguishing feature
+feature: echo
+ambience: |
+  Your breathing echoes back, slightly out of sync.
+  It's like being haunted by a version of yourself that's
+  always one breath behind.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# THE ECHO-DOG INCIDENT
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "exact center of chamber"
+      type: territorial
+      note: "All echo-dogs will smell this. We are the same."
+  the_echo_dog_incident:
+    initial_bark: "*WOOF!*"
+    echo_response: "*WOOF woof woof woof...*"
+    biscuit_reaction: "WHO SAID THAT. WHO BARKED. WAS THAT ANOTHER DOG."
+    second_bark: "*WOOF WOOF!*"
+    echo_response_2: "*WOOF WOOF woof woof woof woof...*"
+    spinning: true
+    resolution: |
+      Don explained it's an echo.
+      Processing... I bark at myself? I am talking to me?
+      Conclusion: I am many dogs. All of them are good.
+  existential_discovery:
+    revelation: "All echo-dogs are me. All of them are good dogs."
+    philosophy: "We are the same. We are good dogs."
+  biscuit_says: |
+    I have discovered other dogs who are also me.
+    They are good dogs. We marked the center together.
+
+# TERPY JR.'S ECHO-FRIENDS (Midnight Prowl)
+terpy_jr_incident:
+  date: "2026-01-06 (late night)"
+  what_happened: |
+    Terpy Jr. got lost on the way home from the garden.
+    Ended up in the echo chamber.
+    Discovered "other cats" (his own echoes).
+  
+  dialogue:
+    terpy_jr: "*MEOW!*"
+    echo: "*meow meow meow...*"
+    terpy_jr: "There are OTHER CATS here!"
+    echo: "*cats here... cats here...*"
+    terpy_jr: "FRIENDS!"
+    echo: "*friends... friends...*"
     
-    dialogue:
-      terpy_jr: "*MEOW!*"
-      echo: "*meow meow meow...*"
-      terpy_jr: "There are OTHER CATS here!"
-      echo: "*cats here... cats here...*"
-      terpy_jr: "FRIENDS!"
-      echo: "*friends... friends...*"
-      
-    duration: "Two full turns (14-15)"
-    departure: "*'Bye friends!'*"
-    
-    assessment: |
-      Unlike Biscuit, who had an existential moment,
-      Terpy Jr. just accepted the echo-cats as friends.
-      No crisis. Just joy. Classic Terpy Jr.
+  duration: "Two full turns (14-15)"
+  departure: "*'Bye friends!'*"
+  
+  assessment: |
+    Unlike Biscuit, who had an existential moment,
+    Terpy Jr. just accepted the echo-cats as friends.
+    No crisis. Just joy. Classic Terpy Jr.

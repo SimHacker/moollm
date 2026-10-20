@@ -9,148 +9,145 @@ wumpus_warnings:
   adjacent_hazards:
     south: wumpus            # room-e — DANGER
 
-room:
-  name: "The Cold Spot"
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false  # 💀 THE GRUE LIVES HERE!
-  requires_light: true
-  
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    The cold seeps into your bones first. Then you hear it breathe.
-    Something vast and hungry, made of pure darkness, has found you.
-    
-    🎵 "So be advised, when entering the cave,
-        to not go in past the first room alone,
-        that glow's the only thing will save
-        your carcass from a monster's toothy moan." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-    
-    (A previous adventurer slew a grue here once, with blue cheese.
-    But grues respawn. They always respawn. In the dark, they wait.)
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one is COLD. Supernaturally cold. The kind of cold that
-    suggests something is drinking the heat out of the air. Something
-    that doesn't need warmth. Something that feeds on its absence.
-    
-    Your lamp flickers. Is it the cold? Or is something watching?
-    
-    In one corner, barely visible in the lamplight: A PILE OF GOLD COINS!
-    At least 100 of them! Someone left a fortune here and never returned...
-    
-  feature: cold_spot
-  
-  objects:
-    - gold-pile.yml  # 100 gold coins! A fortune!
-  
-  # The cold drains lamp oil faster
-  special_effect:
-    oil_drain: 1.5x
-    reason: "Supernatural cold thickens the oil"
-    grue_proximity: HIGH  # The grue considers this home
-  
-  exits:
-    north:
-      to: ../room-h/
-      description: "A faint green glow from that direction. Mushrooms?"
-    south:
-      to: ../room-e/
-      description: "The passage is warmer that way."
-    east:
-      to: ../room-a/
-      description: "You can smell sulfur from here."
-    west:
-      to: ../room-i/
-      description: |
-        The coldest exit. Something pale gleams in the darkness.
-        Is that... bone?
-  
-  ambience: |
-    Your breath frosts in the air. The lamp's flame shrinks and
-    struggles. Every shadow seems to move when you're not looking
-    directly at it.
-    
-    The gold gleams, mocking you. Why would someone leave so much
-    treasure in a grue's lair? Unless they had no choice...
-    
-  # History from adventure-2 (preserved as legend)
-  legends: |
-    Adventurers tell of a hero named Captain Ashford who once slew
-    the grue that lived here, using a wedge of blue cheese as a weapon.
-    They say you can still smell the cheese in the walls.
-    
-    But grues respawn. In the dark places of the world, new grues
-    always come. This one is young and hungry.
-    
-    Will you be its first meal? Or its last?
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # THE DRAGON ROOM DIPLOMACY
-  biscuit_markings:
-    date: "2026-01-06"
-    marked: []  # DELIBERATELY EMPTY
-    why_no_marking: |
-      Biscuit explicitly chose NOT to mark this room.
-      "Some rooms do not need to know about me. This room knows enough."
-    detected_smells:
-      - smell: "smoke, old fire"
-        location: "pervasive"
-        assessment: "Big. Very big. Sleeping."
-      - smell: "dreams"
-        location: "from the sleeping thing"
-        assessment: "It dreams loudly. I can smell its dreams."
-      - smell: "danger"
-        location: "everywhere"
-        assessment: "Hackles rose. Stayed close to Don."
-    the_dragon_incident:
-      detected: "large sleeping creature (definitely not rocks)"
-      response: "Froze. Hackles up. Whispered woof."
-      protective_instinct: "Positioned between Don and threat"
-      marking_decision: "NO. Absolutely not."
-      reason: "Practical bravery — some things don't need provocation"
-    grue_note: |
-      The grue that lives here sensed Biscuit.
-      Dogs scare grues — all that barking and enthusiasm.
-      The grue stayed back in the shadows, uncertain.
-      But we kept the lamp lit anyway: needed to SEE the dragon,
-      not just scare off grues.
-    biscuit_whispered: |
-      I will protect you from the big sleeping smoke-thing.
-      If it wakes up. But I hope it does not wake up.
-      I am brave. I am also practical.
-      (Also I noticed the grue. It noticed me. We had an understanding.)
+name: "The Cold Spot"
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks: []  # NONE — cats also respect sleeping dragons
-    
-    terpy_jr_visit:
-      passed_through: true
-      on_chaos_route: true
-      reaction: |
-        Felt the cold. Saw the shape.
-        "Big. Too big. Sleeping. Good."
-        Did NOT mark. Kept moving quickly.
-        Even Terpy Jr. knows better.
-        
-    assessment: |
-      Both dog and cats show same wisdom:
-      Do not disturb. Do not mark.
-      Let sleeping dragons lie.
+# DANGER! This room is dark!
+lighting: 0
+
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  The cold seeps into your bones first. Then you hear it breathe.
+  Something vast and hungry, made of pure darkness, has found you.
+  
+  🎵 "So be advised, when entering the cave,
+      to not go in past the first room alone,
+      that glow's the only thing will save
+      your carcass from a monster's toothy moan." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+  
+  (A previous adventurer slew a grue here once, with blue cheese.
+  But grues respawn. They always respawn. In the dark, they wait.)
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one is COLD. Supernaturally cold. The kind of cold that
+  suggests something is drinking the heat out of the air. Something
+  that doesn't need warmth. Something that feeds on its absence.
+  
+  Your lamp flickers. Is it the cold? Or is something watching?
+  
+  In one corner, barely visible in the lamplight: A PILE OF GOLD COINS!
+  At least 100 of them! Someone left a fortune here and never returned...
+  
+feature: cold_spot
+
+objects:
+  - gold-pile.yml  # 100 gold coins! A fortune!
+
+# The cold drains lamp oil faster
+special_effect:
+  oil_drain: 1.5x
+  reason: "Supernatural cold thickens the oil"
+  grue_proximity: HIGH  # The grue considers this home
+
+exits:
+  north:
+    to: ../room-h/
+    description: "A faint green glow from that direction. Mushrooms?"
+  south:
+    to: ../room-e/
+    description: "The passage is warmer that way."
+  east:
+    to: ../room-a/
+    description: "You can smell sulfur from here."
+  west:
+    to: ../room-i/
+    description: |
+      The coldest exit. Something pale gleams in the darkness.
+      Is that... bone?
+
+ambience: |
+  Your breath frosts in the air. The lamp's flame shrinks and
+  struggles. Every shadow seems to move when you're not looking
+  directly at it.
+  
+  The gold gleams, mocking you. Why would someone leave so much
+  treasure in a grue's lair? Unless they had no choice...
+  
+# History from adventure-2 (preserved as legend)
+legends: |
+  Adventurers tell of a hero named Captain Ashford who once slew
+  the grue that lived here, using a wedge of blue cheese as a weapon.
+  They say you can still smell the cheese in the walls.
+  
+  But grues respawn. In the dark places of the world, new grues
+  always come. This one is young and hungry.
+  
+  Will you be its first meal? Or its last?
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# THE DRAGON ROOM DIPLOMACY
+biscuit_markings:
+  date: "2026-01-06"
+  marked: []  # DELIBERATELY EMPTY
+  why_no_marking: |
+    Biscuit explicitly chose NOT to mark this room.
+    "Some rooms do not need to know about me. This room knows enough."
+  detected_smells:
+    - smell: "smoke, old fire"
+      location: "pervasive"
+      assessment: "Big. Very big. Sleeping."
+    - smell: "dreams"
+      location: "from the sleeping thing"
+      assessment: "It dreams loudly. I can smell its dreams."
+    - smell: "danger"
+      location: "everywhere"
+      assessment: "Hackles rose. Stayed close to Don."
+  the_dragon_incident:
+    detected: "large sleeping creature (definitely not rocks)"
+    response: "Froze. Hackles up. Whispered woof."
+    protective_instinct: "Positioned between Don and threat"
+    marking_decision: "NO. Absolutely not."
+    reason: "Practical bravery — some things don't need provocation"
+  grue_note: |
+    The grue that lives here sensed Biscuit.
+    Dogs scare grues — all that barking and enthusiasm.
+    The grue stayed back in the shadows, uncertain.
+    But we kept the lamp lit anyway: needed to SEE the dragon,
+    not just scare off grues.
+  biscuit_whispered: |
+    I will protect you from the big sleeping smoke-thing.
+    If it wakes up. But I hope it does not wake up.
+    I am brave. I am also practical.
+    (Also I noticed the grue. It noticed me. We had an understanding.)
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks: []  # NONE — cats also respect sleeping dragons
+  
+  terpy_jr_visit:
+    passed_through: true
+    on_chaos_route: true
+    reaction: |
+      Felt the cold. Saw the shape.
+      "Big. Too big. Sleeping. Good."
+      Did NOT mark. Kept moving quickly.
+      Even Terpy Jr. knows better.
       
-      The dragon remains blissfully unaware of the
-      midnight parade of small creatures passing through.
+  assessment: |
+    Both dog and cats show same wisdom:
+    Do not disturb. Do not mark.
+    Let sleeping dragons lie.
+    
+    The dragon remains blissfully unaware of the
+    midnight parade of small creatures passing through.

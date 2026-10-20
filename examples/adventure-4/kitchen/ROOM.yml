@@ -1,77 +1,75 @@
 # The Kitchen
 # A well-stocked larder for the discerning adventurer
 
-room:
-  name: Fantastipants Family Kitchen
-  type: room
+name: Fantastipants Family Kitchen
+type: room
+
+# This room is safe!
+lighting: 7  # magical
+
+description: |
+  You stand in a cozy kitchen that feels oddly familiar — perhaps because
+  it's an EXACT replica of the Fantastipants family kitchen from 
+  Wobblebrook-upon-Squiggle. Someone has gone to considerable trouble
+  to recreate it underground, right down to the motivational embroidery
+  that reads "BLESS THIS MESS (BUT ALSO CLEAN IT UP, BUMBLEWICK)".
   
-  # This room is safe!
-  lighting: magical
-  grue_safe: true
+  A REFRIGERATOR hums contentedly in the corner, stuffed with provisions.
+  A STOVE sits cold and patient. A SINK contains the eternal mystery
+  of dishes that weren't there a moment ago. A TABLE holds a note,
+  a notebook, a lunchbox, and something that chirps.
   
-  description: |
-    You stand in a cozy kitchen that feels oddly familiar — perhaps because
-    it's an EXACT replica of the Fantastipants family kitchen from 
-    Wobblebrook-upon-Squiggle. Someone has gone to considerable trouble
-    to recreate it underground, right down to the motivational embroidery
-    that reads "BLESS THIS MESS (BUT ALSO CLEAN IT UP, BUMBLEWICK)".
-    
-    A REFRIGERATOR hums contentedly in the corner, stuffed with provisions.
-    A STOVE sits cold and patient. A SINK contains the eternal mystery
-    of dishes that weren't there a moment ago. A TABLE holds a note,
-    a notebook, a lunchbox, and something that chirps.
-    
-    A long granite COUNTER runs along one wall, shimmering slightly.
-    It's a CRAFTING TABLE — for combining, transforming, and creating things.
-    
-    By the door, a brass MAILBOX is mounted on the wall. The Fantastipants
-    Dungeon Delivery Service has been running since 1876. Write to anyone,
-    anywhere — Mother, the skeleton's family, even historical adventurers.
-    
-    In the corner, a TRASH CAN lurks. It's deeper than it looks.
-    
-    The exit EAST leads to the pub's garden — outdoor dining!
-    The exit NORTHEAST is a staff shortcut diagonally to the pub bar.
-    
-    (Kitchen is WEST of Garden, so exit EAST goes to Garden.)
+  A long granite COUNTER runs along one wall, shimmering slightly.
+  It's a CRAFTING TABLE — for combining, transforming, and creating things.
   
-  occupants: []
+  By the door, a brass MAILBOX is mounted on the wall. The Fantastipants
+  Dungeon Delivery Service has been running since 1876. Write to anyone,
+  anywhere — Mother, the skeleton's family, even historical adventurers.
   
-  objects:
-    - fridge.yml
-    - stove.yml
-    - sink.yml
-    - table.yml
-    - counter.yml
-    - mailbox.yml
-    - trashcan.yml
+  In the corner, a TRASH CAN lurks. It's deeper than it looks.
   
-  exits:
-    east:
-      to: ../garden/
-      description: |
-        The garden gate leads to the pub's back garden — tables,
-        chairs, flowers, and the comforting smell of ale from the pub.
-        The outdoor dining area. Your domain.
-        
-    northeast:
-      to: ../pub/
-      description: |
-        A narrow service corridor cuts diagonally through to the pub.
-        Swinging doors, worn smooth by decades of servers carrying trays.
-        The smell of ale grows stronger. You can hear the murmur of
-        patrons and the clink of glasses.
-        
-        "STAFF SHORTCUT — Mind the wet floor"
-      aliases: [pub, bar, corridor, shortcut, staff]
+  The exit EAST leads to the pub's garden — outdoor dining!
+  The exit NORTHEAST is a staff shortcut diagonally to the pub bar.
   
-  world_position:
-    x: -1
-    y: 0
-    
-  ambience: |
-    The fridge hums. A clock ticks somewhere. The smell of home cooking
-    lingers, though nothing is cooking. It's the MEMORY of cooking.
-    
-    This kitchen exists specifically so you have food to drop in the maze.
-    We're not being subtle about it.
+  (Kitchen is WEST of Garden, so exit EAST goes to Garden.)
+
+occupants: []
+
+objects:
+  - fridge.yml
+  - stove.yml
+  - sink.yml
+  - table.yml
+  - counter.yml
+  - mailbox.yml
+  - trashcan.yml
+
+exits:
+  east:
+    to: ../garden/
+    description: |
+      The garden gate leads to the pub's back garden — tables,
+      chairs, flowers, and the comforting smell of ale from the pub.
+      The outdoor dining area. Your domain.
+      
+  northeast:
+    to: ../pub/
+    description: |
+      A narrow service corridor cuts diagonally through to the pub.
+      Swinging doors, worn smooth by decades of servers carrying trays.
+      The smell of ale grows stronger. You can hear the murmur of
+      patrons and the clink of glasses.
+      
+      "STAFF SHORTCUT — Mind the wet floor"
+    aliases: [pub, bar, corridor, shortcut, staff]
+
+world_position:
+  x: -1
+  y: 0
+  
+ambience: |
+  The fridge hums. A clock ticks somewhere. The smell of home cooking
+  lingers, though nothing is cooking. It's the MEMORY of cooking.
+  
+  This kitchen exists specifically so you have food to drop in the maze.
+  We're not being subtle about it.

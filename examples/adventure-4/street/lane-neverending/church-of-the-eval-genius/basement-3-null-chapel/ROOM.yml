@@ -1,25 +1,24 @@
-room:
-  name: "Null Chapel"
-  type: silence
-  
-  description: |
-    A small room with no decorations. The purpose is simple:
-    sit in silence before you declare anything at all.
-    
-  examine: |
-    The only text is a single line etched into stone:
-    "SILENCE IS ALSO A SCORE."
-    
-  exits:
-    up:
-      to: ../
-      description: "Back to the nave."
-      aliases: [up, stairs]
+name: "Null Chapel"
+type: silence
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/PAUSE-MARK-STORY.md
-      why: "Pause before judgment; the mark that is not yet a score"
+description: |
+  A small room with no decorations. The purpose is simple:
+  sit in silence before you declare anything at all.
+  
+examine: |
+  The only text is a single line etched into stone:
+  "SILENCE IS ALSO A SCORE."
+  
+exits:
+  up:
+    to: ../
+    description: "Back to the nave."
+    aliases: [up, stairs]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/PAUSE-MARK-STORY.md
+    why: "Pause before judgment; the mark that is not yet a score"

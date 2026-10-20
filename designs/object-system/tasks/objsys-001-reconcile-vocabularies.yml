@@ -1,0 +1,158 @@
+# Ongoing: reconcile the object-system vocabularies.
+# The canonical form: designs/object-system/SCHEMA.md
+# The map of what grew and why: designs/object-system/VOCABULARY-CLUSTERS.md
+# This task stays open across sessions. Each batch closes on its own; the task closes
+# when `lint --strict` passes.
+
+id: objsys-001
+title: "Reconcile the organic YAML vocabularies into one normalized object schema"
+why: >
+  The object system is what we point Self people and HN readers at. A reader who finds
+  `inherits:` meaning "my parents" in one file and "my children's defaults" in the next
+  stops trusting the rest. One meaning per key, every spelling still accepted on read.
+done_when: "python3 skills/prototype/scripts/resolve.py lint --strict"
+# Each new rule gets a lint check before its migration starts, so the guard grows
+# with the work.
+priority: high
+owner: null
+source: designs/object-system/VOCABULARY-CLUSTERS.md
+history:
+  - { at: 2026-10-20, event: opened, by: don }
+  - { at: 2026-10-20, event: decided, by: don, note: "inherits:, defaults:, hyphens in files" }
+  - { at: 2026-10-20, event: decided, by: don, note: "flat files, no envelopes; UPPERCASE file implies its skill, scoped, latent by default; views have format* and subject*; git, not timestamps" }
+  - at: 2026-10-20
+    event: batch-done
+    note: >
+      174+1 ROOM.yml flattened by flatten.py (each verified: reparsed == old read as flat).
+      Compiled adventure-4 before/after: 95 keys in 37 rooms that sat beside `room:` were
+      being silently dropped by `data.get('room', data)` and now compile in. No room lost
+      a key. examples/old/adventure-3/pub/ROOM.yml doesn't parse and stays for the
+      unparseable batch.
+  - { at: 2026-10-20, event: decided, by: don, note: "keep task, not action. goal = wanted state nobody claims; task inherits goal (a claimed goal); action = one queued step. done_when: is the one condition key" }
+  - at: 2026-10-20
+    event: batch-done
+    note: >
+      Work vocabulary. skills/task CARD inherits skills/goal (lint: 144 declaring, 259 refs).
+      complete_when and research_complete_when -> done_when in goal, task, cauldron TREE and
+      playbook template, postal, TECH-TREE; adventure.py compiles done_when and still reads
+      complete_when; lint reports the old spellings (0 left). Goal stores events, computes
+      state. action-queue says action, not task. task:/goal: wrappers flattened in both
+      object-system task files, GOAL.yml.tmpl, TASK.yml.tmpl, and every task block of
+      designs/gastown/TASKS-2026-01.md (3 unparseable blocks quoted first).
+  - { at: 2026-10-20, event: decided, by: don, note: "facts, not verdicts: rooms state lighting, the grue decides whether to hunt; grue_safe: goes" }
+  - { at: 2026-10-20, event: decided, by: don, note: "lighting: 0..10, comment modulates it (swinging bulb, colour, mood, time). GLANCE: core keys per subject type plus YAML Jazz that helps decide whether to look closer" }
+  - at: 2026-10-20
+    event: batch-done
+    note: >
+      Lighting. 129 ROOM/GLANCE files to 0..10 + comment (tasks/migrations/lighting.py, each
+      reparsed, only lighting values and dropped keys differ); grue_safe, requires_light,
+      ambient_light gone from rooms; room-h, room-j, back-alley, no-ai-overlord by hand; the
+      Eye watches: true; lamp lighting: 6; grue CHARACTER owns the guard (2 or below, nothing
+      lit brighter, nothing watching, no repellent buff); maze CONTAINER defaults lighting 0;
+      room/container skill docs and context/runtime closure examples use world.room.lighting.
+      adventure-4 compiles: 121 rooms, no grue_safe. dist/world.json is stale until recompiled.
+
+# Measured by `resolve.py lint` after the work-vocabulary batch.
+meter:
+  objects_declaring_parents: 144
+  parent_refs_to_files: 259
+  latent_parent_refs: 14            # EDITH-BUNKER, NORM-CHEERS, GUINAN-TNG... intended
+  broken_path_refs: 8               # skills/game, turtle, narrator, creature, companion
+  implied_skills_found: 495         # 14 distinct skills
+  implied_skills_latent: 673        # 199 distinct; GLANCE 347, INDEX 44, MECHANISM 21, RUN 13...
+  slots_shadowing_children: 6       # troll stomach + inventory, wumpus instances, proc sims, robin personas + minds
+  cycles: 0
+  legacy_spellings: 662             # envelope object: 349, card: 148, character: 60, then small ones
+  unparseable_yaml: 122
+
+phases:
+  - { id: survey,   status: done, out: "skills/prototype/scripts/vocab_survey.py" }
+  - { id: clusters, status: done, out: "designs/object-system/VOCABULARY-CLUSTERS.md" }
+  - { id: schema,   status: done, out: "designs/object-system/SCHEMA.md" }
+  - id: resolver
+    status: done
+    out: >
+      resolve.py: lookup, parents, lint --strict, stale. Implied scoped skill parents,
+      views, file#path embedded addressing, catalog refs (source+id), envelopes read as
+      flat, slot/child collisions, git-based staleness. flatten.py. 18 tests.
+  - id: decide
+    status: claimed
+    open:
+      - "broken skills/* parents: write the skills, or respell as K-lines?"
+      - "tier: outside skills?"
+      - "placement listing keys (objects:, characters:, residents:, contains:): retire, or hints linted against the directory?"
+      - "when: (GLANCE) and invoke_when: (CARD): one key or two?"
+      - "compiled expression keys (done_when, fail_when, score_if): hyphens per the compound-key rule, or exempt?"
+  - id: migrate
+    status: claimed
+    # One batch per row, smallest blast radius first. Each batch: run, verify, rerun the
+    # lint, record the meter in history.
+    batches:
+      - { scope: "kitten/puppy GLANCE biological parents: -> family:", files: 16, status: done }
+      - { scope: "envelope room: in ROOM.yml", files: 175, status: done }
+      - { scope: "work vocabulary: task inherits goal, done_when everywhere, task:/goal: wrappers", files: 33, status: done }
+      - { scope: "envelope card: in CARD.yml", files: 148, status: opened }
+      - { scope: "envelope character: in CHARACTER.yml", files: 60, status: opened }
+      - { scope: "envelope object: in object files", files: 349, status: opened }
+      - { scope: "small envelopes (catalog, system, adventure, mind, maze, run, ...)", files: 40, status: opened }
+      - { scope: "readers: drop data.get('room', data) fallbacks once no envelopes remain", files: 4, status: opened }
+      - { scope: "skills/*/CHARACTER.yml meta.inherits + moollm/ prefix -> top-level inherits:", files: 8, status: opened }
+      - { scope: "prototype: {source, id} -> inherits: [FILE#collection.id] (pub/basement and others)", files: 8, status: opened }
+      - { scope: "inherits: {values} -> plain slots", files: 10, status: opened }
+      - { scope: "skills/historical extends: -> inherits:", files: 1, status: opened }
+      - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 4, status: opened }
+      - { scope: "instance prototype: <ref> -> inherits: [<ref>]", files: 13, status: opened }
+      - { scope: "parent: / parents: <path>", files: 12, status: opened }
+      - { scope: "slots shadowing child directories", files: 6, status: opened }
+      - { scope: "grue_safe: out of rooms; lighting: 0..10 + comment; grue guard; maze defaults: lighting 0; the Eye watches", files: 150, status: done }
+      - { scope: "broken skills/* parents", files: 5, status: waiting-on-don }
+      - { scope: "k_lines / klines -> k-lines; split related out", files: 48, status: opened }
+      - { scope: "see_also / references -> see-also", files: 112, status: opened }
+      - { scope: "advertisements as list -> map", files: 13, status: opened }
+      - { scope: "self-describing timestamps (created:, updated:) out of files; git has them", files: 15, status: opened }
+      - { scope: "unparseable YAML: fix or mark as prose", files: 122, status: opened }
+      - { scope: "docs and templates still showing room: wrappers (skills/room, container, skill, yaml-jazz, ...)", files: 20, status: opened }
+  - id: views
+    status: claimed
+    done: "resolver gives views format* and subject*; `resolve.py stale` asks git (315 of 639 views older than their subject)"
+    todo: >
+      skills/glance (purpose, budget, how it points deeper) and skills/index written; each
+      interface skill (room, character, skill, ...) names its glance core keys; skills/card's
+      CARD-view role stated; lint checks budgets and core keys per subject type; 15
+      unparseable GLANCE files fixed
+    see: "SCHEMA.md, Views"
+  - id: cascade
+    status: opened
+    out: "CONTAINER.yml defaults: applied after delegation in resolve.py (deep-merge maps, concat lists, nearest first)"
+  - id: skill-rewrites
+    status: opened
+    # Skills whose protocol teaches a model the decisions replaced. Not a find-and-replace:
+    # each gets read top to bottom and rewritten against SCHEMA.md, then lint and the
+    # adventure-4 compile run. Order is dependency order; a later skill cites an earlier one.
+    # Scan behind this list: retired forms counted per skill in SKILL/CARD/GLANCE/README/tmpl.
+    rewrites:
+      - { skill: prototype, why: "the inheritance skill itself: PROTOTYPES.yml is a catalog not a parent list; inherits:, x* named parents, implied filename parents, views, embedded #path; lookup is resolve.py", status: opened }
+      - { skill: container, why: "cascade: inherits: -> defaults: (one key, no forced 'inherits' section), flat files, merge rules; implement cascade in resolve.py alongside", status: opened }
+      - { skill: room, why: "ROOM.yml as an interface on a directory object; sub-rooms vs interface subdirectories; lighting 0..10; glance core keys (name, type, description, exits); 16 wrapper examples", status: opened }
+      - { skill: character, why: "CHARACTER.yml interface, meta.inherits -> inherits:, facts not verdicts, glance core keys (name, description, location)", status: opened }
+      - { skill: object, why: "flat object files, prototype: <ref> -> inherits:, embedded objects and file#collection.id, catalog refs", status: opened }
+      - { skill: glance, why: "new: purpose, line budget, how a glance points deeper; core keys come from the subject's skill", status: opened }
+      - { skill: index, why: "new: summarizes contents, one entry per child", status: opened }
+      - { skill: card, why: "CARD as a view (format* card, subject* ..), the sidecar pattern, 16 wrapper examples", status: opened }
+      - { skill: summarize, why: "common parent of the views; foo-metadata.yml sidecars; git, not timestamps", status: opened }
+      - { skill: skill, why: "skill anatomy; hand the GLANCE format to skills/glance; where a skill declares its own parents (CARD inherits:)", status: opened }
+      - { skill: yaml-jazz, why: "key spelling rule (blocked on the underscore decision); comments as modulators (lighting: 4 # swinging bulb); no wrappers", status: waiting-on-don }
+      - { skill: context, why: "world keys as dimensions (turn, room, player, ...); world.room.lighting", status: opened }
+      - { skill: adventure, why: "24 wrapper examples, parent spellings, compile docs; economy and the RISC engine are adventure-001", status: opened, requires: adventure-001 }
+      - { skill: planning, why: "plan steps store status; align with task's events-not-status rule, or say why plans differ", status: opened }
+      - { skill: plan-then-execute, why: "same as planning", status: opened }
+      - { skill: action-queue, why: "advertisement lists -> maps keyed by name", status: opened }
+      - { skill: advertisement, why: "advertisement maps keyed by name; action keeps its Sims meaning", status: opened }
+    mechanical:
+      - { scope: "wrapper keys in fenced YAML examples in skill docs (buff, simulator-effect, ontology, biome, image-mining, empathic-templates, mind-mirror, inventory, society-of-mind, robot, abstract, bartender, budtender, ...)", skills: ~40, how: "flatten fenced blocks, reparse each, as for designs/gastown/TASKS-2026-01.md" }
+      - { scope: "small parent spellings in experiment, workflow, soul-city, historical, no-ai-soul, inventory", skills: 6, how: "the parent-spelling batch" }
+    triage:
+      - { scope: "timestamps in skill-snitch and cursor-mirror", note: "mostly scan and log times, which are content; keep those" }
+  - id: docs
+    status: opened
+    out: "SELF-AND-MOOLLM, object-system README, indexes/DESIGNS.md, designs/README.md updated to the schema"

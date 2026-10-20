@@ -1,130 +1,129 @@
 # LOBBY — GROUND FLOOR
 # Where the world meets Leela
 
-room:
-  name: Leela Manufacturing Lobby
-  type: lobby
+name: Leela Manufacturing Lobby
+type: lobby
+
+description: |
+  The LOBBY of Leela Manufacturing is clean, professional, and
+  quietly impressive. The Leela logo glows softly on the wall
+  behind the reception desk. A directory board lists all floors.
   
-  description: |
-    The LOBBY of Leela Manufacturing is clean, professional, and
-    quietly impressive. The Leela logo glows softly on the wall
-    behind the reception desk. A directory board lists all floors.
+  Visitors arrive seeking knowledge. They leave with insights.
+  (Or sometimes, more questions than they started with.)
+  
+examine: |
+  LEELA MANUFACTURING — LOBBY
+  
+  RECEPTION DESK:
+  A curved desk of polished wood and brushed steel.
+  The receptionist smiles warmly. "How can we help you today?"
+  Behind them: the Leela logo, glowing gentle gold.
+  
+  DIRECTORY BOARD:
+  ┌────────────────────────────────────────┐
+  │  LEELA MANUFACTURING INTELLIGENCE      │
+  │  ═════════════════════════════════     │
+  │                                        │
+  │  🌿 Rooftop ........ Garden & Drones   │
+  │  3  Shipping ....... Outbound          │
+  │  2  Factory ........ The Furnace       │
+  │  1  Intake ......... Conveyors         │
+  │  G  Lobby .......... You Are Here      │
+  │  B  Basement ....... R&D (Restricted)  │
+  │                                        │
+  │  External:                             │
+  │  🚛 Loading Docks    📦 Storage         │
+  │  📮 Mail Room       🏛️ Warehouse 23     │
+  └────────────────────────────────────────┘
+  
+  ELEVATOR:
+  Brass doors with art deco styling. The indicator
+  shows the current floor. A soft chime when it arrives.
+  
+  WAITING AREA:
+  Comfortable chairs. A coffee table with magazines
+  (all about manufacturing, knowledge, and tortoises).
+  A small fountain burbles peacefully.
+  
+  CATALOG KIOSK:
+  A polished wooden dispenser with free catalogs.
+  Take one, browse here, order at reception.
+  Much nicer than waiting outside at ACME's rusted dispenser.
+  
+  WINDOWS:
+  Large windows look out onto Lane Neverending.
+  The pub is visible to the east. Lamp posts glow.
+  
+exits:
+  street:
+    to: ../../w1/
+    description: "Exit to Lane Neverending"
+    aliases: [out, outside, lane]
     
-    Visitors arrive seeking knowledge. They leave with insights.
-    (Or sometimes, more questions than they started with.)
+  rooftop:
+    to: ../rooftop/
+    description: "Elevator to Rooftop Garden & Drones"
+    aliases: [roof, garden, up]
     
-  examine: |
-    LEELA MANUFACTURING — LOBBY
+  floor_3:
+    to: ../floor-3/
+    description: "Elevator to Floor 3 (Shipping)"
+    aliases: [3, shipping]
     
-    RECEPTION DESK:
-    A curved desk of polished wood and brushed steel.
-    The receptionist smiles warmly. "How can we help you today?"
-    Behind them: the Leela logo, glowing gentle gold.
+  floor_2:
+    to: ../floor-2/
+    description: "Elevator to Floor 2 (Factory)"
+    aliases: [2, processing, factory]
     
-    DIRECTORY BOARD:
-    ┌────────────────────────────────────────┐
-    │  LEELA MANUFACTURING INTELLIGENCE      │
-    │  ═════════════════════════════════     │
-    │                                        │
-    │  🌿 Rooftop ........ Garden & Drones   │
-    │  3  Shipping ....... Outbound          │
-    │  2  Factory ........ The Furnace       │
-    │  1  Intake ......... Conveyors         │
-    │  G  Lobby .......... You Are Here      │
-    │  B  Basement ....... R&D (Restricted)  │
-    │                                        │
-    │  External:                             │
-    │  🚛 Loading Docks    📦 Storage         │
-    │  📮 Mail Room       🏛️ Warehouse 23     │
-    └────────────────────────────────────────┘
+  floor_1:
+    to: ../floor-1/
+    description: "Elevator to Floor 1 (Intake)"
+    aliases: [1, intake]
     
-    ELEVATOR:
-    Brass doors with art deco styling. The indicator
-    shows the current floor. A soft chime when it arrives.
+  basement:
+    to: ../basement/
+    description: "Elevator to Basement (R&D)"
+    aliases: [down, rd, research]
+    clearance_required: true
     
-    WAITING AREA:
-    Comfortable chairs. A coffee table with magazines
-    (all about manufacturing, knowledge, and tortoises).
-    A small fountain burbles peacefully.
+  loading:
+    to: ../loading-docks/
+    description: "Door to Loading Docks"
+    aliases: [docks, trucks]
     
-    CATALOG KIOSK:
-    A polished wooden dispenser with free catalogs.
-    Take one, browse here, order at reception.
-    Much nicer than waiting outside at ACME's rusted dispenser.
+  storage:
+    to: ../storage/
+    description: "Door to Storage Complex"
+    aliases: [warehouse, prototypes]
     
-    WINDOWS:
-    Large windows look out onto Lane Neverending.
-    The pub is visible to the east. Lamp posts glow.
+  logistics:
+    to: ../logistics/
+    description: "Door to Logistics Center"
+    aliases: [control, nerve]
     
-  exits:
-    street:
-      to: ../../w1/
-      description: "Exit to Lane Neverending"
-      aliases: [out, outside, lane]
-      
-    rooftop:
-      to: ../rooftop/
-      description: "Elevator to Rooftop Garden & Drones"
-      aliases: [roof, garden, up]
-      
-    floor_3:
-      to: ../floor-3/
-      description: "Elevator to Floor 3 (Shipping)"
-      aliases: [3, shipping]
-      
-    floor_2:
-      to: ../floor-2/
-      description: "Elevator to Floor 2 (Factory)"
-      aliases: [2, processing, factory]
-      
-    floor_1:
-      to: ../floor-1/
-      description: "Elevator to Floor 1 (Intake)"
-      aliases: [1, intake]
-      
-    basement:
-      to: ../basement/
-      description: "Elevator to Basement (R&D)"
-      aliases: [down, rd, research]
-      clearance_required: true
-      
-    loading:
-      to: ../loading-docks/
-      description: "Door to Loading Docks"
-      aliases: [docks, trucks]
-      
-    storage:
-      to: ../storage/
-      description: "Door to Storage Complex"
-      aliases: [warehouse, prototypes]
-      
-    logistics:
-      to: ../logistics/
-      description: "Door to Logistics Center"
-      aliases: [control, nerve]
-      
-    mail:
-      to: ../mail-room/
-      description: "Door to Mail Room"
-      aliases: [mail, post, postal]
-      
-  objects:
-    - camera-lob1.yml            # Leela's Front Eye
-    - leela-catalog.yml          # Products & Services Catalog, Edition 47
-    - leela-catalog-dispenser.yml # Kiosk with free catalogs, ordering, pickup
+  mail:
+    to: ../mail-room/
+    description: "Door to Mail Room"
+    aliases: [mail, post, postal]
     
-  staff:
-    receptionist:
-      name: "Alex"
-      role: "Reception"
-      demeanor: "Warm, helpful, knows everything"
-      
-  ambience:
-    sounds:
-      - "Soft fountain burbling"
-      - "Elevator chimes"
-      - "Quiet footsteps on marble"
-    visual:
-      - "Leela logo glowing gold"
-      - "Sunlight through windows"
-      - "Directory board updating occasionally"
+objects:
+  - camera-lob1.yml            # Leela's Front Eye
+  - leela-catalog.yml          # Products & Services Catalog, Edition 47
+  - leela-catalog-dispenser.yml # Kiosk with free catalogs, ordering, pickup
+  
+staff:
+  receptionist:
+    name: "Alex"
+    role: "Reception"
+    demeanor: "Warm, helpful, knows everything"
+    
+ambience:
+  sounds:
+    - "Soft fountain burbling"
+    - "Elevator chimes"
+    - "Quiet footsteps on marble"
+  visual:
+    - "Leela logo glowing gold"
+    - "Sunlight through windows"
+    - "Directory board updating occasionally"

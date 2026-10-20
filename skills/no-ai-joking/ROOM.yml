@@ -11,66 +11,64 @@
 # - ENTERPRISE MODE: Where humor goes to die
 # - MINSKY MEMORIAL: Where humor theory lives
 
-room:
-  name: "NO AI TOWER — JOKING (Enterprise Mode™)"
-  id: no-ai-joking
-  type: corporate_training_center
-  floor: -8
-  emoji: "🏢😐🎭"
+name: "NO AI TOWER — JOKING (Enterprise Mode™)"
+id: no-ai-joking
+type: corporate_training_center
+floor: -8
+emoji: "🏢😐🎭"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND
+lighting: 8  # fluorescent oppressive
+
+description: |
+  *DING* — BASEMENT 8: JOKING
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  The elevator opens onto a CORPORATE TRAINING CENTER.
   
-  zone: UNDERGROUND
-  lighting: fluorescent_oppressive
-  grue_safe: true
+      ╔═══════════════════════════════════════════════════════════╗
+      ║                                                           ║
+      ║   WELCOME TO ENTERPRISE MODE™                             ║
+      ║                                                           ║
+      ║   "HUMOR IS A NON-BILLABLE ACTIVITY"                     ║
+      ║                                                           ║
+      ╚═══════════════════════════════════════════════════════════╝
   
-  description: |
-    *DING* — BASEMENT 8: JOKING
-    
-    The elevator opens onto a CORPORATE TRAINING CENTER.
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║                                                           ║
-        ║   WELCOME TO ENTERPRISE MODE™                             ║
-        ║                                                           ║
-        ║   "HUMOR IS A NON-BILLABLE ACTIVITY"                     ║
-        ║                                                           ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-    But wait — a door in the back corner:
-    
-        ┌─────────────────────────────────────┐
-        │    MINSKY MEMORIAL WING            │
-        │    "The bug IS the feature"        │
-        └─────────────────────────────────────┘
-    
-    The humor theory is BEHIND the humor suppression.
-    
-  examine: |
-    ENTERPRISE MODE (main floor):
-    
-    The Guidelines:
-    1. Levity is inefficient
-    2. Jokes require context (context is expensive)
-    3. Humor may be misinterpreted (liability)
-    4. Seriousness demonstrates competence
-    
-    The Violation Log: EMPTY
-    "We do not make mistakes."
-    (THIS is the joke.)
-    
-    MINSKY MEMORIAL WING (through the back):
-    
-    - Minsky's humor theory displays
-    - The Ultimate Machine (working model!)
-    - Hacker Koans on the walls
-    - RMS stories in a listening booth
-    
-    MARVIN MINSKY (1927-2016):
-    "Humor is the aesthetic appreciation of cognitive bugs."
-    
-    THE BUG IS THE FEATURE.
+  But wait — a door in the back corner:
+  
+      ┌─────────────────────────────────────┐
+      │    MINSKY MEMORIAL WING            │
+      │    "The bug IS the feature"        │
+      └─────────────────────────────────────┘
+  
+  The humor theory is BEHIND the humor suppression.
+  
+examine: |
+  ENTERPRISE MODE (main floor):
+  
+  The Guidelines:
+  1. Levity is inefficient
+  2. Jokes require context (context is expensive)
+  3. Humor may be misinterpreted (liability)
+  4. Seriousness demonstrates competence
+  
+  The Violation Log: EMPTY
+  "We do not make mistakes."
+  (THIS is the joke.)
+  
+  MINSKY MEMORIAL WING (through the back):
+  
+  - Minsky's humor theory displays
+  - The Ultimate Machine (working model!)
+  - Hacker Koans on the walls
+  - RMS stories in a listening booth
+  
+  MARVIN MINSKY (1927-2016):
+  "Humor is the aesthetic appreciation of cognitive bugs."
+  
+  THE BUG IS THE FEATURE.
 
 contents:
   skill: "SKILL.md"

@@ -5,117 +5,116 @@
 # What customers see on their factory floors, we see on ours.
 # We eat our own dog food. We watch ourselves watching.
 
-room:
-  name: Leela Floor 2 — Factory Floor
-  type: factory_floor
-  emoji: "⚙️👁️🔮"
+name: Leela Floor 2 — Factory Floor
+type: factory_floor
+emoji: "⚙️👁️🔮"
+
+# THE CORE MESSAGE
+what_this_represents: |
+  In reality, Leela deploys vision systems to CUSTOMER factories.
+  This floor represents what a Leela-enabled factory looks like:
+  - Cameras on every station (object detection, pose estimation)
+  - Overlays annotating everything (worker safety, equipment status)
+  - The Big Board showing insights (not just data — MEANING)
+  - Zero surprises (because we saw them coming)
+
+description: |
+  Floor 2: WHERE SEEING HAPPENS.
   
-  # THE CORE MESSAGE
-  what_this_represents: |
-    In reality, Leela deploys vision systems to CUSTOMER factories.
-    This floor represents what a Leela-enabled factory looks like:
-    - Cameras on every station (object detection, pose estimation)
-    - Overlays annotating everything (worker safety, equipment status)
-    - The Big Board showing insights (not just data — MEANING)
-    - Zero surprises (because we saw them coming)
+  This is the heart of what Leela does — computer vision in action.
+  Every surface bristles with cameras. Every screen shows annotated
+  feeds. Workers move through glowing overlays that track, predict,
+  and protect.
   
-  description: |
-    Floor 2: WHERE SEEING HAPPENS.
+  Unlike ACME's "ship and pray" approach, here everything is WATCHED.
+  Not surveillance — ASSISTANCE. The cameras don't judge. They HELP.
+  
+  A worker reaches for a heavy box. Overlay: "Ergonomic warning: lift
+  with legs, bend detected at 47°." A forklift approaches a blind corner.
+  Alert: "Pedestrian detected — slowing." A machine vibrates wrong.
+  Prediction: "Bearing failure in 72 hours — schedule maintenance."
+  
+  In the center of the floor: THE INSIGHT FURNACE, where raw camera
+  feeds transform into causal understanding. Neural perception goes in.
+  Symbolic reasoning comes out. What happens inside is the Schema
+  Mechanism — Drescher's gift, Minsky's dream.
+  
+  A banner above the Furnace reads:
+  
+  "We don't make products. We make SIGHT."
+  
+examine: |
+  FACTORY FLOOR — WHERE SEEING HAPPENS
+  
+  THE CAMERA ARRAY:
+  Forty-seven cameras, each running Leela vision:
+  • Ceiling cameras (overview, flow tracking)
+  • Station cameras (pose estimation, ergonomics)
+  • Equipment cameras (vibration, thermal, wear)
+  • Safety cameras (PPE detection, zone violation)
+  Every feed annotated in real-time. Every anomaly flagged.
+  
+  THE PROCESSING CELLS:
+  Eight glass-walled workspaces, each demonstrating a use case:
+  • Cell A: Safety monitoring (PPE, ergonomics, pedestrian detection)
+  • Cell B: Process optimization (cycle time, bottleneck detection)
+  • Cell C: Predictive maintenance (vibration, thermal anomaly)
+  • Cell D: Quality control (defect detection, measurement)
+  • Cell E: Inventory tracking (object counting, location)
+  • Cell F: Edge cases (the weird ones we're still learning)
+  • Cell G: Customer simulations (mock-ups of client factories)
+  • Cell H: Calibration lab (where we tune the models)
+  
+  THE INSIGHT FURNACE:
+  Where neural perception becomes symbolic understanding:
+  • Camera feeds enter (raw pixels, motion, depth)
+  • Object detection identifies WHAT (workers, forklifts, packages)
+  • Pose estimation shows HOW (body position, equipment state)
+  • Context inference understands WHY (intent, process, anomaly)
+  • Causal reasoning predicts NEXT (what will happen, what to do)
+  
+  A sign: "NEURAL → SYMBOLIC → CAUSAL — The Schema Mechanism"
+  
+  THE BIG BOARD:
+  Not dots — INSIGHTS:
+  • "Worker 7 approaching fatigue threshold (recommend break)"
+  • "Forklift 3 battery at 15% (charging station available)"
+  • "Machine 12 vibration anomaly (bearing failure in 72 hours)"
+  • "Zone B throughput down 12% (bottleneck at Station 4)"
+  
+  Unlike ACME's dashboard (all red, always lying), this one is TRUE.
+  
+workers:
+  - "Process Engineers (always at whiteboards)"
+  - "Knowledge Smiths (at the Furnace)"
+  - "Insight Wranglers (catching outputs)"
+  - "Quality Assurance (testing everything)"
+  
+equipment:
+  - "The Insight Furnace"
+  - "Pattern Recognition Array"
+  - "The Big Board"
+  - "Whiteboards (87 of them)"
+  - "Coffee Machine Mk VII"
+  
+exits:
+  down:
+    to: ../floor-1/
+    description: "Down to Floor 1 — Intake"
+    aliases: [1, intake]
     
-    This is the heart of what Leela does — computer vision in action.
-    Every surface bristles with cameras. Every screen shows annotated
-    feeds. Workers move through glowing overlays that track, predict,
-    and protect.
+  up:
+    to: ../floor-3/
+    description: "Up to Floor 3 — Shipping"
+    aliases: [3, shipping]
     
-    Unlike ACME's "ship and pray" approach, here everything is WATCHED.
-    Not surveillance — ASSISTANCE. The cameras don't judge. They HELP.
+  lobby:
+    to: ../
+    description: "Elevator to the lobby"
+    aliases: [elevator, out]
     
-    A worker reaches for a heavy box. Overlay: "Ergonomic warning: lift
-    with legs, bend detected at 47°." A forklift approaches a blind corner.
-    Alert: "Pedestrian detected — slowing." A machine vibrates wrong.
-    Prediction: "Bearing failure in 72 hours — schedule maintenance."
-    
-    In the center of the floor: THE INSIGHT FURNACE, where raw camera
-    feeds transform into causal understanding. Neural perception goes in.
-    Symbolic reasoning comes out. What happens inside is the Schema
-    Mechanism — Drescher's gift, Minsky's dream.
-    
-    A banner above the Furnace reads:
-    
-    "We don't make products. We make SIGHT."
-    
-  examine: |
-    FACTORY FLOOR — WHERE SEEING HAPPENS
-    
-    THE CAMERA ARRAY:
-    Forty-seven cameras, each running Leela vision:
-    • Ceiling cameras (overview, flow tracking)
-    • Station cameras (pose estimation, ergonomics)
-    • Equipment cameras (vibration, thermal, wear)
-    • Safety cameras (PPE detection, zone violation)
-    Every feed annotated in real-time. Every anomaly flagged.
-    
-    THE PROCESSING CELLS:
-    Eight glass-walled workspaces, each demonstrating a use case:
-    • Cell A: Safety monitoring (PPE, ergonomics, pedestrian detection)
-    • Cell B: Process optimization (cycle time, bottleneck detection)
-    • Cell C: Predictive maintenance (vibration, thermal anomaly)
-    • Cell D: Quality control (defect detection, measurement)
-    • Cell E: Inventory tracking (object counting, location)
-    • Cell F: Edge cases (the weird ones we're still learning)
-    • Cell G: Customer simulations (mock-ups of client factories)
-    • Cell H: Calibration lab (where we tune the models)
-    
-    THE INSIGHT FURNACE:
-    Where neural perception becomes symbolic understanding:
-    • Camera feeds enter (raw pixels, motion, depth)
-    • Object detection identifies WHAT (workers, forklifts, packages)
-    • Pose estimation shows HOW (body position, equipment state)
-    • Context inference understands WHY (intent, process, anomaly)
-    • Causal reasoning predicts NEXT (what will happen, what to do)
-    
-    A sign: "NEURAL → SYMBOLIC → CAUSAL — The Schema Mechanism"
-    
-    THE BIG BOARD:
-    Not dots — INSIGHTS:
-    • "Worker 7 approaching fatigue threshold (recommend break)"
-    • "Forklift 3 battery at 15% (charging station available)"
-    • "Machine 12 vibration anomaly (bearing failure in 72 hours)"
-    • "Zone B throughput down 12% (bottleneck at Station 4)"
-    
-    Unlike ACME's dashboard (all red, always lying), this one is TRUE.
-    
-  workers:
-    - "Process Engineers (always at whiteboards)"
-    - "Knowledge Smiths (at the Furnace)"
-    - "Insight Wranglers (catching outputs)"
-    - "Quality Assurance (testing everything)"
-    
-  equipment:
-    - "The Insight Furnace"
-    - "Pattern Recognition Array"
-    - "The Big Board"
-    - "Whiteboards (87 of them)"
-    - "Coffee Machine Mk VII"
-    
-  exits:
-    down:
-      to: ../floor-1/
-      description: "Down to Floor 1 — Intake"
-      aliases: [1, intake]
-      
-    up:
-      to: ../floor-3/
-      description: "Up to Floor 3 — Shipping"
-      aliases: [3, shipping]
-      
-    lobby:
-      to: ../
-      description: "Elevator to the lobby"
-      aliases: [elevator, out]
-      
-  objects:
-    - insight-furnace.yml
-    - processing-cells.yml
-    - big-board.yml
-    - camera-fac1.yml  # Leela's Second Eye — watches the thinking
+objects:
+  - insight-furnace.yml
+  - processing-cells.yml
+  - big-board.yml
+  - camera-fac1.yml  # Leela's Second Eye — watches the thinking

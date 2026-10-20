@@ -1,130 +1,128 @@
 # 🛤️ LANE NEVERENDING — West 3 (1 Lane Neverending)
 # Western terminus — the origin point
 
-room:
-  name: "Lane Neverending (W3)"
-  type: street
+name: "Lane Neverending (W3)"
+type: street
+
+address: "1 Lane Neverending"
+
+lighting: 8  # natural
+
+description: |
+  You have reached 1 LANE NEVERENDING — the western origin point.
+  The street begins here (or ends here, depending on your perspective).
   
-  address: "1 Lane Neverending"
+  A small PLAZA opens up, centered on an ancient oak tree that
+  somehow predates the virtual world it grows in. The ORIGIN TREE,
+  they call it. Its roots go down to the bare metal.
   
-  lighting: natural
-  grue_safe: true
+  A bronze plaque at the base:
   
-  description: |
-    You have reached 1 LANE NEVERENDING — the western origin point.
-    The street begins here (or ends here, depending on your perspective).
+  ┌─────────────────────────────────────────────────────┐
+  │  HERE BEGAN LANE NEVERENDING                        │
+  │  Planted in the spirit of virtual worlds past:      │
+  │                                                     │
+  │  HABITAT (1986) — The first avatars walked here     │
+  │  GAME NEVERENDING (2002) — The name lives on        │
+  │  GLITCH (2011) — The giants remember                │
+  │                                                     │
+  │  "A street that never ends                          │
+  │   begins with a single step."                       │
+  │                        — Ancient Avatar Proverb     │
+  └─────────────────────────────────────────────────────┘
+  
+examine: |
+  THE ORIGIN TREE:
+  An oak of impossible age. Its trunk is wide enough that three
+  avatars holding hands couldn't encircle it. Initials are carved
+  into the bark — the oldest ones in formats that predate Unicode.
+  
+  Beneath the tree: a stone circle, worn smooth. People gather
+  here for important announcements, new year celebrations, and
+  the occasional wedding. It's a place of beginnings.
+  
+  THE PLAZA:
+  Cobblestones radiate outward from the tree in concentric circles.
+  Benches face inward. A small fountain (working, unlike the one
+  down the street) provides background music.
+  
+  1 LANE NEVERENDING:
+  The first building. A small structure that's been many things:
+  town hall, guild headquarters, museum, and now... empty, but
+  maintained. Waiting for its next purpose.
+  
+  THE WESTERN EDGE:
+  Beyond the plaza, paths lead in several directions, but they're
+  overgrown. "FUTURE EXPANSION" signs mark the boundaries.
+  The lane never ends, but this is where it starts.
+  
+exits:
+  east:
+    to: ../w2/
+    description: "Lane Neverending stretches east toward the pub and beyond."
+    aliases: [e, back, lane]
     
-    A small PLAZA opens up, centered on an ancient oak tree that
-    somehow predates the virtual world it grows in. The ORIGIN TREE,
-    they call it. Its roots go down to the bare metal.
+  west:
+    to: ../e3/
+    description: |
+      The lane curves gently beyond the plaza... and continues. You
+      walk west past the Origin Tree, but somehow the street numbers
+      start climbing again. Construction scaffolding appears ahead.
+      
+      Wait. Weren't you just AT the beginning?
+      
+      The lane never ends. It loops. It always has.
+      MOO HAA HAA.
+    aliases: [w, continue, loop]
     
-    A bronze plaque at the base:
+    # The secret
+    loop_note: |
+      You cannot leave Lane Neverending by walking.
+      You can only leave by going NORTH (into buildings) or
+      by accepting that the lane is your home now.
     
-    ┌─────────────────────────────────────────────────────┐
-    │  HERE BEGAN LANE NEVERENDING                        │
-    │  Planted in the spirit of virtual worlds past:      │
-    │                                                     │
-    │  HABITAT (1986) — The first avatars walked here     │
-    │  GAME NEVERENDING (2002) — The name lives on        │
-    │  GLITCH (2011) — The giants remember                │
-    │                                                     │
-    │  "A street that never ends                          │
-    │   begins with a single step."                       │
-    │                        — Ancient Avatar Proverb     │
-    └─────────────────────────────────────────────────────┘
+special:
+  origin_point: true
+  significance: |
+    This is the navel of the world. The first coordinate.
+    All addresses on Lane Neverending are measured from here.
     
-  examine: |
-    THE ORIGIN TREE:
-    An oak of impossible age. Its trunk is wide enough that three
-    avatars holding hands couldn't encircle it. Initials are carved
-    into the bark — the oldest ones in formats that predate Unicode.
+    In Habitat, there was a center. In Glitch, there were
+    starting streets. This is that tradition, made manifest.
     
-    Beneath the tree: a stone circle, worn smooth. People gather
-    here for important announcements, new year celebrations, and
-    the occasional wedding. It's a place of beginnings.
+objects:
+  - origin-tree.yml
+  - origin-plaque.yml
+  
+# Flyweight instances — shared prototype, minimal instance data
+# See: ../STREET-FURNITURE.yml
+flyweight:
+  lamp_post_plaza_1:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "plaza perimeter, northeast"
+    style: "original design, brass accents"
     
-    THE PLAZA:
-    Cobblestones radiate outward from the tree in concentric circles.
-    Benches face inward. A small fountain (working, unlike the one
-    down the street) provides background music.
+  lamp_post_plaza_2:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "plaza perimeter, northwest"
+    style: "original design, brass accents"
     
-    1 LANE NEVERENDING:
-    The first building. A small structure that's been many things:
-    town hall, guild headquarters, museum, and now... empty, but
-    maintained. Waiting for its next purpose.
+  lamp_post_plaza_3:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "plaza perimeter, southeast"
+    style: "original design, brass accents"
     
-    THE WESTERN EDGE:
-    Beyond the plaza, paths lead in several directions, but they're
-    overgrown. "FUTURE EXPANSION" signs mark the boundaries.
-    The lane never ends, but this is where it starts.
+  lamp_post_plaza_4:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "plaza perimeter, southwest"
+    style: "original design, brass accents"
     
-  exits:
-    east:
-      to: ../w2/
-      description: "Lane Neverending stretches east toward the pub and beyond."
-      aliases: [e, back, lane]
-      
-    west:
-      to: ../e3/
-      description: |
-        The lane curves gently beyond the plaza... and continues. You
-        walk west past the Origin Tree, but somehow the street numbers
-        start climbing again. Construction scaffolding appears ahead.
-        
-        Wait. Weren't you just AT the beginning?
-        
-        The lane never ends. It loops. It always has.
-        MOO HAA HAA.
-      aliases: [w, continue, loop]
-      
-      # The secret
-      loop_note: |
-        You cannot leave Lane Neverending by walking.
-        You can only leave by going NORTH (into buildings) or
-        by accepting that the lane is your home now.
-      
-  special:
-    origin_point: true
-    significance: |
-      This is the navel of the world. The first coordinate.
-      All addresses on Lane Neverending are measured from here.
-      
-      In Habitat, there was a center. In Glitch, there were
-      starting streets. This is that tradition, made manifest.
-      
-  objects:
-    - origin-tree.yml
-    - origin-plaque.yml
+  bench_tree_1:
+    prototype: ../STREET-FURNITURE.yml#street-bench
+    location: "under the Origin Tree, facing east"
+    carvings: ["Here since '86", "The first bench"]
     
-  # Flyweight instances — shared prototype, minimal instance data
-  # See: ../STREET-FURNITURE.yml
-  flyweight:
-    lamp_post_plaza_1:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "plaza perimeter, northeast"
-      style: "original design, brass accents"
-      
-    lamp_post_plaza_2:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "plaza perimeter, northwest"
-      style: "original design, brass accents"
-      
-    lamp_post_plaza_3:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "plaza perimeter, southeast"
-      style: "original design, brass accents"
-      
-    lamp_post_plaza_4:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "plaza perimeter, southwest"
-      style: "original design, brass accents"
-      
-    bench_tree_1:
-      prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "under the Origin Tree, facing east"
-      carvings: ["Here since '86", "The first bench"]
-      
-    bench_tree_2:
-      prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "under the Origin Tree, facing west"
-      carvings: ["The end is the beginning", "∞"]
+  bench_tree_2:
+    prototype: ../STREET-FURNITURE.yml#street-bench
+    location: "under the Origin Tree, facing west"
+    carvings: ["The end is the beginning", "∞"]

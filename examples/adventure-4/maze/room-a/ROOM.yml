@@ -11,128 +11,125 @@ wumpus_warnings:
     east: superbats          # room-b
     south: bottomless_pit    # room-c
 
-room:
-  name: Twisty Passage (Slightly Damp)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  # What happens if you enter without light
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    🎵 "If this predicament seems particularly cruel,
-        consider whose fault it could be:
-        not a torch or a match in your inventory." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    Well, not ENTIRELY alike. This one is slightly damp. Water seeps
-    through a crack in the ceiling, forming a small puddle that reflects
-    your bewildered face back at you. The puddle seems judgmental.
-    
-    Passages lead in all directions. They all look the same.
-    This is MOST irregular.
-  
-  # This room connects BACK to the garden
-  note: "The NORTH exit leads back to the pub's garden"
-  
-  exits:
-    north:
-      to: ../../garden/
-      description: "Wait... is that daylight? Could this lead back to the garden?"
-    south:
-      to: ../room-c/
-      description: "A passage that looks exactly like all the others"
-    east:
-      to: ../room-b/
-      description: "A passage. Twisty. Little. You know the drill."
-    west:
-      to: ../crystal-cave/
-      description: "A faint prismatic glow... crystals?"
-    down:
-      to: ../room-d/
-      description: "A sloping passage leading deeper"
-  
-  # Distinguishing feature (for the observant)
-  feature: puddle
-  ambience: |
-    Drip. Drip. Drip. The puddle grows imperceptibly larger.
-    Or does it? Hard to tell. Everything is hard to tell in here.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "near puddle"
-        type: territorial
-        note: "Junction marked — this is the crossroads"
-    detected_smells:
-      north: "dust — old and undisturbed"
-      south: "lamplight and safety"
-      east: "faint echo... sound has a smell?"
-      west: "something OLD. Very old. Chose this direction."
-    assessment: |
-      SO MANY SMELLS. This is the best place.
-      Every direction is a new smell.
-      I need to investigate ALL of them.
-    lamp_note: |
-      Don kept the lamp lit throughout.
-      Dogs scare grues too (they don't like barking),
-      but we needed the light to SEE as well as to scare.
-      Oil usage: moderate (worth it for safety AND visibility).
-    biscuit_says: |
-      The maze begins here. I have claimed the entrance.
-      Future dogs will know: Biscuit explored this way.
+name: Twisty Passage (Slightly Damp)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Terpie"
-        location: "Near puddle (different side than Biscuit)"
-        note: "Territorial acknowledgment. 'Mine now too.'"
-        
-      - cat: "Lily"
-        location: "By north exit"
-        note: "Dainty mark. Added on return journey as well."
-        
-      - cat: "Stroopwafel"
-        location: "Senior cat position near puddle"
-        note: "Added on return. Grumbled while marking."
-        
-      - cat: "Hops"
-        location: "Proper corner, away from puddle"
-        note: "Disapproved of puddle proximity. Found better spot."
-        
-      - cat: "Carrie"
-        location: "Guard position by main entrance"
-        note: "Strategic placement. Can be smelled on approach."
-        
-      - cat: "Lemon"
-        location: "Quick sniff-and-mark"
-        note: "Bounced through. Left mark. Kept bouncing."
-        
-      - cat: "Ocie"
-        location: "Following Lemon's mark"
-        note: "Added small addition next to older sibling's."
-        
-      - cat: "Myr"
-        location: "Sleepy mark near east exit"
-        note: "Barely awake. Still counted."
-        
-    assessment: |
-      Room-a is now THOROUGHLY claimed by the family.
-      Biscuit's lamp note still applies — but now it's a
-      family territory, not just dog territory.
+# DANGER! This room is dark!
+lighting: 0
+
+# What happens if you enter without light
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  🎵 "If this predicament seems particularly cruel,
+      consider whose fault it could be:
+      not a torch or a match in your inventory." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  Well, not ENTIRELY alike. This one is slightly damp. Water seeps
+  through a crack in the ceiling, forming a small puddle that reflects
+  your bewildered face back at you. The puddle seems judgmental.
+  
+  Passages lead in all directions. They all look the same.
+  This is MOST irregular.
+
+# This room connects BACK to the garden
+note: "The NORTH exit leads back to the pub's garden"
+
+exits:
+  north:
+    to: ../../garden/
+    description: "Wait... is that daylight? Could this lead back to the garden?"
+  south:
+    to: ../room-c/
+    description: "A passage that looks exactly like all the others"
+  east:
+    to: ../room-b/
+    description: "A passage. Twisty. Little. You know the drill."
+  west:
+    to: ../crystal-cave/
+    description: "A faint prismatic glow... crystals?"
+  down:
+    to: ../room-d/
+    description: "A sloping passage leading deeper"
+
+# Distinguishing feature (for the observant)
+feature: puddle
+ambience: |
+  Drip. Drip. Drip. The puddle grows imperceptibly larger.
+  Or does it? Hard to tell. Everything is hard to tell in here.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "near puddle"
+      type: territorial
+      note: "Junction marked — this is the crossroads"
+  detected_smells:
+    north: "dust — old and undisturbed"
+    south: "lamplight and safety"
+    east: "faint echo... sound has a smell?"
+    west: "something OLD. Very old. Chose this direction."
+  assessment: |
+    SO MANY SMELLS. This is the best place.
+    Every direction is a new smell.
+    I need to investigate ALL of them.
+  lamp_note: |
+    Don kept the lamp lit throughout.
+    Dogs scare grues too (they don't like barking),
+    but we needed the light to SEE as well as to scare.
+    Oil usage: moderate (worth it for safety AND visibility).
+  biscuit_says: |
+    The maze begins here. I have claimed the entrance.
+    Future dogs will know: Biscuit explored this way.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Terpie"
+      location: "Near puddle (different side than Biscuit)"
+      note: "Territorial acknowledgment. 'Mine now too.'"
+      
+    - cat: "Lily"
+      location: "By north exit"
+      note: "Dainty mark. Added on return journey as well."
+      
+    - cat: "Stroopwafel"
+      location: "Senior cat position near puddle"
+      note: "Added on return. Grumbled while marking."
+      
+    - cat: "Hops"
+      location: "Proper corner, away from puddle"
+      note: "Disapproved of puddle proximity. Found better spot."
+      
+    - cat: "Carrie"
+      location: "Guard position by main entrance"
+      note: "Strategic placement. Can be smelled on approach."
+      
+    - cat: "Lemon"
+      location: "Quick sniff-and-mark"
+      note: "Bounced through. Left mark. Kept bouncing."
+      
+    - cat: "Ocie"
+      location: "Following Lemon's mark"
+      note: "Added small addition next to older sibling's."
+      
+    - cat: "Myr"
+      location: "Sleepy mark near east exit"
+      note: "Barely awake. Still counted."
+      
+  assessment: |
+    Room-a is now THOROUGHLY claimed by the family.
+    Biscuit's lamp note still applies — but now it's a
+    family territory, not just dog territory.

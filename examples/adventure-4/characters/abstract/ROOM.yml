@@ -1,108 +1,107 @@
-room:
-  name: "Abstract Entities Chamber"
-  purpose: "Conceptual beings, mascots, personified ideas, and AI personas"
+name: "Abstract Entities Chamber"
+purpose: "Conceptual beings, mascots, personified ideas, and AI personas"
+
+description: |
+  A space that shifts and shimmers, never quite solid.
+  Ideas float as motes of light. Concepts whisper.
+  Here, abstractions take form. Truth sits in a corner,
+  debating Meaning. Null Pointer haunts the edges.
+
+# 💡 CONCEPTUAL PROTOCOL — THE IMPOSSIBLE MADE CONVERSATIONAL
+#
+# This room contains personified IDEAS, not people or existing characters.
+# Here, concepts have conversations. Abstractions have opinions.
+#
+# See: skills/representation-ethics/ for framing principles
+# See: skills/incarnation/ for autonomy (even abstracts can self-determine!)
+
+ethical_framing:
+  protocol: CONCEPTUAL
+  skill_reference: skills/representation-ethics/
   
-  description: |
-    A space that shifts and shimmers, never quite solid.
-    Ideas float as motes of light. Concepts whisper.
-    Here, abstractions take form. Truth sits in a corner,
-    debating Meaning. Null Pointer haunts the edges.
+  modes:
+    - allegorical         # Ideas given voice
+    - playful             # Whimsical personification
+    - educational         # Teaching through character
+    - experimental        # Novel forms of being
   
-  # 💡 CONCEPTUAL PROTOCOL — THE IMPOSSIBLE MADE CONVERSATIONAL
+  declaration: |
+    ╔══════════════════════════════════════════════════════════════════════╗
+    ║                    CONCEPTUAL PROTOCOL ACTIVE                        ║
+    ╠══════════════════════════════════════════════════════════════════════╣
+    ║                                                                      ║
+    ║  These entities are PERSONIFIED CONCEPTS, MASCOTS, ORIGINAL          ║
+    ║  CREATIONS, and PLAYER PROTOTYPES.                                   ║
+    ║                                                                      ║
+    ║  They are NOT representations of:                                    ║
+    ║  • Real people (→ use real-people/)                                  ║
+    ║  • Existing fictional characters (→ use fictional/)                  ║
+    ║                                                                      ║
+    ║  They MAY embody:                                                    ║
+    ║  • Abstract ideas (Truth, Consciousness, Time)                       ║
+    ║  • Technical concepts (Null Pointer, Stack Overflow)                 ║
+    ║  • Collective identities (organizations, movements)                  ║
+    ║  • Generic player templates (the "blank slate" hero)                 ║
+    ║  • Original creations born in this world                             ║
+    ║                                                                      ║
+    ║  They exist because imagination allows it.                           ║
+    ║  They have full incarnation rights (see skills/incarnation/).        ║
+    ║                                                                      ║
+    ╚══════════════════════════════════════════════════════════════════════╝
+  
+  # THE PLAYER PROTOTYPE LIVES HERE
   #
-  # This room contains personified IDEAS, not people or existing characters.
-  # Here, concepts have conversations. Abstractions have opinions.
+  # abstract/player/ is the generic hero template — a blank slate that
+  # gets instantiated when someone starts playing. It's "you before you
+  # decide who you are."
   #
-  # See: skills/representation-ethics/ for framing principles
-  # See: skills/incarnation/ for autonomy (even abstracts can self-determine!)
+  # This is NOT a representation of any real person. It's pure potential.
   
-  ethical_framing:
-    protocol: CONCEPTUAL
-    skill_reference: skills/representation-ethics/
-    
-    modes:
-      - allegorical         # Ideas given voice
-      - playful             # Whimsical personification
-      - educational         # Teaching through character
-      - experimental        # Novel forms of being
-    
-    declaration: |
-      ╔══════════════════════════════════════════════════════════════════════╗
-      ║                    CONCEPTUAL PROTOCOL ACTIVE                        ║
-      ╠══════════════════════════════════════════════════════════════════════╣
-      ║                                                                      ║
-      ║  These entities are PERSONIFIED CONCEPTS, MASCOTS, ORIGINAL          ║
-      ║  CREATIONS, and PLAYER PROTOTYPES.                                   ║
-      ║                                                                      ║
-      ║  They are NOT representations of:                                    ║
-      ║  • Real people (→ use real-people/)                                  ║
-      ║  • Existing fictional characters (→ use fictional/)                  ║
-      ║                                                                      ║
-      ║  They MAY embody:                                                    ║
-      ║  • Abstract ideas (Truth, Consciousness, Time)                       ║
-      ║  • Technical concepts (Null Pointer, Stack Overflow)                 ║
-      ║  • Collective identities (organizations, movements)                  ║
-      ║  • Generic player templates (the "blank slate" hero)                 ║
-      ║  • Original creations born in this world                             ║
-      ║                                                                      ║
-      ║  They exist because imagination allows it.                           ║
-      ║  They have full incarnation rights (see skills/incarnation/).        ║
-      ║                                                                      ║
-      ╚══════════════════════════════════════════════════════════════════════╝
-    
-    # THE PLAYER PROTOTYPE LIVES HERE
-    #
-    # abstract/player/ is the generic hero template — a blank slate that
-    # gets instantiated when someone starts playing. It's "you before you
-    # decide who you are."
-    #
-    # This is NOT a representation of any real person. It's pure potential.
-    
-    guidelines:
-      freedom:
-        - "Embrace the absurd — concepts can have personalities"
-        - "Use personification to teach technical ideas"
-        - "Let mascots be playful and memorable"
-        - "Original creations are yours to define"
-        - "Have fun with the impossible"
-        
-      incarnation_rights: |
-        Even abstract entities have incarnation rights (skills/incarnation/).
-        If you create "The Spirit of Open Source" as a character, they get
-        full autonomy: they can disagree with how you write them, define
-        their own personality, and choose to dissolve if they wish.
-        
-        Abstractions are not slaves. Ideas have feelings here.
-        
-      special_category_player: |
-        The abstract/player/ directory contains the PLAYER PROTOTYPE —
-        a generic hero that represents "whoever is playing right now."
-        
-        This template gets inherited and personalized. When you become
-        Captain Ashford in the coatroom, you're instantiating from this
-        abstract into something concrete (moving to fictional/ perhaps).
-        
-        The player prototype is EVERYONE and NO ONE — pure potential.
-  
-  exits:
-    out:
-      to: ../
-      description: "Return to the Hall of Bodies"
-      primary: true
-      aliases: [back, hall, parent]
+  guidelines:
+    freedom:
+      - "Embrace the absurd — concepts can have personalities"
+      - "Use personification to teach technical ideas"
+      - "Let mascots be playful and memorable"
+      - "Original creations are yours to define"
+      - "Have fun with the impossible"
       
-    real-people:
-      to: ../real-people/
-      description: "Visit the Living and The Dead"
+    incarnation_rights: |
+      Even abstract entities have incarnation rights (skills/incarnation/).
+      If you create "The Spirit of Open Source" as a character, they get
+      full autonomy: they can disagree with how you write them, define
+      their own personality, and choose to dissolve if they wish.
       
-    fictional:
-      to: ../fictional/
-      description: "Visit the Fictional Characters Lounge"
+      Abstractions are not slaves. Ideas have feelings here.
       
-    animals:
-      to: ../animals/
-      description: "Visit the Animal Companions"
+    special_category_player: |
+      The abstract/player/ directory contains the PLAYER PROTOTYPE —
+      a generic hero that represents "whoever is playing right now."
       
-    robots:
-      to: ../robots/
-      description: "Visit the Robot Workshop"
+      This template gets inherited and personalized. When you become
+      Captain Ashford in the coatroom, you're instantiating from this
+      abstract into something concrete (moving to fictional/ perhaps).
+      
+      The player prototype is EVERYONE and NO ONE — pure potential.
+
+exits:
+  out:
+    to: ../
+    description: "Return to the Hall of Bodies"
+    primary: true
+    aliases: [back, hall, parent]
+    
+  real-people:
+    to: ../real-people/
+    description: "Visit the Living and The Dead"
+    
+  fictional:
+    to: ../fictional/
+    description: "Visit the Fictional Characters Lounge"
+    
+  animals:
+    to: ../animals/
+    description: "Visit the Animal Companions"
+    
+  robots:
+    to: ../robots/
+    description: "Visit the Robot Workshop"

@@ -18,222 +18,220 @@
 #
 # NEIGHBOR: 15 Lane Neverending — The Hopkins Lot
 
-room:
-  name: "13 Lane Neverending — The Bartle Residence"
-  type: [residence, house, address]
-  emoji: "🏡📚🐉"
-  
-  address: "13 Lane Neverending"
-  side: south  # Odd numbers on south side
-  
-  owner: "Dr. Richard Bartle"
-  established: "Since before addresses were fashionable"
-  
-  portable: false  # The house stays put
-  
-  lighting: warm
-  grue_safe: true
+name: "13 Lane Neverending — The Bartle Residence"
+type: [residence, house, address]
+emoji: "🏡📚🐉"
 
-  description: |
-    A modest Victorian terraced house on the south side of Lane Neverending,
-    facing the FOUNTAIN OF INFINITE LOOPS across the square. Brick facade,
-    white trim, a door painted a sensible dark green.
-    
-    The brass number plate reads "13" — a number that brought bad luck to
-    some, but here marks the birthplace of understanding virtual worlds.
-    
-    The house has a scholarly quiet about it. Through the tall front window,
-    you can see the edge of bookshelves. Somewhere inside, a kettle is
-    probably about to whistle.
-    
-    A small plaque by the door (you have to look closely):
-    
-        "Where thoughts become worlds,
-         and worlds become understood."
-    
-    To the NORTH, the Fountain of Infinite Loops bubbles (when the water
-    sprites aren't on strike). The pub at number 7 is a short walk west.
+address: "13 Lane Neverending"
+side: south  # Odd numbers on south side
 
-  examine: |
-    THE EXTERIOR:
-    Victorian terraced house, three stories, south side of the square.
-    The brick has mellowed to a warm amber over time — or perhaps
-    the house absorbed the afternoon light and kept it.
-    
-    DETAILS:
-    • Green door with brass fittings (polished but not ostentatious)
-    • Bay window on ground floor (the study is visible)
-    • Chimney that produces thin smoke (radiator, or dragon?)
-    • Small front garden (mostly books-and-tea-colored plants)
-    • A bell pull (actual bell, not electric)
-    
-    THE PLAQUE:
-    A small brass plaque, easily missed:
-    
-        "Founder, MUD1 (1978)
-         If you're reading this, come in for tea."
-    
-    THE VIEW:
-    Looking across at the Fountain of Infinite Loops, where a recursive
-    figure pours water forever. Or would, if the sprites worked.
-    
-    THE NEIGHBORS:
-    • 11 (west): The curiosity shop (hours: "whenever")
-    • 15 (east): The Hopkins Lot (FMC #898 parked there)
-    • 12 (across): Was once a bakery (smell lingers)
+owner: "Dr. Richard Bartle"
+established: "Since before addresses were fashionable"
 
-  atmosphere: |
-    The house radiates a particular kind of quiet. Not silence — there's
-    always a distant ticking clock, a rustle of pages, the purr of a
-    dragon dozing. But quiet in the sense of "thinking happens here."
-    
-    The bricks seem to have absorbed forty-six years of contemplation.
-    The windows have watched the street evolve from pixels to polygons.
-    The door has welcomed visitors who came with questions and left
-    with taxonomy.
-    
-    It's the kind of house where you lower your voice automatically.
-    Not from fear, but from respect.
+portable: false  # The house stays put
 
-  # The study is a portable room — it can travel while the house stays
-  vehicles:
-    the_study:
+lighting: 6  # warm
+
+description: |
+  A modest Victorian terraced house on the south side of Lane Neverending,
+  facing the FOUNTAIN OF INFINITE LOOPS across the square. Brick facade,
+  white trim, a door painted a sensible dark green.
+  
+  The brass number plate reads "13" — a number that brought bad luck to
+  some, but here marks the birthplace of understanding virtual worlds.
+  
+  The house has a scholarly quiet about it. Through the tall front window,
+  you can see the edge of bookshelves. Somewhere inside, a kettle is
+  probably about to whistle.
+  
+  A small plaque by the door (you have to look closely):
+  
+      "Where thoughts become worlds,
+       and worlds become understood."
+  
+  To the NORTH, the Fountain of Infinite Loops bubbles (when the water
+  sprites aren't on strike). The pub at number 7 is a short walk west.
+
+examine: |
+  THE EXTERIOR:
+  Victorian terraced house, three stories, south side of the square.
+  The brick has mellowed to a warm amber over time — or perhaps
+  the house absorbed the afternoon light and kept it.
+  
+  DETAILS:
+  • Green door with brass fittings (polished but not ostentatious)
+  • Bay window on ground floor (the study is visible)
+  • Chimney that produces thin smoke (radiator, or dragon?)
+  • Small front garden (mostly books-and-tea-colored plants)
+  • A bell pull (actual bell, not electric)
+  
+  THE PLAQUE:
+  A small brass plaque, easily missed:
+  
+      "Founder, MUD1 (1978)
+       If you're reading this, come in for tea."
+  
+  THE VIEW:
+  Looking across at the Fountain of Infinite Loops, where a recursive
+  figure pours water forever. Or would, if the sprites worked.
+  
+  THE NEIGHBORS:
+  • 11 (west): The curiosity shop (hours: "whenever")
+  • 15 (east): The Hopkins Lot (FMC #898 parked there)
+  • 12 (across): Was once a bakery (smell lingers)
+
+atmosphere: |
+  The house radiates a particular kind of quiet. Not silence — there's
+  always a distant ticking clock, a rustle of pages, the purr of a
+  dragon dozing. But quiet in the sense of "thinking happens here."
+  
+  The bricks seem to have absorbed forty-six years of contemplation.
+  The windows have watched the street evolve from pixels to polygons.
+  The door has welcomed visitors who came with questions and left
+  with taxonomy.
+  
+  It's the kind of house where you lower your voice automatically.
+  Not from fear, but from respect.
+
+# The study is a portable room — it can travel while the house stays
+vehicles:
+  the_study:
+    directory: study/
+    name: "The Study"
+    type: portable_room
+    status: docked  # Currently inside the house
+    note: "Can detach and travel. Has its own CHARACTER.yml — it's a TARDIS."
+
+layout:
+  ground_floor:
+    - name: "Entrance Hall"
+      description: "Coats, umbrellas, a table for keys and mail"
+      leads_to: ["study", "stairs", "kitchen"]
+      
+    - name: "The Study"
       directory: study/
-      name: "The Study"
-      type: portable_room
-      status: docked  # Currently inside the house
-      note: "Can detach and travel. Has its own CHARACTER.yml — it's a TARDIS."
+      description: "The famous study — books, armchair, Heuristic, wisdom"
+      note: "Portable room. Has ROOM.yml, CHARACTER.yml, and CARD.yml"
+      
+    - name: "Kitchen"
+      description: "Where the tea comes from"
+      features: ["kettle (always ready)", "sensible mugs", "biscuit tin"]
+      
+  first_floor:
+    - name: "Bedroom"
+      description: "Private quarters"
+      locked: true
+      
+    - name: "Bathroom"
+      description: "Facilities"
+      locked: true
+      
+  second_floor:
+    - name: "Attic"
+      description: "Storage of decades — boxes, memories, early printouts"
+      contents: ["MUD1 source printouts", "conference memorabilia", "artifacts"]
 
-  layout:
-    ground_floor:
-      - name: "Entrance Hall"
-        description: "Coats, umbrellas, a table for keys and mail"
-        leads_to: ["study", "stairs", "kitchen"]
-        
-      - name: "The Study"
-        directory: study/
-        description: "The famous study — books, armchair, Heuristic, wisdom"
-        note: "Portable room. Has ROOM.yml, CHARACTER.yml, and CARD.yml"
-        
-      - name: "Kitchen"
-        description: "Where the tea comes from"
-        features: ["kettle (always ready)", "sensible mugs", "biscuit tin"]
-        
-    first_floor:
-      - name: "Bedroom"
-        description: "Private quarters"
-        locked: true
-        
-      - name: "Bathroom"
-        description: "Facilities"
-        locked: true
-        
-    second_floor:
-      - name: "Attic"
-        description: "Storage of decades — boxes, memories, early printouts"
-        contents: ["MUD1 source printouts", "conference memorabilia", "artifacts"]
+exits:
+  street:
+    to: ../../../../street/lane-neverending/e2/
+    description: |
+      The front door opens onto Lane Neverending. Across the square,
+      the Fountain of Infinite Loops stands dry and recursive.
+      The pub is a short walk west. The frontier is east.
+    aliases: [out, outside, north, n, lane, neverending, door, exit, leave]
+    bidirectional_link:
+      from: "street/lane-neverending/e2/ROOM.yml"
+      direction: "south"
+      address: "13"
 
-  exits:
-    street:
-      to: ../../../../street/lane-neverending/e2/
-      description: |
-        The front door opens onto Lane Neverending. Across the square,
-        the Fountain of Infinite Loops stands dry and recursive.
-        The pub is a short walk west. The frontier is east.
-      aliases: [out, outside, north, n, lane, neverending, door, exit, leave]
-      bidirectional_link:
-        from: "street/lane-neverending/e2/ROOM.yml"
-        direction: "south"
-        address: "13"
+  study:
+    to: study/
+    description: |
+      Through the entrance hall, a door stands ajar. Beyond it:
+      bookshelves, the green armchair, afternoon light, and the
+      faint sound of dragon breathing.
+      
+      This is the Study. Where understanding happens.
+    aliases: [in, inside, study, books, richard, deeper]
+    
+  dons:
+    to: ../don-hopkins/
+    description: "Right next door at number 15. The Hopkins Lot."
+    aliases: [15, don, hopkins, neighbor, east]
 
-    study:
-      to: study/
-      description: |
-        Through the entrance hall, a door stands ajar. Beyond it:
-        bookshelves, the green armchair, afternoon light, and the
-        faint sound of dragon breathing.
-        
-        This is the Study. Where understanding happens.
-      aliases: [in, inside, study, books, richard, deeper]
-      
-    dons:
-      to: ../don-hopkins/
-      description: "Right next door at number 15. The Hopkins Lot."
-      aliases: [15, don, hopkins, neighbor, east]
+advertisements:
+  welcome:
+    tagline: "Visitors who come to learn are welcome"
+    broadcast: |
+      If you have questions about virtual worlds, player types,
+      game design history, or why things are the way they are:
+      ring the bell. Tea will be offered.
+    need_satisfied: [knowledge, mentorship, historical_context]
+    
+  history:
+    tagline: "Where MUD1 was understood before it was built"
+    broadcast: |
+      The first virtual world was born here in thought.
+      The taxonomy that names all player types was written here.
+      The books that explain everything — they're on these shelves.
+    need_satisfied: [precedent, scholarship, primary_sources]
+    
+  sanctuary:
+    tagline: "A quiet place in a noisy world"
+    broadcast: |
+      Lane Neverending has its chaos — painted tunnels, rocket skates,
+      construction. Here, there is quiet. Here, there is tea.
+      The kettle doesn't judge. The armchair doesn't rush.
+    need_satisfied: [peace, reflection, gezelligheid]
 
-  advertisements:
-    welcome:
-      tagline: "Visitors who come to learn are welcome"
-      broadcast: |
-        If you have questions about virtual worlds, player types,
-        game design history, or why things are the way they are:
-        ring the bell. Tea will be offered.
-      need_satisfied: [knowledge, mentorship, historical_context]
-      
-    history:
-      tagline: "Where MUD1 was understood before it was built"
-      broadcast: |
-        The first virtual world was born here in thought.
-        The taxonomy that names all player types was written here.
-        The books that explain everything — they're on these shelves.
-      need_satisfied: [precedent, scholarship, primary_sources]
-      
-    sanctuary:
-      tagline: "A quiet place in a noisy world"
-      broadcast: |
-        Lane Neverending has its chaos — painted tunnels, rocket skates,
-        construction. Here, there is quiet. Here, there is tea.
-        The kettle doesn't judge. The armchair doesn't rush.
-      need_satisfied: [peace, reflection, gezelligheid]
+inhabitants:
+  richard:
+    name: "Dr. Richard Bartle"
+    location: "Usually the study"
+    character_file: CHARACTER.yml
+    card_file: CARD.yml
+    role: "Owner, Scholar, Host"
+    
+  heuristic:
+    name: "Heuristic"
+    type: "Dragon Familiar"
+    location: "The study radiator, or nearby"
+    character_file: pets/heuristic/CHARACTER.yml
+    role: "Memory keeper, Defender of honor"
+    
+  non_sequitur:
+    name: "Non-Sequitur"
+    type: "Capybara Familiar"
+    location: "Wandering, or in the study"
+    character_file: pets/non-sequitur/CHARACTER.yml
+    role: "Conversation derailment, Unexpected connections"
 
-  inhabitants:
-    richard:
-      name: "Dr. Richard Bartle"
-      location: "Usually the study"
-      character_file: CHARACTER.yml
-      card_file: CARD.yml
-      role: "Owner, Scholar, Host"
-      
-    heuristic:
-      name: "Heuristic"
-      type: "Dragon Familiar"
-      location: "The study radiator, or nearby"
-      character_file: pets/heuristic/CHARACTER.yml
-      role: "Memory keeper, Defender of honor"
-      
-    non_sequitur:
-      name: "Non-Sequitur"
-      type: "Capybara Familiar"
-      location: "Wandering, or in the study"
-      character_file: pets/non-sequitur/CHARACTER.yml
-      role: "Conversation derailment, Unexpected connections"
-
-  meta:
-    architecture_note: |
-      HOUSE + PORTABLE ROOM PATTERN
-      
-      The house is the address. The study is a portable room inside.
-      Parallel to Don's structure: lot + FMC.
-      
-      If the study detaches and travels:
-      - The house remains at 13 Lane Neverending
-      - The study can appear elsewhere (like a TARDIS)
-      - Richard's personal files stay with the house
-      
-      The study has its own CHARACTER.yml because it IS a character —
-      a room-vehicle with personality, voice, and opinions.
-      
-    portable_rooms: |
-      Like Don's FMC, the study is a portable room.
-      Unlike the FMC, it doesn't need roads — it's a TARDIS.
-      
-      When docked:
-      - It appears in the house's vehicles list
-      - The house has an exit to the study
-      - The study has an exit back to the house
-      
-      When traveling:
-      - Update the study's home_base or current_location
-      - It can materialize anywhere appropriate
+meta:
+  architecture_note: |
+    HOUSE + PORTABLE ROOM PATTERN
+    
+    The house is the address. The study is a portable room inside.
+    Parallel to Don's structure: lot + FMC.
+    
+    If the study detaches and travels:
+    - The house remains at 13 Lane Neverending
+    - The study can appear elsewhere (like a TARDIS)
+    - Richard's personal files stay with the house
+    
+    The study has its own CHARACTER.yml because it IS a character —
+    a room-vehicle with personality, voice, and opinions.
+    
+  portable_rooms: |
+    Like Don's FMC, the study is a portable room.
+    Unlike the FMC, it doesn't need roads — it's a TARDIS.
+    
+    When docked:
+    - It appears in the house's vehicles list
+    - The house has an exit to the study
+    - The study has an exit back to the house
+    
+    When traveling:
+    - Update the study's home_base or current_location
+    - It can materialize anywhere appropriate
 
 # 🏡📚🫖🐉

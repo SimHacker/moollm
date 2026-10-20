@@ -183,7 +183,7 @@ room:
   #         - tags: ["light-source"]
   #           count: 1
   #       score: 80                  # How badly we want it
-  #       score_if: "room.is_dark"   # Extra priority when dark
+  #       score_if: "room.lighting <= 2"   # Extra priority when dark
   #       score_bonus: 40            # Total 120 when dark!
   #       
   #     NEED_FUEL:
@@ -262,7 +262,8 @@ room:
   # ATMOSPHERE
   
   atmosphere: "{{atmosphere}}"       # OPTIONAL: How this room feels
-  lighting: normal                   # OPTIONAL: none | dim | normal | bright
+  lighting: 6                        # OPTIONAL: 0 pitch black .. 10 full sun; the comment says how it changes
+  # e.g. lighting: 4  # one bare bulb, swinging: 1..7, Hitchcock
   
   # CONTEXT
   #

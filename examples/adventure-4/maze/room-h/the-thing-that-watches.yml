@@ -38,15 +38,11 @@ object:
     
     But the watching is enough. Even grues won't come here.
   
-  # This is why the room is grue-safe
-  grue_repellent: true
-  repellent_mechanism: |
-    Grues fear being SEEN. They are creatures of absolute darkness,
-    existing only where light cannot reach. The Eye sees in ways
-    that light cannot — it sees through darkness, through shadows,
-    through the void itself.
-    
-    The grue approaches. The Eye opens. The grue... reconsiders.
+  # A fact about the Eye. What being watched does to a grue is the grue's business.
+  watches: true
+  sight: |
+    The Eye sees in ways that light cannot: through darkness, through
+    shadows, through the void itself.
   
   # Properties
   properties:

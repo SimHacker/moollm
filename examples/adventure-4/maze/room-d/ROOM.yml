@@ -10,131 +10,128 @@ wumpus_warnings:
     # Check actual connections - D connects to garden(N), A(S), H(E), C(W)
     west: bottomless_pit     # room-c has a pit
 
-room:
-  name: Twisty Passage (Golden Glow)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  # (The golden glow is from the NEXT room, not THIS room)
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  # What happens if you enter without light
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    You can ALMOST see a golden glow from somewhere nearby...
-    but not quite. The grue, however, can see you perfectly well.
-    
-    🎵 "Twenty-two years later, head's infested: got the grue in.
-        PLUGHing, XYZZYfying, trying to escape,
-        but I can't 'cause I'm up and around and awake." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    So close. So very, very close.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    But wait — this one has a faint golden glow coming from one of
-    the passages! Could it be? After all this wandering, could you
-    finally be near the TREASURE? Your heart leaps! Your waistcoat
-    rustles with anticipation!
-    
-    Passages lead in all directions. One of them DEFINITELY glows.
-  
-  # This room connects FORWARD through garden to end
-  note: "The NORTH exit leads to the Garden, and beyond that, the Treasury!"
-  
-  exits:
-    north:
-      to: ../garden/
-      description: "The golden light resolves into... sunlight? And grass?"
-    south:
-      to: ../room-a/
-      description: "Back into the maze. Why would you go this way?"
-    east:
-      to: ../room-h/
-      description: "A sickly green mushroom glow"
-    west:
-      to: ../room-c/
-      description: "More scratchy walls. More existential dread."
-  
-  # Distinguishing feature
-  feature: glow
-  ambience: |
-    The golden light beckons from the north. It whispers of treasure,
-    of triumph, of finally having something to tell Mother about.
-    Also possibly of being late for dinner, but that ship has sailed.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # THE GARDEN DISCOVERY (before the treasury)
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "every corner"
-        type: territorial
-        note: "Methodical coverage. The garden must know."
-      - location: "near the fountain"
-        type: territorial
-        note: "Claimed the water source"
-    zoomies_incident:
-      triggered: true
-      duration: "Extended"
-      pattern: "Joyful circles"
-      reason: "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS!"
-    grass_roll:
-      occurred: true
-      duration: "Extended"
-      legs_in_air: true
-      wiggling: "Enthusiastic"
-    fountain_interaction:
-      drank: true
-      face_in_water: true
-      splashed: "Happily"
-      water_everywhere: true
-    detected_smells:
-      - smell: "plants, growing things"
-        assessment: "Life down here! Growing!"
-      - smell: "sun-that-is-not-sun"
-        assessment: "Warmth from above. Magic warmth."
-      - smell: "happiness (my own)"
-        assessment: "I was happy here. Future dogs will smell it."
-    room_assessment: |
-      This is the best room. Wait no, the pub is my favorite.
-      But this is my favorite MAZE room.
-    biscuit_says: |
-      The garden must know. I was here. I was HAPPY here.
-      Future dogs will smell happiness.
+name: Twisty Passage (Golden Glow)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Terpie"
-        location: "By north exit (toward garden)"
-        note: "Queen's passage. Marked on the way through."
-        
-      - cat: "Stroopwafel"
-        location: "Multiple grumpy marks on return"
-        note: "Took his time. Marked thoroughly."
-        
-      - cat: "Carrie"
-        location: "Guard position marks"
-        note: "Escort duty for Terpie. Professional."
-        
-      - cat: "Multiple kittens"
-        location: "Various spots along the path"
-        note: "Following adults. Adding presence."
-        
-    status: |
-      This room is now the HIGHWAY to the garden.
-      Heavily marked by entire family on both
-      outbound and return journeys.
+# DANGER! This room is dark!
+# (The golden glow is from the NEXT room, not THIS room)
+lighting: 0
+
+# What happens if you enter without light
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  You can ALMOST see a golden glow from somewhere nearby...
+  but not quite. The grue, however, can see you perfectly well.
+  
+  🎵 "Twenty-two years later, head's infested: got the grue in.
+      PLUGHing, XYZZYfying, trying to escape,
+      but I can't 'cause I'm up and around and awake." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  So close. So very, very close.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  But wait — this one has a faint golden glow coming from one of
+  the passages! Could it be? After all this wandering, could you
+  finally be near the TREASURE? Your heart leaps! Your waistcoat
+  rustles with anticipation!
+  
+  Passages lead in all directions. One of them DEFINITELY glows.
+
+# This room connects FORWARD through garden to end
+note: "The NORTH exit leads to the Garden, and beyond that, the Treasury!"
+
+exits:
+  north:
+    to: ../garden/
+    description: "The golden light resolves into... sunlight? And grass?"
+  south:
+    to: ../room-a/
+    description: "Back into the maze. Why would you go this way?"
+  east:
+    to: ../room-h/
+    description: "A sickly green mushroom glow"
+  west:
+    to: ../room-c/
+    description: "More scratchy walls. More existential dread."
+
+# Distinguishing feature
+feature: glow
+ambience: |
+  The golden light beckons from the north. It whispers of treasure,
+  of triumph, of finally having something to tell Mother about.
+  Also possibly of being late for dinner, but that ship has sailed.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# THE GARDEN DISCOVERY (before the treasury)
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "every corner"
+      type: territorial
+      note: "Methodical coverage. The garden must know."
+    - location: "near the fountain"
+      type: territorial
+      note: "Claimed the water source"
+  zoomies_incident:
+    triggered: true
+    duration: "Extended"
+    pattern: "Joyful circles"
+    reason: "OUTSIDE! INSIDE-OUTSIDE! PLANTS! GRASS!"
+  grass_roll:
+    occurred: true
+    duration: "Extended"
+    legs_in_air: true
+    wiggling: "Enthusiastic"
+  fountain_interaction:
+    drank: true
+    face_in_water: true
+    splashed: "Happily"
+    water_everywhere: true
+  detected_smells:
+    - smell: "plants, growing things"
+      assessment: "Life down here! Growing!"
+    - smell: "sun-that-is-not-sun"
+      assessment: "Warmth from above. Magic warmth."
+    - smell: "happiness (my own)"
+      assessment: "I was happy here. Future dogs will smell it."
+  room_assessment: |
+    This is the best room. Wait no, the pub is my favorite.
+    But this is my favorite MAZE room.
+  biscuit_says: |
+    The garden must know. I was here. I was HAPPY here.
+    Future dogs will smell happiness.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Terpie"
+      location: "By north exit (toward garden)"
+      note: "Queen's passage. Marked on the way through."
+      
+    - cat: "Stroopwafel"
+      location: "Multiple grumpy marks on return"
+      note: "Took his time. Marked thoroughly."
+      
+    - cat: "Carrie"
+      location: "Guard position marks"
+      note: "Escort duty for Terpie. Professional."
+      
+    - cat: "Multiple kittens"
+      location: "Various spots along the path"
+      note: "Following adults. Adding presence."
+      
+  status: |
+    This room is now the HIGHWAY to the garden.
+    Heavily marked by entire family on both
+    outbound and return journeys.

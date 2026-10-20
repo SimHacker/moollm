@@ -1,24 +1,23 @@
-room:
-  name: "Bias Engine Room"
-  type: infrastructure
-  
-  description: |
-    Gears, timers, and dull machinery that turn ideals into procedures.
-    This is where the church stops talking and starts producing.
-    
-  examine: |
-    The room hums with quiet certainty. Everything is labeled.
-    
-  exits:
-    up:
-      to: ../
-      description: "Back to the nave."
-      aliases: [up, stairs]
+name: "Bias Engine Room"
+type: infrastructure
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-CONSTITUTION.md
-      why: "The procedures — the gears that manufacture what the narthex asks you to declare"
+description: |
+  Gears, timers, and dull machinery that turn ideals into procedures.
+  This is where the church stops talking and starts producing.
+  
+examine: |
+  The room hums with quiet certainty. Everything is labeled.
+  
+exits:
+  up:
+    to: ../
+    description: "Back to the nave."
+    aliases: [up, stairs]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/CHURCH-EVAL-GENIUS-CONSTITUTION.md
+    why: "The procedures — the gears that manufacture what the narthex asks you to declare"

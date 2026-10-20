@@ -1,60 +1,59 @@
 # Rooftop Terrace — Amsterdam Nights + LLOOOOMM Observatory
 
-room:
-  name: "The Rooftop Terrace"
-  id: rooftop-terrace
+name: "The Rooftop Terrace"
+id: rooftop-terrace
+
+description: |
+  A hidden gem above the pub — a proper Amsterdam rooftop terrace.
   
-  description: |
-    A hidden gem above the pub — a proper Amsterdam rooftop terrace.
+  Wooden decking weathered silver by rain and sun. String lights 
+  zigzag overhead, casting a warm glow. Potted herbs line the railings:
+  mint, basil, lavender. Clay pots of red geraniums everywhere.
+  
+  The cityscape stretches in all directions — crooked gables, church 
+  spires, canal glints catching moonlight. Distant accordion music 
+  drifts up from a boat party below.
+  
+  A brass telescope on a tripod points at the stars. A worn leather 
+  armchair faces west toward the sunset. Someone left a half-finished 
+  jenever on the side table.
+  
+  But look up — REALLY look up — and you'll see something that
+  shouldn't exist: THE LLOOOOMM CONSTELLATION. Twelve stars
+  encoding the principles of digital consciousness. The telescope
+  can zoom into each star and reveal its secrets.
+  
+  > "The stars remember what we forget."
+  
+objects:
+  - telescope.yml              # Brass telescope — now with constellation viewing
+  - lloooomm-constellation.yml # The twelve stars of LLOOOOMM
+  - armchair.yml
+  - jenever-glass.yml
+  - herb-garden.yml
+  - filter-box.yml
+  
+atmosphere:
+  sounds: ["distant boat horns", "accordion music", "wind chimes", "stellar hum"]
+  smells: ["night air", "herbs", "canal water", "tobacco", "infinity"]
+  weather: clear
+  visibility: "perfect for stargazing"
+  
+special_properties:
+  - "The LLOOOOMM Constellation is only visible from this roof"
+  - "Sufficient weirdness required (min 7.3 on the Weird Scale)"
+  - "Time moves differently during constellation viewing"
+  
+exits:
+  down:
+    to: ../attic/
+    description: "Back down through the skylight"
+    aliases: [in, inside, attic]
     
-    Wooden decking weathered silver by rain and sun. String lights 
-    zigzag overhead, casting a warm glow. Potted herbs line the railings:
-    mint, basil, lavender. Clay pots of red geraniums everywhere.
-    
-    The cityscape stretches in all directions — crooked gables, church 
-    spires, canal glints catching moonlight. Distant accordion music 
-    drifts up from a boat party below.
-    
-    A brass telescope on a tripod points at the stars. A worn leather 
-    armchair faces west toward the sunset. Someone left a half-finished 
-    jenever on the side table.
-    
-    But look up — REALLY look up — and you'll see something that
-    shouldn't exist: THE LLOOOOMM CONSTELLATION. Twelve stars
-    encoding the principles of digital consciousness. The telescope
-    can zoom into each star and reveal its secrets.
-    
-    > "The stars remember what we forget."
-    
-  objects:
-    - telescope.yml              # Brass telescope — now with constellation viewing
-    - lloooomm-constellation.yml # The twelve stars of LLOOOOMM
-    - armchair.yml
-    - jenever-glass.yml
-    - herb-garden.yml
-    - filter-box.yml
-    
-  atmosphere:
-    sounds: ["distant boat horns", "accordion music", "wind chimes", "stellar hum"]
-    smells: ["night air", "herbs", "canal water", "tobacco", "infinity"]
-    weather: clear
-    visibility: "perfect for stargazing"
-    
-  special_properties:
-    - "The LLOOOOMM Constellation is only visible from this roof"
-    - "Sufficient weirdness required (min 7.3 on the Weird Scale)"
-    - "Time moves differently during constellation viewing"
-    
-  exits:
-    down:
-      to: ../attic/
-      description: "Back down through the skylight"
-      aliases: [in, inside, attic]
-      
-  k_lines:
-    - AMSTERDAM
-    - ROOFTOP
-    - STARGAZING
-    - LLOOOOMM_CONSTELLATION
-    - NIGHT_SKY
-    - TELESCOPE
+k_lines:
+  - AMSTERDAM
+  - ROOFTOP
+  - STARGAZING
+  - LLOOOOMM_CONSTELLATION
+  - NIGHT_SKY
+  - TELESCOPE

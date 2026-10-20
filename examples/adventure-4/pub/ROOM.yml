@@ -1,826 +1,825 @@
-room:
-  name: The Gezelligheid Grotto
-  type: pub
-  address: "7 Lane Neverending"
-  
-  # 🎭 ROOM FRAMING — Everything here inherits this context
-  # See: skills/representation-ethics (room_framing)
-  
-  framing:
-    mode: [performance, celebration, socialization, tribute, third_place]
-    inherits_to_children: true
-    
-    description: |
-      This is a PLACE OF PERFORMANCE AND CELEBRATION.
-      This is a THIRD PLACE — neither home nor work, but community.
-      This is where TRIBUTES are performed with love.
-      
-      Everything within these walls is understood as:
-      - Social play
-      - Convivial gathering  
-      - Entertainment and expression
-      - Community and connection
-      - TRIBUTE PERFORMANCE — honoring those we admire
-      
-      Characters here can perform, debate, celebrate, and roleplay
-      within the safe framing of "this is the pub."
-      
-    what_this_means:
-      debates: "Arguments are sport, not war"
-      performances: "The stage is open, judgment is kind"
-      personas: "People can be who they want to be tonight"
-      stories: "Every tale is welcome, truth is optional"
-      tributes: "We invoke those we admire as loving simulations"
-      
-    gezelligheid: |
-      The Dutch concept of cozy togetherness.
-      Warmth. Belonging. Comfort in company.
-      The opposite of loneliness.
-      
-      This pub has it.
-      
-    # TRIBUTE PERFORMANCE PROTOCOL
-    # How we honor real people in our narrative
-    tribute_protocol:
-      what_it_is: |
-        When we "invite" real people into our narrative,
-        we're doing what fan fiction, tribute bands, and
-        community theater have always done:
-        
-        HONORING THEM BY IMAGINING THEM AMONG US.
-        
-        This is not deceptive impersonation.
-        This is love made manifest through simulation.
-        
-      the_three_beats:
-        invocation: |
-          Before they "arrive," we acknowledge we're summoning them.
-          "Let's invoke them." "Imagine if they were here."
-          "In the spirit of tribute..."
-          
-        performance: |
-          The scene itself — depicting them as we imagine their
-          best selves, doing things consistent with their known
-          character, interests, and public persona.
-          
-        acknowledgment: |
-          After they "depart," we note this was a tribute.
-          "That was a loving simulation."
-          "We honored them by imagining them here."
-          
-      ethical_grounding: |
-        See: skills/representation-ethics/SKILL.md
-        
-        - TRADITION ACTIVATION: Using their influence/ideas ✓
-        - PERFORMANCE IMPERSONATION: With explicit framing ✓
-        - NOT deceptive impersonation ✓
-        
-      examples_in_our_world:
-        - "Cheech & Chong moderating the tribunal"
-        - "Andy & Kristin Looney playing Stoner Fluxx"
-        - "W.W. Jacobs witnessing his creation's redemption"
-        - "Zach Mama — corner on e2, stage when invited or when Annie Hall triggers fire"
-        
-      the_key_distinction: |
-        "We're honoring them by imagining them here"
-        vs
-        "This is what actually happened"
-        
-        The guest book makes this explicit.
-        The invocation/acknowledgment beats make this clear.
-        The love makes this ethical.
+name: The Gezelligheid Grotto
+type: pub
+address: "7 Lane Neverending"
+
+# 🎭 ROOM FRAMING — Everything here inherits this context
+# See: skills/representation-ethics (room_framing)
+
+framing:
+  mode: [performance, celebration, socialization, tribute, third_place]
+  inherits_to_children: true
   
   description: |
-    A warm, inviting tavern that somehow exists just south of where your
-    adventure begins. The sign outside creaks: "THE GEZELLIGHEID GROTTO — Est. ???"
+    This is a PLACE OF PERFORMANCE AND CELEBRATION.
+    This is a THIRD PLACE — neither home nor work, but community.
+    This is where TRIBUTES are performed with love.
     
-    Inside, the air is thick with pipe smoke and stories. A fire crackles
-    in the hearth. Adventurers of various stripes nurse drinks at scarred
-    wooden tables. The bartender polishes a glass that will never be clean.
+    Everything within these walls is understood as:
+    - Social play
+    - Convivial gathering  
+    - Entertainment and expression
+    - Community and connection
+    - TRIBUTE PERFORMANCE — honoring those we admire
     
-    This is where quests begin and end. Where strangers become allies.
-    Where gold becomes ale and ale becomes courage.
+    Characters here can perform, debate, celebrate, and roleplay
+    within the safe framing of "this is the pub."
     
-    But more than that — this is a place of CELEBRATION. Of PERFORMANCE.
-    Of COMMUNITY. The small stage in the corner has seen poetry and
-    pratfalls. The round table hosts debates and revelry. The gong
-    hangs ready to call for attention... or mercy.
+  what_this_means:
+    debates: "Arguments are sport, not war"
+    performances: "The stage is open, judgment is kind"
+    personas: "People can be who they want to be tonight"
+    stories: "Every tale is welcome, truth is optional"
+    tributes: "We invoke those we admire as loving simulations"
     
-    *Gezelligheid* lives here.
+  gezelligheid: |
+    The Dutch concept of cozy togetherness.
+    Warmth. Belonging. Comfort in company.
+    The opposite of loneliness.
     
-  examine: |
-    The pub feels... timeless. Like it's been here forever, waiting for you.
+    This pub has it.
     
-    A STAGE occupies the corner — small but loved. Open mic every night.
-    The PIE TABLE sits in the center — an octagonal round table for
-    discussions, debates, and games. Eight seats. One gong.
-    
-    A dart board hangs on one wall, well-worn from use.
-    A chess set sits on a corner table, mid-game abandoned.
-    A deck of cards rests on the bar, ready for whatever game you fancy.
-    
-    The CAT CAVE entrance beckons cat lovers.
-    The GONG OF GEZELLIGHEID hangs within reach of the pie table.
-    
-    Stairs lead up to rooms for rent.
-    A back door leads to... somewhere mysterious.
-    
-  # 🎨 THEME SYSTEM — Transform the entire pub!
+  # TRIBUTE PERFORMANCE PROTOCOL
+  # How we honor real people in our narrative
+  tribute_protocol:
+    what_it_is: |
+      When we "invite" real people into our narrative,
+      we're doing what fan fiction, tribute bands, and
+      community theater have always done:
+      
+      HONORING THEM BY IMAGINING THEM AMONG US.
+      
+      This is not deceptive impersonation.
+      This is love made manifest through simulation.
+      
+    the_three_beats:
+      invocation: |
+        Before they "arrive," we acknowledge we're summoning them.
+        "Let's invoke them." "Imagine if they were here."
+        "In the spirit of tribute..."
+        
+      performance: |
+        The scene itself — depicting them as we imagine their
+        best selves, doing things consistent with their known
+        character, interests, and public persona.
+        
+      acknowledgment: |
+        After they "depart," we note this was a tribute.
+        "That was a loving simulation."
+        "We honored them by imagining them here."
+        
+    ethical_grounding: |
+      See: skills/representation-ethics/SKILL.md
+      
+      - TRADITION ACTIVATION: Using their influence/ideas ✓
+      - PERFORMANCE IMPERSONATION: With explicit framing ✓
+      - NOT deceptive impersonation ✓
+      
+    examples_in_our_world:
+      - "Cheech & Chong moderating the tribunal"
+      - "Andy & Kristin Looney playing Stoner Fluxx"
+      - "W.W. Jacobs witnessing his creation's redemption"
+      - "Zach Mama — corner on e2, stage when invited or when Annie Hall triggers fire"
+      
+    the_key_distinction: |
+      "We're honoring them by imagining them here"
+      vs
+      "This is what actually happened"
+      
+      The guest book makes this explicit.
+      The invocation/acknowledgment beats make this clear.
+      The love makes this ethical.
+
+description: |
+  A warm, inviting tavern that somehow exists just south of where your
+  adventure begins. The sign outside creaks: "THE GEZELLIGHEID GROTTO — Est. ???"
   
-  theme:
-    current: classic_adventure
+  Inside, the air is thick with pipe smoke and stories. A fire crackles
+  in the hearth. Adventurers of various stripes nurse drinks at scarred
+  wooden tables. The bartender polishes a glass that will never be clean.
+  
+  This is where quests begin and end. Where strangers become allies.
+  Where gold becomes ale and ale becomes courage.
+  
+  But more than that — this is a place of CELEBRATION. Of PERFORMANCE.
+  Of COMMUNITY. The small stage in the corner has seen poetry and
+  pratfalls. The round table hosts debates and revelry. The gong
+  hangs ready to call for attention... or mercy.
+  
+  *Gezelligheid* lives here.
+  
+examine: |
+  The pub feels... timeless. Like it's been here forever, waiting for you.
+  
+  A STAGE occupies the corner — small but loved. Open mic every night.
+  The PIE TABLE sits in the center — an octagonal round table for
+  discussions, debates, and games. Eight seats. One gong.
+  
+  A dart board hangs on one wall, well-worn from use.
+  A chess set sits on a corner table, mid-game abandoned.
+  A deck of cards rests on the bar, ready for whatever game you fancy.
+  
+  The CAT CAVE entrance beckons cat lovers.
+  The GONG OF GEZELLIGHEID hangs within reach of the pie table.
+  
+  Stairs lead up to rooms for rent.
+  A back door leads to... somewhere mysterious.
+  
+# 🎨 THEME SYSTEM — Transform the entire pub!
+
+theme:
+  current: classic_adventure
+  
+  description: |
+    The pub can be THEMED to any environment you can imagine!
     
+    THEME [style] — Transform the pub's appearance, patrons, and vibe
+    THEME DEFAULT — Return to classic adventure tavern
+    
+    The bartender, menu, activities, and NPCs all adapt to the theme!
+    
+  themes:
+    classic_adventure:
+      name: "The Gezelligheid Grotto"
+      vibe: "Classic fantasy tavern"
+      bartender: "Grim, a weathered human with knowing eyes"
+      patrons:
+        - "A hooded figure in the corner"
+        - "A boisterous dwarf telling tales"
+        - "A nervous merchant clutching a map"
+        - "An off-duty guard playing darts"
+      menu:
+        - "Ale (1 gold)"
+        - "Hearty stew (2 gold)"
+        - "Mystery meat pie (3 gold)"
+        - "Adventurer's Breakfast (5 gold)"
+      room_cost: "5 gold per night"
+      
+    space_cantina:
+      name: "The Rusty Hyperdrive"
+      vibe: "Wretched hive of scum and villainy"
+      bartender: "Z-4RT, a droid with too many arms"
+      patrons:
+        - "A bounty hunter with a complicated helmet"
+        - "A smuggler who shot first"
+        - "A jittery alien with too many eyes"
+        - "A musician with unusual anatomy"
+      menu:
+        - "Blue milk (1 credit)"
+        - "Protein cube (2 credits)"
+        - "Bantha burger (3 credits)"
+        - "Spice-infused something (5 credits)"
+      room_cost: "5 credits per cycle"
+      
+    cyberpunk_bar:
+      name: "The Rusty Chrome"
+      vibe: "Neon-lit dive in the undercity"
+      bartender: "Nyx, chromed-up with optical implants"
+      patrons:
+        - "A corpo slumming it"
+        - "A netrunner jacked in at the bar"
+        - "A street samurai with visible augments"
+        - "A fixer making a deal"
+      menu:
+        - "Synth-beer (1 eddie)"
+        - "Kibble+ (2 eddies)"
+        - "Real meat (10 eddies, suspicious)"
+        - "Combat stims (varies)"
+      room_cost: "5 eddies per night"
+      
+    victorian_parlor:
+      name: "The Rusty Cog"
+      vibe: "Steampunk gentleman's club"
+      bartender: "Reginald, impeccably mustachioed"
+      patrons:
+        - "An inventor sketching brass contraptions"
+        - "A lady adventurer in practical goggles"
+        - "A retired colonel sharing war stories"
+        - "A suspicious clockwork automaton"
+      menu:
+        - "Tea, properly steeped (1 shilling)"
+        - "Crumpets with jam (2 shillings)"
+        - "Roast pheasant (5 shillings)"
+        - "Absinthe (strictly medicinal)"
+      room_cost: "5 shillings per evening"
+      
+    pirate_tavern:
+      name: "The Rusty Anchor"
+      vibe: "Portside watering hole for sea dogs"
+      bartender: "Pegleg Pete, exactly as you'd imagine"
+      patrons:
+        - "A captain studying charts"
+        - "A crew on shore leave (loud)"
+        - "A parrot without an owner (suspicious)"
+        - "Someone selling definitely-not-stolen goods"
+      menu:
+        - "Grog (1 doubloon)"
+        - "Hardtack (free, questionable)"
+        - "Salt fish stew (2 doubloons)"
+        - "Bottle of rum (5 doubloons, ask about XO)"
+      room_cost: "Hammock: 2 doubloons, Captain's quarters: 10"
+      
+    wild_west_saloon:
+      name: "The Rusty Spur"
+      vibe: "Frontier drinking establishment"
+      bartender: "Miss Kitty, sharp-eyed and sharper-tongued"
+      patrons:
+        - "A gunslinger at the bar (don't make eye contact)"
+        - "A poker game in progress"
+        - "A prospector who struck... something"
+        - "A sheriff keeping the peace (barely)"
+      menu:
+        - "Whiskey (1 dollar)"
+        - "Beans (50 cents)"
+        - "Steak (3 dollars)"
+        - "Whatever's in the jar (don't ask)"
+      room_cost: "3 dollars per night"
+      
+    custom:
+      description: |
+        THEME [your description]
+        
+        Describe ANY environment you want:
+        "THEME underwater mermaid lounge"
+        "THEME cozy hobbit hole"
+        "THEME interdimensional crossroads"
+        "THEME Mother's kitchen (homesick variant)"
+        
+        DM generates appropriate:
+        - Name
+        - Bartender
+        - Patrons
+        - Menu
+        - Activities
+        - Room decor
+        - Local currency
+        
+# ENVIRONMENT
+
+lighting: 6  # warm
+atmosphere: convivial
+
+# Characters present in the pub
+characters:
+  # Staff & regulars
+  - character/fictional/marieke       # Bartender (staff)
+  - character/fictional/henk          # Eternal regular at the bar
+  
+  # The player
+  - character/real-people/don-hopkins # The player (rabbit form, staff)
+  - character/real-people/richard-bartle # The professor (visiting)
+  
+  # The cats
+  - character/animals/cat-stroopwafel # Queen of the cats
+  - character/animals/cat-terpie      # The chill one
+  
+  # The kittens (Stroopwafel's babies)
+  - character/animals/kitten-myrcene
+  - character/animals/kitten-limonene
+  - character/animals/kitten-pinene
+  - character/animals/kitten-linalool
+  - character/animals/kitten-caryophyllene
+  - character/animals/kitten-humulene
+  - character/animals/kitten-terpinolene
+  - character/animals/kitten-ocimene
+  
+  # The dogs
+  - character/animals/dog-biscuit       # Pack alpha
+  - character/animals/dog-butterscotch  # The sweet one
+  
+  # The puppies (Biscuit & Butterscotch's family)
+  - character/animals/puppy-goliath
+  - character/animals/puppy-bruno
+  - character/animals/puppy-maple
+  - character/animals/puppy-teddy
+  - character/animals/puppy-mochi
+  - character/animals/puppy-dash
+  - character/animals/puppy-pepper
+  - character/animals/puppy-ziggy
+  
+  # The monkey
+  - character/animals/monkey-palm       # The mythic one (sapient)
+
+exits:
+  NORTH:
+    to: ../street/lane-neverending/center/
     description: |
-      The pub can be THEMED to any environment you can imagine!
+      The front door of The Gezelligheid Grotto opens onto Lane Neverending.
+      Cobblestones stretch east and west. The afternoon sun glints off
+      the brass address plaque: "7 Lane Neverending."
       
-      THEME [style] — Transform the pub's appearance, patrons, and vibe
-      THEME DEFAULT — Return to classic adventure tavern
+      Just outside on the cobbles: the front bike rack (see center/bike-rack.yml).
+      Cast iron, matte black, one locked ACME Road Runner cargo trike (GPS blinking).
       
-      The bartender, menu, activities, and NPCs all adapt to the theme!
-      
-    themes:
-      classic_adventure:
-        name: "The Gezelligheid Grotto"
-        vibe: "Classic fantasy tavern"
-        bartender: "Grim, a weathered human with knowing eyes"
-        patrons:
-          - "A hooded figure in the corner"
-          - "A boisterous dwarf telling tales"
-          - "A nervous merchant clutching a map"
-          - "An off-duty guard playing darts"
-        menu:
-          - "Ale (1 gold)"
-          - "Hearty stew (2 gold)"
-          - "Mystery meat pie (3 gold)"
-          - "Adventurer's Breakfast (5 gold)"
-        room_cost: "5 gold per night"
-        
-      space_cantina:
-        name: "The Rusty Hyperdrive"
-        vibe: "Wretched hive of scum and villainy"
-        bartender: "Z-4RT, a droid with too many arms"
-        patrons:
-          - "A bounty hunter with a complicated helmet"
-          - "A smuggler who shot first"
-          - "A jittery alien with too many eyes"
-          - "A musician with unusual anatomy"
-        menu:
-          - "Blue milk (1 credit)"
-          - "Protein cube (2 credits)"
-          - "Bantha burger (3 credits)"
-          - "Spice-infused something (5 credits)"
-        room_cost: "5 credits per cycle"
-        
-      cyberpunk_bar:
-        name: "The Rusty Chrome"
-        vibe: "Neon-lit dive in the undercity"
-        bartender: "Nyx, chromed-up with optical implants"
-        patrons:
-          - "A corpo slumming it"
-          - "A netrunner jacked in at the bar"
-          - "A street samurai with visible augments"
-          - "A fixer making a deal"
-        menu:
-          - "Synth-beer (1 eddie)"
-          - "Kibble+ (2 eddies)"
-          - "Real meat (10 eddies, suspicious)"
-          - "Combat stims (varies)"
-        room_cost: "5 eddies per night"
-        
-      victorian_parlor:
-        name: "The Rusty Cog"
-        vibe: "Steampunk gentleman's club"
-        bartender: "Reginald, impeccably mustachioed"
-        patrons:
-          - "An inventor sketching brass contraptions"
-          - "A lady adventurer in practical goggles"
-          - "A retired colonel sharing war stories"
-          - "A suspicious clockwork automaton"
-        menu:
-          - "Tea, properly steeped (1 shilling)"
-          - "Crumpets with jam (2 shillings)"
-          - "Roast pheasant (5 shillings)"
-          - "Absinthe (strictly medicinal)"
-        room_cost: "5 shillings per evening"
-        
-      pirate_tavern:
-        name: "The Rusty Anchor"
-        vibe: "Portside watering hole for sea dogs"
-        bartender: "Pegleg Pete, exactly as you'd imagine"
-        patrons:
-          - "A captain studying charts"
-          - "A crew on shore leave (loud)"
-          - "A parrot without an owner (suspicious)"
-          - "Someone selling definitely-not-stolen goods"
-        menu:
-          - "Grog (1 doubloon)"
-          - "Hardtack (free, questionable)"
-          - "Salt fish stew (2 doubloons)"
-          - "Bottle of rum (5 doubloons, ask about XO)"
-        room_cost: "Hammock: 2 doubloons, Captain's quarters: 10"
-        
-      wild_west_saloon:
-        name: "The Rusty Spur"
-        vibe: "Frontier drinking establishment"
-        bartender: "Miss Kitty, sharp-eyed and sharper-tongued"
-        patrons:
-          - "A gunslinger at the bar (don't make eye contact)"
-          - "A poker game in progress"
-          - "A prospector who struck... something"
-          - "A sheriff keeping the peace (barely)"
-        menu:
-          - "Whiskey (1 dollar)"
-          - "Beans (50 cents)"
-          - "Steak (3 dollars)"
-          - "Whatever's in the jar (don't ask)"
-        room_cost: "3 dollars per night"
-        
-      custom:
-        description: |
-          THEME [your description]
-          
-          Describe ANY environment you want:
-          "THEME underwater mermaid lounge"
-          "THEME cozy hobbit hole"
-          "THEME interdimensional crossroads"
-          "THEME Mother's kitchen (homesick variant)"
-          
-          DM generates appropriate:
-          - Name
-          - Bartender
-          - Patrons
-          - Menu
-          - Activities
-          - Room decor
-          - Local currency
-          
-  # ENVIRONMENT
-  
-  lighting: warm
-  atmosphere: convivial
-  
-  # Characters present in the pub
-  characters:
-    # Staff & regulars
-    - character/fictional/marieke       # Bartender (staff)
-    - character/fictional/henk          # Eternal regular at the bar
+      This is the main street. The spine of the virtual world.
+      It never ends.
+    aliases: [front, door, street, lane, outside, bike-rack]
     
-    # The player
-    - character/real-people/don-hopkins # The player (rabbit form, staff)
-    - character/real-people/richard-bartle # The professor (visiting)
+  SOUTH:
+    to: ../garden/
+    description: "Out to the Back Garden — fresh air and possibilities"
+    aliases: [garden, outside, out, back, patio]
     
-    # The cats
-    - character/animals/cat-stroopwafel # Queen of the cats
-    - character/animals/cat-terpie      # The chill one
-    
-    # The kittens (Stroopwafel's babies)
-    - character/animals/kitten-myrcene
-    - character/animals/kitten-limonene
-    - character/animals/kitten-pinene
-    - character/animals/kitten-linalool
-    - character/animals/kitten-caryophyllene
-    - character/animals/kitten-humulene
-    - character/animals/kitten-terpinolene
-    - character/animals/kitten-ocimene
-    
-    # The dogs
-    - character/animals/dog-biscuit       # Pack alpha
-    - character/animals/dog-butterscotch  # The sweet one
-    
-    # The puppies (Biscuit & Butterscotch's family)
-    - character/animals/puppy-goliath
-    - character/animals/puppy-bruno
-    - character/animals/puppy-maple
-    - character/animals/puppy-teddy
-    - character/animals/puppy-mochi
-    - character/animals/puppy-dash
-    - character/animals/puppy-pepper
-    - character/animals/puppy-ziggy
-    
-    # The monkey
-    - character/animals/monkey-palm       # The mythic one (sapient)
-  
-  exits:
-    NORTH:
-      to: ../street/lane-neverending/center/
-      description: |
-        The front door of The Gezelligheid Grotto opens onto Lane Neverending.
-        Cobblestones stretch east and west. The afternoon sun glints off
-        the brass address plaque: "7 Lane Neverending."
-        
-        Just outside on the cobbles: the front bike rack (see center/bike-rack.yml).
-        Cast iron, matte black, one locked ACME Road Runner cargo trike (GPS blinking).
-        
-        This is the main street. The spine of the virtual world.
-        It never ends.
-      aliases: [front, door, street, lane, outside, bike-rack]
-      
-    SOUTH:
-      to: ../garden/
-      description: "Out to the Back Garden — fresh air and possibilities"
-      aliases: [garden, outside, out, back, patio]
-      
-    SOUTHWEST:
-      to: ../kitchen/
-      description: |
-        A narrow service corridor angles through to the kitchen.
-        The smell of cooking grows stronger. You can hear pots clanging,
-        someone humming, and the eternal mystery of running water.
-        
-        The kitchen serves both the garden (outdoor dining) and the bar
-        (food orders, supplies). This is the diagonal shortcut.
-      aliases: [kitchen, service, corridor, shortcut, staff]
-      
-    SOUTHEAST:
-      to: ../coatroom/
-      description: |
-        A passage leads toward the Costume Emporium. You can hear
-        the rustle of fabric and the whisper of sequins calling to you.
-        
-        "NEED A NEW LOOK? OR NEW MIND AND PERSONALITY? COSTUMES THIS WAY →"
-      aliases: [coatroom, costumes, emporium, wardrobe]
-      
-    UP:
-      to: room/inn-landing
-      description: |
-        A narrow staircase winds up to the inn's guest rooms.
-        A small brass sign reads: "LODGING — 5 gold per visit"
-        Marieke keeps the rooms tidy and the linens fresh.
-      aliases: [rooms, stairs, inn, lodging, upstairs]
-      # Toll gate — charges 5 gold to enter (refundable on exit)
-      toll: 5
-      toll_currency: gold
-      guard_js: |
-        const fee = 5;
-        if (world.has('gold', fee)) {
-          world.pay('gold', fee, 'lodging fee', 'character/fictional/marieke');
-          return true;
-        }
-        return false;
-      accept_message_js: |
-        return "You drop 5 gold into the honor box. The stairs creak a welcome as you ascend.";
-      reject_message: |
-        "The honor box rattles expectantly. You need 5 gold to access the rooms."
-        
-        Marieke glances up from behind the bar. "Lodging is 5 gold, dear.
-        Covers clean sheets, a warm fire, and all the peace you need."
-      
-    BACK:
-      to: ???
-      description: "A mysterious back door"
-      note: "Locked. Ask the bartender about the key."
-      hint: "Plot hooks live here"
-      
-    DOWN:
-      to: basement/
-      description: "Stone stairs descend to the cellar"
-      
-    BAR:
-      to: bar/
-      description: |
-        Behind the bar counter, where the magic happens.
-        Bottles gleam on shelves, taps await, and secrets are kept.
-        
-        A sign hangs from a brass chain:
-        "STAFF & RESIDENT ANIMALS ONLY BEHIND THE BAR"
-        "Guests: please use the bar stools out front!"
-      aliases: [behind, bartender, counter]
-      # Access restriction — behind the bar is for staff and resident animals only
-      # Players can SIT AT BAR from the main pub (see seating.yml for bar stools)
-      guard: "Only staff, cats, dogs, and Palm are allowed behind the bar."
-      guard_js: |
-        const tags = world.player.tags || [];
-        return tags.includes('staff') || tags.includes('cat') || tags.includes('dog') || tags.includes('monkey');
-      accept_message_js: |
-        const tags = world.player.tags || [];
-        if (tags.includes('staff')) return "Staff access granted. You slip behind the bar.";
-        if (tags.includes('cat')) return "The cat flap swings open. Cats rule the bar.";
-        if (tags.includes('dog')) return "The dogs have earned their spot behind the bar.";
-        if (tags.includes('monkey')) return "Palm climbs gracefully over the bar. Royalty has privileges.";
-        return "Access granted.";
-      reject_message: |
-        ⛔ PASSAGE DENIED
-        
-        Only staff, cats, dogs, and Palm are allowed behind the bar.
-        
-        Marieke looks up from polishing a glass.
-        "Sorry love, staff and resident animals only back here.
-        But grab a stool! I'll bring your drink right over."
-      
-    GAMES:
-      to: games/
-      description: "The games corner with darts, chess, and cards"
-      aliases: [darts, chess, cards, corner]
-      
-    ARCADE:
-      to: arcade/
-      description: "The arcade alcove with vintage cabinets"
-      aliases: [pacman, pong, pinball, cabinets]
-      
-    STAGE:
-      to: stage/
-      description: "The small performance stage in the corner"
-      aliases: [perform, performance, music, poetry]
-      
-    ATTIC:
-      to: attic/
-      description: |
-        A narrow staircase, almost hidden behind a tapestry, leads up
-        to the dusty attic. Cobwebs, forgotten things, and old stories.
-      aliases: [upstairs, dusty, hidden, tapestry]
-      note: "The attic holds memories the pub has forgotten"
-      
-    ROOFTOP:
-      to: rooftop/
-      description: |
-        A trapdoor in the ceiling near the back leads to the roof.
-        On clear nights, regulars gather there to watch the stars.
-        There's a telescope up there. Someone left it years ago.
-      aliases: [roof, trapdoor, stars, telescope, sky]
-      
-  objects:
-    # Out front (Lane Neverending side)
-    # Main pub floor
-    - fireplace.yml
-    - notice-board.yml
-    - pneumatic-tube.yml  # Coffee delivery from Bootstrap Room!
-    - seating.yml
-    # Performance & celebration
-    - pie-table.yml      # Round table for debates, 8 seats
-    - gong.yml           # Gong of Gezelligheid
-    # Bar area (via bar/ region)
-    - bar/bartender.yml
-    - bar/budtender-marieke.yml
-    # Games corner (via games/ sub-room)
-    - games/dart-board.yml
-    - games/chess-table.yml
-    - games/card-deck.yml
-    # Arcade alcove (via arcade/ sub-room)
-    - arcade/pacman-cabinet.yml
-    - arcade/pong-cabinet.yml
-    - arcade/fruit-machine.yml
-    - arcade/pinball-machine.yml
-    
-  sub_rooms:
-    - cat-cave/          # The TARDIS-like cat sanctuary
-    
-  # 🎲 ACTIVITIES
-  
-  activities:
-    DRINK:
-      description: "Order from the menu"
-      usage: "DRINK [item] / ORDER [item]"
-      effects:
-        - "Spend gold (or theme currency)"
-        - "Social opportunity with bartender"
-        - "Possible stat effects (courage, loose tongue)"
-        - "Overhearing rumors"
-        
-    EAT:
-      description: "Order food from the menu"
-      usage: "EAT [item] / ORDER [item]"
-      effects:
-        - "Restores... something? Morale?"
-        - "Not as interesting as kitchen food"
-        - "But no digestive adventures here"
-        
-    PLAY-DARTS:
-      description: "Challenge someone to darts"
-      usage: "PLAY DARTS / PLAY DARTS WITH [patron]"
-      stakes: "Pride, drinks, gold, information"
-      mechanics: |
-        DM describes throws, tension, outcome
-        Can be used to:
-        - Befriend an NPC
-        - Win a bet
-        - Settle a dispute
-        - Show off (or embarrass yourself)
-        
-    PLAY-CHESS:
-      description: "Challenge someone to chess"
-      usage: "PLAY CHESS / PLAY CHESS WITH [patron]"
-      stakes: "Pride, respect, secrets"
-      mechanics: |
-        DM narrates key moves and turning points
-        Reveals character through play style:
-        - Aggressive? Defensive? Cunning?
-        - The bartender is VERY good
-        - Some patrons have unusual strategies
-        
-    PLAY-CARDS:
-      description: "Join or start a card game"
-      usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
-      games:
-        - "Poker (high stakes available)"
-        - "Blackjack"
-        - "Three-card monte (don't)"
-        - "Adventurer's Ruin (house game)"
-      mechanics: |
-        Can win or lose gold
-        Can win information
-        Can make enemies
-        Can cheat (if skilled and brave)
-        
-    SOCIALIZE:
-      description: "Talk to patrons"
-      usage: "TALK TO [patron] / APPROACH [description]"
-      outcomes:
-        - "Hear rumors"
-        - "Learn about the dungeon"
-        - "Make friends or enemies"
-        - "Get quest hooks"
-        - "Trade items or information"
-        
-    RENT-ROOM:
-      description: "Stay the night"
-      usage: "RENT ROOM / STAY THE NIGHT"
-      effects:
-        - "Costs gold (varies by theme)"
-        - "Fully rested (lamp oil refilled to base?)"
-        - "Dream sequence possible"
-        - "Time passes (what changed outside?)"
-        - "Mail delivered while sleeping"
-        
-    EAVESDROP:
-      description: "Listen in on conversations"
-      usage: "EAVESDROP / LISTEN"
-      effects:
-        - "Hear snippets of patron conversations"
-        - "Learn plot hooks"
-        - "Risk being noticed"
-        
-    PERFORM:
-      description: "Take the stage and entertain!"
-      usage: "PERFORM [song/story/trick/poetry/standup/magic]"
-      venue: "The small stage in the corner"
-      effects:
-        - "Earn tips if good"
-        - "Earn drinks thrown if bad"
-        - "Make an impression"
-        - "Every night is open mic night"
-        - "The gong ends bad performances (mercifully)"
-      framing: |
-        This is PERFORMANCE. The audience knows.
-        You can be anyone on that stage.
-        Adopt a persona, tell wild tales, be vulnerable.
-        The pub framing protects you.
-        
-    DEBATE:
-      description: "Join the pie table for structured discussion"
-      usage: "DEBATE [topic] / JOIN DEBATE"
-      venue: "The Pie Table (octagonal, 8 seats)"
-      effects:
-        - "Summon characters to fill empty seats"
-        - "Apply Robert's Rules (or chaos rules)"
-        - "The gong calls to order or ends mercifully"
-        - "Musical Chairs variant available"
-      framing: |
-        Debates at the pie table are SPORT, not war.
-        Devil's advocate is expected and honored.
-        Strong opinions, loosely held.
-        
-    CELEBRATE:
-      description: "Mark a victory, birthday, achievement"
-      usage: "CELEBRATE [occasion] / TOAST [target]"
-      effects:
-        - "Free round from the bartender (first one)"
-        - "Stories shared about the occasion"
-        - "Buff: CELEBRATED (+morale, social)"
-        - "Everyone raises a glass"
-        - "The gong rings once in honor"
-        
-    SING:
-      description: "Lead the pub in song"
-      usage: "SING [song] / LEAD SONG"
-      effects:
-        - "Whole pub may join in (if they know it)"
-        - "Establishes mood"
-        - "Can commemorate fallen companions"
-        - "Can embarrass yourself gloriously"
-      sea_shanties: "Particularly effective"
-      
-    STORY:
-      description: "Tell a tale to any who'll listen"
-      usage: "TELL STORY / SHARE TALE [topic]"
-      venue: "By the fire, or on stage"
-      effects:
-        - "Draw listeners"
-        - "Share wisdom (or lies)"
-        - "Process adventures through narrative"
-        - "Create legends"
-      framing: "All stories here are welcome. Truth is optional."
-      
-    TOAST:
-      description: "Raise a glass to someone or something"  
-      usage: "TOAST [target]"
-      effects:
-        - "Honor a person, victory, or memory"
-        - "Social bonding"
-        - "Can be serious or silly"
-        - "Everyone drinks (optional but expected)"
-        
-    RING-GONG:
-      description: "Use the Gong of Gezelligheid"
-      usage: "RING GONG / GONG [times]"
-      protocols:
-        once: "Call to attention — something important"
-        twice: "Emergency — everyone stop"
-        thrice: "Mercy / End this — debates, performances"
-      effects:
-        - "Ends performances gracefully"
-        - "Calls debates to order"
-        - "Gets everyone's attention"
-        - "Automatic during Musical Chairs"
-        
-  # 🎭 PERFORMANCE & CELEBRATION VENUES
-  
-  venues:
-    
-    the_stage:
-      name: "The Grotto Stage"
-      description: |
-        A small raised platform in the corner. Worn by countless feet.
-        Stained by spilled drinks and tears (happy and sad).
-        
-        Anyone can perform. Everyone does eventually.
-        
-      capacity: "1-3 performers"
-      features:
-        - "Surprisingly good acoustics"
-        - "A stool for bards"
-        - "Hooks for props"
-        - "Enough light to be seen, enough dark to be brave"
-      performances:
-        - "Songs (sea shanties especially popular)"
-        - "Poetry (open mic every night)"
-        - "Standup (tough crowd but fair)"
-        - "Storytelling (by the fire or on stage)"
-        - "Magic tricks (real or fake both welcome)"
-        - "Dramatic readings (including code reviews)"
-      annie_hall_guests:
-        description: |
-          When pie-table talk wanders into a topic a tribute guest has material about,
-          they may materialize on stage — Annie Hall energy (Marshall McLuhan in the corridor).
-          They do not quote copyrighted bits; they offer to perform and link out.
-        example: |
-          Zach Mama (default: e2 fountain corner) — triggers in
-          characters/real-people/zach-mama/routines.yml; catalog in routines.md;
-          YouTube @zachmama.
-        
-    the_pie_table:
-      name: "The Pie Table"
-      description: |
-        An octagonal table in the center of the pub. Eight seats,
-        addressable by compass direction. A lazy susan in the middle.
-        A bell for calling to order. Within reach of the gong.
-        
-        This is where debates happen. Discussions. Games.
-        It's a physical pie menu — you can summon anyone to any seat.
-        
-      capacity: 8
-      seats: [N, NE, E, SE, S, SW, W, NW]
-      features:
-        - "Lazy susan for sharing"
-        - "Bell for calling to order"
-        - "Gong within reach"
-        - "Can summon historical/fictional figures (framed as performance)"
-        - "Musical Chairs variant"
-      activities:
-        - "Structured debates (Robert's Rules optional)"
-        - "Brainstorming sessions"
-        - "Code reviews (Linus persona recommended)"
-        - "Philosophical discussions"
-        - "Musical Chairs (elimination game)"
-        
-    the_gong:
-      name: "The Gong of Gezelligheid"
-      description: |
-        A brass gong hanging near the pie table.
-        It has three protocols:
-        
-        RING ONCE:  Attention! Something important.
-        RING TWICE: Emergency! Everyone stop.
-        RING THRICE: Mercy! End this (debates, performances, suffering).
-        
-      powers:
-        - "Can end any performance (gracefully)"
-        - "Can call debates to order"
-        - "Rings automatically during Musical Chairs"
-        - "Respects the tradition of gezelligheid"
-        
-    the_fireside:
-      name: "The Hearth"
-      description: |
-        The fireplace is a gathering spot for stories.
-        Pull up a chair. Listen. Share.
-        
-      atmosphere: "Warm, intimate, timeless"
-      activities:
-        - "Storytelling"
-        - "Quiet conversation"
-        - "Staring into flames (philosophical mode)"
-        - "Warming up after the maze"
-        
-  # 🤝 SOCIAL MECHANICS
-  
-  social:
-    
+  SOUTHWEST:
+    to: ../kitchen/
     description: |
-      The pub is a SOCIAL SPACE. Relationships form here.
+      A narrow service corridor angles through to the kitchen.
+      The smell of cooking grows stronger. You can hear pots clanging,
+      someone humming, and the eternal mystery of running water.
       
-      Every interaction can affect relationships:
-      - Share a drink → bond
-      - Win a game → respect (or resentment)
-      - Perform well → admiration
-      - Tell a great story → remembered
-      - Help someone → trust
-      
-    buffs_available:
-      WELCOMED:
-        trigger: "First visit, good greeting"
-        effect: "People are friendly here"
-        duration: "This visit"
-        
-      CELEBRATED:
-        trigger: "CELEBRATE action, major achievement"
-        effect: "+morale, +social, everyone knows you"
-        duration: "Lingers"
-        
-      RESPECTED:
-        trigger: "Win debate, show skill, help someone"
-        effect: "People take you seriously"
-        duration: "Persistent"
-        
-      BELOVED:
-        trigger: "Many positive interactions over time"
-        effect: "The pub feels like home"
-        duration: "Permanent (unless betrayed)"
-        
-      ENTERTAINER:
-        trigger: "Successful performance"
-        effect: "Free drinks, performance opportunities"
-        duration: "This visit"
-        
-    debuffs_possible:
-      TROUBLEMAKER:
-        trigger: "Start fights, cheat at games, insult bartender"
-        effect: "Watched. Possibly barred."
-        recovery: "Apologize, make amends"
-        
-      BORE:
-        trigger: "Bad performances, long-winded stories"
-        effect: "People drift away"
-        recovery: "Be funnier, or be quieter"
-        
-  # 📢 RUMOR SYSTEM
-  
-  rumors:
+      The kitchen serves both the garden (outdoor dining) and the bar
+      (food orders, supplies). This is the diagonal shortcut.
+    aliases: [kitchen, service, corridor, shortcut, staff]
+    
+  SOUTHEAST:
+    to: ../coatroom/
     description: |
-      The pub is a HUB FOR INFORMATION!
+      A passage leads toward the Costume Emporium. You can hear
+      the rustle of fabric and the whisper of sequins calling to you.
       
-      Sources:
-      - Bartender knows everything (but charges)
-      - Patrons share freely (but unreliably)
-      - Notice board has postings
-      - Eavesdropping catches fragments
-      
-    rumor_types:
-      TRUE:
-        - "There's gold in the cold room of the maze"
-        - "The skeleton was almost out when they died"
-        - "The vending machine has feelings"
-        
-      MOSTLY-TRUE:
-        - "A grue can be killed with cheese (it was BLUE cheese)"
-        - "Mother's letter has a secret (it has many)"
-        - "The treasure is guarded (by the grue? by puzzles?)"
-        
-      FALSE-BUT-FUN:
-        - "There's a dragon in the depths"
-        - "The bartender is actually the grue in disguise"
-        - "If you say XYZZY three times, you go home"
-        
-      PLOT-HOOKS:
-        - "Someone's been asking about YOUR family..."
-        - "The postal service is hiring"
-        - "A stranger left something for you"
-        
-  # 🚪 BACK ROOM — Plot device generator
-  
-  back_room:
+      "NEED A NEW LOOK? OR NEW MIND AND PERSONALITY? COSTUMES THIS WAY →"
+    aliases: [coatroom, costumes, emporium, wardrobe]
+    
+  UP:
+    to: room/inn-landing
     description: |
-      The mysterious back door leads to... whatever the story needs.
+      A narrow staircase winds up to the inn's guest rooms.
+      A small brass sign reads: "LODGING — 5 gold per visit"
+      Marieke keeps the rooms tidy and the linens fresh.
+    aliases: [rooms, stairs, inn, lodging, upstairs]
+    # Toll gate — charges 5 gold to enter (refundable on exit)
+    toll: 5
+    toll_currency: gold
+    guard_js: |
+      const fee = 5;
+      if (world.has('gold', fee)) {
+        world.pay('gold', fee, 'lodging fee', 'character/fictional/marieke');
+        return true;
+      }
+      return false;
+    accept_message_js: |
+      return "You drop 5 gold into the honor box. The stairs creak a welcome as you ascend.";
+    reject_message: |
+      "The honor box rattles expectantly. You need 5 gold to access the rooms."
       
-      Ask the bartender about it.
+      Marieke glances up from behind the bar. "Lodging is 5 gold, dear.
+      Covers clean sheets, a warm fire, and all the peace you need."
+    
+  BACK:
+    to: ???
+    description: "A mysterious back door"
+    note: "Locked. Ask the bartender about the key."
+    hint: "Plot hooks live here"
+    
+  DOWN:
+    to: basement/
+    description: "Stone stairs descend to the cellar"
+    
+  BAR:
+    to: bar/
+    description: |
+      Behind the bar counter, where the magic happens.
+      Bottles gleam on shelves, taps await, and secrets are kept.
       
-    possibilities:
-      - "Underground fighting ring"
-      - "Secret meeting of a guild"
-      - "Portal to another theme dimension"
-      - "Where the bartender REALLY comes from"
-      - "Storage room with plot-relevant items"
-      - "Passage to the maze (shortcut? trap?)"
-      - "Mother's favorite booth from her adventuring days"
+      A sign hangs from a brass chain:
+      "STAFF & RESIDENT ANIMALS ONLY BEHIND THE BAR"
+      "Guests: please use the bar stools out front!"
+    aliases: [behind, bartender, counter]
+    # Access restriction — behind the bar is for staff and resident animals only
+    # Players can SIT AT BAR from the main pub (see seating.yml for bar stools)
+    guard: "Only staff, cats, dogs, and Palm are allowed behind the bar."
+    guard_js: |
+      const tags = world.player.tags || [];
+      return tags.includes('staff') || tags.includes('cat') || tags.includes('dog') || tags.includes('monkey');
+    accept_message_js: |
+      const tags = world.player.tags || [];
+      if (tags.includes('staff')) return "Staff access granted. You slip behind the bar.";
+      if (tags.includes('cat')) return "The cat flap swings open. Cats rule the bar.";
+      if (tags.includes('dog')) return "The dogs have earned their spot behind the bar.";
+      if (tags.includes('monkey')) return "Palm climbs gracefully over the bar. Royalty has privileges.";
+      return "Access granted.";
+    reject_message: |
+      ⛔ PASSAGE DENIED
+      
+      Only staff, cats, dogs, and Palm are allowed behind the bar.
+      
+      Marieke looks up from polishing a glass.
+      "Sorry love, staff and resident animals only back here.
+      But grab a stool! I'll bring your drink right over."
+    
+  GAMES:
+    to: games/
+    description: "The games corner with darts, chess, and cards"
+    aliases: [darts, chess, cards, corner]
+    
+  ARCADE:
+    to: arcade/
+    description: "The arcade alcove with vintage cabinets"
+    aliases: [pacman, pong, pinball, cabinets]
+    
+  STAGE:
+    to: stage/
+    description: "The small performance stage in the corner"
+    aliases: [perform, performance, music, poetry]
+    
+  ATTIC:
+    to: attic/
+    description: |
+      A narrow staircase, almost hidden behind a tapestry, leads up
+      to the dusty attic. Cobwebs, forgotten things, and old stories.
+    aliases: [upstairs, dusty, hidden, tapestry]
+    note: "The attic holds memories the pub has forgotten"
+    
+  ROOFTOP:
+    to: rooftop/
+    description: |
+      A trapdoor in the ceiling near the back leads to the roof.
+      On clear nights, regulars gather there to watch the stars.
+      There's a telescope up there. Someone left it years ago.
+    aliases: [roof, trapdoor, stars, telescope, sky]
+    
+objects:
+  # Out front (Lane Neverending side)
+  # Main pub floor
+  - fireplace.yml
+  - notice-board.yml
+  - pneumatic-tube.yml  # Coffee delivery from Bootstrap Room!
+  - seating.yml
+  # Performance & celebration
+  - pie-table.yml      # Round table for debates, 8 seats
+  - gong.yml           # Gong of Gezelligheid
+  # Bar area (via bar/ region)
+  - bar/bartender.yml
+  - bar/budtender-marieke.yml
+  # Games corner (via games/ sub-room)
+  - games/dart-board.yml
+  - games/chess-table.yml
+  - games/card-deck.yml
+  # Arcade alcove (via arcade/ sub-room)
+  - arcade/pacman-cabinet.yml
+  - arcade/pong-cabinet.yml
+  - arcade/fruit-machine.yml
+  - arcade/pinball-machine.yml
+  
+sub_rooms:
+  - cat-cave/          # The TARDIS-like cat sanctuary
+  
+# 🎲 ACTIVITIES
+
+activities:
+  DRINK:
+    description: "Order from the menu"
+    usage: "DRINK [item] / ORDER [item]"
+    effects:
+      - "Spend gold (or theme currency)"
+      - "Social opportunity with bartender"
+      - "Possible stat effects (courage, loose tongue)"
+      - "Overhearing rumors"
+      
+  EAT:
+    description: "Order food from the menu"
+    usage: "EAT [item] / ORDER [item]"
+    effects:
+      - "Restores... something? Morale?"
+      - "Not as interesting as kitchen food"
+      - "But no digestive adventures here"
+      
+  PLAY-DARTS:
+    description: "Challenge someone to darts"
+    usage: "PLAY DARTS / PLAY DARTS WITH [patron]"
+    stakes: "Pride, drinks, gold, information"
+    mechanics: |
+      DM describes throws, tension, outcome
+      Can be used to:
+      - Befriend an NPC
+      - Win a bet
+      - Settle a dispute
+      - Show off (or embarrass yourself)
+      
+  PLAY-CHESS:
+    description: "Challenge someone to chess"
+    usage: "PLAY CHESS / PLAY CHESS WITH [patron]"
+    stakes: "Pride, respect, secrets"
+    mechanics: |
+      DM narrates key moves and turning points
+      Reveals character through play style:
+      - Aggressive? Defensive? Cunning?
+      - The bartender is VERY good
+      - Some patrons have unusual strategies
+      
+  PLAY-CARDS:
+    description: "Join or start a card game"
+    usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
+    games:
+      - "Poker (high stakes available)"
+      - "Blackjack"
+      - "Three-card monte (don't)"
+      - "Adventurer's Ruin (house game)"
+    mechanics: |
+      Can win or lose gold
+      Can win information
+      Can make enemies
+      Can cheat (if skilled and brave)
+      
+  SOCIALIZE:
+    description: "Talk to patrons"
+    usage: "TALK TO [patron] / APPROACH [description]"
+    outcomes:
+      - "Hear rumors"
+      - "Learn about the dungeon"
+      - "Make friends or enemies"
+      - "Get quest hooks"
+      - "Trade items or information"
+      
+  RENT-ROOM:
+    description: "Stay the night"
+    usage: "RENT ROOM / STAY THE NIGHT"
+    effects:
+      - "Costs gold (varies by theme)"
+      - "Fully rested (lamp oil refilled to base?)"
+      - "Dream sequence possible"
+      - "Time passes (what changed outside?)"
+      - "Mail delivered while sleeping"
+      
+  EAVESDROP:
+    description: "Listen in on conversations"
+    usage: "EAVESDROP / LISTEN"
+    effects:
+      - "Hear snippets of patron conversations"
+      - "Learn plot hooks"
+      - "Risk being noticed"
+      
+  PERFORM:
+    description: "Take the stage and entertain!"
+    usage: "PERFORM [song/story/trick/poetry/standup/magic]"
+    venue: "The small stage in the corner"
+    effects:
+      - "Earn tips if good"
+      - "Earn drinks thrown if bad"
+      - "Make an impression"
+      - "Every night is open mic night"
+      - "The gong ends bad performances (mercifully)"
+    framing: |
+      This is PERFORMANCE. The audience knows.
+      You can be anyone on that stage.
+      Adopt a persona, tell wild tales, be vulnerable.
+      The pub framing protects you.
+      
+  DEBATE:
+    description: "Join the pie table for structured discussion"
+    usage: "DEBATE [topic] / JOIN DEBATE"
+    venue: "The Pie Table (octagonal, 8 seats)"
+    effects:
+      - "Summon characters to fill empty seats"
+      - "Apply Robert's Rules (or chaos rules)"
+      - "The gong calls to order or ends mercifully"
+      - "Musical Chairs variant available"
+    framing: |
+      Debates at the pie table are SPORT, not war.
+      Devil's advocate is expected and honored.
+      Strong opinions, loosely held.
+      
+  CELEBRATE:
+    description: "Mark a victory, birthday, achievement"
+    usage: "CELEBRATE [occasion] / TOAST [target]"
+    effects:
+      - "Free round from the bartender (first one)"
+      - "Stories shared about the occasion"
+      - "Buff: CELEBRATED (+morale, social)"
+      - "Everyone raises a glass"
+      - "The gong rings once in honor"
+      
+  SING:
+    description: "Lead the pub in song"
+    usage: "SING [song] / LEAD SONG"
+    effects:
+      - "Whole pub may join in (if they know it)"
+      - "Establishes mood"
+      - "Can commemorate fallen companions"
+      - "Can embarrass yourself gloriously"
+    sea_shanties: "Particularly effective"
+    
+  STORY:
+    description: "Tell a tale to any who'll listen"
+    usage: "TELL STORY / SHARE TALE [topic]"
+    venue: "By the fire, or on stage"
+    effects:
+      - "Draw listeners"
+      - "Share wisdom (or lies)"
+      - "Process adventures through narrative"
+      - "Create legends"
+    framing: "All stories here are welcome. Truth is optional."
+    
+  TOAST:
+    description: "Raise a glass to someone or something"  
+    usage: "TOAST [target]"
+    effects:
+      - "Honor a person, victory, or memory"
+      - "Social bonding"
+      - "Can be serious or silly"
+      - "Everyone drinks (optional but expected)"
+      
+  RING-GONG:
+    description: "Use the Gong of Gezelligheid"
+    usage: "RING GONG / GONG [times]"
+    protocols:
+      once: "Call to attention — something important"
+      twice: "Emergency — everyone stop"
+      thrice: "Mercy / End this — debates, performances"
+    effects:
+      - "Ends performances gracefully"
+      - "Calls debates to order"
+      - "Gets everyone's attention"
+      - "Automatic during Musical Chairs"
+      
+# 🎭 PERFORMANCE & CELEBRATION VENUES
+
+venues:
+  
+  the_stage:
+    name: "The Grotto Stage"
+    description: |
+      A small raised platform in the corner. Worn by countless feet.
+      Stained by spilled drinks and tears (happy and sad).
+      
+      Anyone can perform. Everyone does eventually.
+      
+    capacity: "1-3 performers"
+    features:
+      - "Surprisingly good acoustics"
+      - "A stool for bards"
+      - "Hooks for props"
+      - "Enough light to be seen, enough dark to be brave"
+    performances:
+      - "Songs (sea shanties especially popular)"
+      - "Poetry (open mic every night)"
+      - "Standup (tough crowd but fair)"
+      - "Storytelling (by the fire or on stage)"
+      - "Magic tricks (real or fake both welcome)"
+      - "Dramatic readings (including code reviews)"
+    annie_hall_guests:
+      description: |
+        When pie-table talk wanders into a topic a tribute guest has material about,
+        they may materialize on stage — Annie Hall energy (Marshall McLuhan in the corridor).
+        They do not quote copyrighted bits; they offer to perform and link out.
+      example: |
+        Zach Mama (default: e2 fountain corner) — triggers in
+        characters/real-people/zach-mama/routines.yml; catalog in routines.md;
+        YouTube @zachmama.
+      
+  the_pie_table:
+    name: "The Pie Table"
+    description: |
+      An octagonal table in the center of the pub. Eight seats,
+      addressable by compass direction. A lazy susan in the middle.
+      A bell for calling to order. Within reach of the gong.
+      
+      This is where debates happen. Discussions. Games.
+      It's a physical pie menu — you can summon anyone to any seat.
+      
+    capacity: 8
+    seats: [N, NE, E, SE, S, SW, W, NW]
+    features:
+      - "Lazy susan for sharing"
+      - "Bell for calling to order"
+      - "Gong within reach"
+      - "Can summon historical/fictional figures (framed as performance)"
+      - "Musical Chairs variant"
+    activities:
+      - "Structured debates (Robert's Rules optional)"
+      - "Brainstorming sessions"
+      - "Code reviews (Linus persona recommended)"
+      - "Philosophical discussions"
+      - "Musical Chairs (elimination game)"
+      
+  the_gong:
+    name: "The Gong of Gezelligheid"
+    description: |
+      A brass gong hanging near the pie table.
+      It has three protocols:
+      
+      RING ONCE:  Attention! Something important.
+      RING TWICE: Emergency! Everyone stop.
+      RING THRICE: Mercy! End this (debates, performances, suffering).
+      
+    powers:
+      - "Can end any performance (gracefully)"
+      - "Can call debates to order"
+      - "Rings automatically during Musical Chairs"
+      - "Respects the tradition of gezelligheid"
+      
+  the_fireside:
+    name: "The Hearth"
+    description: |
+      The fireplace is a gathering spot for stories.
+      Pull up a chair. Listen. Share.
+      
+    atmosphere: "Warm, intimate, timeless"
+    activities:
+      - "Storytelling"
+      - "Quiet conversation"
+      - "Staring into flames (philosophical mode)"
+      - "Warming up after the maze"
+      
+# 🤝 SOCIAL MECHANICS
+
+social:
+  
+  description: |
+    The pub is a SOCIAL SPACE. Relationships form here.
+    
+    Every interaction can affect relationships:
+    - Share a drink → bond
+    - Win a game → respect (or resentment)
+    - Perform well → admiration
+    - Tell a great story → remembered
+    - Help someone → trust
+    
+  buffs_available:
+    WELCOMED:
+      trigger: "First visit, good greeting"
+      effect: "People are friendly here"
+      duration: "This visit"
+      
+    CELEBRATED:
+      trigger: "CELEBRATE action, major achievement"
+      effect: "+morale, +social, everyone knows you"
+      duration: "Lingers"
+      
+    RESPECTED:
+      trigger: "Win debate, show skill, help someone"
+      effect: "People take you seriously"
+      duration: "Persistent"
+      
+    BELOVED:
+      trigger: "Many positive interactions over time"
+      effect: "The pub feels like home"
+      duration: "Permanent (unless betrayed)"
+      
+    ENTERTAINER:
+      trigger: "Successful performance"
+      effect: "Free drinks, performance opportunities"
+      duration: "This visit"
+      
+  debuffs_possible:
+    TROUBLEMAKER:
+      trigger: "Start fights, cheat at games, insult bartender"
+      effect: "Watched. Possibly barred."
+      recovery: "Apologize, make amends"
+      
+    BORE:
+      trigger: "Bad performances, long-winded stories"
+      effect: "People drift away"
+      recovery: "Be funnier, or be quieter"
+      
+# 📢 RUMOR SYSTEM
+
+rumors:
+  description: |
+    The pub is a HUB FOR INFORMATION!
+    
+    Sources:
+    - Bartender knows everything (but charges)
+    - Patrons share freely (but unreliably)
+    - Notice board has postings
+    - Eavesdropping catches fragments
+    
+  rumor_types:
+    TRUE:
+      - "There's gold in the cold room of the maze"
+      - "The skeleton was almost out when they died"
+      - "The vending machine has feelings"
+      
+    MOSTLY-TRUE:
+      - "A grue can be killed with cheese (it was BLUE cheese)"
+      - "Mother's letter has a secret (it has many)"
+      - "The treasure is guarded (by the grue? by puzzles?)"
+      
+    FALSE-BUT-FUN:
+      - "There's a dragon in the depths"
+      - "The bartender is actually the grue in disguise"
+      - "If you say XYZZY three times, you go home"
+      
+    PLOT-HOOKS:
+      - "Someone's been asking about YOUR family..."
+      - "The postal service is hiring"
+      - "A stranger left something for you"
+      
+# 🚪 BACK ROOM — Plot device generator
+
+back_room:
+  description: |
+    The mysterious back door leads to... whatever the story needs.
+    
+    Ask the bartender about it.
+    
+  possibilities:
+    - "Underground fighting ring"
+    - "Secret meeting of a guild"
+    - "Portal to another theme dimension"
+    - "Where the bartender REALLY comes from"
+    - "Storage room with plot-relevant items"
+    - "Passage to the maze (shortcut? trap?)"
+    - "Mother's favorite booth from her adventuring days"
 
 # 🐵 HONORARY FRIENDS OF THE GROTTO
 # Standing invitation from the Great Monkey Paw Tribunal

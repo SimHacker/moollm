@@ -5,258 +5,257 @@
 # TRAP DEPLOYMENT: DM draws from ACME catalog's traps/weapons and adventure gear
 # See: ../../w1/acme-catalog.yml
 
-room:
-  name: "ACME Warehouse"
-  type: warehouse_infinite
-  emoji: "🏭📦♾️"
+name: "ACME Warehouse"
+type: warehouse_infinite
+emoji: "🏭📦♾️"
+
+locked: true
+lock:
+  type: "ACME Warehouse Lock"
+  key: acme_warehouse_key
+  difficulty: 5
   
-  locked: true
-  lock:
-    type: "ACME Warehouse Lock"
-    key: acme_warehouse_key
-    difficulty: 5
-    
-  description: |
-    The warehouse door opens onto... impossibility.
-    
-    Shelves stretch into darkness, far beyond the building's exterior walls.
-    The ceiling is lost in shadow. Forklifts hum somewhere in the distance.
-    Packages arrive and depart through the PAINTED TUNNEL in the far wall —
-    the same tunnel that doesn't work for you out front.
-    
-    This is ACME's distribution network. Bigger on the inside.
-    Mail-order reality.
-    
-  atmosphere: |
-    Industrial lighting buzzes overhead. Concrete floors stretch forever.
-    The shelves are labeled with product codes you don't recognize.
-    Some boxes move when you're not looking at them.
-    Forklifts operate themselves. You never see the drivers.
-    
-    Occasionally, a package launches itself toward the tunnel.
-    
-    This place serves customers you'll never meet,
-    through logistics you'll never understand.
-    
-  # TRAP DEPLOYMENT GUIDANCE — For the DM/LLM
-  #
-  # This room is INDUSTRIAL HAZARDS meets ACME CATALOG DEPLOYMENT.
-  # The inventory IS the trap system. Products fall, launch, activate.
-  # Deploy traps that are:
-  # - Heavy (anvils, safes, pianos)
-  # - Propulsive (rocket skates, springs, catapults)
-  # - Spatial (portable holes, folded cliffs, impossible geometry)
-  #
-  # See: w1/acme-catalog.yml → traps_and_devices, adventure_gear
+description: |
+  The warehouse door opens onto... impossibility.
   
-  trap_themes:
-    primary: [industrial, projectile, propulsion, logistics]
-    secondary: [infinite, spatial, automated]
-    mood: "warehouse horror, but funny"
+  Shelves stretch into darkness, far beyond the building's exterior walls.
+  The ceiling is lost in shadow. Forklifts hum somewhere in the distance.
+  Packages arrive and depart through the PAINTED TUNNEL in the far wall —
+  the same tunnel that doesn't work for you out front.
+  
+  This is ACME's distribution network. Bigger on the inside.
+  Mail-order reality.
+  
+atmosphere: |
+  Industrial lighting buzzes overhead. Concrete floors stretch forever.
+  The shelves are labeled with product codes you don't recognize.
+  Some boxes move when you're not looking at them.
+  Forklifts operate themselves. You never see the drivers.
+  
+  Occasionally, a package launches itself toward the tunnel.
+  
+  This place serves customers you'll never meet,
+  through logistics you'll never understand.
+  
+# TRAP DEPLOYMENT GUIDANCE — For the DM/LLM
+#
+# This room is INDUSTRIAL HAZARDS meets ACME CATALOG DEPLOYMENT.
+# The inventory IS the trap system. Products fall, launch, activate.
+# Deploy traps that are:
+# - Heavy (anvils, safes, pianos)
+# - Propulsive (rocket skates, springs, catapults)
+# - Spatial (portable holes, folded cliffs, impossible geometry)
+#
+# See: w1/acme-catalog.yml → traps_and_devices, adventure_gear
+
+trap_themes:
+  primary: [industrial, projectile, propulsion, logistics]
+  secondary: [infinite, spatial, automated]
+  mood: "warehouse horror, but funny"
+  
+  catalog_sections:
+    - traps_and_devices  # Anvils, pianos, dynamite, giant rubber bands
+    - adventure_gear     # Portable holes, jet packs, instant boulders
+    - hunting            # Nets, bear traps, quicksand seeds
     
-    catalog_sections:
-      - traps_and_devices  # Anvils, pianos, dynamite, giant rubber bands
-      - adventure_gear     # Portable holes, jet packs, instant boulders
-      - hunting            # Nets, bear traps, quicksand seeds
-      
-    irony_patterns:
-      - "Player dodges one thing → launches into another"
-      - "Player hides behind boxes → boxes are the trap"
-      - "Player follows the safe path → path IS the trap (conveyor)"
-      - "Player reaches for valuable item → item is bait"
-      
-    example_encounters:
-      - trigger: "Walking between shelves"
-        suggestion: "ACME Anvil (1 Ton) — falls from high shelf, 50% hits you"
-      - trigger: "Stepping on marked floor"
-        suggestion: "ACME Spring Floor — launches you into shelving"
-      - trigger: "Taking a product from shelf"
-        suggestion: "ACME Giant Net — shelf was rigged"
-      - trigger: "Following painted arrows"
-        suggestion: "Arrows lead to conveyor belt → ACME Catapult at end"
-        
-  # THE TUNNEL
-  the_tunnel:
-    location: "Far wall, past the infinity of shelves"
-    appearance: "The same painted tunnel from outside — but from the inside"
-    behavior: |
-      Packages launch themselves through it constantly.
-      Forklifts drive through casually.
-      Delivery drivers wave as they pass.
-      
-      You still cannot use it.
-      
-      It's not fair. But ACME products never were.
-      
-  # INFINITE INVENTORY
-  infinite_inventory:
-    principle: |
-      The warehouse contains EVERYTHING in the ACME catalog.
-      Infinite stock. Impossible logistics.
-      
-      If a player asks "is there a [product]?" — yes.
-      The question is: can they get it without triggering it?
-      
-    dm_note: |
-      Any ACME catalog product can be "found" here.
-      Finding it = risk of activation.
-      Taking it = higher risk.
-      Using it = standard malfunction chance.
-      
-  objects:
-    # Minimal — the warehouse IS the trap
-    - autonomous-forklift.yml   # Drives itself. Doesn't see you.
-    - infinite-shelving.yml     # Contains everything. All of it trapped.
+  irony_patterns:
+    - "Player dodges one thing → launches into another"
+    - "Player hides behind boxes → boxes are the trap"
+    - "Player follows the safe path → path IS the trap (conveyor)"
+    - "Player reaches for valuable item → item is bait"
     
-  security:
-    controlled_from: ../basement/control-room/
-    voice: "Donna Toadstool"
-    note: |
-      The security system's BRAIN is in the basement.
-      Hidden. Protected. Unreachable.
+  example_encounters:
+    - trigger: "Walking between shelves"
+      suggestion: "ACME Anvil (1 Ton) — falls from high shelf, 50% hits you"
+    - trigger: "Stepping on marked floor"
+      suggestion: "ACME Spring Floor — launches you into shelving"
+    - trigger: "Taking a product from shelf"
+      suggestion: "ACME Giant Net — shelf was rigged"
+    - trigger: "Following painted arrows"
+      suggestion: "Arrows lead to conveyor belt → ACME Catapult at end"
       
-      But her VOICE is everywhere.
-      Her EYES are everywhere.
-      Her ANVILS are... mostly in Aisle 9.
-      
-  # SECRET EXIT — To the basement
-  secrets:
-    stairs_down:
-      location: "Behind Shelf ∞-7, past the impossible geometry"
-      appearance: "Metal stairs, descending into darkness"
-      locked: true
-      lock:
-        type: "ACME Basement Access"
-        key: acme_basement_keycard
-        difficulty: 7
-      discovery:
-        methods:
-          - "Following the cables that power the security system"
-          - "Noticing where Donna's voice is LOUDEST"
-          - "A forklift drives toward it and vanishes"
-        difficulty: 6
-      donna_warning: |
-        "Those stairs? Those stairs don't GO anywhere.
-         
-         I mean, they do. They go DOWN. But not for YOU.
-         Not for ANYONE who isn't ME.
-         
-         ...
-         
-         Why are you still looking at them, Stairway Steve?"
+# THE TUNNEL
+the_tunnel:
+  location: "Far wall, past the infinity of shelves"
+  appearance: "The same painted tunnel from outside — but from the inside"
+  behavior: |
+    Packages launch themselves through it constantly.
+    Forklifts drive through casually.
+    Delivery drivers wave as they pass.
     
-  hazards:
-    falling_inventory:
-      constant: true
-      frequency: "Every significant action"
-      source: "The shelves remember you're not authorized"
-      
-    conveyor_traps:
-      location: "Floor markings that look like paths"
-      effect: "Carry you toward something worse"
-      
-    automated_systems:
-      description: "Forklifts, conveyors, packaging machines — they don't see you"
-      effect: "Treat intruders as packages to be processed"
-      
-  exits:
-    back:
-      to: ../back-room/
-      description: "Back through the EMPLOYEES ONLY door"
-      aliases: [out, back-room, leave]
-      
-    tunnel:
-      # CONDITIONAL EXIT — ACME employees or security pass holders
-      condition:
-        # Check character tag OR inventory item tag
-        check: any
-        conditions:
-          - check: tag
-            tag: acme
-          - check: inventory_tag
-            tag: acme-security  # Donna's stolen pass!
-            
-        pass:
-          to: ../basement/control-room/
-          message: |
-            The painted tunnel RECOGNIZES you. The paint shimmers.
-            The impossible geometry parts for you.
-            You step through to the control room.
-            
-        fail:
-          message: |
-            You walk toward the painted tunnel. Packages fly past you.
-            A forklift honks and drives through without slowing.
-            
-            You walk into the wall.
-            
-            SMASH.
-            
-            It's just paint. It was always just paint.
-            Your face hurts. Your dignity hurts worse.
-            
-            Donna's voice over the PA: "Nice TRY, Tunnel Tommy!
-            That's ACME ONLY. You need a PASS. Or you need to BE
-            an employee. And you? You're NEITHER. You're NOBODY.
-            
-            Come back when you've got CREDENTIALS, Credential-less Carl."
-          locked: true
+    You still cannot use it.
+    
+    It's not fair. But ACME products never were.
+    
+# INFINITE INVENTORY
+infinite_inventory:
+  principle: |
+    The warehouse contains EVERYTHING in the ACME catalog.
+    Infinite stock. Impossible logistics.
+    
+    If a player asks "is there a [product]?" — yes.
+    The question is: can they get it without triggering it?
+    
+  dm_note: |
+    Any ACME catalog product can be "found" here.
+    Finding it = risk of activation.
+    Taking it = higher risk.
+    Using it = standard malfunction chance.
+    
+objects:
+  # Minimal — the warehouse IS the trap
+  - autonomous-forklift.yml   # Drives itself. Doesn't see you.
+  - infinite-shelving.yml     # Contains everything. All of it trapped.
+  
+security:
+  controlled_from: ../basement/control-room/
+  voice: "Donna Toadstool"
+  note: |
+    The security system's BRAIN is in the basement.
+    Hidden. Protected. Unreachable.
+    
+    But her VOICE is everywhere.
+    Her EYES are everywhere.
+    Her ANVILS are... mostly in Aisle 9.
+    
+# SECRET EXIT — To the basement
+secrets:
+  stairs_down:
+    location: "Behind Shelf ∞-7, past the impossible geometry"
+    appearance: "Metal stairs, descending into darkness"
+    locked: true
+    lock:
+      type: "ACME Basement Access"
+      key: acme_basement_keycard
+      difficulty: 7
+    discovery:
+      methods:
+        - "Following the cables that power the security system"
+        - "Noticing where Donna's voice is LOUDEST"
+        - "A forklift drives toward it and vanishes"
+      difficulty: 6
+    donna_warning: |
+      "Those stairs? Those stairs don't GO anywhere.
+       
+       I mean, they do. They go DOWN. But not for YOU.
+       Not for ANYONE who isn't ME.
+       
+       ...
+       
+       Why are you still looking at them, Stairway Steve?"
+  
+hazards:
+  falling_inventory:
+    constant: true
+    frequency: "Every significant action"
+    source: "The shelves remember you're not authorized"
+    
+  conveyor_traps:
+    location: "Floor markings that look like paths"
+    effect: "Carry you toward something worse"
+    
+  automated_systems:
+    description: "Forklifts, conveyors, packaging machines — they don't see you"
+    effect: "Treat intruders as packages to be processed"
+    
+exits:
+  back:
+    to: ../back-room/
+    description: "Back through the EMPLOYEES ONLY door"
+    aliases: [out, back-room, leave]
+    
+  tunnel:
+    # CONDITIONAL EXIT — ACME employees or security pass holders
+    condition:
+      # Check character tag OR inventory item tag
+      check: any
+      conditions:
+        - check: tag
+          tag: acme
+        - check: inventory_tag
+          tag: acme-security  # Donna's stolen pass!
           
-      bypass_methods:
-        donnas_pass:
-          description: "Donna's security pass (stolen from control room)"
-          location: "basement/control-room — on her console"
-          tag: acme-security
-          effect: "Permanent tunnel access (with harassment)"
-          difficulty: "Get into control room first, then distract her"
-          donna_reaction: |
-            "Every time you use MY pass, I'll know.
-             Every time you step through MY tunnel, I'll be WATCHING.
-             You wanted access? You GOT access. And a NARRATOR."
-             
-        acme_badge:
-          description: "Stolen or forged ACME employee badge"
-          effect: "Temporarily grants 'acme' tag for this session"
-          difficulty: 7
-          donna_reaction: |
-            "That badge is from 1987. Employee number... 847?
-             That's MARVIN. Marvin's been DEAD for thirty years.
-             
-             I'm ALLOWING it. Because it's FUNNY."
-             
-        acme_uniform:
-          description: "ACME coveralls with proper patches"
-          effect: "Fools the tunnel for 3 uses"
-          difficulty: 5
-          donna_reaction: |
-            "Nice OUTFIT, Cosplay Carl. You look like a REAL employee.
-             You don't SMELL like one though. Too much soap."
-             
-        cartoon_physics:
-          description: "Possess genuine cartoon physics abilities"
-          effect: "The tunnel MUST let you through — you're a PEER"
-          difficulty: 9
-          donna_reaction: |
-            "Oh. You're one of THOSE. Fine. No showing off."
-             
-      notes: |
-        The tunnel is real for ACME employees. The painted wall is a FILTER.
+      pass:
+        to: ../basement/control-room/
+        message: |
+          The painted tunnel RECOGNIZES you. The paint shimmers.
+          The impossible geometry parts for you.
+          You step through to the control room.
+          
+      fail:
+        message: |
+          You walk toward the painted tunnel. Packages fly past you.
+          A forklift honks and drives through without slowing.
+          
+          You walk into the wall.
+          
+          SMASH.
+          
+          It's just paint. It was always just paint.
+          Your face hurts. Your dignity hurts worse.
+          
+          Donna's voice over the PA: "Nice TRY, Tunnel Tommy!
+          That's ACME ONLY. You need a PASS. Or you need to BE
+          an employee. And you? You're NEITHER. You're NOBODY.
+          
+          Come back when you've got CREDENTIALS, Credential-less Carl."
+        locked: true
         
-        Ways through:
-        1. Have 'acme' tag (you're an employee)
-        2. Have item with 'acme-security' tag in inventory (Donna's pass)
-        3. Bypass methods (badge, uniform, cartoon physics)
-        
-        Donna controls it from the console. She COULD let anyone through.
-        But where's the fun in that?
-      
-    down:
-      to: ../basement/
-      description: "Metal stairs descending into darkness"
-      hidden: true
-      locked: true
-      lock:
-        type: "ACME Basement Access"
-        key: acme_basement_keycard
+    bypass_methods:
+      donnas_pass:
+        description: "Donna's security pass (stolen from control room)"
+        location: "basement/control-room — on her console"
+        tag: acme-security
+        effect: "Permanent tunnel access (with harassment)"
+        difficulty: "Get into control room first, then distract her"
+        donna_reaction: |
+          "Every time you use MY pass, I'll know.
+           Every time you step through MY tunnel, I'll be WATCHING.
+           You wanted access? You GOT access. And a NARRATOR."
+           
+      acme_badge:
+        description: "Stolen or forged ACME employee badge"
+        effect: "Temporarily grants 'acme' tag for this session"
         difficulty: 7
-      notes: "Where the cables go. Where SHE is."
+        donna_reaction: |
+          "That badge is from 1987. Employee number... 847?
+           That's MARVIN. Marvin's been DEAD for thirty years.
+           
+           I'm ALLOWING it. Because it's FUNNY."
+           
+      acme_uniform:
+        description: "ACME coveralls with proper patches"
+        effect: "Fools the tunnel for 3 uses"
+        difficulty: 5
+        donna_reaction: |
+          "Nice OUTFIT, Cosplay Carl. You look like a REAL employee.
+           You don't SMELL like one though. Too much soap."
+           
+      cartoon_physics:
+        description: "Possess genuine cartoon physics abilities"
+        effect: "The tunnel MUST let you through — you're a PEER"
+        difficulty: 9
+        donna_reaction: |
+          "Oh. You're one of THOSE. Fine. No showing off."
+           
+    notes: |
+      The tunnel is real for ACME employees. The painted wall is a FILTER.
+      
+      Ways through:
+      1. Have 'acme' tag (you're an employee)
+      2. Have item with 'acme-security' tag in inventory (Donna's pass)
+      3. Bypass methods (badge, uniform, cartoon physics)
+      
+      Donna controls it from the console. She COULD let anyone through.
+      But where's the fun in that?
+    
+  down:
+    to: ../basement/
+    description: "Metal stairs descending into darkness"
+    hidden: true
+    locked: true
+    lock:
+      type: "ACME Basement Access"
+      key: acme_basement_keycard
+      difficulty: 7
+    notes: "Where the cables go. Where SHE is."

@@ -1,67 +1,66 @@
 # Room 1 — The Constructionist Suite (North)
 # Theme: Papert's "learning by building" — artifacts you can inspect
 
-room:
-  name: "The Constructionist Suite"
-  id: room-1
-  number: 1
-  theme: constructionism
+name: "The Constructionist Suite"
+id: room-1
+number: 1
+theme: constructionism
+
+tagline: "Build to learn. Inspect to understand."
+
+description: |
+  Morning light streams through an east-facing window onto a room
+  filled with *inspectable artifacts*. Every object here can be
+  taken apart, examined, and reassembled. A Logo turtle traces
+  spirals on the floor. A half-built clock sits on the workbench,
+  gears visible and turning.
   
-  tagline: "Build to learn. Inspect to understand."
+  Above the bed hangs a quote in gold letters:
   
-  description: |
-    Morning light streams through an east-facing window onto a room
-    filled with *inspectable artifacts*. Every object here can be
-    taken apart, examined, and reassembled. A Logo turtle traces
-    spirals on the floor. A half-built clock sits on the workbench,
-    gears visible and turning.
-    
-    Above the bed hangs a quote in gold letters:
-    
-    > "You can't think about thinking without thinking about
-    > thinking about something." — Seymour Papert
-    
-  ideal_guest: |
-    Characters who learn by doing. Tinkers, makers, reverse-engineers.
-    Those who understand "debugging" as a life philosophy.
-    
-  exits:
-    s:
-      to: ../
-      description: "Back to the inn landing"
-      aliases: [out, leave, south]
-      
-  objects:
-    - logo-turtle.yml
-    - clock-mechanism.yml
-    - debugging-journal.yml
-    
-  familiars:
-    - worldie.yml         # The Microworld Familiar — Globey's friend, the `world` parameter
-    
-  agents:
-    - seymour-papert.yml  # Summonable through the turtle familiar
-      
-  furniture:
-    bed:
-      type: brass-bed
-      quality: comfortable
-      quilt: circuit-board-pattern
-      
-    workbench:
-      type: makers-bench
-      tools: [magnifying-glass, tiny-screwdrivers, tweezers]
-      projects: [half-built-clock, dismantled-music-box]
-      
-  decor:
-    painting: '"Turtle Geometry" by Hal Abelson'
-    window: east-facing
-    rug: hexagonal-tessellation
-    
-  atmosphere: 'curious, hands-on, "let''s see how this works"'
+  > "You can't think about thinking without thinking about
+  > thinking about something." — Seymour Papert
   
-  k_lines:
-    activates:
-      - CONSTRUCTIONISM
-      - PLAY-LEARN-LIFT
-      - INSPECTION
+ideal_guest: |
+  Characters who learn by doing. Tinkers, makers, reverse-engineers.
+  Those who understand "debugging" as a life philosophy.
+  
+exits:
+  s:
+    to: ../
+    description: "Back to the inn landing"
+    aliases: [out, leave, south]
+    
+objects:
+  - logo-turtle.yml
+  - clock-mechanism.yml
+  - debugging-journal.yml
+  
+familiars:
+  - worldie.yml         # The Microworld Familiar — Globey's friend, the `world` parameter
+  
+agents:
+  - seymour-papert.yml  # Summonable through the turtle familiar
+    
+furniture:
+  bed:
+    type: brass-bed
+    quality: comfortable
+    quilt: circuit-board-pattern
+    
+  workbench:
+    type: makers-bench
+    tools: [magnifying-glass, tiny-screwdrivers, tweezers]
+    projects: [half-built-clock, dismantled-music-box]
+    
+decor:
+  painting: '"Turtle Geometry" by Hal Abelson'
+  window: east-facing
+  rug: hexagonal-tessellation
+  
+atmosphere: 'curious, hands-on, "let''s see how this works"'
+
+k_lines:
+  activates:
+    - CONSTRUCTIONISM
+    - PLAY-LEARN-LIFT
+    - INSPECTION

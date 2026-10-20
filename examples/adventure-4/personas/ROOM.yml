@@ -8,32 +8,31 @@
 # Captain Ashford is a persona. Bumblewick is the character wearing it.
 # Ziggy Stardust is a persona. David Bowie was the character wearing it.
 
-room:
-  id: personas
-  name: "The Wardrobe of Masks"
-  type: [repository, metaphysical, infrastructure]
+id: personas
+name: "The Wardrobe of Masks"
+type: [repository, metaphysical, infrastructure]
+
+emoji: 🎭
+
+description: |
+  An infinite corridor of masks and costumes. Each hangs on its own
+  stand, waiting to be worn. Some are simple — a hat, a name.
+  Some are elaborate — complete identities with histories and voices.
   
-  emoji: 🎭
+  These are not people. These are ROLES.
   
-  description: |
-    An infinite corridor of masks and costumes. Each hangs on its own
-    stand, waiting to be worn. Some are simple — a hat, a name.
-    Some are elaborate — complete identities with histories and voices.
-    
-    These are not people. These are ROLES.
-    
-    They have no heartbeat. They have stories.
-    They cannot die. They can only be forgotten.
-    
-    The corridor stretches in both directions forever.
-    New masks appear when someone imagines them.
-    Old masks gather dust but never decay.
-    
-  atmosphere:
-    lighting: theatrical spotlights, dramatic shadows
-    sound: whispers of old performances, applause echoes
-    feeling: theatrical, transformative, liberating
-    
+  They have no heartbeat. They have stories.
+  They cannot die. They can only be forgotten.
+  
+  The corridor stretches in both directions forever.
+  New masks appear when someone imagines them.
+  Old masks gather dust but never decay.
+  
+atmosphere:
+  lighting: theatrical spotlights, dramatic shadows
+  sound: whispers of old performances, applause echoes
+  feeling: theatrical, transformative, liberating
+  
 # THE FUNDAMENTAL DISTINCTION
 #
 # PERSONA (costume)         vs    CHARACTER (body)
@@ -110,112 +109,112 @@ room:
 # RELATIONSHIPS
 # The Wardrobe knows and loves its partners in transformation
 
-  relationships:
-    maurice:
-      id: maurice
-      location: ../coatroom/mannequin.yml
-      feeling: |
-        Dear Maurice! They send people to me when they need more than
-        a costume — when they need a complete IDENTITY. And when they're
-        ready, they bring the personas back to Maurice for the fitting.
-        We are partners in transformation. They handle the outside.
-        I provide the inside.
-      bond: beloved_partner
-      can_invoke: true
-      invoke_command: '"CALL MAURICE" or "SUMMON MAURICE"'
-      
-    mirror:
-      id: mind-mirror
-      location: ../coatroom/mirror.yml
-      feeling: |
-        The mirror can SEE into here. Through that glass, visitors
-        can preview my masks without entering. I don't mind. Let them
-        browse. When they're ready, they'll come deeper.
-        The mirror shows truth. I provide the masks that SHAPE truth.
-      bond: trusted_window
-      can_be_viewed_through: true
-      
-    characters_room:
-      id: hall-of-bodies
-      location: ../characters/
-      feeling: |
-        The BODIES. The ones who WEAR my masks. Without them, I am
-        just a closet of empty costumes. They give my masks life.
-        They give my roles purpose. I exist FOR them.
-      bond: devoted_service
-      
-    skills_room:
-      id: skill-nexus
-      location: ../../skills/
-      feeling: |
-        Personas are not just appearances — they're CAPABILITIES.
-        The skill nexus has skills for identity: character, persona,
-        mind-mirror. I am the instantiation. They are the knowledge.
-      bond: theoretical_foundation
-
-  exits:
-    north:
-      to: ../coatroom/
-      description: |
-        The passage opens into warm light and the scent of costume fabric.
-        The Coatroom awaits, where Maurice the Mannequin helps visitors
-        try on their new identities.
-        
-        Go NORTH to return to the Fantastipants Costume Emporium.
-      primary: true
-      aliases: [out, exit, coatroom]
-      
-    characters:
-      to: ../characters/
-      description: |
-        A hidden passage connects the Wardrobe of Masks to the Hall of
-        Bodies — where the PEOPLE who wear these masks sleep and dream.
-        
-        Go to CHARACTERS to see who could wear these costumes.
-      metaphysical: true
-      
-    east:
-      to: $SKILLS/
-      external: true
-      description: |
-        A shimmering portal leads to the Skill Nexus — where the persona
-        skill documents how masks work, how they modify their wearers,
-        and how code-switching transforms identity.
-        
-        Go EAST to learn the theory of transformation.
-      
-  contents:
-    # Each .yml file is a costume
-    # Each subdirectory is an elaborate costume with accessories
+relationships:
+  maurice:
+    id: maurice
+    location: ../coatroom/mannequin.yml
+    feeling: |
+      Dear Maurice! They send people to me when they need more than
+      a costume — when they need a complete IDENTITY. And when they're
+      ready, they bring the personas back to Maurice for the fitting.
+      We are partners in transformation. They handle the outside.
+      I provide the inside.
+    bond: beloved_partner
+    can_invoke: true
+    invoke_command: '"CALL MAURICE" or "SUMMON MAURICE"'
     
-  advertisements:
-    BROWSE:
-      description: "See what masks hang here"
-      effect: "List all personas in the wardrobe"
+  mirror:
+    id: mind-mirror
+    location: ../coatroom/mirror.yml
+    feeling: |
+      The mirror can SEE into here. Through that glass, visitors
+      can preview my masks without entering. I don't mind. Let them
+      browse. When they're ready, they'll come deeper.
+      The mirror shows truth. I provide the masks that SHAPE truth.
+    bond: trusted_window
+    can_be_viewed_through: true
+    
+  characters_room:
+    id: hall-of-bodies
+    location: ../characters/
+    feeling: |
+      The BODIES. The ones who WEAR my masks. Without them, I am
+      just a closet of empty costumes. They give my masks life.
+      They give my roles purpose. I exist FOR them.
+    bond: devoted_service
+    
+  skills_room:
+    id: skill-nexus
+    location: ../../skills/
+    feeling: |
+      Personas are not just appearances — they're CAPABILITIES.
+      The skill nexus has skills for identity: character, persona,
+      mind-mirror. I am the instantiation. They are the knowledge.
+    bond: theoretical_foundation
+
+exits:
+  north:
+    to: ../coatroom/
+    description: |
+      The passage opens into warm light and the scent of costume fabric.
+      The Coatroom awaits, where Maurice the Mannequin helps visitors
+      try on their new identities.
       
-    TRY-ON:
-      description: "Wear a persona (temporarily)"
-      parameters: [persona_id]
-      effect: "Preview how you'd look and feel"
+      Go NORTH to return to the Fantastipants Costume Emporium.
+    primary: true
+    aliases: [out, exit, coatroom]
+    
+  characters:
+    to: ../characters/
+    description: |
+      A hidden passage connects the Wardrobe of Masks to the Hall of
+      Bodies — where the PEOPLE who wear these masks sleep and dream.
       
-    ADOPT:
-      description: "Commit to wearing a persona"  
-      parameters: [persona_id]
-      effect: "Set current_persona on your character"
+      Go to CHARACTERS to see who could wear these costumes.
+    metaphysical: true
+    
+  east:
+    to: $SKILLS/
+    external: true
+    description: |
+      A shimmering portal leads to the Skill Nexus — where the persona
+      skill documents how masks work, how they modify their wearers,
+      and how code-switching transforms identity.
       
-    REMOVE:
-      description: "Take off your current persona"
-      effect: "Set current_persona to null"
-      
-    CREATE:
-      description: "Design a new persona"
-      parameters: [name, archetype, depth]
-      effect: "New persona file created"
-      
-    INSPECT:
-      description: "Study a hanging costume"
-      parameters: [persona_id]
-      effect: "Show full persona definition"
+      Go EAST to learn the theory of transformation.
+    
+contents:
+  # Each .yml file is a costume
+  # Each subdirectory is an elaborate costume with accessories
+  
+advertisements:
+  BROWSE:
+    description: "See what masks hang here"
+    effect: "List all personas in the wardrobe"
+    
+  TRY-ON:
+    description: "Wear a persona (temporarily)"
+    parameters: [persona_id]
+    effect: "Preview how you'd look and feel"
+    
+  ADOPT:
+    description: "Commit to wearing a persona"  
+    parameters: [persona_id]
+    effect: "Set current_persona on your character"
+    
+  REMOVE:
+    description: "Take off your current persona"
+    effect: "Set current_persona to null"
+    
+  CREATE:
+    description: "Design a new persona"
+    parameters: [name, archetype, depth]
+    effect: "New persona file created"
+    
+  INSPECT:
+    description: "Study a hanging costume"
+    parameters: [persona_id]
+    effect: "Show full persona definition"
 
 # THE COATROOM CONNECTION
 #
@@ -282,72 +281,72 @@ room:
 #   - Rooms can EXPECT certain personas
 #   - The switch itself can be narrated
 
-  code_switching:
-    description: |
-      Personas can auto-activate based on context. This models
-      the real phenomenon of code-switching — where identity
-      presentation shifts fluidly based on social environment.
-      
-    triggers:
-      room_based:
-        description: "Activate a persona when entering a room"
-        example: |
-          # In CHARACTER.yml
-          auto_personas:
-            pub/: captain-ashford      # Be the captain at the pub
-            home/: null                # Be yourself at home
-            kitchen/: dutiful-child    # Different for Mother
+code_switching:
+  description: |
+    Personas can auto-activate based on context. This models
+    the real phenomenon of code-switching — where identity
+    presentation shifts fluidly based on social environment.
+    
+  triggers:
+    room_based:
+      description: "Activate a persona when entering a room"
+      example: |
+        # In CHARACTER.yml
+        auto_personas:
+          pub/: captain-ashford      # Be the captain at the pub
+          home/: null                # Be yourself at home
+          kitchen/: dutiful-child    # Different for Mother
+          
+    audience_based:
+      description: "Activate based on who's present"
+      example: |
+        auto_personas:
+          when_with:
+            mother: dutiful-child
+            strangers: guarded-professional
+            close_friends: null      # No mask needed
             
-      audience_based:
-        description: "Activate based on who's present"
-        example: |
-          auto_personas:
-            when_with:
-              mother: dutiful-child
-              strangers: guarded-professional
-              close_friends: null      # No mask needed
-              
-      context_based:
-        description: "Activate based on activity"
-        example: |
-          auto_personas:
-            during:
-              combat: battle-ready
-              negotiation: smooth-talker
-              grieving: vulnerable-self
-              
-    narration:
-      on_switch: |
-        When a persona auto-activates, narrate the shift:
-        
-        "You feel your posture straighten as you enter the pub.
-        The Captain's voice emerges — deeper, more confident.
-        You ARE Captain Ashford here. You always were."
-        
-      on_conflict: |
-        When two triggers conflict, narrate the tension:
-        
-        "Mother is at the pub. Who do you BE?
-        The dutiful child? The confident captain?
-        Your face flickers between masks. Choose."
-        
-    exhaustion:
-      description: |
-        Code-switching has a cost. Constant switching is TIRING.
-        This can be modeled as a need or buff drain.
-        
-      mechanics: |
-        switches_today: 0
-        switch_fatigue_threshold: 5
-        
-        # After 5 switches in a day:
-        buff: code_switch_fatigue
-        effect: "-1 to all social rolls. Need rest to reset."
-        
-      narrative: |
-        "You've been so many people today. The masks are heavy.
-        You need a moment to just BE — unfiltered, unperformed.
-        Find somewhere safe. Take off all the masks. Breathe."
+    context_based:
+      description: "Activate based on activity"
+      example: |
+        auto_personas:
+          during:
+            combat: battle-ready
+            negotiation: smooth-talker
+            grieving: vulnerable-self
+            
+  narration:
+    on_switch: |
+      When a persona auto-activates, narrate the shift:
+      
+      "You feel your posture straighten as you enter the pub.
+      The Captain's voice emerges — deeper, more confident.
+      You ARE Captain Ashford here. You always were."
+      
+    on_conflict: |
+      When two triggers conflict, narrate the tension:
+      
+      "Mother is at the pub. Who do you BE?
+      The dutiful child? The confident captain?
+      Your face flickers between masks. Choose."
+      
+  exhaustion:
+    description: |
+      Code-switching has a cost. Constant switching is TIRING.
+      This can be modeled as a need or buff drain.
+      
+    mechanics: |
+      switches_today: 0
+      switch_fatigue_threshold: 5
+      
+      # After 5 switches in a day:
+      buff: code_switch_fatigue
+      effect: "-1 to all social rolls. Need rest to reset."
+      
+    narrative: |
+      "You've been so many people today. The masks are heavy.
+      You need a moment to just BE — unfiltered, unperformed.
+      Find somewhere safe. Take off all the masks. Breathe."
 
 # THE POLITICS OF PASSING
 #

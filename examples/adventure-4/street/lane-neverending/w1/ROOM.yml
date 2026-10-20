@@ -1,209 +1,207 @@
 # 🛤️ LANE NEVERENDING — West 1 (4-6 Lane Neverending)
 
-room:
-  name: "Lane Neverending (W1)"
-  type: street
+name: "Lane Neverending (W1)"
+type: street
+
+address_range: "4-6 Lane Neverending"
+
+lighting: 8  # natural
+
+description: |
+  Lane Neverending stretches west from the pub. This section tells
+  the story of two economies in a single glance:
   
-  address_range: "4-6 Lane Neverending"
+  On the SOUTH side: LEELA MANUFACTURING INTELLIGENCE rises three
+  stories — a converted factory with tall arched windows and smokestacks
+  that emit sparks of light instead of smoke. The sign reads:
+  "5 Lane Neverending — Industrial Knowledge & Insight."
+  Thriving on information. Building understanding.
   
-  lighting: natural
-  grue_safe: true
+  On the NORTH side: ACME SURPLUS sits empty and boarded up.
+  "4 Lane Neverending — EVERYTHING MUST GO" (it did).
+  Mail-order ate the brick-and-mortar business. The painted tunnel
+  on the boarded window is the only thing that still works here
+  (for some people, anyway).
   
-  description: |
-    Lane Neverending stretches west from the pub. This section tells
-    the story of two economies in a single glance:
+  A study in contrasts. Knowledge thrives. Gimmicks fade.
+  But the tunnel... the tunnel still has secrets.
+  
+examine: |
+  LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):
+  Red brick industrial building, three stories, south side of street.
+  Tall arched windows reveal conveyor belts, workstations, the
+  occasional flash of insight being packaged for delivery.
+  Smokestacks emit ideas, not pollution. The loading dock around
+  back accepts "RAW DATA" deliveries.
+  
+  Neighbor to The Gezelligheid Grotto — the pub is just one door east.
+  Knowledge and ale, side by side. As it should be.
+  
+  ACME SURPLUS (4 Lane Neverending, NORTH):
+  Dusty storefront, north side, directly across from Leela.
+  Once sold portable holes, rocket skates, and anvils.
+  Now sells nothing. Mail-order killed the retail star.
+  
+  The famous PAINTED TUNNEL is here — on a boarded-up section.
+  Looks SO real. You CANNOT run through it. (Others can.)
+  
+  A one-anvil memorial to the brick-and-mortar economy.
+  
+  THE CONTRAST:
+  Look south: a factory full of knowledge workers, glowing screens,
+  ideas becoming real.
+  
+  Look north: a failed storefront, dusty windows, a tunnel that
+  only works for delivery drivers.
+  
+  The future and the past, facing each other across the cobblestones.
+  
+exits:
+  east:
+    to: ../center/
+    description: "Back toward The Gezelligheid Grotto and the center of town."
+    aliases: [e, pub, back, lantern]
     
-    On the SOUTH side: LEELA MANUFACTURING INTELLIGENCE rises three
-    stories — a converted factory with tall arched windows and smokestacks
-    that emit sparks of light instead of smoke. The sign reads:
-    "5 Lane Neverending — Industrial Knowledge & Insight."
-    Thriving on information. Building understanding.
+  west:
+    to: ../w2/
+    description: "Lane Neverending continues west, into the older district."
+    aliases: [w, forward]
     
-    On the NORTH side: ACME SURPLUS sits empty and boarded up.
-    "4 Lane Neverending — EVERYTHING MUST GO" (it did).
-    Mail-order ate the brick-and-mortar business. The painted tunnel
-    on the boarded window is the only thing that still works here
-    (for some people, anyway).
+  leela:
+    to: ../leela-manufacturing/
+    description: |
+      The front doors of LEELA MANUFACTURING INTELLIGENCE.
+      Red brick, three stories, tall arched windows.
+      A sign: "5 Lane Neverending — Industrial Knowledge & Insight"
+      You can see the scale model glowing in the lobby.
+    aliases: [5, south, factory, manufacturing, intelligence, leela]
+    side: south
     
-    A study in contrasts. Knowledge thrives. Gimmicks fade.
-    But the tunnel... the tunnel still has secrets.
-    
-  examine: |
-    LEELA MANUFACTURING INTELLIGENCE (5 Lane Neverending, SOUTH):
-    Red brick industrial building, three stories, south side of street.
-    Tall arched windows reveal conveyor belts, workstations, the
-    occasional flash of insight being packaged for delivery.
-    Smokestacks emit ideas, not pollution. The loading dock around
-    back accepts "RAW DATA" deliveries.
-    
-    Neighbor to The Gezelligheid Grotto — the pub is just one door east.
-    Knowledge and ale, side by side. As it should be.
-    
-    ACME SURPLUS (4 Lane Neverending, NORTH):
-    Dusty storefront, north side, directly across from Leela.
-    Once sold portable holes, rocket skates, and anvils.
-    Now sells nothing. Mail-order killed the retail star.
-    
-    The famous PAINTED TUNNEL is here — on a boarded-up section.
-    Looks SO real. You CANNOT run through it. (Others can.)
-    
-    A one-anvil memorial to the brick-and-mortar economy.
-    
-    THE CONTRAST:
-    Look south: a factory full of knowledge workers, glowing screens,
-    ideas becoming real.
-    
-    Look north: a failed storefront, dusty windows, a tunnel that
-    only works for delivery drivers.
-    
-    The future and the past, facing each other across the cobblestones.
-    
-  exits:
-    east:
-      to: ../center/
-      description: "Back toward The Gezelligheid Grotto and the center of town."
-      aliases: [e, pub, back, lantern]
+  no-ai-tower:
+    to: ../no-ai-tower/
+    description: |
+      Next door to Leela, a narrow one-story storefront with...
       
-    west:
-      to: ../w2/
-      description: "Lane Neverending continues west, into the older district."
-      aliases: [w, forward]
+      Wait. What IS that sign?
       
-    leela:
-      to: ../leela-manufacturing/
-      description: |
-        The front doors of LEELA MANUFACTURING INTELLIGENCE.
-        Red brick, three stories, tall arched windows.
-        A sign: "5 Lane Neverending — Industrial Knowledge & Insight"
-        You can see the scale model glowing in the lobby.
-      aliases: [5, south, factory, manufacturing, intelligence, leela]
-      side: south
+      A 40-foot neon monstrosity screams "NO AI TOWER" in hot pink
+      and gold over a humble building with newspapered windows.
+      Old Las Vegas casino aesthetic. Buzzing. Flickering.
+      The arrow points DOWN at the building. "SINCE 2026."
       
-    no-ai-tower:
-      to: ../no-ai-tower/
-      description: |
-        Next door to Leela, a narrow one-story storefront with...
+      The tower is one story. The sign is four stories of attitude.
+    aliases: [5.5, no-ai, tower, neon, that-sign]
+    side: south
+    
+  acme:
+    to: ../acme-surplus/
+    description: |
+      The front door of ACME SURPLUS. Closed. Locked.
+      Dusty windows. Empty shelves. A painted tunnel that doesn't work.
+      A sign: "4 Lane Neverending — EVERYTHING MUST GO"
+      (It did.)
+    aliases: [4, north, acme, surplus, abandoned, closed]
+    side: north
+    locked: true
+    lock:
+      type: "ACME Master Lock (rusted)"
+      pickable: true
+      difficulty: 3
+      breakable: true
+      warning: |
+        🚨 WARNING: This building is secured by ACME products.
+        Breaking in is possible but inadvisable.
+        ACME is not responsible for anvils, rockets, or cartoon physics.
         
-        Wait. What IS that sign?
-        
-        A 40-foot neon monstrosity screams "NO AI TOWER" in hot pink
-        and gold over a humble building with newspapered windows.
-        Old Las Vegas casino aesthetic. Buzzing. Flickering.
-        The arrow points DOWN at the building. "SINCE 2026."
-        
-        The tower is one story. The sign is four stories of attitude.
-      aliases: [5.5, no-ai, tower, neon, that-sign]
-      side: south
+  # VIOLENCE EXIT — Break into ACME with brute force
+  break_in:
+    aliases: [break, smash, kick, force, bash, ram, shoulder]
+    to: ../acme-surplus/
+    
+    # CONDITIONAL EXIT — Random probability with consequences
+    condition:
+      check: random
+      probability: 0.35  # 35% chance — low but not too low
+      cumulative: true   # Each attempt slightly improves odds (desperation bonus)
+      max_probability: 0.65  # Caps at 65% after multiple attempts
       
-    acme:
-      to: ../acme-surplus/
-      description: |
-        The front door of ACME SURPLUS. Closed. Locked.
-        Dusty windows. Empty shelves. A painted tunnel that doesn't work.
-        A sign: "4 Lane Neverending — EVERYTHING MUST GO"
-        (It did.)
-      aliases: [4, north, acme, surplus, abandoned, closed]
-      side: north
-      locked: true
-      lock:
-        type: "ACME Master Lock (rusted)"
-        pickable: true
-        difficulty: 3
-        breakable: true
-        warning: |
-          🚨 WARNING: This building is secured by ACME products.
-          Breaking in is possible but inadvisable.
-          ACME is not responsible for anvils, rockets, or cartoon physics.
+      pass:
+        to: ../acme-surplus/
+        message: |
+          CRASH! The door SHATTERS. Splinters fly.
           
-    # VIOLENCE EXIT — Break into ACME with brute force
-    break_in:
-      aliases: [break, smash, kick, force, bash, ram, shoulder]
-      to: ../acme-surplus/
+          *creeeeeak* — An anvil swings toward your head.
+          ROLL: Dodge (DC 12) or take 2d6 bludgeoning.
+          
+          Donna's voice: "Breaking Barry chose VIOLENCE today.
+          I RESPECT that. Welcome to ACME."
+           
+        effects:
+          - alarm: true           # Donna knows
+          - damage_risk: 2d6      # Anvil trap
+          - noise: loud           # Everyone nearby heard that
+          - reputation: -5        # Leela across the street saw you
+          
+      fail:
+        message: |
+          THUD. The door doesn't budge.
+          
+          Plaque: "ACME DOOR — Cartoon Durability™"
+          
+          You bounce off. Still on the street.
+          Someone at Leela watches. Writing something down.
+          
+          You can try again.
+          
+        effects:
+          - damage: 1d4        # Bruised shoulder
+          - witnessed: true   # Leela saw that
+          - retry: true       # Can keep trying
+          
+    notes: |
+      Violence WORKS, eventually. The door is Cartoon Durable but not
+      infinitely so. Each attempt has a 35% base chance, improving
+      slightly with persistence (desperation bonus).
       
-      # CONDITIONAL EXIT — Random probability with consequences
-      condition:
-        check: random
-        probability: 0.35  # 35% chance — low but not too low
-        cumulative: true   # Each attempt slightly improves odds (desperation bonus)
-        max_probability: 0.65  # Caps at 65% after multiple attempts
-        
-        pass:
-          to: ../acme-surplus/
-          message: |
-            CRASH! The door SHATTERS. Splinters fly.
-            
-            *creeeeeak* — An anvil swings toward your head.
-            ROLL: Dodge (DC 12) or take 2d6 bludgeoning.
-            
-            Donna's voice: "Breaking Barry chose VIOLENCE today.
-            I RESPECT that. Welcome to ACME."
-             
-          effects:
-            - alarm: true           # Donna knows
-            - damage_risk: 2d6      # Anvil trap
-            - noise: loud           # Everyone nearby heard that
-            - reputation: -5        # Leela across the street saw you
-            
-        fail:
-          message: |
-            THUD. The door doesn't budge.
-            
-            Plaque: "ACME DOOR — Cartoon Durability™"
-            
-            You bounce off. Still on the street.
-            Someone at Leela watches. Writing something down.
-            
-            You can try again.
-            
-          effects:
-            - damage: 1d4        # Bruised shoulder
-            - witnessed: true   # Leela saw that
-            - retry: true       # Can keep trying
-            
-      notes: |
-        Violence WORKS, eventually. The door is Cartoon Durable but not
-        infinitely so. Each attempt has a 35% base chance, improving
-        slightly with persistence (desperation bonus).
-        
-        Consequences:
-        - Donna ALWAYS knows (she has cameras everywhere)
-        - Traps still trigger on entry
-        - Leela Manufacturing witnesses and judges
-        - Loud — draws attention
-        
-        But hey, you're IN. That's what matters to some people.
+      Consequences:
+      - Donna ALWAYS knows (she has cameras everywhere)
+      - Traps still trigger on entry
+      - Leela Manufacturing witnesses and judges
+      - Loud — draws attention
       
-  objects:
-    - acme-surplus.yml           # North side, across from Leela
-    - acme-catalog-dispenser.yml # 📰 Free catalogs! On sidewalk in front of ACME
+      But hey, you're IN. That's what matters to some people.
     
-  buildings:
-    north:
-      - name: "ACME Surplus"
-        address: "4 Lane Neverending"
-        status: closed
-        notable: "The painted tunnel"
-        
-    south:
-      - name: "Leela Manufacturing"
-        directory: leela-manufacturing/  # Full facility with floors and departments
-        address: "5 Lane Neverending"
-        status: thriving
+objects:
+  - acme-surplus.yml           # North side, across from Leela
+  - acme-catalog-dispenser.yml # 📰 Free catalogs! On sidewalk in front of ACME
+  
+buildings:
+  north:
+    - name: "ACME Surplus"
+      address: "4 Lane Neverending"
+      status: closed
+      notable: "The painted tunnel"
+      
+  south:
+    - name: "Leela Manufacturing"
+      directory: leela-manufacturing/  # Full facility with floors and departments
+      address: "5 Lane Neverending"
+      status: thriving
+  
+# Flyweight instances — shared prototype, minimal instance data
+# See: ../STREET-FURNITURE.yml
+flyweight:
+  lamp_post_north:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "north side, near ACME"
+    style: "ornate, older design"
     
-  # Flyweight instances — shared prototype, minimal instance data
-  # See: ../STREET-FURNITURE.yml
-  flyweight:
-    lamp_post_north:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "north side, near ACME"
-      style: "ornate, older design"
-      
-    lamp_post_south:
-      prototype: ../STREET-FURNITURE.yml#lamp-post
-      location: "south side, near Leela entrance"
-      style: "ornate, older design"
-      
-    bench_contrast:
-      prototype: ../STREET-FURNITURE.yml#street-bench
-      location: "between the two buildings"
-      carvings: ["knowledge vs gimmicks", "one thrives, one fades"]
+  lamp_post_south:
+    prototype: ../STREET-FURNITURE.yml#lamp-post
+    location: "south side, near Leela entrance"
+    style: "ornate, older design"
+    
+  bench_contrast:
+    prototype: ../STREET-FURNITURE.yml#street-bench
+    location: "between the two buildings"
+    carvings: ["knowledge vs gimmicks", "one thrives, one fades"]

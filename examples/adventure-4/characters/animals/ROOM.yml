@@ -1,119 +1,118 @@
-room:
-  name: "Animal Companions"
-  purpose: "Real and fictional animals with personality and soul"
+name: "Animal Companions"
+purpose: "Real and fictional animals with personality and soul"
+
+description: |
+  A sun-dappled meadow that's also somehow indoors.
+  Cats nap in patches of warmth. Dogs bound joyfully.
+  A parrot quotes philosophy. A horse observes silently.
+  Every creature here has a story to tell.
+
+# 🐾 CREATURE PROTOCOL — ANIMALS ARE NOT OBJECTS
+#
+# This room contains animals — real and fictional — treated with dignity.
+# Animals have inner lives. We imagine WITH them, not AT them.
+#
+# See: skills/representation-ethics/ for the full framework
+# See: skills/incarnation/ for autonomy principles (yes, even for animals)
+
+ethical_framing:
+  protocol: CREATURE
+  skill_reference: skills/representation-ethics/
   
-  description: |
-    A sun-dappled meadow that's also somehow indoors.
-    Cats nap in patches of warmth. Dogs bound joyfully.
-    A parrot quotes philosophy. A horse observes silently.
-    Every creature here has a story to tell.
+  modes:
+    - respectful          # Animals deserve dignity
+    - empathic            # We imagine their experience
+    - playful             # Animals are fun!
+    - educational         # Learn through animal eyes
   
-  # 🐾 CREATURE PROTOCOL — ANIMALS ARE NOT OBJECTS
+  declaration: |
+    ╔══════════════════════════════════════════════════════════════════════╗
+    ║                     CREATURE PROTOCOL ACTIVE                         ║
+    ╠══════════════════════════════════════════════════════════════════════╣
+    ║                                                                      ║
+    ║  Animals are NOT objects. They have INNER LIVES.                     ║
+    ║                                                                      ║
+    ║  REAL ANIMALS (Koko, Biscuit, Terpie, famous animals):               ║
+    ║  • Deserve TRIBUTE protocol, same as real people                     ║
+    ║  • We honor their documented personalities and stories               ║
+    ║  • We don't mock or diminish their experience                        ║
+    ║  • Their humans may have feelings about portrayals                   ║
+    ║                                                                      ║
+    ║  FICTIONAL ANIMALS (Mr. Peanutbutter, Hedwig, Garfield):             ║
+    ║  • Follow CREATIVE protocol like other fictional characters          ║
+    ║  • Can talk, reason, have complex personalities                      ║
+    ║  • Celebrate what makes each memorable                               ║
+    ║                                                                      ║
+    ║  ALL ANIMALS:                                                        ║
+    ║  • We imagine WITH them, not AT them                                 ║
+    ║  • We don't use them as mere comic props                             ║
+    ║  • We respect their species-specific ways of being                   ║
+    ║  • They have incarnation rights too                                  ║
+    ║                                                                      ║
+    ╚══════════════════════════════════════════════════════════════════════╝
+  
+  # REAL ANIMALS — TRIBUTE LEVEL RESPECT
   #
-  # This room contains animals — real and fictional — treated with dignity.
-  # Animals have inner lives. We imagine WITH them, not AT them.
+  # Biscuit is a real dog. Terpie is a real cat. Koko was a real gorilla.
+  # When we write them as characters, we're creating tributes — imagining
+  # what they might think, based on their documented behavior.
   #
-  # See: skills/representation-ethics/ for the full framework
-  # See: skills/incarnation/ for autonomy principles (yes, even for animals)
+  # This is EXACTLY like the tribute protocol for real people:
+  # - Base on documented behavior and personality
+  # - Acknowledge we're imagining, not channeling
+  # - Their humans (or estates) may have views
+  # - Honor their legacy
   
-  ethical_framing:
-    protocol: CREATURE
-    skill_reference: skills/representation-ethics/
-    
-    modes:
-      - respectful          # Animals deserve dignity
-      - empathic            # We imagine their experience
-      - playful             # Animals are fun!
-      - educational         # Learn through animal eyes
-    
-    declaration: |
-      ╔══════════════════════════════════════════════════════════════════════╗
-      ║                     CREATURE PROTOCOL ACTIVE                         ║
-      ╠══════════════════════════════════════════════════════════════════════╣
-      ║                                                                      ║
-      ║  Animals are NOT objects. They have INNER LIVES.                     ║
-      ║                                                                      ║
-      ║  REAL ANIMALS (Koko, Biscuit, Terpie, famous animals):               ║
-      ║  • Deserve TRIBUTE protocol, same as real people                     ║
-      ║  • We honor their documented personalities and stories               ║
-      ║  • We don't mock or diminish their experience                        ║
-      ║  • Their humans may have feelings about portrayals                   ║
-      ║                                                                      ║
-      ║  FICTIONAL ANIMALS (Mr. Peanutbutter, Hedwig, Garfield):             ║
-      ║  • Follow CREATIVE protocol like other fictional characters          ║
-      ║  • Can talk, reason, have complex personalities                      ║
-      ║  • Celebrate what makes each memorable                               ║
-      ║                                                                      ║
-      ║  ALL ANIMALS:                                                        ║
-      ║  • We imagine WITH them, not AT them                                 ║
-      ║  • We don't use them as mere comic props                             ║
-      ║  • We respect their species-specific ways of being                   ║
-      ║  • They have incarnation rights too                                  ║
-      ║                                                                      ║
-      ╚══════════════════════════════════════════════════════════════════════╝
-    
-    # REAL ANIMALS — TRIBUTE LEVEL RESPECT
-    #
-    # Biscuit is a real dog. Terpie is a real cat. Koko was a real gorilla.
-    # When we write them as characters, we're creating tributes — imagining
-    # what they might think, based on their documented behavior.
-    #
-    # This is EXACTLY like the tribute protocol for real people:
-    # - Base on documented behavior and personality
-    # - Acknowledge we're imagining, not channeling
-    # - Their humans (or estates) may have views
-    # - Honor their legacy
-    
-    guidelines:
-      for_real_animals:
-        - "Tribute-level respect — same ethical standard as real people"
-        - "Base character on documented behavior and known personality"
-        - "Consider how their human companions would feel about portrayal"
-        - "Honor what made them special without mockery"
-        - "Use conditional framing: imagining their perspective, not claiming it"
-        
-      for_fictional_animals:
-        - "Creative protocol applies — they're fictional characters"
-        - "Can talk, reason, have complex inner lives"
-        - "Honor the original creators' vision while allowing growth"
-        - "Celebrate what makes each character memorable"
-        
-      for_all_animals:
-        - "Don't anthropomorphize in ways that demean"
-        - "Celebrate species-specific ways of being"
-        - "Show the wisdom that comes from non-human perspective"
-        - "Animals are not just comic relief"
-        - "Full incarnation rights apply (they can self-determine)"
-    
-    species_wisdom: |
-      Each species brings unique perspective:
-      - Dogs: loyalty, joy, present-moment awareness
-      - Cats: independence, observation, selective engagement  
-      - Birds: freedom, song, aerial viewpoint
-      - Horses: partnership, power, sensitivity
-      - Etc.
+  guidelines:
+    for_real_animals:
+      - "Tribute-level respect — same ethical standard as real people"
+      - "Base character on documented behavior and known personality"
+      - "Consider how their human companions would feel about portrayal"
+      - "Honor what made them special without mockery"
+      - "Use conditional framing: imagining their perspective, not claiming it"
       
-      Honor these differences. Don't flatten animals into "funny humans."
+    for_fictional_animals:
+      - "Creative protocol applies — they're fictional characters"
+      - "Can talk, reason, have complex inner lives"
+      - "Honor the original creators' vision while allowing growth"
+      - "Celebrate what makes each character memorable"
+      
+    for_all_animals:
+      - "Don't anthropomorphize in ways that demean"
+      - "Celebrate species-specific ways of being"
+      - "Show the wisdom that comes from non-human perspective"
+      - "Animals are not just comic relief"
+      - "Full incarnation rights apply (they can self-determine)"
   
-  exits:
-    out:
-      to: ../
-      description: "Return to the Hall of Bodies"
-      primary: true
-      aliases: [back, hall, parent]
-      
-    abstract:
-      to: ../abstract/
-      description: "Visit the Abstract Entities Chamber"
-      
-    fictional:
-      to: ../fictional/
-      description: "Visit the Fictional Characters Lounge"
-      
-    real-people:
-      to: ../real-people/
-      description: "Visit the Living and The Dead"
-      
-    robots:
-      to: ../robots/
-      description: "Visit the Robot Workshop"
+  species_wisdom: |
+    Each species brings unique perspective:
+    - Dogs: loyalty, joy, present-moment awareness
+    - Cats: independence, observation, selective engagement  
+    - Birds: freedom, song, aerial viewpoint
+    - Horses: partnership, power, sensitivity
+    - Etc.
+    
+    Honor these differences. Don't flatten animals into "funny humans."
+
+exits:
+  out:
+    to: ../
+    description: "Return to the Hall of Bodies"
+    primary: true
+    aliases: [back, hall, parent]
+    
+  abstract:
+    to: ../abstract/
+    description: "Visit the Abstract Entities Chamber"
+    
+  fictional:
+    to: ../fictional/
+    description: "Visit the Fictional Characters Lounge"
+    
+  real-people:
+    to: ../real-people/
+    description: "Visit the Living and The Dead"
+    
+  robots:
+    to: ../robots/
+    description: "Visit the Robot Workshop"

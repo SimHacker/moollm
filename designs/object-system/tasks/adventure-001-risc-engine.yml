@@ -1,0 +1,81 @@
+# Ongoing: shrink the adventure engine to a small Self-style core.
+# Behavior lives in the plug-in objects; the engine only looks things up and sends messages.
+
+id: adventure-001
+title: "RISC adventure engine: a few primitives, all behavior from the objects"
+why: >
+  The engine runs Selfish objects but isn't Selfish itself. Verbs, the economy, karma,
+  catalogs and narrator styles are hard-coded in the engine instead of being slots on
+  objects. The currency/karma system is the worst case: a minor idea, heavily built out,
+  adding nothing to play.
+done_when: >
+  ! rg -qi 'karma|moolah|gini|gdp|exchange_rate' skills/adventure/engine.js
+  && test $(wc -l < skills/adventure/engine.js) -lt 1200
+# The line count is a target, not a law. The real test is prose, judged by Don:
+# "a new verb, shop or currency is added by writing YAML, not engine code."
+judge: don
+priority: normal
+owner: null
+source: "Don, 2026-10-20: 'go for a sleek RISC engine… selfier since it's running selfish objects'"
+requires:
+  - { task: objsys-001, verify: "python3 skills/prototype/scripts/resolve.py lint --strict" }
+  # The engine's lookup rules should be the schema's lookup rules, so settle those first.
+history:
+  - { at: 2026-10-20, event: opened, by: don }
+  - { at: 2026-10-20, event: decided, by: don, note: "gold-only trait plug-in; one aligned JS engine and one Python engine" }
+
+# Measured 2026-10-20.
+meter:
+  engine_js_lines: 4707                 # class MootalEngine, skills/adventure/engine.js
+  economy_mentions_in_engine: 362       # lines matching karma|currency|gold|coin|wallet|economy|price|pay(
+  command_dispatcher_lines: 690         # command(), 3947-4634: one if-chain of hard-coded verbs
+  economy_methods: >
+    transfer, logTransaction, parseCurrency, getEconomicScore, getExchangeRate,
+    adjustKarma (+ exploration/completion/social/creativity rubrics),
+    exchangeGoldForMoolah, exchangeMoolahForGold, giveMoney, has, balance, pay,
+    earn, charge, transactionHistory, analyzeEconomy, _calculateGini, economyReport,
+    recordFlow, getFlowAnalysis, flowReport, exportEconomicData, economicDump,
+    appraise/buy/sell, catalogs and catalog ordering
+  economy_verbs: "gdp cashflow moneyflow ledger econ econdump exchange convert moolah karma balance coins"
+  also_python: "skills/adventure/economy.py (256 lines)"
+  second_engine: "skills/adventure/adventure.js (1414 lines) compiles world closures; engine.js is a separate engine"
+
+design:
+  # The whole engine, as Self would have it: lookup, send, eval, move, log.
+  primitives:
+    lookup: "slot lookup through inherits:, first match wins (same rules as resolve.py)"
+    send: >
+      A typed command is a message. The verb goes to the target object, then its room
+      (and that room's containers), then the player, then the world, which is an object
+      with parents like any other. The first object that has the method or
+      advertisement handles it. LOOK, EXAMINE, BUY and KARMA are slots, not engine code.
+    eval: "compiled guard_js/score_if_js/effect_js closures over world — what adventure.js already does"
+    move: "change location/containment; the only state the engine itself maintains"
+    log: "append an event; reports and exports are methods on a log object"
+  world_is_an_object: "world: inherits: [skills/adventure, ...] — the default verbs (GO, LOOK, INVENTORY) live in the adventure skill as methods, so a game can override them"
+  plugins: "economy, catalogs, narrator styles, history reports each become optional objects/skills; a game that doesn't inherit them doesn't have them"
+
+phases:
+  - { id: inventory, status: opened, out: "list every engine method as primitive / default verb / plug-in / delete" }
+  - id: decide-economy
+    status: done
+    decided: >
+      Tiny plug-in: gold pieces only, a character trait like karma or bladder. A number on
+      the character, changed by effect_js; no ledger, exchange rates, flows or Gini.
+  - id: decide-engines
+    status: done
+    decided: >
+      One JS engine and one Python engine, aligned: both run the same data, source or
+      compiled, and produce the same results. Merge engine.js and adventure.js, keeping the
+      best of each and dropping the worst; nobody needs to remember why there were two.
+  - { id: compare-engines, status: opened, out: "engine.js vs adventure.js vs adventure_runtime.py: what each does that the others don't" }
+  - id: parity-tests
+    status: opened
+    out: "shared fixtures both engines run; same transcript out"
+    blocker: >
+      compile.py isn't deterministic: two runs on the same tree differ in synonym order
+      (453 lists) and in every character's gold and moolah (random). Sort the sets and seed
+      or drop the randomness first, or parity can't be tested.
+  - { id: send, status: opened, out: "message send that replaces command()'s if-chain" }
+  - { id: move-verbs, status: opened, out: "default verbs moved to skills/adventure methods; engine keeps only primitives" }
+  - { id: cut, status: opened, out: "economy and reports removed or moved to plug-ins; done_when passes" }

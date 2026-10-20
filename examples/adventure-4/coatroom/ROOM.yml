@@ -1,322 +1,320 @@
 # The Coat Room
 # A spectacular collection of transformative costumes
 
-room:
-  name: The Fantastipants Costume Emporium
-  type: room
+name: The Fantastipants Costume Emporium
+type: room
+
+# This room is safe!
+lighting: 7  # magical
+
+description: |
+  You stand in a vast circular chamber lined floor-to-ceiling with
+  costumes of every conceivable type. Racks spiral outward in
+  concentric circles like a fabric tornado frozen in time. The
+  air smells of mothballs, greasepaint, and infinite possibility.
   
-  # This room is safe!
-  lighting: magical
-  grue_safe: true
+  A full-length MIRROR stands in the center, ready to show you
+  your transformation. A helpful MANNEQUIN holds a clipboard.
   
+  Signs hang from the ceiling:
+  
+    "DESCRIBE ANY COSTUME — WE HAVE IT!"
+    "ASK FOR 'RANDOM' FOR A SURPRISE!"
+    "COMBINE COSTUMES! MIX AND MATCH!"
+    "ADD ACCESSORIES! THE ONLY LIMIT IS YOUR IMAGINATION!"
+    "YOUR WAISTCOAT WILL WAIT FOR YOU HERE."
+    
+  And in smaller, more mysterious letters:
+  
+    "THE MIRROR SEES MORE THAN YOUR CLOTHES.
+     IT SEES YOUR SOUL. AND SOULS CAN BE TAILORED TOO."
+  
+  The exit WEST leads to the pub's garden for outdoor dining.
+  The exit NORTHWEST is a shortcut diagonally to the pub bar!
+  
+  (Coatroom is EAST of Garden, so exit WEST goes to Garden.)
+
+occupants: []
+
+objects:
+  - mirror.yml
+  - mannequin.yml
+  - costume-racks.yml
+
+exits:
+  west:
+    to: ../garden/
+    description: |
+      The path back to the pub's garden. Tables, chairs, sunshine,
+      and a moment to admire your new look in the daylight.
+      
+  northwest:
+    to: ../pub/
+    description: |
+      A narrow passage cuts diagonally toward the pub's main room.
+      You can hear laughter, clinking glasses, and someone attempting
+      a sea shanty. Perfect for making an entrance in your new costume!
+      
+      "DRAMATIC ENTRANCE THIS WAY →"
+    aliases: [pub, bar, entrance, shortcut]
+      
+  north:
+    to: ../characters/
+    description: |
+      A spiral staircase leads UP into blue bioluminescent light.
+      You hear heartbeats. Breathing. The Hall of Bodies awaits —
+      where the PEOPLE sleep. Not costumes. SOULS with histories.
+      
+      Go NORTH to meet the characters who live in this world.
+    metaphysical: true
+    
+  south:
+    to: ../personas/
+    description: |
+      Behind the last rack of costumes, where the sequins stop glittering
+      and the air grows thick with theatrical history, there's a passage
+      to the Wardrobe of Masks.
+      
+      The costumes here are THINGS. The masks there are IDENTITIES.
+      This is the dressing room. That is where the souls of roles hang.
+      
+      Go SOUTH to browse the masks you could wear.
+    metaphysical: true
+    aliases: [deeper, backstage, wardrobe]
+    
+  east:
+    to: $SKILLS/  # Path variable — resolves to moollm/skills/
+    external: true  # Intentional link to skills repo
+    description: |
+      A door of pure light opens to the Skill Nexus — the library of
+      ALL capabilities. This room transcends the adventure — it connects
+      to the global skill library shared by all of MOOLLM.
+      
+      Here, the theoretical foundations are documented:
+      how to BE a character, how to WEAR a persona, how to LOOK in
+      the mirror and understand what you see.
+      
+      Go EAST to learn what you could become.
+    metaphysical: true
+    global: true  # This exit leaves the adventure into shared space
+
+world_position:
+  x: 1
+  y: 0
+  
+ambience: |
+  Somewhere in the racks, a feather boa rustles. A sequin catches
+  the light and winks at you. The costumes seem to whisper:
+  "Wear me. WEAR ME. WEAR MEEEE."
+  
+  You resist. For now.
+
+# COSTUME SYSTEM
+# This room allows players to completely rewrite their character description
+costume_system:
+  commands:
+    - command: "WEAR [costume description]"
+      effect: "Rewrites character description to match the costume"
+      example: "WEAR a pirate captain with a peg leg and parrot"
+      
+    - command: "WEAR RANDOM"
+      effect: "The mannequin selects a surprise costume"
+      
+    - command: "COMBINE [costume1] WITH [costume2]"
+      effect: "Mash up two costumes into something new"
+      example: "COMBINE astronaut WITH Victorian gentleman"
+      
+    - command: "ADD [accessory]"
+      effect: "Add an accessory to current costume"
+      example: "ADD a monocle that shoots lasers"
+      
+    - command: "ADD TO INVENTORY [item]"
+      effect: "Get a costume-appropriate item for your inventory"
+      example: "ADD TO INVENTORY a rubber chicken for comedic effect"
+      
+    - command: "REMOVE COSTUME"
+      effect: "Return to default Bumblewick appearance"
+      
+    - command: "LOOK IN MIRROR"
+      effect: "See your current appearance AND personality in detail"
+
+# IDENTITY SYSTEM
+# Rename your file, see all your stats
+# Characters live in characters/ directory
+identity_system:
   description: |
-    You stand in a vast circular chamber lined floor-to-ceiling with
-    costumes of every conceivable type. Racks spiral outward in
-    concentric circles like a fabric tornado frozen in time. The
-    air smells of mothballs, greasepaint, and infinite possibility.
+    You are more than a name. You are a file. In the coatroom,
+    you can examine and rename your very existence.
     
-    A full-length MIRROR stands in the center, ready to show you
-    your transformation. A helpful MANNEQUIN holds a clipboard.
+    All characters live in: characters/
     
-    Signs hang from the ceiling:
+  character_directory: "../characters/"
     
-      "DESCRIBE ANY COSTUME — WE HAVE IT!"
-      "ASK FOR 'RANDOM' FOR A SURPRISE!"
-      "COMBINE COSTUMES! MIX AND MATCH!"
-      "ADD ACCESSORIES! THE ONLY LIMIT IS YOUR IMAGINATION!"
-      "YOUR WAISTCOAT WILL WAIT FOR YOU HERE."
+  commands:
+    - command: "DESCRIBE-ME"
+      effect: |
+        Shows ALL your data in beautiful narrative and table form:
+        - File path (e.g., characters/captain-ashford.yml)
+        - Character name
+        - Current costume/persona
+        - Mind Mirror profile (Sims traits + Leary planes)
+        - Current needs, wants, aspirations
+        - Inventory summary
+        - Relationships
+        - Score, gold, moves, effects
+      example_output: |
+        📁 FILE: characters/captain-ashford.yml
+        👤 NAME: Captain Kira Ashford
+        🎭 PERSONA: Space Pirate Captain (Belter)
+        
+        PERSONALITY (The Sims)
+        ┌────────────┬─────┬────────────────────────────┐
+        │ Trait      │ Val │ Commentary                 │
+        ├────────────┼─────┼────────────────────────────┤
+        │ Neat       │ 3   │ Organized chaos            │
+        │ Outgoing   │ 7   │ Works the room             │
+        │ Active     │ 6   │ Paces when thinking        │
+        │ Playful    │ 7   │ Everything's a game        │
+        │ Nice       │ 6   │ Cares, but won't be walked │
+        └────────────┴─────┴────────────────────────────┘
+        
+        ... [continues with full profile]
+        
+    - command: "CHANGE-MY-FILE-NAME [new-name]"
+      aliases: ["RENAME-ME", "MY-FILE-NAME"]
+      effect: |
+        Renames your character file within characters/ directory.
+        The .yml extension is optional — we know what you mean.
+      examples:
+        - "CHANGE-MY-FILE-NAME captain-ashford"
+        - "CHANGE-MY-FILE-NAME bumblewick-fantastipants"
+        - "RENAME-ME space-pirate"
+      rules:
+        - stays_in_characters: "File stays in characters/ directory"
+        - no_overwrite: "Cannot overwrite existing character files"
+        - kebab_case: "Use kebab-case (captain-ashford, not CaptainAshford)"
+        - yml_optional: ".yml extension is added automatically if omitted"
+      validation: |
+        BEFORE: characters/abstract/player/
+        AFTER:  characters/captain-ashford.yml
+        
+        ✓ captain-ashford → characters/captain-ashford.yml
+        ✗ ../start/escape → Cannot leave characters/
+        ✗ mother → File exists! Cannot overwrite another character.
+      notes: |
+        The file name is YOUR name in the filesystem.
+        Choose wisely. Or don't — you can always change it again.
+        But you can't steal someone else's identity!
+        
+    - command: "CHANGE-MY-NAME [new name]"
+      effect: "Changes the character name (the 'name:' field in the file)"
+      example: "CHANGE-MY-NAME Captain Kira Ashford"
       
-    And in smaller, more mysterious letters:
-    
-      "THE MIRROR SEES MORE THAN YOUR CLOTHES.
-       IT SEES YOUR SOUL. AND SOULS CAN BE TAILORED TOO."
-    
-    The exit WEST leads to the pub's garden for outdoor dining.
-    The exit NORTHWEST is a shortcut diagonally to the pub bar!
-    
-    (Coatroom is EAST of Garden, so exit WEST goes to Garden.)
-  
-  occupants: []
-  
-  objects:
-    - mirror.yml
-    - mannequin.yml
-    - costume-racks.yml
-  
-  exits:
-    west:
-      to: ../garden/
-      description: |
-        The path back to the pub's garden. Tables, chairs, sunshine,
-        and a moment to admire your new look in the daylight.
-        
-    northwest:
-      to: ../pub/
-      description: |
-        A narrow passage cuts diagonally toward the pub's main room.
-        You can hear laughter, clinking glasses, and someone attempting
-        a sea shanty. Perfect for making an entrance in your new costume!
-        
-        "DRAMATIC ENTRANCE THIS WAY →"
-      aliases: [pub, bar, entrance, shortcut]
-        
-    north:
-      to: ../characters/
-      description: |
-        A spiral staircase leads UP into blue bioluminescent light.
-        You hear heartbeats. Breathing. The Hall of Bodies awaits —
-        where the PEOPLE sleep. Not costumes. SOULS with histories.
-        
-        Go NORTH to meet the characters who live in this world.
-      metaphysical: true
+    - command: "LIST-CHARACTERS"
+      effect: "Shows all character files in characters/"
+      example_output: |
+        📁 characters/.../
+          CHARACTER.yml       ← YOU ARE HERE
+          mother.yml          (NPC)
+          skeleton.yml        (NPC, deceased)
+          blackcape-mcgee.yml (NPC, rival)
       
-    south:
-      to: ../personas/
-      description: |
-        Behind the last rack of costumes, where the sequins stop glittering
-        and the air grows thick with theatrical history, there's a passage
-        to the Wardrobe of Masks.
-        
-        The costumes here are THINGS. The masks there are IDENTITIES.
-        This is the dressing room. That is where the souls of roles hang.
-        
-        Go SOUTH to browse the masks you could wear.
-      metaphysical: true
-      aliases: [deeper, backstage, wardrobe]
-      
-    east:
-      to: $SKILLS/  # Path variable — resolves to moollm/skills/
-      external: true  # Intentional link to skills repo
-      description: |
-        A door of pure light opens to the Skill Nexus — the library of
-        ALL capabilities. This room transcends the adventure — it connects
-        to the global skill library shared by all of MOOLLM.
-        
-        Here, the theoretical foundations are documented:
-        how to BE a character, how to WEAR a persona, how to LOOK in
-        the mirror and understand what you see.
-        
-        Go EAST to learn what you could become.
-      metaphysical: true
-      global: true  # This exit leaves the adventure into shared space
-  
-  world_position:
-    x: 1
-    y: 0
+  why_this_matters: |
+    In MOOLLM, you ARE your file. The filesystem is the world.
+    Your file name is your identity at the most fundamental level.
+    When you rename your file, you're not just changing a label —
+    you're declaring who you ARE in the universe.
     
-  ambience: |
-    Somewhere in the racks, a feather boa rustles. A sequin catches
-    the light and winks at you. The costumes seem to whisper:
-    "Wear me. WEAR ME. WEAR MEEEE."
-    
-    You resist. For now.
+    All characters live together in characters/ — that's how we
+    know who is who in this world.
 
-  # COSTUME SYSTEM
-  # This room allows players to completely rewrite their character description
-  costume_system:
-    commands:
-      - command: "WEAR [costume description]"
-        effect: "Rewrites character description to match the costume"
-        example: "WEAR a pirate captain with a peg leg and parrot"
+# MIND MIRROR SYSTEM (integrated with costume system)
+# Based on Timothy Leary's 1985 software
+mind_mirror_system:
+  description: |
+    The mirror doesn't just show your clothes — it shows your SOUL.
+    Mind Mirror lets you view, edit, and try on personalities as
+    easily as costumes. Natural language interface. No sliders.
+    Just TALK to the mirror.
+    
+  commands:
+    - command: "MIND-MIRROR"
+      effect: "See your full psychological profile"
+      
+    - command: "EDIT-MIND [natural language request]"
+      effect: "Adjust personality dimensions"
+      examples:
+        - "Make me more confident"
+        - "I want to be calmer under pressure"
+        - "Boost creativity, reduce caution"
         
-      - command: "WEAR RANDOM"
-        effect: "The mannequin selects a surprise costume"
+    - command: "GENERATE-MIND FOR [description]"
+      effect: "LLM generates a complete profile"
+      examples:
+        - "GENERATE-MIND FOR a confident space pirate"
+        - "GENERATE-MIND FOR someone like Sherlock Holmes"
+        - "GENERATE-MIND FOR my ideal self"
         
-      - command: "COMBINE [costume1] WITH [costume2]"
-        effect: "Mash up two costumes into something new"
-        example: "COMBINE astronaut WITH Victorian gentleman"
-        
-      - command: "ADD [accessory]"
-        effect: "Add an accessory to current costume"
-        example: "ADD a monocle that shoots lasers"
-        
-      - command: "ADD TO INVENTORY [item]"
-        effect: "Get a costume-appropriate item for your inventory"
-        example: "ADD TO INVENTORY a rubber chicken for comedic effect"
-        
-      - command: "REMOVE COSTUME"
-        effect: "Return to default Bumblewick appearance"
-        
-      - command: "LOOK IN MIRROR"
-        effect: "See your current appearance AND personality in detail"
+    - command: "WEAR-MIND"
+      effect: "Adopt the generated/edited personality"
+      
+    - command: "RANDOM-MIND"
+      effect: "Generate a completely random personality"
+      
+    - command: "COMPARE-MINDS [a] WITH [b]"
+      effect: "Side-by-side personality comparison"
+      
+    - command: "SAVE-MIND"
+      effect: "Save current personality as a card"
+      
+    - command: "RESTORE-MIND"
+      effect: "Return to original personality"
+      
+  vocabulary_modes:
+    PLAIN-TALK: "Everyday words (Peppy, Sweet, Happy)"
+    SHRINK-RAP: "Clinical terms (Hyper-Manic, Congenial, Euphoric)"
+    toggle: "Say VOCABULARY-MODE to switch"
+    
+  inspiration: "Timothy Leary's Mind Mirror (1985) + The Sims Create-a-Sim"
 
-  # IDENTITY SYSTEM
-  # Rename your file, see all your stats
-  # Characters live in characters/ directory
-  identity_system:
-    description: |
-      You are more than a name. You are a file. In the coatroom,
-      you can examine and rename your very existence.
-      
-      All characters live in: characters/
-      
-    character_directory: "../characters/"
-      
-    commands:
-      - command: "DESCRIBE-ME"
-        effect: |
-          Shows ALL your data in beautiful narrative and table form:
-          - File path (e.g., characters/captain-ashford.yml)
-          - Character name
-          - Current costume/persona
-          - Mind Mirror profile (Sims traits + Leary planes)
-          - Current needs, wants, aspirations
-          - Inventory summary
-          - Relationships
-          - Score, gold, moves, effects
-        example_output: |
-          📁 FILE: characters/captain-ashford.yml
-          👤 NAME: Captain Kira Ashford
-          🎭 PERSONA: Space Pirate Captain (Belter)
-          
-          PERSONALITY (The Sims)
-          ┌────────────┬─────┬────────────────────────────┐
-          │ Trait      │ Val │ Commentary                 │
-          ├────────────┼─────┼────────────────────────────┤
-          │ Neat       │ 3   │ Organized chaos            │
-          │ Outgoing   │ 7   │ Works the room             │
-          │ Active     │ 6   │ Paces when thinking        │
-          │ Playful    │ 7   │ Everything's a game        │
-          │ Nice       │ 6   │ Cares, but won't be walked │
-          └────────────┴─────┴────────────────────────────┘
-          
-          ... [continues with full profile]
-          
-      - command: "CHANGE-MY-FILE-NAME [new-name]"
-        aliases: ["RENAME-ME", "MY-FILE-NAME"]
-        effect: |
-          Renames your character file within characters/ directory.
-          The .yml extension is optional — we know what you mean.
-        examples:
-          - "CHANGE-MY-FILE-NAME captain-ashford"
-          - "CHANGE-MY-FILE-NAME bumblewick-fantastipants"
-          - "RENAME-ME space-pirate"
-        rules:
-          - stays_in_characters: "File stays in characters/ directory"
-          - no_overwrite: "Cannot overwrite existing character files"
-          - kebab_case: "Use kebab-case (captain-ashford, not CaptainAshford)"
-          - yml_optional: ".yml extension is added automatically if omitted"
-        validation: |
-          BEFORE: characters/abstract/player/
-          AFTER:  characters/captain-ashford.yml
-          
-          ✓ captain-ashford → characters/captain-ashford.yml
-          ✗ ../start/escape → Cannot leave characters/
-          ✗ mother → File exists! Cannot overwrite another character.
-        notes: |
-          The file name is YOUR name in the filesystem.
-          Choose wisely. Or don't — you can always change it again.
-          But you can't steal someone else's identity!
-          
-      - command: "CHANGE-MY-NAME [new name]"
-        effect: "Changes the character name (the 'name:' field in the file)"
-        example: "CHANGE-MY-NAME Captain Kira Ashford"
-        
-      - command: "LIST-CHARACTERS"
-        effect: "Shows all character files in characters/"
-        example_output: |
-          📁 characters/.../
-            CHARACTER.yml       ← YOU ARE HERE
-            mother.yml          (NPC)
-            skeleton.yml        (NPC, deceased)
-            blackcape-mcgee.yml (NPC, rival)
-        
-    why_this_matters: |
-      In MOOLLM, you ARE your file. The filesystem is the world.
-      Your file name is your identity at the most fundamental level.
-      When you rename your file, you're not just changing a label —
-      you're declaring who you ARE in the universe.
-      
-      All characters live together in characters/ — that's how we
-      know who is who in this world.
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "coat rack base (gently)"
+      type: territorial
+      note: "Now Maurice knows about me too"
+  detected_smells:
+    - smell: "possibility"
+      location: "mannequin base"
+      assessment: "Strange. Does not smell like anything... but also like everything?"
+      intensity: "metaphysical"
+    - smell: "old fabric and dreams"
+      location: "costume racks"
+      assessment: "Many identities. Many choices. Fabric holds memories."
+  mirror_interaction:
+    observed: "Another dog in the mirror"
+    assessment: "Very handsome. Good dog. I approve of him."
+    tail_wag: true
+  biscuit_says: |
+    The dog in the mirror looks like me.
+    He is a good dog. I like him.
 
-  # MIND MIRROR SYSTEM (integrated with costume system)
-  # Based on Timothy Leary's 1985 software
-  mind_mirror_system:
-    description: |
-      The mirror doesn't just show your clothes — it shows your SOUL.
-      Mind Mirror lets you view, edit, and try on personalities as
-      easily as costumes. Natural language interface. No sliders.
-      Just TALK to the mirror.
-      
-    commands:
-      - command: "MIND-MIRROR"
-        effect: "See your full psychological profile"
+# CAT MARKINGS (Midnight Prowl)
+# Stroopwafel's Detour
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Stroopwafel"
+      location: "Coat rack base (DIFFERENT spot than Biscuit)"
+      note: |
+        Took detour here on the way to the garden.
+        Sniffed Maurice's mannequin.
+        "The dog smelled 'possibility' here. Dogs are strange. But... accurate."
+        Marked different spot than Biscuit. Territorial respect.
         
-      - command: "EDIT-MIND [natural language request]"
-        effect: "Adjust personality dimensions"
-        examples:
-          - "Make me more confident"
-          - "I want to be calmer under pressure"
-          - "Boost creativity, reduce caution"
-          
-      - command: "GENERATE-MIND FOR [description]"
-        effect: "LLM generates a complete profile"
-        examples:
-          - "GENERATE-MIND FOR a confident space pirate"
-          - "GENERATE-MIND FOR someone like Sherlock Holmes"
-          - "GENERATE-MIND FOR my ideal self"
-          
-      - command: "WEAR-MIND"
-        effect: "Adopt the generated/edited personality"
-        
-      - command: "RANDOM-MIND"
-        effect: "Generate a completely random personality"
-        
-      - command: "COMPARE-MINDS [a] WITH [b]"
-        effect: "Side-by-side personality comparison"
-        
-      - command: "SAVE-MIND"
-        effect: "Save current personality as a card"
-        
-      - command: "RESTORE-MIND"
-        effect: "Return to original personality"
-        
-    vocabulary_modes:
-      PLAIN-TALK: "Everyday words (Peppy, Sweet, Happy)"
-      SHRINK-RAP: "Clinical terms (Hyper-Manic, Congenial, Euphoric)"
-      toggle: "Say VOCABULARY-MODE to switch"
-      
-    inspiration: "Timothy Leary's Mind Mirror (1985) + The Sims Create-a-Sim"
-
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "coat rack base (gently)"
-        type: territorial
-        note: "Now Maurice knows about me too"
-    detected_smells:
-      - smell: "possibility"
-        location: "mannequin base"
-        assessment: "Strange. Does not smell like anything... but also like everything?"
-        intensity: "metaphysical"
-      - smell: "old fabric and dreams"
-        location: "costume racks"
-        assessment: "Many identities. Many choices. Fabric holds memories."
-    mirror_interaction:
-      observed: "Another dog in the mirror"
-      assessment: "Very handsome. Good dog. I approve of him."
-      tail_wag: true
-    biscuit_says: |
-      The dog in the mirror looks like me.
-      He is a good dog. I like him.
-
-  # CAT MARKINGS (Midnight Prowl)
-  # Stroopwafel's Detour
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Stroopwafel"
-        location: "Coat rack base (DIFFERENT spot than Biscuit)"
-        note: |
-          Took detour here on the way to the garden.
-          Sniffed Maurice's mannequin.
-          "The dog smelled 'possibility' here. Dogs are strange. But... accurate."
-          Marked different spot than Biscuit. Territorial respect.
-          
-    stroopwafel_assessment: |
-      The mannequin still smells like nothing.
-      The dog was right — it smells like possibility.
-      I have added my own scent. Now it smells like
-      possibility AND senior cat authority.
+  stroopwafel_assessment: |
+    The mannequin still smells like nothing.
+    The dog was right — it smells like possibility.
+    I have added my own scent. Now it smells like
+    possibility AND senior cat authority.

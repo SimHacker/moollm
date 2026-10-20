@@ -1,24 +1,23 @@
-room:
-  name: "Roof of Judgment"
-  type: rooftop
-  
-  description: |
-    A modest rooftop with a weather vane shaped like the 👁 of "Val."
-    A small garden grows here, hardy plants labeled with biases.
-    
-  examine: |
-    The view is calm. The lane loops. The bell below sounds faint.
-    
-  exits:
-    down:
-      to: ../
-      description: "Back down to the nave."
-      aliases: [down, stairs]
+name: "Roof of Judgment"
+type: rooftop
 
-  # Design documents this floor embodies. Read these to learn why the room is shaped this
-  # way; stand here to learn what they mean. Backlink for the memory palace — the design
-  # corpus already links in, so without this the rooms are orphans.
-  # See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
-  learn:
-    - doc: ../../../../../../designs/eval/EVALCITY-DESIGN.md
-      why: "The city seen from above — skyline, weather of judgment, the glyph rung"
+description: |
+  A modest rooftop with a weather vane shaped like the 👁 of "Val."
+  A small garden grows here, hardy plants labeled with biases.
+  
+examine: |
+  The view is calm. The lane loops. The bell below sounds faint.
+  
+exits:
+  down:
+    to: ../
+    description: "Back down to the nave."
+    aliases: [down, stairs]
+
+# Design documents this floor embodies. Read these to learn why the room is shaped this
+# way; stand here to learn what they mean. Backlink for the memory palace — the design
+# corpus already links in, so without this the rooms are orphans.
+# See designs/webtop/VIEW-STATE-AS-COMMENTARY.md
+learn:
+  - doc: ../../../../../../designs/eval/EVALCITY-DESIGN.md
+    why: "The city seen from above — skyline, weather of judgment, the glyph rung"

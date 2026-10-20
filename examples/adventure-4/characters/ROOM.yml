@@ -8,31 +8,30 @@
 # Neo is a character. "The One" is a persona he wears.
 # Bumblewick is a character. Captain Ashford is a persona.
 
-room:
-  id: characters
-  name: "The Hall of Bodies"
-  type: [repository, metaphysical, infrastructure]
+id: characters
+name: "The Hall of Bodies"
+type: [repository, metaphysical, infrastructure]
+
+emoji: 🧬
+
+description: |
+  A vast circular chamber lined with alcoves. In each alcove,
+  a body sleeps — or waits — or dreams of adventure.
   
-  emoji: 🧬
+  These are not costumes. These are PEOPLE.
   
-  description: |
-    A vast circular chamber lined with alcoves. In each alcove,
-    a body sleeps — or waits — or dreams of adventure.
-    
-    These are not costumes. These are PEOPLE.
-    
-    Each has a heartbeat. Each has a history.
-    Each will one day die (or has already).
-    
-    The alcoves glow softly. Some are occupied.
-    Some are empty, waiting for someone to be born.
-    Some have been empty for a very long time.
-    
-  atmosphere:
-    lighting: soft blue bioluminescence
-    sound: heartbeats, breathing, distant whispers
-    feeling: sacred, clinical, alive
-    
+  Each has a heartbeat. Each has a history.
+  Each will one day die (or has already).
+  
+  The alcoves glow softly. Some are occupied.
+  Some are empty, waiting for someone to be born.
+  Some have been empty for a very long time.
+  
+atmosphere:
+  lighting: soft blue bioluminescence
+  sound: heartbeats, breathing, distant whispers
+  feeling: sacred, clinical, alive
+  
 # THE FUNDAMENTAL DISTINCTION
 #
 # CHARACTER (body)          vs    PERSONA (costume)
@@ -93,134 +92,134 @@ room:
 # RELATIONSHIPS
 # The Hall of Bodies knows and loves its partners in transformation
 
-  relationships:
-    maurice:
-      id: maurice
-      location: ../coatroom/mannequin.yml
-      feeling: |
-        Maurice loves us ALL. Every body that wakes here, Maurice
-        wants to dress. To beautify. To help find their truth.
-        They can't come here — the Hall is too sacred — but their
-        love reaches us. We feel it in the soft blue light.
-      bond: distant_beloved
-      can_invoke: true
-      invoke_command: '"THINK OF MAURICE" — they''ll know'
-      
-    mirror:
-      id: mind-mirror
-      location: ../coatroom/mirror.yml
-      feeling: |
-        The mirror can see our souls from the Coatroom. Through it,
-        visitors glimpse who we ARE — not just who we're pretending
-        to be. The mirror and I share a purpose: TRUTH.
-      bond: fellow_truth_keeper
-      
-    personas_room:
-      id: wardrobe-of-masks
-      location: ../personas/
-      feeling: |
-        The MASKS. The costumes. The roles we can wear.
-        We are the bodies. They are the clothes.
-        Together we make complete beings: soul wearing mask,
-        actor playing role, person performing persona.
-      bond: complementary_opposite
-      fundamental_distinction: "We ARE. They are WORN."
-      
-    skills_room:
-      id: skill-nexus
-      location: ../../skills/
-      feeling: |
-        The capabilities. The knowledge. When a body needs to
-        LEARN something new, they float up to the Nexus.
-        Character skill, mind-mirror skill — they describe us.
-        We are the instances. They are the classes.
-      bond: theoretical_foundation
-
-  exits:
-    south:
-      to: ../coatroom/
-      description: |
-        A spiral staircase descends into warmer light, the scent of
-        greasepaint and mothballs rising to meet you. The Coatroom
-        awaits — where Maurice helps you dress your body.
-        
-        Go SOUTH to the Fantastipants Costume Emporium.
-      primary: true
-      
-    out:
-      to: ../garden/
-      description: "Return to the pub's back garden"
-      aliases: [exit, leave]
-      
-    east:
-      to: $SKILLS/
-      external: true
-      description: |
-        A shimmering portal leads to the Skill Nexus — where the
-        theoretical foundations of characters, personas, and minds
-        are documented and studied.
-        
-        Go EAST to learn what characters can become.
-      metaphysical: true
-      
-    personas:
-      to: ../personas/
-      description: |
-        A hidden passage connects the Hall of Bodies to the Wardrobe
-        of Masks — the complementary spaces of WHO you are and WHAT
-        you can pretend to be.
-        
-        Go to PERSONAS to see the masks these bodies can wear.
-      metaphysical: true
-      
-    real-people:
-      to: real-people/
-      description: "The alcove of real people — Don, Richard, and others who walk among us"
-      aliases: [real, people, don, richard]
-      
-    fictional:
-      to: fictional/
-      description: "The alcove of fictional beings — characters from stories and imagination"
-      aliases: [fiction, stories, imagination]
-      
-    abstract:
-      to: abstract/
-      description: "The alcove of abstract entities — concepts given form"
-      aliases: [concepts, ideas]
-      
-    animals:
-      to: animals/
-      description: "The alcove of animal companions — the cats, the dogs, the creatures"
-      aliases: [pets, creatures, cats, dogs]
-      
-    robots:
-      to: robots/
-      description: "The alcove of mechanical beings — AIs, robots, digital entities"
-      aliases: [ai, mechanical, digital]
-      
-  contents:
-    # Subdirectories are alcoves
-    # Each CHARACTER.yml is a sleeping (or active) body
+relationships:
+  maurice:
+    id: maurice
+    location: ../coatroom/mannequin.yml
+    feeling: |
+      Maurice loves us ALL. Every body that wakes here, Maurice
+      wants to dress. To beautify. To help find their truth.
+      They can't come here — the Hall is too sacred — but their
+      love reaches us. We feel it in the soft blue light.
+    bond: distant_beloved
+    can_invoke: true
+    invoke_command: '"THINK OF MAURICE" — they''ll know'
     
-  advertisements:
-    BROWSE:
-      description: "See who sleeps here"
-      effect: "List all characters in the hall"
+  mirror:
+    id: mind-mirror
+    location: ../coatroom/mirror.yml
+    feeling: |
+      The mirror can see our souls from the Coatroom. Through it,
+      visitors glimpse who we ARE — not just who we're pretending
+      to be. The mirror and I share a purpose: TRUTH.
+    bond: fellow_truth_keeper
+    
+  personas_room:
+    id: wardrobe-of-masks
+    location: ../personas/
+    feeling: |
+      The MASKS. The costumes. The roles we can wear.
+      We are the bodies. They are the clothes.
+      Together we make complete beings: soul wearing mask,
+      actor playing role, person performing persona.
+    bond: complementary_opposite
+    fundamental_distinction: "We ARE. They are WORN."
+    
+  skills_room:
+    id: skill-nexus
+    location: ../../skills/
+    feeling: |
+      The capabilities. The knowledge. When a body needs to
+      LEARN something new, they float up to the Nexus.
+      Character skill, mind-mirror skill — they describe us.
+      We are the instances. They are the classes.
+    bond: theoretical_foundation
+
+exits:
+  south:
+    to: ../coatroom/
+    description: |
+      A spiral staircase descends into warmer light, the scent of
+      greasepaint and mothballs rising to meet you. The Coatroom
+      awaits — where Maurice helps you dress your body.
       
-    ACTIVATE:
-      description: "Wake a character and add to party"
-      parameters: [character_id]
-      effect: "Character joins the active party"
+      Go SOUTH to the Fantastipants Costume Emporium.
+    primary: true
+    
+  out:
+    to: ../garden/
+    description: "Return to the pub's back garden"
+    aliases: [exit, leave]
+    
+  east:
+    to: $SKILLS/
+    external: true
+    description: |
+      A shimmering portal leads to the Skill Nexus — where the
+      theoretical foundations of characters, personas, and minds
+      are documented and studied.
       
-    CREATE:
-      description: "Birth a new character"
-      parameters: [name, archetype]
-      effect: "New CHARACTER.yml created in subdirectory"
+      Go EAST to learn what characters can become.
+    metaphysical: true
+    
+  personas:
+    to: ../personas/
+    description: |
+      A hidden passage connects the Hall of Bodies to the Wardrobe
+      of Masks — the complementary spaces of WHO you are and WHAT
+      you can pretend to be.
       
-    INSPECT:
-      description: "Study a sleeping character"
-      parameters: [character_id]  
-      effect: "Show full character sheet"
+      Go to PERSONAS to see the masks these bodies can wear.
+    metaphysical: true
+    
+  real-people:
+    to: real-people/
+    description: "The alcove of real people — Don, Richard, and others who walk among us"
+    aliases: [real, people, don, richard]
+    
+  fictional:
+    to: fictional/
+    description: "The alcove of fictional beings — characters from stories and imagination"
+    aliases: [fiction, stories, imagination]
+    
+  abstract:
+    to: abstract/
+    description: "The alcove of abstract entities — concepts given form"
+    aliases: [concepts, ideas]
+    
+  animals:
+    to: animals/
+    description: "The alcove of animal companions — the cats, the dogs, the creatures"
+    aliases: [pets, creatures, cats, dogs]
+    
+  robots:
+    to: robots/
+    description: "The alcove of mechanical beings — AIs, robots, digital entities"
+    aliases: [ai, mechanical, digital]
+    
+contents:
+  # Subdirectories are alcoves
+  # Each CHARACTER.yml is a sleeping (or active) body
+  
+advertisements:
+  BROWSE:
+    description: "See who sleeps here"
+    effect: "List all characters in the hall"
+    
+  ACTIVATE:
+    description: "Wake a character and add to party"
+    parameters: [character_id]
+    effect: "Character joins the active party"
+    
+  CREATE:
+    description: "Birth a new character"
+    parameters: [name, archetype]
+    effect: "New CHARACTER.yml created in subdirectory"
+    
+  INSPECT:
+    description: "Study a sleeping character"
+    parameters: [character_id]  
+    effect: "Show full character sheet"
 
 # INHERITANCE NOTE
 #

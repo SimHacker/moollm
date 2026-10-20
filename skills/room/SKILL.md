@@ -193,17 +193,16 @@ Some directories are **inheritance containers** — they provide shared properti
 # maze/CONTAINER.yml — Not a room, but defines inherited properties
 container:
   name: "The Twisty Maze"
-  description: "Groups maze rooms with shared grue rules"
+  description: "Groups maze rooms that share darkness and rules"
   
   inherits:
-    is_dark: true
-    is_dangerous: true
-    grue_rules:
-      can_appear: true
+    is_maze: true
+  defaults:
+    room:
+      lighting: 0     # pitch black; a lamp or a crystal changes it, the grue decides what that means
       
   ambient:
     sound: "dripping water"
-    light_level: 0
 ```
 
 All child rooms (`room-a/`, `room-b/`, etc.) automatically inherit these properties!

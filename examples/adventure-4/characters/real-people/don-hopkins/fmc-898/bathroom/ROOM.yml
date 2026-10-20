@@ -1,21 +1,20 @@
 # 🚿 THE BATHROOM — Personal Refinement
 # Clean code starts with a clean programmer.
 
-room:
-  name: "FMC #898 — The Bathroom"
-  type: bathroom
-  emoji: "🚿🚽🧼"
-  
-  description: |
-    A fully equipped, surprisingly spacious bathroom. The star of the 
-    show is the tall shower stall with its 8-inch mini-tub. 
-    A marine toilet sits beside a 3-mirror vanity.
+name: "FMC #898 — The Bathroom"
+type: bathroom
+emoji: "🚿🚽🧼"
 
-  exits:
-    out:
-      to: ../hallway/
-      description: "Exit back into the hallway."
-      aliases: [hallway, hall, out]
+description: |
+  A fully equipped, surprisingly spacious bathroom. The star of the 
+  show is the tall shower stall with its 8-inch mini-tub. 
+  A marine toilet sits beside a 3-mirror vanity.
+
+exits:
+  out:
+    to: ../hallway/
+    description: "Exit back into the hallway."
+    aliases: [hallway, hall, out]
 
 objects:
   - shower-stall.yml

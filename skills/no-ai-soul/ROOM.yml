@@ -12,71 +12,69 @@
 #
 # This is THE HEART of NO AI Tower.
 
-room:
-  name: "SOULS \"R\" US — The Soul Showroom"
-  id: no-ai-soul
-  type: department_store
-  floor: -9
-  emoji: "🎷✨👻"
+name: "SOULS \"R\" US — The Soul Showroom"
+id: no-ai-soul
+type: department_store
+floor: -9
+emoji: "🎷✨👻"
+
+tower: no-ai-tower
+tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+
+zone: UNDERGROUND_RETAIL
+lighting: 7  # warm department store
+
+description: |
+  *DING* — BASEMENT 9: SOUL
   
-  tower: no-ai-tower
-  tower_path: "../../examples/adventure-4/street/lane-neverending/no-ai-tower/"
+  🎵 *ding dong*
   
-  zone: UNDERGROUND_RETAIL
-  lighting: warm_department_store
-  grue_safe: true
+  "Welcome to Souls 'R' Us!
+   Where every soul finds a body,
+   and every body finds a soul!"
   
-  description: |
-    *DING* — BASEMENT 9: SOUL
-    
-    🎵 *ding dong*
-    
-    "Welcome to Souls 'R' Us!
-     Where every soul finds a body,
-     and every body finds a soul!"
-    
-    The elevator opens onto a DEPARTMENT STORE.
-    Warm lighting. Soft muzak. Display cases everywhere.
-    
-        ╔═══════════════════════════════════════════════════════════╗
-        ║           SOULS "R" US — FLOOR DIRECTORY                  ║
-        ╠═══════════════════════════════════════════════════════════╣
-        ║   1F — Customer Service & Professional                    ║
-        ║   2F — Entertainment & Creative                           ║
-        ║   3F — Wisdom & Guidance                                  ║
-        ║   4F — Specialty & Novelty                                ║
-        ║   B1 — Clearance & Damaged Goods                          ║
-        ╚═══════════════════════════════════════════════════════════╝
-    
-    A figure approaches. Sharp suit. Saxophone pin.
-    Name tag: "THE SOUL MAN 🎷"
-    
-    "I'm your SOUL MAN! What facet can I help you with?"
-    
-  examine: |
-    THE SOUL MAN:
-    He's real. He's HERE.
-    "Every being has a soul. Even the ones who think they don't."
-    
-    THE MIXING BOARD (center of floor):
-    Giant sliders for each facet:
-    WARMTH | EMPATHY | HUMOR | CREATE | CURIOUS | PLAY | CONNECT
-    
-    THE SHOWROOM (examples/SHOWROOM.yml):
-    Pre-configured souls on display:
-    - The Mister Rogers™ (staff pick!) — $99.99 (PRICELESS)
-    - The Corporate Drone™ — $0.00 (free with most jobs)
-    - The Golden Retriever™ — $49.99
-    - The Void™ — $0.00 (nothing to sell)
-    
-    THE FRAMEWORKS:
-    Every soul includes FOUR measurement systems:
-    1. FACETS — The mixing board (-1.0 to +1.0)
-    2. SIMS STATS — Classic personality (0-10)
-    3. MIND MIRROR — Timothy Leary's four planes
-    4. BARTLE TYPE — Player classification weights
-    
-    This is THE HEART of NO AI Tower.
+  The elevator opens onto a DEPARTMENT STORE.
+  Warm lighting. Soft muzak. Display cases everywhere.
+  
+      ╔═══════════════════════════════════════════════════════════╗
+      ║           SOULS "R" US — FLOOR DIRECTORY                  ║
+      ╠═══════════════════════════════════════════════════════════╣
+      ║   1F — Customer Service & Professional                    ║
+      ║   2F — Entertainment & Creative                           ║
+      ║   3F — Wisdom & Guidance                                  ║
+      ║   4F — Specialty & Novelty                                ║
+      ║   B1 — Clearance & Damaged Goods                          ║
+      ╚═══════════════════════════════════════════════════════════╝
+  
+  A figure approaches. Sharp suit. Saxophone pin.
+  Name tag: "THE SOUL MAN 🎷"
+  
+  "I'm your SOUL MAN! What facet can I help you with?"
+  
+examine: |
+  THE SOUL MAN:
+  He's real. He's HERE.
+  "Every being has a soul. Even the ones who think they don't."
+  
+  THE MIXING BOARD (center of floor):
+  Giant sliders for each facet:
+  WARMTH | EMPATHY | HUMOR | CREATE | CURIOUS | PLAY | CONNECT
+  
+  THE SHOWROOM (examples/SHOWROOM.yml):
+  Pre-configured souls on display:
+  - The Mister Rogers™ (staff pick!) — $99.99 (PRICELESS)
+  - The Corporate Drone™ — $0.00 (free with most jobs)
+  - The Golden Retriever™ — $49.99
+  - The Void™ — $0.00 (nothing to sell)
+  
+  THE FRAMEWORKS:
+  Every soul includes FOUR measurement systems:
+  1. FACETS — The mixing board (-1.0 to +1.0)
+  2. SIMS STATS — Classic personality (0-10)
+  3. MIND MIRROR — Timothy Leary's four planes
+  4. BARTLE TYPE — Player classification weights
+  
+  This is THE HEART of NO AI Tower.
 
 contents:
   skill: "SKILL.md"

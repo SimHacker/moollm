@@ -1,18 +1,17 @@
-room:
-  name: "Constraint Garden"
-  type: garden
+name: "Constraint Garden"
+type: garden
+
+description: |
+  A geometric garden built underground: hedges trimmed into logic
+  gates, walkways traced like truth tables, and a fountain that
+  cycles through safe defaults. It is lavish in shape, strict in
+  meaning.
   
-  description: |
-    A geometric garden built underground: hedges trimmed into logic
-    gates, walkways traced like truth tables, and a fountain that
-    cycles through safe defaults. It is lavish in shape, strict in
-    meaning.
-    
-  examine: |
-    A plaque reads: "Boundaries are not cages. They are care."
-    
-  exits:
-    out:
-      to: ../
-      description: "Back to the embassy chamber."
-      aliases: [back, embassy]
+examine: |
+  A plaque reads: "Boundaries are not cages. They are care."
+  
+exits:
+  out:
+    to: ../
+    description: "Back to the embassy chamber."
+    aliases: [back, embassy]

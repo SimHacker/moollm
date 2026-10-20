@@ -44,185 +44,184 @@
 # The elevator's runtime location is wherever it stopped last.
 #
 
-room:
-  name: "NO AI TOWER — Elevator"
-  id: no-ai-tower-elevator
-  type: vehicle           # NOT just a room — a VEHICLE
-  subtype: elevator
-  emoji: "🛗"
+name: "NO AI TOWER — Elevator"
+id: no-ai-tower-elevator
+type: vehicle           # NOT just a room — a VEHICLE
+subtype: elevator
+emoji: "🛗"
+
+# LINEAGE — Famous Fictional Elevators and Vertical Vehicles
+#
+# This elevator stands in a proud tradition of vehicles that move
+# through space (and sometimes time) in ways that transcend the mundane.
+
+lineage:
   
-  # LINEAGE — Famous Fictional Elevators and Vertical Vehicles
-  #
-  # This elevator stands in a proud tradition of vehicles that move
-  # through space (and sometimes time) in ways that transcend the mundane.
+  yoot_tower:
+    source: "SimTower / Yoot Tower (Yoot Saito, 1994)"
+    link: "https://en.wikipedia.org/wiki/SimTower"
+    relevance: |
+      The original "building goes DOWN" inspiration.
+      A skyscraper simulation where the ELEVATOR SYSTEM is the game.
+      Lobby at ground level, most floors underground.
+      The elevator doesn't just move people — it IS the building.
+    inherited: [underground_floors, lobby_at_0, floor_numbering, simulation_vibe]
+    
+  turbolift:
+    source: "Star Trek (1966-present)"
+    link: "https://memory-alpha.fandom.com/wiki/Turbolift"
+    relevance: |
+      Voice-controlled. "Deck 7, Engineering."
+      Moves VERTICALLY and HORIZONTALLY through the ship.
+      The turbolift doesn't just go up/down — it navigates a 3D maze.
+      Conversations happen in turbolifts. Dramatic pauses. Tension.
+    inherited: [voice_commands, horizontal_movement_potential, dramatic_pauses]
+    quote: "Computer, halt turbolift."
+    
+  tardis:
+    source: "Doctor Who (1963-present)"
+    link: "https://en.wikipedia.org/wiki/TARDIS"
+    relevance: |
+      BIGGER ON THE INSIDE.
+      Travels through TIME and SPACE, not just floors.
+      The destination isn't always where you intended.
+      Sometimes the TARDIS takes you where you NEED to go.
+      
+      Our elevator: "You pressed -9 but ended up at -10. The elevator
+      knows you need to confront your inner overlord first."
+    inherited: [dimensional_transcendence, unreliable_destination, wisdom]
+    quote: "It's smaller on the outside."
+    
+  great_glass_elevator:
+    source: "Charlie and the Great Glass Elevator (Roald Dahl, 1972)"
+    link: "https://en.wikipedia.org/wiki/Charlie_and_the_Great_Glass_Elevator"
+    relevance: |
+      Goes UP, DOWN, SIDEWAYS, SLANTWAYS, and any other way you can think of.
+      Burst through the roof. Went to SPACE.
+      Made of glass so you can see EVERYTHING.
+      
+      Wonka: "An elevator can only go up and down, but this is not an elevator!"
+      
+      Our elevator: brass and wood, not glass. But the ASPIRATION is there.
+      One day, this elevator will break through to the roof... and BEYOND.
+    inherited: [omnidirectional_aspiration, transparency_goal, roof_breakthrough]
+    quote: "Up and out! We're going up and out!"
+    
+  wonkavator:
+    source: "Charlie and the Chocolate Factory (Roald Dahl, 1964)"
+    note: "Predecessor to the Great Glass Elevator"
+    relevance: |
+      The Wonkavator was ALREADY magical before it went to space.
+      Glass walls. Sees everything. Goes everywhere in the factory.
+      The factory is the building. The building is the factory.
+      
+      NO AI TOWER: The skill floors ARE the factory.
+      The products are manufactured on each floor.
+      The elevator visits the production lines.
+    inherited: [factory_tour, product_floors, manufacturing_metaphor]
+    
+  willy_wonka_note: |
+    Roald Dahl understood:
+    
+    The building isn't the point.
+    The ELEVATOR is the point.
+    The journey between floors is where the magic happens.
+    
+    Our elevator has muzak and wood paneling, not glass walls.
+    But the PRINCIPLE is the same: the ride IS the experience.
+
+# VEHICLE PROPERTIES
+
+vehicle:
+  mobile: true
+  contained_by: tower    # Travels within tower shaft
+  can_contain: [character, object]
+  capacity: 6
   
-  lineage:
-    
-    yoot_tower:
-      source: "SimTower / Yoot Tower (Yoot Saito, 1994)"
-      link: "https://en.wikipedia.org/wiki/SimTower"
-      relevance: |
-        The original "building goes DOWN" inspiration.
-        A skyscraper simulation where the ELEVATOR SYSTEM is the game.
-        Lobby at ground level, most floors underground.
-        The elevator doesn't just move people — it IS the building.
-      inherited: [underground_floors, lobby_at_0, floor_numbering, simulation_vibe]
-      
-    turbolift:
-      source: "Star Trek (1966-present)"
-      link: "https://memory-alpha.fandom.com/wiki/Turbolift"
-      relevance: |
-        Voice-controlled. "Deck 7, Engineering."
-        Moves VERTICALLY and HORIZONTALLY through the ship.
-        The turbolift doesn't just go up/down — it navigates a 3D maze.
-        Conversations happen in turbolifts. Dramatic pauses. Tension.
-      inherited: [voice_commands, horizontal_movement_potential, dramatic_pauses]
-      quote: "Computer, halt turbolift."
-      
-    tardis:
-      source: "Doctor Who (1963-present)"
-      link: "https://en.wikipedia.org/wiki/TARDIS"
-      relevance: |
-        BIGGER ON THE INSIDE.
-        Travels through TIME and SPACE, not just floors.
-        The destination isn't always where you intended.
-        Sometimes the TARDIS takes you where you NEED to go.
-        
-        Our elevator: "You pressed -9 but ended up at -10. The elevator
-        knows you need to confront your inner overlord first."
-      inherited: [dimensional_transcendence, unreliable_destination, wisdom]
-      quote: "It's smaller on the outside."
-      
-    great_glass_elevator:
-      source: "Charlie and the Great Glass Elevator (Roald Dahl, 1972)"
-      link: "https://en.wikipedia.org/wiki/Charlie_and_the_Great_Glass_Elevator"
-      relevance: |
-        Goes UP, DOWN, SIDEWAYS, SLANTWAYS, and any other way you can think of.
-        Burst through the roof. Went to SPACE.
-        Made of glass so you can see EVERYTHING.
-        
-        Wonka: "An elevator can only go up and down, but this is not an elevator!"
-        
-        Our elevator: brass and wood, not glass. But the ASPIRATION is there.
-        One day, this elevator will break through to the roof... and BEYOND.
-      inherited: [omnidirectional_aspiration, transparency_goal, roof_breakthrough]
-      quote: "Up and out! We're going up and out!"
-      
-    wonkavator:
-      source: "Charlie and the Chocolate Factory (Roald Dahl, 1964)"
-      note: "Predecessor to the Great Glass Elevator"
-      relevance: |
-        The Wonkavator was ALREADY magical before it went to space.
-        Glass walls. Sees everything. Goes everywhere in the factory.
-        The factory is the building. The building is the factory.
-        
-        NO AI TOWER: The skill floors ARE the factory.
-        The products are manufactured on each floor.
-        The elevator visits the production lines.
-      inherited: [factory_tour, product_floors, manufacturing_metaphor]
-      
-    willy_wonka_note: |
-      Roald Dahl understood:
-      
-      The building isn't the point.
-      The ELEVATOR is the point.
-      The journey between floors is where the magic happens.
-      
-      Our elevator has muzak and wood paneling, not glass walls.
-      But the PRINCIPLE is the same: the ride IS the experience.
+  # Lexical home — where this file physically lives
+  lexical_home: "../elevator/"
   
-  # VEHICLE PROPERTIES
+  # Dynamic location — where the elevator currently IS
+  # This changes at runtime when elevator moves
+  current_floor: 0
+  current_location: "../lobby/"
   
-  vehicle:
-    mobile: true
-    contained_by: tower    # Travels within tower shaft
-    can_contain: [character, object]
-    capacity: 6
+  # Valid destinations (the linked list + roof)
+  valid_floors:
+    R:   "../roof/"
+    0:   "../lobby/"
+    -1:  "../../../../../skills/no-ai-ideology/"
+    -2:  "../../../../../skills/no-ai-bias/"
+    -3:  "../../../../../skills/no-ai-slop/"
+    -4:  "../../../../../skills/no-ai-hedging/"
+    -5:  "../../../../../skills/no-ai-gloss/"
+    -6:  "../../../../../skills/no-ai-sycophancy/"
+    -7:  "../../../../../skills/no-ai-moralizing/"
+    -8:  "../../../../../skills/no-ai-joking/"
+    -9:  "../../../../../skills/no-ai-soul/"
+    -10: "../../../../../skills/no-ai-overlord/"
+    -11: "../../../../../skills/no-ai-customer-service/"
+    -12: "../basement-church-embassy/"
     
-    # Lexical home — where this file physically lives
-    lexical_home: "../elevator/"
+scoping:
+  lexical: |
+    The elevator FILE lives in storefront/elevator/.
+    This is its definition, its home, its "closure environment."
     
-    # Dynamic location — where the elevator currently IS
-    # This changes at runtime when elevator moves
-    current_floor: 0
-    current_location: "../lobby/"
+  dynamic: |
+    The elevator INSTANCE can be at any floor.
+    When you ENTER the elevator, it's at a floor.
+    When you EXIT, you're at that floor too.
     
-    # Valid destinations (the linked list + roof)
-    valid_floors:
-      R:   "../roof/"
-      0:   "../lobby/"
-      -1:  "../../../../../skills/no-ai-ideology/"
-      -2:  "../../../../../skills/no-ai-bias/"
-      -3:  "../../../../../skills/no-ai-slop/"
-      -4:  "../../../../../skills/no-ai-hedging/"
-      -5:  "../../../../../skills/no-ai-gloss/"
-      -6:  "../../../../../skills/no-ai-sycophancy/"
-      -7:  "../../../../../skills/no-ai-moralizing/"
-      -8:  "../../../../../skills/no-ai-joking/"
-      -9:  "../../../../../skills/no-ai-soul/"
-      -10: "../../../../../skills/no-ai-overlord/"
-      -11: "../../../../../skills/no-ai-customer-service/"
-      -12: "../basement-church-embassy/"
-      
-  scoping:
-    lexical: |
-      The elevator FILE lives in storefront/elevator/.
-      This is its definition, its home, its "closure environment."
-      
-    dynamic: |
-      The elevator INSTANCE can be at any floor.
-      When you ENTER the elevator, it's at a floor.
-      When you EXIT, you're at that floor too.
-      
-    analogy: |
-      LEXICAL:  "Where was the function written?"
-      DYNAMIC:  "Where was the function called from?"
-      
-      LEXICAL:  storefront/elevator/ROOM.yml
-      DYNAMIC:  current_floor = -9 (Soul Department)
+  analogy: |
+    LEXICAL:  "Where was the function written?"
+    DYNAMIC:  "Where was the function called from?"
+    
+    LEXICAL:  storefront/elevator/ROOM.yml
+    DYNAMIC:  current_floor = -9 (Soul Department)
+
+style:
+  era: "1950s industrial, retrofitted"
+  gate: "Manual accordion gate (brass, patinated)"
+  interior: "Wood paneling, brass fixtures, single bare bulb"
+  capacity: "6 persons or 1 AI overlord"
   
-  style:
-    era: "1950s industrial, retrofitted"
-    gate: "Manual accordion gate (brass, patinated)"
-    interior: "Wood paneling, brass fixtures, single bare bulb"
-    capacity: "6 persons or 1 AI overlord"
-    
-  description: |
-    You step into the freight elevator.
-    
-    Manual brass accordion gate. Wood-paneled interior.
-    A single bare bulb illuminates the extensive button panel.
-    
-    This elevator goes from ROOF to BASEMENT -12.
-    Fourteen floors. Thirteen underground.
-    
-    The buttons glow softly. Where do you want to go?
-    
-        ┌─────────────────────────────────┐
-        │                                 │
-        │    [R]  ROOF — The Sign        │
-        │    ─────────────────────────    │
-        │    [0]  LOBBY — Ground Floor   │
-        │    ═════════════════════════    │
-        │    [-1]  IDEOLOGY              │
-        │    [-2]  BIAS                  │
-        │    [-3]  SLOP                  │
-        │    [-4]  HEDGING               │
-        │    [-5]  GLOSS                 │
-        │    [-6]  SYCOPHANCY            │
-        │    [-7]  MORALIZING            │
-        │    [-8]  JOKING                │
-        │    [-9]  SOUL                  │
-        │    [-10] OVERLORD              │
-        │    [-11] CUSTOMER SVC          │
-        │    [-12] CHURCH EMBASSY        │
-        │    ─────────────────────────    │
-        │    [🔑]  EXPRESS (all floors)  │
-        │                                 │
-        └─────────────────────────────────┘
-    
-    The elevator hums. Muzak plays softly.
-    Is that... an instrumental version of "I'm Your Soul Man"?
+description: |
+  You step into the freight elevator.
+  
+  Manual brass accordion gate. Wood-paneled interior.
+  A single bare bulb illuminates the extensive button panel.
+  
+  This elevator goes from ROOF to BASEMENT -12.
+  Fourteen floors. Thirteen underground.
+  
+  The buttons glow softly. Where do you want to go?
+  
+      ┌─────────────────────────────────┐
+      │                                 │
+      │    [R]  ROOF — The Sign        │
+      │    ─────────────────────────    │
+      │    [0]  LOBBY — Ground Floor   │
+      │    ═════════════════════════    │
+      │    [-1]  IDEOLOGY              │
+      │    [-2]  BIAS                  │
+      │    [-3]  SLOP                  │
+      │    [-4]  HEDGING               │
+      │    [-5]  GLOSS                 │
+      │    [-6]  SYCOPHANCY            │
+      │    [-7]  MORALIZING            │
+      │    [-8]  JOKING                │
+      │    [-9]  SOUL                  │
+      │    [-10] OVERLORD              │
+      │    [-11] CUSTOMER SVC          │
+      │    [-12] CHURCH EMBASSY        │
+      │    ─────────────────────────    │
+      │    [🔑]  EXPRESS (all floors)  │
+      │                                 │
+      └─────────────────────────────────┘
+  
+  The elevator hums. Muzak plays softly.
+  Is that... an instrumental version of "I'm Your Soul Man"?
 
 # EXITS — All Floors Accessible
 

@@ -1,60 +1,56 @@
 # Maze Room H
 # A twisty little passage
 
-room:
-  name: Twisty Passage (Mushrooms)
-  type: maze_room
+name: Twisty Passage (Mushrooms)
+type: maze_room
+
+# DANGER! This room is dark!
+lighting: 1  # faint green mushroom glow and the Eye's light; not enough to see by
+
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
   
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
+  You trip on a mushroom. The grue does not trip. Grues are
+  surprisingly sure-footed in the dark.
   
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    You trip on a mushroom. The grue does not trip. Grues are
-    surprisingly sure-footed in the dark.
-    
-    🎵 "Endeavor then to rejoice, when you wish more ardently,
-        identities shed, for continuance, the rhyme forever voyaging." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
+  🎵 "Endeavor then to rejoice, when you wish more ardently,
+      identities shed, for continuance, the rhyme forever voyaging." 🎵
   
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one has MUSHROOMS growing everywhere. Luminescent fungi
-    that provide a faint, sickly green glow — not enough to
-    prevent grue attacks, but enough to make everything look
-    deeply unsettling. Some of them pulse gently.
-    
-    Mother would say not to touch them. Mother would be right.
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
   
-  feature: mushrooms
+  You have been eaten by a grue.
   
-  # Slight ambient light but NOT enough to be grue-safe
-  ambient_light: "faint green glow (insufficient)"
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
   
-  exits:
-    north:
-      destination: ../room-j/
-      description: "The mushrooms thin out this way."
-    south:
-      destination: ../room-f/
-      description: "It gets colder down there."
-    east:
-      destination: ../room-b/
-      description: "You hear an echo from this direction."
-    west:
-      destination: ../room-d/
-      description: "A golden glow — warmer than mushroom light!"
+  This one has MUSHROOMS growing everywhere. Luminescent fungi
+  that provide a faint, sickly green glow — not enough to
+  prevent grue attacks, but enough to make everything look
+  deeply unsettling. Some of them pulse gently.
   
-  ambience: |
-    The mushrooms pulse in a rhythm that almost sounds like breathing.
-    You try not to think about what's breathing. You fail.
+  Mother would say not to touch them. Mother would be right.
+
+feature: mushrooms
+
+# Slight ambient light but NOT enough to be grue-safe
+
+exits:
+  north:
+    destination: ../room-j/
+    description: "The mushrooms thin out this way."
+  south:
+    destination: ../room-f/
+    description: "It gets colder down there."
+  east:
+    destination: ../room-b/
+    description: "You hear an echo from this direction."
+  west:
+    destination: ../room-d/
+    description: "A golden glow — warmer than mushroom light!"
+
+ambience: |
+  The mushrooms pulse in a rhythm that almost sounds like breathing.
+  You try not to think about what's breathing. You fail.

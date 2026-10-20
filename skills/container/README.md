@@ -23,10 +23,7 @@ container:
   name: "The Twisty Maze"
   
   inherits:
-    is_dark: true
-    is_dangerous: true
-    grue_rules:
-      can_appear: true
+    lighting: 0
 ```
 
 All rooms inside `maze/` automatically inherit these properties!

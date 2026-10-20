@@ -140,8 +140,20 @@ game_identity:
 
 mechanics:
   
+  # The grue decides where it hunts. Rooms and objects only say how much light they give
+  # (lighting: 0..10, the comment says how it changes); nothing says "grue-safe".
   darkness_detection:
-    trigger: "room.light_level = 0 AND player.lamp.lit = false"
+    hunts_at_or_below: 2          # lighting level the grue still counts as dark
+    guard: >
+      The brightest of the room's lighting and the lighting of every lit thing in the room
+      or carried by anyone there is 2 or less, nothing present watches, and the prey has
+      no buff that grues avoid.
+    reads:
+      - "room lighting (from the room, or its container's defaults)"
+      - "lighting of lit objects present: lamps, torches, crystals, screens"
+      - "watches: true on anything present (The Thing That Watches in maze/room-h)"
+      - "buffs on the prey (Grandfather's grue repellent, the juice-o-matic's icey)"
+    turns_before_attack: 3        # from the maze's old grue_rules.darkness_turns
     result: "Grue countdown begins"
     
   countdown:
@@ -167,7 +179,7 @@ mechanics:
   escape:
     light_lamp: "Grue retreats immediately. Countdown resets."
     leave_darkness: "Exit to lit room. Countdown resets."
-    the_eye: "Room-H is grue-safe (The Thing That Watches)."
+    be_watched: "Stand where something watches. Countdown resets."
     
   repulsion:
     light:
@@ -177,12 +189,13 @@ mechanics:
         Something that was RIGHT THERE is suddenly... not.
         You hear a sound like a disappointed sigh from everywhere at once.
         
-    the_eye:
-      effect: "Will not enter room-h under any circumstances"
+    watched:
+      effect: "Will not stay where anything watches (watches: true), however dark"
       description: |
-        The grue approaches room-h. The Eye opens.
-        The grue... reconsiders.
-        It has been SEEN. It does not like being SEEN.
+        The grue approaches the threshold, drawn by darkness.
+        Then it sees THE EYE. The eye that watches.
+        The grue hesitates. Grues do not like being SEEN.
+        The grue retreats. Even void-beasts have standards.
 
 # PARALLEL PLAY — With Snorax
 
@@ -223,15 +236,13 @@ location:
   home_room: null       # Everywhere dark. Nowhere lit.
   territory: "All dark spaces in all networks"
   
-  exists_when:
-    - "Any room with lighting: none"
-    - "Any room where player.lamp.lit = false"
-    - "The space between lit areas"
+  exists_when: "mechanics.darkness_detection.guard holds"
+  lair: maze/room-f     # The Cold Spot; its grue_event is the room's own telling of the attack
     
   avoids:
-    - room: "maze/room-h"
+    - condition: "anything present watches"
       reason: "The Thing That Watches SEES it"
-    - condition: "any room with light"
+    - condition: "lighting above 2"
       reason: "Light is pain"
 
 # INSTANCE PATTERN — The Grue is Different
@@ -247,16 +258,16 @@ instance_pattern:
     The grue simply EXISTS wherever darkness exists.
     
   how_it_works: |
-    When player enters a dark room:
-    1. Check: Is room lit? Is lamp lit?
-    2. If both no → Grue countdown begins
+    When player enters a room:
+    1. Run mechanics.darkness_detection.guard
+    2. If it holds → Grue countdown begins
     3. Track turns in darkness (game state, not file state)
     4. On turn 3 → Death
     
   file_structure: |
-    The grue's "instances" are:
-    - Any ROOM.yml with `lighting: none`
-    - Any situation where `player.lamp.lit = false`
+    The grue's "instances" are wherever the guard holds:
+    - Any ROOM.yml with `lighting: 0`, 1 or 2 and nothing brighter present
+    - Any of those after `state: off` on the lamp
     
     The grue doesn't move. The grue IS.
 
@@ -278,7 +289,7 @@ relationships:
     narrative: |
       The only thing in the maze that sees us.
       The Eye SEES. We cannot tolerate being SEEN.
-      Room-H is forbidden territory.
+      Wherever it watches is forbidden territory.
       
   adventurers:
     status: prey

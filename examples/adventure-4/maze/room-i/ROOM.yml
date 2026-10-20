@@ -12,130 +12,127 @@ wumpus_warnings:
     south: bottomless_pit    # room-g
   note: "Two drafts from two pits. The skeleton knew."
 
-room:
-  name: Twisty Passage (Skeleton)
-  type: maze_room
-  
-  # DANGER! This room is dark!
-  lighting: none
-  grue_safe: false
-  requires_light: true
-  
-  grue_event: |
-    It is pitch black. You are likely to be eaten by a grue.
-    
-    As the grue approaches, you think you hear the skeleton
-    rattling. Is it laughing? Can skeletons laugh? You won't
-    live long enough to find out.
-    
-    🎵 "Fled from all lights and colors, from all smells and sound:
-        just the lyric on the monochrome display and you're proud." 🎵
-    
-    — MC Frontalot, "It Is Pitch Dark"
-       https://www.youtube.com/watch?v=4nigRT2KmCE
-    
-    You have been eaten by a grue.
-    
-    [REINCARNATING... inventory preserved, score reset to 0]
-  
-  description: |
-    You are in a maze of twisty little passages, all alike.
-    
-    This one has a SKELETON slumped against the wall. An
-    adventurer who didn't make it. Their bony fingers still
-    clutch a note that reads: "I should have brought more food
-    to mark the rooms. I dropped the cheese in room B and the
-    bread in room D but then I got confused and—"
-    
-    The note ends there. A cautionary tale.
-  
-  feature: skeleton
-  
-  objects:
-    - skeleton.yml  # The fallen adventurer — a cautionary tale
-  
-  exits:
-    north:
-      to: ../room-c/
-      description: "Scratch marks on the walls this way."
-    south:
-      to: ../room-g/
-      description: "A carved face watches from that direction."
-    east:
-      to: ../room-f/
-      description: "A cold breeze blows from there."
-    west:
-      to: ../room-j/
-      description: "The skeleton seems to be pointing this way."
-  
-  ambience: |
-    The skeleton grins at you. Skeletons always grin. It's the
-    lack of lips. Still, this one seems particularly smug about
-    something. Maybe about knowing the way out. The jerk.
-    
-  # BISCUIT'S MARKINGS (Session: Don's First Run)
-  # EXTENSIVE DOCUMENTATION
-  biscuit_markings:
-    date: "2026-01-06"
-    marked:
-      - location: "northwest corner"
-        type: territorial
-        note: "Primary marker"
-      - location: "near skeleton"
-        type: territorial
-        note: "The skeleton knows about me now"
-      - location: "south wall"
-        type: deposit
-        note: "More permanent notation"
-    detected_smells:
-      - smell: "mouse (old trail)"
-        location: "along east wall"
-        assessment: "Mouse came through here. Went left. Three days ago."
-      - smell: "spider webs"
-        location: "ceiling corners"
-        assessment: "Active spiders. Building. Watching."
-      - smell: "something unrecognizable"
-        location: "near skeleton"
-        assessment: "Not alive, not dead. Bones have a smell. Old adventure."
-      - smell: "bat (possible)"
-        location: "from the south passage"
-        assessment: "Wings and leather and high places"
-    documentation_complete: true
-    forensic_analysis: |
-      This room contains the bones of one who came before.
-      The note tells their story. They got confused.
-      I will not get confused. I have a good nose.
-      Future dogs will know: Biscuit investigated thoroughly.
-    biscuit_says: |
-      Documentation complete.
-      Future dogs will know important things happened here.
-      This is how dogs read — with the nose.
+name: Twisty Passage (Skeleton)
+type: maze_room
 
-  # CAT MARKINGS (Midnight Prowl)
-  cat_markings:
-    date: "2026-01-06 (late night)"
-    marks:
-      - cat: "Terpie"
-        location: "Near skeleton's feet"
-        note: "Respectful marking. Acknowledgment of the fallen."
-        
-      - cat: "Pine"
-        location: "By the note"
-        note: "Analytical examination. Confirmed cheese-in-B theory."
-        
-      - cat: "Carrie"
-        location: "Perimeter marking"
-        note: "Guard position even in skeleton room."
-        
-    skeleton_interaction: |
-      The cats, unlike Biscuit, did not sniff the skeleton extensively.
-      A brief acknowledgment of the bones. A moment of silence.
-      Then marking. Then moving on.
+# DANGER! This room is dark!
+lighting: 0
+
+grue_event: |
+  It is pitch black. You are likely to be eaten by a grue.
+  
+  As the grue approaches, you think you hear the skeleton
+  rattling. Is it laughing? Can skeletons laugh? You won't
+  live long enough to find out.
+  
+  🎵 "Fled from all lights and colors, from all smells and sound:
+      just the lyric on the monochrome display and you're proud." 🎵
+  
+  — MC Frontalot, "It Is Pitch Dark"
+     https://www.youtube.com/watch?v=4nigRT2KmCE
+  
+  You have been eaten by a grue.
+  
+  [REINCARNATING... inventory preserved, score reset to 0]
+
+description: |
+  You are in a maze of twisty little passages, all alike.
+  
+  This one has a SKELETON slumped against the wall. An
+  adventurer who didn't make it. Their bony fingers still
+  clutch a note that reads: "I should have brought more food
+  to mark the rooms. I dropped the cheese in room B and the
+  bread in room D but then I got confused and—"
+  
+  The note ends there. A cautionary tale.
+
+feature: skeleton
+
+objects:
+  - skeleton.yml  # The fallen adventurer — a cautionary tale
+
+exits:
+  north:
+    to: ../room-c/
+    description: "Scratch marks on the walls this way."
+  south:
+    to: ../room-g/
+    description: "A carved face watches from that direction."
+  east:
+    to: ../room-f/
+    description: "A cold breeze blows from there."
+  west:
+    to: ../room-j/
+    description: "The skeleton seems to be pointing this way."
+
+ambience: |
+  The skeleton grins at you. Skeletons always grin. It's the
+  lack of lips. Still, this one seems particularly smug about
+  something. Maybe about knowing the way out. The jerk.
+  
+# BISCUIT'S MARKINGS (Session: Don's First Run)
+# EXTENSIVE DOCUMENTATION
+biscuit_markings:
+  date: "2026-01-06"
+  marked:
+    - location: "northwest corner"
+      type: territorial
+      note: "Primary marker"
+    - location: "near skeleton"
+      type: territorial
+      note: "The skeleton knows about me now"
+    - location: "south wall"
+      type: deposit
+      note: "More permanent notation"
+  detected_smells:
+    - smell: "mouse (old trail)"
+      location: "along east wall"
+      assessment: "Mouse came through here. Went left. Three days ago."
+    - smell: "spider webs"
+      location: "ceiling corners"
+      assessment: "Active spiders. Building. Watching."
+    - smell: "something unrecognizable"
+      location: "near skeleton"
+      assessment: "Not alive, not dead. Bones have a smell. Old adventure."
+    - smell: "bat (possible)"
+      location: "from the south passage"
+      assessment: "Wings and leather and high places"
+  documentation_complete: true
+  forensic_analysis: |
+    This room contains the bones of one who came before.
+    The note tells their story. They got confused.
+    I will not get confused. I have a good nose.
+    Future dogs will know: Biscuit investigated thoroughly.
+  biscuit_says: |
+    Documentation complete.
+    Future dogs will know important things happened here.
+    This is how dogs read — with the nose.
+
+# CAT MARKINGS (Midnight Prowl)
+cat_markings:
+  date: "2026-01-06 (late night)"
+  marks:
+    - cat: "Terpie"
+      location: "Near skeleton's feet"
+      note: "Respectful marking. Acknowledgment of the fallen."
       
-      Cats understand death differently than dogs.
-      "The bones stay. We pass through." — Terpie
+    - cat: "Pine"
+      location: "By the note"
+      note: "Analytical examination. Confirmed cheese-in-B theory."
       
-    assessment: |
-      Now has both dog and cat markings.
-      The skeleton continues to grin at everyone.
-      Still seems smug about something.
+    - cat: "Carrie"
+      location: "Perimeter marking"
+      note: "Guard position even in skeleton room."
+      
+  skeleton_interaction: |
+    The cats, unlike Biscuit, did not sniff the skeleton extensively.
+    A brief acknowledgment of the bones. A moment of silence.
+    Then marking. Then moving on.
+    
+    Cats understand death differently than dogs.
+    "The bones stay. We pass through." — Terpie
+    
+  assessment: |
+    Now has both dog and cat markings.
+    The skeleton continues to grin at everyone.
+    Still seems smug about something.

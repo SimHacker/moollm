@@ -743,7 +743,8 @@ class AdventureLinter:
         ('effect', 'action'),
         ('allows_entry', 'boolean'),
         ('condition', 'boolean'),
-        ('complete_when', 'boolean'),
+        ('done_when', 'boolean'),
+        ('complete_when', 'boolean'),  # older spelling of done_when, still read
         ('fail_when', 'boolean'),
         ('simulate', 'closure'),      # Object simulation tick
     ]

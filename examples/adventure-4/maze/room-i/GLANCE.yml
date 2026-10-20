@@ -2,9 +2,7 @@ name: Twisty Passage (Skeleton)
 type: maze_room
 description: Skeleton slumped against wall. Note reads "I dropped the cheese in room B..." Two pits nearby.
 
-lighting: none
-grue_safe: false
-requires_light: true
+lighting: 0
 
 wumpus_warnings:
   on_enter: [I feel a draft!, I feel a draft!]
