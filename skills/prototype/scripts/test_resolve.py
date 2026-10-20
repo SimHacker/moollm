@@ -22,11 +22,7 @@ def obj(addr: str) -> resolve.Obj:
 
 def lookup(addr: str, slot: str) -> tuple[list[resolve.Hit], list[str], list[str]]:
     o = obj(addr)
-    hits: list[resolve.Hit] = []
-    latent: list[str] = []
-    cycles: list[str] = []
-    resolve.walk(o, slot, ROOT, [], {o.key}, hits, latent, cycles, first_only=True)
-    return hits, latent, cycles
+    return resolve.lookup(o, slot, ROOT, first_only=True)
 
 
 def definer(addr: str, slot: str) -> str | None:
@@ -163,3 +159,33 @@ def test_schema_keys_use_underscores_names_keep_hyphens() -> None:
     assert resolve.legacy_spellings({"k-lines": ["GRUE"], "see-also": ["x.md"]}) == [
         "k-lines: (use k_lines:)", "see-also: (use see_also:)"]
     assert not resolve.legacy_spellings({"k_lines": ["GRUE"], "related": {"no-ai-slop": "why"}})
+
+
+def value(addr: str, slot: str):
+    hits, _, _ = lookup(addr, slot)
+    return hits[0].value if hits else None
+
+
+def test_container_defaults_reach_rooms_inside() -> None:
+    assert value("cellar/vault", "lighting") == 0
+    assert definer("cellar/vault", "lighting") == "cellar/CONTAINER.yml#defaults.room"
+    assert value("cellar/vault/ROOM.yml", "lighting") == 0
+
+
+def test_own_slot_beats_container_default() -> None:
+    assert value("cellar/lamp-room", "lighting") == 6
+
+
+def test_nearest_container_wins_scalars_and_lists_concatenate() -> None:
+    assert value("cellar/deep/well", "lighting") == 1
+    assert value("cellar/deep/well", "smells") == ["brine", "damp"]
+
+
+def test_defaults_are_keyed_by_kind() -> None:
+    assert value("cellar/vault/coin.yml", "dusty") is True
+    assert value("cellar/vault/coin.yml", "lighting") is None
+    assert value("cellar/vault", "dusty") is None
+
+
+def test_container_does_not_cover_itself() -> None:
+    assert value("cellar", "lighting") is None

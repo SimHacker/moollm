@@ -1,11 +1,10 @@
 # The Twisty Maze — Container Definition
 #
-# This is NOT a room you can enter — it's a SCOPE that defines
-# properties all maze rooms inherit.
+# This is NOT a room you can enter — it's a SCOPE. Its defaults: reach every room
+# and object inside it; its other slots (rules, ambient, games, lore) describe the maze.
 #
 # OPENLASZLO PATTERN:
-# Like <node> in OpenLaszlo, this provides inheritance without layout.
-# All child rooms automatically get these properties.
+# Like <node> in OpenLaszlo, a scope without layout.
 
 name: "The Twisty Maze"
 description: |
@@ -13,16 +12,6 @@ description: |
   Ancient stonework, damp air, and the sense that
   something is watching from the darkness.
 
-# INHERITED PROPERTIES
-# All maze rooms automatically get these unless they override
-
-inherits:
-  is_maze: true           # Mapping is hard
-  # Darkness is defaults.room.lighting below. Whether a grue hunts is the grue's call
-  # (characters/fictional/grue, mechanics.darkness_detection).
-  
-  atmosphere: "damp, echoing, disorienting"
-  
 # RULES
 # Game rules that apply within this scope
 
@@ -34,10 +23,13 @@ rules:
   - "The cheese wedge is your only protection"
   
 # DEFAULTS
-# Default values if a child room doesn't define them
+# Every room and object inside the maze gets these unless it says otherwise.
+# Whether a grue hunts is the grue's call (characters/fictional/grue, mechanics.darkness_detection).
 
 defaults:
   room:
+    is_maze: true         # mapping is hard
+    atmosphere: "damp, echoing, disorienting"
     lighting: 0           # pitch black without a source
     exit_visibility: "hidden until explored"
     floor: "uneven flagstones"

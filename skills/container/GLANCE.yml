@@ -1,48 +1,32 @@
 # GLANCE.yml — container
-# Full file: CARD.yml (124 lines) | SKILL.md
 # 📦 "Grouping without layout."
 
 what: |
-  Intermediate scope for inheritance and containment.
-  Like OpenLaszlo's <node> — directories with inheritance
-  but not navigable rooms.
+  A directory that is a scope, not a place. CONTAINER.yml's defaults: reach every
+  room, character and object inside it. Like OpenLaszlo's <node>.
 
 why: |
-  - Define shared properties
-  - Flow to all children
-  - Rules within scope
-  - Ambient environmental properties
+  - Say once that every maze room is dark
+  - Nested regions refine their parents' defaults (CSS cascade)
+  - Rules, ambient and events for a region live in one file
 
 when:
-  - '"Grouping entities" → CONTAINER.yml'
-  - '"Shared defaults" → inherits section'
-  - '"Environmental properties" → ambient'
+  - '"All these rooms share X" → defaults.room'
+  - '"Where did this value come from?" → resolve.py lookup --all'
+  - '"This directory groups rooms but isn''t a room" → CONTAINER.yml'
 
-file: CONTAINER.yml
+tier: 1
 
-schema:
-  name: "Display name"
-  description: "What it represents"
-  inherits: "Properties flowing to children"
-  rules: "Rules within scope"
-  defaults: "Default values for children"
-  constraints: "Things forbidden"
-  on_enter: "Expression for entering child"
-  on_exit: "Expression for exiting child"
-  ambient: "sound, smell, temperature, light, danger"
+shape: |
+  name: "The Twisty Maze"
+  defaults:
+    room:   { lighting: 0, floor: "uneven flagstones" }
+    object: { discoverable: true }
+  rules: ["Breadcrumbs disappear after 3 turns"]
 
-resolution_order: |
-  1. self
-  2. parent_container
-  3. grandparent_container
-  4. adventure_defaults
-  5. skill_template
+order: "own → declared parents → container defaults (nearest first) → implied skill"
+merge: "maps deep-merge, lists concatenate, scalars nearest wins"
+compiler: "adventure compile.py doesn't apply defaults: yet; resolve.py does"
 
-merge_strategy:
-  objects: deep_merge
-  arrays: concatenate
-  primitives: override
-
-lineage: [OpenLaszlo <node>, Self prototype, CSS cascade]
+lineage: [OpenLaszlo <node>, CSS cascade, lexical scope]
 related: [room, object, adventure, prototype]
-tier: system

@@ -125,7 +125,8 @@ phases:
       - { scope: "prototype: {source, id} + inherits: {values} -> inherits: [FILE#*.id] and own slots", files: 8, status: done }
       - { scope: "dolly-forklift inherits: {archetype, source} -> lineage:", files: 1, status: done }
       - { scope: "skills/historical extends: -> CARD inherits: [skills/real-being]; GLANCE no longer delegates", files: 2, status: done }
-      - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 4, status: opened }
+      - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 8, status: done }
+      - { scope: "adventure compile.py: apply container defaults: to compiled rooms and objects", files: 1, status: opened, note: "belongs with adventure-001" }
       - { scope: "instance prototype: <ref> -> inherits: [<ref>]; dispensers' prototype: -> clones:", files: 13, status: done }
       - { scope: "room/glance parent: ../ (containment, already the directory) removed; mind parents: -> inherits: with mind and soul-city docs", files: 16, status: done }
       - { scope: "slots shadowing child directories", files: 6, status: opened }
@@ -160,7 +161,7 @@ phases:
     rewrites:
       - { skill: prototype, why: "the inheritance skill itself: PROTOTYPES.yml is a catalog not a parent list; inherits:, x* named parents, implied filename parents, views, embedded #path; lookup is resolve.py", status: done }
       - { scope: "docs that still describe PROTOTYPES.yml as a parent list (skill-instantiation-protocol, schema self mechanism, designs)", files: 21, status: opened }
-      - { skill: container, why: "cascade: inherits: -> defaults: (one key, no forced 'inherits' section), flat files, merge rules; implement cascade in resolve.py alongside", status: opened }
+      - { skill: container, why: "cascade: inherits: -> defaults: (one key, no forced 'inherits' section), flat files, merge rules; implement cascade in resolve.py alongside", status: done }
       - { skill: room, why: "ROOM.yml as an interface on a directory object; sub-rooms vs interface subdirectories; lighting 0..10; glance core keys (name, type, description, exits); 16 wrapper examples", status: opened }
       - { skill: character, why: "CHARACTER.yml interface, meta.inherits -> inherits:, facts not verdicts, glance core keys (name, description, location)", status: opened }
       - { skill: object, why: "flat object files, prototype: <ref> -> inherits:, embedded objects and file#collection.id, catalog refs", status: opened }

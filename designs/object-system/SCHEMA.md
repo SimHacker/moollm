@@ -85,7 +85,8 @@ idea of a run, until somebody writes the skill. An embedded object implies the s
 collection key (`objects:` → `object`, `exits:` → `exit`). Implied parents come after the
 declared ones, because they're the most generic.
 
-**Lookup.** Own slots; then each parent in order, depth-first; first match wins. A dotted slot
+**Lookup.** Own slots; then each declared parent in order, depth-first; then container
+defaults (see Cascade); then implied parents; first match wins. A dotted slot
 (`stomach.contents`) descends through maps and into child objects. A cycle is skipped and
 reported. When two unrelated parents both define a slot, MOOLLM takes the first and
 `lookup --all` reports it, because Self 4 would call it ambiguous.
@@ -138,9 +139,15 @@ defaults:
     lighting: 0      # pitch black; whether a grue hunts is the grue's call
 ```
 
-Maps deep-merge, lists concatenate, scalars override, nearest container first. This runs after
-delegation: an object's own slots and parents win over its containers' defaults. Not yet in
-`resolve.py`.
+`defaults:` is keyed by what the child is: its interface lowercased (`room`, `character`,
+`run`), `object` for a plain file, the singular of the collection for an embedded object. A
+container covers what's inside its directory, not the directory itself.
+
+Lookup order for a slot: own slots, then declared parents (`inherits:`, `role*:`) and what they
+inherit, then the defaults of enclosing containers, then implied skill parents. Defaults beat
+the implied skill because the maze knows more about its rooms than the generic room skill does.
+Across nested containers, maps deep-merge, lists concatenate nearest first, and the nearest
+scalar wins. `resolve.py lookup` applies this; the adventure compiler doesn't yet.
 
 ## The other keys
 

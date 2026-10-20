@@ -1,268 +1,178 @@
 ---
 name: container
-description: "Intermediate scope for inheritance — like OpenLaszlo's <node>"
+description: "A directory that is a scope, not a place: its defaults: reach every room, character and object inside it, like OpenLaszlo's <node> or the CSS cascade."
 license: MIT
 tier: 1
-allowed-tools:
-  - read_file
-  - write_file
-related: [room, object, adventure, prototype, logistic-container]
-tags: [moollm, scope, inheritance, hierarchy, composition]
+allowed-tools: [read_file, write_file, run_terminal_cmd]
+permissions: [read, write, terminal]
+related: [room, object, character, adventure, prototype, logistic-container]
+benefits_from:
+  - { skill: prototype, why: "defaults: is looked up after an object's own slots and declared parents; resolve.py implements both" }
+tags: [moollm, scope, cascade, defaults, hierarchy, composition]
+credits: "Don Hopkins. Lineage: OpenLaszlo <node>, the CSS cascade, lexical scope."
 ---
 
 # Container
 
-> **Intermediate scopes that provide inheritance without being navigable rooms.**
+> **Intermediate scopes that pass values down without being navigable rooms.**
 
-Containers are directories that define shared properties for their children,
-without themselves being places you can "go to."
+Part of MOOLLM · [This skill's directory](https://github.com/SimHacker/moollm/tree/main/skills/container)
 
-## The OpenLaszlo Inspiration
+A container is a directory with a `CONTAINER.yml`. You can't walk into it; it groups what's
+inside and gives those things default values. The maze is a container: every room in it is
+dark unless the room says otherwise.
 
-In OpenLaszlo (Don Hopkins' earlier work!), `<node>` was a fundamental building block:
+## The OpenLaszlo inspiration
+
+In OpenLaszlo, `<node>` was a building block with attributes and children but no layout:
 
 ```xml
-<!-- OpenLaszlo: <node> provides inheritance without visual layout -->
 <node name="mazeDefaults">
   <attribute name="isDark" value="true"/>
-  <attribute name="hasDanger" value="true"/>
 </node>
-
-<view extends="mazeDefaults">
-  <!-- Inherits isDark, hasDanger -->
-</view>
 ```
 
-MOOLLM's `CONTAINER.yml` does the same for adventure directories:
+`CONTAINER.yml` does the same for a directory tree:
 
 ```yaml
 # maze/CONTAINER.yml
-container:
-  name: "The Twisty Maze"
-  
-  inherits:
-    lighting: 0
+name: "The Twisty Maze"
+defaults:
+  room:
+    lighting: 0      # pitch black; whether a grue hunts is the grue's call
 ```
 
-All rooms inside `maze/` automatically inherit these properties!
+## Container, room, meta
 
----
+| Type | File | Navigable? | Passes values to children? |
+|------|------|------------|----------------------------|
+| Room | `ROOM.yml` | yes | no |
+| Container | `CONTAINER.yml` | no | yes, through `defaults:` |
+| Meta | `.meta.yml` | no | no (just metadata) |
 
-## Container vs Room vs Meta
+Use a container when the directory is a grouping or a region, not a place. A directory can't
+be both: if you can walk into it, it's a room, and sub-rooms that should share values go in a
+container below or around it.
 
-| Type | File | Navigable? | Inherits to children? |
-|------|------|------------|----------------------|
-| Room | `ROOM.yml` | ✅ Yes | ❌ No |
-| Container | `CONTAINER.yml` | ❌ No | ✅ Yes |
-| Meta | `.meta.yml` | ❌ No | ❌ No (just metadata) |
+## `defaults:`
 
-**Use Container when:**
-- You want to define shared properties
-- Children should inherit automatically
-- The directory itself is not a place
+`defaults:` is keyed by what the child is:
 
-**Use Room when:**
-- The directory is a navigable location
-- It has exits and can be entered
+| Key | Applies to |
+|---|---|
+| `room` | a directory with `ROOM.yml`, or the ROOM.yml itself |
+| `character` | a directory with `CHARACTER.yml` |
+| any interface name, lowercased | a directory or file with that interface (`run` for `RUN.yml`) |
+| `object` | a plain YAML file (`coin.yml`) |
+| the singular of a collection | an embedded object (`objects:` → `object`, `exits:` → `exit`) |
 
-**Use .meta.yml when:**
-- Just declaring "this is a system directory"
-- No inheritance needed
-
----
-
-## Inheritance Rules
-
-### Cascade Down
-
-Properties in `inherits:` flow to ALL descendants:
-
-```
-maze/
-├── CONTAINER.yml       # inherits: { lighting: 0 }
-├── room-a/
-│   └── ROOM.yml        # Inherits lighting: 0
-├── room-b/
-│   └── ROOM.yml        # Inherits lighting: 0
-└── deep/
-    └── CONTAINER.yml   # Can add MORE inherits
-        └── room-c/
-            └── ROOM.yml # Inherits from BOTH containers!
-```
-
-### Override by Redefining
-
-Children can override inherited values:
-
-```yaml
-# maze/room-f/ROOM.yml
-room:
-  name: "The Treasure Chamber"
-  lighting: 7  # Override! This room has magical light
-```
-
-### Merge, Don't Replace
-
-For objects and arrays, inheritance MERGES:
-
-```yaml
-# maze/CONTAINER.yml
-container:
-  inherits:
-    rules:
-      - "Grues patrol in darkness"
-      
-# maze/room-g/ROOM.yml  
-room:
-  rules:
-    - "This room has a pit trap"  # ADDS to inherited rules
-```
-
-Result: room-g has BOTH rules.
-
----
-
-## Defaults vs Inherits
-
-| Field | Purpose |
-|-------|---------|
-| `inherits` | Properties that children GET automatically |
-| `defaults` | Values to use IF a child doesn't define them |
-
-```yaml
-container:
-  # Every child room IS dark (forced)
-  inherits:
-    lighting: 0
-    
-  # If a room doesn't define atmosphere, use this
-  defaults:
-    room:
-      atmosphere: "damp and musty"
-```
-
----
-
-## Use Cases
-
-### Maze with Grue Rules
-
-```yaml
-# maze/CONTAINER.yml
-container:
-  name: "The Twisty Maze"
-  description: "Passages all alike... or are they?"
-  
-  inherits:
-    lighting: 0     # the grue reads this; rooms don't say whether they're grue-safe
-      
-  rules:
-    - "No teleportation"
-    - "Breadcrumbs disappear after 3 turns"
-    - "Echoes alert nearby rooms"
-    
-  ambient:
-    sound: "dripping water"
-    smell: "wet stone"
-    temperature: cold
-```
-
-### Animal Character Category
+A talking room has both `ROOM.yml` and `CHARACTER.yml`, so both `room` and `character`
+defaults apply to it. A container covers what's inside its directory, not the directory itself.
 
 ```yaml
 # characters/animals/CONTAINER.yml
-container:
-  name: "Animal Characters"
-  description: "Non-human beings with souls"
-  
-  inherits:
-    type: animal
-    has_instincts: true
-    
-  defaults:
-    character:
-      can_speak_human: false
-      pet_able: true
-      diet: omnivore
+name: "Animal Characters"
+defaults:
+  character:
+    can_speak_human: false   # Palm is special, and says so in her own file
+    pet_able: true
+  object:
+    chewed: true
 ```
 
-### Kitchen Appliances
+## Lookup order
 
-```yaml
-# kitchen/appliances/CONTAINER.yml
-container:
-  name: "Kitchen Appliances"
-  
-  inherits:
-    type: appliance
-    requires_power: true
-    
-  defaults:
-    object:
-      breakable: true
-      fixable_with: "wrench"
-```
+For anything inside a container, a slot is looked up in this order; first match wins:
 
----
+1. The object's own slots.
+2. Its declared parents: `inherits:` and named `role*:` parents, and what they inherit.
+3. `defaults:` of enclosing containers, nearest first.
+4. Its implied skill parents (`ROOM.yml` → the `room` skill), the most generic.
 
-## Resolution Order
+Defaults come before the implied skill for the same reason an author's stylesheet beats the
+browser's: the maze knows more about its rooms than the generic room skill does.
 
-When looking up a property:
+Across nested containers, values merge like the CSS cascade:
 
-1. **Self** — Check the object/room itself
-2. **Parent Container** — Check `CONTAINER.yml` in parent dir
-3. **Grandparent Container** — Keep going up
-4. **Adventure Defaults** — `ADVENTURE.yml` defaults
-5. **Prototype** — The skill template
+| Value | Nested containers |
+|---|---|
+| scalar | nearest container wins |
+| map | deep-merged, nearer keys win |
+| list | concatenated, nearest first |
 
 ```
-maze/deep/room-c/ROOM.yml
-    ↓ inherits from
-maze/deep/CONTAINER.yml
-    ↓ inherits from  
-maze/CONTAINER.yml
-    ↓ inherits from
-ADVENTURE.yml (if it has defaults)
-    ↓ inherits from
-skills/room/ROOM.yml.tmpl
+cellar/
+├── CONTAINER.yml        defaults: room: { lighting: 0, smells: [damp] }
+├── vault/ROOM.yml       lighting → 0 (cellar)
+├── lamp-room/ROOM.yml   lighting: 6, its own
+└── deep/
+    ├── CONTAINER.yml    defaults: room: { lighting: 1, smells: [brine] }
+    └── well/ROOM.yml    lighting → 1 (deep); smells → [brine, damp]
 ```
 
----
+That tree is `skills/prototype/examples/lookup/cellar/`, and the prototype skill's tests check
+each line of it.
 
-## Linter Behavior
+An object overrides a default by stating the slot. To add to a defaulted list rather than
+replace it, there's no special syntax: the object states the whole list it wants.
 
-The linter recognizes `CONTAINER.yml`:
+## The rest of CONTAINER.yml
+
+Everything outside `defaults:` describes the container itself: `rules:`, `constraints:`,
+`ambient:`, `on_enter:`/`on_exit:`, `games:`, `lore:`, the place protocol
+(`placement_rules:`, `zones:`) and logistics (`chest_mode:`, `provides:`, `request_list:`).
+These don't become slots of the children. A child reaches them through where it is: the
+LLM, a rule engine or the adventure runtime reads the containers enclosing a room and applies
+the rules there. `CONTAINER.yml.tmpl` lists every field.
+
+## Older spellings
+
+| Older | Write |
+|---|---|
+| `container:` wrapping the file | flat |
+| `inherits: {key: value}` meaning "children get these" | `defaults: {room: {key: value}}` |
+| `inherits:` as forced values, `defaults:` as fallbacks | one key, `defaults:`; a child that states the slot wins |
+
+`inherits:` on a container means the container's own parents, as on any object.
+
+## Tools
 
 ```bash
-📂 Phase 1: Discovery
-   Found: 36 rooms, 54 objects, 6 characters
-   Found: 2 containers  # NEW!
+python3 skills/prototype/scripts/resolve.py lookup examples/adventure-4/maze/room-a floor
+# found: examples/adventure-4/maze/CONTAINER.yml#defaults.room  via defaults: (enclosing container)
+#   floor = 'uneven flagstones'
+python3 skills/prototype/scripts/resolve.py lookup <object> <slot> --all   # every container that has it
 ```
 
-Containers suppress the "missing type declaration" warning:
+The adventure linter (`skills/adventure/adventure.py`) treats a directory with `CONTAINER.yml`
+as a scope, so rooms under it don't trigger "directory has room children but no ROOM.yml".
+The adventure compiler (`compile.py`) doesn't apply `defaults:` yet: a compiled room has
+only the slots its own file states.
 
-```yaml
-# Before: maze/ triggers warning
-⚠️ Directory has room children but no ROOM.yml
+## Methods
 
-# After: maze/CONTAINER.yml exists
-✅ maze/ is a container (not a room)
-```
+| Method | Does |
+|---|---|
+| CREATE | Write a CONTAINER.yml from `CONTAINER.yml.tmpl` for a directory that groups things |
+| DEFAULT | Add a default for one kind of child; check with `resolve.py lookup` that it reaches them |
+| TRACE | Say which container a value came from (`resolve.py lookup --all`) |
 
----
+## Related patterns
 
-## Related Patterns
-
-- **Prototype Inheritance** (Self/JavaScript) — Objects inherit from prototypes
-- **Lexical Scope** (Lisp/JavaScript) — Inner scopes access outer variables
-- **Cascading** (CSS) — Styles flow from parent to child
-- **XML Namespaces** — Context flows through the tree
-
----
+- **Prototype delegation** (Self, JavaScript): parents an object names. Containers are the
+  other axis: values that come from where an object is.
+- **Lexical scope** (Lisp, JavaScript): inner scopes see outer bindings.
+- **The CSS cascade**: values flow from ancestors, nearer rules win.
+- **XML namespaces**: context flows through the tree.
 
 ## Credits
 
-- **OpenLaszlo** — The `<node>` element as non-visual scope
-- **Self** — Prototype inheritance without classes
-- **CSS** — The cascade as inheritance mechanism
-- **Don Hopkins** — For remembering OpenLaszlo! 🎉
+- **OpenLaszlo**: the `<node>` element as a non-visual scope
+- **Self**: delegation without classes
+- **CSS**: the cascade
+
+## Part of MOOLLM
+
+**This skill's directory (browse and fetch everything):** [skills/container/](https://github.com/SimHacker/moollm/tree/main/skills/container)
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)

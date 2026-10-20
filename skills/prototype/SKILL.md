@@ -110,10 +110,12 @@ An embedded object implies the skill of its collection key (`objects:` → `obje
 ## Lookup
 
 1. The object's own slots.
-2. Each parent in order (`inherits:`, then named parents, then implied ones), depth-first.
-3. First match wins. A cycle is skipped and reported.
-4. A dotted slot (`stomach.contents`) descends through maps and into child objects.
-5. If two unrelated parents both define the slot, the first wins and `lookup --all` flags it,
+2. Each declared parent in order (`inherits:`, then named parents), depth-first.
+3. `defaults:` of enclosing containers, nearest first (see Containers).
+4. Implied parents, the most generic.
+5. First match wins. A cycle is skipped and reported.
+6. A dotted slot (`stomach.contents`) descends through maps and into child objects.
+7. If two unrelated parents both define the slot, the first wins and `lookup --all` flags it,
    because Self 4 would call it ambiguous.
 
 `state:` is never inherited. Each object keeps its own.
@@ -172,9 +174,11 @@ defaults:
     lighting: 0      # pitch black; whether a grue hunts is the grue's call
 ```
 
-This is a cascade, not a parent. It runs after delegation: an object's own slots and parents
-win over its containers' defaults, nearest container first. Maps deep-merge, lists
-concatenate, scalars override. `resolve.py` does not apply it yet.
+This is a cascade, not a parent. `defaults:` is keyed by what the child is (`room`,
+`character`, `object` for a plain file). An object's own slots and declared parents win over
+its containers' defaults; the defaults win over its implied skill. Across nested containers,
+maps deep-merge, lists concatenate, and the nearest scalar wins. `resolve.py lookup` applies
+it; the [container](../container/SKILL.md) skill has the details.
 
 ## Not parents
 

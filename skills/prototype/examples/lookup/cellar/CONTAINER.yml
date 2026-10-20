@@ -1,0 +1,8 @@
+# A scope, not a place. Its defaults reach what is inside it, keyed by what each thing is.
+name: The Cellar
+defaults:
+  room:
+    lighting: 0        # unlit stone
+    smells: [damp]
+  object:
+    dusty: true

@@ -190,22 +190,19 @@ meta:
 Some directories are **inheritance containers** — they provide shared properties to child rooms without being navigable themselves. Like OpenLaszlo's `<node>` element.
 
 ```yaml
-# maze/CONTAINER.yml — Not a room, but defines inherited properties
-container:
-  name: "The Twisty Maze"
-  description: "Groups maze rooms that share darkness and rules"
-  
-  inherits:
+# maze/CONTAINER.yml — not a room; its defaults reach the rooms inside
+name: "The Twisty Maze"
+description: "Groups maze rooms that share darkness and rules"
+defaults:
+  room:
     is_maze: true
-  defaults:
-    room:
-      lighting: 0     # pitch black; a lamp or a crystal changes it, the grue decides what that means
-      
-  ambient:
-    sound: "dripping water"
+    lighting: 0     # pitch black; a lamp or a crystal changes it, the grue decides what that means
+ambient:
+  sound: "dripping water"
 ```
 
-All child rooms (`room-a/`, `room-b/`, etc.) automatically inherit these properties!
+Every room inside (`room-a/`, `room-b/`, ...) gets `defaults.room` unless it states the slot
+itself. See the [container](../container/SKILL.md) skill for the lookup order.
 
 Alternatively, you can make the container into an actual room:
 

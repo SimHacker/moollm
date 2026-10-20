@@ -19,8 +19,11 @@ Parents, in lookup order:
      `subject*: <their directory>` instead: a view that lacks a slot falls
      through to the thing it summarizes.
 
-Lookup: own slots, then parents in order, depth-first, first match wins.
-Latent parents are recorded, not followed; the LLM tier resolves them.
+Lookup: own slots, then declared parents in order, depth-first, first match
+wins; then `defaults:` from enclosing CONTAINER.yml files, keyed by what the
+object is (room, character, object...), nearest first (maps deep-merge, lists
+concatenate); then implied parents. Latent parents are recorded, not followed;
+the LLM tier resolves them.
 `--all` shows shadowed definitions and flags Self-4 ambiguity.
 
 Accepted legacy forms (reported by `lint --strict`, never emitted): `parents:`,
@@ -53,6 +56,8 @@ KLINE = re.compile(r"^[A-Z0-9][A-Z0-9_-]+$")
 REF_LIKE = re.compile(r"^[\w./~#-]+$")
 VIEWS = {"GLANCE": "glance", "CARD": "card", "INDEX": "index"}
 SKILL_MARKER = "SKILL.md"
+CONTAINER = "CONTAINER.yml"
+CASCADE = "defaults: (enclosing container)"
 SKIP_DIRS = {".git", "node_modules", "dist", "__pycache__", ".moollm"}
 LINT_SKIP_TOP = {"temp"}  # archived imports, not live objects
 
@@ -367,6 +372,89 @@ def walk(obj: Obj, slot: str, root: Path, via: list[str], seen: set[Key], hits: 
     return False
 
 
+def object_kinds(key: Key) -> list[str]:
+    """The keys of a container's `defaults:` that apply to this object: its interfaces, else `object`."""
+    path, frag = key
+    if frag:
+        parts = frag.split(".")
+        return [singular(parts[-2])] if len(parts) >= 2 else ["object"]
+    if path.is_dir():
+        kinds = [interface_name(f).lower() for f in interface_files(path) if interface_name(f) not in VIEWS]
+        return kinds or ["object"]
+    iface = interface_name(path)
+    if iface in VIEWS:
+        return []
+    return [iface.lower()] if iface else ["object"]
+
+
+def enclosing_containers(key: Key, root: Path) -> list[Path]:
+    """CONTAINER.yml files around an object, nearest first. A container covers what is inside
+    its directory, not the directory itself."""
+    path, frag = key
+    if path.is_dir():
+        start = path.parent
+    elif interface_name(path) and not frag:
+        start = path.parent.parent  # maze/room-a/ROOM.yml is the room maze/room-a
+    else:
+        start = path.parent
+    out = []
+    for d in [start, *start.parents]:
+        if (d / CONTAINER).is_file():
+            out.append(d / CONTAINER)
+        if d == root or not d.is_relative_to(root):
+            break
+    return out
+
+
+def cascade_hits(key: Key, slot: str, root: Path) -> list[Hit]:
+    hits = []
+    for c in enclosing_containers(key, root):
+        defaults = file_slots(c).get("defaults")
+        if not isinstance(defaults, dict):
+            continue
+        for kind in object_kinds(key):
+            if isinstance(defaults.get(kind), dict):
+                found, value = get_slot(Obj(key=(c, ""), slots=defaults[kind]), slot, root)
+                if found:
+                    hits.append(Hit((c, f"defaults.{kind}"), value, [CASCADE]))
+    return hits
+
+
+def cascade_merge(near: Any, far: Any) -> Any:
+    """Maps deep-merge, lists concatenate (nearest first), scalars: nearest wins."""
+    if isinstance(near, dict) and isinstance(far, dict):
+        return {**far, **{k: cascade_merge(v, far[k]) if k in far else v for k, v in near.items()}}
+    if isinstance(near, list) and isinstance(far, list):
+        return near + far
+    return near
+
+
+def lookup(obj: Obj, slot: str, root: Path, first_only: bool) -> tuple[list[Hit], list[str], list[str]]:
+    """Own slots, declared parents, enclosing containers' defaults, then implied skill parents.
+
+    Defaults come before implied parents so a container's `lighting: 0` beats anything the
+    generic room skill might say, as an author's stylesheet beats the browser's.
+    """
+    hits: list[Hit] = []
+    latent: list[str] = []
+    cycles: list[str] = []
+    declared = Obj(key=obj.key, slots=obj.slots, parents=[p for p in obj.parents if not p.implied])
+    if walk(declared, slot, root, [], {obj.key}, hits, latent, cycles, first_only) and first_only:
+        return hits, latent, cycles
+    defaults = cascade_hits(obj.key, slot, root)
+    if defaults:
+        merged = defaults[0].value
+        for h in defaults[1:]:
+            merged = cascade_merge(merged, h.value)
+        hits.append(Hit(defaults[0].definer, merged, [CASCADE]))
+        if first_only:
+            return hits, latent, cycles
+        hits += defaults[1:]
+    implied = Obj(key=obj.key, parents=[p for p in obj.parents if p.implied])
+    walk(implied, slot, root, [], {obj.key}, hits, latent, cycles, first_only)
+    return hits, latent, cycles
+
+
 def is_ancestor(a: Key, b: Key, root: Path, seen: set[Key] | None = None) -> bool:
     """True if a is reachable from b through explicit file parents."""
     seen = seen or set()
@@ -402,10 +490,7 @@ def key_of(addr: str) -> Key:
 
 def cmd_lookup(args: argparse.Namespace, root: Path) -> int:
     obj = load_obj(key_of(args.object), root)
-    hits: list[Hit] = []
-    latent: list[str] = []
-    cycles: list[str] = []
-    walk(obj, args.slot, root, [], {obj.key}, hits, latent, cycles, first_only=not args.all)
+    hits, latent, cycles = lookup(obj, args.slot, root, first_only=not args.all)
     for c in cycles:
         print(f"cycle skipped: {c}")
     if not hits:
@@ -415,14 +500,15 @@ def cmd_lookup(args: argparse.Namespace, root: Path) -> int:
         return 1
     seen_definers: set[Key] = set()
     for i, h in enumerate(hits):
-        tag = "found" if i == 0 else ("shadowed (diamond: reached again)" if h.definer in seen_definers else "shadowed")
+        tag = ("found" if i == 0 else "cascade, merged under nearer containers" if h.via == [CASCADE] and i > 0 and hits[i - 1].via == [CASCADE]
+               else "shadowed (diamond: reached again)" if h.definer in seen_definers else "shadowed")
         seen_definers.add(h.definer)
         path = " > ".join(h.via) or "(own slot)"
         print(f"{tag}: {rel(h.definer, root)}  via {path}\n  {args.slot} = {show(h.value)}")
     if args.all:
         branch_firsts: dict[str, Key] = {}
         for h in hits:
-            if h.via:
+            if h.via and h.via[0] != CASCADE:
                 branch_firsts.setdefault(h.via[0], h.definer)
         firsts = list(dict.fromkeys(branch_firsts.values()))
         if len(firsts) > 1 and hits[0].via:

@@ -1,121 +1,76 @@
-# Container — Machine-Readable Interface
+# CARD.yml — container
 #
-# Intermediate scope for inheritance and containment.
-# Like OpenLaszlo's <node> — grouping without layout.
+# A scope, not a place. Like OpenLaszlo's <node>: grouping without layout.
 
 id: container
 name: "Container"
-type: system
+type: [skill, system]
 emoji: "📦"
+tier: 1
 
 description: |
-  Directories that provide inheritance and containment without being navigable rooms.
-  Define shared properties that flow to all children.
-  
-file: CONTAINER.yml
+  A directory with CONTAINER.yml groups what's inside it without being a room you can enter.
+  Its defaults:, keyed by what each child is, reach every room, character and object inside;
+  its other slots (rules, ambient, events, placement, logistics) describe the scope itself.
 
-# SCHEMA
+file: CONTAINER.yml
+template: CONTAINER.yml.tmpl
 
 schema:
-  container:
-    name:
-      type: string
-      required: true
-      description: "Display name for this scope"
-      
-    description:
-      type: string
-      required: false
-      description: "What this container represents"
-      
-    inherits:
-      type: object
-      required: false
-      description: "Properties that flow to all children"
-      
-    rules:
-      type: array
-      items: string
-      required: false
-      description: "Rules that apply within this scope"
-      
-    defaults:
-      type: object
-      required: false
-      description: "Default values for child objects"
-      properties:
-        room:
-          type: object
-          description: "Defaults for child rooms"
-        object:
-          type: object
-          description: "Defaults for child objects"
-        character:
-          type: object
-          description: "Defaults for child characters"
-          
-    constraints:
-      type: array
-      items: string
-      required: false
-      description: "Things forbidden in this scope"
-      
-    on_enter:
-      type: string
-      required: false
-      description: "Natural language expression for entering any child"
-      
-    on_exit:
-      type: string
-      required: false
-      description: "Natural language expression for exiting any child"
-      
-    ambient:
-      type: object
-      required: false
-      description: "Environmental properties"
-      properties:
-        sound: { type: string }
-        smell: { type: string }
-        temperature: { type: string }
-        danger_level: { type: number }
+  name: { type: string, description: "display name for this scope" }
+  description: { type: string }
+  defaults:
+    type: map
+    description: "keyed by kind: room, character, object, any interface name lowercased, or the singular of an embedded collection"
+  rules: { type: list, items: string, description: "rules that apply within this scope" }
+  constraints: { type: list, items: string, description: "what can't happen here" }
+  ambient: { type: map, description: "sound, smell, temperature, danger_level" }
+  on_enter: { type: string, description: "natural-language expression for entering any child room" }
+  on_exit: { type: string }
+  placement_rules: { type: list, description: "the place protocol: route incoming items" }
+  zones: { type: map }
+  chest_mode: { type: string, values: [passive-provider, active-provider, requester, storage, buffer] }
 
-# INHERITANCE
+lookup_order:
+  - own slots
+  - declared parents (inherits:, role*), depth-first
+  - defaults: of enclosing containers, nearest first
+  - implied skill parents (ROOM.yml -> room)
 
-inheritance:
-  resolution_order:
-    - self
-    - parent_container
-    - grandparent_container
-    - adventure_defaults
-    - skill_template
-    
-  merge_strategy:
-    objects: deep_merge
-    arrays: concatenate
-    primitives: override
+merge_across_containers:
+  maps: deep_merge
+  lists: concatenate_nearest_first
+  scalars: nearest_wins
 
-# LINTER
+implemented_by:
+  resolve.py: "skills/prototype/scripts/resolve.py lookup applies defaults:"
+  adventure_linter: "recognizes CONTAINER.yml as a scope (no missing-ROOM warning)"
+  adventure_compiler: "does not apply defaults: yet"
 
-linter:
-  recognizes: CONTAINER.yml
-  suppresses: MISSING_TYPE_DECLARATION
-  emits:
-    - FOUND_CONTAINER
+methods:
+  CREATE:
+    description: "Write a CONTAINER.yml for a directory that groups things"
+    output: yaml
+  DEFAULT:
+    description: "Add a default for one kind of child and check it reaches them"
+    effect: "Edit defaults.<kind>; run resolve.py lookup on a child"
+  TRACE:
+    description: "Say which container a value came from"
+    effect: "resolve.py lookup <object> <slot> --all"
 
-# RELATED
+advertisements:
+  SHARE-DEFAULTS:
+    score: 80
+    condition: "Several rooms or objects in one directory should share values"
+  GROUP-WITHOUT-PLACE:
+    score: 60
+    condition: "A directory organizes rooms but isn't somewhere you can go"
 
-related:
-  - room      # Navigable locations
-  - object    # Things in rooms
-  - adventure # Root state
-  - prototype # Inheritance pattern
-
-# CREDITS
+related: [room, object, character, adventure, prototype, logistic-container]
 
 credits:
   inspiration:
     - "OpenLaszlo <node> element"
-    - "Self prototype inheritance"
+    - "Self prototype delegation"
     - "CSS cascade"
     - "XML namespaces"

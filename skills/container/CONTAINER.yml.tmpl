@@ -1,4 +1,4 @@
-# CONTAINER.yml — Intermediate Scope / Inheritance Node
+# CONTAINER.yml — a scope: a directory that is not a room
 #
 # OPENLASZLO INSPIRATION:
 # In OpenLaszlo, <node> is a non-visual element that provides:
@@ -7,34 +7,32 @@
 # - Grouping without layout
 #
 # MOOLLM CONTAINER:
-# A directory that is NOT a navigable room, but defines properties
-# that its child rooms/objects inherit. Like a prototype scope.
+# A directory that is NOT a navigable room. Its defaults: reach everything inside it,
+# keyed by what each thing is (room, character, object, ...). Its other slots describe
+# the scope itself: rules, constraints, ambient, events, placement, logistics.
 #
 # THREE MODES:
-# 1. JUST CONTAIN — Pure grouping, no inheritance
-#      container:
-#        name: "Archived Rooms"
-#        # No 'inherits:' — children are just organized here
+# 1. JUST CONTAIN — pure grouping
+#      name: "Archived Rooms"
 #
-# 2. JUST INHERIT — Pass properties, not really a "thing"
-#      container:
-#        inherits:
+# 2. JUST DEFAULT — pass values down, nothing else
+#      defaults:
+#        room:
 #          lighting: 0
-#        # Children get these defaults, that's all
 #
-# 3. BOTH — Organized grouping WITH shared properties
-#      container:
-#        name: "The Twisty Maze"
-#        description: "A labyrinth of passages"
-#        inherits:
+# 3. BOTH — a named scope with defaults and rules
+#      name: "The Twisty Maze"
+#      description: "A labyrinth of passages"
+#      defaults:
+#        room:
 #          lighting: 0
-#        rules:
-#          - "Breadcrumbs disappear after 3 turns"
+#      rules:
+#        - "Breadcrumbs disappear after 3 turns"
 #
-# EXAMPLE USE CASES:
-# - maze/ → All maze rooms inherit darkness, danger level, grue rules
-# - characters/animals/ → All animal characters inherit species traits
-# - kitchen/appliances/ → All appliances inherit power requirements
+# LOOKUP ORDER for anything inside:
+#   its own slots → its declared parents (inherits:, role*) → defaults: of enclosing
+#   containers, nearest first → its implied skill (ROOM.yml → room)
+# Maps deep-merge across containers, lists concatenate, scalars: nearest wins.
 #
 # "Inheritance flows downward. Context flows inward."
 #
@@ -48,7 +46,7 @@
 #   A window has:
 #   - outer chrome (title bar, scrollbars)
 #   - inner client (the content area)
-#   
+#
 #   By default, things get placed in the CLIENT.
 #   But scrollbars specify where: "chrome" and go to the outer container.
 #
@@ -71,235 +69,181 @@
 #   - "kitchen/#chair"      → Place on the chair in kitchen
 #   - "pub/#bar/shelf"      → Place on shelf inside bar
 #   - "maze/room-3-2/"      → Place in the room (default)
+
+# IDENTITY
+
+name: "{{name}}"                    # display name for this scope
+description: "{{description}}"      # optional: what this container represents
+
+# DEFAULTS
 #
-# PLACEMENT RULES:
-#   Containers define rules for what goes where:
+# Keyed by what the child is: its interface (room for ROOM.yml, character for
+# CHARACTER.yml), object for a plain file, or the singular of an embedded collection.
+# A child that states the slot itself, or inherits it from a declared parent, wins.
+
+defaults: {}
+# Example for a maze:
+#   room:
+#     lighting: 0                  # 0..10; whether a grue hunts is the grue's call
+#     atmosphere: "damp and musty"
+#     exits_hidden: true
+#   object:
+#     discoverable: true
+#     decay_rate: 0.1
+
+# RULES
 #
+# Rules that apply within this scope. Facts about the scope, read by whoever enforces them.
+
+rules: []
+# Example:
+# - "Torches burn out faster in maze rooms"
+# - "No teleportation works here"
+# - "Sound echoes, alerting nearby rooms"
+
+# CONSTRAINTS
+#
+# What can't happen in this scope.
+
+constraints: []
+# Example:
+# - "no_fast_travel"
+# - "no_saving"
+# - "no_telepathy"
+
+# PLACEMENT (The Place Protocol)
+#
+# Smart routing for items entering this container.
+# Like OpenLaszlo's `place` vs simple `add`.
+#
+# When something is placed here, these rules determine
+# which sub-container/room/object receives it.
+
+placement_rules: []
+# Example:
 #   placement_rules:
 #     - match: { tags: ["weapon"] }
 #       place_in: armory/
+#       create_if_missing: true     # Auto-vivify! Like mkdir -p
+#       template: skills/container/armory.yml
 #     - match: { tags: ["food"] }
 #       place_in: pantry/
-#     - match: { type: "furniture" }
-#       place_in: floor     # Default: center of room
-#     - default: inventory  # If nothing matches
+#     - match: { type: "mail" }
+#       place_in: "#mailbox"        # By object ID
+#     - match: { tags: ["furniture"] }
+#       place_in: floor             # Named zone in room
+#     - default: contents           # If nothing matches
 #
+# AUTO-VIVIFICATION:
+# When create_if_missing: true, the container/directory is created
+# on demand when the first matching item is placed.
+# Like Perl's auto-vivification or `mkdir -p`.
+# The template specifies what CONTAINER.yml to use.
 
-container:
-  
-  # IDENTITY
-  
-  name: "{{name}}"                    # REQUIRED: Display name for this scope
-  description: "{{description}}"      # OPTIONAL: What this container represents
-  
-  # INHERITANCE
-  #
-  # Properties here flow down to all children.
-  # Children can override by defining their own values.
-  #
-  
-  inherits:                           # OPTIONAL: Properties children inherit
-    
-    # Example: Maze rooms inherit these
-    # lighting: 0                    # 0..10; the grue decides what dark means
-    # ambient_sound: "dripping water"
-    
-    # Example: Animal characters inherit these
-    # species: "animal"
-    # can_speak: false
-    # instincts: [survive, eat, play]
-    
-  # RULES
-  #
-  # Rules that apply to all children in this scope.
-  #
-  
-  rules: []                           # OPTIONAL: Rules for this scope
-  # Example:
-  # - "Torches burn out faster in maze rooms"
-  # - "No teleportation works here"
-  # - "Sound echoes, alerting nearby rooms"
-  
-  # DEFAULTS
-  #
-  # Default values for child objects/rooms.
-  # If a child doesn't define a field, use this.
-  #
-  
-  defaults:                           # OPTIONAL: Default values for children
-    # Example for maze:
-    # room:
-    #   atmosphere: "damp and musty"
-    #   lighting: "none"
-    #   exits_hidden: true
-    # object:
-    #   discoverable: true
-    #   decay_rate: 0.1
-    
-  # CONSTRAINTS
-  #
-  # What CAN'T happen in this scope.
-  #
-  
-  constraints: []                     # OPTIONAL: Things forbidden in this scope
-  # Example:
-  # - "no_fast_travel"
-  # - "no_saving"  
-  # - "no_telepathy"
-  
-  # PLACEMENT (The Place Protocol)
-  #
-  # Smart routing for items entering this container.
-  # Like OpenLaszlo's `place` vs simple `add`.
-  #
-  # When something is placed here, these rules determine
-  # which sub-container/room/object receives it.
-  #
-  
-  placement_rules: []                 # OPTIONAL: Routing rules for incoming items
-  # Example:
-  #   placement_rules:
-  #     - match: { tags: ["weapon"] }
-  #       place_in: armory/
-  #       create_if_missing: true     # Auto-vivify! Like mkdir -p
-  #       template: skills/container/armory.yml
-  #     - match: { tags: ["food"] }
-  #       place_in: pantry/
-  #     - match: { type: "mail" }
-  #       place_in: "#mailbox"        # By object ID
-  #     - match: { tags: ["furniture"] }
-  #       place_in: floor             # Named zone in room
-  #     - default: contents           # If nothing matches
-  #
-  # AUTO-VIVIFICATION:
-  # When create_if_missing: true, the container/directory is created
-  # on demand when the first matching item is placed.
-  # Like Perl's auto-vivification or `mkdir -p`.
-  # The template specifies what CONTAINER.yml to use.
-  
-  default_place: null                 # OPTIONAL: Where to place if no rules match
-  # Example: "floor", "#table", "inventory", "contents"
-  
-  # Named zones for placement (like chrome vs client)
-  zones:                              # OPTIONAL: Named areas within this container
-    # Example for a room:
-    # floor: { description: "The main floor area" }
-    # ceiling: { description: "Hanging from above" }
-    # wall: { description: "Mounted on walls" }
-    # 
-    # Example for a window (OpenLaszlo style):
-    # client: { description: "Main content area", default: true }
-    # chrome: { description: "Decorative frame" }
-    # header: { description: "Title bar" }
-    # scrollbar: { description: "Scroll controls" }
-  
-  # LOGISTICS (Factorio Chest Modes!)
-  #
-  # Containers can participate in a logistics network!
-  # Like Factorio's colored logistic chests.
-  #
-  # CHEST MODES:
-  #   PASSIVE-PROVIDER (Yellow) — "Take from me if you need it"
-  #   ACTIVE-PROVIDER (Red) — "I'm pushing these OUT"
-  #   REQUESTER (Blue) — "I WANT these items"
-  #   STORAGE (Yellow variant) — "General overflow"
-  #   BUFFER (Green) — "Hold until needed"
-  #
-  # This enables automatic item flow between containers!
-  # NPCs and bots can move items based on requests.
-  #
-  
-  chest_mode: null                  # OPTIONAL: Logistics behavior
-  # Example passive provider:
-  #   chest_mode: passive-provider
-  #   provides:
-  #     - tags: ["food", "ingredient"]
-  #   reserve: 1                    # Always keep at least 1
-  #
-  # Example requester:
-  #   chest_mode: requester
-  #   request_list:
-  #     - { item: "iron-plate", count: 20, min: 5 }
-  #     - { tags: ["fuel"], count: 5 }
-  #
-  # Example active provider:
-  #   chest_mode: active-provider
-  #   push_to:
-  #     - match: { tags: ["finished"] }
-  #       destination: warehouse/
-  #     - default: storage/
-  #
-  # Example buffer:
-  #   chest_mode: buffer
-  #   buffer_for:
-  #     - destination: ship/cargo/
-  #       when: "ship.docked == true"
-  
-  provides: null                    # OPTIONAL: What this container offers (for providers)
-  request_list: null                # OPTIONAL: What this container wants (for requesters)
-  push_to: null                     # OPTIONAL: Where to push items (for active providers)
-  reserve: 0                        # OPTIONAL: Minimum to keep (for providers)
-  
-  # EVENTS
-  #
-  # Events that fire for anything in this scope.
-  #
-  
-  on_enter: null                      # OPTIONAL: When entering any child room
-  on_exit: null                       # OPTIONAL: When exiting any child room
-  on_child_change: null               # OPTIONAL: When any child changes state
-  on_place: null                      # OPTIONAL: When item is placed via place protocol
-  
-  # AMBIENT
-  #
-  # Environmental properties for the whole scope.
-  #
-  
-  ambient:                            # OPTIONAL: Environmental context
-    # Example:
-    # sound: "distant echoes"
-    # smell: "damp stone"
-    # temperature: "cold"
-    # danger_level: 5
+default_place: null                 # where to place if no rules match: "floor", "#table", "inventory", "contents"
+
+# Named zones for placement (like chrome vs client)
+zones: {}
+# Example for a room:
+#   floor: { description: "The main floor area" }
+#   ceiling: { description: "Hanging from above" }
+#   wall: { description: "Mounted on walls" }
+#
+# Example for a window (OpenLaszlo style):
+#   client: { description: "Main content area", default: true }
+#   chrome: { description: "Decorative frame" }
+#   header: { description: "Title bar" }
+#   scrollbar: { description: "Scroll controls" }
+
+# LOGISTICS (Factorio Chest Modes!)
+#
+# Containers can participate in a logistics network,
+# like Factorio's colored logistic chests.
+#
+# CHEST MODES:
+#   PASSIVE-PROVIDER (Yellow) — "Take from me if you need it"
+#   ACTIVE-PROVIDER (Red) — "I'm pushing these OUT"
+#   REQUESTER (Blue) — "I WANT these items"
+#   STORAGE (Yellow variant) — "General overflow"
+#   BUFFER (Green) — "Hold until needed"
+#
+# NPCs and bots move items based on requests.
+
+chest_mode: null
+# Example passive provider:
+#   chest_mode: passive-provider
+#   provides:
+#     - tags: ["food", "ingredient"]
+#   reserve: 1                    # Always keep at least 1
+#
+# Example requester:
+#   chest_mode: requester
+#   request_list:
+#     - { item: "iron-plate", count: 20, min: 5 }
+#     - { tags: ["fuel"], count: 5 }
+#
+# Example active provider:
+#   chest_mode: active-provider
+#   push_to:
+#     - match: { tags: ["finished"] }
+#       destination: warehouse/
+#     - default: storage/
+#
+# Example buffer:
+#   chest_mode: buffer
+#   buffer_for:
+#     - destination: ship/cargo/
+#       when: "ship.docked == true"
+
+provides: null                      # what this container offers (providers)
+request_list: null                  # what this container wants (requesters)
+push_to: null                       # where to push items (active providers)
+reserve: 0                          # minimum to keep (providers)
+
+# EVENTS
+#
+# Events that fire for anything in this scope.
+
+on_enter: null                      # when entering any child room
+on_exit: null                       # when exiting any child room
+on_child_change: null               # when any child changes state
+on_place: null                      # when an item is placed via the place protocol
+
+# AMBIENT
+#
+# Environmental facts about the whole scope.
+
+ambient: {}
+# Example:
+#   sound: "distant echoes"
+#   smell: "damp stone"
+#   temperature: "cold"
+#   danger_level: 5
 
 # EXAMPLE: MAZE CONTAINER
 #
-# container:
-#   name: "The Twisty Maze"
-#   description: "A collection of passages, all alike... or are they?"
-#   
-#   inherits:
+# name: "The Twisty Maze"
+# description: "A collection of passages, all alike... or are they?"
+# defaults:
+#   room:
+#     lighting: 0
 #     atmosphere: "damp, echoing, disorienting"
-#     
-#   rules:
-#     - "All maze rooms connect in non-Euclidean ways"
-#     - "Breadcrumbs disappear after 3 turns"
-#     - "Grues patrol when lights are out"
-#     
-#   defaults:
-#     room:
-#       lighting: 0
-#       exit_visibility: "hidden until explored"
-#       
-#   ambient:
-#     sound: "dripping water, distant footsteps"
-#     smell: "wet stone, decay"
-#     temperature: "cold"
+#     exit_visibility: "hidden until explored"
+# rules:
+#   - "All maze rooms connect in non-Euclidean ways"
+#   - "Breadcrumbs disappear after 3 turns"
+# ambient:
+#   sound: "dripping water, distant footsteps"
+#   smell: "wet stone, decay"
+#   temperature: "cold"
 #
 # EXAMPLE: CHARACTER CATEGORY CONTAINER
 #
-# container:
-#   name: "Animal Characters"
-#   description: "Non-human beings with personality"
-#   
-#   inherits:
-#     type: "animal"
-#     can_speak_human: false  # Palm is special!
+# name: "Animal Characters"
+# description: "Non-human beings with personality"
+# defaults:
+#   character:
+#     can_speak_human: false  # Palm is special
 #     has_instincts: true
-#     
-#   defaults:
-#     character:
-#       diet: "omnivore"
-#       social: true
-#       pet_able: true
-#
+#     diet: "omnivore"
+#     pet_able: true

@@ -1,6 +1,6 @@
 # 📦 Container
 
-> Intermediate scopes for inheritance — like OpenLaszlo's `<node>`.
+> Intermediate scopes that pass values down, like OpenLaszlo's `<node>`.
 
 ## MOOLLM K-Lines
 
@@ -9,41 +9,39 @@
 | [room/](../room/) | Navigable locations (containers aren't) |
 | [object/](../object/) | Things in containers |
 | [adventure/](../adventure/) | Root state |
-| [prototype/](../prototype/) | Self-like delegation |
+| [prototype/](../prototype/) | Delegation; `resolve.py` applies container defaults |
 | [logistic-container/](../logistic-container/) | Factorio-style extension |
-| [examples/adventure-4/maze/](../../examples/adventure-4/maze/) | Container for dark dangerous rooms |
+| [examples/adventure-4/maze/](../../examples/adventure-4/maze/) | Container for dark rooms |
 
 ## Quick Start
 
-Create `CONTAINER.yml` in a directory to define shared properties:
+Create `CONTAINER.yml` in a directory:
 
 ```yaml
 # maze/CONTAINER.yml
-container:
-  name: "The Twisty Maze"
-  
-  inherits:
+name: "The Twisty Maze"
+defaults:
+  room:
     lighting: 0
 ```
 
-All rooms inside `maze/` automatically inherit these properties!
+Every room inside `maze/` now has `lighting: 0` unless it says otherwise.
 
 ## When to Use
 
 | Use Case | Example |
 |----------|---------|
-| Shared room properties | All maze rooms are dark |
+| Shared room values | All maze rooms are dark |
 | Character categories | All animals have instincts |
 | Object collections | All appliances need power |
 | Regional rules | No magic works in this zone |
 
 ## Container vs Room
 
-- **Container**: NOT navigable, provides inheritance
-- **Room**: IS navigable, has exits
+- **Container**: not navigable; its `defaults:` reach what's inside
+- **Room**: navigable, has exits
 
 ## Files
 
-- `CONTAINER.yml.tmpl` — Template with all fields
-- `SKILL.md` — Full documentation
-
+- `CONTAINER.yml.tmpl`: template with every field
+- `SKILL.md`: lookup order, merge rules, tools
