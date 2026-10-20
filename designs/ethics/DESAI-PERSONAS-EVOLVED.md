@@ -89,7 +89,7 @@ The CUI '25 workshop aims to establish:
 This paper contributes these traditions to MOOLLM:
 
 ```yaml
-k-lines:
+k_lines:
   - PERSONA-AGENT-DISTINCTION   # Vocabulary clarity
   - CUI-PERSONA-ETHICS          # Conversational personas carry unique risks
   - DYNAMIC-GOVERNANCE          # Runtime monitoring, not just design-time rules

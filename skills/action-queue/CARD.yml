@@ -43,14 +43,14 @@ methods:
       target: "Optional target object/location"
     output: chat
     effect: "Append action to character's action-queue"
-    invoked-by: [player, npc, room]
+    invoked_by: [player, npc, room]
     
   NEXT:
     description: "Execute next queued action"
     parameters: {}
     output: chat + state-change
     effect: "Pop and execute front of queue, update state"
-    invoked-by: [player, autonomous-agent, coherence-engine]
+    invoked_by: [player, autonomous-agent, coherence-engine]
     
   QUEUE:
     description: "Show current action queue"
@@ -58,7 +58,7 @@ methods:
       character: "Optional - defaults to current"
     output: chat
     effect: "Display numbered list of pending actions"
-    invoked-by: [player, npc]
+    invoked_by: [player, npc]
     
   URGENT:
     description: "Insert action at front of queue"
@@ -66,7 +66,7 @@ methods:
       action: "Action to insert"
     output: chat
     effect: "Prepend action to front of queue"
-    invoked-by: [player, npc, object]
+    invoked_by: [player, npc, object]
     
   CANCEL:
     description: "Remove action from queue"
@@ -74,14 +74,14 @@ methods:
       index: "Which action (1-indexed)"
     output: chat
     effect: "Remove action at index, shift others down"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CLEAR:
     description: "Empty the entire queue"
     parameters: {}
     output: chat
     effect: "Set action-queue to empty list"
-    invoked-by: [player]
+    invoked_by: [player]
     
   REORDER:
     description: "Move action to new position"
@@ -90,21 +90,21 @@ methods:
       to: "New position"
     output: chat
     effect: "Rearrange queue order"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PAUSE:
     description: "Stop executing, keep queue"
     parameters: {}
     output: chat
     effect: "Set queue-state.paused = true"
-    invoked-by: [player, object, event]
+    invoked_by: [player, object, event]
     
   RESUME:
     description: "Continue executing queue"
     parameters: {}
     output: chat
     effect: "Set queue-state.paused = false"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 # What this card tracks when active
@@ -159,7 +159,7 @@ object-hooks:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/return-stack  # Past vs future
   - skills/advertisement # Objects suggest actions
   - skills/room          # Where actions happen

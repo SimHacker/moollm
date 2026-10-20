@@ -38,7 +38,7 @@ methods:
       domain: "What to explore"
     output: chat (guidance)
     effect: "Frame activity as low-stakes exploration"
-    invoked-by: [player]
+    invoked_by: [player]
     
   LEARN:
     description: "Reflect on patterns"
@@ -46,7 +46,7 @@ methods:
       experiences: "What you've tried"
     output: file (learnings) + chat
     effect: "Document patterns discovered"
-    invoked-by: [player]
+    invoked_by: [player]
     
   LIFT:
     description: "Share as reusable skill"
@@ -54,14 +54,14 @@ methods:
       learning: "What to share"
     output: file (skill) + chat
     effect: "Create skill from learnings"
-    invoked-by: [player]
+    invoked_by: [player]
     
   STAGE:
     description: "What stage am I in?"
     parameters: {}
     output: chat
     effect: "Assess current activity stage"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -114,7 +114,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/constructionism  # Learning philosophy
   - skills/skill            # Where lift outputs go
   - skills/scratchpad       # Play space

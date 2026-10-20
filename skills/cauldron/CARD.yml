@@ -228,7 +228,7 @@ composes_with:
   empathic-templates:
     role: "10-section playbook template with {{describe_X}} / {{summarize_Y}} slots"
     when: "LADLE — populate playbooks from the monolith's relevant §"
-  k-lines:
+  k_lines:
     role: "Every numbered § and every playbook is a K-line"
     when: "Throughout; cross-references use K-REF format"
   yaml-jazz:

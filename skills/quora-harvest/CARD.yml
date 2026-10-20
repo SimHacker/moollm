@@ -17,7 +17,7 @@ description: |
   DOM, and a Playwright driver that attaches to a running Chrome over CDP and
   walks a URL list or a profile's answers tab.
 
-k-lines:
+k_lines:
   activates: [QUORA-HARVEST, EXPAND-ALL-FOLDS, RECAP-A-THREAD]
   related:
     - { ref: design-sense, relation: "view-state-is-the-users — the lens this tool is the workaround for" }

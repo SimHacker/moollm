@@ -74,13 +74,13 @@ methods:
     parameters: {title: required, done_when: required, requires: optional, priority: optional, where: "file | ledger | playbook | issue"}
     output: file + chat
     effect: "Write the task with history [{event: opened}]; refuse without a done_when, or record done_when: prose plus judge"
-    invoked-by: [player, llm, workflow, cauldron]
+    invoked_by: [player, llm, workflow, cauldron]
 
   CLAIM:
     description: "Take ownership"
     parameters: {id: required, owner: required}
     effect: "Append claimed; seed the owner's action-queue with the first concrete action"
-    invoked-by: [player, character, executor]
+    invoked_by: [player, character, executor]
 
   RELEASE:
     description: "Give it back without finishing"

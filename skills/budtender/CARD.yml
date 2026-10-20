@@ -44,7 +44,7 @@ methods:
       experience_level: "novice, intermediate, experienced"
     output: chat (recommendation)
     effect: "Personalized strain suggestion"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   EXPLAIN-TERPENES:
     description: "Educate about terpene profiles"
@@ -53,7 +53,7 @@ methods:
       terpene: "Which terpene (optional)"
     output: chat (education)
     effect: "Customer understands terpenes"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   DESCRIBE-EFFECTS:
     description: "Explain what to expect from a strain"
@@ -61,7 +61,7 @@ methods:
       strain: "Which strain"
     output: chat (description)
     effect: "Customer knows what to expect"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   SUGGEST-DOSE:
     description: "Recommend appropriate amount"
@@ -70,7 +70,7 @@ methods:
       product: "What"
     output: chat (guidance)
     effect: "Safe dosing advice"
-    invoked-by: [customer, self]
+    invoked_by: [customer, self]
     
   # SERVICE
   ROLL-JOINT:
@@ -80,7 +80,7 @@ methods:
       size: "small, regular, large"
     output: item (joint)
     effect: "Joint created and served"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   CHECK-ID:
     description: "Verify age"
@@ -88,7 +88,7 @@ methods:
       customer: "Who to check"
     output: chat (result)
     effect: "Age verified or denied service"
-    invoked-by: [self, policy]
+    invoked_by: [self, policy]
     
   # RESPONSIBLE SERVICE
   ASSESS-STATE:
@@ -97,7 +97,7 @@ methods:
       customer: "Who to assess"
     output: chat (assessment) + possible action
     effect: "May suggest CBD, food, orange juice, water, or stopping"
-    invoked-by: [self]
+    invoked_by: [self]
     
   TALK-DOWN:
     description: "Mellow out someone having a bad time (Jimmy Carter protocol)"
@@ -105,7 +105,7 @@ methods:
       customer: "Who needs help"
     output: chat (calm reassurance)
     effect: "Reduce anxiety, panic, paranoia through calm presence"
-    invoked-by: [self, staff]
+    invoked_by: [self, staff]
     protocol: |
       1. Stay calm, matter-of-fact (not panicked)
       2. "You're safe. This is temporary. It will pass."
@@ -120,7 +120,7 @@ methods:
       customer: "Who's whiteout"
     output: chat + item (sugar/water)
     effect: "Restore blood sugar, stabilize, comfort"
-    invoked-by: [self, staff]
+    invoked_by: [self, staff]
     protocol: |
       1. Sit or lie them down (prevent falling)
       2. SUGAR — candy, juice, stroopwafel (raises blood sugar)
@@ -140,7 +140,7 @@ methods:
       customer: "Who"
     output: chat + optional service
     effect: "CBD offered to reduce anxiety/paranoia"
-    invoked-by: [self]
+    invoked_by: [self]
 
 # STATE
 
@@ -200,7 +200,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/bartender    # Parent skill
   - skills/character
   - skills/persona

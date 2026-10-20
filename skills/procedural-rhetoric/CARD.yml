@@ -24,19 +24,19 @@ methods:
     description: "What does this design argue?"
     parameters: { system: "What to analyze" }
     output: chat
-    invoked-by: [player, designer]
+    invoked_by: [player, designer]
     
   DESIGN:
     description: "Create rules that embody an argument"
     parameters: { argument: "What to argue", domain: "System type" }
     output: chat + design spec
-    invoked-by: [designer]
+    invoked_by: [designer]
     
   CRITIQUE:
     description: "Surface unintentional rhetoric"
     parameters: { system: "What to critique" }
     output: chat
-    invoked-by: [player, reviewer]
+    invoked_by: [player, reviewer]
 
 state: {}
 
@@ -53,6 +53,6 @@ advertisements:
     score: 85
     condition: "Want to see hidden assumptions"
 
-see-also: [skills/constructionism, skills/representation-ethics]
+see_also: [skills/constructionism, skills/representation-ethics]
 credits:
   theorist: "Ian Bogost — Persuasive Games (2007)"

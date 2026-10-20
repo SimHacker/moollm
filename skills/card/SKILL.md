@@ -124,7 +124,7 @@ files:
   - examples/
 
 # 3. K-lines (what concepts does this activate?)
-k-lines:
+k_lines:
   activates: [MY-SKILL, RELATED-CONCEPT]
 
 # 4. Invoke when (trigger conditions)

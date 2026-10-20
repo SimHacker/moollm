@@ -100,31 +100,31 @@ methods:
     description: "Save current position"
     parameters: { label: "Optional bookmark name" }
     output: state-change
-    invoked-by: [system on navigation, player]
+    invoked_by: [system on navigation, player]
     
   POP:
     description: "Return to previous position"
     parameters: {}
     output: chat + state-change
-    invoked-by: [player]
+    invoked_by: [player]
     
   BACK:
     description: "Go back N steps"
     parameters: { steps: "How many" }
     output: chat + state-change
-    invoked-by: [player]
+    invoked_by: [player]
     
   HISTORY:
     description: "Show navigation history"
     parameters: { limit: "How many to show" }
     output: chat
-    invoked-by: [player]
+    invoked_by: [player]
     
   GOTO:
     description: "Jump to bookmarked position"
     parameters: { label: "Bookmark name" }
     output: chat + state-change
-    invoked-by: [player]
+    invoked_by: [player]
     
   # Dynamic deoptimization methods
   
@@ -135,7 +135,7 @@ methods:
       depth: "How far back to trace (default: full)"
     output: chat (formatted trace)
     effect: "Analyze history to reconstruct cause/effect chain"
-    invoked-by: [player, debugger]
+    invoked_by: [player, debugger]
     
   WHY:
     description: "Ask why something has its current value"
@@ -143,7 +143,7 @@ methods:
       what: "The thing to explain (file path, field, state)"
     output: chat (causal explanation)
     effect: "Trace backwards to find cause"
-    invoked-by: [player]
+    invoked_by: [player]
     
   BLAME:
     description: "Find what action/method caused a particular change"
@@ -151,7 +151,7 @@ methods:
       change: "The change to investigate"
     output: chat (responsible action)
     effect: "Git-blame style attribution for state changes"
-    invoked-by: [player, debugger]
+    invoked_by: [player, debugger]
 
 state:
   stack:
@@ -175,7 +175,7 @@ advertisements:
     score: 90
     condition: "Confused about current state, asking 'why'"
 
-see-also:
+see_also:
   - skills/action-queue   # What actions were queued
   - skills/room           # Spatial navigation
   - skills/memory-palace  # Organized memory

@@ -46,7 +46,7 @@ methods:
       concern: "What's the perceived problem"
     output: chat (analysis)
     effect: "Identify bottleneck type"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CHECK-CONSTRAINTS:
     description: "Evaluate if constraint_exclusion can help"
@@ -55,7 +55,7 @@ methods:
       query_pattern: "Typical query pattern"
     output: chat (recommendation)
     effect: "Identify impossible conditions"
-    invoked-by: [player]
+    invoked_by: [player]
     
   LOWER-CARDINALITY:
     description: "Find opportunities for lower-cardinality indexes"
@@ -64,7 +64,7 @@ methods:
       query_granularity: "How queries actually filter (e.g., day, month)"
     output: chat (index suggestion)
     effect: "Propose function-based index"
-    invoked-by: [player]
+    invoked_by: [player]
     
   HASH-UNIQUE:
     description: "Evaluate hash index for large unique values"
@@ -73,7 +73,7 @@ methods:
       column: "Column needing uniqueness"
     output: chat (tradeoff analysis)
     effect: "Compare B-Tree vs Hash exclusion"
-    invoked-by: [player]
+    invoked_by: [player]
     
   VIRTUAL-COLUMN:
     description: "Create virtual generated column for consistent expression access"
@@ -83,7 +83,7 @@ methods:
       column_name: "Name for the virtual column"
     output: DDL
     effect: "Generate ALTER TABLE statement"
-    invoked-by: [player]
+    invoked_by: [player]
     
   COMPARE-INDEXES:
     description: "Compare index sizes and performance"
@@ -91,7 +91,7 @@ methods:
       indexes: "List of indexes to compare"
     output: chat (comparison table)
     effect: "Show size vs performance tradeoffs"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CHOOSE-INDEX-TYPE:
     description: "Recommend index type for use case"
@@ -102,7 +102,7 @@ methods:
       write_pattern: "append-only, update-heavy, mixed"
     output: chat (recommendation)
     effect: "Guide index type selection"
-    invoked-by: [player]
+    invoked_by: [player]
     decision_tree: |
       Equality only + large values → Hash
       Ranges/sorting → B-Tree
@@ -117,7 +117,7 @@ methods:
       index_type: "B-Tree, Hash, BRIN, GIN, GiST, SP-GiST"
     output: chat (explanation)
     effect: "Deep understanding of index mechanics"
-    invoked-by: [player]
+    invoked_by: [player]
     
   DIAGNOSE-INDEX-USAGE:
     description: "Check if indexes are being used effectively"
@@ -125,7 +125,7 @@ methods:
       table: "Table to analyze"
     output: chat (diagnostic report)
     effect: "Find unused indexes, missing indexes, bloated indexes"
-    invoked-by: [player]
+    invoked_by: [player]
     queries:
       - "pg_stat_user_indexes for usage stats"
       - "pg_class for size comparison"
@@ -282,7 +282,7 @@ patterns:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/postgres         # Connection, extensions, migrations before tuning
   - skills/debugging          # Query performance debugging
   - skills/plan-then-execute  # Methodical optimization approach

@@ -42,7 +42,7 @@ annotated_relationships:
       constraint: "One-way delivery — no return receipt by default"
       
   comment_syntax: |
-    see-also:
+    see_also:
       - skills/task        # Reference only — yaml-jazz does not require tasks
       - skills/postel      # Core dependency — robustness principle
       - kernel/postal      # One-way — yaml-jazz can be sent via postal
@@ -55,7 +55,7 @@ annotated_relationships:
 # RICH ANNOTATION EXAMPLE
 
 rich_annotation_example: |
-  see-also:
+  see_also:
     - skills/task        
       # Tasks are a prominent YAML Jazz example
       # but this skill does NOT depend on tasks
@@ -98,7 +98,7 @@ tiered_resolution:
       question: "What's the relationship?"
       format: "Enough context to understand the link"
       example: |
-        see-also:
+        see_also:
           - skills/task  # Example, not dependency
           - skills/postel  # Core — robustness applies
           

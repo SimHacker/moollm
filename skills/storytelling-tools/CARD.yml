@@ -24,25 +24,25 @@ methods:
     description: "Create and manage character's notebook"
     parameters: { owner: "Whose notebook" }
     output: file
-    invoked-by: [player]
+    invoked_by: [player]
     
   LETTER:
     description: "Write and mail a letter"
     parameters: { from: "Sender", to: "Recipient", content: "Message", attachments: "List of references to attach" }
     output: file
-    invoked-by: [character]
+    invoked_by: [character]
     
   PHOTO:
     description: "Capture a moment as image prompt and metadata"
     parameters: { scene: "What to capture", metadata: "Metadata to attach" }
     output: file (prompt for image gen)
-    invoked-by: [player]
+    invoked_by: [player]
     
   SHARE:
     description: "Export story for sharing"
     parameters: { story: "What to share" }
     output: file
-    invoked-by: [player]
+    invoked_by: [player]
 
 state: {}
 
@@ -54,6 +54,6 @@ advertisements:
     score: 80
     condition: "Ready to share what happened"
 
-see-also: [skills/adventure, skills/session-log, skills/visualizer]
+see_also: [skills/adventure, skills/session-log, skills/visualizer]
 credits:
   inspiration: "The Sims — Family Album, The Sims Exchange"

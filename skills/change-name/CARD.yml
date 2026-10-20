@@ -44,7 +44,7 @@ methods:
       paths: "PDF file(s) or corpus directory"
     output: "Report: docinfo, XMP, content streams (incl. kern-split text), link annotations, font subsets + glyph coverage for the replacement"
     effect: "No changes. Evidence ledger for discussion."
-    invoked-by: [any]
+    invoked_by: [any]
     script: scripts/pdf_name_scan.py
 
   DISCUSS:
@@ -54,7 +54,7 @@ methods:
       wish: "Documented wish or standing (who asked, where recorded)"
     output: "Agreed edit plan: which occurrences, replacement text, fonts, labeling"
     effect: "The ethics gate lives here. No plan without standing."
-    invoked-by: [any]
+    invoked_by: [any]
 
   EDIT:
     description: "Perform the agreed edits surgically"
@@ -62,26 +62,26 @@ methods:
       plan: "Agreed edit plan"
     output: "New labeled file (never overwrite the original)"
     effect: "Content streams, annotations, metadata edited; kerning recomputed; visible page-1 notice + provenance note/attachment embedded"
-    invoked-by: [any]
+    invoked_by: [any]
 
   VERIFY:
     description: "Prove the edit did what was agreed and nothing else"
     output: "Render pages (vision check; page-1 notice legible), extract text (notice + old name count 0 in agreed scope), hash both files"
     effect: "Evidence attached to the provenance record"
-    invoked-by: [EDIT]
+    invoked_by: [EDIT]
 
   PUBLISH:
     description: "File original + edition + provenance README side by side; commit"
     output: "Directory with both files sha256-pinned and every edit enumerated"
     effect: "Honest labeling; public history"
-    invoked-by: [any]
+    invoked_by: [any]
 
   PLAN:
     description: "Map a whole name change across venues; sequence the playbooks"
     parameters:
       venues: "Where the old name lives (papers, git, profiles, registries...)"
     output: "Ledger: venue, artifact, correction path, canonical-fix status"
-    invoked-by: [any]
+    invoked_by: [any]
 
 # PLAYBOOKS — the plugin socket
 

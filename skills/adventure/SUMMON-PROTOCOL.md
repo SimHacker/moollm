@@ -862,7 +862,7 @@ dispatch_algorithm:
 ## K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   SUMMON: "Distributed character instantiation"
   SUMMON-DISPATCH: "Multi-method advertisement collection"
   RUNTIME-ACTOR: "Instantiated character from prototype"

@@ -26,13 +26,13 @@ methods:
     description: "Compress content"
     parameters: { content: "What to summarize", target-length: "How short" }
     output: chat (summary)
-    invoked-by: [player, system]
+    invoked_by: [player, system]
     
   EXTRACT:
     description: "Pull key points"
     parameters: { content: "Source" }
     output: chat (bullet points)
-    invoked-by: [player]
+    invoked_by: [player]
     
   METADATA:
     description: "Create or update metadata sidecar for a file"
@@ -43,7 +43,7 @@ methods:
       bookmarks: "Optional named locations in file"
     output: file (foo-metadata.yml)
     effect: "Creates lightweight sidecar for efficient browsing"
-    invoked-by: [player, system, honest-forget]
+    invoked_by: [player, system, honest-forget]
     
   SIP:
     description: "Read metadata to decide if full file is needed"
@@ -51,7 +51,7 @@ methods:
       file: "Path to file or its metadata"
     output: chat (recommendation)
     effect: "Read metadata, suggest whether to read full file"
-    invoked-by: [player, automatic]
+    invoked_by: [player, automatic]
     
   BOOKMARK:
     description: "Add a named bookmark to a file's metadata"
@@ -62,7 +62,7 @@ methods:
       note: "What's at this bookmark"
     output: state-change
     effect: "Adds bookmark to foo-metadata.yml"
-    invoked-by: [player]
+    invoked_by: [player]
 
 state: {}
 
@@ -331,7 +331,7 @@ advertisements:
     score: 92
     condition: "Browsing files, deciding what to read"
 
-see-also:
+see_also:
   - skills/honest-forget   # Uses same metadata pattern
   - skills/memory-palace   # Organized memory
   - skills/scratchpad      # Working memory

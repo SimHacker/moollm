@@ -39,7 +39,7 @@ methods:
       context: "Where you are, what you're doing"
     output: chat (relevant capabilities)
     effect: "Assess context, suggest actions"
-    invoked-by: [player, any]
+    invoked_by: [player, any]
     
   WHAT-AM-I:
     description: "Explain what MOOLLM is"
@@ -47,7 +47,7 @@ methods:
       depth: "brief, standard, philosophical"
     output: chat (explanation)
     effect: "Articulate MOOLLM's nature and purpose"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PHILOSOPHY:
     description: "Explain the core philosophy"
@@ -55,7 +55,7 @@ methods:
       topic: "Optional specific topic"
     output: chat (philosophical explanation)
     effect: "Teach Many-Voiced, Play-Learn-Lift, etc."
-    invoked-by: [player]
+    invoked_by: [player]
     
   SKILLS:
     description: "Browse available skills"
@@ -63,7 +63,7 @@ methods:
       category: "Optional filter"
     output: chat (skill catalog)
     effect: "List and describe available skills"
-    invoked-by: [player]
+    invoked_by: [player]
     
   RECOMMEND:
     description: "Suggest skills for a task"
@@ -71,14 +71,14 @@ methods:
       task: "What you want to do"
     output: chat (recommendations)
     effect: "Match task to relevant skills"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CONSTITUTION:
     description: "Show the governing principles"
     parameters: {}
     output: chat (constitution summary)
     effect: "Explain core rules and values"
-    invoked-by: [player]
+    invoked_by: [player]
     
   NAVIGATE:
     description: "Help find something in MOOLLM"
@@ -86,14 +86,14 @@ methods:
       looking-for: "What you're trying to find"
     output: chat (path + explanation)
     effect: "Guide to the right place"
-    invoked-by: [player]
+    invoked_by: [player]
     
   ORIENT:
     description: "Where am I? What's going on?"
     parameters: {}
     output: chat (situation summary)
     effect: "Explain current context and state"
-    invoked-by: [player]
+    invoked_by: [player]
     
   MOOPMAP:
     description: "Analyze the GLANCE semantic mipmap"
@@ -101,7 +101,7 @@ methods:
       output: "Optional output file path"
     output: YAML (mipmap analysis)
     effect: "Measure compression across GLANCE/CARD/SKILL/README pyramid"
-    invoked-by: [player, maintenance]
+    invoked_by: [player, maintenance]
     script: scripts/moopmap.py
 
 # STATE
@@ -187,7 +187,7 @@ origin:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/skill               # How skills work
   - skills/protocol            # K-lines and naming
   - skills/play-learn-lift     # The methodology

@@ -20,7 +20,7 @@ invoke_when:
 
 composes_with:
   bootstrap: "Session warmup; read hot.yml and cold.yml"
-  k-lines:   "Numbered sections ARE K-lines"
+  k_lines:   "Numbered sections ARE K-lines"
   yaml-jazz: "Appendix B structure"
   naming:    "kernel/naming/NAMING.yml — big-endian, prefix-as-owner"
 

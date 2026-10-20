@@ -3470,7 +3470,7 @@ cursor_permissions:
 ## K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   PSIBER: "Programmatic Structured Interactive Browsing Editor via Roleplay"
   CURSOR-AS-LENS: "Same address for read and write — setf semantics"
   MULTI-CURSOR: "Location, focus, hands, mind — multiple pointers"

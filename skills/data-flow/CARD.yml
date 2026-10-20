@@ -39,7 +39,7 @@ methods:
       exit: "Which exit to throw through"
     output: chat + state-change
     effect: "Object appears in destination room's inbox"
-    invoked-by: [player, room, card]
+    invoked_by: [player, room, card]
     
   RECEIVE:
     description: "Process incoming objects from inbox"
@@ -47,7 +47,7 @@ methods:
       room: "Room to check"
     output: chat + state-change
     effect: "Process each object in inbox according to room rules"
-    invoked-by: [room, coherence-engine]
+    invoked_by: [room, coherence-engine]
     
   CONNECT:
     description: "Create a data flow edge between rooms"
@@ -57,7 +57,7 @@ methods:
       to: "Destination room"
     output: state-change
     effect: "Add exit to source, add inbox to destination"
-    invoked-by: [player, designer]
+    invoked_by: [player, designer]
     
   PIPELINE:
     description: "Define a multi-stage processing pipeline"
@@ -65,7 +65,7 @@ methods:
       stages: "List of rooms in order"
     output: file (PIPELINE.yml) + chat
     effect: "Create connected room sequence"
-    invoked-by: [player, designer]
+    invoked_by: [player, designer]
 
 # STATE
 
@@ -100,7 +100,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/room        # Rooms as nodes
   - skills/card        # Cards can be data flow ensembles
   - skills/debate      # Uses data flow for deliberation

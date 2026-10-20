@@ -39,7 +39,7 @@ methods:
       keep: "Essential points to preserve"
     output: file (FORGET.yml) + chat
     effect: "Create summary, mark original as archived"
-    invoked-by: [player, coherence-engine]
+    invoked_by: [player, coherence-engine]
     
   ARCHIVE:
     description: "Move content to long-term storage"
@@ -48,7 +48,7 @@ methods:
       location: "Where to store it"
     output: state-change
     effect: "Move file, leave pointer"
-    invoked-by: [player]
+    invoked_by: [player]
     
   RECALL:
     description: "Retrieve archived content"
@@ -56,7 +56,7 @@ methods:
       pointer: "The FORGET.yml reference"
     output: chat (content)
     effect: "Read original from archive"
-    invoked-by: [player]
+    invoked_by: [player]
     
   ADMIT:
     description: "Acknowledge forgotten content"
@@ -64,7 +64,7 @@ methods:
       topic: "What you can't remember"
     output: chat
     effect: "Honest acknowledgment with pointer to where it might be"
-    invoked-by: [player, automatic]
+    invoked_by: [player, automatic]
 
 # STATE
 
@@ -143,7 +143,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/summarize     # Compression technique
   - skills/session-log   # Where to archive
   - skills/memory-palace # Organization

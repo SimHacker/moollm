@@ -43,7 +43,7 @@ The "tube" has rules. Document them.
 ## Annotated Relationships
 
 ```yaml
-see-also:
+see_also:
   - skills/bead        # Reference only — yaml-jazz does not require beads
   - skills/postel      # Core dependency — robustness principle
   - kernel/postal      # One-way — yaml-jazz can be sent via postal
@@ -59,7 +59,7 @@ The comment documents the relationship type:
 ## Rich Annotation Example
 
 ```yaml
-see-also:
+see_also:
   - skills/bead        
     # Beads are a prominent YAML Jazz example
     # but this skill does NOT depend on beads

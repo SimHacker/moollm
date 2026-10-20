@@ -39,7 +39,7 @@ methods:
       rubric: "Criteria to use"
     output: file (EVALUATION.yml) + chat
     effect: "Generate scores and rationale"
-    invoked-by: [adversarial-committee, player]
+    invoked_by: [adversarial-committee, player]
     
   CRITIQUE:
     description: "Provide specific improvement feedback"
@@ -48,7 +48,7 @@ methods:
       focus: "Areas to critique"
     output: chat (critique)
     effect: "Generate actionable feedback"
-    invoked-by: [player, adversarial-committee]
+    invoked_by: [player, adversarial-committee]
     
   APPROVE:
     description: "Mark output as acceptable"
@@ -56,7 +56,7 @@ methods:
       evaluation: "The evaluation"
     output: chat + state-change
     effect: "Set evaluation.status = approved"
-    invoked-by: [player]
+    invoked_by: [player]
     
   REJECT:
     description: "Return for revision"
@@ -65,7 +65,7 @@ methods:
       critique: "What needs fixing"
     output: chat + state-change
     effect: "Send critique back to source"
-    invoked-by: [player, automatic-threshold]
+    invoked_by: [player, automatic-threshold]
 
 # STATE
 
@@ -114,7 +114,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/adversarial-committee  # Produces output
   - skills/rubric                 # Defines criteria
   - skills/roberts-rules          # Committee procedure

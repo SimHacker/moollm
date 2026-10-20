@@ -40,7 +40,7 @@ methods:
       destination: "Where to create instance"
     output: file (presence) + chat
     effect: "Create linked instance in new room"
-    invoked-by: [player, card]
+    invoked_by: [player, card]
     
   SYNC:
     description: "Synchronize state between presences"
@@ -48,7 +48,7 @@ methods:
       presences: "Which instances to sync"
     output: state-change
     effect: "Merge divergent state"
-    invoked-by: [player, coherence-engine]
+    invoked_by: [player, coherence-engine]
     
   MERGE:
     description: "Combine multiple presences back into one"
@@ -57,7 +57,7 @@ methods:
       others: "Presences to absorb"
     output: state-change
     effect: "Combine state, remove other presences"
-    invoked-by: [player]
+    invoked_by: [player]
     
   STATUS:
     description: "Show all active presences"
@@ -65,7 +65,7 @@ methods:
       card: "Which card"
     output: chat
     effect: "List all rooms where card is present"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -105,7 +105,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/card    # Cards can have presence
   - skills/room    # Where presences exist
   - skills/party   # Group dynamics

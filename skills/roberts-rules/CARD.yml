@@ -37,7 +37,7 @@ methods:
     parameters: {}
     output: chat + state-change
     effect: "Set session.status = in-session"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
     
   MINUTES:
     description: "Review previous session minutes"
@@ -45,7 +45,7 @@ methods:
       minutes: "Previous session record"
     output: chat
     effect: "Read and acknowledge minutes"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
     
   MOTION:
     description: "Propose something"
@@ -53,7 +53,7 @@ methods:
       proposal: "What's being proposed"
     output: chat + state-change
     effect: "Record motion, await second"
-    invoked-by: [member]
+    invoked_by: [member]
     
   SECOND:
     description: "Support a motion"
@@ -61,7 +61,7 @@ methods:
       motion: "Which motion"
     output: chat + state-change
     effect: "Motion can now be debated"
-    invoked-by: [member]
+    invoked_by: [member]
     
   DEBATE:
     description: "Discuss the motion"
@@ -69,14 +69,14 @@ methods:
       time-limit: "How long"
     output: chat (arguments)
     effect: "Members argue for/against"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
     
   CALL-QUESTION:
     description: "End debate, call for vote"
     parameters: {}
     output: chat + state-change
     effect: "Move to voting"
-    invoked-by: [member, moderator]
+    invoked_by: [member, moderator]
     
   VOTE:
     description: "Record votes"
@@ -84,14 +84,14 @@ methods:
       method: "voice, show, roll-call"
     output: chat (tally) + state-change
     effect: "Count votes, record result"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
     
   ADJOURN:
     description: "End session"
     parameters: {}
     output: chat + state-change
     effect: "Set session.status = adjourned"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
 
 # STATE
 
@@ -135,7 +135,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/adversarial-committee  # Uses this procedure
   - skills/debate                 # Debate methods
   - skills/session-log            # Meeting records

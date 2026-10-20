@@ -168,7 +168,7 @@ methods:
       2. Find/create cell
       3. Add to count or instances
       4. Update stats, fire events
-    invoked-by: [player, bot, system]
+    invoked_by: [player, bot, system]
     
   REMOVE:
     description: "Remove item from container"
@@ -182,7 +182,7 @@ methods:
       1. Check reserve limit
       2. Decrement count or remove instance
       3. Update stats, fire events
-    invoked-by: [player, bot, system]
+    invoked_by: [player, bot, system]
     
   TRANSFER:
     description: "Move items between containers"
@@ -193,7 +193,7 @@ methods:
       count: "How many"
     output: state-change + chat
     effect: "REMOVE from source, ADD to destination"
-    invoked-by: [player, bot, system]
+    invoked_by: [player, bot, system]
     
   REQUEST:
     description: "Request items for a requester container"
@@ -204,7 +204,7 @@ methods:
       1. Check request_list against current contents
       2. Find providers with missing items
       3. Create transport tasks for bots
-    invoked-by: [system, coherence-engine]
+    invoked_by: [system, coherence-engine]
     
   PUSH:
     description: "Push items from active-provider"
@@ -214,7 +214,7 @@ methods:
     effect: |
       1. Check contents against push_to rules
       2. Create transport tasks for matching items
-    invoked-by: [system, coherence-engine]
+    invoked_by: [system, coherence-engine]
     
   QUERY:
     description: "Check container contents"
@@ -223,7 +223,7 @@ methods:
       filter: "Optional item filter"
     output: data
     effect: "Return matching contents"
-    invoked-by: [player, bot, system]
+    invoked_by: [player, bot, system]
     
   NAVIGATE:
     description: "Move through grid cells"
@@ -232,7 +232,7 @@ methods:
       direction: "Direction to move"
     output: chat + state-change
     effect: "Move player to adjacent cell"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # ADVERTISEMENTS
 
@@ -252,7 +252,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/container         # Simpler container, inherits from
   - skills/exit              # Exits with flow behavior
   - skills/character         # Logistic bot characters

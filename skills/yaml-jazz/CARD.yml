@@ -24,13 +24,13 @@ methods:
     description: "Create YAML Jazz structure"
     parameters: { content: "What to structure" }
     output: chat (YAML)
-    invoked-by: [player]
+    invoked_by: [player]
     
   INTERPRET:
     description: "Read YAML Jazz semantically"
     parameters: { yaml: "Content to interpret" }
     output: chat (understanding)
-    invoked-by: [any]
+    invoked_by: [any]
 
 state: {}
 
@@ -84,7 +84,7 @@ advertisements:
     score: 85
     condition: "Creating human+machine+LLM readable format"
 
-see-also:
+see_also:
   - skills/postel        # Core — robustness principle applies
   - skills/protocol      # Core — yaml-jazz is a protocol style
   - skills/schema        # Schemapedia — normative layers alongside Jazz

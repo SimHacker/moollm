@@ -191,7 +191,7 @@ Isolated simulation misses social pressure effects. For MOOLLM:
 ## Suggested K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   new:
     - SIMULATION-ACCURACY    # Accuracy increases ethical stakes
     - DUAL-USE-EVALUATION    # Evaluation can be as harmful as generation

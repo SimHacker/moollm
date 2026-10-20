@@ -405,13 +405,13 @@ MOOLLM protocols work the same way:
 When a skill declares K-lines it activates, loading that skill brings an entire constellation of related knowledge into context:
 
 ```yaml
-k-lines:
+k_lines:
   activates:
     - minsky: "Society of Mind author, MIT AI Lab"
     - papert: "Collaborator, constructionism, Logo"
     - agents: "Simple processes with single functions"
     - agencies: "Agent clusters producing behavior"
-    - k-lines: "Activation vectors connecting to agents"
+    - k_lines: "Activation vectors connecting to agents"
 ```
 
 📁 [`skills/k-lines/`](../skills/k-lines/)  

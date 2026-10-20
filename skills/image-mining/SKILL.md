@@ -1613,7 +1613,7 @@ loadouts:
 ### K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   SWISS-ARMY-EYE: "Modular viewer toolkit concept"
   UNFOLD: "Activate a facet or tool"
   CLOSE: "Deactivate to reduce noise"
@@ -2133,7 +2133,7 @@ In MOOLLM:
 ### Third Eye K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   activates:
     - THIRD-EYE
     - SPECULATIVE-MINING
@@ -2485,7 +2485,7 @@ character:
 #### Third Eye K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   THIRD-EYE-FACETS: "Multifaceted perception"
   THIRD-EYE-FILTER: "Selective vision"
   THIRD-EYE-EYELID: "Degrees of openness"
@@ -2765,7 +2765,7 @@ When Morgan photographs the sign, you SEE economic frames.
 #### K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   CHARACTER-PERSPECTIVE: "Visualization through specific eyes"
   PHOTOGRAPHER-INHERITANCE: "Facets/filters flow from character"
   PERSPECTIVE-VISUALIZATION: "Same scene, different seers"
@@ -3127,7 +3127,7 @@ ass_eye:
 #### K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   BIONIC-EYE: "Cybernetic perception module"
   FOURTH-EYE: "Hindsight perception"
   FIFTH-EYE: "Peripheral perception"

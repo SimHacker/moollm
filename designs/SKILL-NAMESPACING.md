@@ -136,7 +136,7 @@ card:
       
   # K-LINE BRIDGE
   # Explicitly wire their k-lines to our namespace
-  k-lines:
+  k_lines:
     # They activate → we activate
     forwards:
       DATA-VISUALIZATION: EXT-DATA-VISUALIZATION
@@ -222,12 +222,12 @@ When you need to be explicit:
 
 ```yaml
 # Unqualified — uses resolution order
-k-lines:
+k_lines:
   related:
     - visualizer              # Resolves to YOUR visualizer
 
 # Qualified — explicit namespace
-k-lines:
+k_lines:
   related:
     - ext-visualizer          # Resolves to imported wrapper
     - external-skills/visualizer  # Direct reference (bypass NAT)
@@ -314,7 +314,7 @@ card:
     mappings:
       ext-their-visualizer: visualizer
       
-  k-lines:
+  k_lines:
     exports:
       - EXT-THEIR-VISUALIZE
 ```
@@ -336,7 +336,7 @@ skills:
 
 ```yaml
 # In your skills, reference via public (mapped) name
-k-lines:
+k_lines:
   related:
     - { ref: ext-their-visualizer, meaning: "External viz for data" }
 ```
@@ -445,7 +445,7 @@ The key insight: **K-lines ARE the namespace.**
 
 ```yaml
 # Your skill activates k-lines
-k-lines:
+k_lines:
   activates:
     - VISUALIZE              # Activates YOUR visualizer's VISUALIZE
     - EXT-VISUALIZE          # Activates imported wrapper's VISUALIZE
@@ -485,7 +485,7 @@ card:
       file-reader: claude-file-reader
       diff-parser: claude-diff-parser
       
-  k-lines:
+  k_lines:
     # Their k-lines → our k-lines
     forwards:
       CODE-REVIEW: CLAUDE-CODE-REVIEW

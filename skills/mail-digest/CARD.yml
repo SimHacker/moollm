@@ -16,7 +16,7 @@ description: |
   matter, and a public harvest drawn from that archive. The dedup script cut the
   1.5 MB PIXIE correspondence to 213 KB of new text in 116 messages.
 
-k-lines:
+k_lines:
   activates: [MAIL-DIGEST, MAIL-DEDUP, DIGEST-CORRESPONDENCE, HARVEST-EMAIL]
   related:
     - { ref: quora-harvest, relation: "same job for a walled-garden web thread" }

@@ -23,19 +23,19 @@ methods:
     description: "Run datasette on one or more .db paths"
     parameters: { paths: "SQLite files", metadata: "Optional -m YAML" }
     output: terminal + browser
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   CROSSDB:
     description: "Serve multiple DBs with --crossdb for SQL across databases"
     parameters: { dbs: "List of paths" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   CURSOR_MIRROR:
     description: "Export consolidated DB then serve with bundled metadata"
     parameters: {}
     output: chat (paths and command)
-    invoked-by: [operator]
+    invoked_by: [operator]
 
 related_skills: [sqlite, cursor-mirror, schema]
 

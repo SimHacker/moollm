@@ -36,7 +36,7 @@ methods:
       context: "Where it lives"
     output: chat (suggested name)
     effect: "Apply naming conventions"
-    invoked-by: [player, designer]
+    invoked_by: [player, designer]
     
   RENAME:
     description: "Suggest better name for existing thing"
@@ -45,7 +45,7 @@ methods:
       context: "What it is and where"
     output: chat (suggested name)
     effect: "Propose improvement"
-    invoked-by: [player]
+    invoked_by: [player]
     
   VALIDATE:
     description: "Check if name follows conventions"
@@ -53,7 +53,7 @@ methods:
       name: "Name to check"
     output: chat (assessment)
     effect: "Report compliance or issues"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -92,7 +92,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - kernel/NAMING.yml  # Canonical reference
   - skills/room        # Directory structure
   - skills/yaml-jazz   # YAML conventions

@@ -37,7 +37,7 @@ methods:
       details: "Additional context"
     output: state-change
     effect: "Append to log"
-    invoked-by: [any, automatic]
+    invoked_by: [any, automatic]
     
   VIEW:
     description: "See recent log entries"
@@ -45,7 +45,7 @@ methods:
       count: "How many (default: 10)"
     output: chat
     effect: "Display log entries"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SEARCH:
     description: "Find specific entries"
@@ -53,7 +53,7 @@ methods:
       query: "What to find"
     output: chat
     effect: "Filter and display matches"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -79,7 +79,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/self-repair    # Uses logs
   - skills/adventure      # TRANSCRIPT.md
 

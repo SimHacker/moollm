@@ -184,7 +184,7 @@ methods:
       currency: "Currency to use (defaults to context)"
     output: chat + state-change
     effect: "Transfer currency, transfer item"
-    invoked-by: [player, npc]
+    invoked_by: [player, npc]
     
   SELL:
     description: "Sell an item"
@@ -195,7 +195,7 @@ methods:
       currency: "Currency to receive (defaults to context)"
     output: chat + state-change
     effect: "Receive currency, transfer item"
-    invoked-by: [player, npc]
+    invoked_by: [player, npc]
     
   TRADE:
     description: "Barter items without currency"
@@ -205,7 +205,7 @@ methods:
       with: "Trade partner"
     output: chat + state-change
     effect: "Exchange items if both agree"
-    invoked-by: [player, npc]
+    invoked_by: [player, npc]
     
   BALANCE:
     description: "Check currency balance"
@@ -214,7 +214,7 @@ methods:
       currency: "Which currency (defaults to all)"
     output: chat
     effect: "Display current balance(s)"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PRICE:
     description: "Check an item's price/value"
@@ -223,7 +223,7 @@ methods:
       currency: "Currency for pricing (defaults to context)"
     output: chat
     effect: "Display buy and sell prices"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CONVERT:
     description: "Convert between currencies (where possible)"
@@ -234,7 +234,7 @@ methods:
     output: chat
     effect: "Show conversion rate and result"
     note: "Parallel currencies (karma, favor, etc.) cannot convert"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -265,7 +265,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character   # Balances live on characters
   - skills/adventure   # Economic gameplay
   - skills/scoring     # Value assessment

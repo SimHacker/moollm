@@ -24,19 +24,19 @@ methods:
     description: "Generate a new place"
     parameters: { seed: "Starting concept", style: "World style" }
     output: directory + files
-    invoked-by: [dm, exploration]
+    invoked_by: [dm, exploration]
     
   EXPAND:
     description: "Add to existing area"
     parameters: { from: "Existing place", direction: "How to expand" }
     output: new room
-    invoked-by: [exploration]
+    invoked_by: [exploration]
     
   CONNECT:
     description: "Link two areas"
     parameters: { a: "First place", b: "Second place" }
     output: exit updates
-    invoked-by: [dm]
+    invoked_by: [dm]
     
   TOWER:
     description: "Generate a vertical structure with floors"
@@ -46,7 +46,7 @@ methods:
       central_column: "elevator, stairs, or both"
       direction: "up, down, or both"
     output: tower directory + floor links
-    invoked-by: [dm, building]
+    invoked_by: [dm, building]
     pattern: yoot-tower
     
   FLOOR:
@@ -56,7 +56,7 @@ methods:
       floor_number: "Position (negative = underground)"
       content: "Skill path or inline definition"
     output: floor ROOM.yml + up/down links
-    invoked-by: [expansion]
+    invoked_by: [expansion]
 
 state: {}
 
@@ -74,4 +74,4 @@ advertisements:
     score: 85
     condition: "Need a new location"
 
-see-also: [skills/room, skills/adventure]
+see_also: [skills/room, skills/adventure]

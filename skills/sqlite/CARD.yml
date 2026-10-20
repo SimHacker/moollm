@@ -23,25 +23,25 @@ methods:
     description: "Open DB; .schema; pragma list"
     parameters: { path: "Path to .db file" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   MIGRATE:
     description: "Apply ordered SQL or document user_version pragma"
     parameters: { script: "SQL file or inline" }
     output: terminal
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   JSON1:
     description: "Use JSON1 functions for document-like columns"
     parameters: { pattern: "Query shape" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   COMPARE_TO_POSTGRES:
     description: "When to move to PostgreSQL (concurrency, extensions)"
     parameters: {}
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
 related_skills: [postgres, schema, cursor-mirror]
 

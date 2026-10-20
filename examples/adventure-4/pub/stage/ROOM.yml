@@ -655,50 +655,50 @@ advertisements:
       - "Earn tips if good"
       - "Earn thrown drinks if bad"
       - "Build reputation either way"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
       
   CHALLENGE:
     description: "Challenge someone to a performance duel"
     usage: "CHALLENGE [target] TO [karaoke/comedy/dance-off]"
     cost: 0
     rules: "Audience decides winner by applause"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   REQUEST:
     description: "Request a song or bit from a performer"
     usage: "REQUEST [song/topic]"
     cost: "1 gold (tip for performer)"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   SIGN-UP:
     description: "Add your name to the performance list"
     usage: "SIGN-UP FOR [tonight's event]"
     effect: "Your name goes on the list at the bar"
-    invoked-by: [player]
+    invoked_by: [player]
     
   HECKLE:
     description: "Shout something at the performer (use wisely)"
     usage: "HECKLE [supportive/neutral/mean]"
     warning: "Mean heckling may get YOU gong'd"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   DRAW-CURTAIN:
     description: "Open or close the stage curtains"
     usage: "DRAW-CURTAIN [open/closed/half]"
     requires: "Permission or being the performer"
-    invoked-by: [performer, staff]
+    invoked_by: [performer, staff]
     
   CHANGE-BACKDROP:
     description: "Switch the backdrop"
     usage: "CHANGE-BACKDROP TO [starfield/tavern/forest/blank/brick]"
     requires: "Permission or being the performer"
-    invoked-by: [performer, staff]
+    invoked_by: [performer, staff]
     
   RING-GONG:
     description: "Strike the mercy gong"
     usage: "RING-GONG [1/2/3 times]"
     requires: "Marieke's blessing (or being Marieke)"
-    invoked-by: [marieke, designated_judge]
+    invoked_by: [marieke, designated_judge]
 
 # RELATIONSHIPS
 

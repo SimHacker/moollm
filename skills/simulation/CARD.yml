@@ -37,28 +37,28 @@ methods:
     parameters: {}
     output: chat + state-changes
     effect: "Increment turn, tick buffs, decay needs"
-    invoked-by: [player, time, automatic]
+    invoked_by: [player, time, automatic]
     
   PAUSE:
     description: "Pause the simulation"
     parameters: {}
     output: state-change
     effect: "Set paused = true"
-    invoked-by: [player]
+    invoked_by: [player]
     
   RESUME:
     description: "Resume the simulation"
     parameters: {}
     output: state-change
     effect: "Set paused = false"
-    invoked-by: [player]
+    invoked_by: [player]
     
   STATUS:
     description: "Show simulation state"
     parameters: {}
     output: chat
     effect: "Display turn, party, selection, flags"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SELECT:
     description: "Set selection targets"
@@ -66,7 +66,7 @@ methods:
       targets: "What to select"
     output: state-change
     effect: "Update selection list"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CONFIGURE:
     description: "Set simulation parameters"
@@ -75,7 +75,7 @@ methods:
       value: "New value"
     output: state-change
     effect: "Update configuration"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -126,7 +126,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/adventure  # Inherits from this
   - skills/time       # Time management
   - skills/party      # Party management

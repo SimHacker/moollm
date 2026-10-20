@@ -102,7 +102,7 @@ methods:
     description: "Join an address from any source to a place, surviving Dutch spelling"
     parameters: { address: "free text or parts" }
     effect: "Returns a place id or nothing. Ordinals, abbreviations and diacritics normalized; huisletter deliberately IGNORED in the key and reported as a mismatch instead."
-    invoked-by: [importer, agent]
+    invoked_by: [importer, agent]
 
   CLAIM:
     description: "Assert a field value with a source and a date. The only way data enters."
@@ -121,7 +121,7 @@ methods:
   PROPOSE-EDIT:
     description: "Draft an OSM changeset from survey evidence only"
     effect: "REFUSES any field whose source is not osm_ok. Survey and official data pass; scraped compilations and anything Google-derived do not, ever."
-    invoked-by: [surveyor]
+    invoked_by: [surveyor]
 
   SURVEY:
     description: "Record a visit: date, photographs, track, what was actually true at the door"

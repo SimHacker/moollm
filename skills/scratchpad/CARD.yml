@@ -36,21 +36,21 @@ methods:
       content: "What to write"
     output: state-change
     effect: "Append to scratchpad"
-    invoked-by: [player, any]
+    invoked_by: [player, any]
     
   READ:
     description: "See what's on scratchpad"
     parameters: {}
     output: chat
     effect: "Display scratchpad contents"
-    invoked-by: [player]
+    invoked_by: [player]
     
   CLEAR:
     description: "Empty the scratchpad"
     parameters: {}
     output: state-change
     effect: "Reset to empty"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -68,7 +68,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/planning         # More structured
   - skills/research-notebook # For research
 

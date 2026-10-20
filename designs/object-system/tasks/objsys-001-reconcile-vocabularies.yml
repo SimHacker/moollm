@@ -115,9 +115,10 @@ phases:
       - { scope: "slots shadowing child directories", files: 6, status: opened }
       - { scope: "grue_safe: out of rooms; lighting: 0..10 + comment; grue guard; maze defaults: lighting 0; the Eye watches", files: 150, status: done }
       - { scope: "broken skills/* parents", files: 5, status: waiting-on-don }
-      - { scope: "k-lines / klines -> k_lines; split related out", files: 75, status: opened }
-      - { scope: "see-also -> see_also; references -> see_also", files: 99, status: opened }
-      - { scope: "invoked-by -> invoked_by", files: 59, status: opened }
+      - { scope: "k-lines / klines / see-also / invoked-by -> k_lines / see_also / invoked_by (migrations/schema_keys.py)", files: 160, status: done }
+      - { scope: "k_lines: split {activates, related} into k_lines list + related", files: 44, status: opened }
+      - { scope: "references -> see_also", files: 38, status: opened }
+      - { scope: "pre-existing duplicate keys (mother, cat-stroopwafel, henk, marieke, hannibal-chew, time CARD)", files: 6, status: opened }
       - { scope: "advertisements as list -> map", files: 13, status: opened }
       - { scope: "self-describing timestamps (created:, updated:) out of files; git has them", files: 15, status: opened }
       - { scope: "unparseable YAML: fix or mark as prose", files: 122, status: opened }

@@ -232,7 +232,7 @@ Explains why LLMs easily adopt threatening AI personas:
 ## Suggested K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   new:
     - ROLEPLAY-ALL-THE-WAY-DOWN  # No true voice of the model
     - SIMULATOR-SIMULACRA        # Model generates characters from distribution

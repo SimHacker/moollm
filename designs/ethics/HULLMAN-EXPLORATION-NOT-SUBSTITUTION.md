@@ -161,7 +161,7 @@ simulation_metadata:
 This paper contributes these traditions to MOOLLM:
 
 ```yaml
-k-lines:
+k_lines:
   - EXPLORATION-NOT-SUBSTITUTION  # LLMs for exploration, not replacing humans
   - BIAS-COMPOUNDING              # Biases compound across simulations
   - EXTREME-RESULTS-TENDENCY      # LLMs produce more extreme, less diverse results

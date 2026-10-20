@@ -39,7 +39,7 @@ methods:
       depth: "How detailed (high-level, detailed)"
     output: file (PLAN.yml) + chat
     effect: "Create plan with steps"
-    invoked-by: [player]
+    invoked_by: [player]
     
   DECOMPOSE:
     description: "Break a step into sub-steps"
@@ -47,7 +47,7 @@ methods:
       step: "Which step to break down"
     output: state-change
     effect: "Replace step with sub-steps"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PROGRESS:
     description: "Mark step as done"
@@ -56,14 +56,14 @@ methods:
       notes: "Optional completion notes"
     output: state-change
     effect: "Update step status"
-    invoked-by: [player]
+    invoked_by: [player]
     
   STATUS:
     description: "Show plan progress"
     parameters: {}
     output: chat
     effect: "Display plan with completion status"
-    invoked-by: [player]
+    invoked_by: [player]
     
   REVISE:
     description: "Update the plan"
@@ -71,7 +71,7 @@ methods:
       changes: "What to change"
     output: state-change
     effect: "Modify plan based on learnings"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -99,7 +99,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/plan-then-execute  # More rigid
   - skills/action-queue       # Runtime queue
   - skills/scratchpad         # Working memory

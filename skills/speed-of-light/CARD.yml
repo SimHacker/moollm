@@ -24,7 +24,7 @@ methods:
     description: "Run multiple simulation turns at once"
     parameters: { turns: "How many", entities: "Who participates" }
     output: chat (narrative) + state-changes
-    invoked-by: [coherence-engine]
+    invoked_by: [coherence-engine]
     
   # Floor management methods (see FLOOR.yml for protocol)
   TAKE_FLOOR:
@@ -123,4 +123,4 @@ deep_protocols:
     - CAR/CDR tattoo protocol (knuckle mnemonic)
     - The stage floor where speed-of-light actors perform
 
-see-also: [skills/adversarial-committee, skills/debate, skills/coherence-engine, skills/persona]
+see_also: [skills/adversarial-committee, skills/debate, skills/coherence-engine, skills/persona]

@@ -41,7 +41,7 @@ methods:
       turns: "How many simulation turns"
     output: chat (narration) + state-changes
     effect: "Update entity state, tick buffs, process needs"
-    invoked-by: [time, player, adventure]
+    invoked_by: [time, player, adventure]
     
   DETECT:
     description: "Find inconsistencies in world state"
@@ -49,7 +49,7 @@ methods:
       scope: "Area to check (room, character, or 'all')"
     output: chat (list of issues)
     effect: "Report contradictions, missing fields, broken refs"
-    invoked-by: [self-repair, player]
+    invoked_by: [self-repair, player]
     
   RECONCILE:
     description: "Fix detected inconsistencies"
@@ -58,7 +58,7 @@ methods:
       strategy: "How to resolve (auto, ask, conservative)"
     output: chat + state-changes
     effect: "Update files to restore consistency"
-    invoked-by: [self-repair, player]
+    invoked_by: [self-repair, player]
     
   ORCHESTRATE:
     description: "Coordinate multiple entity updates"
@@ -67,7 +67,7 @@ methods:
       event: "What triggered the update"
     output: state-changes
     effect: "Update all entities consistently"
-    invoked-by: [simulation, time]
+    invoked_by: [simulation, time]
 
 # STATE
 # Coherence engine doesn't have its own state — it operates on world state
@@ -118,7 +118,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/self-repair   # Checklist-based healing
   - skills/simulation    # Central state hub
   - skills/time          # Triggers coherence checks

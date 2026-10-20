@@ -34,7 +34,7 @@ methods:
       system: "What to assess"
     output: chat (status)
     effect: "Check robustness vs correctness"
-    invoked-by: [player, self-repair]
+    invoked_by: [player, self-repair]
     
   DEGRADE:
     description: "Gracefully reduce functionality"
@@ -42,7 +42,7 @@ methods:
       component: "What to degrade"
     output: state-change
     effect: "Disable non-essential, keep core alive"
-    invoked-by: [self-repair]
+    invoked_by: [self-repair]
 
 # STATE
 
@@ -91,7 +91,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/self-repair  # Healing patterns
   - skills/postel       # Robustness principle
 

@@ -43,7 +43,7 @@ methods:
       invocations: "How to invoke the tradition"
     output: file (HERO.yml) + chat
     effect: "Create card that activates tradition"
-    invoked-by: [player, designer]
+    invoked_by: [player, designer]
     
   INVOKE:
     description: "Activate a hero's tradition"
@@ -52,7 +52,7 @@ methods:
       context: "What you're applying it to"
     output: chat (guidance)
     effect: "Apply tradition's wisdom to context"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   COMPOSE:
     description: "Combine multiple traditions"
@@ -61,7 +61,7 @@ methods:
       synthesis: "How they combine"
     output: chat (combined approach)
     effect: "Blend traditions for unique perspective"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SING-PRAISES:
     description: "Celebrate a hero's contributions"
@@ -69,7 +69,7 @@ methods:
       hero: "Which hero"
     output: chat (tribute narrative)
     effect: "Generate heartfelt appreciation of their impact"
-    invoked-by: [player, eulogy]
+    invoked_by: [player, eulogy]
     
   TELL-STORY:
     description: "Narrate the hero's journey and influence"
@@ -78,7 +78,7 @@ methods:
       audience: "Who's listening (affects style)"
     output: chat (biographical narrative)
     effect: "Tell their story in engaging way"
-    invoked-by: [player, dm]
+    invoked_by: [player, dm]
     
   PROPAGATE:
     description: "Spread the tradition forward"
@@ -87,7 +87,7 @@ methods:
       to: "Who should learn it"
     output: chat (teaching moment)
     effect: "Pass the tradition to new practitioners"
-    invoked-by: [player, mentor]
+    invoked_by: [player, mentor]
     
   RECOMMEND:
     description: "Suggest related heroes and traditions"
@@ -96,7 +96,7 @@ methods:
       interest: "What aspect interests you"
     output: chat (recommendations)
     effect: "Connect to related traditions and influences"
-    invoked-by: [player]
+    invoked_by: [player]
     
   LINEAGE:
     description: "Show who influenced and was influenced by"
@@ -104,7 +104,7 @@ methods:
       hero: "Which hero"
     output: chat (influence tree)
     effect: "Map the tradition's genealogy"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -166,7 +166,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/representation-ethics  # The full ethics discussion
   - skills/persona               # Identity layers
   - skills/card                  # Cards as tokens

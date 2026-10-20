@@ -16,7 +16,7 @@ meaning: |
 invoke_when: ["After ANCHOR, before TASTE"]
 
 composes_with:
-  k-lines: "K-REF format for cross-references"
+  k_lines: "K-REF format for cross-references"
 
 parameters:
   out_dir: {type: string, required: true}

@@ -54,7 +54,7 @@ methods:
       buff: "Buff definition or reference"
     output: chat + state-change
     effect: "Add buff to target.buffs array"
-    invoked-by: [object, character, room, cat]
+    invoked_by: [object, character, room, cat]
     
   REMOVE:
     description: "Remove a specific buff"
@@ -63,7 +63,7 @@ methods:
       buff-name: "Which buff to remove"
     output: chat + state-change
     effect: "Remove from target.buffs"
-    invoked-by: [healer, item, time-decay]
+    invoked_by: [healer, item, time-decay]
     
   TICK:
     description: "Advance all buff durations by one turn"
@@ -71,7 +71,7 @@ methods:
       target: "Character or 'all'"
     output: state-change
     effect: "Decrement durations, remove expired buffs"
-    invoked-by: [time, simulation, coherence-engine]
+    invoked_by: [time, simulation, coherence-engine]
     
   LIST:
     description: "Show active buffs on a character"
@@ -79,7 +79,7 @@ methods:
       target: "Character to inspect"
     output: chat
     effect: "Display buffs with remaining duration"
-    invoked-by: [player, npc]
+    invoked_by: [player, npc]
     
   FIND-BY-TAG:
     description: "Find all buffs with a specific tag"
@@ -88,7 +88,7 @@ methods:
       tag: "Tag to search for (e.g., 'terpene', 'combat', 'curse')"
     output: list
     effect: "Return array of matching buffs"
-    invoked-by: [script, llm, ui]
+    invoked_by: [script, llm, ui]
     
   REMOVE_BY_TAG:
     description: "Remove all buffs with a specific tag"
@@ -97,7 +97,7 @@ methods:
       tag: "Tag to match (e.g., 'curse', 'terpene')"
     output: chat + state-change
     effect: "Filter out buffs where tags includes tag"
-    invoked-by: [healer, item, dispel]
+    invoked_by: [healer, item, dispel]
     
   HAS-TAG:
     description: "Check if character has any buff with tag"
@@ -106,7 +106,7 @@ methods:
       tag: "Tag to check"
     output: boolean
     effect: "Return true if any buff has tag"
-    invoked-by: [guard, script, llm]
+    invoked_by: [guard, script, llm]
     
   CLEANSE:
     description: "Remove all negative buffs (curses)"
@@ -114,7 +114,7 @@ methods:
       target: "Character"
     output: chat + state-change
     effect: "Filter out buffs where polarity = negative OR tag includes 'curse'"
-    invoked-by: [healer, shrine, item]
+    invoked_by: [healer, shrine, item]
 
 # STATE
 # Buff structure. Lives on the host's `buffs:` list, whatever kind of thing
@@ -345,7 +345,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character  # Where buffs live
   - skills/time       # When buffs tick
   - skills/needs      # Buffs can modify needs

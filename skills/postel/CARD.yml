@@ -35,7 +35,7 @@ methods:
       input: "Messy/ambiguous input"
     output: chat (interpretation)
     effect: "Find reasonable interpretation"
-    invoked-by: [any]
+    invoked_by: [any]
     
   CLEAN:
     description: "Apply Postel's Law to output"
@@ -43,7 +43,7 @@ methods:
       content: "What to emit"
     output: chat (clean version)
     effect: "Produce well-formed output"
-    invoked-by: [any]
+    invoked_by: [any]
 
 # STATE
 
@@ -176,7 +176,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/robust-first  # Survive first
   - skills/yaml-jazz     # Semantic YAML
 

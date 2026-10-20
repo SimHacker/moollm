@@ -174,7 +174,7 @@ methods:
       procedure: "What to automate"
     output: file (PROCEDURE.md)
     effect: "Create documentation-first procedure"
-    invoked-by: [player]
+    invoked_by: [player]
     
   FOLLOW:
     description: "Execute documented procedure"
@@ -182,7 +182,7 @@ methods:
       procedure: "Which doc to follow"
     output: chat + effects
     effect: "LLM follows documented steps"
-    invoked-by: [player]
+    invoked_by: [player]
     
   EXTRACT:
     description: "Convert to Python CLI following the canonical structure"
@@ -191,7 +191,7 @@ methods:
       cli-style: "argparse (stdlib) or click (fancy)"
     output: file (script.py) + chat
     effect: "Generate structured Python CLI from documentation"
-    invoked-by: [player, lift-phase]
+    invoked_by: [player, lift-phase]
     
   SYNC:
     description: "Update doc from script changes"
@@ -199,7 +199,7 @@ methods:
       script: "Which script"
     output: state-change
     effect: "Keep doc and script aligned"
-    invoked-by: [player]
+    invoked_by: [player]
     
   UNDERSTAND:
     description: "LLM reads script top to understand API"
@@ -208,7 +208,7 @@ methods:
       depth: "api-only (top 100 lines) or full"
     output: chat (understanding)
     effect: "LLM gains knowledge of script's capabilities"
-    invoked-by: [player, automatic]
+    invoked_by: [player, automatic]
     
   ENHANCE:
     description: "Add new command to existing CLI"
@@ -217,7 +217,7 @@ methods:
       command: "New command to add"
     output: state-change + chat
     effect: "Add CLI parser + implementation, maintaining structure"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -327,7 +327,7 @@ example-script: |
 
 # RELATED
 
-see-also:
+see_also:
   - skills/play-learn-lift  # LIFT phase
   - skills/skill            # Skills can be automated
   - skills/protocol         # CLI commands as protocol

@@ -25,31 +25,31 @@ methods:
     description: "Generate execution plan"
     parameters: { goal: "What to achieve", constraints: "Limits" }
     output: file (PLAN.yml)
-    invoked-by: [player]
+    invoked_by: [player]
     
   REVIEW:
     description: "Human reviews frozen plan"
     parameters: { plan: "Which plan" }
     output: chat
-    invoked-by: [player]
+    invoked_by: [player]
     
   APPROVE:
     description: "Approve plan for execution"
     parameters: { plan: "Which plan" }
     output: state-change
-    invoked-by: [player only]
+    invoked_by: [player only]
     
   EXECUTE:
     description: "Run approved plan exactly"
     parameters: { plan: "Approved plan" }
     output: chat + state-changes
-    invoked-by: [system after approval]
+    invoked_by: [system after approval]
     
   ABORT:
     description: "Stop execution"
     parameters: { reason: "Why" }
     output: chat + state-change
-    invoked-by: [player, system on error]
+    invoked_by: [player, system on error]
 
 state:
   plan:
@@ -65,4 +65,4 @@ advertisements:
     score: 85
     condition: "Need record of what was planned vs done"
 
-see-also: [skills/planning, skills/roberts-rules, skills/action-queue]
+see_also: [skills/planning, skills/roberts-rules, skills/action-queue]

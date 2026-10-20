@@ -39,7 +39,7 @@ methods:
       character: "Whose mirror to look in"
     output: chat (profile visualization)
     effect: "Display all four Thought Planes"
-    invoked-by: [player, mirror-object]
+    invoked_by: [player, mirror-object]
     
   ANALYZE:
     description: "Analyze personality from behavior"
@@ -48,7 +48,7 @@ methods:
       observations: "Behavioral evidence"
     output: chat (analysis) + state-change
     effect: "Infer Mind Mirror settings from behavior"
-    invoked-by: [player]
+    invoked_by: [player]
     
   MODIFY:
     description: "Adjust personality traits"
@@ -57,7 +57,7 @@ methods:
       changes: "What to change"
     output: state-change
     effect: "Update Mind Mirror profile"
-    invoked-by: [dm, persona-effect]
+    invoked_by: [dm, persona-effect]
     
   COMPARE:
     description: "Compare two characters' profiles"
@@ -66,7 +66,7 @@ methods:
       b: "Second character"
     output: chat (comparison)
     effect: "Show similarities and differences"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PREDICT:
     description: "Predict behavior from profile"
@@ -75,7 +75,7 @@ methods:
       situation: "The scenario"
     output: chat (prediction)
     effect: "Use Mind Mirror to forecast response"
-    invoked-by: [dm, coherence-engine]
+    invoked_by: [dm, coherence-engine]
 
 # PROPERTY REGISTRY — Exact Timothy Leary Mind Mirror (1985) names
 #
@@ -353,7 +353,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character   # Where Mind Mirror lives
   - skills/persona     # Personas can modify Mind Mirror
   - skills/cat         # Cats have simplified Mind Mirror

@@ -35,7 +35,7 @@ methods:
       venue: "Destination (optional; plain text if unknown)"
     output: chat (fenced block + out-of-band notes outside it)
     effect: "Verbatim-copyable artifact; copy button does the rest"
-    invoked-by: [any]
+    invoked_by: [any]
 
   FORMAT-FOR:
     description: "Apply a venue format plugin to content"
@@ -45,7 +45,7 @@ methods:
       house_style: "Optional house-styles/<author>.yml overlay"
     output: chat (fenced block conforming to venue rules)
     effect: "Markup translated, forbidden characters removed or flagged"
-    invoked-by: [any]
+    invoked_by: [any]
 
   PREFLIGHT:
     description: "Check a fenced artifact before the human copies it"
@@ -54,7 +54,7 @@ methods:
       venue: "Venue plugin to validate against"
     output: chat (pass, or list of violations with fixes)
     effect: "Catches emoji on HN, author-forbidden patterns per house style, meta-notes inside the fence, fence collisions"
-    invoked-by: [any]
+    invoked_by: [any]
 
   DEFINE-VENUE:
     description: "Author a new format plugin by example"
@@ -63,7 +63,7 @@ methods:
       evidence: "Official format docs, or observed behavior (pasted examples of what rendered how)"
     output: "formats/<venue>.yml"
     effect: "Programming by example — grow the plugin dir from real cases"
-    invoked-by: [any]
+    invoked_by: [any]
 
 state: {}
 
@@ -116,7 +116,7 @@ advertisements:
     score: 90
     condition: "User reports garbled formatting or leaked notes after pasting"
 
-see-also:
+see_also:
   - skills/postel            # Emit conservative — this is emit conservative, per venue
   - skills/no-ai-slop        # What not to say; copy-that is where not to put it
   - skills/yaml-jazz         # Plugin files are semantic YAML

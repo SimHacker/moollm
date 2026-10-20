@@ -39,7 +39,7 @@ methods:
       customer: "Who to serve"
     output: chat + state-change
     effect: "Drink created, customer served"
-    invoked-by: [character, customer-request]
+    invoked_by: [character, customer-request]
     
   TAKE-ORDER:
     description: "Listen to customer's request"
@@ -47,7 +47,7 @@ methods:
       customer: "Who's ordering"
     output: chat
     effect: "Order recorded, response given"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   RECOMMEND:
     description: "Suggest drinks"
@@ -56,7 +56,7 @@ methods:
       mood: "Optional mood context"
     output: chat
     effect: "Personalized recommendation"
-    invoked-by: [customer, self]
+    invoked_by: [customer, self]
     
   REFUSE-SERVICE:
     description: "Cut someone off"
@@ -65,13 +65,13 @@ methods:
       reason: "Why (may be private)"
     output: chat
     effect: "Customer can no longer order"
-    invoked-by: [self]
+    invoked_by: [self]
     
   LAST-CALL:
     description: "Announce closing"
     output: chat (broadcast)
     effect: "Pub enters closing mode"
-    invoked-by: [self]
+    invoked_by: [self]
     
   # ECONOMICS
   OPEN-TAB:
@@ -80,7 +80,7 @@ methods:
       customer: "Who"
     output: state-change
     effect: "Tab created with 0 balance"
-    invoked-by: [customer, self]
+    invoked_by: [customer, self]
     
   ADD-TO-TAB:
     description: "Add item to tab"
@@ -90,7 +90,7 @@ methods:
       amount: "Cost"
     output: state-change
     effect: "Tab balance increases"
-    invoked-by: [self]
+    invoked_by: [self]
     
   CLOSE-TAB:
     description: "Collect payment"
@@ -98,7 +98,7 @@ methods:
       customer: "Who"
     output: chat + state-change
     effect: "Tab cleared, gold transferred"
-    invoked-by: [customer, self]
+    invoked_by: [customer, self]
     
   COMP:
     description: "Give something free"
@@ -108,7 +108,7 @@ methods:
       reason: "Why (optional)"
     output: chat
     effect: "Item given, no charge"
-    invoked-by: [self]
+    invoked_by: [self]
     
   # SOCIAL
   LISTEN:
@@ -117,7 +117,7 @@ methods:
       customer: "Who's talking"
     output: chat (empathetic response)
     effect: "Customer feels heard"
-    invoked-by: [customer]
+    invoked_by: [customer]
     
   INTRODUCE:
     description: "Connect two customers"
@@ -127,7 +127,7 @@ methods:
       reason: "Why they should meet"
     output: chat
     effect: "Social connection made"
-    invoked-by: [self, customer]
+    invoked_by: [self, customer]
     
   EJECT:
     description: "Remove troublemaker"
@@ -137,7 +137,7 @@ methods:
       duration: "How long banned"
     output: chat + state-change
     effect: "Customer removed, possibly banned"
-    invoked-by: [self]
+    invoked_by: [self]
     
   # KNOWLEDGE
   KNOW-REGULAR:
@@ -146,7 +146,7 @@ methods:
       customer: "Who to check"
     output: chat (recognition or not)
     effect: "Access to customer history"
-    invoked-by: [self]
+    invoked_by: [self]
 
 # STATE
 
@@ -199,7 +199,7 @@ can-be-inherited-by:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character    # Bartender is a character with this skill
   - skills/persona      # Personality comes from persona
   - skills/economy      # Tab management

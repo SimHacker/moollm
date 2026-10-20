@@ -254,7 +254,7 @@ If moral understanding comes from language understanding (not RLHF):
 ## Suggested K-Lines
 
 ```yaml
-k-lines:
+k_lines:
   new:
     - REASONABLE-PLURALISM      # Bounds, not single answers
     - MORAL-SENSITIVITY         # Identifying features from noise

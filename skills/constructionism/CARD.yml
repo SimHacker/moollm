@@ -35,7 +35,7 @@ methods:
       form: "What to build (skill, room, character, experiment)"
     output: chat (guidance) + files
     effect: "Guide construction that teaches the concept"
-    invoked-by: [learner, teacher]
+    invoked_by: [learner, teacher]
     
   INSPECT:
     description: "Examine how something works"
@@ -43,7 +43,7 @@ methods:
       thing: "What to inspect"
     output: chat (explanation)
     effect: "Reveal internals, explain mechanics"
-    invoked-by: [learner]
+    invoked_by: [learner]
     
   MODIFY:
     description: "Change something to see what happens"
@@ -52,7 +52,7 @@ methods:
       change: "What to change"
     output: chat + state-change
     effect: "Make change, observe consequences"
-    invoked-by: [learner]
+    invoked_by: [learner]
     
   SHARE:
     description: "Show your construction to others"
@@ -61,7 +61,7 @@ methods:
       audience: "Who to share with"
     output: chat
     effect: "Explain your construction, get feedback"
-    invoked-by: [learner]
+    invoked_by: [learner]
 
 # STATE
 
@@ -112,7 +112,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/play-learn-lift  # The methodology
   - skills/prototype        # Learning by cloning
   - skills/skill            # Skills are constructions

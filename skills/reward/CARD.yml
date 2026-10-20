@@ -39,7 +39,7 @@ methods:
       reward: "What they get (or auto-generate)"
     output: chat + state-change
     effect: "Add reward to inventory or state"
-    invoked-by: [dm, room, object]
+    invoked_by: [dm, room, object]
     
   GENERATE:
     description: "Auto-generate thematic reward"
@@ -48,7 +48,7 @@ methods:
       context: "Where/how"
     output: chat (suggested reward)
     effect: "Propose appropriate reward"
-    invoked-by: [dm]
+    invoked_by: [dm]
 
 # STATE
 
@@ -78,7 +78,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/scoring  # What deserves reward
   - skills/economy  # Gold rewards
   - skills/buff     # Buff rewards

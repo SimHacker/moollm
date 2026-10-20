@@ -339,7 +339,7 @@ methods:
 
 # K-LINES
 
-k-lines:
+k_lines:
   activates:
     - NO-AI
     - NO-AI-CUSTOMER-SERVICE
@@ -351,7 +351,7 @@ k-lines:
     - { ref: no-ai-joking, relation: "cousin skill — enterprise mode" }
     - { ref: character, relation: "performance framework" }
 
-see-also:
+see_also:
   - skills/no-ai-soul         # Opposite — cold and soulless
   - skills/no-ai-joking       # Related — also removes humanity (differently)
   - skills/soul-chat          # What this skill corrupts

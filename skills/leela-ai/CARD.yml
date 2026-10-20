@@ -64,7 +64,7 @@ advertisement:
     - compliance: Auditable, explainable decisions
 
 # K-lines activated by this skill
-k-lines:
+k_lines:
   activates:
     - minsky: "Society of Mind -- intelligence from agents"
     - henry-minsky: "Marvin's son, Leela team member"
@@ -80,7 +80,7 @@ k-lines:
   connects-to:
     - moollm: "The microworld philosophy"
     - society-of-mind: "Agent theory foundation"
-    - k-lines: "Activation vectors"
+    - k_lines: "Activation vectors"
     - schema-mechanism: "Causal learning"
     - constructionism: "Build to understand"
     - coherence-engine: "Distributed AI orchestration"
@@ -94,32 +94,32 @@ k-lines:
 team:
   - name: Henry Minsky
     role: CTO
-    k-lines: ["society-of-mind", "k-lines", "mit-ai-lab", "google-nest"]
+    k_lines: ["society-of-mind", "k-lines", "mit-ai-lab", "google-nest"]
     note: "Marvin Minsky's son, MIT AI Lab, NTT DoCoMo, Google Nest"
     
   - name: Dr. Cyrus Shaoul
     role: Chief Evangelist
-    k-lines: ["computational-neuroscience", "cognitive-modeling"]
+    k_lines: ["computational-neuroscience", "cognitive-modeling"]
     note: "Entrepreneur, computational neuroscientist, Digital Garage co-founder/CTO"
     
   - name: Dr. Milan Singh Minsky
     role: VP Product
-    k-lines: ["startups", "product"]
+    k_lines: ["startups", "product"]
     note: "Venture-backed startups, RayVio co-founder"
     
   - name: Sheung Li
     role: VP Applications
-    k-lines: ["machine-vision", "manufacturing", "product-marketing"]
+    k_lines: ["machine-vision", "manufacturing", "product-marketing"]
     note: "Machine vision in manufacturing, product/marketing leader"
     
   - name: Dr. Steve Kommrusch
     role: Senior AI Research Scientist
-    k-lines: ["deep-learning", "chip-design"]
+    k_lines: ["deep-learning", "chip-design"]
     note: "Deep learning expert, AMD, HP, National Semiconductor"
     
   - name: Don Hopkins
     role: AI Architect
-    k-lines: ["sims", "news", "pie-menus", "moollm"]
+    k_lines: ["sims", "news", "pie-menus", "moollm"]
     note: "The Sims, NeWS, MOOLLM architect"
 
 # Technology stack -- three layers
@@ -217,7 +217,7 @@ moollm-mappings:
   rooms: factory zones, equipment clusters
   characters: workers, vehicles, robots, equipment
   skills: vision models, inference rules, safety protocols
-  k-lines: equipment IDs, zone names, event types
+  k_lines: equipment IDs, zone names, event types
   speed-of-light: real-time inference
   coherence-engine: multi-camera sensor fusion
   soul-chat: PDA natural language interface

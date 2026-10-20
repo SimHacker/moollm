@@ -138,7 +138,7 @@ For MOOLLM characters, Trust Games could validate:
 This paper contributes these traditions to MOOLLM:
 
 ```yaml
-k-lines:
+k_lines:
   - BEHAVIORAL-ALIGNMENT       # LLM behavior aligns with human behavioral economics
   - TRUST-GAME-VALIDATION      # Trust games as validation methodology
   - BDI-REASONING              # Belief-Desire-Intention framework

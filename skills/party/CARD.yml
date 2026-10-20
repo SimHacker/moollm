@@ -39,7 +39,7 @@ methods:
       members: "Initial members"
     output: file (PARTY.yml) + chat
     effect: "Create party with listed members"
-    invoked-by: [player]
+    invoked_by: [player]
     
   JOIN:
     description: "Add character to party"
@@ -48,7 +48,7 @@ methods:
       party: "Which party"
     output: chat + state-change
     effect: "Add to party.members"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   LEAVE:
     description: "Remove character from party"
@@ -56,14 +56,14 @@ methods:
       character: "Who leaves"
     output: chat + state-change
     effect: "Remove from party.members"
-    invoked-by: [player, character]
+    invoked_by: [player, character]
     
   STATUS:
     description: "Show party composition and state"
     parameters: {}
     output: chat
     effect: "Display members, location, resources"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SPLIT:
     description: "Divide party into groups"
@@ -71,7 +71,7 @@ methods:
       groups: "How to divide members"
     output: state-change
     effect: "Create sub-parties"
-    invoked-by: [player]
+    invoked_by: [player]
     
   REUNITE:
     description: "Merge split parties"
@@ -79,7 +79,7 @@ methods:
       parties: "Which parties to merge"
     output: state-change
     effect: "Combine into one party"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -116,7 +116,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character  # Party members
   - skills/simulation # Party in SIMULATION.yml
   - skills/adventure  # Party gameplay

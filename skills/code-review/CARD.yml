@@ -41,7 +41,7 @@ methods:
       focus: "What to look for (security, style, correctness)"
     output: file (REVIEW.yml) + chat
     effect: "Create review instance, scope the work"
-    invoked-by: [player, ci-system]
+    invoked_by: [player, ci-system]
     
   EXAMINE:
     description: "Review a specific file or section"
@@ -50,7 +50,7 @@ methods:
       lines: "Optional line range"
     output: chat (findings)
     effect: "Read code, note issues and observations"
-    invoked-by: [player]
+    invoked_by: [player]
     
   COMMENT:
     description: "Add a review comment"
@@ -61,7 +61,7 @@ methods:
       message: "The comment"
     output: state-change
     effect: "Add to review.comments array"
-    invoked-by: [player]
+    invoked_by: [player]
     
   APPROVE:
     description: "Approve the changes"
@@ -69,7 +69,7 @@ methods:
       notes: "Optional approval notes"
     output: chat + state-change
     effect: "Set review.status = approved"
-    invoked-by: [player]
+    invoked_by: [player]
     
   REQUEST-CHANGES:
     description: "Request changes before approval"
@@ -77,14 +77,14 @@ methods:
       blocking: "List of must-fix issues"
     output: chat + state-change
     effect: "Set review.status = changes-requested"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SUMMARIZE:
     description: "Generate review summary"
     parameters: {}
     output: file (REVIEW.md) + chat
     effect: "Compile all findings into readable summary"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -133,7 +133,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/debugging     # Finding problems
   - skills/rubric        # Structured criteria
   - skills/evaluator     # Independent assessment

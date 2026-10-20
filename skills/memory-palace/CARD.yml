@@ -36,7 +36,7 @@ methods:
       structure: "Initial room structure"
     output: directory structure + chat
     effect: "Create palace directory with rooms"
-    invoked-by: [player]
+    invoked_by: [player]
     
   ADD-ROOM:
     description: "Create a new room in the palace"
@@ -45,7 +45,7 @@ methods:
       location: "Where in the palace"
     output: directory + file
     effect: "Add navigable room"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PLACE:
     description: "Store knowledge in a room"
@@ -55,7 +55,7 @@ methods:
       anchor: "Memorable association"
     output: file + chat
     effect: "Create entry with mnemonic anchor"
-    invoked-by: [player]
+    invoked_by: [player]
     
   WALK:
     description: "Navigate through the palace"
@@ -64,7 +64,7 @@ methods:
       to: "Destination"
     output: chat
     effect: "Trigger associations along path"
-    invoked-by: [player]
+    invoked_by: [player]
     
   RECALL:
     description: "Retrieve knowledge by location"
@@ -73,7 +73,7 @@ methods:
       topic: "What to recall"
     output: chat
     effect: "Find and present stored knowledge"
-    invoked-by: [player]
+    invoked_by: [player]
 
 state:
   palace:
@@ -91,7 +91,7 @@ advertisements:
     score: 80
     condition: "Creating a reusable knowledge repository"
 
-see-also:
+see_also:
   - skills/room
   - skills/adventure
   - skills/summarize

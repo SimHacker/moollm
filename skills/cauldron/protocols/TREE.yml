@@ -113,7 +113,7 @@ composes_with:
   ripgrep:       "Most guards are a grep or a test invocation"
   sister-script: "scripts/ can host a frontier walker; doc-first"
   robust-first:  "A blocked node degrades to 'here is the failing guard', never a crash"
-  k-lines:       "Each node is a K-line; requires/unlocks are K-REFs"
+  k_lines:       "Each node is a K-line; requires/unlocks are K-REFs"
   yaml-jazz:     "Frontmatter is structured data; the why: lines are semantic"
   task:          "The same rule for durable work outside a brew: requires/done_when guards, FRONTIER computed"
 

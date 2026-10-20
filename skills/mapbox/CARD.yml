@@ -33,47 +33,47 @@ methods:
     parameters: { question: "Plain words" }
     invocation: "python3 scripts/mapbox_router.py route '<question>'"
     output: chat (skill names, descriptions, optional paths)
-    invoked-by: [any]
+    invoked_by: [any]
 
   DIAGNOSE:
     description: "Probe a token live and classify it; catch the traps upstream omits"
     parameters: { probe_domain: "Domain that should pass" }
     invocation: "python3 scripts/mapbox_router.py doctor"
     output: chat (per-referer status table, verdict, warnings)
-    invoked-by: [any]
+    invoked_by: [any]
 
   KEYS:
     description: "Resolve a token by role from 1Password, never by paste"
     parameters: { role: "prod | dev" }
     invocation: "op read <ref> --account groundupsoftware.1password.com"
     output: value to stdout, never to chat
-    invoked-by: [player, agent]
+    invoked_by: [player, agent]
 
   SURFACE:
     description: "Choose CLI, REST, MCP or SDK for a task"
     parameters: { task: "What needs doing" }
     output: chat (recommendation and reason)
-    invoked-by: [any]
+    invoked_by: [any]
 
   MEASURE:
     description: "Probe, then add the finding to the measured table"
     parameters: { claim: "What is believed true" }
     output: edit to scripts/mapbox_router.py MEASURED
-    invoked-by: [player]
+    invoked_by: [player]
     rule: "No entry without a reproducible probe. Three runs minimum."
 
   WHERE:
     description: "Report the resolved upstream checkout, or how to mount one"
     invocation: "python3 scripts/mapbox_router.py where"
     output: chat (path, how resolved, refresh command)
-    invoked-by: [any]
+    invoked_by: [any]
 
   SNITCH:
     description: "Audit the upstream skills, and this one, with skill-snitch"
     parameters: { target: "scan (their twenty) | self (ours) | table (roll-up, writes nothing)" }
     invocation: "python3 scripts/snitch_mapbox_skills.py <target>"
     output: "skill-snitches/<skill>/skill-snitch-report.md, CORPUS.yml, skill-snitch-report.md"
-    invoked-by: [player, agent]
+    invoked_by: [player, agent]
     rule: |
       The script measures and may not conclude — no tier is computed from a grep, and an unjudged
       skill reports as UNJUDGED rather than clean. Tiers and severities come from

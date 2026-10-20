@@ -42,7 +42,7 @@ methods:
       reproduction: "How to trigger it"
     output: file (DEBUG.yml) + chat
     effect: "Create debug session, document symptom"
-    invoked-by: [player]
+    invoked_by: [player]
     
   HYPOTHESIZE:
     description: "Form a theory about the cause"
@@ -51,7 +51,7 @@ methods:
       evidence: "Why you think this"
     output: chat + state-change
     effect: "Add hypothesis to list"
-    invoked-by: [player]
+    invoked_by: [player]
     
   TEST:
     description: "Test a hypothesis"
@@ -60,14 +60,14 @@ methods:
       method: "How to test it"
     output: chat (results) + state-change
     effect: "Run test, record outcome"
-    invoked-by: [player]
+    invoked_by: [player]
     
   NARROW:
     description: "Eliminate possibilities based on test results"
     parameters: {}
     output: chat (analysis) + state-change
     effect: "Update hypothesis probabilities"
-    invoked-by: [player]
+    invoked_by: [player]
     
   TRACE:
     description: "Follow execution path"
@@ -76,7 +76,7 @@ methods:
       following: "What to trace (data, control, state)"
     output: chat (trace)
     effect: "Document execution flow"
-    invoked-by: [player]
+    invoked_by: [player]
     
   BISECT:
     description: "Binary search for when bug was introduced"
@@ -85,7 +85,7 @@ methods:
       bad: "Known bad state/commit"
     output: chat (bisection steps)
     effect: "Guide binary search"
-    invoked-by: [player]
+    invoked_by: [player]
     
   FIX:
     description: "Apply a fix"
@@ -94,14 +94,14 @@ methods:
       rationale: "Why this should work"
     output: file changes + chat
     effect: "Make changes, verify fix"
-    invoked-by: [player]
+    invoked_by: [player]
     
   DOCUMENT:
     description: "Record findings for future reference"
     parameters: {}
     output: file (DEBUG-REPORT.md)
     effect: "Generate debugging report"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -149,7 +149,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/adventure     # Debugging as exploration
   - skills/research-notebook  # Investigation patterns
   - skills/hypothesis-tracking  # (could be a skill!)

@@ -44,7 +44,7 @@ methods:
       protocol: "Usually roberts-rules"
     output: file (COMMITTEE.yml) + chat
     effect: "Create committee instance with roster"
-    invoked-by: [player, room]
+    invoked_by: [player, room]
     
   CONVENE:
     description: "Start a committee session"
@@ -52,7 +52,7 @@ methods:
       topic: "Specific question to deliberate"
     output: chat (opening statements)
     effect: "Each persona states initial position"
-    invoked-by: [player, moderator]
+    invoked_by: [player, moderator]
     
   DELIBERATE:
     description: "Run one round of debate"
@@ -60,7 +60,7 @@ methods:
       motion: "What's being debated"
     output: chat (debate transcript)
     effect: "Personas argue, following roberts-rules"
-    invoked-by: [player, moderator, coherence-engine]
+    invoked_by: [player, moderator, coherence-engine]
     
   VOTE:
     description: "Call for a vote on the motion"
@@ -68,7 +68,7 @@ methods:
       motion: "What's being voted on"
     output: chat (vote tally) + state-change
     effect: "Each persona votes, record result"
-    invoked-by: [moderator, player]
+    invoked_by: [moderator, player]
     
   EVALUATE:
     description: "Send output to independent evaluator"
@@ -77,14 +77,14 @@ methods:
       rubric: "Path to rubric to use"
     output: chat (evaluation) + possible revision
     effect: "Evaluator scores, may send critique back"
-    invoked-by: [committee, player]
+    invoked_by: [committee, player]
     
   DISSOLVE:
     description: "End the committee"
     parameters: {}
     output: chat + file (final-decision.yml)
     effect: "Archive deliberation, finalize decision"
-    invoked-by: [player, moderator]
+    invoked_by: [player, moderator]
 
 # STATE
 # What a committee instance tracks
@@ -183,7 +183,7 @@ workflow:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/roberts-rules  # The procedure they follow
   - skills/rubric         # How output is scored
   - skills/evaluator      # Independent assessment

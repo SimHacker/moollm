@@ -24,19 +24,19 @@ methods:
     description: "Activate a protocol by name"
     parameters: { protocol: "Protocol name" }
     output: chat (activated behavior)
-    invoked-by: [any]
+    invoked_by: [any]
     
   DEFINE:
     description: "Create a new protocol"
     parameters: { name: "Protocol name", activates: "What it invokes" }
     output: file + PROTOCOLS.yml update
-    invoked-by: [designer]
+    invoked_by: [designer]
     
   LIST:
     description: "Show available protocols"
     parameters: { category: "Optional filter" }
     output: chat
-    invoked-by: [player]
+    invoked_by: [player]
     
   K-REF:
     description: "Emit file pointer with metadata (reference not value)"
@@ -45,7 +45,7 @@ methods:
       - "/path/file.txt:42:10-46 # secret 🔴"
       - "/path/screenshot.png # image - Cursor reads and analyzes!"
       - "/any/absolute/path/diagram.jpg # visual"
-    invoked-by: [tool, sister-script]
+    invoked_by: [tool, sister-script]
     orchestrator-capability: |
       Cursor (and other orchestrators) can read absolute file paths directly,
       INCLUDING IMAGES! Point to an image with an absolute path and Cursor
@@ -61,7 +61,7 @@ methods:
     description: "Tool emits K-REFs, LLM reads selectively"
     pattern: "scan → emit pointers → read only what's needed"
     benefit: "Parsimonious context usage"
-    invoked-by: [cursor-mirror, audit-tools]
+    invoked_by: [cursor-mirror, audit-tools]
 
 state: {}
 
@@ -85,7 +85,7 @@ advertisements:
     score: 80
     condition: "Want to name a new capability cluster"
 
-see-also: [skills/skill, PROTOCOLS.yml]
+see_also: [skills/skill, PROTOCOLS.yml]
 credits:
   theory: 'Marvin Minsky — "K-Lines: A Theory of Memory" (MIT AI Memo 516, 1979; Cognitive Science 4(2):117-133, 1980); popularized in Society of Mind (1986)'
   memo_pdf: https://courses.csail.mit.edu/6.803/pdf/aim-516.pdf

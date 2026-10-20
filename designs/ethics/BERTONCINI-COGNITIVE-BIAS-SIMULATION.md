@@ -129,7 +129,7 @@ bias_mitigation:
 This paper contributes these traditions to MOOLLM:
 
 ```yaml
-k-lines:
+k_lines:
   - NORMALIZATION-BIAS       # Widespread use makes unethical seem normal
   - AUTOMATION-BIAS          # Uncritical trust in AI outputs
   - AUTHORITY-BIAS-AI        # Trusting AI simply because it's AI

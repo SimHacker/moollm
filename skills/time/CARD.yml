@@ -36,7 +36,7 @@ methods:
     parameters: {}
     output: state-change
     effect: "Increment turn, trigger time-based effects"
-    invoked-by: [simulation, player]
+    invoked_by: [simulation, player]
     
   WAIT:
     description: "Pass time intentionally"
@@ -44,28 +44,28 @@ methods:
       turns: "How many (or natural language)"
     output: chat + state-change
     effect: "Advance time, describe passage"
-    invoked-by: [player]
+    invoked_by: [player]
     
   PAUSE:
     description: "Stop time advancement"
     parameters: {}
     output: state-change
     effect: "Freeze time"
-    invoked-by: [player]
+    invoked_by: [player]
     
   RESUME:
     description: "Continue time flow"
     parameters: {}
     output: state-change
     effect: "Unfreeze time"
-    invoked-by: [player]
+    invoked_by: [player]
     
   STATUS:
     description: "Show current time"
     parameters: {}
     output: chat
     effect: "Display turn, time of day"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -111,7 +111,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/simulation  # Central state
   - skills/buff        # Time-based decay
   - skills/needs       # Time-based decay
@@ -149,31 +149,31 @@ methods:
     description: "Advance time by one turn"
     parameters: {}
     output: state-changes (buff decay, need decay)
-    invoked-by: [simulation, navigation]
+    invoked_by: [simulation, navigation]
     
   PAUSE:
     description: "Stop time advancement"
     parameters: {}
     output: state-change
-    invoked-by: [player]
+    invoked_by: [player]
     
   RESUME:
     description: "Restart time"
     parameters: {}
     output: state-change
-    invoked-by: [player]
+    invoked_by: [player]
     
   STATUS:
     description: "Show current time state"
     parameters: {}
     output: chat
-    invoked-by: [player]
+    invoked_by: [player]
     
   WAIT:
     description: "Advance time without action"
     parameters: { turns: "How many" }
     output: state-changes
-    invoked-by: [player]
+    invoked_by: [player]
 
 state:
   time:
@@ -189,4 +189,4 @@ advertisements:
     score: 80
     condition: "Buffs need to tick down"
 
-see-also: [skills/simulation, skills/buff, skills/needs]
+see_also: [skills/simulation, skills/buff, skills/needs]

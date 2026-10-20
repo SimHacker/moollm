@@ -44,7 +44,7 @@ methods:
       sides: "How many positions (2+)"
     output: file (DEBATE.yml) + chat
     effect: "Create debate structure"
-    invoked-by: [player, room]
+    invoked_by: [player, room]
     
   ADD-SIDE:
     description: "Add a position to the debate"
@@ -54,14 +54,14 @@ methods:
       advocates: "Who argues for this side"
     output: file (SIDE.yml) + state-change
     effect: "Create side with advocates"
-    invoked-by: [player, committee]
+    invoked_by: [player, committee]
     
   OPEN:
     description: "Begin the debate with opening statements"
     parameters: {}
     output: chat (opening statements)
     effect: "Each side presents initial position"
-    invoked-by: [moderator, player]
+    invoked_by: [moderator, player]
     
   ARGUE:
     description: "Present arguments for a side"
@@ -70,7 +70,7 @@ methods:
       point: "Argument to make"
     output: chat (argument) + state-change
     effect: "Add to transcript, other sides may respond"
-    invoked-by: [advocate, player]
+    invoked_by: [advocate, player]
     
   REBUT:
     description: "Counter an opponent's argument"
@@ -79,7 +79,7 @@ methods:
       counter: "Counter-argument"
     output: chat (rebuttal) + state-change
     effect: "Add rebuttal to transcript"
-    invoked-by: [advocate]
+    invoked_by: [advocate]
     
   QUESTION:
     description: "Ask a question (from audience/moderator)"
@@ -88,7 +88,7 @@ methods:
       question: "What to ask"
     output: chat (question + response)
     effect: "Side must respond"
-    invoked-by: [moderator, audience, player]
+    invoked_by: [moderator, audience, player]
     
   VOTE:
     description: "Audience votes on winner"
@@ -96,7 +96,7 @@ methods:
       style: "majority, ranked, approval"
     output: chat (results) + state-change
     effect: "Tally votes, declare outcome"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
     
   GONG:
     description: "Emergency interrupt (from Gong of Gezelligheid)"
@@ -104,14 +104,14 @@ methods:
       rings: "1=attention, 2=emergency, 3=mercy"
     output: chat + state-change
     effect: "Interrupt or end debate"
-    invoked-by: [gong, moderator]
+    invoked_by: [gong, moderator]
     
   CLOSE:
     description: "End debate with closing statements"
     parameters: {}
     output: chat (closing) + file (TRANSCRIPT.md)
     effect: "Generate final transcript"
-    invoked-by: [moderator]
+    invoked_by: [moderator]
 
 # STATE
 
@@ -187,7 +187,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/adversarial-committee  # Committee feeds debate
   - skills/roberts-rules          # Procedure
   - skills/rubric                 # Scoring criteria

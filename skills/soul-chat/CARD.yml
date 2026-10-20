@@ -38,7 +38,7 @@ methods:
       topic: "What about"
     output: chat (in entity's voice)
     effect: "Generate speech in character"
-    invoked-by: [player, any]
+    invoked_by: [player, any]
     
   DIALOGUE:
     description: "Multi-voice conversation"
@@ -47,7 +47,7 @@ methods:
       topic: "What about"
     output: chat (conversation)
     effect: "Generate back-and-forth dialogue"
-    invoked-by: [player]
+    invoked_by: [player]
     
   INTERVIEW:
     description: "Question an entity"
@@ -56,7 +56,7 @@ methods:
       questions: "What to ask"
     output: chat (Q&A)
     effect: "Entity answers in character"
-    invoked-by: [player]
+    invoked_by: [player]
 
 # STATE
 
@@ -89,7 +89,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/yaml-jazz            # Comment-as-voice
   - skills/adversarial-committee # Multi-voice debate
   - skills/character            # Who speaks

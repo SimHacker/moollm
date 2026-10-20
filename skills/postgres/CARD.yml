@@ -23,31 +23,31 @@ methods:
     description: "Resolve DATABASE_URL vs PG* variables; invoke psql safely"
     parameters: { uri: "Optional postgresql://…" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   APPLY_DDL:
     description: "Run migration or schema file with ON_ERROR_STOP"
     parameters: { file: "Path to .sql" }
     output: terminal
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   LIST_EXTENSIONS:
     description: "Query pg_extension / available extensions"
     parameters: {}
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   INTROSPECT:
     description: "Table sizes, indexes, pg_stat_statements snapshot (if loaded)"
     parameters: { scope: "Optional schema" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
   DELEGATE_OPTIMIZATION:
     description: "Hand off to postgres-optimization for index and plan work"
     parameters: { symptom: "What is slow" }
     output: chat
-    invoked-by: [operator]
+    invoked_by: [operator]
 
 related_skills: [postgres-optimization, sqlite, schema]
 

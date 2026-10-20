@@ -38,7 +38,7 @@ methods:
       character: "Who to check"
     output: chat (needs display)
     effect: "Show all needs with levels"
-    invoked-by: [player]
+    invoked_by: [player]
     
   SATISFY:
     description: "Fulfill a need"
@@ -49,7 +49,7 @@ methods:
       source: "What provided it"
     output: chat + state-change
     effect: "Increase need level, cap at max"
-    invoked-by: [object, action, buff]
+    invoked_by: [object, action, buff]
     
   DECAY:
     description: "Reduce needs over time"
@@ -58,7 +58,7 @@ methods:
       turns: "How many turns of decay"
     output: state-change
     effect: "Reduce each need by its decay rate"
-    invoked-by: [time, simulation]
+    invoked_by: [time, simulation]
     
   URGENT:
     description: "Find most pressing need"
@@ -66,7 +66,7 @@ methods:
       character: "Who"
     output: chat
     effect: "Report lowest need"
-    invoked-by: [action-queue, player]
+    invoked_by: [action-queue, player]
 
 # STATE
 
@@ -135,7 +135,7 @@ advertisements:
 
 # RELATED
 
-see-also:
+see_also:
   - skills/character       # Where needs live
   - skills/advertisement   # Objects satisfy needs
   - skills/action-queue    # Needs drive queuing

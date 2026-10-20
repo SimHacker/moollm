@@ -34,7 +34,7 @@ methods:
     parameters: { spec: "what to build", target: "path / repo location" }
     output: file(s) + dir(s)
     effect: "Materialize an artifact; stamp provenance"
-    invoked-by: [player, skill]
+    invoked_by: [player, skill]
 
   READ:
     description: "Load and sniff an existing artifact (the inspector)"
@@ -166,7 +166,7 @@ governor:
   no_coprophagia: "do not self-train on ungrounded machine output"
 
 # RELATED
-see-also:
+see_also:
   - skills/skill            # the meta-skill; artifactory instantiates skills
   - skills/play-learn-lift  # LIFT outputs are built by the artifactory
   - skills/sister-script    # automate proven artifactory ops
