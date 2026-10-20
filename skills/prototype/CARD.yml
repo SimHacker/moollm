@@ -1,122 +1,114 @@
-# CARD.yml — The Prototype Card
+# CARD.yml — prototype
 #
-# Philosophy of prototype-based inheritance.
+# MOOLLM's object model: delegation through inherits:, no classes.
 # "Objects clone from prototypes, not instances from classes."
 
+inherits:
+  - ref: skills/schema/schemas/mechanisms/self
+    why: "Self as a mechanism in the schemapedia: slots, parent slots, delegation; this skill is how MOOLLM files use it"
+
 id: prototype
-name: "Prototype Philosophy"
-type: [skill, philosophy, inheritance]
-
+name: "Prototype"
+type: [skill, inheritance]
 emoji: 🧬
-
-rarity: rare  # Foundational but abstract
+tier: 1  # resolve.py is the deterministic tier; the LLM follows latent parents
 
 description: |
-  The Self programming language philosophy applied to MOOLLM.
-  Objects are concrete. Classes don't exist. Everything delegates.
-  
-  Play this card to understand or explain prototype-based inheritance,
-  or when designing new prototype/instance relationships.
-
-# TOOLS REQUIRED
-# This is pure philosophy — no tools needed
+  Every MOOLLM object is concrete: a directory, a file, or a map inside a file. A missing
+  slot is looked up in the object's parents, in order, first match wins. Parents are listed
+  in inherits:, named with role* keys, or implied by interface filenames. resolve.py does
+  the lookup on files; the LLM answers for latent parents (K-lines, prose).
 
 tools:
   required: []
   optional:
-    - read_file  # To examine prototype chains
+    - read_file          # follow a parent chain by hand
+    - run_terminal_cmd   # scripts/resolve.py lookup, parents, lint, stale
 
-tier: 0  # Knowledge only
-
-# METHODS
-# What this card can do when played
+schema:
+  inherits: "list, most specific first; entries are refs or {ref, why, but, as, gets, overrides, except}"
+  named_parent: "role*: ref; reassignable; looked up after inherits:"
+  implied_parent: "ROOM.yml -> room skill, nearest scope first, else the latent K-line ROOM"
+  view_parents: "GLANCE/CARD/INDEX: format*: <view skill>, subject*: .."
+  embedded: "FILE#collection.id, or FILE#*.id for whichever collection has it"
+  not_parents: [k_lines, related, see_also, lineage, tags, type, the containing directory]
+  never_inherited: [state]
 
 methods:
-  
   EXPLAIN:
-    description: "Explain prototype inheritance to someone"
+    description: "Explain delegation using the objects in front of the reader"
     parameters:
-      audience: "Who needs to understand (developer, designer, novice)"
-      context: "What they're trying to build"
+      audience: "developer, designer, novice"
+      context: "what they're building"
     output: chat
-    effect: |
-      Generate an explanation tailored to the audience,
-      using concrete examples from the current context.
-      
-  DESIGN:
-    description: "Design a prototype relationship"
-    parameters:
-      thing: "What needs prototypes (character, room, skill)"
-      capabilities: "What it should inherit"
-    output: chat + yaml
-    effect: |
-      1. Identify appropriate prototypes
-      2. Design PROTOTYPES.yml structure
-      3. Document what inherits vs overrides
-      
-  TRACE:
-    description: "Trace a delegation chain"
-    parameters:
-      instance-path: "Path to instance"
-      slot-name: "What you're looking for"
-    output: chat
-    effect: |
-      Walk the prototype chain showing where slot-name
-      resolves, or report if unresolved.
-      
-  COMPARE:
-    description: "Compare prototype vs class inheritance"
-    parameters:
-      scenario: "What you're modeling"
-    output: chat
-    effect: |
-      Show how the scenario would work in both paradigms,
-      explaining tradeoffs and why prototype fits MOOLLM.
 
-# STATE
-# This card has no mutable state — it's pure philosophy
+  DESIGN:
+    description: "Choose parents for a new object"
+    parameters:
+      thing: "the object to create"
+      like: "what it should be like, and how it differs"
+    output: yaml
+    effect: |
+      Write inherits: most specific first, one comment per line saying which aspect comes
+      from that parent. Use role* for a parent that will be swapped. Use a K-line or prose
+      with but: when no file exists and the model's knowledge is the parent. State only the
+      slots that differ.
+
+  TRACE:
+    description: "Say which parent answers a slot, and why"
+    parameters:
+      object: "path, or FILE#collection.id"
+      slot: "slot name, dotted for nested"
+    output: chat
+    effect: |
+      Run resolve.py lookup <object> <slot> --all. Report the answer, the path through the
+      parents, shadowed definitions, ambiguity between unrelated parents, cycles, and any
+      latent parents the script could not follow.
+
+  LINT:
+    description: "Check parent declarations"
+    parameters:
+      paths: "files or directories; default the repo"
+    output: chat
+    effect: |
+      Run resolve.py lint -v. Fix broken path references and older spellings
+      (parents:, extends:, prototype: <ref>, envelopes); leave latent K-lines and prose.
+
+  COMPARE:
+    description: "Show a design as classes and as prototypes"
+    parameters:
+      scenario: "what is being modeled"
+    output: chat
 
 state: {}
-
-# ADVERTISEMENTS
-# What this card offers to the room
 
 advertisements:
   UNDERSTAND-INHERITANCE:
     score: 90
     condition: "Confused about how MOOLLM inheritance works"
-    
   DESIGN-PROTOTYPE:
     score: 80
-    condition: "Need to create something that inherits from skills"
-    
+    condition: "Creating an object that should be like an existing one"
   DEBUG-DELEGATION:
     score: 70
-    condition: "Can't figure out why something isn't inheriting right"
-
-# RELATED
+    condition: "A slot comes from the wrong place, or not at all"
 
 see_also:
-  - skills/skill/delegation-object-protocol.md
-  - skills/skill/skill-instantiation-protocol.md
-  - skills/constructionism
+  - skills/prototype/examples/lookup/README.md
+  - designs/object-system/SCHEMA.md
+  - skills/container
   - skills/character
-  - skills/card
-
-# CREDITS
 
 credits:
   creators:
     - "David Ungar — Self language (1987)"
     - "Randall Smith — Self language co-creator"
-  influenced-by:
+  influenced_by:
+    - "Henry Lieberman — delegation and prototypical objects (1986)"
     - "Smalltalk — Alan Kay, Xerox PARC"
-    - "Actor Model — Carl Hewitt"
-  applied-by:
-    - "Brendan Eich — JavaScript prototypes - but lobotomized"
-    - "Don Hopkins — MOOLLM DOP"
-
-# QUOTES
+  applied_by:
+    - "Brendan Eich — JavaScript prototypes, one parent per object"
+    - "Don Hopkins — MOOLLM"
 
 wisdom:
   - "Prototypes, slots, and behavior. — Ungar & Smith, OOPSLA '87 abstract (Self: The Power of Simplicity)"

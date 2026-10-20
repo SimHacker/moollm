@@ -1,52 +1,33 @@
 # GLANCE.yml — prototype
-# Full file: CARD.yml (126 lines) | SKILL.md
 # 🧬 "Objects clone from prototypes, not instances from classes."
 
 what: |
-  Self programming language philosophy for MOOLLM.
-  Everything is concrete. Nothing is abstract.
-  Delegation, not inheritance. Networks, not trees.
+  MOOLLM's object model. No classes: an object that lacks a slot asks its parents,
+  in order, first match wins. Self's delegation, on a filesystem.
 
 why: |
-  - YAML files are objects, not classes
-  - Clone and change, don't subclass
-  - Dynamic slot addition
-  - "Like this, but different"
+  - Concrete objects an LLM can read, not abstractions it must imagine
+  - "Like this, but different": inherit, then state only the differences
+  - Several parents, reassignable ones (role*), and latent ones the model already knows
 
 when:
-  - '"Understanding inheritance" → EXPLAIN'
-  - '"Designing prototype relationship" → DESIGN'
-  - '"Debugging delegation" → TRACE'
-  - '"Comparing paradigms" → COMPARE'
+  - '"Where does this slot come from?" → TRACE (resolve.py lookup --all)'
+  - '"Make something like X" → DESIGN'
+  - '"Are the parent declarations right?" → LINT'
+  - '"How does inheritance work here?" → EXPLAIN'
 
-methods:
-  EXPLAIN: "Explain prototype inheritance"
-  DESIGN: "Design prototype relationship"
-  TRACE: "Walk delegation chain"
-  COMPARE: "Prototype vs class comparison"
+tier: 1
 
-core_distinction:
-  class_based: "Instance of abstract class"
-  prototype_based: "Clone of concrete object"
+shape: |
+  inherits:
+    - skills/animal                    # path
+    - EDITH-BUNKER                     # K-line, latent
+    - { ref: skills/cat, but: "grumpier" }
+  mood*: moods/sleepy                  # named parent, reassignable
 
-delegation: |
-  excalibur.inherits: sword-prototype
-  excalibur.damage: 50 (override)
-  excalibur.type: → delegates to prototype → "weapon"
+implied: "ROOM.yml → room skill (nearest scope); GLANCE/CARD/INDEX → format* view skill + subject* .."
+not_parents: "k_lines, related, see_also, lineage, tags, the containing directory"
+catalogs: "PROTOTYPES.yml is a map of clonables; clone = inherits: [FILE#*.id] + differences"
+tool: "scripts/resolve.py lookup | parents | lint | stale"
 
-moollm_applications:
-  character: "inherits skills/character"
-  room: "inherits skills/room"
-  buff: "inherits skills/buff"
-  any_yaml: "inherits chain"
-
-anti_taxonomy: |
-  Not trees: 'Thing → Animal → Dog → Labrador'
-  But graphs: 'biscuit ←→ labrador-traits ←→ friendly-traits ←→ palm'
-
-wisdom:
-  - "Prototypes, slots, and behavior. — Ungar & Smith, OOPSLA '87 abstract (Self: The Power of Simplicity)"
-  - "Everything is concrete. Nothing is abstract."
-
-lineage: [David Ungar, Randall Smith (Self 1987), Alan Kay, Pavel Curtis (LambdaMOO), Brendan Eich (JS), Steve Yegge (Wyvern archetypes)]
-tier: 0
+lineage: [David Ungar, Randall Smith (Self 1987), Henry Lieberman (delegation 1986), Pavel Curtis (LambdaMOO), Brendan Eich (JS), Steve Yegge (Wyvern archetypes)]

@@ -1,198 +1,259 @@
 ---
 name: prototype
-description: "Objects clone from prototypes, not instances from classes"
+description: "MOOLLM's object model: objects delegate to parents listed in inherits:, Self-style, with no classes. How to declare parents, how lookup resolves a slot, and resolve.py to check it."
 license: MIT
-tier: 0
-allowed-tools: []
-related: [skill, room, container, character, card, simulation, constructionism, return-stack, debugging]
-tags: [moollm, inheritance, self, javascript, clone, deoptimization]
+tier: 1
+allowed-tools: [read_file, run_terminal_cmd]
+permissions: [read, terminal]
+related: [skill, room, container, character, card, glance, simulation, constructionism, return-stack, debugging]
+benefits_from:
+  - { skill: yaml-jazz, why: "a comment on an inherits: line says which aspect is inherited" }
+  - { skill: k-lines, why: "a K-line in inherits: is a latent parent the model already knows" }
+tags: [moollm, inheritance, self, delegation, clone, lookup]
 protocol: PROTOTYPE
 credits:
-  - "David Ungar — Self language creator"
-  - "Randall Smith — Self language co-creator"
-  - "Brendan Eich — JavaScript (Self-influenced)"
+  - "David Ungar and Randall Smith: Self (1987), slots, parent slots, multiple parents"
+  - "Henry Lieberman: delegation as the alternative to classes (1986)"
+  - "Pavel Curtis: LambdaMOO, parented objects in a shared world"
+  - "Brendan Eich: JavaScript prototypes (one parent per object)"
 ---
 
 # PROTOTYPE
 
 > **"Objects all the way down."**
 
-The philosophy of prototype-based inheritance: no classes, just concrete examples that you clone and modify.
+Part of MOOLLM · [This skill's directory](https://github.com/SimHacker/moollm/tree/main/skills/prototype)
 
-## Lineage: Self, this skill, and multiple parents
+MOOLLM has no classes. Every object is concrete: a directory, a file, or a map inside a file.
+An object that lacks a slot asks its parents, in order, and the first one that has it answers.
+That's Self's model, applied to a filesystem an LLM walks.
 
-This skill is **directly inspired by Self**. In MOOLLM, **Self is one of this skill’s prototypes**: the schemapedia **[`self` mechanism](../schema/schemas/mechanisms/self/README.md)** names that parent lineage (Ungar, Smith, and collaborators). The same **Delegation Object Protocol** applies to skills as to room instances: an ordered **`PROTOTYPES.yml`** can list **several** parent skills—Self is not the only possible parent. **Because prototype inherits from Self, it already follows the rules that let any MOOLLM object inherit from multiple prototypes** (local wins, then each parent in order, first match wins).
+## Self in one page
 
----
-
-## The Problem with Classes
-
-Classical inheritance says:
-1. Define an abstract blueprint (class)
-2. Instantiate it to create objects
-3. Objects are "instances of" classes
-
-But this creates problems:
-- **Abstraction gap**: Classes describe things that don't exist
-- **Rigidity**: Class hierarchies are hard to change
-- **Ceremony**: Lots of boilerplate to create simple things
-
----
-
-## The Prototype Solution
-
-Prototype-based inheritance says:
-1. Create a concrete example (prototype)
-2. Clone it to make new objects
-3. Modify the clone as needed
-4. Clones delegate to prototypes for missing slots
-
-**Everything is concrete. Everything exists.**
-
-### Self as universal object machine
-
-**Self** is a **universal object machine**: a minimal language of objects, slots, and delegation from which you can **implement or host** other object systems—**classes** (as conventions on top of prototypes), **CLOS**-style generic functions and method combination, **generic dispatch** lineages (**ScriptX**, **Dylan**, and related multimethod designs), **COM / OLE / ActiveX**-style component object models, **PostScript** Dictionary Stack NeWS "class.ps" Objects, **JSON** (maps of keys to values as object-shaped data), **YAML Jazz** (semantic comments beside the parsed tree in MOOLLM’s notation layer), and more. Those systems are **not** the same mechanism as Self; they are **targets** you model, embed, or bridge—Self and prototype delegation stay the bedrock.
-
----
-
-## How Self Works
-
-### Slots
-
-Objects are collections of **slots**:
+A Self object is a set of **slots**. Some hold data, some hold code, and some, marked with `*`,
+are **parent slots**:
 
 ```
 cat: (|
   name <- "Terpie".
-  color <- "orange".
   meow = (| | "Meow!" |).
-  parent* = catPrototype.
+  traits* = catTraits.
 |)
 ```
 
-- `name`, `color` — data slots
-- `meow` — method slot
-- `parent*` — parent slot (for delegation)
+Sending `meow` looks in the object's own slots, then in each parent, then in their parents.
+First match wins. There can be several parent slots, and they can be reassigned at run time,
+so an object can change what it is by pointing a parent somewhere else. New objects are made by
+cloning an existing one and changing what differs. Classes, mixins, traits and generic
+functions can all be built from this; none of them is needed to start.
 
-### Delegation
+The schemapedia describes Self as a mechanism ([`self`](../schema/schemas/mechanisms/self/README.md)); this skill's CARD inherits from it.
 
-When you send a message to an object:
-1. Look in the object's own slots
-2. If not found, look in parent's slots
-3. Continue up the chain
-4. First match wins
+MOOLLM keeps that model and changes the storage: slots are YAML keys and files, objects are
+directories, and lookup is something both a script and an LLM can do by following paths.
 
-### Cloning
+## Objects
 
-To create a new cat:
-```
-newCat := cat clone.
-newCat name: "Stroopwafel".
-newCat color: "tabby".
-```
+| Object | Address | Slots |
+|---|---|---|
+| directory | `examples/adventure-4/pub` | the top-level keys of its interface files, merged, plus its files and subdirectories |
+| file | `examples/adventure-4/maze/grue.yml` | its top-level keys |
+| embedded | `garden/ROOM.yml#objects.bench` | the keys of that map |
 
-The new cat:
-- Has its own `name` and `color` slots
-- Delegates `meow` to the prototype
-- Can add new slots anytime
+Files are flat: slots at the top level, no wrapper key repeating the filename (`room:` inside
+ROOM.yml) and no `object:` envelope. An UPPERCASE file (`ROOM.yml`, `CHARACTER.yml`, `RUN.yml`)
+is an **interface**: it holds the slots that belong to that role, and a directory has as many
+interfaces as it has interface files. A data slot must not share a name with a child directory.
 
----
-
-## MOOLLM Implementation
-
-MOOLLM implements prototype inheritance via the **Delegation Object Protocol (DOP)**:
-
-### PROTOTYPES.yml
+## Declaring parents
 
 ```yaml
-# In an instance directory
-prototypes:
-  - path: "skills/room"
-  - path: "skills/adventure"
-  
-resolution:
-  strategy: "first-match-wins"
+inherits:
+  - skills/animal                     # repo path
+  - ../characters/fictional/grue      # relative path
+  - real-being                        # bare id: nearest skills/<id>, characters/<id>, ...
+  - EDITH-BUNKER                      # K-line: latent, the model knows it
+  - "Garfield, the comic-strip cat"   # prose: latent
+  - aisle-e/PROTOTYPES.yml#prototypes.wine-rack   # an embedded object
+  - { ref: skills/cat, gets: [PAT, FEED], overrides: [PAT], why: "a cat with opinions" }
+  - { ref: EDITH-BUNKER, but: "Dutch, and forty years younger" }
+traits*: skills/cat                   # named parent: a role that can be reassigned
+mood*: moods/sleepy
 ```
 
-### File Resolution
+`inherits:` is a list, most specific first. An entry is a reference string, or a map with
+`ref:` and clauses:
 
-1. Check local directory
-2. Check each prototype in order
-3. First match wins
-4. State never inherits (always local)
+| Clause | Means | Read by |
+|---|---|---|
+| a comment on the line | which aspect is inherited | the LLM |
+| `why:` | the same, as data | the LLM, reports |
+| `gets:` / `overrides:` / `except:` | methods taken from this parent, redefined here, refused | the LLM; no script checks them yet |
+| `but:` | how this object differs from a latent parent | the LLM |
+| `as:` | a role name; same as writing `role*: ref` | lookup |
 
-### Example: A Room Instance
+A key ending in `*` is a **named parent**, Self's parent slot. Use one when the parent is a role
+that changes (a mood, a costume, a current owner), so it can be reassigned without touching the
+others. Named parents come after `inherits:` in lookup order, in the order they're written.
 
+A reference that names no file is **latent**: the model's own knowledge stands in for the
+file. That is legitimate for K-lines and prose. A path-shaped reference that names no file is
+a broken link.
+
+**Implied parents.** An interface file implies the skill its name names: `ROOM.yml` implies
+`room`, `RUN.yml` implies `run`. The skill is looked up in enclosing scopes first, so an
+experiment can own `experiment/skills/run/` and its runs inherit it before any repo-wide one.
+If no scope defines it, the parent is the latent K-line `RUN` until somebody writes the skill.
+An embedded object implies the skill of its collection key (`objects:` → `object`, `exits:` →
+`exit`). Implied parents come last, because they're the most generic.
+
+## Lookup
+
+1. The object's own slots.
+2. Each parent in order (`inherits:`, then named parents, then implied ones), depth-first.
+3. First match wins. A cycle is skipped and reported.
+4. A dotted slot (`stomach.contents`) descends through maps and into child objects.
+5. If two unrelated parents both define the slot, the first wins and `lookup --all` flags it,
+   because Self 4 would call it ambiguous.
+
+`state:` is never inherited. Each object keeps its own.
+
+## Views
+
+`GLANCE.yml`, `CARD.yml` and `INDEX.yml` summarize the object whose directory they sit in. Each
+has two implied named parents:
+
+```yaml
+format*: glance    # the view skill: skills/glance, or the latent GLANCE until it exists
+subject*: ..       # the directory it summarizes
 ```
-examples/adventure-4/pub/
-├── ROOM.yml           # Local override (shadows prototype)
-├── PROTOTYPES.yml     # Points to skills/room
-├── state/             # Local-only state
-│   └── visitors.yml
-└── (missing files delegate to skills/room/)
+
+A view that lacks a slot falls through to its subject, so reading GLANCE, then CARD, then the
+object is one delegation chain. A view is a cache; git says when it's stale (`resolve.py stale`).
+
+## Embedded objects and catalogs
+
+```yaml
+# garden/ROOM.yml
+objects:              # a map keyed by id: garden/ROOM.yml#objects.bench
+  bench:
+    description: Worn oak, carved initials.
+  gnome:
+    inherits: [../cat]
 ```
 
----
+Collections are maps keyed by id, so a child can override one entry by name; lists are for
+order, and each item has an `id:`. An embedded object that grows moves into its own directory
+without changing any lookup result.
 
-## Why Prototypes for LLMs?
+A `PROTOTYPES.yml` is a **catalog**: a map of objects meant to be cloned (the Leela storage
+aisles). It is not a parent list. To clone an entry, write a new object that inherits from it
+and states only what differs:
 
-LLMs don't compute inheritance algorithms. They navigate files.
+```yaml
+# pub/basement/wine-rack.yml
+inherits:
+  - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.wine-rack"
+name: "Cobwebbed Wine Rack"
+capacity: 24          # bottles
+```
 
-Prototype-based inheritance is **LLM-friendly** because:
-- **Explicit**: You can see the prototype chain
-- **Navigable**: Just follow file paths
-- **Concrete**: No abstract classes to imagine
-- **Forgettable**: Each lookup is independent
+`#*.wine-rack` means the entry `wine-rack` in whichever collection of that file has it. This
+is delegation, not Self's copy-on-clone: the instance keeps tracking its prototype, and its own
+slots are its differences.
 
----
+## Containers
 
-## The Wisdom of Self
+A `CONTAINER.yml` passes values down to everything inside it:
 
-From the abstract of *Self: The Power of Simplicity* (Ungar & Smith, OOPSLA ’87):
+```yaml
+defaults:
+  room:
+    lighting: 0      # pitch black; whether a grue hunts is the grue's call
+```
 
-> *Self is an object-oriented language for exploratory programming based on a small number of simple and concrete ideas: prototypes, slots, and behavior.*
+This is a cascade, not a parent. It runs after delegation: an object's own slots and parents
+win over its containers' defaults, nearest container first. Maps deep-merge, lists
+concatenate, scalars override. `resolve.py` does not apply it yet.
 
-Source: [Self bibliography](http://bibliography.selflanguage.org/self-power.html) · [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
+## Not parents
 
-Self taught us that simplicity wins:
-- One mechanism (slots) instead of many
-- Objects are just dictionaries
-- Methods are just slots that happen to be code
-- Inheritance is just delegation
+| Concept | Key |
+|---|---|
+| names that activate it | `k_lines:` |
+| navigation | `related:`, `see_also:` |
+| intellectual ancestry | `lineage:` |
+| classification | `tags:`, `type:` |
+| where it is | its directory |
 
-MOOLLM applies this: directories are objects, files are slots, resolution is delegation.
+A room is not a child of the room that contains it in the delegation sense; containment is
+the directory. Writing `inherits: [../]` would make every sub-room inherit its container's
+description.
 
----
+## Older spellings
 
-## Historical Context
+Readers accept these; writers emit `inherits:`. `resolve.py lint --strict` counts them.
+
+| Older | Write |
+|---|---|
+| `parents:`, `parent:`, `extends:`, `prototype: <ref>`, `meta.inherits:` | `inherits:` |
+| `prototype: {source: FILE, id: X}` | `inherits: ["FILE#*.X"]` |
+| `inherits: {key: value}` (values, not parents) | plain slots, or `defaults:` on a container |
+| `room:` / `card:` / `character:` / `object:` wrappers | flat |
+| `moollm/skills/x` | `skills/x` |
+
+## Two tiers
+
+Lookup runs at two levels. **`scripts/resolve.py`** is the deterministic tier: it follows
+files, reports which parent answered, and lists the latent parents it couldn't follow. The
+**LLM** is the other tier: it reads the same chain, and where the chain reaches a K-line or a
+prose parent, it answers from what it knows about that name, modulated by `but:` and comments.
+
+```bash
+python3 skills/prototype/scripts/resolve.py lookup  <object> <slot> [--all]
+python3 skills/prototype/scripts/resolve.py parents <object>
+python3 skills/prototype/scripts/resolve.py lint    [paths] [--strict] [-v]
+python3 skills/prototype/scripts/resolve.py stale   [paths]
+python3 skills/prototype/scripts/flatten.py <paths> [--name ROOM.yml] [--write]
+```
+
+`examples/lookup/` is a small object graph covering own slots, multiple and named parents,
+latent parents, cycles, implied scoped skills, views and embedded objects; its README lists
+each lookup and why it resolves the way it does.
+
+## Methods
+
+| Method | Does |
+|---|---|
+| EXPLAIN | Explain delegation to someone, from objects in front of them |
+| DESIGN | Choose parents for a new object: what it inherits, what it overrides, what is latent |
+| TRACE | Walk a lookup (`resolve.py lookup --all`) and say which parent answered and why |
+| LINT | Run `resolve.py lint`; fix broken references and older spellings |
+| COMPARE | Show a design as classes and as prototypes, and what each costs |
+
+## History
 
 | Year | Event |
-|------|-------|
-| 1986 | Ungar & Smith begin Self at Xerox PARC |
-| 1987 | Self paper published |
-| 1991 | Self 2.0 with compilation |
-| 1990 | LambdaMOO: parented objects, inherited properties and verbs, wizard bits |
-| 1995 | JavaScript created (heavily Self-influenced) |
-| 1996 | Steve Yegge starts Wyvern with property-list "archetypes", reinventing prototypes independently |
-| 2008 | Yegge, "The Universal Design Pattern", argues for prototypes in open-ended systems |
-| 2024 | MOOLLM applies Self to LLM filesystems |
+|---|---|
+| 1986 | Lieberman, "Using Prototypical Objects to Implement Shared Behavior" |
+| 1986 | Ungar and Smith begin Self at Xerox PARC |
+| 1987 | *Self: The Power of Simplicity*, OOPSLA |
+| 1990 | LambdaMOO: parented objects, inherited properties and verbs |
+| 1995 | JavaScript: prototype chains, one parent per object |
+| 2008 | Yegge, "The Universal Design Pattern": property lists with parent links |
+| 2024 | MOOLLM: directories as objects, delegation an LLM can follow |
 
----
+## Further reading
 
-## See Also
+- Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity*. [bibliography](http://bibliography.selflanguage.org/self-power.html), [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
+- Smith, R. B. & Ungar, D. (1995). *Programming as an Experience: The Inspiration for Self*. [bibliography](http://bibliography.selflanguage.org/programming-as-experience.html), [PDF](http://bibliography.selflanguage.org/_static/programming-as-experience.pdf)
+- Lieberman, H. (1986). *Using Prototypical Objects to Implement Shared Behavior in Object-Oriented Systems*. OOPSLA '86.
+- Yegge, S. (2008). [*The Universal Design Pattern*](http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html)
+- Curtis, P. (1997). [*LambdaMOO Programmer's Manual*](https://www.hayseed.net/MOO/manuals/ProgrammersManual.html)
+- [designs/object-system/SCHEMA.md](../../designs/object-system/SCHEMA.md): the same model as a design record, with the usage counts behind each choice in VOCABULARY-CLUSTERS.md
 
-- **[../skill/delegation-object-protocol.md](../skill/delegation-object-protocol.md)** — The DOP specification
-- **[../skill/skill-instantiation-protocol.md](../skill/skill-instantiation-protocol.md)** — How skills become instances
-- **[../constructionism/](../constructionism/)** — Learning by building
-- **[../character/](../character/)** — Characters as prototype instances
+## Part of MOOLLM
 
----
+**This skill's directory (browse and fetch everything):** [skills/prototype/](https://github.com/SimHacker/moollm/tree/main/skills/prototype)
 
-## Further Reading
-
-- Ungar, D. & Smith, R. (1987). *Self: The Power of Simplicity* — [bibliography](http://bibliography.selflanguage.org/self-power.html), [PDF](http://bibliography.selflanguage.org/_static/self-power.pdf)
-- Smith, R. B. & Ungar, D. (1995). *Programming as an Experience: The Inspiration for Self* — [bibliography](http://bibliography.selflanguage.org/programming-as-experience.html), [PDF](http://bibliography.selflanguage.org/_static/programming-as-experience.pdf)
-- Ungar, D. (1995). *Organizing Programs Without Classes*
-- [selflanguage.org](http://selflanguage.org/)
-- Yegge, S. (2008). *The Universal Design Pattern* — [blog](http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html) (property lists with parent links; Wyvern's archetypes; single parent, where this skill allows a list)
-- Curtis, P. (1997). *LambdaMOO Programmer's Manual* — [HTML](https://www.hayseed.net/MOO/manuals/ProgrammersManual.html) (objects, verbs, and the virtual reality as a programmable database)
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)

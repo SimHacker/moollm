@@ -158,7 +158,8 @@ phases:
     # adventure-4 compile run. Order is dependency order; a later skill cites an earlier one.
     # Scan behind this list: retired forms counted per skill in SKILL/CARD/GLANCE/README/tmpl.
     rewrites:
-      - { skill: prototype, why: "the inheritance skill itself: PROTOTYPES.yml is a catalog not a parent list; inherits:, x* named parents, implied filename parents, views, embedded #path; lookup is resolve.py", status: opened }
+      - { skill: prototype, why: "the inheritance skill itself: PROTOTYPES.yml is a catalog not a parent list; inherits:, x* named parents, implied filename parents, views, embedded #path; lookup is resolve.py", status: done }
+      - { scope: "docs that still describe PROTOTYPES.yml as a parent list (skill-instantiation-protocol, schema self mechanism, designs)", files: 21, status: opened }
       - { skill: container, why: "cascade: inherits: -> defaults: (one key, no forced 'inherits' section), flat files, merge rules; implement cascade in resolve.py alongside", status: opened }
       - { skill: room, why: "ROOM.yml as an interface on a directory object; sub-rooms vs interface subdirectories; lighting 0..10; glance core keys (name, type, description, exits); 16 wrapper examples", status: opened }
       - { skill: character, why: "CHARACTER.yml interface, meta.inherits -> inherits:, facts not verdicts, glance core keys (name, description, location)", status: opened }

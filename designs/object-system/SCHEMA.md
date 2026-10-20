@@ -70,7 +70,7 @@ mood*: moods/sleepy
 |---|---|---|
 | a comment on the line | which aspect is inherited | the LLM |
 | `why:` | the same, as data | the LLM, reports |
-| `gets:` / `overrides:` / `except:` | which methods come from this parent, which are redefined here, which are refused | lint, the engine |
+| `gets:` / `overrides:` / `except:` | which methods come from this parent, which are redefined here, which are refused | the LLM; no script checks them yet |
 | `but:` | how this object differs from a latent parent | the LLM |
 | `as:` | a role name; same as writing `role*: ref` | lookup |
 
