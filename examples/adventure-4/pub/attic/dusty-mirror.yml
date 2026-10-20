@@ -9,16 +9,14 @@ object:
   emoji: "🪞"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml"
-    id: full-length-mirror
-    brand: LEELA
-    quality: robust-first
-    
   inherits:
-    breakable: false  # Leela mirrors don't break
-    reflective: true
-    frame: "oak with brass corners"
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.full-length-mirror"
+  brand: LEELA
+  quality: robust-first
+    
+  breakable: false  # Leela mirrors don't break
+  reflective: true
+  frame: "oak with brass corners"
     
   description: |
     A full-length mirror in an oak frame, bearing the Leela 

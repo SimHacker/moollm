@@ -9,17 +9,15 @@ object:
   emoji: "💰"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
-    id: treasure-chest
-    brand: LEELA
-    quality: robust-first
-    
   inherits:
-    container: true
-    capacity: 30
-    lockable: true
-    durability: 80
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.treasure-chest"
+  brand: LEELA
+  quality: robust-first
+    
+  container: true
+  capacity: 30
+  lockable: true
+  durability: 80
     
   description: |
     A heavy iron-banded chest with the Leela Quality seal embossed 

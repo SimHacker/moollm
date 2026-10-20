@@ -3,7 +3,7 @@
 # This instance tracks Snorax's game state in the adventure-4 maze.
 # The wumpus IS the game, and this is one active session.
 
-prototype: ../CHARACTER.yml
+inherits: [../CHARACTER.yml]
 
 instance:
   name: Snorax the Patient

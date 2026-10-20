@@ -45,6 +45,15 @@ history:
   - at: 2026-10-20
     event: batch-done
     note: >
+      Parent spellings, 46 files (migrations/parents.py plus historical CARD and mind/soul
+      docs). Resolver parents unchanged in 32 of 45 files; the 13 that changed were rooms and
+      glances delegating to their containing directory, dispensers delegating to what they
+      dispense, and the historical GLANCE. compile.py and validate.py count inherits: as an
+      object marker, so instance files still compile, and maze/grue.yml and maze/wumpus.yml
+      now compile too (unplaced). maze/CONTAINER.yml waits for the container rewrite.
+  - at: 2026-10-20
+    event: batch-done
+    note: >
       Lighting. 129 ROOM/GLANCE files to 0..10 + comment (tasks/migrations/lighting.py, each
       reparsed, only lighting values and dropped keys differ); grue_safe, requires_light,
       ambient_light gone from rooms; room-h, room-j, back-alley, no-ai-overlord by hand; the
@@ -96,13 +105,13 @@ phases:
       - { scope: "envelope object: in object files", files: 349, status: opened }
       - { scope: "small envelopes (catalog, system, adventure, mind, maze, run, ...)", files: 40, status: opened }
       - { scope: "readers: drop data.get('room', data) fallbacks once no envelopes remain", files: 4, status: opened }
-      - { scope: "skills/*/CHARACTER.yml meta.inherits + moollm/ prefix -> top-level inherits:", files: 8, status: opened }
-      - { scope: "prototype: {source, id} -> inherits: [FILE#collection.id] (pub/basement and others)", files: 8, status: opened }
-      - { scope: "inherits: {values} -> plain slots", files: 10, status: opened }
-      - { scope: "skills/historical extends: -> inherits:", files: 1, status: opened }
+      - { scope: "skills/*/CHARACTER.yml meta.inherits + moollm/ prefix -> top-level inherits:", files: 8, status: done }
+      - { scope: "prototype: {source, id} + inherits: {values} -> inherits: [FILE#*.id] and own slots", files: 8, status: done }
+      - { scope: "dolly-forklift inherits: {archetype, source} -> lineage:", files: 1, status: done }
+      - { scope: "skills/historical extends: -> CARD inherits: [skills/real-being]; GLANCE no longer delegates", files: 2, status: done }
       - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 4, status: opened }
-      - { scope: "instance prototype: <ref> -> inherits: [<ref>]", files: 13, status: opened }
-      - { scope: "parent: / parents: <path>", files: 12, status: opened }
+      - { scope: "instance prototype: <ref> -> inherits: [<ref>]; dispensers' prototype: -> clones:", files: 13, status: done }
+      - { scope: "room/glance parent: ../ (containment, already the directory) removed; mind parents: -> inherits: with mind and soul-city docs", files: 16, status: done }
       - { scope: "slots shadowing child directories", files: 6, status: opened }
       - { scope: "grue_safe: out of rooms; lighting: 0..10 + comment; grue guard; maze defaults: lighting 0; the Eye watches", files: 150, status: done }
       - { scope: "broken skills/* parents", files: 5, status: waiting-on-don }

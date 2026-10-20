@@ -308,7 +308,7 @@ DATA_FILENAMES = {
 }
 
 # Object detection: files with these top-level keys are objects
-OBJECT_MARKERS = {'object', 'prototype', 'item'}
+OBJECT_MARKERS = {'object', 'prototype', 'inherits', 'item'}
 
 # Object-like: has these fields = probably should be an object
 OBJECT_FIELDS = {'name', 'description', 'examine', 'type', 'glance'}

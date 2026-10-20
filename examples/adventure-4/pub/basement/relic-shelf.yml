@@ -9,18 +9,16 @@ object:
   emoji: "🏺"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-d/PROTOTYPES.yml"
-    id: paradox-shelf
-    brand: LEELA
-    quality: robust-first
-    special: true
-    
   inherits:
-    container: true
-    paradox_safe: true
-    temporal_stable: true
-    reality_anchored: true
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-d/PROTOTYPES.yml#*.paradox-shelf"
+  brand: LEELA
+  quality: robust-first
+  special: true
+    
+  container: true
+  paradox_safe: true
+  temporal_stable: true
+  reality_anchored: true
     
   description: |
     A small shelf bearing the Leela Quality seal — specifically the 

@@ -28,10 +28,12 @@ tools:
 # THIS SKILL IS A TAG
 # Extends real-being with additional considerations
 
+inherits:
+  - skills/real-being
+
 ontology:
   is_tag: true
   tag_name: historical
-  extends: real-being
   
   applies_to:
     - Deceased historical figures

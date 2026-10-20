@@ -9,16 +9,14 @@ object:
   emoji: "🍷"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml"
-    id: wine-rack
-    brand: LEELA
-    quality: robust-first
-    
   inherits:
-    container: true
-    capacity: 24  # bottles
-    display_mode: true
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.wine-rack"
+  brand: LEELA
+  quality: robust-first
+    
+  container: true
+  capacity: 24  # bottles
+  display_mode: true
     
   description: |
     A diagonal wooden rack bearing the Leela Quality seal, holding 

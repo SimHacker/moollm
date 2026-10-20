@@ -2,12 +2,13 @@
 # Patron Saint: Ian Bogost
 # Familiar: Cow Clicker 🐄
 
+inherits:
+  - skills/character
+  - skills/representation-ethics
+
 meta:
   type: skill_characters
   skill: procedural-rhetoric
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/representation-ethics
 
 # PATRON SAINT
 

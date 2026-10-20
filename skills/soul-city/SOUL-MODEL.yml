@@ -120,7 +120,7 @@ archetype_inheritance:
     name: "the pure feed"
     what: |
       Inherit directly from the archetypal name in latent space —
-      e.g. parents: ["biblical Jesus"] — no filesystem clone required.
+      e.g. inherits: ["biblical Jesus"] — no filesystem clone required.
       The name is the activation. You get the full pure feed: gospel,
       iconography, two thousand years of resonance the model already holds.
     personal: false
@@ -136,9 +136,9 @@ archetype_inheritance:
     cost: "You keep it. It walks when you walk. It is not the well; it is yours."
     where: "souls/<host>/minds/my-jesus/ (or any name)"
   worked_example_jesus:
-    pure: 'parents: ["biblical Jesus"]  # full pure feed; not personal'
+    pure: 'inherits: ["biblical Jesus"]  # full pure feed; not personal'
     personal: |
-      parents:
+      inherits:
         - "biblical Jesus"                                    # latent well
         - skills/no-ai-soul/representatives/  # optional file archetype (Soul Savior)
       # then: your overrides — the cup's shape
@@ -157,7 +157,7 @@ differently_architected_examples:
   jesus_mouse:
     architecture: blended_soul_lived_inventory
     dimensions: [soul, costume, props, mission, praxis]
-    parents: [jesus_christ, mickey_mouse, the_wizard]
+    inherits: [jesus_christ, mickey_mouse, the_wizard]
     memorial_public: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jesus-mouse"
     latent_imports: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jesus-mouse/sources/latent-imports.md"
     story_public: "https://news.ycombinator.com/item?id=34398396"
@@ -165,7 +165,7 @@ differently_architected_examples:
     architecture: pronunciation_only
     character: donald-michie
     dimensions: [pronunciation]
-    parents: [donald_duck, mickey_mouse]
+    inherits: [donald_duck, mickey_mouse]
     not: "Not soul blend; not costume — name-sounds + colleagues' nickname on the record"
     memorial_public: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie"
     pronunciation_record: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/donald-michie/sources/duckmouse-pronunciation-on-the-record.md"
@@ -179,13 +179,13 @@ jesus_mouse:
   variation_blended_soul:
     what: "The SOUL inherits Jesus AND Mickey Mouse (+ wizard props) — one body, blended incarnation."
     sketch: |
-      parents: ["Jesus", "Mickey Mouse", "Wizard"]
+      inherits: ["Jesus", "Mickey Mouse", "Wizard"]
     lived: true
     latent_imports: "https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jesus-mouse/sources/latent-imports.md"
   variation_two_minds:
     what: "DIFFERENT: one soul, two minds — Jesus-cup and Mickey-cup that may argue."
     sketch: |
-      minds: { jesus-mind: {parents: ["Jesus"]}, mouse-mind: {parents: ["Mickey Mouse"]} }
+      minds: { jesus-mind: {inherits: ["Jesus"]}, mouse-mind: {inherits: ["Mickey Mouse"]} }
     lived: false   # valid Self model; not what he performed
   kin_opposite_axis: duckmouse  # pronunciation-only; see differently_architected_examples
   more_ok: "personal cups of Jesus Mouse; latent 'Jesus Mouse' well; blend + shoulders; organelles…"
@@ -206,11 +206,11 @@ shoulder_counsel:
     agencies, not separate map pins. Same well/cup choice as any archetype.
   pair:
     angel:
-      pure: 'parents: ["shoulder angel", "guardian angel", "cartoon conscience angel"]'
+      pure: 'inherits: ["shoulder angel", "guardian angel", "cartoon conscience angel"]'
       personal: "minds/my-angel/ — inherits the well; your mercy, your nag, your halo tilt"
       role: "counsel toward care, restraint, long view — whatever YOUR angel means"
     devil:
-      pure: 'parents: ["shoulder devil", "cartoon temptation devil", "Mephistophelean whisper"]'
+      pure: 'inherits: ["shoulder devil", "cartoon temptation devil", "Mephistophelean whisper"]'
       personal: "minds/my-devil/ — inherits the well; your mischief, your dare, your pitchfork angle"
       role: "counsel toward appetite, risk, short view — whatever YOUR devil means"
   mechanics:

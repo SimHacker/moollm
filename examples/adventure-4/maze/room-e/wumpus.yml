@@ -13,7 +13,7 @@
 #
 # This instance file tracks game state for THIS room network.
 
-prototype: ../../characters/fictional/wumpus-snorax/CHARACTER.yml
+inherits: [../../characters/fictional/wumpus-snorax/CHARACTER.yml]
 instance_data: ../../characters/fictional/wumpus-snorax/instances/maze-room-e.yml
 
 # QUICK REFERENCE (full data in instance file)

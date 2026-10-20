@@ -2,12 +2,13 @@
 # Patron Saint: Marvin Minsky
 # Familiar: Ultimate Machine 🔲
 
+inherits:
+  - skills/character
+  - skills/representation-ethics
+
 meta:
   type: skill_characters
   skill: society-of-mind
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/representation-ethics
 
 # PATRON SAINT
 

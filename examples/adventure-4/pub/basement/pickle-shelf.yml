@@ -9,17 +9,15 @@ object:
   emoji: "🥒"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml"
-    id: shelf-unit
-    brand: LEELA
-    quality: robust-first
-    
   inherits:
-    container: true
-    capacity: 30  # jars
-    display_mode: true
-    sturdy: true
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.shelf-unit"
+  brand: LEELA
+  quality: robust-first
+    
+  container: true
+  capacity: 30  # jars
+  display_mode: true
+  sturdy: true
     
   description: |
     A sturdy wooden shelf bearing rows of glass pickle jars.

@@ -10,19 +10,16 @@ object:
   
   # PROTOTYPE INHERITANCE
   # This instance was cloned from the Leela prototype
-  prototype: 
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
-    id: ale-barrel
-    brand: LEELA
-    quality: robust-first
-    
-  # Inherit all barrel properties from prototype
   inherits:
-    container: true
-    capacity: 40
-    rollable: true
-    liquid_safe: true
-    durability: 60
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.ale-barrel"
+  brand: LEELA
+  quality: robust-first
+    
+  container: true
+  capacity: 40
+  rollable: true
+  liquid_safe: true
+  durability: 60
     
   # INSTANCE-SPECIFIC PROPERTIES
   # These override or extend the prototype

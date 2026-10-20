@@ -9,18 +9,16 @@ object:
   emoji: "🎄"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
-    id: wooden-box
-    brand: LEELA
-    quality: robust-first
-    variant: seasonal-storage
-    
   inherits:
-    container: true
-    capacity: 15
-    takeable: true
-    sturdy: true
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.wooden-box"
+  brand: LEELA
+  quality: robust-first
+  variant: seasonal-storage
+    
+  container: true
+  capacity: 15
+  takeable: true
+  sturdy: true
     
   description: |
     A cardboard box with the Leela Quality seal, labeled "XMAS" 

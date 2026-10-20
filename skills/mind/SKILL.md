@@ -93,12 +93,12 @@ minds/remote-control-stub/:
 
 ```yaml
 # Pure well (not personal) — name activates latent prototype
-parents:
+inherits:
   - "biblical Jesus"
 
 # Cup under a soul — personal delta after inheritance
 minds/my-jesus/:
-  parents: ["biblical Jesus"]
+  inherits: ["biblical Jesus"]
   # local voice, jokes, doubts…
 ```
 

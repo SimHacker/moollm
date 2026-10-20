@@ -750,11 +750,12 @@ def is_object_file(data: dict) -> bool:
     
     Objects are identified by:
     - Having an 'object:' wrapper key
+    - Delegating to a parent ('inherits:', or the older 'prototype:')
     - Having 'name' AND ('description' OR 'examine' OR 'type')
     """
     if 'object' in data:
         return True
-    if 'prototype' in data:
+    if 'inherits' in data or 'prototype' in data:
         return True
     # Check for object-like structure
     if 'name' in data and ('description' in data or 'examine' in data or 'type' in data):

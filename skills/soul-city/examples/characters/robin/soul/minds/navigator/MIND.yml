@@ -4,7 +4,7 @@
 mind:
   id: navigator
   kind: cup                    # personal mind: inherits a well, holds local changes
-  parents:
+  inherits:
     - "bicycle courier who knows every shortcut"   # the well — latent archetype
   open: true                   # still accepts new imports (routes, tricks)
 

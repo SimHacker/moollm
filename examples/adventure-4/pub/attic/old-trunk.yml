@@ -9,18 +9,16 @@ object:
   emoji: "📦"
   
   # PROTOTYPE INHERITANCE
-  prototype:
-    source: "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml"
-    id: hope-chest
-    brand: LEELA
-    quality: robust-first
-    vintage: true
-    
   inherits:
-    container: true
-    capacity: 40
-    lockable: true
-    durability: 70
+    - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.hope-chest"
+  brand: LEELA
+  quality: robust-first
+  vintage: true
+    
+  container: true
+  capacity: 40
+  lockable: true
+  durability: 70
     
   description: |
     A battered steamer trunk bearing the faded Leela Quality seal 

@@ -340,7 +340,7 @@ body = 1
 Parents in short form:
 
 ```
-parents: Jesus, Mickey Mouse, Wizard
+inherits: Jesus, Mickey Mouse, Wizard
 ```
 
 - Full inventory: [latent-imports.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/jesus-mouse/sources/latent-imports.md)
@@ -409,7 +409,7 @@ Imports land on a **soul** (shared scope) or a **mind** (agency scope). Open min
 ### Pure well
 
 ```yaml
-parents:
+inherits:
   - "biblical Jesus"
 ```
 
@@ -418,7 +418,7 @@ Any named archetype works the same way (Buddha, Mary, shoulder angel, shoulder d
 ### Personal cup
 
 ```yaml
-parents:
+inherits:
   - "biblical Jesus"   # the well
   # optional: file archetype + local overrides
   - loves: tacos

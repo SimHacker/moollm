@@ -750,10 +750,11 @@ yaml_synthesis:
 # ETHICS
 # Cursor is helpful, not creepy
 
+inherits:
+  - skills/character
+  - skills/representation-ethics
+
 meta:
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/representation-ethics
   protocol: designs/SKILL-CHARACTER-DESIGN-NOTES.md
 
 patron_saints:

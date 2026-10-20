@@ -2,12 +2,13 @@
 # Patron Saint: Will Wright
 # Familiars: Slats 🤖, Dents 🤖, Spline 🌀
 
+inherits:
+  - skills/character
+  - skills/representation-ethics
+
 meta:
   type: skill_characters
   skill: simulation
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/representation-ethics
 
 # PATRON SAINT
 

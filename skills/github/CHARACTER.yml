@@ -2,13 +2,14 @@
 # Patron Saint: Linus Torvalds (mellowed)
 # Familiar: Tux the Linux Penguin
 
+inherits:
+  - skills/character
+  - skills/persona
+  - skills/representation-ethics
+
 meta:
   type: skill_characters
   skill: github
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/persona
-    - moollm/skills/representation-ethics
 
 # PATRON SAINT
 

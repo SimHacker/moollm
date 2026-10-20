@@ -5,7 +5,7 @@
 #
 # This instance tracks Maurice's presence in the Coatroom.
 
-prototype: ../characters/fictional/maurice/CHARACTER.yml
+inherits: [../characters/fictional/maurice/CHARACTER.yml]
 
 instance:
   name: Maurice the Magnificent

@@ -2,12 +2,13 @@
 # Patron Saint: David Ungar
 # Familiar: Morph 🪞
 
+inherits:
+  - skills/character
+  - skills/representation-ethics
+
 meta:
   type: skill_characters
   skill: prototype
-  inherits:
-    - moollm/skills/character
-    - moollm/skills/representation-ethics
 
 # PATRON SAINT
 

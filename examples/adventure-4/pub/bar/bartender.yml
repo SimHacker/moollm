@@ -5,7 +5,7 @@
 #
 # This instance tracks their current theme identity and state.
 
-prototype: ../../characters/fictional/the-bartender/CHARACTER.yml
+inherits: [../../characters/fictional/the-bartender/CHARACTER.yml]
 
 instance:
   current_identity: Grim        # Changes with pub theme
