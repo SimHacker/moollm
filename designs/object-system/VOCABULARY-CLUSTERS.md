@@ -175,10 +175,10 @@ Two shapes compete inside `k-lines`: a flat list of names, and `{activates, rela
 `related` duplicates cluster 5. `when:` (GLANCE) and `invoke_when:` (CARD) mean the same thing
 at two pyramid levels.
 
-Options: canonical `k-lines:` (hyphen, matches `allowed-tools`, majority) as a list of K-LINE
+Options: canonical `k_lines:` (schema keys use underscores) as a list of K-LINE
 names this object answers to; move `related` out to the association cluster; keep
 `when:` in GLANCE and `invoke_when:` in CARD as the same concept at two resolutions, or merge to
-`when:`. Leaning `k-lines:` flat list (80%); `when:`/`invoke_when:` undecided.
+`when:`. Leaning `k_lines:` flat list (80%); `when:`/`invoke_when:` undecided.
 
 ## 5. Association: related, but not a parent
 
@@ -195,9 +195,9 @@ None of these delegate. `related:` is navigation (Dublin Core `relation`). `bene
 "works better if loaded"; `requires:` is "won't work without".
 
 Options: `related:` for skill-to-skill and object-to-object links (ids or paths, the resolver
-can check both); `see-also:`/`see_also:` for documents; `references:` folded into `see-also:`.
-Leaning: two keys, `related:` and `see-also:` (70%). Hyphen or underscore is a repo-wide
-choice, made once (see "Spelling of compound keys" below).
+can check both); `see_also:` for documents; `references:` folded into `see_also:`.
+Leaning: two keys, `related:` and `see_also:` (70%). Spelling follows "Spelling of compound
+keys" below.
 
 ## 6. Behavior: what the object can do
 
@@ -438,10 +438,27 @@ re-deciding per key. Hyphens match the Anthropic frontmatter and most K-line sty
 are valid identifiers in JS and Python, which matters because `adventure.js` compiles slots into
 `world.*` accessors and `context` uses `world.skills.<name_with_underscores>`.
 
-Options: underscores everywhere (code-friendly), hyphens everywhere (prose-friendly, matches
-`allowed-tools`), or hyphens in files and a mechanical `-`→`_` when compiled. **Decided: the
-third**, which is already what the skills namespace does. Files say `k-lines:` and `see-also:`;
-compiled code says `k_lines` and `see_also`.
+Across all YAML outside `temp/`, keys with underscores occur 41,857 times (17,887 distinct) and
+keys with hyphens 3,398 times (2,080 distinct). Most hyphenated keys are not schema words at
+all: they are names of things used as map keys (`yaml-jazz`, `no-ai-slop`, `real-people`,
+`kitten-myrcene`). The hyphenated schema words are few: `invoked-by` (294 uses, 59 files),
+`k-lines` (88, 75), `see-also` (61, 61), then a tail of local vocabulary.
+
+**Decided:**
+
+1. **Keys the schema defines are identifiers, with underscores:** `done_when`, `k_lines`,
+   `see_also`, `invoked_by`, `score_if`. The name in the file is the name in running code
+   (`world.k_lines`, `done_when_js`), so one grep finds data, compiler and engine. A slot has
+   one name, as in Self.
+2. **Names of things are slugs, with hyphens:** skill, room, file and directory names, ids,
+   used as values or as keys of maps indexed by name. Where a slug becomes an identifier (the
+   skills namespace, `world.skills.action_queue`), `-` becomes `_` at that one boundary.
+3. **Foreign schemas keep their own spelling.** `allowed-tools` belongs to Anthropic's
+   frontmatter, as HTTP headers belong to HTTP.
+
+`resolve.py lint` reports `k-lines`, `klines`, `see-also` and `invoked-by` (the named
+renames). Other hyphenated keys are left to the census, which separates local vocabulary from
+names.
 
 ## Decisions
 
@@ -450,7 +467,7 @@ compiled code says `k_lines` and `see_also`.
 | Delegation key | `inherits:`; Self-style `name*:` for named parent roles |
 | Container's downward values | `defaults:` |
 | Envelopes | none: files are flat, the filename is the interface |
-| Compound keys | hyphens in files, `-`→`_` when compiled |
+| Compound keys | schema keys use underscores (`k_lines`, `done_when`); names of things use hyphens; foreign schemas keep theirs |
 | Interface skills | an UPPERCASE file implies its skill, found in enclosing scopes first, latent if none |
 | Views | GLANCE, CARD, INDEX: `format*` the view skill, `subject*` the container |
 | File metadata | git; a `-metadata.yml` sidecar only for what git can't hold |
@@ -466,10 +483,6 @@ Still open:
 3. Placement listing keys (`objects:`, `characters:`, `residents:`, `contains:`): retire, or keep as
    hints linted against the directory?
 4. `when:` (GLANCE) and `invoke_when:` (CARD): one key or two?
-5. The compound-key rule says `done-when:` in files. Every guard key (`done_when`, `fail_when`,
-   `guard`, `score_if`) is written with underscores today, and the compiler appends `_js`/`_py`
-   to the field name. Apply the rule (and teach the compiler `-`→`_`), or exempt compiled
-   expression keys?
 
 ## Related
 

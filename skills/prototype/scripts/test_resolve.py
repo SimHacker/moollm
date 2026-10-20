@@ -157,3 +157,9 @@ if __name__ == "__main__":
             print(f"FAIL  {name} {e}")
     print(f"{len(tests) - failed}/{len(tests)} passed")
     sys.exit(1 if failed else 0)
+
+
+def test_schema_keys_use_underscores_names_keep_hyphens() -> None:
+    assert resolve.legacy_spellings({"k-lines": ["GRUE"], "see-also": ["x.md"]}) == [
+        "k-lines: (use k_lines:)", "see-also: (use see_also:)"]
+    assert not resolve.legacy_spellings({"k_lines": ["GRUE"], "related": {"no-ai-slop": "why"}})

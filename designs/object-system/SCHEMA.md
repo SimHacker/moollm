@@ -146,8 +146,8 @@ delegation: an object's own slots and parents win over its containers' defaults.
 
 | Concept | Key | Never |
 |---|---|---|
-| names that activate it | `k-lines:` list of K-LINES | parents |
-| navigation links | `related:` ids or paths; `see-also:` documents | parents |
+| names that activate it | `k_lines:` list of K-LINES | parents |
+| navigation links | `related:` ids or paths; `see_also:` documents | parents |
 | intellectual ancestry | `lineage:` | parents |
 | classification | `tags:`; `type:` one id | dispatch |
 | behavior | `methods:` map; `advertisements:` map, each naming a method plus guard and score | lists |
@@ -155,8 +155,9 @@ delegation: an object's own slots and parents win over its containers' defaults.
 | finished, or impossible | `done_when:`, `fail_when:` (goal; task inherits goal) | stored as a `status:` |
 | about the file | git; else a `-metadata.yml` sidecar | inside the file |
 
-Keys are written with hyphens (`k-lines`, `see-also`); compiled code sees underscores
-(`world.k_lines`).
+Keys the schema defines use underscores, so the key in the file is the name in code
+(`k_lines:` is `world.k_lines`). Names of things (skills, rooms, files, ids) use hyphens.
+Foreign schemas keep their own spelling (`allowed-tools`).
 
 ## Accepted legacy forms
 
@@ -171,7 +172,7 @@ Keys are written with hyphens (`k-lines`, `see-also`); compiled code sees unders
 | `inherits: {key: value, ...}` (values, not parents) | plain slots, or `defaults:` on a container |
 | `container.inherits:` | `defaults:` |
 | `moollm/skills/x` | `skills/x` |
-| `k_lines:`, `klines:`, `see_also:` | `k-lines:`, `see-also:` |
+| `k-lines:`, `klines:`, `see-also:`, `invoked-by:` | `k_lines:`, `see_also:`, `invoked_by:` |
 | `complete_when:`, `research_complete_when:` | `done_when:` |
 
 ```bash

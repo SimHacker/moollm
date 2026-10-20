@@ -41,6 +41,7 @@ history:
       designs/gastown/TASKS-2026-01.md (3 unparseable blocks quoted first).
   - { at: 2026-10-20, event: decided, by: don, note: "facts, not verdicts: rooms state lighting, the grue decides whether to hunt; grue_safe: goes" }
   - { at: 2026-10-20, event: decided, by: don, note: "lighting: 0..10, comment modulates it (swinging bulb, colour, mood, time). GLANCE: core keys per subject type plus YAML Jazz that helps decide whether to look closer" }
+  - { at: 2026-10-20, event: decided, by: don, note: "schema keys use underscores (k_lines, see_also, invoked_by, done_when); names of things use hyphens; foreign schemas keep theirs. Replaces 'hyphens in files'" }
   - at: 2026-10-20
     event: batch-done
     note: >
@@ -82,7 +83,6 @@ phases:
       - "tier: outside skills?"
       - "placement listing keys (objects:, characters:, residents:, contains:): retire, or hints linted against the directory?"
       - "when: (GLANCE) and invoke_when: (CARD): one key or two?"
-      - "compiled expression keys (done_when, fail_when, score_if): hyphens per the compound-key rule, or exempt?"
   - id: migrate
     status: claimed
     # One batch per row, smallest blast radius first. Each batch: run, verify, rerun the
@@ -106,8 +106,9 @@ phases:
       - { scope: "slots shadowing child directories", files: 6, status: opened }
       - { scope: "grue_safe: out of rooms; lighting: 0..10 + comment; grue guard; maze defaults: lighting 0; the Eye watches", files: 150, status: done }
       - { scope: "broken skills/* parents", files: 5, status: waiting-on-don }
-      - { scope: "k_lines / klines -> k-lines; split related out", files: 48, status: opened }
-      - { scope: "see_also / references -> see-also", files: 112, status: opened }
+      - { scope: "k-lines / klines -> k_lines; split related out", files: 75, status: opened }
+      - { scope: "see-also -> see_also; references -> see_also", files: 99, status: opened }
+      - { scope: "invoked-by -> invoked_by", files: 59, status: opened }
       - { scope: "advertisements as list -> map", files: 13, status: opened }
       - { scope: "self-describing timestamps (created:, updated:) out of files; git has them", files: 15, status: opened }
       - { scope: "unparseable YAML: fix or mark as prose", files: 122, status: opened }
@@ -141,7 +142,7 @@ phases:
       - { skill: card, why: "CARD as a view (format* card, subject* ..), the sidecar pattern, 16 wrapper examples", status: opened }
       - { skill: summarize, why: "common parent of the views; foo-metadata.yml sidecars; git, not timestamps", status: opened }
       - { skill: skill, why: "skill anatomy; hand the GLANCE format to skills/glance; where a skill declares its own parents (CARD inherits:)", status: opened }
-      - { skill: yaml-jazz, why: "key spelling rule (blocked on the underscore decision); comments as modulators (lighting: 4 # swinging bulb); no wrappers", status: waiting-on-don }
+      - { skill: yaml-jazz, why: "key spelling rule (schema keys underscores, names hyphens); comments as modulators (lighting: 4 # swinging bulb); no wrappers", status: opened }
       - { skill: context, why: "world keys as dimensions (turn, room, player, ...); world.room.lighting", status: opened }
       - { skill: adventure, why: "24 wrapper examples, parent spellings, compile docs; economy and the RISC engine are adventure-001", status: opened, requires: adventure-001 }
       - { skill: planning, why: "plan steps store status; align with task's events-not-status rule, or say why plans differ", status: opened }

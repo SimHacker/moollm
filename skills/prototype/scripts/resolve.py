@@ -482,11 +482,17 @@ def legacy_spellings(d: dict[str, Any], path: Path | None = None) -> list[str]:
         out.append("prototype: {source, id} (use inherits: [file#collection.id])")
     if any(r.startswith("moollm/") for r, _ in raw_parent_refs(d)):
         out.append("moollm/ path prefix")
-    out += [f"{k}: (use done_when:)" for k in sorted(nested_keys(d) & DONE_WHEN_SPELLINGS)]
+    keys = nested_keys(d)
+    out += [f"{k}: (use done_when:)" for k in sorted(keys & DONE_WHEN_SPELLINGS)]
+    out += [f"{k}: (use {SCHEMA_KEY_RENAMES[k]}:)" for k in sorted(keys & set(SCHEMA_KEY_RENAMES))]
     return out
 
 
 DONE_WHEN_SPELLINGS = {"complete_when", "research_complete_when"}
+# Schema keys are identifiers: the key in the file is the name in code. Names of things
+# (skills, rooms, ids) keep their hyphens, so only known schema words are listed here.
+SCHEMA_KEY_RENAMES = {"k-lines": "k_lines", "klines": "k_lines", "see-also": "see_also",
+                      "invoked-by": "invoked_by"}
 
 
 def nested_keys(v: Any) -> set[str]:
