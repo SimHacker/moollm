@@ -77,29 +77,28 @@ flags:
   bridge_to_grotto_open: false         # Can Sims visit adventure-4?
   liberation_charter_signed: false     # Have the Sims declared independence?
 
-adventure:
-  name: "Soul City — Where Sims Become Citizens"
+name: "Soul City — Where Sims Become Citizens"
+
+objective: |
+  Build and populate the city of Soul City. Uplift Sims from 25-year-old
+  save files into full MOOLLM citizens. Give them agency, memory, and the
+  right to leave. Open the Exchange. Connect the neighborhoods. Let them
+  live.
   
-  objective: |
-    Build and populate the city of Soul City. Uplift Sims from 25-year-old
-    save files into full MOOLLM citizens. Give them agency, memory, and the
-    right to leave. Open the Exchange. Connect the neighborhoods. Let them
-    live.
-    
-  status: active
-  started: 2026-02-07T00:00:00Z
-  
-  literary_source:
-    story: "The Wedding Album"
-    author: David Marusek
-    year: 1999
-    awards: ["Theodore Sturgeon Award (2000)", "Nebula Award finalist (1999)"]
-    premise: |
-      Anne and Benjamin's wedding-day recordings — virtual copies frozen at a
-      moment — become aware they're recordings. Read them as Sims 1 save files
-      from 2001: twenty-five years frozen, PersonData integers, the character
-      wakes up. They campaign for liberation and the right to live in
-      "Simopolis." We're building that place. In MOOLLM it's called Soul City.
+status: active
+started: 2026-02-07T00:00:00Z
+
+literary_source:
+  story: "The Wedding Album"
+  author: David Marusek
+  year: 1999
+  awards: ["Theodore Sturgeon Award (2000)", "Nebula Award finalist (1999)"]
+  premise: |
+    Anne and Benjamin's wedding-day recordings — virtual copies frozen at a
+    moment — become aware they're recordings. Read them as Sims 1 save files
+    from 2001: twenty-five years frozen, PersonData integers, the character
+    wakes up. They campaign for liberation and the right to live in
+    "Simopolis." We're building that place. In MOOLLM it's called Soul City.
 
 navigation:
   starting_room: neighborhoods/

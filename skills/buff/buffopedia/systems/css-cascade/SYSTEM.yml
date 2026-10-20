@@ -3,22 +3,21 @@
 #   from the Cascading and Inheritance spec family; verify level numbers before
 #   quoting them normatively)
 
-system:
-  id: css-cascade
-  name: "CSS cascade, specificity, and inheritance"
-  vendor: "W3C / WHATWG — Håkon Wium Lie's 1994 proposal onward"
-  family: engine
-  vocabulary:
-    the_buff: "declaration (a property: value pair in a matching rule)"
-    the_guard: "selector, plus pseudo-classes, media/container/supports queries"
-    the_combine: "the cascade"
-    the_stat: "computed value of a property"
-    the_cache: "computed style, invalidated by style invalidation"
-  why_it_matters: |
-    The most widely deployed modifier-aggregation system on Earth. It is not
-    marketed as a buff system, nobody calls its declarations buffs, and it
-    independently derived nearly every mechanism in this pedia — including two
-    that MOOLLM's buff skill does not have yet.
+id: css-cascade
+name: "CSS cascade, specificity, and inheritance"
+vendor: "W3C / WHATWG — Håkon Wium Lie's 1994 proposal onward"
+family: engine
+vocabulary:
+  the_buff: "declaration (a property: value pair in a matching rule)"
+  the_guard: "selector, plus pseudo-classes, media/container/supports queries"
+  the_combine: "the cascade"
+  the_stat: "computed value of a property"
+  the_cache: "computed style, invalidated by style invalidation"
+why_it_matters: |
+  The most widely deployed modifier-aggregation system on Earth. It is not
+  marketed as a buff system, nobody calls its declarations buffs, and it
+  independently derived nearly every mechanism in this pedia — including two
+  that MOOLLM's buff skill does not have yet.
 
 # SCORED AGAINST THE DEFINITION
 # "a constraint — an expression that inherits from a parent then overrides,

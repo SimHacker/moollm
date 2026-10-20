@@ -2,104 +2,103 @@
 # Where meals and plans are made
 # A container for objects, not the objects themselves
 
-object:
-  name: Sturdy Oak Table
-  type: furniture
-  portable: false
+name: Sturdy Oak Table
+type: furniture
+portable: false
+
+description: |
+  A well-worn kitchen table, scarred by decades of Fantastipants
+  family meals. You can see the mark where young Bumblewick once
+  carved his initials (and was grounded for a week). You can see
+  the burn mark from the Great Porridge Incident of '03.
   
-  description: |
-    A well-worn kitchen table, scarred by decades of Fantastipants
-    family meals. You can see the mark where young Bumblewick once
-    carved his initials (and was grounded for a week). You can see
-    the burn mark from the Great Porridge Incident of '03.
-    
-    Mother has arranged several items here for your journey.
-    
-  examine: |
-    The table's surface is clear except for your adventure supplies:
-    
-    📜 **Mother's Note** — Waiting to be read (READ NOTE)
-    🥚 **TomTomagotchi** — Chirping hopefully (GET TOM)
-    📓 **Notebook** — Empty pages await (GET NOTEBOOK)
-    🍱 **Lunchbox** — Ready to raid the fridge (GET LUNCHBOX)
-    
-    The wood is warm to the touch. Many family memories live here.
-    
-  # WHAT'S ON THE TABLE (references to separate files)
+  Mother has arranged several items here for your journey.
   
-  contents:
-    - file: mothers-note.yml
-      can_take: true
-      
-    - file: tomtomagotchi.yml
-      can_take: true
-      
-    - file: notebook.yml
-      can_take: true
-      
-    - file: lunchbox.yml
-      can_take: true
-      
-  # TABLE ACTIONS (not item actions!)
+examine: |
+  The table's surface is clear except for your adventure supplies:
   
-  actions:
-    EXAMINE-TABLE:
-      description: "Look at what's on the table"
-      effect: "Lists all items with brief descriptions"
-      
-    SIT:
-      description: "Sit down at the table"
-      effect: |
-        You pull out a chair and sit. The familiar creak of the wood
-        is comforting. This is where you've eaten a thousand meals,
-        done homework, listened to Mother's stories.
-        
-        +1 nostalgia
-        "A moment of peace before the adventure."
-        
-    PUT-ON-TABLE:
-      description: "Place an item on the table"
-      usage: "PUT [item] ON TABLE"
-      effect: "Item moves from inventory to table.contents"
-      
-    TAKE-FROM-TABLE:
-      description: "Take an item from the table"
-      usage: "GET [item] / TAKE [item]"
-      effect: "Item moves from table to inventory"
-      
-  # TABLE ADVERTISEMENTS (what the table suggests)
+  📜 **Mother's Note** — Waiting to be read (READ NOTE)
+  🥚 **TomTomagotchi** — Chirping hopefully (GET TOM)
+  📓 **Notebook** — Empty pages await (GET NOTEBOOK)
+  🍱 **Lunchbox** — Ready to raid the fridge (GET LUNCHBOX)
   
-  advertisements:
-    - action: EXAMINE-TABLE
-      score: 5
-      description: "See what Mother left for you"
-      
-    - action: GET-ALL
-      score_if: "when ready to depart"
-      score: 8
-      description: "Grab all supplies at once"
-      
-  # DM NOTES
+  The wood is warm to the touch. Many family memories live here.
   
-  dm_notes: |
-    The table is a CONTAINER, not the items themselves.
+# WHAT'S ON THE TABLE (references to separate files)
+
+contents:
+  - file: mothers-note.yml
+    can_take: true
     
-    Each item has its own .yml file with its own actions:
-    - mothers-note.yml → READ, REPLY, SHOW, SMELL, KISS
-    - tomtomagotchi.yml → COMPASS, MAP, SNIFF, PET, ASK-TOM
-    - notebook.yml → OPEN, WRITE, READ-PAGE, BROWSE
-    - lunchbox.yml → OPEN, PUT-IN, TAKE-OUT, EAT
+  - file: tomtomagotchi.yml
+    can_take: true
     
-    The table just holds these objects until the player takes them.
-    When taken, items go to player.inventory and retain their actions.
+  - file: notebook.yml
+    can_take: true
     
-    Strongly suggest the player READ NOTE first, then REPLY!
+  - file: lunchbox.yml
+    can_take: true
     
-  # MEMORIES
+# TABLE ACTIONS (not item actions!)
+
+actions:
+  EXAMINE-TABLE:
+    description: "Look at what's on the table"
+    effect: "Lists all items with brief descriptions"
+    
+  SIT:
+    description: "Sit down at the table"
+    effect: |
+      You pull out a chair and sit. The familiar creak of the wood
+      is comforting. This is where you've eaten a thousand meals,
+      done homework, listened to Mother's stories.
+      
+      +1 nostalgia
+      "A moment of peace before the adventure."
+      
+  PUT-ON-TABLE:
+    description: "Place an item on the table"
+    usage: "PUT [item] ON TABLE"
+    effect: "Item moves from inventory to table.contents"
+    
+  TAKE-FROM-TABLE:
+    description: "Take an item from the table"
+    usage: "GET [item] / TAKE [item]"
+    effect: "Item moves from table to inventory"
+    
+# TABLE ADVERTISEMENTS (what the table suggests)
+
+advertisements:
+  - action: EXAMINE-TABLE
+    score: 5
+    description: "See what Mother left for you"
+    
+  - action: GET-ALL
+    score_if: "when ready to depart"
+    score: 8
+    description: "Grab all supplies at once"
+    
+# DM NOTES
+
+dm_notes: |
+  The table is a CONTAINER, not the items themselves.
   
-  memories:
-    - "The carved initials: 'BF' (age 7, grounded 1 week)"
-    - "Burn mark from the Great Porridge Incident"
-    - "Scratch from Father's 'rocket-powered toast launcher' experiment"
-    - "Ring stain from the Perpetual Tea Mug that grandfather enchanted"
-    - "Faint impression of Mother's handwriting from countless notes"
+  Each item has its own .yml file with its own actions:
+  - mothers-note.yml → READ, REPLY, SHOW, SMELL, KISS
+  - tomtomagotchi.yml → COMPASS, MAP, SNIFF, PET, ASK-TOM
+  - notebook.yml → OPEN, WRITE, READ-PAGE, BROWSE
+  - lunchbox.yml → OPEN, PUT-IN, TAKE-OUT, EAT
+  
+  The table just holds these objects until the player takes them.
+  When taken, items go to player.inventory and retain their actions.
+  
+  Strongly suggest the player READ NOTE first, then REPLY!
+  
+# MEMORIES
+
+memories:
+  - "The carved initials: 'BF' (age 7, grounded 1 week)"
+  - "Burn mark from the Great Porridge Incident"
+  - "Scratch from Father's 'rocket-powered toast launcher' experiment"
+  - "Ring stain from the Perpetual Tea Mug that grandfather enchanted"
+  - "Faint impression of Mother's handwriting from countless notes"

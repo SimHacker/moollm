@@ -1,20 +1,19 @@
 # 🔥 OVEN & RANGE
 # Hot pie menus, baked daily.
 
-object:
-  name: "Gas Oven & Range"
-  type: appliance
-  emoji: "🔥"
+name: "Gas Oven & Range"
+type: appliance
+emoji: "🔥"
+
+description: |
+  A clean gas oven with a covered 4-burner gas range and an exhaust fan.
   
-  description: |
-    A clean gas oven with a covered 4-burner gas range and an exhaust fan.
-    
-  features:
-    - "4-burner range"
-    - "Gas oven"
-    - "Exhaust fan"
-    
-  actions:
-    BAKE_PIE:
-      description: "Bake a fresh batch of pie menus."
-      effect: "The oven hums with UI innovation."
+features:
+  - "4-burner range"
+  - "Gas oven"
+  - "Exhaust fan"
+  
+actions:
+  BAKE_PIE:
+    description: "Bake a fresh batch of pie menus."
+    effect: "The oven hums with UI innovation."

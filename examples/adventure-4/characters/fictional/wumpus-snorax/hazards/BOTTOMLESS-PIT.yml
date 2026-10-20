@@ -73,34 +73,33 @@ ontology:
   origin: hunt_the_wumpus
   nature: environmental_hazard
 
-object:
-  name: The Bottomless Pit
-  id: bottomless-pit
-  type: hazard
+name: The Bottomless Pit
+id: bottomless-pit
+type: hazard
+
+tagline: "I feel a draft!"
+
+emoji_identity: "🕳️💨⬇️♾️💀"
+#   🕳️ — pit (the opening)
+#   💨 — draft (the warning)
+#   ⬇️ — falling (forever)
+#   ♾️ — bottomless (no end)
+#   💀 — death (inevitable)
+
+description: |
+  A hole in the floor that goes down... and down... and down.
   
-  tagline: "I feel a draft!"
+  No one knows how deep it is. No one has ever hit bottom.
+  Some say it goes to the center of the earth.
+  Some say it goes further.
+  Some say there IS no bottom — just falling, forever.
   
-  emoji_identity: "🕳️💨⬇️♾️💀"
-  #   🕳️ — pit (the opening)
-  #   💨 — draft (the warning)
-  #   ⬇️ — falling (forever)
-  #   ♾️ — bottomless (no end)
-  #   💀 — death (inevitable)
+  Cold air rises from the depths, creating a draft that 
+  can be felt in adjacent rooms. This is your only warning.
   
-  description: |
-    A hole in the floor that goes down... and down... and down.
+# Multiple pits exist as instances in room directories
+# See: room-c/pit.yml, room-g/pit.yml
     
-    No one knows how deep it is. No one has ever hit bottom.
-    Some say it goes to the center of the earth.
-    Some say it goes further.
-    Some say there IS no bottom — just falling, forever.
-    
-    Cold air rises from the depths, creating a draft that 
-    can be felt in adjacent rooms. This is your only warning.
-    
-  # Multiple pits exist as instances in room directories
-  # See: room-c/pit.yml, room-g/pit.yml
-      
 # WARNINGS
 
 warnings:

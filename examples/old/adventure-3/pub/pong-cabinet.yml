@@ -1,67 +1,66 @@
 # 🏓 PONG ARCADE CABINET
 # The game that started it all
 
-object:
-  name: Pong Arcade Cabinet
-  type: game
-  portable: false
+name: Pong Arcade Cabinet
+type: game
+portable: false
+
+description: |
+  The original. The ancestor. A Pong cabinet from 1972, still working
+  after all these years. Two paddles, one ball, infinite possibilities.
   
-  description: |
-    The original. The ancestor. A Pong cabinet from 1972, still working
-    after all these years. Two paddles, one ball, infinite possibilities.
-    
-    The screen flickers with that beautiful monochrome simplicity.
-    "AVOID MISSING BALL FOR HIGH SCORE"
-    
-  examine: |
-    The cabinet is battered but beloved. Cigarette burns from an era
-    when you could smoke in bars. Coffee rings. A generations of
-    quarter slots worn smooth.
-    
-    A brass plaque reads: "First arcade game installed at Andy Capp's
-    Tavern, Sunnyvale, CA, 1972. This unit: serial #0042."
-    
-    The original instructions are still legible:
-    "DEPOSIT QUARTER. BALL WILL SERVE AUTOMATICALLY.
-     AVOID MISSING BALL FOR HIGH SCORE."
-    
-  actions:
-    PLAY:
-      description: "Challenge someone to Pong"
-      cost: "1 gold for two players"
-      mechanics: |
-        Two-player only! Find an opponent:
-        - Challenge a patron
-        - Challenge the bartender (warning: Guinan-level skill)
-        - Play against the ghost in the machine
-        
-    PRACTICE:
-      description: "Play against the wall (solo mode)"
-      effect: "Build skill, meditative"
+  The screen flickers with that beautiful monochrome simplicity.
+  "AVOID MISSING BALL FOR HIGH SCORE"
+  
+examine: |
+  The cabinet is battered but beloved. Cigarette burns from an era
+  when you could smoke in bars. Coffee rings. A generations of
+  quarter slots worn smooth.
+  
+  A brass plaque reads: "First arcade game installed at Andy Capp's
+  Tavern, Sunnyvale, CA, 1972. This unit: serial #0042."
+  
+  The original instructions are still legible:
+  "DEPOSIT QUARTER. BALL WILL SERVE AUTOMATICALLY.
+   AVOID MISSING BALL FOR HIGH SCORE."
+  
+actions:
+  PLAY:
+    description: "Challenge someone to Pong"
+    cost: "1 gold for two players"
+    mechanics: |
+      Two-player only! Find an opponent:
+      - Challenge a patron
+      - Challenge the bartender (warning: Guinan-level skill)
+      - Play against the ghost in the machine
       
-    EXAMINE-HISTORY:
-      description: "Read about video game history"
-      reveals: |
-        Atari. Nolan Bushnell. Allan Alcorn.
-        The birth of an industry in a Sunnyvale bar.
-        
-  two_player:
-    required: true
-    note: |
-      Pong is a conversation. A negotiation.
-      The ball is the question. The paddles are the answers.
-      Every game tells a story.
+  PRACTICE:
+    description: "Play against the wall (solo mode)"
+    effect: "Build skill, meditative"
+    
+  EXAMINE-HISTORY:
+    description: "Read about video game history"
+    reveals: |
+      Atari. Nolan Bushnell. Allan Alcorn.
+      The birth of an industry in a Sunnyvale bar.
       
-  lore: |
-    The bartender claims this is THE original prototype.
-    The one that was so popular at Andy Capp's Tavern that
-    it broke from too many quarters.
+two_player:
+  required: true
+  note: |
+    Pong is a conversation. A negotiation.
+    The ball is the question. The paddles are the answers.
+    Every game tells a story.
     
-    Some nights, when only one player is at the cabinet,
-    the other paddle moves on its own.
-    
-  inspiration:
-    - "Pong (Atari, 1972) — Allan Alcorn, Nolan Bushnell"
-    - "First commercially successful video game"
-    - "Andy Capp's Tavern, Sunnyvale — where it all began"
-    - "The quarter that launched an industry"
+lore: |
+  The bartender claims this is THE original prototype.
+  The one that was so popular at Andy Capp's Tavern that
+  it broke from too many quarters.
+  
+  Some nights, when only one player is at the cabinet,
+  the other paddle moves on its own.
+  
+inspiration:
+  - "Pong (Atari, 1972) — Allan Alcorn, Nolan Bushnell"
+  - "First commercially successful video game"
+  - "Andy Capp's Tavern, Sunnyvale — where it all began"
+  - "The quarter that launched an industry"

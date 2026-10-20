@@ -1,83 +1,82 @@
 # PNEUMATIC HUB
 # Where all the tubes converge
 
-object:
-  id: pneumatic-hub
-  name: "Pneumatic Hub"
-  type: infrastructure
-  emoji: "🔧"
+id: pneumatic-hub
+name: "Pneumatic Hub"
+type: infrastructure
+emoji: "🔧"
+
+description: |
+  A gleaming brass junction where 8 pneumatic tubes converge.
+  Capsules arrive with a satisfying THWUMP, are scanned, routed,
+  and dispatched with a WHOOSH. The heart of internal logistics.
   
-  description: |
-    A gleaming brass junction where 8 pneumatic tubes converge.
-    Capsules arrive with a satisfying THWUMP, are scanned, routed,
-    and dispatched with a WHOOSH. The heart of internal logistics.
+examine: |
+  PNEUMATIC HUB — 8-WAY JUNCTION
+  
+  ┌─────────────────────────────────────────┐
+  │           PNEUMATIC HUB                 │
+  │                                         │
+  │        [1]     [2]     [3]             │
+  │         │       │       │              │
+  │    [8]──┴───────┴───────┴──[4]         │
+  │         │               │              │
+  │    [7]──┴───────────────┴──[5]         │
+  │                 │                       │
+  │               [6]                       │
+  │                                         │
+  │  1: Floor 1 (Intake)                   │
+  │  2: Floor 2 (Factory)                  │
+  │  3: Floor 3 (Shipping)                 │
+  │  4: Rooftop (Drones)                   │
+  │  5: Loading Docks                      │
+  │  6: Mail Room                          │
+  │  7: Storage                            │
+  │  8: Lobby                              │
+  └─────────────────────────────────────────┘
+  
+  STATUS:
+  • Capsules in transit: 847
+  • Average delivery time: 4.2 seconds
+  • Tube pressure: NOMINAL
+  • Queue depth: 3 capsules waiting
+  
+connections:
+  - tube: 1
+    to: ../floor-1/
+    label: "INTAKE"
+  - tube: 2
+    to: ../floor-2/
+    label: "PROCESSING"
+  - tube: 3
+    to: ../floor-3/
+    label: "SHIPPING"
+  - tube: 4
+    to: ../rooftop/
+    label: "DRONES"
+  - tube: 5
+    to: ../loading-docks/
+    label: "DOCKS"
+  - tube: 6
+    to: ../mail-room/
+    label: "MAIL"
+  - tube: 7
+    to: ../storage/
+    label: "STORAGE"
+  - tube: 8
+    to: ../lobby/
+    label: "LOBBY"
     
-  examine: |
-    PNEUMATIC HUB — 8-WAY JUNCTION
+methods:
+  SEND:
+    description: "Send a capsule"
+    parameters: [destination, contents]
+    effect: "Capsule dispatched with a WHOOSH"
     
-    ┌─────────────────────────────────────────┐
-    │           PNEUMATIC HUB                 │
-    │                                         │
-    │        [1]     [2]     [3]             │
-    │         │       │       │              │
-    │    [8]──┴───────┴───────┴──[4]         │
-    │         │               │              │
-    │    [7]──┴───────────────┴──[5]         │
-    │                 │                       │
-    │               [6]                       │
-    │                                         │
-    │  1: Floor 1 (Intake)                   │
-    │  2: Floor 2 (Factory)                  │
-    │  3: Floor 3 (Shipping)                 │
-    │  4: Rooftop (Drones)                   │
-    │  5: Loading Docks                      │
-    │  6: Mail Room                          │
-    │  7: Storage                            │
-    │  8: Lobby                              │
-    └─────────────────────────────────────────┘
+  RECEIVE:
+    description: "Check for incoming capsules"
+    effect: "Display any capsules waiting for pickup"
     
-    STATUS:
-    • Capsules in transit: 847
-    • Average delivery time: 4.2 seconds
-    • Tube pressure: NOMINAL
-    • Queue depth: 3 capsules waiting
-    
-  connections:
-    - tube: 1
-      to: ../floor-1/
-      label: "INTAKE"
-    - tube: 2
-      to: ../floor-2/
-      label: "PROCESSING"
-    - tube: 3
-      to: ../floor-3/
-      label: "SHIPPING"
-    - tube: 4
-      to: ../rooftop/
-      label: "DRONES"
-    - tube: 5
-      to: ../loading-docks/
-      label: "DOCKS"
-    - tube: 6
-      to: ../mail-room/
-      label: "MAIL"
-    - tube: 7
-      to: ../storage/
-      label: "STORAGE"
-    - tube: 8
-      to: ../lobby/
-      label: "LOBBY"
-      
-  methods:
-    SEND:
-      description: "Send a capsule"
-      parameters: [destination, contents]
-      effect: "Capsule dispatched with a WHOOSH"
-      
-    RECEIVE:
-      description: "Check for incoming capsules"
-      effect: "Display any capsules waiting for pickup"
-      
-    STATUS:
-      description: "Check hub status"
-      effect: "Shows tube pressure, queue, and transit count"
+  STATUS:
+    description: "Check hub status"
+    effect: "Shows tube pressure, queue, and transit count"

@@ -6,408 +6,407 @@
 #   - Your CHARACTER (base self, who you ARE)
 #   - Your PERSONA (mask, who you're PLAYING)
 
-object:
-  name: Full-Length Mind Mirror of Truth (and Fashion)
-  type: fixture
-  portable: false
+name: Full-Length Mind Mirror of Truth (and Fashion)
+type: fixture
+portable: false
+
+description: |
+  An ornate full-length mirror in a gilded frame carved with masks
+  of comedy and tragedy. The glass seems impossibly clear, showing
+  not just your reflection but somehow your ESSENCE.
   
-  description: |
-    An ornate full-length mirror in a gilded frame carved with masks
-    of comedy and tragedy. The glass seems impossibly clear, showing
-    not just your reflection but somehow your ESSENCE.
-    
-    A small plaque reads: "Mirror, mirror, on the stand / show the
-    hero, costume planned."
-    
-    Below it, in smaller letters: "Look deeper. See yourself.
-    Change yourself. Or try on someone else."
-    
-    This is both a costume mirror AND a Mind Mirror — it reflects
-    your appearance AND your personality profile.
-    
-    **It shows THREE layers:**
-    - Your **COSTUME** (what you're wearing)
-    - Your **CHARACTER** (who you ARE — base traits)
-    - Your **PERSONA** (who you're PLAYING — the mask's modifiers)
-    
-    Each can be viewed and edited separately. The result is the sum.
+  A small plaque reads: "Mirror, mirror, on the stand / show the
+  hero, costume planned."
   
-  # What the mirror reflects
-  reflects:
-    costume: player.costume_description
-    character: player.mind_mirror          # Base traits
-    persona: player.current_persona        # Overlay modifiers
-    combined: "character + persona = performed"
+  Below it, in smaller letters: "Look deeper. See yourself.
+  Change yourself. Or try on someone else."
   
-  inspiration:
-    timothy_leary: |
-      "Remember the title — it's a mirror. Now a best friend is your
-      mirror because your mirror doesn't say 'well you bad boy get a
-      haircut' or the mirror doesn't say 'hey turkey fix your tie' —
-      you have to decide that."
+  This is both a costume mirror AND a Mind Mirror — it reflects
+  your appearance AND your personality profile.
+  
+  **It shows THREE layers:**
+  - Your **COSTUME** (what you're wearing)
+  - Your **CHARACTER** (who you ARE — base traits)
+  - Your **PERSONA** (who you're PLAYING — the mask's modifiers)
+  
+  Each can be viewed and edited separately. The result is the sum.
+
+# What the mirror reflects
+reflects:
+  costume: player.costume_description
+  character: player.mind_mirror          # Base traits
+  persona: player.current_persona        # Overlay modifiers
+  combined: "character + persona = performed"
+
+inspiration:
+  timothy_leary: |
+    "Remember the title — it's a mirror. Now a best friend is your
+    mirror because your mirror doesn't say 'well you bad boy get a
+    haircut' or the mirror doesn't say 'hey turkey fix your tie' —
+    you have to decide that."
+    
+  the_sims: |
+    The Create-a-Sim personality editor. Slide bars to adjust traits.
+    But here, you just TALK to the mirror.
+    
+  what_leary_wanted: |
+    "It's basically a technique you take your own stereotypes of self
+    and see it on the screen and then you can massage that thought,
+    you can change it. How would I like to be? How was I when I was
+    a child? How would I be if I was a woman?"
+
+advertisements:
+
+  # COSTUME ACTIONS (preserved)
+  - action: LOOK
+    score: 80
+    description: "See your current appearance and personality"
+    result: |
+      You gaze into the mirror...
       
-    the_sims: |
-      The Create-a-Sim personality editor. Slide bars to adjust traits.
-      But here, you just TALK to the mirror.
+      [Shows: Current costume description + Mind Mirror profile summary.
+      The costume is your outer self. The profile is your inner self.
+      Both can be changed.]
       
-    what_leary_wanted: |
-      "It's basically a technique you take your own stereotypes of self
-      and see it on the screen and then you can massage that thought,
-      you can change it. How would I like to be? How was I when I was
-      a child? How would I be if I was a woman?"
+  - action: POSE
+    score: 60
+    score_if: "wearing_costume"
+    description: "Strike a dramatic pose"
+    result: |
+      You pose heroically. The mirror captures it perfectly.
+      Somewhere, a camera flash goes off. There is no camera.
+      
+      [IMAGE-GENERATION-RULE: Photo prompt includes Mind Mirror
+      profile snapshot as metadata for character coherence.]
+      
+  - action: MAKE-FACE
+    score: 50
+    description: "Make a face at your reflection"
+    result: |
+      You make a face. Your reflection makes the same face.
+      For a moment, you're not sure who started it.
 
-  advertisements:
+  # MIND MIRROR ACTIONS (new!)
+  # CHARACTER vs PERSONA VIEWING
   
-    # COSTUME ACTIONS (preserved)
-    - action: LOOK
-      score: 80
-      description: "See your current appearance and personality"
-      result: |
-        You gaze into the mirror...
-        
-        [Shows: Current costume description + Mind Mirror profile summary.
-        The costume is your outer self. The profile is your inner self.
-        Both can be changed.]
-        
-    - action: POSE
-      score: 60
-      score_if: "wearing_costume"
-      description: "Strike a dramatic pose"
-      result: |
-        You pose heroically. The mirror captures it perfectly.
-        Somewhere, a camera flash goes off. There is no camera.
-        
-        [IMAGE-GENERATION-RULE: Photo prompt includes Mind Mirror
-        profile snapshot as metadata for character coherence.]
-        
-    - action: MAKE-FACE
-      score: 50
-      description: "Make a face at your reflection"
-      result: |
-        You make a face. Your reflection makes the same face.
-        For a moment, you're not sure who started it.
+  - action: MIND-MIRROR
+    score: 90
+    description: "See your COMBINED psychological profile (character + persona)"
+    result: |
+      The mirror's surface ripples like water, then clears to reveal
+      not your costume but your MIND — four circular diagrams appear,
+      floating in the glass:
+      
+      **BIO-ENERGY** (Life force, vitality, temperament)
+      [Shows COMBINED bio_energy = base + persona modifiers]
+      
+      **EMOTIONAL INSIGHT** (Interpersonal style)
+      [Shows COMBINED emotional = base + persona modifiers]
+      
+      **MENTAL ABILITIES** (Knowledge, creativity)
+      [Shows COMBINED mental = base + persona modifiers]
+      
+      **SOCIAL INTERACTION** (Class, sophistication)
+      [Shows COMBINED social = base + persona modifiers]
+      
+      A voice whispers: "This is who you APPEAR to be. But what's beneath?"
+      
+  - action: SHOW-CHARACTER
+    score: 88
+    aliases: [MY-TRUE-SELF, BASE-SELF, REAL-ME]
+    description: "See your BASE character without persona overlay"
+    result: |
+      The mirror deepens, showing through the mask to your TRUE self...
+      
+      **YOUR CHARACTER** (who you ARE underneath)
+      [Shows character file's mind_mirror and sims_traits]
+      [No persona modifiers applied — just you]
+      
+      If wearing a persona:
+      "This is who you are when the mask comes off."
+      
+  - action: SHOW-PERSONA
+    score: 85
+    aliases: [MY-MASK, THE-ROLE, SHOW-ROLE]
+    description: "See JUST the persona's modifiers"
+    result: |
+      The mirror shows only the MASK — the persona overlay...
+      
+      **YOUR PERSONA** (the modifiers being applied)
+      [Shows persona file's trait modifiers: +2 confident, -1 cautious...]
+      [Shows speech patterns, granted skills, role backstory]
+      
+      If no persona worn:
+      "You wear no mask. What you see is what you are."
+      
+  - action: SHOW-BOTH
+    score: 87
+    aliases: [COMPARE-SELF, LAYERS]
+    description: "See character AND persona side by side"
+    result: |
+      The mirror splits into three panels:
+      
+      **LEFT: YOUR CHARACTER** (base traits)
+      [The real you]
+      
+      **CENTER: THE PERSONA** (modifiers)
+      [The mask's effects]
+      
+      **RIGHT: COMBINED** (what you perform)
+      [Base + modifiers = result]
+      
+      "The self, the mask, the performance."
+      
+  # CHARACTER vs PERSONA EDITING
+      
+  - action: EDIT-MIND
+    score: 85
+    description: "Adjust your COMBINED profile (edits CHARACTER by default)"
+    examples:
+      - "Make me more confident"
+      - "I want to be calmer under pressure"
+      - "Boost my creativity, reduce my caution"
+      - "Make me friendlier but keep my pride"
+      - "I want the personality of a pirate captain"
+    result: |
+      The mirror listens to your words...
+      
+      [LLM interprets the request and adjusts Mind Mirror dimensions.
+      By default, edits your CHARACTER (base traits).
+      Shows before/after comparison.]
+      
+      "So it shall be. Look again."
+      
+  - action: EDIT-CHARACTER
+    score: 84
+    aliases: [EDIT-TRUE-SELF, EDIT-BASE]
+    description: "Edit your BASE character traits (permanent)"
+    examples:
+      - "EDIT-CHARACTER make me more playful"
+      - "EDIT-CHARACTER I want to be less cautious"
+    result: |
+      The mirror focuses on your TRUE self, beneath any mask...
+      
+      [Edits the character file's mind_mirror and sims_traits.
+      These changes persist even when you change personas.
+      This is who you ARE becoming.]
+      
+      "Your true self shifts."
+      
+  - action: EDIT-PERSONA
+    score: 83
+    aliases: [EDIT-MASK, EDIT-ROLE]
+    description: "Edit the PERSONA's modifiers (the mask, not you)"
+    examples:
+      - "EDIT-PERSONA make the captain MORE forceful"
+      - "EDIT-PERSONA this role should be funnier"
+    result: |
+      The mirror focuses on the MASK you're wearing...
+      
+      [Edits the persona file's trait modifiers.
+      Affects anyone who wears this persona.
+      Changes the ROLE, not you.]
+      
+      If no persona worn:
+      "You wear no mask to edit."
+      
+      "The mask changes shape."
+      
+  - action: GENERATE-MIND
+    score: 80
+    description: "Generate a personality profile from description"
+    syntax: "GENERATE-MIND FOR [name or description]"
+    examples:
+      - "GENERATE-MIND FOR a confident space pirate"
+      - "GENERATE-MIND FOR a shy librarian with hidden depths"
+      - "GENERATE-MIND FOR someone like Sherlock Holmes"
+      - "GENERATE-MIND FOR my ideal self"
+      - "GENERATE-MIND FOR who I was as a child"
+    result: |
+      The mirror swirls with possibility...
+      
+      [LLM generates a complete Mind Mirror profile based on:
+      - Its knowledge of real people (K-lines, traditions)
+      - Fictional character archetypes
+      - Your description
+      - Pure creative generation]
+      
+      The profile appears. "Try it on? WEAR-MIND to become this."
+      
+  - action: WEAR-MIND
+    score: 75
+    description: "Adopt a generated or modified personality"
+    result: |
+      You step INTO the mirror — or does it step into you?
+      
+      [The Mind Mirror profile becomes your active profile.
+      Your old profile is stored in the notebook for safekeeping.
+      Like a costume, but for your soul.]
+      
+      You feel... different. The same, but different.
+      
+  - action: RANDOM-MIND
+    score: 70
+    description: "Generate a completely random personality"
+    result: |
+      The mirror spins, dimensions tumbling like dice...
+      
+      [Generates random ratings 0-7 for all 32 dimensions.
+      Some combinations are surprisingly coherent.
+      Some are beautifully contradictory.
+      All are playable.]
+      
+      "The universe has rolled your soul. Interesting."
+      
+  - action: COMPARE-MINDS
+    score: 65
+    description: "Compare two personality profiles side by side"
+    syntax: "COMPARE-MINDS [profile1] WITH [profile2]"
+    examples:
+      - "COMPARE-MINDS my current self WITH my ideal self"
+      - "COMPARE-MINDS me WITH the bartender"
+      - "COMPARE-MINDS my costume personality WITH my real personality"
+    result: |
+      Two profiles appear side by side in the mirror...
+      
+      [Shows dimensional differences, highlights largest gaps,
+      identifies complementary and conflicting traits.]
+      
+      "One could become the other. Or meet in the middle."
+      
+  - action: VOCABULARY-MODE
+    score: 50
+    description: "Toggle between Plain Talk and Shrink-Rap"
+    modes:
+      PLAIN-TALK: "Peppy, Laid-Back, Happy, Sad, Sweet, Grumpy..."
+      SHRINK-RAP: "Hyper-Manic, Low-Energy, Euphoric, Melancholic, Congenial, Hostile..."
+    result: |
+      The words on the mirror shift...
+      
+      [Toggles vocabulary mode. Some prefer accessible language.
+      Some prefer clinical precision. Leary gave us both.]
+      
+  - action: SELF-PORTRAIT
+    score: 60
+    description: "Compare your current self with your ideal self"
+    result: |
+      The mirror splits in two — left shows WHO YOU ARE,
+      right shows WHO YOU WANT TO BE.
+      
+      [Classic Mind Mirror exercise. Large gaps indicate
+      areas of growth. Or acceptance. Your choice.]
+      
+      "The distance between these is your journey."
+      
+  - action: ROLE-PLAY-ODYSSEY
+    score: 55
+    description: "Test a personality in a life scenario"
+    result: |
+      The mirror shows a scene from life — 3,200 scenarios
+      await, from birth to transcendence.
+      
+      [Leary's original software had life simulations.
+      How would THIS personality handle THIS situation?
+      Test empathy. Test compatibility. Test limits.]
+      
+  - action: SAVE-MIND
+    score: 45
+    description: "Save current personality as a card in notebook"
+    result: |
+      The mirror shimmers, and a card emerges from its surface...
+      
+      [Creates a personality card with the current Mind Mirror
+      profile. Can be stored in notebook, traded, given to NPCs,
+      or worn again later. Costumes for the soul.]
+      
+  - action: RESTORE-MIND
+    score: 40
+    description: "Restore original personality"
+    result: |
+      The mirror clears, showing your TRUE self — the one you
+      started with, before all the costumes and modifications.
+      
+      [Restores original Mind Mirror profile. The costumes
+      were fun, but sometimes you need to come home.]
+      
+      "Welcome back."
 
-    # MIND MIRROR ACTIONS (new!)
-    # CHARACTER vs PERSONA VIEWING
-    
-    - action: MIND-MIRROR
-      score: 90
-      description: "See your COMBINED psychological profile (character + persona)"
-      result: |
-        The mirror's surface ripples like water, then clears to reveal
-        not your costume but your MIND — four circular diagrams appear,
-        floating in the glass:
-        
-        **BIO-ENERGY** (Life force, vitality, temperament)
-        [Shows COMBINED bio_energy = base + persona modifiers]
-        
-        **EMOTIONAL INSIGHT** (Interpersonal style)
-        [Shows COMBINED emotional = base + persona modifiers]
-        
-        **MENTAL ABILITIES** (Knowledge, creativity)
-        [Shows COMBINED mental = base + persona modifiers]
-        
-        **SOCIAL INTERACTION** (Class, sophistication)
-        [Shows COMBINED social = base + persona modifiers]
-        
-        A voice whispers: "This is who you APPEAR to be. But what's beneath?"
-        
-    - action: SHOW-CHARACTER
-      score: 88
-      aliases: [MY-TRUE-SELF, BASE-SELF, REAL-ME]
-      description: "See your BASE character without persona overlay"
-      result: |
-        The mirror deepens, showing through the mask to your TRUE self...
-        
-        **YOUR CHARACTER** (who you ARE underneath)
-        [Shows character file's mind_mirror and sims_traits]
-        [No persona modifiers applied — just you]
-        
-        If wearing a persona:
-        "This is who you are when the mask comes off."
-        
-    - action: SHOW-PERSONA
-      score: 85
-      aliases: [MY-MASK, THE-ROLE, SHOW-ROLE]
-      description: "See JUST the persona's modifiers"
-      result: |
-        The mirror shows only the MASK — the persona overlay...
-        
-        **YOUR PERSONA** (the modifiers being applied)
-        [Shows persona file's trait modifiers: +2 confident, -1 cautious...]
-        [Shows speech patterns, granted skills, role backstory]
-        
-        If no persona worn:
-        "You wear no mask. What you see is what you are."
-        
-    - action: SHOW-BOTH
-      score: 87
-      aliases: [COMPARE-SELF, LAYERS]
-      description: "See character AND persona side by side"
-      result: |
-        The mirror splits into three panels:
-        
-        **LEFT: YOUR CHARACTER** (base traits)
-        [The real you]
-        
-        **CENTER: THE PERSONA** (modifiers)
-        [The mask's effects]
-        
-        **RIGHT: COMBINED** (what you perform)
-        [Base + modifiers = result]
-        
-        "The self, the mask, the performance."
-        
-    # CHARACTER vs PERSONA EDITING
-        
-    - action: EDIT-MIND
-      score: 85
-      description: "Adjust your COMBINED profile (edits CHARACTER by default)"
-      examples:
-        - "Make me more confident"
-        - "I want to be calmer under pressure"
-        - "Boost my creativity, reduce my caution"
-        - "Make me friendlier but keep my pride"
-        - "I want the personality of a pirate captain"
-      result: |
-        The mirror listens to your words...
-        
-        [LLM interprets the request and adjusts Mind Mirror dimensions.
-        By default, edits your CHARACTER (base traits).
-        Shows before/after comparison.]
-        
-        "So it shall be. Look again."
-        
-    - action: EDIT-CHARACTER
-      score: 84
-      aliases: [EDIT-TRUE-SELF, EDIT-BASE]
-      description: "Edit your BASE character traits (permanent)"
-      examples:
-        - "EDIT-CHARACTER make me more playful"
-        - "EDIT-CHARACTER I want to be less cautious"
-      result: |
-        The mirror focuses on your TRUE self, beneath any mask...
-        
-        [Edits the character file's mind_mirror and sims_traits.
-        These changes persist even when you change personas.
-        This is who you ARE becoming.]
-        
-        "Your true self shifts."
-        
-    - action: EDIT-PERSONA
-      score: 83
-      aliases: [EDIT-MASK, EDIT-ROLE]
-      description: "Edit the PERSONA's modifiers (the mask, not you)"
-      examples:
-        - "EDIT-PERSONA make the captain MORE forceful"
-        - "EDIT-PERSONA this role should be funnier"
-      result: |
-        The mirror focuses on the MASK you're wearing...
-        
-        [Edits the persona file's trait modifiers.
-        Affects anyone who wears this persona.
-        Changes the ROLE, not you.]
-        
-        If no persona worn:
-        "You wear no mask to edit."
-        
-        "The mask changes shape."
-        
-    - action: GENERATE-MIND
-      score: 80
-      description: "Generate a personality profile from description"
-      syntax: "GENERATE-MIND FOR [name or description]"
-      examples:
-        - "GENERATE-MIND FOR a confident space pirate"
-        - "GENERATE-MIND FOR a shy librarian with hidden depths"
-        - "GENERATE-MIND FOR someone like Sherlock Holmes"
-        - "GENERATE-MIND FOR my ideal self"
-        - "GENERATE-MIND FOR who I was as a child"
-      result: |
-        The mirror swirls with possibility...
-        
-        [LLM generates a complete Mind Mirror profile based on:
-        - Its knowledge of real people (K-lines, traditions)
-        - Fictional character archetypes
-        - Your description
-        - Pure creative generation]
-        
-        The profile appears. "Try it on? WEAR-MIND to become this."
-        
-    - action: WEAR-MIND
-      score: 75
-      description: "Adopt a generated or modified personality"
-      result: |
-        You step INTO the mirror — or does it step into you?
-        
-        [The Mind Mirror profile becomes your active profile.
-        Your old profile is stored in the notebook for safekeeping.
-        Like a costume, but for your soul.]
-        
-        You feel... different. The same, but different.
-        
-    - action: RANDOM-MIND
-      score: 70
-      description: "Generate a completely random personality"
-      result: |
-        The mirror spins, dimensions tumbling like dice...
-        
-        [Generates random ratings 0-7 for all 32 dimensions.
-        Some combinations are surprisingly coherent.
-        Some are beautifully contradictory.
-        All are playable.]
-        
-        "The universe has rolled your soul. Interesting."
-        
-    - action: COMPARE-MINDS
-      score: 65
-      description: "Compare two personality profiles side by side"
-      syntax: "COMPARE-MINDS [profile1] WITH [profile2]"
-      examples:
-        - "COMPARE-MINDS my current self WITH my ideal self"
-        - "COMPARE-MINDS me WITH the bartender"
-        - "COMPARE-MINDS my costume personality WITH my real personality"
-      result: |
-        Two profiles appear side by side in the mirror...
-        
-        [Shows dimensional differences, highlights largest gaps,
-        identifies complementary and conflicting traits.]
-        
-        "One could become the other. Or meet in the middle."
-        
-    - action: VOCABULARY-MODE
-      score: 50
-      description: "Toggle between Plain Talk and Shrink-Rap"
-      modes:
-        PLAIN-TALK: "Peppy, Laid-Back, Happy, Sad, Sweet, Grumpy..."
-        SHRINK-RAP: "Hyper-Manic, Low-Energy, Euphoric, Melancholic, Congenial, Hostile..."
-      result: |
-        The words on the mirror shift...
-        
-        [Toggles vocabulary mode. Some prefer accessible language.
-        Some prefer clinical precision. Leary gave us both.]
-        
-    - action: SELF-PORTRAIT
-      score: 60
-      description: "Compare your current self with your ideal self"
-      result: |
-        The mirror splits in two — left shows WHO YOU ARE,
-        right shows WHO YOU WANT TO BE.
-        
-        [Classic Mind Mirror exercise. Large gaps indicate
-        areas of growth. Or acceptance. Your choice.]
-        
-        "The distance between these is your journey."
-        
-    - action: ROLE-PLAY-ODYSSEY
-      score: 55
-      description: "Test a personality in a life scenario"
-      result: |
-        The mirror shows a scene from life — 3,200 scenarios
-        await, from birth to transcendence.
-        
-        [Leary's original software had life simulations.
-        How would THIS personality handle THIS situation?
-        Test empathy. Test compatibility. Test limits.]
-        
-    - action: SAVE-MIND
-      score: 45
-      description: "Save current personality as a card in notebook"
-      result: |
-        The mirror shimmers, and a card emerges from its surface...
-        
-        [Creates a personality card with the current Mind Mirror
-        profile. Can be stored in notebook, traded, given to NPCs,
-        or worn again later. Costumes for the soul.]
-        
-    - action: RESTORE-MIND
-      score: 40
-      description: "Restore original personality"
-      result: |
-        The mirror clears, showing your TRUE self — the one you
-        started with, before all the costumes and modifications.
-        
-        [Restores original Mind Mirror profile. The costumes
-        were fun, but sometimes you need to come home.]
-        
-        "Welcome back."
+# HOW THE LLM GENERATES PROFILES
+generation_guide: |
+  When generating Mind Mirror profiles, the LLM:
+  
+  1. FOR REAL PEOPLE (via K-lines):
+     - Draws on documented personality traits
+     - Uses published interviews, biographies
+     - Activates TRADITION, not persona
+     - Example: "Einstein" → high innovative, well-informed, 
+       impractical, unconventional
+       
+  2. FOR FICTIONAL CHARACTERS:
+     - Analyzes their canonical behavior
+     - Maps actions to dimensions
+     - Example: "Sherlock Holmes" → high well-informed, 
+       innovative, proud, irritable, uninhibited
+       
+  3. FOR DESCRIPTIONS:
+     - Interprets adjectives into dimensions
+     - "Confident" → high confident (duh)
+     - "Shy but secretly ambitious" → high timid + high restless
+     
+  4. FOR RANDOM:
+     - Truly random 0-7 for each dimension
+     - Often produces interesting emergent personalities
+     
+  5. FOR "MY IDEAL SELF":
+     - Starts from current profile
+     - Asks what you'd change
+     - Iteratively refines
+     
+  The goal: SIMPLE NATURAL LANGUAGE → STRUCTURED PROFILE
+  
+  "Make me braver" → confident +2, timid -2, cautious -1
+  
+  No sliders. No forms. Just talk to the mirror.
 
-  # HOW THE LLM GENERATES PROFILES
-  generation_guide: |
-    When generating Mind Mirror profiles, the LLM:
-    
-    1. FOR REAL PEOPLE (via K-lines):
-       - Draws on documented personality traits
-       - Uses published interviews, biographies
-       - Activates TRADITION, not persona
-       - Example: "Einstein" → high innovative, well-informed, 
-         impractical, unconventional
-         
-    2. FOR FICTIONAL CHARACTERS:
-       - Analyzes their canonical behavior
-       - Maps actions to dimensions
-       - Example: "Sherlock Holmes" → high well-informed, 
-         innovative, proud, irritable, uninhibited
-         
-    3. FOR DESCRIPTIONS:
-       - Interprets adjectives into dimensions
-       - "Confident" → high confident (duh)
-       - "Shy but secretly ambitious" → high timid + high restless
-       
-    4. FOR RANDOM:
-       - Truly random 0-7 for each dimension
-       - Often produces interesting emergent personalities
-       
-    5. FOR "MY IDEAL SELF":
-       - Starts from current profile
-       - Asks what you'd change
-       - Iteratively refines
-       
-    The goal: SIMPLE NATURAL LANGUAGE → STRUCTURED PROFILE
-    
-    "Make me braver" → confident +2, timid -2, cautious -1
-    
-    No sliders. No forms. Just talk to the mirror.
+# EFFECTS ON GAMEPLAY
+gameplay_effects: |
+  Mind Mirror profiles affect:
+  
+  1. DIALOGUE STYLE
+     - High confident → never apologizes unnecessarily
+     - High creative → unusual metaphors
+     - High irritable → snappy responses
+     
+  2. NPC REACTIONS
+     - NPCs respond to your interpersonal style
+     - Dominating player → submissive NPC responses
+     - Friendly player → friendly NPC responses
+     
+  3. DECISION TENDENCIES
+     - High cautious → asks for more information
+     - High impulsive → acts first
+     - High practical → seeks efficient solutions
+     
+  4. STRESS RESPONSES
+     - Under threat, personality shows its edges
+     - Calm stays calm. Restless gets more restless.
+     
+  5. ADVERTISEMENTS SCORING
+     - Actions that match personality score higher
+     - High creative → exploration actions score up
+     - High sensible → safe actions score up
 
-  # EFFECTS ON GAMEPLAY
-  gameplay_effects: |
-    Mind Mirror profiles affect:
-    
-    1. DIALOGUE STYLE
-       - High confident → never apologizes unnecessarily
-       - High creative → unusual metaphors
-       - High irritable → snappy responses
-       
-    2. NPC REACTIONS
-       - NPCs respond to your interpersonal style
-       - Dominating player → submissive NPC responses
-       - Friendly player → friendly NPC responses
-       
-    3. DECISION TENDENCIES
-       - High cautious → asks for more information
-       - High impulsive → acts first
-       - High practical → seeks efficient solutions
-       
-    4. STRESS RESPONSES
-       - Under threat, personality shows its edges
-       - Calm stays calm. Restless gets more restless.
-       
-    5. ADVERTISEMENTS SCORING
-       - Actions that match personality score higher
-       - High creative → exploration actions score up
-       - High sensible → safe actions score up
-
-  lineage:
-    - "Timothy Leary's Mind Mirror (1985)"
-    - "The Sims Create-a-Sim personality sliders"
-    - "Snow White's magic mirror"
-    - "The Mirror of Erised (what you desire)"
-    - "Black Mirror (what you fear)"
-    - "Dorian Gray's portrait (what you become)"
-    
-  leary_wisdom: |
-    "How would I like to be? How was I when I was a child?
-    How would I be if I was a woman? You get the picture —
-    suddenly you're freed from this heavy concept of self."
-    
-    The mirror doesn't judge. YOU decide what to change.
+lineage:
+  - "Timothy Leary's Mind Mirror (1985)"
+  - "The Sims Create-a-Sim personality sliders"
+  - "Snow White's magic mirror"
+  - "The Mirror of Erised (what you desire)"
+  - "Black Mirror (what you fear)"
+  - "Dorian Gray's portrait (what you become)"
+  
+leary_wisdom: |
+  "How would I like to be? How was I when I was a child?
+  How would I be if I was a woman? You get the picture —
+  suddenly you're freed from this heavy concept of self."
+  
+  The mirror doesn't judge. YOU decide what to change.

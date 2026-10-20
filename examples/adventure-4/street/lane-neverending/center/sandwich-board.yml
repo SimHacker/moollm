@@ -1,41 +1,40 @@
 # The pub's sandwich board on the street
 
-object:
-  name: Sandwich Board
-  type: sign
-  portable: false
-  side: south
-  belongs_to: "The Gezelligheid Grotto"
+name: Sandwich Board
+type: sign
+portable: false
+side: south
+belongs_to: "The Gezelligheid Grotto"
+
+location: "Sidewalk in front of The Gezelligheid Grotto, 7 Lane Neverending"
+
+description: |
+  A wooden A-frame sign on the south-side sidewalk in front of the pub.
+  Hand-chalked with today's offerings.
   
-  location: "Sidewalk in front of The Gezelligheid Grotto, 7 Lane Neverending"
+examine: |
+  ╔═══════════════════════════════╗
+  ║   THE GEZELLIGHEID GROTTO           ║
+  ║   7 Lane Neverending          ║
+  ╠═══════════════════════════════╣
+  ║                               ║
+  ║   TODAY'S SPECIALS:           ║
+  ║                               ║
+  ║   🍺 Ale ............ 1 gold  ║
+  ║   🥧 Mystery Pie .... 3 gold  ║
+  ║   📖 A Good Story ... FREE    ║
+  ║                               ║
+  ║   ─────────────────────────   ║
+  ║                               ║
+  ║   "COME FOR THE ALE,          ║
+  ║    STAY FOR THE TALES"        ║
+  ║                               ║
+  ║   Open: Always                ║
+  ║   Closed: Never               ║
+  ║                               ║
+  ╚═══════════════════════════════╝
   
-  description: |
-    A wooden A-frame sign on the south-side sidewalk in front of the pub.
-    Hand-chalked with today's offerings.
-    
-  examine: |
-    ╔═══════════════════════════════╗
-    ║   THE GEZELLIGHEID GROTTO           ║
-    ║   7 Lane Neverending          ║
-    ╠═══════════════════════════════╣
-    ║                               ║
-    ║   TODAY'S SPECIALS:           ║
-    ║                               ║
-    ║   🍺 Ale ............ 1 gold  ║
-    ║   🥧 Mystery Pie .... 3 gold  ║
-    ║   📖 A Good Story ... FREE    ║
-    ║                               ║
-    ║   ─────────────────────────   ║
-    ║                               ║
-    ║   "COME FOR THE ALE,          ║
-    ║    STAY FOR THE TALES"        ║
-    ║                               ║
-    ║   Open: Always                ║
-    ║   Closed: Never               ║
-    ║                               ║
-    ╚═══════════════════════════════╝
-    
-    At the bottom, in smaller chalk:
-    "Ask about the ROOMS UPSTAIRS"
-    "Ask about the MYSTERIOUS BACK DOOR"
-    "Don't ask about the CELLAR (seriously)"
+  At the bottom, in smaller chalk:
+  "Ask about the ROOMS UPSTAIRS"
+  "Ask about the MYSTERIOUS BACK DOOR"
+  "Don't ask about the CELLAR (seriously)"

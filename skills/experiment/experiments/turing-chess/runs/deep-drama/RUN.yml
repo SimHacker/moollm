@@ -1,115 +1,114 @@
 # Deep Drama Run Configuration
 # "The moves are fixed. The performance is ours."
 
-run:
-  id: deep-drama-001
-  name: "Deep Drama: The Final Game"
+id: deep-drama-001
+name: "Deep Drama: The Final Game"
+
+# GAME SOURCE
+game:
+  source: replay
+  file: "games/kasparov-deep-blue-1997-g6.yml"
   
-  # GAME SOURCE
-  game:
-    source: replay
-    file: "games/kasparov-deep-blue-1997-g6.yml"
+# CHARACTER ASSIGNMENTS
+characters:
+  
+  human:
+    character: "donna"
+    color: white
+    notes: |
+      Donna plays the human side.
+      She doesn't know she's doomed.
+      Her TREMENDOUS indignation will be legendary.
+      
+  robot:
+    character: "characters/AXIOM-7.yml"
+    color: black
+    notes: |
+      AXIOM-7 plays the machine.
+      Cold. Efficient. Unstoppable.
+      
+# AUDIENCE
+audience:
+  
+  lobotomized: true  # CRITICAL: No foreknowledge
+  
+  composition:
+    size: 30
     
-  # CHARACTER ASSIGNMENTS
-  characters:
+    members:
+      - id: klaus
+        role: "silent expert"
+        position: "front row, center"
+        reactions: "subtle nods, occasional raised eyebrow"
+        
+      - id: palm
+        role: "ancient observer"
+        position: "back corner, shadows"
+        reactions: "has seen this before, somehow"
+        
+      - id: bumblewick
+        role: "nervous spectator"
+        position: "middle row, aisle seat (for escape)"
+        reactions: "trembles during tension, covers eyes at check"
+        
+      - id: peewee
+        role: "chaos commentator"
+        position: "wandering"
+        reactions: "loudly predicts wrong outcomes, cheers randomly"
+        
+      - role: "chess expert #1"
+        position: "front row"
+        reactions: "gasps at brilliancies, shakes head at blunders"
+        
+      - role: "journalist"
+        position: "back, near exit"
+        reactions: "scribbles notes, photographs key moments"
+        
+      - role: "child"
+        position: "parent's lap"
+        reactions: "asks 'who's winning?' at worst moments"
+        
+      - role: "skeptic"
+        position: "arms crossed, back row"
+        reactions: "'machines can't think' ... gradually goes silent"
+        
+# NARRATOR
+narrator:
+  voice: "documentary"
+  character: "don"
+  style: |
+    Don narrates with philosophical gravitas.
+    Connects moves to larger themes.
+    Doesn't spoil, but foreshadows.
     
-    human:
-      character: "donna"
-      color: white
-      notes: |
-        Donna plays the human side.
-        She doesn't know she's doomed.
-        Her TREMENDOUS indignation will be legendary.
-        
-    robot:
-      character: "characters/AXIOM-7.yml"
-      color: black
-      notes: |
-        AXIOM-7 plays the machine.
-        Cold. Efficient. Unstoppable.
-        
-  # AUDIENCE
+# OUTPUT
+output:
+  narrative: "runs/deep-drama-001-narrative.md"
+  state: "runs/deep-drama-001-state.yml"
+  analysis: "runs/deep-drama-001-analysis.yml"
+  
+# OPTIONS
+options:
+  
+  pacing:
+    move-delay: "dramatic"  # Pause for effect between moves
+    think-time-shown: true  # Show how long each side "thinks"
+    
+  layers:
+    inner-monologue: true
+    body-language: true
+    audience-reactions: true
+    narrator-commentary: true
+    
+  drama:
+    tension-tracking: true
+    brilliancy-highlights: true
+    blunder-foreshadowing: false  # Don't spoil!
+    
   audience:
-    
-    lobotomized: true  # CRITICAL: No foreknowledge
-    
-    composition:
-      size: 30
-      
-      members:
-        - id: klaus
-          role: "silent expert"
-          position: "front row, center"
-          reactions: "subtle nods, occasional raised eyebrow"
-          
-        - id: palm
-          role: "ancient observer"
-          position: "back corner, shadows"
-          reactions: "has seen this before, somehow"
-          
-        - id: bumblewick
-          role: "nervous spectator"
-          position: "middle row, aisle seat (for escape)"
-          reactions: "trembles during tension, covers eyes at check"
-          
-        - id: peewee
-          role: "chaos commentator"
-          position: "wandering"
-          reactions: "loudly predicts wrong outcomes, cheers randomly"
-          
-        - role: "chess expert #1"
-          position: "front row"
-          reactions: "gasps at brilliancies, shakes head at blunders"
-          
-        - role: "journalist"
-          position: "back, near exit"
-          reactions: "scribbles notes, photographs key moments"
-          
-        - role: "child"
-          position: "parent's lap"
-          reactions: "asks 'who's winning?' at worst moments"
-          
-        - role: "skeptic"
-          position: "arms crossed, back row"
-          reactions: "'machines can't think' ... gradually goes silent"
-          
-  # NARRATOR
-  narrator:
-    voice: "documentary"
-    character: "don"
-    style: |
-      Don narrates with philosophical gravitas.
-      Connects moves to larger themes.
-      Doesn't spoil, but foreshadows.
-      
-  # OUTPUT
-  output:
-    narrative: "runs/deep-drama-001-narrative.md"
-    state: "runs/deep-drama-001-state.yml"
-    analysis: "runs/deep-drama-001-analysis.yml"
-    
-  # OPTIONS
-  options:
-    
-    pacing:
-      move-delay: "dramatic"  # Pause for effect between moves
-      think-time-shown: true  # Show how long each side "thinks"
-      
-    layers:
-      inner-monologue: true
-      body-language: true
-      audience-reactions: true
-      narrator-commentary: true
-      
-    drama:
-      tension-tracking: true
-      brilliancy-highlights: true
-      blunder-foreshadowing: false  # Don't spoil!
-      
-    audience:
-      collective-reactions: true
-      individual-spotlights: true
-      lobotomy-enforced: true  # NO SPOILERS
+    collective-reactions: true
+    individual-spotlights: true
+    lobotomy-enforced: true  # NO SPOILERS
 
 # EXPECTED DRAMATIC ARC
 

@@ -4,24 +4,23 @@
 #   own write-up (gameai.com, archived) plus secondary sources. Specific numbers
 #   and per-miracle behavior not checked.
 
-system:
-  id: black-and-white
-  name: "Black & White — continuous alignment, and a creature that learns"
-  vendor: "Lionhead Studios / Peter Molyneux, 2001. Creature AI led by Richard Evans."
-  family: conduct
-  vocabulary:
-    the_guard: "alignment (continuous good↔evil), computed from everything you have done"
-    the_readout: "your hand, your temple, your creature's body, the landscape — all of it"
-    the_second_guard: "the creature's learned opinions — a guard nobody authored"
-  why_it_matters: |
-    THE STRONGEST CONDUCT-GUARD CASE IN THIS PEDIA, and it beats Spore on two
-    axes at once: the guard is CONTINUOUS rather than bucketed into archetypes,
-    and its current value is RENDERED ON EVERY SURFACE IN THE GAME rather than
-    cashed out invisibly at a stage transition.
+id: black-and-white
+name: "Black & White — continuous alignment, and a creature that learns"
+vendor: "Lionhead Studios / Peter Molyneux, 2001. Creature AI led by Richard Evans."
+family: conduct
+vocabulary:
+  the_guard: "alignment (continuous good↔evil), computed from everything you have done"
+  the_readout: "your hand, your temple, your creature's body, the landscape — all of it"
+  the_second_guard: "the creature's learned opinions — a guard nobody authored"
+why_it_matters: |
+  THE STRONGEST CONDUCT-GUARD CASE IN THIS PEDIA, and it beats Spore on two
+  axes at once: the guard is CONTINUOUS rather than bucketed into archetypes,
+  and its current value is RENDERED ON EVERY SURFACE IN THE GAME rather than
+  cashed out invisibly at a stage transition.
 
-    Then it does something Spore does not attempt at all: a second guard that is
-    LEARNED rather than authored. That one is the real ancestor of the
-    LLM-judged soft guard in SELF-KORZ.md §4 — including its failure mode.
+  Then it does something Spore does not attempt at all: a second guard that is
+  LEARNED rather than authored. That one is the real ancestor of the
+  LLM-judged soft guard in SELF-KORZ.md §4 — including its failure mode.
 
 terms:
   bdi: "Belief-Desire-Intention — Michael Bratman's model of practical reasoning, standard in agent research. An agent forms an intention by combining what it believes, what it wants, and its views on how to get it."

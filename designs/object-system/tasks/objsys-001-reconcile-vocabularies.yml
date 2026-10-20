@@ -60,6 +60,13 @@ history:
   - at: 2026-10-20
     event: batch-done
     note: >
+      Envelopes: the rest, 393 files (object: and 15 smaller wrappers). Compiled adventure-4
+      loses nothing and gains 65 slots that sat beside the old envelopes. Flat objects
+      are recognized by id + name; envelope.body treats a file with a top-level name as
+      flat; CONTAINER.yml is not an object. Lint: 3 legacy spellings left.
+  - at: 2026-10-20
+    event: batch-done
+    note: >
       Lighting. 129 ROOM/GLANCE files to 0..10 + comment (tasks/migrations/lighting.py, each
       reparsed, only lighting values and dropped keys differ); grue_safe, requires_light,
       ambient_light gone from rooms; room-h, room-j, back-alley, no-ai-overlord by hand; the
@@ -111,8 +118,8 @@ phases:
       - { scope: "envelope character: in CHARACTER.yml", files: 60, status: done }
       - { scope: "characters stating species or tags twice (ontology vs own slot, values differ); compile shows ontology's", files: 22, status: opened }
       - { scope: "compiled catalog table is empty (0 catalogs) in adventure-4", files: 0, status: opened, note: "already 0 at f2af097f; belongs with adventure-001" }
-      - { scope: "envelope object: in object files", files: 349, status: opened }
-      - { scope: "small envelopes (catalog, system, adventure, mind, maze, run, ...)", files: 40, status: opened }
+      - { scope: "envelope object: in object files", files: 349, status: done }
+      - { scope: "small envelopes (catalog, system, adventure, mind, maze, run, ...)", files: 44, status: done }
       - { scope: "readers: drop data.get('room', data) fallbacks once no envelopes remain", files: 4, status: opened }
       - { scope: "skills/*/CHARACTER.yml meta.inherits + moollm/ prefix -> top-level inherits:", files: 8, status: done }
       - { scope: "prototype: {source, id} + inherits: {values} -> inherits: [FILE#*.id] and own slots", files: 8, status: done }

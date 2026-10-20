@@ -1,64 +1,63 @@
 # 👻 PAC-MAN ARCADE CABINET
 # Wakka wakka wakka
 
-object:
-  name: Pac-Man Arcade Cabinet
-  type: game
-  portable: false
+name: Pac-Man Arcade Cabinet
+type: game
+portable: false
+
+description: |
+  A classic Pac-Man arcade cabinet stands in the corner, its screen
+  glowing with that distinctive yellow maze. The joystick is worn
+  smooth from decades of frantic ghost-dodging.
   
-  description: |
-    A classic Pac-Man arcade cabinet stands in the corner, its screen
-    glowing with that distinctive yellow maze. The joystick is worn
-    smooth from decades of frantic ghost-dodging.
-    
-    Someone has taped a high score sheet to the side. The top score
-    is simply listed as "???" with an impossible number.
-    
-  examine: |
-    The cabinet hums with nostalgic 8-bit energy. The side art shows
-    Pac-Man being chased by Blinky, Pinky, Inky, and Clyde.
-    
-    A small plaque reads: "Donated by Toru Iwatani, 1980"
-    
-    Current high scores:
-    1. ???     - 3,333,360 (perfect game)
-    2. BRT     - 999,990
-    3. MOM     - 847,230
-    4. ACE     - 512,100
-    5. YOU     - ???
-    
-  actions:
-    PLAY:
-      description: "Insert coin and play Pac-Man"
-      cost: "1 gold (or free if bartender likes you)"
-      mechanics: |
-        DM narrates your game:
-        - How many ghosts you eat
-        - Close calls with Blinky
-        - Whether you get the fruit
-        - Your final score
-        
-    WATCH:
-      description: "Watch the attract mode or someone else play"
-      effect: "Learn patterns, socialize"
+  Someone has taped a high score sheet to the side. The top score
+  is simply listed as "???" with an impossible number.
+  
+examine: |
+  The cabinet hums with nostalgic 8-bit energy. The side art shows
+  Pac-Man being chased by Blinky, Pinky, Inky, and Clyde.
+  
+  A small plaque reads: "Donated by Toru Iwatani, 1980"
+  
+  Current high scores:
+  1. ???     - 3,333,360 (perfect game)
+  2. BRT     - 999,990
+  3. MOM     - 847,230
+  4. ACE     - 512,100
+  5. YOU     - ???
+  
+actions:
+  PLAY:
+    description: "Insert coin and play Pac-Man"
+    cost: "1 gold (or free if bartender likes you)"
+    mechanics: |
+      DM narrates your game:
+      - How many ghosts you eat
+      - Close calls with Blinky
+      - Whether you get the fruit
+      - Your final score
       
-    CHECK-HIGH-SCORES:
-      description: "Examine the high score board"
-      mystery: "Who is '???' with the perfect game?"
-      
-    CHALLENGE:
-      description: "Challenge a patron to beat your score"
-      stakes: "Drinks, gold, bragging rights"
-      
-  lore: |
-    They say the perfect game was achieved by a ghost.
-    Not Blinky, Pinky, Inky, or Clyde — a real ghost.
-    An adventurer who died in the maze but couldn't let go.
+  WATCH:
+    description: "Watch the attract mode or someone else play"
+    effect: "Learn patterns, socialize"
     
-    On quiet nights, you can hear the cabinet playing itself.
-    Wakka wakka wakka...
+  CHECK-HIGH-SCORES:
+    description: "Examine the high score board"
+    mystery: "Who is '???' with the perfect game?"
     
-  inspiration:
-    - "Pac-Man (Namco, 1980) — Toru Iwatani"
-    - "The perfect game: 3,333,360 points"
-    - "Every pizza parlor and arcade of the 80s"
+  CHALLENGE:
+    description: "Challenge a patron to beat your score"
+    stakes: "Drinks, gold, bragging rights"
+    
+lore: |
+  They say the perfect game was achieved by a ghost.
+  Not Blinky, Pinky, Inky, or Clyde — a real ghost.
+  An adventurer who died in the maze but couldn't let go.
+  
+  On quiet nights, you can hear the cabinet playing itself.
+  Wakka wakka wakka...
+  
+inspiration:
+  - "Pac-Man (Namco, 1980) — Toru Iwatani"
+  - "The perfect game: 3,333,360 points"
+  - "Every pizza parlor and arcade of the 80s"

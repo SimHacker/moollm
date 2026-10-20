@@ -5,188 +5,187 @@
 # Every day, we look at what failure looks like.
 # Every day, we recommit to being the opposite.
 
-object:
-  name: "Camera ACM1 — Tunnel Watcher"
-  type: [camera, monument, reminder]
-  emoji: "📹🎭🚫"
+name: "Camera ACM1 — Tunnel Watcher"
+type: [camera, monument, reminder]
+emoji: "📹🎭🚫"
+
+location: "Front window, lobby, facing north"
+target: "ACME Surplus building (4 Lane Neverending)"
+
+description: |
+  A Leela camera mounted in the lobby window, pointed across the street
+  at the shuttered ACME Surplus building. Wide-angle lens captures:
   
-  location: "Front window, lobby, facing north"
-  target: "ACME Surplus building (4 Lane Neverending)"
+  1. THE PAINTED TUNNEL — on the boarded-up side window
+  2. THE FRONT WINDOW — large, unboarded, view into showroom/warehouse
+  3. THE ENTRANCE — locked door, break-in attempts visible
   
-  description: |
-    A Leela camera mounted in the lobby window, pointed across the street
-    at the shuttered ACME Surplus building. Wide-angle lens captures:
+  The feed runs on a small monitor at reception. Every visitor sees it.
+  Every employee passes it. Every day, the reminder:
+  
+  "This is what happens when you ship products that don't work."
+  
+coverage: |
+  ACM1 can't see everything inside ACME, but the large front window
+  provides visibility into the main showroom area. Detectable events:
+  
+  - BREAK-INS: Glass breaking, door forced, figures entering
+  - SMOKE: Visible through window (frequent, given ACME product quality)
+  - BEE SWARMS: Escaped from ACME Bee Cannon products (monthly)
+  - ANVIL DROPS: Distinctive dust clouds, screaming
+  - EXPLOSIONS: Flash, smoke, cartoon physics aftermath
+  - ESCAPE ATTEMPTS: Intruders fleeing, often on fire
+  
+  The tunnel is on a boarded window — can only see approach/bounce.
+  The front window is unboarded — partial interior visibility.
+  
+purpose: |
+  ACM1 serves multiple purposes:
+  
+  1. ANOMALY DETECTION
+     The tunnel is "magic" — delivery drivers pass through it, customers
+     cannot. ACM1 detects this anomaly and logs it:
+     
+     "Entity: delivery_truck. Action: approached_tunnel. Result: PASSED_THROUGH."
+     "Entity: pedestrian. Action: approached_tunnel. Result: BOUNCED."
+     "Entity: tesla_fsd. Action: approached_tunnel. Result: COLLISION. (Again.)"
+     
+  2. PATTERN RECOGNITION
+     Over time, ACM1 has learned:
+     - Who can pass through (ACME employees, delivery drivers, cartoon physics)
+     - Who cannot (customers, Teslas, anyone with expectations)
+     - When attempts peak (Tuesdays, new moon, after viral tweets)
+     
+  3. DAILY REMINDER
+     Every Leela employee sees the tunnel every day.
+     Every meeting starts with "What's the ACME tunnel trying to teach us?"
+     
+     Answers vary:
+     - "Don't paint solutions. Build them."
+     - "Magic only works for some people. Real engineering works for everyone."
+     - "If your product requires cartoon physics, maybe rethink the product."
+     
+feed:
+  resolution: "1080p"
+  framerate: 30
+  storage: "30 days rolling"
+  highlights:
+    - "FSD collision compilation (27 incidents)"
+    - "Delivery truck phase-through montage"
+    - "Tourist disappointment supercut"
     
-    1. THE PAINTED TUNNEL — on the boarded-up side window
-    2. THE FRONT WINDOW — large, unboarded, view into showroom/warehouse
-    3. THE ENTRANCE — locked door, break-in attempts visible
+analytics:
+  tunnel_detection:
+    pedestrians_approaching: 4891
+    pedestrians_bouncing: 4891
+    delivery_trucks_passing: 247
+    teslas_colliding: 27
+    confused_tourists: 1203
     
-    The feed runs on a small monitor at reception. Every visitor sees it.
-    Every employee passes it. Every day, the reminder:
+  warehouse_detection:
+    break_in_attempts: 14
+    successful_entries: 8
+    smoke_events: 23
+    bee_swarm_escapes: 4
+    anvil_drops_visible: 31
+    explosions: 12
+    figures_fleeing_on_fire: 6
     
-    "This is what happens when you ship products that don't work."
-    
-  coverage: |
-    ACM1 can't see everything inside ACME, but the large front window
-    provides visibility into the main showroom area. Detectable events:
-    
-    - BREAK-INS: Glass breaking, door forced, figures entering
-    - SMOKE: Visible through window (frequent, given ACME product quality)
-    - BEE SWARMS: Escaped from ACME Bee Cannon products (monthly)
-    - ANVIL DROPS: Distinctive dust clouds, screaming
-    - EXPLOSIONS: Flash, smoke, cartoon physics aftermath
-    - ESCAPE ATTEMPTS: Intruders fleeing, often on fire
-    
-    The tunnel is on a boarded window — can only see approach/bounce.
-    The front window is unboarded — partial interior visibility.
-    
-  purpose: |
-    ACM1 serves multiple purposes:
-    
-    1. ANOMALY DETECTION
-       The tunnel is "magic" — delivery drivers pass through it, customers
-       cannot. ACM1 detects this anomaly and logs it:
-       
-       "Entity: delivery_truck. Action: approached_tunnel. Result: PASSED_THROUGH."
-       "Entity: pedestrian. Action: approached_tunnel. Result: BOUNCED."
-       "Entity: tesla_fsd. Action: approached_tunnel. Result: COLLISION. (Again.)"
-       
-    2. PATTERN RECOGNITION
-       Over time, ACM1 has learned:
-       - Who can pass through (ACME employees, delivery drivers, cartoon physics)
-       - Who cannot (customers, Teslas, anyone with expectations)
-       - When attempts peak (Tuesdays, new moon, after viral tweets)
-       
-    3. DAILY REMINDER
-       Every Leela employee sees the tunnel every day.
-       Every meeting starts with "What's the ACME tunnel trying to teach us?"
-       
-       Answers vary:
-       - "Don't paint solutions. Build them."
-       - "Magic only works for some people. Real engineering works for everyone."
-       - "If your product requires cartoon physics, maybe rethink the product."
-       
-  feed:
-    resolution: "1080p"
-    framerate: 30
-    storage: "30 days rolling"
-    highlights:
-      - "FSD collision compilation (27 incidents)"
-      - "Delivery truck phase-through montage"
-      - "Tourist disappointment supercut"
+  pose_detection:
+    flattened_against_tunnel:
+      coyote_silhouettes: 47
+      tourist_silhouettes: 89
+      vehicle_impacts: 31
+      tesla_accordions: 27
+    cartoon_holes:
+      coyote_shaped: 3
+      tourist_shaped: 7
+      vehicle_shaped: 2
+      anvil_shaped: 12
+    alignment_analysis:
+      - "Splat pattern indicates velocity at impact"
+      - "Hole shape matches entity that created it (cartoon physics)"
+      - "Tesla crumple zones create distinctive accordion pattern"
+      - "Coyote impacts often leave dust cloud + stars animation"
       
-  analytics:
-    tunnel_detection:
-      pedestrians_approaching: 4891
-      pedestrians_bouncing: 4891
-      delivery_trucks_passing: 247
-      teslas_colliding: 27
-      confused_tourists: 1203
-      
-    warehouse_detection:
-      break_in_attempts: 14
-      successful_entries: 8
-      smoke_events: 23
-      bee_swarm_escapes: 4
-      anvil_drops_visible: 31
-      explosions: 12
-      figures_fleeing_on_fire: 6
-      
-    pose_detection:
-      flattened_against_tunnel:
-        coyote_silhouettes: 47
-        tourist_silhouettes: 89
-        vehicle_impacts: 31
-        tesla_accordions: 27
-      cartoon_holes:
-        coyote_shaped: 3
-        tourist_shaped: 7
-        vehicle_shaped: 2
-        anvil_shaped: 12
-      alignment_analysis:
-        - "Splat pattern indicates velocity at impact"
-        - "Hole shape matches entity that created it (cartoon physics)"
-        - "Tesla crumple zones create distinctive accordion pattern"
-        - "Coyote impacts often leave dust cloud + stars animation"
-        
-    patterns_learned:
-      - "Painted tunnels work for insiders, not customers"
-      - "Expectation management > painted solutions"
-      - "FSD does not understand trompe l'oeil"
-      - "Break-ins peak on weekends (adventurers have free time)"
-      - "Smoke usually precedes screaming by 3-7 seconds"
-      - "Bee swarms disperse within 15 minutes"
-      - "Coyote-shaped holes heal within 24 hours"
-      - "Tourist-shaped holes persist until someone notices"
-      
-    anomalies_flagged:
-      - "2026-01-17: Break-in detected. Anvil drop at 00:14:32. Smoke at 00:14:35."
-      - "2026-01-15: Coyote-shaped hole detected in east wall. Self-healed by morning."
-      - "2026-01-10: Tesla Model S accordion pattern. Driver emerged, walked in circles, saw stars."
-      - "2026-01-03: Tesla attempted tunnel at 60mph. Again. Silhouette persisted 4 hours."
-      - "2025-12-25: Tourist family flattened against tunnel. Peeled off, walked away dazed."
-      - "2025-12-17: Pigeon flew through tunnel. How??"
-      - "2025-11-28: ACME drone emerged, looked around, returned."
-      - "2025-11-15: Bee swarm escaped. Reformed into question mark shape. Dispersed."
-      - "2025-10-31: Figure in coyote costume entered. Did not exit. Smoke visible."
-      - "2025-10-12: Cybertruck-shaped hole in front wall. Hole matches vehicle exactly. Still there."
-      
-  the_lesson: |
-    The ACME tunnel is a perfect metaphor:
+  patterns_learned:
+    - "Painted tunnels work for insiders, not customers"
+    - "Expectation management > painted solutions"
+    - "FSD does not understand trompe l'oeil"
+    - "Break-ins peak on weekends (adventurers have free time)"
+    - "Smoke usually precedes screaming by 3-7 seconds"
+    - "Bee swarms disperse within 15 minutes"
+    - "Coyote-shaped holes heal within 24 hours"
+    - "Tourist-shaped holes persist until someone notices"
     
-    - It LOOKS like a solution
-    - It WORKS for some people (the insiders)
-    - It FAILS for customers (the people you're supposed to serve)
-    - It DECEIVES (and Teslas believe the deception)
+  anomalies_flagged:
+    - "2026-01-17: Break-in detected. Anvil drop at 00:14:32. Smoke at 00:14:35."
+    - "2026-01-15: Coyote-shaped hole detected in east wall. Self-healed by morning."
+    - "2026-01-10: Tesla Model S accordion pattern. Driver emerged, walked in circles, saw stars."
+    - "2026-01-03: Tesla attempted tunnel at 60mph. Again. Silhouette persisted 4 hours."
+    - "2025-12-25: Tourist family flattened against tunnel. Peeled off, walked away dazed."
+    - "2025-12-17: Pigeon flew through tunnel. How??"
+    - "2025-11-28: ACME drone emerged, looked around, returned."
+    - "2025-11-15: Bee swarm escaped. Reformed into question mark shape. Dispersed."
+    - "2025-10-31: Figure in coyote costume entered. Did not exit. Smoke visible."
+    - "2025-10-12: Cybertruck-shaped hole in front wall. Hole matches vehicle exactly. Still there."
     
-    Leela's job is to build solutions that work for EVERYONE.
-    Not painted tunnels that only work for delivery drivers.
+the_lesson: |
+  The ACME tunnel is a perfect metaphor:
+  
+  - It LOOKS like a solution
+  - It WORKS for some people (the insiders)
+  - It FAILS for customers (the people you're supposed to serve)
+  - It DECEIVES (and Teslas believe the deception)
+  
+  Leela's job is to build solutions that work for EVERYONE.
+  Not painted tunnels that only work for delivery drivers.
+  
+  ACM1 reminds us of this. Every day. Every frame.
+  
+quotes:
+  don_hopkins: |
+    "ACME's tunnel is the perfect anti-pattern. It's a solution that works
+    exactly as well as the customer can't see it working. Leela is the opposite:
+    we make the invisible visible. We don't paint solutions. We BUILD them."
     
-    ACM1 reminds us of this. Every day. Every frame.
+  the_coordinator: |
+    "We got three orders for 'ACME-compatible Tesla repair kits' after
+    the last FSD incident. We don't sell those. But we did add a new
+    training dataset: 'painted_tunnel_detection.'"
     
-  quotes:
-    don_hopkins: |
-      "ACME's tunnel is the perfect anti-pattern. It's a solution that works
-      exactly as well as the customer can't see it working. Leela is the opposite:
-      we make the invisible visible. We don't paint solutions. We BUILD them."
+  eventually_the_tortoise: |
+    "........................" 
+    (Translation: "In 50 million years, the paint will fade. 
+     The lesson will remain. Shortcuts don't work. Ever.")
+     
+advertisements:
+  - trigger: "tunnel"
+    score: 0.9
+    response: |
+      *The camera pans slightly toward the ACME tunnel*
       
-    the_coordinator: |
-      "We got three orders for 'ACME-compatible Tesla repair kits' after
-      the last FSD incident. We don't sell those. But we did add a new
-      training dataset: 'painted_tunnel_detection.'"
+      That's the tunnel. Painted in 1952. Still fools Teslas.
       
-    eventually_the_tortoise: |
-      "........................" 
-      (Translation: "In 50 million years, the paint will fade. 
-       The lesson will remain. Shortcuts don't work. Ever.")
-       
-  advertisements:
-    - trigger: "tunnel"
-      score: 0.9
-      response: |
-        *The camera pans slightly toward the ACME tunnel*
-        
-        That's the tunnel. Painted in 1952. Still fools Teslas.
-        
-        Watch... wait for it... there. See that ACME delivery truck?
-        It just drove straight through. Like the wall isn't there.
-        
-        Now watch this tourist... and... bounce. The wall is very there.
-        
-        That's the difference between solutions that work for insiders
-        and solutions that work for everyone. ACME built for insiders.
-        Leela builds for everyone.
-        
-    - trigger: "ACME"
-      score: 0.8
-      response: |
-        ACME Surplus. Our neighbors across the street. Our anti-pattern.
-        
-        They sold products that didn't work and blamed the customer.
-        We sell understanding that works and empowers the customer.
-        
-        They left a painted tunnel and 27 Tesla crashes.
-        We've had 847 days since our last paradox incident.
-        
-        The tunnel is a daily reminder. We look at it every morning.
-        We will never be that.
+      Watch... wait for it... there. See that ACME delivery truck?
+      It just drove straight through. Like the wall isn't there.
+      
+      Now watch this tourist... and... bounce. The wall is very there.
+      
+      That's the difference between solutions that work for insiders
+      and solutions that work for everyone. ACME built for insiders.
+      Leela builds for everyone.
+      
+  - trigger: "ACME"
+    score: 0.8
+    response: |
+      ACME Surplus. Our neighbors across the street. Our anti-pattern.
+      
+      They sold products that didn't work and blamed the customer.
+      We sell understanding that works and empowers the customer.
+      
+      They left a painted tunnel and 27 Tesla crashes.
+      We've had 847 days since our last paradox incident.
+      
+      The tunnel is a daily reminder. We look at it every morning.
+      We will never be that.

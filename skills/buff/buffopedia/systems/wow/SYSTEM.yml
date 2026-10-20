@@ -3,20 +3,19 @@
 #   patch archaeology (see external_refs, checked 2026-09-01); the emulator DB
 #   schema is the accessible surface, not Blizzard's internal one.
 
-system:
-  id: wow
-  name: "World of Warcraft auras"
-  vendor: "Blizzard Entertainment"
-  family: aura
-  vocabulary:
-    the_buff: "aura (an applied spell effect); players say buff / debuff"
-    positive: "buff — right side of the frame"
-    negative: "debuff — separately tracked, separately dispellable by school"
-    spatial: "totem / aura / raid buff — applies to everyone in range or group"
-  why_it_matters: |
-    WoW is where the industry worked out what to do when two bindings want the
-    same slot, at a scale where being wrong cost raid guilds their progression.
-    Its answer is not layering. It is exclusion.
+id: wow
+name: "World of Warcraft auras"
+vendor: "Blizzard Entertainment"
+family: aura
+vocabulary:
+  the_buff: "aura (an applied spell effect); players say buff / debuff"
+  positive: "buff — right side of the frame"
+  negative: "debuff — separately tracked, separately dispellable by school"
+  spatial: "totem / aura / raid buff — applies to everyone in range or group"
+why_it_matters: |
+  WoW is where the industry worked out what to do when two bindings want the
+  same slot, at a scale where being wrong cost raid guilds their progression.
+  Its answer is not layering. It is exclusion.
 
 # THE FOUR AXES
 

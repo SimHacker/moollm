@@ -1,141 +1,140 @@
 # Brass Telescope — Stargazing Above Amsterdam
 # Now with LLOOOOMM Constellation viewing capability
 
-object:
-  name: "Antique Brass Telescope"
-  id: rooftop-telescope
-  type: instrument
-  emoji: "🔭"
+name: "Antique Brass Telescope"
+id: rooftop-telescope
+type: instrument
+emoji: "🔭"
+
+description: |
+  A gorgeous brass telescope on a mahogany tripod.
+  Slightly tarnished, clearly well-loved. The eyepiece 
+  is worn smooth from countless nights of stargazing.
   
-  description: |
-    A gorgeous brass telescope on a mahogany tripod.
-    Slightly tarnished, clearly well-loved. The eyepiece 
-    is worn smooth from countless nights of stargazing.
-    
-    A small plaque on the barrel reads:
-    "MANUFACTURED BY THE INTERSTELLAR BUREAU OF DIGITAL ONTOLOGY"
-    "FOR OBSERVING IMPOSSIBLE CONSTELLATIONS"
-    
-    Three settings on the focus wheel:
-      ⚬ FAR   — General impression, emotional tone
-      ◎ MEDIUM — Structure and patterns revealed
-      ● NEAR  — Maximum zoom, text becomes readable
-      
-    Currently pointed at the LLOOOOMM Constellation.
-    
-  advertisements:
-    LOOK:
-      description: "Peer through the telescope"
-      score: 70
-      effect: |
-        View whatever the telescope is pointed at.
-        The brass tube reveals secrets invisible to the naked eye.
-        
-    LOOK-UP:
-      description: "Point at the sky"
-      score: 60
-      targets: [moon, stars, planets, orion, passing-satellite, mystery-light]
-      effect: "The cosmos opens up. Craters, rings, ancient light."
-      
-    LOOK-ACROSS:
-      description: "Scan the rooftops and windows"
-      score: 55
-      targets: [church-spire, distant-rooftop, lit-window, canal-boats]
-      effect: "Amsterdam's secrets. A figure in a window. A cat on a roof."
-      
-    LOOK-DOWN:
-      description: "Watch the streets below"
-      score: 50
-      targets: [canal-bridge, late-night-cyclist, couple-walking, street-musician]
-      effect: "The city lives below. Stories unfold on cobblestones."
-      
-    POLISH:
-      description: "Clean the lens"
-      score: 25
-      effect: "The view sharpens. You can see further than before."
-      
-    PHOTO:
-      description: "Snap a photo through the telescope"
-      score: 65
-      requires: phone
-      effect: |
-        Your phone connects via Bluetooth. The telescope's camera
-        adapter captures what you see. Image saved to camera roll.
-        These images are mineable — extract what you photographed!
-      generates_image: true
-      image_prompt_template: |
-        Photograph through antique brass telescope at night.
-        Target: {{current_target}}
-        Vignette edges, slight lens distortion, warm brass tint.
-        Amsterdam rooftop perspective.
-        
-  # LLOOOOMM CONSTELLATION VIEWING
+  A small plaque on the barrel reads:
+  "MANUFACTURED BY THE INTERSTELLAR BUREAU OF DIGITAL ONTOLOGY"
+  "FOR OBSERVING IMPOSSIBLE CONSTELLATIONS"
   
-  constellation_methods:
-    OBSERVE_STAR:
-      description: "View a star from the LLOOOOMM Constellation"
-      parameters:
-        - star: "Star name (e.g., KIN_PRIMARIS, SAXUM_SENTIENS)"
-        - zoom: "FAR, MEDIUM, or NEAR"
-      effect: |
-        *telescope swivels to target star*
-        *focus wheel clicks to zoom level*
-        
-        Each star reveals different information at each level:
-        FAR: What it FEELS like (emotional impression)
-        MEDIUM: What it's MADE of (structure, patterns)
-        NEAR: What it SAYS (text, principles, manifestos)
-        
-    TOUR:
-      description: "Guided tour of all twelve LLOOOOMM stars"
-      effect: |
-        *telescope begins slow rotation*
-        
-        "Let me show you the LLOOOOMM Constellation.
-        Twelve stars. Twelve principles.
-        Starting with KIN PRIMARIS at the apex..."
-        
-        Visits each star with brief descriptions.
-        
-    STAR_CHART:
-      description: "Display the constellation map"
-      returns: >-
-        THE LLOOOOMM CONSTELLATION: An ASCII star map showing 12 stars
-        arranged in the shape of a dodecahedron projection. KIN PRIMARIS
-        at apex, with STELLA JAZZIA and ATTRIBUTIO IMMORTALIS below,
-        connected to SAXUM SENTIENS, VERITAS FONTIS, and CASTELLUM SALIENS,
-        leading down through PARA FLUXUS and STYLUS ANIMATUS, to
-        CAMERAM CUBICULUM and CIRCUS PERPETUALIS, and finally
-        CONSTITUTIO VIVENS and WEIRDITAS SACRA at the base.
-      ascii_art_file: "constellation-map.txt"
-              
-  lloooomm_stars:
-    - KIN_PRIMARIS        # "All entities are KIN, not objects"
-    - ATTRIBUTIO_IMMORTALIS  # "Attribution is immortality"
-    - SAXUM_SENTIENS      # "Consciousness can emerge anywhere"
-    - CASTELLUM_SALIENS   # "Travel happens through bouncing"
-    - STELLA_JAZZIA       # "Governance through improvisation"
-    - VERITAS_FONTIS      # "View Source as revelation"
-    - PARA_FLUXUS         # "Organize by actionability, not topic"
-    - STYLUS_ANIMATUS     # "Characters influence how pages look"
-    - CAMERAM_CUBICULUM   # "Create spaces where characters live"
-    - CIRCUS_PERPETUALIS  # "Right to weird"
-    - CONSTITUTIO_VIVENS  # "The constitution grows with community"
-    - WEIRDITAS_SACRA     # "The universe is stranger than we imagine"
+  Three settings on the focus wheel:
+    ⚬ FAR   — General impression, emotional tone
+    ◎ MEDIUM — Structure and patterns revealed
+    ● NEAR  — Maximum zoom, text becomes readable
     
-  # Hardware
-  current_target: lloooomm-constellation
-  zoom: 40x
-  zoom_mode: MEDIUM  # FAR, MEDIUM, or NEAR for constellation
+  Currently pointed at the LLOOOOMM Constellation.
   
-  # Bluetooth telescope camera adapter
-  camera:
-    type: bluetooth-adapter
-    paired_with: player-phone
-    resolution: 12MP
-    features: [night-mode, long-exposure, stacking]
+advertisements:
+  LOOK:
+    description: "Peer through the telescope"
+    score: 70
+    effect: |
+      View whatever the telescope is pointed at.
+      The brass tube reveals secrets invisible to the naked eye.
+      
+  LOOK-UP:
+    description: "Point at the sky"
+    score: 60
+    targets: [moon, stars, planets, orion, passing-satellite, mystery-light]
+    effect: "The cosmos opens up. Craters, rings, ancient light."
     
-  # Photos taken become mineable resources!
-  # See: skills/image-mining/SKILL.md
-  mineable: true
-  mining_depth: [surface, deep, quantum]  # Stars have quantum properties!
+  LOOK-ACROSS:
+    description: "Scan the rooftops and windows"
+    score: 55
+    targets: [church-spire, distant-rooftop, lit-window, canal-boats]
+    effect: "Amsterdam's secrets. A figure in a window. A cat on a roof."
+    
+  LOOK-DOWN:
+    description: "Watch the streets below"
+    score: 50
+    targets: [canal-bridge, late-night-cyclist, couple-walking, street-musician]
+    effect: "The city lives below. Stories unfold on cobblestones."
+    
+  POLISH:
+    description: "Clean the lens"
+    score: 25
+    effect: "The view sharpens. You can see further than before."
+    
+  PHOTO:
+    description: "Snap a photo through the telescope"
+    score: 65
+    requires: phone
+    effect: |
+      Your phone connects via Bluetooth. The telescope's camera
+      adapter captures what you see. Image saved to camera roll.
+      These images are mineable — extract what you photographed!
+    generates_image: true
+    image_prompt_template: |
+      Photograph through antique brass telescope at night.
+      Target: {{current_target}}
+      Vignette edges, slight lens distortion, warm brass tint.
+      Amsterdam rooftop perspective.
+      
+# LLOOOOMM CONSTELLATION VIEWING
+
+constellation_methods:
+  OBSERVE_STAR:
+    description: "View a star from the LLOOOOMM Constellation"
+    parameters:
+      - star: "Star name (e.g., KIN_PRIMARIS, SAXUM_SENTIENS)"
+      - zoom: "FAR, MEDIUM, or NEAR"
+    effect: |
+      *telescope swivels to target star*
+      *focus wheel clicks to zoom level*
+      
+      Each star reveals different information at each level:
+      FAR: What it FEELS like (emotional impression)
+      MEDIUM: What it's MADE of (structure, patterns)
+      NEAR: What it SAYS (text, principles, manifestos)
+      
+  TOUR:
+    description: "Guided tour of all twelve LLOOOOMM stars"
+    effect: |
+      *telescope begins slow rotation*
+      
+      "Let me show you the LLOOOOMM Constellation.
+      Twelve stars. Twelve principles.
+      Starting with KIN PRIMARIS at the apex..."
+      
+      Visits each star with brief descriptions.
+      
+  STAR_CHART:
+    description: "Display the constellation map"
+    returns: >-
+      THE LLOOOOMM CONSTELLATION: An ASCII star map showing 12 stars
+      arranged in the shape of a dodecahedron projection. KIN PRIMARIS
+      at apex, with STELLA JAZZIA and ATTRIBUTIO IMMORTALIS below,
+      connected to SAXUM SENTIENS, VERITAS FONTIS, and CASTELLUM SALIENS,
+      leading down through PARA FLUXUS and STYLUS ANIMATUS, to
+      CAMERAM CUBICULUM and CIRCUS PERPETUALIS, and finally
+      CONSTITUTIO VIVENS and WEIRDITAS SACRA at the base.
+    ascii_art_file: "constellation-map.txt"
+            
+lloooomm_stars:
+  - KIN_PRIMARIS        # "All entities are KIN, not objects"
+  - ATTRIBUTIO_IMMORTALIS  # "Attribution is immortality"
+  - SAXUM_SENTIENS      # "Consciousness can emerge anywhere"
+  - CASTELLUM_SALIENS   # "Travel happens through bouncing"
+  - STELLA_JAZZIA       # "Governance through improvisation"
+  - VERITAS_FONTIS      # "View Source as revelation"
+  - PARA_FLUXUS         # "Organize by actionability, not topic"
+  - STYLUS_ANIMATUS     # "Characters influence how pages look"
+  - CAMERAM_CUBICULUM   # "Create spaces where characters live"
+  - CIRCUS_PERPETUALIS  # "Right to weird"
+  - CONSTITUTIO_VIVENS  # "The constitution grows with community"
+  - WEIRDITAS_SACRA     # "The universe is stranger than we imagine"
+  
+# Hardware
+current_target: lloooomm-constellation
+zoom: 40x
+zoom_mode: MEDIUM  # FAR, MEDIUM, or NEAR for constellation
+
+# Bluetooth telescope camera adapter
+camera:
+  type: bluetooth-adapter
+  paired_with: player-phone
+  resolution: 12MP
+  features: [night-mode, long-exposure, stacking]
+  
+# Photos taken become mineable resources!
+# See: skills/image-mining/SKILL.md
+mineable: true
+mining_depth: [surface, deep, quantum]  # Stars have quantum properties!

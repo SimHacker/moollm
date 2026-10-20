@@ -1,146 +1,145 @@
 # 💀 The Skeleton
 # A cautionary tale slumped against the wall
 
-object:
-  name: The Skeleton
-  type: remains
-  portable: false  # Too macabre to carry around
+name: The Skeleton
+type: remains
+portable: false  # Too macabre to carry around
+
+description: |
+  A skeleton slumped against the wall. An adventurer who didn't make it.
   
-  description: |
-    A skeleton slumped against the wall. An adventurer who didn't make it.
-    
-    Their bony fingers still clutch a note. Their empty eye sockets stare
-    toward the west exit — toward the lamp vendor they never reached.
-    
-    The skeleton grins at you. Skeletons always grin. It's the lack of lips.
-    Still, this one seems particularly smug about something.
+  Their bony fingers still clutch a note. Their empty eye sockets stare
+  toward the west exit — toward the lamp vendor they never reached.
   
-  # What they carried when they died
-  inventory:
-    empty_lamp:
-      description: "An empty brass lamp, out of oil"
-      note: "They were SO CLOSE to room-j!"
+  The skeleton grins at you. Skeletons always grin. It's the lack of lips.
+  Still, this one seems particularly smug about something.
+
+# What they carried when they died
+inventory:
+  empty_lamp:
+    description: "An empty brass lamp, out of oil"
+    note: "They were SO CLOSE to room-j!"
+    
+  note:
+    description: "A note, partially eaten by something"
+    contents: |
+      "I should have brought more food to mark the rooms. 
+      I dropped the cheese in room B and the bread in room D 
+      but then I got confused and—"
+    note: "The writing ends abruptly."
+    
+  pocket_change:
+    amount: 3
+    type: gold
+    note: "Pocket change — the rest is in room-f!"
+
+# The tragic backstory
+backstory: |
+  This adventurer had over 100 gold! They were using coins as maze
+  markers (terrible strategy — they all look alike). 
+  
+  When their lamp died in the cold room (room-f), they dropped 
+  everything and ran. They almost made it to the vendor in room-j.
+  
+  Almost.
+  
+  Now they point west forever, a silent guide to those who come after.
+
+# The skeleton points west — toward salvation
+pointing: west
+pointing_toward: "../room-j/"
+pointing_meaning: "The lamp vendor. So close. So very close."
+
+advertisements:
+  - action: EXAMINE
+    score: 80
+    result: |
+      The skeleton slumps against the wall, one bony arm extended
+      toward the west passage. Their empty lamp lies beside them.
+      A partially-eaten note is clutched in their other hand.
       
-    note:
-      description: "A note, partially eaten by something"
-      contents: |
-        "I should have brought more food to mark the rooms. 
-        I dropped the cheese in room B and the bread in room D 
-        but then I got confused and—"
-      note: "The writing ends abruptly."
+  - action: READ-NOTE
+    score: 75
+    result: |
+      You gently pry the note from skeletal fingers:
       
-    pocket_change:
-      amount: 3
-      type: gold
-      note: "Pocket change — the rest is in room-f!"
+      "I should have brought more food to mark the rooms. 
+      I dropped the cheese in room B and the bread in room D 
+      but then I got confused and—"
+      
+      The writing ends mid-sentence. You can imagine the rest.
+      
+  - action: TAKE-LAMP
+    score: 60
+    result: |
+      You pick up the empty lamp. It's identical to yours, just... empty.
+      A sobering reminder of what happens when the light goes out.
+      
+      (You could refill it at the vendor in room-j, if you wanted
+      a backup lamp. Redundancy is underrated in grue territory.)
+      
+  - action: TAKE-GOLD
+    score: 50
+    result: |
+      You take the 3 gold pieces. The skeleton doesn't seem to mind.
+      They won't be needing them where they're going.
+      
+      player.gold += 3
+      
+  - action: PAY-RESPECTS
+    score: 70
+    result: |
+      You stand in respectful silence for a moment.
+      
+      "Rest well, fellow adventurer. Your sacrifice teaches us:
+      bring food, not coins. And check your lamp oil. Often."
+      
+      The skeleton grins. Was that a nod? Probably just your imagination.
+      
+  - action: GIVE
+    score: 40
+    description: "Leave something for the skeleton"
+    result: |
+      You place [item] beside the skeleton as a memorial.
+      The gesture feels right. Someone should remember them.
+      
+  - action: PROMISE
+    score: 65
+    description: "Make a promise to avenge them"
+    result: |
+      "I will avenge you," you say solemnly to the skeleton.
+      "The grue that did this will pay."
+      
+      The skeleton seems to approve. Or maybe that's just the grin.
+      
+      [NEW GOAL: Avenge the skeleton by slaying the grue in room-f]
+
+# Connection to other objects
+relates_to:
+  gold_pile: "../room-f/gold-pile.yml"
+  lamp_vendor: "../room-j/lamp-vendor.yml"
+  their_fate: "Lamp died in the cold room. Ran. Wrong turn. Here."
+
+# Environmental storytelling
+clues:
+  - "Points west toward salvation (the vendor)"
+  - "Empty lamp — oil ran out"
+  - "Only 3 gold — dropped the rest in room-f when fleeing"
+  - "Note mentions food strategy (the RIGHT strategy)"
+
+lineage:
+  tribute_to: "Every adventure game skeleton that teaches through failure"
+  lesson: "Bring food, not coins. Check your lamp. The cold drains faster."
   
-  # The tragic backstory
-  backstory: |
-    This adventurer had over 100 gold! They were using coins as maze
-    markers (terrible strategy — they all look alike). 
-    
-    When their lamp died in the cold room (room-f), they dropped 
-    everything and ran. They almost made it to the vendor in room-j.
-    
-    Almost.
-    
-    Now they point west forever, a silent guide to those who come after.
-  
-  # The skeleton points west — toward salvation
-  pointing: west
-  pointing_toward: "../room-j/"
-  pointing_meaning: "The lamp vendor. So close. So very close."
-  
-  advertisements:
-    - action: EXAMINE
-      score: 80
-      result: |
-        The skeleton slumps against the wall, one bony arm extended
-        toward the west passage. Their empty lamp lies beside them.
-        A partially-eaten note is clutched in their other hand.
-        
-    - action: READ-NOTE
-      score: 75
-      result: |
-        You gently pry the note from skeletal fingers:
-        
-        "I should have brought more food to mark the rooms. 
-        I dropped the cheese in room B and the bread in room D 
-        but then I got confused and—"
-        
-        The writing ends mid-sentence. You can imagine the rest.
-        
-    - action: TAKE-LAMP
-      score: 60
-      result: |
-        You pick up the empty lamp. It's identical to yours, just... empty.
-        A sobering reminder of what happens when the light goes out.
-        
-        (You could refill it at the vendor in room-j, if you wanted
-        a backup lamp. Redundancy is underrated in grue territory.)
-        
-    - action: TAKE-GOLD
-      score: 50
-      result: |
-        You take the 3 gold pieces. The skeleton doesn't seem to mind.
-        They won't be needing them where they're going.
-        
-        player.gold += 3
-        
-    - action: PAY-RESPECTS
-      score: 70
-      result: |
-        You stand in respectful silence for a moment.
-        
-        "Rest well, fellow adventurer. Your sacrifice teaches us:
-        bring food, not coins. And check your lamp oil. Often."
-        
-        The skeleton grins. Was that a nod? Probably just your imagination.
-        
-    - action: GIVE
-      score: 40
-      description: "Leave something for the skeleton"
-      result: |
-        You place [item] beside the skeleton as a memorial.
-        The gesture feels right. Someone should remember them.
-        
-    - action: PROMISE
-      score: 65
-      description: "Make a promise to avenge them"
-      result: |
-        "I will avenge you," you say solemnly to the skeleton.
-        "The grue that did this will pay."
-        
-        The skeleton seems to approve. Or maybe that's just the grin.
-        
-        [NEW GOAL: Avenge the skeleton by slaying the grue in room-f]
-  
-  # Connection to other objects
-  relates_to:
-    gold_pile: "../room-f/gold-pile.yml"
-    lamp_vendor: "../room-j/lamp-vendor.yml"
-    their_fate: "Lamp died in the cold room. Ran. Wrong turn. Here."
-  
-  # Environmental storytelling
-  clues:
-    - "Points west toward salvation (the vendor)"
-    - "Empty lamp — oil ran out"
-    - "Only 3 gold — dropped the rest in room-f when fleeing"
-    - "Note mentions food strategy (the RIGHT strategy)"
-  
-  lineage:
-    tribute_to: "Every adventure game skeleton that teaches through failure"
-    lesson: "Bring food, not coins. Check your lamp. The cold drains faster."
-    
-  # Can receive gifts, memorials
-  accepts:
-    - type: gift
-      response: "The skeleton receives your offering silently."
-    - type: memorial
-      response: "A fitting tribute to a fallen adventurer."
-    - type: grue_head
-      response: |
-        You place the grue's head before the skeleton.
-        "Your death is avenged, friend."
-        The skeleton's grin seems... satisfied? Peaceful?
-        [GOAL COMPLETE: Avenge the skeleton]
+# Can receive gifts, memorials
+accepts:
+  - type: gift
+    response: "The skeleton receives your offering silently."
+  - type: memorial
+    response: "A fitting tribute to a fallen adventurer."
+  - type: grue_head
+    response: |
+      You place the grue's head before the skeleton.
+      "Your death is avenged, friend."
+      The skeleton's grin seems... satisfied? Peaceful?
+      [GOAL COMPLETE: Avenge the skeleton]

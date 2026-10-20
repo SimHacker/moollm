@@ -1,76 +1,75 @@
 # PACKAGE STATION
 # Wrapping and shipping area
 
-object:
-  id: package-station
-  name: "Package Station"
-  type: workstation
-  emoji: "📦"
+id: package-station
+name: "Package Station"
+type: workstation
+emoji: "📦"
+
+description: |
+  Tables for wrapping, labeling, and staging outgoing packages.
+  Scales for calculating freight costs. Bubble wrap everywhere.
+  (Irresistibly poppable.)
   
-  description: |
-    Tables for wrapping, labeling, and staging outgoing packages.
-    Scales for calculating freight costs. Bubble wrap everywhere.
-    (Irresistibly poppable.)
+examine: |
+  PACKAGE STATION — SHIPPING PREP
+  
+  WORK TABLES:
+  Several large tables for package preparation.
+  Currently staged: 7 packages awaiting pickup
+  
+  SUPPLIES:
+  • Boxes (various sizes, Leela-branded)
+  • Tape dispensers (industrial and regular)
+  • Bubble wrap (the good kind, pop-pop-pop)
+  • Packing peanuts (biodegradable, taste like nothing)
+  • Labels (pre-printed and blank)
+  • Markers (for "FRAGILE" and "THIS SIDE UP")
+  
+  SCALES:
+  Two precision scales for weighing:
+  • Scale 1: Small packages (up to 5kg)
+  • Scale 2: Large packages (up to 50kg)
+  • Note: "Heavier = more valuable?" (under investigation)
+  
+  RATE CHART:
+  ┌────────────────────────────────────┐
+  │ SHIPPING RATES                     │
+  │ ────────────────────────────────── │
+  │ Local (Lane) ....... 2 coins/kg   │
+  │ City ............... 5 coins/kg   │
+  │ Regional ........... 10 coins/kg  │
+  │ Long Distance ...... 20 coins/kg  │
+  │ Express ............ 3x base rate │
+  │ Paradox-safe ....... Ask Stamp    │
+  └────────────────────────────────────┘
+  
+  BUBBLE WRAP STATUS: 🟡 Running low
+  (Someone's been popping it again)
+  
+supplies:
+  boxes: "Various sizes"
+  tape: "Industrial and regular"
+  bubble_wrap: "Running low"
+  labels: "Pre-printed and blank"
+  
+scales:
+  - name: "Small Scale"
+    capacity: "5kg"
+  - name: "Large Scale"
+    capacity: "50kg"
     
-  examine: |
-    PACKAGE STATION — SHIPPING PREP
+methods:
+  WEIGH:
+    description: "Weigh a package"
+    parameters: [package]
+    effect: "Display shows weight and shipping cost"
     
-    WORK TABLES:
-    Several large tables for package preparation.
-    Currently staged: 7 packages awaiting pickup
+  WRAP:
+    description: "Wrap a package"
+    parameters: [contents]
+    effect: "Package is properly wrapped and labeled"
     
-    SUPPLIES:
-    • Boxes (various sizes, Leela-branded)
-    • Tape dispensers (industrial and regular)
-    • Bubble wrap (the good kind, pop-pop-pop)
-    • Packing peanuts (biodegradable, taste like nothing)
-    • Labels (pre-printed and blank)
-    • Markers (for "FRAGILE" and "THIS SIDE UP")
-    
-    SCALES:
-    Two precision scales for weighing:
-    • Scale 1: Small packages (up to 5kg)
-    • Scale 2: Large packages (up to 50kg)
-    • Note: "Heavier = more valuable?" (under investigation)
-    
-    RATE CHART:
-    ┌────────────────────────────────────┐
-    │ SHIPPING RATES                     │
-    │ ────────────────────────────────── │
-    │ Local (Lane) ....... 2 coins/kg   │
-    │ City ............... 5 coins/kg   │
-    │ Regional ........... 10 coins/kg  │
-    │ Long Distance ...... 20 coins/kg  │
-    │ Express ............ 3x base rate │
-    │ Paradox-safe ....... Ask Stamp    │
-    └────────────────────────────────────┘
-    
-    BUBBLE WRAP STATUS: 🟡 Running low
-    (Someone's been popping it again)
-    
-  supplies:
-    boxes: "Various sizes"
-    tape: "Industrial and regular"
-    bubble_wrap: "Running low"
-    labels: "Pre-printed and blank"
-    
-  scales:
-    - name: "Small Scale"
-      capacity: "5kg"
-    - name: "Large Scale"
-      capacity: "50kg"
-      
-  methods:
-    WEIGH:
-      description: "Weigh a package"
-      parameters: [package]
-      effect: "Display shows weight and shipping cost"
-      
-    WRAP:
-      description: "Wrap a package"
-      parameters: [contents]
-      effect: "Package is properly wrapped and labeled"
-      
-    POP:
-      description: "Pop some bubble wrap"
-      effect: "Pop pop pop. Satisfying. -1 bubble wrap."
+  POP:
+    description: "Pop some bubble wrap"
+    effect: "Pop pop pop. Satisfying. -1 bubble wrap."

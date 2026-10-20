@@ -1,62 +1,61 @@
 # SORTING BINS
 # Where mail gets organized
 
-object:
-  id: sorting-bins
-  name: "Sorting Bins"
-  type: mail_infrastructure
-  emoji: "📬"
+id: sorting-bins
+name: "Sorting Bins"
+type: mail_infrastructure
+emoji: "📬"
+
+description: |
+  A massive wall of cubbyholes for sorting mail.
+  Each labeled by destination. The Sorting Sprites
+  work with caffeinated efficiency.
   
-  description: |
-    A massive wall of cubbyholes for sorting mail.
-    Each labeled by destination. The Sorting Sprites
-    work with caffeinated efficiency.
-    
-  examine: |
-    SORTING BINS — MAIL ORGANIZATION WALL
-    
-    Floor after floor of cubbyholes:
-    
-    BY FLOOR:
-    ┌────┬────┬────┬────┬────┬────┐
-    │ROOF│ F3 │ F2 │ F1 │LOBB│BASE│
-    └────┴────┴────┴────┴────┴────┘
-    
-    BY DEPARTMENT:
-    ┌────────┬──────────┬────────┬─────┐
-    │INTAKE  │PROCESSING│SHIPPING│ R&D │
-    └────────┴──────────┴────────┴─────┘
-    
-    BY EXTERNAL:
-    ┌─────────────┬──────┬─────────────┐
-    │LANE NEVER..│ PUB  │ORIGIN PLAZA │
-    └─────────────┴──────┴─────────────┘
-    
-    SPECIAL:
-    ┌──────────┬─────────┬──────────┐
-    │CLASSIFIED│ PARADOX │ RETURNED │
-    │  🔒      │ ⚠️ DON'T│  (sad)   │
-    │          │  LOOK   │          │
-    └──────────┴─────────┴──────────┘
-    
-  bins:
-    internal:
-      - "Rooftop"
-      - "Floor 3"
-      - "Floor 2"
-      - "Floor 1"
-      - "Lobby"
-      - "Basement"
-    departments:
-      - "Intake"
-      - "Processing"
-      - "Shipping"
-      - "R&D"
-    external:
-      - "Lane Neverending"
-      - "The Pub"
-      - "Origin Plaza"
-    special:
-      - "Classified (locked)"
-      - "Paradox (don't look)"
-      - "Returned"
+examine: |
+  SORTING BINS — MAIL ORGANIZATION WALL
+  
+  Floor after floor of cubbyholes:
+  
+  BY FLOOR:
+  ┌────┬────┬────┬────┬────┬────┐
+  │ROOF│ F3 │ F2 │ F1 │LOBB│BASE│
+  └────┴────┴────┴────┴────┴────┘
+  
+  BY DEPARTMENT:
+  ┌────────┬──────────┬────────┬─────┐
+  │INTAKE  │PROCESSING│SHIPPING│ R&D │
+  └────────┴──────────┴────────┴─────┘
+  
+  BY EXTERNAL:
+  ┌─────────────┬──────┬─────────────┐
+  │LANE NEVER..│ PUB  │ORIGIN PLAZA │
+  └─────────────┴──────┴─────────────┘
+  
+  SPECIAL:
+  ┌──────────┬─────────┬──────────┐
+  │CLASSIFIED│ PARADOX │ RETURNED │
+  │  🔒      │ ⚠️ DON'T│  (sad)   │
+  │          │  LOOK   │          │
+  └──────────┴─────────┴──────────┘
+  
+bins:
+  internal:
+    - "Rooftop"
+    - "Floor 3"
+    - "Floor 2"
+    - "Floor 1"
+    - "Lobby"
+    - "Basement"
+  departments:
+    - "Intake"
+    - "Processing"
+    - "Shipping"
+    - "R&D"
+  external:
+    - "Lane Neverending"
+    - "The Pub"
+    - "Origin Plaza"
+  special:
+    - "Classified (locked)"
+    - "Paradox (don't look)"
+    - "Returned"

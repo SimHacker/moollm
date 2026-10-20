@@ -1,30 +1,29 @@
 # SCOREBOARD BELL
 # Rings once for every honest declaration of bias.
 
-object:
-  name: "Scoreboard Bell"
-  type: [church_fixture, signal, ritual]
-  emoji: "🔔📋"
-  portable: false
+name: "Scoreboard Bell"
+type: [church_fixture, signal, ritual]
+emoji: "🔔📋"
+portable: false
+
+location: "Front of the church, beside the entry"
+
+description: |
+  A brass bell mounted on a simple wooden frame. The clapper is worn,
+  polished by years of honest hands. A small plaque reads:
   
-  location: "Front of the church, beside the entry"
+  "Ring once for each declared bias.
+   Ring twice if you were hiding one."
   
-  description: |
-    A brass bell mounted on a simple wooden frame. The clapper is worn,
-    polished by years of honest hands. A small plaque reads:
-    
-    "Ring once for each declared bias.
-     Ring twice if you were hiding one."
-    
-  examine: |
-    The bell is tuned to a clean, resonant tone that carries down the
-    cobblestones. It's not a church bell in the traditional sense —
-    it's a scoreboard bell. A public signal of accountability.
-    
-  actions:
-    RING:
-      description: "Ring the scoreboard bell"
-      aliases: [ring, chime, toll]
-      effect: |
-        You ring the bell. The tone is clear and honest.
-        Somewhere inside, a rubric gets updated.
+examine: |
+  The bell is tuned to a clean, resonant tone that carries down the
+  cobblestones. It's not a church bell in the traditional sense —
+  it's a scoreboard bell. A public signal of accountability.
+  
+actions:
+  RING:
+    description: "Ring the scoreboard bell"
+    aliases: [ring, chime, toll]
+    effect: |
+      You ring the bell. The tone is clear and honest.
+      Somewhere inside, a rubric gets updated.

@@ -1,65 +1,64 @@
 # PHONE BANK
 # Text message operations center
 
-object:
-  id: phone-bank
-  name: "Phone Bank"
-  type: communications
-  emoji: "📱"
+id: phone-bank
+name: "Phone Bank"
+type: communications
+emoji: "📱"
+
+description: |
+  Rows of phones for text message operations. Screens show
+  message queues and delivery confirmations. One phone is
+  red and labeled "HOT LINE TO THE PUB."
   
-  description: |
-    Rows of phones for text message operations. Screens show
-    message queues and delivery confirmations. One phone is
-    red and labeled "HOT LINE TO THE PUB."
-    
-  examine: |
-    PHONE BANK — TEXT MESSAGE OPERATIONS
-    
-    A row of phones and screens for instant messaging:
-    
-    GENERAL PHONES (6):
-    Standard text operations. Queue display above each.
-    Current queue: 12 messages awaiting send
-    
-    HOT LINES:
-    ┌────────────────────────────────────┐
-    │ 🔴 THE PUB (7) — Always ready     │
-    │ 📍 ORIGIN PLAZA (1) — Ceremonial  │
-    │ 🏗️ CONSTRUCTION (22) — Building   │
-    └────────────────────────────────────┘
-    
-    NOTIFICATION BOARD:
-    Recent:
-    • Mail received: Floor 2 → R&D
-    • Text sent: Pub order confirmed
-    • Package arrived: Bay 1
-    • Delivery confirmed: Express #847
-    
-    STATISTICS:
-    • Messages today: 847
-    • Average delivery: Instant
-    • Uptime: 100%
-    
-  phones:
-    general: 6
-    hot_lines:
-      - number: 7
-        to: "The Pub"
-        color: "red"
-      - number: 1
-        to: "Origin Plaza"
-        color: "gold"
-      - number: 22
-        to: "Construction Site"
-        color: "orange"
-        
-  methods:
-    TEXT:
-      description: "Send a text message"
-      parameters: [to, message]
-      effect: "Message delivered instantly"
+examine: |
+  PHONE BANK — TEXT MESSAGE OPERATIONS
+  
+  A row of phones and screens for instant messaging:
+  
+  GENERAL PHONES (6):
+  Standard text operations. Queue display above each.
+  Current queue: 12 messages awaiting send
+  
+  HOT LINES:
+  ┌────────────────────────────────────┐
+  │ 🔴 THE PUB (7) — Always ready     │
+  │ 📍 ORIGIN PLAZA (1) — Ceremonial  │
+  │ 🏗️ CONSTRUCTION (22) — Building   │
+  └────────────────────────────────────┘
+  
+  NOTIFICATION BOARD:
+  Recent:
+  • Mail received: Floor 2 → R&D
+  • Text sent: Pub order confirmed
+  • Package arrived: Bay 1
+  • Delivery confirmed: Express #847
+  
+  STATISTICS:
+  • Messages today: 847
+  • Average delivery: Instant
+  • Uptime: 100%
+  
+phones:
+  general: 6
+  hot_lines:
+    - number: 7
+      to: "The Pub"
+      color: "red"
+    - number: 1
+      to: "Origin Plaza"
+      color: "gold"
+    - number: 22
+      to: "Construction Site"
+      color: "orange"
       
-    CALL:
-      description: "Use a hot line"
-      parameters: [line]
-      effect: "Direct connection established"
+methods:
+  TEXT:
+    description: "Send a text message"
+    parameters: [to, message]
+    effect: "Message delivered instantly"
+    
+  CALL:
+    description: "Use a hot line"
+    parameters: [line]
+    effect: "Direct connection established"

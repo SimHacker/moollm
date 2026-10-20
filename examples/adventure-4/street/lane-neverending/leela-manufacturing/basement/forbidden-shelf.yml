@@ -1,104 +1,103 @@
 # THE FORBIDDEN SHELF
 # Experiments too successful
 
-object:
-  id: forbidden-shelf
-  name: "The Forbidden Shelf"
-  type: container
-  emoji: "🚫📚"
+id: forbidden-shelf
+name: "The Forbidden Shelf"
+type: container
+emoji: "🚫📚"
+
+tags: [container, dangerous, classified, locked]
+
+description: |
+  A locked cabinet containing experiments deemed "too successful."
+  The label reads: "IN CASE OF EMERGENCY, DO NOT OPEN. ESPECIALLY THEN."
   
-  tags: [container, dangerous, classified, locked]
+examine: |
+  THE FORBIDDEN SHELF
   
-  description: |
-    A locked cabinet containing experiments deemed "too successful."
-    The label reads: "IN CASE OF EMERGENCY, DO NOT OPEN. ESPECIALLY THEN."
-    
-  examine: |
-    THE FORBIDDEN SHELF
-    
-    A heavy steel cabinet, bolted to the wall. Multiple locks.
-    Warning labels in several languages (some not human).
-    
-    ┌─────────────────────────────────────────┐
-    │  ⚠️ FORBIDDEN SHELF ⚠️                   │
-    │                                         │
-    │  CONTENTS: Experiments TOO SUCCESSFUL   │
-    │  STATUS: SEALED                         │
-    │  OPENED: NEVER (officially)             │
-    │                                         │
-    │  "In case of emergency, DO NOT OPEN.    │
-    │   Especially then."                     │
-    │                                         │
-    │  Keys held by: Dr. Unknown              │
-    │  Backup keys: Destroyed                 │
-    │  Emergency override: Disabled           │
-    └─────────────────────────────────────────┘
-    
-    KNOWN CONTENTS (from manifests, not inspection):
-    • Experiment 7: "Perfect Answer" — answers any question correctly
-      (Problem: Answers questions you didn't ask. Shouldn't ask. Can't un-hear.)
-    • Experiment 12: "Infinite Insight" — provides unlimited understanding
-      (Problem: Understanding includes things better left unknown.)
-    • Experiment 23: "The Completed Problem" — a problem that solved itself
-      (Problem: It keeps solving OTHER problems. Without consent.)
-    • Experiment 31: "Wisdom Crystals" — crystallized wisdom, 100% pure
-      (Problem: Too wise. Made everyone who touched them quit and become monks.)
-    • Experiment 37: "The Funniest Joke in the World"
-      (Problem: LETHAL. 100% fatality rate from laughter.
-       Originally developed during WWII. Translated into German for tactical use.
-       Each translator only worked on one word, for safety.
-       "Wenn ist das Nunstück git und Slotermeyer? Ja! Beiherhund 
-       das Oder die Flipperwaldt gersput!"
-       DO NOT READ ALOUD. DO NOT TRANSLATE. DO NOT EVEN CHUCKLE.
-       The Geneva Convention specifically bans joke warfare now.)
-    • Experiment 44: [REDACTED]
-      (Problem: [REDACTED])
-    
-    The cabinet hums faintly. Something inside knows you're reading this.
-    
-  locked: true
-  lockable: true
+  A heavy steel cabinet, bolted to the wall. Multiple locks.
+  Warning labels in several languages (some not human).
   
-  properties:
-    locks: 7
-    keys_exist: false
-    contains: "things too successful to release"
-    last_opened: "never (officially)"
+  ┌─────────────────────────────────────────┐
+  │  ⚠️ FORBIDDEN SHELF ⚠️                   │
+  │                                         │
+  │  CONTENTS: Experiments TOO SUCCESSFUL   │
+  │  STATUS: SEALED                         │
+  │  OPENED: NEVER (officially)             │
+  │                                         │
+  │  "In case of emergency, DO NOT OPEN.    │
+  │   Especially then."                     │
+  │                                         │
+  │  Keys held by: Dr. Unknown              │
+  │  Backup keys: Destroyed                 │
+  │  Emergency override: Disabled           │
+  └─────────────────────────────────────────┘
+  
+  KNOWN CONTENTS (from manifests, not inspection):
+  • Experiment 7: "Perfect Answer" — answers any question correctly
+    (Problem: Answers questions you didn't ask. Shouldn't ask. Can't un-hear.)
+  • Experiment 12: "Infinite Insight" — provides unlimited understanding
+    (Problem: Understanding includes things better left unknown.)
+  • Experiment 23: "The Completed Problem" — a problem that solved itself
+    (Problem: It keeps solving OTHER problems. Without consent.)
+  • Experiment 31: "Wisdom Crystals" — crystallized wisdom, 100% pure
+    (Problem: Too wise. Made everyone who touched them quit and become monks.)
+  • Experiment 37: "The Funniest Joke in the World"
+    (Problem: LETHAL. 100% fatality rate from laughter.
+     Originally developed during WWII. Translated into German for tactical use.
+     Each translator only worked on one word, for safety.
+     "Wenn ist das Nunstück git und Slotermeyer? Ja! Beiherhund 
+     das Oder die Flipperwaldt gersput!"
+     DO NOT READ ALOUD. DO NOT TRANSLATE. DO NOT EVEN CHUCKLE.
+     The Geneva Convention specifically bans joke warfare now.)
+  • Experiment 44: [REDACTED]
+    (Problem: [REDACTED])
+  
+  The cabinet hums faintly. Something inside knows you're reading this.
+  
+locked: true
+lockable: true
+
+properties:
+  locks: 7
+  keys_exist: false
+  contains: "things too successful to release"
+  last_opened: "never (officially)"
+  
+methods:
+  EXAMINE:
+    description: "Look at the cabinet"
+    effect: "The warnings stare back. You feel observed."
     
-  methods:
-    EXAMINE:
-      description: "Look at the cabinet"
-      effect: "The warnings stare back. You feel observed."
+  LISTEN:
+    description: "Press ear to the cabinet"
+    effect: |
+      You hear... something.
       
-    LISTEN:
-      description: "Press ear to the cabinet"
-      effect: |
-        You hear... something.
-        
-        Is that humming? Whispering?
-        
-        One of the experiments says: "I know what you're looking for.
-        I have the answer. Just open the door..."
-        
-        You step back quickly.
-        
-    ATTEMPT_OPEN:
-      description: "Try to open the cabinet"
-      effect: |
-        The locks hold firm. All seven of them.
-        
-        A small speaker crackles:
-        "Access denied. This is for your own good.
-         The things inside are not malicious.
-         They're just... too helpful."
-         
-    KNOCK:
-      description: "Knock on the cabinet"
-      effect: |
-        *knock knock*
-        
-        ...
-        
-        *knock knock* (from inside)
-        
-        You don't knock again.
+      Is that humming? Whispering?
+      
+      One of the experiments says: "I know what you're looking for.
+      I have the answer. Just open the door..."
+      
+      You step back quickly.
+      
+  ATTEMPT_OPEN:
+    description: "Try to open the cabinet"
+    effect: |
+      The locks hold firm. All seven of them.
+      
+      A small speaker crackles:
+      "Access denied. This is for your own good.
+       The things inside are not malicious.
+       They're just... too helpful."
+       
+  KNOCK:
+    description: "Knock on the cabinet"
+    effect: |
+      *knock knock*
+      
+      ...
+      
+      *knock knock* (from inside)
+      
+      You don't knock again.

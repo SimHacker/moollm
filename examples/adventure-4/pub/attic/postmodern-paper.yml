@@ -2,39 +2,38 @@
 # A well-worn copy of Captain Ashford's legendary lit crit treatise
 # Found in the attic, clearly much-loved (and much-abused)
 
-object:
-  id: postmodern-paper
-  name: "Dog-Eared Academic Paper"
-  full_title: "How to Incarnate Almost Anything - My Postmodern MOO: A Postmodern Adventure Through MOOLLM's Filesystem Microworld"
-  author: "Captain Ashford, Ph.D. (Pending)"
-  affiliation: "Department of Grue Studies, University of the Mushroom Chamber"
+id: postmodern-paper
+name: "Dog-Eared Academic Paper"
+full_title: "How to Incarnate Almost Anything - My Postmodern MOO: A Postmodern Adventure Through MOOLLM's Filesystem Microworld"
+author: "Captain Ashford, Ph.D. (Pending)"
+affiliation: "Department of Grue Studies, University of the Mushroom Chamber"
+
+# PHYSICAL DESCRIPTION — this copy has LIVED
+description: |
+  A photocopied academic paper, clearly rescued from some grad student's 
+  apartment circa 2026. The pages are:
   
-  # PHYSICAL DESCRIPTION — this copy has LIVED
-  description: |
-    A photocopied academic paper, clearly rescued from some grad student's 
-    apartment circa 2026. The pages are:
-    
-    - **Dog-eared** at multiple sections (someone's bookmarks)
-    - **Coffee-stained** on pages 3, 7, and 12 (espresso rings, overlapping)
-    - **Bong-water splashed** on page 47 (the smell lingers)
-    - **Marginalia everywhere** in at least three different handwritings
-    - **Underlined passages** with aggressive enthusiasm
-    - **A dried flower** pressed between pages 22-23 (a dandelion, flattened)
-    
-    The cover page has a Post-It note that says: "THIS EXPLAINS EVERYTHING"
-    (The Post-It is also coffee-stained.)
-    
-  condition: "Well-loved. Battle-scarred. Enlightening."
-  portable: true
-  value: priceless_to_the_right_buyer
+  - **Dog-eared** at multiple sections (someone's bookmarks)
+  - **Coffee-stained** on pages 3, 7, and 12 (espresso rings, overlapping)
+  - **Bong-water splashed** on page 47 (the smell lingers)
+  - **Marginalia everywhere** in at least three different handwritings
+  - **Underlined passages** with aggressive enthusiasm
+  - **A dried flower** pressed between pages 22-23 (a dandelion, flattened)
   
-  # CANONICAL SOURCE — this is an INSTANCE
-  inherits: [../../../../designs/postmodern-deconstruction.md]
-  instance_notes: |
-    This is a physical copy of the paper, originally written in adventure-2's kitchen.
-    The canonical version now lives in designs/ for posterity.
-    Someone printed it, annotated it extensively, and eventually left it here.
-    The attic collects things that matter.
+  The cover page has a Post-It note that says: "THIS EXPLAINS EVERYTHING"
+  (The Post-It is also coffee-stained.)
+  
+condition: "Well-loved. Battle-scarred. Enlightening."
+portable: true
+value: priceless_to_the_right_buyer
+
+# CANONICAL SOURCE — this is an INSTANCE
+inherits: [../../../../designs/postmodern-deconstruction.md]
+instance_notes: |
+  This is a physical copy of the paper, originally written in adventure-2's kitchen.
+  The canonical version now lives in designs/ for posterity.
+  Someone printed it, annotated it extensively, and eventually left it here.
+  The attic collects things that matter.
 
 # THE STAINS — each tells a story
 

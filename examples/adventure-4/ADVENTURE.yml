@@ -84,12 +84,11 @@ flags:
   pub_discovered: false
   cat_cave_found: false
 
-adventure:
-  name: "Adventure 4 — The World Tour"
-  objective: "Tour the world with dogs, cats, monkey. Mark things. Nature takes its course."
-  status: active
-  started: 2026-01-22T00:00:00Z
-  parties: CHARACTERS.yml  # All party state lives there
+name: "Adventure 4 — The World Tour"
+objective: "Tour the world with dogs, cats, monkey. Mark things. Nature takes its course."
+status: active
+started: 2026-01-22T00:00:00Z
+parties: CHARACTERS.yml  # All party state lives there
 
 navigation:
   starting_room: pub/

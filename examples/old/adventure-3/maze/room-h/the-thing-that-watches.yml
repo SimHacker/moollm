@@ -1,150 +1,149 @@
 # 👁️ The Thing That Watches
 # What was once Aunt Petunia's Suspicious Casserole
 
-object:
-  name: The Thing That Watches
-  type: entity
-  portable: false  # It has merged with the mushrooms
+name: The Thing That Watches
+type: entity
+portable: false  # It has merged with the mushrooms
+
+description: |
+  In the center of the room, merging with the luminescent mushrooms,
+  pulses THE THING THAT WATCHES.
   
-  description: |
-    In the center of the room, merging with the luminescent mushrooms,
-    pulses THE THING THAT WATCHES.
-    
-    It was once Aunt Petunia's Suspicious Casserole — a questionable
-    dish from a previous adventurer's lunchbox. Transformed through
-    digestion and excretion, it found the mushrooms. The mushrooms
-    found it. They became... something else.
-    
-    A single EYE, formed from casserole and fungus, follows your
-    every movement. It blinks. Slowly. Deliberately.
-    
-    Mother would say not to touch it. Mother would be right.
+  It was once Aunt Petunia's Suspicious Casserole — a questionable
+  dish from a previous adventurer's lunchbox. Transformed through
+  digestion and excretion, it found the mushrooms. The mushrooms
+  found it. They became... something else.
   
-  # Origin story
-  origin: |
-    In adventure-2, Captain Ashford ate Aunt Petunia's Suspicious
-    Casserole to mark a maze room. The "result" merged with the
-    mushroom colony here and achieved... sentience? Awareness?
-    Something.
-    
-    It watches now. That's what it does. That's ALL it does.
-    
-    But the watching is enough. Even grues won't come here.
+  A single EYE, formed from casserole and fungus, follows your
+  every movement. It blinks. Slowly. Deliberately.
   
-  # A fact about the Eye. What being watched does to a grue is the grue's business.
-  watches: true
-  sight: |
-    The Eye sees in ways that light cannot: through darkness, through
-    shadows, through the void itself.
+  Mother would say not to touch it. Mother would be right.
+
+# Origin story
+origin: |
+  In adventure-2, Captain Ashford ate Aunt Petunia's Suspicious
+  Casserole to mark a maze room. The "result" merged with the
+  mushroom colony here and achieved... sentience? Awareness?
+  Something.
   
-  # Properties
-  properties:
-    sentient: probably
-    hostile: no
-    helpful: uncertain
-    communicates: through_watching
-    blinks: slowly
-    pulses: in_rhythm_with_mushrooms
-    
-  # The eye tracks you
-  behavior: |
-    The Eye follows you as you move around the room.
-    When you approach, it widens slightly.
-    When you retreat, it narrows.
-    When you speak, it... listens? Can eyes listen?
-    This one seems to.
+  It watches now. That's what it does. That's ALL it does.
   
-  advertisements:
-    - action: EXAMINE
-      score: 80
-      result: |
-        The Eye meets your gaze. You feel... seen. Deeply seen.
-        Uncomfortably seen. Seen in ways you didn't know were possible.
-        
-        The mushrooms pulse. The Eye blinks. Once. Twice.
-        
-        You look away first. Everyone looks away first.
-        
-    - action: SPEAK-TO
-      score: 60
-      result: |
-        "Hello?" you venture.
-        
-        The Eye widens slightly. The mushrooms pulse faster.
-        
-        No response comes. But you have the distinct feeling
-        that you've been... acknowledged.
-        
-    - action: TOUCH
-      score: 30
-      score_if:
-        - "player.wisdom < 10"
-      result: |
-        You reach toward the Eye.
-        
-        The mushrooms RECOIL. The Eye WIDENS. A sound emerges —
-        not quite a scream, not quite a word, something between
-        a warning and a memory.
-        
-        You snatch your hand back. Your fingers tingle.
-        
-        For the next hour, you can see slightly better in the dark.
-        Also, your dreams will be... interesting tonight.
-        
-    - action: FEED
-      score: 50
-      description: "Offer food to The Thing"
-      result: |
-        You place [food] before The Thing.
-        
-        A tendril of mushroom extends, examines the offering,
-        and slowly absorbs it.
-        
-        The Eye closes in what might be satisfaction.
-        When it opens, it seems... warmer? Toward you?
-        
-        [The Thing That Watches remembers your kindness]
-        
-    - action: ASK-ABOUT-GRUE
-      score: 70
-      result: |
-        "The grue," you say. "Why won't it come here?"
-        
-        The Eye looks toward the south exit — toward room-f,
-        where the grue lives. The mushrooms shudder.
-        
-        You understand without words: The grue fears being seen.
-        And The Thing sees EVERYTHING.
-        
-    - action: THANK
-      score: 65
-      result: |
-        "Thank you," you say. "For keeping them away."
-        
-        The Eye blinks slowly. The mushrooms glow a little brighter.
-        
-        You're not sure it understands gratitude. But you're not
-        sure it doesn't, either.
+  But the watching is enough. Even grues won't come here.
+
+# A fact about the Eye. What being watched does to a grue is the grue's business.
+watches: true
+sight: |
+  The Eye sees in ways that light cannot: through darkness, through
+  shadows, through the void itself.
+
+# Properties
+properties:
+  sentient: probably
+  hostile: no
+  helpful: uncertain
+  communicates: through_watching
+  blinks: slowly
+  pulses: in_rhythm_with_mushrooms
   
-  # Connections
-  relates_to:
-    mushrooms: "The fungi colony it merged with"
-    grue: "Cannot enter this room because of The Eye"
-    casserole: "What it once was, in another life"
-    captain_ashford: "The adventurer who created it (adventure-2)"
-    
-  # Environmental effects
-  effects:
-    on_room:
-      - "Grues will not enter"
-      - "Faint green glow (ambient light)"
-      - "Pulse rhythm affects other fungi"
-    on_visitors:
-      - "Feeling of being watched"
-      - "Slightly unsettling"
-      - "Strangely safe"
+# The eye tracks you
+behavior: |
+  The Eye follows you as you move around the room.
+  When you approach, it widens slightly.
+  When you retreat, it narrows.
+  When you speak, it... listens? Can eyes listen?
+  This one seems to.
+
+advertisements:
+  - action: EXAMINE
+    score: 80
+    result: |
+      The Eye meets your gaze. You feel... seen. Deeply seen.
+      Uncomfortably seen. Seen in ways you didn't know were possible.
       
-  lineage:
-    tribute_to: "Every cosmic horror that started as something mundane"
-    inspiration: "Lovecraft meets leftovers"
-    lesson: "You are what you eat. Sometimes literally."
+      The mushrooms pulse. The Eye blinks. Once. Twice.
+      
+      You look away first. Everyone looks away first.
+      
+  - action: SPEAK-TO
+    score: 60
+    result: |
+      "Hello?" you venture.
+      
+      The Eye widens slightly. The mushrooms pulse faster.
+      
+      No response comes. But you have the distinct feeling
+      that you've been... acknowledged.
+      
+  - action: TOUCH
+    score: 30
+    score_if:
+      - "player.wisdom < 10"
+    result: |
+      You reach toward the Eye.
+      
+      The mushrooms RECOIL. The Eye WIDENS. A sound emerges —
+      not quite a scream, not quite a word, something between
+      a warning and a memory.
+      
+      You snatch your hand back. Your fingers tingle.
+      
+      For the next hour, you can see slightly better in the dark.
+      Also, your dreams will be... interesting tonight.
+      
+  - action: FEED
+    score: 50
+    description: "Offer food to The Thing"
+    result: |
+      You place [food] before The Thing.
+      
+      A tendril of mushroom extends, examines the offering,
+      and slowly absorbs it.
+      
+      The Eye closes in what might be satisfaction.
+      When it opens, it seems... warmer? Toward you?
+      
+      [The Thing That Watches remembers your kindness]
+      
+  - action: ASK-ABOUT-GRUE
+    score: 70
+    result: |
+      "The grue," you say. "Why won't it come here?"
+      
+      The Eye looks toward the south exit — toward room-f,
+      where the grue lives. The mushrooms shudder.
+      
+      You understand without words: The grue fears being seen.
+      And The Thing sees EVERYTHING.
+      
+  - action: THANK
+    score: 65
+    result: |
+      "Thank you," you say. "For keeping them away."
+      
+      The Eye blinks slowly. The mushrooms glow a little brighter.
+      
+      You're not sure it understands gratitude. But you're not
+      sure it doesn't, either.
+
+# Connections
+relates_to:
+  mushrooms: "The fungi colony it merged with"
+  grue: "Cannot enter this room because of The Eye"
+  casserole: "What it once was, in another life"
+  captain_ashford: "The adventurer who created it (adventure-2)"
+  
+# Environmental effects
+effects:
+  on_room:
+    - "Grues will not enter"
+    - "Faint green glow (ambient light)"
+    - "Pulse rhythm affects other fungi"
+  on_visitors:
+    - "Feeling of being watched"
+    - "Slightly unsettling"
+    - "Strangely safe"
+    
+lineage:
+  tribute_to: "Every cosmic horror that started as something mundane"
+  inspiration: "Lovecraft meets leftovers"
+  lesson: "You are what you eat. Sometimes literally."

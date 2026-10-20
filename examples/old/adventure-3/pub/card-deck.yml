@@ -1,163 +1,162 @@
 # 🃏 CARD DECK
 # A worn deck ready for any game
 
-object:
-  name: Card Deck
-  type: game
-  portable: true  # Can be borrowed for a game elsewhere
+name: Card Deck
+type: game
+portable: true  # Can be borrowed for a game elsewhere
+
+description: |
+  A well-worn deck of cards sits on the bar, edges softened by
+  countless shuffles. The backs feature a design of crossed
+  swords over a tankard — the Gezelligheid Grotto's own deck.
   
-  description: |
-    A well-worn deck of cards sits on the bar, edges softened by
-    countless shuffles. The backs feature a design of crossed
-    swords over a tankard — the Gezelligheid Grotto's own deck.
+  These cards have seen fortunes won and lost, secrets revealed,
+  and at least one duel triggered.
+  
+examine: |
+  52 cards plus two jokers. All present and accounted for.
+  Some cards are slightly more worn than others — the aces,
+  the face cards, and mysteriously, the seven of clubs.
+  
+  (Why the seven of clubs? Ask around. Someone knows.)
+  
+actions:
+  PLAY-CARDS:
+    description: "Start a card game"
+    usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
+    games:
+      - "Poker (high stakes available)"
+      - "Blackjack"
+      - "Three-card monte (don't)"
+      - "Adventurer's Ruin (house game)"
+      - "War (for the simple folk)"
+      - "Go Fish (no shame)"
+      - "Fluxx (rules change every turn!)"
+      
+  SHUFFLE:
+    description: "Shuffle the deck impressively"
+    effect: "Attract attention, show skill"
     
-    These cards have seen fortunes won and lost, secrets revealed,
-    and at least one duel triggered.
+  DO-A-TRICK:
+    description: "Perform card magic"
+    usage: "DO A TRICK / SHOW [patron] A TRICK"
+    effect: "Impress or befriend someone"
     
-  examine: |
-    52 cards plus two jokers. All present and accounted for.
-    Some cards are slightly more worn than others — the aces,
-    the face cards, and mysteriously, the seven of clubs.
+  CHEAT:
+    description: "Attempt to cheat at cards"
+    risk: "HIGH — these are experienced players"
+    reward: "Win the pot if undetected"
+    consequence: "Lose credibility, gold, possibly teeth"
     
-    (Why the seven of clubs? Ask around. Someone knows.)
+  PLAY-FLUXX:
+    description: "Play a themed Fluxx game"
+    usage: "PLAY FLUXX / PLAY [theme] FLUXX"
+    effect: |
+      Ask the bartender for a themed deck.
+      The theme affects the pub's atmosphere while playing!
+      Cthulhu Fluxx: lights dim, whispers heard
+      Pirate Fluxx: everyone talks like pirates
+      Grue Fluxx: lamp flickers ominously
     
-  actions:
-    PLAY-CARDS:
-      description: "Start a card game"
-      usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
-      games:
-        - "Poker (high stakes available)"
-        - "Blackjack"
-        - "Three-card monte (don't)"
-        - "Adventurer's Ruin (house game)"
-        - "War (for the simple folk)"
-        - "Go Fish (no shame)"
-        - "Fluxx (rules change every turn!)"
+games:
+  poker:
+    stakes: "Starts at 1 gold ante"
+    players: "2-6"
+    note: "Can raise stakes dramatically"
+    
+  adventurers_ruin:
+    description: |
+      House game. Each player draws cards trying to reach
+      exactly 21 without going over. But FACE CARDS are
+      "encounters" — you must tell a story of defeating
+      that encounter or lose your stake.
+    stakes: "2 gold buy-in"
+    social: "Great for icebreaking"
+    
+  fluxx:
+    description: |
+      The game where the rules change every turn! Start with
+      "draw 1, play 1" — but cards can change EVERYTHING.
+      Goals shift. Hand limits appear. Chaos reigns. 
+      New player friendly. Pub favorite crowd pleaser! 
+    creator: "Looney Labs (Andrew and Kristin Looney)"
+    stakes: "Usually just bragging rights or a drink or a joint or two"
+    note: "The bartender has MANY themed decks..."
+    
+    themed_decks:
+      - name: "Dungeon Fluxx"
+        theme: "Classic fantasy adventuring"
+        special: "Monster cards, loot, the Grue Keeper"
         
-    SHUFFLE:
-      description: "Shuffle the deck impressively"
-      effect: "Attract attention, show skill"
-      
-    DO-A-TRICK:
-      description: "Perform card magic"
-      usage: "DO A TRICK / SHOW [patron] A TRICK"
-      effect: "Impress or befriend someone"
-      
-    CHEAT:
-      description: "Attempt to cheat at cards"
-      risk: "HIGH — these are experienced players"
-      reward: "Win the pot if undetected"
-      consequence: "Lose credibility, gold, possibly teeth"
-      
-    PLAY-FLUXX:
-      description: "Play a themed Fluxx game"
-      usage: "PLAY FLUXX / PLAY [theme] FLUXX"
-      effect: |
-        Ask the bartender for a themed deck.
-        The theme affects the pub's atmosphere while playing!
-        Cthulhu Fluxx: lights dim, whispers heard
-        Pirate Fluxx: everyone talks like pirates
-        Grue Fluxx: lamp flickers ominously
-      
-  games:
-    poker:
-      stakes: "Starts at 1 gold ante"
-      players: "2-6"
-      note: "Can raise stakes dramatically"
-      
-    adventurers_ruin:
-      description: |
-        House game. Each player draws cards trying to reach
-        exactly 21 without going over. But FACE CARDS are
-        "encounters" — you must tell a story of defeating
-        that encounter or lose your stake.
-      stakes: "2 gold buy-in"
-      social: "Great for icebreaking"
-      
-    fluxx:
-      description: |
-        The game where the rules change every turn! Start with
-        "draw 1, play 1" — but cards can change EVERYTHING.
-        Goals shift. Hand limits appear. Chaos reigns. 
-        New player friendly. Pub favorite crowd pleaser! 
-      creator: "Looney Labs (Andrew and Kristin Looney)"
-      stakes: "Usually just bragging rights or a drink or a joint or two"
-      note: "The bartender has MANY themed decks..."
-      
-      themed_decks:
-        - name: "Dungeon Fluxx"
-          theme: "Classic fantasy adventuring"
-          special: "Monster cards, loot, the Grue Keeper"
-          
-        - name: "MOOLLM Fluxx"
-          theme: "Microworlds, K-lines, YAML Jazz, coherence engines"
-          special: "Cards are rooms. Goals are protocols. Keepers are skills."
-          effect: "Players start speaking in YAML. Everything becomes a card."
-          meta: "You're already playing this one."
-          
-        - name: "Grue Fluxx"
-          theme: "It is pitch dark. You are likely to be eaten."
-          special: "Lamp cards crucial. Grue wins ties."
-          warning: "Do NOT play in actual darkness"
-          
-        - name: "Pirate Fluxx"
-          theme: "Arr! Ships, treasure, sea shanties"
-          special: "Talk Like a Pirate rule card"
-          
-        - name: "Zombie Fluxx"
-          theme: "Undead apocalypse"
-          special: "Creeper cards that won't leave you alone"
-          
-        - name: "Star Fluxx"
-          theme: "Space opera and sci-fi tropes"
-          special: "Holographic Surprise rule"
-          
-        - name: "Cthulhu Fluxx"
-          theme: "Lovecraftian horror"
-          special: "Doom cards, Ungoals, madness"
-          warning: "Sanity not guaranteed"
-          
-        - name: "Stoner Fluxx"
-          theme: "Munchies, brownies, and forgetting the rules"
-          special: "Everyone plays slower. Giggles increase."
-          effect: "Snacks appear. Time dilates. Nobody remembers whose turn it is."
-          
-        - name: "Monty Python Fluxx"
-          theme: "Ni! Shrubberies! Holy Hand Grenades!"
-          special: "Outrageous Accent rule"
-          
-        - name: "Math Fluxx"
-          theme: "Numbers and operations"
-          special: "Actually educational. Shh."
-          
-        - name: "Nature Fluxx"
-          theme: "Ecosystems and food chains"
-          special: "Great for teaching kids"
-          
-        - name: "Firefly Fluxx"
-          theme: "Aim to misbehave"
-          special: "Shiny! Curse your sudden betrayal."
-          
-        - name: "Anatomy Fluxx"
-          theme: "The human body"
-          special: "Surprisingly competitive among healers"
-          
-        - name: "AI Fluxx"
-          theme: "Machine learning, robots, singularity"
-          special: "Rules rewrite themselves. Goals hallucinate."
-          warning: "The deck insists it's helping."
-          
-        - name: "Bartender's Special Fluxx"
-          theme: "????"
-          special: "The bartender made this one. Nobody wins."
-          warning: "Play at your own risk"
-      
-  mechanics: |
-    Can win or lose gold
-    Can win information as stakes
-    Can make enemies (or friends)
-    Can cheat (if skilled and brave)
+      - name: "MOOLLM Fluxx"
+        theme: "Microworlds, K-lines, YAML Jazz, coherence engines"
+        special: "Cards are rooms. Goals are protocols. Keepers are skills."
+        effect: "Players start speaking in YAML. Everything becomes a card."
+        meta: "You're already playing this one."
+        
+      - name: "Grue Fluxx"
+        theme: "It is pitch dark. You are likely to be eaten."
+        special: "Lamp cards crucial. Grue wins ties."
+        warning: "Do NOT play in actual darkness"
+        
+      - name: "Pirate Fluxx"
+        theme: "Arr! Ships, treasure, sea shanties"
+        special: "Talk Like a Pirate rule card"
+        
+      - name: "Zombie Fluxx"
+        theme: "Undead apocalypse"
+        special: "Creeper cards that won't leave you alone"
+        
+      - name: "Star Fluxx"
+        theme: "Space opera and sci-fi tropes"
+        special: "Holographic Surprise rule"
+        
+      - name: "Cthulhu Fluxx"
+        theme: "Lovecraftian horror"
+        special: "Doom cards, Ungoals, madness"
+        warning: "Sanity not guaranteed"
+        
+      - name: "Stoner Fluxx"
+        theme: "Munchies, brownies, and forgetting the rules"
+        special: "Everyone plays slower. Giggles increase."
+        effect: "Snacks appear. Time dilates. Nobody remembers whose turn it is."
+        
+      - name: "Monty Python Fluxx"
+        theme: "Ni! Shrubberies! Holy Hand Grenades!"
+        special: "Outrageous Accent rule"
+        
+      - name: "Math Fluxx"
+        theme: "Numbers and operations"
+        special: "Actually educational. Shh."
+        
+      - name: "Nature Fluxx"
+        theme: "Ecosystems and food chains"
+        special: "Great for teaching kids"
+        
+      - name: "Firefly Fluxx"
+        theme: "Aim to misbehave"
+        special: "Shiny! Curse your sudden betrayal."
+        
+      - name: "Anatomy Fluxx"
+        theme: "The human body"
+        special: "Surprisingly competitive among healers"
+        
+      - name: "AI Fluxx"
+        theme: "Machine learning, robots, singularity"
+        special: "Rules rewrite themselves. Goals hallucinate."
+        warning: "The deck insists it's helping."
+        
+      - name: "Bartender's Special Fluxx"
+        theme: "????"
+        special: "The bartender made this one. Nobody wins."
+        warning: "Play at your own risk"
     
-  mystery: |
-    The seven of clubs: Ask three different patrons about it.
-    You'll get three different stories. One of them is true.
+mechanics: |
+  Can win or lose gold
+  Can win information as stakes
+  Can make enemies (or friends)
+  Can cheat (if skilled and brave)
+  
+mystery: |
+  The seven of clubs: Ask three different patrons about it.
+  You'll get three different stories. One of them is true.

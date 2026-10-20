@@ -4,20 +4,19 @@
 #   ability↔archetype pairings and exact stacking arithmetic — flagged inline.
 #   Nothing here has been checked against extracted game data this session.
 
-system:
-  id: spore
-  name: "Spore — per-stage modifiers and cross-stage Consequence Abilities"
-  vendor: "Maxis / Will Wright, 2008"
-  family: multi
-  vocabulary:
-    the_buff: "part (Cell/Creature), tool (Tribal/Space), Consequence Ability (Space)"
-    the_guard: "diet, play style, archetype, badge level, planet Terrascore"
-    the_stat: "ability level 1–5 (Bite, Charge, Sing, Charm, …), plus health/speed/stealth"
-  short_answer: |
-    Yes — at every stage, and they are five DIFFERENT systems. Spore is a
-    buffopedia in one box: it contains a distinct modifier dialect per stage
-    plus a sixth that spans all five, and it shipped the interchange problem
-    between them, including the lossy tier.
+id: spore
+name: "Spore — per-stage modifiers and cross-stage Consequence Abilities"
+vendor: "Maxis / Will Wright, 2008"
+family: multi
+vocabulary:
+  the_buff: "part (Cell/Creature), tool (Tribal/Space), Consequence Ability (Space)"
+  the_guard: "diet, play style, archetype, badge level, planet Terrascore"
+  the_stat: "ability level 1–5 (Bite, Charge, Sing, Charm, …), plus health/speed/stealth"
+short_answer: |
+  Yes — at every stage, and they are five DIFFERENT systems. Spore is a
+  buffopedia in one box: it contains a distinct modifier dialect per stage
+  plus a sixth that spans all five, and it shipped the interchange problem
+  between them, including the lossy tier.
 
 # THE FIVE PER-STAGE DIALECTS
 

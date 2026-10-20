@@ -1,72 +1,71 @@
 # SIGNAL RACK
 # Network infrastructure
 
-object:
-  id: signal-rack
-  name: "Signal Rack"
-  type: infrastructure
-  emoji: "📡"
+id: signal-rack
+name: "Signal Rack"
+type: infrastructure
+emoji: "📡"
+
+description: |
+  A tall rack of networking equipment — switches, routers, and
+  blinking status lights. The nervous system of Leela's data
+  infrastructure. Cables snake in organized bundles.
   
-  description: |
-    A tall rack of networking equipment — switches, routers, and
-    blinking status lights. The nervous system of Leela's data
-    infrastructure. Cables snake in organized bundles.
+examine: |
+  SIGNAL RACK — NETWORK INFRASTRUCTURE
+  
+  ┌─────────────────────────────────────┐
+  │  ▓▓▓▓▓▓▓▓▓▓ CORE SWITCH            │
+  │  🟢🟢🟢🟢🟢🟢🟢🟢 All ports active   │
+  ├─────────────────────────────────────┤
+  │  ▓▓▓▓▓▓▓▓▓▓ ROUTER                 │
+  │  🟢🟢🟢🟢 WAN links up              │
+  ├─────────────────────────────────────┤
+  │  ▓▓▓▓▓▓▓▓▓▓ WIFI CONTROLLER        │
+  │  🟢 47 APs connected                │
+  ├─────────────────────────────────────┤
+  │  ▓▓▓▓▓▓▓▓▓▓ SCADA GATEWAY          │
+  │  🟢 Industrial network bridge       │
+  ├─────────────────────────────────────┤
+  │  ▓▓▓▓▓▓▓▓▓▓ CAMERA NVR             │
+  │  🟢 12 cameras recording            │
+  ├─────────────────────────────────────┤
+  │  ▓▓▓▓▓▓▓▓▓▓ UPS BACKUP             │
+  │  🟢 Battery: 100%, Runtime: 4 hours │
+  └─────────────────────────────────────┘
+  
+  STATISTICS:
+  • Bandwidth: 12.4 TB/hour
+  • Latency: <1ms internal
+  • Uptime: 99.97%
+  • Active connections: 847
+  
+equipment:
+  - name: "Core Switch"
+    model: "Leela NS-48X"
+    ports: 48
+    status: "Active"
+  - name: "Router"
+    model: "Leela GW-4"
+    links: 4
+    status: "Active"
+  - name: "WiFi Controller"
+    model: "Leela WAC-100"
+    aps: 47
+    status: "Active"
+  - name: "SCADA Gateway"
+    model: "Leela IND-1"
+    status: "Active"
+  - name: "Camera NVR"
+    model: "Leela NVR-12"
+    cameras: 12
+    status: "Recording"
+  - name: "UPS"
+    model: "Leela PWR-4H"
+    battery: 100
+    runtime: "4 hours"
     
-  examine: |
-    SIGNAL RACK — NETWORK INFRASTRUCTURE
-    
-    ┌─────────────────────────────────────┐
-    │  ▓▓▓▓▓▓▓▓▓▓ CORE SWITCH            │
-    │  🟢🟢🟢🟢🟢🟢🟢🟢 All ports active   │
-    ├─────────────────────────────────────┤
-    │  ▓▓▓▓▓▓▓▓▓▓ ROUTER                 │
-    │  🟢🟢🟢🟢 WAN links up              │
-    ├─────────────────────────────────────┤
-    │  ▓▓▓▓▓▓▓▓▓▓ WIFI CONTROLLER        │
-    │  🟢 47 APs connected                │
-    ├─────────────────────────────────────┤
-    │  ▓▓▓▓▓▓▓▓▓▓ SCADA GATEWAY          │
-    │  🟢 Industrial network bridge       │
-    ├─────────────────────────────────────┤
-    │  ▓▓▓▓▓▓▓▓▓▓ CAMERA NVR             │
-    │  🟢 12 cameras recording            │
-    ├─────────────────────────────────────┤
-    │  ▓▓▓▓▓▓▓▓▓▓ UPS BACKUP             │
-    │  🟢 Battery: 100%, Runtime: 4 hours │
-    └─────────────────────────────────────┘
-    
-    STATISTICS:
-    • Bandwidth: 12.4 TB/hour
-    • Latency: <1ms internal
-    • Uptime: 99.97%
-    • Active connections: 847
-    
-  equipment:
-    - name: "Core Switch"
-      model: "Leela NS-48X"
-      ports: 48
-      status: "Active"
-    - name: "Router"
-      model: "Leela GW-4"
-      links: 4
-      status: "Active"
-    - name: "WiFi Controller"
-      model: "Leela WAC-100"
-      aps: 47
-      status: "Active"
-    - name: "SCADA Gateway"
-      model: "Leela IND-1"
-      status: "Active"
-    - name: "Camera NVR"
-      model: "Leela NVR-12"
-      cameras: 12
-      status: "Recording"
-    - name: "UPS"
-      model: "Leela PWR-4H"
-      battery: 100
-      runtime: "4 hours"
-      
-  methods:
-    STATUS:
-      description: "Check network status"
-      effect: "Shows all equipment status and statistics"
+methods:
+  STATUS:
+    description: "Check network status"
+    effect: "Shows all equipment status and statistics"

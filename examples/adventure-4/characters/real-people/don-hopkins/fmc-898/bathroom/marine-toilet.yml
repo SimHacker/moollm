@@ -1,20 +1,19 @@
 # 🚽 MARINE TOILET
 # Part of the "Unhooked Generation."
 
-object:
-  name: "Marine Toilet"
-  type: plumbing
-  emoji: "🚽"
+name: "Marine Toilet"
+type: plumbing
+emoji: "🚽"
+
+description: |
+  A reliable marine-grade toilet. It is connected to the 37-gallon
+  sewage tank and the Thermasan waste destruction system.
   
-  description: |
-    A reliable marine-grade toilet. It is connected to the 37-gallon
-    sewage tank and the Thermasan waste destruction system.
-    
-  features:
-    - "Manual flush"
-    - "Connected to Thermasan"
-    
-  actions:
-    FLUSH:
-      description: "Cleanse the system."
-      effect: "The waste is moved to the tank, ready for destruction at speed."
+features:
+  - "Manual flush"
+  - "Connected to Thermasan"
+  
+actions:
+  FLUSH:
+    description: "Cleanse the system."
+    effect: "The waste is moved to the tank, ready for destruction at speed."

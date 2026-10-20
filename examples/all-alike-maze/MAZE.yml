@@ -7,19 +7,18 @@
 # but they respond differently to different motions... In that way you can
 # psych out the whole maze of 14 similar locations."
 
-maze:
-  name: all-alike
-  # ONE description, FOURTEEN rooms. The description is a single inherited
-  # slot; each room materializes only its exits. This maze is a sparse
-  # shadow tree that shipped in 1977.
-  description: "You are in a maze of twisty little passages, all alike."
-  dead_end_description: "Dead end."
-  hint: twist_hint
-  entrances:
-    - "wmist: south/up/passage/climb -> like1"   # West end of Hall of Mists
-  external:
-    wmist: "Hall of Mists, west end (q61 territory) — the way in"
-    bird:  "Bird chamber — down from brink, no way back up"
+name: all-alike
+# ONE description, FOURTEEN rooms. The description is a single inherited
+# slot; each room materializes only its exits. This maze is a sparse
+# shadow tree that shipped in 1977.
+description: "You are in a maze of twisty little passages, all alike."
+dead_end_description: "Dead end."
+hint: twist_hint
+entrances:
+  - "wmist: south/up/passage/climb -> like1"   # West end of Hall of Mists
+external:
+  wmist: "Hall of Mists, west end (q61 territory) — the way in"
+  bird:  "Bird chamber — down from brink, no way back up"
 
 rooms:
   like1:    # q42 — the front door of the maze

@@ -1,80 +1,79 @@
 # OBSERVATION TELESCOPE
 # For viewing Lane Neverending and beyond
 
-object:
-  id: telescope
-  name: "Observation Telescope"
-  type: equipment
-  emoji: "🔭"
+id: telescope
+name: "Observation Telescope"
+type: equipment
+emoji: "🔭"
+
+tags: [equipment, observation, astronomy]
+
+description: |
+  A brass telescope on the observation deck, pointed at the sky
+  (or the street, depending on who used it last).
   
-  tags: [equipment, observation, astronomy]
+examine: |
+  OBSERVATION TELESCOPE
   
-  description: |
-    A brass telescope on the observation deck, pointed at the sky
-    (or the street, depending on who used it last).
-    
-  examine: |
-    OBSERVATION TELESCOPE
-    
-    A beautiful brass telescope on a rotating mount.
-    Currently pointed at: [THE STREET]
-    
-    FEATURES:
-    • Adjustable magnification (10x to 100x)
-    • Smooth rotation (covers full horizon)
-    • Night mode (filters light pollution)
-    • Constellation guide (attached chart)
-    
-    NOTABLE VIEWS:
-    • The Origin Tree at 1 Lane Neverending
-    • The Construction Site at the eastern edge
-    • The Pub's rooftop (they have a matching telescope)
-    • The LLOOOOMM Constellation (at night)
-    • "Other things" (some viewers report seeing... more)
-    
-    Coins are not required. Leela believes in free observation.
-    
-  methods:
-    LOOK:
-      description: "Look through the telescope"
-      parameters:
-        target: "What to observe (street, sky, pub, origin)"
-      effect: |
-        The view snaps into focus.
-        Details emerge that you couldn't see before.
-        
-    STREET:
-      description: "Observe Lane Neverending"
-      effect: |
-        The street stretches out below and beyond.
-        You can see:
-        • Pedestrians going about their business
-        • A cart rattling toward the pub
-        • Someone waving from the Origin Tree plaza
-        • The painted tunnel on ACME Surplus (a coyote is trying again)
-        
-    SKY:
-      description: "Observe the night sky"
-      effect: |
-        The stars swim into view.
-        There — the LLOOOOMM Constellation:
-        
-        ★     ★
-          ★ ★
-        ★     ★
-        
-        The ancient pattern that guides lost avatars home.
-        
-    PUB:
-      description: "Look at the pub's rooftop"
-      effect: |
-        The Gezelligheid Grotto's roof is just next door.
-        Someone is looking back through THEIR telescope.
-        You wave. They wave.
-        
-        This happens every time.
-        
-  notes:
-    - "Do not look directly at the sun (the telescope will refuse)"
-    - "Some viewers report seeing 'the future' but this is unconfirmed"
-    - "The telescope and the pub's telescope have been 'waving' for years"
+  A beautiful brass telescope on a rotating mount.
+  Currently pointed at: [THE STREET]
+  
+  FEATURES:
+  • Adjustable magnification (10x to 100x)
+  • Smooth rotation (covers full horizon)
+  • Night mode (filters light pollution)
+  • Constellation guide (attached chart)
+  
+  NOTABLE VIEWS:
+  • The Origin Tree at 1 Lane Neverending
+  • The Construction Site at the eastern edge
+  • The Pub's rooftop (they have a matching telescope)
+  • The LLOOOOMM Constellation (at night)
+  • "Other things" (some viewers report seeing... more)
+  
+  Coins are not required. Leela believes in free observation.
+  
+methods:
+  LOOK:
+    description: "Look through the telescope"
+    parameters:
+      target: "What to observe (street, sky, pub, origin)"
+    effect: |
+      The view snaps into focus.
+      Details emerge that you couldn't see before.
+      
+  STREET:
+    description: "Observe Lane Neverending"
+    effect: |
+      The street stretches out below and beyond.
+      You can see:
+      • Pedestrians going about their business
+      • A cart rattling toward the pub
+      • Someone waving from the Origin Tree plaza
+      • The painted tunnel on ACME Surplus (a coyote is trying again)
+      
+  SKY:
+    description: "Observe the night sky"
+    effect: |
+      The stars swim into view.
+      There — the LLOOOOMM Constellation:
+      
+      ★     ★
+        ★ ★
+      ★     ★
+      
+      The ancient pattern that guides lost avatars home.
+      
+  PUB:
+    description: "Look at the pub's rooftop"
+    effect: |
+      The Gezelligheid Grotto's roof is just next door.
+      Someone is looking back through THEIR telescope.
+      You wave. They wave.
+      
+      This happens every time.
+      
+notes:
+  - "Do not look directly at the sun (the telescope will refuse)"
+  - "Some viewers report seeing 'the future' but this is unconfirmed"
+  - "The telescope and the pub's telescope have been 'waving' for years"

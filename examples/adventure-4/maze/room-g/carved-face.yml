@@ -1,144 +1,143 @@
 # 🗿 The Carved Face
 # An ancient watcher in the stone
 
-object:
-  name: The Carved Face
-  type: landmark
-  portable: false  # It's carved into the wall
+name: The Carved Face
+type: landmark
+portable: false  # It's carved into the wall
+
+description: |
+  A FACE carved into the wall. Ancient, weathered, inscrutable.
   
-  description: |
-    A FACE carved into the wall. Ancient, weathered, inscrutable.
-    
-    It might once have been a king, or a god, or possibly just
-    someone's uncle who was really good at posing. Its empty
-    eyes seem to follow you as you move.
-    
-    The face does not respond when you speak to it. Obviously.
-    It's a face carved in rock.
-    
-    ...Probably.
+  It might once have been a king, or a god, or possibly just
+  someone's uncle who was really good at posing. Its empty
+  eyes seem to follow you as you move.
   
-  # What is it?
-  mystery: |
-    No one knows who carved it, or why, or when.
-    
-    It predates the maze. It predates the dungeon.
-    Some say it predates the mountain itself.
-    
-    The face watches. The face judges. The face remembers.
+  The face does not respond when you speak to it. Obviously.
+  It's a face carved in rock.
   
-  # It reacts to exits
-  reactions:
-    to_north: "frowns"     # Toward the skeleton
-    to_south: "neutral"    # Toward the golden glow
-    to_east: "approves"    # Toward the vendor
-    to_west: "neutral"     # Toward the cobwebs
-    
-  reaction_interpretation: |
-    The face seems to guide adventurers toward the vendor (east)
-    and away from the skeleton (north). Make of that what you will.
+  ...Probably.
+
+# What is it?
+mystery: |
+  No one knows who carved it, or why, or when.
   
-  advertisements:
-    - action: EXAMINE
-      score: 80
-      result: |
-        The face is carved from the living rock of the wall.
-        The craftsmanship is remarkable — each wrinkle, each pore,
-        rendered in perfect detail despite centuries of age.
-        
-        The eyes are empty sockets, yet you cannot shake the
-        feeling that they see you. That they have ALWAYS seen you.
-        
-    - action: SPEAK-TO
-      score: 60
-      result: |
-        "Hello?" you venture.
-        
-        The face does not respond. It's a face carved in rock.
-        
-        But was that a slight shift in the shadows around its mouth?
-        A trick of the lamplight? Surely. Surely a trick of the light.
-        
-    - action: ASK-DIRECTION
-      score: 70
-      result: |
-        "Which way should I go?"
-        
-        The face remains still. But you notice its expression
-        seems slightly more approving when you face east.
-        
-        The vendor is east. Coincidence? Guidance? Pareidolia?
-        
-    - action: TOUCH
-      score: 50
-      result: |
-        You reach out and touch the carved stone.
-        
-        It's cold. Colder than it should be. Colder than the air.
-        
-        For a moment, you think you feel a pulse. But stone
-        doesn't have a pulse. Stone doesn't breathe.
-        
-        ...Does it?
-        
-    - action: OFFER-TRIBUTE
-      score: 40
-      description: "Leave something for the face"
-      result: |
-        You place [item] at the base of the carved face.
-        
-        The shadows in the eye sockets seem to deepen.
-        Approval? Disdain? Hunger?
-        
-        [The face remembers your offering]
-        
-    - action: MOCK
-      score: 20
-      score_if:
-        - "player.wisdom < 5"
-      result: |
-        "Nice face, stone-head!"
-        
-        Somewhere, you think you hear stone grinding against stone.
-        
-        The face's expression hasn't changed. Of course it hasn't.
-        It's carved in rock.
-        
-        But you feel watched. More watched than before.
-        
-        [The face remembers your disrespect]
-        
-    - action: COPY-EXPRESSION
-      score: 45
-      result: |
-        You arrange your face to match the carved one.
-        Stern. Impassive. Ancient.
-        
-        You hold the expression for a long moment.
-        
-        When you relax, you could swear the face looks...
-        amused? No. That's impossible. Stone doesn't get amused.
+  It predates the maze. It predates the dungeon.
+  Some say it predates the mountain itself.
   
-  # Hidden depth
-  secrets:
-    - trigger: "EXAMINE during specific constellation alignment"
-      hint: "The eyes glow faintly on certain nights"
+  The face watches. The face judges. The face remembers.
+
+# It reacts to exits
+reactions:
+  to_north: "frowns"     # Toward the skeleton
+  to_south: "neutral"    # Toward the golden glow
+  to_east: "approves"    # Toward the vendor
+  to_west: "neutral"     # Toward the cobwebs
+  
+reaction_interpretation: |
+  The face seems to guide adventurers toward the vendor (east)
+  and away from the skeleton (north). Make of that what you will.
+
+advertisements:
+  - action: EXAMINE
+    score: 80
+    result: |
+      The face is carved from the living rock of the wall.
+      The craftsmanship is remarkable — each wrinkle, each pore,
+      rendered in perfect detail despite centuries of age.
       
-    - trigger: "Speak the true name of the one it depicts"
-      hint: "No one living knows this name"
+      The eyes are empty sockets, yet you cannot shake the
+      feeling that they see you. That they have ALWAYS seen you.
       
-    - trigger: "Return after being eaten by the grue"
-      result: "The face seems to recognize you. A repeat customer."
-  
-  # Atmosphere
-  ambience: |
-    The carved face judges you silently. You adjust your waistcoat
-    self-consciously. 
+  - action: SPEAK-TO
+    score: 60
+    result: |
+      "Hello?" you venture.
+      
+      The face does not respond. It's a face carved in rock.
+      
+      But was that a slight shift in the shadows around its mouth?
+      A trick of the lamplight? Surely. Surely a trick of the light.
+      
+  - action: ASK-DIRECTION
+    score: 70
+    result: |
+      "Which way should I go?"
+      
+      The face remains still. But you notice its expression
+      seems slightly more approving when you face east.
+      
+      The vendor is east. Coincidence? Guidance? Pareidolia?
+      
+  - action: TOUCH
+    score: 50
+    result: |
+      You reach out and touch the carved stone.
+      
+      It's cold. Colder than it should be. Colder than the air.
+      
+      For a moment, you think you feel a pulse. But stone
+      doesn't have a pulse. Stone doesn't breathe.
+      
+      ...Does it?
+      
+  - action: OFFER-TRIBUTE
+    score: 40
+    description: "Leave something for the face"
+    result: |
+      You place [item] at the base of the carved face.
+      
+      The shadows in the eye sockets seem to deepen.
+      Approval? Disdain? Hunger?
+      
+      [The face remembers your offering]
+      
+  - action: MOCK
+    score: 20
+    score_if:
+      - "player.wisdom < 5"
+    result: |
+      "Nice face, stone-head!"
+      
+      Somewhere, you think you hear stone grinding against stone.
+      
+      The face's expression hasn't changed. Of course it hasn't.
+      It's carved in rock.
+      
+      But you feel watched. More watched than before.
+      
+      [The face remembers your disrespect]
+      
+  - action: COPY-EXPRESSION
+    score: 45
+    result: |
+      You arrange your face to match the carved one.
+      Stern. Impassive. Ancient.
+      
+      You hold the expression for a long moment.
+      
+      When you relax, you could swear the face looks...
+      amused? No. That's impossible. Stone doesn't get amused.
+
+# Hidden depth
+secrets:
+  - trigger: "EXAMINE during specific constellation alignment"
+    hint: "The eyes glow faintly on certain nights"
     
-    Somewhere, you think you hear stone grinding against stone. 
-    But that's impossible. Probably.
+  - trigger: "Speak the true name of the one it depicts"
+    hint: "No one living knows this name"
+    
+  - trigger: "Return after being eaten by the grue"
+    result: "The face seems to recognize you. A repeat customer."
+
+# Atmosphere
+ambience: |
+  The carved face judges you silently. You adjust your waistcoat
+  self-consciously. 
   
-  lineage:
-    tribute_to: "Easter Island heads, ancient guardians, watchful monuments"
-    inspiration: "Every dungeon needs mysterious carvings"
-    lesson: "Not everything needs explanation. Mystery has value."
+  Somewhere, you think you hear stone grinding against stone. 
+  But that's impossible. Probably.
+
+lineage:
+  tribute_to: "Easter Island heads, ancient guardians, watchful monuments"
+  inspiration: "Every dungeon needs mysterious carvings"
+  lesson: "Not everything needs explanation. Mystery has value."

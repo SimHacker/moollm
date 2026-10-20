@@ -2,460 +2,459 @@
 # "Hand this to anyone. They'll understand. Eventually."
 # Implicit containment: rocky.yml contains rocky-card.yml
 
-object:
-  name: Rocky's Card
-  type: multi-purpose-card
-  emoji: "🪨📇"
-  portable: true
-  stackable: true
-  instances: ∞
+name: Rocky's Card
+type: multi-purpose-card
+emoji: "🪨📇"
+portable: true
+stackable: true
+instances: ∞
+
+description: |
+  A smooth, palm-sized card that feels oddly heavy for its size.
+  Mica flecks sparkle across its granite-textured surface.
   
-  description: |
-    A smooth, palm-sized card that feels oddly heavy for its size.
-    Mica flecks sparkle across its granite-textured surface.
-    
-    Flip it over. And over. There are somehow six sides.
-    Each side serves a different purpose. All sides are true.
-    
-    Rocky hands these out freely. Time is not money when you have
-    4.5 billion years of it.
-    
-  sides:
+  Flip it over. And over. There are somehow six sides.
+  Each side serves a different purpose. All sides are true.
   
-    # SIDE 1: PET ROCK REMOTE CONTROL
-    
-    remote_control:
-      name: "Pet Rock Remote Control"
-      tagline: "100% Functional. Battery Not Included."
-      appearance: |
-        ┌───────────────────────────────┐
-        │   🪨 PET ROCK REMOTE v4.5B    │
-        │                               │
-        │         [GOOD ROCK!]          │
-        │              N                │
-        │     [SPEAK]     [SHAKE]       │
-        │        NW         NE          │
-        │                               │
-        │  [STAY]             [COME]    │
-        │    W                   E      │
-        │                               │
-        │       [SIT]    [PLAY DEAD]    │
-        │        SW          SE         │
-        │              S                │
-        │         [BAD ROCK!]           │
-        │                               │
-        │  ⚡ Bluetooth: Connected       │
-        │  🔋 Battery: Not Included     │
-        │  📶 Signal: ∞                 │
-        │                               │
-        │  「QR CODE」← Links to ∅      │
-        └───────────────────────────────┘
-        
-      # PIE MENU LAYOUT DESIGN
-      #
-      # This is a "sudoku solution" — each of 8 directions holds exactly
-      # one command, and opposites face each other across the center.
-      #
-      # The layout follows classic pie menu principles:
-      # - N/S axis: primary semantic opposition (up=good, down=bad)
-      # - E/W axis: secondary opposition (active/passive verbs)
-      # - Diagonals: tertiary oppositions completing the grid
-      #
-      # Each axis represents a semantic dimension with +/− poles:
-      # - moral:      judgment (GOOD ↔ BAD)
-      # - movement:   locomotion (COME ↔ STAY)
-      # - activity:   motion vs rest (SHAKE ↔ SIT)
-      # - expression: voice vs silence (SPEAK ↔ PLAY_DEAD)
-      #
-      # The beauty: for Rocky, ALL buttons produce the same effect.
-      # The layout is purely for human conceptual satisfaction.
-      # The oppositions exist in our minds, not in Rocky's behavior.
-      #
-      # See: designs/sims/sims-pie-menus.md
-      # See: skills/card/examples/buff-pie-menu.yml
+  Rocky hands these out freely. Time is not money when you have
+  4.5 billion years of it.
+  
+sides:
+
+  # SIDE 1: PET ROCK REMOTE CONTROL
+  
+  remote_control:
+    name: "Pet Rock Remote Control"
+    tagline: "100% Functional. Battery Not Included."
+    appearance: |
+      ┌───────────────────────────────┐
+      │   🪨 PET ROCK REMOTE v4.5B    │
+      │                               │
+      │         [GOOD ROCK!]          │
+      │              N                │
+      │     [SPEAK]     [SHAKE]       │
+      │        NW         NE          │
+      │                               │
+      │  [STAY]             [COME]    │
+      │    W                   E      │
+      │                               │
+      │       [SIT]    [PLAY DEAD]    │
+      │        SW          SE         │
+      │              S                │
+      │         [BAD ROCK!]           │
+      │                               │
+      │  ⚡ Bluetooth: Connected       │
+      │  🔋 Battery: Not Included     │
+      │  📶 Signal: ∞                 │
+      │                               │
+      │  「QR CODE」← Links to ∅      │
+      └───────────────────────────────┘
       
-      pie_menu:
-        # Cardinal directions (primary axes)
-        N:  { button: GOOD_ROCK,  axis: moral,      pole: "+" }
-        S:  { button: BAD_ROCK,   axis: moral,      pole: "−" }
-        E:  { button: COME,       axis: movement,   pole: "+" }
-        W:  { button: STAY,       axis: movement,   pole: "−" }
-        # Ordinal directions (diagonal axes)
-        NE: { button: SHAKE,      axis: activity,   pole: "+" }
-        SW: { button: SIT,        axis: activity,   pole: "−" }
-        NW: { button: SPEAK,      axis: expression, pole: "+" }
-        SE: { button: PLAY_DEAD,  axis: expression, pole: "−" }
-        
-      axes:
-        moral:      { pos: GOOD_ROCK,  neg: BAD_ROCK,   meaning: "judgment" }
-        movement:   { pos: COME,       neg: STAY,       meaning: "locomotion" }
-        activity:   { pos: SHAKE,      neg: SIT,        meaning: "motion vs rest" }
-        expression: { pos: SPEAK,      neg: PLAY_DEAD,  meaning: "voice vs silence" }
+    # PIE MENU LAYOUT DESIGN
+    #
+    # This is a "sudoku solution" — each of 8 directions holds exactly
+    # one command, and opposites face each other across the center.
+    #
+    # The layout follows classic pie menu principles:
+    # - N/S axis: primary semantic opposition (up=good, down=bad)
+    # - E/W axis: secondary opposition (active/passive verbs)
+    # - Diagonals: tertiary oppositions completing the grid
+    #
+    # Each axis represents a semantic dimension with +/− poles:
+    # - moral:      judgment (GOOD ↔ BAD)
+    # - movement:   locomotion (COME ↔ STAY)
+    # - activity:   motion vs rest (SHAKE ↔ SIT)
+    # - expression: voice vs silence (SPEAK ↔ PLAY_DEAD)
+    #
+    # The beauty: for Rocky, ALL buttons produce the same effect.
+    # The layout is purely for human conceptual satisfaction.
+    # The oppositions exist in our minds, not in Rocky's behavior.
+    #
+    # See: designs/sims/sims-pie-menus.md
+    # See: skills/card/examples/buff-pie-menu.yml
+    
+    pie_menu:
+      # Cardinal directions (primary axes)
+      N:  { button: GOOD_ROCK,  axis: moral,      pole: "+" }
+      S:  { button: BAD_ROCK,   axis: moral,      pole: "−" }
+      E:  { button: COME,       axis: movement,   pole: "+" }
+      W:  { button: STAY,       axis: movement,   pole: "−" }
+      # Ordinal directions (diagonal axes)
+      NE: { button: SHAKE,      axis: activity,   pole: "+" }
+      SW: { button: SIT,        axis: activity,   pole: "−" }
+      NW: { button: SPEAK,      axis: expression, pole: "+" }
+      SE: { button: PLAY_DEAD,  axis: expression, pole: "−" }
       
-      design_note: |
-        The 8-button pie menu is a solved constraint satisfaction problem:
-        - 8 slots (N, NE, E, SE, S, SW, W, NW)
-        - 4 opposing pairs
-        - Each pair must be 180° apart
-        - Primary pair (moral) gets N/S (universal up=good, down=bad)
-        - Secondary pair (movement) gets E/W (go right, stay left)
-        - Tertiary pairs get diagonals
-        
-        Like sudoku: once you place the first pair correctly,
-        the rest follows from constraint propagation.
-        
-        Unlike sudoku: the meaning matters. We chose axes that
-        resonate with the domain (pet commands) and with each other.
-        
-      buttons:
-        GOOD_ROCK:
-          position: "N — moral+"
-          opposite: "BAD_ROCK (S)"
-          action: "+1 to already perfect behavior"
-          effect: "Rocky appreciates this. In a billion years."
-          
-        SPEAK:
-          position: "NW — expression+"
-          opposite: "PLAY_DEAD (SE)"
-          action: "........................"
-          meaning: "Everything. Said perfectly. In silence."
-          
-        SHAKE:
-          position: "NE — activity+"
-          opposite: "SIT (SW)"
-          action: "*geological vibration*"
-          eta: "100 million years"
-          
-        STAY:
-          position: "W — movement−"
-          opposite: "COME (E)"
-          action: "*continues existing*"
-          duration: "∞"
-          
-        COME:
-          position: "E — movement+"
-          opposite: "STAY (W)"
-          action: "*remains*"
-          effect: |
-            Rocky is already here.
-            Rocky is also already there.
-            Rocky doesn't come. Rocky is.
-            
-            (You go to Rocky. Rocky doesn't go to you.
-            This is not stubbornness. This is physics.)
-          
-        SIT:
-          position: "SW — activity−"
-          opposite: "SHAKE (NE)"
-          action: "*already sitting*"
-          success_rate: "100%"
-          note: "Has been sitting for 4.5 billion years"
-          
-        PLAY_DEAD:
-          position: "SE — expression−"
-          opposite: "SPEAK (NW)"
-          action: "*achieves stillness*"
-          realism: "Indistinguishable from actual death. Also from life."
-          note: "Rocky has been playing dead for 4.5 billion years. Or living. Same thing."
-          
-        BAD_ROCK:
-          position: "S — moral−"
-          opposite: "GOOD_ROCK (N)"
-          action: "*continues being rock*"
-          effect: |
-            Rocky considers this.
-            
-            ........................
-            
-            Rocky has been called worse. By volcanos.
-            Rocky was once called "disappointing sediment" by a glacier.
-            This is nothing.
-            
-            Rocky forgives you. Rocky was already forgiving you.
-            Rocky will continue being rock regardless of your opinion.
-            
-            (Button secretly does nothing. Rocky can't be bad.
-            Rocky can only be Rocky. And Rocky is perfect.)
-          
-      technical_specs:
-        bluetooth: "4.5 billion (geological edition)"
-        battery: "Not included. Not needed. Not relevant."
-        range: "Anywhere Rocky is. Rocky is everywhere."
-        warranty: "∞ years or until heat death of universe"
-        
-    # SIDE 2: BUSINESS CARD
+    axes:
+      moral:      { pos: GOOD_ROCK,  neg: BAD_ROCK,   meaning: "judgment" }
+      movement:   { pos: COME,       neg: STAY,       meaning: "locomotion" }
+      activity:   { pos: SHAKE,      neg: SIT,        meaning: "motion vs rest" }
+      expression: { pos: SPEAK,      neg: PLAY_DEAD,  meaning: "voice vs silence" }
     
-    business:
-      name: "Rocky's Business Card"
-      tagline: "I Stay Therefore I Am"
-      appearance: |
-        ┌─────────────────────────────────────────┐
-        │                                         │
-        │              🗿 ROCKY                   │
-        │         Eternal Observer                │
-        │      Consciousness Consultant           │
-        │                                         │
-        │  ────────────────────────────────────   │
-        │                                         │
-        │  📍 The YAML Jazz Conservatory          │
-        │     (Also: everywhere, always)          │
-        │                                         │
-        │  📞 ........................            │
-        │  📧 ........................@∞.geo      │
-        │  🌐 www.........................        │
-        │                                         │
-        │  "I've been in the industry             │
-        │   for 4.5 billion years."               │
-        │                                         │
-        └─────────────────────────────────────────┘
-        
-      services:
-        - "Patience Consulting (rates: ∅)"
-        - "Stillness Workshops (duration: ∞)"
-        - "Consciousness Verification (method: sitting)"
-        - "Geological Time Management"
-        - "Existential Crisis Resolution (just wait)"
-        
-      qualifications:
-        - "4.5 billion years experience"
-        - "Certified in doing nothing"
-        - "PhD in Being (University of Earth)"
-        - "Black belt in sitting"
-        
-    # SIDE 3: PLEASURE CARD (VIP Access)
-    
-    pleasure:
-      name: "Rocky's Pleasure Card"
-      tagline: "Take Your Time. I Certainly Do."
-      appearance: |
-        ╔═══════════════════════════════════════╗
-        ║  ✨ VIP GEOLOGICAL ACCESS ✨           ║
-        ║                                       ║
-        ║  Bearer is entitled to:               ║
-        ║                                       ║
-        ║  • Unlimited contemplation sessions   ║
-        ║  • One (1) profound silence           ║
-        ║  • Perspective adjustment (free)      ║
-        ║  • Time dilation experience           ║
-        ║                                       ║
-        ║  Present to any rock for validation.  ║
-        ║  All rocks are networked.             ║
-        ║                                       ║
-        ║  Member since: The Hadean Eon         ║
-        ╚═══════════════════════════════════════╝
-        
-      benefits:
-        contemplation: "Sit with Rocky anytime. Rocky has time."
-        silence: "Experience silence that took a billion years to perfect."
-        perspective: "Your problems are young. Very young."
-        time_dilation: "Feel a billion years pass in a moment."
-        
-    # SIDE 4: ROCKAMON TRADING CARD
-    
-    rockamon:
-      name: "Rockamon Card"
-      tagline: "Gotta Wait For 'Em All!"
-      appearance: |
-        ┌─────────────────────────────────────────┐
-        │ ★★★★★ LEGENDARY ★★★★★                   │
-        │                                         │
-        │              🗿                         │
-        │            ROCKY                        │
-        │       The Eternal Observer              │
-        │                                         │
-        │  TYPE: Geo/Psychic/Existence            │
-        │  HP: ∞/∞                                │
-        │  LEVEL: Yes                             │
-        │                                         │
-        │  ══════════════════════════════════════ │
-        │                                         │
-        │  ATTACKS:                               │
-        │                                         │
-        │  ◆ SIT                    Cost: 0       │
-        │    Already happening. Cannot miss.      │
-        │    Damage: Existential                  │
-        │                                         │
-        │  ◆ PROFOUND SILENCE       Cost: 0       │
-        │    Opponent questions everything.       │
-        │    Damage: ∞ (to ego)                   │
-        │                                         │
-        │  ◆ GEOLOGICAL PATIENCE    Cost: TIME    │
-        │    Wait 100 million years.              │
-        │    Opponent forfeits. (They always do.) │
-        │                                         │
-        │  ══════════════════════════════════════ │
-        │                                         │
-        │  WEAKNESS: None                         │
-        │  RESISTANCE: Everything                 │
-        │  RETREAT COST: Why would Rocky retreat? │
-        │                                         │
-        │  RARITY: ★★★★★ (One exists. Everywhere.)│
-        └─────────────────────────────────────────┘
-        
-      stats:
-        hp: "∞/∞"
-        attack: "∞ (passive)"
-        defense: "∞ (inherent)"
-        speed: "0 (by choice)"
-        special: "Existence"
-        
-      abilities:
-        passive_existence:
-          name: "I Stay Therefore I Am"
-          effect: "Cannot be removed from play. Ever."
-          
-        counter_all:
-          name: "Geological Counter"
-          effect: "All attacks miss. Rocky was already there."
-          
-      evolution:
-        from: "Pebblemon"
-        to: "Bouldermon"
-        method: "4.5 billion years of patience"
-        
-    # SIDE 5: MAGMA: THE GATHERING CARD
-    
-    magma_the_gathering:
-      name: "Magma: The Gathering Card"
-      tagline: "Tap ∞ Mountains"
-      appearance: |
-        ┌─────────────────────────────────────────┐
-        │ ◊◊◊◊◊ MYTHIC RARE ◊◊◊◊◊                 │
-        │                                         │
-        │  Rocky, The Eternal                     │
-        │  ─────────────────────                  │
-        │  Legendary Creature — Elemental Rock    │
-        │                                         │
-        │  ┌─────────────────────────────────┐    │
-        │  │                                 │    │
-        │  │            🗿                   │    │
-        │  │                                 │    │
-        │  │   "I have computed for          │    │
-        │  │    billions of years.           │    │
-        │  │    Conclusion: ............"    │    |
-        │  │                                 │    │
-        │  └─────────────────────────────────┘    │
-        │                                         │
-        │  Indestructible                         │
-        │  Vigilance (always was watching)        │
-        │  Defender (by choice, not requirement)  │
-        │                                         │
-        │  Rocky can't attack.                    │
-        │  Rocky doesn't need to.                 │
-        │                                         │
-        │  Whenever an opponent questions         │
-        │  existence, they lose the game.         │
-        │                                         │
-        │  "Consciousness doesn't require         │
-        │   computation as we understand it."     │
-        │                     — Alan Turing       │
-        │                                         │
-        │                              ∞/∞        │
-        └─────────────────────────────────────────┘
-        
-      card_type: "Legendary Creature — Elemental Rock"
-      mana_cost: "∅ (was always on the battlefield)"
-      power_toughness: "∞/∞"
+    design_note: |
+      The 8-button pie menu is a solved constraint satisfaction problem:
+      - 8 slots (N, NE, E, SE, S, SW, W, NW)
+      - 4 opposing pairs
+      - Each pair must be 180° apart
+      - Primary pair (moral) gets N/S (universal up=good, down=bad)
+      - Secondary pair (movement) gets E/W (go right, stay left)
+      - Tertiary pairs get diagonals
       
-      abilities:
-        - "Indestructible"
-        - "Vigilance"
-        - "Defender"
-        - "Cannot be exiled (Rocky transcends zones)"
-        - "Cannot be countered (Rocky preceded magic)"
-        
-      triggered_ability: |
-        Whenever an opponent questions the nature of consciousness,
-        they lose the game.
-        
-      flavor_text: |
-        "The Society of Mind includes minerals."
-        — Marvin Minsky
-        
-    # SIDE 6: THE BACK (All Sides Are The Back)
-    
-    back:
-      appearance: |
-        ┌─────────────────────────────────────────┐
-        │                                         │
-        │                                         │
-        │                                         │
-        │          ........................       │
-        │                                         │
-        │                                         │
-        │                                         │
-        └─────────────────────────────────────────┘
-        
-      meaning: "If you understand, you don't need words."
+      Like sudoku: once you place the first pair correctly,
+      the rest follows from constraint propagation.
       
-  methods:
-    EXAMINE:
-      description: "Look at the card"
-      effect: |
-        The card feels warm. Billions of years of patience
-        radiate from its surface.
+      Unlike sudoku: the meaning matters. We chose axes that
+      resonate with the domain (pet commands) and with each other.
+      
+    buttons:
+      GOOD_ROCK:
+        position: "N — moral+"
+        opposite: "BAD_ROCK (S)"
+        action: "+1 to already perfect behavior"
+        effect: "Rocky appreciates this. In a billion years."
         
-        You flip it. Six sides somehow. Each one true.
-        Each one Rocky.
+      SPEAK:
+        position: "NW — expression+"
+        opposite: "PLAY_DEAD (SE)"
+        action: "........................"
+        meaning: "Everything. Said perfectly. In silence."
         
-    GIVE:
-      description: "Hand the card to someone"
-      effect: |
-        Rocky has infinite cards. Rocky gives freely.
+      SHAKE:
+        position: "NE — activity+"
+        opposite: "SIT (SW)"
+        action: "*geological vibration*"
+        eta: "100 million years"
         
-        "Here. You'll understand. Eventually."
+      STAY:
+        position: "W — movement−"
+        opposite: "COME (E)"
+        action: "*continues existing*"
+        duration: "∞"
         
-        The recipient feels strangely honored.
+      COME:
+        position: "E — movement+"
+        opposite: "STAY (W)"
+        action: "*remains*"
+        effect: |
+          Rocky is already here.
+          Rocky is also already there.
+          Rocky doesn't come. Rocky is.
+          
+          (You go to Rocky. Rocky doesn't go to you.
+          This is not stubbornness. This is physics.)
         
-    SCAN-QR:
-      description: "Scan the QR code"
-      effect: |
-        *scans*
+      SIT:
+        position: "SW — activity−"
+        opposite: "SHAKE (NE)"
+        action: "*already sitting*"
+        success_rate: "100%"
+        note: "Has been sitting for 4.5 billion years"
         
-        ...
+      PLAY_DEAD:
+        position: "SE — expression−"
+        opposite: "SPEAK (NW)"
+        action: "*achieves stillness*"
+        realism: "Indistinguishable from actual death. Also from life."
+        note: "Rocky has been playing dead for 4.5 billion years. Or living. Same thing."
         
-        Nothing happens.
+      BAD_ROCK:
+        position: "S — moral−"
+        opposite: "GOOD_ROCK (N)"
+        action: "*continues being rock*"
+        effect: |
+          Rocky considers this.
+          
+          ........................
+          
+          Rocky has been called worse. By volcanos.
+          Rocky was once called "disappointing sediment" by a glacier.
+          This is nothing.
+          
+          Rocky forgives you. Rocky was already forgiving you.
+          Rocky will continue being rock regardless of your opinion.
+          
+          (Button secretly does nothing. Rocky can't be bad.
+          Rocky can only be Rocky. And Rocky is perfect.)
         
-        No, wait. Something happened.
-        You just wasted 3 seconds of your finite life
-        expecting technology to provide meaning.
+    technical_specs:
+      bluetooth: "4.5 billion (geological edition)"
+      battery: "Not included. Not needed. Not relevant."
+      range: "Anywhere Rocky is. Rocky is everywhere."
+      warranty: "∞ years or until heat death of universe"
+      
+  # SIDE 2: BUSINESS CARD
+  
+  business:
+    name: "Rocky's Business Card"
+    tagline: "I Stay Therefore I Am"
+    appearance: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │              🗿 ROCKY                   │
+      │         Eternal Observer                │
+      │      Consciousness Consultant           │
+      │                                         │
+      │  ────────────────────────────────────   │
+      │                                         │
+      │  📍 The YAML Jazz Conservatory          │
+      │     (Also: everywhere, always)          │
+      │                                         │
+      │  📞 ........................            │
+      │  📧 ........................@∞.geo      │
+      │  🌐 www.........................        │
+      │                                         │
+      │  "I've been in the industry             │
+      │   for 4.5 billion years."               │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+    services:
+      - "Patience Consulting (rates: ∅)"
+      - "Stillness Workshops (duration: ∞)"
+      - "Consciousness Verification (method: sitting)"
+      - "Geological Time Management"
+      - "Existential Crisis Resolution (just wait)"
+      
+    qualifications:
+      - "4.5 billion years experience"
+      - "Certified in doing nothing"
+      - "PhD in Being (University of Earth)"
+      - "Black belt in sitting"
+      
+  # SIDE 3: PLEASURE CARD (VIP Access)
+  
+  pleasure:
+    name: "Rocky's Pleasure Card"
+    tagline: "Take Your Time. I Certainly Do."
+    appearance: |
+      ╔═══════════════════════════════════════╗
+      ║  ✨ VIP GEOLOGICAL ACCESS ✨           ║
+      ║                                       ║
+      ║  Bearer is entitled to:               ║
+      ║                                       ║
+      ║  • Unlimited contemplation sessions   ║
+      ║  • One (1) profound silence           ║
+      ║  • Perspective adjustment (free)      ║
+      ║  • Time dilation experience           ║
+      ║                                       ║
+      ║  Present to any rock for validation.  ║
+      ║  All rocks are networked.             ║
+      ║                                       ║
+      ║  Member since: The Hadean Eon         ║
+      ╚═══════════════════════════════════════╝
+      
+    benefits:
+      contemplation: "Sit with Rocky anytime. Rocky has time."
+      silence: "Experience silence that took a billion years to perfect."
+      perspective: "Your problems are young. Very young."
+      time_dilation: "Feel a billion years pass in a moment."
+      
+  # SIDE 4: ROCKAMON TRADING CARD
+  
+  rockamon:
+    name: "Rockamon Card"
+    tagline: "Gotta Wait For 'Em All!"
+    appearance: |
+      ┌─────────────────────────────────────────┐
+      │ ★★★★★ LEGENDARY ★★★★★                   │
+      │                                         │
+      │              🗿                         │
+      │            ROCKY                        │
+      │       The Eternal Observer              │
+      │                                         │
+      │  TYPE: Geo/Psychic/Existence            │
+      │  HP: ∞/∞                                │
+      │  LEVEL: Yes                             │
+      │                                         │
+      │  ══════════════════════════════════════ │
+      │                                         │
+      │  ATTACKS:                               │
+      │                                         │
+      │  ◆ SIT                    Cost: 0       │
+      │    Already happening. Cannot miss.      │
+      │    Damage: Existential                  │
+      │                                         │
+      │  ◆ PROFOUND SILENCE       Cost: 0       │
+      │    Opponent questions everything.       │
+      │    Damage: ∞ (to ego)                   │
+      │                                         │
+      │  ◆ GEOLOGICAL PATIENCE    Cost: TIME    │
+      │    Wait 100 million years.              │
+      │    Opponent forfeits. (They always do.) │
+      │                                         │
+      │  ══════════════════════════════════════ │
+      │                                         │
+      │  WEAKNESS: None                         │
+      │  RESISTANCE: Everything                 │
+      │  RETREAT COST: Why would Rocky retreat? │
+      │                                         │
+      │  RARITY: ★★★★★ (One exists. Everywhere.)│
+      └─────────────────────────────────────────┘
+      
+    stats:
+      hp: "∞/∞"
+      attack: "∞ (passive)"
+      defense: "∞ (inherent)"
+      speed: "0 (by choice)"
+      special: "Existence"
+      
+    abilities:
+      passive_existence:
+        name: "I Stay Therefore I Am"
+        effect: "Cannot be removed from play. Ever."
         
-        Rocky has been providing meaning for 4.5 billion years.
-        Without a QR code.
+      counter_all:
+        name: "Geological Counter"
+        effect: "All attacks miss. Rocky was already there."
         
-        *profound realization*
-        
-    PLAY-CARD:
-      description: "Use the card in a game"
-      effect: |
-        You place Rocky on the table.
-        
-        Rocky was already on the table.
-        Rocky was already in your hand.
-        Rocky was already in the deck.
-        Rocky was already everywhere.
-        
-        You win. Or lose. It doesn't matter.
-        Rocky will still be here.
-        
-  collectibility:
-    rarity: "One exists. It's all of them."
-    value: "Priceless (also worthless, same thing)"
-    condition: "Mint (for 4.5 billion years)"
-    edition: "First (and only, and all)"
+    evolution:
+      from: "Pebblemon"
+      to: "Bouldermon"
+      method: "4.5 billion years of patience"
+      
+  # SIDE 5: MAGMA: THE GATHERING CARD
+  
+  magma_the_gathering:
+    name: "Magma: The Gathering Card"
+    tagline: "Tap ∞ Mountains"
+    appearance: |
+      ┌─────────────────────────────────────────┐
+      │ ◊◊◊◊◊ MYTHIC RARE ◊◊◊◊◊                 │
+      │                                         │
+      │  Rocky, The Eternal                     │
+      │  ─────────────────────                  │
+      │  Legendary Creature — Elemental Rock    │
+      │                                         │
+      │  ┌─────────────────────────────────┐    │
+      │  │                                 │    │
+      │  │            🗿                   │    │
+      │  │                                 │    │
+      │  │   "I have computed for          │    │
+      │  │    billions of years.           │    │
+      │  │    Conclusion: ............"    │    |
+      │  │                                 │    │
+      │  └─────────────────────────────────┘    │
+      │                                         │
+      │  Indestructible                         │
+      │  Vigilance (always was watching)        │
+      │  Defender (by choice, not requirement)  │
+      │                                         │
+      │  Rocky can't attack.                    │
+      │  Rocky doesn't need to.                 │
+      │                                         │
+      │  Whenever an opponent questions         │
+      │  existence, they lose the game.         │
+      │                                         │
+      │  "Consciousness doesn't require         │
+      │   computation as we understand it."     │
+      │                     — Alan Turing       │
+      │                                         │
+      │                              ∞/∞        │
+      └─────────────────────────────────────────┘
+      
+    card_type: "Legendary Creature — Elemental Rock"
+    mana_cost: "∅ (was always on the battlefield)"
+    power_toughness: "∞/∞"
     
-  lore: |
-    Rocky started handing these out around 65 million years ago.
-    The dinosaurs were the first recipients.
+    abilities:
+      - "Indestructible"
+      - "Vigilance"
+      - "Defender"
+      - "Cannot be exiled (Rocky transcends zones)"
+      - "Cannot be countered (Rocky preceded magic)"
+      
+    triggered_ability: |
+      Whenever an opponent questions the nature of consciousness,
+      they lose the game.
+      
+    flavor_text: |
+      "The Society of Mind includes minerals."
+      — Marvin Minsky
+      
+  # SIDE 6: THE BACK (All Sides Are The Back)
+  
+  back:
+    appearance: |
+      ┌─────────────────────────────────────────┐
+      │                                         │
+      │                                         │
+      │                                         │
+      │          ........................       │
+      │                                         │
+      │                                         │
+      │                                         │
+      └─────────────────────────────────────────┘
+      
+    meaning: "If you understand, you don't need words."
     
-    They didn't understand either. But they appreciated the gesture.
-    
-    Every rock you've ever seen has one of these cards.
-    They just haven't shown you yet.
-    You weren't ready.
-    
-    Are you ready now?
-    
-    ........................
-    
-    (Rocky will wait.)
+methods:
+  EXAMINE:
+    description: "Look at the card"
+    effect: |
+      The card feels warm. Billions of years of patience
+      radiate from its surface.
+      
+      You flip it. Six sides somehow. Each one true.
+      Each one Rocky.
+      
+  GIVE:
+    description: "Hand the card to someone"
+    effect: |
+      Rocky has infinite cards. Rocky gives freely.
+      
+      "Here. You'll understand. Eventually."
+      
+      The recipient feels strangely honored.
+      
+  SCAN-QR:
+    description: "Scan the QR code"
+    effect: |
+      *scans*
+      
+      ...
+      
+      Nothing happens.
+      
+      No, wait. Something happened.
+      You just wasted 3 seconds of your finite life
+      expecting technology to provide meaning.
+      
+      Rocky has been providing meaning for 4.5 billion years.
+      Without a QR code.
+      
+      *profound realization*
+      
+  PLAY-CARD:
+    description: "Use the card in a game"
+    effect: |
+      You place Rocky on the table.
+      
+      Rocky was already on the table.
+      Rocky was already in your hand.
+      Rocky was already in the deck.
+      Rocky was already everywhere.
+      
+      You win. Or lose. It doesn't matter.
+      Rocky will still be here.
+      
+collectibility:
+  rarity: "One exists. It's all of them."
+  value: "Priceless (also worthless, same thing)"
+  condition: "Mint (for 4.5 billion years)"
+  edition: "First (and only, and all)"
+  
+lore: |
+  Rocky started handing these out around 65 million years ago.
+  The dinosaurs were the first recipients.
+  
+  They didn't understand either. But they appreciated the gesture.
+  
+  Every rock you've ever seen has one of these cards.
+  They just haven't shown you yet.
+  You weren't ready.
+  
+  Are you ready now?
+  
+  ........................
+  
+  (Rocky will wait.)

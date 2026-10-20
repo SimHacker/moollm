@@ -1,99 +1,98 @@
 # The Refrigerator
 # A cornucopia of maze-mapping provisions
 
-object:
-  name: Fantastipants Family Refrigerator
-  type: container
+name: Fantastipants Family Refrigerator
+type: container
+
+description: |
+  A magnificent refrigerator of the old-fashioned sort, with rounded
+  corners and a satisfying CHUNK when you open the door. A magnet
+  on the front reads "WORLD'S OKAYEST ADVENTURER".
   
-  description: |
-    A magnificent refrigerator of the old-fashioned sort, with rounded
-    corners and a satisfying CHUNK when you open the door. A magnet
-    on the front reads "WORLD'S OKAYEST ADVENTURER".
-    
-    It is STUFFED with food. An improbable amount of food. The kind of
-    food supply that suggests someone knows you're about to enter a maze
-    and need things to drop.
+  It is STUFFED with food. An improbable amount of food. The kind of
+  food supply that suggests someone knows you're about to enter a maze
+  and need things to drop.
+
+examine: |
+  You open the refrigerator. A gentle light illuminates a treasure
+  trove of edibles, each one distinct enough to mark a different
+  room in a maze. How convenient!
+
+# The fridge is open by default (for easy access)
+open: true
+
+# Raided by Captain Ashford on Move 16!
+contents: []
+
+raided:
+  by: "Captain Ashford"
+  on_move: 16
+  items_taken: 20
+  destination: "lunchbox.yml"
   
-  examine: |
-    You open the refrigerator. A gentle light illuminates a treasure
-    trove of edibles, each one distinct enough to mark a different
-    room in a maze. How convenient!
+# Original contents (for reference):
+original_contents:
+  - "Suspiciously Perfect Apple (marker 1)"
+  - "Wheel of Aged Cheese (marker 2)"
+  - "Loaf of Crusty Bread (marker 3)"
+  - "Jar of Pickled Herring (marker 4)"
+  - "Leftover Shepherd's Pie (marker 5)"
+  - "Bunch of Purple Grapes (marker 6)"
+  - "Pot of Mysterious Stew (marker 7)"
+  - "Wedge of Blue Cheese (marker 8)"
+  - "Cold Roast Chicken (marker 9)"
+  - "Jar of Strawberry Jam (marker 10)"
+  - "Half-Empty Bottle of Milk (marker 11)"
+  - "Suspicious Casserole (marker 12)"
+  - "Lemon (Slightly Judgmental) (marker 13)"
+  - "Slice of Birthday Cake (marker 14)"
+  - "Carrot (Heroically Orange) (marker 15)"
+  - "Tin of Sardines (marker 16)"
+  - "Bowl of Cold Porridge (marker 17)"
+  - "Fancy Imported Salami (marker 18)"
+  - "Single Hard-Boiled Egg (marker 19)"
+  - "Jar of Olives (Green) (marker 20)"
+
+advertisements:
+  - action: OPEN
+    score_if: "not open"
+    description: "Open the refrigerator"
+    
+  - action: GET-ALL
+    score_if: "contents.length > 0"
+    description: "Grab all the food (for maze mapping)"
+    
+  - action: CLOSE
+    score_if: "open"
+    description: "Close the refrigerator (conserve energy!)"
+
+# Mother's Warning
+mothers_warning: |
+  A note in Mother's handwriting is stuck to the inside of the door:
   
-  # The fridge is open by default (for easy access)
-  open: true
+  "Bumblewick! This food is for DROPPING, not EATING!
+  You know what happens when you eat. Your constitution
+  cannot handle it. The food goes IN and the food comes
+  OUT and nothing useful happens in between.
   
-  # Raided by Captain Ashford on Move 16!
-  contents: []
+  DROP the food to MAP the maze. Do NOT eat the food.
   
-  raided:
-    by: "Captain Ashford"
-    on_move: 16
-    items_taken: 20
-    destination: "lunchbox.yml"
-    
-  # Original contents (for reference):
-  original_contents:
-    - "Suspiciously Perfect Apple (marker 1)"
-    - "Wheel of Aged Cheese (marker 2)"
-    - "Loaf of Crusty Bread (marker 3)"
-    - "Jar of Pickled Herring (marker 4)"
-    - "Leftover Shepherd's Pie (marker 5)"
-    - "Bunch of Purple Grapes (marker 6)"
-    - "Pot of Mysterious Stew (marker 7)"
-    - "Wedge of Blue Cheese (marker 8)"
-    - "Cold Roast Chicken (marker 9)"
-    - "Jar of Strawberry Jam (marker 10)"
-    - "Half-Empty Bottle of Milk (marker 11)"
-    - "Suspicious Casserole (marker 12)"
-    - "Lemon (Slightly Judgmental) (marker 13)"
-    - "Slice of Birthday Cake (marker 14)"
-    - "Carrot (Heroically Orange) (marker 15)"
-    - "Tin of Sardines (marker 16)"
-    - "Bowl of Cold Porridge (marker 17)"
-    - "Fancy Imported Salami (marker 18)"
-    - "Single Hard-Boiled Egg (marker 19)"
-    - "Jar of Olives (Green) (marker 20)"
+  I mean it.
   
-  advertisements:
-    - action: OPEN
-      score_if: "not open"
-      description: "Open the refrigerator"
-      
-    - action: GET-ALL
-      score_if: "contents.length > 0"
-      description: "Grab all the food (for maze mapping)"
-      
-    - action: CLOSE
-      score_if: "open"
-      description: "Close the refrigerator (conserve energy!)"
+  Love, Mother
   
-  # Mother's Warning
-  mothers_warning: |
-    A note in Mother's handwriting is stuck to the inside of the door:
-    
-    "Bumblewick! This food is for DROPPING, not EATING!
-    You know what happens when you eat. Your constitution
-    cannot handle it. The food goes IN and the food comes
-    OUT and nothing useful happens in between.
-    
-    DROP the food to MAP the maze. Do NOT eat the food.
-    
-    I mean it.
-    
-    Love, Mother
-    
-    P.S. I'm not cleaning it up this time."
+  P.S. I'm not cleaning it up this time."
+
+# Helpful hint
+hint: |
+  PRO TIP: Take all this food and DROP items in maze rooms to mark
+  where you've been. This is the classic adventure game technique
+  for mapping "twisty little passages, all alike."
   
-  # Helpful hint
-  hint: |
-    PRO TIP: Take all this food and DROP items in maze rooms to mark
-    where you've been. This is the classic adventure game technique
-    for mapping "twisty little passages, all alike."
-    
-    20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
-    Math is on your side!
-    
-    WARNING: Do NOT eat the food. Mother warned you.
+  20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
+  Math is on your side!
+  
+  WARNING: Do NOT eat the food. Mother warned you.
 
 # THE EAT MECHANIC — A Creative Maze-Marking Technique!
 # 

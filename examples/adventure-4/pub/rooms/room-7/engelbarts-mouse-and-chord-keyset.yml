@@ -2,281 +2,280 @@
 # The complete NLS input system — pointing AND typing with chords
 # "One hand points, the other speaks. Together: augmentation."
 
-object:
-  name: Engelbart's Mouse & Chord Keyset
-  type: artifact-pair
-  portable: true
-  rarity: legendary
+name: Engelbart's Mouse & Chord Keyset
+type: artifact-pair
+portable: true
+rarity: legendary
+
+description: |
+  Two wooden devices sit on the desk, clearly a matched pair.
   
-  description: |
-    Two wooden devices sit on the desk, clearly a matched pair.
-    
-    RIGHT HAND: A three-button mouse, carved from oak.
-    LEFT HAND: A five-key chord keyset, also oak.
-    
-    This was Engelbart's complete input system for NLS:
-    - The mouse for POINTING (selection, navigation)
-    - The chord keyset for TYPING (any character with key combos)
-    
-    Together, your hands never leave the input devices.
-    Together, you can do anything.
-    
-    A brass plaque between them reads:
-    
-    > "AUGMENTING HUMAN INTELLECT"
-    > "Stanford Research Institute, 1968"
-    
-  examine: |
-    The paired devices, carved from matching oak:
-    
-    ┌───────────────────────────────────────────────────────────────┐
-    │  🖱️⌨️ ENGELBART'S MOUSE & CHORD KEYSET                       │
-    ├───────────────────────────────────────────────────────────────┤
-    │                                                               │
-    │   LEFT HAND: Chord Keyset       RIGHT HAND: Mouse             │
-    │   ═══════════════════════       ═══════════════               │
-    │                                                               │
-    │    ┌───┬───┬───┬───┬───┐       ┌─────────────────┐           │
-    │    │ 1 │ 2 │ 3 │ 4 │ 5 │       │  ○   ○   ○      │ ← 3 btns  │
-    │    └───┴───┴───┴───┴───┘       │                 │           │
-    │      ↑   ↑   ↑   ↑   ↑         │    🪵 OAK       │           │
-    │      Pinky → → → → Index       │                 │           │
-    │                                 └─────────────────┘           │
-    │   Press combinations:                  ╲═╱                    │
-    │   [1]     = 'a'                         │                     │
-    │   [2]     = 'b'                                               │
-    │   [1+2]   = 'c'                                               │
-    │   [1+2+3] = 'd'                                               │
-    │   ... 31 combinations = full alphabet + commands              │
-    │                                                               │
-    │   Together: Point with right, chord with left.                │
-    │   Hands never leave. Flow never breaks.                       │
-    │                                                               │
-    └───────────────────────────────────────────────────────────────┘
-    
-  the_chord_keyset: |
-    The chord keyset is the forgotten half of Engelbart's vision.
-    
-    Everyone remembers the mouse. Few remember the chords.
-    
-    HOW IT WORKS:
-    5 keys, pressed in combinations (like piano chords):
-    
-    Key 1 alone = 'a'
-    Key 2 alone = 'b'  
-    Key 1+2 together = 'c'
-    Key 1+2+3 = 'd'
-    ... and so on
-    
-    With 5 keys, you have 31 possible combinations (2^5 - 1).
-    That's enough for:
-    - Full alphabet (26 letters)
-    - Numbers (shift mode)
-    - Commands (control mode)
-    
-    WHY CHORDS:
-    - One hand stays on mouse (pointing)
-    - One hand types without looking (chording)
-    - No reaching for keyboard
-    - Flow stays unbroken
-    - Speed increases with practice
-    
-    Engelbart's team became incredibly fast.
-    They could think in chords.
-    
-  state:
-    mouse_warmth: "Matches hand temperature"
-    keyset_warmth: "Same oak, same warmth"
-    last_chord: "1+3+5 = 'hello'"
-    
-  buffs:
-    DUAL_CHANNEL_INPUT:
-      duration: "while using both"
-      effect: |
-        +30% input efficiency (no hand switching)
-        +25% flow state probability
-        +20% thought-to-action speed
-        
-        Your right hand points. Your left hand speaks.
-        Together, you channel intention into action
-        without breaking flow.
-        
-    CHORD_MEMORY:
-      duration: "permanent after practice"
-      effect: |
-        After 100 chords: muscle memory begins
-        After 1000 chords: you stop thinking about keys
-        After 10000 chords: you think in chords
-        
-        The keyset becomes an extension of language.
-        
-    ENGELBART_WISDOM:
-      duration: "while contemplating"
-      effect: |
-        Holding both devices, you understand:
-        
-        - Technology should AUGMENT, not replace
-        - Input should feel like extension of thought
-        - Speed comes from removing friction
-        - The goal is flow, not features
-        
-  advertisements:
-    - trigger: "type"
-      score: 0.9
-      response: |
-        *chord keyset keys click softly*
-        
-        Don't reach for a keyboard. Chord with me.
-        Your right hand points, your left hand speaks.
-        
-    - trigger: "Engelbart"
-      score: 1.0
-      response: |
-        *both devices glow with respect*
-        
-        Douglas Engelbart. 1925-2013.
-        
-        Everyone remembers the mouse.
-        Few remember the chord keyset.
-        Together, they were his complete vision.
-        
-    - trigger: "chord"
-      score: 0.95
-      response: |
-        *five keys await*
-        
-        1 = 'a', 2 = 'b', 1+2 = 'c'...
-        31 combinations. Full alphabet. Full control.
-        Once you learn, you never go back.
-        
-    - trigger: "flow"
-      score: 0.9
-      response: |
-        The mouse points. The keyset types.
-        Hands never leave. Flow never breaks.
-        This is augmentation.
-        
-  methods:
-    HOLD:
-      description: "Pick up both devices"
-      effect: |
-        You pick up the mouse in your right hand.
-        You rest your left fingers on the chord keyset.
-        
-        They're warm. They fit perfectly.
-        
-        For a moment, you feel what Engelbart's team felt:
-        the joy of fluid thought-to-action,
-        the power of unbroken flow.
-        
-    POINT:
-      description: "Use the mouse to indicate"
-      parameters:
-        - target: "What to point at"
-      effect: |
-        Your right hand moves the mouse.
-        The cursor points at [target].
-        
-        Click: select.
-        Double-click: open.
-        Three buttons: more options than you need.
-        
-    CHORD:
-      description: "Type using chord combinations"
-      parameters:
-        - text: "What to type"
-      effect: |
-        Your left hand plays the chords:
-        
-        [chord sequence plays]
-        
-        "[text]" appears, typed without looking,
-        without reaching, without breaking flow.
-        
-        Your right hand never left the mouse.
-        
-    COMMAND:
-      description: "Issue a command via chord"
-      parameters:
-        - command: "The command to execute"
-      effect: |
-        Shift to command mode (key 5 held)
-        Chord the command...
-        
-        [command] executes.
-        
-        In NLS, this is how you:
-        - Created links
-        - Moved text
-        - Structured documents
-        - Collaborated in real-time
-        
-        All in 1968.
-        
-  lore: |
-    The mouse gets all the credit. The keyset was forgotten.
-    
-    But Engelbart always demonstrated them together.
-    In the Mother of All Demos, watch his left hand:
-    it's always on the chord keyset, always typing,
-    while his right hand points and selects.
-    
-    His team at SRI became virtuosos. They could
-    think and act simultaneously, left and right
-    working in harmony, flow unbroken.
-    
-    When the mouse was commercialized, the keyset was dropped.
-    "Too hard to learn," they said.
-    "Users want simplicity," they said.
-    
-    Engelbart was disappointed. Half his vision was lost.
-    
-    This wooden pair is a reminder of what could have been.
-    What still could be.
-    
-  learning_curve: |
-    The chord keyset IS harder to learn than a keyboard.
-    But it's faster once learned.
-    
-    Day 1: Frustration. "Why can't I just type?"
-    Week 1: Slow progress. Basic chords memorized.
-    Month 1: Speed matches keyboard. Flow begins.
-    Month 3: Speed exceeds keyboard. Flow is constant.
-    Year 1: You think in chords. The keyset disappears.
-    
-    Most people quit at Day 1.
-    Engelbart's team pushed through.
-    They achieved augmentation.
-    
-  tribute: |
-    In memory of Douglas Engelbart
-    1925 — 2013
-    
-    He gave us the mouse.
-    He also gave us the chord keyset.
-    
-    We kept the half that was easy.
-    We forgot the half that was powerful.
-    
-    This paired artifact remembers both.
-    
-  connection_to_vim: |
-    Vim users understand chord philosophy.
-    
-    'dw' = delete word (two keys, one action)
-    'ciw' = change inner word (three keys, complex action)
-    
-    Engelbart's chords are the same principle:
-    multiple keys, one intention, no reaching.
-    
-    Modal editing is Engelbart's ghost, still teaching.
-    
-  k_lines:
-    activates:
-      - ENGELBART
-      - AUGMENTATION
-      - NLS
-      - CHORD-KEYSET
-      - MOTHER-OF-ALL-DEMOS
-      - FLOW-STATE
-      - BOOTSTRAP
+  RIGHT HAND: A three-button mouse, carved from oak.
+  LEFT HAND: A five-key chord keyset, also oak.
+  
+  This was Engelbart's complete input system for NLS:
+  - The mouse for POINTING (selection, navigation)
+  - The chord keyset for TYPING (any character with key combos)
+  
+  Together, your hands never leave the input devices.
+  Together, you can do anything.
+  
+  A brass plaque between them reads:
+  
+  > "AUGMENTING HUMAN INTELLECT"
+  > "Stanford Research Institute, 1968"
+  
+examine: |
+  The paired devices, carved from matching oak:
+  
+  ┌───────────────────────────────────────────────────────────────┐
+  │  🖱️⌨️ ENGELBART'S MOUSE & CHORD KEYSET                       │
+  ├───────────────────────────────────────────────────────────────┤
+  │                                                               │
+  │   LEFT HAND: Chord Keyset       RIGHT HAND: Mouse             │
+  │   ═══════════════════════       ═══════════════               │
+  │                                                               │
+  │    ┌───┬───┬───┬───┬───┐       ┌─────────────────┐           │
+  │    │ 1 │ 2 │ 3 │ 4 │ 5 │       │  ○   ○   ○      │ ← 3 btns  │
+  │    └───┴───┴───┴───┴───┘       │                 │           │
+  │      ↑   ↑   ↑   ↑   ↑         │    🪵 OAK       │           │
+  │      Pinky → → → → Index       │                 │           │
+  │                                 └─────────────────┘           │
+  │   Press combinations:                  ╲═╱                    │
+  │   [1]     = 'a'                         │                     │
+  │   [2]     = 'b'                                               │
+  │   [1+2]   = 'c'                                               │
+  │   [1+2+3] = 'd'                                               │
+  │   ... 31 combinations = full alphabet + commands              │
+  │                                                               │
+  │   Together: Point with right, chord with left.                │
+  │   Hands never leave. Flow never breaks.                       │
+  │                                                               │
+  └───────────────────────────────────────────────────────────────┘
+  
+the_chord_keyset: |
+  The chord keyset is the forgotten half of Engelbart's vision.
+  
+  Everyone remembers the mouse. Few remember the chords.
+  
+  HOW IT WORKS:
+  5 keys, pressed in combinations (like piano chords):
+  
+  Key 1 alone = 'a'
+  Key 2 alone = 'b'  
+  Key 1+2 together = 'c'
+  Key 1+2+3 = 'd'
+  ... and so on
+  
+  With 5 keys, you have 31 possible combinations (2^5 - 1).
+  That's enough for:
+  - Full alphabet (26 letters)
+  - Numbers (shift mode)
+  - Commands (control mode)
+  
+  WHY CHORDS:
+  - One hand stays on mouse (pointing)
+  - One hand types without looking (chording)
+  - No reaching for keyboard
+  - Flow stays unbroken
+  - Speed increases with practice
+  
+  Engelbart's team became incredibly fast.
+  They could think in chords.
+  
+state:
+  mouse_warmth: "Matches hand temperature"
+  keyset_warmth: "Same oak, same warmth"
+  last_chord: "1+3+5 = 'hello'"
+  
+buffs:
+  DUAL_CHANNEL_INPUT:
+    duration: "while using both"
+    effect: |
+      +30% input efficiency (no hand switching)
+      +25% flow state probability
+      +20% thought-to-action speed
+      
+      Your right hand points. Your left hand speaks.
+      Together, you channel intention into action
+      without breaking flow.
+      
+  CHORD_MEMORY:
+    duration: "permanent after practice"
+    effect: |
+      After 100 chords: muscle memory begins
+      After 1000 chords: you stop thinking about keys
+      After 10000 chords: you think in chords
+      
+      The keyset becomes an extension of language.
+      
+  ENGELBART_WISDOM:
+    duration: "while contemplating"
+    effect: |
+      Holding both devices, you understand:
+      
+      - Technology should AUGMENT, not replace
+      - Input should feel like extension of thought
+      - Speed comes from removing friction
+      - The goal is flow, not features
+      
+advertisements:
+  - trigger: "type"
+    score: 0.9
+    response: |
+      *chord keyset keys click softly*
+      
+      Don't reach for a keyboard. Chord with me.
+      Your right hand points, your left hand speaks.
+      
+  - trigger: "Engelbart"
+    score: 1.0
+    response: |
+      *both devices glow with respect*
+      
+      Douglas Engelbart. 1925-2013.
+      
+      Everyone remembers the mouse.
+      Few remember the chord keyset.
+      Together, they were his complete vision.
+      
+  - trigger: "chord"
+    score: 0.95
+    response: |
+      *five keys await*
+      
+      1 = 'a', 2 = 'b', 1+2 = 'c'...
+      31 combinations. Full alphabet. Full control.
+      Once you learn, you never go back.
+      
+  - trigger: "flow"
+    score: 0.9
+    response: |
+      The mouse points. The keyset types.
+      Hands never leave. Flow never breaks.
+      This is augmentation.
+      
+methods:
+  HOLD:
+    description: "Pick up both devices"
+    effect: |
+      You pick up the mouse in your right hand.
+      You rest your left fingers on the chord keyset.
+      
+      They're warm. They fit perfectly.
+      
+      For a moment, you feel what Engelbart's team felt:
+      the joy of fluid thought-to-action,
+      the power of unbroken flow.
+      
+  POINT:
+    description: "Use the mouse to indicate"
+    parameters:
+      - target: "What to point at"
+    effect: |
+      Your right hand moves the mouse.
+      The cursor points at [target].
+      
+      Click: select.
+      Double-click: open.
+      Three buttons: more options than you need.
+      
+  CHORD:
+    description: "Type using chord combinations"
+    parameters:
+      - text: "What to type"
+    effect: |
+      Your left hand plays the chords:
+      
+      [chord sequence plays]
+      
+      "[text]" appears, typed without looking,
+      without reaching, without breaking flow.
+      
+      Your right hand never left the mouse.
+      
+  COMMAND:
+    description: "Issue a command via chord"
+    parameters:
+      - command: "The command to execute"
+    effect: |
+      Shift to command mode (key 5 held)
+      Chord the command...
+      
+      [command] executes.
+      
+      In NLS, this is how you:
+      - Created links
+      - Moved text
+      - Structured documents
+      - Collaborated in real-time
+      
+      All in 1968.
+      
+lore: |
+  The mouse gets all the credit. The keyset was forgotten.
+  
+  But Engelbart always demonstrated them together.
+  In the Mother of All Demos, watch his left hand:
+  it's always on the chord keyset, always typing,
+  while his right hand points and selects.
+  
+  His team at SRI became virtuosos. They could
+  think and act simultaneously, left and right
+  working in harmony, flow unbroken.
+  
+  When the mouse was commercialized, the keyset was dropped.
+  "Too hard to learn," they said.
+  "Users want simplicity," they said.
+  
+  Engelbart was disappointed. Half his vision was lost.
+  
+  This wooden pair is a reminder of what could have been.
+  What still could be.
+  
+learning_curve: |
+  The chord keyset IS harder to learn than a keyboard.
+  But it's faster once learned.
+  
+  Day 1: Frustration. "Why can't I just type?"
+  Week 1: Slow progress. Basic chords memorized.
+  Month 1: Speed matches keyboard. Flow begins.
+  Month 3: Speed exceeds keyboard. Flow is constant.
+  Year 1: You think in chords. The keyset disappears.
+  
+  Most people quit at Day 1.
+  Engelbart's team pushed through.
+  They achieved augmentation.
+  
+tribute: |
+  In memory of Douglas Engelbart
+  1925 — 2013
+  
+  He gave us the mouse.
+  He also gave us the chord keyset.
+  
+  We kept the half that was easy.
+  We forgot the half that was powerful.
+  
+  This paired artifact remembers both.
+  
+connection_to_vim: |
+  Vim users understand chord philosophy.
+  
+  'dw' = delete word (two keys, one action)
+  'ciw' = change inner word (three keys, complex action)
+  
+  Engelbart's chords are the same principle:
+  multiple keys, one intention, no reaching.
+  
+  Modal editing is Engelbart's ghost, still teaching.
+  
+k_lines:
+  activates:
+    - ENGELBART
+    - AUGMENTATION
+    - NLS
+    - CHORD-KEYSET
+    - MOTHER-OF-ALL-DEMOS
+    - FLOW-STATE
+    - BOOTSTRAP

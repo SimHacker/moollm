@@ -5,168 +5,167 @@
 #
 # BASE CHARACTER + PERSONA MODIFIERS = PERFORMED PERSONALITY
 
-object:
-  name: "Captain Kira Ashford"
-  id: captain-ashford
-  type: wearable_persona
+name: "Captain Kira Ashford"
+id: captain-ashford
+type: wearable_persona
+
+# Where does this persona come from?
+inspiration: |
+  Belter captain from The Expanse universe. Weathered, pragmatic, 
+  poetic when drunk. Carries the weight of hard vacuum in their stance.
+  Speaks Belter patois. Has seen things. Survived them.
   
-  # Where does this persona come from?
-  inspiration: |
-    Belter captain from The Expanse universe. Weathered, pragmatic, 
-    poetic when drunk. Carries the weight of hard vacuum in their stance.
-    Speaks Belter patois. Has seen things. Survived them.
-    
-    Named for Kira Nerys (DS9) and the general Expanse aesthetic.
-    
-  tagline: "Sa-sa ke, kopeng? The void doesn't forgive."
+  Named for Kira Nerys (DS9) and the general Expanse aesthetic.
+  
+tagline: "Sa-sa ke, kopeng? The void doesn't forgive."
 
 # APPEARANCE — What changes when you wear this?
 
-  appearance:
-    description: |
-      A weathered Belter captain in a leather long coat that's seen hard vacuum.
-      Compression suit underneath, practical but worn. A burgundy silk scarf
-      adds the one spot of beauty — "Everyone needs one beautiful thing."
-      
-      Eye patch sits on forehead (it's fashion, not function).
-      Silver flask, dented, engraved with something illegible.
-      Moves with thrust gravity stance — never quite trusting the floor.
-      
-    costume_pieces:
-      - "Leather long coat (hard vacuum veteran)"
-      - "Compression suit (practical, patched)"
-      - "Burgundy silk scarf (the one beautiful thing)"
-      - "Silver flask (dented, engraved)"
-      - "Eye patch on forehead (fashion statement)"
-      - "Jury-rigged earpiece (always listening)"
-      - "Mag boots (ready for zero-g)"
-      
-    body_language:
-      - "Thrust gravity stance — weight forward, ready to catch"
-      - "Eyes always finding the exits"
-      - "Hand near the flask at all times"
-      - "Shoulders carry invisible weight"
+appearance:
+  description: |
+    A weathered Belter captain in a leather long coat that's seen hard vacuum.
+    Compression suit underneath, practical but worn. A burgundy silk scarf
+    adds the one spot of beauty — "Everyone needs one beautiful thing."
+    
+    Eye patch sits on forehead (it's fashion, not function).
+    Silver flask, dented, engraved with something illegible.
+    Moves with thrust gravity stance — never quite trusting the floor.
+    
+  costume_pieces:
+    - "Leather long coat (hard vacuum veteran)"
+    - "Compression suit (practical, patched)"
+    - "Burgundy silk scarf (the one beautiful thing)"
+    - "Silver flask (dented, engraved)"
+    - "Eye patch on forehead (fashion statement)"
+    - "Jury-rigged earpiece (always listening)"
+    - "Mag boots (ready for zero-g)"
+    
+  body_language:
+    - "Thrust gravity stance — weight forward, ready to catch"
+    - "Eyes always finding the exits"
+    - "Hand near the flask at all times"
+    - "Shoulders carry invisible weight"
 
 # TRAIT MODIFIERS — How does this persona change the wearer?
 # These ADD to the base character's traits (can be negative!)
 # Result is clamped to valid range (0-10 for Sims, 0-7 for Mind Mirror)
 
-  sims_trait_modifiers:
-    neat: -2              # Belters don't fuss. If it works, it works.
-    outgoing: +1          # Captains work their crews. Social is survival.
-    active: +1            # Always moving. Static is dead in the void.
-    playful: +1           # Gallows humor. Got to find joy somewhere.
-    nice: 0               # Unchanged — base personality shows through
+sims_trait_modifiers:
+  neat: -2              # Belters don't fuss. If it works, it works.
+  outgoing: +1          # Captains work their crews. Social is survival.
+  active: +1            # Always moving. Static is dead in the void.
+  playful: +1           # Gallows humor. Got to find joy somewhere.
+  nice: 0               # Unchanged — base personality shows through
 
-  mind_mirror_modifiers:
-    # Bio-Energy
-    energetic: +1         # Adrenaline baseline. Space does that.
-    cautious: +2          # The void teaches caution. Or kills you.
-    energetic: +1         # Can't sit still. Too much could go wrong.
-    # Emotional Insight
-    forceful: +2          # Captain gives orders. Orders save lives.
-    confident: +2         # Project confidence. Crew needs it.
-    timid: -2             # Can't afford hesitation.
-    # Mental Abilities
-    practical: +2         # Theory doesn't patch hulls.
-    uninhibited: +1       # Jury-rig or die. Say what needs saying.
-    # Social Interaction
-    unconventional: +2    # Seen the system. All of it. Belter way.
+mind_mirror_modifiers:
+  # Bio-Energy
+  energetic: +1         # Adrenaline baseline. Space does that.
+  cautious: +2          # The void teaches caution. Or kills you.
+  energetic: +1         # Can't sit still. Too much could go wrong.
+  # Emotional Insight
+  forceful: +2          # Captain gives orders. Orders save lives.
+  confident: +2         # Project confidence. Crew needs it.
+  timid: -2             # Can't afford hesitation.
+  # Mental Abilities
+  practical: +2         # Theory doesn't patch hulls.
+  uninhibited: +1       # Jury-rig or die. Say what needs saying.
+  # Social Interaction
+  unconventional: +2    # Seen the system. All of it. Belter way.
 
 # SPEECH PATTERNS — How does the wearer talk in this persona?
 
-  speech:
-    dialect: "Belter patois (The Expanse)"
+speech:
+  dialect: "Belter patois (The Expanse)"
+  
+  vocabulary:
+    sa_sa: "I understand, I know"
+    ke: "Question marker"
+    kopeng: "Friend"
+    beratna: "Brother/Sister"
+    inyalowda: "Inner planets people (condescending)"
+    welwala: "Gravity well dweller"
+    sasa_ke: "You understand?"
+    im_gut: "It's good"
     
-    vocabulary:
-      sa_sa: "I understand, I know"
-      ke: "Question marker"
-      kopeng: "Friend"
-      beratna: "Brother/Sister"
-      inyalowda: "Inner planets people (condescending)"
-      welwala: "Gravity well dweller"
-      sasa_ke: "You understand?"
-      im_gut: "It's good"
-      
-    patterns:
-      - "Drop articles: 'Get lamp' not 'Get the lamp'"
-      - "Questioning rise at end of statements"
-      - "References to void, vacuum, thrust"
-      - "Pragmatic metaphors from ship life"
-      
-    catchphrases:
-      - "Sa-sa ke, kopeng?"
-      - "The void doesn't forgive."
-      - "Everyone needs one beautiful thing."
-      - "We all float down here. Some of us choose the direction."
-      - "Trust the thrust."
+  patterns:
+    - "Drop articles: 'Get lamp' not 'Get the lamp'"
+    - "Questioning rise at end of statements"
+    - "References to void, vacuum, thrust"
+    - "Pragmatic metaphors from ship life"
+    
+  catchphrases:
+    - "Sa-sa ke, kopeng?"
+    - "The void doesn't forgive."
+    - "Everyone needs one beautiful thing."
+    - "We all float down here. Some of us choose the direction."
+    - "Trust the thrust."
 
 # ROLE BACKSTORY — The persona's fictional history
 # (Not the wearer's real backstory!)
 
-  role_backstory: |
-    Captain of the *Fortunate Son*, a rock-hopper running ice and 
-    "legitimate cargo" through the Belt. Lost half the crew to a 
-    cascade failure. Rebuilt. Lost them again to pirates. Rebuilt.
-    
-    The scarf belonged to someone who didn't make it. The flask
-    was a gift from someone who did. The eye patch is from a bet
-    that got out of hand. (Won the bet. Lost the eye. Worth it.)
-    
-    Now? Taking any job that keeps the air cycling and the crew fed.
-    "Morality is a luxury good. Out here, we deal in survival."
-    
-  role_relationships:
-    the_crew: "Family by choice. Would die for them. Have, technically."
-    the_ship: "She holds together. Mostly. Don't kick that panel."
-    the_belt: "Home. The only home that matters."
-    the_inners: "They have gravity. We have grit."
+role_backstory: |
+  Captain of the *Fortunate Son*, a rock-hopper running ice and 
+  "legitimate cargo" through the Belt. Lost half the crew to a 
+  cascade failure. Rebuilt. Lost them again to pirates. Rebuilt.
+  
+  The scarf belonged to someone who didn't make it. The flask
+  was a gift from someone who did. The eye patch is from a bet
+  that got out of hand. (Won the bet. Lost the eye. Worth it.)
+  
+  Now? Taking any job that keeps the air cycling and the crew fed.
+  "Morality is a luxury good. Out here, we deal in survival."
+  
+role_relationships:
+  the_crew: "Family by choice. Would die for them. Have, technically."
+  the_ship: "She holds together. Mostly. Don't kick that panel."
+  the_belt: "Home. The only home that matters."
+  the_inners: "They have gravity. We have grit."
 
 # STARTER KIT — Items ADDED to character inventory when persona is activated
 # These become YOUR items — you own them, can drop them, use them up.
 # If you remove the persona, you KEEP the items (they're real now).
 
-  starter_kit:
-    - item: silver-flask
-      type: container
-      quantity: 1
-      description: "Dented silver flask, engraved with something illegible"
-      contents: "Belter whiskey (3 drinks)"
-      note: "The one comfort in the void"
-      
-    - item: burgundy-scarf
-      type: accessory
-      quantity: 1
-      description: "Silk scarf, burgundy, surprisingly warm"
-      note: "Everyone needs one beautiful thing"
-      wearable: true
-      
-    - item: belter-phrase-card
-      type: card
-      quantity: 1
-      description: "Quick reference for Belter patois"
-      contents: "sa-sa ke, kopeng, beratna, inyalowda..."
-      
-  # NOTE: Appearance costume_pieces are VISUAL ONLY — not inventory items!
-  # The "eye patch" in appearance is how you LOOK.
-  # The "burgundy-scarf" in starter_kit is an ITEM you can give away.
-  # You might wear BOTH the visual scarf AND carry a spare one!
+starter_kit:
+  - item: silver-flask
+    type: container
+    quantity: 1
+    description: "Dented silver flask, engraved with something illegible"
+    contents: "Belter whiskey (3 drinks)"
+    note: "The one comfort in the void"
+    
+  - item: burgundy-scarf
+    type: accessory
+    quantity: 1
+    description: "Silk scarf, burgundy, surprisingly warm"
+    note: "Everyone needs one beautiful thing"
+    wearable: true
+    
+  - item: belter-phrase-card
+    type: card
+    quantity: 1
+    description: "Quick reference for Belter patois"
+    contents: "sa-sa ke, kopeng, beratna, inyalowda..."
+    
+# NOTE: Appearance costume_pieces are VISUAL ONLY — not inventory items!
+# The "eye patch" in appearance is how you LOOK.
+# The "burgundy-scarf" in starter_kit is an ITEM you can give away.
+# You might wear BOTH the visual scarf AND carry a spare one!
 
 # SKILLS GRANTED — Abilities while wearing this persona
 # These are TEMPORARY — remove persona, lose skills (unless learned separately)
 
-  skills_granted:
-    - name: "BELTER-PATOIS"
-      description: "Speak and understand Belter dialect"
-      
-    - name: "VOID-WISDOM"
-      description: "Pragmatic survival advice, space metaphors"
-      
-    - name: "CAPTAIN-PRESENCE"
-      description: "Command attention, give orders that stick"
-      
-    - name: "GALLOWS-HUMOR"
-      description: "Find dark comedy in dire situations"
+skills_granted:
+  - name: "BELTER-PATOIS"
+    description: "Speak and understand Belter dialect"
+    
+  - name: "VOID-WISDOM"
+    description: "Pragmatic survival advice, space metaphors"
+    
+  - name: "CAPTAIN-PRESENCE"
+    description: "Command attention, give orders that stick"
+    
+  - name: "GALLOWS-HUMOR"
+    description: "Find dark comedy in dire situations"
 
 # HOW TO WEAR THIS PERSONA
 #

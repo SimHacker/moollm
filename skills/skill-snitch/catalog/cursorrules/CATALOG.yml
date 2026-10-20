@@ -3,16 +3,15 @@
 # Cursorrules are static system prompts — a skill library without the OS.
 # MOOLLM provides the OS.
 
-catalog:
-  name: cursorrules
-  description: "179 .cursorrules files — flat plaintext system prompts for Cursor AI"
-  publisher: PatrickJS
-  repo: https://github.com/PatrickJS/awesome-cursorrules
-  updated: 2026-02-06
-  count: 179
-  sampled: 8
-  stars: "~37k"
-  format: "One .cursorrules file per directory. No schema, no versioning, no metadata."
+name: cursorrules
+description: "179 .cursorrules files — flat plaintext system prompts for Cursor AI"
+publisher: PatrickJS
+repo: https://github.com/PatrickJS/awesome-cursorrules
+updated: 2026-02-06
+count: 179
+sampled: 8
+stars: "~37k"
+format: "One .cursorrules file per directory. No schema, no versioning, no metadata."
 
 structural_analysis:
   format: "Flat plaintext system prompt injected at conversation start"

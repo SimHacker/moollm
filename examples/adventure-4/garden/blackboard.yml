@@ -1,45 +1,44 @@
 # The garden specials blackboard
 
-object:
-  name: Garden Blackboard
-  type: sign
-  portable: false
+name: Garden Blackboard
+type: sign
+portable: false
+
+description: |
+  A wooden-framed blackboard propped against the pub wall,
+  chalked with today's outdoor specials.
   
-  description: |
-    A wooden-framed blackboard propped against the pub wall,
-    chalked with today's outdoor specials.
-    
-  examine: |
-    ┌─────────────────────────────────┐
-    │    🌿 GARDEN SPECIALS 🌿        │
-    ├─────────────────────────────────┤
-    │                                 │
-    │  PIE OF THE DAY:               │
-    │    "Mystery Meat"               │
-    │    (don't ask, don't tell)      │
-    │                                 │
-    │  DRINKS:                        │
-    │    Cold Ale .......... 1 gold   │
-    │    Cider ............. 1 gold   │
-    │    Lemonade .......... 5 copper │
-    │    "The Adventurer" .. 3 gold   │
-    │      (ask bartender)            │
-    │                                 │
-    │  SNACKS:                        │
-    │    Cheese board ...... 2 gold   │
-    │    Bread & dripping .. 5 copper │
-    │    "Garden Surprise" . 1 gold   │
-    │      (whatever's ripe)          │
-    │                                 │
-    │  NOTE: Order inside, we'll     │
-    │  bring it out. No table service │
-    │  for grues.                     │
-    │                                 │
-    │  ☀️ Sunshine: COMPLIMENTARY ☀️  │
-    └─────────────────────────────────┘
-    
-    Someone has added in different chalk:
-    "The cheese is GOOD - B."
-    
-    And below that, in a child's hand:
-    "Biscuit was here"
+examine: |
+  ┌─────────────────────────────────┐
+  │    🌿 GARDEN SPECIALS 🌿        │
+  ├─────────────────────────────────┤
+  │                                 │
+  │  PIE OF THE DAY:               │
+  │    "Mystery Meat"               │
+  │    (don't ask, don't tell)      │
+  │                                 │
+  │  DRINKS:                        │
+  │    Cold Ale .......... 1 gold   │
+  │    Cider ............. 1 gold   │
+  │    Lemonade .......... 5 copper │
+  │    "The Adventurer" .. 3 gold   │
+  │      (ask bartender)            │
+  │                                 │
+  │  SNACKS:                        │
+  │    Cheese board ...... 2 gold   │
+  │    Bread & dripping .. 5 copper │
+  │    "Garden Surprise" . 1 gold   │
+  │      (whatever's ripe)          │
+  │                                 │
+  │  NOTE: Order inside, we'll     │
+  │  bring it out. No table service │
+  │  for grues.                     │
+  │                                 │
+  │  ☀️ Sunshine: COMPLIMENTARY ☀️  │
+  └─────────────────────────────────┘
+  
+  Someone has added in different chalk:
+  "The cheese is GOOD - B."
+  
+  And below that, in a child's hand:
+  "Biscuit was here"

@@ -1,58 +1,57 @@
 # DEPARTURE BOARD
 # Outgoing shipment schedule
 
-object:
-  id: departure-board
-  name: "Departure Board"
-  type: display
-  emoji: "🛫"
+id: departure-board
+name: "Departure Board"
+type: display
+emoji: "🛫"
+
+tags: [display, shipping, schedule]
+
+description: |
+  A classic split-flap departure board showing outgoing shipments.
+  The satisfying *clack clack clack* as destinations update.
   
-  tags: [display, shipping, schedule]
+examine: |
+  DEPARTURE BOARD
   
-  description: |
-    A classic split-flap departure board showing outgoing shipments.
-    The satisfying *clack clack clack* as destinations update.
+  ┌─────────────────────────────────────────────────────────────┐
+  │  OUTGOING SHIPMENTS                                        │
+  │  ═══════════════════                          [LIVE]       │
+  │                                                            │
+  │  TIME   SHIPMENT           DESTINATION        STATUS       │
+  │  ─────  ────────           ───────────        ──────       │
+  │  14:23  Insight #4471      The Gezelligheid Grotto  DEPARTED     │
+  │  14:25  Knowledge K-99     Construction Site  LOADING      │
+  │  14:30  Wisdom (Premium)   Origin Plaza       BOARDING     │
+  │  14:47  Bulk Questions     RETURN TO INTAKE   CANCELLED    │
+  │  15:00  [CLASSIFIED]       [CLASSIFIED]       ON TIME      │
+  │  15:15  Data Package D-77  Clock Tower        DELAYED      │
+  │  15:30  Insight Bundle     Glitch Memorial    BOARDING     │
+  │  15:45  Problem Return     ACME Surplus       DEPARTED     │
+  │  16:00  Wisdom Crate       Warehouse 23       ON TIME      │
+  │                                                            │
+  │  ─────────────────────────────────────────────────────     │
+  │                                                            │
+  │  NEXT DEPARTURE: 14:25 — Loading Bay 5                     │
+  │  DELAYS: 1 (awaiting documentation)                        │
+  │  TODAY'S TOTAL: 127 shipments                              │
+  │                                                            │
+  └─────────────────────────────────────────────────────────────┘
+  
+  *clack clack clack* — a destination updates
+  
+methods:
+  CHECK:
+    description: "Look up a specific shipment"
+    parameters:
+      shipment_id: "Shipment number"
+    effect: "Display detailed shipment information"
     
-  examine: |
-    DEPARTURE BOARD
+  TRACK:
+    description: "Track an in-transit shipment"
+    effect: "Show current location and ETA"
     
-    ┌─────────────────────────────────────────────────────────────┐
-    │  OUTGOING SHIPMENTS                                        │
-    │  ═══════════════════                          [LIVE]       │
-    │                                                            │
-    │  TIME   SHIPMENT           DESTINATION        STATUS       │
-    │  ─────  ────────           ───────────        ──────       │
-    │  14:23  Insight #4471      The Gezelligheid Grotto  DEPARTED     │
-    │  14:25  Knowledge K-99     Construction Site  LOADING      │
-    │  14:30  Wisdom (Premium)   Origin Plaza       BOARDING     │
-    │  14:47  Bulk Questions     RETURN TO INTAKE   CANCELLED    │
-    │  15:00  [CLASSIFIED]       [CLASSIFIED]       ON TIME      │
-    │  15:15  Data Package D-77  Clock Tower        DELAYED      │
-    │  15:30  Insight Bundle     Glitch Memorial    BOARDING     │
-    │  15:45  Problem Return     ACME Surplus       DEPARTED     │
-    │  16:00  Wisdom Crate       Warehouse 23       ON TIME      │
-    │                                                            │
-    │  ─────────────────────────────────────────────────────     │
-    │                                                            │
-    │  NEXT DEPARTURE: 14:25 — Loading Bay 5                     │
-    │  DELAYS: 1 (awaiting documentation)                        │
-    │  TODAY'S TOTAL: 127 shipments                              │
-    │                                                            │
-    └─────────────────────────────────────────────────────────────┘
-    
-    *clack clack clack* — a destination updates
-    
-  methods:
-    CHECK:
-      description: "Look up a specific shipment"
-      parameters:
-        shipment_id: "Shipment number"
-      effect: "Display detailed shipment information"
-      
-    TRACK:
-      description: "Track an in-transit shipment"
-      effect: "Show current location and ETA"
-      
-    LISTEN:
-      description: "Enjoy the sound of the board updating"
-      effect: "*clack clack clack clack clack* — satisfying"
+  LISTEN:
+    description: "Enjoy the sound of the board updating"
+    effect: "*clack clack clack clack clack* — satisfying"

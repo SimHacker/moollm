@@ -751,11 +751,14 @@ def is_object_file(data: dict) -> bool:
     Objects are identified by:
     - Having an 'object:' wrapper key
     - Delegating to a parent ('inherits:', or the older 'prototype:')
+    - Having 'id' AND 'name' (a flat object that once had an 'object:' wrapper)
     - Having 'name' AND ('description' OR 'examine' OR 'type')
     """
     if 'object' in data:
         return True
     if 'inherits' in data or 'prototype' in data:
+        return True
+    if 'id' in data and 'name' in data:
         return True
     # Check for object-like structure
     if 'name' in data and ('description' in data or 'examine' in data or 'type' in data):
@@ -1360,7 +1363,7 @@ def compile_adventure(adventure_path: Path) -> dict:
     # Find object files (*.yml that aren't ROOM.yml, CHARACTER.yml, or catalogs)
     object_count = 0
     skip_files = {'ROOM.yml', 'CHARACTER.yml', 'ADVENTURE.yml', 'INDEX.yml', 'README.yml', 'README.md',
-                  'CARD.yml', 'GLANCE.yml', 
+                  'CARD.yml', 'GLANCE.yml', 'CONTAINER.yml', 
                   'SLIDESHOW.yml', 'SLIDESHOW.md', 'PHOTO.yml', 'SERIES.yml', 'PROTOTYPES.yml', 'LAYOUTS.yml'}
     # Skip file patterns (mined data, derived files, not source objects)
     skip_patterns = ['-mine.yml', '-mined.yml', '-flat.yml', 'IMAGE-MINE']

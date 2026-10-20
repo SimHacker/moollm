@@ -1,67 +1,66 @@
 # WAREHOUSE FORKLIFT
 # For when you absolutely must retrieve something
 
-object:
-  id: warehouse-forklift
-  name: "Warehouse Forklift"
-  type: vehicle
-  emoji: "🚜"
+id: warehouse-forklift
+name: "Warehouse Forklift"
+type: vehicle
+emoji: "🚜"
+
+description: |
+  A heavy-duty forklift parked near the entrance. It looks
+  old but well-maintained. A sign on it reads: "FOR AUTHORIZED
+  RETRIEVAL ONLY — NAVIGATION UNRELIABLE PAST AISLE 100."
   
-  description: |
-    A heavy-duty forklift parked near the entrance. It looks
-    old but well-maintained. A sign on it reads: "FOR AUTHORIZED
-    RETRIEVAL ONLY — NAVIGATION UNRELIABLE PAST AISLE 100."
-    
-  examine: |
-    WAREHOUSE FORKLIFT — AUTHORIZED RETRIEVAL VEHICLE
-    
-    A sturdy electric forklift, older model but reliable.
-    
-    SPECIFICATIONS:
-    • Lift capacity: 2 tons (or 1 paradox-class crate)
-    • Battery: 80% (enough for... how long in here?)
-    • Navigation: Manual (GPS doesn't work inside)
-    • Headlights: Powerful (you'll need them)
-    
-    WARNINGS ON DASHBOARD:
-    • "NAVIGATION UNRELIABLE PAST AISLE 100"
-    • "DO NOT EXCEED SPEED LIMIT (walking pace)"
-    • "RETURN TO ENTRANCE IF LOST"
-    • "HORN SUMMONS ARCHIVIST (usually)"
-    
-    RETRIEVAL LOG (last page):
-    Date        Crate #      Aisle     Time to Return
-    Last week   #7743291     42        4 hours
-    2 weeks     #REDACTED    [ERROR]   2 days
-    1 month     #0000001     1         15 minutes
-    6 months    #9906753     [CLASSIFIED] Still missing
-    
-    KEYS: In ignition.
-    NOTE: "If you go in, leave breadcrumbs."
-    
-  properties:
-    capacity: "2 tons"
-    battery: "80%"
-    navigation: "Manual only"
-    range: "Aisle 100 recommended max"
-    
-  methods:
-    DRIVE:
-      description: "Drive the forklift"
-      access: "Authorized personnel"
-      effect: |
-        The motor hums to life.
-        Headlights illuminate the endless stacks.
-        You proceed slowly into the darkness.
-        
-        (Navigation check required past Aisle 100)
-        
-    HONK:
-      description: "Sound the horn"
-      effect: |
-        HONK!
-        
-        The sound echoes strangely, returning
-        from directions that don't make sense.
-        
-        Somewhere, the Archivist stirs.
+examine: |
+  WAREHOUSE FORKLIFT — AUTHORIZED RETRIEVAL VEHICLE
+  
+  A sturdy electric forklift, older model but reliable.
+  
+  SPECIFICATIONS:
+  • Lift capacity: 2 tons (or 1 paradox-class crate)
+  • Battery: 80% (enough for... how long in here?)
+  • Navigation: Manual (GPS doesn't work inside)
+  • Headlights: Powerful (you'll need them)
+  
+  WARNINGS ON DASHBOARD:
+  • "NAVIGATION UNRELIABLE PAST AISLE 100"
+  • "DO NOT EXCEED SPEED LIMIT (walking pace)"
+  • "RETURN TO ENTRANCE IF LOST"
+  • "HORN SUMMONS ARCHIVIST (usually)"
+  
+  RETRIEVAL LOG (last page):
+  Date        Crate #      Aisle     Time to Return
+  Last week   #7743291     42        4 hours
+  2 weeks     #REDACTED    [ERROR]   2 days
+  1 month     #0000001     1         15 minutes
+  6 months    #9906753     [CLASSIFIED] Still missing
+  
+  KEYS: In ignition.
+  NOTE: "If you go in, leave breadcrumbs."
+  
+properties:
+  capacity: "2 tons"
+  battery: "80%"
+  navigation: "Manual only"
+  range: "Aisle 100 recommended max"
+  
+methods:
+  DRIVE:
+    description: "Drive the forklift"
+    access: "Authorized personnel"
+    effect: |
+      The motor hums to life.
+      Headlights illuminate the endless stacks.
+      You proceed slowly into the darkness.
+      
+      (Navigation check required past Aisle 100)
+      
+  HONK:
+    description: "Sound the horn"
+    effect: |
+      HONK!
+      
+      The sound echoes strangely, returning
+      from directions that don't make sense.
+      
+      Somewhere, the Archivist stirs.

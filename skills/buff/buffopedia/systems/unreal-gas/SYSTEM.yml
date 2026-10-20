@@ -1,20 +1,19 @@
 # BUFFOPEDIA — Unreal Engine Gameplay Ability System (GAS)
 # family: engine | confidence: verified (see external_refs; checked 2026-09-01)
 
-system:
-  id: unreal-gas
-  name: "Gameplay Ability System"
-  vendor: "Epic Games"
-  family: engine
-  vocabulary:
-    the_buff: "GameplayEffect (GE)"
-    the_stat: "Gameplay Attribute"
-    the_tag: "GameplayTag — hierarchical dotted name, e.g. State.Debuff.Burning"
-    the_container: "AbilitySystemComponent (ASC)"
-  why_it_matters: |
-    The most explicit shipped design in the pedia, and the only mainstream engine
-    that puts guards on BOTH ends of every modifier. If MOOLLM's buff schema is
-    ever going to grow, this is the design to steal from.
+id: unreal-gas
+name: "Gameplay Ability System"
+vendor: "Epic Games"
+family: engine
+vocabulary:
+  the_buff: "GameplayEffect (GE)"
+  the_stat: "Gameplay Attribute"
+  the_tag: "GameplayTag — hierarchical dotted name, e.g. State.Debuff.Burning"
+  the_container: "AbilitySystemComponent (ASC)"
+why_it_matters: |
+  The most explicit shipped design in the pedia, and the only mainstream engine
+  that puts guards on BOTH ends of every modifier. If MOOLLM's buff schema is
+  ever going to grow, this is the design to steal from.
 
 # THE FOUR AXES
 

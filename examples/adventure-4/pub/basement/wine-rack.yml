@@ -2,92 +2,91 @@
 # Cloned from Leela Manufacturing storage prototype (aisle-e: display)
 # Inherits: reliable display container behavior
 
-object:
-  name: "Cobwebbed Wine Rack"
-  id: wine-rack
-  type: display-container
-  emoji: "🍷"
+name: "Cobwebbed Wine Rack"
+id: wine-rack
+type: display-container
+emoji: "🍷"
+
+# PROTOTYPE INHERITANCE
+inherits:
+  - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.wine-rack"
+brand: LEELA
+quality: robust-first
   
-  # PROTOTYPE INHERITANCE
-  inherits:
-    - "street/lane-neverending/leela-manufacturing/storage/aisle-e/PROTOTYPES.yml#*.wine-rack"
+container: true
+capacity: 24  # bottles
+display_mode: true
+  
+description: |
+  A diagonal wooden rack bearing the Leela Quality seal, holding 
+  bottles of various vintages. Thick cobwebs suggest some haven't 
+  been touched in years.
+  
+  One bottle glows faintly. That's probably fine.
+  
+  Built to last. The rack itself predates the pub.
+  
+examine: |
+  LEELA WINE RACK — CELLAR EDITION
+  
+  Solid oak construction, diagonal slots for proper cork moisture.
+  The Leela seal is carved into the top crossbeam.
+  
+  Current inventory:
+  ├── Dusty Red 1847 ........... covered in cobwebs
+  ├── Questionable White ....... label faded
+  ├── Glowing Bottle ........... warm, unknown language
+  ├── Cooking Wine ............. "good enough"
+  └── [20 empty slots] ......... awaiting restocking
+  
+# INSTANCE CONTENTS
+contents:
+  bottles:
+    - id: dusty-red-1847
+      name: "Dusty Red 1847"
+      description: "A very old red wine. The cork crumbles when touched."
+      age: 178
+      quality: "either priceless or vinegar"
+      
+    - id: questionable-white
+      name: "Questionable White"
+      description: "The label has faded completely. Could be anything."
+      quality: "questionable"
+      
+    - id: glowing-bottle
+      name: "The Glowing Bottle"
+      description: "Warm to the touch. Label in unknown script."
+      magical: true
+      effect: "???"
+      warning: "Probably cursed. Definitely interesting."
+      
+    - id: cooking-wine
+      name: "Cooking Wine"
+      description: "For cooking. Also drinking. No judgment."
+      quality: "adequate"
+      
+commands:
+  SELECT:
+    description: "Choose a bottle of wine"
+    effect: "Pick any bottle from the rack"
+    
+  EXAMINE_GLOWING:
+    description: "Look closer at the glowing bottle"
+    effect: "It's warm to the touch. The label is in a language you don't recognize."
+    
+  DUST:
+    description: "Wipe away the cobwebs"
+    effect: "Reveal more labels. Disturb the spiders."
+    
+leela_quality:
   brand: LEELA
-  quality: robust-first
-    
-  container: true
-  capacity: 24  # bottles
-  display_mode: true
-    
-  description: |
-    A diagonal wooden rack bearing the Leela Quality seal, holding 
-    bottles of various vintages. Thick cobwebs suggest some haven't 
-    been touched in years.
-    
-    One bottle glows faintly. That's probably fine.
-    
-    Built to last. The rack itself predates the pub.
-    
-  examine: |
-    LEELA WINE RACK — CELLAR EDITION
-    
-    Solid oak construction, diagonal slots for proper cork moisture.
-    The Leela seal is carved into the top crossbeam.
-    
-    Current inventory:
-    ├── Dusty Red 1847 ........... covered in cobwebs
-    ├── Questionable White ....... label faded
-    ├── Glowing Bottle ........... warm, unknown language
-    ├── Cooking Wine ............. "good enough"
-    └── [20 empty slots] ......... awaiting restocking
-    
-  # INSTANCE CONTENTS
-  contents:
-    bottles:
-      - id: dusty-red-1847
-        name: "Dusty Red 1847"
-        description: "A very old red wine. The cork crumbles when touched."
-        age: 178
-        quality: "either priceless or vinegar"
-        
-      - id: questionable-white
-        name: "Questionable White"
-        description: "The label has faded completely. Could be anything."
-        quality: "questionable"
-        
-      - id: glowing-bottle
-        name: "The Glowing Bottle"
-        description: "Warm to the touch. Label in unknown script."
-        magical: true
-        effect: "???"
-        warning: "Probably cursed. Definitely interesting."
-        
-      - id: cooking-wine
-        name: "Cooking Wine"
-        description: "For cooking. Also drinking. No judgment."
-        quality: "adequate"
-        
-  commands:
-    SELECT:
-      description: "Choose a bottle of wine"
-      effect: "Pick any bottle from the rack"
-      
-    EXAMINE_GLOWING:
-      description: "Look closer at the glowing bottle"
-      effect: "It's warm to the touch. The label is in a language you don't recognize."
-      
-    DUST:
-      description: "Wipe away the cobwebs"
-      effect: "Reveal more labels. Disturb the spiders."
-      
-  leela_quality:
-    brand: LEELA
-    motto: "Dependable. Tested. Robust-First."
-    construction: "Built before your grandfather was born. Still works."
-    not_acme: true
-    
-  k_lines:
-    - LEELA-MANUFACTURING
-    - DISPLAY-CONTAINER
-    - PROTOTYPE-INSTANCE
-    - ROBUST-FIRST
-    - WINE-STORAGE
+  motto: "Dependable. Tested. Robust-First."
+  construction: "Built before your grandfather was born. Still works."
+  not_acme: true
+  
+k_lines:
+  - LEELA-MANUFACTURING
+  - DISPLAY-CONTAINER
+  - PROTOTYPE-INSTANCE
+  - ROBUST-FIRST
+  - WINE-STORAGE

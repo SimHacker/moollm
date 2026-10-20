@@ -2,103 +2,102 @@
 # Cloned from Leela Manufacturing storage prototype (aisle-d: special)
 # Inherits: paradox-safe container behavior
 
-object:
-  name: "Dusty Relic Shelf"
-  id: relic-shelf
-  type: special-container
-  emoji: "🏺"
+name: "Dusty Relic Shelf"
+id: relic-shelf
+type: special-container
+emoji: "🏺"
+
+# PROTOTYPE INHERITANCE
+inherits:
+  - "street/lane-neverending/leela-manufacturing/storage/aisle-d/PROTOTYPES.yml#*.paradox-shelf"
+brand: LEELA
+quality: robust-first
+special: true
   
-  # PROTOTYPE INHERITANCE
-  inherits:
-    - "street/lane-neverending/leela-manufacturing/storage/aisle-d/PROTOTYPES.yml#*.paradox-shelf"
+container: true
+paradox_safe: true
+temporal_stable: true
+reality_anchored: true
+  
+description: |
+  A small shelf bearing the Leela Quality seal — specifically the 
+  "Special Containers Division" variant with the infinity symbol.
+  
+  It holds objects that don't belong in a pub basement:
+  - A brass compass that points somewhere other than north
+  - A jar of sand from a beach that doesn't exist
+  - A candle that burned down but isn't getting shorter
+  
+  The shelf keeps them stable. Without it, they might... drift.
+  Leela's paradox-safe shelving prevents temporal accidents.
+  
+examine: |
+  LEELA RELIC SHELF — PARADOX-SAFE EDITION
+  
+  Special containment for impossible objects.
+  
+  ┌─────────────────────────────────────────────────────────────┐
+  │  CONTENTS:                          STABILITY:              │
+  │  ├── Wrong Compass ................ ✓ Anchored             │
+  │  ├── Memory Sand .................. ✓ Contained            │
+  │  ├── Eternal Candle ............... ✓ Temporally Stable    │
+  │  └── Forgotten Photograph ......... ✓ Reality-Locked       │
+  │                                                             │
+  │  WARNING: Do not remove items without understanding them.   │
+  │  The shelf stabilizes them. Reality may not.                │
+  │                                                             │
+  │  LEELA SPECIAL CONTAINERS — "We contain the impossible."    │
+  └─────────────────────────────────────────────────────────────┘
+  
+contents:
+  relics:
+    - id: wrong-compass
+      name: "The Wrong Compass"
+      description: "Points toward... something. Not north. Something else."
+      points_to: "Home, but not yours"
+      
+    - id: memory-sand
+      name: "Memory Sand"
+      description: "Sand from a beach that doesn't exist"
+      property: "Feels like a memory of warmth"
+      origin: "A summer that never happened, but should have"
+      
+    - id: eternal-candle
+      name: "Eternal Candle"
+      description: "Burned down but isn't getting shorter"
+      property: "Always lit. Always has been. How did you not notice?"
+      
+    - id: forgotten-photograph
+      name: "Forgotten Photograph"
+      description: "A photo of people you almost recognize"
+      property: "The more you look, the less you remember"
+      
+commands:
+  EXAMINE_COMPASS:
+    description: "Study the strange compass"
+    effect: "It points toward... something. Not north. Something else."
+    warning: "Don't follow it unless you're sure."
+    
+  TAKE_SAND:
+    description: "Take a pinch of the impossible sand"
+    effect: "It feels like a memory of warmth. Keep it safe."
+    warning: "The shelf kept it stable. Now it's your responsibility."
+    
+  LIGHT_CANDLE:
+    description: "Try to light the eternal candle"
+    effect: "It was already lit. It's always been lit."
+    
+leela_quality:
   brand: LEELA
-  quality: robust-first
-  special: true
-    
-  container: true
-  paradox_safe: true
-  temporal_stable: true
-  reality_anchored: true
-    
-  description: |
-    A small shelf bearing the Leela Quality seal — specifically the 
-    "Special Containers Division" variant with the infinity symbol.
-    
-    It holds objects that don't belong in a pub basement:
-    - A brass compass that points somewhere other than north
-    - A jar of sand from a beach that doesn't exist
-    - A candle that burned down but isn't getting shorter
-    
-    The shelf keeps them stable. Without it, they might... drift.
-    Leela's paradox-safe shelving prevents temporal accidents.
-    
-  examine: |
-    LEELA RELIC SHELF — PARADOX-SAFE EDITION
-    
-    Special containment for impossible objects.
-    
-    ┌─────────────────────────────────────────────────────────────┐
-    │  CONTENTS:                          STABILITY:              │
-    │  ├── Wrong Compass ................ ✓ Anchored             │
-    │  ├── Memory Sand .................. ✓ Contained            │
-    │  ├── Eternal Candle ............... ✓ Temporally Stable    │
-    │  └── Forgotten Photograph ......... ✓ Reality-Locked       │
-    │                                                             │
-    │  WARNING: Do not remove items without understanding them.   │
-    │  The shelf stabilizes them. Reality may not.                │
-    │                                                             │
-    │  LEELA SPECIAL CONTAINERS — "We contain the impossible."    │
-    └─────────────────────────────────────────────────────────────┘
-    
-  contents:
-    relics:
-      - id: wrong-compass
-        name: "The Wrong Compass"
-        description: "Points toward... something. Not north. Something else."
-        points_to: "Home, but not yours"
-        
-      - id: memory-sand
-        name: "Memory Sand"
-        description: "Sand from a beach that doesn't exist"
-        property: "Feels like a memory of warmth"
-        origin: "A summer that never happened, but should have"
-        
-      - id: eternal-candle
-        name: "Eternal Candle"
-        description: "Burned down but isn't getting shorter"
-        property: "Always lit. Always has been. How did you not notice?"
-        
-      - id: forgotten-photograph
-        name: "Forgotten Photograph"
-        description: "A photo of people you almost recognize"
-        property: "The more you look, the less you remember"
-        
-  commands:
-    EXAMINE_COMPASS:
-      description: "Study the strange compass"
-      effect: "It points toward... something. Not north. Something else."
-      warning: "Don't follow it unless you're sure."
-      
-    TAKE_SAND:
-      description: "Take a pinch of the impossible sand"
-      effect: "It feels like a memory of warmth. Keep it safe."
-      warning: "The shelf kept it stable. Now it's your responsibility."
-      
-    LIGHT_CANDLE:
-      description: "Try to light the eternal candle"
-      effect: "It was already lit. It's always been lit."
-      
-  leela_quality:
-    brand: LEELA
-    division: "Special Containers"
-    motto: "We contain the impossible."
-    paradox_rating: "Class III — Stable Anomalies"
-    not_acme: true
-    warranty: "If reality breaks, that's not on us."
-    
-  k_lines:
-    - LEELA-MANUFACTURING
-    - SPECIAL-CONTAINER
-    - PARADOX-SAFE
-    - PROTOTYPE-INSTANCE
-    - IMPOSSIBLE-OBJECTS
+  division: "Special Containers"
+  motto: "We contain the impossible."
+  paradox_rating: "Class III — Stable Anomalies"
+  not_acme: true
+  warranty: "If reality breaks, that's not on us."
+  
+k_lines:
+  - LEELA-MANUFACTURING
+  - SPECIAL-CONTAINER
+  - PARADOX-SAFE
+  - PROTOTYPE-INSTANCE
+  - IMPOSSIBLE-OBJECTS

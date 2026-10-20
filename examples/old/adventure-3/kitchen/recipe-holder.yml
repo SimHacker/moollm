@@ -1,432 +1,431 @@
 # 📋 THE FANTASTIPANTS RECIPE HOLDER
 # Generations of culinary wisdom (and occasional madness)
 
-object:
-  name: Recipe Card Holder
-  type: container
-  portable: true
+name: Recipe Card Holder
+type: container
+portable: true
+
+description: |
+  A small wooden rack holds a collection of recipe cards,
+  yellowed with age but still legible. Some are in Mother's
+  handwriting. Others are in Grandmother's. One appears to
+  be written in Klingon.
   
+  A brass plate on the front reads:
+  "FANTASTIPANTS FAMILY RECIPES
+   Some Delicious. Some Dangerous. All Memorable."
+  
+examine: |
+  You flip through the cards. Each one tells a story:
+  - Grease stains from successful meals
+  - Burn marks from... less successful ones
+  - Mother's annotations ("MORE SALT!")
+  - Grandmother's warnings ("DO NOT MICROWAVE")
+  - One card that seems to glow faintly
+  
+# ACTIONS
+
+actions:
+  BROWSE-RECIPES:
+    description: "Look through the recipe cards"
+    usage: "BROWSE RECIPES"
+    effect: "Lists all available recipes"
+    
+  READ-RECIPE:
+    description: "Read a specific recipe"
+    usage: "READ [recipe name] RECIPE"
+    effect: "Shows full recipe details"
+    
+  FOLLOW-RECIPE:
+    description: "Attempt to make a recipe"
+    usage: "MAKE [recipe name] / COOK [recipe name]"
+    requires: "Ingredients on counter or in inventory"
+    effect: "DM checks ingredients and guides crafting"
+    
+  ADD-RECIPE:
+    description: "Add a new recipe card"
+    usage: "ADD RECIPE: [name]"
+    effect: "Creates a new blank card for you to fill in"
+    
+# RECIPE CARDS
+
+cards:
+  
+  # BASIC RECIPES (Easy to make)
+  
+  - name: "Basic Sandwich"
+    difficulty: easy
+    ingredients: ["bread", "any filling"]
+    result: "sandwich"
+    notes: "Bread + anything edible = portable meal"
+    properties: "Portable, satisfying, customizable"
+    author: "Common Sense"
+    
+  - name: "Trail Mix"
+    difficulty: easy
+    ingredients: ["3+ small food items"]
+    result: "trail_mix"
+    notes: "Combine snacks for efficient carrying"
+    properties: "Restores energy, compact, shareable"
+    author: "Mother"
+    annotation: "Good for long adventures!"
+    
+  - name: "Cheese Board"
+    difficulty: easy
+    ingredients: ["cheese", "bread", "fruit"]
+    result: "cheese_board"
+    notes: "An elegant presentation"
+    properties: "+charm when offering to others"
+    author: "Grandmother"
+    annotation: "For impressing visitors"
+    
+  # INTERMEDIATE RECIPES (Need cooking)
+  
+  - name: "Soup Stock"
+    difficulty: medium
+    ingredients: ["pot", "water", "any vegetables"]
+    result: "soup"
+    notes: "Needs stove to complete. Add anything!"
+    properties: "Warm, restorative, customizable"
+    author: "Mother"
+    annotation: "The secret is patience"
+    
+  - name: "Preserved Rations"
+    difficulty: medium
+    ingredients: ["jar", "any food", "salt OR vinegar"]
+    result: "preserved_food"
+    notes: "Lasts forever, slightly worse taste"
+    properties: "Never spoils, reduced freshness bonus"
+    author: "Grandmother"
+    annotation: "For the long winters"
+    
+  - name: "Mystery Casserole"
+    difficulty: medium
+    ingredients: ["5+ random ingredients"]
+    result: "mystery_casserole"
+    notes: "Results vary. Mother's specialty."
+    properties: "Unpredictable effects, always fills you up"
+    author: "Mother"
+    annotation: "Trust the process!"
+    warning: "May become sentient"
+    
+  # ADVANCED RECIPES (Special ingredients)
+  
+  - name: "Grue Repellent Paste"
+    difficulty: hard
+    ingredients: ["blue cheese", "garlic OR onion", "lamp oil"]
+    result: "grue_repellent"
+    notes: "Smear on self. Grues hesitate. You smell TERRIBLE."
+    properties: "Grues won't attack for 3 turns. -5 social."
+    author: "Grandfather (RIP)"
+    annotation: "He survived the maze. The smell did not."
+    
+  - name: "Oracle Essence"
+    difficulty: hard
+    ingredients: ["apple", "cheese wheel", "mysterious ingredient"]
+    result: "oracle_essence"
+    notes: "Grants brief foresight when consumed"
+    properties: "One-time use. See 2 moves ahead."
+    author: "Unknown"
+    annotation: "Card glows faintly"
+    
+  # LEGENDARY RECIPES (Quest-level difficulty)
+  
+  - name: "Klingon Victory Hors D'oeuvres"
+    difficulty: legendary
+    ingredients:
+      - "grue meat (fresh)"
+      - "blue cheese (weaponized)"
+      - "grue bone shards"
+      - "courage"
+      - "a battle song"
+    result: "klingon_victory_hors_doeuvres"
+    notes: |
+      The ultimate warrior's feast. Can only be prepared
+      after slaying a grue in single combat with cheese.
+      
+      Must be prepared while singing a Klingon battle song.
+      The song is part of the recipe.
+    properties: |
+      - +10 honor
+      - +5 strength (temporary)
+      - Permanent title: "Grue Chef"
+      - Anyone who eats gains "Warrior's Blessing"
+      - Smell permeates 3 rooms
+    author: "Captain Ashford (Adventure 2)"
+    annotation: |
+      "The greatest meal is one you have earned through combat.
+      The greatest combat is one that ends with a meal."
+      — Klingon Culinary Proverb (probably)
+    warning: "Ingredients EXTREMELY hard to obtain"
+    prerequisite_quest: "Slay a grue with cheese"
+    
+    preparation: |
+      1. Locate a grue (deep in dark maze)
+      2. Sharpen blue cheese into a glaive
+      3. Perform Grue Summoning Ululation Ceremony
+      4. Defeat grue in single combat
+      5. Harvest meat and bone shards
+      6. Return to kitchen (lamp oil permitting)
+      7. Combine ingredients on counter while singing
+      8. Serve immediately with dramatic flair
+      
+    battle_song_required: true
+    song_style: "Klingon opera, preferably Ash Blue Gutierrez style"
+    
+  - name: "??? (Illegible)"
+    difficulty: unknown
+    ingredients: ["???", "???", "something blue"]
+    result: "unknown"
+    notes: "Card is too stained to read. Experiment!"
+    author: "???"
+    annotation: "Grandmother crossed this one out. Twice."
+    
+# RECIPE DISCOVERY
+
+discovery: |
+  New recipes can be discovered by:
+  - Successful experiments on the counter
+  - Finding recipe cards in the world
+  - Learning from characters
+  - Inventing through PLAY-LEARN-LIFT
+  
+  When you successfully COMBINE, TRANSFORM, or DECOMPOSE items,
+  the counter AUTOMATICALLY creates a recipe card and files it here!
+  
+# 🆕 DISCOVERED RECIPES (Auto-populated by crafting!)
+
+discovered_recipes:
   description: |
-    A small wooden rack holds a collection of recipe cards,
-    yellowed with age but still legible. Some are in Mother's
-    handwriting. Others are in Grandmother's. One appears to
-    be written in Klingon.
+    This section grows as you experiment!
+    Every successful craft adds a card here.
     
-    A brass plate on the front reads:
-    "FANTASTIPANTS FAMILY RECIPES
-     Some Delicious. Some Dangerous. All Memorable."
-    
-  examine: |
-    You flip through the cards. Each one tells a story:
-    - Grease stains from successful meals
-    - Burn marks from... less successful ones
-    - Mother's annotations ("MORE SALT!")
-    - Grandmother's warnings ("DO NOT MICROWAVE")
-    - One card that seems to glow faintly
-    
-  # ACTIONS
+  combinations: []
+  # Auto-filled when you COMBINE items
+  # Format:
+  #   - name: "Result Recipe"
+  #     inputs: [ingredients]
+  #     output: result
+  #     discovered_by: who
+  #     discovered_turn: when
+  #     notes: flavor text
   
-  actions:
-    BROWSE-RECIPES:
-      description: "Look through the recipe cards"
-      usage: "BROWSE RECIPES"
-      effect: "Lists all available recipes"
-      
-    READ-RECIPE:
-      description: "Read a specific recipe"
-      usage: "READ [recipe name] RECIPE"
-      effect: "Shows full recipe details"
-      
-    FOLLOW-RECIPE:
-      description: "Attempt to make a recipe"
-      usage: "MAKE [recipe name] / COOK [recipe name]"
-      requires: "Ingredients on counter or in inventory"
-      effect: "DM checks ingredients and guides crafting"
-      
-    ADD-RECIPE:
-      description: "Add a new recipe card"
-      usage: "ADD RECIPE: [name]"
-      effect: "Creates a new blank card for you to fill in"
-      
-  # RECIPE CARDS
+  transformations: []
+  # Auto-filled when you TRANSFORM items
+  # Format:
+  #   - name: "X to Y Transformation"
+  #     input: original
+  #     output: transformed
+  #     method: how
+  #     discovered_by: who
   
-  cards:
-    
-    # BASIC RECIPES (Easy to make)
-    
-    - name: "Basic Sandwich"
-      difficulty: easy
-      ingredients: ["bread", "any filling"]
-      result: "sandwich"
-      notes: "Bread + anything edible = portable meal"
-      properties: "Portable, satisfying, customizable"
-      author: "Common Sense"
-      
-    - name: "Trail Mix"
-      difficulty: easy
-      ingredients: ["3+ small food items"]
-      result: "trail_mix"
-      notes: "Combine snacks for efficient carrying"
-      properties: "Restores energy, compact, shareable"
-      author: "Mother"
-      annotation: "Good for long adventures!"
-      
-    - name: "Cheese Board"
-      difficulty: easy
-      ingredients: ["cheese", "bread", "fruit"]
-      result: "cheese_board"
-      notes: "An elegant presentation"
-      properties: "+charm when offering to others"
-      author: "Grandmother"
-      annotation: "For impressing visitors"
-      
-    # INTERMEDIATE RECIPES (Need cooking)
-    
-    - name: "Soup Stock"
-      difficulty: medium
-      ingredients: ["pot", "water", "any vegetables"]
-      result: "soup"
-      notes: "Needs stove to complete. Add anything!"
-      properties: "Warm, restorative, customizable"
-      author: "Mother"
-      annotation: "The secret is patience"
-      
-    - name: "Preserved Rations"
-      difficulty: medium
-      ingredients: ["jar", "any food", "salt OR vinegar"]
-      result: "preserved_food"
-      notes: "Lasts forever, slightly worse taste"
-      properties: "Never spoils, reduced freshness bonus"
-      author: "Grandmother"
-      annotation: "For the long winters"
-      
-    - name: "Mystery Casserole"
-      difficulty: medium
-      ingredients: ["5+ random ingredients"]
-      result: "mystery_casserole"
-      notes: "Results vary. Mother's specialty."
-      properties: "Unpredictable effects, always fills you up"
-      author: "Mother"
-      annotation: "Trust the process!"
-      warning: "May become sentient"
-      
-    # ADVANCED RECIPES (Special ingredients)
-    
-    - name: "Grue Repellent Paste"
-      difficulty: hard
-      ingredients: ["blue cheese", "garlic OR onion", "lamp oil"]
-      result: "grue_repellent"
-      notes: "Smear on self. Grues hesitate. You smell TERRIBLE."
-      properties: "Grues won't attack for 3 turns. -5 social."
-      author: "Grandfather (RIP)"
-      annotation: "He survived the maze. The smell did not."
-      
-    - name: "Oracle Essence"
-      difficulty: hard
-      ingredients: ["apple", "cheese wheel", "mysterious ingredient"]
-      result: "oracle_essence"
-      notes: "Grants brief foresight when consumed"
-      properties: "One-time use. See 2 moves ahead."
-      author: "Unknown"
-      annotation: "Card glows faintly"
-      
-    # LEGENDARY RECIPES (Quest-level difficulty)
-    
-    - name: "Klingon Victory Hors D'oeuvres"
-      difficulty: legendary
-      ingredients:
-        - "grue meat (fresh)"
-        - "blue cheese (weaponized)"
-        - "grue bone shards"
-        - "courage"
-        - "a battle song"
-      result: "klingon_victory_hors_doeuvres"
-      notes: |
-        The ultimate warrior's feast. Can only be prepared
-        after slaying a grue in single combat with cheese.
-        
-        Must be prepared while singing a Klingon battle song.
-        The song is part of the recipe.
-      properties: |
-        - +10 honor
-        - +5 strength (temporary)
-        - Permanent title: "Grue Chef"
-        - Anyone who eats gains "Warrior's Blessing"
-        - Smell permeates 3 rooms
-      author: "Captain Ashford (Adventure 2)"
-      annotation: |
-        "The greatest meal is one you have earned through combat.
-        The greatest combat is one that ends with a meal."
-        — Klingon Culinary Proverb (probably)
-      warning: "Ingredients EXTREMELY hard to obtain"
-      prerequisite_quest: "Slay a grue with cheese"
-      
-      preparation: |
-        1. Locate a grue (deep in dark maze)
-        2. Sharpen blue cheese into a glaive
-        3. Perform Grue Summoning Ululation Ceremony
-        4. Defeat grue in single combat
-        5. Harvest meat and bone shards
-        6. Return to kitchen (lamp oil permitting)
-        7. Combine ingredients on counter while singing
-        8. Serve immediately with dramatic flair
-        
-      battle_song_required: true
-      song_style: "Klingon opera, preferably Ash Blue Gutierrez style"
-      
-    - name: "??? (Illegible)"
-      difficulty: unknown
-      ingredients: ["???", "???", "something blue"]
-      result: "unknown"
-      notes: "Card is too stained to read. Experiment!"
-      author: "???"
-      annotation: "Grandmother crossed this one out. Twice."
-      
-  # RECIPE DISCOVERY
+  decompositions: []
+  # Auto-filled when you DECOMPOSE items
+  # Format:
+  #   - name: "X Decomposition"
+  #     input: what
+  #     outputs: [components]
+  #     depth: level
+  #     reverse_recipe: recombination name
   
-  discovery: |
-    New recipes can be discovered by:
-    - Successful experiments on the counter
-    - Finding recipe cards in the world
-    - Learning from characters
-    - Inventing through PLAY-LEARN-LIFT
-    
-    When you successfully COMBINE, TRANSFORM, or DECOMPOSE items,
-    the counter AUTOMATICALLY creates a recipe card and files it here!
-    
-  # 🆕 DISCOVERED RECIPES (Auto-populated by crafting!)
+# DM NOTE: When player successfully crafts, add entry here!
+# This makes the recipe-holder.yml a living document that
+# grows with the adventure. Tom can reference it too!
   
-  discovered_recipes:
-    description: |
-      This section grows as you experiment!
-      Every successful craft adds a card here.
+# TOM'S OPINION
+
+tom_opinion: |
+  "Tom has memorized all recipes!"
+  "Tom can remind you of ingredients!"
+  "Tom is... concerned about the Klingon one."
+  "Tom does not want to meet a grue. Tom is small and egg-shaped."
+  "Tom believes in you though! Tom always believes!"
+  
+# MOTHER'S NOTES
+
+mothers_notes: |
+  "Bumblewick, cooking is an adventure in itself.
+  
+  Some recipes are straightforward. Some require creativity.
+  Some require you to fight a monster with cheese.
+  
+  I'm not saying which kind I prefer, but I DID
+  marry your father, and he once made dinner from
+  a dragon and a bag of pretzels.
+  
+  Trust your instincts. Taste as you go.
+  And please, PLEASE, clean up after yourself."
+  
+# DECOMPOSITION RECIPES (Reverse Engineering!)
+# "What goes together can come apart"
+
+decomposition_cards:
+  description: |
+    These cards show how to DECOMPOSE items into components.
+    The counter can break down almost anything — the question is
+    how deep you want to go...
+    
+  # PRACTICAL DECOMPOSITION (Kitchen-level)
+  
+  practical:
+    - name: "Decompose Sandwich"
+      input: "any sandwich"
+      outputs: ["bread", "filling(s)", "condiments"]
+      notes: "Recovers original ingredients, slightly squished"
       
-    combinations: []
-    # Auto-filled when you COMBINE items
-    # Format:
-    #   - name: "Result Recipe"
-    #     inputs: [ingredients]
-    #     output: result
-    #     discovered_by: who
-    #     discovered_turn: when
-    #     notes: flavor text
-    
-    transformations: []
-    # Auto-filled when you TRANSFORM items
-    # Format:
-    #   - name: "X to Y Transformation"
-    #     input: original
-    #     output: transformed
-    #     method: how
-    #     discovered_by: who
-    
-    decompositions: []
-    # Auto-filled when you DECOMPOSE items
-    # Format:
-    #   - name: "X Decomposition"
-    #     input: what
-    #     outputs: [components]
-    #     depth: level
-    #     reverse_recipe: recombination name
-    
-  # DM NOTE: When player successfully crafts, add entry here!
-  # This makes the recipe-holder.yml a living document that
-  # grows with the adventure. Tom can reference it too!
-    
-  # TOM'S OPINION
-  
-  tom_opinion: |
-    "Tom has memorized all recipes!"
-    "Tom can remind you of ingredients!"
-    "Tom is... concerned about the Klingon one."
-    "Tom does not want to meet a grue. Tom is small and egg-shaped."
-    "Tom believes in you though! Tom always believes!"
-    
-  # MOTHER'S NOTES
-  
-  mothers_notes: |
-    "Bumblewick, cooking is an adventure in itself.
-    
-    Some recipes are straightforward. Some require creativity.
-    Some require you to fight a monster with cheese.
-    
-    I'm not saying which kind I prefer, but I DID
-    marry your father, and he once made dinner from
-    a dragon and a bag of pretzels.
-    
-    Trust your instincts. Taste as you go.
-    And please, PLEASE, clean up after yourself."
-    
-  # DECOMPOSITION RECIPES (Reverse Engineering!)
-  # "What goes together can come apart"
-  
-  decomposition_cards:
-    description: |
-      These cards show how to DECOMPOSE items into components.
-      The counter can break down almost anything — the question is
-      how deep you want to go...
+    - name: "Decompose Soup"
+      input: "any soup"
+      outputs: ["broth", "vegetables", "protein", "sadness"]
+      notes: "Vegetables may be mushy. Sadness is inevitable."
       
-    # PRACTICAL DECOMPOSITION (Kitchen-level)
-    
-    practical:
-      - name: "Decompose Sandwich"
-        input: "any sandwich"
-        outputs: ["bread", "filling(s)", "condiments"]
-        notes: "Recovers original ingredients, slightly squished"
-        
-      - name: "Decompose Soup"
-        input: "any soup"
-        outputs: ["broth", "vegetables", "protein", "sadness"]
-        notes: "Vegetables may be mushy. Sadness is inevitable."
-        
-      - name: "Decompose Cheese"
-        input: "any cheese"
-        outputs: ["milk_solids", "cultures", "time", "patience"]
-        notes: "Time and patience cannot be stored. They dissipate."
-        
-      - name: "Decompose Lamp"
-        input: "brass lamp"
-        outputs: ["brass", "glass", "wick", "oil"]
-        notes: "Can rebuild as lantern, candelabra, or modern art"
-        
-      - name: "Decompose ACME Product"
-        input: "any ACME item"
-        outputs: ["hubris", "irony", "small_explosion", "regret"]
-        warning: "Small explosion is literal. Stand back."
-        
-    # CHEMICAL DECOMPOSITION (Science-level)
-    
-    chemical:
-      - name: "Decompose Water"
-        input: "water (any amount)"
-        outputs: ["hydrogen_gas (x2)", "oxygen_gas (x1)"]
-        notes: "Store in jars or balloons. H2 is flammable!"
-        container_required: true
-        warning: "Hydrogen near flame = exciting"
-        
-      - name: "Decompose Salt"
-        input: "table salt"
-        outputs: ["sodium", "chlorine_gas"]
-        notes: "Sodium explodes in water. Chlorine is toxic."
-        container_required: true
-        warning: "This was a bad idea, wasn't it?"
-        
-      - name: "Decompose Sugar"
-        input: "sugar"
-        outputs: ["carbon", "water"]
-        notes: "The counter gets warm during this process"
-        
-      - name: "Decompose Air"
-        input: "jar of air"
-        outputs: ["nitrogen (78%)", "oxygen (21%)", "other (1%)"]
-        notes: "'Other' includes argon, CO2, and mystery"
-        container_required: true
-        
-      - name: "Decompose Rust"
-        input: "rust"
-        outputs: ["iron", "oxygen"]
-        notes: "Iron can be reformed. Entropy is reversed. Briefly."
-        
-    # ATOMIC DECOMPOSITION (Getting Weird)
-    
-    atomic:
-      - name: "Decompose Hydrogen"
-        input: "hydrogen gas"
-        outputs: ["electron", "proton"]
-        notes: "The simplest atom. Now even simpler."
-        warning: "Counter is starting to hum"
-        
-      - name: "Decompose Helium"
-        input: "helium"
-        outputs: ["electrons (x2)", "protons (x2)", "neutrons (x2)"]
-        notes: "Voice returns to normal. Temporarily."
-        
-      - name: "Decompose Gold"
-        input: "gold"
-        outputs: ["electrons (x79)", "protons (x79)", "neutrons (x118)"]
-        notes: "This takes a while. The counter complains."
-        warning: "You now have a LOT of subatomic particles"
-        
-      - name: "Decompose Carbon"
-        input: "carbon"
-        outputs: ["electrons (x6)", "protons (x6)", "neutrons (x6)"]
-        notes: "666? Just a coincidence. Probably."
-        
-    # SUBATOMIC DECOMPOSITION (You've Gone Too Far)
-    
-    subatomic:
-      - name: "Decompose Proton"
-        input: "proton"
-        outputs: ["up_quark (x2)", "down_quark", "gluons (many)"]
-        notes: "Gluons are hard to store. They stick to everything."
-        warning: "The counter is vibrating. The room is humming."
-        
-      - name: "Decompose Neutron"
-        input: "neutron"
-        outputs: ["up_quark", "down_quark (x2)", "gluons (many)"]
-        notes: "Decays into proton + electron if you wait 15 minutes"
-        
-      - name: "Decompose Electron"
-        input: "electron"
-        outputs: ["...nothing?", "wave_function", "uncertainty"]
-        notes: "It's fundamental. Or IS it? (It is.)"
-        warning: "The counter looks disappointed in you"
-        
-    # PHILOSOPHICAL DECOMPOSITION (Why Are You Like This)
-    
-    philosophical:
-      - name: "Decompose Quark"
-        input: "any quark"
-        outputs: ["probability", "observation", "existential_dread"]
-        notes: "You cannot observe without changing. Like parenting."
-        warning: "Reality is wobbling. Tom is concerned."
-        
-      - name: "Decompose Time"
-        input: "time (if you somehow bottled it)"
-        outputs: ["entropy", "memory", "regret"]
-        notes: "Entropy goes one way. Memory doesn't. Regret is forever."
-        
-      - name: "Decompose Love"
-        input: "love (not recommended)"
-        outputs: ["attachment", "fear_of_loss", "terrible_music"]
-        notes: "Reassembles poorly. Better left whole."
-        forbidden: true
-        
-      - name: "Decompose Meaning"
-        input: "meaning"
-        outputs: ["narrative", "pattern_recognition", "wishful_thinking"]
-        notes: "Do not decompose meaning. You need it."
-        forbidden: true
-        
-  # RECOMPOSITION NOTES
+    - name: "Decompose Cheese"
+      input: "any cheese"
+      outputs: ["milk_solids", "cultures", "time", "patience"]
+      notes: "Time and patience cannot be stored. They dissipate."
+      
+    - name: "Decompose Lamp"
+      input: "brass lamp"
+      outputs: ["brass", "glass", "wick", "oil"]
+      notes: "Can rebuild as lantern, candelabra, or modern art"
+      
+    - name: "Decompose ACME Product"
+      input: "any ACME item"
+      outputs: ["hubris", "irony", "small_explosion", "regret"]
+      warning: "Small explosion is literal. Stand back."
+      
+  # CHEMICAL DECOMPOSITION (Science-level)
   
-  recomposition: |
-    Components can be COMBINED back together!
-    
-    PRACTICAL: Easy. Just reverse the recipe.
-    CHEMICAL: Needs energy input (heat, electricity, hope)
-    ATOMIC: Requires FUSION or FISSION (careful!)
-    SUBATOMIC: Technically possible. Reality may object.
-    PHILOSOPHICAL: Please don't.
-    
-    Some fun combinations:
-    - Hydrogen + Oxygen → Water (boom, then splash)
-    - Hydrogen + Hydrogen + Fusion → Helium + Light + Problem
-    - Carbon + Pressure + Time → Diamond (time sold separately)
-    - Quarks + Gluons → Whatever you want (results vary)
-    
-  # LINEAGE
+  chemical:
+    - name: "Decompose Water"
+      input: "water (any amount)"
+      outputs: ["hydrogen_gas (x2)", "oxygen_gas (x1)"]
+      notes: "Store in jars or balloons. H2 is flammable!"
+      container_required: true
+      warning: "Hydrogen near flame = exciting"
+      
+    - name: "Decompose Salt"
+      input: "table salt"
+      outputs: ["sodium", "chlorine_gas"]
+      notes: "Sodium explodes in water. Chlorine is toxic."
+      container_required: true
+      warning: "This was a bad idea, wasn't it?"
+      
+    - name: "Decompose Sugar"
+      input: "sugar"
+      outputs: ["carbon", "water"]
+      notes: "The counter gets warm during this process"
+      
+    - name: "Decompose Air"
+      input: "jar of air"
+      outputs: ["nitrogen (78%)", "oxygen (21%)", "other (1%)"]
+      notes: "'Other' includes argon, CO2, and mystery"
+      container_required: true
+      
+    - name: "Decompose Rust"
+      input: "rust"
+      outputs: ["iron", "oxygen"]
+      notes: "Iron can be reformed. Entropy is reversed. Briefly."
+      
+  # ATOMIC DECOMPOSITION (Getting Weird)
   
-  lineage: |
-    The Klingon Victory Hors D'oeuvres recipe was created
-    during Adventure 2, when Captain Ashford slew a grue
-    with a sharpened wedge of blue cheese (the Gorgonzola Glaive)
-    and prepared a victory feast from its remains.
-    
-    This recipe represents the ultimate PLAY-LEARN-LIFT:
-    - PLAY: Experiment with cheese as weapon
-    - LEARN: Discover grue vulnerabilities
-    - LIFT: Codify into repeatable recipe
-    
-    The recipe card was added to the family collection
-    and now inspires future adventurers to set ambitious goals.
+  atomic:
+    - name: "Decompose Hydrogen"
+      input: "hydrogen gas"
+      outputs: ["electron", "proton"]
+      notes: "The simplest atom. Now even simpler."
+      warning: "Counter is starting to hum"
+      
+    - name: "Decompose Helium"
+      input: "helium"
+      outputs: ["electrons (x2)", "protons (x2)", "neutrons (x2)"]
+      notes: "Voice returns to normal. Temporarily."
+      
+    - name: "Decompose Gold"
+      input: "gold"
+      outputs: ["electrons (x79)", "protons (x79)", "neutrons (x118)"]
+      notes: "This takes a while. The counter complains."
+      warning: "You now have a LOT of subatomic particles"
+      
+    - name: "Decompose Carbon"
+      input: "carbon"
+      outputs: ["electrons (x6)", "protons (x6)", "neutrons (x6)"]
+      notes: "666? Just a coincidence. Probably."
+      
+  # SUBATOMIC DECOMPOSITION (You've Gone Too Far)
+  
+  subatomic:
+    - name: "Decompose Proton"
+      input: "proton"
+      outputs: ["up_quark (x2)", "down_quark", "gluons (many)"]
+      notes: "Gluons are hard to store. They stick to everything."
+      warning: "The counter is vibrating. The room is humming."
+      
+    - name: "Decompose Neutron"
+      input: "neutron"
+      outputs: ["up_quark", "down_quark (x2)", "gluons (many)"]
+      notes: "Decays into proton + electron if you wait 15 minutes"
+      
+    - name: "Decompose Electron"
+      input: "electron"
+      outputs: ["...nothing?", "wave_function", "uncertainty"]
+      notes: "It's fundamental. Or IS it? (It is.)"
+      warning: "The counter looks disappointed in you"
+      
+  # PHILOSOPHICAL DECOMPOSITION (Why Are You Like This)
+  
+  philosophical:
+    - name: "Decompose Quark"
+      input: "any quark"
+      outputs: ["probability", "observation", "existential_dread"]
+      notes: "You cannot observe without changing. Like parenting."
+      warning: "Reality is wobbling. Tom is concerned."
+      
+    - name: "Decompose Time"
+      input: "time (if you somehow bottled it)"
+      outputs: ["entropy", "memory", "regret"]
+      notes: "Entropy goes one way. Memory doesn't. Regret is forever."
+      
+    - name: "Decompose Love"
+      input: "love (not recommended)"
+      outputs: ["attachment", "fear_of_loss", "terrible_music"]
+      notes: "Reassembles poorly. Better left whole."
+      forbidden: true
+      
+    - name: "Decompose Meaning"
+      input: "meaning"
+      outputs: ["narrative", "pattern_recognition", "wishful_thinking"]
+      notes: "Do not decompose meaning. You need it."
+      forbidden: true
+      
+# RECOMPOSITION NOTES
+
+recomposition: |
+  Components can be COMBINED back together!
+  
+  PRACTICAL: Easy. Just reverse the recipe.
+  CHEMICAL: Needs energy input (heat, electricity, hope)
+  ATOMIC: Requires FUSION or FISSION (careful!)
+  SUBATOMIC: Technically possible. Reality may object.
+  PHILOSOPHICAL: Please don't.
+  
+  Some fun combinations:
+  - Hydrogen + Oxygen → Water (boom, then splash)
+  - Hydrogen + Hydrogen + Fusion → Helium + Light + Problem
+  - Carbon + Pressure + Time → Diamond (time sold separately)
+  - Quarks + Gluons → Whatever you want (results vary)
+  
+# LINEAGE
+
+lineage: |
+  The Klingon Victory Hors D'oeuvres recipe was created
+  during Adventure 2, when Captain Ashford slew a grue
+  with a sharpened wedge of blue cheese (the Gorgonzola Glaive)
+  and prepared a victory feast from its remains.
+  
+  This recipe represents the ultimate PLAY-LEARN-LIFT:
+  - PLAY: Experiment with cheese as weapon
+  - LEARN: Discover grue vulnerabilities
+  - LIFT: Codify into repeatable recipe
+  
+  The recipe card was added to the family collection
+  and now inspires future adventurers to set ambitious goals.

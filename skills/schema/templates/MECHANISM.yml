@@ -19,9 +19,8 @@
 #   (e.g. json-schema). Use gateways.yml for canonical bridges; use mechanism_relations (below) for this
 #   file’s view of composition (protocol, parameters, gateway_ref).
 
-mechanism:
-  id: example-mechanism
-  family: interchange
+id: example-mechanism
+family: interchange
 
 plugin_profile:
   kind: standalone

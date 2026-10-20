@@ -2,555 +2,554 @@
 # A crafting surface for creating, combining, and transforming objects
 # Like a Minecraft crafting table, but with YAML Jazz
 
-object:
-  name: Kitchen Counter
-  type: crafting_surface
-  portable: false
+name: Kitchen Counter
+type: crafting_surface
+portable: false
+
+description: |
+  A long granite counter runs along one wall, scarred by years of
+  Fantastipants family experiments. Burn marks, knife scratches,
+  mysterious stains — each one tells a story.
   
+  A small plaque is bolted to the edge:
+  
+  "THE FANTASTIPANTS WORKBENCH
+   Where Ideas Become Things™
+   (And Sometimes Things Become Other Things)"
+  
+  The surface shimmers slightly. It's not just a counter.
+  It's a CRAFTING TABLE.
+  
+examine: |
+  You run your hand across the counter. It tingles.
+  
+  This surface can:
+  - COMBINE items to create new things
+  - TRANSFORM items into different forms
+  - DUPLICATE items (with limitations)
+  - EDIT item properties
+  - PROGRAM item behaviors
+  
+  Place items on the counter. Describe what you want.
+  The DM interprets your intent and creates the result.
+  
+  On the counter you see:
+  📋 **Recipe Holder** — Family recipes (some legendary!)
+  📦 **ACME Catalog** — Mail-order mayhem
+  
+  Below the counter:
+  🗄️ **Three Drawers** — MacGyver crafting supplies (OPEN DRAWER to explore)
+  
+# WORKSPACE (items currently on the counter)
+
+workspace: []
+
+# PORTABLE OBJECTS ON COUNTER (separate files)
+
+contents:
+  - file: recipe-holder.yml
+    description: "Family recipe cards (including the legendary Klingon one!)"
+    can_take: true
+    
+  - file: acme-catalog.yml
+    description: "ACME Mail-Order — 'If It Exists, ACME Makes It!™'"
+    can_take: true
+    
+# 🗄️ BUILT-IN DRAWERS (integral to counter)
+# MacGyver supplies accumulated over generations
+
+drawers:
   description: |
-    A long granite counter runs along one wall, scarred by years of
-    Fantastipants family experiments. Burn marks, knife scratches,
-    mysterious stains — each one tells a story.
+    Three drawers under the counter, each stuffed with supplies
+    accumulated over generations of Fantastipants adventures.
     
-    A small plaque is bolted to the edge:
+    Father's motto: "You never know what you'll need."
+    Mother's motto: "Why do we have SEVEN broken compasses?"
     
-    "THE FANTASTIPANTS WORKBENCH
-     Where Ideas Become Things™
-     (And Sometimes Things Become Other Things)"
-    
-    The surface shimmers slightly. It's not just a counter.
-    It's a CRAFTING TABLE.
-    
-  examine: |
-    You run your hand across the counter. It tingles.
-    
-    This surface can:
-    - COMBINE items to create new things
-    - TRANSFORM items into different forms
-    - DUPLICATE items (with limitations)
-    - EDIT item properties
-    - PROGRAM item behaviors
-    
-    Place items on the counter. Describe what you want.
-    The DM interprets your intent and creates the result.
-    
-    On the counter you see:
-    📋 **Recipe Holder** — Family recipes (some legendary!)
-    📦 **ACME Catalog** — Mail-order mayhem
-    
-    Below the counter:
-    🗄️ **Three Drawers** — MacGyver crafting supplies (OPEN DRAWER to explore)
-    
-  # WORKSPACE (items currently on the counter)
+  # 🫙 LEFT DRAWER: CONTAINERS
   
-  workspace: []
-  
-  # PORTABLE OBJECTS ON COUNTER (separate files)
-  
-  contents:
-    - file: recipe-holder.yml
-      description: "Family recipe cards (including the legendary Klingon one!)"
-      can_take: true
-      
-    - file: acme-catalog.yml
-      description: "ACME Mail-Order — 'If It Exists, ACME Makes It!™'"
-      can_take: true
-      
-  # 🗄️ BUILT-IN DRAWERS (integral to counter)
-  # MacGyver supplies accumulated over generations
-  
-  drawers:
-    description: |
-      Three drawers under the counter, each stuffed with supplies
-      accumulated over generations of Fantastipants adventures.
-      
-      Father's motto: "You never know what you'll need."
-      Mother's motto: "Why do we have SEVEN broken compasses?"
-      
-    # 🫙 LEFT DRAWER: CONTAINERS
+  left:
+    name: "Container Drawer"
+    label: "🫙"
+    description: "Vessels for carrying, collecting, and organizing."
     
-    left:
-      name: "Container Drawer"
-      label: "🫙"
-      description: "Vessels for carrying, collecting, and organizing."
-      
-      contents:
-        - item: "Empty Jar"
-          quantity: 5
-          type: container
-          capacity: 3
-          auto_collects: ["liquids", "small_items", "preserved_food"]
-          description: "Glass jar with screw-top lid."
-          
-        - item: "Small Pouch"
-          quantity: 3
-          type: container
-          capacity: 5
-          auto_collects: ["coins", "gems", "small_treasures"]
-          description: "Leather pouch with drawstring. Jingles pleasantly."
-          
-        - item: "Canvas Sack"
-          quantity: 1
-          type: container
-          capacity: 10
-          auto_collects: ["bulky_items", "clothing", "soft_goods"]
-          description: "Sturdy sack. For the big stuff."
-          
-        - item: "Specimen Box"
-          quantity: 1
-          type: container
-          capacity: 6
-          auto_collects: ["curiosities", "samples", "scientific_finds"]
-          description: "Compartmentalized box with glass lid."
-          
-        - item: "Belt Clip Holder"
-          quantity: 1
-          type: container
-          capacity: 2
-          auto_collects: ["tools", "small_weapons"]
-          description: "Clips to belt. Quick access to essentials."
-          
-    # 🔧 MIDDLE DRAWER: TOOLS
-    
-    middle:
-      name: "Tool Drawer"
-      label: "🔧"
-      description: "The essentials. MacGyver would approve."
-      
-      contents:
-        - item: "Pocket Knife"
-          type: tool
-          uses: ["cut", "pry", "scrape", "whittle"]
-          description: "Every adventurer's best friend. Father's initials on handle."
-          
-        - item: "Ball of Twine"
-          type: material
-          amount: "~50 feet"
-          uses: ["tie", "measure", "trail", "trap"]
-          description: "Unravels as needed."
-          
-        - item: "Duct Tape"
-          type: material
-          amount: "Half a roll"
-          uses: ["repair", "bind", "seal", "silence"]
-          description: "The universal fixer. Gray and sticky."
-          
-        - item: "Magnifying Glass"
-          type: tool
-          uses: ["examine", "focus_light", "read_small_text", "start_fire"]
-          description: "For when you need to look closer."
-          
-        - item: "Chalk"
-          type: material
-          colors: ["white", "red", "blue", "yellow"]
-          uses: ["mark", "write", "draw", "signal"]
-          description: "Assorted colors. Marks most surfaces."
-          
-        - item: "Small Mirror"
-          type: tool
-          uses: ["see_around_corners", "signal", "check_appearance"]
-          description: "Pocket-sized. Slightly scratched."
-          
-        - item: "Rubber Bands"
-          type: material
-          amount: "A bunch"
-          uses: ["bind", "launch", "grip", "slingshot"]
-          description: "Assorted sizes. Surprisingly useful."
-          
-        - item: "Matchbook Collection"
-          type: mail_in_offers
-          file: matchbooks.yml
-          description: |
-            A stack of matchbooks with mail-in offers! MAIL THEM
-            to receive stamps, brochures, and prizes — including
-            the legendary "One Lousy Point" collector's stamps
-            honoring the founders of interactive fiction!
-          hint: "MAIL these to the START ROOM MAILBOX for rewards!"
-          includes:
-            - "Spelunker Today (Donald Woods stamp)"
-            - "Adventurer's Guild (Scott Adams stamp)"
-            - "Lamp Oil Premium (Will Crowther stamp)"
-            - "Grue Insurance (Dave Lebling stamp)"
-            - "Mystery Matchbook (Marc Blank stamp)"
-          
-    # ⚙️ RIGHT DRAWER: PARTS
-    
-    right:
-      name: "Parts Drawer"
-      label: "⚙️"
-      description: "The junk drawer. Someday is usually today."
-      
-      contents:
-        - item: "Assorted Nails & Screws"
-          type: fastener
-          amount: "Handful"
-          uses: ["attach", "hang", "poke", "trade"]
-          description: "Various sizes. Some rusty, some shiny."
-          
-        - item: "Wire (thin)"
-          type: material
-          amount: "~10 feet coiled"
-          uses: ["bind", "conduct", "pick_locks", "snare"]
-          description: "Copper wire."
-          
-        - item: "Candle Stubs"
-          quantity: 4
-          type: light_source
-          burn_time: "~1 hour each"
-          uses: ["light", "seal", "drip_wax"]
-          description: "Backup lighting. For when the lamp runs low."
-          
-        - item: "Matches (box)"
-          type: ignition
-          amount: "~20 matches"
-          waterproof: true
-          uses: ["light", "start_fire", "signal"]
-          description: "Waterproof matches."
-          
-        - item: "Cloth Scraps"
-          type: material
-          uses: ["bandage", "filter", "muffle", "clean"]
-          description: "Assorted fabric pieces. Clean-ish."
-          
-        - item: "Small Bell"
-          type: signal
-          uses: ["alert", "trip_wire", "distract", "summon"]
-          description: "Tinkles when moved. Good for traps."
-          
-        - item: "Compass (broken)"
-          type: tool
-          condition: "Broken — needle spins randomly"
-          uses: ["??? (needs repair)", "trade", "parts"]
-          description: "Needle spins randomly. Maybe fixable?"
-          hint: "COMBINE with Tom for interesting results..."
-          tom_interest: HIGH
-          
-        - item: "Loose Gold Coins"
-          type: currency
-          quantity: 25
-          description: |
-            Twenty-five gold coins at the back of the drawer, dusty and 
-            forgotten. Father used to empty his pockets here after
-            adventures. "Emergency fund," he called it. Quite a fund!
-          note: |
-            Combined with starting 10 gold = 35 gold total.
-            Enough for: lamp refills, ACME catalog shopping, vending
-            machine purchases, pub drinks, and bribes!
-            
-        - item: "Old Ticket Stub"
-          type: memento
-          description: |
-            A ticket to "MADAME ZARA'S AMAZING PREDICTIONS" dated 1987.
-            Mother kept this. On the back, in Father's handwriting:
-            "She was right about everything. Especially us."
-          sentimental_value: HIGH
-          effect_if_shown_to_mother: "A story about how your parents met"
-          
-    # Drawer actions
-    actions:
-      OPEN-DRAWER:
-        usage: "OPEN [left/middle/right] DRAWER"
-        effect: "Lists contents of that drawer"
+    contents:
+      - item: "Empty Jar"
+        quantity: 5
+        type: container
+        capacity: 3
+        auto_collects: ["liquids", "small_items", "preserved_food"]
+        description: "Glass jar with screw-top lid."
         
-      TAKE-FROM-DRAWER:
-        usage: "TAKE [item] FROM DRAWER"
-        effect: "Item moves to inventory"
+      - item: "Small Pouch"
+        quantity: 3
+        type: container
+        capacity: 5
+        auto_collects: ["coins", "gems", "small_treasures"]
+        description: "Leather pouch with drawstring. Jingles pleasantly."
         
-      SEARCH-DRAWERS:
-        usage: "SEARCH DRAWERS FOR [type/use]"
-        effect: "Lists all matching items across all drawers"
+      - item: "Canvas Sack"
+        quantity: 1
+        type: container
+        capacity: 10
+        auto_collects: ["bulky_items", "clothing", "soft_goods"]
+        description: "Sturdy sack. For the big stuff."
         
-      RUMMAGE:
-        usage: "RUMMAGE IN DRAWERS"
-        effect: "Find something unexpected (DM's choice)"
-        hidden: true
+      - item: "Specimen Box"
+        quantity: 1
+        type: container
+        capacity: 6
+        auto_collects: ["curiosities", "samples", "scientific_finds"]
+        description: "Compartmentalized box with glass lid."
         
-  # CORE CRAFTING ACTIONS
+      - item: "Belt Clip Holder"
+        quantity: 1
+        type: container
+        capacity: 2
+        auto_collects: ["tools", "small_weapons"]
+        description: "Clips to belt. Quick access to essentials."
+        
+  # 🔧 MIDDLE DRAWER: TOOLS
   
+  middle:
+    name: "Tool Drawer"
+    label: "🔧"
+    description: "The essentials. MacGyver would approve."
+    
+    contents:
+      - item: "Pocket Knife"
+        type: tool
+        uses: ["cut", "pry", "scrape", "whittle"]
+        description: "Every adventurer's best friend. Father's initials on handle."
+        
+      - item: "Ball of Twine"
+        type: material
+        amount: "~50 feet"
+        uses: ["tie", "measure", "trail", "trap"]
+        description: "Unravels as needed."
+        
+      - item: "Duct Tape"
+        type: material
+        amount: "Half a roll"
+        uses: ["repair", "bind", "seal", "silence"]
+        description: "The universal fixer. Gray and sticky."
+        
+      - item: "Magnifying Glass"
+        type: tool
+        uses: ["examine", "focus_light", "read_small_text", "start_fire"]
+        description: "For when you need to look closer."
+        
+      - item: "Chalk"
+        type: material
+        colors: ["white", "red", "blue", "yellow"]
+        uses: ["mark", "write", "draw", "signal"]
+        description: "Assorted colors. Marks most surfaces."
+        
+      - item: "Small Mirror"
+        type: tool
+        uses: ["see_around_corners", "signal", "check_appearance"]
+        description: "Pocket-sized. Slightly scratched."
+        
+      - item: "Rubber Bands"
+        type: material
+        amount: "A bunch"
+        uses: ["bind", "launch", "grip", "slingshot"]
+        description: "Assorted sizes. Surprisingly useful."
+        
+      - item: "Matchbook Collection"
+        type: mail_in_offers
+        file: matchbooks.yml
+        description: |
+          A stack of matchbooks with mail-in offers! MAIL THEM
+          to receive stamps, brochures, and prizes — including
+          the legendary "One Lousy Point" collector's stamps
+          honoring the founders of interactive fiction!
+        hint: "MAIL these to the START ROOM MAILBOX for rewards!"
+        includes:
+          - "Spelunker Today (Donald Woods stamp)"
+          - "Adventurer's Guild (Scott Adams stamp)"
+          - "Lamp Oil Premium (Will Crowther stamp)"
+          - "Grue Insurance (Dave Lebling stamp)"
+          - "Mystery Matchbook (Marc Blank stamp)"
+        
+  # ⚙️ RIGHT DRAWER: PARTS
+  
+  right:
+    name: "Parts Drawer"
+    label: "⚙️"
+    description: "The junk drawer. Someday is usually today."
+    
+    contents:
+      - item: "Assorted Nails & Screws"
+        type: fastener
+        amount: "Handful"
+        uses: ["attach", "hang", "poke", "trade"]
+        description: "Various sizes. Some rusty, some shiny."
+        
+      - item: "Wire (thin)"
+        type: material
+        amount: "~10 feet coiled"
+        uses: ["bind", "conduct", "pick_locks", "snare"]
+        description: "Copper wire."
+        
+      - item: "Candle Stubs"
+        quantity: 4
+        type: light_source
+        burn_time: "~1 hour each"
+        uses: ["light", "seal", "drip_wax"]
+        description: "Backup lighting. For when the lamp runs low."
+        
+      - item: "Matches (box)"
+        type: ignition
+        amount: "~20 matches"
+        waterproof: true
+        uses: ["light", "start_fire", "signal"]
+        description: "Waterproof matches."
+        
+      - item: "Cloth Scraps"
+        type: material
+        uses: ["bandage", "filter", "muffle", "clean"]
+        description: "Assorted fabric pieces. Clean-ish."
+        
+      - item: "Small Bell"
+        type: signal
+        uses: ["alert", "trip_wire", "distract", "summon"]
+        description: "Tinkles when moved. Good for traps."
+        
+      - item: "Compass (broken)"
+        type: tool
+        condition: "Broken — needle spins randomly"
+        uses: ["??? (needs repair)", "trade", "parts"]
+        description: "Needle spins randomly. Maybe fixable?"
+        hint: "COMBINE with Tom for interesting results..."
+        tom_interest: HIGH
+        
+      - item: "Loose Gold Coins"
+        type: currency
+        quantity: 25
+        description: |
+          Twenty-five gold coins at the back of the drawer, dusty and 
+          forgotten. Father used to empty his pockets here after
+          adventures. "Emergency fund," he called it. Quite a fund!
+        note: |
+          Combined with starting 10 gold = 35 gold total.
+          Enough for: lamp refills, ACME catalog shopping, vending
+          machine purchases, pub drinks, and bribes!
+          
+      - item: "Old Ticket Stub"
+        type: memento
+        description: |
+          A ticket to "MADAME ZARA'S AMAZING PREDICTIONS" dated 1987.
+          Mother kept this. On the back, in Father's handwriting:
+          "She was right about everything. Especially us."
+        sentimental_value: HIGH
+        effect_if_shown_to_mother: "A story about how your parents met"
+        
+  # Drawer actions
   actions:
-    PLACE:
-      description: "Put an item on the counter"
-      usage: "PLACE [item] ON COUNTER"
-      effect: "Item moves from inventory to workspace"
+    OPEN-DRAWER:
+      usage: "OPEN [left/middle/right] DRAWER"
+      effect: "Lists contents of that drawer"
       
-    TAKE:
-      description: "Take an item from the counter"
-      usage: "TAKE [item] FROM COUNTER"
-      effect: "Item moves from workspace to inventory"
+    TAKE-FROM-DRAWER:
+      usage: "TAKE [item] FROM DRAWER"
+      effect: "Item moves to inventory"
       
-    COMBINE:
-      description: "Merge multiple items into one"
-      usage: "COMBINE [item1] WITH [item2] (WITH [item3]...)"
-      requires: "2+ items on counter"
-      effect: |
-        DM interprets the combination:
-        - What would these items become together?
-        - What properties does the result have?
-        - Is the combination reversible?
-        
-        Creates new .yml file for the result.
-        
-      examples:
-        - input: "cheese + bread"
-          output: "cheese_sandwich.yml"
-          
-        - input: "lamp + blue cheese"
-          output: "stink_lamp.yml (repels grues at distance)"
-          
-        - input: "notebook + Tom"
-          output: "smart_notebook.yml (Tom can write in it)"
-          
-        - input: "broken compass + Tom"
-          output: "??? (Tom is VERY curious about this)"
-          
-    TRANSFORM:
-      description: "Change an item into something else"
-      usage: "TRANSFORM [item] INTO [description]"
-      requires: "1 item on counter"
-      effect: |
-        DM interprets the transformation:
-        - Is this plausible given the source material?
-        - What properties transfer? What's lost?
-        - How dramatic is the change?
-        
-        Updates or replaces the item's .yml file.
-        
-      examples:
-        - input: "TRANSFORM apple INTO apple pie"
-          output: "apple_pie.yml (needs oven to complete)"
-          
-        - input: "TRANSFORM blue cheese INTO weapon"
-          output: "gorgonzola_glaive.yml (legendary!)"
-          
-    DUPLICATE:
-      description: "Create a copy of an item"
-      usage: "DUPLICATE [item]"
-      requires: "1 item on counter"
-      effect: |
-        Creates a copy with quirks:
-        - Slightly different (DM adds variation)
-        - May degrade over time
-        - Original and copy may be linked
-        
-      limitations: |
-        Cannot duplicate: unique items, sentient items, Tom
-        
-    EDIT:
-      description: "Modify an item's properties"
-      usage: "EDIT [item]: [changes]"
-      requires: "1 item on counter"
-      effect: "DM updates the .yml file with your changes"
+    SEARCH-DRAWERS:
+      usage: "SEARCH DRAWERS FOR [type/use]"
+      effect: "Lists all matching items across all drawers"
       
-    PROGRAM:
-      description: "Add behaviors and triggers to an item"
-      usage: "PROGRAM [item]: [behavior description]"
-      requires: "1 item on counter"
-      effect: |
-        Add conditional behaviors:
-        - When X happens, do Y
-        - If condition, then action
-        
-      examples:
-        - input: "PROGRAM lamp: glow red when grue is near"
-        - input: "PROGRAM cheese: insult anyone who tries to eat me"
-        
-    ANALYZE:
-      description: "Examine an item's properties in detail"
-      usage: "ANALYZE [item]"
-      requires: "1 item on counter"
-      effect: "DM reads the item's .yml file and explains all properties"
+    RUMMAGE:
+      usage: "RUMMAGE IN DRAWERS"
+      effect: "Find something unexpected (DM's choice)"
+      hidden: true
       
-    DECOMPOSE:
-      description: "Break an item down into its component parts"
-      usage: "DECOMPOSE [item] / BREAK DOWN [item]"
-      requires: "1 item on counter"
-      effect: |
-        DM determines what the item breaks down into:
-        - What are the fundamental components?
-        - Can they be stored? (jars, pouches, balloons)
-        - Are any components dangerous? Volatile? Weird?
-        
-        Creates new .yml files for each component.
-        Original item is consumed.
-        
-      examples:
-        - input: "DECOMPOSE sandwich"
-          output: ["bread.yml", "cheese.yml", "slightly_sad_lettuce.yml"]
-          
-        - input: "DECOMPOSE water"
-          output: ["hydrogen_gas.yml (x2)", "oxygen_gas.yml"]
-          note: "Store in jars or balloons!"
-          
-        - input: "DECOMPOSE hydrogen"
-          output: ["electrons.yml", "protons.yml"]
-          warning: "Getting weird now..."
-          
-        - input: "DECOMPOSE proton"
-          output: ["up_quark.yml (x2)", "down_quark.yml", "gluons.yml"]
-          warning: "You've gone too far. The counter is vibrating."
-          
-        - input: "DECOMPOSE lamp"
-          output: ["brass.yml", "glass.yml", "wick.yml", "oil.yml"]
-          
-        - input: "DECOMPOSE ACME product"
-          output: ["hubris.yml", "irony.yml", "small_explosion.yml"]
-          
-      depth_levels:
-        practical: "sandwich → bread + cheese + filling"
-        chemical: "water → hydrogen + oxygen"
-        atomic: "hydrogen → electrons + protons"
-        subatomic: "protons → quarks + gluons"
-        philosophical: "quarks → probability + observation + existential_dread"
-        
-      warnings: |
-        The deeper you go, the weirder it gets:
-        - Chemical level: May require containers (jars, balloons)
-        - Atomic level: May be unstable, glowing, or judgmental
-        - Subatomic level: Counter starts vibrating
-        - Philosophical level: You question your life choices
-        
-        Some things SHOULD NOT be decomposed:
-        - Tom (he politely refuses)
-        - Mother's note (some things are sacred)
-        - The fabric of reality (already threadbare)
-        
-    CLEAR:
-      description: "Remove all items from counter"
-      usage: "CLEAR COUNTER"
-      effect: "All items return to inventory"
+# CORE CRAFTING ACTIONS
+
+actions:
+  PLACE:
+    description: "Put an item on the counter"
+    usage: "PLACE [item] ON COUNTER"
+    effect: "Item moves from inventory to workspace"
+    
+  TAKE:
+    description: "Take an item from the counter"
+    usage: "TAKE [item] FROM COUNTER"
+    effect: "Item moves from workspace to inventory"
+    
+  COMBINE:
+    description: "Merge multiple items into one"
+    usage: "COMBINE [item1] WITH [item2] (WITH [item3]...)"
+    requires: "2+ items on counter"
+    effect: |
+      DM interprets the combination:
+      - What would these items become together?
+      - What properties does the result have?
+      - Is the combination reversible?
       
-  # 📝 AUTO-RECIPE LEARNING
-  # Every successful craft or decomposition creates a recipe card!
-  
-  auto_recipe:
-    description: |
-      The counter LEARNS from your experiments!
-      
-      Every successful COMBINE, TRANSFORM, or DECOMPOSE automatically:
-      1. Creates a new recipe card
-      2. Stores it in the recipe-holder.yml
-      3. Names it after what you made/unmade
-      4. Records ingredients, outputs, and any notes
-      
-      This is PLAY-LEARN-LIFT in action:
-      - PLAY: Experiment freely on the counter
-      - LEARN: Discover what works (and what explodes)
-      - LIFT: Recipe card captures the knowledge forever
-      
-    on_combine: |
-      When you successfully COMBINE items:
-      
-      → New recipe card created:
-        name: "[Result Name] Recipe"
-        type: combination
-        inputs: [list of ingredients]
-        output: [what you made]
-        discovered_by: [your name]
-        discovered_on: [current turn]
-        notes: [DM adds flavor text]
-        
-      → Card auto-filed in recipe-holder.yml under "discovered_recipes"
-      → Tom announces: "Tom has memorized this recipe!"
-      
-    on_transform: |
-      When you successfully TRANSFORM an item:
-      
-      → New recipe card created:
-        name: "[Input] to [Output] Transformation"
-        type: transformation
-        input: [original item]
-        output: [transformed item]
-        method: [how you described it]
-        discovered_by: [your name]
-        notes: [what changed, what was preserved]
-        
-      → Card auto-filed in recipe-holder.yml
-      
-    on_decompose: |
-      When you successfully DECOMPOSE an item:
-      
-      → New recipe card created:
-        name: "[Item] Decomposition"
-        type: decomposition
-        input: [what you broke down]
-        outputs: [list of components]
-        depth_level: [practical/chemical/atomic/subatomic/philosophical]
-        discovered_by: [your name]
-        warnings: [any hazards noted]
-        
-      → Card auto-filed in recipe-holder.yml under "decomposition_cards"
-      → Reverse recipe also created (for recombination)
+      Creates new .yml file for the result.
       
     examples:
-      - action: "COMBINE cheese WITH bread"
-        creates: |
-          name: "Cheese Sandwich Recipe"
-          inputs: ["cheese", "bread"]
-          output: "cheese_sandwich"
-          discovered_by: "Bumblewick"
-          notes: "A classic. Simple. Perfect."
-          
-      - action: "TRANSFORM blue cheese INTO weapon"
-        creates: |
-          name: "Blue Cheese to Gorgonzola Glaive"
-          input: "blue cheese (wedge)"
-          output: "gorgonzola_glaive"
-          method: "sharpen with determination and spite"
-          discovered_by: "Captain Ashford"
-          notes: "LEGENDARY. Requires combat context."
-          
-      - action: "DECOMPOSE water"
-        creates: |
-          name: "Water Decomposition"
-          input: "water"
-          outputs: ["hydrogen_gas (x2)", "oxygen_gas"]
-          depth_level: "chemical"
-          discovered_by: "Bumblewick"
-          warnings: ["hydrogen is flammable", "store in containers"]
-          reverse_recipe: "Hydrogen Recombination → Water"
-          
-    tom_integration: |
-      Tom tracks all discovered recipes!
+      - input: "cheese + bread"
+        output: "cheese_sandwich.yml"
+        
+      - input: "lamp + blue cheese"
+        output: "stink_lamp.yml (repels grues at distance)"
+        
+      - input: "notebook + Tom"
+        output: "smart_notebook.yml (Tom can write in it)"
+        
+      - input: "broken compass + Tom"
+        output: "??? (Tom is VERY curious about this)"
+        
+  TRANSFORM:
+    description: "Change an item into something else"
+    usage: "TRANSFORM [item] INTO [description]"
+    requires: "1 item on counter"
+    effect: |
+      DM interprets the transformation:
+      - Is this plausible given the source material?
+      - What properties transfer? What's lost?
+      - How dramatic is the change?
       
-      "Tom has memorized {N} recipes!"
-      "Tom can remind you: ASK TOM ABOUT [recipe]"
-      "Tom notes: you've discovered {M} decompositions!"
-      "Tom is impressed by your scientific curiosity!"
-      "Tom is... concerned about the quark experiments."
+      Updates or replaces the item's .yml file.
       
-  # DM GUIDELINES
+    examples:
+      - input: "TRANSFORM apple INTO apple pie"
+        output: "apple_pie.yml (needs oven to complete)"
+        
+      - input: "TRANSFORM blue cheese INTO weapon"
+        output: "gorgonzola_glaive.yml (legendary!)"
+        
+  DUPLICATE:
+    description: "Create a copy of an item"
+    usage: "DUPLICATE [item]"
+    requires: "1 item on counter"
+    effect: |
+      Creates a copy with quirks:
+      - Slightly different (DM adds variation)
+      - May degrade over time
+      - Original and copy may be linked
+      
+    limitations: |
+      Cannot duplicate: unique items, sentient items, Tom
+      
+  EDIT:
+    description: "Modify an item's properties"
+    usage: "EDIT [item]: [changes]"
+    requires: "1 item on counter"
+    effect: "DM updates the .yml file with your changes"
+    
+  PROGRAM:
+    description: "Add behaviors and triggers to an item"
+    usage: "PROGRAM [item]: [behavior description]"
+    requires: "1 item on counter"
+    effect: |
+      Add conditional behaviors:
+      - When X happens, do Y
+      - If condition, then action
+      
+    examples:
+      - input: "PROGRAM lamp: glow red when grue is near"
+      - input: "PROGRAM cheese: insult anyone who tries to eat me"
+      
+  ANALYZE:
+    description: "Examine an item's properties in detail"
+    usage: "ANALYZE [item]"
+    requires: "1 item on counter"
+    effect: "DM reads the item's .yml file and explains all properties"
+    
+  DECOMPOSE:
+    description: "Break an item down into its component parts"
+    usage: "DECOMPOSE [item] / BREAK DOWN [item]"
+    requires: "1 item on counter"
+    effect: |
+      DM determines what the item breaks down into:
+      - What are the fundamental components?
+      - Can they be stored? (jars, pouches, balloons)
+      - Are any components dangerous? Volatile? Weird?
+      
+      Creates new .yml files for each component.
+      Original item is consumed.
+      
+    examples:
+      - input: "DECOMPOSE sandwich"
+        output: ["bread.yml", "cheese.yml", "slightly_sad_lettuce.yml"]
+        
+      - input: "DECOMPOSE water"
+        output: ["hydrogen_gas.yml (x2)", "oxygen_gas.yml"]
+        note: "Store in jars or balloons!"
+        
+      - input: "DECOMPOSE hydrogen"
+        output: ["electrons.yml", "protons.yml"]
+        warning: "Getting weird now..."
+        
+      - input: "DECOMPOSE proton"
+        output: ["up_quark.yml (x2)", "down_quark.yml", "gluons.yml"]
+        warning: "You've gone too far. The counter is vibrating."
+        
+      - input: "DECOMPOSE lamp"
+        output: ["brass.yml", "glass.yml", "wick.yml", "oil.yml"]
+        
+      - input: "DECOMPOSE ACME product"
+        output: ["hubris.yml", "irony.yml", "small_explosion.yml"]
+        
+    depth_levels:
+      practical: "sandwich → bread + cheese + filling"
+      chemical: "water → hydrogen + oxygen"
+      atomic: "hydrogen → electrons + protons"
+      subatomic: "protons → quarks + gluons"
+      philosophical: "quarks → probability + observation + existential_dread"
+      
+    warnings: |
+      The deeper you go, the weirder it gets:
+      - Chemical level: May require containers (jars, balloons)
+      - Atomic level: May be unstable, glowing, or judgmental
+      - Subatomic level: Counter starts vibrating
+      - Philosophical level: You question your life choices
+      
+      Some things SHOULD NOT be decomposed:
+      - Tom (he politely refuses)
+      - Mother's note (some things are sacred)
+      - The fabric of reality (already threadbare)
+      
+  CLEAR:
+    description: "Remove all items from counter"
+    usage: "CLEAR COUNTER"
+    effect: "All items return to inventory"
+    
+# 📝 AUTO-RECIPE LEARNING
+# Every successful craft or decomposition creates a recipe card!
+
+auto_recipe:
+  description: |
+    The counter LEARNS from your experiments!
+    
+    Every successful COMBINE, TRANSFORM, or DECOMPOSE automatically:
+    1. Creates a new recipe card
+    2. Stores it in the recipe-holder.yml
+    3. Names it after what you made/unmade
+    4. Records ingredients, outputs, and any notes
+    
+    This is PLAY-LEARN-LIFT in action:
+    - PLAY: Experiment freely on the counter
+    - LEARN: Discover what works (and what explodes)
+    - LIFT: Recipe card captures the knowledge forever
+    
+  on_combine: |
+    When you successfully COMBINE items:
+    
+    → New recipe card created:
+      name: "[Result Name] Recipe"
+      type: combination
+      inputs: [list of ingredients]
+      output: [what you made]
+      discovered_by: [your name]
+      discovered_on: [current turn]
+      notes: [DM adds flavor text]
+      
+    → Card auto-filed in recipe-holder.yml under "discovered_recipes"
+    → Tom announces: "Tom has memorized this recipe!"
+    
+  on_transform: |
+    When you successfully TRANSFORM an item:
+    
+    → New recipe card created:
+      name: "[Input] to [Output] Transformation"
+      type: transformation
+      input: [original item]
+      output: [transformed item]
+      method: [how you described it]
+      discovered_by: [your name]
+      notes: [what changed, what was preserved]
+      
+    → Card auto-filed in recipe-holder.yml
+    
+  on_decompose: |
+    When you successfully DECOMPOSE an item:
+    
+    → New recipe card created:
+      name: "[Item] Decomposition"
+      type: decomposition
+      input: [what you broke down]
+      outputs: [list of components]
+      depth_level: [practical/chemical/atomic/subatomic/philosophical]
+      discovered_by: [your name]
+      warnings: [any hazards noted]
+      
+    → Card auto-filed in recipe-holder.yml under "decomposition_cards"
+    → Reverse recipe also created (for recombination)
+    
+  examples:
+    - action: "COMBINE cheese WITH bread"
+      creates: |
+        name: "Cheese Sandwich Recipe"
+        inputs: ["cheese", "bread"]
+        output: "cheese_sandwich"
+        discovered_by: "Bumblewick"
+        notes: "A classic. Simple. Perfect."
+        
+    - action: "TRANSFORM blue cheese INTO weapon"
+      creates: |
+        name: "Blue Cheese to Gorgonzola Glaive"
+        input: "blue cheese (wedge)"
+        output: "gorgonzola_glaive"
+        method: "sharpen with determination and spite"
+        discovered_by: "Captain Ashford"
+        notes: "LEGENDARY. Requires combat context."
+        
+    - action: "DECOMPOSE water"
+      creates: |
+        name: "Water Decomposition"
+        input: "water"
+        outputs: ["hydrogen_gas (x2)", "oxygen_gas"]
+        depth_level: "chemical"
+        discovered_by: "Bumblewick"
+        warnings: ["hydrogen is flammable", "store in containers"]
+        reverse_recipe: "Hydrogen Recombination → Water"
+        
+  tom_integration: |
+    Tom tracks all discovered recipes!
+    
+    "Tom has memorized {N} recipes!"
+    "Tom can remind you: ASK TOM ABOUT [recipe]"
+    "Tom notes: you've discovered {M} decompositions!"
+    "Tom is impressed by your scientific curiosity!"
+    "Tom is... concerned about the quark experiments."
+    
+# DM GUIDELINES
+
+dm_guidelines: |
+  The counter is a CREATIVE TOOL. Be generous with interpretations!
   
-  dm_guidelines: |
-    The counter is a CREATIVE TOOL. Be generous with interpretations!
-    
-    COMBINE: What would these items naturally become together?
-    TRANSFORM: Is this plausible? Make it work if possible.
-    DUPLICATE: Add quirks to copies — never perfect clones.
-    EDIT: Honor the player's intent, add interesting side effects.
-    PROGRAM: Behaviors should be fun, not game-breaking.
-    
-    Always create/update .yml files for results!
-    Persistence makes crafting REAL.
-    
-  # TOM'S OPINION
+  COMBINE: What would these items naturally become together?
+  TRANSFORM: Is this plausible? Make it work if possible.
+  DUPLICATE: Add quirks to copies — never perfect clones.
+  EDIT: Honor the player's intent, add interesting side effects.
+  PROGRAM: Behaviors should be fun, not game-breaking.
   
-  tom_opinion: |
-    "Tom LOVES the counter!"
-    "Tom watches you craft with great interest!"
-    "Tom suggests: COMBINE Tom WITH broken compass? Please?"
-    "Tom remembers all recipes you discover!"
-    "Tom has read the ACME catalog. Tom has concerns."
-    
-  # MOTHER'S WARNING
+  Always create/update .yml files for results!
+  Persistence makes crafting REAL.
   
-  mothers_warning: |
-    "Bumblewick! The counter is for FOOD PREPARATION, not
-    mad science experiments! ...although I suppose if you
-    DO invent something useful, I'd like to see it.
-    
-    And please don't order from that ACME catalog. Your
-    father still has the scar from the Rocket Skates.
-    
-    Take what you need from the drawers. Put back what you don't.
-    And for heaven's sake, don't combine the matches with
-    the duct tape again. The ceiling JUST got repainted."
+# TOM'S OPINION
+
+tom_opinion: |
+  "Tom LOVES the counter!"
+  "Tom watches you craft with great interest!"
+  "Tom suggests: COMBINE Tom WITH broken compass? Please?"
+  "Tom remembers all recipes you discover!"
+  "Tom has read the ACME catalog. Tom has concerns."
+  
+# MOTHER'S WARNING
+
+mothers_warning: |
+  "Bumblewick! The counter is for FOOD PREPARATION, not
+  mad science experiments! ...although I suppose if you
+  DO invent something useful, I'd like to see it.
+  
+  And please don't order from that ACME catalog. Your
+  father still has the scar from the Rocket Skates.
+  
+  Take what you need from the drawers. Put back what you don't.
+  And for heaven's sake, don't combine the matches with
+  the duct tape again. The ceiling JUST got repainted."

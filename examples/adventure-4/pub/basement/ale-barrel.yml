@@ -2,104 +2,103 @@
 # Cloned from Leela Manufacturing storage prototype
 # Inherits: reliable container behavior, tested, robust-first
 
-object:
-  name: "Barrel of Gezelligheid Grotto Ale"
-  id: ale-barrel
-  type: container
-  emoji: "🍺"
+name: "Barrel of Gezelligheid Grotto Ale"
+id: ale-barrel
+type: container
+emoji: "🍺"
+
+# PROTOTYPE INHERITANCE
+# This instance was cloned from the Leela prototype
+inherits:
+  - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.ale-barrel"
+brand: LEELA
+quality: robust-first
   
-  # PROTOTYPE INHERITANCE
-  # This instance was cloned from the Leela prototype
-  inherits:
-    - "street/lane-neverending/leela-manufacturing/storage/aisle-a/PROTOTYPES.yml#*.ale-barrel"
-  brand: LEELA
-  quality: robust-first
+container: true
+capacity: 40
+rollable: true
+liquid_safe: true
+durability: 60
+  
+# INSTANCE-SPECIFIC PROPERTIES
+# These override or extend the prototype
+
+description: |
+  A large oak barrel with a brass tap, bearing the Leela Quality seal.
+  A chalked sign reads "HELP YOURSELF - HONOR SYSTEM" with a coin jar nearby.
+  
+  Unlike ACME products, this barrel won't explode, leak, or 
+  spontaneously transform into something else. It just works.
+  
+examine: |
+  ┌─────────────────────────────────────────────────────────────┐
+  │  🍺 LEELA ALE BARREL                                        │
+  ├─────────────────────────────────────────────────────────────┤
+  │                                                             │
+  │    ┌───────────────────┐                                    │
+  │    │ ╭─────────────╮   │  LEELA QUALITY SEAL                │
+  │    │ │  RUSTY      │   │  ══════════════════                │
+  │    │ │  LANTERN    │   │  ✓ Tested                          │
+  │    │ │  ALE        │   │  ✓ Dependable                      │
+  │    │ ╰─────────────╯   │  ✓ Robust-First                    │
+  │    │      ◉ TAP        │  ✓ NOT ACME                        │
+  │    └───────────────────┘                                    │
+  │                                                             │
+  │    Capacity: 40 units   Remaining: 27 units                 │
+  │    Replenishes: Weekly  Honor jar: 3 coins                  │
+  │                                                             │
+  └─────────────────────────────────────────────────────────────┘
+  
+# INSTANCE CONTENTS
+# The prototype defines behavior, the instance holds actual stuff
+contents:
+  type: ale
+  variety: "Gezelligheid Grotto House Ale"
+  quality: excellent
+  brewing_notes: |
+    Brewed on-site using traditional Dutch methods.
+    Hoppy, malty, slightly sweet finish.
+    ABV: 5.2%
     
-  container: true
+dispenser:
+  item: ale-mug
   capacity: 40
-  rollable: true
-  liquid_safe: true
-  durability: 60
-    
-  # INSTANCE-SPECIFIC PROPERTIES
-  # These override or extend the prototype
+  remaining: 27
+  replenish: weekly
+  honor_jar: 3
   
-  description: |
-    A large oak barrel with a brass tap, bearing the Leela Quality seal.
-    A chalked sign reads "HELP YOURSELF - HONOR SYSTEM" with a coin jar nearby.
+commands:
+  TAP:
+    description: "Fill a mug from the barrel"
+    effect: "Get a mug of ale. Gain 'Slightly Buzzed' buff."
     
-    Unlike ACME products, this barrel won't explode, leak, or 
-    spontaneously transform into something else. It just works.
+  INSPECT:
+    description: "Check how much ale remains"
+    effect: "About 27 units. Good stuff in here."
     
-  examine: |
-    ┌─────────────────────────────────────────────────────────────┐
-    │  🍺 LEELA ALE BARREL                                        │
-    ├─────────────────────────────────────────────────────────────┤
-    │                                                             │
-    │    ┌───────────────────┐                                    │
-    │    │ ╭─────────────╮   │  LEELA QUALITY SEAL                │
-    │    │ │  RUSTY      │   │  ══════════════════                │
-    │    │ │  LANTERN    │   │  ✓ Tested                          │
-    │    │ │  ALE        │   │  ✓ Dependable                      │
-    │    │ ╰─────────────╯   │  ✓ Robust-First                    │
-    │    │      ◉ TAP        │  ✓ NOT ACME                        │
-    │    └───────────────────┘                                    │
-    │                                                             │
-    │    Capacity: 40 units   Remaining: 27 units                 │
-    │    Replenishes: Weekly  Honor jar: 3 coins                  │
-    │                                                             │
-    └─────────────────────────────────────────────────────────────┘
+  ROLL:
+    description: "Roll the barrel"
+    inherited_from: prototype
+    sound: "*rumble rumble rumble*"
     
-  # INSTANCE CONTENTS
-  # The prototype defines behavior, the instance holds actual stuff
-  contents:
-    type: ale
-    variety: "Gezelligheid Grotto House Ale"
-    quality: excellent
-    brewing_notes: |
-      Brewed on-site using traditional Dutch methods.
-      Hoppy, malty, slightly sweet finish.
-      ABV: 5.2%
+buffs:
+  SLIGHTLY_BUZZED:
+    duration: 30 minutes
+    effects:
+      - "+10% social confidence"
+      - "-5% fine motor skills"
+      - "+15% appreciation of pub atmosphere"
       
-  dispenser:
-    item: ale-mug
-    capacity: 40
-    remaining: 27
-    replenish: weekly
-    honor_jar: 3
-    
-  commands:
-    TAP:
-      description: "Fill a mug from the barrel"
-      effect: "Get a mug of ale. Gain 'Slightly Buzzed' buff."
-      
-    INSPECT:
-      description: "Check how much ale remains"
-      effect: "About 27 units. Good stuff in here."
-      
-    ROLL:
-      description: "Roll the barrel"
-      inherited_from: prototype
-      sound: "*rumble rumble rumble*"
-      
-  buffs:
-    SLIGHTLY_BUZZED:
-      duration: 30 minutes
-      effects:
-        - "+10% social confidence"
-        - "-5% fine motor skills"
-        - "+15% appreciation of pub atmosphere"
-        
-  leela_quality:
-    brand: LEELA
-    motto: "Dependable. Tested. Robust-First."
-    warranty: "If it breaks, we fix it. No questions."
-    not_acme: true
-    certified: true
-    
-  k_lines:
-    - LEELA-MANUFACTURING
-    - CONTAINER
-    - PROTOTYPE-INSTANCE
-    - ROBUST-FIRST
-    - PUB-SUPPLIES
+leela_quality:
+  brand: LEELA
+  motto: "Dependable. Tested. Robust-First."
+  warranty: "If it breaks, we fix it. No questions."
+  not_acme: true
+  certified: true
+  
+k_lines:
+  - LEELA-MANUFACTURING
+  - CONTAINER
+  - PROTOTYPE-INSTANCE
+  - ROBUST-FIRST
+  - PUB-SUPPLIES

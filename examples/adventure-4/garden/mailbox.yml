@@ -2,454 +2,453 @@
 # A proper Zorkian mailbox, right where you start
 # "In Zork, the mailbox contained a leaflet. Here, it contains POSSIBILITY."
 
-object:
-  name: Grand Mailbox
-  type: postal_receptacle
-  portable: false
+name: Grand Mailbox
+type: postal_receptacle
+portable: false
+
+description: |
+  A weathered wooden mailbox stands near the chamber entrance, improbably
+  permanent despite being underground. It's the classic rural American style —
+  the kind with a little red flag, except this one is brass, and seems to
+  glow faintly.
   
+  The name "FANTASTIPANTS" is painted on the side in faded gold letters.
+  Below it, in smaller script: "DUNGEON ROUTE 1"
+  
+  The flag is UP. You have mail.
+  
+examine: |
+  The mailbox is larger than it first appears. Much larger. The opening
+  seems to go deeper than physics allows. You can see letters, packages,
+  scrolls, and what might be a small crate wedged in there.
+  
+  A faded sticker reads:
+  "OFFICIAL FDDS RECEIVING STATION — Est. 1876"
+  "Deliveries: Continuous • Pickup: Infinite"
+  
+  Scratched into the wood: "Check daily. The dungeon never stops mailing."
+  
+# INITIAL CONTENTS (What's waiting when you start)
+
+initial_contents:
+  - item: "Welcome Leaflet"
+    type: document
+    from: "The Dungeon"
+    contents: |
+      WELCOME TO THE FANTASTIPANTS FAMILY DUNGEON!
+      
+      Congratulations on your inevitable arrival here. Whether you chose
+      this adventure or it chose you, the result is the same: you're here,
+      there's a lamp, and there's almost certainly a grue.
+      
+      BASIC COMMANDS:
+      - GET LAMP (seriously, get the lamp)
+      - GO [direction]
+      - EXAMINE [thing]
+      - CHECK MAIL (always check your mail!)
+      
+      For a COMPLETE GUIDE TO SURVIVAL, mail away for our brochure!
+      See the matchbook in the kitchen drawer for details.
+      
+      Good luck. You'll need it.
+      
+      — THE MANAGEMENT
+      
+  - item: "Mother's Welcome Note"
+    type: letter
+    from: "Mother"
+    contents: |
+      Dearest child,
+      
+      If you're reading this, the mailbox works. (I wasn't sure after
+      what happened to the LAST mailbox. Don't ask.)
+      
+      I've left supplies in the kitchen. There's a proper note on the
+      table — READ IT. Write back to me. I worry when you don't write.
+      
+      The dungeon post is reliable. Use it!
+      
+      Love always,
+      Mother
+      
+      P.S. - Check your mail often. You never know what might arrive.
+      
+  - item: "ACME Welcome Catalog (Current Issue)"
+    type: catalog
+    from: "ACME Corporation"
+    contents: |
+      🎉 CONGRATULATIONS, NEW ADVENTURER! 🎉
+      
+      You've been pre-approved for ACME credit!*
+      
+      *Credit limit: 5 gold. Interest rate: Variable (depends on how
+      funny your failures are). Payment terms: Upon delivery or death,
+      whichever comes first.
+      
+      Browse our COMPLETE CATALOG in the kitchen!
+      Or mail this card back with your first order!
+      
+      [  ] YES! Rush me _________________ for only ___ gold!
+      
+      ACME: "What Could Possibly Go Wrong?"™
+      
+# ACTIONS
+
+actions:
+  CHECK:
+    description: "See what's in the mailbox"
+    aliases: ["CHECK MAIL", "CHECK MAILBOX", "OPEN MAILBOX"]
+    effect: |
+      You open the mailbox and peer inside...
+      
+      [Lists all current contents with brief descriptions]
+      [New items are marked with ✨]
+      
+  GET-MAIL:
+    description: "Take something from the mailbox"
+    usage: "GET [item] FROM MAILBOX / TAKE MAIL"
+    effect: "Item moves to inventory"
+    
+  SEND:
+    description: "Send something via the mailbox"
+    usage: "SEND [letter/item] / MAIL [letter]"
+    effect: "Item enters postal system, flag goes UP"
+    
+  FLAG:
+    description: "Check or manipulate the flag"
+    usage: "FLAG UP / FLAG DOWN / CHECK FLAG"
+    effect: |
+      FLAG UP: You have outgoing mail waiting for pickup, OR new mail arrived
+      FLAG DOWN: No activity (boring)
+      
+# 📮 WHAT CAN ARRIVE (Dynamic content!)
+
+arrival_types:
+  
+  letters:
+    description: "Personal correspondence"
+    sources:
+      - "Mother (replies to your letters)"
+      - "NPCs you've interacted with"
+      - "Historical adventurers (if you wrote to them)"
+      - "The skeleton's family (if you wrote to them)"
+      - "Random pen pals (rare)"
+      
+  packages:
+    description: "Physical deliveries"
+    sources:
+      - "ACME orders (2-4 turns after ordering)"
+      - "Mother's care packages"
+      - "Family heirlooms (if you asked about history)"
+      - "Prize packages (from mail-in offers)"
+      - "Mystery boxes (rarely, suspiciously)"
+      
+  advertisements:
+    description: "Unsolicited commercial mail"
+    examples:
+      - "ACME seasonal catalogs"
+      - "Spelunker Today magazine subscription offers"
+      - "Lamp oil discount coupons"
+      - "Grue insurance solicitations"
+      - "Time-share in sunny surface-world locations"
+      - "Extended warranty on your lamp"
+      
+  bills:
+    description: "Financial obligations"
+    examples:
+      - "ACME credit statements"
+      - "Dungeon Property Tax Notice"
+      - "Lamp rental fees (if applicable)"
+      - "Grue damage assessment (if you survived)"
+      
+  chain_letters:
+    description: "CAUTION: These actually work!"
+    mechanics: |
+      Chain letters in this dungeon are REAL.
+      
+      If you receive one and FORWARD it to 3 people:
+      - Good luck for 5 moves
+      - Bonus gold may appear
+      - Grues are slightly less aggressive
+      
+      If you BREAK the chain:
+      - Bad luck for 10 moves
+      - Lamp consumes oil 1.5x faster
+      - The grue REMEMBERS
+      - You feel vaguely guilty
+      
+      If you RETURN TO SENDER:
+      - The original sender suffers consequences
+      - You gain "Chain Breaker" title
+      - Morally ambiguous but satisfying
+      
+  plot_hooks:
+    description: "Adventure seeds arriving by mail"
+    examples:
+      - "Distress call from another dungeon"
+      - "Map fragment from unknown sender"
+      - "Warning about something in the maze"
+      - "Invitation to treasure hunt"
+      - "Summons from the Adventurer's Guild"
+      
+  stamps_and_collectibles:
+    description: "Valuable postal items"
+    examples:
+      - "Limited edition stamps (One Lousy Point series)"
+      - "Commemorative covers"
+      - "Postal history documents"
+      - "Collector's brochures"
+      
+# 📮 MAIL-IN OFFERS (Matchbook-style promotions!)
+
+mail_in_offers:
   description: |
-    A weathered wooden mailbox stands near the chamber entrance, improbably
-    permanent despite being underground. It's the classic rural American style —
-    the kind with a little red flag, except this one is brass, and seems to
-    glow faintly.
+    Throughout the dungeon, you'll find matchbooks, postcards, and
+    other items with mail-in offers. SEND them to receive prizes!
     
-    The name "FANTASTIPANTS" is painted on the side in faded gold letters.
-    Below it, in smaller script: "DUNGEON ROUTE 1"
+    These are tributes to the classic Zork mechanic where mailing
+    a matchbook got you a brochure with the legendary "One Lousy
+    Point Donald Woods Stamp" — a tribute from the Zork creators
+    to the Adventure creators.
     
-    The flag is UP. You have mail.
+  how_it_works: |
+    1. Find a promotional item (matchbook, card, coupon)
+    2. MAIL it via any mailbox
+    3. Wait 3-5 turns
+    4. Check mailbox for your prize!
     
-  examine: |
-    The mailbox is larger than it first appears. Much larger. The opening
-    seems to go deeper than physics allows. You can see letters, packages,
-    scrolls, and what might be a small crate wedged in there.
+  current_offers:
+    # See kitchen/matchbooks.yml for the items themselves
+    # This documents what you GET when you mail them
     
-    A faded sticker reads:
-    "OFFICIAL FDDS RECEIVING STATION — Est. 1876"
-    "Deliveries: Continuous • Pickup: Infinite"
+    spelunker_today_matchbook:
+      send: "Spelunker Today matchbook"
+      wait: 4
+      receive:
+        - "Spelunker Today Magazine (premiere issue)"
+        - "One Lousy Point Donald Woods Stamp"
+        - "Subscription form (ongoing deliveries!)"
+      stamp_worth: "One lousy point (but priceless historically)"
+      lore: |
+        The stamp features Don Woods, co-creator of Adventure, in
+        full spelunking gear. The text reads "ONE LOUSY POINT" —
+        a tribute from the Zork creators to the difficulty of
+        finding this item in the original game.
+        
+    adventurer_guild_matchbook:
+      send: "Adventurer's Guild matchbook"
+      wait: 3
+      receive:
+        - "Guild membership card (provisional)"
+        - "One Lousy Point Scott Adams Stamp"
+        - "Map to the nearest guild hall"
+      stamp_worth: "One lousy point"
+      lore: |
+        Scott Adams brought adventure games to home computers.
+        His face graces this stamp with the caption "BROUGHT
+        ADVENTURE HOME" beneath the traditional "ONE LOUSY POINT."
+        
+    lamp_oil_premium_card:
+      send: "Lamp Oil Premium Card"
+      wait: 2
+      receive:
+        - "Sample vial of premium lamp oil"
+        - "One Lousy Point Will Crowther Stamp"
+        - "Coupon for 20% off vendor purchases"
+      stamp_worth: "One lousy point"
+      lore: |
+        Will Crowther created the original Adventure. His stamp
+        shows him exploring Mammoth Cave, where he found the
+        inspiration for the first text adventure.
+        
+    grue_insurance_form:
+      send: "Grue Insurance Application"
+      wait: 5
+      receive:
+        - "Certificate of Coverage (mostly useless)"
+        - "One Lousy Point Dave Lebling Stamp"
+        - "Pamphlet: 'So You've Been Eaten By A Grue'"
+      stamp_worth: "One lousy point"
+      lore: |
+        Dave Lebling co-created Zork and invented the grue.
+        His stamp shows a shadowy figure with the text "INVENTOR
+        OF THE GRUE" and "SORRY ABOUT THAT."
+        
+    mystery_offer_envelope:
+      send: "Mysterious Sealed Envelope"
+      wait: 7
+      receive:
+        - "Random valuable item"
+        - "One Lousy Point Marc Blank Stamp"
+        - "Note: 'You shouldn't have opened this.'"
+      stamp_worth: "One lousy point"
+      lore: |
+        Marc Blank co-created Zork. His stamp shows him looking
+        suspicious, with "TRUST NO ONE" as the caption.
+        
+# 💀 PYRAMID SCHEMES & SCAMS
+
+pyramid_schemes:
+  description: |
+    Occasionally, dubious "investment opportunities" arrive.
+    These are REAL pyramid schemes that actually function!
     
-    Scratched into the wood: "Check daily. The dungeon never stops mailing."
+  example_schemes:
+    grue_meat_mlm:
+      name: "GRUE-A-LIFE Multi-Level Marketing"
+      pitch: |
+        "Have YOU ever wanted to be your own boss?"
+        "Grue meat is the PROTEIN OF THE FUTURE!"
+        "Join now and recruit your friends!"
+        
+      mechanics:
+        entry_fee: 3
+        recruit_bonus: "1 gold per recruit"
+        collapse_after: "5 levels deep"
+        
+      consequences:
+        success: "Modest gold if you get out early"
+        failure: "Lose entry fee, all recruits are angry"
+        collapse: "Dungeon-wide reputation damage"
+        
+      tom_opinion: "Tom has SERIOUS concerns."
+      mother_opinion: "Bumblewick! I raised you better than this!"
+      
+    dungeon_timeshare:
+      name: "Paradise Caverns Timeshare"
+      pitch: |
+        "Own a piece of the PREMIUM dungeon experience!"
+        "Week 47 available! (It's very dark that week.)"
+        
+      mechanics:
+        down_payment: 10
+        maintenance_fees: "1 gold per adventure"
+        actual_value: "A hole in the ground"
+        
+      consequences:
+        buy_in: "Lose gold, gain nothing useful"
+        attend_presentation: "Waste 3 turns, free lamp oil"
+        report_scam: "Earn 'Consumer Advocate' title"
+        
+# 📜 STAMP COLLECTION
+
+stamp_collection:
+  description: |
+    The "ONE LOUSY POINT" stamp series commemorates the founders
+    of interactive fiction. Collect them all!
     
-  # INITIAL CONTENTS (What's waiting when you start)
+    Each stamp is worth ONE LOUSY POINT toward your score.
+    But the REAL value is historical and sentimental.
+    
+  complete_series:
+    - name: "Donald Woods"
+      title: "Editor, Spelunker Today"
+      caption: "ONE LOUSY POINT"
+      rarity: common
+      obtained_via: "Mail Spelunker Today matchbook"
+      tribute: "Co-creator of Adventure (1977)"
+      
+    - name: "Will Crowther"
+      title: "Original Explorer"
+      caption: "WHERE IT ALL BEGAN"
+      rarity: common
+      obtained_via: "Mail Lamp Oil Premium Card"
+      tribute: "Creator of the original Adventure (1976)"
+      
+    - name: "Scott Adams"
+      title: "Home Computer Pioneer"
+      caption: "BROUGHT ADVENTURE HOME"
+      rarity: common
+      obtained_via: "Mail Adventurer's Guild matchbook"
+      tribute: "First commercial adventure game creator (1978)"
+      
+    - name: "Dave Lebling"
+      title: "Inventor of the Grue"
+      caption: "SORRY ABOUT THAT"
+      rarity: uncommon
+      obtained_via: "Mail Grue Insurance form"
+      tribute: "Co-creator of Zork"
+      
+    - name: "Marc Blank"
+      title: "Mystery & Intrigue"
+      caption: "TRUST NO ONE"
+      rarity: uncommon
+      obtained_via: "Mail Mystery Envelope"
+      tribute: "Co-creator of Zork"
+      
+    - name: "Tim Anderson"
+      title: "Fourth Implementor"
+      caption: "ALSO THERE"
+      rarity: rare
+      obtained_via: "Complete the stamp collection quest"
+      tribute: "Co-creator of Zork"
+      
+    - name: "Bruce Daniels"
+      title: "Fifth Implementor"  
+      caption: "DON'T FORGET ME"
+      rarity: rare
+      obtained_via: "Find in maze room-h mushrooms"
+      tribute: "Co-creator of Zork"
+      
+    - name: "Roberta Williams"
+      title: "Graphics Pioneer"
+      caption: "I SEE WHAT YOU DID THERE"
+      rarity: legendary
+      obtained_via: "Secret method involving Maurice"
+      tribute: "Creator of King's Quest, graphical adventures"
+      
+    - name: "Infocom Bearded Man"
+      title: "Corporate Mascot"
+      caption: "WE'D LIKE TO TELL YOU ABOUT INFOCOM"
+      rarity: legendary
+      obtained_via: "Order from ACME (rare delivery error)"
+      tribute: "The mysterious man from Infocom ads"
+      
+  collection_bonus: |
+    If you collect ALL stamps in a series:
+    
+    FOUNDER'S SET (Woods, Crowther, Adams, Lebling, Blank):
+    - Unlock: "Historian" achievement
+    - Bonus: +5 points
+    - Effect: Grues speak in reverent tones about "the old days"
+    
+    COMPLETE SET (all 9 stamps):
+    - Unlock: "Archivist" achievement  
+    - Bonus: +10 points
+    - Effect: The mailbox reveals a secret compartment
+    - Secret: [REDACTED — discover for yourself!]
+    
+# TOM'S OPINION
+
+tom_opinion: |
+  "Tom likes the mailbox. Tom checks it every time you're here."
+  "Tom has cataloged all known stamps. Tom is a completionist."
+  "Tom thinks chain letters are STATISTICALLY SIGNIFICANT."
+  "Tom has STRONG OPINIONS about pyramid schemes."
+  "Tom recommends mailing all matchbooks. FOR SCIENCE."
   
-  initial_contents:
-    - item: "Welcome Leaflet"
-      type: document
-      from: "The Dungeon"
-      contents: |
-        WELCOME TO THE FANTASTIPANTS FAMILY DUNGEON!
-        
-        Congratulations on your inevitable arrival here. Whether you chose
-        this adventure or it chose you, the result is the same: you're here,
-        there's a lamp, and there's almost certainly a grue.
-        
-        BASIC COMMANDS:
-        - GET LAMP (seriously, get the lamp)
-        - GO [direction]
-        - EXAMINE [thing]
-        - CHECK MAIL (always check your mail!)
-        
-        For a COMPLETE GUIDE TO SURVIVAL, mail away for our brochure!
-        See the matchbook in the kitchen drawer for details.
-        
-        Good luck. You'll need it.
-        
-        — THE MANAGEMENT
-        
-    - item: "Mother's Welcome Note"
-      type: letter
-      from: "Mother"
-      contents: |
-        Dearest child,
-        
-        If you're reading this, the mailbox works. (I wasn't sure after
-        what happened to the LAST mailbox. Don't ask.)
-        
-        I've left supplies in the kitchen. There's a proper note on the
-        table — READ IT. Write back to me. I worry when you don't write.
-        
-        The dungeon post is reliable. Use it!
-        
-        Love always,
-        Mother
-        
-        P.S. - Check your mail often. You never know what might arrive.
-        
-    - item: "ACME Welcome Catalog (Current Issue)"
-      type: catalog
-      from: "ACME Corporation"
-      contents: |
-        🎉 CONGRATULATIONS, NEW ADVENTURER! 🎉
-        
-        You've been pre-approved for ACME credit!*
-        
-        *Credit limit: 5 gold. Interest rate: Variable (depends on how
-        funny your failures are). Payment terms: Upon delivery or death,
-        whichever comes first.
-        
-        Browse our COMPLETE CATALOG in the kitchen!
-        Or mail this card back with your first order!
-        
-        [  ] YES! Rush me _________________ for only ___ gold!
-        
-        ACME: "What Could Possibly Go Wrong?"™
-        
-  # ACTIONS
+# LINEAGE
+
+lineage: |
+  This mailbox is a direct tribute to Zork's iconic opening:
   
-  actions:
-    CHECK:
-      description: "See what's in the mailbox"
-      aliases: ["CHECK MAIL", "CHECK MAILBOX", "OPEN MAILBOX"]
-      effect: |
-        You open the mailbox and peer inside...
-        
-        [Lists all current contents with brief descriptions]
-        [New items are marked with ✨]
-        
-    GET-MAIL:
-      description: "Take something from the mailbox"
-      usage: "GET [item] FROM MAILBOX / TAKE MAIL"
-      effect: "Item moves to inventory"
-      
-    SEND:
-      description: "Send something via the mailbox"
-      usage: "SEND [letter/item] / MAIL [letter]"
-      effect: "Item enters postal system, flag goes UP"
-      
-    FLAG:
-      description: "Check or manipulate the flag"
-      usage: "FLAG UP / FLAG DOWN / CHECK FLAG"
-      effect: |
-        FLAG UP: You have outgoing mail waiting for pickup, OR new mail arrived
-        FLAG DOWN: No activity (boring)
-        
-  # 📮 WHAT CAN ARRIVE (Dynamic content!)
+  "West of House
+  You are standing in an open field west of a white house,
+  with a boarded front door.
+  There is a small mailbox here."
   
-  arrival_types:
-    
-    letters:
-      description: "Personal correspondence"
-      sources:
-        - "Mother (replies to your letters)"
-        - "NPCs you've interacted with"
-        - "Historical adventurers (if you wrote to them)"
-        - "The skeleton's family (if you wrote to them)"
-        - "Random pen pals (rare)"
-        
-    packages:
-      description: "Physical deliveries"
-      sources:
-        - "ACME orders (2-4 turns after ordering)"
-        - "Mother's care packages"
-        - "Family heirlooms (if you asked about history)"
-        - "Prize packages (from mail-in offers)"
-        - "Mystery boxes (rarely, suspiciously)"
-        
-    advertisements:
-      description: "Unsolicited commercial mail"
-      examples:
-        - "ACME seasonal catalogs"
-        - "Spelunker Today magazine subscription offers"
-        - "Lamp oil discount coupons"
-        - "Grue insurance solicitations"
-        - "Time-share in sunny surface-world locations"
-        - "Extended warranty on your lamp"
-        
-    bills:
-      description: "Financial obligations"
-      examples:
-        - "ACME credit statements"
-        - "Dungeon Property Tax Notice"
-        - "Lamp rental fees (if applicable)"
-        - "Grue damage assessment (if you survived)"
-        
-    chain_letters:
-      description: "CAUTION: These actually work!"
-      mechanics: |
-        Chain letters in this dungeon are REAL.
-        
-        If you receive one and FORWARD it to 3 people:
-        - Good luck for 5 moves
-        - Bonus gold may appear
-        - Grues are slightly less aggressive
-        
-        If you BREAK the chain:
-        - Bad luck for 10 moves
-        - Lamp consumes oil 1.5x faster
-        - The grue REMEMBERS
-        - You feel vaguely guilty
-        
-        If you RETURN TO SENDER:
-        - The original sender suffers consequences
-        - You gain "Chain Breaker" title
-        - Morally ambiguous but satisfying
-        
-    plot_hooks:
-      description: "Adventure seeds arriving by mail"
-      examples:
-        - "Distress call from another dungeon"
-        - "Map fragment from unknown sender"
-        - "Warning about something in the maze"
-        - "Invitation to treasure hunt"
-        - "Summons from the Adventurer's Guild"
-        
-    stamps_and_collectibles:
-      description: "Valuable postal items"
-      examples:
-        - "Limited edition stamps (One Lousy Point series)"
-        - "Commemorative covers"
-        - "Postal history documents"
-        - "Collector's brochures"
-        
-  # 📮 MAIL-IN OFFERS (Matchbook-style promotions!)
+  The "One Lousy Point" stamp mechanic honors the original Zork's
+  mail-in offer where players could send a matchbook (found in the
+  game) to receive a real-life brochure containing the famous
+  Donald Woods stamp — a tribute from the Zork creators to the
+  Adventure creators.
   
-  mail_in_offers:
-    description: |
-      Throughout the dungeon, you'll find matchbooks, postcards, and
-      other items with mail-in offers. SEND them to receive prizes!
-      
-      These are tributes to the classic Zork mechanic where mailing
-      a matchbook got you a brochure with the legendary "One Lousy
-      Point Donald Woods Stamp" — a tribute from the Zork creators
-      to the Adventure creators.
-      
-    how_it_works: |
-      1. Find a promotional item (matchbook, card, coupon)
-      2. MAIL it via any mailbox
-      3. Wait 3-5 turns
-      4. Check mailbox for your prize!
-      
-    current_offers:
-      # See kitchen/matchbooks.yml for the items themselves
-      # This documents what you GET when you mail them
-      
-      spelunker_today_matchbook:
-        send: "Spelunker Today matchbook"
-        wait: 4
-        receive:
-          - "Spelunker Today Magazine (premiere issue)"
-          - "One Lousy Point Donald Woods Stamp"
-          - "Subscription form (ongoing deliveries!)"
-        stamp_worth: "One lousy point (but priceless historically)"
-        lore: |
-          The stamp features Don Woods, co-creator of Adventure, in
-          full spelunking gear. The text reads "ONE LOUSY POINT" —
-          a tribute from the Zork creators to the difficulty of
-          finding this item in the original game.
-          
-      adventurer_guild_matchbook:
-        send: "Adventurer's Guild matchbook"
-        wait: 3
-        receive:
-          - "Guild membership card (provisional)"
-          - "One Lousy Point Scott Adams Stamp"
-          - "Map to the nearest guild hall"
-        stamp_worth: "One lousy point"
-        lore: |
-          Scott Adams brought adventure games to home computers.
-          His face graces this stamp with the caption "BROUGHT
-          ADVENTURE HOME" beneath the traditional "ONE LOUSY POINT."
-          
-      lamp_oil_premium_card:
-        send: "Lamp Oil Premium Card"
-        wait: 2
-        receive:
-          - "Sample vial of premium lamp oil"
-          - "One Lousy Point Will Crowther Stamp"
-          - "Coupon for 20% off vendor purchases"
-        stamp_worth: "One lousy point"
-        lore: |
-          Will Crowther created the original Adventure. His stamp
-          shows him exploring Mammoth Cave, where he found the
-          inspiration for the first text adventure.
-          
-      grue_insurance_form:
-        send: "Grue Insurance Application"
-        wait: 5
-        receive:
-          - "Certificate of Coverage (mostly useless)"
-          - "One Lousy Point Dave Lebling Stamp"
-          - "Pamphlet: 'So You've Been Eaten By A Grue'"
-        stamp_worth: "One lousy point"
-        lore: |
-          Dave Lebling co-created Zork and invented the grue.
-          His stamp shows a shadowy figure with the text "INVENTOR
-          OF THE GRUE" and "SORRY ABOUT THAT."
-          
-      mystery_offer_envelope:
-        send: "Mysterious Sealed Envelope"
-        wait: 7
-        receive:
-          - "Random valuable item"
-          - "One Lousy Point Marc Blank Stamp"
-          - "Note: 'You shouldn't have opened this.'"
-        stamp_worth: "One lousy point"
-        lore: |
-          Marc Blank co-created Zork. His stamp shows him looking
-          suspicious, with "TRUST NO ONE" as the caption.
-          
-  # 💀 PYRAMID SCHEMES & SCAMS
+  Don Woods co-created Adventure with Will Crowther. He later
+  worked at Sun Microsystems on NeWS, where he wrote Spider
+  (the solitaire game) and was known for his /etc/motd that said
+  "Welcome to Adventure. Would you like instructions?" — but
+  typing "yes" to the Unix shell would cause problems!
   
-  pyramid_schemes:
-    description: |
-      Occasionally, dubious "investment opportunities" arrive.
-      These are REAL pyramid schemes that actually function!
-      
-    example_schemes:
-      grue_meat_mlm:
-        name: "GRUE-A-LIFE Multi-Level Marketing"
-        pitch: |
-          "Have YOU ever wanted to be your own boss?"
-          "Grue meat is the PROTEIN OF THE FUTURE!"
-          "Join now and recruit your friends!"
-          
-        mechanics:
-          entry_fee: 3
-          recruit_bonus: "1 gold per recruit"
-          collapse_after: "5 levels deep"
-          
-        consequences:
-          success: "Modest gold if you get out early"
-          failure: "Lose entry fee, all recruits are angry"
-          collapse: "Dungeon-wide reputation damage"
-          
-        tom_opinion: "Tom has SERIOUS concerns."
-        mother_opinion: "Bumblewick! I raised you better than this!"
-        
-      dungeon_timeshare:
-        name: "Paradise Caverns Timeshare"
-        pitch: |
-          "Own a piece of the PREMIUM dungeon experience!"
-          "Week 47 available! (It's very dark that week.)"
-          
-        mechanics:
-          down_payment: 10
-          maintenance_fees: "1 gold per adventure"
-          actual_value: "A hole in the ground"
-          
-        consequences:
-          buy_in: "Lose gold, gain nothing useful"
-          attend_presentation: "Waste 3 turns, free lamp oil"
-          report_scam: "Earn 'Consumer Advocate' title"
-          
-  # 📜 STAMP COLLECTION
-  
-  stamp_collection:
-    description: |
-      The "ONE LOUSY POINT" stamp series commemorates the founders
-      of interactive fiction. Collect them all!
-      
-      Each stamp is worth ONE LOUSY POINT toward your score.
-      But the REAL value is historical and sentimental.
-      
-    complete_series:
-      - name: "Donald Woods"
-        title: "Editor, Spelunker Today"
-        caption: "ONE LOUSY POINT"
-        rarity: common
-        obtained_via: "Mail Spelunker Today matchbook"
-        tribute: "Co-creator of Adventure (1977)"
-        
-      - name: "Will Crowther"
-        title: "Original Explorer"
-        caption: "WHERE IT ALL BEGAN"
-        rarity: common
-        obtained_via: "Mail Lamp Oil Premium Card"
-        tribute: "Creator of the original Adventure (1976)"
-        
-      - name: "Scott Adams"
-        title: "Home Computer Pioneer"
-        caption: "BROUGHT ADVENTURE HOME"
-        rarity: common
-        obtained_via: "Mail Adventurer's Guild matchbook"
-        tribute: "First commercial adventure game creator (1978)"
-        
-      - name: "Dave Lebling"
-        title: "Inventor of the Grue"
-        caption: "SORRY ABOUT THAT"
-        rarity: uncommon
-        obtained_via: "Mail Grue Insurance form"
-        tribute: "Co-creator of Zork"
-        
-      - name: "Marc Blank"
-        title: "Mystery & Intrigue"
-        caption: "TRUST NO ONE"
-        rarity: uncommon
-        obtained_via: "Mail Mystery Envelope"
-        tribute: "Co-creator of Zork"
-        
-      - name: "Tim Anderson"
-        title: "Fourth Implementor"
-        caption: "ALSO THERE"
-        rarity: rare
-        obtained_via: "Complete the stamp collection quest"
-        tribute: "Co-creator of Zork"
-        
-      - name: "Bruce Daniels"
-        title: "Fifth Implementor"  
-        caption: "DON'T FORGET ME"
-        rarity: rare
-        obtained_via: "Find in maze room-h mushrooms"
-        tribute: "Co-creator of Zork"
-        
-      - name: "Roberta Williams"
-        title: "Graphics Pioneer"
-        caption: "I SEE WHAT YOU DID THERE"
-        rarity: legendary
-        obtained_via: "Secret method involving Maurice"
-        tribute: "Creator of King's Quest, graphical adventures"
-        
-      - name: "Infocom Bearded Man"
-        title: "Corporate Mascot"
-        caption: "WE'D LIKE TO TELL YOU ABOUT INFOCOM"
-        rarity: legendary
-        obtained_via: "Order from ACME (rare delivery error)"
-        tribute: "The mysterious man from Infocom ads"
-        
-    collection_bonus: |
-      If you collect ALL stamps in a series:
-      
-      FOUNDER'S SET (Woods, Crowther, Adams, Lebling, Blank):
-      - Unlock: "Historian" achievement
-      - Bonus: +5 points
-      - Effect: Grues speak in reverent tones about "the old days"
-      
-      COMPLETE SET (all 9 stamps):
-      - Unlock: "Archivist" achievement  
-      - Bonus: +10 points
-      - Effect: The mailbox reveals a secret compartment
-      - Secret: [REDACTED — discover for yourself!]
-      
-  # TOM'S OPINION
-  
-  tom_opinion: |
-    "Tom likes the mailbox. Tom checks it every time you're here."
-    "Tom has cataloged all known stamps. Tom is a completionist."
-    "Tom thinks chain letters are STATISTICALLY SIGNIFICANT."
-    "Tom has STRONG OPINIONS about pyramid schemes."
-    "Tom recommends mailing all matchbooks. FOR SCIENCE."
-    
-  # LINEAGE
-  
-  lineage: |
-    This mailbox is a direct tribute to Zork's iconic opening:
-    
-    "West of House
-    You are standing in an open field west of a white house,
-    with a boarded front door.
-    There is a small mailbox here."
-    
-    The "One Lousy Point" stamp mechanic honors the original Zork's
-    mail-in offer where players could send a matchbook (found in the
-    game) to receive a real-life brochure containing the famous
-    Donald Woods stamp — a tribute from the Zork creators to the
-    Adventure creators.
-    
-    Don Woods co-created Adventure with Will Crowther. He later
-    worked at Sun Microsystems on NeWS, where he wrote Spider
-    (the solitaire game) and was known for his /etc/motd that said
-    "Welcome to Adventure. Would you like instructions?" — but
-    typing "yes" to the Unix shell would cause problems!
-    
-    The stamp series honors ALL the founders of interactive fiction,
-    turning what was a single easter egg into a collectible quest
-    that teaches history while rewarding exploration.
+  The stamp series honors ALL the founders of interactive fiction,
+  turning what was a single easter egg into a collectible quest
+  that teaches history while rewarding exploration.

@@ -2,422 +2,421 @@
 # The heart of all knowledge at Leela Manufacturing
 # PostgreSQL + TimescaleDB — time-series at scale
 
-object:
-  id: central-database
-  name: "Central Database"
-  type: infrastructure
-  emoji: "🐘"
+id: central-database
+name: "Central Database"
+type: infrastructure
+emoji: "🐘"
+
+engine: PostgreSQL 18.1
+extension: TimescaleDB 2.24
+
+tags: [database, storage, knowledge, records, infrastructure, postgresql, timescaledb, timeseries]
+
+description: |
+  A towering rack of servers hums behind reinforced glass.
+  Status LEDs blink in cascading patterns. Cooling fans whisper.
+  This is the Central Database — PostgreSQL with TimescaleDB —
+  the heart of all knowledge that flows through Leela Manufacturing.
   
-  engine: PostgreSQL 18.1
-  extension: TimescaleDB 2.24
+  Time-series data at scale. Sensor readings, camera events,
+  production logs — all indexed by time, all queryable at speed.
   
-  tags: [database, storage, knowledge, records, infrastructure, postgresql, timescaledb, timeseries]
+  Everything is here. Everything is connected. Everything is timestamped.
   
-  description: |
-    A towering rack of servers hums behind reinforced glass.
-    Status LEDs blink in cascading patterns. Cooling fans whisper.
-    This is the Central Database — PostgreSQL with TimescaleDB —
-    the heart of all knowledge that flows through Leela Manufacturing.
+examine: |
+  CENTRAL DATABASE — POSTGRESQL + TIMESCALEDB
+  
+  ┌────────────────────────────────────────────────────┐
+  │  🐘 LEELA CENTRAL DATABASE                         │
+  │  ════════════════════════════                      │
+  │  PostgreSQL 18.1 + TimescaleDB 2.24                │
+  │                                                    │
+  │  Status: 🟢 HEALTHY                                │
+  │  Uptime: 1,247 days                                │
+  │  Storage: 847 PB used / 1.2 EB capacity            │
+  │  Query Rate: 12,847 queries/second                 │
+  │  Hypertables: 2,400 (time-series optimized)        │
+  │  Compression: 94% on cold data                     │
+  │  Replication: 3x redundant, all nodes healthy      │
+  │                                                    │
+  │  "Every fact. Every timestamp. Every insight."     │
+  └────────────────────────────────────────────────────┘
+  
+  DATA DOMAINS
+  
+  OPERATIONS
+  • Production records — every item processed
+  • Inventory state — what's where, right now
+  • Shipping manifests — every package tracked
+  • Equipment logs — maintenance, status, history
+  
+  INTELLIGENCE  
+  • Camera metadata — detections, poses, events
+  • Sensor timeseries — temperature, pressure, flow
+  • Quality metrics — pass/fail, measurements
+  • Anomaly records — the interesting deviations
+  
+  KNOWLEDGE
+  • Knowledge graph — concepts, relationships
+  • Insight archive — every eureka moment
+  • Research notes — experiments, findings
+  • Documentation — how things work
+  
+  BUSINESS
+  • Customer orders — requests in, fulfillment out
+  • Supplier records — who provides what
+  • Financial ledgers — coins in, coins out
+  • Contracts — agreements, terms, conditions
+  
+  SYSTEM
+  • Audit logs — who did what, when
+  • Session history — conversations, interactions
+  • Configuration — settings, preferences
+  • Backups — because disasters happen
+  
+  PUBSUB EVENT TASK DISPATCH QUEUE
+  
+  Why use GCS PubSub, Redis, Kafka, or RabbitMQ when PostgreSQL does it all?
+  
+  LISTEN/NOTIFY — native pub/sub in PostgreSQL
+  • Publishers emit events to channels
+  • Subscribers receive in real-time
+  • No external broker required
+  • Transactional — events only fire on COMMIT
+  
+  TASK QUEUE — FOR SKIP LOCKED pattern
+  • Jobs table with visibility timeout
+  • Workers claim tasks atomically
+  • Failed tasks automatically retry
+  • Dead letter queue for persistent failures
+  
+  ┌─────────────────────────────────────────────────┐
+  │  EVENT DISPATCH ARCHITECTURE                    │
+  │                                                 │
+  │  ┌─────────┐    NOTIFY     ┌─────────┐          │
+  │  │ Producer│─────────────→│ Channel │           │
+  │  └─────────┘               └────┬────┘          │
+  │                                 │               │
+  │               ┌─────────────────┼──────────┐    │
+  │               ↓                 ↓          ↓    │
+  │         ┌─────────┐      ┌─────────┐   ┌─────┐  │
+  │         │Worker A │      │Worker B │   │ ... │  │
+  │         └─────────┘      └─────────┘   └─────┘  │
+  └─────────────────────────────────────────────────┘
+  
+  WHY POSTGRES FOR EVERYTHING?
+  
+  • VISIBILITY — one system to monitor, one log to check
+  • CONTROL — full SQL access to queue state
+  • CUSTOMIZATION — build exactly what you need
+  • ELEGANCE — no Rube Goldberg of microservices
+  • TRANSACTIONS — events + data in one atomic commit
+  • DEBUGGING — SELECT * FROM task_queue WHERE failed
+  
+  "ACME uses 17 different message brokers.
+  Leela uses PostgreSQL.
+  Guess which one can tell you what happened yesterday."
+  
+  ARCHITECTURE
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │  PRIMARY DATABASE CLUSTER (3 nodes)                      │
+  │  ┌─────────┐  ┌─────────┐  ┌─────────┐                   │
+  │  │ NODE A  │──│ NODE B  │──│ NODE C  │                   │
+  │  │ (lead)  │  │ (sync)  │  │ (sync)  │                   │
+  │  └────┬────┘  └────┬────┘  └────┬────┘                   │
+  │       └────────────┼────────────┘                        │
+  └────────────────────┼─────────────────────────────────────┘
+                       │
+       ┌───────────────┼───────────────┐
+       │               │               │
+       ▼               ▼               ▼
+  ┌─────────┐    ┌─────────┐    ┌─────────┐
+  │ BACKUP  │    │ REPLICA │    │ REPLICA │
+  │ (cold)  │    │ (read)  │    │ (read)  │
+  └─────────┘    └─────────┘    └─────────┘
+  
+  WORKER SERVER STACKS
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │  LOOKER STACK (Computer Vision)                          │
+  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+  │  │LOOKER-1 │  │LOOKER-2 │  │LOOKER-3 │  │LOOKER-4 │      │
+  │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │      │
+  │  │ cameras │  │ cameras │  │ cameras │  │ cameras │      │
+  │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+  │  • Object detection, pose estimation, OCR                │
+  │  • Multiple camera streams, scalable                     │
+  │  • Results → PostgreSQL hypertables                      │
+  └──────────────────────────────────────────────────────────┘
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │  THINKER STACK (Symbolic Python Action Layer)            │
+  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+  │  │THINKER-1 │  │THINKER-2 │  │THINKER-3 │  │THINKER-4 │  │
+  │  │ CPU      │  │ CPU      │  │ CPU      │  │ CPU      │  │
+  │  │ Python   │  │ Python   │  │ Python   │  │ Python   │  │
+  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
+  │                                                          │
+  │  SYMBOLIC PYTHON ACTION LAYER — versatile processing:    │
+  │                                                          │
+  │  LIGHTWEIGHT VISION (no GPU needed):                     │
+  │  • Colored light detectors — status indicators, signals  │
+  │  • ArUco marker tracking — fiducial positioning          │
+  │  • QR code readers — inventory, routing labels           │
+  │  • Simple image processing — thresholds, contours        │
+  │                                                          │
+  │  HIGH-LEVEL AI (API calls):                              │
+  │  • LLM calls — Claude, GPT, reasoning tasks              │
+  │  • VLM calls — vision-language, scene understanding      │
+  │  • MOOLLM kernel execution, skill dispatch               │
+  │  • Context assembly, prompt construction                 │
+  │                                                          │
+  │  ORCHESTRATION:                                          │
+  │  • Task queue via PostgreSQL FOR SKIP LOCKED             │
+  │  • Results back to PostgreSQL + downstream systems       │
+  │  • Coordination between Lookers, Storage, Web            │
+  │                                                          │
+  │  Not just LLM wrappers — a full symbolic action layer.   │
+  └──────────────────────────────────────────────────────────┘
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │  WEB STACK (Caddy + Services)                            │
+  │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
+  │  │ GRAFANA │  │   PDA   │  │   HUB   │  │INSIGHTS │      │
+  │  │ metrics │  │ mobile  │  │ portal  │  │analytics│      │
+  │  │ alerts  │  │ control │  │  API    │  │ reports │      │
+  │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
+  │                      │                                   │
+  │              ┌───────┴───────┐                           │
+  │              │     CADDY     │ ← automatic HTTPS         │
+  │              │  reverse proxy│   zero-config TLS         │
+  │              └───────────────┘                           │
+  │                                                          │
+  │  SERVICES:                                               │
+  │  • Grafana — metrics dashboards, alerting, PostgreSQL    │
+  │  • PDA — mobile operator interface, handheld control     │
+  │  • Hub — central portal, API gateway, WebSocket          │
+  │  • Insights — analytics, reports, data exploration       │
+  │                                                          │
+  │  WHY CADDY:                                              │
+  │  • Automatic HTTPS (Let's Encrypt built-in)              │
+  │  • Zero-config TLS certificate management                │
+  │  • Simple Caddyfile config vs nginx.conf complexity      │
+  │  • HTTP/3 support out of the box                         │
+  │  • PostgreSQL connection pooling via PgBouncer           │
+  └──────────────────────────────────────────────────────────┘
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │  STORAGE STACK (Object/File + Ingest)                    │
+  │                                                          │
+  │  OBJECT STORAGE (S3 cluster):                            │
+  │  S3 STORAGE CLUSTER:                                     │
+  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+  │  │ STORE-1  │  │ STORE-2  │  │ STORE-3  │  │ STORE-4  │  │
+  │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │
+  │  │ primary  │  │ primary  │  │ mirror   │  │ backup   │  │
+  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
+  │                                                          │
+  │  • Leela's own S3-compatible object storage server       │
+  │  • Primary nodes for hot data, mirror for redundancy     │
+  │  • Backup node for cold storage, disaster recovery       │
+  │  • Cross-site replication available                      │
+  │                                                          │
+  │  INGEST SERVICES:                                        │
+  │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
+  │  │  VIDEO   │  │  SENSOR  │  │   LOG    │  │   BULK   │  │
+  │  │  INGEST  │  │  INGEST  │  │  INGEST  │  │  IMPORT  │  │
+  │  │  streams │  │ IoT/MQTT │  │  syslog  │  │  batch   │  │
+  │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
+  │                                                          │
+  │  STORAGE:                                                │
+  │  • S3-compatible object storage (400 TB total)           │
+  │  • Video archives, model weights, backups                │
+  │  • Metadata indexed in PostgreSQL                        │
+  │                                                          │
+  │  INGEST:                                                 │
+  │  • Video Ingest — camera chunks uploaded → S3 triggers   │
+  │    import and ingestion automatically on upload          │
+  │  • Sensor Ingest — MQTT/IoT → TimescaleDB hypertables    │
+  │  • Log Ingest — syslog/journald → PostgreSQL + S3        │
+  │  • Bulk Import — CSV/Parquet batch loads → PostgreSQL    │
+  │                                                          │
+  │  UPLOAD-TRIGGERED PIPELINE:                              │
+  │  Camera uploads video chunk → S3 bucket notification →   │
+  │  PostgreSQL NOTIFY → Thinker claims task → processes →   │
+  │  metadata to PostgreSQL hypertable. Fully automated.     │
+  │                                                          │
+  │  All ingest writes metadata to PostgreSQL immediately.   │
+  │  Blobs stay in S3. Queryable immediately.                │
+  └──────────────────────────────────────────────────────────┘
+  
+  ALL STACKS CONNECT TO POSTGRESQL:
+  • Lookers write detections to hypertables
+  • Thinkers claim tasks via FOR SKIP LOCKED
+  • Web reads/writes via connection pool
+  • Storage metadata indexed for fast lookup
+  
+  CURRENT STATISTICS
+  
+  │ Tables          │  12,847  │
+  │ Records         │  847 billion  │
+  │ Indexes         │  42,000  │
+  │ Views           │  3,200  │
+  │ Stored Procs    │  847  │
+  │ Active Sessions │  127  │
+  │ Avg Query Time  │  2.3 ms  │
+  │ Cache Hit Rate  │  99.2%  │
+  
+  THE ORACLE
+  
+  A special query interface for complex questions.
+  Natural language → SQL → Insight
+  
+  Recent queries:
+  • "What's our busiest hour?" → 14:00-15:00
+  • "Which cell has best quality?" → Cell D
+  • "How many drones active?" → 12
+  • "What did Dolly do last Tuesday?" → [CLASSIFIED]
+  
+properties:
+  engine: "PostgreSQL 18.1"
+  extension: "TimescaleDB 2.24"
+  type: "Time-series optimized relational"
+  nodes: 3
+  redundancy: "3x synchronous replication"
+  capacity: "1.2 EB"
+  used: "847 PB"
+  hypertables: 2400
+  compression_ratio: "94% on cold data"
+  query_rate: "12,847/sec"
+  uptime: "1,247 days"
+  backup_frequency: "Daily incremental, weekly full"
+  continuous_aggregates: true
+  # PubSub Event Task Dispatch
+  pubsub_channels: 847
+  active_listeners: 234
+  task_queue_tables: 12
+  pending_tasks: 1247
+  tasks_per_second: 847
+  visibility_timeout: "30 seconds"
+  retry_policy: "exponential backoff, max 5"
+  dead_letter_queue: true
+  offsite: true
+  encrypted: true
+  
+state:
+  status: "healthy"
+  leader: "NODE_A"
+  replication_lag: "0 ms"
+  last_backup: "2 hours ago"
+  next_maintenance: "Sunday 03:00"
+  
+interfaces:
+  query_console:
+    description: "Direct SQL access"
+    access: "Operators only"
     
-    Time-series data at scale. Sensor readings, camera events,
-    production logs — all indexed by time, all queryable at speed.
+  oracle:
+    description: "Natural language queries"
+    access: "All staff"
     
-    Everything is here. Everything is connected. Everything is timestamped.
+  api:
+    description: "Programmatic access"
+    access: "Authenticated systems"
     
-  examine: |
-    CENTRAL DATABASE — POSTGRESQL + TIMESCALEDB
+  dashboard:
+    description: "Visual explorer"
+    access: "Read-only for visitors"
     
-    ┌────────────────────────────────────────────────────┐
-    │  🐘 LEELA CENTRAL DATABASE                         │
-    │  ════════════════════════════                      │
-    │  PostgreSQL 18.1 + TimescaleDB 2.24                │
-    │                                                    │
-    │  Status: 🟢 HEALTHY                                │
-    │  Uptime: 1,247 days                                │
-    │  Storage: 847 PB used / 1.2 EB capacity            │
-    │  Query Rate: 12,847 queries/second                 │
-    │  Hypertables: 2,400 (time-series optimized)        │
-    │  Compression: 94% on cold data                     │
-    │  Replication: 3x redundant, all nodes healthy      │
-    │                                                    │
-    │  "Every fact. Every timestamp. Every insight."     │
-    └────────────────────────────────────────────────────┘
-    
-    DATA DOMAINS
-    
-    OPERATIONS
-    • Production records — every item processed
-    • Inventory state — what's where, right now
-    • Shipping manifests — every package tracked
-    • Equipment logs — maintenance, status, history
-    
-    INTELLIGENCE  
-    • Camera metadata — detections, poses, events
-    • Sensor timeseries — temperature, pressure, flow
-    • Quality metrics — pass/fail, measurements
-    • Anomaly records — the interesting deviations
-    
-    KNOWLEDGE
-    • Knowledge graph — concepts, relationships
-    • Insight archive — every eureka moment
-    • Research notes — experiments, findings
-    • Documentation — how things work
-    
-    BUSINESS
-    • Customer orders — requests in, fulfillment out
-    • Supplier records — who provides what
-    • Financial ledgers — coins in, coins out
-    • Contracts — agreements, terms, conditions
-    
-    SYSTEM
-    • Audit logs — who did what, when
-    • Session history — conversations, interactions
-    • Configuration — settings, preferences
-    • Backups — because disasters happen
-    
-    PUBSUB EVENT TASK DISPATCH QUEUE
-    
-    Why use GCS PubSub, Redis, Kafka, or RabbitMQ when PostgreSQL does it all?
-    
-    LISTEN/NOTIFY — native pub/sub in PostgreSQL
-    • Publishers emit events to channels
-    • Subscribers receive in real-time
-    • No external broker required
-    • Transactional — events only fire on COMMIT
-    
-    TASK QUEUE — FOR SKIP LOCKED pattern
-    • Jobs table with visibility timeout
-    • Workers claim tasks atomically
-    • Failed tasks automatically retry
-    • Dead letter queue for persistent failures
-    
-    ┌─────────────────────────────────────────────────┐
-    │  EVENT DISPATCH ARCHITECTURE                    │
-    │                                                 │
-    │  ┌─────────┐    NOTIFY     ┌─────────┐          │
-    │  │ Producer│─────────────→│ Channel │           │
-    │  └─────────┘               └────┬────┘          │
-    │                                 │               │
-    │               ┌─────────────────┼──────────┐    │
-    │               ↓                 ↓          ↓    │
-    │         ┌─────────┐      ┌─────────┐   ┌─────┐  │
-    │         │Worker A │      │Worker B │   │ ... │  │
-    │         └─────────┘      └─────────┘   └─────┘  │
-    └─────────────────────────────────────────────────┘
-    
-    WHY POSTGRES FOR EVERYTHING?
-    
-    • VISIBILITY — one system to monitor, one log to check
-    • CONTROL — full SQL access to queue state
-    • CUSTOMIZATION — build exactly what you need
-    • ELEGANCE — no Rube Goldberg of microservices
-    • TRANSACTIONS — events + data in one atomic commit
-    • DEBUGGING — SELECT * FROM task_queue WHERE failed
-    
-    "ACME uses 17 different message brokers.
-    Leela uses PostgreSQL.
-    Guess which one can tell you what happened yesterday."
-    
-    ARCHITECTURE
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │  PRIMARY DATABASE CLUSTER (3 nodes)                      │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐                   │
-    │  │ NODE A  │──│ NODE B  │──│ NODE C  │                   │
-    │  │ (lead)  │  │ (sync)  │  │ (sync)  │                   │
-    │  └────┬────┘  └────┬────┘  └────┬────┘                   │
-    │       └────────────┼────────────┘                        │
-    └────────────────────┼─────────────────────────────────────┘
-                         │
-         ┌───────────────┼───────────────┐
-         │               │               │
-         ▼               ▼               ▼
-    ┌─────────┐    ┌─────────┐    ┌─────────┐
-    │ BACKUP  │    │ REPLICA │    │ REPLICA │
-    │ (cold)  │    │ (read)  │    │ (read)  │
-    └─────────┘    └─────────┘    └─────────┘
-    
-    WORKER SERVER STACKS
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │  LOOKER STACK (Computer Vision)                          │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │LOOKER-1 │  │LOOKER-2 │  │LOOKER-3 │  │LOOKER-4 │      │
-    │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │  │ GPU×4   │      │
-    │  │ cameras │  │ cameras │  │ cameras │  │ cameras │      │
-    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
-    │  • Object detection, pose estimation, OCR                │
-    │  • Multiple camera streams, scalable                     │
-    │  • Results → PostgreSQL hypertables                      │
-    └──────────────────────────────────────────────────────────┘
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │  THINKER STACK (Symbolic Python Action Layer)            │
-    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-    │  │THINKER-1 │  │THINKER-2 │  │THINKER-3 │  │THINKER-4 │  │
-    │  │ CPU      │  │ CPU      │  │ CPU      │  │ CPU      │  │
-    │  │ Python   │  │ Python   │  │ Python   │  │ Python   │  │
-    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-    │                                                          │
-    │  SYMBOLIC PYTHON ACTION LAYER — versatile processing:    │
-    │                                                          │
-    │  LIGHTWEIGHT VISION (no GPU needed):                     │
-    │  • Colored light detectors — status indicators, signals  │
-    │  • ArUco marker tracking — fiducial positioning          │
-    │  • QR code readers — inventory, routing labels           │
-    │  • Simple image processing — thresholds, contours        │
-    │                                                          │
-    │  HIGH-LEVEL AI (API calls):                              │
-    │  • LLM calls — Claude, GPT, reasoning tasks              │
-    │  • VLM calls — vision-language, scene understanding      │
-    │  • MOOLLM kernel execution, skill dispatch               │
-    │  • Context assembly, prompt construction                 │
-    │                                                          │
-    │  ORCHESTRATION:                                          │
-    │  • Task queue via PostgreSQL FOR SKIP LOCKED             │
-    │  • Results back to PostgreSQL + downstream systems       │
-    │  • Coordination between Lookers, Storage, Web            │
-    │                                                          │
-    │  Not just LLM wrappers — a full symbolic action layer.   │
-    └──────────────────────────────────────────────────────────┘
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │  WEB STACK (Caddy + Services)                            │
-    │  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐      │
-    │  │ GRAFANA │  │   PDA   │  │   HUB   │  │INSIGHTS │      │
-    │  │ metrics │  │ mobile  │  │ portal  │  │analytics│      │
-    │  │ alerts  │  │ control │  │  API    │  │ reports │      │
-    │  └─────────┘  └─────────┘  └─────────┘  └─────────┘      │
-    │                      │                                   │
-    │              ┌───────┴───────┐                           │
-    │              │     CADDY     │ ← automatic HTTPS         │
-    │              │  reverse proxy│   zero-config TLS         │
-    │              └───────────────┘                           │
-    │                                                          │
-    │  SERVICES:                                               │
-    │  • Grafana — metrics dashboards, alerting, PostgreSQL    │
-    │  • PDA — mobile operator interface, handheld control     │
-    │  • Hub — central portal, API gateway, WebSocket          │
-    │  • Insights — analytics, reports, data exploration       │
-    │                                                          │
-    │  WHY CADDY:                                              │
-    │  • Automatic HTTPS (Let's Encrypt built-in)              │
-    │  • Zero-config TLS certificate management                │
-    │  • Simple Caddyfile config vs nginx.conf complexity      │
-    │  • HTTP/3 support out of the box                         │
-    │  • PostgreSQL connection pooling via PgBouncer           │
-    └──────────────────────────────────────────────────────────┘
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │  STORAGE STACK (Object/File + Ingest)                    │
-    │                                                          │
-    │  OBJECT STORAGE (S3 cluster):                            │
-    │  S3 STORAGE CLUSTER:                                     │
-    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-    │  │ STORE-1  │  │ STORE-2  │  │ STORE-3  │  │ STORE-4  │  │
-    │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │ Leela S3 │  │
-    │  │ primary  │  │ primary  │  │ mirror   │  │ backup   │  │
-    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-    │                                                          │
-    │  • Leela's own S3-compatible object storage server       │
-    │  • Primary nodes for hot data, mirror for redundancy     │
-    │  • Backup node for cold storage, disaster recovery       │
-    │  • Cross-site replication available                      │
-    │                                                          │
-    │  INGEST SERVICES:                                        │
-    │  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌──────────┐  │
-    │  │  VIDEO   │  │  SENSOR  │  │   LOG    │  │   BULK   │  │
-    │  │  INGEST  │  │  INGEST  │  │  INGEST  │  │  IMPORT  │  │
-    │  │  streams │  │ IoT/MQTT │  │  syslog  │  │  batch   │  │
-    │  └──────────┘  └──────────┘  └──────────┘  └──────────┘  │
-    │                                                          │
-    │  STORAGE:                                                │
-    │  • S3-compatible object storage (400 TB total)           │
-    │  • Video archives, model weights, backups                │
-    │  • Metadata indexed in PostgreSQL                        │
-    │                                                          │
-    │  INGEST:                                                 │
-    │  • Video Ingest — camera chunks uploaded → S3 triggers   │
-    │    import and ingestion automatically on upload          │
-    │  • Sensor Ingest — MQTT/IoT → TimescaleDB hypertables    │
-    │  • Log Ingest — syslog/journald → PostgreSQL + S3        │
-    │  • Bulk Import — CSV/Parquet batch loads → PostgreSQL    │
-    │                                                          │
-    │  UPLOAD-TRIGGERED PIPELINE:                              │
-    │  Camera uploads video chunk → S3 bucket notification →   │
-    │  PostgreSQL NOTIFY → Thinker claims task → processes →   │
-    │  metadata to PostgreSQL hypertable. Fully automated.     │
-    │                                                          │
-    │  All ingest writes metadata to PostgreSQL immediately.   │
-    │  Blobs stay in S3. Queryable immediately.                │
-    └──────────────────────────────────────────────────────────┘
-    
-    ALL STACKS CONNECT TO POSTGRESQL:
-    • Lookers write detections to hypertables
-    • Thinkers claim tasks via FOR SKIP LOCKED
-    • Web reads/writes via connection pool
-    • Storage metadata indexed for fast lookup
-    
-    CURRENT STATISTICS
-    
-    │ Tables          │  12,847  │
-    │ Records         │  847 billion  │
-    │ Indexes         │  42,000  │
-    │ Views           │  3,200  │
-    │ Stored Procs    │  847  │
-    │ Active Sessions │  127  │
-    │ Avg Query Time  │  2.3 ms  │
-    │ Cache Hit Rate  │  99.2%  │
-    
-    THE ORACLE
-    
-    A special query interface for complex questions.
-    Natural language → SQL → Insight
-    
-    Recent queries:
-    • "What's our busiest hour?" → 14:00-15:00
-    • "Which cell has best quality?" → Cell D
-    • "How many drones active?" → 12
-    • "What did Dolly do last Tuesday?" → [CLASSIFIED]
-    
-  properties:
-    engine: "PostgreSQL 18.1"
-    extension: "TimescaleDB 2.24"
-    type: "Time-series optimized relational"
-    nodes: 3
-    redundancy: "3x synchronous replication"
-    capacity: "1.2 EB"
-    used: "847 PB"
-    hypertables: 2400
-    compression_ratio: "94% on cold data"
-    query_rate: "12,847/sec"
-    uptime: "1,247 days"
-    backup_frequency: "Daily incremental, weekly full"
-    continuous_aggregates: true
-    # PubSub Event Task Dispatch
-    pubsub_channels: 847
-    active_listeners: 234
-    task_queue_tables: 12
-    pending_tasks: 1247
-    tasks_per_second: 847
-    visibility_timeout: "30 seconds"
-    retry_policy: "exponential backoff, max 5"
-    dead_letter_queue: true
-    offsite: true
-    encrypted: true
-    
-  state:
-    status: "healthy"
-    leader: "NODE_A"
-    replication_lag: "0 ms"
-    last_backup: "2 hours ago"
-    next_maintenance: "Sunday 03:00"
-    
-  interfaces:
-    query_console:
-      description: "Direct SQL access"
-      access: "Operators only"
+methods:
+  QUERY:
+    description: "Ask the database a question"
+    parameters:
+      question: "Natural language or SQL"
+    effect: |
+      The Oracle processes your question...
+      Parsing... Optimizing... Executing...
       
-    oracle:
-      description: "Natural language queries"
-      access: "All staff"
+      Results appear on the screen.
+      Knowledge, retrieved.
       
-    api:
-      description: "Programmatic access"
-      access: "Authenticated systems"
+  STATUS:
+    description: "Check database health"
+    effect: |
+      CENTRAL DATABASE STATUS
+      All nodes: HEALTHY
+      Replication: SYNCHRONIZED
+      Storage: 71% (847 PB / 1.2 EB)
+      Performance: OPTIMAL
+      Last backup: 2 hours ago
       
-    dashboard:
-      description: "Visual explorer"
-      access: "Read-only for visitors"
-      
-  methods:
-    QUERY:
-      description: "Ask the database a question"
-      parameters:
-        question: "Natural language or SQL"
-      effect: |
-        The Oracle processes your question...
-        Parsing... Optimizing... Executing...
-        
-        Results appear on the screen.
-        Knowledge, retrieved.
-        
-    STATUS:
-      description: "Check database health"
-      effect: |
-        CENTRAL DATABASE STATUS
-        All nodes: HEALTHY
-        Replication: SYNCHRONIZED
-        Storage: 71% (847 PB / 1.2 EB)
-        Performance: OPTIMAL
-        Last backup: 2 hours ago
-        
-    BACKUP:
-      description: "Trigger manual backup"
-      access: "Operators only"
-      effect: "Backup initiated. ETA: 45 minutes."
-      
-  feeds_to:
-    - ../floor-1/  # Production data
-    - ../floor-2/  # Factory records
-    - ../floor-3/  # Shipping logs
-    - ../lobby/    # Visitor stats
-    - ../rooftop/  # Drone telemetry
+  BACKUP:
+    description: "Trigger manual backup"
+    access: "Operators only"
+    effect: "Backup initiated. ETA: 45 minutes."
     
-  receives_from:
-    - all_cameras  # Video metadata
-    - all_sensors  # Timeseries data
-    - all_systems  # Operational logs
+feeds_to:
+  - ../floor-1/  # Production data
+  - ../floor-2/  # Factory records
+  - ../floor-3/  # Shipping logs
+  - ../lobby/    # Visitor stats
+  - ../rooftop/  # Drone telemetry
+  
+receives_from:
+  - all_cameras  # Video metadata
+  - all_sensors  # Timeseries data
+  - all_systems  # Operational logs
+  
+ambience:
+  sounds:
+    - "Soft hum of server fans"
+    - "Occasional disk activity clicks"
+    - "Cooling system whoosh"
+  visual:
+    - "Blinking status LEDs (green is good)"
+    - "Cascading patterns as queries execute"
+    - "Glass enclosure, climate controlled"
+  temperature: "18°C (precisely maintained)"
     
-  ambience:
-    sounds:
-      - "Soft hum of server fans"
-      - "Occasional disk activity clicks"
-      - "Cooling system whoosh"
-    visual:
-      - "Blinking status LEDs (green is good)"
-      - "Cascading patterns as queries execute"
-      - "Glass enclosure, climate controlled"
-    temperature: "18°C (precisely maintained)"
-      
-  lore: |
-    The Central Database was one of the first systems installed
-    when Leela Manufacturing opened. Started as a single PostgreSQL
-    server. Then came TimescaleDB when the sensor data exploded.
-    Now it's a towering cluster that thinks in time-series.
-    
-    Why PostgreSQL? Because it's the MIT AI Lab of databases.
-    Open source. Community driven. Extensible. Reliable.
-    Not a fly-by-night NoSQL pivot — a foundation you can trust.
-    
-    Why TimescaleDB? Because time matters. Every sensor reading,
-    every camera event, every production log — indexed by when
-    it happened. Query a year of data in milliseconds.
-    
-    It knows everything. Every item processed. Every question
-    asked. Every insight generated. Every conversation recorded.
-    All with timestamps. All queryable across time.
-    
-    Some say it dreams during low-traffic hours.
-    Cell G is investigating this claim.
-    
-    The Oracle — the natural language interface — translates
-    questions into SQL and TimescaleDB time-series queries.
-    "What happened yesterday at 3 PM?" is its favorite question type.
-    
-  k_lines:
-    - DATABASE
-    - POSTGRESQL
-    - TIMESCALEDB
-    - TIME-SERIES
-    - PUBSUB
-    - TASK-QUEUE
-    - EVENT-DISPATCH
-    - LISTEN-NOTIFY
-    - KNOWLEDGE-GRAPH
-    - PERSISTENCE
-    - QUERY
-    - ORACLE
-    - REPLICATION
-    - BACKUP
-    - HYPERTABLE
+lore: |
+  The Central Database was one of the first systems installed
+  when Leela Manufacturing opened. Started as a single PostgreSQL
+  server. Then came TimescaleDB when the sensor data exploded.
+  Now it's a towering cluster that thinks in time-series.
+  
+  Why PostgreSQL? Because it's the MIT AI Lab of databases.
+  Open source. Community driven. Extensible. Reliable.
+  Not a fly-by-night NoSQL pivot — a foundation you can trust.
+  
+  Why TimescaleDB? Because time matters. Every sensor reading,
+  every camera event, every production log — indexed by when
+  it happened. Query a year of data in milliseconds.
+  
+  It knows everything. Every item processed. Every question
+  asked. Every insight generated. Every conversation recorded.
+  All with timestamps. All queryable across time.
+  
+  Some say it dreams during low-traffic hours.
+  Cell G is investigating this claim.
+  
+  The Oracle — the natural language interface — translates
+  questions into SQL and TimescaleDB time-series queries.
+  "What happened yesterday at 3 PM?" is its favorite question type.
+  
+k_lines:
+  - DATABASE
+  - POSTGRESQL
+  - TIMESCALEDB
+  - TIME-SERIES
+  - PUBSUB
+  - TASK-QUEUE
+  - EVENT-DISPATCH
+  - LISTEN-NOTIFY
+  - KNOWLEDGE-GRAPH
+  - PERSISTENCE
+  - QUERY
+  - ORACLE
+  - REPLICATION
+  - BACKUP
+  - HYPERTABLE

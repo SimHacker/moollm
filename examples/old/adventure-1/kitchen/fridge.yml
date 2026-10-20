@@ -1,149 +1,148 @@
 # The Refrigerator
 # A cornucopia of maze-mapping provisions
 
-object:
-  name: Fantastipants Family Refrigerator
-  type: container
+name: Fantastipants Family Refrigerator
+type: container
+
+description: |
+  A magnificent refrigerator of the old-fashioned sort, with rounded
+  corners and a satisfying CHUNK when you open the door. A magnet
+  on the front reads "WORLD'S OKAYEST ADVENTURER".
   
-  description: |
-    A magnificent refrigerator of the old-fashioned sort, with rounded
-    corners and a satisfying CHUNK when you open the door. A magnet
-    on the front reads "WORLD'S OKAYEST ADVENTURER".
+  It is STUFFED with food. An improbable amount of food. The kind of
+  food supply that suggests someone knows you're about to enter a maze
+  and need things to drop.
+
+examine: |
+  You open the refrigerator. A gentle light illuminates a treasure
+  trove of edibles, each one distinct enough to mark a different
+  room in a maze. How convenient!
+
+# The fridge is open by default (for easy access)
+open: true
+
+# 20 diverse, distinctive food items for maze mapping
+contents:
+  - name: Suspiciously Perfect Apple
+    description: "Red and shiny. Snow White would be suspicious."
+    marker_id: 1
     
-    It is STUFFED with food. An improbable amount of food. The kind of
-    food supply that suggests someone knows you're about to enter a maze
-    and need things to drop.
+  - name: Wheel of Aged Cheese
+    description: "Sharp cheddar. Aged 47 years, like Bumblewick."
+    marker_id: 2
+    
+  - name: Loaf of Crusty Bread
+    description: "Still warm somehow. Defies thermodynamics."
+    marker_id: 3
+    
+  - name: Jar of Pickled Herring
+    description: "A Fantastipants family delicacy. Smells... distinctive."
+    marker_id: 4
+    
+  - name: Leftover Shepherd's Pie
+    description: "Tuesday's dinner. Still good. Probably."
+    marker_id: 5
+    
+  - name: Bunch of Purple Grapes
+    description: "Seedless, thankfully. Mother's favorite."
+    marker_id: 6
+    
+  - name: Pot of Mysterious Stew
+    description: "Labeled 'DO NOT EAT - EXPERIMENT'. Intriguing."
+    marker_id: 7
+    
+  - name: Wedge of Blue Cheese
+    description: "The mold is SUPPOSED to be there. Allegedly."
+    marker_id: 8
+    
+  - name: Cold Roast Chicken
+    description: "Missing one leg. Bumblewick regrets nothing."
+    marker_id: 9
+    
+  - name: Jar of Strawberry Jam
+    description: "Grandmother's recipe. Worth dying for (and reincarnating)."
+    marker_id: 10
+    
+  - name: Half-Empty Bottle of Milk
+    description: "Or half-full, if you're an optimist. Bumblewick is not."
+    marker_id: 11
+    
+  - name: Suspicious Casserole
+    description: "Aunt Petunia's 'special recipe'. No one asks what's in it."
+    marker_id: 12
+    
+  - name: Lemon (Slightly Judgmental)
+    description: "It seems to be frowning at you. Lemons do that."
+    marker_id: 13
+    
+  - name: Slice of Birthday Cake
+    description: "Three months old. The frosting has achieved sentience."
+    marker_id: 14
+    
+  - name: Carrot (Heroically Orange)
+    description: "Good for your eyes. You'll need them in the dark. Oh wait."
+    marker_id: 15
+    
+  - name: Tin of Sardines
+    description: "Emergency rations. For emergencies. Like being lost in a maze."
+    marker_id: 16
+    
+  - name: Bowl of Cold Porridge
+    description: "Goldilocks rejected this one. Too cold, too lumpy, too sad."
+    marker_id: 17
+    
+  - name: Fancy Imported Salami
+    description: "From the Old Country. Which country? THE Old one."
+    marker_id: 18
+    
+  - name: Single Hard-Boiled Egg
+    description: "Peeled and ready. Looking slightly existential."
+    marker_id: 19
+    
+  - name: Jar of Olives (Green)
+    description: "Stuffed with pimentos. No one knows why. It's tradition."
+    marker_id: 20
+
+advertisements:
+  - action: OPEN
+    score_if: "not open"
+    description: "Open the refrigerator"
+    
+  - action: GET-ALL
+    score_if: "contents.length > 0"
+    description: "Grab all the food (for maze mapping)"
+    
+  - action: CLOSE
+    score_if: "open"
+    description: "Close the refrigerator (conserve energy!)"
+
+# Mother's Warning
+mothers_warning: |
+  A note in Mother's handwriting is stuck to the inside of the door:
   
-  examine: |
-    You open the refrigerator. A gentle light illuminates a treasure
-    trove of edibles, each one distinct enough to mark a different
-    room in a maze. How convenient!
+  "Bumblewick! This food is for DROPPING, not EATING!
+  You know what happens when you eat. Your constitution
+  cannot handle it. The food goes IN and the food comes
+  OUT and nothing useful happens in between.
   
-  # The fridge is open by default (for easy access)
-  open: true
+  DROP the food to MAP the maze. Do NOT eat the food.
   
-  # 20 diverse, distinctive food items for maze mapping
-  contents:
-    - name: Suspiciously Perfect Apple
-      description: "Red and shiny. Snow White would be suspicious."
-      marker_id: 1
-      
-    - name: Wheel of Aged Cheese
-      description: "Sharp cheddar. Aged 47 years, like Bumblewick."
-      marker_id: 2
-      
-    - name: Loaf of Crusty Bread
-      description: "Still warm somehow. Defies thermodynamics."
-      marker_id: 3
-      
-    - name: Jar of Pickled Herring
-      description: "A Fantastipants family delicacy. Smells... distinctive."
-      marker_id: 4
-      
-    - name: Leftover Shepherd's Pie
-      description: "Tuesday's dinner. Still good. Probably."
-      marker_id: 5
-      
-    - name: Bunch of Purple Grapes
-      description: "Seedless, thankfully. Mother's favorite."
-      marker_id: 6
-      
-    - name: Pot of Mysterious Stew
-      description: "Labeled 'DO NOT EAT - EXPERIMENT'. Intriguing."
-      marker_id: 7
-      
-    - name: Wedge of Blue Cheese
-      description: "The mold is SUPPOSED to be there. Allegedly."
-      marker_id: 8
-      
-    - name: Cold Roast Chicken
-      description: "Missing one leg. Bumblewick regrets nothing."
-      marker_id: 9
-      
-    - name: Jar of Strawberry Jam
-      description: "Grandmother's recipe. Worth dying for (and reincarnating)."
-      marker_id: 10
-      
-    - name: Half-Empty Bottle of Milk
-      description: "Or half-full, if you're an optimist. Bumblewick is not."
-      marker_id: 11
-      
-    - name: Suspicious Casserole
-      description: "Aunt Petunia's 'special recipe'. No one asks what's in it."
-      marker_id: 12
-      
-    - name: Lemon (Slightly Judgmental)
-      description: "It seems to be frowning at you. Lemons do that."
-      marker_id: 13
-      
-    - name: Slice of Birthday Cake
-      description: "Three months old. The frosting has achieved sentience."
-      marker_id: 14
-      
-    - name: Carrot (Heroically Orange)
-      description: "Good for your eyes. You'll need them in the dark. Oh wait."
-      marker_id: 15
-      
-    - name: Tin of Sardines
-      description: "Emergency rations. For emergencies. Like being lost in a maze."
-      marker_id: 16
-      
-    - name: Bowl of Cold Porridge
-      description: "Goldilocks rejected this one. Too cold, too lumpy, too sad."
-      marker_id: 17
-      
-    - name: Fancy Imported Salami
-      description: "From the Old Country. Which country? THE Old one."
-      marker_id: 18
-      
-    - name: Single Hard-Boiled Egg
-      description: "Peeled and ready. Looking slightly existential."
-      marker_id: 19
-      
-    - name: Jar of Olives (Green)
-      description: "Stuffed with pimentos. No one knows why. It's tradition."
-      marker_id: 20
+  I mean it.
   
-  advertisements:
-    - action: OPEN
-      score_if: "not open"
-      description: "Open the refrigerator"
-      
-    - action: GET-ALL
-      score_if: "contents.length > 0"
-      description: "Grab all the food (for maze mapping)"
-      
-    - action: CLOSE
-      score_if: "open"
-      description: "Close the refrigerator (conserve energy!)"
+  Love, Mother
   
-  # Mother's Warning
-  mothers_warning: |
-    A note in Mother's handwriting is stuck to the inside of the door:
-    
-    "Bumblewick! This food is for DROPPING, not EATING!
-    You know what happens when you eat. Your constitution
-    cannot handle it. The food goes IN and the food comes
-    OUT and nothing useful happens in between.
-    
-    DROP the food to MAP the maze. Do NOT eat the food.
-    
-    I mean it.
-    
-    Love, Mother
-    
-    P.S. I'm not cleaning it up this time."
+  P.S. I'm not cleaning it up this time."
+
+# Helpful hint
+hint: |
+  PRO TIP: Take all this food and DROP items in maze rooms to mark
+  where you've been. This is the classic adventure game technique
+  for mapping "twisty little passages, all alike."
   
-  # Helpful hint
-  hint: |
-    PRO TIP: Take all this food and DROP items in maze rooms to mark
-    where you've been. This is the classic adventure game technique
-    for mapping "twisty little passages, all alike."
-    
-    20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
-    Math is on your side!
-    
-    WARNING: Do NOT eat the food. Mother warned you.
+  20 items = 20 rooms you can uniquely mark. You have 10 maze rooms.
+  Math is on your side!
+  
+  WARNING: Do NOT eat the food. Mother warned you.
 
 # THE EAT MECHANIC — A Creative Maze-Marking Technique!
 # 

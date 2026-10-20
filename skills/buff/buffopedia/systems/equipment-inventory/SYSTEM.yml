@@ -3,19 +3,18 @@
 # confidence: high on mechanisms (these are near-universal conventions);
 #   specific per-game numbers not checked.
 
-system:
-  id: equipment-inventory
-  name: "Worn, wielded, and carried — equipment as buff"
-  vendor: "universal, from Adventure onward"
-  family: affix
-  vocabulary:
-    the_buff: "item, garment, accessory, trinket"
-    the_guard: "the slot it occupies, plus worn / wielded / carried / attuned"
-    the_lifetime: "while equipped — a `while:` guard, not a timer"
-  why_it_matters: |
-    The most familiar buff system in existence, and the one people are least
-    likely to recognize as one. Wearing a hat is attaching a mixin. The
-    inventory screen is a buff table with an art budget.
+id: equipment-inventory
+name: "Worn, wielded, and carried — equipment as buff"
+vendor: "universal, from Adventure onward"
+family: affix
+vocabulary:
+  the_buff: "item, garment, accessory, trinket"
+  the_guard: "the slot it occupies, plus worn / wielded / carried / attuned"
+  the_lifetime: "while equipped — a `while:` guard, not a timer"
+why_it_matters: |
+  The most familiar buff system in existence, and the one people are least
+  likely to recognize as one. Wearing a hat is attaching a mixin. The
+  inventory screen is a buff table with an art budget.
 
 # THE CENTRAL OBSERVATION
 

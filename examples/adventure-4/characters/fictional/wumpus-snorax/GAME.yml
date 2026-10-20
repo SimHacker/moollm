@@ -3,19 +3,18 @@
 # This file IS Snorax's soul. The game IS the character.
 # All game mechanics live here, carried by the wumpus.
 
-game:
-  name: "Hunt the Wumpus"
-  version: "Snorax Incarnation (MOOLLM Edition)"
-  original_author: "Gregory Yob (1973)"
-  incarnated: "2026-01-20"
-  
-  invoke_commands:
-    - "PLAY WUMPUS"
-    - "HUNT WUMPUS"
-    - "START WUMPUS GAME"
-    - "SUMMON SNORAX"
-    - "CREATE-WUMPUS-MAP"
-    - "PLAY CLASSIC WUMPUS"
+name: "Hunt the Wumpus"
+version: "Snorax Incarnation (MOOLLM Edition)"
+original_author: "Gregory Yob (1973)"
+incarnated: "2026-01-20"
+
+invoke_commands:
+  - "PLAY WUMPUS"
+  - "HUNT WUMPUS"
+  - "START WUMPUS GAME"
+  - "SUMMON SNORAX"
+  - "CREATE-WUMPUS-MAP"
+  - "PLAY CLASSIC WUMPUS"
 
 # ORIGINAL 1973 RULES (Faithful to Gregory Yob)
 

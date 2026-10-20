@@ -1,63 +1,62 @@
 # BIG BOARD
 # Real-time metrics wall display
 
-object:
-  id: big-board
-  name: "The Big Board"
-  type: display
-  emoji: "📊"
+id: big-board
+name: "The Big Board"
+type: display
+emoji: "📊"
+
+description: |
+  A wall of real-time metrics displayed on massive LED panels.
+  Progress bars, numbers, and status indicators update constantly.
+  The pulse of Leela Manufacturing, visualized.
   
-  description: |
-    A wall of real-time metrics displayed on massive LED panels.
-    Progress bars, numbers, and status indicators update constantly.
-    The pulse of Leela Manufacturing, visualized.
-    
-  examine: |
-    THE BIG BOARD — REAL-TIME FACILITY METRICS
-    
-    ┌──────────────────────────────────────────────────────────┐
-    │                    LEELA OPERATIONS                       │
-    │                                                          │
-    │ INBOUND   ████████████░░░░░░ 73%  OUTBOUND ██████████████░░ 87%│
-    │ PROCESS   █████████░░░░░░░░░ 58%  STORAGE  ████████████░░░░ 74%│
-    │ DRONES    ████████░░░░░░░░░░ 50%  TUBES    █████████████░░░ 82%│
-    │ NETWORK   ████████████████░░ 99%  POWER    █████████████░░░ 85%│
-    │ DATABASE  ████████████████░░ 99%  UPTIME   ████████████████ 100%│
-    │                                                          │
-    │ ────────────────────────────────────────────────────────│
-    │                                                          │
-    │ THROUGHPUT: 2,847 items/hour    EFFICIENCY: 94.2%        │
-    │ ALERTS: 0 critical, 2 warning   NEXT MAINTENANCE: 72h    │
-    │                                                          │
-    │ ────────────────────────────────────────────────────────│
-    │                                                          │
-    │ 🟢 ALL SYSTEMS NOMINAL          Last update: 0.3 sec ago │
-    └──────────────────────────────────────────────────────────┘
-    
-  properties:
-    panels: 12
-    resolution: "4K per panel"
-    refresh: "Real-time"
-    
-  metrics:
-    inbound: 73
-    outbound: 87
-    processing: 58
-    storage: 74
-    drones: 50
-    tubes: 82
-    network: 99
-    power: 85
-    database: 99
-    uptime: 100
-    
-  alerts:
-    critical: 0
-    warning: 2
-    info: 7
-    
-  methods:
-    DETAIL:
-      description: "See detailed breakdown of a metric"
-      parameters: [metric]
-      effect: "Shows historical graph and contributing factors"
+examine: |
+  THE BIG BOARD — REAL-TIME FACILITY METRICS
+  
+  ┌──────────────────────────────────────────────────────────┐
+  │                    LEELA OPERATIONS                       │
+  │                                                          │
+  │ INBOUND   ████████████░░░░░░ 73%  OUTBOUND ██████████████░░ 87%│
+  │ PROCESS   █████████░░░░░░░░░ 58%  STORAGE  ████████████░░░░ 74%│
+  │ DRONES    ████████░░░░░░░░░░ 50%  TUBES    █████████████░░░ 82%│
+  │ NETWORK   ████████████████░░ 99%  POWER    █████████████░░░ 85%│
+  │ DATABASE  ████████████████░░ 99%  UPTIME   ████████████████ 100%│
+  │                                                          │
+  │ ────────────────────────────────────────────────────────│
+  │                                                          │
+  │ THROUGHPUT: 2,847 items/hour    EFFICIENCY: 94.2%        │
+  │ ALERTS: 0 critical, 2 warning   NEXT MAINTENANCE: 72h    │
+  │                                                          │
+  │ ────────────────────────────────────────────────────────│
+  │                                                          │
+  │ 🟢 ALL SYSTEMS NOMINAL          Last update: 0.3 sec ago │
+  └──────────────────────────────────────────────────────────┘
+  
+properties:
+  panels: 12
+  resolution: "4K per panel"
+  refresh: "Real-time"
+  
+metrics:
+  inbound: 73
+  outbound: 87
+  processing: 58
+  storage: 74
+  drones: 50
+  tubes: 82
+  network: 99
+  power: 85
+  database: 99
+  uptime: 100
+  
+alerts:
+  critical: 0
+  warning: 2
+  info: 7
+  
+methods:
+  DETAIL:
+    description: "See detailed breakdown of a metric"
+    parameters: [metric]
+    effect: "Shows historical graph and contributing factors"

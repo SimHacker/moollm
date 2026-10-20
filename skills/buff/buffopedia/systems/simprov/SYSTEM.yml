@@ -5,28 +5,27 @@
 #   1 Sep 2026. Implementation is SimAntics/BHAV; not re-read from the .iff
 #   files this session.
 
-system:
-  id: simprov
-  name: "SimProv — the Hope Chest, and the applicators it conducts"
-  vendor: "Don Hopkins (programming) · SimBabes / SimFreaks (graphics) · Donna (craft layer) · The Sims 1, 2000s"
-  family: applicator
-  also: [orchestrator]
-  vocabulary:
-    the_orchestrator: "the object that owns the plan, the state machine, and the cleanup — the Hope Chest"
-    the_applicator: "an object whose purpose is to apply effects to many entities, with a targeting UI"
-    the_target_picker: "a pie menu of families, with sub-pies of people, and later pets"
-    the_pairwise_state: "the relationship matrix — per-pair, per-direction scores"
-  why_it_matters: |
-    THIS IS PRIMARY-SOURCE PRIOR ART FOR THE TWO PRIMITIVES observations.yml
-    LISTS AS MISSING, and it is Don's own code.
+id: simprov
+name: "SimProv — the Hope Chest, and the applicators it conducts"
+vendor: "Don Hopkins (programming) · SimBabes / SimFreaks (graphics) · Donna (craft layer) · The Sims 1, 2000s"
+family: applicator
+also: [orchestrator]
+vocabulary:
+  the_orchestrator: "the object that owns the plan, the state machine, and the cleanup — the Hope Chest"
+  the_applicator: "an object whose purpose is to apply effects to many entities, with a targeting UI"
+  the_target_picker: "a pie menu of families, with sub-pies of people, and later pets"
+  the_pairwise_state: "the relationship matrix — per-pair, per-direction scores"
+why_it_matters: |
+  THIS IS PRIMARY-SOURCE PRIOR ART FOR THE TWO PRIMITIVES observations.yml
+  LISTS AS MISSING, and it is Don's own code.
 
-    Everything else in this pedia is somebody else's shipped system, surveyed
-    from outside. These objects were written by the person building MOOLLM, and
-    they already do the two things skills/buff/ cannot: apply an effect to many
-    hosts at once, and let the player choose WHICH SIDE of a relationship to
-    modify.
+  Everything else in this pedia is somebody else's shipped system, surveyed
+  from outside. These objects were written by the person building MOOLLM, and
+  they already do the two things skills/buff/ cannot: apply an effect to many
+  hosts at once, and let the player choose WHICH SIDE of a relationship to
+  modify.
 
-    So the applier-side predicate is not a research question. It is a port.
+  So the applier-side predicate is not a research question. It is a port.
 
 # THE ORCHESTRATOR — the object the others report to
 

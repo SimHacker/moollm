@@ -1,13 +1,12 @@
 # 🍽️ SNACKS MENU
 # Served by: kitchen (primary), bartender (basic items)
 
-object:
-  id: snacks
-  name: "Food Menu"
-  served_by: [kitchen]
-  partial_by: [bartender]  # Can serve basic items
-  
-  themed: true  # Changes with pub theme
+id: snacks
+name: "Food Menu"
+served_by: [kitchen]
+partial_by: [bartender]  # Can serve basic items
+
+themed: true  # Changes with pub theme
 
 # THEME: classic_adventure (default)
 classic_adventure:

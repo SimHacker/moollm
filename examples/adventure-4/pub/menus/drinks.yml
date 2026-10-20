@@ -1,14 +1,13 @@
 # 🍺 DRINKS MENU
 # Served by: bartender (primary), budtender (coffee/tea only)
 
-object:
-  id: drinks
-  name: "Drinks Menu"
-  served_by: [bartender]
-  partial_by: [budtender]  # Coffee and tea only
-  
-  # Changes with pub theme!
-  themed: true
+id: drinks
+name: "Drinks Menu"
+served_by: [bartender]
+partial_by: [budtender]  # Coffee and tea only
+
+# Changes with pub theme!
+themed: true
 
 # THEME: classic_adventure (default)
 classic_adventure:

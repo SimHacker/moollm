@@ -1,60 +1,59 @@
 # DOCK OFFICE
 # Dispatch coordination center
 
-object:
-  id: dock-office
-  name: "Dock Office"
-  type: office
-  emoji: "🏢"
+id: dock-office
+name: "Dock Office"
+type: office
+emoji: "🏢"
+
+description: |
+  A small windowed office overlooking the loading bays.
+  The dispatch coordinator sits here with clipboard, headset,
+  and coffee. Schedules on the wall. Radio chatter constant.
   
-  description: |
-    A small windowed office overlooking the loading bays.
-    The dispatch coordinator sits here with clipboard, headset,
-    and coffee. Schedules on the wall. Radio chatter constant.
+examine: |
+  DOCK OFFICE — DISPATCH COORDINATION
+  
+  A small office with windows overlooking all 8 loading bays.
+  
+  THE COORDINATOR:
+  A person in a safety vest, headset on, clipboard in hand.
+  Three screens show bay status, truck schedules, and camera feeds.
+  Coffee mug says "I DOCK THEREFORE I AM."
+  
+  THE WALL:
+  • Today's schedule (color-coded by priority)
+  • Weekly delivery forecast
+  • Safety record: "847 DAYS WITHOUT INCIDENT"
+  • Photo: "EMPLOYEE OF THE MONTH" (Dolly)
+  
+  THE DESK:
+  • Radio (chatter: "Bay 2, you're clear to back in")
+  • Phone (direct lines to Logistics, Shipping, and the Pub)
+  • Stamp pad and manifest forms
+  • Emergency protocols binder
+  
+  SIGN ON DOOR:
+  "IF IT MOVES, LOG IT"
+  
+contents:
+  - "Dispatch radio"
+  - "Bay status monitors (3)"
+  - "Clipboard with manifests"
+  - "Coffee maker (office-grade)"
+  - "Emergency horn"
+  
+methods:
+  CHECK_SCHEDULE:
+    description: "See today's deliveries"
+    effect: "Display shows expected trucks and times"
     
-  examine: |
-    DOCK OFFICE — DISPATCH COORDINATION
+  RADIO:
+    description: "Use the dispatch radio"
+    parameters: [message]
+    effect: "Broadcast to dock workers and trucks"
     
-    A small office with windows overlooking all 8 loading bays.
-    
-    THE COORDINATOR:
-    A person in a safety vest, headset on, clipboard in hand.
-    Three screens show bay status, truck schedules, and camera feeds.
-    Coffee mug says "I DOCK THEREFORE I AM."
-    
-    THE WALL:
-    • Today's schedule (color-coded by priority)
-    • Weekly delivery forecast
-    • Safety record: "847 DAYS WITHOUT INCIDENT"
-    • Photo: "EMPLOYEE OF THE MONTH" (Dolly)
-    
-    THE DESK:
-    • Radio (chatter: "Bay 2, you're clear to back in")
-    • Phone (direct lines to Logistics, Shipping, and the Pub)
-    • Stamp pad and manifest forms
-    • Emergency protocols binder
-    
-    SIGN ON DOOR:
-    "IF IT MOVES, LOG IT"
-    
-  contents:
-    - "Dispatch radio"
-    - "Bay status monitors (3)"
-    - "Clipboard with manifests"
-    - "Coffee maker (office-grade)"
-    - "Emergency horn"
-    
-  methods:
-    CHECK_SCHEDULE:
-      description: "See today's deliveries"
-      effect: "Display shows expected trucks and times"
-      
-    RADIO:
-      description: "Use the dispatch radio"
-      parameters: [message]
-      effect: "Broadcast to dock workers and trucks"
-      
-    ASSIGN_BAY:
-      description: "Direct a truck to a bay"
-      parameters: [truck, bay]
-      effect: "Truck receives instruction"
+  ASSIGN_BAY:
+    description: "Direct a truck to a bay"
+    parameters: [truck, bay]
+    effect: "Truck receives instruction"

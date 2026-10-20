@@ -2,198 +2,197 @@
 # Prototypical forklifts for cloning and borrowing
 # See: skills/prototype/
 
-object:
-  id: forklift-bay
-  name: "Forklift Bay"
-  type: vehicle_station
-  emoji: "🏗️"
-  brand: LEELA
+id: forklift-bay
+name: "Forklift Bay"
+type: vehicle_station
+emoji: "🏗️"
+brand: LEELA
+
+tags: [station, vehicles, forklifts, prototype]
+
+description: |
+  A row of charging stations with LEELA-branded forklifts.
+  The prototype sits at the end, pristine and labeled "CLONE ME."
+  Other forklifts are available for borrowing or can be cloned on demand.
   
-  tags: [station, vehicles, forklifts, prototype]
+examine: |
+  FORKLIFT BAY — VEHICLE DEPOT
   
-  description: |
-    A row of charging stations with LEELA-branded forklifts.
-    The prototype sits at the end, pristine and labeled "CLONE ME."
-    Other forklifts are available for borrowing or can be cloned on demand.
-    
-  examine: |
-    FORKLIFT BAY — VEHICLE DEPOT
-    
-    ┌─────────────────────────────────────────────────────────────┐
-    │  LEELA FORKLIFT FLEET                                       │
-    │                                                             │
-    │  [1] [2] [3] [4] [P]                                        │
-    │  ⚡  ⚡  🔋  🔋  ✨                                            │
-    │  IN  IN  RDY RDY PROTO                                      │
-    │                                                             │
-    │  ⚡ = Charging   🔋 = Ready   ✨ = Prototype (Clone Me!)      │
-    └─────────────────────────────────────────────────────────────┘
-    
-    AVAILABLE UNITS:
-    • Forklift #1: Charging (2 hours remaining)
-    • Forklift #2: Charging (45 minutes remaining)
-    • Forklift #3: Ready — keys in ignition
-    • Forklift #4: Ready — minor dent, fully functional
-    • PROTOTYPE: Pristine. Clone for new units.
-    
-    FEATURES (All Units):
-    • Electric drive (quiet, clean)
-    • 2-ton lift capacity
-    • Self-driving mode (toggle with 🤖 button)
-    • Manual override always available
-    • Safety sensors (won't crush you... probably)
-    
-    OPERATING INSTRUCTIONS:
-    1. Check battery level (gauge on dash)
-    2. Sit in seat (activates safety interlock)
-    3. Forward/Reverse lever, steering wheel
-    4. Lift controls on right armrest
-    5. Self-drive: Press 🤖, state destination
-    
-  container: true
-  capacity: 5  # Forklift slots
+  ┌─────────────────────────────────────────────────────────────┐
+  │  LEELA FORKLIFT FLEET                                       │
+  │                                                             │
+  │  [1] [2] [3] [4] [P]                                        │
+  │  ⚡  ⚡  🔋  🔋  ✨                                            │
+  │  IN  IN  RDY RDY PROTO                                      │
+  │                                                             │
+  │  ⚡ = Charging   🔋 = Ready   ✨ = Prototype (Clone Me!)      │
+  └─────────────────────────────────────────────────────────────┘
   
-  # The prototype forklift definition
-  prototype:
-    leela-forklift:
-      id: leela-forklift
-      name: "Leela Forklift"
-      type: vehicle
-      emoji: "🏗️"
-      brand: LEELA
-      tags: [vehicle, forklift, electric, autonomous, leela-brand]
+  AVAILABLE UNITS:
+  • Forklift #1: Charging (2 hours remaining)
+  • Forklift #2: Charging (45 minutes remaining)
+  • Forklift #3: Ready — keys in ignition
+  • Forklift #4: Ready — minor dent, fully functional
+  • PROTOTYPE: Pristine. Clone for new units.
+  
+  FEATURES (All Units):
+  • Electric drive (quiet, clean)
+  • 2-ton lift capacity
+  • Self-driving mode (toggle with 🤖 button)
+  • Manual override always available
+  • Safety sensors (won't crush you... probably)
+  
+  OPERATING INSTRUCTIONS:
+  1. Check battery level (gauge on dash)
+  2. Sit in seat (activates safety interlock)
+  3. Forward/Reverse lever, steering wheel
+  4. Lift controls on right armrest
+  5. Self-drive: Press 🤖, state destination
+  
+container: true
+capacity: 5  # Forklift slots
+
+# The prototype forklift definition
+prototype:
+  leela-forklift:
+    id: leela-forklift
+    name: "Leela Forklift"
+    type: vehicle
+    emoji: "🏗️"
+    brand: LEELA
+    tags: [vehicle, forklift, electric, autonomous, leela-brand]
+    
+    description: "A yellow electric forklift with Leela branding."
+    examine: |
+      LEELA ELECTRIC FORKLIFT
       
-      description: "A yellow electric forklift with Leela branding."
-      examine: |
-        LEELA ELECTRIC FORKLIFT
-        
-        Compact yellow forklift, surprisingly nimble.
-        Dashboard displays:
-        • Battery: [████████░░] 80%
-        • Mode: [MANUAL] / 🤖 AUTO
-        • Payload: 0 / 2000 kg
-        • Hours: 47,382
-        
-        Controls:
-        • Steering wheel (power-assisted)
-        • Forward/Reverse lever
-        • Lift joystick (right armrest)
-        • Horn (surprisingly loud)
-        • 🤖 Auto-drive button
-        
-        Safety sticker: "FORKLIFTS HAVE RIGHT OF WAY"
-        Bumper sticker: "I ❤️ LIFTING"
-        
-      takeable: false
-      driveable: true
+      Compact yellow forklift, surprisingly nimble.
+      Dashboard displays:
+      • Battery: [████████░░] 80%
+      • Mode: [MANUAL] / 🤖 AUTO
+      • Payload: 0 / 2000 kg
+      • Hours: 47,382
       
-      properties:
-        capacity_kg: 2000
-        battery_max: 100
-        battery_current: 100
-        mode: manual  # or auto
-        speed: 10  # units per turn
-        
-      state:
-        driver: null
-        cargo: []
-        to: null
-        battery: 100
-        
-      methods:
-        DRIVE:
-          description: "Take manual control of the forklift"
-          effect: "Player becomes driver, can navigate with forklift"
-          
-        AUTODRIVE:
-          description: "Engage self-driving mode"
-          parameters:
-            to: "Where to go"
-          effect: |
-            Forklift navigates autonomously to destination.
-            Will pick up/drop off cargo as instructed.
-            Beeps politely at obstacles.
-            
-        LIFT:
-          description: "Pick up cargo with forks"
-          parameters:
-            target: "What to lift"
-          guard: "target.weight <= 2000"
-          effect: "Target loaded onto forks"
-          
-        LOWER:
-          description: "Set down cargo"
-          effect: "Cargo placed at current location"
-          
-        PARK:
-          description: "Return to charging bay"
-          effect: "Forklift returns to bay, begins charging"
-          
-        EXIT:
-          description: "Get off the forklift"
-          effect: "Player dismounts, forklift stays put"
-          
-        HONK:
-          description: "Sound the horn"
-          effect: "*HONK HONK* — Pedestrians scatter"
-          
-      sounds:
-        start: "*whirrrr* — Electric motor engaged"
-        drive: "*hummmmm*"
-        lift: "*whine* — Hydraulics engaging"
-        honk: "*HONK HONK*"
-        autodrive: "*boop* — Destination accepted"
-        low_battery: "*beep beep beep* — Return to charging bay"
-        
-      autonomous_behaviors:
-        avoid_collision:
-          trigger: "Obstacle detected"
-          effect: "Stop, beep, navigate around"
-          
-        return_to_charge:
-          trigger: "battery < 20"
-          effect: "Interrupt task, return to bay"
-          
-        yield_to_humans:
-          trigger: "Pedestrian in path"
-          effect: "Stop, wait, beep politely"
-          
-  methods:
-    BORROW:
-      description: "Take an available forklift"
-      parameters:
-        unit: "Which unit number (1-4)"
-      effect: "Forklift assigned to you until returned"
+      Controls:
+      • Steering wheel (power-assisted)
+      • Forward/Reverse lever
+      • Lift joystick (right armrest)
+      • Horn (surprisingly loud)
+      • 🤖 Auto-drive button
       
-    CLONE:
-      description: "Create a new forklift from prototype"
-      effect: "New forklift materialized at bay"
+      Safety sticker: "FORKLIFTS HAVE RIGHT OF WAY"
+      Bumper sticker: "I ❤️ LIFTING"
       
-    RETURN:
-      description: "Return a borrowed forklift"
-      effect: "Forklift parks and begins charging"
+    takeable: false
+    driveable: true
+    
+    properties:
+      capacity_kg: 2000
+      battery_max: 100
+      battery_current: 100
+      mode: manual  # or auto
+      speed: 10  # units per turn
       
-    STATUS:
-      description: "Check fleet status"
-      effect: "Display availability and charge levels"
-      
-  fleet:
-    forklift_1:
-      status: charging
-      battery: 40
-      time_remaining: "2 hours"
-      
-    forklift_2:
-      status: charging
-      battery: 75
-      time_remaining: "45 minutes"
-      
-    forklift_3:
-      status: ready
+    state:
+      driver: null
+      cargo: []
+      to: null
       battery: 100
-      location: "bay"
       
-    forklift_4:
-      status: ready
-      battery: 95
-      notes: "Minor dent on left side. Functional."
+    methods:
+      DRIVE:
+        description: "Take manual control of the forklift"
+        effect: "Player becomes driver, can navigate with forklift"
+        
+      AUTODRIVE:
+        description: "Engage self-driving mode"
+        parameters:
+          to: "Where to go"
+        effect: |
+          Forklift navigates autonomously to destination.
+          Will pick up/drop off cargo as instructed.
+          Beeps politely at obstacles.
+          
+      LIFT:
+        description: "Pick up cargo with forks"
+        parameters:
+          target: "What to lift"
+        guard: "target.weight <= 2000"
+        effect: "Target loaded onto forks"
+        
+      LOWER:
+        description: "Set down cargo"
+        effect: "Cargo placed at current location"
+        
+      PARK:
+        description: "Return to charging bay"
+        effect: "Forklift returns to bay, begins charging"
+        
+      EXIT:
+        description: "Get off the forklift"
+        effect: "Player dismounts, forklift stays put"
+        
+      HONK:
+        description: "Sound the horn"
+        effect: "*HONK HONK* — Pedestrians scatter"
+        
+    sounds:
+      start: "*whirrrr* — Electric motor engaged"
+      drive: "*hummmmm*"
+      lift: "*whine* — Hydraulics engaging"
+      honk: "*HONK HONK*"
+      autodrive: "*boop* — Destination accepted"
+      low_battery: "*beep beep beep* — Return to charging bay"
+      
+    autonomous_behaviors:
+      avoid_collision:
+        trigger: "Obstacle detected"
+        effect: "Stop, beep, navigate around"
+        
+      return_to_charge:
+        trigger: "battery < 20"
+        effect: "Interrupt task, return to bay"
+        
+      yield_to_humans:
+        trigger: "Pedestrian in path"
+        effect: "Stop, wait, beep politely"
+        
+methods:
+  BORROW:
+    description: "Take an available forklift"
+    parameters:
+      unit: "Which unit number (1-4)"
+    effect: "Forklift assigned to you until returned"
+    
+  CLONE:
+    description: "Create a new forklift from prototype"
+    effect: "New forklift materialized at bay"
+    
+  RETURN:
+    description: "Return a borrowed forklift"
+    effect: "Forklift parks and begins charging"
+    
+  STATUS:
+    description: "Check fleet status"
+    effect: "Display availability and charge levels"
+    
+fleet:
+  forklift_1:
+    status: charging
+    battery: 40
+    time_remaining: "2 hours"
+    
+  forklift_2:
+    status: charging
+    battery: 75
+    time_remaining: "45 minutes"
+    
+  forklift_3:
+    status: ready
+    battery: 100
+    location: "bay"
+    
+  forklift_4:
+    status: ready
+    battery: 95
+    notes: "Minor dent on left side. Functional."

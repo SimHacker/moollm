@@ -2,158 +2,157 @@
 # The most important item in the game (emotionally)
 # For game mechanics: see ../../skills/ (buff, time, needs, etc.)
 
-object:
-  name: Mother's Note
-  type: letter
-  portable: true
-  
-  from: Petunia Fantastipants
-  to: Bumblewick Fantastipants (or whoever you become)
-  found_at: kitchen/table
-  
-  description: |
-    A folded piece of cream-colored stationery, sealed with a wax
-    stamp bearing the Fantastipants family crest (a confused-looking
-    badger holding a waffle iron). Smells of perfume and home cooking.
+name: Mother's Note
+type: letter
+portable: true
 
-  # THE LETTER
-  
-  contents: |
-    Dearest Bumblewick,
-    
-    If you're reading this, you've woken up in the dungeon again.
-    I'm not surprised — it's in our blood. Your grandmother was an
-    adventurer. Your father still has his old lamp. And me? Well.
-    There are stories I haven't told you yet.
-    
-    I've stocked the refrigerator. The food is for DROPPING IN THE
-    MAZE to mark your path. (Though I know you'll eat some. I would
-    have too. The apple is particularly good.)
-    
-    Don't forget your lamp. Don't get eaten by a grue. 
-    Wear clean underwear.
-    
-    And Bumblewick — I know you'll visit the coat room. I put your
-    grandmother's cape in there. The one with the stars. Whatever
-    costume you choose today, whoever you decide to be, whatever
-    name and pronouns feel right in your heart — you are my child, 
-    and I love you completely and unconditionally. The world may 
-    not always understand, but I do.
-    
-    You know what you're doing. Trust yourself.
-    
-    Write back when you can. The dungeon post still works — just
-    drop letters in any mailbox you find. Tell me about your
-    adventures. Send me recipes if you invent any. Pictures if you
-    take them. Gold if you find too much to carry. (Ha!)
-    
-    Come home when you're ready. I'll have pie.
-    
-    Your loving Mother,
-    Petunia Fantastipants
-    
-    P.S. - There's a skeleton in the maze who never made it home.
-    His family never knew what happened. If you find him... maybe
-    you could write to them? The dungeon post delivers everywhere.
-    
-    P.P.S. - The dishes. I haven't forgotten. Neither should you.
+from: Petunia Fantastipants
+to: Bumblewick Fantastipants (or whoever you become)
+found_at: kitchen/table
 
-  # THEMES
-  
-  themes:
-    identity: "Whatever name feels right in your heart"
-    tradition: "It's in our blood — grandmother, father, mother"
-    unconditional_love: "The world may not understand, but I do"
-    connection: "Write back when you can"
-    legacy: "A skeleton who never made it home"
-    responsibility: "The dishes. I haven't forgotten."
+description: |
+  A folded piece of cream-colored stationery, sealed with a wax
+  stamp bearing the Fantastipants family crest (a confused-looking
+  badger holding a waffle iron). Smells of perfume and home cooking.
 
-  # ACTIONS
+# THE LETTER
+
+contents: |
+  Dearest Bumblewick,
   
-  actions:
-    READ:
-      description: "Read (or re-read) Mother's note"
-      effect: "Display letter contents. Feel feelings."
+  If you're reading this, you've woken up in the dungeon again.
+  I'm not surprised — it's in our blood. Your grandmother was an
+  adventurer. Your father still has his old lamp. And me? Well.
+  There are stories I haven't told you yet.
+  
+  I've stocked the refrigerator. The food is for DROPPING IN THE
+  MAZE to mark your path. (Though I know you'll eat some. I would
+  have too. The apple is particularly good.)
+  
+  Don't forget your lamp. Don't get eaten by a grue. 
+  Wear clean underwear.
+  
+  And Bumblewick — I know you'll visit the coat room. I put your
+  grandmother's cape in there. The one with the stars. Whatever
+  costume you choose today, whoever you decide to be, whatever
+  name and pronouns feel right in your heart — you are my child, 
+  and I love you completely and unconditionally. The world may 
+  not always understand, but I do.
+  
+  You know what you're doing. Trust yourself.
+  
+  Write back when you can. The dungeon post still works — just
+  drop letters in any mailbox you find. Tell me about your
+  adventures. Send me recipes if you invent any. Pictures if you
+  take them. Gold if you find too much to carry. (Ha!)
+  
+  Come home when you're ready. I'll have pie.
+  
+  Your loving Mother,
+  Petunia Fantastipants
+  
+  P.S. - There's a skeleton in the maze who never made it home.
+  His family never knew what happened. If you find him... maybe
+  you could write to them? The dungeon post delivers everywhere.
+  
+  P.P.S. - The dishes. I haven't forgotten. Neither should you.
+
+# THEMES
+
+themes:
+  identity: "Whatever name feels right in your heart"
+  tradition: "It's in our blood — grandmother, father, mother"
+  unconditional_love: "The world may not understand, but I do"
+  connection: "Write back when you can"
+  legacy: "A skeleton who never made it home"
+  responsibility: "The dishes. I haven't forgotten."
+
+# ACTIONS
+
+actions:
+  READ:
+    description: "Read (or re-read) Mother's note"
+    effect: "Display letter contents. Feel feelings."
+    
+  REPLY:
+    description: "⭐ Write a reply — CREATE YOUR STORY!"
+    strongly_suggested: true
+    
+    prompts:
+      identity: ["Who are you today?", "What does the mirror show?"]
+      promises: ["What do you promise?", "What scared promise anyway?"]
+      questions: ["What stories hasn't she told?", "Do you have siblings?"]
+      drama_seeds: ["Confess something", "Make a scary promise", "Apologize"]
       
-    REPLY:
-      description: "⭐ Write a reply — CREATE YOUR STORY!"
-      strongly_suggested: true
-      
-      prompts:
-        identity: ["Who are you today?", "What does the mirror show?"]
-        promises: ["What do you promise?", "What scared promise anyway?"]
-        questions: ["What stories hasn't she told?", "Do you have siblings?"]
-        drama_seeds: ["Confess something", "Make a scary promise", "Apologize"]
-        
-      examples:
-        openings: ["Dear Mother, Today I am...", "MOM. THE GRUE."]
-        promises: ["I promise treasure.", "I won't eat food. (lying)"]
-        closings: ["With love and suspicious cheese, [NAME]"]
+    examples:
+      openings: ["Dear Mother, Today I am...", "MOM. THE GRUE."]
+      promises: ["I promise treasure.", "I won't eat food. (lying)"]
+      closings: ["With love and suspicious cheese, [NAME]"]
 
-  # PROMISE SYSTEM
-  
-  promise_system:
-    extraction: |
-      DM extracts promises from letter:
-      - Explicit: "I promise..." / "I will..."
-      - Implicit: "I'm going to..." / "I want to..."
-      - Negative: "I won't..." / "I refuse to..."
-      Each becomes a tracked GOAL.
-      
-    outcomes:
-      KEPT: "Pride, bonuses, emotional reward"
-      BROKEN: "CURSE-OF-BROKEN-WORD, disappointment"
-      EXCEEDED: "Extra rewards, epic stories"
-      FORGOTTEN: "Mother remembers. Always."
+# PROMISE SYSTEM
 
-  # SHAPING MOTHER
-  
-  shaping_mother:
-    principle: |
-      Your letter shapes MOTHER, not just your adventure.
-      Things you write ABOUT her become TRUE.
-      Questions you ask REVEAL her history.
-      COLLABORATIVE WORLDBUILDING through correspondence!
-      
-    backstory_seeds:
-      - '"Your first adventure?" reveals she HAD one'
-      - '"Grandmother was a hero?" shows she has FEELINGS'
-      - '"Why not tell me about grue?" uncovers she had REASONS'
-      
-    personality_seeds:
-      formal: "dignified, traditional"
-      silly: "sense of humor"
-      vulnerable: "warm, nurturing"
-      philosophical: "unexpected depth"
-      
-    family_discovery: |
-      Asking about family CREATES family:
-      "Do I have siblings?" → Yes! (lost, estranged, skeleton, grue)
-      "My pet?" → There WAS one. (waiting, postal service, befriended grue)
+promise_system:
+  extraction: |
+    DM extracts promises from letter:
+    - Explicit: "I promise..." / "I will..."
+    - Implicit: "I'm going to..." / "I want to..."
+    - Negative: "I won't..." / "I refuse to..."
+    Each becomes a tracked GOAL.
+    
+  outcomes:
+    KEPT: "Pride, bonuses, emotional reward"
+    BROKEN: "CURSE-OF-BROKEN-WORD, disappointment"
+    EXCEEDED: "Extra rewards, epic stories"
+    FORGOTTEN: "Mother remembers. Always."
 
-  # POSTAL SERVICE
-  
-  postal_service:
-    how: "Drop in any mailbox. Grandmother negotiated free postage."
-    attachments: [photos, cards, recipes, skills, gold, items]
-    special_deliveries:
-      care_package: "If low on supplies"
-      urgent_reply: "If confessed something vulnerable"
-      family_heirloom: "If asked about grandmother"
+# SHAPING MOTHER
 
-  # HOME VISITS
-  
-  home_visits:
-    before_starting: "You're back already? Did you forget something?"
-    mid_adventure: "You're doing so well! But why are you here?"
-    with_treasure: "Oh, my darling! You DID it! Come, let me see!"
-    after_dying: "I felt something... Are you alright?"
+shaping_mother:
+  principle: |
+    Your letter shapes MOTHER, not just your adventure.
+    Things you write ABOUT her become TRUE.
+    Questions you ask REVEAL her history.
+    COLLABORATIVE WORLDBUILDING through correspondence!
+    
+  backstory_seeds:
+    - '"Your first adventure?" reveals she HAD one'
+    - '"Grandmother was a hero?" shows she has FEELINGS'
+    - '"Why not tell me about grue?" uncovers she had REASONS'
+    
+  personality_seeds:
+    formal: "dignified, traditional"
+    silly: "sense of humor"
+    vulnerable: "warm, nurturing"
+    philosophical: "unexpected depth"
+    
+  family_discovery: |
+    Asking about family CREATES family:
+    "Do I have siblings?" → Yes! (lost, estranged, skeleton, grue)
+    "My pet?" → There WAS one. (waiting, postal service, befriended grue)
 
-  # REFERENCES
-  
-  see_also:
-    game_mechanics: "../../skills/"
-    mailbox: "../start/mailbox.yml"
-    home: "../home/ROOM.yml"
-    coatroom: "../coatroom/"
-    tom: "tomtomagotchi.yml"
+# POSTAL SERVICE
+
+postal_service:
+  how: "Drop in any mailbox. Grandmother negotiated free postage."
+  attachments: [photos, cards, recipes, skills, gold, items]
+  special_deliveries:
+    care_package: "If low on supplies"
+    urgent_reply: "If confessed something vulnerable"
+    family_heirloom: "If asked about grandmother"
+
+# HOME VISITS
+
+home_visits:
+  before_starting: "You're back already? Did you forget something?"
+  mid_adventure: "You're doing so well! But why are you here?"
+  with_treasure: "Oh, my darling! You DID it! Come, let me see!"
+  after_dying: "I felt something... Are you alright?"
+
+# REFERENCES
+
+see_also:
+  game_mechanics: "../../skills/"
+  mailbox: "../start/mailbox.yml"
+  home: "../home/ROOM.yml"
+  coatroom: "../coatroom/"
+  tom: "tomtomagotchi.yml"

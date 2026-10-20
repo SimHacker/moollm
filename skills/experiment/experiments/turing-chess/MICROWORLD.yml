@@ -4,15 +4,14 @@
 # the paper. Plugins (revolutionary-chess) overlay meanings on the same
 # tree without changing its shape.
 
-microworld:
-  id: chess-match
-  principle: |
-    Model the WHOLE scene, accurately. Every object a real tournament
-    has, as a room or an object in one. Game state is "which path is
-    everything at" — capture is a move from a square to a sideline,
-    promotion is a trip to the box for a spare queen, resignation is a
-    king laid on its side ON its square. No hidden state; the tree is
-    the truth.
+id: chess-match
+principle: |
+  Model the WHOLE scene, accurately. Every object a real tournament
+  has, as a room or an object in one. Game state is "which path is
+  everything at" — capture is a move from a square to a sideline,
+  promotion is a trip to the box for a spare queen, resignation is a
+  king laid on its side ON its square. No hidden state; the tree is
+  the truth.
 
 tree: |
   chess-match/

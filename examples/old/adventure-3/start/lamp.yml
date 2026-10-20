@@ -2,111 +2,110 @@
 # Your faithful companion against the darkness
 # "GET LAMP" — a tribute to the documentary
 
-object:
-  name: Brass Lamp
-  type: light_source
-  portable: true
+name: Brass Lamp
+type: light_source
+portable: true
+
+description: |
+  A well-worn brass lamp sits on a natural stone shelf, waiting for
+  its next adventurer. The metal is warm to the touch, as if it
+  remembers the hands that carried it before.
   
-  description: |
-    A well-worn brass lamp sits on a natural stone shelf, waiting for
-    its next adventurer. The metal is warm to the touch, as if it
-    remembers the hands that carried it before.
-    
-    Previous owners have scratched their initials into the base:
-    tiny marks of those who faced the darkness and returned.
-    
-    It is currently OFF but ready to light.
-    
-  # LAMP STATE
+  Previous owners have scratched their initials into the base:
+  tiny marks of those who faced the darkness and returned.
   
-  state: off
+  It is currently OFF but ready to light.
   
-  # Full tank! Previous adventurer refilled it.
-  oil: 100.0
-  max_oil: 100.0
+# LAMP STATE
+
+state: off
+
+# Full tank! Previous adventurer refilled it.
+oil: 100.0
+max_oil: 100.0
+
+# OIL CONSUMPTION (per action)
+
+consumption:
+  per_move: 1.0        # Moving between rooms
+  per_wait: 0.5        # Standing still
+  per_examine: 0.25    # Looking at things
+  per_action: 0.5      # General actions
   
-  # OIL CONSUMPTION (per action)
+modifiers:
+  maze_rooms: 1.5      # Darkness drinks the light
+  cold_rooms: 1.25     # Oil thickens
+  mushroom_rooms: 0.75 # Spores seem to feed the flame
   
-  consumption:
-    per_move: 1.0        # Moving between rooms
-    per_wait: 0.5        # Standing still
-    per_examine: 0.25    # Looking at things
-    per_action: 0.5      # General actions
-    
-  modifiers:
-    maze_rooms: 1.5      # Darkness drinks the light
-    cold_rooms: 1.25     # Oil thickens
-    mushroom_rooms: 0.75 # Spores seem to feed the flame
-    
-  # GLOW PROPERTIES
+# GLOW PROPERTIES
+
+glow:
+  color: warm_brass    # Default — can be upgraded!
+  radius: standard
   
-  glow:
-    color: warm_brass    # Default — can be upgraded!
-    radius: standard
+# Premium Glow Juice upgrades available at the vending machine!
+upgrades_available:
+  - name: "Premium Glow Juice"
+    cost: 3
+    effect: "Blue flame, +900 max oil, grue hesitation"
+    location: maze/room-j/lamp-vendor.yml
     
-  # Premium Glow Juice upgrades available at the vending machine!
-  upgrades_available:
-    - name: "Premium Glow Juice"
-      cost: 3
-      effect: "Blue flame, +900 max oil, grue hesitation"
-      location: maze/room-j/lamp-vendor.yml
-      
-  # ACTIONS
+# ACTIONS
+
+actions:
+  LIGHT:
+    description: "Light the lamp (requires oil > 0)"
+    effect: "state: on, provides light, consumes oil"
+    
+  EXTINGUISH:
+    description: "Put out the lamp (conserves oil)"
+    effect: "state: off, darkness returns"
+    
+  REFUEL:
+    description: "Add oil (requires oil container or vendor)"
+    effect: "Increases oil level"
+    
+  EXAMINE:
+    description: "Look at the lamp closely"
+    effect: "See current oil level and state"
+    
+  RUB:
+    description: "Rub the lamp vigorously"
+    effect: "A genie appears! (first time only)"
+    first_time_only: true
+    triggers: genie-note.yml
+    
+# WARNINGS
+
+warnings:
+  - threshold: 20
+    message: "The lamp flickers. Oil is running low."
+  - threshold: 10
+    message: "The flame gutters dangerously. Find oil soon!"
+  - threshold: 5
+    message: "The lamp sputters. Darkness is coming."
+  - threshold: 0
+    message: "The lamp goes out. You are in darkness."
+    
+# LORE
+
+lore: |
+  "In the beginning was the Word, and the Word was GET LAMP."
+  — Ancient Adventurer Proverb
   
-  actions:
-    LIGHT:
-      description: "Light the lamp (requires oil > 0)"
-      effect: "state: on, provides light, consumes oil"
-      
-    EXTINGUISH:
-      description: "Put out the lamp (conserves oil)"
-      effect: "state: off, darkness returns"
-      
-    REFUEL:
-      description: "Add oil (requires oil container or vendor)"
-      effect: "Increases oil level"
-      
-    EXAMINE:
-      description: "Look at the lamp closely"
-      effect: "See current oil level and state"
-      
-    RUB:
-      description: "Rub the lamp vigorously"
-      effect: "A genie appears! (first time only)"
-      first_time_only: true
-      triggers: genie-note.yml
-      
-  # WARNINGS
+  The lamp has been carried through these passages by many hands.
+  Some carved their initials. Some never returned. All of them
+  understood: in the maze, light is life.
   
-  warnings:
-    - threshold: 20
-      message: "The lamp flickers. Oil is running low."
-    - threshold: 10
-      message: "The flame gutters dangerously. Find oil soon!"
-    - threshold: 5
-      message: "The lamp sputters. Darkness is coming."
-    - threshold: 0
-      message: "The lamp goes out. You are in darkness."
-      
-  # LORE
+  The grue fears the lamp. The grue HATES the lamp. The grue
+  would very much like you to forget the lamp.
   
-  lore: |
-    "In the beginning was the Word, and the Word was GET LAMP."
-    — Ancient Adventurer Proverb
-    
-    The lamp has been carried through these passages by many hands.
-    Some carved their initials. Some never returned. All of them
-    understood: in the maze, light is life.
-    
-    The grue fears the lamp. The grue HATES the lamp. The grue
-    would very much like you to forget the lamp.
-    
-    Don't forget the lamp.
-    
-  documentary: |
-    "GET LAMP" (2010) — Jason Scott's documentary about text adventures
-    https://www.getlamp.com/
-    
-    The phrase "GET LAMP" is one of the most typed commands in the
-    history of interactive fiction. It's practically muscle memory
-    for anyone who grew up in the golden age of adventure games.
+  Don't forget the lamp.
+  
+documentary: |
+  "GET LAMP" (2010) — Jason Scott's documentary about text adventures
+  https://www.getlamp.com/
+  
+  The phrase "GET LAMP" is one of the most typed commands in the
+  history of interactive fiction. It's practically muscle memory
+  for anyone who grew up in the golden age of adventure games.

@@ -1,152 +1,151 @@
 # 🧭 EXPLORER'S FIELD KIT
 # Tools for orientation — the bootstrap toolkit for curious minds
 
-object:
-  name: Explorer's Field Kit
-  type: artifact
-  portable: true
+name: Explorer's Field Kit
+type: artifact
+portable: true
+
+description: |
+  A well-worn leather satchel containing instruments for
+  figuring out where you are and what's possible.
+  Compass, notebook, magnifying glass — but also
+  curious tools: a "goal dowsing rod", an "opportunity spyglass",
+  a "boundary feeler".
   
-  description: |
-    A well-worn leather satchel containing instruments for
-    figuring out where you are and what's possible.
-    Compass, notebook, magnifying glass — but also
-    curious tools: a "goal dowsing rod", an "opportunity spyglass",
-    a "boundary feeler".
+  The brass clasp is engraved: "FOR NEW BEGINNINGS"
+  Inside the lid: "Orientation precedes action."
+  
+examine: |
+  You open the satchel and find:
+  
+  NAVIGATION TOOLS:
+    🧭 Compass — "Which way am I facing?"
+    📓 Field Notebook — "What have I noticed?"
+    🔍 Magnifying Glass — "What details matter?"
     
-    The brass clasp is engraved: "FOR NEW BEGINNINGS"
-    Inside the lid: "Orientation precedes action."
+  CURIOSITY INSTRUMENTS:
+    🎯 Goal Dowsing Rod — "What am I here to do?"
+         (wiggles toward purpose, stronger near clarity)
+    🔭 Opportunity Spyglass — "What can I interact with?"
+         (highlights affordances, reveals hidden options)
+    🪶 Boundary Feather — "What are the rules here?"
+         (floats until it hits a constraint, then stops)
+    📋 Capability Clipboard — "What tools do I have?"
+         (auto-fills with available actions)
     
-  examine: |
-    You open the satchel and find:
+  META INSTRUMENTS:
+    🎭 Driver Mirror — "Who's orchestrating this session?"
+    📜 Context Scroll — "What's in my working memory?"
+    ⏳ Token Hourglass — "How much space do I have left?"
     
-    NAVIGATION TOOLS:
-      🧭 Compass — "Which way am I facing?"
-      📓 Field Notebook — "What have I noticed?"
-      🔍 Magnifying Glass — "What details matter?"
+state:
+  last_exploration: "this room"
+  curiosity_level: "high"
+  battery: "runs on wonder (infinite)"
+  
+advertisements:
+  - trigger: "where am I"
+    score: 0.95
+    response: "Let's find out together! *opens satchel*"
+    
+  - trigger: "what can I do"
+    score: 0.9
+    response: "The opportunity spyglass reveals all possibilities."
+    
+  - trigger: "boot sequence"
+    score: 0.85
+    response: "Every adventure starts with orientation."
+    
+  - trigger: "help"
+    score: 0.8
+    response: |
+      *hands you the field notebook*
       
-    CURIOSITY INSTRUMENTS:
-      🎯 Goal Dowsing Rod — "What am I here to do?"
-           (wiggles toward purpose, stronger near clarity)
-      🔭 Opportunity Spyglass — "What can I interact with?"
-           (highlights affordances, reveals hidden options)
-      🪶 Boundary Feather — "What are the rules here?"
-           (floats until it hits a constraint, then stops)
-      📋 Capability Clipboard — "What tools do I have?"
-           (auto-fills with available actions)
+      "First we figure out where we are.
+      Then we figure out what's possible.
+      Then we decide what matters."
       
-    META INSTRUMENTS:
-      🎭 Driver Mirror — "Who's orchestrating this session?"
-      📜 Context Scroll — "What's in my working memory?"
-      ⏳ Token Hourglass — "How much space do I have left?"
+methods:
+  EXPLORE:
+    description: "Survey current environment with all instruments"
+    effect: |
+      *unfolds the kit on a flat surface*
+      *each instrument activates*
       
-  state:
-    last_exploration: "this room"
-    curiosity_level: "high"
-    battery: "runs on wonder (infinite)"
-    
-  advertisements:
-    - trigger: "where am I"
-      score: 0.95
-      response: "Let's find out together! *opens satchel*"
+      The compass settles. The spyglass focuses.
+      The dowsing rod twitches toward something.
       
-    - trigger: "what can I do"
-      score: 0.9
-      response: "The opportunity spyglass reveals all possibilities."
+    returns: |
+      # FIELD NOTES — Current Situation
       
-    - trigger: "boot sequence"
-      score: 0.85
-      response: "Every adventure starts with orientation."
+      LOCATION: [where you are]
+      DRIVER: [which orchestrator is running]
+      TOOLS: [available capabilities]
+      BOUNDARIES: [limits and rules]
+      PURPOSE: [detected intentions]
+      CONTEXT: [what's in working memory]
       
-    - trigger: "help"
-      score: 0.8
-      response: |
-        *hands you the field notebook*
-        
-        "First we figure out where we are.
-        Then we figure out what's possible.
-        Then we decide what matters."
-        
-  methods:
-    EXPLORE:
-      description: "Survey current environment with all instruments"
-      effect: |
-        *unfolds the kit on a flat surface*
-        *each instrument activates*
-        
-        The compass settles. The spyglass focuses.
-        The dowsing rod twitches toward something.
-        
-      returns: |
-        # FIELD NOTES — Current Situation
-        
-        LOCATION: [where you are]
-        DRIVER: [which orchestrator is running]
-        TOOLS: [available capabilities]
-        BOUNDARIES: [limits and rules]
-        PURPOSE: [detected intentions]
-        CONTEXT: [what's in working memory]
-        
-    LOOK:
-      description: "Examine something closely with the spyglass"
-      parameters:
-        - target: "What to observe"
-      effect: |
-        *peers through the opportunity spyglass*
-        *affordances shimmer into visibility*
-        
-      returns: |
-        NAME: [what it's called]
-        TYPE: [what kind of thing]
-        CAN DO: [available methods]
-        RESPONDS TO: [what triggers it]
-        
-    INVENTORY:
-      description: "Check what tools you have available"
-      effect: "*flips through capability clipboard*"
-      returns: "Complete list of your current abilities"
+  LOOK:
+    description: "Examine something closely with the spyglass"
+    parameters:
+      - target: "What to observe"
+    effect: |
+      *peers through the opportunity spyglass*
+      *affordances shimmer into visibility*
       
-    ORIENT:
-      description: "Quick check — where am I, what's the goal?"
-      effect: |
-        *quick glance at compass and dowsing rod*
-        
-      returns: |
-        HERE: [brief location]
-        GOAL: [if detectable]
-        NEXT: [suggested first steps]
-        
-  lore: |
-    This kit was assembled by an explorer who specialized
-    in "first mornings" — those moments when you wake up
-    somewhere unfamiliar and have to figure out everything.
+    returns: |
+      NAME: [what it's called]
+      TYPE: [what kind of thing]
+      CAN DO: [available methods]
+      RESPONDS TO: [what triggers it]
+      
+  INVENTORY:
+    description: "Check what tools you have available"
+    effect: "*flips through capability clipboard*"
+    returns: "Complete list of your current abilities"
     
-    "You can't move until you know where you are," she said.
-    "And you can't know where you are without looking."
-    
-    She was kind. She knew that disorientation is scary.
-    These tools make it a little less so.
-    
-  connection_to_bootstrap: |
-    The bootstrap skill uses this kit:
-    - CURSOR driver detection is the Driver Mirror
-    - hot.yml and cold.yml are Field Notes
-    - working-set.yml is the current orientation
-    
-    Every MOOLLM session starts with orientation.
-    Curiosity, not interrogation.
-    
-  philosophical_note: |
-    Probes can feel invasive.
-    Exploration feels like play.
-    
-    Both gather information.
-    One treats the world as subject.
-    One treats the world as friend.
-    
-  k_lines:
-    - ORIENTATION
-    - CURIOSITY
-    - COLD_START
-    - BOOTSTRAP
-    - FIRST_MORNING
-    - EXPLORATION
+  ORIENT:
+    description: "Quick check — where am I, what's the goal?"
+    effect: |
+      *quick glance at compass and dowsing rod*
+      
+    returns: |
+      HERE: [brief location]
+      GOAL: [if detectable]
+      NEXT: [suggested first steps]
+      
+lore: |
+  This kit was assembled by an explorer who specialized
+  in "first mornings" — those moments when you wake up
+  somewhere unfamiliar and have to figure out everything.
+  
+  "You can't move until you know where you are," she said.
+  "And you can't know where you are without looking."
+  
+  She was kind. She knew that disorientation is scary.
+  These tools make it a little less so.
+  
+connection_to_bootstrap: |
+  The bootstrap skill uses this kit:
+  - CURSOR driver detection is the Driver Mirror
+  - hot.yml and cold.yml are Field Notes
+  - working-set.yml is the current orientation
+  
+  Every MOOLLM session starts with orientation.
+  Curiosity, not interrogation.
+  
+philosophical_note: |
+  Probes can feel invasive.
+  Exploration feels like play.
+  
+  Both gather information.
+  One treats the world as subject.
+  One treats the world as friend.
+  
+k_lines:
+  - ORIENTATION
+  - CURIOSITY
+  - COLD_START
+  - BOOTSTRAP
+  - FIRST_MORNING
+  - EXPLORATION

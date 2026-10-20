@@ -1,16 +1,15 @@
 # 🤳 HALLWAY MIRROR
 # The transformation tracking station.
 
-object:
-  name: "Hallway Mirror"
-  type: furniture
-  emoji: "🤳"
+name: "Hallway Mirror"
+type: furniture
+emoji: "🤳"
+
+description: |
+  A full-length mirror mounted on the bathroom door. This is where 
+  the transformation from programmer to rabbit is documented daily.
   
-  description: |
-    A full-length mirror mounted on the bathroom door. This is where 
-    the transformation from programmer to rabbit is documented daily.
-    
-  actions:
-    TAKE_SELFIE:
-      description: "Document your current transformation status."
-      effect: "The flash catches your long grey ears perfectly."
+actions:
+  TAKE_SELFIE:
+    description: "Document your current transformation status."
+    effect: "The flash catches your long grey ears perfectly."

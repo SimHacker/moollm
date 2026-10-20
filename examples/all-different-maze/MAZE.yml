@@ -11,20 +11,19 @@
 # Knuth: "Incidentally, if you ever get into a 'little twisting maze of
 # passages,' you're really lost."
 
-maze:
-  name: all-different
-  # ELEVEN descriptions, ELEVEN rooms — the anti-shadow. Every room
-  # materializes its own description, but the values are permutations of one
-  # bag of words: {maze, little, twisty/twisting, passages}. Identity through
-  # word order — a derived coordinate over a single vocabulary.
-  # Contrast: ../all-alike-maze/ inherits ONE description across 14 rooms.
-  dead_end_description: "Dead end."
-  entrances:
-    - "wlong: south -> diff0, condition 100"   # Woods's condition 100 =
-      # "Dwarves not permitted" — a guard on the character dimension,
-      # keeping dwarves out of the maze (the pirate ignores it; see below)
-  external:
-    wlong: "West end of long hall (q108 territory) — the way in and out"
+name: all-different
+# ELEVEN descriptions, ELEVEN rooms — the anti-shadow. Every room
+# materializes its own description, but the values are permutations of one
+# bag of words: {maze, little, twisty/twisting, passages}. Identity through
+# word order — a derived coordinate over a single vocabulary.
+# Contrast: ../all-alike-maze/ inherits ONE description across 14 rooms.
+dead_end_description: "Dead end."
+entrances:
+  - "wlong: south -> diff0, condition 100"   # Woods's condition 100 =
+    # "Dwarves not permitted" — a guard on the character dimension,
+    # keeping dwarves out of the maze (the pirate ignores it; see below)
+external:
+  wlong: "West end of long hall (q108 territory) — the way in and out"
 
 rooms:
   # twist(l, n, s, e, w, ne, se, nw, sw, u, d, description)

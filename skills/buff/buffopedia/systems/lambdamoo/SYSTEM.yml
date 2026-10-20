@@ -4,24 +4,23 @@
 #   checked 2026-09-01). HIGH but unverified for LambdaCore feature-object
 #   details, which live in the database rather than the server.
 
-system:
-  id: lambdamoo
-  name: "LambdaMOO — forked tasks and feature objects"
-  vendor: "Pavel Curtis / Xerox PARC, 1990–; LambdaCore database"
-  family: engine
-  vocabulary:
-    the_tick: "forked task, suspended task"
-    the_mixin: "feature object"
-    the_budget: "ticks and seconds quota per task"
-  the_answer: |
-    LambdaMOO had BOTH HALVES OF A BUFF AND NEVER JOINED THEM.
+id: lambdamoo
+name: "LambdaMOO — forked tasks and feature objects"
+vendor: "Pavel Curtis / Xerox PARC, 1990–; LambdaCore database"
+family: engine
+vocabulary:
+  the_tick: "forked task, suspended task"
+  the_mixin: "feature object"
+  the_budget: "ticks and seconds quota per task"
+the_answer: |
+  LambdaMOO had BOTH HALVES OF A BUFF AND NEVER JOINED THEM.
 
-    Timers: yes, first-class and persistent — fork, suspend, the task queue.
-    Mixins: yes, first-class and player-attachable — feature objects.
-    A feature object with an expiration date: no. Nobody built the join.
+  Timers: yes, first-class and persistent — fork, suspend, the task queue.
+  Mixins: yes, first-class and player-attachable — feature objects.
+  A feature object with an expiration date: no. Nobody built the join.
 
-    That is the most interesting negative result in this pedia, because MOOLLM
-    is a MOO, so the missing join is directly inherited.
+  That is the most interesting negative result in this pedia, because MOOLLM
+  is a MOO, so the missing join is directly inherited.
 
 # HALF ONE — THE CLOCK
 

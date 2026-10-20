@@ -1,109 +1,108 @@
 # 🎱 PINBALL MACHINE
 # "Bar Karma" — A custom theme for a timeless pub
 
-object:
-  name: Pinball Machine
-  type: game
-  portable: false
+name: Pinball Machine
+type: game
+portable: false
+
+description: |
+  A magnificent pinball machine dominates one corner, its backglass
+  depicting a cosmic bar at the edge of the universe. The playfield
+  is a maze of bumpers, ramps, and multiball madness.
   
+  The machine is called "BAR KARMA" — custom built, one of a kind.
+  The flippers are worn. The tilt sensor is generous. The high
+  scores are legendary.
+  
+examine: |
+  The backglass art shows:
+  - A bartender with ancient eyes
+  - Patrons from across time and space
+  - A swirling vortex of parallel timelines
+  - The tagline: "CHANGE YOUR FATE — 25¢"
+  
+  Playfield features:
+  - "Destiny Ramp" — Shoot to choose your future
+  - "Karma Bumpers" — Good deeds score more
+  - "Timeline Multiball" — Three balls, three fates
+  - "Grue Pit" — Lose your ball to darkness
+  - "Mother's Kitchen" — Safe haven kickback
+  
+high_scores:
+  - name: "JMS"
+    score: 999999999
+    note: "James. Obviously."
+  - name: "GNA"
+    score: 847230100
+    note: "Guinan. She doesn't talk about it."
+  - name: "QRK"
+    score: 512100500
+    note: "Quark. Claims it was rigged."
+  - name: "MRN"
+    score: 1
+    note: "Morn. He just watches."
+  - name: "YOU"
+    score: "???"
+    
+actions:
+  PLAY:
+    description: "Step up and play pinball"
+    cost: "1 gold per game (3 balls)"
+    mechanics: |
+      DM narrates your game:
+      - Flipper reflexes and ball saves
+      - Ramp shots and combo multipliers
+      - Multiball chaos
+      - The dreaded TILT
+      - Your final score and rank
+      
+  NUDGE:
+    description: "Carefully nudge the machine"
+    risk: "Too much and you TILT!"
+    reward: "Save a ball heading for the drain"
+    
+  TILT:
+    description: "You tilted! Game over."
+    effect: "Flippers go dead. Ball drains. Shame."
+    
+  SLAM-TILT:
+    description: "Hit it too hard — machine shuts down"
+    consequence: "Bartender is NOT happy"
+    
+  READ-RULES:
+    description: "Study the instruction card"
+    reveals: |
+      TIMELINE MULTIBALL: Lock 3 balls in the Destiny Ramp
+      KARMA JACKPOT: Spell K-A-R-M-A on the drop targets
+      WIZARD MODE: Complete all missions, face your fate
+      
+wizard_mode:
+  name: "FACE YOUR KARMA"
+  requirement: "Complete all timeline missions"
   description: |
-    A magnificent pinball machine dominates one corner, its backglass
-    depicting a cosmic bar at the edge of the universe. The playfield
-    is a maze of bumpers, ramps, and multiball madness.
+    The machine goes dark. A single spotlight on the ball.
+    You face a choice: three shots, three outcomes.
     
-    The machine is called "BAR KARMA" — custom built, one of a kind.
-    The flippers are worn. The tilt sensor is generous. The high
-    scores are legendary.
+    LEFT RAMP: Accept your fate
+    CENTER RAMP: Change your past
+    RIGHT RAMP: Transcend karma entirely
     
-  examine: |
-    The backglass art shows:
-    - A bartender with ancient eyes
-    - Patrons from across time and space
-    - A swirling vortex of parallel timelines
-    - The tagline: "CHANGE YOUR FATE — 25¢"
+    No one knows what happens if you make all three shots.
+    The machine has never revealed it.
     
-    Playfield features:
-    - "Destiny Ramp" — Shoot to choose your future
-    - "Karma Bumpers" — Good deeds score more
-    - "Timeline Multiball" — Three balls, three fates
-    - "Grue Pit" — Lose your ball to darkness
-    - "Mother's Kitchen" — Safe haven kickback
-    
-  high_scores:
-    - name: "JMS"
-      score: 999999999
-      note: "James. Obviously."
-    - name: "GNA"
-      score: 847230100
-      note: "Guinan. She doesn't talk about it."
-    - name: "QRK"
-      score: 512100500
-      note: "Quark. Claims it was rigged."
-    - name: "MRN"
-      score: 1
-      note: "Morn. He just watches."
-    - name: "YOU"
-      score: "???"
-      
-  actions:
-    PLAY:
-      description: "Step up and play pinball"
-      cost: "1 gold per game (3 balls)"
-      mechanics: |
-        DM narrates your game:
-        - Flipper reflexes and ball saves
-        - Ramp shots and combo multipliers
-        - Multiball chaos
-        - The dreaded TILT
-        - Your final score and rank
-        
-    NUDGE:
-      description: "Carefully nudge the machine"
-      risk: "Too much and you TILT!"
-      reward: "Save a ball heading for the drain"
-      
-    TILT:
-      description: "You tilted! Game over."
-      effect: "Flippers go dead. Ball drains. Shame."
-      
-    SLAM-TILT:
-      description: "Hit it too hard — machine shuts down"
-      consequence: "Bartender is NOT happy"
-      
-    READ-RULES:
-      description: "Study the instruction card"
-      reveals: |
-        TIMELINE MULTIBALL: Lock 3 balls in the Destiny Ramp
-        KARMA JACKPOT: Spell K-A-R-M-A on the drop targets
-        WIZARD MODE: Complete all missions, face your fate
-        
-  wizard_mode:
-    name: "FACE YOUR KARMA"
-    requirement: "Complete all timeline missions"
-    description: |
-      The machine goes dark. A single spotlight on the ball.
-      You face a choice: three shots, three outcomes.
-      
-      LEFT RAMP: Accept your fate
-      CENTER RAMP: Change your past
-      RIGHT RAMP: Transcend karma entirely
-      
-      No one knows what happens if you make all three shots.
-      The machine has never revealed it.
-      
-  lore: |
-    The pinball machine was built by a mad inventor who visited
-    the bar seeking answers about his life. Instead of answers,
-    he found purpose: to build a machine that asks the questions.
-    
-    They say if you achieve Wizard Mode and make all three shots,
-    the machine grants you a vision of your true destiny.
-    
-    No one has ever done it. The bartender smiles when asked.
-    
-  inspiration:
-    - "The Addams Family (1992) — Best-selling pinball ever"
-    - "Medieval Madness, Theatre of Magic, Twilight Zone"
-    - "Every dive bar's battered but beloved machine"
-    - "The Pinball Wizard (The Who)"
-    - "Bar Karma — the show that inspired this pub"
+lore: |
+  The pinball machine was built by a mad inventor who visited
+  the bar seeking answers about his life. Instead of answers,
+  he found purpose: to build a machine that asks the questions.
+  
+  They say if you achieve Wizard Mode and make all three shots,
+  the machine grants you a vision of your true destiny.
+  
+  No one has ever done it. The bartender smiles when asked.
+  
+inspiration:
+  - "The Addams Family (1992) — Best-selling pinball ever"
+  - "Medieval Madness, Theatre of Magic, Twilight Zone"
+  - "Every dive bar's battered but beloved machine"
+  - "The Pinball Wizard (The Who)"
+  - "Bar Karma — the show that inspired this pub"

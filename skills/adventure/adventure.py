@@ -1202,7 +1202,7 @@ class AdventureLinter:
                 type=EventType.FOUND_ADVENTURE,
                 severity=EventSeverity.INFO,
                 path=str(path.relative_to(self.adventure_path)),
-                message=f"Found adventure: {data.get('adventure', {}).get('name', 'Unnamed')}",
+                message=f"Found adventure: {body(data, 'adventure').get('name', 'Unnamed')}",
                 data={'turn': data.get('simulation', {}).get('turn', 0)}
             ))
             

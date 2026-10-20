@@ -2,16 +2,15 @@
 # 7 official servers from modelcontextprotocol/servers (78k stars)
 # These are NOT skills — they're infrastructure that skills USE.
 
-catalog:
-  name: mcp-servers
-  description: "Official MCP reference implementations — infrastructure, not skills"
-  publisher: modelcontextprotocol (Anthropic-backed)
-  repo: https://github.com/modelcontextprotocol/servers
-  updated: 2026-02-06
-  count: 7
-  scanned: 7
-  stars: "~78k"
-  note: "MCP servers are plumbing, not skills. Interesting for how MOOLLM entities could expose themselves as MCP servers."
+name: mcp-servers
+description: "Official MCP reference implementations — infrastructure, not skills"
+publisher: modelcontextprotocol (Anthropic-backed)
+repo: https://github.com/modelcontextprotocol/servers
+updated: 2026-02-06
+count: 7
+scanned: 7
+stars: "~78k"
+note: "MCP servers are plumbing, not skills. Interesting for how MOOLLM entities could expose themselves as MCP servers."
 
 entries:
   - server: filesystem

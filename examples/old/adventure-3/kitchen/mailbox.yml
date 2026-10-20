@@ -2,280 +2,279 @@
 # Fantastipants Dungeon Delivery Service (FDDS)
 # Established 1876 — "We Deliver Anywhere Death Reaches!"
 
-object:
-  name: Dungeon Mailbox
-  type: postal_service
-  portable: false
+name: Dungeon Mailbox
+type: postal_service
+portable: false
+
+description: |
+  A brass mailbox mounted on the wall by the kitchen door, polished
+  but ancient. The slot seems impossibly deep. The Fantastipants
+  family crest is embossed on the front: the confused badger with
+  its waffle iron, now wearing a postal cap.
   
+  A faded sign reads:
+  
+      FANTASTIPANTS DUNGEON DELIVERY SERVICE
+      "From the darkest depths to your doorstep!"
+      Est. 1876 — Service Contract: Eternal
+      
+  A small red flag indicates outgoing mail.
+  
+examine: |
+  You peer into the mail slot. It goes deeper than makes sense.
+  Deeper than the wall. Deeper than the HOUSE.
+  
+  A faint echo of sorting machinery drifts up. Somewhere, in some
+  impossible postal dimension, letters are being routed.
+  
+  The mailbox is warm to the touch. It seems... aware of you.
+  
+  A schedule is posted:
+  
+  DELIVERY: Instantaneous (magic!)
+  PICKUP: Continuous
+  LOST MAIL: Returned to sender (eventually) (usually)
+  
+# HOW IT WORKS
+
+service_details:
+  delivery_time: "Instant (magic-assisted routing)"
+  coverage: "Anywhere in the dungeon, surface world, or known multiverse"
+  cost: "Free (Grandmother negotiated eternal service in 1923)"
+  reliability: "98.7% (the remaining 1.3% arrives... eventually)"
+  
+  grandmother_story: |
+    In 1923, Grandmother Fantastipants defeated the Dungeon Postal
+    Union's champion in single combat (a sorting golem named HERMES-7).
+    As tribute, the DPU granted the Fantastipants family eternal
+    free postage, plus priority routing.
+    
+    Don't ask what she was doing in the postal dimension.
+    Don't ask how she got there.
+    She doesn't like to talk about it.
+    
+# ACTIONS
+
+actions:
+  SEND-LETTER:
+    description: "Send a letter to anyone, anywhere"
+    usage: |
+      SEND LETTER TO [recipient]
+      MAIL LETTER TO [recipient]
+      DROP LETTER IN MAILBOX
+      
+    flow: |
+      1. Write letter (or use existing letter in inventory)
+      2. Optionally add attachments (ENCLOSE [item])
+      3. Specify recipient
+      4. Drop in mailbox
+      5. *WHOOSH* — instant delivery!
+      
+    recipients:
+      known:
+        - "Mother (always reachable)"
+        - "The Skeleton's Family (address: Unknown, but mailbox knows)"
+        - "Richard Bartle (MUD creator, Colchester, Essex)"
+        - "Anyone you've met in the adventure"
+        - "Any historical adventurer (may take longer)"
+        
+      custom: |
+        You can address letters to ANYONE. The mailbox will TRY.
+        Fictional characters: 50% success (they write back in-character)
+        Real people: Letters arrive but replies are uncertain
+        Concepts: "Dear Fear," "Dear Future Me" — surprisingly effective
+        
+  ENCLOSE:
+    description: "Attach something to your letter"
+    usage: "ENCLOSE [item/amount] WITH LETTER"
+    
+    what_you_can_send:
+      gold: |
+        "ENCLOSE 5 GOLD"
+        Gold is magically packaged. Arrives safely.
+        Mother will deposit it in the family vault.
+        Others may be confused or delighted.
+        
+      photos: |
+        "ENCLOSE photo: victory-selfie-prompt.md"
+        Reference any image prompt you've created.
+        Recipients can "see" them. Mother loves pictures.
+        
+      recipes: |
+        "ENCLOSE recipe: Mystery Casserole"
+        Share your culinary discoveries!
+        Mother adds them to the family collection.
+        
+      items: |
+        "ENCLOSE the Oracle Core"
+        Physical items are miniaturized for transit.
+        Size limit: Must fit through the slot (magically expanded)
+        Fragile items may arrive... changed.
+        
+      skills: |
+        "ENCLOSE skill-card: PHOTO-SET-8"
+        Share what you've learned!
+        Recipients gain access to the skill.
+        
+      letters: |
+        "ENCLOSE letter-from-skeleton"
+        Forward mail! Create chains of correspondence!
+        
+    warnings:
+      - "Living things cannot be mailed (the golem gets upset)"
+      - "ACME products may activate in transit"
+      - "Cursed items are delivered with warning labels"
+      - "Food items arrive fresh (postal preservation magic)"
+      - "Dangerous items require signature on receipt"
+      
+  CHECK-MAIL:
+    description: "See if you have any incoming mail"
+    usage: "CHECK MAIL / CHECK MAILBOX"
+    
+    what_might_arrive:
+      from_mother:
+        - "Replies to your letters (always)"
+        - "Care packages when you're struggling"
+        - "Family heirlooms if you asked about history"
+        - "Worried letters if you've been gone too long"
+        - "Proud letters if you've accomplished things"
+        
+      from_others:
+        - "Thank-you notes from skeleton's family"
+        - "Responses from historical adventurers"
+        - "Mysterious letters from unknown senders"
+        - "ACME product announcements (you can unsubscribe)"
+        - "Dungeon Newsletter (you can't unsubscribe)"
+        
+      care_packages: |
+        If Mother detects you're low on supplies (via magic):
+        - 1 vial lamp oil
+        - 1 snack (baked fresh)
+        - 1 note: "I believe in you"
+        - Sometimes: emergency gold
+        - Rarely: family heirloom "you might need this"
+        
+  TRACK-PACKAGE:
+    description: "See where your sent mail went"
+    usage: "TRACK [letter/package]"
+    effect: |
+      The mailbox hums. A spectral receipt prints from the slot:
+      
+      FDDS TRACKING: #[number]
+      TO: [recipient]
+      STATUS: [Delivered / In Transit / Lost in Postal Dimension]
+      READ: [Yes/No/Complicated]
+      REPLY: [Pending / Sent / Unlikely]
+      
+# OTHER MAILBOX LOCATIONS
+
+other_mailboxes:
   description: |
-    A brass mailbox mounted on the wall by the kitchen door, polished
-    but ancient. The slot seems impossibly deep. The Fantastipants
-    family crest is embossed on the front: the confused badger with
-    its waffle iron, now wearing a postal cap.
+    The FDDS has mailboxes throughout the dungeon. All are
+    interconnected. Sending from any reaches any recipient.
     
-    A faded sign reads:
-    
-        FANTASTIPANTS DUNGEON DELIVERY SERVICE
-        "From the darkest depths to your doorstep!"
-        Est. 1876 — Service Contract: Eternal
-        
-    A small red flag indicates outgoing mail.
-    
-  examine: |
-    You peer into the mail slot. It goes deeper than makes sense.
-    Deeper than the wall. Deeper than the HOUSE.
-    
-    A faint echo of sorting machinery drifts up. Somewhere, in some
-    impossible postal dimension, letters are being routed.
-    
-    The mailbox is warm to the touch. It seems... aware of you.
-    
-    A schedule is posted:
-    
-    DELIVERY: Instantaneous (magic!)
-    PICKUP: Continuous
-    LOST MAIL: Returned to sender (eventually) (usually)
-    
-  # HOW IT WORKS
-  
-  service_details:
-    delivery_time: "Instant (magic-assisted routing)"
-    coverage: "Anywhere in the dungeon, surface world, or known multiverse"
-    cost: "Free (Grandmother negotiated eternal service in 1923)"
-    reliability: "98.7% (the remaining 1.3% arrives... eventually)"
-    
-    grandmother_story: |
-      In 1923, Grandmother Fantastipants defeated the Dungeon Postal
-      Union's champion in single combat (a sorting golem named HERMES-7).
-      As tribute, the DPU granted the Fantastipants family eternal
-      free postage, plus priority routing.
+  locations:
+    - room: "kitchen/"
+      type: "wall-mounted brass"
+      notes: "Primary family mailbox. Extra enchantments."
       
-      Don't ask what she was doing in the postal dimension.
-      Don't ask how she got there.
-      She doesn't like to talk about it.
+    - room: "coatroom/"
+      type: "hidden behind mirror"
+      notes: "For private correspondence. Maurice doesn't read it. (Usually.)"
       
-  # ACTIONS
-  
-  actions:
-    SEND-LETTER:
-      description: "Send a letter to anyone, anywhere"
-      usage: |
-        SEND LETTER TO [recipient]
-        MAIL LETTER TO [recipient]
-        DROP LETTER IN MAILBOX
-        
-      flow: |
-        1. Write letter (or use existing letter in inventory)
-        2. Optionally add attachments (ENCLOSE [item])
-        3. Specify recipient
-        4. Drop in mailbox
-        5. *WHOOSH* — instant delivery!
-        
-      recipients:
-        known:
-          - "Mother (always reachable)"
-          - "The Skeleton's Family (address: Unknown, but mailbox knows)"
-          - "Richard Bartle (MUD creator, Colchester, Essex)"
-          - "Anyone you've met in the adventure"
-          - "Any historical adventurer (may take longer)"
-          
-        custom: |
-          You can address letters to ANYONE. The mailbox will TRY.
-          Fictional characters: 50% success (they write back in-character)
-          Real people: Letters arrive but replies are uncertain
-          Concepts: "Dear Fear," "Dear Future Me" — surprisingly effective
-          
-    ENCLOSE:
-      description: "Attach something to your letter"
-      usage: "ENCLOSE [item/amount] WITH LETTER"
+    - room: "maze/room-j/"
+      type: "built into vending machine"
+      notes: "Doubles as customer feedback box."
       
-      what_you_can_send:
-        gold: |
-          "ENCLOSE 5 GOLD"
-          Gold is magically packaged. Arrives safely.
-          Mother will deposit it in the family vault.
-          Others may be confused or delighted.
-          
-        photos: |
-          "ENCLOSE photo: victory-selfie-prompt.md"
-          Reference any image prompt you've created.
-          Recipients can "see" them. Mother loves pictures.
-          
-        recipes: |
-          "ENCLOSE recipe: Mystery Casserole"
-          Share your culinary discoveries!
-          Mother adds them to the family collection.
-          
-        items: |
-          "ENCLOSE the Oracle Core"
-          Physical items are miniaturized for transit.
-          Size limit: Must fit through the slot (magically expanded)
-          Fragile items may arrive... changed.
-          
-        skills: |
-          "ENCLOSE skill-card: PHOTO-SET-8"
-          Share what you've learned!
-          Recipients gain access to the skill.
-          
-        letters: |
-          "ENCLOSE letter-from-skeleton"
-          Forward mail! Create chains of correspondence!
-          
-      warnings:
-        - "Living things cannot be mailed (the golem gets upset)"
-        - "ACME products may activate in transit"
-        - "Cursed items are delivered with warning labels"
-        - "Food items arrive fresh (postal preservation magic)"
-        - "Dangerous items require signature on receipt"
-        
-    CHECK-MAIL:
-      description: "See if you have any incoming mail"
-      usage: "CHECK MAIL / CHECK MAILBOX"
+    - room: "end/"
+      type: "small slot in treasury wall"
+      notes: "For victory announcements."
       
-      what_might_arrive:
-        from_mother:
-          - "Replies to your letters (always)"
-          - "Care packages when you're struggling"
-          - "Family heirlooms if you asked about history"
-          - "Worried letters if you've been gone too long"
-          - "Proud letters if you've accomplished things"
-          
-        from_others:
-          - "Thank-you notes from skeleton's family"
-          - "Responses from historical adventurers"
-          - "Mysterious letters from unknown senders"
-          - "ACME product announcements (you can unsubscribe)"
-          - "Dungeon Newsletter (you can't unsubscribe)"
-          
-        care_packages: |
-          If Mother detects you're low on supplies (via magic):
-          - 1 vial lamp oil
-          - 1 snack (baked fresh)
-          - 1 note: "I believe in you"
-          - Sometimes: emergency gold
-          - Rarely: family heirloom "you might need this"
-          
-    TRACK-PACKAGE:
-      description: "See where your sent mail went"
-      usage: "TRACK [letter/package]"
-      effect: |
-        The mailbox hums. A spectral receipt prints from the slot:
-        
-        FDDS TRACKING: #[number]
-        TO: [recipient]
-        STATUS: [Delivered / In Transit / Lost in Postal Dimension]
-        READ: [Yes/No/Complicated]
-        REPLY: [Pending / Sent / Unlikely]
-        
-  # OTHER MAILBOX LOCATIONS
-  
-  other_mailboxes:
-    description: |
-      The FDDS has mailboxes throughout the dungeon. All are
-      interconnected. Sending from any reaches any recipient.
+    - room: "home/"
+      type: "front porch mailbox"
+      notes: "Standard residential. Mother checks hourly."
       
-    locations:
-      - room: "kitchen/"
-        type: "wall-mounted brass"
-        notes: "Primary family mailbox. Extra enchantments."
-        
-      - room: "coatroom/"
-        type: "hidden behind mirror"
-        notes: "For private correspondence. Maurice doesn't read it. (Usually.)"
-        
-      - room: "maze/room-j/"
-        type: "built into vending machine"
-        notes: "Doubles as customer feedback box."
-        
-      - room: "end/"
-        type: "small slot in treasury wall"
-        notes: "For victory announcements."
-        
-      - room: "home/"
-        type: "front porch mailbox"
-        notes: "Standard residential. Mother checks hourly."
-        
-  # LETTER WRITING ASSISTANCE
+# LETTER WRITING ASSISTANCE
+
+writing_help: |
+  Need help composing a letter? The DM can assist!
   
-  writing_help: |
-    Need help composing a letter? The DM can assist!
-    
-    - "HELP WRITE LETTER" — General guidance
-    - "WRITE FORMAL LETTER" — Proper format
-    - "WRITE EMOTIONAL LETTER" — Heart stuff
-    - "WRITE FUNNY LETTER" — Comedy assistance
-    - "WRITE TO SKELETON'S FAMILY" — Sensitive situation guidance
-    
-    Or just start talking. The mailbox takes dictation.
-    
-  # TOM'S OPINION
+  - "HELP WRITE LETTER" — General guidance
+  - "WRITE FORMAL LETTER" — Proper format
+  - "WRITE EMOTIONAL LETTER" — Heart stuff
+  - "WRITE FUNNY LETTER" — Comedy assistance
+  - "WRITE TO SKELETON'S FAMILY" — Sensitive situation guidance
   
-  tom_opinion: |
-    "Tom is fascinated by the postal system."
-    "Tom does not understand how it works. Tom has asked. The mailbox
-    just hums mysteriously."
-    "Tom thinks writing to Mother is important. Tom encourages this."
-    "Tom would write to Mother but Tom does not have one."
-    "...Tom is feeling something. Tom is unsure what."
-    "Tom thinks YOU should write a letter. For both of us."
-    
-  # MAILBOX PERSONALITY
+  Or just start talking. The mailbox takes dictation.
   
-  personality: |
-    The mailbox is SLIGHTLY SENTIENT. It has opinions.
-    
-    - Hums happily when accepting mail
-    - Gets warm when receiving care packages
-    - Shivers at letters addressed to "The Grue"
-    - Glows faintly when important mail arrives
-    - Occasionally makes sorting noises at night
-    
-    If asked directly, it responds via printed receipt:
-    
-    "I AM HERMES-7B, DESCENDED FROM THE GOLEM YOUR GRANDMOTHER DEFEATED.
-    I BEAR NO GRUDGE. POSTAL SERVICE IS ITS OWN REWARD.
-    PLEASE ENSURE ALL LETTERS ARE PROPERLY ADDRESSED.
-    HAVE A NICE DAY."
-    
-  # DM NOTES
+# TOM'S OPINION
+
+tom_opinion: |
+  "Tom is fascinated by the postal system."
+  "Tom does not understand how it works. Tom has asked. The mailbox
+  just hums mysteriously."
+  "Tom thinks writing to Mother is important. Tom encourages this."
+  "Tom would write to Mother but Tom does not have one."
+  "...Tom is feeling something. Tom is unsure what."
+  "Tom thinks YOU should write a letter. For both of us."
   
-  dm_notes: |
-    The postal system is a NARRATIVE LIFELINE:
-    
-    - Keeps player connected to Mother during scary moments
-    - Allows emotional check-ins without breaking dungeon flow
-    - Creates opportunities for worldbuilding (who else exists?)
-    - Enables side quests (write to skeleton's family!)
-    - Makes attachments meaningful (send photos home!)
-    
-    Mother ALWAYS replies. Quickly. With love.
-    
-    Other recipients reply based on plausibility:
-    - Skeleton's family: Grateful, emotional
-    - Historical adventurers: In-character, sometimes helpful
-    - The Grue: "..." (but the letter is opened)
-    - Fictional characters: Fun, noncanonical
-    
-    Use mail to deliver:
-    - Plot hooks ("Grandfather's old notes arrived...")
-    - Resources (care packages)
-    - Emotional beats (proud letters)
-    - World building (dungeon newsletter)
-    
-  # LINEAGE
+# MAILBOX PERSONALITY
+
+personality: |
+  The mailbox is SLIGHTLY SENTIENT. It has opinions.
   
-  lineage: |
-    The Dungeon Postal Service is inspired by:
-    - Discworld's Postal Service (GNU Terry Pratchett)
-    - The letters to Santa that NORAD tracks
-    - Owl Post from Harry Potter, but without hate or black mold
-    - The dream of being able to write to anyone, anywhere
-    
-    In adventure-2, the postal system enabled ongoing correspondence
-    with Mother, Richard Bartle, and even the skeleton's family.
-    Letters became a primary narrative driver.
-    
-    This is PLAY-LEARN-LIFT:
-    - PLAY: Write whatever you want to whoever you want
-    - LEARN: Discover who you want to connect with
-    - LIFT: Letters create plot hooks, goals, emotional beats
+  - Hums happily when accepting mail
+  - Gets warm when receiving care packages
+  - Shivers at letters addressed to "The Grue"
+  - Glows faintly when important mail arrives
+  - Occasionally makes sorting noises at night
+  
+  If asked directly, it responds via printed receipt:
+  
+  "I AM HERMES-7B, DESCENDED FROM THE GOLEM YOUR GRANDMOTHER DEFEATED.
+  I BEAR NO GRUDGE. POSTAL SERVICE IS ITS OWN REWARD.
+  PLEASE ENSURE ALL LETTERS ARE PROPERLY ADDRESSED.
+  HAVE A NICE DAY."
+  
+# DM NOTES
+
+dm_notes: |
+  The postal system is a NARRATIVE LIFELINE:
+  
+  - Keeps player connected to Mother during scary moments
+  - Allows emotional check-ins without breaking dungeon flow
+  - Creates opportunities for worldbuilding (who else exists?)
+  - Enables side quests (write to skeleton's family!)
+  - Makes attachments meaningful (send photos home!)
+  
+  Mother ALWAYS replies. Quickly. With love.
+  
+  Other recipients reply based on plausibility:
+  - Skeleton's family: Grateful, emotional
+  - Historical adventurers: In-character, sometimes helpful
+  - The Grue: "..." (but the letter is opened)
+  - Fictional characters: Fun, noncanonical
+  
+  Use mail to deliver:
+  - Plot hooks ("Grandfather's old notes arrived...")
+  - Resources (care packages)
+  - Emotional beats (proud letters)
+  - World building (dungeon newsletter)
+  
+# LINEAGE
+
+lineage: |
+  The Dungeon Postal Service is inspired by:
+  - Discworld's Postal Service (GNU Terry Pratchett)
+  - The letters to Santa that NORAD tracks
+  - Owl Post from Harry Potter, but without hate or black mold
+  - The dream of being able to write to anyone, anywhere
+  
+  In adventure-2, the postal system enabled ongoing correspondence
+  with Mother, Richard Bartle, and even the skeleton's family.
+  Letters became a primary narrative driver.
+  
+  This is PLAY-LEARN-LIFT:
+  - PLAY: Write whatever you want to whoever you want
+  - LEARN: Discover who you want to connect with
+  - LIFT: Letters create plot hooks, goals, emotional beats
