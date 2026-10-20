@@ -15,6 +15,7 @@ import argparse
 import sys
 from pathlib import Path
 from datetime import datetime, date
+from envelope import body
 
 
 class YAMLJSONEncoder(json.JSONEncoder):
@@ -611,7 +612,7 @@ def compile_character(char_path: Path, adventure_root: Path) -> dict:
     
     # Extract commonly-needed fields to top level for easy access
     ontology = data.get('ontology', {})
-    char_data = data.get('character', {})
+    char_data = body(data, 'character')
     
     result['tags'] = ontology.get('tags', [])
     result['species'] = ontology.get('species')
@@ -660,7 +661,7 @@ def compile_catalog(catalog_path: Path, adventure_root: Path) -> dict:
     data = load_yaml(catalog_path)
     
     # Handle object: wrapper
-    catalog_data = data.get('object', data.get('prototype', data))
+    catalog_data = body(data, 'object', 'prototype')
     
     # Start with pass-through
     result = dict(catalog_data)
@@ -1071,7 +1072,7 @@ def generate_compound_examine(data: dict, obj_name: str) -> str:
     lines = [f"═══ {obj_name} ═══", ""]
     
     # Get the object data
-    obj = data.get('object', data.get('prototype', data))
+    obj = body(data, 'object', 'prototype')
     
     # Top-level description
     if 'description' in obj:
@@ -1134,7 +1135,7 @@ def compile_object(obj_path: Path, adventure_root: Path, room_id: str = None) ->
     is_dream = 'dream' in data
     
     # Get object data (handle object: wrapper)
-    obj_data = data.get('object', data.get('prototype', data))
+    obj_data = body(data, 'object', 'prototype')
     
     # Start with pass-through
     result = dict(obj_data)
@@ -1269,7 +1270,7 @@ def compile_adventure(adventure_path: Path) -> dict:
     for yml_file in adventure_path.rglob('*catalog*.yml'):
         try:
             data = load_yaml(yml_file)
-            obj = data.get('object', data.get('prototype', data))
+            obj = body(data, 'object', 'prototype')
             if obj.get('type') == 'catalog' or 'catalog' in obj.get('type', []):
                 cat = compile_catalog(yml_file, adventure_path)
                 all_catalogs[cat['id']] = cat

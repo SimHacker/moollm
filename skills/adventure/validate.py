@@ -18,6 +18,7 @@ import re
 from pathlib import Path
 from dataclasses import dataclass
 from typing import List, Optional, Tuple
+from envelope import body
 
 
 @dataclass
@@ -371,7 +372,7 @@ def classify_yaml(path: Path, data: dict) -> dict:
                 'should_be_object': False, 'missing_fields': []}
     
     # Catalog detection
-    obj = data.get('object', data.get('prototype', data))
+    obj = body(data, 'object', 'prototype')
     if not isinstance(obj, dict):
         obj = data
     if obj.get('type') == 'catalog' or 'catalog' in filename.lower():

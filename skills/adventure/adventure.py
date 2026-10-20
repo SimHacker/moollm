@@ -28,6 +28,7 @@ from dataclasses import dataclass, field, asdict
 from typing import Any, Optional, Union
 from datetime import datetime
 from enum import Enum, auto
+from envelope import body
 
 
 def main() -> int:
@@ -1283,7 +1284,7 @@ class AdventureLinter:
                 data = yaml.safe_load(raw)
             
             # Accept character: or object: as container, prefer character:
-            char_data = data.get('character') or data.get('object') or data
+            char_data = body(data, 'character', 'object')
             character = Character.from_yaml(char_data, path)
             character._raw_yaml = raw
             
@@ -1435,7 +1436,7 @@ class AdventureLinter:
                 return
             
             rel = str(path.relative_to(self.adventure_path))
-            persona_data = data.get('object') or data.get('character') or data
+            persona_data = body(data, 'object', 'character')
             name = persona_data.get('name', path.stem)
             
             self.report.add_event(LintEvent(

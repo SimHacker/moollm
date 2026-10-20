@@ -17,6 +17,7 @@ import json
 import random
 import sys
 from pathlib import Path
+from envelope import body
 
 try:
     import yaml
@@ -56,7 +57,7 @@ def load_characters_from_yaml(adventure_path: Path) -> list:
                 data = yaml.safe_load(f)
             
             # Extract character data
-            char_data = data.get('character', data.get('player', {}))
+            char_data = body(data, 'character', 'player')
             ontology = data.get('ontology', {})
             
             # Generate currency if not present (same logic as compiler)
