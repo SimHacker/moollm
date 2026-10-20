@@ -334,8 +334,8 @@ format*: skills/glance     # how long, which keys, what a glance is for
 subject*: ..               # the thing it summarizes: the directory that holds it
 ```
 
-Lookup on a view: its own slots, then `format*`, then `subject*`. A glance that doesn't have the
-answer falls through to the object it summarizes. The reading rule "never load a lower level
+Lookup on a view: its own slots, then `subject*`, then `format*`. A glance that doesn't have the
+answer falls through to the object it summarizes before the view skill. The reading rule "never load a lower level
 without the level above" is then a delegation order: GLANCE, then CARD, then the object itself.
 
 | View | Skill | Summarizes | Status |
@@ -469,7 +469,7 @@ names.
 | Envelopes | none: files are flat, the filename is the interface |
 | Compound keys | schema keys use underscores (`k_lines`, `done_when`); names of things use hyphens; foreign schemas keep theirs |
 | Interface skills | an UPPERCASE file implies its skill, found in enclosing scopes first, latent if none |
-| Views | GLANCE, CARD, INDEX: `format*` the view skill, `subject*` the container |
+| Views | GLANCE, CARD, INDEX: `subject*` the container, then `format*` the view skill |
 | File metadata | git; a `-metadata.yml` sidecar only for what git can't hold |
 | Verdicts | facts on the object, judgments on the judge: rooms have `lighting:`, the grue decides; no `grue_safe:` |
 | Work vocabulary | goal (wanted state) ← task (claimed goal) → actions (queued steps); `done_when:` is the one condition key |

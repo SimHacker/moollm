@@ -29,7 +29,7 @@ schema:
   inherits: "list, most specific first; entries are refs or {ref, why, but, as, gets, overrides, except}"
   named_parent: "role*: ref; reassignable; looked up after inherits:"
   implied_parent: "ROOM.yml -> room skill, nearest scope first, else the latent K-line ROOM"
-  view_parents: "GLANCE/CARD/INDEX: format*: <view skill>, subject*: .."
+  view_parents: "GLANCE/CARD/INDEX: subject*: .., then format*: <view skill>"
   embedded: "FILE#collection.id, or FILE#*.id for whichever collection has it"
   not_parents: [k_lines, related, see_also, lineage, tags, type, the containing directory]
   never_inherited: [state]

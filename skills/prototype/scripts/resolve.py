@@ -15,9 +15,9 @@ Parents, in lookup order:
      file defines it. A directory implies the skills of its interface files.
      An embedded object implies the skill of its collection key (objects ->
      object).
-  3. views (GLANCE.yml, CARD.yml, INDEX.yml) get `format*: <view skill>` and
-     `subject*: <their directory>` instead: a view that lacks a slot falls
-     through to the thing it summarizes.
+  3. views (GLANCE.yml, CARD.yml, INDEX.yml) get `subject*: <their directory>`
+     and then `format*: <view skill>` instead: a view that lacks a slot falls
+     through to the thing it summarizes before its format.
 
 Lookup: own slots, then declared parents in order, depth-first, first match
 wins; then `defaults:` from enclosing CONTAINER.yml files, keyed by what the
@@ -310,8 +310,8 @@ def load_obj(key: Key, root: Path) -> Obj:
         obj.slots = file_slots(path)
         iface = interface_name(path)
         if iface in VIEWS:
-            implied.append(implied_parent(VIEWS[iface], base, root, path, role="format"))
             implied.append(ParentRef(ref="..", role="subject", target=(base, ""), implied=True))
+            implied.append(implied_parent(VIEWS[iface], base, root, path, role="format"))
         elif iface:
             implied.append(implied_parent(iface, base, root, base))
 

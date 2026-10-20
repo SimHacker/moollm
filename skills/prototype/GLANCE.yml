@@ -25,7 +25,7 @@ shape: |
     - { ref: skills/cat, but: "grumpier" }
   mood*: moods/sleepy                  # named parent, reassignable
 
-implied: "ROOM.yml → room skill (nearest scope); GLANCE/CARD/INDEX → format* view skill + subject* .."
+implied: "ROOM.yml → room skill (nearest scope); GLANCE/CARD/INDEX → subject* .., then format* view skill"
 not_parents: "k_lines, related, see_also, lineage, tags, the containing directory"
 catalogs: "PROTOTYPES.yml is a map of clonables; clone = inherits: [FILE#*.id] + differences"
 tool: "scripts/resolve.py lookup | parents | lint | stale"

@@ -97,11 +97,11 @@ reported. When two unrelated parents both define a slot, MOOLLM takes the first 
 the object that contains them. Each view has two implied named parents:
 
 ```yaml
-format*: glance    # skills/glance when it exists; the latent GLANCE until then
 subject*: ..       # the directory it summarizes
+format*: glance    # skills/glance when it exists; the latent GLANCE until then
 ```
 
-A view that lacks a slot falls through to its subject, so reading GLANCE, then CARD, then the
+A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
 object is a delegation chain. GLANCE and CARD summarize the object; INDEX summarizes its
 contents, one entry per child.
 

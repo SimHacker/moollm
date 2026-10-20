@@ -122,7 +122,7 @@ def test_filename_implies_latent_when_no_skill() -> None:
 
 def test_view_falls_through_to_subject() -> None:
     roles = [p.role for p in obj("garden/GLANCE.yml").parents]
-    assert roles == ["format", "subject"]
+    assert roles == ["subject", "format"]
     assert definer("garden/GLANCE.yml", "exits") == "garden"
 
 

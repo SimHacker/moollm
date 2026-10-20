@@ -126,11 +126,11 @@ An embedded object implies the skill of its collection key (`objects:` → `obje
 has two implied named parents:
 
 ```yaml
-format*: glance    # the view skill: skills/glance, or the latent GLANCE until it exists
 subject*: ..       # the directory it summarizes
+format*: glance    # the view skill: skills/glance, or the latent GLANCE until it exists
 ```
 
-A view that lacks a slot falls through to its subject, so reading GLANCE, then CARD, then the
+A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
 object is one delegation chain. A view is a cache; git says when it's stale (`resolve.py stale`).
 
 ## Embedded objects and catalogs
