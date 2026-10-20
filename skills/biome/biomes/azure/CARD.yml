@@ -1,34 +1,33 @@
 # CARD.yml — azure (example biome, cloud family)
 
-card:
-  id: azure
-  name: "Azure — Microsoft Azure (biome stub)"
-  type: [skill, biome]
-  emoji: "☁️"
-  family: cloud
-  status: stub
-  biome: true
-  tagline: "Cloud hyperscaler with enterprise-IT flavor — subscriptions, resource groups, Entra ID, managed identity."
+id: azure
+name: "Azure — Microsoft Azure (biome stub)"
+type: [skill, biome]
+emoji: "☁️"
+family: cloud
+status: stub
+biome: true
+tagline: "Cloud hyperscaler with enterprise-IT flavor — subscriptions, resource groups, Entra ID, managed identity."
 
-  character: |
-    Azure is a cloud biome with an enterprise-IT lineage. Its
-    distinguishing features versus GCP and AWS:
-      - Resource hierarchy has an extra level (Resource Group) with no
-        direct GCP/AWS analogue; RGs are the primary deployment +
-        lifecycle unit.
-      - Entra ID (formerly Azure AD) is the identity plane; integrates
-        tightly with on-prem AD and Microsoft 365 in ways AWS/GCP
-        simply don't.
-      - Policy / Compliance / Governance features (Azure Policy, Blueprints)
-        reflect the enterprise-IT audience.
-      - Region pairs for geo-redundancy are explicit (eastus/westus,
-        northeurope/westeurope, …).
-      - Naming conventions differ (e.g., "Scale Set" vs "MIG" vs "ASG";
-        "Key Vault" vs "Secret Manager" vs "Secrets Manager").
+character: |
+  Azure is a cloud biome with an enterprise-IT lineage. Its
+  distinguishing features versus GCP and AWS:
+    - Resource hierarchy has an extra level (Resource Group) with no
+      direct GCP/AWS analogue; RGs are the primary deployment +
+      lifecycle unit.
+    - Entra ID (formerly Azure AD) is the identity plane; integrates
+      tightly with on-prem AD and Microsoft 365 in ways AWS/GCP
+      simply don't.
+    - Policy / Compliance / Governance features (Azure Policy, Blueprints)
+      reflect the enterprise-IT audience.
+    - Region pairs for geo-redundancy are explicit (eastus/westus,
+      northeurope/westeurope, …).
+    - Naming conventions differ (e.g., "Scale Set" vs "MIG" vs "ASG";
+      "Key Vault" vs "Secret Manager" vs "Secrets Manager").
 
-  description: |
-    Stub biome. Consumer repos fork or inherit from this to capture
-    site-specific Azure operational knowledge.
+description: |
+  Stub biome. Consumer repos fork or inherit from this to capture
+  site-specific Azure operational knowledge.
 
 inherits:
   - biome

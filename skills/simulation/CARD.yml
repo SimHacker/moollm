@@ -3,20 +3,19 @@
 # Central hub for simulation state — turns, party, selection, world.
 # "The game state lives here."
 
-card:
-  id: simulation
-  name: "Simulation"
-  type: [skill, game, state, central]
+id: simulation
+name: "Simulation"
+type: [skill, game, state, central]
+
+emoji: 🎮
+
+rarity: epic
+
+description: |
+  Central hub for all simulation state. Manages turns, time,
+  party composition, selection targets, and global parameters.
   
-  emoji: 🎮
-  
-  rarity: epic
-  
-  description: |
-    Central hub for all simulation state. Manages turns, time,
-    party composition, selection targets, and global parameters.
-    
-    Adventure skill inherits from this.
+  Adventure skill inherits from this.
 
 # TOOLS REQUIRED
 

@@ -54,6 +54,12 @@ history:
   - at: 2026-10-20
     event: batch-done
     note: >
+      Envelopes: 146 CARD.yml and 60 CHARACTER.yml flattened (flatten.py; tier/status
+      duplicates removed by hand in 5). compile.py reads them through envelope.body, keeps a
+      character's own type, and no longer compiles CARD/GLANCE views as objects.
+  - at: 2026-10-20
+    event: batch-done
+    note: >
       Lighting. 129 ROOM/GLANCE files to 0..10 + comment (tasks/migrations/lighting.py, each
       reparsed, only lighting values and dropped keys differ); grue_safe, requires_light,
       ambient_light gone from rooms; room-h, room-j, back-alley, no-ai-overlord by hand; the
@@ -100,8 +106,11 @@ phases:
       - { scope: "kitten/puppy GLANCE biological parents: -> family:", files: 16, status: done }
       - { scope: "envelope room: in ROOM.yml", files: 175, status: done }
       - { scope: "work vocabulary: task inherits goal, done_when everywhere, task:/goal: wrappers", files: 33, status: done }
-      - { scope: "envelope card: in CARD.yml", files: 148, status: opened }
-      - { scope: "envelope character: in CHARACTER.yml", files: 60, status: opened }
+      - { scope: "envelope card: in CARD.yml", files: 146, status: done }
+      - { scope: "skills/time/CARD.yml holds the whole card twice; merge by hand", files: 1, status: opened }
+      - { scope: "envelope character: in CHARACTER.yml", files: 60, status: done }
+      - { scope: "characters stating species or tags twice (ontology vs own slot, values differ); compile shows ontology's", files: 22, status: opened }
+      - { scope: "compiled catalog table is empty (0 catalogs) in adventure-4", files: 0, status: opened, note: "already 0 at f2af097f; belongs with adventure-001" }
       - { scope: "envelope object: in object files", files: 349, status: opened }
       - { scope: "small envelopes (catalog, system, adventure, mind, maze, run, ...)", files: 40, status: opened }
       - { scope: "readers: drop data.get('room', data) fallbacks once no envelopes remain", files: 4, status: opened }

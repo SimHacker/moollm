@@ -1,22 +1,21 @@
 # CARD.yml — Vehicle
 # Movable inhabitables — not skill/repo mounting
 
-card:
-  id: vehicle
-  name: Vehicle
-  type: [skill, spatial, entity]
-  emoji: 🚌
-  tier: 1
-  tagline: "A movable room a character can inhabit."
+id: vehicle
+name: Vehicle
+type: [skill, spatial, entity]
+emoji: 🚌
+tier: 1
+tagline: "A movable room a character can inhabit."
 
-  description: |
-    Vehicles are rooms (or nested room-trees) that relocate in world-space
-    with their occupants. A horse is a vehicle. A wagon it pulls is a
-    vehicle. A caravan is nested vehicles. FMC motorcoach, Bartle study
-    TARDIS, Logo turtle — same pattern.
+description: |
+  Vehicles are rooms (or nested room-trees) that relocate in world-space
+  with their occupants. A horse is a vehicle. A wagon it pulls is a
+  vehicle. A caravan is nested vehicles. FMC motorcoach, Bartle study
+  TARDIS, Logo turtle — same pattern.
 
-    Disambiguation: skills/mount is NFS-style overlay of skills on
-    directories / composing virtual repo trees — not riding.
+  Disambiguation: skills/mount is NFS-style overlay of skills on
+  directories / composing virtual repo trees — not riding.
 
 files:
   docs:
@@ -97,5 +96,3 @@ examples_worked:
   fmc_898: examples/adventure-4/characters/real-people/don-hopkins/fmc-898/
   bartle_study: examples/adventure-4/characters/real-people/richard-bartle/study/
   bakfiets: examples/adventure-4/street/lane-neverending/w1/acme-bakfiets-of-holding.yml
-
-tier: 1

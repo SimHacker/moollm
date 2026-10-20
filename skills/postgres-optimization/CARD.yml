@@ -3,26 +3,25 @@
 # Unconventional PostgreSQL performance techniques.
 # "Beyond the obvious: creative query optimization."
 
-card:
-  id: postgres-optimization
-  name: "PostgreSQL Optimization"
-  type: [skill, database, performance]
+id: postgres-optimization
+name: "PostgreSQL Optimization"
+type: [skill, database, performance]
+
+emoji: 🐘
+
+rarity: uncommon  # Beyond standard DBA techniques
+
+description: |
+  Comprehensive PostgreSQL index and optimization knowledge.
   
-  emoji: 🐘
+  **INDEXES.md** — Deep dive on index internals, types (B-Tree, Hash, 
+  BRIN, GIN, GiST), costs, and when to use each.
   
-  rarity: uncommon  # Beyond standard DBA techniques
+  **SKILL.md** — Unconventional techniques: constraint exclusion,
+  function-based indexes, hash exclusion constraints.
   
-  description: |
-    Comprehensive PostgreSQL index and optimization knowledge.
-    
-    **INDEXES.md** — Deep dive on index internals, types (B-Tree, Hash, 
-    BRIN, GIN, GiST), costs, and when to use each.
-    
-    **SKILL.md** — Unconventional techniques: constraint exclusion,
-    function-based indexes, hash exclusion constraints.
-    
-    Play this card for database performance problems, index selection,
-    query optimization, or understanding EXPLAIN ANALYZE output.
+  Play this card for database performance problems, index selection,
+  query optimization, or understanding EXPLAIN ANALYZE output.
 
 # TOOLS REQUIRED
 

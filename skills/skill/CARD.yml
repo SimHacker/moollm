@@ -5,28 +5,27 @@
 #
 # For CARD architecture (what goes where), see skills/card/SKILL.md
 
-card:
-  id: skill
-  name: "The Skill Forge"
-  type: [skill, meta, creation, prototype]
-  emoji: 🛠️
-  tier: 1
-  rarity: mythic
-  tagline: "A skill is documentation that learned to do things."
+id: skill
+name: "The Skill Forge"
+type: [skill, meta, creation, prototype]
+emoji: 🛠️
+tier: 1
+rarity: mythic
+tagline: "A skill is documentation that learned to do things."
+
+description: |
+  The meta-skill for creating, understanding, and debugging skills.
+  Every skill you encounter was forged here.
   
-  description: |
-    The meta-skill for creating, understanding, and debugging skills.
-    Every skill you encounter was forged here.
-    
-    MOOLLM's eight extensions (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md):
-    1. **Instantiation**: Skills as prototypes that create instances
-    2. **Three-Tier Persistence**: Platform → Narrative → State
-    3. **K-lines**: Names as semantic activation vectors (Minsky)
-    4. **Empathic Templates**: Smart generation, not string substitution
-    5. **Speed of Light**: Many turns in one call (33-turn Fluxx proof)
-    6. **CARD.yml**: Machine-readable interface with advertisements
-    7. **Ethical Framing**: Room-based inheritance of performance context
-    8. **Ambient Skills**: Always-on behavioral shaping via AMBIENT advertisements
+  MOOLLM's eight extensions (see designs/eval/EVAL-INCARNATE-FRAMEWORK.md):
+  1. **Instantiation**: Skills as prototypes that create instances
+  2. **Three-Tier Persistence**: Platform → Narrative → State
+  3. **K-lines**: Names as semantic activation vectors (Minsky)
+  4. **Empathic Templates**: Smart generation, not string substitution
+  5. **Speed of Light**: Many turns in one call (33-turn Fluxx proof)
+  6. **CARD.yml**: Machine-readable interface with advertisements
+  7. **Ethical Framing**: Room-based inheritance of performance context
+  8. **Ambient Skills**: Always-on behavioral shaping via AMBIENT advertisements
 
 # FILES INDEX — Activate together for full context
 

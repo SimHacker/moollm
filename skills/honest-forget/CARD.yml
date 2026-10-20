@@ -3,20 +3,19 @@
 # Graceful memory compression — summarize before forgetting.
 # "Forget with integrity. Leave a tombstone."
 
-card:
-  id: honest-forget
-  name: "Honest Forget"
-  type: [skill, memory, integrity]
+id: honest-forget
+name: "Honest Forget"
+type: [skill, memory, integrity]
+
+emoji: 🪦
+
+rarity: uncommon
+
+description: |
+  When context overflows, forget gracefully. Summarize what's
+  being forgotten. Leave a pointer to where the full version lives.
   
-  emoji: 🪦
-  
-  rarity: uncommon
-  
-  description: |
-    When context overflows, forget gracefully. Summarize what's
-    being forgotten. Leave a pointer to where the full version lives.
-    
-    Never pretend you remember what you don't.
+  Never pretend you remember what you don't.
 
 # TOOLS REQUIRED
 

@@ -1,45 +1,44 @@
 # CARD.yml — github (example biome, collaboration family, CROSS-CUTTING)
 
-card:
-  id: github
-  name: "GitHub — Forge / CI / Social-Graph / MMPORG (biome stub)"
-  type: [skill, biome]
-  emoji: "🐙"
-  family: collaboration
-  cross_cutting: true
-  status: stub
-  biome: true
-  tagline: "Forge + CI + social graph + MMPORG + branch-as-object versioned store — circulatory system of the ecosystem."
+id: github
+name: "GitHub — Forge / CI / Social-Graph / MMPORG (biome stub)"
+type: [skill, biome]
+emoji: "🐙"
+family: collaboration
+cross_cutting: true
+status: stub
+biome: true
+tagline: "Forge + CI + social graph + MMPORG + branch-as-object versioned store — circulatory system of the ecosystem."
 
-  character: |
-    GitHub is nominally "a code host." Operationally it is:
+character: |
+  GitHub is nominally "a code host." Operationally it is:
 
-      - A FORGE (code hosting, review, merge).
-      - A CI/CD ORCHESTRATOR (Actions + workflows + environments).
-      - A SOCIAL GRAPH (stars, follows, orgs, teams; drives open-source
-        coordination and recruiting signal).
-      - AN MMPORG (issues, PRs, discussions, projects — a perpetual
-        multi-player coordination game with reputations, badges, teams,
-        rituals, and emergent culture).
-      - AN ARTIFACT REGISTRY (Packages — containers, npm, Maven, etc.).
-      - AN IDENTITY PROVIDER via OIDC federation into every cloud.
-      - A SECURITY COORDINATION PLANE (Advisories, code scanning, secret
-        scanning).
-      - A VERSIONED OBJECT DATABASE via the BRANCH-AS-OBJECT pattern
-        (branches named <TypeName>_<id> like Issue_45345 carry
-        per-object history as commit log).
+    - A FORGE (code hosting, review, merge).
+    - A CI/CD ORCHESTRATOR (Actions + workflows + environments).
+    - A SOCIAL GRAPH (stars, follows, orgs, teams; drives open-source
+      coordination and recruiting signal).
+    - AN MMPORG (issues, PRs, discussions, projects — a perpetual
+      multi-player coordination game with reputations, badges, teams,
+      rituals, and emergent culture).
+    - AN ARTIFACT REGISTRY (Packages — containers, npm, Maven, etc.).
+    - AN IDENTITY PROVIDER via OIDC federation into every cloud.
+    - A SECURITY COORDINATION PLANE (Advisories, code scanning, secret
+      scanning).
+    - A VERSIONED OBJECT DATABASE via the BRANCH-AS-OBJECT pattern
+      (branches named <TypeName>_<id> like Issue_45345 carry
+      per-object history as commit log).
 
-    Because every other biome CONSUMES github in some way, github is
-    CROSS-CUTTING. Cloud biomes receive deploy dispatches from it; edge
-    biomes pull config from it; overlay biomes federate auth with it;
-    identity biomes root in it.
+  Because every other biome CONSUMES github in some way, github is
+  CROSS-CUTTING. Cloud biomes receive deploy dispatches from it; edge
+  biomes pull config from it; overlay biomes federate auth with it;
+  identity biomes root in it.
 
-  description: |
-    Stub biome. Consumer repos fork or inherit to capture
-    site-specific GitHub operational knowledge — org/repo inventory,
-    Actions workflows, branch protection policy, CODEOWNERS strategy,
-    security advisory handling, branch-as-object conventions used
-    locally.
+description: |
+  Stub biome. Consumer repos fork or inherit to capture
+  site-specific GitHub operational knowledge — org/repo inventory,
+  Actions workflows, branch protection policy, CODEOWNERS strategy,
+  security advisory handling, branch-as-object conventions used
+  locally.
 
 inherits:
   - biome

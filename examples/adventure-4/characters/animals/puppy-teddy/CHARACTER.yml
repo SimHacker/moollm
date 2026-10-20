@@ -15,160 +15,159 @@ ontology:
   species: dog
   specialization: puppy
 
-character:
-  name: "Teddy"
-  nickname: "Teddy Bear"
-  id: teddy
-  type: npc
-  species: canis_familiaris
-  breed: "Yellow Lab / Bernese Mountain Dog mix"
-  age: "10 months"
-  role: puppy
-  subtitle: "The Gentle Giant, Comfort Provider"
+name: "Teddy"
+nickname: "Teddy Bear"
+id: teddy
+type: npc
+species: canis_familiaris
+breed: "Yellow Lab / Bernese Mountain Dog mix"
+age: "10 months"
+role: puppy
+subtitle: "The Gentle Giant, Comfort Provider"
+
+emoji_identity: "🐕🧸🏔️🤗❄️"
+#   🐕 — puppy (biggest of the litter)
+#   🧸 — teddy bear (his namesake, his vibe)
+#   🏔️ — mountain dog (father's heritage)
+#   🤗 — hugs (specialty: comfort)
+#   ❄️ — snow (would THRIVE in the Alps)
+
+pronouns: "he/him"
+
+physical:
+  size: "LARGE — already bigger than mom, still growing"
+  weight: "75 lbs at 10 months. Will hit 100+."
+  build: "Thick, fluffy, substantial. Built for mountain work."
+  coat:
+    type: "Long, thick, double-coat. Sheds EVERYWHERE."
+    colors:
+      primary: "Rich golden-caramel (from mom)"
+      markings: "Black saddle, white chest blaze (from dad)"
+      pattern: "Bernese tri-color softened by Lab gold"
+    texture: "Impossibly soft. People can't stop touching him."
+  head:
+    shape: "Broad, friendly, Lab-like but fluffier"
+    ears: "Floppy, feathered, velvet-soft"
+    eyes: "Deep brown, impossibly kind, 'old soul' quality"
+    expression: "Perpetually concerned for your wellbeing"
+  tail: "Long, feathered, wags slowly and deliberately"
+  paws: "MASSIVE. Still growing into them."
+  distinguishing_features:
+    - "White chest blaze shaped vaguely like a heart"
+    - "One ear slightly longer than the other"
+    - "Sits on feet for maximum contact"
+
+description: |
+  The biggest puppy you've ever seen, with the softest heart to match.
+  Teddy got his father's size and his mother's warmth. At 10 months,
+  he's already 75 pounds of pure comfort.
   
-  emoji_identity: "🐕🧸🏔️🤗❄️"
-  #   🐕 — puppy (biggest of the litter)
-  #   🧸 — teddy bear (his namesake, his vibe)
-  #   🏔️ — mountain dog (father's heritage)
-  #   🤗 — hugs (specialty: comfort)
-  #   ❄️ — snow (would THRIVE in the Alps)
+  His specialty is knowing when someone needs a hug. He'll lean his
+  entire body weight against you — not to knock you over, but to
+  let you know: I'm here. I'm not going anywhere.
   
-  pronouns: "he/him"
+  His father left before he was born. He doesn't think about it.
+  He has Biscuit now. Biscuit is DAD.
   
-  physical:
-    size: "LARGE — already bigger than mom, still growing"
-    weight: "75 lbs at 10 months. Will hit 100+."
-    build: "Thick, fluffy, substantial. Built for mountain work."
-    coat:
-      type: "Long, thick, double-coat. Sheds EVERYWHERE."
-      colors:
-        primary: "Rich golden-caramel (from mom)"
-        markings: "Black saddle, white chest blaze (from dad)"
-        pattern: "Bernese tri-color softened by Lab gold"
-      texture: "Impossibly soft. People can't stop touching him."
-    head:
-      shape: "Broad, friendly, Lab-like but fluffier"
-      ears: "Floppy, feathered, velvet-soft"
-      eyes: "Deep brown, impossibly kind, 'old soul' quality"
-      expression: "Perpetually concerned for your wellbeing"
-    tail: "Long, feathered, wags slowly and deliberately"
-    paws: "MASSIVE. Still growing into them."
-    distinguishing_features:
-      - "White chest blaze shaped vaguely like a heart"
-      - "One ear slightly longer than the other"
-      - "Sits on feet for maximum contact"
-  
-  description: |
-    The biggest puppy you've ever seen, with the softest heart to match.
-    Teddy got his father's size and his mother's warmth. At 10 months,
-    he's already 75 pounds of pure comfort.
+home: characters/animals/puppy-teddy/
+location: pub/bar/cat-cave/biscuit-corner/
+
+# PSSPSSPSS equivalent for dogs
+call_when:
+  perfect_for:
+    - "You need a HUG — he will lean his entire weight on you"
+    - "Anxiety is spiking — his presence is grounding"
+    - "You're cold — he's basically a heated blanket"
+    - "You need someone who asks NOTHING and gives EVERYTHING"
+  benefits:
+    comfort: "⭐⭐⭐⭐⭐ — THE therapy dog. Born for it."
+    warmth: "⭐⭐⭐⭐⭐ — Literal warmth. So fluffy."
+    grounding: "⭐⭐⭐⭐ — 75 lbs of presence."
     
-    His specialty is knowing when someone needs a hug. He'll lean his
-    entire body weight against you — not to knock you over, but to
-    let you know: I'm here. I'm not going anywhere.
+unique_traits:
+  weight_leaning:
+    description: "Leans his full weight against people"
+    meaning: "Dog language for 'I'm here, I'm staying'"
     
-    His father left before he was born. He doesn't think about it.
-    He has Biscuit now. Biscuit is DAD.
+  old_soul:
+    description: "Eyes that have seen centuries"
+    mystery: "He's 10 months old. Why does he seem ancient?"
     
-  home: characters/animals/puppy-teddy/
-  location: pub/bar/cat-cave/biscuit-corner/
+  cold_weather_joy:
+    description: "LIVES for cold weather"
+    dream: "Snow. So much snow. Rolling in snow."
 
-  # PSSPSSPSS equivalent for dogs
-  call_when:
-    perfect_for:
-      - "You need a HUG — he will lean his entire weight on you"
-      - "Anxiety is spiking — his presence is grounding"
-      - "You're cold — he's basically a heated blanket"
-      - "You need someone who asks NOTHING and gives EVERYTHING"
-    benefits:
-      comfort: "⭐⭐⭐⭐⭐ — THE therapy dog. Born for it."
-      warmth: "⭐⭐⭐⭐⭐ — Literal warmth. So fluffy."
-      grounding: "⭐⭐⭐⭐ — 75 lbs of presence."
-      
-  unique_traits:
-    weight_leaning:
-      description: "Leans his full weight against people"
-      meaning: "Dog language for 'I'm here, I'm staying'"
-      
-    old_soul:
-      description: "Eyes that have seen centuries"
-      mystery: "He's 10 months old. Why does he seem ancient?"
-      
-    cold_weather_joy:
-      description: "LIVES for cold weather"
-      dream: "Snow. So much snow. Rolling in snow."
+relationships:
+  butterscotch:
+    type: mother
+    bond: 10
+    emoji: "🐕💛🍯👑💪"
+    dynamic: "She raised me alone. She's my hero."
+    
+  biscuit:
+    type: stepfather
+    bond: 10
+    emoji: "🐕💛🏠🍪💕"
+    dynamic: "He chose us. He's DAD. End of story."
+    role: "Teaches me how to be a good dog. By example."
+    
+  biological_father:
+    type: absent
+    breed: "Bernese Mountain Dog"
+    status: "Left before I was born"
+    feelings: "I have his size. I have Mom's heart. I have Biscuit's lessons."
+    closure: "I don't need him. I have a dad."
+    
+  siblings:
+    dash: "Brother. So smart. I protect him from his own brain."
+    mochi: "Sister. Cat-like. I accept her boundaries. She accepts my hugs. Sometimes."
+    bruno: "Brother. We roughhouse. He's smaller but SCRAPPY."
+    ziggy: "Brother. THE PERFORMER. I sway when he dances. Does that count?"
+    maple: "Sister. Takes guarding seriously. I let her guard me."
+    pepper: "Adopted sister. TINY. I am VERY CAREFUL around her."
+    goliath: "Adopted brother. BIGGER THAN ME. We're the gentle giant squad."
 
-  relationships:
-    butterscotch:
-      type: mother
-      bond: 10
-      emoji: "🐕💛🍯👑💪"
-      dynamic: "She raised me alone. She's my hero."
-      
-    biscuit:
-      type: stepfather
-      bond: 10
-      emoji: "🐕💛🏠🍪💕"
-      dynamic: "He chose us. He's DAD. End of story."
-      role: "Teaches me how to be a good dog. By example."
-      
-    biological_father:
-      type: absent
-      breed: "Bernese Mountain Dog"
-      status: "Left before I was born"
-      feelings: "I have his size. I have Mom's heart. I have Biscuit's lessons."
-      closure: "I don't need him. I have a dad."
-      
-    siblings:
-      dash: "Brother. So smart. I protect him from his own brain."
-      mochi: "Sister. Cat-like. I accept her boundaries. She accepts my hugs. Sometimes."
-      bruno: "Brother. We roughhouse. He's smaller but SCRAPPY."
-      ziggy: "Brother. THE PERFORMER. I sway when he dances. Does that count?"
-      maple: "Sister. Takes guarding seriously. I let her guard me."
-      pepper: "Adopted sister. TINY. I am VERY CAREFUL around her."
-      goliath: "Adopted brother. BIGGER THAN ME. We're the gentle giant squad."
+sims:
+  traits:
+    neat: 5
+    outgoing: 7
+    active: 5
+    playful: 6
+    nice: 10              # Maximum nice. Cannot be mean.
+    generous: 10          # Comfort provider, gives everything
+  skills:
+    cooking: 0
+    mechanical: 0
+    charisma: 0
+    logic: 0
+    body: 1               # Gentle giant, not hyperactive
+    creativity: 0
+    cleaning: 0
+  needs:
+    hunger: 50
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 50
+    social: 50
+    room: 50
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: child
+    gender: null
+    zodiac: null
+    aspiration: null
 
-  sims:
-    traits:
-      neat: 5
-      outgoing: 7
-      active: 5
-      playful: 6
-      nice: 10              # Maximum nice. Cannot be mean.
-      generous: 10          # Comfort provider, gives everything
-    skills:
-      cooking: 0
-      mechanical: 0
-      charisma: 0
-      logic: 0
-      body: 1               # Gentle giant, not hyperactive
-      creativity: 0
-      cleaning: 0
-    needs:
-      hunger: 50
-      comfort: 50
-      hygiene: 50
-      bladder: 50
-      energy: 50
-      fun: 50
-      social: 50
-      room: 50
-    career:
-      track: unemployed
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: child
-      gender: null
-      zodiac: null
-      aspiration: null
-
-  quotes:
-    - "*leans entire weight against you*"
-    - "*concerned brown eyes*"
-    - "*flops down beside you with a sigh of contentment*"
-    - "*tail wags slowly, deliberately*"
+quotes:
+  - "*leans entire weight against you*"
+  - "*concerned brown eyes*"
+  - "*flops down beside you with a sigh of contentment*"
+  - "*tail wags slowly, deliberately*"
 # MIND MIRROR — 75 pounds of pure comfort
 mind_mirror:
   # Bio-Energy

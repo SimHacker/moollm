@@ -6,64 +6,63 @@
 # files declare interface exports, directories are implementation
 # classes in a COM-style multiple-interface sense (minus the UUIDs).
 
-card:
-  id: file-system-object
-  name: "File System as Object — Directories, Interfaces, and the UPPERCASE Marker Grammar"
-  type: [skill, meta, grammar, object-oriented]
-  emoji: "📂"
-  tier: 1
-  rarity: mythic
-  tagline: "Directories are classes; UPPERCASE.ext files are interface exports; plurals declare element type."
+id: file-system-object
+name: "File System as Object — Directories, Interfaces, and the UPPERCASE Marker Grammar"
+type: [skill, meta, grammar, object-oriented]
+emoji: "📂"
+tier: 1
+rarity: mythic
+tagline: "Directories are classes; UPPERCASE.ext files are interface exports; plurals declare element type."
 
-  description: |
-    The object-oriented grammar that makes MOOLLM's file system legible.
-    Three rules:
+description: |
+  The object-oriented grammar that makes MOOLLM's file system legible.
+  Three rules:
 
-      1. A `<plural>/` directory declares "things in here are of
-         type <singular>."  (skills/ → each child is a skill.)
+    1. A `<plural>/` directory declares "things in here are of
+       type <singular>."  (skills/ → each child is a skill.)
 
-      2. UPPERCASE files at a directory's root declare interface
-         exports. `SKILL.md` at root means "this directory exports
-         the SKILL interface." Multiple UPPERCASE files = multiple
-         interfaces implemented by one directory-as-class.
+    2. UPPERCASE files at a directory's root declare interface
+       exports. `SKILL.md` at root means "this directory exports
+       the SKILL interface." Multiple UPPERCASE files = multiple
+       interfaces implemented by one directory-as-class.
 
-      3. The directory name is the implementation class name; no
-         UUIDs. Like COM, but human-readable from the path alone.
+    3. The directory name is the implementation class name; no
+       UUIDs. Like COM, but human-readable from the path alone.
 
-    This skill formalizes a grammar that already exists throughout
-    MOOLLM. The other meta-skills (skill, prototype, card, schema)
-    all USE this grammar; file-system-object NAMES it explicitly so
-    newcomers can read MOOLLM directory trees fluently.
+  This skill formalizes a grammar that already exists throughout
+  MOOLLM. The other meta-skills (skill, prototype, card, schema)
+  all USE this grammar; file-system-object NAMES it explicitly so
+  newcomers can read MOOLLM directory trees fluently.
 
 # K-LINES
 
-  k_lines:
-  activates:
-    - FILE-SYSTEM-OBJECT
-    - UPPERCASE-MARKER
-    - PLURAL-CONTAINER
-    - INTERFACE-EXPORT
-    - DIR-AS-CLASS
-    - EMPATHIC-TEMPLATE
-    - NESTED-SKILLS
-    - SKILL-CATEGORY
-    - LOOKUP-SCOPE
-    - TREE-CONTAINMENT-INHERITANCE
-    - POSTEL-PATH-RESOLUTION
-    - MOUNTED-REPO-SKILL-PATH
-    - DISTRIBUTED-SKILL-ECOSYSTEM
-    - CURSOR-WORKSPACE-ROOTS
-    - CARD-ONLY-DISPATCH
-    - QUACK-QUACK-DUCK-TYPING
-  related:
-    - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
-    - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
-    - { ref: prototype, relation: "DOP delegation reads classes through marker files" }
-    - { ref: schema, relation: "schemapedia mechanism/* profiles follow this grammar" }
-    - { ref: self, relation: "Self-style prototype + message reception applied to directories" }
-    - { ref: com-xpcom, relation: "COM is the structural ancestor of the multiple-interface-per-class idea" }
-    - { ref: yaml-jazz, relation: "UPPERCASE.yml marker files are YAML Jazz" }
-    - { ref: room, relation: "rooms ARE directories; this grammar applies to them" }
+k_lines:
+activates:
+  - FILE-SYSTEM-OBJECT
+  - UPPERCASE-MARKER
+  - PLURAL-CONTAINER
+  - INTERFACE-EXPORT
+  - DIR-AS-CLASS
+  - EMPATHIC-TEMPLATE
+  - NESTED-SKILLS
+  - SKILL-CATEGORY
+  - LOOKUP-SCOPE
+  - TREE-CONTAINMENT-INHERITANCE
+  - POSTEL-PATH-RESOLUTION
+  - MOUNTED-REPO-SKILL-PATH
+  - DISTRIBUTED-SKILL-ECOSYSTEM
+  - CURSOR-WORKSPACE-ROOTS
+  - CARD-ONLY-DISPATCH
+  - QUACK-QUACK-DUCK-TYPING
+related:
+  - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
+  - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
+  - { ref: prototype, relation: "DOP delegation reads classes through marker files" }
+  - { ref: schema, relation: "schemapedia mechanism/* profiles follow this grammar" }
+  - { ref: self, relation: "Self-style prototype + message reception applied to directories" }
+  - { ref: com-xpcom, relation: "COM is the structural ancestor of the multiple-interface-per-class idea" }
+  - { ref: yaml-jazz, relation: "UPPERCASE.yml marker files are YAML Jazz" }
+  - { ref: room, relation: "rooms ARE directories; this grammar applies to them" }
 
 # INVOKE WHEN
 

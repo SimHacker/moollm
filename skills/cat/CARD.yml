@@ -3,19 +3,18 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Cats are the original NPCs. They have their own agenda."
 
-card:
-  id: cat
-  name: "Cat"
-  type: [skill, companion, game]
-  emoji: 🐱
-  tier: 1
-  tagline: "Cats have their own agenda."
-  
-  description: |
-    Feline interactions, buffs, and relationship building.
-    Cats are not decoration — they're gameplay. Pet them for buffs,
-    ignore them for consequences, earn their trust over time.
-    Each cat instance overlays personality for unique effects.
+id: cat
+name: "Cat"
+type: [skill, companion, game]
+emoji: 🐱
+tier: 1
+tagline: "Cats have their own agenda."
+
+description: |
+  Feline interactions, buffs, and relationship building.
+  Cats are not decoration — they're gameplay. Pet them for buffs,
+  ignore them for consequences, earn their trust over time.
+  Each cat instance overlays personality for unique effects.
 
 # INHERITANCE
 

@@ -3,17 +3,16 @@
 # Smart templates with semantic understanding.
 # "Templates that understand what you mean, not just what you wrote."
 
-card:
-  id: empathic-templates
-  name: "Empathic Templates"
-  type: [skill, instantiation, generation]
-  emoji: 📝
-  rarity: rare
-  
-  description: |
-    Templates that leverage LLM comprehension for semantic instantiation.
-    Not just string substitution — intelligent content generation that
-    understands context and creates appropriate, coherent output.
+id: empathic-templates
+name: "Empathic Templates"
+type: [skill, instantiation, generation]
+emoji: 📝
+rarity: rare
+
+description: |
+  Templates that leverage LLM comprehension for semantic instantiation.
+  Not just string substitution — intelligent content generation that
+  understands context and creates appropriate, coherent output.
 
 tools:
   required: [read_file, write_file]

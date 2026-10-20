@@ -3,24 +3,23 @@
 # Ontological skill for deceased real beings.
 # "They lived. We remember. We cannot ask permission."
 
-card:
-  id: historical
-  name: "Historical"
-  type: [skill, ontology, ethics]
-  emoji: 📜
-  tier: 1
+id: historical
+name: "Historical"
+type: [skill, ontology, ethics]
+emoji: 📜
+tier: 1
+
+tagline: "Deceased real being — extra care, no consent possible"
+
+description: |
+  This entity was real but has died. They cannot consent to
+  portrayal, so we must be extra careful. We honor their
+  legacy through scholarly accuracy and respectful imagination.
   
-  tagline: "Deceased real being — extra care, no consent possible"
-  
-  description: |
-    This entity was real but has died. They cannot consent to
-    portrayal, so we must be extra careful. We honor their
-    legacy through scholarly accuracy and respectful imagination.
-    
-  invoke_when:
-    - "portraying deceased people"
-    - "historical figures in narrative"
-    - "honoring legacies"
+invoke_when:
+  - "portraying deceased people"
+  - "historical figures in narrative"
+  - "honoring legacies"
 
 tools:
   required: [read_file]

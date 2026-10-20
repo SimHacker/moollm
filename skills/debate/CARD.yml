@@ -3,24 +3,23 @@
 # Structured multi-perspective deliberation.
 # "Make the stories fight. See what survives."
 
-card:
-  id: debate
-  name: "Debate"
-  type: [skill, decision, ensemble, dataflow]
+id: debate
+name: "Debate"
+type: [skill, decision, ensemble, dataflow]
+
+emoji: 🎤
+
+rarity: uncommon
+
+description: |
+  Structured debate between opposing positions.
+  Each side argues, moderator manages, audience votes.
+  Can use data flow to connect components.
   
-  emoji: 🎤
+  Play this card for complex decisions that need
+  cross-examination from multiple perspectives.
   
-  rarity: uncommon
-  
-  description: |
-    Structured debate between opposing positions.
-    Each side argues, moderator manages, audience votes.
-    Can use data flow to connect components.
-    
-    Play this card for complex decisions that need
-    cross-examination from multiple perspectives.
-    
-  inherits: [adversarial-committee, roberts-rules]
+inherits: [adversarial-committee, roberts-rules]
 
 # TOOLS REQUIRED
 

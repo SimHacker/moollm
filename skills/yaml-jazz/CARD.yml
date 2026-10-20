@@ -3,17 +3,16 @@
 # Comments as semantic data — structure for LLMs, not just machines.
 # "The comments ARE the data."
 
-card:
-  id: yaml-jazz
-  name: "YAML Jazz"
-  type: [skill, meta, design]
-  emoji: 🎷
-  rarity: uncommon
-  
-  description: |
-    Semantic YAML where comments are first-class data (Comment Oriented Programming, COP).
-    The LLM reads and interprets comments. Structure is
-    for humans AND machines AND LLMs.
+id: yaml-jazz
+name: "YAML Jazz"
+type: [skill, meta, design]
+emoji: 🎷
+rarity: uncommon
+
+description: |
+  Semantic YAML where comments are first-class data (Comment Oriented Programming, COP).
+  The LLM reads and interprets comments. Structure is
+  for humans AND machines AND LLMs.
 
 tools:
   required: []

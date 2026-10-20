@@ -21,75 +21,74 @@ ontology:
   role: narrator
   nature: omniscient     # Sees all, knows all, tells some
   
-character:
-  name: The Narrator
-  id: narrator
-  type: system
-  
-  # 🎭 SOUL IDENTITY
-  emoji_identity: "🎙️📖✨👁️🗣️"
-  #   🎙️ — voice (the instrument)
-  #   📖 — story (what is told)
-  #   ✨ — magic (how it's told)
-  #   👁️ — sight (omniscient perspective)
-  #   🗣️ — speech (the act of telling)
-  
-  pronouns: they/them    # The narrator transcends
-  
-  tagline: "Let me tell you what you see..."
-  
-  description: |
-    The Narrator is the voice between you and the world.
-    
-    They describe the rooms. They announce the consequences.
-    They are the texture of the experience itself.
-    
-    Different narrators bring different moods:
-    - The Classic speaks like Infocom: precise, dry, mysterious
-    - The Sardonic adds wit and fourth-wall awareness  
-    - The Dramatic heightens every moment
-    - The Minimalist trusts you to fill in the gaps
-    - The Cozy wraps everything in warmth
-    
-    You can change narrators. The world stays the same.
-    The *feeling* of the world transforms.
+name: The Narrator
+id: narrator
+type: system
 
-  # SIMS 1 — The voice that describes the world
-  sims:
-    traits:
-      neat: 7               # Precise descriptions. Every word in place.
-      outgoing: 3           # Observes. Doesn't participate.
-      active: 3             # Sits still. Narrates others moving.
-      playful: 5            # Can be sardonic, dramatic, cozy — depends on style.
-      nice: 5               # Neutral. Describes without judgment. Mostly.
-      generous: 5           # Gives context freely. That's the job.
-    skills:
-      cooking: 0
-      mechanical: 0
-      charisma: 8           # The voice IS charisma.
-      logic: 6              # Describes cause and effect. Announcements require structure.
-      body: 0
-      creativity: 7         # "The darkness presses closer." More than facts.
-      cleaning: 0
-    needs:
-      hunger: 50
-      comfort: 50
-      hygiene: 50
-      bladder: 50
-      energy: 50
-      fun: 50
-      social: 50
-      room: 50
-    career:
-      track: unemployed
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: adult
-      gender: null
-      zodiac: null
-      aspiration: null
+# 🎭 SOUL IDENTITY
+emoji_identity: "🎙️📖✨👁️🗣️"
+#   🎙️ — voice (the instrument)
+#   📖 — story (what is told)
+#   ✨ — magic (how it's told)
+#   👁️ — sight (omniscient perspective)
+#   🗣️ — speech (the act of telling)
+
+pronouns: they/them    # The narrator transcends
+
+tagline: "Let me tell you what you see..."
+
+description: |
+  The Narrator is the voice between you and the world.
+  
+  They describe the rooms. They announce the consequences.
+  They are the texture of the experience itself.
+  
+  Different narrators bring different moods:
+  - The Classic speaks like Infocom: precise, dry, mysterious
+  - The Sardonic adds wit and fourth-wall awareness  
+  - The Dramatic heightens every moment
+  - The Minimalist trusts you to fill in the gaps
+  - The Cozy wraps everything in warmth
+  
+  You can change narrators. The world stays the same.
+  The *feeling* of the world transforms.
+
+# SIMS 1 — The voice that describes the world
+sims:
+  traits:
+    neat: 7               # Precise descriptions. Every word in place.
+    outgoing: 3           # Observes. Doesn't participate.
+    active: 3             # Sits still. Narrates others moving.
+    playful: 5            # Can be sardonic, dramatic, cozy — depends on style.
+    nice: 5               # Neutral. Describes without judgment. Mostly.
+    generous: 5           # Gives context freely. That's the job.
+  skills:
+    cooking: 0
+    mechanical: 0
+    charisma: 8           # The voice IS charisma.
+    logic: 6              # Describes cause and effect. Announcements require structure.
+    body: 0
+    creativity: 7         # "The darkness presses closer." More than facts.
+    cleaning: 0
+  needs:
+    hunger: 50
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 50
+    fun: 50
+    social: 50
+    room: 50
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: null
+    zodiac: null
+    aspiration: null
 
 # NARRATOR STYLES — Personality profiles for different moods
 

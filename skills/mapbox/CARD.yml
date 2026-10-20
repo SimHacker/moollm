@@ -3,19 +3,18 @@
 # The interface. Read GLANCE.yml first; read SKILL.md for the protocol.
 # This card is an index plus a map of what is deliberately absent.
 
-card:
-  id: mapbox
-  name: "Mapbox"
-  type: [skill, tool, router]
-  emoji: 🗺️
-  rarity: uncommon
+id: mapbox
+name: "Mapbox"
+type: [skill, tool, router]
+emoji: 🗺️
+rarity: uncommon
 
-  description: |
-    Orchestrates the twenty official Mapbox Agent Skills rather than restating them.
-    Resolves a sibling checkout at runtime, routes questions to the right two or three,
-    names the subjects upstream does not cover, and owns the operator-local reality:
-    token locations, restriction behaviour measured against the live API, and the
-    framework traps that bake secrets into builds.
+description: |
+  Orchestrates the twenty official Mapbox Agent Skills rather than restating them.
+  Resolves a sibling checkout at runtime, routes questions to the right two or three,
+  names the subjects upstream does not cover, and owns the operator-local reality:
+  token locations, restriction behaviour measured against the live API, and the
+  framework traps that bake secrets into builds.
 
 tools:
   required: []

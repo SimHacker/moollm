@@ -3,22 +3,21 @@
 # Sims-style action scheduling.
 # "Queue up what to do next."
 
-card:
-  id: action-queue
-  name: "Action Queue"
-  type: [skill, scheduling, game]
+id: action-queue
+name: "Action Queue"
+type: [skill, scheduling, game]
+
+emoji: 📋
+
+rarity: common  # Essential for any agent
+
+description: |
+  The Sims-inspired action scheduler. Queue actions, execute in order.
+  Objects can push prerequisites. Urgent actions jump the line.
   
-  emoji: 📋
-  
-  rarity: common  # Essential for any agent
-  
-  description: |
-    The Sims-inspired action scheduler. Queue actions, execute in order.
-    Objects can push prerequisites. Urgent actions jump the line.
-    
-    Play this card when a character or agent needs to plan
-    a sequence of actions, or when objects need to guide
-    multi-step processes.
+  Play this card when a character or agent needs to plan
+  a sequence of actions, or when objects need to guide
+  multi-step processes.
 
 # TOOLS REQUIRED
 

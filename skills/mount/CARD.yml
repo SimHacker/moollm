@@ -1,18 +1,17 @@
 # CARD.yml — Mount (condensed)
 
-card:
-  id: mount
-  name: "Mount"
-  type: [skill, meta, game-mechanics, modification]
-  emoji: "🎭"
-  tier: 1
-  tagline: "NFS-style: overlay skills / compose virtual trees"
-  description: |
-    Attach a skill to a character or room to modify behavior until unmounted —
-    like mounting a filesystem. Also: compose virtual trees of GitHub repo
-    slices into a working directory view. Overlays the base without destroying it.
+id: mount
+name: "Mount"
+type: [skill, meta, game-mechanics, modification]
+emoji: "🎭"
+tier: 1
+tagline: "NFS-style: overlay skills / compose virtual trees"
+description: |
+  Attach a skill to a character or room to modify behavior until unmounted —
+  like mounting a filesystem. Also: compose virtual trees of GitHub repo
+  slices into a working directory view. Overlays the base without destroying it.
 
-    Not riding. For horses, coaches, RVs, TARDIS offices → skills/vehicle.
+  Not riding. For horses, coaches, RVs, TARDIS offices → skills/vehicle.
 
 invoke_when:
   - "Need to change a character's behavior quickly"

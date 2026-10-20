@@ -14,23 +14,22 @@
 # wanting things, taking turns, narrating. No separate spirit entity involved.
 # Details, and the `radiates:` field for reaching occupants: SKILL.md § Hosts.
 
-card:
-  id: buff
-  name: "Buff"
-  type: [skill, effects, game]
+id: buff
+name: "Buff"
+type: [skill, effects, game]
+
+emoji: ✨
+
+rarity: common  # Ubiquitous in games
+
+description: |
+  Temporary stat modifiers, semantic effects, or behavior changes.
+  Can be numeric (+2 energy) or semantic ("feeling lucky").
+  Curses are just negative buffs — no separate system needed.
   
-  emoji: ✨
-  
-  rarity: common  # Ubiquitous in games
-  
-  description: |
-    Temporary stat modifiers, semantic effects, or behavior changes.
-    Can be numeric (+2 energy) or semantic ("feeling lucky").
-    Curses are just negative buffs — no separate system needed.
-    
-    HOSTS: anything — characters, rooms, objects, prototypes, the ruleset.
-    A buff may declare `hosts:` to restrict itself; a world may declare
-    `buff_policy.allowed_hosts` to restrict the game. Default is unrestricted.
+  HOSTS: anything — characters, rooms, objects, prototypes, the ruleset.
+  A buff may declare `hosts:` to restrict itself; a world may declare
+  `buff_policy.allowed_hosts` to restrict the game. Default is unrestricted.
 
 # TOOLS REQUIRED
 

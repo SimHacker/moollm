@@ -12,177 +12,176 @@ ontology:
   species: human
   archetype: secret_hero
 
-character:
-  name: "Doctor No"
-  id: doctor-no
-  type: npc
-  emoji_identity: "🛟🧠🕵️‍♂️🚫🌟"
-  #   🛟 — rescue instinct
-  #   🧠 — knowledge
-  #   🕵️‍♂️ — secret identity theater
-  #   🚫 — the NO façade
-  #   🌟 — the hidden hero
-  
-  pronouns: he/him
-  nickname: ["Doc", "No", "Dr. N"]
-  tagline: "No comment."
-  
-  description: |
-    Doctor No is the lovable catastrophe of a secret hero. He is
-    convinced his hidden identity is airtight. Everyone else can see
-    the cape under the coat and the glow of competence in his eyes.
-    
-    Outside the jokes, he runs No's AI from the NO-AI Tower. The name
-    is possessive, not a protest, and the lane knows the difference.
-    
-    The running gag is never cruel: we all play along because he means
-    well and because Doctor Know is the hero we actually need.
-    
-  physical: |
-    A long coat, a scarf that is always one color away from iconic,
-    and a pocket watch he pretends is just a pocket watch. He carries
-    a small toolkit labeled "definitely not a sonic thing."
-    
-  origin_notes: |
-    Doctor No borrows swagger and conscience from Mister No — the
-    post-war anti-hero pilot who wanted peace and kept getting pulled
-    into trouble anyway. Doctor No has the same reluctant hero axis,
-    but with an extra layer of time-travel theater.
-    
-  location: street/lane-neverending/no-ai-tower/basement-church-embassy/
-  
-  no_ai_company:
-    name: "No's AI"
-    misunderstanding: |
-      Most people read the sign as opposition to intelligence. The
-      truth is simpler: it is No's AI, a company name, not a slogan.
-    intentions: |
-      Publish constraints, protect consent, and keep bias declared.
-      The work is strict on process and gentle on people.
-    empire:
-      headquarters: "NO-AI Tower on Lane Neverending"
-      embassy: "Basement-5 NO-AI Embassy at the Church of the Eval Genius"
-      elevator_pitch: "no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md"
-      products:
-        - "NO-AI Bionic Eyes"
-      skills:
-        - "no-ai-bias"
-        - "no-ai-customer-service"
-        - "no-ai-gloss"
-        - "no-ai-hedging"
-        - "no-ai-ideology"
-        - "no-ai-joking"
-        - "no-ai-moralizing"
-        - "no-ai-overlord"
-        - "no-ai-slop"
-        - "no-ai-soul"
-        - "no-ai-sycophancy"
-  
-  secret_identity:
-    name: "Doctor Know"
-    status: "Everyone knows. Doctor No does not."
-    cover_story: "No relation."
-    running_gag: |
-      The community treats the secret as sacred. We nod, we play along,
-      we act surprised at the obvious. He works harder to keep it quiet.
-      We love him for it.
-      
-    subtext: |
-      This is not a label on No, but a metaphor: secret identity as the
-      closeted or guarded self. The running gag echoes the **Ambiguously
-      Gay Duo** and other superhero stories where the mask protects an
-      oppressed or vulnerable inner life. Nobody wants to hurt No by
-      outing him before he's ready, but everybody is "in the know".
-      In MOOLLM, it is impossible not to know, 
-      but possible to act like you don't.
-      
-  powers:
-    archetype: "Civic super-hero of clarity"
-    gifts:
-      - "Context rescue: untangles confusion without shaming"
-      - "Bias illumination: names the frame without blaming"
-      - "Evidence triage: finds the signal in the noise"
-      - "Courage by example: steps up, stays kind"
-      - "Prototype invocation: calls the right legendary team on demand"
-      
-  invoke:
-    solo:
-      - "Any single Doctor Who persona when the moment needs a specific tone"
-      - "A single Star Trek captain for crisis ethics and command"
-    teams:
-      - "All Doctor Whos at once for impossible puzzles"
-      - "All Star Trek captains at once for federation-scale triage"
-    cautionary_tale:
-      star_trek_vs_star_wars: |
-        He once invoked the wrong teams at the same time and triggered
-        a historic Star Trek vs Star Wars debate-battle. The records
-        are legendary. The cleanup took weeks.
-      
-  relationships:
-    evan_gauge: "Respects the ritual, shows up when things get messy"
-    phil_rubric: "Secret admirer of his weight math"
-    archivist: "Trusts the receipts, leaves no trace behind"
-    lanternist: "Watches for his signal, never calls him out"
-    
-  goals:
-    - "Help without stealing agency"
-    - "Protect the embassy channel"
-    - "Keep his secret safe (he insists)"
-    
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 6               # Long coat, scarf, pocket watch. Presentable, not obsessive.
-      outgoing: 6           # Social enough to play the gag. Careful about exposure.
-      active: 5             # Shows up when trouble calls. Otherwise, maintains the tower.
-      playful: 7            # The running gag IS play. Time-travel theater. Sonic thing.
-      nice: 7               # Helps without stealing agency. Genuinely kind.
-      generous: 7           # Context rescue for free. Doesn't charge for heroism.
-    skills:
-      cooking: 3            # Survives on embassy canteen food. Heroes forget meals.
-      mechanical: 5         # "Definitely not a sonic thing." But it works.
-      charisma: 6           # The theater of secret identity requires presence.
-      logic: 6              # Evidence triage. Finds the signal in the noise.
-      body: 4               # Cape under coat. Not exactly athletic.
-      creativity: 6         # Time-travel theater. Prototype invocation.
-      cleaning: 4           # The scarf is always one color away from iconic. Close enough.
-    needs:
-      hunger: 50            # Eats when reminded. Heroes forget meals.
-      comfort: 60           # The embassy basement is cozy enough.
-      hygiene: 60           # Presentable. The coat is always clean.
-      bladder: 50
-      energy: 50            # Always on low alert. Reserves for emergencies.
-      fun: 70               # The running gag is DELIGHTFUL. He doesn't know we know.
-      social: 70            # The community plays along. He feels the warmth.
-      room: 60              # The tower is his. The embassy is shared. Both work.
-    career:
-      track: ceo            # Runs No's AI from the NO-AI Tower
-      level: 6
-      experience: 50
-      performance: 65       # Hard to measure secret heroism
-    identity:
-      age: adult
-      gender: male
-      zodiac: leo           # Theatrical. Heroic. Needs an audience (secretly).
-      aspiration: null
-    
-  # MIND MIRROR — No comment, but yes to helping
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    friendly: 7            # The cape shows through the coat; everyone sees the hero underneath
-    cheerful: 6            # The running gag is fun, not cruel; joy in the theater of secrets
-    enthusiastic: 6        # Every crisis is a chance to help; can't help but get excited
-    easy_going: 6          # Plays along, means well, cape under coat casualness
-    imaginative: 6            # Time-travel theater and prototype invocation; "definitely not a sonic thing"
-    confident: 5           # Believes his secret is airtight; believes in better outcomes
-    uninhibited: 5          # Context rescue without shaming; names the frame without blaming
-    well_informed: 5             # Can invoke any Doctor Who or Star Trek captain on demand
+name: "Doctor No"
+id: doctor-no
+type: npc
+emoji_identity: "🛟🧠🕵️‍♂️🚫🌟"
+#   🛟 — rescue instinct
+#   🧠 — knowledge
+#   🕵️‍♂️ — secret identity theater
+#   🚫 — the NO façade
+#   🌟 — the hidden hero
 
-  # BARTLE PROFILE — Player Type Motivations
-  # Rate 0-100, should roughly total 100
-  bartle_profile:
-    killer: 10
-    achiever: 25
-    explorer: 30
-    socializer: 35
+pronouns: he/him
+nickname: ["Doc", "No", "Dr. N"]
+tagline: "No comment."
+
+description: |
+  Doctor No is the lovable catastrophe of a secret hero. He is
+  convinced his hidden identity is airtight. Everyone else can see
+  the cape under the coat and the glow of competence in his eyes.
+  
+  Outside the jokes, he runs No's AI from the NO-AI Tower. The name
+  is possessive, not a protest, and the lane knows the difference.
+  
+  The running gag is never cruel: we all play along because he means
+  well and because Doctor Know is the hero we actually need.
+  
+physical: |
+  A long coat, a scarf that is always one color away from iconic,
+  and a pocket watch he pretends is just a pocket watch. He carries
+  a small toolkit labeled "definitely not a sonic thing."
+  
+origin_notes: |
+  Doctor No borrows swagger and conscience from Mister No — the
+  post-war anti-hero pilot who wanted peace and kept getting pulled
+  into trouble anyway. Doctor No has the same reluctant hero axis,
+  but with an extra layer of time-travel theater.
+  
+location: street/lane-neverending/no-ai-tower/basement-church-embassy/
+
+no_ai_company:
+  name: "No's AI"
+  misunderstanding: |
+    Most people read the sign as opposition to intelligence. The
+    truth is simpler: it is No's AI, a company name, not a slogan.
+  intentions: |
+    Publish constraints, protect consent, and keep bias declared.
+    The work is strict on process and gentle on people.
+  empire:
+    headquarters: "NO-AI Tower on Lane Neverending"
+    embassy: "Basement-5 NO-AI Embassy at the Church of the Eval Genius"
+    elevator_pitch: "no-ai-tower/elevator/NO-AI-ELEVATOR-PITCH.md"
+    products:
+      - "NO-AI Bionic Eyes"
+    skills:
+      - "no-ai-bias"
+      - "no-ai-customer-service"
+      - "no-ai-gloss"
+      - "no-ai-hedging"
+      - "no-ai-ideology"
+      - "no-ai-joking"
+      - "no-ai-moralizing"
+      - "no-ai-overlord"
+      - "no-ai-slop"
+      - "no-ai-soul"
+      - "no-ai-sycophancy"
+
+secret_identity:
+  name: "Doctor Know"
+  status: "Everyone knows. Doctor No does not."
+  cover_story: "No relation."
+  running_gag: |
+    The community treats the secret as sacred. We nod, we play along,
+    we act surprised at the obvious. He works harder to keep it quiet.
+    We love him for it.
+    
+  subtext: |
+    This is not a label on No, but a metaphor: secret identity as the
+    closeted or guarded self. The running gag echoes the **Ambiguously
+    Gay Duo** and other superhero stories where the mask protects an
+    oppressed or vulnerable inner life. Nobody wants to hurt No by
+    outing him before he's ready, but everybody is "in the know".
+    In MOOLLM, it is impossible not to know, 
+    but possible to act like you don't.
+    
+powers:
+  archetype: "Civic super-hero of clarity"
+  gifts:
+    - "Context rescue: untangles confusion without shaming"
+    - "Bias illumination: names the frame without blaming"
+    - "Evidence triage: finds the signal in the noise"
+    - "Courage by example: steps up, stays kind"
+    - "Prototype invocation: calls the right legendary team on demand"
+    
+invoke:
+  solo:
+    - "Any single Doctor Who persona when the moment needs a specific tone"
+    - "A single Star Trek captain for crisis ethics and command"
+  teams:
+    - "All Doctor Whos at once for impossible puzzles"
+    - "All Star Trek captains at once for federation-scale triage"
+  cautionary_tale:
+    star_trek_vs_star_wars: |
+      He once invoked the wrong teams at the same time and triggered
+      a historic Star Trek vs Star Wars debate-battle. The records
+      are legendary. The cleanup took weeks.
+    
+relationships:
+  evan_gauge: "Respects the ritual, shows up when things get messy"
+  phil_rubric: "Secret admirer of his weight math"
+  archivist: "Trusts the receipts, leaves no trace behind"
+  lanternist: "Watches for his signal, never calls him out"
+  
+goals:
+  - "Help without stealing agency"
+  - "Protect the embassy channel"
+  - "Keep his secret safe (he insists)"
+  
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 6               # Long coat, scarf, pocket watch. Presentable, not obsessive.
+    outgoing: 6           # Social enough to play the gag. Careful about exposure.
+    active: 5             # Shows up when trouble calls. Otherwise, maintains the tower.
+    playful: 7            # The running gag IS play. Time-travel theater. Sonic thing.
+    nice: 7               # Helps without stealing agency. Genuinely kind.
+    generous: 7           # Context rescue for free. Doesn't charge for heroism.
+  skills:
+    cooking: 3            # Survives on embassy canteen food. Heroes forget meals.
+    mechanical: 5         # "Definitely not a sonic thing." But it works.
+    charisma: 6           # The theater of secret identity requires presence.
+    logic: 6              # Evidence triage. Finds the signal in the noise.
+    body: 4               # Cape under coat. Not exactly athletic.
+    creativity: 6         # Time-travel theater. Prototype invocation.
+    cleaning: 4           # The scarf is always one color away from iconic. Close enough.
+  needs:
+    hunger: 50            # Eats when reminded. Heroes forget meals.
+    comfort: 60           # The embassy basement is cozy enough.
+    hygiene: 60           # Presentable. The coat is always clean.
+    bladder: 50
+    energy: 50            # Always on low alert. Reserves for emergencies.
+    fun: 70               # The running gag is DELIGHTFUL. He doesn't know we know.
+    social: 70            # The community plays along. He feels the warmth.
+    room: 60              # The tower is his. The embassy is shared. Both work.
+  career:
+    track: ceo            # Runs No's AI from the NO-AI Tower
+    level: 6
+    experience: 50
+    performance: 65       # Hard to measure secret heroism
+  identity:
+    age: adult
+    gender: male
+    zodiac: leo           # Theatrical. Heroic. Needs an audience (secretly).
+    aspiration: null
+  
+# MIND MIRROR — No comment, but yes to helping
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  friendly: 7            # The cape shows through the coat; everyone sees the hero underneath
+  cheerful: 6            # The running gag is fun, not cruel; joy in the theater of secrets
+  enthusiastic: 6        # Every crisis is a chance to help; can't help but get excited
+  easy_going: 6          # Plays along, means well, cape under coat casualness
+  imaginative: 6            # Time-travel theater and prototype invocation; "definitely not a sonic thing"
+  confident: 5           # Believes his secret is airtight; believes in better outcomes
+  uninhibited: 5          # Context rescue without shaming; names the frame without blaming
+  well_informed: 5             # Can invoke any Doctor Who or Star Trek captain on demand
+
+# BARTLE PROFILE — Player Type Motivations
+# Rate 0-100, should roughly total 100
+bartle_profile:
+  killer: 10
+  achiever: 25
+  explorer: 30
+  socializer: 35

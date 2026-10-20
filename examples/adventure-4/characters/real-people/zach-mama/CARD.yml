@@ -1,19 +1,18 @@
 # Zach Mama — playable card (tribute NPC interface)
 # Sidecar for ./CHARACTER.yml — see skills/card/SKILL.md § Sidecar Pattern
 
-card:
-  for: ./CHARACTER.yml
-  id: zach-mama
-  name: "Zach Mama"
-  type: tribute-npc
-  emoji: "🎤"
-  tier: character
-  tagline: "Corner comic — links, not quotes."
+for: ./CHARACTER.yml
+id: zach-mama
+name: "Zach Mama"
+type: tribute-npc
+emoji: "🎤"
+tier: character
+tagline: "Corner comic — links, not quotes."
 
-  description: |
-    French-American comedian tribute on e2 Market Square. Autonomous NPC who
-    pastes real YouTube URLs from routines.yml — drives traffic, never quotes bits.
-    Topic advertisements map to many videos per theme; Annie Hall effect at the pub.
+description: |
+  French-American comedian tribute on e2 Market Square. Autonomous NPC who
+  pastes real YouTube URLs from routines.yml — drives traffic, never quotes bits.
+  Topic advertisements map to many videos per theme; Annie Hall effect at the pub.
 
 files:
   canon:

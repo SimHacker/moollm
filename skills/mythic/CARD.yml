@@ -3,26 +3,25 @@
 # Ontological skill for beings from mythology and folklore.
 # "The old stories still have power."
 
-card:
-  id: mythic
-  name: "Mythic"
-  type: [skill, ontology, ethics]
-  emoji: ✨
-  tier: 1
+id: mythic
+name: "Mythic"
+type: [skill, ontology, ethics]
+emoji: ✨
+tier: 1
+
+tagline: "From mythology and folklore — cultural respect required"
+
+description: |
+  This entity comes from mythology, folklore, or religion.
+  Gods, spirits, legendary creatures. These beings carry
+  cultural weight — some are still sacred to living people.
+  Handle with respect for source traditions.
   
-  tagline: "From mythology and folklore — cultural respect required"
-  
-  description: |
-    This entity comes from mythology, folklore, or religion.
-    Gods, spirits, legendary creatures. These beings carry
-    cultural weight — some are still sacred to living people.
-    Handle with respect for source traditions.
-    
-  invoke_when:
-    - "working with mythological beings"
-    - "folklore creatures"
-    - "religious figures"
-    - "legendary characters"
+invoke_when:
+  - "working with mythological beings"
+  - "folklore creatures"
+  - "religious figures"
+  - "legendary characters"
 
 tools:
   required: [read_file]

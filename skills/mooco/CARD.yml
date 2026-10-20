@@ -3,17 +3,16 @@
 # Design notes for a custom orchestrator surface.
 #
 
-card:
-  id: mooco
-  name: "MOOCO"
-  type: [skill, orchestration, design]
-  tier: 0
-  tagline: "Deterministic orchestration around creative computation."
+id: mooco
+name: "MOOCO"
+type: [skill, orchestration, design]
+tier: 0
+tagline: "Deterministic orchestration around creative computation."
 
-  description: |
-    MOOCO is a custom orchestrator designed to host MOOLLM skills
-    with explicit context control and safe tool execution.
-    Skills remain portable across orchestrators and models.
+description: |
+  MOOCO is a custom orchestrator designed to host MOOLLM skills
+  with explicit context control and safe tool execution.
+  Skills remain portable across orchestrators and models.
 
 files:
   docs:

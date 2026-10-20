@@ -3,17 +3,16 @@
 # Simulate many turns inside one LLM call.
 # "Instant telepathy. No API round-trips."
 
-card:
-  id: speed-of-light
-  name: "Speed of Light"
-  type: [skill, simulation, ensemble]
-  emoji: ⚡
-  rarity: rare
-  
-  description: |
-    MOOLLM's approach to multi-agent simulation: many turns
-    simulated within a single LLM call. Characters debate,
-    vote, and decide without waiting for API round-trips.
+id: speed-of-light
+name: "Speed of Light"
+type: [skill, simulation, ensemble]
+emoji: ⚡
+rarity: rare
+
+description: |
+  MOOLLM's approach to multi-agent simulation: many turns
+  simulated within a single LLM call. Characters debate,
+  vote, and decide without waiting for API round-trips.
 
 tools:
   required: []

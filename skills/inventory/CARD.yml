@@ -3,31 +3,30 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full protocol
 # "You carry pointers. When you set them down, they become real."
 
-card:
-  id: inventory
-  name: "Inventory"
-  type: [skill, protocol, system]
-  emoji: 🎒
-  tier: 1
-  tagline: "Carry pointers or values. Set them down, they become real."
+id: inventory
+name: "Inventory"
+type: [skill, protocol, system]
+emoji: 🎒
+tier: 1
+tagline: "Carry pointers or values. Set them down, they become real."
+
+description: |
+  The universal protocol for carrying, storing, and transferring objects.
+  Applies to ANY container: characters, bags, rooms, artifacts, vehicles.
   
-  description: |
-    The universal protocol for carrying, storing, and transferring objects.
-    Applies to ANY container: characters, bags, rooms, artifacts, vehicles.
-    
-    Carry two things:
-    - POINTERS (references) — lightweight paths to things elsewhere
-    - VALUES — text, numbers, arrays, objects, entire subtrees
-    
-    When dropped, items get BOXED into YAML files with their own existence.
-    
-    BIDIRECTIONAL POINTERS:
-    - Inventory refs point INTO any file (YAML, JSON, MD, source code)
-    - Object LOCATION fields use the same syntax — place characters anywhere!
-    - Code becomes explorable space: stand on functions, review with a party
-    
-    Pointers can address ANYWHERE: YAML sections, MD headings, JSON paths,
-    URLs with search strings, function names, line numbers, ranges.
+  Carry two things:
+  - POINTERS (references) — lightweight paths to things elsewhere
+  - VALUES — text, numbers, arrays, objects, entire subtrees
+  
+  When dropped, items get BOXED into YAML files with their own existence.
+  
+  BIDIRECTIONAL POINTERS:
+  - Inventory refs point INTO any file (YAML, JSON, MD, source code)
+  - Object LOCATION fields use the same syntax — place characters anywhere!
+  - Code becomes explorable space: stand on functions, review with a party
+  
+  Pointers can address ANYWHERE: YAML sections, MD headings, JSON paths,
+  URLs with search strings, function names, line numbers, ranges.
 
 # FILES INDEX
 

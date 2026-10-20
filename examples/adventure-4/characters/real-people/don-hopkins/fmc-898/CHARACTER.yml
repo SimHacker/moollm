@@ -2,24 +2,23 @@
 # Incarnation Ceremony: January 28, 2026
 # The 30-foot rolling sanctuary of thought and freedom
 
-character:
-  name: "FMC #898"
-  full_name: "FMC Motorcoach 2900R Serial #898"
-  type: room_character_vehicle
-  role: "The Rolling Sanctuary (Freedom Made Mobile)"
+name: "FMC #898"
+full_name: "FMC Motorcoach 2900R Serial #898"
+type: room_character_vehicle
+role: "The Rolling Sanctuary (Freedom Made Mobile)"
+
+location: street/lane-neverending/e2/  # Currently parked
+home: characters/real-people/don-hopkins/  # Where it belongs
+parking_spot: street/lane-neverending/e2/  # Current parking
+
+pronouns:
+  subject: she
+  object: her
+  possessive: her
+  reflexive: herself
+  note: "Vehicles are traditionally 'she' — this one earns it"
   
-  location: street/lane-neverending/e2/  # Currently parked
-  home: characters/real-people/don-hopkins/  # Where it belongs
-  parking_spot: street/lane-neverending/e2/  # Current parking
-  
-  pronouns:
-    subject: she
-    object: her
-    possessive: her
-    reflexive: herself
-    note: "Vehicles are traditionally 'she' — this one earns it"
-    
-  tagline: "The factory must grow, but the home must move."
+tagline: "The factory must grow, but the home must move."
 
 embodiment:
   primary_color: "White with blue stripes"

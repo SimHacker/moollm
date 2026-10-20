@@ -2,15 +2,14 @@
 # Machine-readable MOOLLM interface. Full protocol: SKILL.md | Glance: GLANCE.yml
 # YAML JAZZ: comments are data.
 
-card:
-  id: content-rescue
-  name: "Content Rescue"
-  type: [skill, tool, scraping, archival, markdown]
-  emoji: "🛟"
-  tier: 2
-  status: implementing
-  rarity: uncommon
-  tagline: "Rescue your content from enshittified platforms; own it as clean universal Markdown on git."
+id: content-rescue
+name: "Content Rescue"
+type: [skill, tool, scraping, archival, markdown]
+emoji: "🛟"
+tier: 2
+status: implementing
+rarity: uncommon
+tagline: "Rescue your content from enshittified platforms; own it as clean universal Markdown on git."
 
 term_of_art:
   name: "content rescue"

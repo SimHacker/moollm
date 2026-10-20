@@ -3,21 +3,20 @@
 # Systematic code analysis with evidence collection.
 # "Every PR deserves thoughtful review."
 
-card:
-  id: code-review
-  name: "Code Review"
-  type: [skill, development, quality]
+id: code-review
+name: "Code Review"
+type: [skill, development, quality]
+
+emoji: 🔍
+
+rarity: uncommon
+
+description: |
+  Systematic code analysis with structured evidence collection.
+  Reviews for correctness, style, security, and maintainability.
   
-  emoji: 🔍
-  
-  rarity: uncommon
-  
-  description: |
-    Systematic code analysis with structured evidence collection.
-    Reviews for correctness, style, security, and maintainability.
-    
-    Play this card when reviewing PRs, auditing code quality,
-    or doing security review.
+  Play this card when reviewing PRs, auditing code quality,
+  or doing security review.
 
 # TOOLS REQUIRED
 

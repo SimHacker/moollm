@@ -4,24 +4,23 @@
 # First implemented capability: PDF prestoration (scan → discuss → edit → verify → publish).
 # Founding case: designs/prestoration/ — Vanessa Freudenberg's SqueakJS paper.
 
-card:
-  id: change-name
-  name: "Change Name"
-  type: [skill, toolkit, document-surgery, identity]
+id: change-name
+name: "Change Name"
+type: [skill, toolkit, document-surgery, identity]
 
-  emoji: 🦋
+emoji: 🦋
 
-  rarity: uncommon
+rarity: uncommon
 
-  description: |
-    Audit, plan, and execute a name change (or email, phone number, handle,
-    affiliation — any identifying string) across documents and records.
-    Originals preserved bit-for-bit, every change enumerated and disclosed,
-    institutional corrections pursued alongside community-scale fixes.
+description: |
+  Audit, plan, and execute a name change (or email, phone number, handle,
+  affiliation — any identifying string) across documents and records.
+  Originals preserved bit-for-bit, every change enumerated and disclosed,
+  institutional corrections pursued alongside community-scale fixes.
 
-    One concrete task shipped: ninja-editing PDFs. Look inside the file,
-    describe what's found, discuss what should change, then perform it —
-    kerning-correct, font-aware, hash-pinned. More playbooks plug in later.
+  One concrete task shipped: ninja-editing PDFs. Look inside the file,
+  describe what's found, discuss what should change, then perform it —
+  kerning-correct, font-aware, hash-pinned. More playbooks plug in later.
 
 # TOOLS REQUIRED
 

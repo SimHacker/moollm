@@ -3,20 +3,19 @@
 # Checklist-based self-healing — missing state triggers repair.
 # "The demon watches. The demon heals."
 
-card:
-  id: self-repair
-  name: "Self Repair"
-  type: [skill, robustness, essential]
-  
-  emoji: 🔧
-  
-  rarity: uncommon
-  
-  description: |
-    Run repair checklist when things seem broken. Missing files
-    get created. Invalid state gets fixed. The repair demon
-    watches for problems. Use git commands to examine and
-    roll back history. 
+id: self-repair
+name: "Self Repair"
+type: [skill, robustness, essential]
+
+emoji: 🔧
+
+rarity: uncommon
+
+description: |
+  Run repair checklist when things seem broken. Missing files
+  get created. Invalid state gets fixed. The repair demon
+  watches for problems. Use git commands to examine and
+  roll back history. 
 
 # TOOLS REQUIRED
 

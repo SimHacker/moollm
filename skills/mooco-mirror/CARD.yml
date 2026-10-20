@@ -3,16 +3,15 @@
 # Parallel introspection for MOOCO sessions.
 #
 
-card:
-  id: mooco-mirror
-  name: "MOOCO Mirror"
-  type: [skill, introspection, orchestration]
-  tier: 0
-  tagline: "Watch two orchestration realities at once."
+id: mooco-mirror
+name: "MOOCO Mirror"
+type: [skill, introspection, orchestration]
+tier: 0
+tagline: "Watch two orchestration realities at once."
 
-  description: |
-    MOOCO‑mirror inspects MOOCO session events and compares them
-    with Cursor‑mirror traces to reveal divergence and improve portability.
+description: |
+  MOOCO‑mirror inspects MOOCO session events and compares them
+  with Cursor‑mirror traces to reveal divergence and improve portability.
 
 files:
   docs:

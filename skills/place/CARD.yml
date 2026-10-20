@@ -6,16 +6,15 @@
 # The shape below is what a place IS. What a place DOES is at the bottom, and most
 # of it is arithmetic on disagreements rather than anything clever.
 
-card:
-  id: place
-  name: "Place"
-  type: [skill, primitive, geography]
-  emoji: 📍
-  rarity: common          # everything outdoors is one
-  description: |
-    A subject with a location on Earth. Holds competing coordinates with their
-    provenance, an OpenStreetMap identity, a history of who occupied it, and the
-    record of the day somebody actually went and looked.
+id: place
+name: "Place"
+type: [skill, primitive, geography]
+emoji: 📍
+rarity: common          # everything outdoors is one
+description: |
+  A subject with a location on Earth. Holds competing coordinates with their
+  provenance, an OpenStreetMap identity, a history of who occupied it, and the
+  record of the day somebody actually went and looked.
 
 tools:
   required: [read_file, write_file]

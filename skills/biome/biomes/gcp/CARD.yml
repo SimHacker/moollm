@@ -4,33 +4,32 @@
 # Vendor-neutral reference biome shipped with moollm/skills/biome/.
 # Consumer repos inherit from this via `inherits: [biome, biome.gcp]`.
 
-card:
-  id: gcp
-  name: "GCP — Google Cloud Platform (biome stub)"
-  type: [skill, biome]
-  emoji: "☁️"
-  family: cloud
-  status: stub
-  biome: true
-  tagline: "Cloud hyperscaler organized around projects, regions, zones, and SKU-keyed resources."
+id: gcp
+name: "GCP — Google Cloud Platform (biome stub)"
+type: [skill, biome]
+emoji: "☁️"
+family: cloud
+status: stub
+biome: true
+tagline: "Cloud hyperscaler organized around projects, regions, zones, and SKU-keyed resources."
 
-  character: |
-    GCP is a bounded cloud biome. Its distinguishing features versus AWS
-    and Azure:
-      - Resource hierarchy is Organization > Folder > Project > Resource
-        (AWS: Org > OU > Account; Azure: Tenant > MG > Sub > RG).
-      - Projects are the unit of IAM, billing, and resource container.
-      - Regional vs zonal resources are distinguished explicitly in
-        resource URIs.
-      - Google-designed accelerators (TPU) sit alongside NVIDIA GPUs.
-      - Workload Identity Federation is the preferred cross-cloud
-        authentication path (vs AWS IAM roles for service accounts vs
-        Azure Managed Identity).
+character: |
+  GCP is a bounded cloud biome. Its distinguishing features versus AWS
+  and Azure:
+    - Resource hierarchy is Organization > Folder > Project > Resource
+      (AWS: Org > OU > Account; Azure: Tenant > MG > Sub > RG).
+    - Projects are the unit of IAM, billing, and resource container.
+    - Regional vs zonal resources are distinguished explicitly in
+      resource URIs.
+    - Google-designed accelerators (TPU) sit alongside NVIDIA GPUs.
+    - Workload Identity Federation is the preferred cross-cloud
+      authentication path (vs AWS IAM roles for service accounts vs
+      Azure Managed Identity).
 
-  description: |
-    Stub biome. Consumer repos fork or inherit from this to capture their
-    own GCP-specific operational knowledge (per-project state, cost
-    analyses, gotchas, quota inventory, regions they operate in).
+description: |
+  Stub biome. Consumer repos fork or inherit from this to capture their
+  own GCP-specific operational knowledge (per-project state, cost
+  analyses, gotchas, quota inventory, regions they operate in).
 
 inherits:
   - biome

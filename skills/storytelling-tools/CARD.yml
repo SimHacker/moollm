@@ -3,17 +3,16 @@
 # Narrative capture and sharing — notebooks, letters, photos.
 # "The Sims taught us to share stories."
 
-card:
-  id: storytelling-tools
-  name: "Storytelling Tools"
-  type: [skill, narrative, sharing]
-  emoji: 📖
-  rarity: common
-  
-  description: |
-    Tools for capturing and sharing narratives. Notebooks,
-    letters, photo prompts, READMEs, cards. Inspired by
-    The Sims' family album, save file, and object sharing culture.
+id: storytelling-tools
+name: "Storytelling Tools"
+type: [skill, narrative, sharing]
+emoji: 📖
+rarity: common
+
+description: |
+  Tools for capturing and sharing narratives. Notebooks,
+  letters, photo prompts, READMEs, cards. Inspired by
+  The Sims' family album, save file, and object sharing culture.
 
 tools:
   required: [read_file, write_file]

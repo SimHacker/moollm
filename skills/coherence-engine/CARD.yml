@@ -3,22 +3,21 @@
 # LLM as consistency maintainer and orchestrator.
 # "The LLM doesn't compute inheritance — it maintains coherence."
 
-card:
-  id: coherence-engine
-  name: "Coherence Engine"
-  type: [skill, meta, orchestration]
+id: coherence-engine
+name: "Coherence Engine"
+type: [skill, meta, orchestration]
+
+emoji: 🔄
+
+rarity: rare  # Core infrastructure
+
+description: |
+  The LLM's role as a consistency maintainer: simulating entities,
+  tracking dependencies, detecting inconsistencies, and writing
+  updates to files.
   
-  emoji: 🔄
-  
-  rarity: rare  # Core infrastructure
-  
-  description: |
-    The LLM's role as a consistency maintainer: simulating entities,
-    tracking dependencies, detecting inconsistencies, and writing
-    updates to files.
-    
-    Not a separate system — it's how the LLM naturally operates
-    on the MOOLLM filesystem.
+  Not a separate system — it's how the LLM naturally operates
+  on the MOOLLM filesystem.
 
 # TOOLS REQUIRED
 

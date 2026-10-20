@@ -26,28 +26,27 @@
 # See: kernel/ARCHITECTURE.md → "The Universal Foundation: Agents All The Way Down"
 # See: designs/MOO-HERITAGE.md → "Advertisements Are Everywhere"
 
-card:
-  name: ADVERTISEMENT
-  type: [skill, interaction, game]
-  tier: 1
-  invoke_when: ["Need objects to announce actions", "Build plug-in interactions"]
-  advertisement_names:
-    - DISCOVER-ACTIONS
-    - BUILD-OBJECT
-    - UNDERSTAND-SIMS
-  related:
-    - skills/action-queue
-    - skills/room
-    - skills/needs
-    - skills/card
-    - skills/coherence-engine
-    - skills/rubric
-  tags: [moollm, sims, interaction, advertisement]
-  description: |
-    Sims-style object interaction: every object broadcasts available actions,
-    scored by relevance. Use for plug-in architectures where objects
-    self-describe behaviors. "Objects don't wait to be used — they announce
-    what's possible."
+name: ADVERTISEMENT
+type: [skill, interaction, game]
+tier: 1
+invoke_when: ["Need objects to announce actions", "Build plug-in interactions"]
+advertisement_names:
+  - DISCOVER-ACTIONS
+  - BUILD-OBJECT
+  - UNDERSTAND-SIMS
+related:
+  - skills/action-queue
+  - skills/room
+  - skills/needs
+  - skills/card
+  - skills/coherence-engine
+  - skills/rubric
+tags: [moollm, sims, interaction, advertisement]
+description: |
+  Sims-style object interaction: every object broadcasts available actions,
+  scored by relevance. Use for plug-in architectures where objects
+  self-describe behaviors. "Objects don't wait to be used — they announce
+  what's possible."
 
 # TOOLS REQUIRED
 

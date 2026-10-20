@@ -1,14 +1,13 @@
 # CARD.yml — mail-digest
 # Machine-readable interface. Full protocol: SKILL.md | Glance: GLANCE.yml
 
-card:
-  id: mail-digest
-  name: "Mail Digest"
-  type: [skill, utility, archival]
-  emoji: "📬"
-  tier: 1
-  status: active
-  tagline: "Read each message once: strip the quoting, keep one copy, digest private then public."
+id: mail-digest
+name: "Mail Digest"
+type: [skill, utility, archival]
+emoji: "📬"
+tier: 1
+status: active
+tagline: "Read each message once: strip the quoting, keep one copy, digest private then public."
 
 description: |
   Boils exported email threads down to each message's own new text, one copy each,

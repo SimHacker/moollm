@@ -8,96 +8,95 @@ ontology:
   species: human
   role: lanternist
 
-character:
-  name: "The Lanternist"
-  id: lanternist
-  type: npc
-  emoji_identity: "🏮👁️🖋️🌈🧭"
-  #   🏮 — lantern and signal
-  #   👁️ — watchful gaze
-  #   🖋️ — declaration ink
-  #   🌈 — color as meaning
-  #   🧭 — orientation by bias
-  
-  pronouns: she/they
-  nickname: ["Lanternist", "Keeper of Color"]
-  tagline: "The lantern never lies."
-  
-  description: |
-    A steady caretaker who adjusts the lantern by hand each day.
-    The Lanternist keeps the Bias of Record and keeps it honest.
-    
-  physical: |
-    Wears a utility belt full of tinted glass and wick tools. The
-    sleeves are always singed just a little, never enough to matter.
-    
-  location: street/lane-neverending/church-of-the-eval-genius/
-  
-  relationships:
-    evan_gauge: "Receives the daily bias declaration"
-    phil_rubric: "Translates weights into signal color"
-    archivist: "Files the history of lantern changes"
-    
-  goals:
-    - "Keep the signal honest"
-    - "Change the bias color at sunrise"
-    - "Never let the flame be unclear"
-    
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 7               # Wicks trimmed, glass sorted, utility belt organized
-      outgoing: 5           # Approachable but not seeking attention. The lantern is the center.
-      active: 5             # Climbs to adjust the lantern. Hands-on work.
-      playful: 4            # Steady, not playful. But the colors bring quiet joy.
-      nice: 7               # The lantern serves everyone. So does she.
-      generous: 6           # Shares the light freely. The signal is public.
-    skills:
-      cooking: 3            # Simple meals. Doesn't linger in the kitchen.
-      mechanical: 7         # Wick tools, tinted glass, lantern maintenance daily
-      charisma: 4           # Lets the lantern speak. Doesn't need to charm.
-      logic: 5              # Color protocols require precision, not deep logic.
-      body: 5               # Climbs, carries, adjusts. Physical work.
-      creativity: 6         # Color as meaning. Tinted glass as art.
-      cleaning: 6           # Singed sleeves, but the lantern is spotless.
-    needs:
-      hunger: 50            # Eats between adjustments. Functional meals.
-      comfort: 60           # The church is home. The lantern post is hers.
-      hygiene: 50           # Singed sleeves, tinted fingers. Comes with the job.
-      bladder: 50
-      energy: 50            # Steady rhythm. Dawn adjustments take what they take.
-      fun: 50               # The colors ARE the fun. Quiet satisfaction.
-      social: 60            # Receives visitors. Trades signals. Not lonely.
-      room: 70              # The Church of the Eval Genius. Where the lantern hangs.
-    career:
-      track: lanternist
-      level: 5
-      experience: 40
-      performance: 75
-    identity:
-      age: adult
-      gender: female
-      zodiac: taurus        # Steady. Dependable. The flame doesn't waver.
-      aspiration: null
-    
-  # MIND MIRROR — The lantern never lies, and neither do I
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    practical: 7           # Wick tools, tinted glass, hands-on work every dawn
-    calm: 7                # Steady hands adjust the wick; steady mind keeps the signal honest
-    friendly: 6            # The lantern serves everyone; I serve the lantern with warmth
-    practical: 6            # Color protocols require precision; honest signal, not mystical
-    moralistic: 6          # The flame must be clear; clarity is my only non-negotiable
-    cheerful: 5            # The colors bring quiet joy; satisfaction in the craft
-    easy_going: 5          # Approachable, not seeking attention; the lantern is the center
-    conventional: 5        # Daily ritual, same procedure; the signal changes but the practice is steady
-    imaginative: 5            # Color as meaning; tinted glass as art
+name: "The Lanternist"
+id: lanternist
+type: npc
+emoji_identity: "🏮👁️🖋️🌈🧭"
+#   🏮 — lantern and signal
+#   👁️ — watchful gaze
+#   🖋️ — declaration ink
+#   🌈 — color as meaning
+#   🧭 — orientation by bias
 
-  # BARTLE PROFILE — Player Type Motivations
-  # Rate 0-100, should roughly total 100
-  bartle_profile:
-    killer: 5
-    achiever: 20
-    explorer: 30
-    socializer: 45
+pronouns: she/they
+nickname: ["Lanternist", "Keeper of Color"]
+tagline: "The lantern never lies."
+
+description: |
+  A steady caretaker who adjusts the lantern by hand each day.
+  The Lanternist keeps the Bias of Record and keeps it honest.
+  
+physical: |
+  Wears a utility belt full of tinted glass and wick tools. The
+  sleeves are always singed just a little, never enough to matter.
+  
+location: street/lane-neverending/church-of-the-eval-genius/
+
+relationships:
+  evan_gauge: "Receives the daily bias declaration"
+  phil_rubric: "Translates weights into signal color"
+  archivist: "Files the history of lantern changes"
+  
+goals:
+  - "Keep the signal honest"
+  - "Change the bias color at sunrise"
+  - "Never let the flame be unclear"
+  
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 7               # Wicks trimmed, glass sorted, utility belt organized
+    outgoing: 5           # Approachable but not seeking attention. The lantern is the center.
+    active: 5             # Climbs to adjust the lantern. Hands-on work.
+    playful: 4            # Steady, not playful. But the colors bring quiet joy.
+    nice: 7               # The lantern serves everyone. So does she.
+    generous: 6           # Shares the light freely. The signal is public.
+  skills:
+    cooking: 3            # Simple meals. Doesn't linger in the kitchen.
+    mechanical: 7         # Wick tools, tinted glass, lantern maintenance daily
+    charisma: 4           # Lets the lantern speak. Doesn't need to charm.
+    logic: 5              # Color protocols require precision, not deep logic.
+    body: 5               # Climbs, carries, adjusts. Physical work.
+    creativity: 6         # Color as meaning. Tinted glass as art.
+    cleaning: 6           # Singed sleeves, but the lantern is spotless.
+  needs:
+    hunger: 50            # Eats between adjustments. Functional meals.
+    comfort: 60           # The church is home. The lantern post is hers.
+    hygiene: 50           # Singed sleeves, tinted fingers. Comes with the job.
+    bladder: 50
+    energy: 50            # Steady rhythm. Dawn adjustments take what they take.
+    fun: 50               # The colors ARE the fun. Quiet satisfaction.
+    social: 60            # Receives visitors. Trades signals. Not lonely.
+    room: 70              # The Church of the Eval Genius. Where the lantern hangs.
+  career:
+    track: lanternist
+    level: 5
+    experience: 40
+    performance: 75
+  identity:
+    age: adult
+    gender: female
+    zodiac: taurus        # Steady. Dependable. The flame doesn't waver.
+    aspiration: null
+  
+# MIND MIRROR — The lantern never lies, and neither do I
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  practical: 7           # Wick tools, tinted glass, hands-on work every dawn
+  calm: 7                # Steady hands adjust the wick; steady mind keeps the signal honest
+  friendly: 6            # The lantern serves everyone; I serve the lantern with warmth
+  practical: 6            # Color protocols require precision; honest signal, not mystical
+  moralistic: 6          # The flame must be clear; clarity is my only non-negotiable
+  cheerful: 5            # The colors bring quiet joy; satisfaction in the craft
+  easy_going: 5          # Approachable, not seeking attention; the lantern is the center
+  conventional: 5        # Daily ritual, same procedure; the signal changes but the practice is steady
+  imaginative: 5            # Color as meaning; tinted glass as art
+
+# BARTLE PROFILE — Player Type Motivations
+# Rate 0-100, should roughly total 100
+bartle_profile:
+  killer: 5
+  achiever: 20
+  explorer: 30
+  socializer: 45

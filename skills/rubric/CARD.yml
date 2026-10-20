@@ -3,17 +3,16 @@
 # Measurable criteria translating qualitative debate to quantitative scores.
 # "How do we know it's good?"
 
-card:
-  id: rubric
-  name: "Rubric"
-  type: [skill, evaluation, decision]
-  emoji: 📐
-  rarity: uncommon
-  
-  description: |
-    Define explicit, measurable criteria for scoring outputs.
-    Translates qualitative discussion into quantitative decision.
-    Essential for adversarial committee workflow.
+id: rubric
+name: "Rubric"
+type: [skill, evaluation, decision]
+emoji: 📐
+rarity: uncommon
+
+description: |
+  Define explicit, measurable criteria for scoring outputs.
+  Translates qualitative discussion into quantitative decision.
+  Essential for adversarial committee workflow.
 
 tools:
   required: [read_file, write_file]

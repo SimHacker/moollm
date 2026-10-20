@@ -8,39 +8,38 @@
 #
 # Pattern lineage: directly parallel to moollm/skills/schema (schemapedia).
 
-card:
-  id: biome
-  name: "Biome — Platform Descriptor Mother Skill"
-  type: [skill, meta, mother, prototype]
-  emoji: "🌱"
-  tier: 1
-  rarity: mythic
-  tagline: "A bounded region of an ecosystem — coexisting, exchanging, never isolated."
+id: biome
+name: "Biome — Platform Descriptor Mother Skill"
+type: [skill, meta, mother, prototype]
+emoji: "🌱"
+tier: 1
+rarity: mythic
+tagline: "A bounded region of an ecosystem — coexisting, exchanging, never isolated."
 
-  character: |
-    A biome is an operational atlas for one platform you operate. Not
-    vendor docs, not generic best-practice — the accumulated this-is-
-    how-WE-do-it knowledge for a bounded surface (one cloud, one on-prem
-    stack, one overlay network, one forge).
+character: |
+  A biome is an operational atlas for one platform you operate. Not
+  vendor docs, not generic best-practice — the accumulated this-is-
+  how-WE-do-it knowledge for a bounded surface (one cloud, one on-prem
+  stack, one overlay network, one forge).
 
-    "Biome" is ecological on purpose: biomes are NOT isolated microworlds
-    or simulated virtual worlds — they are real operational territory,
-    bounded but PERMEABLE, coexisting with sister biomes and exchanging
-    matter (containers, images, videos, models), energy (compute, network
-    bandwidth), and information (secrets, schemas, workflows) along
-    defined gateways.
+  "Biome" is ecological on purpose: biomes are NOT isolated microworlds
+  or simulated virtual worlds — they are real operational territory,
+  bounded but PERMEABLE, coexisting with sister biomes and exchanging
+  matter (containers, images, videos, models), energy (compute, network
+  bandwidth), and information (secrets, schemas, workflows) along
+  defined gateways.
 
-    Every biome is a sister to its peers — same skeleton, different
-    inhabitants.
+  Every biome is a sister to its peers — same skeleton, different
+  inhabitants.
 
-  description: |
-    The mother prototype that platform-descriptor skills inherit from.
-    Defines the Semantic Image Pyramid core files, required subdirectories
-    (recipes / instances / runbooks / gotchas / protocols / scripts / cost),
-    family-specific subdirectories (cloud → quota + regions; edge →
-    stacks + templates), the registry shape, the gateways shape, the
-    conventions (shared secret naming, shared scripts, shared CLI tool
-    ecosystem, Self-style `inherits: biome` prototype declaration).
+description: |
+  The mother prototype that platform-descriptor skills inherit from.
+  Defines the Semantic Image Pyramid core files, required subdirectories
+  (recipes / instances / runbooks / gotchas / protocols / scripts / cost),
+  family-specific subdirectories (cloud → quota + regions; edge →
+  stacks + templates), the registry shape, the gateways shape, the
+  conventions (shared secret naming, shared scripts, shared CLI tool
+  ecosystem, Self-style `inherits: biome` prototype declaration).
 
 # K-LINES
 

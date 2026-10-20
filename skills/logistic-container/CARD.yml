@@ -3,22 +3,21 @@
 # Factorio-style logistics boxes for MOOLLM adventures.
 # "Items flow like water through pipes to where they're needed."
 
-card:
-  id: logistic-container
-  name: "Logistic Container"
-  type: [skill, storage, logistics, game]
+id: logistic-container
+name: "Logistic Container"
+type: [skill, storage, logistics, game]
+
+emoji: 📦
+
+rarity: uncommon  # Power feature for automation
+
+description: |
+  Factorio-style logistics containers that participate in a network.
+  Items flow automatically between providers and requesters.
+  Supports grid storage with auto-created cells, fungible vs instance
+  item tracking, stacking, and circuit network signals.
   
-  emoji: 📦
-  
-  rarity: uncommon  # Power feature for automation
-  
-  description: |
-    Factorio-style logistics containers that participate in a network.
-    Items flow automatically between providers and requesters.
-    Supports grid storage with auto-created cells, fungible vs instance
-    item tracking, stacking, and circuit network signals.
-    
-    "The factory grows. Items flow. The world runs itself."
+  "The factory grows. Items flow. The world runs itself."
 
 # TOOLS REQUIRED
 

@@ -3,18 +3,17 @@
 # Human-readable audit trail — every action leaves a trace.
 # "What happened? When? Why?"
 
-card:
-  id: session-log
-  name: "Session Log"
-  type: [skill, logging, essential]
-  
-  emoji: 📋
-  
-  rarity: common
-  
-  description: |
-    Structured logging for audit trails. Record what happened,
-    when, and why. Human-readable. Machine-parseable.
+id: session-log
+name: "Session Log"
+type: [skill, logging, essential]
+
+emoji: 📋
+
+rarity: common
+
+description: |
+  Structured logging for audit trails. Record what happened,
+  when, and why. Human-readable. Machine-parseable.
 
 # TOOLS REQUIRED
 

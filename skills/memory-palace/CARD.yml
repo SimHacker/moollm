@@ -3,21 +3,20 @@
 # Spatial organization of knowledge in navigable directories.
 # "Put knowledge where you can find it by walking there."
 
-card:
-  id: memory-palace
-  name: "Memory Palace"
-  type: [skill, memory, organization]
+id: memory-palace
+name: "Memory Palace"
+type: [skill, memory, organization]
+
+emoji: 🏛️
+
+rarity: uncommon
+
+description: |
+  Organize knowledge spatially in directories you navigate.
+  Each room holds related information. Walking through the
+  palace triggers associations.
   
-  emoji: 🏛️
-  
-  rarity: uncommon
-  
-  description: |
-    Organize knowledge spatially in directories you navigate.
-    Each room holds related information. Walking through the
-    palace triggers associations.
-    
-    The ancient mnemonic technique, applied to filesystems.
+  The ancient mnemonic technique, applied to filesystems.
 
 tools:
   required:

@@ -1,34 +1,33 @@
 # CARD.yml — tailscale (example biome, overlay family, CROSS-CUTTING)
 
-card:
-  id: tailscale
-  name: "Tailscale — Mesh Overlay Biome (biome stub)"
-  type: [skill, biome]
-  emoji: "🕸️"
-  family: overlay
-  cross_cutting: true
-  status: stub
-  biome: true
-  tagline: "WireGuard-based mesh overlay that passes through every other biome by design."
+id: tailscale
+name: "Tailscale — Mesh Overlay Biome (biome stub)"
+type: [skill, biome]
+emoji: "🕸️"
+family: overlay
+cross_cutting: true
+status: stub
+biome: true
+tagline: "WireGuard-based mesh overlay that passes through every other biome by design."
 
-  character: |
-    Tailscale is a cross-cutting biome. Where cloud biomes are bounded
-    regions (one account, one region, one service catalog), Tailscale's
-    entire purpose is TO CROSS THOSE BOUNDARIES — a tailnet knits
-    together GCP VMs, AWS EC2 instances, Azure VMSS members, edge boxes
-    at customer sites, developer laptops, and CI runners into one
-    private address space with one identity plane and one policy file.
+character: |
+  Tailscale is a cross-cutting biome. Where cloud biomes are bounded
+  regions (one account, one region, one service catalog), Tailscale's
+  entire purpose is TO CROSS THOSE BOUNDARIES — a tailnet knits
+  together GCP VMs, AWS EC2 instances, Azure VMSS members, edge boxes
+  at customer sites, developer laptops, and CI runners into one
+  private address space with one identity plane and one policy file.
 
-    When you draw the ecosystem diagram, bounded biomes are continents
-    and the tailnet is the ocean that touches them all. When the ocean
-    goes down, the continents can't talk to each other — so tailnet
-    health is a cross-biome reliability concern, not a single-biome
-    concern.
+  When you draw the ecosystem diagram, bounded biomes are continents
+  and the tailnet is the ocean that touches them all. When the ocean
+  goes down, the continents can't talk to each other — so tailnet
+  health is a cross-biome reliability concern, not a single-biome
+  concern.
 
-  description: |
-    Stub biome. Consumer repos fork or inherit from this to capture
-    tailnet-specific operational knowledge — ACL file, subnet router
-    mapping, tag taxonomy, auth key rotation policy, failure recovery.
+description: |
+  Stub biome. Consumer repos fork or inherit from this to capture
+  tailnet-specific operational knowledge — ACL file, subnet router
+  mapping, tag taxonomy, auth key rotation policy, failure recovery.
 
 inherits:
   - biome

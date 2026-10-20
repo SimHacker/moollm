@@ -3,16 +3,15 @@
 # The Engine of Creation — a general-purpose constructor over filesystem + git.
 # "Both abstract like lambda, concrete like Ubik. Class and instance."
 
-card:
-  id: artifactory
-  name: "Artifactory"
-  type: [skill, foundational, tool, meta]
-  emoji: 🏭
-  rarity: legendary   # The engine other skills run on
-  description: |
-    An artifact factory. Reads, writes, edits, destroys, and persists artifacts across the
-    filesystem and git. Consumes and generates tokens; turns LLM work into durable, versioned
-    objects. Composes with every other skill — the CRUD + persistence + timeline substrate.
+id: artifactory
+name: "Artifactory"
+type: [skill, foundational, tool, meta]
+emoji: 🏭
+rarity: legendary   # The engine other skills run on
+description: |
+  An artifact factory. Reads, writes, edits, destroys, and persists artifacts across the
+  filesystem and git. Consumes and generates tokens; turns LLM work into durable, versioned
+  objects. Composes with every other skill — the CRUD + persistence + timeline substrate.
 
 tools:
   required:

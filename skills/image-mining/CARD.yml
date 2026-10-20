@@ -1,16 +1,15 @@
 # CARD.yml — Image Mining (condensed)
 
-card:
-  id: image-mining
-  name: "Image Mining"
-  type: [skill, vision, extraction, automation]
-  emoji: "⛏️📷"
-  rarity: uncommon
-  tagline: "Mine pixels for atoms. Your camera is a pickaxe."
-  description: |
-    Extract semantic resources from visual content (photos, screenshots,
-    diagrams, PDFs) and produce YAML Jazz with quantities, observations,
-    and interpretations.
+id: image-mining
+name: "Image Mining"
+type: [skill, vision, extraction, automation]
+emoji: "⛏️📷"
+rarity: uncommon
+tagline: "Mine pixels for atoms. Your camera is a pickaxe."
+description: |
+  Extract semantic resources from visual content (photos, screenshots,
+  diagrams, PDFs) and produce YAML Jazz with quantities, observations,
+  and interpretations.
 
 invoke_when:
   - "Need structured extraction from an image"

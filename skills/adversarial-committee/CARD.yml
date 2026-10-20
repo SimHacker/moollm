@@ -3,22 +3,21 @@
 # Multiple personas with incompatible values debate to surface blind spots.
 # "No single story is true — but the ensemble approximates actionable wisdom."
 
-card:
-  id: adversarial-committee
-  name: "Adversarial Committee"
-  type: [skill, decision, ensemble, debate]
+id: adversarial-committee
+name: "Adversarial Committee"
+type: [skill, decision, ensemble, debate]
+
+emoji: 🗳️
+
+rarity: rare  # Powerful deliberation tool
+
+description: |
+  Form a committee of personas with opposing propensities.
+  They debate using Robert's Rules, producing output that gets
+  independently evaluated against a rubric.
   
-  emoji: 🗳️
-  
-  rarity: rare  # Powerful deliberation tool
-  
-  description: |
-    Form a committee of personas with opposing propensities.
-    They debate using Robert's Rules, producing output that gets
-    independently evaluated against a rubric.
-    
-    Play this card when facing complex decisions that require
-    multiple perspectives to avoid blind spots.
+  Play this card when facing complex decisions that require
+  multiple perspectives to avoid blind spots.
 
 # TOOLS REQUIRED
 

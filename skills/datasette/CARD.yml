@@ -1,16 +1,15 @@
 # CARD.yml — datasette
 
-card:
-  id: datasette
-  name: "Datasette"
-  type: [skill, database, tooling]
-  emoji: 📊
-  rarity: common
+id: datasette
+name: "Datasette"
+type: [skill, database, tooling]
+emoji: 📊
+rarity: common
 
-  description: |
-    Datasette publishes SQLite databases as a read-only web app and JSON API.
-    Metadata YAML, plugins, --crossdb. MOOLLM integrates cursor-mirror via
-    export_datasette and reference/universal/datasette-metadata.yml.
+description: |
+  Datasette publishes SQLite databases as a read-only web app and JSON API.
+  Metadata YAML, plugins, --crossdb. MOOLLM integrates cursor-mirror via
+  export_datasette and reference/universal/datasette-metadata.yml.
 
 tools:
   required: [read_file, run_terminal_cmd]

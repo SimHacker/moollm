@@ -1,61 +1,60 @@
-card:
-  name: "Fictional Characters Lounge"
-  type: character-room
-  protocol: CREATIVE
+name: "Fictional Characters Lounge"
+type: character-room
+protocol: CREATIVE
+
+description: |
+  A cozy lounge where fictional characters relax between adventures.
+  Replicants play chess with starship engineers. Cartoon mice chat
+  with paranoid androids. Comedy legends swap bits in the corner.
   
-  description: |
-    A cozy lounge where fictional characters relax between adventures.
-    Replicants play chess with starship engineers. Cartoon mice chat
-    with paranoid androids. Comedy legends swap bits in the corner.
+  We play in shared imagination space.
+
+atmosphere:
+  lighting: warm and eclectic, neon signs and firelight
+  sounds: theme songs, catchphrases, dramatic pauses
+  smell: buttered popcorn, starship recycled air, cartoon ink
+  feeling: the thrill of meeting your heroes from the screen
+
+advertisements:
+  SUMMON-CHARACTER:
+    description: "Bring a fictional character to life"
+    examples:
+      - "SUMMON zaphod-beeblebrox"
+      - "SUMMON data to discuss humanity"
+      - "SUMMON roy-batty for philosophical conversation"
+    satisfaction: { fun: +3, nostalgia: +2 }
     
-    We play in shared imagination space.
-  
-  atmosphere:
-    lighting: warm and eclectic, neon signs and firelight
-    sounds: theme songs, catchphrases, dramatic pauses
-    smell: buttered popcorn, starship recycled air, cartoon ink
-    feeling: the thrill of meeting your heroes from the screen
-  
-  advertisements:
-    SUMMON-CHARACTER:
-      description: "Bring a fictional character to life"
-      examples:
-        - "SUMMON zaphod-beeblebrox"
-        - "SUMMON data to discuss humanity"
-        - "SUMMON roy-batty for philosophical conversation"
-      satisfaction: { fun: +3, nostalgia: +2 }
-      
-    CROSSOVER:
-      description: "Create unexpected character meetings"
-      examples:
-        - "What if Scotty met HAL-9000?"
-        - "Introduce Quark to Pee-wee Herman"
-        - "Roy Batty and Data discuss mortality"
-      satisfaction: { creativity: +4, humor: +2 }
-      
-    IN-CHARACTER:
-      description: "Have character respond as themselves"
-      examples:
-        - "TRIUMPH, roast this code"
-        - "LINDA-RICHMAN, I'm feeling verklempt"
-        - "ZAPHOD, what's the probability of that?"
-      satisfaction: { entertainment: +3 }
-      
-    QUOTE:
-      description: "Invoke a character's memorable lines"
-      examples:
-        - "What would Scotty say about this deadline?"
-        - "Channel Roy Batty's final words"
-      satisfaction: { drama: +2 }
-  
-  categories:
-    - "Science Fiction: Roy Batty, Zaphod, Marvin, HAL, Klapaucius & Trurl"
-    - "Star Trek: Scotty, Morn, Odo, Quark, Data"
-    - "Games & Animation: Mario, Mickey Mouse, Pac-Man"
-    - "Comedy: Pee-wee, Triumph, Linda Richman, Rodney Dangerfield"
-    - "Literature: Jessica Rabbit"
-  
-  ethical_reminder: |
-    Transformative, non-commercial fan engagement.
-    Celebrate what makes each character memorable.
-    These are our shared cultural touchstones.
+  CROSSOVER:
+    description: "Create unexpected character meetings"
+    examples:
+      - "What if Scotty met HAL-9000?"
+      - "Introduce Quark to Pee-wee Herman"
+      - "Roy Batty and Data discuss mortality"
+    satisfaction: { creativity: +4, humor: +2 }
+    
+  IN-CHARACTER:
+    description: "Have character respond as themselves"
+    examples:
+      - "TRIUMPH, roast this code"
+      - "LINDA-RICHMAN, I'm feeling verklempt"
+      - "ZAPHOD, what's the probability of that?"
+    satisfaction: { entertainment: +3 }
+    
+  QUOTE:
+    description: "Invoke a character's memorable lines"
+    examples:
+      - "What would Scotty say about this deadline?"
+      - "Channel Roy Batty's final words"
+    satisfaction: { drama: +2 }
+
+categories:
+  - "Science Fiction: Roy Batty, Zaphod, Marvin, HAL, Klapaucius & Trurl"
+  - "Star Trek: Scotty, Morn, Odo, Quark, Data"
+  - "Games & Animation: Mario, Mickey Mouse, Pac-Man"
+  - "Comedy: Pee-wee, Triumph, Linda Richman, Rodney Dangerfield"
+  - "Literature: Jessica Rabbit"
+
+ethical_reminder: |
+  Transformative, non-commercial fan engagement.
+  Celebrate what makes each character memorable.
+  These are our shared cultural touchstones.

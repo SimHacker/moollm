@@ -6,21 +6,20 @@
 # Inspired by Self's dynamic deoptimization — reconstruct
 # what the stack WOULD have been, even without explicit tracking.
 
-card:
-  id: return-stack
-  name: "Return Stack"
-  type: [skill, navigation, memory, debugging]
-  emoji: 🔙
-  rarity: common
+id: return-stack
+name: "Return Stack"
+type: [skill, navigation, memory, debugging]
+emoji: 🔙
+rarity: common
+
+description: |
+  Navigation history like browser back/forward. Save positions,
+  return to them. The stack is a first-class object you can
+  manipulate.
   
-  description: |
-    Navigation history like browser back/forward. Save positions,
-    return to them. The stack is a first-class object you can
-    manipulate.
-    
-    PLUS: Self-inspired dynamic deoptimization (aka pessimization) — 
-    reconstruct causal traces after the fact for debugging, even when 
-    no explicit stack was maintained during execution.
+  PLUS: Self-inspired dynamic deoptimization (aka pessimization) — 
+  reconstruct causal traces after the fact for debugging, even when 
+  no explicit stack was maintained during execution.
 
 tools:
   required: [read_file, write_file]

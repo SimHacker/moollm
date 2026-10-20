@@ -1,15 +1,14 @@
 # CARD.yml — Visualizer (condensed)
 
-card:
-  id: visualizer
-  name: "Visualizer"
-  type: [skill, image-generation, promptcraft]
-  emoji: "🖼️"
-  rarity: uncommon
-  tagline: "Turn descriptions into images"
-  description: |
-    Generate images from prompts. Focus on clarity, composition, and
-    style consistency across sets.
+id: visualizer
+name: "Visualizer"
+type: [skill, image-generation, promptcraft]
+emoji: "🖼️"
+rarity: uncommon
+tagline: "Turn descriptions into images"
+description: |
+  Generate images from prompts. Focus on clarity, composition, and
+  style consistency across sets.
 
 invoke_when:
   - "Need a concrete visual from a description"

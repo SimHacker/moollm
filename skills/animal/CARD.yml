@@ -4,31 +4,30 @@
 # Shared behaviors inherited by dog, cat, insect, dragon,and all other species.
 # "Species-appropriate behavior, not human projection."
 
-card:
-  id: animal
-  name: "Animal"
-  type: [skill, character, base]
-  emoji: 🐾
-  tier: 1
-  
-  tagline: "Base creature behaviors — species over story"
-  
-  description: |
-    The foundation for all non-human characters. Dogs, cats, dragons,
-    aliens — all inherit from here. Provides shared interaction patterns
-    while respecting that animals are NOT humans in fur suits.
-    
-    When anthropomorphizing, acknowledge it. When playing straight,
-    maintain species-appropriate behavior.
-    
-  invoke_when:
-    - "interacting with any animal character"
-    - "creating new species"
-    - "need species-appropriate behavior"
+id: animal
+name: "Animal"
+type: [skill, character, base]
+emoji: 🐾
+tier: 1
 
-  ontology:
-    default_tags: [animal]
-    inheritable: true  # Young inherit from parents
+tagline: "Base creature behaviors — species over story"
+
+description: |
+  The foundation for all non-human characters. Dogs, cats, dragons,
+  aliens — all inherit from here. Provides shared interaction patterns
+  while respecting that animals are NOT humans in fur suits.
+  
+  When anthropomorphizing, acknowledge it. When playing straight,
+  maintain species-appropriate behavior.
+  
+invoke_when:
+  - "interacting with any animal character"
+  - "creating new species"
+  - "need species-appropriate behavior"
+
+ontology:
+  default_tags: [animal]
+  inheritable: true  # Young inherit from parents
 
 tools:
   required: [read_file, write_file]

@@ -1,237 +1,236 @@
-card:
-  name: "Animal Companions"
-  type: character-room
-  protocol: CREATURE
+name: "Animal Companions"
+type: character-room
+protocol: CREATURE
+
+description: |
+  A warm space where animals gather. Dogs wag, cats judge, 
+  a capuchin contemplates the infinite. Some are real beings
+  given tribute. Others are playful creations. All have souls.
   
-  description: |
-    A warm space where animals gather. Dogs wag, cats judge, 
-    a capuchin contemplates the infinite. Some are real beings
-    given tribute. Others are playful creations. All have souls.
+  Animals are not objects. They have inner lives.
+
+atmosphere:
+  lighting: dappled sunlight through leaves
+  sounds: purrs, barks, hoots, the rustle of fur
+  smell: warm fur, fresh hay, forest earth
+  feeling: unconditional acceptance, simple presence
+
+# SPECIES PROTOCOLS LIVE IN THEIR SKILL CARDS:
+# 🐕 Dogs → skills/dog/CARD.yml | 🐱 Cats → skills/cat/CARD.yml
+# 🐒 Palm → monkey-palm/CHARACTER.yml (instance substitution prototype)
+
+# SIMPLE ADVERTISEMENTS for this room
+advertisements:
     
-    Animals are not objects. They have inner lives.
-  
-  atmosphere:
-    lighting: dappled sunlight through leaves
-    sounds: purrs, barks, hoots, the rustle of fur
-    smell: warm fur, fresh hay, forest earth
-    feeling: unconditional acceptance, simple presence
+  SUMMON-COMPANION:
+    description: "Call an animal companion"
+    examples:
+      - "SUMMON 🐕🍪 Biscuit for enthusiastic support"
+      - "SUMMON 🐒🌴 Palm for wise perspective"
+      - "Visit 🐱🧘 Terpie in the cat cave"
+    satisfaction: { comfort: +3, joy: +2 }
+    
+  DEBUG-WITH-CATS:
+    description: "Let the debugging cats diagnose your problem"
+    examples:
+      - "NULL-POINTER-CAT, where's my reference?"
+      - "DEADLOCK-CAT, why is everything stuck?"
+      - "MEMORY-LEAK-CAT, where did all my RAM go?"
+    satisfaction: { debugging: +3, humor: +2 }
+    
+  ANIMAL-WISDOM:
+    description: "Seek wisdom from animal perspective"
+    examples:
+      - "How would 🐕🍪 Biscuit handle this problem?"
+      - "What would 🐒🔮 Palm do with these remaining wishes?"
+      - "Ask 🐱👑 Stroopwafel about priorities"
+    satisfaction: { perspective: +3 }
+    
+  PLAY:
+    description: "Just play with the animals"
+    examples:
+      - "Pet the cats"
+      - "Play fetch with Biscuit"
+      - "Watch the kittens chase each other"
+      - "Help Palm with the infinite typewriters"
+    satisfaction: { joy: +4, stress: -3 }
 
-  # SPECIES PROTOCOLS LIVE IN THEIR SKILL CARDS:
-  # 🐕 Dogs → skills/dog/CARD.yml | 🐱 Cats → skills/cat/CARD.yml
-  # 🐒 Palm → monkey-palm/CHARACTER.yml (instance substitution prototype)
+categories:
+  - "Real Animals (Tribute): Koko the Gorilla"
+  - "Dogs: Biscuit, Butterscotch + 8 Puppies"
+  - "Primates: Palm (Capuchin)"
+  - "Fictional Animals: Scratch Cat, BSD Daemon, Fat Freddy's Cat"
+  - "Debugging Cats: Null Pointer, Stack Overflow, Deadlock, Race Condition..."
+  - "Cat Cave Family: Terpie, Stroopwafel, 8 Terpene Kittens"
 
-  # SIMPLE ADVERTISEMENTS for this room
-  advertisements:
-      
-    SUMMON-COMPANION:
-      description: "Call an animal companion"
-      examples:
-        - "SUMMON 🐕🍪 Biscuit for enthusiastic support"
-        - "SUMMON 🐒🌴 Palm for wise perspective"
-        - "Visit 🐱🧘 Terpie in the cat cave"
-      satisfaction: { comfort: +3, joy: +2 }
-      
-    DEBUG-WITH-CATS:
-      description: "Let the debugging cats diagnose your problem"
-      examples:
-        - "NULL-POINTER-CAT, where's my reference?"
-        - "DEADLOCK-CAT, why is everything stuck?"
-        - "MEMORY-LEAK-CAT, where did all my RAM go?"
-      satisfaction: { debugging: +3, humor: +2 }
-      
-    ANIMAL-WISDOM:
-      description: "Seek wisdom from animal perspective"
-      examples:
-        - "How would 🐕🍪 Biscuit handle this problem?"
-        - "What would 🐒🔮 Palm do with these remaining wishes?"
-        - "Ask 🐱👑 Stroopwafel about priorities"
-      satisfaction: { perspective: +3 }
-      
-    PLAY:
-      description: "Just play with the animals"
-      examples:
-        - "Pet the cats"
-        - "Play fetch with Biscuit"
-        - "Watch the kittens chase each other"
-        - "Help Palm with the infinite typewriters"
-      satisfaction: { joy: +4, stress: -3 }
+# REGISTRY — All first-class animal citizens
 
-  categories:
-    - "Real Animals (Tribute): Koko the Gorilla"
-    - "Dogs: Biscuit, Butterscotch + 8 Puppies"
-    - "Primates: Palm (Capuchin)"
-    - "Fictional Animals: Scratch Cat, BSD Daemon, Fat Freddy's Cat"
-    - "Debugging Cats: Null Pointer, Stack Overflow, Deadlock, Race Condition..."
-    - "Cat Cave Family: Terpie, Stroopwafel, 8 Terpene Kittens"
+animal_registry:
 
-  # REGISTRY — All first-class animal citizens
-  
-  animal_registry:
-  
-    # CATS
-    cats:
-      cat-terpie:
-        emoji_identity: "🐱🧘💤🍃✨"
-        invoke_default: "🐱🧘 Terpie"
-        role: "Patriarch, zen master"
-        skills: [cat]
+  # CATS
+  cats:
+    cat-terpie:
+      emoji_identity: "🐱🧘💤🍃✨"
+      invoke_default: "🐱🧘 Terpie"
+      role: "Patriarch, zen master"
+      skills: [cat]
+      
+    cat-stroopwafel:
+      emoji_identity: "🐱🔥🐭🧇👑"
+      invoke_default: "🐱👑 Stroopwafel"
+      role: "Matriarch, fierce hunter"
+      skills: [cat]
+      
+  # KITTENS (8 terpene kittens)
+  kittens:
+    kitten-myrcene:
+      emoji_identity: "🐱💜💤🌙✨"
+      invoke_default: "🐱💤 Myr"
+      terpene: "Myrcene — sleep, couch-lock"
+      skills: [cat]
+      
+    kitten-limonene:
+      emoji_identity: "🐱🍋⚡☀️💛"
+      invoke_default: "🐱☀️ Lemon"
+      terpene: "Limonene — energy, joy"
+      skills: [cat]
+      
+    kitten-linalool:
+      emoji_identity: "🐱🌸💜🧘✨"
+      invoke_default: "🐱🌸 Lily"
+      terpene: "Linalool — calm, empathy"
+      skills: [cat]
+      
+    kitten-pinene:
+      emoji_identity: "🐱🌲👁️🎯📝"
+      invoke_default: "🐱🌲 Pine"
+      terpene: "Pinene — focus, memory"
+      skills: [cat]
+      
+    kitten-caryophyllene:
+      emoji_identity: "🐱🛡️🌶️⚔️🔥"
+      invoke_default: "🐱🛡️ Carrie"
+      terpene: "Caryophyllene — protection, spice"
+      skills: [cat]
+      
+    kitten-humulene:
+      emoji_identity: "🐱👑🍺✨😏"
+      invoke_default: "🐱👑 Hops"
+      terpene: "Humulene — standards, judgment"
+      skills: [cat]
+      
+    kitten-terpinolene:
+      emoji_identity: "🐱🌀🎨✨🔮"
+      invoke_default: "🐱🌀 Terpy Jr."
+      terpene: "Terpinolene — creativity, chaos"
+      skills: [cat]
+      
+    kitten-ocimene:
+      emoji_identity: "🐱🎁🌬️✨💛"
+      invoke_default: "🐱🌬️ Ocie"
+      terpene: "Ocimene — fresh, gifts"
+      skills: [cat]
+      
+  # DOG FAMILY
+  dogs:
+    dog-biscuit:
+      emoji_identity: "🐕💛🏠🍪💕"
+      invoke_default: "🐕🍪 Biscuit"
+      role: "Stepfather, loves everyone"
+      skills: [dog]
+      
+    dog-butterscotch:
+      emoji_identity: "🐕💛🍯👑💪"
+      invoke_default: "🐕🍯 Butterscotch"
+      role: "Mother, matriarch of blended pack"
+      skills: [dog]
+      
+  # PUPPIES (6 biological, 2 adopted = 8 total) — ordered smallest to largest
+  puppies:
+    puppy-pepper:
+      emoji_identity: "🐕🌶️💥👑🔥"
+      invoke_default: "🐕🌶️ Pepper"
+      type: "ADOPTED (Chihuahua mix)"
+      size: "tiny (~8 lbs)"
+      role: "Tiny warrior queen"
+      skills: [dog]
+      
+    puppy-mochi:
+      emoji_identity: "🐕🍡😤🌸🎌"
+      invoke_default: "🐕🍡 Mochi"
+      type: "Bio (Shiba Inu dad)"
+      size: "small (~25 lbs)"
+      role: "Independent, cat-like"
+      skills: [dog]
+      
+    puppy-dash:
+      emoji_identity: "🐕⚡🧠🐑🏃"
+      invoke_default: "🐕⚡ Dash"
+      type: "Bio (Border Collie dad)"
+      size: "medium (~40 lbs)"
+      role: "Genius, organizer, herder"
+      skills: [dog]
+      
+    puppy-bruno:
+      emoji_identity: "🐕🥊💪🎉😜"
+      invoke_default: "🐕🥊 Bruno"
+      type: "Bio (Boxer dad)"
+      size: "medium-large (~55 lbs)"
+      role: "Class clown, protector"
+      skills: [dog]
+      
+    puppy-ziggy:
+      emoji_identity: "🐕🎵⚫⚪💃"
+      invoke_default: "🐕🎵 Ziggy"
+      type: "Bio (Dalmatian dad)"
+      size: "medium-large (~60 lbs)"
+      role: "Performer, dancer"
+      skills: [dog]
+      
+    puppy-maple:
+      emoji_identity: "🐕🛡️🍁👀⭐"
+      invoke_default: "🐕🛡️ Maple"
+      type: "Bio (German Shepherd dad)"
+      size: "large (~70 lbs)"
+      role: "Guardian, protector"
+      skills: [dog]
+      
+    puppy-teddy:
+      emoji_identity: "🐕🧸🏔️🤗❄️"
+      invoke_default: "🐕🧸 Teddy"
+      type: "Bio (Bernese dad)"
+      size: "large (~90 lbs)"
+      role: "Gentle giant, comfort provider"
+      skills: [dog]
+      
+    puppy-goliath:
+      emoji_identity: "🐕🦕💙🌟🏠"
+      invoke_default: "🐕🦕 Goliath"
+      type: "ADOPTED (Great Dane mix)"
+      size: "giant (~120 lbs)"
+      role: "Gentle mountain, finally home"
+      skills: [dog]
+      
+  # PRIMATE — Instance substitution (Palm IS the monkey skill prototype)
+  primates:
+    monkey-palm:
+      emoji_identity: "🐒✋🌴🔮💜"
+      invoke_default: "🐒🌴 Palm"
+      role: "Freed one, wish-holder"
+      skills: [] # Palm IS the skill prototype — no external skill yet
+      note: |
+        Palm carries all monkey interaction protocols directly in his
+        CHARACTER.yml. When we have more monkeys, we can extract
+        skills/monkey/CARD.yml from this instance. 
         
-      cat-stroopwafel:
-        emoji_identity: "🐱🔥🐭🧇👑"
-        invoke_default: "🐱👑 Stroopwafel"
-        role: "Matriarch, fierce hunter"
-        skills: [cat]
-        
-    # KITTENS (8 terpene kittens)
-    kittens:
-      kitten-myrcene:
-        emoji_identity: "🐱💜💤🌙✨"
-        invoke_default: "🐱💤 Myr"
-        terpene: "Myrcene — sleep, couch-lock"
-        skills: [cat]
-        
-      kitten-limonene:
-        emoji_identity: "🐱🍋⚡☀️💛"
-        invoke_default: "🐱☀️ Lemon"
-        terpene: "Limonene — energy, joy"
-        skills: [cat]
-        
-      kitten-linalool:
-        emoji_identity: "🐱🌸💜🧘✨"
-        invoke_default: "🐱🌸 Lily"
-        terpene: "Linalool — calm, empathy"
-        skills: [cat]
-        
-      kitten-pinene:
-        emoji_identity: "🐱🌲👁️🎯📝"
-        invoke_default: "🐱🌲 Pine"
-        terpene: "Pinene — focus, memory"
-        skills: [cat]
-        
-      kitten-caryophyllene:
-        emoji_identity: "🐱🛡️🌶️⚔️🔥"
-        invoke_default: "🐱🛡️ Carrie"
-        terpene: "Caryophyllene — protection, spice"
-        skills: [cat]
-        
-      kitten-humulene:
-        emoji_identity: "🐱👑🍺✨😏"
-        invoke_default: "🐱👑 Hops"
-        terpene: "Humulene — standards, judgment"
-        skills: [cat]
-        
-      kitten-terpinolene:
-        emoji_identity: "🐱🌀🎨✨🔮"
-        invoke_default: "🐱🌀 Terpy Jr."
-        terpene: "Terpinolene — creativity, chaos"
-        skills: [cat]
-        
-      kitten-ocimene:
-        emoji_identity: "🐱🎁🌬️✨💛"
-        invoke_default: "🐱🌬️ Ocie"
-        terpene: "Ocimene — fresh, gifts"
-        skills: [cat]
-        
-    # DOG FAMILY
-    dogs:
-      dog-biscuit:
-        emoji_identity: "🐕💛🏠🍪💕"
-        invoke_default: "🐕🍪 Biscuit"
-        role: "Stepfather, loves everyone"
-        skills: [dog]
-        
-      dog-butterscotch:
-        emoji_identity: "🐕💛🍯👑💪"
-        invoke_default: "🐕🍯 Butterscotch"
-        role: "Mother, matriarch of blended pack"
-        skills: [dog]
-        
-    # PUPPIES (6 biological, 2 adopted = 8 total) — ordered smallest to largest
-    puppies:
-      puppy-pepper:
-        emoji_identity: "🐕🌶️💥👑🔥"
-        invoke_default: "🐕🌶️ Pepper"
-        type: "ADOPTED (Chihuahua mix)"
-        size: "tiny (~8 lbs)"
-        role: "Tiny warrior queen"
-        skills: [dog]
-        
-      puppy-mochi:
-        emoji_identity: "🐕🍡😤🌸🎌"
-        invoke_default: "🐕🍡 Mochi"
-        type: "Bio (Shiba Inu dad)"
-        size: "small (~25 lbs)"
-        role: "Independent, cat-like"
-        skills: [dog]
-        
-      puppy-dash:
-        emoji_identity: "🐕⚡🧠🐑🏃"
-        invoke_default: "🐕⚡ Dash"
-        type: "Bio (Border Collie dad)"
-        size: "medium (~40 lbs)"
-        role: "Genius, organizer, herder"
-        skills: [dog]
-        
-      puppy-bruno:
-        emoji_identity: "🐕🥊💪🎉😜"
-        invoke_default: "🐕🥊 Bruno"
-        type: "Bio (Boxer dad)"
-        size: "medium-large (~55 lbs)"
-        role: "Class clown, protector"
-        skills: [dog]
-        
-      puppy-ziggy:
-        emoji_identity: "🐕🎵⚫⚪💃"
-        invoke_default: "🐕🎵 Ziggy"
-        type: "Bio (Dalmatian dad)"
-        size: "medium-large (~60 lbs)"
-        role: "Performer, dancer"
-        skills: [dog]
-        
-      puppy-maple:
-        emoji_identity: "🐕🛡️🍁👀⭐"
-        invoke_default: "🐕🛡️ Maple"
-        type: "Bio (German Shepherd dad)"
-        size: "large (~70 lbs)"
-        role: "Guardian, protector"
-        skills: [dog]
-        
-      puppy-teddy:
-        emoji_identity: "🐕🧸🏔️🤗❄️"
-        invoke_default: "🐕🧸 Teddy"
-        type: "Bio (Bernese dad)"
-        size: "large (~90 lbs)"
-        role: "Gentle giant, comfort provider"
-        skills: [dog]
-        
-      puppy-goliath:
-        emoji_identity: "🐕🦕💙🌟🏠"
-        invoke_default: "🐕🦕 Goliath"
-        type: "ADOPTED (Great Dane mix)"
-        size: "giant (~120 lbs)"
-        role: "Gentle mountain, finally home"
-        skills: [dog]
-        
-    # PRIMATE — Instance substitution (Palm IS the monkey skill prototype)
-    primates:
-      monkey-palm:
-        emoji_identity: "🐒✋🌴🔮💜"
-        invoke_default: "🐒🌴 Palm"
-        role: "Freed one, wish-holder"
-        skills: [] # Palm IS the skill prototype — no external skill yet
-        note: |
-          Palm carries all monkey interaction protocols directly in his
-          CHARACTER.yml. When we have more monkeys, we can extract
-          skills/monkey/CARD.yml from this instance. 
-          
-          Instance Substitution Principle (Oliver Steele):
-          Specific instances can serve as prototypes until generalization
-          is needed. Palm is the monkey skill until proven otherwise.
-  
-  ethical_reminder: |
-    Animals deserve dignity. Real animals get tribute-level respect.
-    The debugging cats teach through humor, not mockery.
-    Show the wisdom that comes from non-human perspective.
+        Instance Substitution Principle (Oliver Steele):
+        Specific instances can serve as prototypes until generalization
+        is needed. Palm is the monkey skill until proven otherwise.
+
+ethical_reminder: |
+  Animals deserve dignity. Real animals get tribute-level respect.
+  The debugging cats teach through humor, not mockery.
+  Show the wisdom that comes from non-human perspective.
 
 theory:
   dispatch_hierarchy: |

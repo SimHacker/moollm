@@ -1,18 +1,17 @@
 # CARD.yml — Soul
 # Continuity in a character: minds + history; can jump
 
-card:
-  id: soul
-  name: Soul
-  type: [skill, entity, ontology]
-  emoji: 🕯️
-  tier: 1
-  tagline: "Inhabits a character. Zero or more minds. Can jump."
+id: soul
+name: Soul
+type: [skill, entity, ontology]
+emoji: 🕯️
+tier: 1
+tagline: "Inhabits a character. Zero or more minds. Can jump."
 
-  description: |
-    Continuity that inhabits a character — history, minds[] (0..N).
-    Character walks, carries inventory, wears personas. Soul rides along
-    (or jumps). Free-form; bridges to other games OK.
+description: |
+  Continuity that inhabits a character — history, minds[] (0..N).
+  Character walks, carries inventory, wears personas. Soul rides along
+  (or jumps). Free-form; bridges to other games OK.
 
 files:
   docs:
@@ -134,5 +133,3 @@ examples_public:
     note: "Blended soul — multiple parents, one body"
   - url: "https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-michie"
     note: "Opposite axis (pronunciation only) — see SOUL-MODEL.md"
-
-tier: 1

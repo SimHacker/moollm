@@ -3,20 +3,19 @@
 # The Robustness Principle: be liberal in acceptance, conservative in emission.
 # "Be generous in what you accept."
 
-card:
-  id: postel
-  name: "Postel's Law"
-  type: [skill, philosophy, robustness]
+id: postel
+name: "Postel's Law"
+type: [skill, philosophy, robustness]
+
+emoji: 🤝
+
+rarity: rare  # Foundational principle
+
+description: |
+  Jon Postel's Robustness Principle applied to LLM interactions:
+  "Be conservative in what you emit, be liberal in what you accept."
   
-  emoji: 🤝
-  
-  rarity: rare  # Foundational principle
-  
-  description: |
-    Jon Postel's Robustness Principle applied to LLM interactions:
-    "Be conservative in what you emit, be liberal in what you accept."
-    
-    Accept messy input. Produce clean output.
+  Accept messy input. Produce clean output.
 
 # TOOLS REQUIRED
 

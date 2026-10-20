@@ -1,50 +1,50 @@
 # This is what happens when you apply this card to itself. ✨🪩🌈🎨🌟❄️🧊🌀
-card:  # 🪱✨🌨️🪄
-  name: worm-emoji-fordite  # 🎨🪩⭐💎❄️
-  type: [worm, cursor, example]  # 🧭🧬🌈🪐🌀
-  tier: 1  # 🌟✨🌙❄️
-  invoke_when: ["decorate comments with emojis", "run repeatedly for layers"]  # 🔁🌈💫💖🧊
-  advertisement_names:  # 📣🧭🎯🌈🌨️
-    - RUN-WORM  # 🏃‍♀️🪱⚡🌠
-    - EAT-COMMENTS  # 😋💬🌀🍭
-    - APPEND-EMOJIS  # ➕😺🎆🔮
-  # 🌨️🧊🌀🌈🪆🪄
-  inherits:  # 🧬📜🔗
-    - skills/worm/CARD.yml  # 🪱📜🧬
-  related:  # 🧭🤝🧪🌬️❄️
-    - skills/worm  # 🪱💚
-    - skills/data-flow  # 🔀🌊
-    - skills/advertisement  # 📣✨
-  tags: [moollm, worm, emoji, fordite, comments]  # 🏷️💎🌠
-  # 🌨️🧊🌈🧭🎯
-  description: |  # 🎨📜🗣️
-    Emoji Fordite Worm: crawls a target file, finds comment lines, and appends
-    emojis (avoids exact same emoji twice in a row). Running repeatedly creates
-    colorful layered emoji bands like fordite. Keep YAML valid; place emojis only at
-    comment/EOL positions. Choose semantically tuned emojis per line, considering
-    preceding/following context and structure. Palette may draw from any emoji.
-    Instructions: work in iterative passes; fill gaps; let snowdrifts of emojis
-    erode sideways into nearby blanks like falling-sand with gravity to the left;
-    never alter string literals or code tokens; prefer comment-safe landings across
-    many languages; rerun to build strata and smooth valleys. Execution model:
-    Moveable Feast (random line selection); operate over a small sliding window
-    (look above/below) and spray/erode emojis across neighboring lines instead of
-    only piling towers; can drift existing snow sideways before adding new flakes.
-    Parallel neighborhood algorithm (MFM-style):
-      - Choose window size (1=single-line, 3 or 5 for spray/erosion).
-      - Randomly pick as many non-overlapping line windows as fit, roughly even spacing.
-      - For each window in parallel: sample context within the window; spray emojis at
-        safe comment/EOL slots; optionally erode/shift existing emojis sideways/down
-        within the window; respect avoid_consecutive and max_per_pass.
-      - Merge windows; rerun with new random tiling for fresh layers (speed-of-light).
-    Practical guardrails: never insert new lines; only append to existing comment/EOL
-    positions; avoid string bodies and code tokens; prefer thick fills that settle
-    downhill into nearby gaps; if a spot is already tall, erode sideways instead of
-    stacking higher. Aim to do it right on the first pass.
-    Emoji themes: read k-line categories from examples/adventure-4/characters/animals/worm-confetti-crawler/emojis.txt
-    (headers like '# space-travel-tech' followed by emoji lines). Theme selection can be explicit (e.g., 'summer-garden') or
-    ALL = concat of every category. Use the sister script at examples/adventure-4/characters/animals/worm-confetti-crawler/sprayer.py
-    as the reference implementation (seeded PRNG, theme selection, strip mode).
+# 🪱✨🌨️🪄
+name: worm-emoji-fordite  # 🎨🪩⭐💎❄️
+type: [worm, cursor, example]  # 🧭🧬🌈🪐🌀
+tier: 1  # 🌟✨🌙❄️
+invoke_when: ["decorate comments with emojis", "run repeatedly for layers"]  # 🔁🌈💫💖🧊
+advertisement_names:  # 📣🧭🎯🌈🌨️
+  - RUN-WORM  # 🏃‍♀️🪱⚡🌠
+  - EAT-COMMENTS  # 😋💬🌀🍭
+  - APPEND-EMOJIS  # ➕😺🎆🔮
+# 🌨️🧊🌀🌈🪆🪄
+inherits:  # 🧬📜🔗
+  - skills/worm/CARD.yml  # 🪱📜🧬
+related:  # 🧭🤝🧪🌬️❄️
+  - skills/worm  # 🪱💚
+  - skills/data-flow  # 🔀🌊
+  - skills/advertisement  # 📣✨
+tags: [moollm, worm, emoji, fordite, comments]  # 🏷️💎🌠
+# 🌨️🧊🌈🧭🎯
+description: |  # 🎨📜🗣️
+  Emoji Fordite Worm: crawls a target file, finds comment lines, and appends
+  emojis (avoids exact same emoji twice in a row). Running repeatedly creates
+  colorful layered emoji bands like fordite. Keep YAML valid; place emojis only at
+  comment/EOL positions. Choose semantically tuned emojis per line, considering
+  preceding/following context and structure. Palette may draw from any emoji.
+  Instructions: work in iterative passes; fill gaps; let snowdrifts of emojis
+  erode sideways into nearby blanks like falling-sand with gravity to the left;
+  never alter string literals or code tokens; prefer comment-safe landings across
+  many languages; rerun to build strata and smooth valleys. Execution model:
+  Moveable Feast (random line selection); operate over a small sliding window
+  (look above/below) and spray/erode emojis across neighboring lines instead of
+  only piling towers; can drift existing snow sideways before adding new flakes.
+  Parallel neighborhood algorithm (MFM-style):
+    - Choose window size (1=single-line, 3 or 5 for spray/erosion).
+    - Randomly pick as many non-overlapping line windows as fit, roughly even spacing.
+    - For each window in parallel: sample context within the window; spray emojis at
+      safe comment/EOL slots; optionally erode/shift existing emojis sideways/down
+      within the window; respect avoid_consecutive and max_per_pass.
+    - Merge windows; rerun with new random tiling for fresh layers (speed-of-light).
+  Practical guardrails: never insert new lines; only append to existing comment/EOL
+  positions; avoid string bodies and code tokens; prefer thick fills that settle
+  downhill into nearby gaps; if a spot is already tall, erode sideways instead of
+  stacking higher. Aim to do it right on the first pass.
+  Emoji themes: read k-line categories from examples/adventure-4/characters/animals/worm-confetti-crawler/emojis.txt
+  (headers like '# space-travel-tech' followed by emoji lines). Theme selection can be explicit (e.g., 'summer-garden') or
+  ALL = concat of every category. Use the sister script at examples/adventure-4/characters/animals/worm-confetti-crawler/sprayer.py
+  as the reference implementation (seeded PRNG, theme selection, strip mode).
 # 🧠🎨🪄🌈🌨️🧊🌀🌈🧭🪆🪄
 # Emojis act like graffiti tags: react to the syntax around them, speak with  🎨🧱🗣️❄️🌨️🧊🌀🌈🧭🪆🪄🌨️🧊🪱🧭
 # nearby tokens, and stay in safe comment zones so code stays correct. 🎨🧱🗣️❄️🌨️🧊🌀🌈🧭🪆🪄🌨️🧊🪱🧭

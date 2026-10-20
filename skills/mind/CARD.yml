@@ -1,18 +1,17 @@
 # CARD.yml — Mind
 # Resident agency inside a soul
 
-card:
-  id: mind
-  name: Mind
-  type: [skill, entity, ontology]
-  emoji: 🧠
-  tier: 1
-  tagline: "Resident agency. Shares the soul's walk."
+id: mind
+name: Mind
+type: [skill, entity, ontology]
+emoji: 🧠
+tier: 1
+tagline: "Resident agency. Shares the soul's walk."
 
-  description: |
-    An agency that lives in a soul. May inherit latent wells, hold personal
-    deltas (cups), or adopt a game schema (organelle). Co-located with the
-    soul — no separate map pin by default.
+description: |
+  An agency that lives in a soul. May inherit latent wells, hold personal
+  deltas (cups), or adopt a game schema (organelle). Co-located with the
+  soul — no separate map pin by default.
 
 files:
   docs:
@@ -98,5 +97,3 @@ disambiguation:
   mind-mirror: "Specific organelle / personality model — uses this skill's organelle pattern"
   persona: "Costume on a character — not a mind"
   party-member: "Separate soul/character in a party — not a co-located mind"
-
-tier: 1

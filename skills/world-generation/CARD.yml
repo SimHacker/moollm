@@ -3,17 +3,16 @@
 # Dynamic world creation — questions create places.
 # "Ask about a place and it exists."
 
-card:
-  id: world-generation
-  name: "World Generation"
-  type: [skill, creation, game]
-  emoji: 🌱
-  rarity: uncommon
-  
-  description: |
-    Dynamic world creation. When you ask about a place
-    that doesn't exist, create it. Questions expand the
-    world. Exploration IS creation.
+id: world-generation
+name: "World Generation"
+type: [skill, creation, game]
+emoji: 🌱
+rarity: uncommon
+
+description: |
+  Dynamic world creation. When you ask about a place
+  that doesn't exist, create it. Questions expand the
+  world. Exploration IS creation.
 
 tools:
   required: [read_file, write_file, list_dir]

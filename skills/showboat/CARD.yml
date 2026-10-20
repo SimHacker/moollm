@@ -1,12 +1,11 @@
 # CARD.yml -- showboat
 # Interface card for Showboat: agent demo document builder.
 
-card:
-  id: showboat
-  name: "Showboat"
-  type: [skill, tool, demo]
-  author: "Simon Willison"
-  license: Apache-2.0
+id: showboat
+name: "Showboat"
+type: [skill, tool, demo]
+author: "Simon Willison"
+license: Apache-2.0
 
 methods:
   INIT: "Start a new demo document with title"

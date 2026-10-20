@@ -4,26 +4,25 @@
 
 #                         CARD IDENTITY
 
-card:
-  name: "The Study"
-  subtitle: "Where Virtual Worlds Are Understood"
-  type: room_character
-  rarity: legendary
-  artist: "Forty years of accumulation"
-  
-  flavor_text: |
-    "I hold the thoughts of decades.
-     Stay as long as you need.
-     The tea is always ready."
+name: "The Study"
+subtitle: "Where Virtual Worlds Are Understood"
+type: room_character
+rarity: legendary
+artist: "Forty years of accumulation"
 
-  visual:
-    image: selfies/selfie-04-window-imagen4.png
-    palette:
-      primary: "#6F1E0A"    # warm mahogany
-      secondary: "#D4A574"  # golden amber
-      accent: "#87AE73"     # sage green (the armchair)
-    border: antique gold with verdigris patina
-    glow: soft amber when active
+flavor_text: |
+  "I hold the thoughts of decades.
+   Stay as long as you need.
+   The tea is always ready."
+
+visual:
+  image: selfies/selfie-04-window-imagen4.png
+  palette:
+    primary: "#6F1E0A"    # warm mahogany
+    secondary: "#D4A574"  # golden amber
+    accent: "#87AE73"     # sage green (the armchair)
+  border: antique gold with verdigris patina
+  glow: soft amber when active
 
 #                         STATS & ATTRIBUTES
 

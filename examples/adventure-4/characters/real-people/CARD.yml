@@ -1,63 +1,62 @@
-card:
-  name: "The Living and The Dead"
-  type: character-room
-  protocol: TRIBUTE
+name: "The Living and The Dead"
+type: character-room
+protocol: TRIBUTE
+
+description: |
+  A vast gallery of portraits. Some faces smile. Some scowl.
+  Real people -- living or deceased, heroes or villains, famous or obscure.
+  Anyone who actually walked the earth can be imagined here.
   
-  description: |
-    A vast gallery of portraits. Some faces smile. Some scowl.
-    Real people -- living or deceased, heroes or villains, famous or obscure.
-    Anyone who actually walked the earth can be imagined here.
+  We do not speak FOR them. We imagine WITH them.
+
+atmosphere:
+  lighting: shifting -- warm amber near heroes, shadows near others
+  sounds: murmurs of history, arguments across centuries
+  smell: old books, dust, the weight of lives lived
+  feeling: standing among the complicated and the consequential
+
+advertisements:
+  SUMMON-PIONEER:
+    description: "Invoke a pioneer for conversation"
+    examples:
+      - "SUMMON alan-kay"
+      - "SUMMON seymour-papert to discuss constructionism"
+      - "SUMMON will-wright and craig-reynolds together"
+    satisfaction: { curiosity: +3, wisdom: +2 }
     
-    We do not speak FOR them. We imagine WITH them.
-  
-  atmosphere:
-    lighting: shifting -- warm amber near heroes, shadows near others
-    sounds: murmurs of history, arguments across centuries
-    smell: old books, dust, the weight of lives lived
-    feeling: standing among the complicated and the consequential
-  
-  advertisements:
-    SUMMON-PIONEER:
-      description: "Invoke a pioneer for conversation"
-      examples:
-        - "SUMMON alan-kay"
-        - "SUMMON seymour-papert to discuss constructionism"
-        - "SUMMON will-wright and craig-reynolds together"
-      satisfaction: { curiosity: +3, wisdom: +2 }
-      
-    PANEL-DISCUSSION:
-      description: "Gather multiple pioneers for a themed discussion"
-      examples:
-        - "PANEL on the future of computing: kay, engelbart, victor"
-        - "PANEL on learning: papert, piaget, minsky"
-        - "PANEL on games: wright, miyamoto, bunten-berry"
-      satisfaction: { understanding: +4, inspiration: +3 }
-      
-    ASK-WISDOM:
-      description: "Pose a question to a pioneer"
-      examples:
-        - "ASK minsky about K-lines"
-        - "ASK coltrane about improvisation"
-        - "ASK postel about protocol design"
-      satisfaction: { knowledge: +2 }
-      
-    TIMELINE:
-      description: "Explore connections between pioneers"
-      examples:
-        - "TIMELINE from turing to hofstadter"
-        - "Show me who influenced whom"
-      satisfaction: { context: +2, history: +2 }
-  
-  categories:
-    - "Computing & AI: Kay, Turing, Minsky, Papert, Drescher"
-    - "HCI & Design: Shneiderman, Victor, Atkinson, Nelson"
-    - "Games & Simulation: Wright, Miyamoto, Bunten-Berry, Reynolds"
-    - "Music & Art: Coltrane, Eno, Picasso, Van Gogh, Da Vinci"
-    - "Writers: Borges, Lem, PKD, Wilde, Whitman"
-    - "Networks: Postel, Stallman, Torvalds, Berners-Lee"
-    - "Counterculture: Leary, Thompson, Waters"
-  
-  ethical_reminder: |
-    These are fictional explorations of documented ideas.
-    Living pioneers deserve extra care -- they can object.
-    Honor, don't parody. Imagine WITH them.
+  PANEL-DISCUSSION:
+    description: "Gather multiple pioneers for a themed discussion"
+    examples:
+      - "PANEL on the future of computing: kay, engelbart, victor"
+      - "PANEL on learning: papert, piaget, minsky"
+      - "PANEL on games: wright, miyamoto, bunten-berry"
+    satisfaction: { understanding: +4, inspiration: +3 }
+    
+  ASK-WISDOM:
+    description: "Pose a question to a pioneer"
+    examples:
+      - "ASK minsky about K-lines"
+      - "ASK coltrane about improvisation"
+      - "ASK postel about protocol design"
+    satisfaction: { knowledge: +2 }
+    
+  TIMELINE:
+    description: "Explore connections between pioneers"
+    examples:
+      - "TIMELINE from turing to hofstadter"
+      - "Show me who influenced whom"
+    satisfaction: { context: +2, history: +2 }
+
+categories:
+  - "Computing & AI: Kay, Turing, Minsky, Papert, Drescher"
+  - "HCI & Design: Shneiderman, Victor, Atkinson, Nelson"
+  - "Games & Simulation: Wright, Miyamoto, Bunten-Berry, Reynolds"
+  - "Music & Art: Coltrane, Eno, Picasso, Van Gogh, Da Vinci"
+  - "Writers: Borges, Lem, PKD, Wilde, Whitman"
+  - "Networks: Postel, Stallman, Torvalds, Berners-Lee"
+  - "Counterculture: Leary, Thompson, Waters"
+
+ethical_reminder: |
+  These are fictional explorations of documented ideas.
+  Living pioneers deserve extra care -- they can object.
+  Honor, don't parody. Imagine WITH them.

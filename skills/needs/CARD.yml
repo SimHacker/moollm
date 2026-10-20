@@ -3,20 +3,19 @@
 # Sims-style dynamic motivations — hunger, energy, fun, social.
 # "Needs drive behavior. Unmet needs cause problems."
 
-card:
-  id: needs
-  name: "Needs"
-  type: [skill, motivation, game]
+id: needs
+name: "Needs"
+type: [skill, motivation, game]
+
+emoji: 🔋
+
+rarity: common
+
+description: |
+  Dynamic character motivations that decay over time and
+  drive behavior. Hunger, energy, fun, social, etc.
   
-  emoji: 🔋
-  
-  rarity: common
-  
-  description: |
-    Dynamic character motivations that decay over time and
-    drive behavior. Hunger, energy, fun, social, etc.
-    
-    Objects advertise based on which needs they satisfy.
+  Objects advertise based on which needs they satisfy.
 
 # TOOLS REQUIRED
 

@@ -1,16 +1,15 @@
 # CARD.yml — postgres
 
-card:
-  id: postgres
-  name: "PostgreSQL"
-  type: [skill, database, operations]
-  emoji: 🐘
-  rarity: common
+id: postgres
+name: "PostgreSQL"
+type: [skill, database, operations]
+emoji: 🐘
+rarity: common
 
-  description: |
-    Server PostgreSQL: connection strings, psql, roles/schemas, migrations,
-    extension choice (Timescale, pgvector, pg_stat_statements, …), introspection,
-    backup vocabulary. Unusual index and EXPLAIN depth: postgres-optimization.
+description: |
+  Server PostgreSQL: connection strings, psql, roles/schemas, migrations,
+  extension choice (Timescale, pgvector, pg_stat_statements, …), introspection,
+  backup vocabulary. Unusual index and EXPLAIN depth: postgres-optimization.
 
 tools:
   required: [read_file, run_terminal_cmd]

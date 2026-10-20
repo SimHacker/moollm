@@ -3,27 +3,26 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Simulation + Evaluation + Iteration + Analysis"
 
-card:
-  id: experiment
-  name: "Experiment"
-  type: [skill, meta, composite]
-  emoji: 🧪
-  tier: 2
-  protocol: EXPERIMENT
-  aliases: [EXP, RUN]
-  tagline: "Simulation + Evaluation + Iteration + Analysis"
+id: experiment
+name: "Experiment"
+type: [skill, meta, composite]
+emoji: 🧪
+tier: 2
+protocol: EXPERIMENT
+aliases: [EXP, RUN]
+tagline: "Simulation + Evaluation + Iteration + Analysis"
+
+description: |
+  An experiment combines four activities into a systematic practice:
   
-  description: |
-    An experiment combines four activities into a systematic practice:
-    
-    SIMULATE  → Generate character interactions via speed-of-light
-    EVALUATE  → Score against rubric criteria
-    ITERATE   → Run again with variations (model, characters, params)
-    ANALYZE   → Compare runs, find patterns, extract insights
-    
-    The experiment definition is stable; configs and runs vary.
-    This allows systematic comparison across models, character sets, and
-    parameter variations.
+  SIMULATE  → Generate character interactions via speed-of-light
+  EVALUATE  → Score against rubric criteria
+  ITERATE   → Run again with variations (model, characters, params)
+  ANALYZE   → Compare runs, find patterns, extract insights
+  
+  The experiment definition is stable; configs and runs vary.
+  This allows systematic comparison across models, character sets, and
+  parameter variations.
 
 # INHERITANCE
 

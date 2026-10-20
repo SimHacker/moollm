@@ -3,17 +3,16 @@
 # Frozen plans with human approval gates.
 # "Plan first. Get approval. Then execute without deviation."
 
-card:
-  id: plan-then-execute
-  name: "Plan Then Execute"
-  type: [skill, security, workflow]
-  emoji: 📋
-  rarity: uncommon
-  
-  description: |
-    Two-phase execution: generate plan, freeze it, get human
-    approval, execute exactly as planned. Prevents tool outputs
-    from altering later actions. Security through separation.
+id: plan-then-execute
+name: "Plan Then Execute"
+type: [skill, security, workflow]
+emoji: 📋
+rarity: uncommon
+
+description: |
+  Two-phase execution: generate plan, freeze it, get human
+  approval, execute exactly as planned. Prevents tool outputs
+  from altering later actions. Security through separation.
 
 tools:
   required: [read_file, write_file]

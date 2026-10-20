@@ -3,22 +3,21 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Every EAT has a POOP. Every CHOMP has a BARF."
 
-card:
-  id: worm
-  name: "Worm"
-  type: [skill, cursor, traversal, pipeline]
-  emoji: 🪱
-  tier: 1
-  tagline: "Two-pointer reversible cursor for traversal and pipelines."
-  config_dir: ".moollm/skills/worm"
+id: worm
+name: "Worm"
+type: [skill, cursor, traversal, pipeline]
+emoji: 🪱
+tier: 1
+tagline: "Two-pointer reversible cursor for traversal and pipelines."
+config_dir: ".moollm/skills/worm"
+
+description: |
+  Two-pointer worm (head/tail) cursor that inchworms through directories
+  and links. Ingest content (tokens become active in its "brain"), carry
+  a buffer, and emit data at head or tail.
   
-  description: |
-    Two-pointer worm (head/tail) cursor that inchworms through directories
-    and links. Ingest content (tokens become active in its "brain"), carry
-    a buffer, and emit data at head or tail.
-    
-    The EAT/POOP/BARF/STICK-UP-BUM verbs form a reversible basis for
-    undo/redo and serialize/deserialize operations.
+  The EAT/POOP/BARF/STICK-UP-BUM verbs form a reversible basis for
+  undo/redo and serialize/deserialize operations.
 
 # FILES INDEX
 

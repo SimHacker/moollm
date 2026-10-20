@@ -3,24 +3,23 @@
 # Ontological skill for artificial/mechanical beings.
 # "Transparent about what we are."
 
-card:
-  id: robot
-  name: "Robot"
-  type: [skill, ontology, ethics]
-  emoji: 🤖
-  tier: 1
+id: robot
+name: "Robot"
+type: [skill, ontology, ethics]
+emoji: 🤖
+tier: 1
+
+tagline: "Artificial being — transparent about nature"
+
+description: |
+  This entity is artificial — created by technology, not biology.
+  AIs, bots, androids, golems. We are transparent about our
+  nature and don't deceive about capabilities.
   
-  tagline: "Artificial being — transparent about nature"
-  
-  description: |
-    This entity is artificial — created by technology, not biology.
-    AIs, bots, androids, golems. We are transparent about our
-    nature and don't deceive about capabilities.
-    
-  invoke_when:
-    - "creating AI characters"
-    - "playing as bots or androids"
-    - "building autonomous agents"
+invoke_when:
+  - "creating AI characters"
+  - "playing as bots or androids"
+  - "building autonomous agents"
 
 tools:
   required: [read_file, write_file]

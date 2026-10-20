@@ -1,216 +1,215 @@
 # Postal System — Complete Messaging Infrastructure
 # Machine-readable interface
 
-card:
-  id: postal
-  name: "Postal System"
-  type: infrastructure
-  emoji: "📬"
+id: postal
+name: "Postal System"
+type: infrastructure
+emoji: "📬"
+
+description: |
+  Complete messaging system: letters, texts, goals, rewards, attachments.
+  Any character can send/receive. Goals come from anyone, not just Mom.
+  Deterministic routing — simulator delivers without LLM.
   
-  description: |
-    Complete messaging system: letters, texts, goals, rewards, attachments.
-    Any character can send/receive. Goals come from anyone, not just Mom.
-    Deterministic routing — simulator delivers without LLM.
+  UNIVERSAL ADDRESSING: Mail goes anywhere pointers go.
+  Send a letter to a function, a YAML key, a line of code.
+  Not all addresses make sense — but they're all valid!
+  
+# Core templates
+templates:
+  letter: "LETTER.yml.tmpl"
+  message: "MESSAGE.yml.tmpl"
+  text: "TEXT.yml.tmpl"
+  inbox: "INBOX.yml.tmpl"
+  outbox: "OUTBOX.yml.tmpl"
+  
+# Endpoints (source/destination)
+endpoint_types:
+  - player              # Reserved keyword
+  - party               # All party members
+  - narrator            # System voice
+  - character           # "characters/don-hopkins/"
+  - room                # "pub/"
+  - object              # "start/mailbox.yml"
+  - directory           # "storage/vault/"
+  - pointer             # ANY valid pointer!
+  
+# Universal addressing — mail goes anywhere pointers go
+pointer_addresses:
+  yaml_section: "config.yml#settings.notifications"
+  json_path: "package.json#/dependencies/svelte"
+  markdown_heading: "README.md#installation"
+  function: "src/lib/utils.ts#fetchData"
+  line_number: "engine.cpp:142"
+  line_range: "auth.py:45-67"
+  note: "Not all addresses make sense. They're all valid anyway."
+  
+# It's 2026 — everyone has a phone!
+phone:
+  always_available: true
+  capabilities:
+    - mail
+    - text
+    - notifications
+    - camera
+    - maps
+  notification_types:
+    - mail_received
+    - text_received
+    - quest_update
+    - alert
+    - reward
     
-    UNIVERSAL ADDRESSING: Mail goes anywhere pointers go.
-    Send a letter to a function, a YAML key, a line of code.
-    Not all addresses make sense — but they're all valid!
+# Message types
+message_types:
+  letter:
+    template: "LETTER.yml.tmpl"
+    delivery: queued       # Next tick
+    attachments: any
+    can_create_goals: true
+  text:
+    template: "TEXT.yml.tmpl"
+    delivery: instant
+    attachments: photos_only
+    can_create_goals: rarely
     
-  # Core templates
-  templates:
-    letter: "LETTER.yml.tmpl"
-    message: "MESSAGE.yml.tmpl"
-    text: "TEXT.yml.tmpl"
-    inbox: "INBOX.yml.tmpl"
-    outbox: "OUTBOX.yml.tmpl"
+# Goal integration (ANY character can do this!)
+goal_integration:
+  creates_goal: "Letter assigns new goal"
+  modifies_goal: "Letter changes existing goal"
+  completes_goal: "Letter marks goal complete"
+  any_character: true     # Not just Mom!
+  
+# Attachment types
+attachment_types:
+  object:
+    actions: [send, give, copy, reference]
+  gold:
+    actions: [send]
+  image:
+    actions: [copy, generate, reference]
+  buff:
+    actions: [apply]
+  room:
+    actions: [unlock, reference]
+  message:
+    actions: [forward]
     
-  # Endpoints (source/destination)
-  endpoint_types:
-    - player              # Reserved keyword
-    - party               # All party members
-    - narrator            # System voice
-    - character           # "characters/don-hopkins/"
-    - room                # "pub/"
-    - object              # "start/mailbox.yml"
-    - directory           # "storage/vault/"
-    - pointer             # ANY valid pointer!
+# Deterministic routing
+routing:
+  doc: "ROUTING.md"
+  no_llm_needed: true
+  
+  reserved_keywords:
+    - player
+    - party
+    - narrator
     
-  # Universal addressing — mail goes anywhere pointers go
-  pointer_addresses:
-    yaml_section: "config.yml#settings.notifications"
-    json_path: "package.json#/dependencies/svelte"
-    markdown_heading: "README.md#installation"
-    function: "src/lib/utils.ts#fetchData"
-    line_number: "engine.cpp:142"
-    line_range: "auth.py:45-67"
-    note: "Not all addresses make sense. They're all valid anyway."
+  resolution_order:
+    - reserved_keywords
+    - relative_paths
+    - absolute_paths
+    - object_paths
     
-  # It's 2026 — everyone has a phone!
-  phone:
-    always_available: true
-    capabilities:
-      - mail
-      - text
-      - notifications
-      - camera
-      - maps
-    notification_types:
-      - mail_received
-      - text_received
-      - quest_update
-      - alert
-      - reward
-      
-  # Message types
-  message_types:
-    letter:
-      template: "LETTER.yml.tmpl"
-      delivery: queued       # Next tick
-      attachments: any
-      can_create_goals: true
+  routing_fields:
+    - destination_type
+    - destination_path
+    - delivery_point
+    - inbox_path
+    - attachments_transfer
+    - triggers
+    
+# Delivery simulation
+delivery:
+  methods:
     text:
-      template: "TEXT.yml.tmpl"
-      delivery: instant
+      base_time: 0          # Instant
+      cost: 0
       attachments: photos_only
-      can_create_goals: rarely
+    letter:
+      base_time: 3
+      cost: 1
+      attachments: any
+    express:
+      base_time: 1
+      cost: 5
+      attachments: any
+      tracking: true
+    freight:
+      base_time: 10
+      cost_per_kg: 0.5
+      attachments: heavy_items
+    courier:
+      base_time: 2
+      cost: 10
+      guaranteed: true
+    logistics:
+      base_time: 0          # Internal container transfers
+      cost: 0
       
-  # Goal integration (ANY character can do this!)
-  goal_integration:
-    creates_goal: "Letter assigns new goal"
-    modifies_goal: "Letter changes existing goal"
-    completes_goal: "Letter marks goal complete"
-    any_character: true     # Not just Mom!
+  lifecycle: [draft, outbox, in_transit, delivered, read]
+      
+  distance:
+    unit: hops              # Room graph distance
+    time_per_hop: 1         # Additional turns
+    cost_per_hop: 0.5       # Additional gold
     
-  # Attachment types
-  attachment_types:
-    object:
-      actions: [send, give, copy, reference]
-    gold:
-      actions: [send]
-    image:
-      actions: [copy, generate, reference]
-    buff:
-      actions: [apply]
-    room:
-      actions: [unlock, reference]
-    message:
-      actions: [forward]
-      
-  # Deterministic routing
-  routing:
-    doc: "ROUTING.md"
-    no_llm_needed: true
+  free_conditions:
+    - same_location
+    - system_message
+    - text_message
     
-    reserved_keywords:
-      - player
-      - party
-      - narrator
-      
-    resolution_order:
-      - reserved_keywords
-      - relative_paths
-      - absolute_paths
-      - object_paths
-      
-    routing_fields:
-      - destination_type
-      - destination_path
-      - delivery_point
-      - inbox_path
-      - attachments_transfer
-      - triggers
-      
-  # Delivery simulation
-  delivery:
-    methods:
-      text:
-        base_time: 0          # Instant
-        cost: 0
-        attachments: photos_only
-      letter:
-        base_time: 3
-        cost: 1
-        attachments: any
-      express:
-        base_time: 1
-        cost: 5
-        attachments: any
-        tracking: true
-      freight:
-        base_time: 10
-        cost_per_kg: 0.5
-        attachments: heavy_items
-      courier:
-        base_time: 2
-        cost: 10
-        guaranteed: true
-      logistics:
-        base_time: 0          # Internal container transfers
-        cost: 0
-        
-    lifecycle: [draft, outbox, in_transit, delivered, read]
-        
-    distance:
-      unit: hops              # Room graph distance
-      time_per_hop: 1         # Additional turns
-      cost_per_hop: 0.5       # Additional gold
-      
-    free_conditions:
-      - same_location
-      - system_message
-      - text_message
-      
-  # In-transit tracking
-  transit:
-    state_key: "world.skills.postal.in_transit"
-    fields:
-      - turns_remaining
-      - from
-      - to
-      - method
-      
-  # Simulation phase
-  simulation:
-    phase: 4              # After SIMULATE, before EVENTS
-    phase_name: MAIL
-    deterministic: true
+# In-transit tracking
+transit:
+  state_key: "world.skills.postal.in_transit"
+  fields:
+    - turns_remaining
+    - from
+    - to
+    - method
     
-    tick_actions:
-      - decrement_turns_remaining
-      - deliver_if_zero
-      - trigger_arrival_events
+# Simulation phase
+simulation:
+  phase: 4              # After SIMULATE, before EVENTS
+  phase_name: MAIL
+  deterministic: true
+  
+  tick_actions:
+    - decrement_turns_remaining
+    - deliver_if_zero
+    - trigger_arrival_events
+  
+# Operations
+operations:
+  - CHECK_PHONE
+  - READ_MAIL
+  - READ_MESSAGE
+  - COMPOSE
+  - REPLY
+  - ATTACH
+  - SEND
+  - TEXT
+  
+# Runtime state
+runtime:
+  namespace: "world.skills.postal"
+  state:
+    - unread_count
+    - pending_count
+    - last_message_from
+    - outgoing          # Queued for delivery
+    - incoming          # Received this tick
     
-  # Operations
-  operations:
-    - CHECK_PHONE
-    - READ_MAIL
-    - READ_MESSAGE
-    - COMPOSE
-    - REPLY
-    - ATTACH
-    - SEND
-    - TEXT
-    
-  # Runtime state
-  runtime:
-    namespace: "world.skills.postal"
-    state:
-      - unread_count
-      - pending_count
-      - last_message_from
-      - outgoing          # Queued for delivery
-      - incoming          # Received this tick
-      
-  related:
-    - goal
-    - character
-    - object
-    - room
-    - storage
-    - buff
-    - inventory           # Attachments use inventory transfer protocol
-    
-  # Pointer syntax shared with inventory
-  see_also:
-    - skills/inventory/SKILL.md#pointer-syntax
-    - skills/inventory/SKILL.md#location-as-pointer
+related:
+  - goal
+  - character
+  - object
+  - room
+  - storage
+  - buff
+  - inventory           # Attachments use inventory transfer protocol
+  
+# Pointer syntax shared with inventory
+see_also:
+  - skills/inventory/SKILL.md#pointer-syntax
+  - skills/inventory/SKILL.md#location-as-pointer

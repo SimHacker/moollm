@@ -1,44 +1,43 @@
 # CARD.yml — cloudflare (example biome, overlay/multi-role family)
 
-card:
-  id: cloudflare
-  name: "Cloudflare — Edge Platform (biome stub)"
-  type: [skill, biome]
-  emoji: "☁️✈️"
-  family: overlay
-  cross_cutting: true
-  multi_role: true
-  status: stub
-  biome: true
-  tagline: "Edge network platform with ten simultaneous roles — CDN + Workers + R2 + DNS + Tunnels + Pages + Access + ..."
+id: cloudflare
+name: "Cloudflare — Edge Platform (biome stub)"
+type: [skill, biome]
+emoji: "☁️✈️"
+family: overlay
+cross_cutting: true
+multi_role: true
+status: stub
+biome: true
+tagline: "Edge network platform with ten simultaneous roles — CDN + Workers + R2 + DNS + Tunnels + Pages + Access + ..."
 
-  character: |
-    Cloudflare is distinctive among biome stubs: it plays many
-    simultaneous roles, and they compose. Each role alone would be a
-    small biome; the composition is the biome character.
+character: |
+  Cloudflare is distinctive among biome stubs: it plays many
+  simultaneous roles, and they compose. Each role alone would be a
+  small biome; the composition is the biome character.
 
-      - DNS + registrar (authoritative DNS for a domain you own).
-      - CDN + WAF (public-traffic front door for cloud origins).
-      - Workers (V8-based edge compute without region management).
-      - R2 (S3-compatible object storage with zero egress).
-      - D1, KV, Durable Objects, Queues (edge data services).
-      - Tunnels (cloudflared reverse-proxy into private origins).
-      - Pages (static hosting + attached Workers).
-      - Access (ZTNA identity plane for SSH / internal web apps).
-      - Images / Stream (media transformation + delivery).
-      - Email Routing (inbound email to Workers / forward rules).
+    - DNS + registrar (authoritative DNS for a domain you own).
+    - CDN + WAF (public-traffic front door for cloud origins).
+    - Workers (V8-based edge compute without region management).
+    - R2 (S3-compatible object storage with zero egress).
+    - D1, KV, Durable Objects, Queues (edge data services).
+    - Tunnels (cloudflared reverse-proxy into private origins).
+    - Pages (static hosting + attached Workers).
+    - Access (ZTNA identity plane for SSH / internal web apps).
+    - Images / Stream (media transformation + delivery).
+    - Email Routing (inbound email to Workers / forward rules).
 
-    Consumer repos often use several of these at once, creating
-    intra-biome gateways as well as cross-biome ones. A given cloud
-    origin's public-face chain might be: request → cloudflare DNS →
-    cloudflare CDN/WAF → cloudflare Worker (auth, rewrite) → origin
-    VM on GCP. That chain is entirely inside the cloudflare biome
-    except for the last hop.
+  Consumer repos often use several of these at once, creating
+  intra-biome gateways as well as cross-biome ones. A given cloud
+  origin's public-face chain might be: request → cloudflare DNS →
+  cloudflare CDN/WAF → cloudflare Worker (auth, rewrite) → origin
+  VM on GCP. That chain is entirely inside the cloudflare biome
+  except for the last hop.
 
-  description: |
-    Stub biome. Consumer repos fork or inherit to capture their own
-    Cloudflare configuration — zones, Workers, R2 buckets, Tunnels,
-    Access policies, WAF rulesets.
+description: |
+  Stub biome. Consumer repos fork or inherit to capture their own
+  Cloudflare configuration — zones, Workers, R2 buckets, Tunnels,
+  Access policies, WAF rulesets.
 
 inherits:
   - biome

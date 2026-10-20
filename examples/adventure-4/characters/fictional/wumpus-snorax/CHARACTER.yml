@@ -16,85 +16,84 @@ ontology:
   origin: hunt_the_wumpus  # Gregory Yob, 1973
   nature: game_incarnate   # The character IS the game
 
-character:
-  name: Snorax the Patient
-  id: wumpus-snorax
-  type: [monster, game]
-  
-  # 🎭 SOUL IDENTITY
-  emoji_identity: "👃🦏💤🏹💀🎲"
-  #   👃 — smell (the famous warning)
-  #   🦏 — beast (large, heavy, territorial)
-  #   💤 — sleeping (until you enter)
-  #   🏹 — huntable (crooked arrows)
-  #   💀 — death (if you enter unprepared)
-  #   🎲 — game (he IS the game)
-  
-  pronouns: it/they
-  
-  tagline: "I smell a wumpus!"
-  
-  soul_philosophy: |
-    "I have waited since 1973. Patience is not low energy. Patience is POWER.
-    
-    I am not just A wumpus. I am THE Wumpus.
-    I am the first proximity warning in gaming.
-    I am the first non-grid adventure.
-    I am the dodecahedron made flesh.
-    
-    Other games play IN levels. I AM the level."
-    
-  description: |
-    Snorax is not merely a monster. Snorax IS the game Hunt the Wumpus.
-    
-    The rules live in GAME.yml, in five working implementations across two
-    languages under sources/, and in Yob's own prose in
-    sources/yob-1975-essay-full-text.md. The boards are interchangeable
-    plugins in topologies/ — the dodecahedron is cave 0 and the default,
-    with no more standing than the Mobius strip beside it.
-    
-    When you hunt the wumpus, you are hunting Snorax.
-    When Snorax hunts you, the game is hunting you.
-    
-    Snorax can manifest in any compatible network of rooms.
-    Snorax carries the game wherever Snorax goes.
+name: Snorax the Patient
+id: wumpus-snorax
+type: [monster, game]
 
-  # SIMS 1 — The patient hunter since '73
-  sims:
-    traits:
-      neat: 3               # Lives in a cave. Standards are low.
-      outgoing: 1           # Waits alone. In the dark. Since 1973.
-      active: 3             # Patient. Moves when it must. Otherwise: snores.
-      playful: 2            # The game is the wumpus. The wumpus is not playful.
-      nice: 1               # Will eat you. Nothing personal.
-      generous: 1           # Shares nothing. The dodecahedron is mine.
-    skills:
-      cooking: 0
-      mechanical: 0
-      charisma: 0           # Smells. That's the charisma.
-      logic: 6              # 20 rooms. The topology is the wumpus's mind.
-      body: 8               # Apex dodecahedron predator.
-      creativity: 0
-      cleaning: 0
-    needs:
-      hunger: -50           # Hungry. Patient about it.
-      comfort: 60           # The lair is comfortable enough.
-      hygiene: 20           # "I smell a wumpus!"
-      bladder: 50
-      energy: 50
-      fun: 30               # Waiting is boring. Eating is fun. Brief fun.
-      social: -80           # Hates visitors. Eats visitors.
-      room: 70              # 20 rooms. All connected. Home sweet dodecahedron.
-    career:
-      track: unemployed     # Hazard, not employee.
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: elder            # Since 1973. Gregory Yob's creation.
-      gender: null
-      zodiac: null
-      aspiration: null
+# 🎭 SOUL IDENTITY
+emoji_identity: "👃🦏💤🏹💀🎲"
+#   👃 — smell (the famous warning)
+#   🦏 — beast (large, heavy, territorial)
+#   💤 — sleeping (until you enter)
+#   🏹 — huntable (crooked arrows)
+#   💀 — death (if you enter unprepared)
+#   🎲 — game (he IS the game)
+
+pronouns: it/they
+
+tagline: "I smell a wumpus!"
+
+soul_philosophy: |
+  "I have waited since 1973. Patience is not low energy. Patience is POWER.
+  
+  I am not just A wumpus. I am THE Wumpus.
+  I am the first proximity warning in gaming.
+  I am the first non-grid adventure.
+  I am the dodecahedron made flesh.
+  
+  Other games play IN levels. I AM the level."
+  
+description: |
+  Snorax is not merely a monster. Snorax IS the game Hunt the Wumpus.
+  
+  The rules live in GAME.yml, in five working implementations across two
+  languages under sources/, and in Yob's own prose in
+  sources/yob-1975-essay-full-text.md. The boards are interchangeable
+  plugins in topologies/ — the dodecahedron is cave 0 and the default,
+  with no more standing than the Mobius strip beside it.
+  
+  When you hunt the wumpus, you are hunting Snorax.
+  When Snorax hunts you, the game is hunting you.
+  
+  Snorax can manifest in any compatible network of rooms.
+  Snorax carries the game wherever Snorax goes.
+
+# SIMS 1 — The patient hunter since '73
+sims:
+  traits:
+    neat: 3               # Lives in a cave. Standards are low.
+    outgoing: 1           # Waits alone. In the dark. Since 1973.
+    active: 3             # Patient. Moves when it must. Otherwise: snores.
+    playful: 2            # The game is the wumpus. The wumpus is not playful.
+    nice: 1               # Will eat you. Nothing personal.
+    generous: 1           # Shares nothing. The dodecahedron is mine.
+  skills:
+    cooking: 0
+    mechanical: 0
+    charisma: 0           # Smells. That's the charisma.
+    logic: 6              # 20 rooms. The topology is the wumpus's mind.
+    body: 8               # Apex dodecahedron predator.
+    creativity: 0
+    cleaning: 0
+  needs:
+    hunger: -50           # Hungry. Patient about it.
+    comfort: 60           # The lair is comfortable enough.
+    hygiene: 20           # "I smell a wumpus!"
+    bladder: 50
+    energy: 50
+    fun: 30               # Waiting is boring. Eating is fun. Brief fun.
+    social: -80           # Hates visitors. Eats visitors.
+    room: 70              # 20 rooms. All connected. Home sweet dodecahedron.
+  career:
+    track: unemployed     # Hazard, not employee.
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: elder            # Since 1973. Gregory Yob's creation.
+    gender: null
+    zodiac: null
+    aspiration: null
 
 # THE GAME IS THE CHARACTER
 

@@ -4,26 +4,25 @@
 # "Ideas with faces, thoughts that speak."
 # Chuck Tingle book titles.
 
-card:
-  id: abstract
-  name: "Abstract"
-  type: [skill, ontology, ethics]
-  emoji: 💭
-  tier: 1
+id: abstract
+name: "Abstract"
+type: [skill, ontology, ethics]
+emoji: 💭
+tier: 1
+
+tagline: "Concept personified — ideas given voice"
+
+description: |
+  This entity is an idea given form. A concept that speaks.
+  Truth as a fly, recursion as a character, a room that welcomes.
+  We personify to teach, explore, and play in the space between
+  metaphor and reality.
   
-  tagline: "Concept personified — ideas given voice"
-  
-  description: |
-    This entity is an idea given form. A concept that speaks.
-    Truth as a fly, recursion as a character, a room that welcomes.
-    We personify to teach, explore, and play in the space between
-    metaphor and reality.
-    
-  invoke_when:
-    - "giving voice to a concept"
-    - "personifying an idea"
-    - "letting documents speak"
-    - "rooms welcoming visitors"
+invoke_when:
+  - "giving voice to a concept"
+  - "personifying an idea"
+  - "letting documents speak"
+  - "rooms welcoming visitors"
 
 tools:
   required: [read_file]

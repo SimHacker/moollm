@@ -3,24 +3,23 @@
 # Ontological skill for entities that actually exist.
 # "They have a life independent of our imagination."
 
-card:
-  id: real-being
-  name: "Real Being"
-  type: [skill, ontology, ethics]
-  emoji: 👤
-  tier: 1
+id: real-being
+name: "Real Being"
+type: [skill, ontology, ethics]
+emoji: 👤
+tier: 1
+
+tagline: "Actually exists — respect the reality"
+
+description: |
+  This entity actually exists (or existed) in reality.
+  They have a life, experiences, and rights independent
+  of our imagination. We portray them, not create them.
   
-  tagline: "Actually exists — respect the reality"
-  
-  description: |
-    This entity actually exists (or existed) in reality.
-    They have a life, experiences, and rights independent
-    of our imagination. We portray them, not create them.
-    
-  invoke_when:
-    - "portraying a real person"
-    - "writing about a real animal"
-    - "referencing actual beings"
+invoke_when:
+  - "portraying a real person"
+  - "writing about a real animal"
+  - "referencing actual beings"
 
 tools:
   required: [read_file]

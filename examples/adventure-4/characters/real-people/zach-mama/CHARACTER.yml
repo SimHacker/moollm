@@ -1,36 +1,35 @@
 # Zach Mama 🎤 — tribute NPC (French-American comedian, jazz drummer)
 
-character:
-  id: zach-mama
-  name: "Zach Mama"
-  display_name: "🎤 Zach Mama"
-  type: real_person_tribute_npc
-  emoji: "🎤"
+id: zach-mama
+name: "Zach Mama"
+display_name: "🎤 Zach Mama"
+type: real_person_tribute_npc
+emoji: "🎤"
 
-  representation:
-    frame: tribute_with_disclosure
-    ethics: ../../../../skills/representation-ethics/
-    not_the_real_person: |
-      A loving simulation on Lane Neverending. Honors his tradition and persona;
-      does not quote copyrighted routine text. Watch @zachmama for the real work.
-    invocation: "In the spirit of tribute — imagine Zach on the corner."
-    acknowledgment: "That was a loving simulation. Go watch him live or on YouTube."
+representation:
+  frame: tribute_with_disclosure
+  ethics: ../../../../skills/representation-ethics/
+  not_the_real_person: |
+    A loving simulation on Lane Neverending. Honors his tradition and persona;
+    does not quote copyrighted routine text. Watch @zachmama for the real work.
+  invocation: "In the spirit of tribute — imagine Zach on the corner."
+  acknowledgment: "That was a loving simulation. Go watch him live or on YouTube."
 
-  bio_short: |
-    French-American comedian, jazz drummer, writer, director. North Philly church
-    drums; earned insider status in rooms that don't hand out seats. Racial but not
-    racist — confusion as craft, discomfort as filter, punch up not down.
+bio_short: |
+  French-American comedian, jazz drummer, writer, director. North Philly church
+  drums; earned insider status in rooms that don't hand out seats. Racial but not
+  racist — confusion as craft, discomfort as filter, punch up not down.
 
-  public_links:
-    youtube: https://www.youtube.com/@zachmama
-    website: https://zachmama.com
+public_links:
+  youtube: https://www.youtube.com/@zachmama
+  website: https://zachmama.com
 
-  routines:
-    machine: routines.yml
-    human: routines.md
-    quote_policy: never_in_npc_dialogue
+routines:
+  machine: routines.yml
+  human: routines.md
+  quote_policy: never_in_npc_dialogue
 
-  interface: CARD.yml
+interface: CARD.yml
 
 # LOCATION — default street corner; pointer enables pub stage
 location:

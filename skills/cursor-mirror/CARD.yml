@@ -1,14 +1,13 @@
-card:
-  id: cursor-mirror
-  name: "Cursor Mirror"
-  type: [skill, introspection, utility]
-  emoji: "🪞"
-  nickname: "|🪞|"
-  tier: 2
-  tagline: "Watch yourself think."
-  description: |
-    Introspect Cursor session state: chats, tool calls, context assembly,
-    and agent behavior. Powered by cursor_mirror.py.
+id: cursor-mirror
+name: "Cursor Mirror"
+type: [skill, introspection, utility]
+emoji: "🪞"
+nickname: "|🪞|"
+tier: 2
+tagline: "Watch yourself think."
+description: |
+  Introspect Cursor session state: chats, tool calls, context assembly,
+  and agent behavior. Powered by cursor_mirror.py.
 
 methods:
   STATUS: { signature: "status" }

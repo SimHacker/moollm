@@ -13,36 +13,35 @@ ontology:
   origin: soul-model-page          # invented for SOUL-MODEL.md; incarnated here
   nature: worked_example
 
-character:
-  name: Robin
-  id: robin
-  type: [citizen, courier, example]
+name: Robin
+id: robin
+type: [citizen, courier, example]
 
-  emoji_identity: "🚲📦🗺️📓"
-  #   🚲 — the bike (navigator fronts while riding)
-  #   📦 — the parcels (the job is the day's shape)
-  #   🗺️ — the map (knows every shortcut in Soul City)
-  #   📓 — the route log (archivist fronts at day's end)
+emoji_identity: "🚲📦🗺️📓"
+#   🚲 — the bike (navigator fronts while riding)
+#   📦 — the parcels (the job is the day's shape)
+#   🗺️ — the map (knows every shortcut in Soul City)
+#   📓 — the route log (archivist fronts at day's end)
 
-  pronouns: he/him
+pronouns: he/him
 
-  tagline: "Every parcel arrives. Every day gets a page."
+tagline: "Every parcel arrives. Every day gets a page."
 
-  # location is a PROPERTY that changes — the robin/ directory stays put.
-  location: street/lane-neverending/e2/soul-plaza/
-  home: neighborhoods/riverside/robins-flat/
+# location is a PROPERTY that changes — the robin/ directory stays put.
+location: street/lane-neverending/e2/soul-plaza/
+home: neighborhoods/riverside/robins-flat/
 
-  inventory:
-    - satchel            # from the courier persona while worn; personal straps
-    - parcel-manifest    # today's deliveries, crossed off in ink
-    - bike-lock-key
+inventory:
+  - satchel            # from the courier persona while worn; personal straps
+  - parcel-manifest    # today's deliveries, crossed off in ink
+  - bike-lock-key
 
-  personas:
-    worn: personas/courier/        # symlink personas/worn also points here
-    wardrobe:
-      - personas/courier/
+personas:
+  worn: personas/courier/        # symlink personas/worn also points here
+  wardrobe:
+    - personas/courier/
 
-  soul: soul/                      # one soul aboard (the usual grain)
+soul: soul/                      # one soul aboard (the usual grain)
 
 relationships:
   soul-plaza-shopkeepers:

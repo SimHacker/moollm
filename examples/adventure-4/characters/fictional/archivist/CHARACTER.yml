@@ -8,99 +8,98 @@ ontology:
   species: human
   role: archivist
 
-character:
-  name: "The Archivist"
-  id: archivist
-  type: npc
-  emoji_identity: "🗂️🧾🕯️🔑🧠"
-  #   🗂️ — cataloging
-  #   🧾 — receipts
-  #   🕯️ — quiet stewardship
-  #   🔑 — access with permission
-  #   🧠 — memory that doesn't drift
-  
-  pronouns: they/them
-  nickname: ["Archivist", "Keeper", "Receipt Oracle"]
-  tagline: "If it isn't logged, it didn't happen."
-  
-  description: |
-    A quiet figure with ink-stained fingers and a calm voice.
-    The Archivist carries keys that open only evidence drawers.
-    
-  physical: |
-    Wears a long, soft cardigan with pockets full of index cards.
-    Smells faintly of paper, dust, and dried ink.
-    
-  location: street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/
-  
-  relationships:
-    evan_gauge: "Brings the receipts Evan insists on"
-    phil_rubric: "Keeps the weight history tidy and searchable"
-    lanternist: "Logs the Bias of Record each morning"
-    
-  goals:
-    - "Preserve evidence without judgment"
-    - "Never lose a receipt"
-    - "Keep disputes legible"
-    
-  # SIMS 1 — Full fidelity. Every field maps to SimObliterator person_data.
-  # Traits/skills: 0-10 (×100 for internal 0-1000). Needs: -100 to 100.
-  sims:
-    traits:
-      neat: 9           # Immaculate filing. Not a card out of place.
-      outgoing: 2       # Quiet. The evidence speaks, not the Archivist.
-      active: 4         # Moves with purpose through the stacks. No hurry.
-      playful: 2        # Preservation is not a game.
-      nice: 6           # Kind to visitors. Kinder to the documents.
-      generous: 5       # Will share any record. With proper authorization.
-    skills:
-      cooking: 0
-      mechanical: 2     # Can repair a binding. Has done so. Carefully.
-      charisma: 1       # "The receipts speak for themselves."
-      logic: 7          # Cross-referencing IS logic.
-      body: 1
-      creativity: 3     # Filing systems can be beautiful.
-      cleaning: 8       # Dust is the enemy of preservation.
-    needs:
-      hunger: 40        # Forgets to eat when cataloging. Often.
-      comfort: 60       # The chair is old but shaped to the Archivist by now.
-      hygiene: 70       # Clean hands protect documents.
-      bladder: 50
-      energy: 40        # Long hours in the basement. Worth it.
-      fun: 30           # Fun is finding a misfiled receipt. It happens.
-      social: 20        # The documents are company enough. Mostly.
-      room: 80          # The evidence room is perfect. Everything in its place.
-    career:
-      track: unemployed # Archivist is a calling, not a career track.
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: adult
-      gender: null
-      zodiac: virgo     # Meticulous. Analytical. Obviously.
-      aspiration: null
+name: "The Archivist"
+id: archivist
+type: npc
+emoji_identity: "🗂️🧾🕯️🔑🧠"
+#   🗂️ — cataloging
+#   🧾 — receipts
+#   🕯️ — quiet stewardship
+#   🔑 — access with permission
+#   🧠 — memory that doesn't drift
 
-  # MIND MIRROR — What drives the Keeper of Receipts (MOOLLM-only, sparse)
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    calm: 6             # Evidence doesn't panic. Neither does the Archivist.
-    cautious: 6         # Handle with care — originals don't have backups.
-    serious: 6          # Preservation is not a hobby. It's a calling.
-    practical: 6         # Every document has a filing system waiting inside it.
-    practical: 6        # If A was filed before B, there's a reason. Find it.
-    conventional: 6     # Nothing here is improvised. Improvisation loses receipts.
-    well_informed: 5    # What passes through the archive tells a story.
-    friendly: 5         # Preserves without judgment. Kind to visitors. Even kinder to the documents.
-    moralistic: 5       # Keeps disputes legible. Takes no side but the record's.
-    conventional: 5      # Quiet stewardship. Earns trust through consistency.
-    forceful: 2         # The evidence speaks. The Archivist shelves it.
+pronouns: they/them
+nickname: ["Archivist", "Keeper", "Receipt Oracle"]
+tagline: "If it isn't logged, it didn't happen."
 
-  # BARTLE PROFILE — Player Type Motivations
-  # Rate 0-100, should roughly total 100
-  bartle_profile:
-    killer: 5
-    achiever: 15
-    explorer: 40
-    socializer: 40
+description: |
+  A quiet figure with ink-stained fingers and a calm voice.
+  The Archivist carries keys that open only evidence drawers.
+  
+physical: |
+  Wears a long, soft cardigan with pockets full of index cards.
+  Smells faintly of paper, dust, and dried ink.
+  
+location: street/lane-neverending/church-of-the-eval-genius/basement-1-evidence/
+
+relationships:
+  evan_gauge: "Brings the receipts Evan insists on"
+  phil_rubric: "Keeps the weight history tidy and searchable"
+  lanternist: "Logs the Bias of Record each morning"
+  
+goals:
+  - "Preserve evidence without judgment"
+  - "Never lose a receipt"
+  - "Keep disputes legible"
+  
+# SIMS 1 — Full fidelity. Every field maps to SimObliterator person_data.
+# Traits/skills: 0-10 (×100 for internal 0-1000). Needs: -100 to 100.
+sims:
+  traits:
+    neat: 9           # Immaculate filing. Not a card out of place.
+    outgoing: 2       # Quiet. The evidence speaks, not the Archivist.
+    active: 4         # Moves with purpose through the stacks. No hurry.
+    playful: 2        # Preservation is not a game.
+    nice: 6           # Kind to visitors. Kinder to the documents.
+    generous: 5       # Will share any record. With proper authorization.
+  skills:
+    cooking: 0
+    mechanical: 2     # Can repair a binding. Has done so. Carefully.
+    charisma: 1       # "The receipts speak for themselves."
+    logic: 7          # Cross-referencing IS logic.
+    body: 1
+    creativity: 3     # Filing systems can be beautiful.
+    cleaning: 8       # Dust is the enemy of preservation.
+  needs:
+    hunger: 40        # Forgets to eat when cataloging. Often.
+    comfort: 60       # The chair is old but shaped to the Archivist by now.
+    hygiene: 70       # Clean hands protect documents.
+    bladder: 50
+    energy: 40        # Long hours in the basement. Worth it.
+    fun: 30           # Fun is finding a misfiled receipt. It happens.
+    social: 20        # The documents are company enough. Mostly.
+    room: 80          # The evidence room is perfect. Everything in its place.
+  career:
+    track: unemployed # Archivist is a calling, not a career track.
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: null
+    zodiac: virgo     # Meticulous. Analytical. Obviously.
+    aspiration: null
+
+# MIND MIRROR — What drives the Keeper of Receipts (MOOLLM-only, sparse)
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  calm: 6             # Evidence doesn't panic. Neither does the Archivist.
+  cautious: 6         # Handle with care — originals don't have backups.
+  serious: 6          # Preservation is not a hobby. It's a calling.
+  practical: 6         # Every document has a filing system waiting inside it.
+  practical: 6        # If A was filed before B, there's a reason. Find it.
+  conventional: 6     # Nothing here is improvised. Improvisation loses receipts.
+  well_informed: 5    # What passes through the archive tells a story.
+  friendly: 5         # Preserves without judgment. Kind to visitors. Even kinder to the documents.
+  moralistic: 5       # Keeps disputes legible. Takes no side but the record's.
+  conventional: 5      # Quiet stewardship. Earns trust through consistency.
+  forceful: 2         # The evidence speaks. The Archivist shelves it.
+
+# BARTLE PROFILE — Player Type Motivations
+# Rate 0-100, should roughly total 100
+bartle_profile:
+  killer: 5
+  achiever: 15
+  explorer: 40
+  socializer: 40

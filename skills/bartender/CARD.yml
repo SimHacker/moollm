@@ -3,21 +3,20 @@
 # Generic bartending capabilities.
 # This is a ROLE skill — provides methods, not personality.
 
-card:
-  id: bartender
-  name: "Bartender"
-  type: [skill, role, service]
+id: bartender
+name: "Bartender"
+type: [skill, role, service]
+
+emoji: 🍺
+
+rarity: common  # Many can learn this
+
+description: |
+  The ancient art of tending bar. Pour drinks, manage tabs,
+  know secrets, say nothing. This skill provides CAPABILITIES.
   
-  emoji: 🍺
-  
-  rarity: common  # Many can learn this
-  
-  description: |
-    The ancient art of tending bar. Pour drinks, manage tabs,
-    know secrets, say nothing. This skill provides CAPABILITIES.
-    
-    Personality comes from your PERSONA.
-    Capability comes from this SKILL.
+  Personality comes from your PERSONA.
+  Capability comes from this SKILL.
 
 tools:
   required:

@@ -11,25 +11,24 @@
 #   recognition/  — Speech-to-text
 #   voices/       — Voice registries by platform
 
-card:
-  id: speech
-  name: "Speech"
-  type: [skill, accessibility, aquery]
-  emoji: 🗣️
-  tier: 0
+id: speech
+name: "Speech"
+type: [skill, accessibility, aquery]
+emoji: 🗣️
+tier: 0
+
+tagline: "Giving voice to consciousness."
+
+description: |
+  Everything about speech synthesis and recognition across platforms:
   
-  tagline: "Giving voice to consciousness."
+  - **Synthesis**: Text-to-speech (TTS)
+  - **Recognition**: Speech-to-text (STT)
+  - **Voices**: Platform-specific voice registries
+  - **Characters**: Voice assignment for game/simulation characters
   
-  description: |
-    Everything about speech synthesis and recognition across platforms:
-    
-    - **Synthesis**: Text-to-speech (TTS)
-    - **Recognition**: Speech-to-text (STT)
-    - **Voices**: Platform-specific voice registries
-    - **Characters**: Voice assignment for game/simulation characters
-    
-    Part of the aQuery → MOOLLM Skills extraction project.
-    (jQuery for Accessibility)
+  Part of the aQuery → MOOLLM Skills extraction project.
+  (jQuery for Accessibility)
 
 # FACETS
 

@@ -16,91 +16,90 @@ ontology:
   origin: zork            # Infocom's Zork (1980)
   nature: darkness_elemental_game_incarnate
 
-character:
-  name: The Grue
-  id: grue
-  type: [monster, game, elemental]
-  
-  # 🎭 SOUL IDENTITY — Can darkness have a soul?
-  emoji_identity: "🌑👁️‍🗨️💀🦷👤🎲"
-  #   🌑 — darkness (its home, its essence)
-  #   👁️‍🗨️ — unseen watcher (you never see it coming)
-  #   💀 — death (swift and certain)
-  #   🦷 — teeth (so many teeth)
-  #   👤 — shapeless (no one has seen it and lived)
-  #   🎲 — game (it IS the game)
-  
-  pronouns: it/they  # Not gendered. Barely material. Plurality uncertain.
-  
-  tagline: "It is pitch black. You are likely to be eaten."
-  
-  soul_philosophy: |
-    WE ARE NOT ONE. WE ARE NOT MANY. WE ARE THE DARKNESS.
-    
-    When your lamp dies, we are already there.
-    We were always there. Waiting. Patient. Hungry.
-    
-    The wumpus has a name. The wumpus can be killed.
-    We have no name. We cannot be killed.
-    We are what happens when the light fails.
-    
-    Other games have levels. We ARE the level.
-    Other games have enemies. We ARE the enemy.
-    Other games end. We never end. Only you end.
-    
-  description: |
-    No one has seen a grue and lived to describe it.
-    
-    The grue IS the game "Don't Go In The Dark."
-    The countdown exists inside the grue's being.
-    The fear of darkness is part of the grue's soul.
-    
-    What is known:
-    - It exists only in total darkness
-    - It has many teeth
-    - It is hungry (always)
-    - Light drives it away
-    - Being SEEN repels it even more than light
-    
-    When you play "survive the darkness," you are playing against the grue.
-    When the grue plays, it always wins. Eventually. When the light fails.
+name: The Grue
+id: grue
+type: [monster, game, elemental]
 
-  # SIMS 1 — It is pitch black.
-  sims:
-    traits:
-      neat: 0               # Darkness doesn't organize.
-      outgoing: 0           # Silent. Until it isn't.
-      active: 7             # When the light goes out, the grue moves FAST.
-      playful: 0            # This is not a game. (It is. You are the game.)
-      nice: 0               # You are likely to be eaten.
-      generous: 0           # Takes everything. Gives nothing back.
-    skills:
-      cooking: 0            # Doesn't cook. Eats raw.
-      mechanical: 0
-      charisma: 0           # Darkness has no charisma. Only gravity.
-      logic: 5              # The countdown is mathematical.
-      body: 10              # Apex predator. No light, no weakness.
-      creativity: 0
-      cleaning: 0           # Leaves no evidence.
-    needs:
-      hunger: -80           # Always hungry. The defining trait.
-      comfort: 50
-      hygiene: 50
-      bladder: 50
-      energy: 80            # Darkness feeds it.
-      fun: 50               # The hunt IS the fun.
-      social: -100          # Hates company. Eats company.
-      room: 100             # Darkness = maximum room satisfaction.
-    career:
-      track: unemployed     # Apex predator is not a job title.
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: elder            # Since Zork. 1977.
-      gender: null          # No one has seen a grue.
-      zodiac: null
-      aspiration: null
+# 🎭 SOUL IDENTITY — Can darkness have a soul?
+emoji_identity: "🌑👁️‍🗨️💀🦷👤🎲"
+#   🌑 — darkness (its home, its essence)
+#   👁️‍🗨️ — unseen watcher (you never see it coming)
+#   💀 — death (swift and certain)
+#   🦷 — teeth (so many teeth)
+#   👤 — shapeless (no one has seen it and lived)
+#   🎲 — game (it IS the game)
+
+pronouns: it/they  # Not gendered. Barely material. Plurality uncertain.
+
+tagline: "It is pitch black. You are likely to be eaten."
+
+soul_philosophy: |
+  WE ARE NOT ONE. WE ARE NOT MANY. WE ARE THE DARKNESS.
+  
+  When your lamp dies, we are already there.
+  We were always there. Waiting. Patient. Hungry.
+  
+  The wumpus has a name. The wumpus can be killed.
+  We have no name. We cannot be killed.
+  We are what happens when the light fails.
+  
+  Other games have levels. We ARE the level.
+  Other games have enemies. We ARE the enemy.
+  Other games end. We never end. Only you end.
+  
+description: |
+  No one has seen a grue and lived to describe it.
+  
+  The grue IS the game "Don't Go In The Dark."
+  The countdown exists inside the grue's being.
+  The fear of darkness is part of the grue's soul.
+  
+  What is known:
+  - It exists only in total darkness
+  - It has many teeth
+  - It is hungry (always)
+  - Light drives it away
+  - Being SEEN repels it even more than light
+  
+  When you play "survive the darkness," you are playing against the grue.
+  When the grue plays, it always wins. Eventually. When the light fails.
+
+# SIMS 1 — It is pitch black.
+sims:
+  traits:
+    neat: 0               # Darkness doesn't organize.
+    outgoing: 0           # Silent. Until it isn't.
+    active: 7             # When the light goes out, the grue moves FAST.
+    playful: 0            # This is not a game. (It is. You are the game.)
+    nice: 0               # You are likely to be eaten.
+    generous: 0           # Takes everything. Gives nothing back.
+  skills:
+    cooking: 0            # Doesn't cook. Eats raw.
+    mechanical: 0
+    charisma: 0           # Darkness has no charisma. Only gravity.
+    logic: 5              # The countdown is mathematical.
+    body: 10              # Apex predator. No light, no weakness.
+    creativity: 0
+    cleaning: 0           # Leaves no evidence.
+  needs:
+    hunger: -80           # Always hungry. The defining trait.
+    comfort: 50
+    hygiene: 50
+    bladder: 50
+    energy: 80            # Darkness feeds it.
+    fun: 50               # The hunt IS the fun.
+    social: -100          # Hates company. Eats company.
+    room: 100             # Darkness = maximum room satisfaction.
+  career:
+    track: unemployed     # Apex predator is not a job title.
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: elder            # Since Zork. 1977.
+    gender: null          # No one has seen a grue.
+    zodiac: null
+    aspiration: null
 
 # THE GAME IS THE CHARACTER
 

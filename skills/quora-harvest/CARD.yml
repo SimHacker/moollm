@@ -1,14 +1,13 @@
 # CARD.yml — quora-harvest
 # Machine-readable interface. Full protocol: SKILL.md | Glance: GLANCE.yml
 
-card:
-  id: quora-harvest
-  name: "Quora Harvest"
-  type: [skill, utility, archival, publishing]
-  emoji: "🪤"
-  tier: 1
-  status: active
-  tagline: "Open every fold to a fixpoint, then read the thread out flat."
+id: quora-harvest
+name: "Quora Harvest"
+type: [skill, utility, archival, publishing]
+emoji: "🪤"
+tier: 1
+status: active
+tagline: "Open every fold to a fixpoint, then read the thread out flat."
 
 description: |
   Extracts Quora answers and their full comment trees into flat Markdown plus a

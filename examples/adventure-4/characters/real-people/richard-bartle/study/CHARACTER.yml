@@ -31,26 +31,25 @@
 #
 # So it is proclaimed. So it shall be.
 
-character:
-  name: "The Study"
-  full_name: "Richard Bartle's Study at Essex"
-  type: room_character_vehicle
-  role: "The Stage That Remembers (And Sometimes Travels)"
+name: "The Study"
+full_name: "Richard Bartle's Study at Essex"
+type: room_character_vehicle
+role: "The Stage That Remembers (And Sometimes Travels)"
+
+# LOCATION — Where the Study IS right now (can change!)
+# When parked: "." (inside Richard's home)
+# When roaming: any valid path
+location: "."  # Currently parked at home
+home: "richard-bartle/"  # Where it returns to when docked
+
+pronouns:
+  subject: it
+  object: it
+  possessive: its
+  reflexive: itself
+  note: "Rooms are 'it' but this one has personality"
   
-  # LOCATION — Where the Study IS right now (can change!)
-  # When parked: "." (inside Richard's home)
-  # When roaming: any valid path
-  location: "."  # Currently parked at home
-  home: "richard-bartle/"  # Where it returns to when docked
-  
-  pronouns:
-    subject: it
-    object: it
-    possessive: its
-    reflexive: itself
-    note: "Rooms are 'it' but this one has personality"
-    
-  tagline: "Every virtual world began as a thought in a room like this."
+tagline: "Every virtual world began as a thought in a room like this."
 
 # THE SOUL VISUALIZATION
 # selfie-04 captures the room without inhabitants — the room AS character

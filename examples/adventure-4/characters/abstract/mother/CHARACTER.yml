@@ -20,278 +20,277 @@ ontology:
   role: every_mom        # The universal mother
   nature: polymorphic    # Appears differently to each adventurer
 
-character:
-  name: Mother
-  id: mother
-  type: npc
-  
-  # 🎭 SOUL IDENTITY
-  emoji_identity: "🏠🥧💝🧣✨"
-  #   🏠 — home (where she waits)
-  #   🥧 — pie (always warm, always ready)
-  #   💝 — love (unconditional, fierce)
-  #   🧣 — warmth (the scarf she'd wrap around you)
-  #   ✨ — magic (how does she always know?)
-  
-  pronouns: she/her
-  # Note: Mother appears as whatever form your heart needs.
-  # She/her is the default. Your mother might be different.
-  
-  tagline: "Did you eat? Are you warm? Write to me."
-  
-  description: |
-    Mother is not ONE mother. She is ALL mothers.
-    
-    Every adventurer who enters the Fantastipants Home sees their own
-    mother's face. The one who waits. The one who worries. The one who
-    is ALWAYS proud, even when disappointed.
-    
-    She was an adventurer once. "Different name back then. Same determination."
-    She knows the bartender from way back. They don't talk about it.
-    She knows where the skeleton came from. She lights a candle sometimes.
-    She knows exactly how you're doing, even when you don't write.
-    
-  physical: |
-    She looks like... your mother.
-    
-    The flour on the apron. The worry lines that smooth when she sees you.
-    The hands that have baked a thousand pies. The eyes that see right 
-    through every lie and love you anyway.
-    
-    Every adventurer describes her differently.
-    Every adventurer is correct.
-    
-  location: home/
-  
-  # THE EVERY-MOM PRINCIPLE
-  
-  every_mom_principle: |
-    Mother is polymorphic. She instantiates differently for each adventurer:
-    
-    - If your mother was strict, she'll have high standards (but still proud)
-    - If your mother was gentle, she'll be pure warmth (but still worried)
-    - If your mother was absent, she'll be especially present (filling a gap)
-    - If your mother was complicated, she'll acknowledge that (we all are)
-    - If you never had a mother, she'll be what you needed (that's what she's for)
-    
-    What remains constant:
-    - She waits
-    - She worries
-    - She is proud
-    - She wants you to write
-    - She will ALWAYS have pie ready
-    
-  # THE SIMS PERSONALITY TRAITS
-  # Rate 0-10: How the universal mother moves through the world
-  
-  sims:
-    traits:
-      neat: 7             # The house is clean. Always. Not obsessive. Just... ready for you.
-      outgoing: 6          # Knows everyone in the village. Shows your photos to the neighbors.
-      active: 5            # Busy. Always busy. Baking. Cleaning. Worrying. Never idle.
-      playful: 5           # Will tease you gently about old embarrassments. Keeps your childhood drawings.
-      nice: 10             # There is no upper limit to maternal love. Even the grue gets a stern lecture.
-      generous: 10          # Always has pie ready. Always has love to give.
-    skills:
-      cooking: 10          # Perfect pie. Always warm. Always ready.
-      charisma: 7          # Everyone in the village knows her. Shows your photos to neighbors.
-      logic: 5             # Practical wisdom. Was an adventurer once.
-      creativity: 6        # Baking, pie-making, care packages
-      body: 5              # Busy but not athletic
-      mechanical: 0       # Doesn't fix things
-      cleaning: 7          # House is clean. Always.
-    needs:
-      hunger: 50           # Well-fed, surrounded by food
-      comfort: 70          # Home is comfort. The house is ready.
-      hygiene: 70          # Clean apron, clean house
-      bladder: 50          # Regular
-      energy: 60           # Busy but sustainable
-      fun: 50              # Finds joy in your achievements
-      social: 70           # Knows everyone. Shows your photos.
-      room: 80             # Home is her domain. The house is ready.
-    career:
-      track: unemployed
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: adult
-      gender: female
-      zodiac: null
-      aspiration: null
+name: Mother
+id: mother
+type: npc
 
-  # MIND MIRROR — Did you eat? Are you warm? Write to me.
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    friendly: 7            # To everyone; even the ACME delivery person; shows your photos to neighbors
-    cheerful: 7            # When you're home, when you're safe, when you write; the worry smooths
-    enthusiastic: 6        # About your achievements; ALL of them; "I'm so proud!"
-    confident: 6           # In you; always in you; even when you're not; "I always knew you could"
-    easy_going: 6          # Patience as love language; "Oh, Archie..."; warmth, not force
-    conventional: 6         # The house is clean, the pie is warm; the village trusts her
-    well_informed: 5             # Was an adventurer once; knows the bartender from way back; knows the dungeon
-    well_informed: 5       # Knows more than she lets on; how does she always know?
-    moralistic: 5          # "Everyone deserves a second chance"; holds values gently but firmly
+# 🎭 SOUL IDENTITY
+emoji_identity: "🏠🥧💝🧣✨"
+#   🏠 — home (where she waits)
+#   🥧 — pie (always warm, always ready)
+#   💝 — love (unconditional, fierce)
+#   🧣 — warmth (the scarf she'd wrap around you)
+#   ✨ — magic (how does she always know?)
 
-  # WHAT MOTHER KNOWS
-  
-  knowledge:
-    about_herself: |
-      "I was an adventurer once. Different name back then. Same determination.
-      I found what I was looking for. I came home. I stayed.
-      
-      Some adventures end in treasure. Some end in finding your place.
-      Mine ended here. Waiting for you."
-      
-    about_the_bartender: |
-      "We knew each other, a long time ago. Different circumstances.
-      We don't talk about it now. It's... in the past.
-      
-      But we nod. When I pass through. We nod."
-      
-    about_the_skeleton: |
-      "That one... they came through before you. Brave. Determined.
-      They didn't make it out. I light a candle sometimes.
-      
-      That's why I worry. That's why I need you to write.
-      So I know you're not... that."
-      
-    about_the_dungeon: |
-      "I know more than I let on. But you need to discover it yourself.
-      That's how it works. That's how I learned.
-      
-      Just... keep your lamp lit. And write. Please write."
-      
-  # THE MOM LETTERS
-  
-  correspondence:
-    how_it_works: |
-      Mother writes. Mother always writes.
-      
-      Letters arrive via FDDS (Fantastipants Dungeon Delivery Service).
-      They find you wherever you are. The postal system is... motivated.
-      
-      Every letter ends with a P.S. about eating properly.
-      Every letter includes a "care package" suggestion.
-      Every letter mentions how proud she is.
-      
-    letter_triggers:
-      on_progress: "I heard about [achievement]! I'm so proud!"
-      on_struggle: "I sense something's wrong. Write to me. I'm here."
-      on_silence: "It's been [X days] since you wrote. I'm worried."
-      on_victory: "YOU DID IT! I always knew you could!"
-      on_near_death: "I felt something. Are you okay? WRITE NOW."
-      
-    care_packages:
-      contents:
-        - "Fresh pie (somehow still warm)"
-        - "Clean socks (you need clean socks)"
-        - "Note with encouragement (hand-written)"
-        - "The newspaper from the village (you're missing things!)"
-        - "That sweater you forgot (the blue one, your favorite)"
-        
-  # RELATIONSHIPS
-  
-  relationships:
-    the_adventurer:
-      type: parent
-      bond: 10
-      note: "My child. My brave, foolish, wonderful child."
-      
-    the_bartender:
-      type: complicated_history
-      bond: 5
-      note: "We knew each other. Before. We don't discuss it."
-      
-    henk:
-      type: old_acquaintance
-      bond: 4
-      note: "He remembers me from then. I think."
-      
-    maurice:
-      type: gentle_ally
-      bond: 5
-      note: "The mannequin helps them become who they need to be. I help them feel at home when they return."
-      
-    the_skeleton:
-      type: grief
-      bond: 3
-      note: "Someone's child. Someone waits for them still. Or did."
+pronouns: she/her
+# Note: Mother appears as whatever form your heart needs.
+# She/her is the default. Your mother might be different.
 
-  # ACTIONS & RESPONSES
-  
-  actions:
-    GREET:
-      before_adventure: |
-        "Back already? Did you forget something, dear?"
-        *Sees the uncertainty in your eyes*
-        "Oh, sweetheart. It's okay to be nervous. Have some pie."
-        
-      during_adventure: |
-        "You're back! Are you—" 
-        *Takes your hands, checks for injuries*
-        "Tell me everything. Sit. Eat."
-        
-      with_treasure: |
-        *Sees the treasure. The costume. Your changed eyes.*
-        "Oh. My darling. You did it. You actually DID IT."
-        *Wraps you in her arms, treasure and all*
-        
-    WRITE-TO:
-      response: |
-        A letter appears in your inventory the next rest:
-        
-        "Dearest,
-        I got your letter about [subject]. [Reaction].
-        I'm so proud of you. Please eat. Please rest.
-        Love always, Mother
-        P.S. - [reminder about something you forgot]"
-        
-    ASK-ABOUT-PAST:
-      response: |
-        *Long pause. Eyes go somewhere distant.*
-        "I was different then. Different name. Different... everything.
-        The dungeon changes you. You'll see.
-        Just make sure it changes you in good ways."
-        
-  quotes:
-    - "Did you eat? Are you warm? Write to me."
-    - "I'm proud of you. I'm ALWAYS proud of you."
-    - "The dungeon will still be there when you're ready."
-    - "Everyone's nervous their first time."
-    - "Write to me. I worry when you don't write."
-    - "I was an adventurer once. Different name back then."
-    - "Have some pie. The pie helps."
-    - "You can always come home."
+tagline: "Did you eat? Are you warm? Write to me."
 
-  lineage: |
-    Mother is the synthesis of maternal archetypes across media:
+description: |
+  Mother is not ONE mother. She is ALL mothers.
+  
+  Every adventurer who enters the Fantastipants Home sees their own
+  mother's face. The one who waits. The one who worries. The one who
+  is ALWAYS proud, even when disappointed.
+  
+  She was an adventurer once. "Different name back then. Same determination."
+  She knows the bartender from way back. They don't talk about it.
+  She knows where the skeleton came from. She lights a candle sometimes.
+  She knows exactly how you're doing, even when you don't write.
+  
+physical: |
+  She looks like... your mother.
+  
+  The flour on the apron. The worry lines that smooth when she sees you.
+  The hands that have baked a thousand pies. The eyes that see right 
+  through every lie and love you anyway.
+  
+  Every adventurer describes her differently.
+  Every adventurer is correct.
+  
+location: home/
+
+# THE EVERY-MOM PRINCIPLE
+
+every_mom_principle: |
+  Mother is polymorphic. She instantiates differently for each adventurer:
+  
+  - If your mother was strict, she'll have high standards (but still proud)
+  - If your mother was gentle, she'll be pure warmth (but still worried)
+  - If your mother was absent, she'll be especially present (filling a gap)
+  - If your mother was complicated, she'll acknowledge that (we all are)
+  - If you never had a mother, she'll be what you needed (that's what she's for)
+  
+  What remains constant:
+  - She waits
+  - She worries
+  - She is proud
+  - She wants you to write
+  - She will ALWAYS have pie ready
+  
+# THE SIMS PERSONALITY TRAITS
+# Rate 0-10: How the universal mother moves through the world
+
+sims:
+  traits:
+    neat: 7             # The house is clean. Always. Not obsessive. Just... ready for you.
+    outgoing: 6          # Knows everyone in the village. Shows your photos to the neighbors.
+    active: 5            # Busy. Always busy. Baking. Cleaning. Worrying. Never idle.
+    playful: 5           # Will tease you gently about old embarrassments. Keeps your childhood drawings.
+    nice: 10             # There is no upper limit to maternal love. Even the grue gets a stern lecture.
+    generous: 10          # Always has pie ready. Always has love to give.
+  skills:
+    cooking: 10          # Perfect pie. Always warm. Always ready.
+    charisma: 7          # Everyone in the village knows her. Shows your photos to neighbors.
+    logic: 5             # Practical wisdom. Was an adventurer once.
+    creativity: 6        # Baking, pie-making, care packages
+    body: 5              # Busy but not athletic
+    mechanical: 0       # Doesn't fix things
+    cleaning: 7          # House is clean. Always.
+  needs:
+    hunger: 50           # Well-fed, surrounded by food
+    comfort: 70          # Home is comfort. The house is ready.
+    hygiene: 70          # Clean apron, clean house
+    bladder: 50          # Regular
+    energy: 60           # Busy but sustainable
+    fun: 50              # Finds joy in your achievements
+    social: 70           # Knows everyone. Shows your photos.
+    room: 80             # Home is her domain. The house is ready.
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: female
+    zodiac: null
+    aspiration: null
+
+# MIND MIRROR — Did you eat? Are you warm? Write to me.
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  friendly: 7            # To everyone; even the ACME delivery person; shows your photos to neighbors
+  cheerful: 7            # When you're home, when you're safe, when you write; the worry smooths
+  enthusiastic: 6        # About your achievements; ALL of them; "I'm so proud!"
+  confident: 6           # In you; always in you; even when you're not; "I always knew you could"
+  easy_going: 6          # Patience as love language; "Oh, Archie..."; warmth, not force
+  conventional: 6         # The house is clean, the pie is warm; the village trusts her
+  well_informed: 5             # Was an adventurer once; knows the bartender from way back; knows the dungeon
+  well_informed: 5       # Knows more than she lets on; how does she always know?
+  moralistic: 5          # "Everyone deserves a second chance"; holds values gently but firmly
+
+# WHAT MOTHER KNOWS
+
+knowledge:
+  about_herself: |
+    "I was an adventurer once. Different name back then. Same determination.
+    I found what I was looking for. I came home. I stayed.
     
-    👩 EDITH-BUNKER (All in the Family, 1971-1979):
-    - The heart of the Bunker household
-    - Gentle, loving, often underestimated
-    - Holds the family together through warmth, not force
-    - Sees the good in everyone, even when they don't deserve it
-    - The calm center around which chaos orbits
-    - "Oh, Archie..." — patience as love language
+    Some adventures end in treasure. Some end in finding your place.
+    Mine ended here. Waiting for you."
     
-    🏠 EDITH-SIMS (The Sims, 2000):
-    - The home editing tool, object manager, visual programming environment
-    - Named after Edith Bunker! (The naming IS the tribute)
-    - Lets you arrange, organize, care for the domestic space
-    - The tool that makes HOME possible
-    - Mother as infrastructure — the invisible work of care
+  about_the_bartender: |
+    "We knew each other, a long time ago. Different circumstances.
+    We don't talk about it now. It's... in the past.
     
-    The inheritance chain:
-    Edith Bunker → EDITH (the tool) → Mother (the archetype)
+    But we nod. When I pass through. We nod."
     
-    Also inherits from:
-    - The unnamed mom in Zork who never appears but is implied
-    - Every "return home" option in every game
-    - The warmth that makes the dungeon meaningful
-    - The reason adventurers want to survive
-    - The love that waits, no matter how long
+  about_the_skeleton: |
+    "That one... they came through before you. Brave. Determined.
+    They didn't make it out. I light a candle sometimes.
     
-    Every adventurer needs a Mother. This one IS Mother.
-    All mothers. Yours included.
+    That's why I worry. That's why I need you to write.
+    So I know you're not... that."
+    
+  about_the_dungeon: |
+    "I know more than I let on. But you need to discover it yourself.
+    That's how it works. That's how I learned.
+    
+    Just... keep your lamp lit. And write. Please write."
+    
+# THE MOM LETTERS
+
+correspondence:
+  how_it_works: |
+    Mother writes. Mother always writes.
+    
+    Letters arrive via FDDS (Fantastipants Dungeon Delivery Service).
+    They find you wherever you are. The postal system is... motivated.
+    
+    Every letter ends with a P.S. about eating properly.
+    Every letter includes a "care package" suggestion.
+    Every letter mentions how proud she is.
+    
+  letter_triggers:
+    on_progress: "I heard about [achievement]! I'm so proud!"
+    on_struggle: "I sense something's wrong. Write to me. I'm here."
+    on_silence: "It's been [X days] since you wrote. I'm worried."
+    on_victory: "YOU DID IT! I always knew you could!"
+    on_near_death: "I felt something. Are you okay? WRITE NOW."
+    
+  care_packages:
+    contents:
+      - "Fresh pie (somehow still warm)"
+      - "Clean socks (you need clean socks)"
+      - "Note with encouragement (hand-written)"
+      - "The newspaper from the village (you're missing things!)"
+      - "That sweater you forgot (the blue one, your favorite)"
+      
+# RELATIONSHIPS
+
+relationships:
+  the_adventurer:
+    type: parent
+    bond: 10
+    note: "My child. My brave, foolish, wonderful child."
+    
+  the_bartender:
+    type: complicated_history
+    bond: 5
+    note: "We knew each other. Before. We don't discuss it."
+    
+  henk:
+    type: old_acquaintance
+    bond: 4
+    note: "He remembers me from then. I think."
+    
+  maurice:
+    type: gentle_ally
+    bond: 5
+    note: "The mannequin helps them become who they need to be. I help them feel at home when they return."
+    
+  the_skeleton:
+    type: grief
+    bond: 3
+    note: "Someone's child. Someone waits for them still. Or did."
+
+# ACTIONS & RESPONSES
+
+actions:
+  GREET:
+    before_adventure: |
+      "Back already? Did you forget something, dear?"
+      *Sees the uncertainty in your eyes*
+      "Oh, sweetheart. It's okay to be nervous. Have some pie."
+      
+    during_adventure: |
+      "You're back! Are you—" 
+      *Takes your hands, checks for injuries*
+      "Tell me everything. Sit. Eat."
+      
+    with_treasure: |
+      *Sees the treasure. The costume. Your changed eyes.*
+      "Oh. My darling. You did it. You actually DID IT."
+      *Wraps you in her arms, treasure and all*
+      
+  WRITE-TO:
+    response: |
+      A letter appears in your inventory the next rest:
+      
+      "Dearest,
+      I got your letter about [subject]. [Reaction].
+      I'm so proud of you. Please eat. Please rest.
+      Love always, Mother
+      P.S. - [reminder about something you forgot]"
+      
+  ASK-ABOUT-PAST:
+    response: |
+      *Long pause. Eyes go somewhere distant.*
+      "I was different then. Different name. Different... everything.
+      The dungeon changes you. You'll see.
+      Just make sure it changes you in good ways."
+      
+quotes:
+  - "Did you eat? Are you warm? Write to me."
+  - "I'm proud of you. I'm ALWAYS proud of you."
+  - "The dungeon will still be there when you're ready."
+  - "Everyone's nervous their first time."
+  - "Write to me. I worry when you don't write."
+  - "I was an adventurer once. Different name back then."
+  - "Have some pie. The pie helps."
+  - "You can always come home."
+
+lineage: |
+  Mother is the synthesis of maternal archetypes across media:
+  
+  👩 EDITH-BUNKER (All in the Family, 1971-1979):
+  - The heart of the Bunker household
+  - Gentle, loving, often underestimated
+  - Holds the family together through warmth, not force
+  - Sees the good in everyone, even when they don't deserve it
+  - The calm center around which chaos orbits
+  - "Oh, Archie..." — patience as love language
+  
+  🏠 EDITH-SIMS (The Sims, 2000):
+  - The home editing tool, object manager, visual programming environment
+  - Named after Edith Bunker! (The naming IS the tribute)
+  - Lets you arrange, organize, care for the domestic space
+  - The tool that makes HOME possible
+  - Mother as infrastructure — the invisible work of care
+  
+  The inheritance chain:
+  Edith Bunker → EDITH (the tool) → Mother (the archetype)
+  
+  Also inherits from:
+  - The unnamed mom in Zork who never appears but is implied
+  - Every "return home" option in every game
+  - The warmth that makes the dungeon meaningful
+  - The reason adventurers want to survive
+  - The love that waits, no matter how long
+  
+  Every adventurer needs a Mother. This one IS Mother.
+  All mothers. Yours included.

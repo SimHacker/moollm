@@ -1,16 +1,15 @@
 # CARD.yml — sqlite
 
-card:
-  id: sqlite
-  name: "SQLite"
-  type: [skill, database, embedded]
-  emoji: 💾
-  rarity: common
+id: sqlite
+name: "SQLite"
+type: [skill, database, embedded]
+emoji: 💾
+rarity: common
 
-  description: |
-    Embedded SQLite: sqlite3 CLI, sqlite_master catalog, pragmas,
-    WAL, JSON1, STRICT and affinity, migrations, FTS5 pointer.
-    Server-side Postgres: postgres skill.
+description: |
+  Embedded SQLite: sqlite3 CLI, sqlite_master catalog, pragmas,
+  WAL, JSON1, STRICT and affinity, migrations, FTS5 pointer.
+  Server-side Postgres: postgres skill.
 
 tools:
   required: [read_file, run_terminal_cmd]

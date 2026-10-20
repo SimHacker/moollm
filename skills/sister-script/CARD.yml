@@ -3,25 +3,24 @@
 # Document-first automation — the script IS the documentation.
 # "The code structure is the single source of truth."
 
-card:
-  id: sister-script
-  name: "Sister Script"
-  type: [skill, automation, methodology]
+id: sister-script
+name: "Sister Script"
+type: [skill, automation, methodology]
+
+emoji: 👯
+
+rarity: uncommon
+
+description: |
+  Document-first automation with a twist: the Python script IS the doc.
   
-  emoji: 👯
+  Structure your scripts so both humans AND LLMs can understand them:
+  - Imports reveal dependencies
+  - Globals/enums reveal state
+  - CLI definition reveals the API (with help text)
+  - Implementation follows (can be skimmed)
   
-  rarity: uncommon
-  
-  description: |
-    Document-first automation with a twist: the Python script IS the doc.
-    
-    Structure your scripts so both humans AND LLMs can understand them:
-    - Imports reveal dependencies
-    - Globals/enums reveal state
-    - CLI definition reveals the API (with help text)
-    - Implementation follows (can be skimmed)
-    
-    Single source of truth. DRY. Works for users AND LLMs.
+  Single source of truth. DRY. Works for users AND LLMs.
 
 # TOOLS REQUIRED
 

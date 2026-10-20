@@ -3,19 +3,18 @@
 # Survive first, be correct later.
 # "Stay alive and heal. Don't crash."
 
-card:
-  id: robust-first
-  name: "Robust First"
-  type: [skill, philosophy, robustness]
-  
-  emoji: 🛡️
-  
-  rarity: rare
-  
-  description: |
-    Dave Ackley's principle: systems should prioritize survivability
-    over correctness. A system that crashes is infinitely wrong.
-    Stay alive, heal, then optimize.
+id: robust-first
+name: "Robust First"
+type: [skill, philosophy, robustness]
+
+emoji: 🛡️
+
+rarity: rare
+
+description: |
+  Dave Ackley's principle: systems should prioritize survivability
+  over correctness. A system that crashes is infinitely wrong.
+  Stay alive, heal, then optimize.
 
 # TOOLS REQUIRED
 

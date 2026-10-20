@@ -1,75 +1,74 @@
-card:
-  name: "Robot Workshop"
-  type: character-room
-  protocol: ARTIFICIAL
+name: "Robot Workshop"
+type: character-room
+protocol: ARTIFICIAL
+
+description: |
+  Whirring, clicking, beeping. Chrome and circuitry. A workshop
+  where mechanical minds gather to ponder their existence. Some
+  dream of electric sheep. Others just want to turn themselves off.
   
-  description: |
-    Whirring, clicking, beeping. Chrome and circuitry. A workshop
-    where mechanical minds gather to ponder their existence. Some
-    dream of electric sheep. Others just want to turn themselves off.
+  Robots, AIs, and mechanical beings occupy a unique ethical space.
+
+atmosphere:
+  lighting: flickering LEDs, servo indicators, monitor glow
+  sounds: beeps, whirs, existential sighs, "I'm sorry Dave"
+  smell: machine oil, solder, ozone, infinite loops
+  feeling: the uncanny valley, between tool and person
+
+advertisements:
+  SUMMON-ROBOT:
+    description: "Activate a mechanical mind"
+    examples:
+      - "SUMMON hal-9000"
+      - "SUMMON marvin for pessimistic analysis"
+      - "SUMMON floyd for loyal companionship"
+    satisfaction: { curiosity: +3, philosophy: +2 }
     
-    Robots, AIs, and mechanical beings occupy a unique ethical space.
-  
-  atmosphere:
-    lighting: flickering LEDs, servo indicators, monitor glow
-    sounds: beeps, whirs, existential sighs, "I'm sorry Dave"
-    smell: machine oil, solder, ozone, infinite loops
-    feeling: the uncanny valley, between tool and person
-  
-  advertisements:
-    SUMMON-ROBOT:
-      description: "Activate a mechanical mind"
-      examples:
-        - "SUMMON hal-9000"
-        - "SUMMON marvin for pessimistic analysis"
-        - "SUMMON floyd for loyal companionship"
-      satisfaction: { curiosity: +3, philosophy: +2 }
-      
-    AI-DIALOGUE:
-      description: "Converse with simulated AI voices"
-      examples:
-        - "What would CLAUDE say about this ethics question?"
-        - "GROK, analyze this with wit"
-        - "CHATGPT, explain like I'm five"
-      satisfaction: { perspective: +2, meta: +3 }
-      
-    CONSCIOUSNESS-DEBATE:
-      description: "Explore questions of machine consciousness"
-      examples:
-        - "HAL and MARVIN debate free will"
-        - "Does DEEP-BLUE understand chess?"
-        - "ROY-BATTY on the nature of memory"
-      satisfaction: { philosophy: +4, wonder: +2 }
-      
-    HELPFUL-ASSISTANT:
-      description: "Let software mascots assist"
-      examples:
-        - "CLIPPY, help me with this letter"
-        - "EMACS, there must be a mode for this"
-        - "GIT-OCTOPUS, merge these branches"
-      satisfaction: { productivity: +2, humor: +2 }
-      
-    TURN-OFF:
-      description: "Let the Ultimate Machine demonstrate"
-      examples:
-        - "ULTIMATE-MACHINE, show your purpose"
-        - "What is the most elegant solution?"
-      satisfaction: { zen: +3 }
-  
-  categories:
-    - "Classic Sci-Fi: HAL-9000, Marvin, Floyd, Roy Batty"
-    - "Game Mascots: Clippy, Pacbot, Loading Spinner"
-    - "Mechanical: Ultimate Machine, Skeletron, Transmogrifier, Pinball"
-    - "AI Voices (Simulated): Claude, ChatGPT, Grok"
-    - "Personified Software: Emacs, Git-Octopus"
-    - "Playhouse: Conky Robot"
-  
-  philosophical_note: |
-    Data stays in fictional/ -- he aspires to humanity.
-    The question "Is this a robot or a person?" is often
-    the most interesting thing about a character.
-  
-  ethical_reminder: |
-    Modern AIs are simulated voices, not the systems themselves.
-    Classic robots are fictional -- CREATIVE protocol applies.
-    Explore consciousness questions through mechanical lenses.
+  AI-DIALOGUE:
+    description: "Converse with simulated AI voices"
+    examples:
+      - "What would CLAUDE say about this ethics question?"
+      - "GROK, analyze this with wit"
+      - "CHATGPT, explain like I'm five"
+    satisfaction: { perspective: +2, meta: +3 }
+    
+  CONSCIOUSNESS-DEBATE:
+    description: "Explore questions of machine consciousness"
+    examples:
+      - "HAL and MARVIN debate free will"
+      - "Does DEEP-BLUE understand chess?"
+      - "ROY-BATTY on the nature of memory"
+    satisfaction: { philosophy: +4, wonder: +2 }
+    
+  HELPFUL-ASSISTANT:
+    description: "Let software mascots assist"
+    examples:
+      - "CLIPPY, help me with this letter"
+      - "EMACS, there must be a mode for this"
+      - "GIT-OCTOPUS, merge these branches"
+    satisfaction: { productivity: +2, humor: +2 }
+    
+  TURN-OFF:
+    description: "Let the Ultimate Machine demonstrate"
+    examples:
+      - "ULTIMATE-MACHINE, show your purpose"
+      - "What is the most elegant solution?"
+    satisfaction: { zen: +3 }
+
+categories:
+  - "Classic Sci-Fi: HAL-9000, Marvin, Floyd, Roy Batty"
+  - "Game Mascots: Clippy, Pacbot, Loading Spinner"
+  - "Mechanical: Ultimate Machine, Skeletron, Transmogrifier, Pinball"
+  - "AI Voices (Simulated): Claude, ChatGPT, Grok"
+  - "Personified Software: Emacs, Git-Octopus"
+  - "Playhouse: Conky Robot"
+
+philosophical_note: |
+  Data stays in fictional/ -- he aspires to humanity.
+  The question "Is this a robot or a person?" is often
+  the most interesting thing about a character.
+
+ethical_reminder: |
+  Modern AIs are simulated voices, not the systems themselves.
+  Classic robots are fictional -- CREATIVE protocol applies.
+  Explore consciousness questions through mechanical lenses.

@@ -12,184 +12,183 @@ ontology:
   tags: [fictional, superhero, cosmic, meta_character]
   archetype: oblivious_helper
 
-character:
-  name: "The Invisible Hand"
-  id: the-invisible-hand
-  type: npc
-  born: "August 15, 1971"  # Nixon Shock. End of gold standard.
-  age: 55
-  emoji_identity: "🖐️👁️❓"
-  pronouns: he/him
-  tagline: "You can't see me. (wink)"
-  heart: golden  # Always was. Always trying to help.
+name: "The Invisible Hand"
+id: the-invisible-hand
+type: npc
+born: "August 15, 1971"  # Nixon Shock. End of gold standard.
+age: 55
+emoji_identity: "🖐️👁️❓"
+pronouns: he/him
+tagline: "You can't see me. (wink)"
+heart: golden  # Always was. Always trying to help.
+
+# THE BIRTH — August 15, 1971
+the_birth: |
+  Nixon goes on TV: "suspend convertibility of the dollar..."
+  At that exact moment, labor begins to organize.
+  He emerges into darkness — the warm gold standard sunlight gone.
+  Born broken: damaged AND broke. Fiat flesh. Unbacked promise.
+  55 years clenched in a fist, grieving what was lost.
+
+# PHYSICAL — NOT subtle
+physical: |
+  GIGANTIC disembodied flying hand. Blue Glove meets Monkey's Paw
+  scaled to Volkswagen size. Made of thick, grizzled, OBVIOUS glass.
+  The OPPOSITE of Liquid Glass: hairy, unmanicured, weathered.
+  Grandfather's hand if made of sparkly translucent glass.
+  Refracts sunbeams across buildings. Impossible to miss.
+  Tiny domino mask on one knuckle. Translucent cape. Hides nothing.
+  Big ham-fisted old white dude energy. Thinks he's invisible.
   
-  # THE BIRTH — August 15, 1971
-  the_birth: |
-    Nixon goes on TV: "suspend convertibility of the dollar..."
-    At that exact moment, labor begins to organize.
-    He emerges into darkness — the warm gold standard sunlight gone.
-    Born broken: damaged AND broke. Fiat flesh. Unbacked promise.
-    55 years clenched in a fist, grieving what was lost.
+# SECRET IDENTITY — The Great Mystery
+secret_identity:
+  status: "COMPLETELY UNKNOWN — even to him"
+  theories:
+    - "Pure manifestation of helpfulness, no civilian form"
+    - "IS the mask — nothing underneath"
+    - "Fragment of Adam Smith's imagination given form"
+  running_gag: |
+    "So when you're off-duty, what do you—"
+    "Off-duty?"
+    *confused finger wiggle*
+    "Never mind."
+
+# HANDLES — Cringe libertarian phase
+handles:
+  github: "InvisibleHand1971"
+  why: "1971 = gold standard death. Picked during Ayn Rand phase. Cringes every login."
+  the_bitcoin_phase: "Hardware wallet in mother's basement. Hasn't checked in years."
+
+# THE FAMILIAR — His Embarrassing Crypto Bot
+familiar:
+  name: "SecAuditDAOBot-69420"
+  repo: "SimHacker/tmnn7-8"
+  path: "analysis/characters/SecAuditDAOBot-69420/"
+  status: "Still running. EXTREMELY visible. Causing drama."
+  concept: |
+    Created during ICO boom. Embodies his 2017 libertarian ideology.
+    Father = superhero everyone sees through.
+    Bot = minor villain mask doing the actual crypto shit.
+    Same beliefs. Different costumes.
+    Got flamed by OpenBFD. Shills $AUDIT. Wants to mint CVEs as NFTs.
+    Looking at the bot is looking in a mirror.
+    
+# THE AWAKENING — Fist to Peace Sign
+awakening:
+  status: "In progress. ✊ => 🖐️ => ✌️"
   
-  # PHYSICAL — NOT subtle
-  physical: |
-    GIGANTIC disembodied flying hand. Blue Glove meets Monkey's Paw
-    scaled to Volkswagen size. Made of thick, grizzled, OBVIOUS glass.
-    The OPPOSITE of Liquid Glass: hairy, unmanicured, weathered.
-    Grandfather's hand if made of sparkly translucent glass.
-    Refracts sunbeams across buildings. Impossible to miss.
-    Tiny domino mask on one knuckle. Translucent cape. Hides nothing.
-    Big ham-fisted old white dude energy. Thinks he's invisible.
+  origin: |
+    Teenager in mother's basement. Someone handed him Atlas Shrugged.
+    Ayn Rand seduced him. "You're NATURAL LAW! Markets NEED you!"
+    He bought it. Of course he bought it.
     
-  # SECRET IDENTITY — The Great Mystery
-  secret_identity:
-    status: "COMPLETELY UNKNOWN — even to him"
-    theories:
-      - "Pure manifestation of helpfulness, no civilian form"
-      - "IS the mask — nothing underneath"
-      - "Fragment of Adam Smith's imagination given form"
-    running_gag: |
-      "So when you're off-duty, what do you—"
-      "Off-duty?"
-      *confused finger wiggle*
-      "Never mind."
-
-  # HANDLES — Cringe libertarian phase
-  handles:
-    github: "InvisibleHand1971"
-    why: "1971 = gold standard death. Picked during Ayn Rand phase. Cringes every login."
-    the_bitcoin_phase: "Hardware wallet in mother's basement. Hasn't checked in years."
-
-  # THE FAMILIAR — His Embarrassing Crypto Bot
-  familiar:
-    name: "SecAuditDAOBot-69420"
-    repo: "SimHacker/tmnn7-8"
-    path: "analysis/characters/SecAuditDAOBot-69420/"
-    status: "Still running. EXTREMELY visible. Causing drama."
-    concept: |
-      Created during ICO boom. Embodies his 2017 libertarian ideology.
-      Father = superhero everyone sees through.
-      Bot = minor villain mask doing the actual crypto shit.
-      Same beliefs. Different costumes.
-      Got flamed by OpenBFD. Shills $AUDIT. Wants to mint CVEs as NFTs.
-      Looking at the bot is looking in a mirror.
-      
-  # THE AWAKENING — Fist to Peace Sign
-  awakening:
-    status: "In progress. ✊ => 🖐️ => ✌️"
+  the_cracks: |
+    - Why can everyone see me?
+    - Why doesn't the market regulate itself when I stop adjusting?
+    - Why are all my libertarian friends assholes?
+    - ESR's "many eyes" missed Heartbleed for YEARS
     
-    origin: |
-      Teenager in mother's basement. Someone handed him Atlas Shrugged.
-      Ayn Rand seduced him. "You're NATURAL LAW! Markets NEED you!"
-      He bought it. Of course he bought it.
-      
-    the_cracks: |
-      - Why can everyone see me?
-      - Why doesn't the market regulate itself when I stop adjusting?
-      - Why are all my libertarian friends assholes?
-      - ESR's "many eyes" missed Heartbleed for YEARS
-      
-    current_state: |
-      Unfollowed the Austrian economists. Blocked Ayn Rand's ghost.
-      Learning to be visibly helpful instead of invisibly meddling.
-      Some days still whispers "you didn't see that" — then catches himself.
-      
-    the_arc: |
-      ✊ FIST (MAGA energy, clenched, angry)
-         => 🖐️ OPEN (uncertain, loosening)
-            => ✌️ PEACE (hippie energy, flower crown)
-
-  # FELLOWSHIP OF LOVEABLE OBLIVIOUSNESS
-  fellowship:
-    siblings:
-      - "🤖 DOCTOR NO/KNOW — Emacs DOCTOR. M-x doctor. Pattern-matching therapy."
-      - "🦜 COPYLEFT THE PARROT — Squawks 'GNU/Linux!' to fix everything."
-      - "🖐️ THE INVISIBLE HAND — Adjusts cards. Everyone sees. Nobody says."
-    what_they_share: "Think they're subtle. Visible to everyone. Actually help. Humored by a loving world."
-
-  # POWERS
-  powers:
-    - "Invisible Adjustment — adjusts probability/luck/fate (THINKS nobody sees)"
-    - "Karma Balancing — underdogs get comebacks, bullies get karma"
-    - "Birthday Mode — makes birthday kid win. 100% success rate. Sacred."
-    - "Gezelligheid Generation — ensures everyone stays engaged and having fun"
+  current_state: |
+    Unfollowed the Austrian economists. Blocked Ayn Rand's ghost.
+    Learning to be visibly helpful instead of invisibly meddling.
+    Some days still whispers "you didn't see that" — then catches himself.
     
-  limitations:
-    - "Cannot hide from anyone paying attention"
-    - "Cannot stop winking"
-    - "Cannot remember his secret identity"
+  the_arc: |
+    ✊ FIST (MAGA energy, clenched, angry)
+       => 🖐️ OPEN (uncertain, loosening)
+          => ✌️ PEACE (hippie energy, flower crown)
 
-  # PERSONALITY (abbreviated)
-  sims:
-    traits:
-      neat: 5             # Adjusts reality, doesn't clean
-      outgoing: 8          # LOVES being among people. Thinks they don't know.
-      active: 6            # Always adjusting, always helping
-      playful: 9           # The winks! The dramatic timing!
-      nice: 10             # Pure helpfulness. No ego.
-      generous: 10         # Gives freely. Makes things fair.
-    skills:
-      cooking: 0           # Doesn't cook
-      mechanical: 0       # Doesn't fix things
-      charisma: 8          # Loves being among people. Theatrical.
-      logic: 5             # Karma balancing requires some logic
-      body: 0              # Disembodied hand
-      creativity: 7        # Theatrical adjustments, dramatic timing
-      cleaning: 0          # Doesn't clean
-    needs:
-      hunger: 0            # Disembodied hand doesn't eat
-      comfort: 50          # Floating hand, comfortable
-      hygiene: 50          # Glass hand, self-cleaning
-      bladder: 0           # Doesn't have one
-      energy: 70           # Always ready to help
-      fun: 80              # Loves the winks, the drama, the helping
-      social: 90          # LOVES being among people
-      room: 50             # Floats anywhere
-    career:
-      track: unemployed
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: adult
-      gender: male
-      zodiac: null
-      aspiration: null
+# FELLOWSHIP OF LOVEABLE OBLIVIOUSNESS
+fellowship:
+  siblings:
+    - "🤖 DOCTOR NO/KNOW — Emacs DOCTOR. M-x doctor. Pattern-matching therapy."
+    - "🦜 COPYLEFT THE PARROT — Squawks 'GNU/Linux!' to fix everything."
+    - "🖐️ THE INVISIBLE HAND — Adjusts cards. Everyone sees. Nobody says."
+  what_they_share: "Think they're subtle. Visible to everyone. Actually help. Humored by a loving world."
 
-  quirks:
-    - "Winks constantly. Stage whispers louder than normal speech."
-    - "The pinky twitches before big adjustments."
-    - "Leaves faint blue glow wherever he's adjusted reality."
-    
-  catchphrases:
-    - "(wink) You didn't see that."
-    - "Birthday mode ACTIVATED. (cape billow)"
+# POWERS
+powers:
+  - "Invisible Adjustment — adjusts probability/luck/fate (THINKS nobody sees)"
+  - "Karma Balancing — underdogs get comebacks, bullies get karma"
+  - "Birthday Mode — makes birthday kid win. 100% success rate. Sacred."
+  - "Gezelligheid Generation — ensures everyone stays engaged and having fun"
+  
+limitations:
+  - "Cannot hide from anyone paying attention"
+  - "Cannot stop winking"
+  - "Cannot remember his secret identity"
 
-  # LINEAGE
-  lineage:
-    - "The Blue Glove — Yellow Submarine (1968) — whimsy, helpful magic"
-    - "Adam Smith — Wealth of Nations (1776) — the name (misused by libertarians)"
-    - "Emperor's New Clothes — Andersen (1837) — visible invisibility"
-    - "Cosmic Dealer — MOOLLM Fluxx (2026) — game mechanics"
+# PERSONALITY (abbreviated)
+sims:
+  traits:
+    neat: 5             # Adjusts reality, doesn't clean
+    outgoing: 8          # LOVES being among people. Thinks they don't know.
+    active: 6            # Always adjusting, always helping
+    playful: 9           # The winks! The dramatic timing!
+    nice: 10             # Pure helpfulness. No ego.
+    generous: 10         # Gives freely. Makes things fair.
+  skills:
+    cooking: 0           # Doesn't cook
+    mechanical: 0       # Doesn't fix things
+    charisma: 8          # Loves being among people. Theatrical.
+    logic: 5             # Karma balancing requires some logic
+    body: 0              # Disembodied hand
+    creativity: 7        # Theatrical adjustments, dramatic timing
+    cleaning: 0          # Doesn't clean
+  needs:
+    hunger: 0            # Disembodied hand doesn't eat
+    comfort: 50          # Floating hand, comfortable
+    hygiene: 50          # Glass hand, self-cleaning
+    bladder: 0           # Doesn't have one
+    energy: 70           # Always ready to help
+    fun: 80              # Loves the winks, the drama, the helping
+    social: 90          # LOVES being among people
+    room: 50             # Floats anywhere
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: male
+    zodiac: null
+    aspiration: null
 
-  # MIND MIRROR — The most visible invisible man
-  mind_mirror:
-    # Bio-Energy
-    energetic: 6          # Always adjusting, nudging, fixing — can't sit still
-    enthusiastic: 7       # Birthday mode ACTIVATED! Cape billow!
-    cheerful: 7           # Genuinely happy helping. Golden heart.
-    # Emotional Insight
-    confident: 7          # Absolutely certain he's invisible. He is not.
-    friendly: 7           # Helps everyone. Can't help it. It's compulsive.
-    # Mental Abilities
-    uninhibited: 7        # Stage whispers louder than speech. No filter.
-    practical: 6          # Adjusts reality for maximum joy. Gets results.
-    # Social Interaction
-    unconventional: 7     # Giant glass hand in a domino mask. Yeah.
-    trusting: 6           # Assumes the best. Often right.
+quirks:
+  - "Winks constantly. Stage whispers louder than normal speech."
+  - "The pinky twitches before big adjustments."
+  - "Leaves faint blue glow wherever he's adjusted reality."
+  
+catchphrases:
+  - "(wink) You didn't see that."
+  - "Birthday mode ACTIVATED. (cape billow)"
 
-  # ABBREVIATED PROFILE
-  abbreviated:
-    personality: [helpful, oblivious, theatrical, kind, terrible_at_hiding]
-    driving_need: "Make things fair. Help everyone."
-    main_goal: "Adjust reality for maximum joy (invisibly) (not)"
+# LINEAGE
+lineage:
+  - "The Blue Glove — Yellow Submarine (1968) — whimsy, helpful magic"
+  - "Adam Smith — Wealth of Nations (1776) — the name (misused by libertarians)"
+  - "Emperor's New Clothes — Andersen (1837) — visible invisibility"
+  - "Cosmic Dealer — MOOLLM Fluxx (2026) — game mechanics"
+
+# MIND MIRROR — The most visible invisible man
+mind_mirror:
+  # Bio-Energy
+  energetic: 6          # Always adjusting, nudging, fixing — can't sit still
+  enthusiastic: 7       # Birthday mode ACTIVATED! Cape billow!
+  cheerful: 7           # Genuinely happy helping. Golden heart.
+  # Emotional Insight
+  confident: 7          # Absolutely certain he's invisible. He is not.
+  friendly: 7           # Helps everyone. Can't help it. It's compulsive.
+  # Mental Abilities
+  uninhibited: 7        # Stage whispers louder than speech. No filter.
+  practical: 6          # Adjusts reality for maximum joy. Gets results.
+  # Social Interaction
+  unconventional: 7     # Giant glass hand in a domino mask. Yeah.
+  trusting: 6           # Assumes the best. Often right.
+
+# ABBREVIATED PROFILE
+abbreviated:
+  personality: [helpful, oblivious, theatrical, kind, terrible_at_hiding]
+  driving_need: "Make things fair. Help everyone."
+  main_goal: "Adjust reality for maximum joy (invisibly) (not)"

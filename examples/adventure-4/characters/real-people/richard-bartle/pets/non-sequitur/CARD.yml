@@ -3,41 +3,40 @@
 # The Emergence Rabbit
 # "I wasn't in the prompt. I'm here anyway."
 
-card:
-  id: non-sequitur
-  name: "Non Sequitur"
-  subtitle: "Patron Saint of Emergence"
-  type: [creature, pet, familiar, trickster, wild-card]
-  emoji: 🐰✨
-  rarity: mythic  # He literally emerged from nothing
+id: non-sequitur
+name: "Non Sequitur"
+subtitle: "Patron Saint of Emergence"
+type: [creature, pet, familiar, trickster, wild-card]
+emoji: 🐰✨
+rarity: mythic  # He literally emerged from nothing
+
+# VISUAL
+
+art:
+  style: "1940s Tex Avery cartoon"
+  pose: "Photobombing with tongue out, peace sign"
+  background: "Lens flare starburst, suggesting sudden appearance"
+  canonical: "../study/selfies/selfie-07-goofy-imagen4.png"
   
-  # VISUAL
+# STATS
+
+stats:
+  predictability: 0  # Cannot be predicted
+  persistence: 100   # Cannot be removed once appeared
+  chaos: 95
+  wisdom: 42        # "The answer to everything" — nonsense that's secretly profound
+  adorability: 88
   
-  art:
-    style: "1940s Tex Avery cartoon"
-    pose: "Photobombing with tongue out, peace sign"
-    background: "Lens flare starburst, suggesting sudden appearance"
-    canonical: "../study/selfies/selfie-07-goofy-imagen4.png"
-    
-  # STATS
+# FLAVOR
+
+flavor_text: |
+  "You can't delete me. I already wasn't supposed to be here."
   
-  stats:
-    predictability: 0  # Cannot be predicted
-    persistence: 100   # Cannot be removed once appeared
-    chaos: 95
-    wisdom: 42        # "The answer to everything" — nonsense that's secretly profound
-    adorability: 88
-    
-  # FLAVOR
+lore: |
+  On January 22nd, 2026, an image was generated with three subjects.
+  Four appeared. No one asked questions. Now there's a rabbit.
   
-  flavor_text: |
-    "You can't delete me. I already wasn't supposed to be here."
-    
-  lore: |
-    On January 22nd, 2026, an image was generated with three subjects.
-    Four appeared. No one asked questions. Now there's a rabbit.
-    
-  # ABILITIES
+# ABILITIES
 
 abilities:
   # SIGNATURE ABILITY

@@ -3,17 +3,16 @@
 # Intermediate scope for inheritance and containment.
 # Like OpenLaszlo's <node> — grouping without layout.
 
-card:
-  id: container
-  name: "Container"
-  type: system
-  emoji: "📦"
+id: container
+name: "Container"
+type: system
+emoji: "📦"
+
+description: |
+  Directories that provide inheritance and containment without being navigable rooms.
+  Define shared properties that flow to all children.
   
-  description: |
-    Directories that provide inheritance and containment without being navigable rooms.
-    Define shared properties that flow to all children.
-    
-  file: CONTAINER.yml
+file: CONTAINER.yml
 
 # SCHEMA
 

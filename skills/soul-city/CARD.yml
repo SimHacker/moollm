@@ -1,29 +1,28 @@
 # CARD.yml — Soul City
 # Liminal place prototype
 
-card:
-  id: soul-city
-  name: Soul City
-  type: [skill, world, place, prototype]
-  emoji: 🏙️
-  tier: 1
-  tagline: "Liminal place — rooms, shops, tools, objects; souls walk here."
+id: soul-city
+name: Soul City
+type: [skill, world, place, prototype]
+emoji: 🏙️
+tier: 1
+tagline: "Liminal place — rooms, shops, tools, objects; souls walk here."
 
-  description: |
-    Place prototype: rooms, roads, shops, tools, objects, plazas, vehicles.
-    Souls inhabit with free-form mind graphs (0+ minds) and may bridge to
-    characters/personas/minds in other games. Instances supply maps and rails.
+description: |
+  Place prototype: rooms, roads, shops, tools, objects, plazas, vehicles.
+  Souls inhabit with free-form mind graphs (0+ minds) and may bridge to
+  characters/personas/minds in other games. Instances supply maps and rails.
 
-  inspiration: |
-    Will Wright, Stanford, 26 April 1996 — asked what he was working on, he named DATA
-    PORTABILITY first, then demoed an unreleased Dollhouse by loading a SimCity city into it:
-    "I want the games to actually be able to have persistent data that can move from one game
-    to another." designs/sims/sims-will-wright-microworlds-1996.md
+inspiration: |
+  Will Wright, Stanford, 26 April 1996 — asked what he was working on, he named DATA
+  PORTABILITY first, then demoed an unreleased Dollhouse by loading a SimCity city into it:
+  "I want the games to actually be able to have persistent data that can move from one game
+  to another." designs/sims/sims-will-wright-microworlds-1996.md
 
-  do_characters_first: |
-    Characters are the hydrogen — lightest, most abundant, highest valence, the atom everything
-    else binds to. A character is what a player grieves when a game shuts down, and once
-    characters move, every other content-atom has something to bind to.
+do_characters_first: |
+  Characters are the hydrogen — lightest, most abundant, highest valence, the atom everything
+  else binds to. A character is what a player grieves when a game shuts down, and once
+  characters move, every other content-atom has something to bind to.
 
 files:
   docs:
@@ -216,5 +215,3 @@ prototype_pattern: |
   skills/soul-city/     = liminal place (rooms, shops, tools, …)
   instances/            = concrete maps + product overlays
   game organelles       = native models; bridge in
-
-tier: 1

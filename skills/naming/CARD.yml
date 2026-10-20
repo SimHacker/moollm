@@ -3,20 +3,19 @@
 # Big-endian file naming as semantic binding.
 # "Names are the first code you write."
 
-card:
-  id: naming
-  name: "Naming"
-  type: [skill, organization, meta]
+id: naming
+name: "Naming"
+type: [skill, organization, meta]
+
+emoji: 🏷️
+
+rarity: common
+
+description: |
+  File and directory naming conventions as semantic binding.
+  Big-endian naming (general to specific) for sortability.
   
-  emoji: 🏷️
-  
-  rarity: common
-  
-  description: |
-    File and directory naming conventions as semantic binding.
-    Big-endian naming (general to specific) for sortability.
-    
-    Wraps kernel/NAMING.yml — the filesystem is a semantic network.
+  Wraps kernel/NAMING.yml — the filesystem is a semantic network.
 
 # TOOLS REQUIRED
 

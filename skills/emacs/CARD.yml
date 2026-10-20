@@ -1,16 +1,15 @@
 # CARD.yml — emacs
 
-card:
-  id: emacs
-  name: "Emacs (MOO)"
-  type: [skill, integration, tooling, accessibility]
-  emoji: 🐃
-  rarity: rare
-  description: |
-    Integrate GNU Emacs as a persistent, stateful editing environment for LLM
-    agents and humans. The daemon holds buffers, marks, narrowing, and undo;
-    emacs.py is the sister-script router (JSON, targets, logging, emacs://).
-    Spoken and intent layers are data-driven (spoken-grammar.yml).
+id: emacs
+name: "Emacs (MOO)"
+type: [skill, integration, tooling, accessibility]
+emoji: 🐃
+rarity: rare
+description: |
+  Integrate GNU Emacs as a persistent, stateful editing environment for LLM
+  agents and humans. The daemon holds buffers, marks, narrowing, and undo;
+  emacs.py is the sister-script router (JSON, targets, logging, emacs://).
+  Spoken and intent layers are data-driven (spoken-grammar.yml).
 
 tools:
   required:

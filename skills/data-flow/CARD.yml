@@ -3,19 +3,18 @@
 # Rooms as processing nodes, exits as edges, objects as messages.
 # "Kilroy-style data flow programming in the filesystem."
 
-card:
-  id: data-flow
-  name: "Data Flow"
-  type: [skill, programming, pipeline]
-  
-  emoji: 🔀
-  
-  rarity: rare
-  
-  description: |
-    Treat rooms as processing nodes in a data flow network.
-    Exits are edges. Objects THROWN through exits are messages.
-    Rooms have INBOXes for receiving. Build Factorio-like pipelines.
+id: data-flow
+name: "Data Flow"
+type: [skill, programming, pipeline]
+
+emoji: 🔀
+
+rarity: rare
+
+description: |
+  Treat rooms as processing nodes in a data flow network.
+  Exits are edges. Objects THROWN through exits are messages.
+  Rooms have INBOXes for receiving. Build Factorio-like pipelines.
 
 # TOOLS REQUIRED
 

@@ -3,21 +3,20 @@
 # Philosophy of prototype-based inheritance.
 # "Objects clone from prototypes, not instances from classes."
 
-card:
-  id: prototype
-  name: "Prototype Philosophy"
-  type: [skill, philosophy, inheritance]
+id: prototype
+name: "Prototype Philosophy"
+type: [skill, philosophy, inheritance]
+
+emoji: 🧬
+
+rarity: rare  # Foundational but abstract
+
+description: |
+  The Self programming language philosophy applied to MOOLLM.
+  Objects are concrete. Classes don't exist. Everything delegates.
   
-  emoji: 🧬
-  
-  rarity: rare  # Foundational but abstract
-  
-  description: |
-    The Self programming language philosophy applied to MOOLLM.
-    Objects are concrete. Classes don't exist. Everything delegates.
-    
-    Play this card to understand or explain prototype-based inheritance,
-    or when designing new prototype/instance relationships.
+  Play this card to understand or explain prototype-based inheritance,
+  or when designing new prototype/instance relationships.
 
 # TOOLS REQUIRED
 # This is pure philosophy — no tools needed

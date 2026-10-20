@@ -3,22 +3,21 @@
 # Durable work with a guard. Claim it, do it, prove it.
 # Store what happened; compute what is possible.
 
-card:
-  id: task
-  name: "Task"
-  inherits:
-    - ref: skills/goal
-      why: "a task is a goal someone has claimed. done_when, fail_when, requires, priority, children and compile events come from goal; owner, judge, claim/release and the action-queue hand-off are task's own"
-  type: [skill, tracking, essential]
-  emoji: ✅
-  rarity: common
+id: task
+name: "Task"
+inherits:
+  - ref: skills/goal
+    why: "a task is a goal someone has claimed. done_when, fail_when, requires, priority, children and compile events come from goal; owner, judge, claim/release and the action-queue hand-off are task's own"
+type: [skill, tracking, essential]
+emoji: ✅
+rarity: common
 
-  description: |
-    A task is a unit of durable work: it outlives the session that opened it,
-    it can be claimed by a human, an LLM character, or a tool, and it carries
-    its own definition of done as a guard you can run. Ready, blocked, stale
-    and urgent are never typed in by hand; they are computed from guards and
-    from buffs hosted on the task.
+description: |
+  A task is a unit of durable work: it outlives the session that opened it,
+  it can be claimed by a human, an LLM character, or a tool, and it carries
+  its own definition of done as a guard you can run. Ready, blocked, stale
+  and urgent are never typed in by hand; they are computed from guards and
+  from buffs hosted on the task.
 
 tools:
   required: [read_file, write_file]

@@ -3,19 +3,18 @@
 # Context compression — compress without losing truth.
 # "Keep the essence. Drop the noise."
 
-card:
-  id: summarize
-  name: "Summarize"
-  type: [skill, memory, essential]
-  emoji: 📋
-  rarity: common
+id: summarize
+name: "Summarize"
+type: [skill, memory, essential]
+emoji: 📋
+rarity: common
+
+description: |
+  Compress information without losing meaning. Essential
+  for context management and memory palace population.
   
-  description: |
-    Compress information without losing meaning. Essential
-    for context management and memory palace population.
-    
-    Key pattern: Create foo-metadata.yml sidecars for any foo.yml.
-    LLM can "sip" metadata before deciding to read the full file.
+  Key pattern: Create foo-metadata.yml sidecars for any foo.yml.
+  LLM can "sip" metadata before deciding to read the full file.
 
 tools:
   required: [read_file, write_file]

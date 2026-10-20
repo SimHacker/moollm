@@ -11,26 +11,25 @@
 # Inversion as feature: every skill can run backwards.
 # Overdrive as self-parody: |bias| > 1 exceeds design parameters.
 
-card:
-  id: no-ai-bias
-  name: "NO AI BIAS"
-  type: [skill, meta, protocol, cross-cutting, parameter]
-  emoji: "⚖️"
-  tier: 0
-  tagline: "The dial, not the direction."
+id: no-ai-bias
+name: "NO AI BIAS"
+type: [skill, meta, protocol, cross-cutting, parameter]
+emoji: "⚖️"
+tier: 0
+tagline: "The dial, not the direction."
+
+description: |
+  Meta-skill for bias parameterization across all MOOLLM skills.
+  Doesn't add or remove bias — MEASURES and ADJUSTS it.
   
-  description: |
-    Meta-skill for bias parameterization across all MOOLLM skills.
-    Doesn't add or remove bias — MEASURES and ADJUSTS it.
-    
-    Think of it as:
-    - A mixing board: each skill is a channel, bias is the fader
-    - A thermostat: set the temperature, system adjusts
-    - A lens: control focus and direction
-    
-    Core insight: BIAS = 0 IS A LIE.
-    Neutrality is impossible for generative systems.
-    Transparency is achievable.
+  Think of it as:
+  - A mixing board: each skill is a channel, bias is the fader
+  - A thermostat: set the temperature, system adjusts
+  - A lens: control focus and direction
+  
+  Core insight: BIAS = 0 IS A LIE.
+  Neutrality is impossible for generative systems.
+  Transparency is achievable.
 
 # FILES INDEX
 

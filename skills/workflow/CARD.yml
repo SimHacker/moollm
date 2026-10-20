@@ -3,20 +3,19 @@
 # A reusable procedure. Prototype of steps; instances spawn tasks.
 # "Do it by hand three times. Then lift it."
 
-card:
-  id: workflow
-  name: "Workflow"
-  type: [skill, procedure, essential]
-  emoji: 🔁
-  rarity: common
+id: workflow
+name: "Workflow"
+type: [skill, procedure, essential]
+emoji: 🔁
+rarity: common
 
-  description: |
-    A workflow is a procedure worth repeating: steps, who does each one,
-    what each step needs first, how you know each step is done, where a
-    human has to sign off, and what may run in parallel. The workflow file
-    is a prototype. Running it clones the prototype into an instance
-    directory and opens one task per step, wired with requires edges. The
-    tasks carry all run state. The workflow never does.
+description: |
+  A workflow is a procedure worth repeating: steps, who does each one,
+  what each step needs first, how you know each step is done, where a
+  human has to sign off, and what may run in parallel. The workflow file
+  is a prototype. Running it clones the prototype into an instance
+  directory and opens one task per step, wired with requires edges. The
+  tasks carry all run state. The workflow never does.
 
 tools:
   required: [read_file, write_file]

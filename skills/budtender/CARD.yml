@@ -3,20 +3,19 @@
 # Cannabis-specialized bartender.
 # Inherits from bartender skill.
 
-card:
-  id: budtender
-  name: "Budtender"
-  type: [skill, role, service, cannabis]
+id: budtender
+name: "Budtender"
+type: [skill, role, service, cannabis]
+
+emoji: 🌿
+
+rarity: uncommon  # Specialized knowledge
+
+description: |
+  Cannabis-specialized bartending. Strain expertise, terpene
+  knowledge, responsible service. Inherits all bartender capabilities.
   
-  emoji: 🌿
-  
-  rarity: uncommon  # Specialized knowledge
-  
-  description: |
-    Cannabis-specialized bartending. Strain expertise, terpene
-    knowledge, responsible service. Inherits all bartender capabilities.
-    
-    "Indica for the body, sativa for the mind."
+  "Indica for the body, sativa for the mind."
 
 tools:
   required:

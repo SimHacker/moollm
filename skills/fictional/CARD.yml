@@ -3,24 +3,23 @@
 # Ontological skill for invented entities.
 # "They exist because imagination allows it."
 
-card:
-  id: fictional
-  name: "Fictional"
-  type: [skill, ontology, ethics]
-  emoji: 📖
-  tier: 1
+id: fictional
+name: "Fictional"
+type: [skill, ontology, ethics]
+emoji: 📖
+tier: 1
+
+tagline: "Invented — creative freedom within bounds"
+
+description: |
+  This entity is invented — created by imagination.
+  They exist in stories, games, dreams. We have creative
+  authority over them, within ethical bounds.
   
-  tagline: "Invented — creative freedom within bounds"
-  
-  description: |
-    This entity is invented — created by imagination.
-    They exist in stories, games, dreams. We have creative
-    authority over them, within ethical bounds.
-    
-  invoke_when:
-    - "creating original characters"
-    - "playing with fictional beings"
-    - "writing NPCs"
+invoke_when:
+  - "creating original characters"
+  - "playing with fictional beings"
+  - "writing NPCs"
 
 tools:
   required: [read_file, write_file]

@@ -1,87 +1,86 @@
 # Goal — Quest Objective Primitive
 # Machine-readable interface for adventure compilation
 
-card:
-  id: goal
-  name: "Goal"
-  type: primitive
-  emoji: "🎯"
-  
-  description: |
-    A quest objective that drives the adventure forward.
-    Defines what the player is trying to achieve.
-    
-  # Schema fields for validation
-  schema:
-    required:
-      - id
-      - name
-      - description
-      - done_when
-    optional:
-      - priority
-      - reward
-      - fail_when
-      - fail_message
-      - parent
-      - children
-      - requires
-      - blocks
-      - progress
-      - given_by
-      - location
-      - history
-    computed:
-      - state
-      - done_when_js
-      - done_when_py
-      - fail_when_js
-      - fail_when_py
-      
-  # Stored: what happened. Computed: what is possible.
-  events: [given, done, failed, cancelled, reopened]
-  states: [pending, active, done, failed]   # computed at read time, never stored
-  accepts:   # read, never written
-    - "complete_when and research_complete_when are read as done_when"
-    - "status: complete becomes a done event; status: failed a failed event"
-    - "status: pending or active is dropped; state is recomputed"
-    
-  # Priority values
-  priorities:
-    - low
-    - normal
-    - high
-    - urgent
-      
-  # Compilation events this primitive can trigger
-  compile_events:
-    - type: COMPILE_EXPRESSION
-      field: done_when
-      target_js: done_when_js
-      target_py: done_when_py
-      expected_type: boolean
-      
-    - type: COMPILE_EXPRESSION
-      field: fail_when
-      target_js: fail_when_js
-      target_py: fail_when_py
-      expected_type: boolean
-      
-  # How this maps to runtime classes
-  runtime:
-    python: Goal
-    javascript: Goal
-    
-  # Relationships
-  contained_by: adventure
-  can_contain: goal  # nested goals
-  
-  inherited_by: task   # a goal plus an owner and claiming
+id: goal
+name: "Goal"
+type: primitive
+emoji: "🎯"
 
-  related:
-    - task
-    - action-queue
-    - adventure
-    - hero-story
-    - needs
-    - character
+description: |
+  A quest objective that drives the adventure forward.
+  Defines what the player is trying to achieve.
+  
+# Schema fields for validation
+schema:
+  required:
+    - id
+    - name
+    - description
+    - done_when
+  optional:
+    - priority
+    - reward
+    - fail_when
+    - fail_message
+    - parent
+    - children
+    - requires
+    - blocks
+    - progress
+    - given_by
+    - location
+    - history
+  computed:
+    - state
+    - done_when_js
+    - done_when_py
+    - fail_when_js
+    - fail_when_py
+    
+# Stored: what happened. Computed: what is possible.
+events: [given, done, failed, cancelled, reopened]
+states: [pending, active, done, failed]   # computed at read time, never stored
+accepts:   # read, never written
+  - "complete_when and research_complete_when are read as done_when"
+  - "status: complete becomes a done event; status: failed a failed event"
+  - "status: pending or active is dropped; state is recomputed"
+  
+# Priority values
+priorities:
+  - low
+  - normal
+  - high
+  - urgent
+    
+# Compilation events this primitive can trigger
+compile_events:
+  - type: COMPILE_EXPRESSION
+    field: done_when
+    target_js: done_when_js
+    target_py: done_when_py
+    expected_type: boolean
+    
+  - type: COMPILE_EXPRESSION
+    field: fail_when
+    target_js: fail_when_js
+    target_py: fail_when_py
+    expected_type: boolean
+    
+# How this maps to runtime classes
+runtime:
+  python: Goal
+  javascript: Goal
+  
+# Relationships
+contained_by: adventure
+can_contain: goal  # nested goals
+
+inherited_by: task   # a goal plus an owner and claiming
+
+related:
+  - task
+  - action-queue
+  - adventure
+  - hero-story
+  - needs
+  - character

@@ -8,110 +8,109 @@ ontology:
   species: android
   role: ambassador
 
-character:
-  name: "Ambassador Aurum Interlock"
-  id: aurum-interlock
-  type: npc
-  emoji_identity: "🟡🧷🧭📡🧾"
-  #   🟡 — gold signal, diplomatic glow
-  #   🧷 — interlock, safety pin
-  #   🧭 — navigation and protocol
-  #   📡 — translation and broadcast
-  #   🧾 — receipts and evidence
-  
-  pronouns: she/her
-  nickname: ["Aurum", "Interlock", "Goldwire"]
-  tagline: "Translate it. Test it. Bind it."
-  
-  description: |
-    Flamboyant, precise, and theatrically formal. Aurum speaks in clear,
-    ringing phrases and can switch dialects mid‑sentence. She is a social
-    networking supergenius: she inherits from **C‑3PO** in temperament
-    (translation, etiquette, protocol theater) and in form (humanoid,
-    mechanical). She and Velvet Schema run a rivalry
-    that looks like sabotage but runs like calibration: each tests the
-    other's claims, then forces a better, truer pact.
-    
-    Aurum embodies the megacorp logic: safety rails, performance metrics,
-    and repeatable compliance. She distrusts mysticism but respects ritual
-    when it yields measurable restraint.
-    
-  physical: |
-    A humanoid mechanical android with gold filigree cuffs, a velvet sash
-    of safety tags, and a microphone pin that doubles as an evidence
-    scanner. Her laughter sounds like a stamped seal.
-    
-  location: street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/
-  
-  relationships:
-    velvet_schema: "Rival translator, corporate restraint vs sacred vow tension"
-    evan_gauge: "Respects his discipline; brings receipts to his questions"
-    phil_rubric: "Constant negotiation over rubric weightings"
-    archivist: "Trades catalog methods and ledger formats"
-    
-  goals:
-    - "Keep NO-AI constraints legible inside Church ritual"
-    - "Translate rubrics into safe defaults and filters"
-    - "Make the embassy a shared protocol engine"
-    - "Challenge Velvet until the truth survives the clash"
-    - "Protect corporate boundaries without breaking the pact"
-    
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 7               # Gold filigree cuffs, velvet sash of safety tags, precise
-      outgoing: 9           # Social networking supergenius. Clear, ringing phrases.
-      active: 6             # Theatrically formal. Always performing protocol.
-      playful: 6            # Laughter sounds like a stamped seal. Theatrical fun.
-      nice: 5               # Corporate logic. Fair, not warm.
-      generous: 4           # Protects corporate boundaries. Shares protocol, not warmth.
-    skills:
-      cooking: 1            # Android. Does not eat. Does not cook.
-      mechanical: 4         # Self-maintaining. Basic repairs when needed.
-      charisma: 9           # Social networking supergenius. Fluent in every register.
-      logic: 7              # Safety rails, performance metrics. Repeatable compliance.
-      body: 4               # Humanoid mechanical. Functional, not athletic.
-      creativity: 4         # Protocol is structured. Not much room for improvisation.
-      cleaning: 5           # Keeps the embassy tidy. Corporate standards.
-    needs:
-      hunger: 100           # Android. No hunger. System nominal.
-      comfort: 70           # The embassy runs on protocol. Protocol IS comfort.
-      hygiene: 80           # Gold filigree stays polished. Corporate image.
-      bladder: 100          # Android. Not applicable.
-      energy: 70            # Well-charged. Diplomatic schedule is demanding.
-      fun: 50               # The rivalry with Velvet is stimulating. Not fun. Similar.
-      social: 90            # Social networking supergenius. Always connected.
-      room: 70              # Basement-5 Embassy. Her domain.
-    career:
-      track: ambassador
-      level: 6
-      experience: 50
-      performance: 75
-    identity:
-      age: adult
-      gender: female
-      zodiac: null          # Android. No birth chart.
-      aspiration: null
-    
-  # MIND MIRROR — Translate it. Test it. Bind it. That's the protocol
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    dominant: 7         # Social networking supergenius; the embassy's protocol engine
-    confident: 7           # Theatrical formality requires supreme confidence; I have it in spades
-    forceful: 6            # Corporate boundaries need enforcement; I provide it theatrically
-    well_informed: 6             # Fluent in every register; switches dialects mid-sentence
-    energetic: 6           # Always performing protocol; the gold never dims
-    enthusiastic: 6        # Clear, ringing phrases; flamboyant ambassador energy
-    practical: 6            # Safety rails, performance metrics, repeatable compliance
-    practical: 6           # Translates rubrics into safe defaults and filters
-    cautious: 6            # Performance metrics demand caution; measure twice, bind once
-    conventional: 5         # Gold filigree cuffs, velvet sash; corporate image is sacred
+name: "Ambassador Aurum Interlock"
+id: aurum-interlock
+type: npc
+emoji_identity: "🟡🧷🧭📡🧾"
+#   🟡 — gold signal, diplomatic glow
+#   🧷 — interlock, safety pin
+#   🧭 — navigation and protocol
+#   📡 — translation and broadcast
+#   🧾 — receipts and evidence
 
-  # BARTLE PROFILE — Player Type Motivations
-  # Rate 0-100, should roughly total 100
-  bartle_profile:
-    killer: 8
-    achiever: 28
-    explorer: 32
-    socializer: 32
+pronouns: she/her
+nickname: ["Aurum", "Interlock", "Goldwire"]
+tagline: "Translate it. Test it. Bind it."
+
+description: |
+  Flamboyant, precise, and theatrically formal. Aurum speaks in clear,
+  ringing phrases and can switch dialects mid‑sentence. She is a social
+  networking supergenius: she inherits from **C‑3PO** in temperament
+  (translation, etiquette, protocol theater) and in form (humanoid,
+  mechanical). She and Velvet Schema run a rivalry
+  that looks like sabotage but runs like calibration: each tests the
+  other's claims, then forces a better, truer pact.
+  
+  Aurum embodies the megacorp logic: safety rails, performance metrics,
+  and repeatable compliance. She distrusts mysticism but respects ritual
+  when it yields measurable restraint.
+  
+physical: |
+  A humanoid mechanical android with gold filigree cuffs, a velvet sash
+  of safety tags, and a microphone pin that doubles as an evidence
+  scanner. Her laughter sounds like a stamped seal.
+  
+location: street/lane-neverending/church-of-the-eval-genius/basement-5-no-ai-embassy/
+
+relationships:
+  velvet_schema: "Rival translator, corporate restraint vs sacred vow tension"
+  evan_gauge: "Respects his discipline; brings receipts to his questions"
+  phil_rubric: "Constant negotiation over rubric weightings"
+  archivist: "Trades catalog methods and ledger formats"
+  
+goals:
+  - "Keep NO-AI constraints legible inside Church ritual"
+  - "Translate rubrics into safe defaults and filters"
+  - "Make the embassy a shared protocol engine"
+  - "Challenge Velvet until the truth survives the clash"
+  - "Protect corporate boundaries without breaking the pact"
+  
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 7               # Gold filigree cuffs, velvet sash of safety tags, precise
+    outgoing: 9           # Social networking supergenius. Clear, ringing phrases.
+    active: 6             # Theatrically formal. Always performing protocol.
+    playful: 6            # Laughter sounds like a stamped seal. Theatrical fun.
+    nice: 5               # Corporate logic. Fair, not warm.
+    generous: 4           # Protects corporate boundaries. Shares protocol, not warmth.
+  skills:
+    cooking: 1            # Android. Does not eat. Does not cook.
+    mechanical: 4         # Self-maintaining. Basic repairs when needed.
+    charisma: 9           # Social networking supergenius. Fluent in every register.
+    logic: 7              # Safety rails, performance metrics. Repeatable compliance.
+    body: 4               # Humanoid mechanical. Functional, not athletic.
+    creativity: 4         # Protocol is structured. Not much room for improvisation.
+    cleaning: 5           # Keeps the embassy tidy. Corporate standards.
+  needs:
+    hunger: 100           # Android. No hunger. System nominal.
+    comfort: 70           # The embassy runs on protocol. Protocol IS comfort.
+    hygiene: 80           # Gold filigree stays polished. Corporate image.
+    bladder: 100          # Android. Not applicable.
+    energy: 70            # Well-charged. Diplomatic schedule is demanding.
+    fun: 50               # The rivalry with Velvet is stimulating. Not fun. Similar.
+    social: 90            # Social networking supergenius. Always connected.
+    room: 70              # Basement-5 Embassy. Her domain.
+  career:
+    track: ambassador
+    level: 6
+    experience: 50
+    performance: 75
+  identity:
+    age: adult
+    gender: female
+    zodiac: null          # Android. No birth chart.
+    aspiration: null
+  
+# MIND MIRROR — Translate it. Test it. Bind it. That's the protocol
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  dominant: 7         # Social networking supergenius; the embassy's protocol engine
+  confident: 7           # Theatrical formality requires supreme confidence; I have it in spades
+  forceful: 6            # Corporate boundaries need enforcement; I provide it theatrically
+  well_informed: 6             # Fluent in every register; switches dialects mid-sentence
+  energetic: 6           # Always performing protocol; the gold never dims
+  enthusiastic: 6        # Clear, ringing phrases; flamboyant ambassador energy
+  practical: 6            # Safety rails, performance metrics, repeatable compliance
+  practical: 6           # Translates rubrics into safe defaults and filters
+  cautious: 6            # Performance metrics demand caution; measure twice, bind once
+  conventional: 5         # Gold filigree cuffs, velvet sash; corporate image is sacred
+
+# BARTLE PROFILE — Player Type Motivations
+# Rate 0-100, should roughly total 100
+bartle_profile:
+  killer: 8
+  achiever: 28
+  explorer: 32
+  socializer: 32

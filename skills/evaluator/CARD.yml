@@ -3,20 +3,19 @@
 # Independent assessment without debate context.
 # "The committee can't see what the evaluator is thinking."
 
-card:
-  id: evaluator
-  name: "Evaluator"
-  type: [skill, assessment, adversarial]
+id: evaluator
+name: "Evaluator"
+type: [skill, assessment, adversarial]
+
+emoji: 📋
+
+rarity: rare
+
+description: |
+  Independent assessment of committee output against a rubric.
+  Evaluator has no debate context — can't be gamed.
   
-  emoji: 📋
-  
-  rarity: rare
-  
-  description: |
-    Independent assessment of committee output against a rubric.
-    Evaluator has no debate context — can't be gamed.
-    
-    If scores are poor, critique goes back to committee for revision.
+  If scores are poor, critique goes back to committee for revision.
 
 # TOOLS REQUIRED
 

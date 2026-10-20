@@ -3,20 +3,19 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Characters are BODIES. They have location, inventory, mortality."
 
-card:
-  id: character
-  name: "Character"
-  type: [skill, entity, game]
-  emoji: 🧑
-  tier: 1
-  tagline: "Characters are BODIES. Personas are COSTUMES."
+id: character
+name: "Character"
+type: [skill, entity, game]
+emoji: 🧑
+tier: 1
+tagline: "Characters are BODIES. Personas are COSTUMES."
+
+description: |
+  The foundational pattern for any entity that has a location,
+  inventory, and relationships. Players, NPCs, creatures, bots —
+  all are characters.
   
-  description: |
-    The foundational pattern for any entity that has a location,
-    inventory, and relationships. Players, NPCs, creatures, bots —
-    all are characters.
-    
-    Characters are BODIES (actors). Personas are COSTUMES (roles).
+  Characters are BODIES (actors). Personas are COSTUMES (roles).
 
 # FILES INDEX — Activate together for full context
 

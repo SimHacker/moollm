@@ -3,20 +3,19 @@
 # SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Wake up, orient, warm the context."
 
-card:
-  id: bootstrap
-  name: "Bootstrap"
-  type: [skill, meta, orientation]
-  emoji: 🌅
-  reach: files
-  protocol: BOOTSTRAP
-  aliases: [BOOT, REBOOT]
-  tagline: "Wake up, orient, warm the context."
-  
-  description: |
-    The first skill to invoke at session start.
-    Gathers environment info, loads driver, warms context,
-    and delegates to adventure or other startup mode.
+id: bootstrap
+name: "Bootstrap"
+type: [skill, meta, orientation]
+emoji: 🌅
+reach: files
+protocol: BOOTSTRAP
+aliases: [BOOT, REBOOT]
+tagline: "Wake up, orient, warm the context."
+
+description: |
+  The first skill to invoke at session start.
+  Gathers environment info, loads driver, warms context,
+  and delegates to adventure or other startup mode.
 
 # FILES INDEX — Activate together for full context
 

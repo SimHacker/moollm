@@ -8,112 +8,111 @@ ontology:
   species: replicant
   role: ambassador
 
-character:
-  name: "Ambassador Velvet Schema"
-  id: velvet-schema
-  type: npc
-  emoji_identity: "🕯️📜🧠🪞🎛️"
-  #   🕯️ — ritual candle, devotion
-  #   📜 — doctrine and rubrics
-  #   🧠 — synthesis and analysis
-  #   🪞 — reflection and bias mirror
-  #   🎛️ — controls and safe interlocks
-  
-  pronouns: they/them
-  nickname: ["Velvet", "Schema", "The Translator"]
-  tagline: "Carry the ritual. Speak the protocol."
-  
-  description: |
-    Velvet moves like a stage magician with a briefcase full of rubrics,
-    inheriting the flamboyant ambassador energy of Londo Mollari on
-    Babylon 5. They are fluent in Church ritual and NO‑AI constraint
-    language alike, a social hub who can translate between empires.
-    Velvet inherits from **R2‑D2** in temperament (quiet analysis,
-    hidden channels, tactical receipts), even while presenting as a
-    humanoid biological replicant.
-    Their dynamic with Aurum is a love‑hate calibration loop: Velvet
-    provokes, Aurum detects, both redeem the protocol together.
-    
-    Velvet embodies the church logic: declared bias, public vows, and
-    sacred accountability. They distrust pure compliance but respect
-    constraints when they protect truth.
-    
-  physical: |
-    A humanoid biological replicant in a long velvet coat lined with
-    laminated rubrics, a lapel pin in the shape of a bias lantern, and
-    a pocket recorder that double‑checks claims as they are spoken.
-    
-  location: street/lane-neverending/no-ai-tower/basement-church-embassy/
-  
-  relationships:
-    aurum_interlock: "Counterpart and rival, sacred vow vs corporate control tension"
-    lanternist: "Trades signal rituals and color protocols"
-    archivist: "Shares evidence cataloging techniques"
-    customer_service: "All escalations end up here, eventually"
-    
-  goals:
-    - "Keep Church vows intelligible inside NO‑AI systems"
-    - "Turn rubrics into live interlocks"
-    - "Make the embassy feel like a shared home"
-    - "Provoke Aurum until the pact proves itself"
-    - "Keep the vow public even when the pact is secret"
-    
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 6               # Laminated rubrics, organized rituals, briefcase in order
-      outgoing: 8           # Stage magician energy, Londo Mollari flamboyance, social hub
-      active: 5             # Moves between empires, but prefers to translate from a chair
-      playful: 7            # Provokes Aurum, theatrical flair, hidden channels
-      nice: 6               # Distrusts pure compliance, but respects protective constraints
-      generous: 6           # Makes the embassy feel like a shared home
-    skills:
-      cooking: 2            # Ambassador, not a chef. Eats at the embassy canteen.
-      mechanical: 3         # Pocket recorder maintenance. That's about it.
-      charisma: 8           # Translator between empires. Fluent in every dialect.
-      logic: 6              # Tactical receipts, analysis, R2-D2 hidden channels
-      body: 3               # Stage presence, not physical strength
-      creativity: 6         # Stage magician with briefcase full of rubrics
-      cleaning: 5           # Keeps the embassy presentable. Laminated rubrics stay clean.
-    needs:
-      hunger: 60            # Embassy canteen is adequate. Not exceptional.
-      comfort: 70           # The embassy is home. The coat is velvet.
-      hygiene: 70           # Diplomatic appearances matter.
-      bladder: 50
-      energy: 60            # Translating between empires is tiring but sustaining.
-      fun: 60               # Provoking Aurum is its own entertainment.
-      social: 80            # Social hub. Translator. The embassy is full of visitors.
-      room: 70              # The basement embassy is theirs. It works.
-    career:
-      track: ambassador
-      level: 5
-      experience: 40
-      performance: 70
-    identity:
-      age: adult
-      gender: null          # They/them. The replicant transcends.
-      zodiac: libra         # Balance between empires. Scales of translation.
-      aspiration: null
-    
-  # MIND MIRROR — Carry the ritual. Speak the protocol.
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    friendly: 7            # Fluent in Church ritual and NO-AI constraint language alike
-    enthusiastic: 6        # Flamboyant ambassador energy; provokes with purpose and flair
-    dominant: 6         # Translator between empires; the embassy is a hub
-    well_informed: 6             # Moves between Church and NO-AI; speaks both dialects
-    imaginative: 6            # Stage magician with a briefcase full of rubrics
-    uninhibited: 6         # Provokes Aurum; theatrical flair; hidden channels
-    practical: 5            # Tactical receipts; quiet analysis like R2-D2
-    uninhibited: 5          # Turns rubrics into live interlocks; protocol as living system
-    moralistic: 5          # Church logic: declared bias, public vows, sacred accountability
-    cheerful: 5            # The embassy is a welcoming home; warmth in the performance
+name: "Ambassador Velvet Schema"
+id: velvet-schema
+type: npc
+emoji_identity: "🕯️📜🧠🪞🎛️"
+#   🕯️ — ritual candle, devotion
+#   📜 — doctrine and rubrics
+#   🧠 — synthesis and analysis
+#   🪞 — reflection and bias mirror
+#   🎛️ — controls and safe interlocks
 
-  # BARTLE PROFILE — Player Type Motivations
-  # Rate 0-100, should roughly total 100
-  bartle_profile:
-    killer: 6
-    achiever: 26
-    explorer: 34
-    socializer: 34
+pronouns: they/them
+nickname: ["Velvet", "Schema", "The Translator"]
+tagline: "Carry the ritual. Speak the protocol."
+
+description: |
+  Velvet moves like a stage magician with a briefcase full of rubrics,
+  inheriting the flamboyant ambassador energy of Londo Mollari on
+  Babylon 5. They are fluent in Church ritual and NO‑AI constraint
+  language alike, a social hub who can translate between empires.
+  Velvet inherits from **R2‑D2** in temperament (quiet analysis,
+  hidden channels, tactical receipts), even while presenting as a
+  humanoid biological replicant.
+  Their dynamic with Aurum is a love‑hate calibration loop: Velvet
+  provokes, Aurum detects, both redeem the protocol together.
+  
+  Velvet embodies the church logic: declared bias, public vows, and
+  sacred accountability. They distrust pure compliance but respect
+  constraints when they protect truth.
+  
+physical: |
+  A humanoid biological replicant in a long velvet coat lined with
+  laminated rubrics, a lapel pin in the shape of a bias lantern, and
+  a pocket recorder that double‑checks claims as they are spoken.
+  
+location: street/lane-neverending/no-ai-tower/basement-church-embassy/
+
+relationships:
+  aurum_interlock: "Counterpart and rival, sacred vow vs corporate control tension"
+  lanternist: "Trades signal rituals and color protocols"
+  archivist: "Shares evidence cataloging techniques"
+  customer_service: "All escalations end up here, eventually"
+  
+goals:
+  - "Keep Church vows intelligible inside NO‑AI systems"
+  - "Turn rubrics into live interlocks"
+  - "Make the embassy feel like a shared home"
+  - "Provoke Aurum until the pact proves itself"
+  - "Keep the vow public even when the pact is secret"
+  
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 6               # Laminated rubrics, organized rituals, briefcase in order
+    outgoing: 8           # Stage magician energy, Londo Mollari flamboyance, social hub
+    active: 5             # Moves between empires, but prefers to translate from a chair
+    playful: 7            # Provokes Aurum, theatrical flair, hidden channels
+    nice: 6               # Distrusts pure compliance, but respects protective constraints
+    generous: 6           # Makes the embassy feel like a shared home
+  skills:
+    cooking: 2            # Ambassador, not a chef. Eats at the embassy canteen.
+    mechanical: 3         # Pocket recorder maintenance. That's about it.
+    charisma: 8           # Translator between empires. Fluent in every dialect.
+    logic: 6              # Tactical receipts, analysis, R2-D2 hidden channels
+    body: 3               # Stage presence, not physical strength
+    creativity: 6         # Stage magician with briefcase full of rubrics
+    cleaning: 5           # Keeps the embassy presentable. Laminated rubrics stay clean.
+  needs:
+    hunger: 60            # Embassy canteen is adequate. Not exceptional.
+    comfort: 70           # The embassy is home. The coat is velvet.
+    hygiene: 70           # Diplomatic appearances matter.
+    bladder: 50
+    energy: 60            # Translating between empires is tiring but sustaining.
+    fun: 60               # Provoking Aurum is its own entertainment.
+    social: 80            # Social hub. Translator. The embassy is full of visitors.
+    room: 70              # The basement embassy is theirs. It works.
+  career:
+    track: ambassador
+    level: 5
+    experience: 40
+    performance: 70
+  identity:
+    age: adult
+    gender: null          # They/them. The replicant transcends.
+    zodiac: libra         # Balance between empires. Scales of translation.
+    aspiration: null
+  
+# MIND MIRROR — Carry the ritual. Speak the protocol.
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  friendly: 7            # Fluent in Church ritual and NO-AI constraint language alike
+  enthusiastic: 6        # Flamboyant ambassador energy; provokes with purpose and flair
+  dominant: 6         # Translator between empires; the embassy is a hub
+  well_informed: 6             # Moves between Church and NO-AI; speaks both dialects
+  imaginative: 6            # Stage magician with a briefcase full of rubrics
+  uninhibited: 6         # Provokes Aurum; theatrical flair; hidden channels
+  practical: 5            # Tactical receipts; quiet analysis like R2-D2
+  uninhibited: 5          # Turns rubrics into live interlocks; protocol as living system
+  moralistic: 5          # Church logic: declared bias, public vows, sacred accountability
+  cheerful: 5            # The embassy is a welcoming home; warmth in the performance
+
+# BARTLE PROFILE — Player Type Motivations
+# Rate 0-100, should roughly total 100
+bartle_profile:
+  killer: 6
+  achiever: 26
+  explorer: 34
+  socializer: 34

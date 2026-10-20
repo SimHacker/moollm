@@ -1,60 +1,59 @@
-card:
-  name: "Abstract Entities Chamber"
-  type: character-room
-  protocol: CONCEPTUAL
+name: "Abstract Entities Chamber"
+type: character-room
+protocol: CONCEPTUAL
+
+description: |
+  A strange room where ideas have faces and concepts walk around.
+  Truth buzzes past as a fly. Consciousness contemplates itself.
+  A turtle teaches geometry by moving through impossible spaces.
   
-  description: |
-    A strange room where ideas have faces and concepts walk around.
-    Truth buzzes past as a fly. Consciousness contemplates itself.
-    A turtle teaches geometry by moving through impossible spaces.
+  Ideas given voice. Concepts with personality.
+
+atmosphere:
+  lighting: shifting, impossible geometries of light
+  sounds: the hum of pure thought, distant turtle steps
+  smell: ozone, fresh chalkboards, the taste of meaning
+  feeling: standing in the space between metaphor and reality
+
+advertisements:
+  SUMMON-CONCEPT:
+    description: "Give voice to an abstract idea"
+    examples:
+      - "SUMMON consciousness"
+      - "SUMMON truth-fly to evaluate this claim"
+      - "SUMMON nobody to discuss absence"
+    satisfaction: { philosophy: +3, wonder: +2 }
     
-    Ideas given voice. Concepts with personality.
-  
-  atmosphere:
-    lighting: shifting, impossible geometries of light
-    sounds: the hum of pure thought, distant turtle steps
-    smell: ozone, fresh chalkboards, the taste of meaning
-    feeling: standing in the space between metaphor and reality
-  
-  advertisements:
-    SUMMON-CONCEPT:
-      description: "Give voice to an abstract idea"
-      examples:
-        - "SUMMON consciousness"
-        - "SUMMON truth-fly to evaluate this claim"
-        - "SUMMON nobody to discuss absence"
-      satisfaction: { philosophy: +3, wonder: +2 }
-      
-    PERSONIFY:
-      description: "Create a new personified concept"
-      examples:
-        - "PERSONIFY recursion as a character"
-        - "What would entropy sound like?"
-        - "Give voice to the concept of flow state"
-      satisfaction: { creativity: +4 }
-      
-    TEACH:
-      description: "Learn through pedagogical mascots"
-      examples:
-        - "THEO-LOGO-TURTLE, teach me about spirals"
-        - "YAML-COLTRANE, show me jazz in data"
-        - "SHELLEY-TURTLE, what monsters should I create?"
-      satisfaction: { learning: +3, fun: +2 }
-      
-    COLLECTIVE-VOICE:
-      description: "Speak as a collective entity"
-      examples:
-        - "What does LEELA-AI think about this factory?"
-        - "SISTERS, grant me absolution"
-      satisfaction: { community: +2 }
-  
-  categories:
-    - "Pedagogical Mascots: YAML-Coltrane, Theo Logo Turtle"
-    - "Personified Concepts: Truth Fly, Nobody, Consciousness, Ground"
-    - "Collective Entities: Leela AI, Sisters of Perpetual Indulgence"
-    - "Dream Things: Electric Sheep, Lloooommagotchi"
-  
-  ethical_reminder: |
-    Pure imagination space. No real people, no trademarked characters.
-    These entities exist because thought allows it.
-    Play in the liminal space between idea and being.
+  PERSONIFY:
+    description: "Create a new personified concept"
+    examples:
+      - "PERSONIFY recursion as a character"
+      - "What would entropy sound like?"
+      - "Give voice to the concept of flow state"
+    satisfaction: { creativity: +4 }
+    
+  TEACH:
+    description: "Learn through pedagogical mascots"
+    examples:
+      - "THEO-LOGO-TURTLE, teach me about spirals"
+      - "YAML-COLTRANE, show me jazz in data"
+      - "SHELLEY-TURTLE, what monsters should I create?"
+    satisfaction: { learning: +3, fun: +2 }
+    
+  COLLECTIVE-VOICE:
+    description: "Speak as a collective entity"
+    examples:
+      - "What does LEELA-AI think about this factory?"
+      - "SISTERS, grant me absolution"
+    satisfaction: { community: +2 }
+
+categories:
+  - "Pedagogical Mascots: YAML-Coltrane, Theo Logo Turtle"
+  - "Personified Concepts: Truth Fly, Nobody, Consciousness, Ground"
+  - "Collective Entities: Leela AI, Sisters of Perpetual Indulgence"
+  - "Dream Things: Electric Sheep, Lloooommagotchi"
+
+ethical_reminder: |
+  Pure imagination space. No real people, no trademarked characters.
+  These entities exist because thought allows it.
+  Play in the liminal space between idea and being.

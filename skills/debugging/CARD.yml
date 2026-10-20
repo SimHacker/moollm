@@ -3,22 +3,21 @@
 # Systematic bug investigation with hypothesis tracking.
 # "Debugging is an adventure. The bug is the treasure."
 
-card:
-  id: debugging
-  name: "Debugging"
-  type: [skill, development, investigation]
+id: debugging
+name: "Debugging"
+type: [skill, development, investigation]
+
+emoji: 🐛
+
+rarity: common  # Everyone needs to debug
+
+description: |
+  Hypothesis-driven bug hunting. Form theories, test them,
+  narrow down. Treat it as an adventure where the bug
+  is the treasure to find.
   
-  emoji: 🐛
-  
-  rarity: common  # Everyone needs to debug
-  
-  description: |
-    Hypothesis-driven bug hunting. Form theories, test them,
-    narrow down. Treat it as an adventure where the bug
-    is the treasure to find.
-    
-    Play this card when something isn't working and you
-    need systematic investigation.
+  Play this card when something isn't working and you
+  need systematic investigation.
 
 # TOOLS REQUIRED
 

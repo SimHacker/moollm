@@ -1,13 +1,12 @@
-card:
-  id: adventure
-  name: "Adventure"
-  type: [skill, game, simulation, narrative]
-  emoji: "🗺️"
-  tier: 1
-  tagline: "Every directory is a room. Every file is a clue."
-  description: |
-    Turn any filesystem into a text adventure. Directories become rooms,
-    files become objects, and the LLM becomes the dungeon master.
+id: adventure
+name: "Adventure"
+type: [skill, game, simulation, narrative]
+emoji: "🗺️"
+tier: 1
+tagline: "Every directory is a room. Every file is a clue."
+description: |
+  Turn any filesystem into a text adventure. Directories become rooms,
+  files become objects, and the LLM becomes the dungeon master.
 
 inherits: [simulation]
 

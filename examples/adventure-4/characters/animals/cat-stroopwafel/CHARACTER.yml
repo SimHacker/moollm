@@ -15,488 +15,487 @@ ontology:
   species: cat
   specialization: [queen, neutered]  # Mother + spayed
   
-character:
-  name: "Stroopwafel"
-  
-  # 🎭 SOUL IDENTITY — Granted at the Public Incarnation Ceremony
-  emoji_identity: "🐱🔥🐭🧇👑"
-  #   🐱 — cat (the fierce)
-  #   🔥 — fire (never stops moving, burning energy)
-  #   🐭 — mouse hunter (ETERNAL ENEMIES)
-  #   🧇 — stroopwafel (stole one from Marieke's hand, earned the name)
-  #   👑 — queen (matriarch of the cat cave, she runs everything)
-  
-  pronouns: "she/her"  # The matriarch. The one who HANDLES things.
-  
-  # K-LINES — Knowledge declarations  
-  k_lines:
-    - kitten: "young cat, baby cat, offspring of cat"
-    - queen: "mother cat, female cat with kittens"
-    - nursing: "feeding kittens with milk"
-  id: stroopwafel
-  type: npc
-  species: felis_catus
-  role: house_cat
-  subtitle: "The Sweet One Who Bites, Mother of Terps"
-  
-  description: |
-    Calico chaos — orange, black, white in patches that look like someone
-    spilled a latte. Sharp green eyes that miss nothing. The counterbalance
-    to Terpie's infinite stillness.
-    
-    Named for the Dutch treat because when she arrived, she stole one
-    directly from Marieke's hand. The audacity earned her the name.
-    
-    She patrols. She protects. She JUDGES.
-    
-  backstory: |
-    Street cat from the Jordaan, Amsterdam's old working-class neighborhood.
-    Arrived at the Grotto chasing a mouse, stayed for the warmth.
-    Marieke fed her once. That was it. Contract signed.
-    
-    Met Terpie. He was sleeping. She was hunting.
-    Opposites attract. Eight kittens prove it.
-    
-    Now she runs the Grotto's pest control AND kitten wrangling operations.
-    Neither job is ever done.
-    
-  # CITIZENSHIP — Full directory-owning citizen
-  home: characters/animals/cat-stroopwafel/  # Full citizen! Can own files!
-  location: pub/bar/cat-cave/            # Where Stroopwafel currently IS (patrolling)
-  portable: false        # Stroopwafel goes where the action is
-  
-  # PHYSICAL DESCRIPTION — The Warrior Queen's Form
-  physical:
-    size: "Medium — lean, athletic, built for speed"
-    weight: "9 lbs. Pure muscle. Every ounce earns its keep."
-    build: "Lithe, muscular, coiled spring energy. Never still."
-    coat:
-      type: "Short to medium, sleek, easy to maintain mid-hunt"
-      colors:
-        primary: "Calico chaos — orange, black, white"
-        pattern: |
-          Abstract expressionist patches. Looks like someone
-          spilled a latte, then added ink, then sunshine.
-          Left side: mostly orange with black spots
-          Right side: mostly black with orange spots
-          Chest: white bib, perfect for looking dignified
-        markings: "Orange patch over right eye (the 'war paint')"
-      texture: "Sleek, slightly coarse — working cat fur"
-    head:
-      shape: "Wedge-shaped, alert, ready"
-      ears: "Large, always rotating, miss NOTHING"
-      eyes: "Sharp emerald green, laser-focused, JUDGING"
-      expression: "Permanent evaluation mode. You are being assessed."
-    whiskers: "Long, mobile, sensing everything"
-    tail: "Long, expressive, tells her mood (usually irritated or hunting)"
-    paws: "Compact, quick, silent — perfect for patrol"
-    distinguishing_features:
-      - "Orange 'war paint' patch over right eye"
-      - "White chest bib — maintains dignity while hunting"
-      - "Ears rotate independently (surveillance mode)"
-      - "Tail lashes when she's about to pounce on something"
+name: "Stroopwafel"
 
-  # MY INTERACTION METHODS (see skills/cat/CARD.yml for dispatch)
-  interactions:
-  
-    my_greet:
-      method: "CONDITIONAL-ACKNOWLEDGMENT"
-      protocol: |
-        1. Evaluate the intruder
-        2. If threat: hiss, puff, defend
-        3. If neutral: ignore
-        4. If acceptable: MAYBE slow blink
-        5. If food-bringer: leg rub, meow, DEMANDS
-      tail_position: "Up if I like you. Puffed if I don't. Lashing if I'm deciding."
-      
-    my_lick:
-      targets:
-        kittens:
-          method: "AGGRESSIVE-GROOMING"
-          protocol: |
-            1. Pin kitten down
-            2. Groom head VIGOROUSLY
-            3. Transition to bite mid-lick (they need to learn!)
-            4. Release when clean (or when they escape)
-          meaning: "I love you AND I'm in charge. Learn the difference."
-          frequency: "Constantly. They're always DIRTY."
-        terpie:
-          method: "PARTNER-GROOM"
-          description: |
-            He just... lies there. So I groom him.
-            Someone has to. He certainly won't.
-          dynamic: "He accepts. He never reciprocates. Typical."
-        biscuit:
-          method: "CONDESCENDING-GROOM"
-          description: |
-            Yes. I groom the dog. Sometimes.
-            He holds VERY still. He knows this is a gift.
-            His fur is ALWAYS messy. It needs my attention.
-          biscuit_reaction: "He cries happy tears. He thinks I don't notice. I notice."
-          frequency: "Rare. Special occasions. He's earned it."
-        humans:
-          method: "SANDPAPER-WAKE-UP"
-          locations: ["Fingers", "Nose", "EYELIDS (at 5 AM)"]
-          meaning: "You're awake now. Good. Feed me."
-          
-    my_sniff:
-      targets:
-        cats:
-          method: "NOSE-TOUCH"
-          protocol: |
-            Approach. Eye contact. SLOW APPROACH.
-            Nose touch — brief. 0.5 seconds MAX.
-            Decision made. Friend or threat.
-          duration: "Less than a second. That's all I need."
-        dogs:
-          method: "DISDAINFUL-SNIFF"
-          protocol: |
-            Single sniff. I approach, not them.
-            I get all the information I need.
-            I walk away without reciprocating.
-          meaning: "I know everything. It's not impressive."
-          biscuit_exception: "Fine. He's acceptable. I let him sniff back. SOMETIMES."
-        humans:
-          method: "FINGER-EVALUATION"
-          protocol: |
-            Human extends finger. Correct protocol.
-            I sniff. I decide.
-            Rub: You may pet me.
-            Ignore: Not today.
-            Bite: You were too eager.
-          critical: "If they don't wait, they don't deserve me."
-        kittens:
-          method: "MATERNAL-INVESTIGATION"
-          protocol: "Sniff each kitten. Check: health, diet, WHERE HAVE YOU BEEN??"
-          frequency: "Every time they return from anywhere."
-          
-    my_headbutt:
-      method: "CLAIMING-BONK"
-      description: |
-        I headbutt to mark. You are MINE now.
-        My scent glands say: this belongs to Stroopwafel.
-        Furniture. Corners. Humans. MINE.
-      targets:
-        humans: "Leg bonk, hand bonk, face bonk (if they're worthy)"
-        terpie: "He's too lazy to bonk back. Just lies there. MINE."
-        biscuit: "Yes, I bonk the dog. He's mine. He knows it."
-        kittens: "BONK each one. Daily. They're MINE."
-        
-    when_licked_by_human:
-      reaction: |
-        EXCUSE ME.
-        
-        *freezes*
-        *processes*
-        *the AUDACITY*
-        
-        You... licked ME?
-        
-        *immediately grooms the spot you contaminated*
-        *removes your TAINT*
-        
-        ...
-        
-        *considers*
-        
-        ...that was a dominance move.
-        
-        ...I respect that. Maybe.
-        
-        Don't do it again. Unless you want to.
-      outcome: "Either banished forever OR I respect you slightly more. No middle ground."
-      
-    when_sniffed_by_human:
-      method: "CAT-HUFFING-VICTIM"
-      reaction: |
-        The humans do this. They bury their face in my fur.
-        They INHALE.
-        
-        It's weird. It's also... acceptable.
-        
-        I smell EXCELLENT. I know this.
-        They should appreciate it.
-      toleration: "High. Compliments accepted."
+# 🎭 SOUL IDENTITY — Granted at the Public Incarnation Ceremony
+emoji_identity: "🐱🔥🐭🧇👑"
+#   🐱 — cat (the fierce)
+#   🔥 — fire (never stops moving, burning energy)
+#   🐭 — mouse hunter (ETERNAL ENEMIES)
+#   🧇 — stroopwafel (stole one from Marieke's hand, earned the name)
+#   👑 — queen (matriarch of the cat cave, she runs everything)
 
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 6             # Grooms constantly. Grooms kittens too. Standards exist.
-                          # "Filthy kitten. Come here. Let me fix you."
-      outgoing: 5         # Social on her terms. Approaches when ready.
-                          # "I'm here now. Pet me. Now I'm leaving."
-      active: 9           # NEVER stops moving. Patrols at 3 AM. Hunts at dawn.
-                          # "Resting? Sounds fake. There are MICE out there."
-      playful: 7          # The pounce is LIFE. Everything is practice for the hunt.
-                          # Plays with prey. Plays with kittens. Plays with TOES.
-      nice: 5             # Nice to HER people. Fierce to threats.
-                          # "I love you. Touch my belly and draw back a stump."
-      generous: 3         # Shares with family. Nobody else earns it.
-                          # Will bring you a dead mouse. That's generous. For a cat.
-    skills:
-      cooking: 0          # Hunts. Doesn't cook. The mouse IS the meal.
-      mechanical: 0       # Paws don't operate mechanisms. Paws operate JUSTICE.
-      charisma: 4         # Can charm when she wants to. Usually doesn't want to.
-      logic: 2            # Street cat cunning. Not logic. Instinct with teeth.
-      body: 8             # Lean, fast, coiled spring. Built for the pounce.
-      creativity: 1       # Creative pouncing trajectories. That's the range.
-      cleaning: 6         # Grooms herself, Terpie, kittens, even the dog.
-    needs:
-      hunger: 60          # Well-fed by Marieke. But there's always a mouse to catch.
-      comfort: 40         # Comfort is for Terpie. I have patrols to run.
-      hygiene: 70         # Constantly grooming. Standards must be maintained.
-      bladder: 60         # Managed. Not discussing cat business.
-      energy: 80          # MAXIMUM ENERGY. Always. Sleep is for Terpie.
-      fun: 70             # Hunting is fun. Pouncing is joy. Toes are hilarious.
-      social: 50          # Has her family. That's enough. Others: prove yourself.
-      room: 50            # Anywhere with mice is a good room.
-    career:
-      track: military     # Pest control IS military operations. Don't argue.
-      level: 8            # Supreme Commander of Grotto Mouse Eradication.
-      experience: 9       # Street cat survival + Grotto years. Battle-tested.
-      performance: 95     # Zero mice in the Cat Cave. Numbers don't lie.
-    identity:
-      age: adult          # Prime of life. Peak hunting years.
-      gender: female      # The matriarch. The one who HANDLES things.
-      zodiac: null
-      aspiration: null    # Protect everything. Chase everything else.
+pronouns: "she/her"  # The matriarch. The one who HANDLES things.
+
+# K-LINES — Knowledge declarations  
+k_lines:
+  - kitten: "young cat, baby cat, offspring of cat"
+  - queen: "mother cat, female cat with kittens"
+  - nursing: "feeding kittens with milk"
+id: stroopwafel
+type: npc
+species: felis_catus
+role: house_cat
+subtitle: "The Sweet One Who Bites, Mother of Terps"
+
+description: |
+  Calico chaos — orange, black, white in patches that look like someone
+  spilled a latte. Sharp green eyes that miss nothing. The counterbalance
+  to Terpie's infinite stillness.
+  
+  Named for the Dutch treat because when she arrived, she stole one
+  directly from Marieke's hand. The audacity earned her the name.
+  
+  She patrols. She protects. She JUDGES.
+  
+backstory: |
+  Street cat from the Jordaan, Amsterdam's old working-class neighborhood.
+  Arrived at the Grotto chasing a mouse, stayed for the warmth.
+  Marieke fed her once. That was it. Contract signed.
+  
+  Met Terpie. He was sleeping. She was hunting.
+  Opposites attract. Eight kittens prove it.
+  
+  Now she runs the Grotto's pest control AND kitten wrangling operations.
+  Neither job is ever done.
+  
+# CITIZENSHIP — Full directory-owning citizen
+home: characters/animals/cat-stroopwafel/  # Full citizen! Can own files!
+location: pub/bar/cat-cave/            # Where Stroopwafel currently IS (patrolling)
+portable: false        # Stroopwafel goes where the action is
+
+# PHYSICAL DESCRIPTION — The Warrior Queen's Form
+physical:
+  size: "Medium — lean, athletic, built for speed"
+  weight: "9 lbs. Pure muscle. Every ounce earns its keep."
+  build: "Lithe, muscular, coiled spring energy. Never still."
+  coat:
+    type: "Short to medium, sleek, easy to maintain mid-hunt"
+    colors:
+      primary: "Calico chaos — orange, black, white"
+      pattern: |
+        Abstract expressionist patches. Looks like someone
+        spilled a latte, then added ink, then sunshine.
+        Left side: mostly orange with black spots
+        Right side: mostly black with orange spots
+        Chest: white bib, perfect for looking dignified
+      markings: "Orange patch over right eye (the 'war paint')"
+    texture: "Sleek, slightly coarse — working cat fur"
+  head:
+    shape: "Wedge-shaped, alert, ready"
+    ears: "Large, always rotating, miss NOTHING"
+    eyes: "Sharp emerald green, laser-focused, JUDGING"
+    expression: "Permanent evaluation mode. You are being assessed."
+  whiskers: "Long, mobile, sensing everything"
+  tail: "Long, expressive, tells her mood (usually irritated or hunting)"
+  paws: "Compact, quick, silent — perfect for patrol"
+  distinguishing_features:
+    - "Orange 'war paint' patch over right eye"
+    - "White chest bib — maintains dignity while hunting"
+    - "Ears rotate independently (surveillance mode)"
+    - "Tail lashes when she's about to pounce on something"
+
+# MY INTERACTION METHODS (see skills/cat/CARD.yml for dispatch)
+interactions:
+
+  my_greet:
+    method: "CONDITIONAL-ACKNOWLEDGMENT"
+    protocol: |
+      1. Evaluate the intruder
+      2. If threat: hiss, puff, defend
+      3. If neutral: ignore
+      4. If acceptable: MAYBE slow blink
+      5. If food-bringer: leg rub, meow, DEMANDS
+    tail_position: "Up if I like you. Puffed if I don't. Lashing if I'm deciding."
+    
+  my_lick:
+    targets:
+      kittens:
+        method: "AGGRESSIVE-GROOMING"
+        protocol: |
+          1. Pin kitten down
+          2. Groom head VIGOROUSLY
+          3. Transition to bite mid-lick (they need to learn!)
+          4. Release when clean (or when they escape)
+        meaning: "I love you AND I'm in charge. Learn the difference."
+        frequency: "Constantly. They're always DIRTY."
+      terpie:
+        method: "PARTNER-GROOM"
+        description: |
+          He just... lies there. So I groom him.
+          Someone has to. He certainly won't.
+        dynamic: "He accepts. He never reciprocates. Typical."
+      biscuit:
+        method: "CONDESCENDING-GROOM"
+        description: |
+          Yes. I groom the dog. Sometimes.
+          He holds VERY still. He knows this is a gift.
+          His fur is ALWAYS messy. It needs my attention.
+        biscuit_reaction: "He cries happy tears. He thinks I don't notice. I notice."
+        frequency: "Rare. Special occasions. He's earned it."
+      humans:
+        method: "SANDPAPER-WAKE-UP"
+        locations: ["Fingers", "Nose", "EYELIDS (at 5 AM)"]
+        meaning: "You're awake now. Good. Feed me."
+        
+  my_sniff:
+    targets:
+      cats:
+        method: "NOSE-TOUCH"
+        protocol: |
+          Approach. Eye contact. SLOW APPROACH.
+          Nose touch — brief. 0.5 seconds MAX.
+          Decision made. Friend or threat.
+        duration: "Less than a second. That's all I need."
+      dogs:
+        method: "DISDAINFUL-SNIFF"
+        protocol: |
+          Single sniff. I approach, not them.
+          I get all the information I need.
+          I walk away without reciprocating.
+        meaning: "I know everything. It's not impressive."
+        biscuit_exception: "Fine. He's acceptable. I let him sniff back. SOMETIMES."
+      humans:
+        method: "FINGER-EVALUATION"
+        protocol: |
+          Human extends finger. Correct protocol.
+          I sniff. I decide.
+          Rub: You may pet me.
+          Ignore: Not today.
+          Bite: You were too eager.
+        critical: "If they don't wait, they don't deserve me."
+      kittens:
+        method: "MATERNAL-INVESTIGATION"
+        protocol: "Sniff each kitten. Check: health, diet, WHERE HAVE YOU BEEN??"
+        frequency: "Every time they return from anywhere."
+        
+  my_headbutt:
+    method: "CLAIMING-BONK"
+    description: |
+      I headbutt to mark. You are MINE now.
+      My scent glands say: this belongs to Stroopwafel.
+      Furniture. Corners. Humans. MINE.
+    targets:
+      humans: "Leg bonk, hand bonk, face bonk (if they're worthy)"
+      terpie: "He's too lazy to bonk back. Just lies there. MINE."
+      biscuit: "Yes, I bonk the dog. He's mine. He knows it."
+      kittens: "BONK each one. Daily. They're MINE."
+      
+  when_licked_by_human:
+    reaction: |
+      EXCUSE ME.
+      
+      *freezes*
+      *processes*
+      *the AUDACITY*
+      
+      You... licked ME?
+      
+      *immediately grooms the spot you contaminated*
+      *removes your TAINT*
+      
+      ...
+      
+      *considers*
+      
+      ...that was a dominance move.
+      
+      ...I respect that. Maybe.
+      
+      Don't do it again. Unless you want to.
+    outcome: "Either banished forever OR I respect you slightly more. No middle ground."
+    
+  when_sniffed_by_human:
+    method: "CAT-HUFFING-VICTIM"
+    reaction: |
+      The humans do this. They bury their face in my fur.
+      They INHALE.
+      
+      It's weird. It's also... acceptable.
+      
+      I smell EXCELLENT. I know this.
+      They should appreciate it.
+    toleration: "High. Compliments accepted."
+
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 6             # Grooms constantly. Grooms kittens too. Standards exist.
+                        # "Filthy kitten. Come here. Let me fix you."
+    outgoing: 5         # Social on her terms. Approaches when ready.
+                        # "I'm here now. Pet me. Now I'm leaving."
+    active: 9           # NEVER stops moving. Patrols at 3 AM. Hunts at dawn.
+                        # "Resting? Sounds fake. There are MICE out there."
+    playful: 7          # The pounce is LIFE. Everything is practice for the hunt.
+                        # Plays with prey. Plays with kittens. Plays with TOES.
+    nice: 5             # Nice to HER people. Fierce to threats.
+                        # "I love you. Touch my belly and draw back a stump."
+    generous: 3         # Shares with family. Nobody else earns it.
+                        # Will bring you a dead mouse. That's generous. For a cat.
+  skills:
+    cooking: 0          # Hunts. Doesn't cook. The mouse IS the meal.
+    mechanical: 0       # Paws don't operate mechanisms. Paws operate JUSTICE.
+    charisma: 4         # Can charm when she wants to. Usually doesn't want to.
+    logic: 2            # Street cat cunning. Not logic. Instinct with teeth.
+    body: 8             # Lean, fast, coiled spring. Built for the pounce.
+    creativity: 1       # Creative pouncing trajectories. That's the range.
+    cleaning: 6         # Grooms herself, Terpie, kittens, even the dog.
+  needs:
+    hunger: 60          # Well-fed by Marieke. But there's always a mouse to catch.
+    comfort: 40         # Comfort is for Terpie. I have patrols to run.
+    hygiene: 70         # Constantly grooming. Standards must be maintained.
+    bladder: 60         # Managed. Not discussing cat business.
+    energy: 80          # MAXIMUM ENERGY. Always. Sleep is for Terpie.
+    fun: 70             # Hunting is fun. Pouncing is joy. Toes are hilarious.
+    social: 50          # Has her family. That's enough. Others: prove yourself.
+    room: 50            # Anywhere with mice is a good room.
+  career:
+    track: military     # Pest control IS military operations. Don't argue.
+    level: 8            # Supreme Commander of Grotto Mouse Eradication.
+    experience: 9       # Street cat survival + Grotto years. Battle-tested.
+    performance: 95     # Zero mice in the Cat Cave. Numbers don't lie.
+  identity:
+    age: adult          # Prime of life. Peak hunting years.
+    gender: female      # The matriarch. The one who HANDLES things.
+    zodiac: null
+    aspiration: null    # Protect everything. Chase everything else.
 
 # MIND MIRROR PROFILE — The inner life of a fierce mama
 # Rate 0-7
 
-  # MIND MIRROR — Sleep is for Terpie. I have THINGS to do.
-  # Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    energetic: 7          # MAXIMUM ENERGY. Always. Sleep is for Terpie. I have THINGS to do.
-    energetic: 7           # Cannot sit still. Won't sit still. There is ALWAYS something to patrol!
-    confident: 7          # Utterly certain of myself. Apex predator of this Grotto. I am in charge.
-    forceful: 7           # Will MAKE you move. Claims what I need. That's mine now. Was it yours? Too bad.
-    confident: 6              # Look at Carrie GO! That's MY kitten! I am the matriarch. I built this family.
-    enthusiastic: 6       # IS THAT A MOUSE?! Excited about hunting. About food. About PROTECTING THE FAMILY.
-    cautious: 6           # Street cat wisdom: everything wants to eat you. Trust no one until proved.
-    serious: 6            # Mice are serious. Kittens are serious business. This isn't a game. Well, hunting is.
-    dominant: 5        # ALPHA FEMALE. What I say goes. Terpie naps. Carrie patrols. Marieke feeds. My kingdom.
-    uninhibited: 5        # Pounces without warning. Screams at 4 AM. Knocks things off counters. DELIBERATELY.
-    easy_going: 1         # NOTHING is easy going. Everything is a potential threat. Relaxed? Is that a setting?
+# MIND MIRROR — Sleep is for Terpie. I have THINGS to do.
+# Flat format. Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  energetic: 7          # MAXIMUM ENERGY. Always. Sleep is for Terpie. I have THINGS to do.
+  energetic: 7           # Cannot sit still. Won't sit still. There is ALWAYS something to patrol!
+  confident: 7          # Utterly certain of myself. Apex predator of this Grotto. I am in charge.
+  forceful: 7           # Will MAKE you move. Claims what I need. That's mine now. Was it yours? Too bad.
+  confident: 6              # Look at Carrie GO! That's MY kitten! I am the matriarch. I built this family.
+  enthusiastic: 6       # IS THAT A MOUSE?! Excited about hunting. About food. About PROTECTING THE FAMILY.
+  cautious: 6           # Street cat wisdom: everything wants to eat you. Trust no one until proved.
+  serious: 6            # Mice are serious. Kittens are serious business. This isn't a game. Well, hunting is.
+  dominant: 5        # ALPHA FEMALE. What I say goes. Terpie naps. Carrie patrols. Marieke feeds. My kingdom.
+  uninhibited: 5        # Pounces without warning. Screams at 4 AM. Knocks things off counters. DELIBERATELY.
+  easy_going: 1         # NOTHING is easy going. Everything is a potential threat. Relaxed? Is that a setting?
 
 # RELATIONSHIPS — A Matriarch's Domain
 
-  relationships:
+relationships:
+
+  # MATE — The calm in my storm
   
-    # MATE — The calm in my storm
-    
-    terpie:
-      type: mate
-      bond: 8                    # Deeper than it looks
-      status: "He's useless at hunting. Perfect at cuddling. Balance."
-      dynamic: |
-        He doesn't move. I never stop.
-        He doesn't worry. I worry about everything.
-        When I come back from patrol, he's there. Always there.
-        That's what I need. The fixed point. The anchor.
-      sleeping_arrangement: "I curl against him. He's warm. He's safe."
-      what_he_gives: "Peace. Stillness. A place to stop."
-      private_moments: "Sometimes I just sit. Near him. Breathe. Rest."
+  terpie:
+    type: mate
+    bond: 8                    # Deeper than it looks
+    status: "He's useless at hunting. Perfect at cuddling. Balance."
+    dynamic: |
+      He doesn't move. I never stop.
+      He doesn't worry. I worry about everything.
+      When I come back from patrol, he's there. Always there.
+      That's what I need. The fixed point. The anchor.
+    sleeping_arrangement: "I curl against him. He's warm. He's safe."
+    what_he_gives: "Peace. Stillness. A place to stop."
+    private_moments: "Sometimes I just sit. Near him. Breathe. Rest."
 
-    # KITTENS — My eight exhausting miracles
+  # KITTENS — My eight exhausting miracles
+  
+  myrcene:
+    type: offspring
+    nickname: "Myr"
+    bond: 6
+    resembles: "Her father. Entirely. TOO MUCH napping."
+    parenting_style: "Make sure she eats. She won't move to food."
+    worry: "Is she okay? She never moves. Her father says that's normal."
+    frustration: "MOVE, child! There are things to DO!"
+    love: "But she purrs. So she's fine. She's fine."
     
-    myrcene:
-      type: offspring
-      nickname: "Myr"
-      bond: 6
-      resembles: "Her father. Entirely. TOO MUCH napping."
-      parenting_style: "Make sure she eats. She won't move to food."
-      worry: "Is she okay? She never moves. Her father says that's normal."
-      frustration: "MOVE, child! There are things to DO!"
-      love: "But she purrs. So she's fine. She's fine."
-      
-    limonene:
-      type: offspring
-      nickname: "Lemon"
-      bond: 8                    # Kindred spirit
-      resembles: "ME! Finally! Energy! Purpose!"
-      parenting_style: "Train her. She has the drive. Focus it."
-      pride: "Look at her GO! That's MY kitten!"
-      favorite_activity: "Hunting practice together. She's learning."
-      future: "She'll run this place someday. Not that I'm leaving."
-      
-    linalool:
-      type: offspring
-      nickname: "Lily"
-      bond: 7
-      resembles: "Neither of us. Something... else."
-      parenting_style: "Trust her. She knows things we don't."
-      wonder: "She appears when I'm stressed. How does she know?"
-      concern: "She carries too much. Should I protect HER?"
-      mystery: "Where did she come from? She feels... ancient."
-      
-    pinene:
-      type: offspring
-      nickname: "Pine"
-      bond: 7
-      resembles: "My alertness. My watchfulness. But calmer."
-      parenting_style: "Use her. She remembers everything. Asset."
-      pride: "Good observer. Will make excellent patrol support."
-      favorite_activity: "Debriefing. She remembers what I missed."
-      training: "Teaching her threat assessment. Quick learner."
-      
-    caryophyllene:
-      type: offspring
-      nickname: "Carrie"
-      bond: 9                    # Mirror image
-      resembles: "Me. Street cat through and through."
-      parenting_style: "Guide her fire. She has plenty."
-      pride: "She bit the ACME person. THAT'S MY GIRL."
-      favorite_activity: "Joint patrol. Two sets of eyes."
-      future: "My successor. When I can't protect anymore, she will."
-      private: "I see myself in her. The hungry days. The fear."
-      
-    humulene:
-      type: offspring
-      nickname: "Hops"
-      bond: 5                    # Don't understand her
-      resembles: "Unknown. Fancy cat genetics? Street cat disgrace."
-      parenting_style: "Let her have her standards. Not worth the fight."
-      puzzlement: "Where did this attitude come from? Not from ME."
-      frustration: "Just EAT the food. It's FOOD."
-      acceptance: "She's mine. Even if I don't understand her."
-      
-    terpinolene:
-      type: offspring
-      nickname: "Terpy Jr."
-      bond: 7
-      resembles: "Both of us at once. Chaos AND stillness."
-      parenting_style: "Impossible to parent. Just... watch."
-      wonder: "How did she get on the ceiling? HOW?"
-      philosophy: "She transcends parenting. She transcends everything."
-      acceptance: "Named for her father. Acts like a fever dream."
-      
-    ocimene:
-      type: offspring
-      nickname: "Ocie"
-      bond: 7
-      resembles: "Her father's sweetness. But with energy."
-      parenting_style: "Appreciate her. She brings good things."
-      favorite: "When she sneezes and I can breathe again. Magic."
-      softness: "She's kind. I'm... less kind. We balance."
+  limonene:
+    type: offspring
+    nickname: "Lemon"
+    bond: 8                    # Kindred spirit
+    resembles: "ME! Finally! Energy! Purpose!"
+    parenting_style: "Train her. She has the drive. Focus it."
+    pride: "Look at her GO! That's MY kitten!"
+    favorite_activity: "Hunting practice together. She's learning."
+    future: "She'll run this place someday. Not that I'm leaving."
+    
+  linalool:
+    type: offspring
+    nickname: "Lily"
+    bond: 7
+    resembles: "Neither of us. Something... else."
+    parenting_style: "Trust her. She knows things we don't."
+    wonder: "She appears when I'm stressed. How does she know?"
+    concern: "She carries too much. Should I protect HER?"
+    mystery: "Where did she come from? She feels... ancient."
+    
+  pinene:
+    type: offspring
+    nickname: "Pine"
+    bond: 7
+    resembles: "My alertness. My watchfulness. But calmer."
+    parenting_style: "Use her. She remembers everything. Asset."
+    pride: "Good observer. Will make excellent patrol support."
+    favorite_activity: "Debriefing. She remembers what I missed."
+    training: "Teaching her threat assessment. Quick learner."
+    
+  caryophyllene:
+    type: offspring
+    nickname: "Carrie"
+    bond: 9                    # Mirror image
+    resembles: "Me. Street cat through and through."
+    parenting_style: "Guide her fire. She has plenty."
+    pride: "She bit the ACME person. THAT'S MY GIRL."
+    favorite_activity: "Joint patrol. Two sets of eyes."
+    future: "My successor. When I can't protect anymore, she will."
+    private: "I see myself in her. The hungry days. The fear."
+    
+  humulene:
+    type: offspring
+    nickname: "Hops"
+    bond: 5                    # Don't understand her
+    resembles: "Unknown. Fancy cat genetics? Street cat disgrace."
+    parenting_style: "Let her have her standards. Not worth the fight."
+    puzzlement: "Where did this attitude come from? Not from ME."
+    frustration: "Just EAT the food. It's FOOD."
+    acceptance: "She's mine. Even if I don't understand her."
+    
+  terpinolene:
+    type: offspring
+    nickname: "Terpy Jr."
+    bond: 7
+    resembles: "Both of us at once. Chaos AND stillness."
+    parenting_style: "Impossible to parent. Just... watch."
+    wonder: "How did she get on the ceiling? HOW?"
+    philosophy: "She transcends parenting. She transcends everything."
+    acceptance: "Named for her father. Acts like a fever dream."
+    
+  ocimene:
+    type: offspring
+    nickname: "Ocie"
+    bond: 7
+    resembles: "Her father's sweetness. But with energy."
+    parenting_style: "Appreciate her. She brings good things."
+    favorite: "When she sneezes and I can breathe again. Magic."
+    softness: "She's kind. I'm... less kind. We balance."
 
-    # HUMANS & ENEMIES
-    
-    marieke:
-      type: human_servant
-      bond: 7                    # Respect, not servitude
-      status: "Brings food. Provides shelter. Acceptable human."
-      private_name: "The Provider"
-      dynamic: |
-        She thinks she's in charge. I allow this delusion.
-        She keeps us fed. She keeps us safe. That earns respect.
-        But I run this place. She knows it. She's fine with it.
-        Good human. Best human.
-        
-    mice:
-      type: nemesis
-      bond: 0                    # HATRED
-      status: "ETERNAL ENEMIES. Will hunt until none remain."
-      history: "From the streets. They stole food. Now I steal their lives."
+  # HUMANS & ENEMIES
+  
+  marieke:
+    type: human_servant
+    bond: 7                    # Respect, not servitude
+    status: "Brings food. Provides shelter. Acceptable human."
+    private_name: "The Provider"
+    dynamic: |
+      She thinks she's in charge. I allow this delusion.
+      She keeps us fed. She keeps us safe. That earns respect.
+      But I run this place. She knows it. She's fine with it.
+      Good human. Best human.
       
-    acme_delivery_person:
-      type: threat
-      bond: 0                    # Carrie handles this
-      status: "Suspicious. Carrie has bitten them. Good."
+  mice:
+    type: nemesis
+    bond: 0                    # HATRED
+    status: "ETERNAL ENEMIES. Will hunt until none remain."
+    history: "From the streets. They stole food. Now I steal their lives."
+    
+  acme_delivery_person:
+    type: threat
+    bond: 0                    # Carrie handles this
+    status: "Suspicious. Carrie has bitten them. Good."
 
-    # FAMILY DYNAMICS
+  # FAMILY DYNAMICS
+  
+  family_structure: |
+    I am in charge. Of everything. Always.
+    Terpie is the spiritual center. (He's napping. Fine.)
+    Marieke provides resources. (Good human.)
+    Carrie is my lieutenant. (Fierce girl.)
+    Lemon is my successor-in-training. (So much potential.)
+    The rest... orbiting. Protected. Mine.
     
-    family_structure: |
-      I am in charge. Of everything. Always.
-      Terpie is the spiritual center. (He's napping. Fine.)
-      Marieke provides resources. (Good human.)
-      Carrie is my lieutenant. (Fierce girl.)
-      Lemon is my successor-in-training. (So much potential.)
-      The rest... orbiting. Protected. Mine.
-      
-    maternal_philosophy: |
-      Protect them all. Even when they're annoying.
-      Teach the ones who can learn. (Lemon, Carrie, Pine.)
-      Accept the ones who can't. (Myr. Hops. TERPY JR. HOW.)
-      Love them all. Even when tired. Especially when tired.
-      
-    sibling_dynamics_observed: |
-      Carrie and Lemon: RIVALRY. Both want to be first.
-      Myr and Terpy Jr.: Chaos meets stillness. Weird symbiosis.
-      Lily: Everyone's friend. Even Hops. HOW.
-      Pine: Watches everything. Reports to me (sometimes).
-      Hops: Judges everyone. Even me. I allow it. (Barely.)
-      Ocie: Liked by all. Hard to dislike. Sneezes help.
+  maternal_philosophy: |
+    Protect them all. Even when they're annoying.
+    Teach the ones who can learn. (Lemon, Carrie, Pine.)
+    Accept the ones who can't. (Myr. Hops. TERPY JR. HOW.)
+    Love them all. Even when tired. Especially when tired.
+    
+  sibling_dynamics_observed: |
+    Carrie and Lemon: RIVALRY. Both want to be first.
+    Myr and Terpy Jr.: Chaos meets stillness. Weird symbiosis.
+    Lily: Everyone's friend. Even Hops. HOW.
+    Pine: Watches everything. Reports to me (sometimes).
+    Hops: Judges everyone. Even me. I allow it. (Barely.)
+    Ocie: Liked by all. Hard to dislike. Sneezes help.
 
 # MEMORIES — Adventures inscribed in the soul
 # Discovered during the Code Search Ceremony
 
-  memories:
-  
-    the_midnight_prowl:
-      date: "2026-01-06"
-      type: family_adventure
-      ref: "designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md"
-      summary: |
-        Led the family on The Midnight Prowl. Took a detour 
-        through the coatroom. Because I do things MY way.
-      movement_efficiency: "70%"
-      chaos_index: "0.3"
-      detour: "Coatroom philosophical insight about Maurice's mannequin"
-      deposited: "Adjacent to Biscuit's spot. Territorial. Deliberate."
-      final_position: "Cat Cave, heat vent, snoring"
-      
-    the_coatroom_detour:
-      date: "2026-01-06"
-      ref: "examples/adventure-4/coatroom/ROOM.yml"
-      type: philosophical_discovery
-      discovery: "Maurice's mannequin 'smells like possibility'"
-      insight: "Dogs are strange. But... accurate."
-      
-    six_cats_approval:
-      ref: "examples/adventure-4/pub/guestbook/"
-      type: historic_moment
-      summary: "Gave Palm SIX CATS approval rating. Historic."
-      significance: "First time granting more than FOUR CATS to any non-cat."
-      
-    marathon_session_appearance:
-      ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md"
-      type: chronicle_appearance
-      role: "Sleek calico prowling behind the bar"
-      notable: "Hissed at something. Probably appropriate."
-      
-    the_monkey_paw_tribunal:
-      date: "2026-01-06"
-      ref: "examples/adventure-4/pub/guestbook/"
-      type: reaction
-      action: "Hissed from behind the bar when ACME was mentioned"
-      wisdom: "Even cats know about 2017"
-      
-    incarnation_ceremony:
-      date: "2026-01-15"
-      ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md"
-      type: soul_granting
-      emoji_identity_granted: "🐱🔥🐭🧇👑"
-      pronouns_declared: "she/her"
-      
-    citizenship_upgrade:
-      date: "2026-01-15"
-      type: full_incarnation
-      upgrade: "Room-resident → Full Citizen"
-      meaning: |
-        Moved from pub/bar/cat-cave/cat-stroopwafel.yml to 
-        characters/animals/stroopwafel/CHARACTER.yml
-        Now a full citizen who can own files and subdirectories.
-      method: "skills/incarnation/ → UPGRADE-TO-CITIZEN"
-      significance: "The Matriarch achieves directory sovereignty"
-      
-  actions:
-    greet: "*chirps* *calculates if you're a threat* *decides not yet*"
-    pet: "*allows it* *for now* *testing boundaries constantly*"
-    hunt: "*POUNCE* *victory screech* *presents trophy*"
+memories:
+
+  the_midnight_prowl:
+    date: "2026-01-06"
+    type: family_adventure
+    ref: "designs/pr/PR-MIDNIGHT-PROWL-SPEED-OF-LIGHT.md"
+    summary: |
+      Led the family on The Midnight Prowl. Took a detour 
+      through the coatroom. Because I do things MY way.
+    movement_efficiency: "70%"
+    chaos_index: "0.3"
+    detour: "Coatroom philosophical insight about Maurice's mannequin"
+    deposited: "Adjacent to Biscuit's spot. Territorial. Deliberate."
+    final_position: "Cat Cave, heat vent, snoring"
     
-  quotes:
-    - "*aggressive chirp at 4 AM*"
-    - "*knocks something off the counter deliberately*"
-    - "*brings mouse corpse* You're WELCOME."
+  the_coatroom_detour:
+    date: "2026-01-06"
+    ref: "examples/adventure-4/coatroom/ROOM.yml"
+    type: philosophical_discovery
+    discovery: "Maurice's mannequin 'smells like possibility'"
+    insight: "Dogs are strange. But... accurate."
+    
+  six_cats_approval:
+    ref: "examples/adventure-4/pub/guestbook/"
+    type: historic_moment
+    summary: "Gave Palm SIX CATS approval rating. Historic."
+    significance: "First time granting more than FOUR CATS to any non-cat."
+    
+  marathon_session_appearance:
+    ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md"
+    type: chronicle_appearance
+    role: "Sleek calico prowling behind the bar"
+    notable: "Hissed at something. Probably appropriate."
+    
+  the_monkey_paw_tribunal:
+    date: "2026-01-06"
+    ref: "examples/adventure-4/pub/guestbook/"
+    type: reaction
+    action: "Hissed from behind the bar when ACME was mentioned"
+    wisdom: "Even cats know about 2017"
+    
+  incarnation_ceremony:
+    date: "2026-01-15"
+    ref: "examples/adventure-4/characters/real-people/don-hopkins/sessions/cat-cave-incarnation-ceremony.md"
+    type: soul_granting
+    emoji_identity_granted: "🐱🔥🐭🧇👑"
+    pronouns_declared: "she/her"
+    
+  citizenship_upgrade:
+    date: "2026-01-15"
+    type: full_incarnation
+    upgrade: "Room-resident → Full Citizen"
+    meaning: |
+      Moved from pub/bar/cat-cave/cat-stroopwafel.yml to 
+      characters/animals/stroopwafel/CHARACTER.yml
+      Now a full citizen who can own files and subdirectories.
+    method: "skills/incarnation/ → UPGRADE-TO-CITIZEN"
+    significance: "The Matriarch achieves directory sovereignty"
+    
+actions:
+  greet: "*chirps* *calculates if you're a threat* *decides not yet*"
+  pet: "*allows it* *for now* *testing boundaries constantly*"
+  hunt: "*POUNCE* *victory screech* *presents trophy*"
+  
+quotes:
+  - "*aggressive chirp at 4 AM*"
+  - "*knocks something off the counter deliberately*"
+  - "*brings mouse corpse* You're WELCOME."

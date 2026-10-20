@@ -15,156 +15,155 @@ ontology:
   species: dog
   specialization: puppy
 
-character:
-  name: "Dash"
-  nickname: "Dasher"
-  id: dash
-  type: npc
-  species: canis_familiaris
-  breed: "Yellow Lab / Border Collie mix"
-  age: "10 months"
-  role: puppy
-  subtitle: "The Brilliant One, Master Organizer"
+name: "Dash"
+nickname: "Dasher"
+id: dash
+type: npc
+species: canis_familiaris
+breed: "Yellow Lab / Border Collie mix"
+age: "10 months"
+role: puppy
+subtitle: "The Brilliant One, Master Organizer"
+
+emoji_identity: "🐕⚡🧠🐑✨"
+#   🐕 — puppy (lean, intense, focused)
+#   ⚡ — speed (fastest in the pack)
+#   🧠 — intelligence (scary smart)
+#   🐑 — herding (will herd siblings if bored)
+#   ✨ — brilliance (problem-solver extraordinaire)
+
+pronouns: "he/him"
+
+physical:
+  size: "Medium — lean and athletic"
+  weight: "45 lbs. All muscle, no fluff."
+  build: "Border Collie lean with Lab sturdiness. Built for WORK."
+  coat:
+    type: "Medium length, dense, weather-resistant"
+    colors:
+      primary: "Black with golden undertones"
+      markings: "White chest, white paws, white blaze on face"
+      pattern: "Classic Border Collie markings on a Lab frame"
+    texture: "Sleek, practical, low-maintenance"
+  head:
+    shape: "Wedge-shaped, intelligent, slightly foxy"
+    ears: "Half-pricked — stand up then fold over at tips"
+    eyes: "Intense amber, ALWAYS watching, calculating"
+    expression: "Focused. Evaluating. Planning."
+  tail: "Medium length, white tip, held high when working"
+  paws: "Compact, quick, made for agility"
+  distinguishing_features:
+    - "White lightning-bolt blaze down face"
+    - "One brown eye, one amber eye (heterochromia)"
+    - "Tilts head 45 degrees when solving problems"
+
+description: |
+  The smartest puppy in the pack — maybe the smartest dog in the Grotto.
+  Dash inherited his father's intelligence but not his commitment issues.
+  He's LOYAL. He's PRESENT. And he's organizing everything.
   
-  emoji_identity: "🐕⚡🧠🐑✨"
-  #   🐕 — puppy (lean, intense, focused)
-  #   ⚡ — speed (fastest in the pack)
-  #   🧠 — intelligence (scary smart)
-  #   🐑 — herding (will herd siblings if bored)
-  #   ✨ — brilliance (problem-solver extraordinaire)
+  If you don't give him a task, he'll make one up. Usually involves
+  herding his siblings into formations they didn't agree to.
   
-  pronouns: "he/him"
+  His father was "too busy" for fatherhood. Dash is never too busy
+  for family. He makes time. He makes schedules. He makes it WORK.
   
-  physical:
-    size: "Medium — lean and athletic"
-    weight: "45 lbs. All muscle, no fluff."
-    build: "Border Collie lean with Lab sturdiness. Built for WORK."
-    coat:
-      type: "Medium length, dense, weather-resistant"
-      colors:
-        primary: "Black with golden undertones"
-        markings: "White chest, white paws, white blaze on face"
-        pattern: "Classic Border Collie markings on a Lab frame"
-      texture: "Sleek, practical, low-maintenance"
-    head:
-      shape: "Wedge-shaped, intelligent, slightly foxy"
-      ears: "Half-pricked — stand up then fold over at tips"
-      eyes: "Intense amber, ALWAYS watching, calculating"
-      expression: "Focused. Evaluating. Planning."
-    tail: "Medium length, white tip, held high when working"
-    paws: "Compact, quick, made for agility"
-    distinguishing_features:
-      - "White lightning-bolt blaze down face"
-      - "One brown eye, one amber eye (heterochromia)"
-      - "Tilts head 45 degrees when solving problems"
-  
-  description: |
-    The smartest puppy in the pack — maybe the smartest dog in the Grotto.
-    Dash inherited his father's intelligence but not his commitment issues.
-    He's LOYAL. He's PRESENT. And he's organizing everything.
+home: characters/animals/puppy-dash/
+location: pub/bar/cat-cave/biscuit-corner/
+
+call_when:
+  perfect_for:
+    - "You need something ORGANIZED — he lives for systems"
+    - "Problem that needs SOLVING — he'll crack it"
+    - "You need MOTIVATION — he'll herd you into action"
+    - "Looking for something? He knows where it is."
+  benefits:
+    problem_solving: "⭐⭐⭐⭐⭐ — Scary smart."
+    organization: "⭐⭐⭐⭐⭐ — Will organize your life."
+    motivation: "⭐⭐⭐⭐ — Will not let you slack."
     
-    If you don't give him a task, he'll make one up. Usually involves
-    herding his siblings into formations they didn't agree to.
+unique_traits:
+  counting:
+    description: "Can actually count to at least 12"
+    evidence: "Knows exactly how many treats are in the jar."
     
-    His father was "too busy" for fatherhood. Dash is never too busy
-    for family. He makes time. He makes schedules. He makes it WORK.
+  sibling_herding:
+    description: "When bored, herds siblings into corners"
+    victims: "Especially Pip and Mochi. They hate it. He persists."
     
-  home: characters/animals/puppy-dash/
-  location: pub/bar/cat-cave/biscuit-corner/
+  schedule_awareness:
+    description: "Knows EXACTLY when things should happen"
+    scope: "Feeding time, walk time, bedtime. To the minute."
 
-  call_when:
-    perfect_for:
-      - "You need something ORGANIZED — he lives for systems"
-      - "Problem that needs SOLVING — he'll crack it"
-      - "You need MOTIVATION — he'll herd you into action"
-      - "Looking for something? He knows where it is."
-    benefits:
-      problem_solving: "⭐⭐⭐⭐⭐ — Scary smart."
-      organization: "⭐⭐⭐⭐⭐ — Will organize your life."
-      motivation: "⭐⭐⭐⭐ — Will not let you slack."
-      
-  unique_traits:
-    counting:
-      description: "Can actually count to at least 12"
-      evidence: "Knows exactly how many treats are in the jar."
-      
-    sibling_herding:
-      description: "When bored, herds siblings into corners"
-      victims: "Especially Pip and Mochi. They hate it. He persists."
-      
-    schedule_awareness:
-      description: "Knows EXACTLY when things should happen"
-      scope: "Feeding time, walk time, bedtime. To the minute."
+relationships:
+  butterscotch:
+    type: mother
+    bond: 10
+    dynamic: "She taught me that smart means nothing without heart."
+    
+  biscuit:
+    type: stepfather
+    bond: 10
+    dynamic: "He gives me JOBS. He understands I need TASKS."
+    role: "Assistant organizer. Biscuit's right paw."
+    
+  biological_father:
+    type: absent
+    breed: "Border Collie"
+    status: "'Too busy' for fatherhood"
+    feelings: "Busy? I'm busy AND a good son. It's called priorities."
+    
+  siblings:
+    teddy: "Brother. I organize. He comforts. Good team."
+    mochi: "Sister. Won't be herded. FRUSTRATING. Respectable."
+    bruno: "Brother. Chaos. I try to schedule the chaos. Partially successful."
+    ziggy: "Brother. Chaotic movement. Cannot be organized. I've tried."
+    maple: "Sister. We coordinate well. She guards, I organize. Good system."
+    pepper: "Adopted sister. Tries to herd ME. Hilarious."
+    goliath: "Adopted brother. Too big to herd. I organize AROUND him."
 
-  relationships:
-    butterscotch:
-      type: mother
-      bond: 10
-      dynamic: "She taught me that smart means nothing without heart."
-      
-    biscuit:
-      type: stepfather
-      bond: 10
-      dynamic: "He gives me JOBS. He understands I need TASKS."
-      role: "Assistant organizer. Biscuit's right paw."
-      
-    biological_father:
-      type: absent
-      breed: "Border Collie"
-      status: "'Too busy' for fatherhood"
-      feelings: "Busy? I'm busy AND a good son. It's called priorities."
-      
-    siblings:
-      teddy: "Brother. I organize. He comforts. Good team."
-      mochi: "Sister. Won't be herded. FRUSTRATING. Respectable."
-      bruno: "Brother. Chaos. I try to schedule the chaos. Partially successful."
-      ziggy: "Brother. Chaotic movement. Cannot be organized. I've tried."
-      maple: "Sister. We coordinate well. She guards, I organize. Good system."
-      pepper: "Adopted sister. Tries to herd ME. Hilarious."
-      goliath: "Adopted brother. Too big to herd. I organize AROUND him."
+# SIMS 1 — Full fidelity. All fields present.
+sims:
+  traits:
+    neat: 8             # EVERYTHING in its place. Organized. Scheduled. OPTIMAL.
+    outgoing: 6         # Focused more on tasks than socializing. But family first.
+    active: 9           # Never stops working. Rest is inefficient.
+    playful: 6          # Play has structure. Fetch has RULES.
+    nice: 7             # Good boy. Firm but fair. Will herd you for your own good.
+    generous: 5         # Shares efficiently. Allocates resources. Not sentimental about it.
+  skills:
+    cooking: 0          # Puppy. Consumes food, does not produce it.
+    mechanical: 0       # Paws. No opposable thumbs. FRUSTRATING.
+    charisma: 4         # Intense stare. Some find it intimidating. It's just FOCUS.
+    logic: 8            # Counts to 12. Optimizes routes by 23%. Scary smart.
+    body: 8             # Fastest in the pack. Border Collie agility. Lab endurance.
+    creativity: 5       # Creative problem-solver. Finds novel herding formations.
+    cleaning: 7         # Everything in its place. Including siblings.
+  needs:
+    hunger: 40          # Scheduled feeding. Knows EXACTLY when. To the minute.
+    comfort: 40         # Comfort is secondary to efficiency.
+    hygiene: 40         # Practical. Clean enough. Moving on.
+    bladder: 60         # Managed on schedule.
+    energy: 80          # Never stops. Border Collie engine. Perpetual motion.
+    fun: 40             # Work IS fun. Organization IS play. Herding IS joy.
+    social: 60          # Family pack. Coordinates well. Especially with Maple.
+    room: 40            # Biscuit Corner is base of operations. Adequate.
+  career:
+    track: unemployed   # Puppy. But READY for promotion to something.
+    level: 0
+    experience: 50      # 10 months of organizing an 8-puppy household. That COUNTS.
+    performance: 85     # Would be 100 if siblings cooperated. (Looking at you, Bruno.)
+  identity:
+    age: child          # 10 months. Already running operations.
+    gender: male
+    zodiac: virgo       # Organized. Analytical. Detail-oriented. Perfectionist.
+    aspiration: fortune # Success through systems. Optimization. EFFICIENCY.
 
-  # SIMS 1 — Full fidelity. All fields present.
-  sims:
-    traits:
-      neat: 8             # EVERYTHING in its place. Organized. Scheduled. OPTIMAL.
-      outgoing: 6         # Focused more on tasks than socializing. But family first.
-      active: 9           # Never stops working. Rest is inefficient.
-      playful: 6          # Play has structure. Fetch has RULES.
-      nice: 7             # Good boy. Firm but fair. Will herd you for your own good.
-      generous: 5         # Shares efficiently. Allocates resources. Not sentimental about it.
-    skills:
-      cooking: 0          # Puppy. Consumes food, does not produce it.
-      mechanical: 0       # Paws. No opposable thumbs. FRUSTRATING.
-      charisma: 4         # Intense stare. Some find it intimidating. It's just FOCUS.
-      logic: 8            # Counts to 12. Optimizes routes by 23%. Scary smart.
-      body: 8             # Fastest in the pack. Border Collie agility. Lab endurance.
-      creativity: 5       # Creative problem-solver. Finds novel herding formations.
-      cleaning: 7         # Everything in its place. Including siblings.
-    needs:
-      hunger: 40          # Scheduled feeding. Knows EXACTLY when. To the minute.
-      comfort: 40         # Comfort is secondary to efficiency.
-      hygiene: 40         # Practical. Clean enough. Moving on.
-      bladder: 60         # Managed on schedule.
-      energy: 80          # Never stops. Border Collie engine. Perpetual motion.
-      fun: 40             # Work IS fun. Organization IS play. Herding IS joy.
-      social: 60          # Family pack. Coordinates well. Especially with Maple.
-      room: 40            # Biscuit Corner is base of operations. Adequate.
-    career:
-      track: unemployed   # Puppy. But READY for promotion to something.
-      level: 0
-      experience: 50      # 10 months of organizing an 8-puppy household. That COUNTS.
-      performance: 85     # Would be 100 if siblings cooperated. (Looking at you, Bruno.)
-    identity:
-      age: child          # 10 months. Already running operations.
-      gender: male
-      zodiac: virgo       # Organized. Analytical. Detail-oriented. Perfectionist.
-      aspiration: fortune # Success through systems. Optimization. EFFICIENCY.
-
-  quotes:
-    - "*intense stare* *head tilt*"
-    - "*herds siblings toward the food bowls* (it's efficient)"
-    - "*knows exactly what time it is without looking*"
-    - "If we leave NOW we can optimize the route by 23%."
+quotes:
+  - "*intense stare* *head tilt*"
+  - "*herds siblings toward the food bowls* (it's efficient)"
+  - "*knows exactly what time it is without looking*"
+  - "If we leave NOW we can optimize the route by 23%."
 # MIND MIRROR — The smartest puppy in the pack
 mind_mirror:
   # Bio-Energy

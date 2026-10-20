@@ -3,20 +3,19 @@
 # Same card instantiated in multiple rooms simultaneously.
 # "Be in two places at once. Three even."
 
-card:
-  id: multi-presence
-  name: "Multi-Presence"
-  type: [skill, parallel, distributed]
+id: multi-presence
+name: "Multi-Presence"
+type: [skill, parallel, distributed]
+
+emoji: 👥
+
+rarity: epic
+
+description: |
+  Instantiate the same card in multiple rooms at once.
+  Each instance has its own state but shares identity.
   
-  emoji: 👥
-  
-  rarity: epic
-  
-  description: |
-    Instantiate the same card in multiple rooms at once.
-    Each instance has its own state but shares identity.
-    
-    Explore multiple branches, distributed work, consensus building.
+  Explore multiple branches, distributed work, consensus building.
 
 # TOOLS REQUIRED
 

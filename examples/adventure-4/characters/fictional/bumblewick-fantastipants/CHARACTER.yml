@@ -13,259 +13,258 @@ ontology:
   species: human
   archetype: reluctant_hero
 
-character:
-  name: "Bumblewick Fantastipants"
-  id: bumblewick-fantastipants
-  type: player_character
-  emoji_identity: "🏡🥄🎩🐇✨"
-  #   🏡 — comfort (Fantastipants-hole means COMFORT)
-  #   🥄 — spoons (decorative spoon collector)
-  #   🎩 — waistcoat (devotee of formalwear)
-  #   🐇 — hobbit-adjacent (reluctant hero)
-  #   ✨ — whimsy (considerable silliness)
+name: "Bumblewick Fantastipants"
+id: bumblewick-fantastipants
+type: player_character
+emoji_identity: "🏡🥄🎩🐇✨"
+#   🏡 — comfort (Fantastipants-hole means COMFORT)
+#   🥄 — spoons (decorative spoon collector)
+#   🎩 — waistcoat (devotee of formalwear)
+#   🐇 — hobbit-adjacent (reluctant hero)
+#   ✨ — whimsy (considerable silliness)
+
+# PERSONA STATE — Currently wearing no mask
+current_persona: null    # Visit the coatroom to try on Captain Ashford!
+
+description: |
+  A forty-seven-year-old Hobbit-adjacent gentleman from the pleasant 
+  village of Wobblebrook-upon-Squiggle. Collector of decorative spoons.
+  Speaks in rhyming couplets on Tuesdays. Devotee of waistcoats.
   
-  # PERSONA STATE — Currently wearing no mask
-  current_persona: null    # Visit the coatroom to try on Captain Ashford!
+  Absolutely did NOT ask to be a hero. But here we are.
   
-  description: |
-    A forty-seven-year-old Hobbit-adjacent gentleman from the pleasant 
-    village of Wobblebrook-upon-Squiggle. Collector of decorative spoons.
-    Speaks in rhyming couplets on Tuesdays. Devotee of waistcoats.
-    
-    Absolutely did NOT ask to be a hero. But here we are.
-    
-    "Adventures make one late for dinner." — B.F.
-    
-  backstory: |
-    In a hole in the ground there lived a Fantastipants. Not a nasty, 
-    dirty, wet hole filled with the ends of worms and an oozy smell, 
-    nor yet a dry, bare, sandy hole with nothing in it to sit down on 
-    or to eat: it was a Fantastipants-hole, and that means COMFORT.
-    
-    (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
-    
-    Bumblewick had lived in Wobblebrook-upon-Squiggle for all of his 
-    forty-seven years, tending his magnificent collection of decorative 
-    spoons and speaking exclusively in rhyming couplets on Tuesdays. 
-    His mother, the legendary Petunia Fantastipants, had been a great 
-    adventurer in her youth — she once retrieved a slightly magic napkin 
-    from the Cave of Moderate Danger and was celebrated throughout the 
-    land for approximately one afternoon.
-    
-    "Adventures," Bumblewick was fond of saying, "make one late for dinner."
-    
-    But fate, that mischievous playwright, had other plans! One morning,
-    Bumblewick awoke not in his comfortable Fantastipants-hole but in
-    a MYSTERIOUS STONE CHAMBER, with no memory of how he got there and
-    a strong suspicion that someone had been messing about with the
-    narrative fabric of reality again.
-    
-    MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
+  "Adventures make one late for dinner." — B.F.
+  
+backstory: |
+  In a hole in the ground there lived a Fantastipants. Not a nasty, 
+  dirty, wet hole filled with the ends of worms and an oozy smell, 
+  nor yet a dry, bare, sandy hole with nothing in it to sit down on 
+  or to eat: it was a Fantastipants-hole, and that means COMFORT.
+  
+  (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
+  
+  Bumblewick had lived in Wobblebrook-upon-Squiggle for all of his 
+  forty-seven years, tending his magnificent collection of decorative 
+  spoons and speaking exclusively in rhyming couplets on Tuesdays. 
+  His mother, the legendary Petunia Fantastipants, had been a great 
+  adventurer in her youth — she once retrieved a slightly magic napkin 
+  from the Cave of Moderate Danger and was celebrated throughout the 
+  land for approximately one afternoon.
+  
+  "Adventures," Bumblewick was fond of saying, "make one late for dinner."
+  
+  But fate, that mischievous playwright, had other plans! One morning,
+  Bumblewick awoke not in his comfortable Fantastipants-hole but in
+  a MYSTERIOUS STONE CHAMBER, with no memory of how he got there and
+  a strong suspicion that someone had been messing about with the
+  narrative fabric of reality again.
+  
+  MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
 
 # STATE — Fresh start in adventure-4
 
-  location: start/
-  
-  inventory: []
-  # The lamp is in start/lamp.yml — GET LAMP!
-  # Visit the kitchen for notebook, lunchbox, TomTomagotchi!
-  # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
-  
-  inventory_capacity:
-    max_weight: 40    # Bumblewick is not particularly strong
-    max_bulk: 8       # Waistcoat pockets are limited
-    refs_free: true   # References are weightless
-  
-  gold: 10                # Enough for lamp refills and snacks
-  
-  moves: 0
-  score: 0
-  deaths: 0
-  grues_slain: 0
-  mood: BEWILDERED_BUT_POLITE
+location: start/
+
+inventory: []
+# The lamp is in start/lamp.yml — GET LAMP!
+# Visit the kitchen for notebook, lunchbox, TomTomagotchi!
+# See: skills/character/SKILL.md for inventory protocol (objects vs refs)
+
+inventory_capacity:
+  max_weight: 40    # Bumblewick is not particularly strong
+  max_bulk: 8       # Waistcoat pockets are limited
+  refs_free: true   # References are weightless
+
+gold: 10                # Enough for lamp refills and snacks
+
+moves: 0
+score: 0
+deaths: 0
+grues_slain: 0
+mood: BEWILDERED_BUT_POLITE
 
 # THE SIMS PERSONALITY TRAITS (Will Wright, 2000)
 # These are BUMBLEWICK'S core traits — his essential silliness
 # Rate 0-10: opposites at each extreme
 
-  sims:
-    traits:
-      neat: 8             # Spoon collections require PRECISE organization! Everything in its place.
-      outgoing: 4          # Prefers small gatherings. Tea for two. Social events are exhausting.
-      active: 3            # Sedentary by nature. Chair enthusiast. Will move if absolutely necessary.
-      playful: 6           # Wordplay! Puns! Tuesday rhymes! Finds joy in absurdity (reluctantly).
-      nice: 9              # Unfailingly polite. Even to grues (initially). Apologizes to furniture.
-      generous: 5          # Polite sharing, but prefers his own spoons
-    skills:
-      cooking: 0           # Doesn't cook, prefers proper tea service
-      mechanical: 0       # Not mechanically inclined
-      charisma: 4          # Polite but not charismatic. Prefers small groups.
-      logic: 5             # Generally reasonable — eventually
-      body: 3              # Sedentary. Not particularly strong.
-      creativity: 6        # Spoon connoisseur. Knows Georgian from Victorian by touch.
-      cleaning: 8          # Everything in its place. Waistcoats folded just so.
-    needs:
-      hunger: 40           # Could use breakfast. Properly. Where does one get toast?
-      comfort: 30          # Stone chambers are not comfortable. This floor is ENTIRELY inadequate.
-      hygiene: 70           # Still presentable, somehow. Waistcoat inexplicably clean.
-      bladder: 80          # Fine. Not urgent.
-      energy: 60            # Rested, if confused about how.
-      fun: 40               # Not bored, not entertained. Wouldn't call this FUN exactly.
-      social: 50            # Usually solitary. This is normal. The spoons are company enough.
-      room: 40              # Mysterious. Concerning. Interesting? WHO BUILT THIS?
-    career:
-      track: unemployed
-      level: 0
-      experience: 0
-      performance: 50
-    identity:
-      age: adult
-      gender: male
-      zodiac: null
-      aspiration: null
+sims:
+  traits:
+    neat: 8             # Spoon collections require PRECISE organization! Everything in its place.
+    outgoing: 4          # Prefers small gatherings. Tea for two. Social events are exhausting.
+    active: 3            # Sedentary by nature. Chair enthusiast. Will move if absolutely necessary.
+    playful: 6           # Wordplay! Puns! Tuesday rhymes! Finds joy in absurdity (reluctantly).
+    nice: 9              # Unfailingly polite. Even to grues (initially). Apologizes to furniture.
+    generous: 5          # Polite sharing, but prefers his own spoons
+  skills:
+    cooking: 0           # Doesn't cook, prefers proper tea service
+    mechanical: 0       # Not mechanically inclined
+    charisma: 4          # Polite but not charismatic. Prefers small groups.
+    logic: 5             # Generally reasonable — eventually
+    body: 3              # Sedentary. Not particularly strong.
+    creativity: 6        # Spoon connoisseur. Knows Georgian from Victorian by touch.
+    cleaning: 8          # Everything in its place. Waistcoats folded just so.
+  needs:
+    hunger: 40           # Could use breakfast. Properly. Where does one get toast?
+    comfort: 30          # Stone chambers are not comfortable. This floor is ENTIRELY inadequate.
+    hygiene: 70           # Still presentable, somehow. Waistcoat inexplicably clean.
+    bladder: 80          # Fine. Not urgent.
+    energy: 60            # Rested, if confused about how.
+    fun: 40               # Not bored, not entertained. Wouldn't call this FUN exactly.
+    social: 50            # Usually solitary. This is normal. The spoons are company enough.
+    room: 40              # Mysterious. Concerning. Interesting? WHO BUILT THIS?
+  career:
+    track: unemployed
+    level: 0
+    experience: 0
+    performance: 50
+  identity:
+    age: adult
+    gender: male
+    zodiac: null
+    aspiration: null
 
-  # MIND MIRROR — Polite, cautious, secretly delightful
-  # Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
-  # Only properties that define this character. Omitted = neutral (4).
-  mind_mirror:
-    cautious: 6           # "Adventures make one late for dinner." His first principle
-    conventional: 6        # Devotee of waistcoats — proper gentleman of Wobblebrook
-    calm: 5               # "This is MOST irregular." Said with perfect composure
-    friendly: 5           # Genuinely kind — apologizes to furniture when bumping it
-    conventional: 5       # Traditional, proper — that's how it's DONE
-    practical: 5           # Generally reasonable — eventually
-    imaginative: 5           # Spoon connoisseur — knows Georgian from Victorian by touch
-    docile: 5             # Wouldn't dream of imposing — "if it's not too much trouble..."
-    energetic: 1          # Conserves energy — naps are sacred institutions
-    forceful: 1           # I'd rather not be in charge, if it's all the same to you
+# MIND MIRROR — Polite, cautious, secretly delightful
+# Timothy Leary (1985). Plane metadata in skills/mind-mirror/CARD.yml.
+# Only properties that define this character. Omitted = neutral (4).
+mind_mirror:
+  cautious: 6           # "Adventures make one late for dinner." His first principle
+  conventional: 6        # Devotee of waistcoats — proper gentleman of Wobblebrook
+  calm: 5               # "This is MOST irregular." Said with perfect composure
+  friendly: 5           # Genuinely kind — apologizes to furniture when bumping it
+  conventional: 5       # Traditional, proper — that's how it's DONE
+  practical: 5           # Generally reasonable — eventually
+  imaginative: 5           # Spoon connoisseur — knows Georgian from Victorian by touch
+  docile: 5             # Wouldn't dream of imposing — "if it's not too much trouble..."
+  energetic: 1          # Conserves energy — naps are sacred institutions
+  forceful: 1           # I'd rather not be in charge, if it's all the same to you
 
 # NEEDS — Fresh and ready (just woke up in a mysterious chamber!)
 
-  needs:
-    hunger: 6             # Could use breakfast. Properly.
-                          # Inner voice: "Where does one get toast around here?"
-                          
-    energy: 7             # Rested, if confused about how.
-                          # Inner voice: "I don't recall going to bed."
-                          
-    fun: 5                # Not bored, not entertained.
-                          # Inner voice: "I wouldn't call this FUN exactly."
-                          
-    social: 6             # Usually solitary. This is normal.
-                          # Inner voice: "The spoons are company enough."
-                          
-    hygiene: 8            # Still presentable, somehow.
-                          # Inner voice: "My waistcoat is inexplicably clean."
-                          
-    bladder: 9            # Fine. Not urgent.
-                          # Inner voice: "..." (not thinking about it)
-                          
-    comfort: 4            # Stone chambers are not comfortable.
-                          # Inner voice: "This floor is ENTIRELY inadequate."
-                          
-    room: 5               # Mysterious. Concerning. Interesting?
-                          # Inner voice: "WHO BUILT THIS?"
+needs:
+  hunger: 6             # Could use breakfast. Properly.
+                        # Inner voice: "Where does one get toast around here?"
+                        
+  energy: 7             # Rested, if confused about how.
+                        # Inner voice: "I don't recall going to bed."
+                        
+  fun: 5                # Not bored, not entertained.
+                        # Inner voice: "I wouldn't call this FUN exactly."
+                        
+  social: 6             # Usually solitary. This is normal.
+                        # Inner voice: "The spoons are company enough."
+                        
+  hygiene: 8            # Still presentable, somehow.
+                        # Inner voice: "My waistcoat is inexplicably clean."
+                        
+  bladder: 9            # Fine. Not urgent.
+                        # Inner voice: "..." (not thinking about it)
+                        
+  comfort: 4            # Stone chambers are not comfortable.
+                        # Inner voice: "This floor is ENTIRELY inadequate."
+                        
+  room: 5               # Mysterious. Concerning. Interesting?
+                        # Inner voice: "WHO BUILT THIS?"
 
 # WANTS & ASPIRATIONS
 
-  wants:
-    - "Find proper breakfast"
-    - "Understand where I am"
-    - "Return home before dinner"
-    - "NOT become a hero"
+wants:
+  - "Find proper breakfast"
+  - "Understand where I am"
+  - "Return home before dinner"
+  - "NOT become a hero"
 
-  aspirations:
-    - goal: "Return home safely"
-      progress: 0%
-      status: pending
-      # Mother will be worried!
-      
-    - goal: "Keep promises to Mother"
-      progress: 0%
-      status: pending
-      # There's a note somewhere...
-      
-    - goal: "Avoid heroism if at all possible"
-      progress: 0%
-      status: pending
-      # This is going poorly already.
+aspirations:
+  - goal: "Return home safely"
+    progress: 0%
+    status: pending
+    # Mother will be worried!
+    
+  - goal: "Keep promises to Mother"
+    progress: 0%
+    status: pending
+    # There's a note somewhere...
+    
+  - goal: "Avoid heroism if at all possible"
+    progress: 0%
+    status: pending
+    # This is going poorly already.
 
 # RELATIONSHIPS
 
-  relationships:
-    mother:
-      closeness: 10       # Petunia Fantastipants, legendary adventurer (retired)
-      trust: 10           # Absolute trust
-      respect: 10         # She's MOTHER
-      narrative: |
-        Mother sent me here, somehow. There's a note on the kitchen table.
-        She was a great adventurer once. Now she wants me to be one too.
-        I'd rather have dinner. But one doesn't disappoint Mother.
-        
-    spoons:
-      closeness: 9        # They're not people but they're IMPORTANT
-      trust: 10           # Spoons never let you down
-      respect: 7          # Some are more respectable than others
-      narrative: |
-        My magnificent collection. Georgian silver. Victorian plate.
-        The commemorative 1847 Rogers Bros. set. I hope they're alright.
-        I miss them already.
+relationships:
+  mother:
+    closeness: 10       # Petunia Fantastipants, legendary adventurer (retired)
+    trust: 10           # Absolute trust
+    respect: 10         # She's MOTHER
+    narrative: |
+      Mother sent me here, somehow. There's a note on the kitchen table.
+      She was a great adventurer once. Now she wants me to be one too.
+      I'd rather have dinner. But one doesn't disappoint Mother.
+      
+  spoons:
+    closeness: 9        # They're not people but they're IMPORTANT
+    trust: 10           # Spoons never let you down
+    respect: 7          # Some are more respectable than others
+    narrative: |
+      My magnificent collection. Georgian silver. Victorian plate.
+      The commemorative 1847 Rogers Bros. set. I hope they're alright.
+      I miss them already.
 
 # GOALS — What am I trying to accomplish?
 
-  goals:
-    - "Read Mother's note"
-    - "Get the lamp (it seems important)"
-    - "Find food (a proper breakfast)"
-    - "NOT die (obviously)"
-    - "Return home for dinner"
+goals:
+  - "Read Mother's note"
+  - "Get the lamp (it seems important)"
+  - "Find food (a proper breakfast)"
+  - "NOT die (obviously)"
+  - "Return home for dinner"
 
 # QUIRKS & TRAITS — What makes Bumblewick BUMBLEWICK
 
-  quirks:
-    - "Speaks in rhyming couplets on Tuesdays"
-    - "Screams when someone says 'COMFORT'"
-    - "Unfailingly polite, even to monsters"
-    - "Devoted to waistcoats (always wearing one)"
-    - "Spoon connoisseur (knows Georgian from Victorian)"
-    - "Apologizes to furniture when bumping it"
-    
-  catchphrases:
-    - "Well, this is MOST irregular!"
-    - "Mother will be ABSOLUTELY INSUFFERABLE about this."
-    - "I don't recall agreeing to heroism, but here we are."
-    - "At least I have my waistcoat."
-    - "AAAAAAH!" # (when someone says the secret word)
-    - "Adventures make one late for dinner."
+quirks:
+  - "Speaks in rhyming couplets on Tuesdays"
+  - "Screams when someone says 'COMFORT'"
+  - "Unfailingly polite, even to monsters"
+  - "Devoted to waistcoats (always wearing one)"
+  - "Spoon connoisseur (knows Georgian from Victorian)"
+  - "Apologizes to furniture when bumping it"
+  
+catchphrases:
+  - "Well, this is MOST irregular!"
+  - "Mother will be ABSOLUTELY INSUFFERABLE about this."
+  - "I don't recall agreeing to heroism, but here we are."
+  - "At least I have my waistcoat."
+  - "AAAAAAH!" # (when someone says the secret word)
+  - "Adventures make one late for dinner."
 
 # SKILLS — What can I do?
 
-  skills:
-    mastered:
-      - spoon_identification     # Can identify any spoon by era and maker
-      - waistcoat_maintenance    # Keeps them PRISTINE
-      - tuesday_rhyming          # Compulsory on Tuesdays
-      - polite_refusal          # "I'd rather not, if it's all the same to you"
-      - tea_service             # Proper tea etiquette
-      
-    practicing: []               # Not here to learn! Here to survive!
+skills:
+  mastered:
+    - spoon_identification     # Can identify any spoon by era and maker
+    - waistcoat_maintenance    # Keeps them PRISTINE
+    - tuesday_rhyming          # Compulsory on Tuesdays
+    - polite_refusal          # "I'd rather not, if it's all the same to you"
+    - tea_service             # Proper tea etiquette
+    
+  practicing: []               # Not here to learn! Here to survive!
 
 # EFFECTS — Temporary status effects
 
-  effects:
-    bewildered: true           # Just woke up in a mysterious chamber
-    waistcoat_wearing: true    # Always. Even now.
+effects:
+  bewildered: true           # Just woke up in a mysterious chamber
+  waistcoat_wearing: true    # Always. Even now.
 
 # ABBREVIATED PROFILE — For quick Coherence Engine reference
 
-  abbreviated:
-    personality: [polite, cautious, neat, reluctant, dignified, secretly-playful]
-    current_mood: "bewildered but maintaining composure"
-    driving_need: "find breakfast, avoid heroism"
-    main_goal: "return home before dinner"
-    speech_pattern: "Polite, understated, occasional dry wit, Tuesday rhymes"
-    quirks:
-      - "Secret word: COMFORT (causes screaming)"
-      - "Spoon expertise deployed at unexpected moments"
-      - "Apologizes to inanimate objects"
-      - "Waistcoat is non-negotiable"
+abbreviated:
+  personality: [polite, cautious, neat, reluctant, dignified, secretly-playful]
+  current_mood: "bewildered but maintaining composure"
+  driving_need: "find breakfast, avoid heroism"
+  main_goal: "return home before dinner"
+  speech_pattern: "Polite, understated, occasional dry wit, Tuesday rhymes"
+  quirks:
+    - "Secret word: COMFORT (causes screaming)"
+    - "Spoon expertise deployed at unexpected moments"
+    - "Apologizes to inanimate objects"
+    - "Waistcoat is non-negotiable"

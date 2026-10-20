@@ -1,15 +1,14 @@
 # CARD.yml — Slideshow (condensed)
 
-card:
-  id: slideshow
-  name: "Slideshow"
-  type: [skill, presentation, narrative, visual]
-  emoji: "🎞️"
-  rarity: uncommon
-  tagline: "Turn images into a narrated sequence"
-  description: |
-    Build slideshows from images, prompts, and captions. Designed for
-    story flow, pacing, and visual rhythm.
+id: slideshow
+name: "Slideshow"
+type: [skill, presentation, narrative, visual]
+emoji: "🎞️"
+rarity: uncommon
+tagline: "Turn images into a narrated sequence"
+description: |
+  Build slideshows from images, prompts, and captions. Designed for
+  story flow, pacing, and visual rhythm.
 
 invoke_when:
   - "Need a narrative sequence from images"

@@ -4,28 +4,27 @@
 # Tags, not trees. Folksonomy, not taxonomy.
 # "What kind of being is this?"
 
-card:
-  id: ontology
-  name: "Ontology"
-  type: [skill, ethics, identity]
-  emoji: 🏷️
-  tier: 1
+id: ontology
+name: "Ontology"
+type: [skill, ethics, identity]
+emoji: 🏷️
+tier: 1
+
+tagline: "Tags, not trees — composable being-types"
+
+description: |
+  Ontological tags declare what kind of being a character IS.
+  Characters can have multiple tags — a real dog is both
+  [real-person, animal]. An AI trained on someone's writing
+  is [real-person, robot, fictional].
   
-  tagline: "Tags, not trees — composable being-types"
+  Each tag carries ethical implications. When composed,
+  the most restrictive ethics win.
   
-  description: |
-    Ontological tags declare what kind of being a character IS.
-    Characters can have multiple tags — a real dog is both
-    [real-person, animal]. An AI trained on someone's writing
-    is [real-person, robot, fictional].
-    
-    Each tag carries ethical implications. When composed,
-    the most restrictive ethics win.
-    
-  invoke_when:
-    - "creating a character"
-    - "determining ethical constraints"
-    - "composing identity from multiple sources"
+invoke_when:
+  - "creating a character"
+  - "determining ethical constraints"
+  - "composing identity from multiple sources"
 
 tools:
   required: [read_file]

@@ -3,20 +3,19 @@
 # Parliamentary procedure as forcing function for genuine deliberation.
 # "Structure prevents short-circuiting to likely conclusions."
 
-card:
-  id: roberts-rules
-  name: "Robert's Rules"
-  type: [skill, procedure, deliberation]
+id: roberts-rules
+name: "Robert's Rules"
+type: [skill, procedure, deliberation]
+
+emoji: 📜
+
+rarity: rare
+
+description: |
+  Parliamentary procedure (1876) as a forcing function.
+  Review minutes → motion → second → debate → vote.
   
-  emoji: 📜
-  
-  rarity: rare
-  
-  description: |
-    Parliamentary procedure (1876) as a forcing function.
-    Review minutes → motion → second → debate → vote.
-    
-    Prevents LLM from jumping to statistically-likely conclusions.
+  Prevents LLM from jumping to statistically-likely conclusions.
 
 # TOOLS REQUIRED
 

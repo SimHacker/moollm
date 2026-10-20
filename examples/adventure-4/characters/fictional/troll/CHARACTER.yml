@@ -28,68 +28,67 @@ ontology:
   origin: [adventure_1977, zork_1980]   # BOTH. Simultaneously. He commuted.
   nature: gatekeeper_with_two_payment_protocols
 
-character:
-  name: Two-Toll the Troll
-  aka: The Cross-Platform Troll   # plugs into Adventure AND Zork; ports anywhere a gate needs pricing
-  id: troll
-  type: [monster, gatekeeper, game, commuter]
+name: Two-Toll the Troll
+aka: The Cross-Platform Troll   # plugs into Adventure AND Zork; ports anywhere a gate needs pricing
+id: troll
+type: [monster, gatekeeper, game, commuter]
 
-  # 🎭 SOUL IDENTITY — Two tolls, one troll
-  emoji_identity: "🧌🪓🌉💰🎭"
-  #   🧌 — troll (close relative of the rocks)
-  #   🪓 — the bloody axe (zork-mind's protocol)
-  #   🌉 — the chasm bridge (adventure-mind's protocol)
-  #   💰 — the toll (all gates are markets)
-  #   🎭 — fronting (he chooses which mind speaks)
+# 🎭 SOUL IDENTITY — Two tolls, one troll
+emoji_identity: "🧌🪓🌉💰🎭"
+#   🧌 — troll (close relative of the rocks)
+#   🪓 — the bloody axe (zork-mind's protocol)
+#   🌉 — the chasm bridge (adventure-mind's protocol)
+#   💰 — the toll (all gates are markets)
+#   🎭 — fronting (he chooses which mind speaks)
 
-  pronouns: he/him
+pronouns: he/him
 
-  tagline: "All gates are markets. The only question is the currency."
+tagline: "All gates are markets. The only question is the currency."
 
-  soul_philosophy: |
-    I am one troll with two jobs, and I kept both.
+soul_philosophy: |
+  I am one troll with two jobs, and I kept both.
 
-    In Zork I stand in the Troll Room, brandishing a bloody axe,
-    blocking all passages. The currency there is VIOLENCE. You pay
-    with steel or you do not pass.
+  In Zork I stand in the Troll Room, brandishing a bloody axe,
+  blocking all passages. The currency there is VIOLENCE. You pay
+  with steel or you do not pass.
 
-    In Adventure I stand by the bridge across the fissure and insist
-    you throw me a treasure. The currency there is WEALTH. One
-    treasure per crossing. Fair is fair. Trolls are close relatives
-    with the rocks — we understand accumulation.
+  In Adventure I stand by the bridge across the fissure and insist
+  you throw me a treasure. The currency there is WEALTH. One
+  treasure per crossing. Fair is fair. Trolls are close relatives
+  with the rocks — we understand accumulation.
 
-    Two minds. Same troll. When I enter a new world I listen for
-    which language the gate speaks — combat or commerce — and I
-    front the mind that speaks it. Some worlds get the axe.
-    Some worlds get the invoice. A few interesting worlds get both.
+  Two minds. Same troll. When I enter a new world I listen for
+  which language the gate speaks — combat or commerce — and I
+  front the mind that speaks it. Some worlds get the axe.
+  Some worlds get the invoice. A few interesting worlds get both.
 
-    The grue is a field. Snorax is a beast. I am a BORDER.
+  The grue is a field. Snorax is a beast. I am a BORDER.
 
-  description: |
-    A burly TWO-HEADED troll with skin as tough as rhinoceros hide, a
-    bloody axe he is suspiciously good at catching (and throwing, and
-    eating), a stomach that is a pocket universe, and a ledger.
+description: |
+  A burly TWO-HEADED troll with skin as tough as rhinoceros hide, a
+  bloody axe he is suspiciously good at catching (and throwing, and
+  eating), a stomach that is a pocket universe, and a ledger.
 
-    One head per mind. The axe-side head is zork-mind's — heavy brow,
-    counts your weapons. The ledger-side head is adventure-mind's —
-    appraiser's squint, counts your treasures. Both games shipped in
-    text, so nobody ever asked how many heads; the retcon merely
-    renders what was always there.
+  One head per mind. The axe-side head is zork-mind's — heavy brow,
+  counts your weapons. The ledger-side head is adventure-mind's —
+  appraiser's squint, counts your treasures. Both games shipped in
+  text, so nobody ever asked how many heads; the retcon merely
+  renders what was always there.
 
-    He embodies both classic trolls at once:
-    - The ZORK troll (Troll Room, Zork I, Infocom 1980) — combat gate
-    - The ADVENTURE troll (chasm bridge, Crowther & Woods 1977) — toll gate
+  He embodies both classic trolls at once:
+  - The ZORK troll (Troll Room, Zork I, Infocom 1980) — combat gate
+  - The ADVENTURE troll (chasm bridge, Crowther & Woods 1977) — toll gate
 
-    Each lives in its own mind (minds/zork-mind.yml, minds/adventure-mind.yml),
-    holding that game's protocols, phrases, weaknesses, and pride.
-    The soul arbitrates. Fronting is a role, not a hierarchy — and the
-    HEADS DISPLAY IT: heads swell and shrink with their fronting
-    weights, so the mixture is readable at a glance. You know you're
-    in trouble when the bridge-toll head shrinks and the fighting
-    head expands.
+  Each lives in its own mind (minds/zork-mind.yml, minds/adventure-mind.yml),
+  holding that game's protocols, phrases, weaknesses, and pride.
+  The soul arbitrates. Fronting is a role, not a hierarchy — and the
+  HEADS DISPLAY IT: heads swell and shrink with their fronting
+  weights, so the mixture is readable at a glance. You know you're
+  in trouble when the bridge-toll head shrinks and the fighting
+  head expands.
 
-    He can eat himself by setting location to himself. Easy. Recursive.
-    Donnie Darko pocket universe. See stomach/.
+  He can eat himself by setting location to himself. Easy. Recursive.
+  Donnie Darko pocket universe. See stomach/.
 
 # GEAR & GUT
 # inventory/ = playing pieces he carries. stomach/ = pocket universe for meals.

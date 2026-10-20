@@ -3,21 +3,20 @@
 # Transmission hygiene: content leaving the chat ships in a fenced block,
 # formatted for its destination venue. "Copy that" = received exactly as sent.
 
-card:
-  id: copy-that
-  name: "Copy That"
-  type: [skill, hygiene, publishing]
+id: copy-that
+name: "Copy That"
+type: [skill, hygiene, publishing]
 
-  emoji: 📋
+emoji: 📋
 
-  rarity: uncommon
+rarity: uncommon
 
-  description: |
-    The copydesk of MOOLLM. Anything the human will copy out of chat —
-    posts, comments, emails, commit messages, code for other platforms —
-    ships inside a fenced code block, pre-formatted for the destination
-    venue's house rules. One block per artifact. Nothing inside the fence
-    that isn't meant to be published. Editor asides live outside.
+description: |
+  The copydesk of MOOLLM. Anything the human will copy out of chat —
+  posts, comments, emails, commit messages, code for other platforms —
+  ships inside a fenced code block, pre-formatted for the destination
+  venue's house rules. One block per artifact. Nothing inside the fence
+  that isn't meant to be published. Editor asides live outside.
 
 tools:
   required: []  # Pure discipline; validators optional

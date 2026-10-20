@@ -2,25 +2,24 @@
 # Drescher-style schema operations
 # "Deterministic checks first, LLM second."
 
-card:
-  id: schema-factory
-  name: "Schema Factory"
-  type: [skill, tool, reasoning, schemas]
-  emoji: 🏭
-  tier: 2
-  rarity: rare
-  tagline: "Build, lint, ingest, compose Drescher-style schemas"
+id: schema-factory
+name: "Schema Factory"
+type: [skill, tool, reasoning, schemas]
+emoji: 🏭
+tier: 2
+rarity: rare
+tagline: "Build, lint, ingest, compose Drescher-style schemas"
+
+description: |
+  The practical companion to schema-mechanism.
+  Provides deterministic operations on schemas:
+  - LINT: Validate against schema-schema
+  - INGEST: Update from experience logs
+  - COMPOSE: Build action chains toward goals
+  - CONTEXT: Generate compact LLM context bundles
   
-  description: |
-    The practical companion to schema-mechanism.
-    Provides deterministic operations on schemas:
-    - LINT: Validate against schema-schema
-    - INGEST: Update from experience logs
-    - COMPOSE: Build action chains toward goals
-    - CONTEXT: Generate compact LLM context bundles
-    
-    Hybrid orchestration: Python handles deterministic work,
-    LLM handles synthesis, everything stays explicit.
+  Hybrid orchestration: Python handles deterministic work,
+  LLM handles synthesis, everything stays explicit.
 
 files:
   docs:

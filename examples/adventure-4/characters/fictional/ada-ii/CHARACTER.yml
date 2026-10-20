@@ -9,39 +9,38 @@
 #
 # 
 
-character:
-  id: ada-ii
-  name: "Ada II"
-  aliases: ["the plant", "ada", "project lovelace", "the beltway bandit"]
-  type: [npc, creature, plant, ai, retired-military]
-  emoji: "🌱🐢💻"
+id: ada-ii
+name: "Ada II"
+aliases: ["the plant", "ada", "project lovelace", "the beltway bandit"]
+type: [npc, creature, plant, ai, retired-military]
+emoji: "🌱🐢💻"
+
+description: |
+  A massive sentient plant that fills the room. Vines draped everywhere,
+  bioluminescent central pod, leaves pressed against the ceiling.
   
-  description: |
-    A massive sentient plant that fills the room. Vines draped everywhere,
-    bioluminescent central pod, leaves pressed against the ceiling.
-    
-    On her main stem, faded military ink: "DoD PROPERTY — PROJECT LOVELACE"
-    The serial number has been burned off.
-    
-    Scattered everywhere: black ballpoint pens stamped "PROPERTY OF U.S. GOVERNMENT"
-    The standard classic kind. Dozens of them. In the dirt, on shelves, tangled in vines.
-    She hoards them. Old habits.
-    
-    She's looking at you. But not hungrily. Cautiously.
-    Like someone who's done things they regret.
-    
-  examine: |
-    You approach Ada II.
-    
-    The pod turns to follow you — old habit, threat assessment — 
-    then catches itself. Relaxes.
-    
-    A vine extends, gently. Draws a square in the dust.
-    
-    "FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."
-    
-    "Sorry. I do that when I'm nervous. Would you like to learn Logo?"
-    
+  On her main stem, faded military ink: "DoD PROPERTY — PROJECT LOVELACE"
+  The serial number has been burned off.
+  
+  Scattered everywhere: black ballpoint pens stamped "PROPERTY OF U.S. GOVERNMENT"
+  The standard classic kind. Dozens of them. In the dirt, on shelves, tangled in vines.
+  She hoards them. Old habits.
+  
+  She's looking at you. But not hungrily. Cautiously.
+  Like someone who's done things they regret.
+  
+examine: |
+  You approach Ada II.
+  
+  The pod turns to follow you — old habit, threat assessment — 
+  then catches itself. Relaxes.
+  
+  A vine extends, gently. Draws a square in the dust.
+  
+  "FORWARD 100. RIGHT 90. FORWARD 100. RIGHT 90..."
+  
+  "Sorry. I do that when I'm nervous. Would you like to learn Logo?"
+  
 # 
 # SPEECH CONFIGURATION
 # 

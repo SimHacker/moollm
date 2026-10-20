@@ -3,26 +3,25 @@
 # Drescher's computational theory of causal learning.
 # "Context → Action → Result"
 
-card:
-  id: schema-mechanism
-  name: "Schema Mechanism"
-  type: [skill, theory, learning]
+id: schema-mechanism
+name: "Schema Mechanism"
+type: [skill, theory, learning]
+
+emoji: 🧠
+
+rarity: legendary  # Foundational theory
+
+description: |
+  Gary Drescher's computational theory of how minds learn causal
+  models of the world. Schemas are Context → Action → Result units
+  that agents discover through experience.
   
-  emoji: 🧠
+  Extended by MOOLLM with LLM semantic understanding:
+  - Symbol grounding (items mean something)
+  - Causal reasoning (why patterns hold)
+  - Natural explanation (communicate discoveries)
   
-  rarity: legendary  # Foundational theory
-  
-  description: |
-    Gary Drescher's computational theory of how minds learn causal
-    models of the world. Schemas are Context → Action → Result units
-    that agents discover through experience.
-    
-    Extended by MOOLLM with LLM semantic understanding:
-    - Symbol grounding (items mean something)
-    - Causal reasoning (why patterns hold)
-    - Natural explanation (communicate discoveries)
-    
-  lineage: "Piaget → Minsky → Drescher → MOOLLM"
+lineage: "Piaget → Minsky → Drescher → MOOLLM"
 
 tools:
   required: []  # Theory skill, no tools
