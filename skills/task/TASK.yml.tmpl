@@ -1,0 +1,17 @@
+# {{id}} — {{title}}
+# {{why_in_a_sentence}}
+
+id: {{id}}                       # prefix-as-owner, big-endian
+title: "{{title}}"
+why: "{{why}}"
+done_when: "{{shell_command_exit_0_means_done_or_prose}}"
+# judge: {{human_or_evaluator_or_rubric}}   # required when done_when is prose
+# fail_when: "{{when_this_work_becomes_pointless}}"
+requires: []                     # - { task: other-id, verify: "command" }
+unlocks: []                      # - { feature|doc|task: ..., why: "..." }
+priority: normal                 # low | normal | high | urgent
+owner: null
+source: "{{where_this_came_from}}"
+links: {}
+history:
+  - { at: {{date}}, event: opened, by: {{who}} }

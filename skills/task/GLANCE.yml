@@ -1,0 +1,53 @@
+# GLANCE.yml — task
+# Full file: CARD.yml | SKILL.md | README.md (why, and what we took from Gas Town and didn't)
+# ✅ "Store what happened. Compute what is possible."
+
+what: |
+  A task is durable work someone can claim, do, and prove done. A YAML file,
+  a playbook's frontmatter, a block in a markdown ledger, or a GitHub issue:
+  same fields, any container. It survives the session that opened it.
+  A task inherits goal: a goal is a wanted state nobody claims, a task is
+  that goal claimed by someone, an action is one queued step of the work.
+
+the_rule: |
+  Events are stored (opened, claimed, released, done, failed, cancelled), append-only.
+  Everything else is computed: ready and blocked come from running the guards,
+  stale and urgent are buffs on the task, the board is a projection.
+  A stored "status: blocked" is a flag somebody has to remember to clear.
+
+fields:
+  required: [id, title, done_when]
+  usual: [why, requires, unlocks, priority, owner, source, links, history]
+  inherited_from_goal: [done_when, fail_when, requires, priority, children, compile events]
+  read_as_done_when: [complete_when, research_complete_when]
+  done_when: "shell command (exit 0), or prose plus a named judge — never self-certified"
+
+when:
+  - '"Track this" / "add a TODO that outlives the chat" → OPEN'
+  - '"I''ll take it" / an executor picks up work → CLAIM'
+  - '"Is it done? What''s blocking it?" → CHECK'
+  - '"What can I work on now?" → FRONTIER'
+  - '"Show me the board" → BOARD (list, kanban, DAG — derived, never saved)'
+  - '"Hand this to someone" → HANDOFF (postal)'
+  - '"Mirror it to GitHub" → SYNC'
+
+methods: [OPEN, CLAIM, RELEASE, CHECK, CLOSE, CANCEL, SPLIT, FRONTIER, BOARD, HANDOFF, SYNC]
+
+composes:
+  goal:          "parent; done_when and fail_when compile through goal's events (_js/_py)"
+  cauldron:      "every playbook is a task; TREE computes the frontier"
+  action-queue:  "a claimed task feeds concrete actions into the owner's queue"
+  buff:          "stale, waiting-on, deadline are buffs hosted on the task; they advertise"
+  advertisement: "a ready task bids for workers; the owner's claimed task bids highest"
+  workflow:      "a workflow instance spawns tasks with requires edges"
+  return-stack:  "interruptions push the current task, pop when done"
+  postal:        "handoff is a letter carrying a task reference"
+  github:        "issues are an optional mirror, not the source of truth"
+  speed-of-light: "several simulated workers take tasks in one call"
+
+not_this:
+  todo_list: "Cursor TodoWrite is a session projection of the frontier; it dies with the chat"
+  action: "an action is a Sims queue entry, minutes long; a task is durable"
+  bead: "Gas Town's word for an issue (their README says so); we say task"
+
+tier: 1

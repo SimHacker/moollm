@@ -61,10 +61,6 @@ virtual_parent_klines:
       virtual_parent: "good-ai"
       meaning: "Activate all positive AI behavior skills"
       
-    - prefix: "bead-*"
-      virtual_parent: "bead"
-      meaning: "All bead orchestration patterns"
-      
     - prefix: "cat-*, dog-*, kitten-*, puppy-*"
       virtual_parent: "animal"
       meaning: "All animal character types"
@@ -190,7 +186,7 @@ dimensional_grids:
 
 naming_patterns_summary:
   
-  prefix: "Groups by WHAT IT IS (no-ai-*, bead-*, cat-*)"
+  prefix: "Groups by WHAT IT IS (no-ai-*, good-ai-*, cat-*)"
   suffix: "Groups by WHAT IT DOES (*-slop, *-chat, *-review)"
   coordinate: "Encodes POSITION (room-x-y, RUN-NNN-*)"
   intersection: "Combines patterns (prefix + suffix + coordinate)"

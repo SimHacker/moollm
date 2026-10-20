@@ -1,0 +1,125 @@
+# CARD.yml — Workflow
+#
+# A reusable procedure. Prototype of steps; instances spawn tasks.
+# "Do it by hand three times. Then lift it."
+
+card:
+  id: workflow
+  name: "Workflow"
+  type: [skill, procedure, essential]
+  emoji: 🔁
+  rarity: common
+
+  description: |
+    A workflow is a procedure worth repeating: steps, who does each one,
+    what each step needs first, how you know each step is done, where a
+    human has to sign off, and what may run in parallel. The workflow file
+    is a prototype. Running it clones the prototype into an instance
+    directory and opens one task per step, wired with requires edges. The
+    tasks carry all run state. The workflow never does.
+
+tools:
+  required: [read_file, write_file]
+  optional: [run_terminal_cmd]
+
+tier: 1
+
+schema:
+  workflow:
+    id: "big-endian name: release, review-pr, onboard-character"
+    parent: "optional — another workflow to inherit steps from (Self-style delegation)"
+    inputs: "named parameters filled at INSTANTIATE"
+    steps:
+      id: "unique within the workflow"
+      does: "one imperative sentence, empathic-template slots allowed"
+      actor: "tool | skill:<id> | llm | human"
+      requires: "step ids that must be done first"
+      verify: "becomes the step task's done_when"
+      gate: "approval — a human must append an approved event before dependents become ready"
+      fan_out: "{over: <input list>, step: <step id>} — parallel legs; a later step requiring this one is the join"
+      model: "hint only: fast | deep | <model id> — see cauldron protocols/MODEL-ROUTING.yml"
+      on_fail: "scry (default) | retry:N | escalate"
+    lessons: "append-only notes from RETRO"
+
+methods:
+  DEFINE:
+    description: "Write a workflow prototype"
+    parameters: {id: required, steps: required}
+    output: "workflows/<id>.yml or skills/<skill>/workflows/<id>.yml"
+    refuses: "steps without verify, unless actor is human and the step says what the human checks"
+
+  LIFT:
+    description: "Extract a workflow from repeated task histories"
+    parameters: {from: "task ids, board, or cursor-mirror sessions", min_repeats: 3}
+    effect: "Diff the histories, keep the common steps and order, mark the variations as inputs"
+    composes: [play-learn-lift, cursor-mirror]
+
+  INSTANTIATE:
+    description: "Run a workflow"
+    parameters: {workflow: required, inputs: optional, at: "instance directory"}
+    effect: |
+      Create the instance directory with WORKFLOW.yml (parent: the prototype,
+      inputs filled). OPEN one task per step (one per leg for fan_out), with
+      requires edges from step requires and done_when from verify. Report the
+      frontier.
+    identity: "the instance is its directory; copy it to fork a run"
+
+  STATUS:
+    description: "Where is this run"
+    delegates_to: "task FRONTIER over the instance's tasks"
+
+  AMEND:
+    description: "Change one run without changing the procedure"
+    parameters: {instance: required, change: required, why: required}
+    effect: "Edit the instance's tasks; append the reason to the instance WORKFLOW.yml"
+
+  RETRO:
+    description: "Fold what a run taught back into the prototype"
+    parameters: {instance: required}
+    effect: "Read task histories (released notes, failed guards, amendments); propose prototype edits; append to lessons"
+
+  FREEZE:
+    description: "Lock an instance for approval before anything runs"
+    effect: "Instance tasks stay unready until an approved event is appended by a human"
+    composes: [plan-then-execute]
+
+advertisements:
+  LIFT-THIS:
+    score: 85
+    condition: "The same sequence of tasks or actions has been done by hand three times"
+  RUN-PROCEDURE:
+    score: 80
+    condition: "User names a known procedure"
+  RETRO-AFTER-RUN:
+    score: 70
+    condition: "An instance finished with released notes, amendments, or failed guards"
+
+workflows_already_in_moollm:
+  cauldron: "MELT → STIR* → LADLE → ANCHOR → LINK → TASTE → SERVE, with SCRY loops"
+  plan-then-execute: "PLAN → REVIEW → APPROVE (gate) → EXECUTE"
+  play-learn-lift: "PLAY → LEARN → LIFT"
+  thoughtful-commitment: "read thinking → draft message → commit"
+  experiment: "configure → run → score → compare"
+  skill-snitch: "SCAN → AUDIT → report"
+
+composes_with:
+  task: "instances are boards of tasks"
+  cauldron: "MELT/LADLE is how a one-off plan becomes playbooks; LIFT is how a repeated plan becomes a workflow"
+  play-learn-lift: "workflows are born in LIFT"
+  plan-then-execute: "FREEZE and gate"
+  planning: "a living plan is a workflow instance with no prototype yet"
+  prototype: "parent: delegation between workflows"
+  speed-of-light: "simulate fan_out legs in one call when they share context"
+  adversarial-committee: "fan_out over perspectives"
+  action-queue: "claimed step tasks become actions"
+  cursor-mirror: "LIFT and RETRO read what actually happened, not what someone remembers"
+  empathic-templates: "does: lines may carry {{slots}}"
+  robust-first: "on_fail escalates with the failing guard; never skips silently"
+
+related: [task, cauldron, play-learn-lift, plan-then-execute, planning, prototype, speed-of-light]
+
+credits:
+  - "Seymour Papert — procedures as named, composable, debuggable things"
+  - "GitHub Actions and CI — the word, and steps-with-needs"
+  - "Temporal and durable execution — run state in an event log, resume by replay"
+  - "Steve Yegge's Gas Town molecules and formulas — parallel legs with synthesis, per-step model tier hints; see README.md for where we part ways"

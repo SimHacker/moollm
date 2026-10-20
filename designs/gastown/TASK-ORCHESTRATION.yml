@@ -1,0 +1,82 @@
+# TASK-ORCHESTRATION.yml
+# How tasks move between MOOLLM's existing skills.
+#
+# A task is a reference plus a guard. It can ride in a letter, sit in a queue,
+# wait on a stack, flow down a pipeline, or show up on a board. None of those
+# containers own the task's state; the task file does. Every view is derived.
+#
+# Implementation: skills/task/, skills/workflow/. Comparison: GASTOWN-VS-MOOLLM-ANALYSIS.md.
+
+task_as_payload:
+  carries: "id + path (or GitHub ref) + optional note"
+  never_carries: "a copy of the status — status is computed where the task lives"
+  why: |
+    A copied status is a second store that drifts from the first. Gas Town's bd
+    wrapper passes --allow-stale "to prevent failures when db is out of sync with
+    JSONL": two stores, drifting, and a flag to tolerate it. A reference can't drift.
+
+transports:
+  # Each transport is an existing skill. No new infrastructure.
+
+  postal:
+    skill: skills/postal
+    use: "HANDOFF — a letter whose payload is a task reference and a note"
+    example: |
+      letter:
+        from: don-hopkins
+        to: palm
+        subject: "moollm-042 is yours"
+        payload: { task: tasks/moollm-042-task-buffs.yml }
+        note: "Guard is a single rg; the hard part is picking the stale threshold."
+    replaces: "Gas Town mail and nudges"
+
+  action_queue:
+    skill: skills/action-queue
+    use: "CLAIM seeds the owner's queue with the first concrete action"
+    rule: "Actions reference the task id; finishing the last action triggers CHECK, not CLOSE"
+    # The queue holds minutes of work. The task holds the definition of done.
+
+  return_stack:
+    skill: skills/return-stack
+    use: "Interruptions: PUSH the current task with a where-I-was note, POP when the urgent work is done"
+    # A long interruption leaves the pushed task without events; the stale buff notices.
+
+  data_flow:
+    skill: skills/data-flow
+    use: "Pipelines of rooms: THROW a task reference through an exit to the next stage's INBOX"
+    when: "Work that goes through fixed stages (triage → fix → review) and each stage is a room with its own rules"
+
+  github:
+    skill: skills/github
+    use: "SYNC to an issue so humans can see and discuss it; the guard stays the definition of done"
+
+  in_world:
+    where: "examples/adventure-4/garden/pneumatic-tube.yml"
+    use: "The pneumatic tube is in-world dressing for postal delivery; same payload"
+
+views:
+  # Projections rendered by task BOARD. Never written back as state.
+  # Plain names on purpose: the model already knows each of these.
+  list:      "1D — ordered by score or by requires depth"
+  kanban:    "2D — columns are computed states (ready, claimed, blocked, done)"
+  dag:       "the requires graph; mermaid when rendered to a file someone asked for"
+  by_owner:  "who holds what, with stale buffs flagged"
+  pivot:     "3D — any two or three of: owner, priority, workflow instance, age"
+  # The January sketch called these the bead bracelet, bead curtain, and bead borg.
+  # Fun names, but kanban and pivot table cost nothing to explain.
+
+scheduling:
+  who_picks_what: "Ready tasks advertise WORK-ON-ME; score = priority × fit × freshness + buffs"
+  persistence_of_assignment: "owner: field; the owner's claimed task outscores everything else for that owner"
+  stuck_work: "stale / waiting-on / flaky-guard buffs on the task advertise for help"
+  parallel_workers:
+    in_one_context: "speed-of-light — several simulated workers take ready tasks in turn"
+    in_separate_sessions: "cauldron executor model — one task per session when checkouts or tool runs collide"
+
+see_also:
+  - skills/task/SKILL.md
+  - skills/workflow/SKILL.md
+  - skills/cauldron/protocols/TREE.yml
+  - skills/buff/CONSEQUENCE-LOOP.md
+  - designs/TECH-TREE.md
+  - designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md

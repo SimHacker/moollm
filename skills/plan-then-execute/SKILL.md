@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [planning, action-queue, representation-ethics]
+related: [planning, action-queue, representation-ethics, task, workflow]
 tags: [moollm, execution, security, approval, frozen]
 ---
 

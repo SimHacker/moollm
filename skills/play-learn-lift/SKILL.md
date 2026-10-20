@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [moollm, bootstrap, sister-script, sniffable-python, constructionism, adventure, debugging, scratchpad, research-notebook, skill, plain-text]
+related: [moollm, bootstrap, sister-script, sniffable-python, constructionism, adventure, debugging, scratchpad, research-notebook, skill, plain-text, workflow]
 tags: [moollm, methodology, pedagogy, workflow, learning]
 ---
 

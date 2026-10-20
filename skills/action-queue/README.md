@@ -19,7 +19,7 @@
 
 ## Overview
 
-Sims-inspired task scheduling: queue actions, execute in order. While [return-stack](../return-stack/) tracks *where you've been*, action-queue tracks *what you're going to do*.
+Sims-inspired action scheduling: queue actions, execute in order. While [return-stack](../return-stack/) tracks *where you've been*, action-queue tracks *what you're going to do*.
 
 ## Quick Commands
 

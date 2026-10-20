@@ -1,11 +1,12 @@
 # GLANCE.yml — goal
-# Full file: CARD.yml (82 lines) | SKILL.md
+# Full file: CARD.yml | SKILL.md
 # 🎯 "A quest objective that drives the adventure forward."
 
 what: |
-  Quest objective primitive with completion conditions,
-  failure conditions, priorities, rewards, and dependencies.
-  Goals can nest into hierarchies.
+  A state of the world someone wants: done_when, fail_when, priority,
+  rewards, dependencies. Goals nest into hierarchies. Nobody claims a
+  goal; a task (inherits goal) is the claimed work, and an action is one
+  queued step of that work.
 
 why: |
   - Drive adventure forward
@@ -14,16 +15,18 @@ why: |
   - Reward completion
 
 when:
-  - '"Create quest" → goal with complete_when'
+  - '"Create quest" → goal with done_when'
   - '"Track progress" → goal.progress'
   - '"Nested objectives" → goal.children'
 
 schema:
-  required: [id, name, description, complete_when]
-  optional: [status, priority, reward, fail_when, parent, children, requires, blocks, given_by]
-  compiled: [complete_when_js, fail_when_js]
+  required: [id, name, description, done_when]
+  optional: [priority, reward, fail_when, parent, children, requires, blocks, given_by, history]
+  compiled: [done_when_js, fail_when_js]
+  accepts: "complete_when is read as done_when; a stored status becomes events"
 
-statuses: [pending, active, complete, failed]
+events: [given, done, failed, cancelled, reopened]
+states: [pending, active, done, failed]   # computed, never stored
 priorities: [low, normal, high, urgent]
 
 hierarchy: |
@@ -45,8 +48,8 @@ postal_integration: |
   letter.creates_goal: { name, reward }
 
 compiled_conditions: |
-  complete_when → complete_when_js, complete_when_py
+  done_when → done_when_js, done_when_py
   fail_when → fail_when_js, fail_when_py
 
-related: [adventure, needs, postal, character]
+related: [task, action-queue, adventure, needs, postal, character]
 tier: primitive

@@ -1,0 +1,65 @@
+# add-skill — add a new MOOLLM skill with the full pyramid and index wiring
+# Lifted from the task and workflow skills themselves (Oct 2026), and from the
+# copy-that and no-ai-humansplaining additions before them. Same steps each time,
+# same things forgotten each time: the index count and the reverse links.
+
+workflow:
+  id: add-skill
+  parent: null
+  inputs:
+    skill: "skill id, lowercase-with-hyphens"
+    related: "list of existing skill ids it composes with"
+
+  steps:
+    - id: skill-md
+      does: "Write skills/{{skill}}/SKILL.md: frontmatter (name, description, allowed-tools, related), self-contained protocol, Part of MOOLLM blurb at start and end"
+      actor: llm
+      model: deep
+      verify: "rg -q '^name: {{skill}}$' skills/{{skill}}/SKILL.md && rg -q 'Part of MOOLLM' skills/{{skill}}/SKILL.md"
+
+    - id: card
+      does: "Write CARD.yml: methods, advertisements, schema, composes_with"
+      actor: llm
+      requires: [skill-md]
+      verify: "test -f skills/{{skill}}/CARD.yml"
+
+    - id: glance
+      does: "Write GLANCE.yml, under 70 lines"
+      actor: llm
+      requires: [card]
+      verify: "test $(wc -l < skills/{{skill}}/GLANCE.yml) -le 70"
+
+    - id: readme
+      does: "Write README.md: why it exists, lineage, credits and departures"
+      actor: llm
+      requires: [skill-md]
+      verify: "test -f skills/{{skill}}/README.md"
+
+    - id: index
+      does: "Add to skills/INDEX.yml (category entry, all_skills, skill_count), skills/INDEX.md, skills/README.md"
+      actor: llm
+      requires: [glance]
+      model: fast
+      verify: "rg -q '^  - {{skill}}$' skills/INDEX.yml && rg -q '{{skill}}/' skills/README.md"
+
+    - id: reverse-links
+      does: "Add {{skill}} to related/see-also/composes_with in each of {{related}}"
+      actor: llm
+      fan_out: { over: related, step: reverse-links }
+      requires: [card]
+      model: fast
+      verify: "rg -q '{{skill}}' skills/{{leg}}/CARD.yml"
+
+    - id: snitch
+      does: "skill-snitch SCAN the new directory"
+      actor: skill:skill-snitch
+      requires: [skill-md, card, glance, readme]
+      on_fail: scry
+
+    - id: review
+      does: "Read the four files cold, as someone who has never seen MOOLLM. Cut anything that explains what the model already knows."
+      actor: human
+      requires: [snitch, index, reverse-links]
+      gate: approval
+
+  lessons: []

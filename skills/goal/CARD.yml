@@ -17,9 +17,8 @@ card:
       - id
       - name
       - description
-      - complete_when
+      - done_when
     optional:
-      - status
       - priority
       - reward
       - fail_when
@@ -31,18 +30,21 @@ card:
       - progress
       - given_by
       - location
+      - history
     computed:
-      - complete_when_js
-      - complete_when_py
+      - state
+      - done_when_js
+      - done_when_py
       - fail_when_js
       - fail_when_py
       
-  # Status values
-  statuses:
-    - pending
-    - active
-    - complete
-    - failed
+  # Stored: what happened. Computed: what is possible.
+  events: [given, done, failed, cancelled, reopened]
+  states: [pending, active, done, failed]   # computed at read time, never stored
+  accepts:   # read, never written
+    - "complete_when and research_complete_when are read as done_when"
+    - "status: complete becomes a done event; status: failed a failed event"
+    - "status: pending or active is dropped; state is recomputed"
     
   # Priority values
   priorities:
@@ -54,9 +56,9 @@ card:
   # Compilation events this primitive can trigger
   compile_events:
     - type: COMPILE_EXPRESSION
-      field: complete_when
-      target_js: complete_when_js
-      target_py: complete_when_py
+      field: done_when
+      target_js: done_when_js
+      target_py: done_when_py
       expected_type: boolean
       
     - type: COMPILE_EXPRESSION
@@ -74,7 +76,11 @@ card:
   contained_by: adventure
   can_contain: goal  # nested goals
   
+  inherited_by: task   # a goal plus an owner and claiming
+
   related:
+    - task
+    - action-queue
     - adventure
     - hero-story
     - needs

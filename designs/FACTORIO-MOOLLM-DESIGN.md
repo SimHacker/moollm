@@ -18,7 +18,7 @@ The core translation table. Factorio concepts on the left become MOOLLM abstract
 | Assembler | LLM node | Cloud Function / Model endpoint, Looker, Thinker |
 | Recipe | [Skill](../skills/INDEX.yml) | Processing logic |
 | Blueprint | [Skill template](../skills/bootstrap/templates/) | DevOps/GitOps Scripts and GitHub Actions |
-| Logistics network | [Carrier pigeons](gastown/BEAD-ORCHESTRATION.yml) | Async Pub/Sub |
+| Logistics network | [Postal, data-flow](gastown/TASK-ORCHESTRATION.yml) | Async Pub/Sub |
 | Circuit network | Metrics / signals | PDA / Concept Viewer / Grafana |
 | Research lab | [Play-Learn-Lift](../skills/play-learn-lift/) | **PDA chat** — query and analyze the factory and data |
 | Science packs | Refined insights | SQL results, aggregated analytics, alerts, reports |

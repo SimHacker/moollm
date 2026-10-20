@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [play-learn-lift, scratchpad, plan-then-execute, action-queue, sister-script, debugging, session-log]
+related: [play-learn-lift, scratchpad, plan-then-execute, action-queue, sister-script, debugging, session-log, task, workflow]
 tags: [moollm, decomposition, tracking, tasks, strategy]
 ---
 

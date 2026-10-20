@@ -7,7 +7,7 @@ allowed-tools:
   - list_dir
 tier: 1
 protocol: ADVERTISEMENT
-related: [card, object, society-of-mind, room, action-queue, coherence-engine, needs]
+related: [card, object, society-of-mind, room, action-queue, coherence-engine, needs, task]
 tags: [moollm, game, interaction, sims, behavior, autonomy]
 ---
 

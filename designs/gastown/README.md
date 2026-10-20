@@ -1,252 +1,63 @@
-# Gas Town Analysis: A Critical Examination
+# Gas Town, as a foil
 
-> *"I've never seen the code, and I never care to."*  
-> — Steve Yegge, creator of Gas Town and Beads
+> *"It's also 100% vibe coded. I've never seen the code, and I never care to."*
+> — Steve Yegge, [Welcome to Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04), January 2026
 
-**Status:** Complete  
-**Date:** January 2026  
-**Authors:** Don Hopkins, with Claude
+I've read Steve Yegge for twenty years. "Execution in the Kingdom of Nouns", "Lisp is Not an
+Acceptable Lisp", the Google Platforms Rant, "Code's Worst Enemy": those posts taught a lot of
+us to think about language and platform design out loud, with jokes, in public. I still send
+people to them.
 
----
+Gas Town is silly, and the crypto episode around it is sad. It also got a lot of attention it
+didn't earn, which makes it useful to me: it's a well-known system that made the opposite
+choice at almost every fork where MOOLLM had to choose. Explaining why MOOLLM is built the way
+it is goes faster with a concrete opposite to point at.
 
-## What This Directory Contains
+## Files
 
-A thorough analysis of Steve Yegge's Gas Town project, comparing it with MOOLLM's approach to multi-agent orchestration. These documents emerged from a deep-dive into the Gas Town codebase (`gastown/internal/`) and Steve's public writings.
+| File | What it is |
+|---|---|
+| [GASTOWN-VS-MOOLLM-ANALYSIS.md](GASTOWN-VS-MOOLLM-ANALYSIS.md) | The comparison. Philosophy first, then what Gas Town gets right, what its code shows, and where MOOLLM is weaker. |
+| [BEFORE-AND-AFTER-2026-10.md](BEFORE-AND-AFTER-2026-10.md) | Gas Town from January to October 2026: growth, the freeze, Gas City, Wheelhouse, overfencing, fuel. |
+| [YEGGE-ARC-ANALYSIS.md](YEGGE-ARC-ANALYSIS.md) | The Steve I learned from, the Gas Town posts, and the $GAS token, with sources. |
+| [CONSTRUCTIONIST-TERMINOLOGY.md](CONSTRUCTIONIST-TERMINOLOGY.md) | The vocabulary decision: task, workflow, action, goal, owner, and why not bead, molecule, hook, polecat. |
+| [TASK-ORCHESTRATION.yml](TASK-ORCHESTRATION.yml) | How tasks move between MOOLLM's existing skills: queues, stacks, mail, pipelines, board views. |
+| [TASKS-2026-01.md](TASKS-2026-01.md) | The January 2026 MOOLLM backlog, kept as a record. An example of the markdown-ledger form of the task skill. |
 
-| Document | Purpose |
-|----------|---------|
-| [GASTOWN-VS-MOOLLM-ANALYSIS.md](GASTOWN-VS-MOOLLM-ANALYSIS.md) | Detailed technical comparison |
-| [YEGGE-ARC-ANALYSIS.md](YEGGE-ARC-ANALYSIS.md) | Steve's trajectory from Sourcegraph to shitcoin |
-| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Why internal simulation beats external IPC (merged to top-level, includes Gas Town critique) |
-| [MOOLLM-TASK-TRACKING-DESIGN.md](MOOLLM-TASK-TRACKING-DESIGN.md) | Why "bead" is the wrong abstraction |
-| [CONSTRUCTIONIST-TERMINOLOGY.md](CONSTRUCTIONIST-TERMINOLOGY.md) | Better vocabulary from Minsky, Papert, Kay, Wright |
-| [BEADS-2026-01.md](BEADS-2026-01.md) | Initial research on the bead concept |
-| [BEAD-ORCHESTRATION.yml](BEAD-ORCHESTRATION.yml) | YAML Jazz exploration of messaging |
-| [GASTOWN-HN-POST.txt](GASTOWN-HN-POST.txt) | Draft HN response |
+What came out of this directory as working code:
 
----
+- [skills/task/](../../skills/task/) — durable work items with guards. Events stored, state computed.
+- [skills/workflow/](../../skills/workflow/) — reusable procedures that spawn tasks.
 
-## Gastowning (v.)
+Both READMEs say what they took from Beads and Gas Town and where they part ways.
 
-**Gastowning**: gaslighting the model and humans at once, in the style of Gas Town — telling
-both that novel cosplay vocabulary is knowledge and that never reading the generated code is
-engineering. It works the way shouting louder at someone who does not speak your language works.
+Related elsewhere: [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md)
+(one context simulating many agents, versus many processes passing messages) and
+[HUMANSPLAINING.md](../object-system/HUMANSPLAINING.md) (why invented vocabulary costs tokens on
+every call).
 
-Coined in an HN comment (Don Hopkins, 2 Aug 2026, the "Cursor removed cost information" thread)
-that linked to this directory. Archived verbatim:
+## Two words
+
+**Gastowning** (v.): gaslighting the model and the humans at once, in the style of Gas Town:
+telling both that invented cosplay vocabulary is knowledge and that never reading the generated
+code is engineering.
+
+**Tokenmaxing** (v.): burning tokens because the burn is the signal. Rolling coal in a
+datacenter. A thirty-agent tmux swarm is Veblen's gold-plated faucet: it doesn't move more
+water, it shows what the owner can afford to waste.
+
+I coined both in an HN comment on 2 Aug 2026, archived verbatim in
 [2026-08-02-hn-humansplaining-gastowning.yml](../../skills/no-ai-humansplaining/examples/2026-08-02-hn-humansplaining-gastowning.yml).
-
-Yes, this repo's own rule is *never invent jargon the model has not seen* — and this coinage is
-the exception that explains itself. The license test for a new word is: does it decompress on
-sight, with zero explanation tokens? "Gastowning" passes because both parents are latent:
-**gaslighting** (decades of usage) × **Gas Town** (Yegge's project, plus the Mad Max location it
-cosplays). The word is latent-space arithmetic, the word2vec move — like
-*mansplaining − man + human = humansplaining*, so *gaslighting × Gas Town = gastowning*. Spell
-it once (this file), then it works as a pointer. Contrast "bead", "polecat", "GUPP", "MEOW":
-opaque handles with no vector to anywhere, which must be humansplained in every prompt, forever.
-
-The full theory of that distinction: [HUMANSPLAINING](../object-system/HUMANSPLAINING.md).
-
-## Tokenmaxing (v.)
-
-**Tokenmaxing**: burning tokens not because the work needs them but because the burn is the
-signal. Rolling coal in a datacenter — the black smoke is not exhaust from work getting done;
-the smoke is the product. Twenty subprocess agents idling at a red light so everyone can hear
-the engine.
-
-Veblen named the genus a century ago: conspicuous consumption. A thirty-agent tmux swarm is a
-gold-plated faucet — it does not move more water, it announces what the owner can afford to
-waste. The August 2026 harness benchmarks put a number on it: the same ten tasks, the same
-model, done for one thirtieth the tokens by a near-empty harness. That gap is the difference
-between engineering and decorating.
-
-Same coinage license as gastowning: the "-maxing" suffix is latent (minmaxing, looksmaxing),
-and Veblen and rolling coal are prepaid. Decompresses on sight; spelled once here; a pointer
-ever after. Coined in the same HN comment as gastowning (archived link above).
-
----
-
-## Executive Summary
-
-**Gas Town is wrong.** Not "optimized for different use cases" — just wrong.
-
-### The Problems
-
-1. **Invented terminology hostile to LLMs**
-   - "bead", "polecat", "wisp", "GUPP", "MEOW"
-   - Near-zero training data presence
-   - Every use costs tokens explaining
-
-2. **Shell-out architecture that wastes resources**
-   - Go code spawns Python CLI to read JSONL from disk
-   - Three language hops to read a file
-   - "Abundant tokens" is not a feature, it's waste
-
-3. **"Never look at the code" cowardice**
-   - 225k lines of Go for an issue tracker
-   - Creator has never read it
-   - Can't dogfood what you won't examine
-
-4. **Unfalsifiable gatekeeping**
-   - "You're not Stage 7 yet"
-   - Every criticism deflected onto the user
-   - No metrics, no receipts, no accountability
-
-5. **Crypto pump-and-dump ethics**
-   - Promoted $GAS memecoin
-   - Collected $238k+ in fees
-   - Token collapsed 97%
-   - "It's not a rug pull" is not a defense
-
-### The ONE Useful Insight
-
-Work should persist in git.
-
-That's it. That's the insight. You could implement it with `gh issue` in 4 lines:
-
-```bash
-gh issue create --title "Task" --label "moollm"
-gh issue edit 123 --milestone "Sprint-1"
-gh issue edit 123 --assignee @worker
-gh issue close 123 --comment "Done"
-```
-
-Instead, Gas Town has 225k lines of unread Go.
-
----
-
-## On Steve Yegge
-
-I've followed Steve's writing for decades. His rants on Lisp, Emacs, and software development shaped how I think about programming. "Execution in the Kingdom of Nouns" is a classic. The Google Platform Rant changed how the industry thinks about APIs.
-
-That Steve — the one who thought carefully about language design, who wrote clearly about complex ideas, who held himself to intellectual standards — deserves respect.
-
-But that Steve seems to be gone.
-
-### The Arc
-
-| Period | Role | What Happened |
-|--------|------|---------------|
-| 2006-2022 | Engineer at Google/Amazon | Influential blog posts, real systems |
-| 2022-2024 | Head of Engineering, Sourcegraph | Led Cody AI development |
-| 2024 | IC at Sourcegraph | Stepped down from leadership |
-| 2025 | Left Sourcegraph | "Swinging big" |
-| 2025-2026 | Solo developer | 225k unread lines, vibe-coded slop |
-| 2026 | Crypto promoter | $GAS pump-and-dump |
-
-The trajectory is concerning: declining institutional accountability, declining technical rigor, declining ethical standards.
-
-### The Crypto Situation
-
-From Sean Goedecke's analysis:
-
-> "$GAS has no connection to Gas Town functionality. Buying the token provides no additional capabilities — it merely siphons money to Yegge while enriching early coin holders."
-
-Steve knew what BAGS was — he wrote a Medium post explaining the mechanism. Then promoted anyway. The token collapsed 97%.
-
-This isn't tangential to evaluating Gas Town. When someone promotes worthless tokens to their audience and profits from the dump, their technical recommendations deserve extra scrutiny.
-
----
-
-## MOOLLM's Alternative
-
-### Intellectual Foundations
-
-MOOLLM builds on 60+ years of proven patterns:
-
-| Foundation | Source | Training Presence |
-|------------|--------|-------------------|
-| Prototype delegation | Self (Ungar & Smith) | Deep → became JavaScript |
-| Rooms and objects | LambdaMOO, Zork, MUDs | Deep |
-| Advertisement coordination | The Sims (Will Wright) | Deep — $5B+ franchise |
-| K-lines and activation | Minsky's Society of Mind | Foundational |
-| YAML with comments | Kubernetes, CI/CD | Ubiquitous |
-
-### Architecture Difference
-
-| Aspect | Gas Town | MOOLLM |
-|--------|----------|--------|
-| Multi-agent | External processes, IPC overhead | Speed-of-light: many agents, one LLM call |
-| Persistence | Custom JSONL, shell-outs | Git + YAML files (or GitHub Issues) |
-| Vocabulary | Invented jargon | Constructionist tradition |
-| Code review | "Never look at it" | Every line reviewed |
-| Accountability | "You're not ready" | Rubrics, metrics, receipts |
-
-### Vocabulary
-
-Instead of invented terms, use vocabulary LLMs know:
-
-| Gas Town | Better Term | Source |
-|----------|-------------|--------|
-| bead | **issue** | GitHub |
-| molecule | **workflow** | GitHub Actions |
-| convoy | **milestone** | GitHub |
-| hook | **assignee** | GitHub |
-| polecat | **worker** | English |
-| GUPP | *delete* | — |
-
-Or use constructionist terms: **action** (Sims), **goal** (Minsky), **procedure** (Papert), **slot** (Self).
-
----
-
-## The Car Park Capital Parallel
-
-There's a satirical indie game called [Car Park Capital](https://store.steampowered.com/app/2507670/Car_Park_Capital/) that perfectly captures what Gas Town represents:
-
-> "You've been hired by Big Auto to unleash the Freedom of Car Dependency on unsuspecting townsfolk! Spread glossy pro-car propaganda, outsmart those pesky anti-petrol protesters, and transform quiet neighborhoods into your parking empire!"
-
-| Car Park Capital (Satirical) | Gas Town (Unironic) |
-|------------------------------|---------------------|
-| "Unleash the Freedom of Car Dependency" | "Unleash abundant token usage" |
-| "Spread pro-car propaganda" | "Stage 8 developer" gatekeeping |
-| "Outsmart anti-petrol protesters" | Dismiss critics as "not ready" |
-| "Drill for oil" | Mine crypto ($GAS) |
-
-**The critical difference:** Car Park Capital knows it's satire. Gas Town has zero self-awareness.
-
-Steve Yegge is the "carbrain" NPC that Car Park Capital satirizes — the guy who thinks the solution to traffic is always more lanes, more parking, more cars.
-
----
-
-## Conclusions
-
-1. **Gas Town's architecture is wrong.** Shell-outs, invented vocabulary, and unread code are not features.
-
-2. **The "abundant tokens" claim is a lie.** Parallelism multiplies costs. Efficient parallelism requires efficiency, not abundance.
-
-3. **"Never look at the code" is cowardice.** You can't dogfood what you won't examine.
-
-4. **The vocabulary is hostile to LLMs.** Use GitHub terms or constructionist vocabulary — anything with actual training data presence.
-
-5. **The crypto situation reveals judgment.** When someone promotes tokens to their audience and profits from the collapse, their technical recommendations deserve scrutiny.
-
-6. **The ONE useful insight is trivial.** "Work persists in git" could be implemented with `gh issue` in 4 lines.
-
----
-
-## What MOOLLM Takes From This
-
-- **Nothing from Gas Town's implementation.** It's vibe-coded slop.
-- **The obvious insight about persistence.** Which we already had.
-- **A lesson about accountability.** MOOLLM provides rubrics, metrics, and receipts.
-- **A vocabulary analysis.** Use terms that LLMs know.
-
----
-
-## A Note on Respect
-
-Steve Yegge's early work deserves respect. His rants shaped a generation of programmers. The ideas about the Eval Empire, about language design, about platforms — these were real contributions.
-
-Respecting someone's past work doesn't mean accepting their current work uncritically. It means holding them to the standards they once demonstrated they could meet.
-
-Gas Town doesn't meet those standards. The crypto situation violates them entirely.
-
-The Steve who wrote about Lisp and Emacs would be embarrassed by the Steve who promotes memecoins and 225k lines of unread Go.
-
----
-
-## See Also
-
-- [Gas Town GitHub](https://github.com/steveyegge/gastown)
-- [Sean Goedecke: "Crypto grifters are recruiting open-source AI developers"](https://www.seangoedecke.com/gas-and-ralph/)
-- [HN Discussion: "Welcome to Gas Town"](https://news.ycombinator.com/item?id=46458936)
+That looks like breaking MOOLLM's own rule against inventing jargon, so here's the test a new
+word has to pass: does it decompress on sight with no explanation? Both parents of "gastowning"
+are already in the training data (gaslighting, Gas Town), and so are the parts of
+"tokenmaxing" (the -maxing suffix, Veblen, rolling coal). "Bead", "polecat", "GUPP" and "MEOW"
+point at nothing the model already knows, so they need explaining in every prompt, every time.
+
+## Sources
+
+- Steve Yegge, [Welcome to Gas Town](https://steve-yegge.medium.com/welcome-to-gas-town-4f25ee16dd04) (Medium, 1 Jan 2026); [HN discussion](https://news.ycombinator.com/item?id=46458936)
+- Maggie Appleton, [Gas Town's Agent Patterns, Design Bottlenecks, and Vibecoding at Scale](https://maggieappleton.com/gastown); [HN discussion](https://news.ycombinator.com/item?id=46734302), where I posted an early, friendlier version of this comparison
+- Sean Goedecke, [Crypto grifters are recruiting open-source AI developers](https://www.seangoedecke.com/gas-and-ralph/) (17 Jan 2026)
+- Solana Floor, [Solana AI Meta Collapses](https://solanafloor.com/news/solana-ai-meta-collapses)
+- Source code: [steveyegge/gastown](https://github.com/steveyegge/gastown), read at `d4126bb8` (24 Jan 2026) and `649b832b` (23 Jul 2026)

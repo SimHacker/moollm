@@ -81,6 +81,8 @@ composes_with:
   no-ai-slop:           "Ambient hygiene on brewing text"
   postel:               "Accept messy input in Phase 1, emit clean output in Phase 2"
   robust-first:         "Executors degrade gracefully, not silently"
+  task:                 "Each playbook is a task; its guard is done_when, its requires are the tree edges"
+  workflow:             "A brew is the one-off case; when the same brew recurs, lift it into a workflow"
 
 cost_model: |
   Four-model pipeline (switch at phase boundaries — see protocols/MODEL-ROUTING.yml):
@@ -109,5 +111,5 @@ exemplary_use:
   sharded:  "docs/configuration/ (12 topical files + 13 playbooks + META-PLAN.md)"
   note: "The trekified teaching copy ships in skills/cauldron/examples/configuration-flags/"
 
-related: [trekify, thoughtful-commitment, cursor-mirror, empathic-templates, k-lines, bootstrap, skill-snitch, prototype, object]
+related: [trekify, thoughtful-commitment, cursor-mirror, empathic-templates, k-lines, bootstrap, skill-snitch, prototype, object, task, workflow]
 tier: 2

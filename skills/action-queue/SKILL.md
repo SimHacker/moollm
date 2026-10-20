@@ -1,14 +1,14 @@
 ---
 name: action-queue
-description: Sims-inspired task scheduling — queue actions, execute in order
+description: Sims-inspired action scheduling — queue actions, execute in order. Actions are minutes long and belong to one worker; durable claimed work is a task, which pushes its steps here.
 allowed-tools:
   - read_file
   - write_file
   - list_dir
 tier: 1
 protocol: ACTION-QUEUE
-related: [simulation, character, return-stack, advertisement, room, speed-of-light, needs]
-tags: [moollm, planning, tasks, sims, game, scheduling]
+related: [simulation, character, return-stack, advertisement, room, speed-of-light, needs, task]
+tags: [moollm, planning, actions, sims, game, scheduling]
 ---
 
 # Action Queue
@@ -19,7 +19,7 @@ tags: [moollm, planning, tasks, sims, game, scheduling]
 
 ## What Is It?
 
-**Action Queue** is The Sims-inspired task scheduling: instead of doing one thing at a time, you **queue up a sequence of actions** that execute in order.
+**Action Queue** is The Sims-inspired action scheduling: instead of doing one thing at a time, you **queue up a sequence of actions** that execute in order.
 
 While [return-stack](../return-stack/) tracks *where you've been*, action-queue tracks *what you're going to do*.
 

@@ -1251,3 +1251,62 @@ buffs:
     visual: "Lamp glows with inner warmth"
     source: "Fantastipants family heirloom"
     stacks: false
+
+  # TASK STATUS EFFECTS
+  # Hosted on task files (skills/task). They replace stored status flags and
+  # supervisor patrols: the task itself carries the clock and the ad for help.
+
+  stale:
+    name: "Stale"
+    emoji: "🕸️"
+    host: task
+    applies: "No history event for 7 days while claimed or ready"
+    effect: { score: -10 }
+    advertises: { to: owner, ad: "CHECK-ON-ME" }
+    expires: { when: "any new history event" }
+    tags: [task, status]
+    stacks: false
+
+  waiting-on:
+    name: "Waiting On"
+    emoji: "⏳"
+    host: task
+    applies: "Owner declares an external wait: a review, a vendor, a person"
+    effect: "Hidden from WHATS-NEXT for everyone but the owner"
+    expires: { when: "the named condition passes", after: "14 days" }
+    spawns_after: stale
+    tags: [task, status]
+    stacks: true
+    # One per thing being waited on. Each names what it waits for.
+
+  deadline:
+    name: "Deadline"
+    emoji: "📅"
+    host: task
+    applies: "A date matters"
+    tick: "score rises as the date approaches"
+    expires: { when: "task done, or the date passes" }
+    spawns_after: overdue
+    tags: [task, status]
+    stacks: false
+
+  overdue:
+    name: "Overdue"
+    emoji: "🚨"
+    host: task
+    applies: "Spawned when a deadline passes with the task not done"
+    effect: { score: +30 }
+    advertises: { to: [owner, board viewers], ad: "RENEGOTIATE-OR-FINISH" }
+    expires: { when: "task done, cancelled, or a new deadline set" }
+    tags: [task, status]
+    stacks: false
+
+  flaky-guard:
+    name: "Flaky Guard"
+    emoji: "🎲"
+    host: task
+    applies: "A guard failed for a reason unrelated to the work: network, timeout, wrong cwd"
+    advertises: { to: anyone, ad: "FIX-THE-GUARD" }
+    expires: { when: "the guard passes twice in a row" }
+    tags: [task, guard]
+    stacks: false

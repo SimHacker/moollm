@@ -6,7 +6,7 @@ tier: 1
 allowed-tools:
   - read_file
   - write_file
-related: [room, adventure, character, memory-palace, action-queue, card, session-log, prototype, debugging]
+related: [room, adventure, character, memory-palace, action-queue, card, session-log, prototype, debugging, task]
 tags: [moollm, navigation, history, breadcrumbs, continuations, deoptimization, introspection]
 ---
 

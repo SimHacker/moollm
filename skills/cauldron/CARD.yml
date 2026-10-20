@@ -261,6 +261,12 @@ composes_with:
   robust-first:
     role: "Executors degrade gracefully — stop and escalate, don't silently skip"
     when: "Phase 2 — every playbook step gate"
+  task:
+    role: "A playbook is a task: done_when is its guard, requires are its tree edges, COMPLETED.yml is a task ledger"
+    when: "LADLE onward; task FRONTIER and BOARD read the same frontmatter"
+  workflow:
+    role: "When the same brew recurs, lift its phases into a workflow so the next one is INSTANTIATE, not MELT"
+    when: "After SERVE, if this is the third brew of the same shape"
 
 # The two-phase dance
 

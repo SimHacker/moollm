@@ -1,0 +1,200 @@
+# CARD.yml — Task
+#
+# Durable work with a guard. Claim it, do it, prove it.
+# Store what happened; compute what is possible.
+
+card:
+  id: task
+  name: "Task"
+  inherits:
+    - ref: skills/goal
+      why: "a task is a goal someone has claimed. done_when, fail_when, requires, priority, children and compile events come from goal; owner, judge, claim/release and the action-queue hand-off are task's own"
+  type: [skill, tracking, essential]
+  emoji: ✅
+  rarity: common
+
+  description: |
+    A task is a unit of durable work: it outlives the session that opened it,
+    it can be claimed by a human, an LLM character, or a tool, and it carries
+    its own definition of done as a guard you can run. Ready, blocked, stale
+    and urgent are never typed in by hand; they are computed from guards and
+    from buffs hosted on the task.
+
+tools:
+  required: [read_file, write_file]
+  optional: [run_terminal_cmd, grep]   # guards are usually commands; gh for SYNC
+
+tier: 1
+
+# SCHEMA
+
+schema:
+  required:
+    id: "prefix-as-owner, big-endian: moollm-042, leela-flags-PB-04"
+    title: "Short imperative"
+    done_when: |
+      The guard. Either a shell command (exit 0 == done) or prose. Prose
+      done_when requires a named judge in `judge:` (human, evaluator, rubric).
+  optional:
+    why: "One or two lines of reasoning. YAML comments carry the rest."
+    requires: "[{task: id, verify: cmd}] — edges in the dependency graph"
+    unlocks: "[{task|doc|feature: ..., why: ...}] — what landing this hands over"
+    priority: "low | normal | high | urgent — an input to scoring, not a queue position"
+    owner: "who claimed it: character, agent, human, executor session"
+    judge: "who may certify prose done_when"
+    source: "where it came from: chat, doc section, issue, run file"
+    links: "{github: org/repo#N, playbook: path, workflow: instance-path, session: cursor-mirror id}"
+    parent: "task this was SPLIT from"
+    history: "append-only event list: {at, event, by, note}"
+    fail_when: "inherited from goal: when the work becomes pointless"
+  computed:
+    state: "done | ready | blocked | failed | cancelled — from history + guards, at read time"
+    first_failing_guard: "for blocked tasks: the real next step"
+    score: "advertisement score for a given worker"
+    done_when_js: "compiled by goal's compile events"
+    done_when_py: "compiled by goal's compile events"
+
+events:
+  stored: [opened, claimed, released, done, failed, cancelled, reopened, split]
+  # goal's `given` is a task's `opened`; the rest are goal's events plus claim, release, split
+  never_stored: [ready, blocked, stale, urgent, in_progress_for_too_long]
+  postel_input_mapping:
+    "pending|open|todo|backlog": opened
+    "in_progress|in-progress|doing|active|hooked": claimed
+    "done|closed|complete|finished": done
+    "complete_when|research_complete_when": done_when
+    "blocked": "accepted on input; converted to a requires edge or a waiting-on buff with a reason"
+    "cancelled|wontfix|abandoned": cancelled
+
+# METHODS
+
+methods:
+  OPEN:
+    description: "Create a task"
+    parameters: {title: required, done_when: required, requires: optional, priority: optional, where: "file | ledger | playbook | issue"}
+    output: file + chat
+    effect: "Write the task with history [{event: opened}]; refuse without a done_when, or record done_when: prose plus judge"
+    invoked-by: [player, llm, workflow, cauldron]
+
+  CLAIM:
+    description: "Take ownership"
+    parameters: {id: required, owner: required}
+    effect: "Append claimed; seed the owner's action-queue with the first concrete action"
+    invoked-by: [player, character, executor]
+
+  RELEASE:
+    description: "Give it back without finishing"
+    parameters: {id: required, note: "what was learned — required"}
+    effect: "Append released with the note; the next claimant reads it first"
+
+  CHECK:
+    description: "Run the guards and report"
+    parameters: {id: required}
+    output: chat
+    effect: "SCRY: run requires[].verify and done_when; report done/ready/blocked and the first failing guard"
+    note: "A guard failing for an uninteresting reason (wrong cwd, missing dep) is a tooling bug; fix the guard"
+
+  CLOSE:
+    description: "Mark done, with proof"
+    parameters: {id: required, evidence: "commit sha, PR, run file, judge verdict"}
+    effect: "Run done_when; on pass append done with evidence; re-run FRONTIER and name what is now unlocked"
+    refuses: "Closing a prose task without its judge's verdict"
+
+  CANCEL:
+    description: "Stop pursuing it"
+    parameters: {id: required, why: required}
+    effect: "Append cancelled with reason; the file stays — walk-backs are kept"
+
+  SPLIT:
+    description: "Decompose into child tasks"
+    parameters: {id: required, children: "list of {title, done_when}"}
+    effect: "Open children with parent: id; parent's done_when becomes 'all children done' unless it already says more"
+
+  FRONTIER:
+    description: "What can be worked on now"
+    parameters: {board: "directory, ledger, or cauldron playbooks/"}
+    output: chat
+    effect: "Partition into DONE / READY / BLOCKED by running guards; for each BLOCKED, the first failing guard"
+    delegates_to: "cauldron TREE FRONTIER when the board is a cauldron tree"
+
+  BOARD:
+    description: "Render a view"
+    parameters: {board: required, view: "list | kanban | dag | by-owner"}
+    output: chat
+    effect: "Projection only. Never written back as state."
+
+  HANDOFF:
+    description: "Send a task to someone"
+    parameters: {id: required, to: required, note: optional}
+    effect: "postal SEND of a letter whose payload is the task reference; append released (from) on delivery"
+
+  SYNC:
+    description: "Mirror to or from a GitHub issue"
+    parameters: {id: required, direction: "push | pull"}
+    effect: "gh issue create/edit/close; the issue number lands in links.github"
+
+# BUFFS HOSTED ON TASKS
+# Library entries: skills/buff/buffs/INDEX.yml (task section)
+
+task_buffs:
+  # Full definitions, including overdue: skills/buff/buffs/INDEX.yml under TASK STATUS EFFECTS
+  stale:
+    applies: "no history event for N days while claimed or ready (default 7)"
+    advertises: {to: owner, ad: "CHECK-ON-ME", also: "board viewers"}
+    expires: {when: "any new history event"}
+  waiting-on:
+    applies: "owner declares an external wait (review, vendor, person)"
+    expires: {when: "the named condition", or: "after N days, then spawns stale"}
+  deadline:
+    applies: "a date matters"
+    tick: "score rises as the date approaches"
+    expires: {when: "done or date passed", spawns_after: overdue}
+  flaky-guard:
+    applies: "a guard failed for an uninteresting reason"
+    advertises: {to: anyone, ad: "FIX-THE-GUARD"}
+
+# ADVERTISEMENTS
+
+advertisements:
+  WORK-ON-ME:
+    score: "priority × fit(worker) × freshness; claimed task scores highest for its owner"
+    condition: "state == ready"
+  TRACK-THIS:
+    score: 85
+    condition: "Work is mentioned that will outlive this session"
+  WHATS-NEXT:
+    score: 90
+    condition: "Someone asks what to do next on a board"
+
+state:
+  board_layouts:
+    files: "tasks/<id>-<slug>.yml, one per task"
+    ledger: "one markdown file with a fenced YAML block per task (small backlogs)"
+    playbooks: "cauldron playbooks/PB-NN-*.md frontmatter; completions in playbooks/COMPLETED.yml"
+    issues: "GitHub issues via SYNC"
+
+composes_with:
+  goal: "parent: the task inherits done_when, fail_when, requires, children and compile events"
+  cauldron: "playbooks are tasks; TREE/FRONTIER/UNLOCK are the graph protocols"
+  workflow: "INSTANTIATE spawns tasks; RETRO reads their histories"
+  action-queue: "CLAIM seeds actions; actions are minutes, tasks are days"
+  buff: "status effects live on the task host and advertise"
+  advertisement: "ready tasks bid for workers"
+  return-stack: "interrupt: PUSH current task, URGENT the new one, POP when done"
+  postal: "HANDOFF"
+  github: "SYNC"
+  thoughtful-commitment: "commit messages cite task ids; CLOSE takes the sha"
+  evaluator: "independent judge for prose done_when"
+  rubric: "scored judge for prose done_when"
+  scratchpad: "work too small to track; do not open tasks for it"
+  speed-of-light: "simulate several workers taking tasks in one call"
+  session-log: "history is append-only, same discipline"
+  yaml-jazz: "comments carry the reasoning a JSON row drops"
+
+related: [goal, cauldron, workflow, action-queue, buff, advertisement, planning, return-stack, postal, github]
+
+credits:
+  - "The Sims action queue and advertisements — Will Wright, Jamie Doornbos"
+  - "Tech trees and the store-vs-derive rule — designs/TECH-TREE.md"
+  - "Issue trackers since Bugzilla; GitHub Issues for the vocabulary"
+  - "Steve Yegge's Beads and Gas Town for showing agent work state belongs in git and must survive session death; see README.md for where we part ways"

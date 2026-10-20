@@ -1,0 +1,40 @@
+# GLANCE.yml — workflow
+# Full file: CARD.yml | SKILL.md | README.md (lineage, Gas Town molecules and formulas)
+# 🔁 "Do it by hand three times. Then lift it."
+
+what: |
+  A workflow is a reusable procedure: a prototype of steps with edges, actors,
+  guards and gates. INSTANTIATE clones it into a directory and spawns tasks.
+  The tasks carry the state; the workflow carries the shape.
+
+already_here: |
+  MOOLLM has been full of workflows without the word: cauldron (MELT→…→SERVE),
+  plan-then-execute (gate), play-learn-lift (three phases), thoughtful-commitment,
+  experiment runs, adversarial-committee sessions. This skill names the shared
+  shape so new ones can be written, cloned, and improved the same way.
+
+step_fields: [id, does, actor, requires, verify, gate, fan_out, model, on_fail]
+actors: "tool | skill:<id> | llm | human — cauldron's three delegation tiers, plus people"
+
+when:
+  - '"We keep doing this the same way" → LIFT'
+  - '"Write down how we release / review / onboard" → DEFINE'
+  - '"Run the release workflow for 2.3" → INSTANTIATE'
+  - '"Where is this run at?" → STATUS (task FRONTIER over the instance)'
+  - '"Skip step 4 this time" → AMEND (instance only, reason kept)'
+  - '"That went badly, fix the procedure" → RETRO'
+  - '"Nobody runs this until I approve it" → FREEZE'
+
+methods: [DEFINE, LIFT, INSTANTIATE, STATUS, AMEND, RETRO, FREEZE]
+
+composes:
+  task:            "instances spawn tasks; STATUS is FRONTIER"
+  cauldron:        "the largest workflow in MOOLLM; its playbooks are the step tasks"
+  play-learn-lift: "LIFT is the LIFT phase applied to task histories"
+  plan-then-execute: "FREEZE + gate: approval"
+  prototype:       "workflows inherit from workflows by delegation (parent:)"
+  speed-of-light:  "fan_out legs that share context run as simulated workers in one call"
+  adversarial-committee: "an aspect fan_out is a committee"
+  action-queue:    "a claimed step task becomes actions"
+
+tier: 1

@@ -71,14 +71,13 @@ is scored by the same advertise → score → act auction the pieces already run
 
 ```yaml
 # tech/AUTOMATION-2.yml
-node:
-  id: automation-2
-  requires: [automation-1, electronics-1]      # guard over the graph
-  research_complete_when: "have(science-pack-2, 40)"
-  unlocks:
-    - objects/ASSEMBLING-MACHINE-2.yml         # a craftable, with its own card
-    - buffs/FAST-INSERTER-SPEED.yml            # a modifier, permanent host = player
-    - abilities/BLUEPRINT-PASTE.yml            # a verb, joins the pie menu
+id: automation-2
+requires: [automation-1, electronics-1]      # guard over the graph
+done_when: "have(science-pack-2, 40)"        # research is done when this holds
+unlocks:
+  - objects/ASSEMBLING-MACHINE-2.yml         # a craftable, with its own card
+  - buffs/FAST-INSERTER-SPEED.yml            # a modifier, permanent host = player
+  - abilities/BLUEPRINT-PASTE.yml            # a verb, joins the pie menu
 ```
 
 Everything under `unlocks:` is a path to a prototype. The reward for research
@@ -132,7 +131,7 @@ unlocks:
   - { doc: 07-rollout.md,     why: "rollout strategy only makes sense once resolution lands" }
   - { node: PB-07,            why: "per-tenant overrides need the registry" }
   - { feature: "flags in the admin UI" }
-research_complete_when: "pytest tests/flags/ -q && rg -q 'FLAG_SCHEMA_VERSION = 3' src/flags/schema.py"
+done_when: "pytest tests/flags/ -q && rg -q 'FLAG_SCHEMA_VERSION = 3' src/flags/schema.py"
 ```
 
 The frontier becomes executable. An arriving executor does not read a status

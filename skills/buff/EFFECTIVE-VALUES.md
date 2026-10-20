@@ -226,7 +226,7 @@ object:
     # Early tick: damage_effective is already reset to damage
     
     # Environment effects
-    if world.room.is_dark:
+    if world.room.lighting <= 2:
       glow_effective += 2  # Glows brighter in dark
       
     # Self-modification based on charge

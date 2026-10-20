@@ -54,21 +54,21 @@ The **[eval/](./eval/)** subdirectory contains design documents for the EVAL gam
 
 ---
 
-### Gas Town Analysis (Critical)
+### Gas Town, as a foil
 
-The **[gastown/](./gastown/)** subdirectory contains a critical analysis of Steve Yegge's Gas Town project, comparing it with MOOLLM's approach:
+The **[gastown/](./gastown/)** subdirectory compares Steve Yegge's Gas Town with MOOLLM. Gas Town is the opposite design on almost every axis, which makes it useful for explaining why MOOLLM is the way it is.
 
 | Document | Description |
 |----------|-------------|
-| [gastown/README.md](./gastown/README.md) | **Start here.** Executive summary and conclusions |
-| [gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md](./gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md) | Detailed technical comparison |
-| [gastown/YEGGE-ARC-ANALYSIS.md](./gastown/YEGGE-ARC-ANALYSIS.md) | Steve's trajectory from Sourcegraph to crypto |
-| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](./SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Why internal simulation beats external IPC (includes Gas Town critique) |
-| [gastown/MOOLLM-TASK-TRACKING-DESIGN.md](./gastown/MOOLLM-TASK-TRACKING-DESIGN.md) | Why "bead" is the wrong abstraction |
-| [gastown/CONSTRUCTIONIST-TERMINOLOGY.md](./gastown/CONSTRUCTIONIST-TERMINOLOGY.md) | Better vocabulary from Minsky, Papert, Kay, Wright |
-| [gastown/BEADS-2026-01.md](./gastown/BEADS-2026-01.md) | Initial research on the bead concept |
+| [gastown/README.md](./gastown/README.md) | **Start here.** What's in the directory and why |
+| [gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md](./gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md) | Six philosophical differences, what Gas Town gets right, what the code shows |
+| [gastown/YEGGE-ARC-ANALYSIS.md](./gastown/YEGGE-ARC-ANALYSIS.md) | The Yegge posts worth reading, Gas Town, and the $GAS episode |
+| [gastown/CONSTRUCTIONIST-TERMINOLOGY.md](./gastown/CONSTRUCTIONIST-TERMINOLOGY.md) | The settled vocabulary: task, action, goal, workflow, owner |
+| [gastown/TASK-ORCHESTRATION.yml](./gastown/TASK-ORCHESTRATION.yml) | How tasks ride postal, action-queue, return-stack, data-flow; derived views |
+| [gastown/TASKS-2026-01.md](./gastown/TASKS-2026-01.md) | The January 2026 backlog, kept as a ledger-form record |
+| [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](./SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) | Why simulation in one context beats IPC between processes |
 
-> *"Gas Town is wrong. Not 'optimized for different use cases' — just wrong."*
+The vocabulary is implemented in [skills/task](../skills/task/) and [skills/workflow](../skills/workflow/).
 
 ---
 

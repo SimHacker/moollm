@@ -1,9 +1,9 @@
-# MOOLLM Skill Registry — 153 Skills
+# MOOLLM Skill Registry — 156 Skills
 # Load GLANCE.yml for fast context, CARD.yml for interface, SKILL.md for protocol
 # See INDEX.md for narrative connections
 
 version: 2
-skill_count: 154          # counted from skills/*/SKILL.md, not hand-maintained
+skill_count: 156          # counted from skills/*/SKILL.md, not hand-maintained
 last_updated: 2026-09-20
 
 # FOUNDATION — Load These First
@@ -519,6 +519,16 @@ methodology:
   - id: plan-then-execute
     tagline: "Frozen plans"
     why: "Human approval gate — security"
+
+  - id: task
+    tagline: "Done is a guard that passes, not a field someone sets"
+    why: "Durable unit of work: done_when guard, requires edges, append-only events; state computed, stuck work carries buffs that advertise for help"
+    composes_with: [cauldron, action-queue, goal, buff, advertisement, postal, return-stack, github, workflow]
+
+  - id: workflow
+    tagline: "Do it by hand three times. Then lift it."
+    why: "Reusable procedure prototype: steps with actors, guards, gates, fan_out; INSTANTIATE spawns tasks"
+    composes_with: [task, play-learn-lift, cauldron, plan-then-execute, skill-snitch, thoughtful-commitment]
     
   - id: experiment
     tagline: "Simulation + evaluation"
@@ -834,11 +844,13 @@ all_skills:
   - storytelling-tools
   - subjective
   - summarize
+  - task
   - thoughtful-commitment
   - time
   - trekify
   - vehicle
   - visualizer
+  - workflow
   - world-generation
   - worm
   - yaml-jazz

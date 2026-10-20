@@ -107,25 +107,24 @@ THE REASONING IS PRESERVED. The future-self (or LLM) knows WHY.
 
 **JavaScript:**
 ```javascript
-{ bead_id: "moollm-030", skills: ["yaml-jazz", "bead-bracelet"] }
+{ task_id: "moollm-030", skills: ["yaml-jazz", "postal"] }
 // Just references. No context. No activation.
 ```
 
 **YAML Jazz:**
 ```yaml
-bead:
+task:
   id: moollm-030
-  
-  # SKILLS THAT ACTIVATE FOR THIS BEAD
+
+  # SKILLS THAT ACTIVATE FOR THIS TASK
   skills:
-    - yaml-jazz       # Because beads ARE yaml jazz
-    - bead-bracelet   # Because this chains with others
+    - yaml-jazz       # Because task files ARE yaml jazz
+    - postal          # Because the handoff rides a letter
     - no-ai-slop      # Ambient hygiene
-    
+
   # WHY THIS MATTERS
-  # Beads are the universal message capsule.
-  # They flow through pneumatic tubes (postal system).
-  # They organize into bracelets, curtains, borgs.
+  # A task reference travels: in a letter, on a queue, on a return stack.
+  # The task file stays put and keeps its own history.
   # YAML Jazz makes them self-describing.
 ```
 

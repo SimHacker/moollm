@@ -7,7 +7,7 @@ Userland protocols over files.
 > [!TIP]
 > **New here?** Start with [constructionism/](./constructionism/) — the philosophy. Then [skill/](./skill/) — the meta-skill explaining how skills work. Then explore [room/](./room/) — it has everything!
 
-**[INDEX.md](./INDEX.md)** — Tour of all 128 skills and how they connect. **[INDEX.yml](./INDEX.yml)** — Machine-readable registry.
+**[INDEX.md](./INDEX.md)** — Tour of all 156 skills and how they connect. **[INDEX.yml](./INDEX.yml)** — Machine-readable registry.
 
 ## Eight Architectural Extensions
 
@@ -48,7 +48,7 @@ organism?*
 
 ---
 
-## Skill Index (128 skills)
+## Skill Index (156 skills)
 
 ### Philosophy & Core Concepts
 
@@ -91,6 +91,8 @@ organism?*
 | [play-learn-lift/](./play-learn-lift/) | Explore → Learn → Share wisdom |
 | [planning/](./planning/) | Flexible task decomposition |
 | [plan-then-execute/](./plan-then-execute/) | Frozen plans with human approval gates |
+| [task/](./task/) | Durable work: done is a guard that passes, state is computed |
+| [workflow/](./workflow/) | Reusable procedures lifted from work done by hand; spawn tasks |
 | [sister-script/](./sister-script/) | Document-first automation |
 | [research-notebook/](./research-notebook/) | Structured investigation with sources |
 | [debugging/](./debugging/) | Hypothesis-driven bug hunting |

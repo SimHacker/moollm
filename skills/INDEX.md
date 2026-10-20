@@ -1,6 +1,6 @@
 # MOOLLM Skill Index
 
-> Version 2 | 150 skills | Updated 2026-09-07
+> Version 2 | 156 skills | Updated 2026-10-20
 
 Every **bold term** is a k-line AND a skill directory name in `skills/`, spelled exactly. No other use of bold in this file.
 
@@ -69,7 +69,7 @@ Ontological tags: **real-being** (actually exists → hero-story required), **fi
 
 ## The Sims Pipeline
 
-**advertisement** lets objects broadcast available actions with scores. **action-queue** schedules tasks (URGENT jumps the line). **economy** manages currency and trade. **scoring** evaluates style. **reward** grants dynamic achievements. **goal** defines quest objectives with completion conditions and dependencies.
+**advertisement** lets objects broadcast available actions with scores. **action-queue** schedules actions (URGENT jumps the line). **economy** manages currency and trade. **scoring** evaluates style. **reward** grants dynamic achievements. **goal** defines quest objectives with completion conditions and dependencies.
 
 ## Groups
 
@@ -91,7 +91,7 @@ Roles: **bartender** (pour, listen, know), **budtender** (cannabis specialist wi
 
 ## Methodology
 
-**play-learn-lift**: PLAY (experiment) → LEARN (pattern) → LIFT (share). **planning** decomposes tasks flexibly. **plan-then-execute** freezes plans with human approval gate. **experiment** combines simulation + evaluation. **example-curator** evolves canonical corpus.
+**play-learn-lift**: PLAY (experiment) → LEARN (pattern) → LIFT (share). **planning** decomposes tasks flexibly. **plan-then-execute** freezes plans with human approval gate. **task** is the durable unit of work: done when its `done_when` guard passes, ready when its `requires` guards pass, never a stored status. **workflow** is a procedure lifted from work done by hand, whose INSTANTIATE spawns tasks. **experiment** combines simulation + evaluation. **example-curator** evolves canonical corpus.
 
 **code-review** analyzes correctness, style, security, maintainability. **debugging** is hypothesis-driven (bugs are treasures). **research-notebook** structures questions, sources, findings, decisions.
 

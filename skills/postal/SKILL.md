@@ -7,7 +7,7 @@ allowed-tools:
 tier: 1
 protocol: POSTAL-SYSTEM
 tags: [moollm, mail, message, goals, rewards, attachments, phone, communication]
-related: [goal, character, object, room, storage, buff, inventory]
+related: [goal, character, object, room, storage, buff, inventory, task]
 adversary: instant-coupling
 ---
 
@@ -60,7 +60,7 @@ letter:
   body: "Could you deliver this package to the mayor?"
   creates_goal:
     id: deliver-package
-    complete_when: "player has talked to mayor with package"
+    done_when: "player has talked to mayor with package"
     reward: { gold: 50 }
 ```
 

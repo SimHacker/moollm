@@ -3,9 +3,10 @@
 # 📋 "Queue up what to do next."
 
 what: |
-  Sims-style task scheduler.
+  Sims-style action scheduler: minutes-long steps for one worker.
   Queue actions, execute in order.
-  Objects can push prerequisites. Urgent tasks jump line.
+  Objects can push prerequisites. Urgent actions jump the line.
+  A claimed task (skills/task) pushes its next step here.
 
 why: |
   - Plan action sequences
@@ -46,6 +47,6 @@ modes:
   manual: "Player says NEXT to advance"
   autonomous: "Agent auto-executes"
 
-related: [return-stack (past), advertisement, needs, coherence-engine]
+related: [return-stack (past), advertisement, needs, coherence-engine, task]
 lineage: [Will Wright, The Sims]
 tier: 1

@@ -6,7 +6,7 @@ allowed-tools:
   - write_file
 tier: 1
 protocol: BUFF-AS-MODIFIER
-related: [simulation, time, needs, character, cat, dog, persona, yaml-jazz]
+related: [simulation, time, needs, character, cat, dog, persona, yaml-jazz, task]
 tags: [moollm, effects, curses, stats, game, modifiers]
 hosts: any  # characters, rooms, objects, prototypes, rulesets — see Hosts below
 ---
@@ -1201,6 +1201,28 @@ buff:
   lift_condition: "Light 3 dark places"
   reward_on_lift: "LIGHT-BEARER title"
 ```
+
+### Restrictions are curses with a reason and a review date
+
+A rule that forbids something (a fence, a gate, a refusal) is a negative buff on whatever it
+restricts: a role, a task, a tool, a repo. Give it the incident that caused it, and a duration
+that isn't `forever`:
+
+```yaml
+buff:
+  name: "No deploys from fleet workers"
+  host: role:fleet-worker
+  effect: { may_deploy: false }
+  why: "2026-10-03 incident: unreviewed deploy broke login"
+  duration: conditional
+  lift_condition: "deploy guard runs the smoke test"
+  review_by: 2026-12-01      # renew with a reason, or it expires
+```
+
+Restrictions that only tighten and never expire turn into scar tissue. Yegge's Wheelhouse grew
+650 refusal sites across 173 scripts until no work was legal, and he had to cut them to 14 by
+hand ("Seats and Sunsets", Sep 2026). A restriction with a `review_by` date has to earn renewal;
+one without has to be curated by someone, and nobody is ever assigned that job.
 
 ## Duration Types
 

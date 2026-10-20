@@ -36,14 +36,14 @@ annotated_relationships:
       backward: "Exit from coatroom leads to pub"
       symmetric: true
       
-    - link: "bead → postal"
-      forward: "Beads flow through postal system"
-      backward: "Postal system carries beads (and other messages)"
+    - link: "task → postal"
+      forward: "Task references ride the postal system"
+      backward: "Postal system carries task references (and other messages)"
       constraint: "One-way delivery — no return receipt by default"
       
   comment_syntax: |
     see-also:
-      - skills/bead        # Reference only — yaml-jazz does not require beads
+      - skills/task        # Reference only — yaml-jazz does not require tasks
       - skills/postel      # Core dependency — robustness principle
       - kernel/postal      # One-way — yaml-jazz can be sent via postal
       
@@ -56,19 +56,19 @@ annotated_relationships:
 
 rich_annotation_example: |
   see-also:
-    - skills/bead        
-      # Beads are a prominent YAML Jazz example
-      # but this skill does NOT depend on beads
-      # yaml-jazz is the paradigm, beads are one instantiation
+    - skills/task        
+      # Tasks are a prominent YAML Jazz example
+      # but this skill does NOT depend on tasks
+      # yaml-jazz is the paradigm, tasks are one instantiation
       # 
       # WHY THIS MATTERS:
       # Without this annotation, an LLM might think:
-      #   "yaml-jazz requires beads" (WRONG)
-      #   "I must load bead skill to use yaml-jazz" (WRONG)
-      #   "yaml-jazz is about beads" (WRONG — beads are ONE example)
+      #   "yaml-jazz requires tasks" (WRONG)
+      #   "I must load task skill to use yaml-jazz" (WRONG)
+      #   "yaml-jazz is about tasks" (WRONG — tasks are ONE example)
       #
       # With this annotation, the LLM understands:
-      #   "beads demonstrate yaml-jazz, but don't define it"
+      #   "tasks demonstrate yaml-jazz, but don't define it"
       #   "yaml-jazz applies to MANY file types"
       #   "soft reference, not hard dependency"
 
@@ -99,7 +99,7 @@ tiered_resolution:
       format: "Enough context to understand the link"
       example: |
         see-also:
-          - skills/bead  # Example, not dependency
+          - skills/task  # Example, not dependency
           - skills/postel  # Core — robustness applies
           
     tier_3_readme:
@@ -110,7 +110,7 @@ tiered_resolution:
       example: |
         | K-Line | Relationship | Why |
         |--------|--------------|-----|
-        | [bead](../bead/) | Example | Beads demonstrate YAML Jazz |
+        | [task](../task/) | Example | Tasks demonstrate YAML Jazz |
         | [postel](../postel/) | Core | Robustness principle applies |
         
   resolution_order: |
@@ -143,6 +143,6 @@ pneumatic_tube_metaphor: |
   "No food in this tube"
   "One-way — sender cannot receive reply"
   "Priority — urgent messages first"
-  "Filtered — only beads, not raw messages"
+  "Filtered — only tasks, not raw messages"
   
   Comment the see-also to document the tube rules.

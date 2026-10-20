@@ -16,7 +16,7 @@ letter:
   body: "Could you deliver this package?"
   creates_goal:
     id: deliver-package
-    complete_when: "player gives package to mayor"
+    done_when: "player gives package to mayor"
 ```
 
 Full documentation: [SKILL.md](SKILL.md). Routing: [ROUTING.md](ROUTING.md).

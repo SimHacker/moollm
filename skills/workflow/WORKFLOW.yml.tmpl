@@ -1,0 +1,14 @@
+# {{id}} — {{one_line_purpose}}
+# Lifted from: {{task_ids_or_sessions_it_was_lifted_from}}
+
+workflow:
+  id: {{id}}
+  parent: null                     # or another workflow to inherit steps from
+  inputs: {}                       # name: "what it is"
+  steps:
+    - id: {{step_id}}
+      does: "{{imperative_sentence}}"
+      actor: {{tool_or_skill_id_or_llm_or_human}}
+      requires: []
+      verify: "{{command_or_what_the_human_checks}}"
+  lessons: []                      # appended by RETRO, never rewritten

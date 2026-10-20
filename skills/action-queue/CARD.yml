@@ -1,6 +1,6 @@
 # CARD.yml — Action Queue
 #
-# Sims-style task scheduling.
+# Sims-style action scheduling.
 # "Queue up what to do next."
 
 card:
@@ -13,8 +13,8 @@ card:
   rarity: common  # Essential for any agent
   
   description: |
-    The Sims-inspired task scheduler. Queue actions, execute in order.
-    Objects can push prerequisites. Urgent tasks jump the line.
+    The Sims-inspired action scheduler. Queue actions, execute in order.
+    Objects can push prerequisites. Urgent actions jump the line.
     
     Play this card when a character or agent needs to plan
     a sequence of actions, or when objects need to guide
@@ -133,15 +133,15 @@ state:
 advertisements:
   SCHEDULE-ACTIONS:
     score: 85
-    condition: "Need to plan a sequence of tasks"
+    condition: "Need to plan a sequence of actions"
     
   MANAGE-AGENT:
     score: 80
-    condition: "Autonomous agent needs task scheduling"
+    condition: "Autonomous agent needs action scheduling"
     
   INTERRUPT-GRACEFULLY:
     score: 75
-    condition: "Need to pause current task for urgent matter"
+    condition: "Need to pause the current action for an urgent one"
 
 # OBJECT PUSH PATTERN
 # How objects can push prerequisites

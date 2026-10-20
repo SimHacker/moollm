@@ -136,16 +136,18 @@ The "Linguistic Motherboard" lineage.
 
 ---
 
-## Gastown Critique
+## Gas Town, as a foil
 
-Critical analysis of Steve Yegge's competing approach.
+Steve Yegge's Gas Town is the opposite of MOOLLM on almost every axis, which makes it useful for explaining MOOLLM.
 
-- **[GASTOWN-VS-MOOLLM-ANALYSIS.md](../designs/gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md)** — Technical comparison
-- [YEGGE-ARC-ANALYSIS.md](../designs/gastown/YEGGE-ARC-ANALYSIS.md) — Steve's trajectory
-- [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Why internal simulation beats external IPC (merged to top-level, includes Gas Town critique)
-- [CONSTRUCTIONIST-TERMINOLOGY.md](../designs/gastown/CONSTRUCTIONIST-TERMINOLOGY.md) — Better vocabulary from Minsky, Papert, Kay
-
-> *"Gas Town is wrong. Not 'optimized for different use cases' — just wrong."*
+- **[gastown/README.md](../designs/gastown/README.md)** — Start here
+- **[GASTOWN-VS-MOOLLM-ANALYSIS.md](../designs/gastown/GASTOWN-VS-MOOLLM-ANALYSIS.md)** — Six philosophical differences, then the code
+- [YEGGE-ARC-ANALYSIS.md](../designs/gastown/YEGGE-ARC-ANALYSIS.md) — The Yegge posts worth reading, Gas Town, $GAS
+- [CONSTRUCTIONIST-TERMINOLOGY.md](../designs/gastown/CONSTRUCTIONIST-TERMINOLOGY.md) — Task, action, goal, workflow, owner
+- [TASK-ORCHESTRATION.yml](../designs/gastown/TASK-ORCHESTRATION.yml) — Tasks as payloads; derived views
+- [TASKS-2026-01.md](../designs/gastown/TASKS-2026-01.md) — January 2026 backlog, ledger form
+- [SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md](../designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md) — Why internal simulation beats external IPC
+- Skills: [task](../skills/task/), [workflow](../skills/workflow/)
 
 ---
 
