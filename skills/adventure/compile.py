@@ -605,8 +605,8 @@ def compile_character(char_path: Path, adventure_root: Path) -> dict:
     relative = char_path.parent.relative_to(adventure_root / 'characters')
     char_id = 'character/' + str(relative).replace('\\', '/')
     
-    # Set/override required fields
-    result['type'] = 'character'
+    # The character's own type (npc, creature, ...) is a slot; keep it if the file has one.
+    result.setdefault('type', 'character')
     result['id'] = char_id
     result['_source'] = str(char_path.relative_to(adventure_root))
     
@@ -1359,7 +1359,8 @@ def compile_adventure(adventure_path: Path) -> dict:
     
     # Find object files (*.yml that aren't ROOM.yml, CHARACTER.yml, or catalogs)
     object_count = 0
-    skip_files = {'ROOM.yml', 'CHARACTER.yml', 'ADVENTURE.yml', 'INDEX.yml', 'README.yml', 'README.md', 
+    skip_files = {'ROOM.yml', 'CHARACTER.yml', 'ADVENTURE.yml', 'INDEX.yml', 'README.yml', 'README.md',
+                  'CARD.yml', 'GLANCE.yml', 
                   'SLIDESHOW.yml', 'SLIDESHOW.md', 'PHOTO.yml', 'SERIES.yml', 'PROTOTYPES.yml', 'LAYOUTS.yml'}
     # Skip file patterns (mined data, derived files, not source objects)
     skip_patterns = ['-mine.yml', '-mined.yml', '-flat.yml', 'IMAGE-MINE']
