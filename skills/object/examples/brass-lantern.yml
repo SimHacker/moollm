@@ -1,0 +1,93 @@
+# Brass Lantern — an example object for skills/object
+
+id: brass-lantern
+name: "Brass Lantern"
+type: light-source
+emoji: "🪔"
+
+description: "A well-crafted brass lantern."
+examine: |
+  The lantern gleams dully. A reservoir of oil sloshes inside.
+  A small gauge shows fuel remaining.
+
+state:
+  lit: false
+  fuel: 100          # 0-100, drains 1 per turn when lit
+  broken: false
+
+# SIMULATION
+# Called every turn. The lamp manages itself!
+# Compiles to: simulate_js: (world) => { ... }
+
+simulate: |
+  if lit and not broken:
+    consume_fuel(1)
+    if fuel <= 0:
+      extinguish()
+      emit("The lantern sputters and dies!")
+
+# METHODS
+# Named behaviors. Called by simulate or advertisements.
+# Natural language → compiled closures. 1:1 name mapping!
+# Compiles to: methods_js: { consume_fuel: (world, amount) => {...}, ... }
+
+methods:
+  consume_fuel: |
+    Reduce fuel by amount (default 1).
+    Fuel cannot go below 0.
+
+  extinguish: |
+    Set lit to false.
+    Update room lighting.
+    Emit DARKNESS event.
+
+  ignite: |
+    If fuel > 0 and not broken:
+      Set lit to true.
+      Update room lighting.
+      Emit LIGHT event.
+    Else:
+      Emit "click... nothing happens"
+
+  refuel: |
+    Add amount to fuel (default: fill to 100).
+    Emit "Oil sloshes as you refuel."
+
+  break_lamp: |
+    Set broken to true.
+    If lit, extinguish first.
+    Emit "The lantern shatters!"
+
+# ADVERTISEMENTS
+# Player-facing actions that call methods.
+
+advertisements:
+  LIGHT:
+    description: "Light the lantern"
+    guard: "fuel > 0 AND not lit AND not broken"
+    score: 90
+    score_if: "room is dark"
+    effect: "ignite()"
+
+  EXTINGUISH:
+    description: "Put out the flame"
+    guard: "lit"
+    score: 30
+    effect: "extinguish()"
+
+  REFUEL:
+    description: "Add oil to the lantern"
+    guard: "player has oil flask"
+    score: 60
+    score_if: "fuel < 50"
+    effect: |
+      refuel(50)
+      Remove oil flask from player inventory.
+
+  EXAMINE:
+    description: "Check the lantern"
+    score: 40
+    effect: |
+      Show: "Fuel: {fuel}%"
+      If lit: "The flame burns steadily."
+      If broken: "The glass is cracked. It won't light."

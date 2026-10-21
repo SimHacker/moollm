@@ -1,0 +1,44 @@
+# OBJECT.yml — the prototype object
+#
+# The implied parent of every OBJECT.yml and of every embedded object in an `objects:`
+# collection (garden/ROOM.yml#objects.bench). An object states only what differs.
+# Worked objects: examples/ (brass-key, wooden-chest, brass-lantern, oil-lamp, foods).
+#
+# Slots every object states for itself (none have a default here):
+#   id: brass-key                    # defaults to the file or map key
+#   name: "Brass Key"
+#   description: "What a player sees on first look."
+#   examine: "What EXAMINE shows."   # optional
+#   emoji: "🔑"                      # optional
+#
+# Optional slots with no default:
+#   inherits: [brass-lantern.yml]    # what this object is a variant of
+#   capacity: 10                     # max items, when container: true
+#   simulate: |                      # natural language, run every turn; compiled to simulate_js/_py
+#     if lit: consume_fuel(1); if fuel <= 0: extinguish()
+#   on_consume / consumption_buffs / nutrition   # foods define their own digestion
+#   logistics_type: inserter | assembler | splitter | sensor   # with input/output, recipe, signals
+#   mineable: { yields: [...], exhaustion: {...} }             # extract items from an image
+#   location: pub/                   # computed: the room or character holding it
+#
+# A map the object states replaces this one whole: an object with its own `state:` or
+# `advertisements:` gets none of the entries below for that slot. Initial state belongs in
+# `state:` of the object or of the prototype it inherits; `simulate` heals what is missing.
+
+type: object                       # item | furniture | tool | container | light-source | ...
+tags: []                           # weapon, food, drink, container, light-source, tool, treasure, readable, ...
+
+takeable: false
+container: false
+locked: false
+contains: []                       # ids or paths, when container: true
+
+hidden: false                      # invisible to players: prototypes, triggers, agents, task markers
+disabled: false                    # not simulated: prototypes, switched-off or broken things
+
+state: {}                          # mutable per-instance data: lit, fuel, uses_remaining, broken
+
+advertisements: {}                 # ACTION: { description, score, score_if, guard, effect }, Sims style
+                                   # guard, score_if and effect are natural language; compiled to _js/_py
+
+methods: {}                        # name: natural language; 1:1 with methods_js/_py; simulate and effects call them

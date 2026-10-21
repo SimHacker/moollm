@@ -146,7 +146,7 @@ def test_embedded_object_address() -> None:
     assert definer("garden/ROOM.yml#objects.gnome", "name") == "garden/ROOM.yml#objects.gnome"
     assert definer("garden/ROOM.yml#objects.gnome", "sound") == "cat"
     implied = [p for p in obj("garden/ROOM.yml#objects.bench").parents if p.implied]
-    assert implied and implied[0].ref == "object"
+    assert implied and resolve.rel(implied[0].target[0], ROOT) == "skills/object/OBJECT.yml"
 
 
 def test_envelope_read_as_flat_and_reported() -> None:

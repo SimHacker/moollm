@@ -1,0 +1,42 @@
+# Strong Coffee — an example object for skills/object
+
+id: strong-coffee
+name: "Strong Coffee"
+emoji: "☕"
+tags: ["food", "drink", "consumable", "caffeinated"]
+description: "A cup of dark, aromatic coffee. Steam rises invitingly."
+
+nutrition:
+  energy: 30
+  hydration: 10
+  bladder: -20    # Diuretic!
+  fun: 5
+
+on_consume: |
+  Emit "The rich coffee warms your soul."
+  Apply coffee-buzz buff.
+  After 5 turns, spawn caffeine-crash.
+  After 3 turns, spawn need-to-pee.
+
+consumption_buffs:
+  - id: coffee-buzz
+    name: "Caffeinated"
+    emoji: "⚡"
+    effect: "+20% action speed, +10% perception"
+    duration: 5
+    spawns_after:
+      - buff_id: caffeine-crash
+        delay: 1
+
+  - id: caffeine-crash
+    name: "Caffeine Crash"
+    emoji: "😴"
+    effect: "-15% energy, -10% speed"
+    duration: 3
+
+  - id: need-to-pee
+    name: "Coffee Bladder"
+    emoji: "🚽"
+    effect: "Bladder pressure +20/turn"
+    duration: "until relieved"
+    on_tick: "increase bladder pressure by 20"

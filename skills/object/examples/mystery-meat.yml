@@ -1,0 +1,24 @@
+# Mystery Meat — an example object for skills/object
+
+id: mystery-meat
+name: "Mystery Meat"
+emoji: "🥩"
+tags: ["food", "consumable", "suspicious"]
+description: "It's... meat? Probably? The label says 'edible'."
+
+nutrition:
+  energy: 40
+  comfort: -10     # It's gross
+
+on_consume: |
+  Roll for effect! (Random buff from pool)
+  Emit "You chew... and swallow... and wait."
+
+consumption_buffs:
+  - id: mystery-buff
+    name: "???"
+    random_effects:
+      - { name: "Iron Stomach", effect: "+50% poison resist", chance: 0.3 }
+      - { name: "Questionable Choice", effect: "-20% charisma for 3 turns", chance: 0.4 }
+      - { name: "Actually Delicious", effect: "+30% energy, +10% mood", chance: 0.2 }
+      - { name: "Food Poisoning", effect: "Very bad time", chance: 0.1 }

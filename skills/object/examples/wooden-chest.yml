@@ -1,0 +1,21 @@
+# Wooden Chest — an example object for skills/object
+
+id: wooden-chest
+name: "Wooden Chest"
+type: container
+emoji: "📦"
+description: "An old wooden chest with iron bands."
+container: true
+locked: true
+contains:
+  - brass-key
+  - old-map
+advertisements:
+  OPEN:
+    description: "Open the chest"
+    guard: "chest is not locked"
+    effect: "Reveal contents"
+  UNLOCK:
+    description: "Unlock with a key"
+    guard: "player has chest-key"
+    effect: "Unlock the chest"

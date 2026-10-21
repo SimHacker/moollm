@@ -1,0 +1,36 @@
+# Grandma's Homemade Cookies — an example object for skills/object
+
+id: grandmas-cookies
+name: "Grandma's Homemade Cookies"
+emoji: "🍪"
+tags: ["food", "consumable", "comfort", "gift"]
+description: "Warm cookies in a tin. A note says 'Made with love.'"
+
+nutrition:
+  energy: 20
+  comfort: 50      # Maximum comfort!
+  fun: 30
+
+on_consume: |
+  Emit "The taste brings back memories."
+  Emit "You feel loved."
+  Apply nostalgia-comfort buff.
+  If consumed near friends, apply shared-joy to nearby characters.
+
+consumption_buffs:
+  - id: nostalgia-comfort
+    name: "Grandma's Love"
+    emoji: "💕"
+    effect: |
+      +30% comfort
+      +20% stress resistance
+      Immune to loneliness debuff
+    duration: 10
+    type: positive
+
+  - id: shared-joy
+    name: "Sharing is Caring"
+    emoji: "🤝"
+    effect: "+10% social for all party members"
+    duration: 5
+    applies_to: "party"

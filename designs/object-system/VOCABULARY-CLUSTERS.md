@@ -484,6 +484,9 @@ Still open:
 3. Placement listing keys (`objects:`, `characters:`, `residents:`, `contains:`): retire, or keep as
    hints linted against the directory?
 4. `when:` (GLANCE) and `invoke_when:` (CARD): one key or two?
+5. Should a plain object file (`lamp.yml`) imply `skills/object/OBJECT.yml` the way `ROOM.yml`
+   implies the room prototype? Today it has no implied parent; embedded objects and `OBJECT.yml`
+   do. Yes makes every `.yml` in a world an object, configs included.
 
 ## Related
 

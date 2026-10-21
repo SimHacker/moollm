@@ -1,0 +1,12 @@
+# Oil Lamp — an example object for skills/object
+# A lamp that is a brass lantern in all but name and size: it states only what differs.
+
+id: oil-lamp
+name: "Oil Lamp"
+type: furniture
+emoji: "🪔"
+description: "A brass oil lamp."
+inherits: [brass-lantern.yml]   # simulate, methods and advertisements come from there
+state:
+  lit: false
+  fuel: 60                      # a smaller reservoir than the lantern's 100

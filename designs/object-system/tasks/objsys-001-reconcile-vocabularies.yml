@@ -127,7 +127,7 @@ phases:
       - { scope: "dolly-forklift inherits: {archetype, source} -> lineage:", files: 1, status: done }
       - { scope: "skills/historical extends: -> CARD inherits: [skills/real-being]; GLANCE no longer delegates", files: 2, status: done }
       - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 8, status: done }
-      - { scope: "interface templates <X>.yml.tmpl -> prototype files <X>.yml (valid YAML, defaults + methods, comments for per-instance slots); done in each skill's rewrite", files: 45, status: opened, done: [container, room, character] }
+      - { scope: "interface templates <X>.yml.tmpl -> prototype files <X>.yml (valid YAML, defaults + methods, comments for per-instance slots); done in each skill's rewrite", files: 45, status: opened, done: [container, room, character, object] }
       - { scope: "adventure compile.py: apply container defaults: to compiled rooms and objects", files: 1, status: opened, note: "belongs with adventure-001" }
       - { scope: "instance prototype: <ref> -> inherits: [<ref>]; dispensers' prototype: -> clones:", files: 13, status: done }
       - { scope: "room/glance parent: ../ (containment, already the directory) removed; mind parents: -> inherits: with mind and soul-city docs", files: 16, status: done }
@@ -141,6 +141,7 @@ phases:
       - { scope: "advertisements as list -> map", files: 13, status: opened }
       - { scope: "self-describing timestamps (created:, updated:) out of files; git has them", files: 15, status: opened }
       - { scope: "unparseable YAML: fix or mark as prose", files: 122, status: opened }
+      - { scope: "defaults: outside CONTAINER.yml meaning a prototype's instance defaults (wumpus hazards BOTTOMLESS-PIT, SUPERBATS): make them the prototype's own slots", files: 2, status: opened }
       - { scope: "slots shadowing children: a slot and a child directory with the same name (don-hopkins inventory: and inventory/, troll stomach, robin personas, ...)", files: 7, status: opened }
       - { scope: "unparseable CHARACTER.yml still wrapped in character: (turing-chess slats)", files: 1, status: opened }
       - { scope: "docs and templates still showing room: wrappers (skills/room, container, skill, yaml-jazz, ...)", files: 20, status: opened }
@@ -168,7 +169,7 @@ phases:
       - { skill: container, why: "cascade: inherits: -> defaults: (one key, no forced 'inherits' section), flat files, merge rules; implement cascade in resolve.py alongside", status: done }
       - { skill: room, why: "ROOM.yml as an interface on a directory object; sub-rooms vs interface subdirectories; lighting 0..10; glance core keys (name, type, description, exits); 16 wrapper examples; skills/room/ROOM.yml prototype replaces ROOM.yml.tmpl", status: done }
       - { skill: character, why: "CHARACTER.yml interface, meta.inherits -> inherits:, facts not verdicts, glance core keys (name, description, location)", status: done, note: "skills/character/CHARACTER.yml prototype (methods, dispatch, sims defaults out of the CARD); 4 missed player:/character: wrappers flattened, compile_inventory takes the list form, so don-hopkins, donna-toadstool, richard-bartle and proc compile again (53 -> 57)" }
-      - { skill: object, why: "flat object files, prototype: <ref> -> inherits:, embedded objects and file#collection.id, catalog refs", status: opened }
+      - { skill: object, why: "flat object files, prototype: <ref> -> inherits:, embedded objects and file#collection.id, catalog refs", status: done, note: "skills/object/OBJECT.yml prototype; template's 8 worked objects are flat files in examples/; CARD was unparseable (computed: inside common_tags), fixed and flattened; object defaults: (initial state) dropped in favour of state: on the object or its prototype" }
       - { skill: glance, why: "new: purpose, line budget, how a glance points deeper; core keys come from the subject's skill", status: opened }
       - { skill: index, why: "new: summarizes contents, one entry per child", status: opened }
       - { skill: card, why: "CARD as a view (format* card, subject* ..), the sidecar pattern, 16 wrapper examples", status: opened }

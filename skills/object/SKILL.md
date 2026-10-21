@@ -53,15 +53,41 @@ The character picks from what's advertised. No hardcoded behavior.
 
 ## Self-Style Prototypes
 
-Objects inherit from prototypes:
+An object that is a variant of another says so and states only what differs:
 
 ```yaml
-inherits:
-  - skills/objects/light-source.yml
-  - skills/objects/takeable.yml
+# examples/oil-lamp.yml
+name: "Oil Lamp"
+inherits: [brass-lantern.yml]   # simulate, methods and advertisements come from there
+state:
+  lit: false
+  fuel: 60
 ```
 
-A lamp inherits "light-source" behaviors without copying them.
+A lookup reads the object, then each `inherits:` parent depth-first, then the `defaults.object`
+of enclosing CONTAINER.yml files, then the prototype object. A map the object states replaces
+the inherited map whole, so an object with its own `advertisements:` gets none of its parent's.
+
+### The prototype object
+
+[`OBJECT.yml`](OBJECT.yml) in this skill is the prototype object: `type: object`, empty
+`tags`, `state`, `advertisements` and `methods`, and false `takeable`, `container`, `locked`,
+`hidden`, `disabled`. It is the implied parent of every `OBJECT.yml` and of every embedded
+object in an `objects:` collection. A plain object file (`lamp.yml`) has no implied parent; it
+reaches the prototype through `inherits: [skills/object]` or gets kind defaults from a
+container's `defaults.object`.
+
+### Where objects live
+
+| Size | Address | When |
+|---|---|---|
+| file | `pub/lamp.yml` | most objects |
+| directory | `pub/cat-cave/OBJECT.yml` | an object with files or objects of its own |
+| embedded | `garden/ROOM.yml#objects.bench` | small things that belong to one room |
+| catalog entry | `aisle-e/PROTOTYPES.yml#prototypes.wine-rack` | many related prototypes in one file |
+
+All four answer lookups the same way. An embedded object that grows moves into its own
+directory without changing any lookup result. Worked objects are in [`examples/`](examples/).
 
 ---
 
@@ -77,6 +103,7 @@ A lamp inherits "light-source" behaviors without copying them.
 | `takeable` | Can be picked up |
 | `container` | Can hold things |
 | `contains` | What's inside |
+| `hidden` | Invisible to players (prototypes, triggers, agents) |
 | `state` | Mutable properties |
 | `advertisements` | Available actions |
 | `inherits` | Prototype chain |
@@ -191,23 +218,21 @@ simulate_js: (world) => {
 }
 ```
 
-### The `defaults` Field
+### Initial State
 
-Objects can declare their default state values:
+Initial values go in `state:`, on the object or on the prototype it inherits. `defaults:` is the
+container's key for values that reach every object inside it; an object doesn't use it.
 
 ```yaml
-object:
-  id: brass-lantern
-  defaults:
-    lit: false
-    fuel: 100
-    durability: 100
-  simulate: |
-    ensure all defaults are initialized
-    ...
+name: "Brass Lantern"
+state:
+  lit: false
+  fuel: 100
+  durability: 100
+simulate: |
+  ensure state has lit, fuel and durability (the values above if missing)
+  ...
 ```
-
-The runtime merges defaults into state before simulation.
 
 ---
 
@@ -301,46 +326,48 @@ locked: true
 ### Simple Item
 
 ```yaml
-object:
-  id: brass-key
-  name: "Brass Key"
-  emoji: "🔑"
-  description: "A heavy brass key."
-  takeable: true
+# examples/brass-key.yml
+id: brass-key
+name: "Brass Key"
+emoji: "🔑"
+description: "A heavy brass key."
+takeable: true
 ```
 
 ### Lamp with State
 
 ```yaml
-object:
-  id: oil-lamp
-  name: "Oil Lamp"
-  emoji: "🪔"
-  state:
-    lit: false
-    fuel: 100
-  advertisements:
-    LIGHT:
-      guard: "fuel > 0 AND not lit"
-      effect: "The lamp flickers to life."
+id: oil-lamp
+name: "Oil Lamp"
+emoji: "🪔"
+state:
+  lit: false
+  fuel: 100
+advertisements:
+  LIGHT:
+    guard: "fuel > 0 AND not lit"
+    effect: "The lamp flickers to life."
 ```
 
 ### Locked Chest
 
 ```yaml
-object:
-  id: treasure-chest
-  name: "Treasure Chest"
-  container: true
-  locked: true
-  contains:
-    - gold-coins
-    - magic-ring
-  advertisements:
-    UNLOCK:
-      guard: "player has chest-key"
-      effect: "The lock clicks open."
+id: treasure-chest
+name: "Treasure Chest"
+container: true
+locked: true
+contains:
+  - gold-coins
+  - magic-ring
+advertisements:
+  UNLOCK:
+    guard: "player has chest-key"
+    effect: "The lock clicks open."
 ```
+
+More in [`examples/`](examples/): a wooden chest, the brass lantern with `simulate` and
+`methods`, and foods that define their own digestion (strong coffee, a spicy burrito, mystery
+meat, grandma's cookies).
 
 ---
 
@@ -358,3 +385,9 @@ object:
 ```
 SIMANTICS — The Sims behavioral architecture
 ```
+
+## Part of MOOLLM
+
+**This skill's directory (browse and fetch everything):** [skills/object/](https://github.com/SimHacker/moollm/tree/main/skills/object)
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)

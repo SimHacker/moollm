@@ -1,0 +1,50 @@
+# El Diablo Burrito — an example object for skills/object
+
+id: spicy-burrito
+name: "El Diablo Burrito"
+emoji: "🌯"
+tags: ["food", "consumable", "spicy", "legendary"]
+description: "A massive burrito wrapped in foil. Warning label included."
+
+nutrition:
+  energy: 80       # Very filling!
+  comfort: 20
+  bladder: -40     # Oh no
+  fun: 15          # Worth it
+
+on_consume: |
+  Emit "You unwrap the burrito. It glows faintly."
+  Emit "It burns. It BURNS. But it's SO GOOD."
+  Apply fire-mouth buff immediately.
+  Schedule digestion-regret for 8 turns later.
+
+consumption_buffs:
+  - id: fire-mouth
+    name: "Mouth on Fire"
+    emoji: "🔥"
+    effect: "Cannot speak clearly, +30% thirst"
+    duration: 4
+    spawns_after:
+      - buff_id: digestion-regret
+        delay: 4
+
+  - id: digestion-regret
+    name: "El Diablo's Revenge"
+    emoji: "💀"
+    effect: |
+      The burrito has begun its journey.
+      Must find bathroom within 3 turns.
+      Movement speed -20%.
+    duration: 3
+    on_tick: "emit ominous rumbling sounds"
+    spawns_after:
+      - buff_id: bathroom-emergency
+        chance: 0.5   # 50% chance of disaster
+
+  - id: bathroom-emergency
+    name: "CODE BROWN"
+    emoji: "🚨"
+    effect: |
+      You have ONE turn to find a bathroom.
+      If not found, suffer social penalty.
+    duration: 1
