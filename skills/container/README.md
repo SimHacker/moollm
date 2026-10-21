@@ -43,5 +43,5 @@ Every room inside `maze/` now has `lighting: 0` unless it says otherwise.
 
 ## Files
 
-- `CONTAINER.yml.tmpl`: template with every field
+- `CONTAINER.yml`: the prototype container, with every field; every CONTAINER.yml inherits it
 - `SKILL.md`: lookup order, merge rules, tools

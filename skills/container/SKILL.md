@@ -123,7 +123,8 @@ Everything outside `defaults:` describes the container itself: `rules:`, `constr
 (`placement_rules:`, `zones:`) and logistics (`chest_mode:`, `provides:`, `request_list:`).
 These don't become slots of the children. A child reaches them through where it is: the
 LLM, a rule engine or the adventure runtime reads the containers enclosing a room and applies
-the rules there. `CONTAINER.yml.tmpl` lists every field.
+the rules there. The prototype `skills/container/CONTAINER.yml` lists every field; every
+CONTAINER.yml inherits it, so a container states only what differs.
 
 ## Older spellings
 
@@ -153,7 +154,7 @@ only the slots its own file states.
 
 | Method | Does |
 |---|---|
-| CREATE | Write a CONTAINER.yml from `CONTAINER.yml.tmpl` for a directory that groups things |
+| CREATE | Write a CONTAINER.yml stating what differs from the prototype, for a directory that groups things |
 | DEFAULT | Add a default for one kind of child; check with `resolve.py lookup` that it reaches them |
 | TRACE | Say which container a value came from (`resolve.py lookup --all`) |
 

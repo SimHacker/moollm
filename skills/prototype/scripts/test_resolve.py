@@ -111,8 +111,13 @@ def test_ref_forms() -> None:
 
 def test_filename_implies_scoped_skill() -> None:
     p = [p for p in obj("experiment/runs/first/RUN.yml").parents if p.implied]
-    assert p and resolve.rel(p[0].target, FIXTURE) == "experiment/skills/run"
-    assert definer("experiment/runs/first/RUN.yml", "trials") == "experiment/skills/run"
+    assert p and resolve.rel(p[0].target, FIXTURE) == "experiment/skills/run/RUN.yml"
+    assert definer("experiment/runs/first/RUN.yml", "trials") == "experiment/skills/run/RUN.yml"
+
+
+def test_skill_views_are_not_instance_slots() -> None:
+    assert definer("experiment/runs/first/RUN.yml", "description") is None
+    assert definer("garden/GLANCE.yml", "exits") == "garden"
 
 
 def test_filename_implies_latent_when_no_skill() -> None:

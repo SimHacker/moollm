@@ -101,7 +101,10 @@ file. That is legitimate for K-lines and prose. A path-shaped reference that nam
 a broken link.
 
 **Implied parents.** An interface file implies the skill its name names: `ROOM.yml` implies
-`room`, `RUN.yml` implies `run`. The skill is looked up in enclosing scopes first, so an
+`room`, `RUN.yml` implies `run`. The parent is the skill's **prototype file**, named for the
+interface (`skills/room/ROOM.yml`): a concrete room holding the defaults and methods every room
+has, written as valid YAML with comments describing the slots instances fill in. The skill's
+GLANCE, CARD and README describe the skill to readers and are not inherited. The skill is looked up in enclosing scopes first, so an
 experiment can own `experiment/skills/run/` and its runs inherit it before any repo-wide one.
 If no scope defines it, the parent is the latent K-line `RUN` until somebody writes the skill.
 An embedded object implies the skill of its collection key (`objects:` → `object`, `exits:` →
@@ -130,7 +133,8 @@ subject*: ..       # the directory it summarizes
 format*: glance    # the view skill: skills/glance, or the latent GLANCE until it exists
 ```
 
-A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
+A view is not a slot of its directory: a room's slots come from ROOM.yml, never from its
+GLANCE. A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
 object is one delegation chain. A view is a cache; git says when it's stale (`resolve.py stale`).
 
 ## Embedded objects and catalogs

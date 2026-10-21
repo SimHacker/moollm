@@ -470,6 +470,7 @@ names.
 | Compound keys | schema keys use underscores (`k_lines`, `done_when`); names of things use hyphens; foreign schemas keep theirs |
 | Interface skills | an UPPERCASE file implies its skill, found in enclosing scopes first, latent if none |
 | Views | GLANCE, CARD, INDEX: `subject*` the container, then `format*` the view skill |
+| What a skill gives its instances | its prototype file named for the interface (`skills/room/ROOM.yml`); views are not slots of their subject, so a skill's GLANCE/CARD never leak into instances |
 | File metadata | git; a `-metadata.yml` sidecar only for what git can't hold |
 | Verdicts | facts on the object, judgments on the judge: rooms have `lighting:`, the grue decides; no `grue_safe:` |
 | Work vocabulary | goal (wanted state) ← task (claimed goal) → actions (queued steps); `done_when:` is the one condition key |

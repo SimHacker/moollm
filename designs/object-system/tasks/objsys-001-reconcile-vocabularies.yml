@@ -42,6 +42,7 @@ history:
   - { at: 2026-10-20, event: decided, by: don, note: "facts, not verdicts: rooms state lighting, the grue decides whether to hunt; grue_safe: goes" }
   - { at: 2026-10-20, event: decided, by: don, note: "lighting: 0..10, comment modulates it (swinging bulb, colour, mood, time). GLANCE: core keys per subject type plus YAML Jazz that helps decide whether to look closer" }
   - { at: 2026-10-20, event: decided, by: don, note: "schema keys use underscores (k_lines, see_also, invoked_by, done_when); names of things use hyphens; foreign schemas keep theirs. Replaces 'hyphens in files'" }
+  - { at: 2026-10-20, event: decided, by: don, note: "views are not slots of their subject; a skill gives instances slots through a prototype file named for the interface (skills/room/ROOM.yml), replacing <X>.yml.tmpl; methods and advertisements instances have move there" }
   - at: 2026-10-20
     event: batch-done
     note: >
@@ -126,6 +127,7 @@ phases:
       - { scope: "dolly-forklift inherits: {archetype, source} -> lineage:", files: 1, status: done }
       - { scope: "skills/historical extends: -> CARD inherits: [skills/real-being]; GLANCE no longer delegates", files: 2, status: done }
       - { scope: "skills/container inherits: -> defaults:, docs + maze/CONTAINER.yml", files: 8, status: done }
+      - { scope: "interface templates <X>.yml.tmpl -> prototype files <X>.yml (valid YAML, defaults + methods, comments for per-instance slots); done in each skill's rewrite", files: 45, status: opened }
       - { scope: "adventure compile.py: apply container defaults: to compiled rooms and objects", files: 1, status: opened, note: "belongs with adventure-001" }
       - { scope: "instance prototype: <ref> -> inherits: [<ref>]; dispensers' prototype: -> clones:", files: 13, status: done }
       - { scope: "room/glance parent: ../ (containment, already the directory) removed; mind parents: -> inherits: with mind and soul-city docs", files: 16, status: done }

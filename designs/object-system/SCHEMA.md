@@ -12,7 +12,7 @@ There are three sizes of object, and lookup treats them the same:
 
 | Object | Address | Slots |
 |---|---|---|
-| directory | `examples/adventure-4/pub` | its interface files' top-level keys, merged, plus its files and subdirectories |
+| directory | `examples/adventure-4/pub` | its interface files' top-level keys, merged (not its views), plus its files and subdirectories |
 | file | `examples/adventure-4/maze/grue.yml` | its top-level keys |
 | embedded | `garden/ROOM.yml#objects.bench` | the keys of that map |
 
@@ -78,7 +78,10 @@ A reference that names no file is latent. That's legitimate for K-lines and pros
 path-shaped reference that names no file is a broken link.
 
 **Implied parents.** Every interface file implies the skill its name names: `ROOM.yml` implies
-`room`, `RUN.yml` implies `run`. The skill is looked up in enclosing scopes first, so an
+`room`, `RUN.yml` implies `run`. What an instance gets from the skill is the skill's
+**prototype file**, a concrete object named for the interface (`skills/room/ROOM.yml`): the
+defaults and methods every room has. The skill's GLANCE, CARD and README describe the skill and
+are not inherited. A skill without a prototype file gives its instances nothing but its name. The skill is looked up in enclosing scopes first, so an
 experiment can own a `run` skill (`experiment/skills/run/`) that its runs inherit before any
 repo-wide one. If no scope defines it, the parent is the latent K-line `RUN`: the model's own
 idea of a run, until somebody writes the skill. An embedded object implies the skill of its
@@ -101,7 +104,8 @@ subject*: ..       # the directory it summarizes
 format*: glance    # skills/glance when it exists; the latent GLANCE until then
 ```
 
-A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
+Views are not slots of the directory they summarize: a room's slots come from ROOM.yml, not
+from its GLANCE. A view that lacks a slot falls through to its subject first, then to its format, so reading GLANCE, then CARD, then the
 object is a delegation chain. GLANCE and CARD summarize the object; INDEX summarizes its
 contents, one entry per child.
 

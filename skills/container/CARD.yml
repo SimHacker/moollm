@@ -13,8 +13,7 @@ description: |
   Its defaults:, keyed by what each child is, reach every room, character and object inside;
   its other slots (rules, ambient, events, placement, logistics) describe the scope itself.
 
-file: CONTAINER.yml
-template: CONTAINER.yml.tmpl
+file: CONTAINER.yml             # skills/container/CONTAINER.yml is the prototype every CONTAINER.yml inherits
 
 schema:
   name: { type: string, description: "display name for this scope" }

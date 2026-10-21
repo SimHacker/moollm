@@ -7,10 +7,13 @@ An object is a directory, a YAML file, or an object embedded in a YAML file
 (addressed `file.yml#objects.bench`). Slots are top-level keys. A directory's
 slots are the merged slots of its UPPERCASE interface files plus its children.
 
+A directory's views (GLANCE, CARD, INDEX) summarize it and are not its slots.
+
 Parents, in lookup order:
   1. explicit: `inherits:` (canonical) and named parents `role*: ref`
   2. implied: an UPPERCASE file implies the skill its name names (ROOM.yml ->
-     room), searched for in enclosing scopes first (an experiment's own
+     room; the skill's prototype file skills/room/ROOM.yml when it has one),
+     searched for in enclosing scopes first (an experiment's own
      `run` skill before skills/run), then latent (the K-line ROOM) if no
      file defines it. A directory implies the skills of its interface files.
      An embedded object implies the skill of its collection key (objects ->
@@ -265,8 +268,15 @@ def find_skill(name: str, start: Path, root: Path, exclude: Path) -> Key | None:
 
 
 def implied_parent(name: str, scope: Path, root: Path, exclude: Path, role: str | None = None) -> ParentRef:
+    """The skill a name implies. If the skill has a prototype file named for the interface
+    (skills/room/ROOM.yml), that file is the parent, so instances get its slots and nothing
+    else the skill directory holds. View skills have none: their CARD.yml is their own view."""
     skill = name.lower()
     target = find_skill(skill, scope, root, exclude)
+    if target and name.upper() not in VIEWS:
+        proto = target[0] / f"{name.upper()}.yml"
+        if proto.is_file():
+            return ParentRef(ref=f"{skill}/{proto.name}", role=role, target=(proto, ""), implied=True)
     return ParentRef(ref=skill if target else name.upper(), role=role, target=target, implied=True)
 
 
@@ -298,6 +308,8 @@ def load_obj(key: Key, root: Path) -> Obj:
             implied.append(implied_parent(singular(parts[-2]), base, root, path))
     elif path.is_dir():
         for f in interface_files(path):
+            if interface_name(f) in VIEWS:
+                continue  # a view summarizes its directory; it is not where the directory's slots live
             for k, v in file_slots(f).items():
                 obj.slots.setdefault(k, v)
         for child in path.iterdir():

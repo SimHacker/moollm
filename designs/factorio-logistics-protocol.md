@@ -593,7 +593,7 @@ exit:
 - Items move on turn tick
 
 ### Phase 2: Chest Modes  
-- Add `chest_mode` to CONTAINER.yml.tmpl
+- Add `chest_mode` to skills/container/CONTAINER.yml
 - Implement request/provide matching
 - Network discovery (which chests are connected)
 

@@ -1,4 +1,7 @@
-# CONTAINER.yml — a scope: a directory that is not a room
+# CONTAINER.yml — the prototype container
+#
+# Every CONTAINER.yml inherits this file (its implied parent). To make a container, write a
+# CONTAINER.yml that states only what differs: usually name, description and defaults.
 #
 # OPENLASZLO INSPIRATION:
 # In OpenLaszlo, <node> is a non-visual element that provides:
@@ -70,10 +73,9 @@
 #   - "pub/#bar/shelf"      → Place on shelf inside bar
 #   - "maze/room-3-2/"      → Place in the room (default)
 
-# IDENTITY
-
-name: "{{name}}"                    # display name for this scope
-description: "{{description}}"      # optional: what this container represents
+# IDENTITY: each container states its own; the prototype has none.
+#   name: "The Twisty Maze"            # display name for this scope
+#   description: "A labyrinth of passages"
 
 # DEFAULTS
 #
