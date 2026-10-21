@@ -487,7 +487,7 @@ All three mean the same thing! But without a shared substrate, they can't intero
 
 1. **Comments are semantic** — Not stripped, but understood ([Comment Intelligence](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#comment-intelligence))
 2. **Structure is flexible** — The LLM interprets intent
-3. **Conventions emerge** — Patterns like [`CARD.yml`](../skills/card/), [`ROOM.yml`](../skills/room/ROOM.yml.tmpl), [`CHARACTER.yml`](../skills/character/)
+3. **Conventions emerge** — Patterns like [`CARD.yml`](../skills/card/), [`ROOM.yml`](../skills/room/ROOM.yml), [`CHARACTER.yml`](../skills/character/)
 
 ```yaml
 # YAML Jazz interprets ALL of these equivalently:

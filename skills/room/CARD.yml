@@ -27,8 +27,8 @@ files:
     - ETHICS.md
     - skills/soul/ETHICS.md
     - skills/representation-ethics/
-  templates:
-    - ROOM.yml.tmpl         # Template for new rooms
+  prototype:
+    - ROOM.yml              # The prototype room: defaults, methods and builder commands every room inherits
   examples:
     - examples/adventure-4/pub/ROOM.yml
     - examples/adventure-4/pub/stage/
@@ -63,28 +63,8 @@ invoke_when:
   - "Describe or examine a location"
   - "World-building (@DIG, @OPEN, etc.)"
 
-# METHODS — Player Actions
-
-methods:
-  LOOK:     { signature: "LOOK (AT [thing])" }
-  ENTER:    { signature: "ENTER [room]" }
-  EXIT:     { signature: "EXIT [direction]" }
-  CONTENTS: { signature: "CONTENTS" }
-  ADVERTISE: { signature: "ADVERTISE", note: "show available actions" }
-
-# BUILDER COMMANDS (TinyMUD-style, @-prefixed)
-
-builder_commands:
-  DIG:       { usage: "@DIG [name] (DIRECTION)", note: "create room" }
-  OPEN:      { usage: "@OPEN [dir] TO [dest]", note: "create exit" }
-  LINK:      { usage: "@LINK [exit] TO [dest]" }
-  UNLINK:    { usage: "@UNLINK [exit]" }
-  DESCRIBE:  { usage: "@DESCRIBE [text]" }
-  NAME:      { usage: "@NAME [new-name]" }
-  LOCK:      { usage: "@LOCK [exit] = [condition]" }
-  UNLOCK:    { usage: "@UNLOCK [exit]" }
-  TELEPORT:  { usage: "@TELEPORT [dest]", note: "builder power" }
-  SET:       { usage: "@SET [prop]=[value]" }
+# Player methods (LOOK, ENTER, EXIT, CONTENTS, ADVERTISE) and builder commands (@DIG, @OPEN,
+# @LINK, @LOCK...) belong to every room, so they live in the prototype ROOM.yml.
 
 # WORLD GENERATION (brief — see SKILL.md)
 
@@ -125,7 +105,8 @@ types:
 # STATE SCHEMA (brief — see SKILL.md)
 
 state:
-  fields: [id, name, type, description, atmosphere, exits, contents, advertisements]
+  own: [name, description, exits]          # what each room states
+  inherited: ROOM.yml                      # type, hidden, lighting, exits, objects, advertisements, methods
 
 # ANTI-PATTERNS (brief — see SKILL.md)
 

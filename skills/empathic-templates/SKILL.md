@@ -586,7 +586,7 @@ room:
 Templates inherit from prototypes. Only override what differs:
 
 ```yaml
-# skills/room/ROOM.yml.tmpl is the PROTOTYPE
+# skills/room/ROOM.yml is the PROTOTYPE
 # examples/adventure-4/maze/ROOM.yml is an INSTANCE
 
 # The instance OMITS fields that match the prototype:
@@ -903,7 +903,7 @@ working_set:
 
 **Do this:**
 ```yaml
-# Omit working_set entirely — inherit from ROOM.yml.tmpl prototype
+# Omit working_set entirely — inherit from the skills/room/ROOM.yml prototype
 # Only include if this room has DIFFERENT requirements
 ```
 

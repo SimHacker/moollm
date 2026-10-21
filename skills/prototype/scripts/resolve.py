@@ -275,7 +275,7 @@ def implied_parent(name: str, scope: Path, root: Path, exclude: Path, role: str 
     target = find_skill(skill, scope, root, exclude)
     if target and name.upper() not in VIEWS:
         proto = target[0] / f"{name.upper()}.yml"
-        if proto.is_file():
+        if proto.is_file() and proto.resolve() != exclude.resolve():
             return ParentRef(ref=f"{skill}/{proto.name}", role=role, target=(proto, ""), implied=True)
     return ParentRef(ref=skill if target else name.upper(), role=role, target=target, implied=True)
 
@@ -497,6 +497,8 @@ def rel(p: Path | Key, root: Path) -> str:
 
 def key_of(addr: str) -> Key:
     path, frag = parse_address(addr)
+    if not Path(path).exists():
+        raise SystemExit(f"no such file or directory: {path}")
     return (Path(path).resolve(), frag)
 
 

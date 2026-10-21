@@ -20,7 +20,7 @@
 
 **Quick Links:**
 - [Full Specification](SKILL.md) — complete protocol
-- [Template: ROOM.yml](ROOM.yml.tmpl) — room template
+- [ROOM.yml](ROOM.yml) — the prototype room every ROOM.yml inherits
 
 ## Overview
 

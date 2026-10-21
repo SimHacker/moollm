@@ -1,0 +1,59 @@
+# ROOM.yml — the prototype room
+#
+# Every ROOM.yml inherits this file (its implied parent). A room states only what differs:
+# its name, description and exits, usually. Lookup reaches this file last, after the room's
+# own slots, its declared parents and its containers' defaults:, so a dark maze's
+# `defaults: { room: { lighting: 0 } }` beats the lighting below.
+#
+# Slots every room states for itself (none have a default here):
+#   name: "The Gezelligheid Grotto"
+#   description: "What a player sees on entering."
+#   examine: "What a closer look shows."      # optional
+#   purpose: "Why the room exists."           # optional
+#   atmosphere: "How it feels."               # optional
+#   emoji: "🍺"                               # optional
+#
+# Optional slots with no default:
+#   inherits: [../]                 # declared parents, looked up before containers
+#   stacks: { iron-ore: 50 }        # counts of identical items; or { sword: { count: 3, instances: [...] } }
+#   stack_limit: 10000              # max per item type; absent = unlimited
+#   logistics: { mode: requester, request_list: [...], provides: [...] }   # see skills/logistic-container
+#   logistic_advertisements: { NEED_LIGHT: { wants: [{ tags: [light-source] }], score: 80 } }
+#   framing: { mode: stage, inherits_to_children: true }                   # see ETHICS.md
+#   on_enter / on_exit / on_item_added / on_item_removed: "what happens"
+#   context: [...]  working_set: [...]   # what to load while a player is here
+
+type: room                         # room | region | grid-cell | hub
+
+hidden: false                      # hidden rooms stay off maps and room lists; exits still reach them
+
+lighting: 6                        # 0 pitch black .. 10 full sun; a room nobody lit or darkened counts as lit
+                                   # e.g. lighting: 4  # one bare bulb, swinging: 1..7, Hitchcock
+
+exits: {}                          # DIRECTION: path, or DIRECTION: { destination, description, guard }
+                                   # e.g. NORTH: ../maze/room-a/
+                                   #      SOUTH: { destination: ../pub/, guard: "player has invitation" }
+
+objects: []                        # paths (lamp.yml) or embedded objects ({ id: note, name: "Crumpled Note" })
+
+advertisements: {}                 # actions the room itself offers, Sims style
+                                   # e.g. REST: { description: "Rest here", score: 60, score_if: "player is tired" }
+
+methods:                           # what a player can do in any room
+  LOOK:      { signature: "LOOK (AT [thing])", does: "describe the room, or one thing in it" }
+  ENTER:     { signature: "ENTER [room]" }
+  EXIT:      { signature: "EXIT [direction]", does: "follow an exit; its guard decides" }
+  CONTENTS:  { signature: "CONTENTS", does: "list objects, stacks and who is here" }
+  ADVERTISE: { signature: "ADVERTISE", does: "list the actions offered by the room and everything in it" }
+
+builder_commands:                  # TinyMUD-style; change the world from inside this room
+  DIG:       { usage: "@DIG [name] (DIRECTION)", does: "make a room, optionally with an exit to it" }
+  OPEN:      { usage: "@OPEN [dir] TO [dest]", does: "make an exit" }
+  LINK:      { usage: "@LINK [exit] TO [dest]" }
+  UNLINK:    { usage: "@UNLINK [exit]" }
+  DESCRIBE:  { usage: "@DESCRIBE [text]" }
+  NAME:      { usage: "@NAME [new-name]" }
+  LOCK:      { usage: "@LOCK [exit] = [condition]", note: "must not defeat a soul's exit autonomy (skills/incarnation)" }
+  UNLOCK:    { usage: "@UNLOCK [exit]" }
+  TELEPORT:  { usage: "@TELEPORT [dest]" }
+  SET:       { usage: "@SET [prop]=[value]" }

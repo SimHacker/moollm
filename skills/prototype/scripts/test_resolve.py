@@ -115,6 +115,17 @@ def test_filename_implies_scoped_skill() -> None:
     assert definer("experiment/runs/first/RUN.yml", "trials") == "experiment/skills/run/RUN.yml"
 
 
+def test_rooms_inherit_the_prototype_room_after_container_defaults() -> None:
+    hits, _, _ = lookup("cellar/vault/ROOM.yml", "hidden")
+    assert hits and resolve.rel(hits[0].definer, ROOT) == "skills/room/ROOM.yml"
+    assert definer("cellar/vault/ROOM.yml", "lighting") == "cellar/CONTAINER.yml#defaults.room"
+
+
+def test_prototype_file_is_not_its_own_parent() -> None:
+    o = resolve.load_obj(resolve.key_of(str(ROOT / "skills/room/ROOM.yml")), ROOT)
+    assert all(p.target is None or p.target[0] != o.key[0] for p in o.parents)
+
+
 def test_skill_views_are_not_instance_slots() -> None:
     assert definer("experiment/runs/first/RUN.yml", "description") is None
     assert definer("garden/GLANCE.yml", "exits") == "garden"

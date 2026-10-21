@@ -55,25 +55,24 @@ A **region** is a sub-directory that represents a **portion of the same room** �
 
 ```yaml
 # pub/ROOM.yml
-room:
-  name: "The Gezelligheid Grotto Pub"
-  
-  # Regions are PARTS of this room
-  regions:
-    stage:
-      path: "stage/"
-      description: "The performance stage"
-      visibility: public
-      
-    back-room:
-      path: "back-room/"
-      description: "Private back room"
-      visibility: private
-      requires: "bartender approval"
-      
-    bar:
-      path: "bar/"
-      description: "The bar counter area"
+name: "The Gezelligheid Grotto Pub"
+
+# Regions are PARTS of this room
+regions:
+  stage:
+    path: "stage/"
+    description: "The performance stage"
+    visibility: public
+    
+  back-room:
+    path: "back-room/"
+    description: "Private back room"
+    visibility: private
+    requires: "bartender approval"
+    
+  bar:
+    path: "bar/"
+    description: "The bar counter area"
 ```
 
 ### Regions Have Rules
@@ -82,36 +81,34 @@ Each region can have its own:
 
 ```yaml
 # pub/back-room/ROOM.yml
-room:
-  name: "Back Room"
-  type: region                    # Marks as region, not full room
-  parent: "../"                   # Part of parent room
+name: "Back Room"
+type: region                    # Marks as region, not full room
+
+# Access control
+access:
+  visibility: private           # Not visible to everyone
+  requires: "bartender approval OR staff badge"
+  who_allowed:
+    - "characters/staff/*"
+    - "player if has_flag('vip_access')"
+  who_denied:
+    - "characters/troublemakers/*"
+    
+# Ethics & behavior
+rules:
+  - "No recording"
+  - "Confidential conversations"
+  - "Staff only by default"
   
-  # Access control
-  access:
-    visibility: private           # Not visible to everyone
-    requires: "bartender approval OR staff badge"
-    who_allowed:
-      - "characters/staff/*"
-      - "player if has_flag('vip_access')"
-    who_denied:
-      - "characters/troublemakers/*"
-      
-  # Ethics & behavior
-  rules:
-    - "No recording"
-    - "Confidential conversations"
-    - "Staff only by default"
-    
-  # Privacy
-  privacy:
-    eavesdropping: false          # Can't hear from outside
-    visible_from_parent: false    # Can't see inside from pub
-    
-  # What happens in the back room...
-  narrative:
-    on_enter: "The door closes behind you with a soft click."
-    on_exit: "You return to the bustling pub."
+# Privacy
+privacy:
+  eavesdropping: false          # Can't hear from outside
+  visible_from_parent: false    # Can't see inside from pub
+  
+# What happens in the back room...
+narrative:
+  on_enter: "The door closes behind you with a soft click."
+  on_exit: "You return to the bustling pub."
 ```
 
 ### Visibility Types
@@ -165,7 +162,7 @@ room:
 
 Some directories aren't rooms and that's OK:
 
-```yaml
+```text
 # These don't need ROOM.yml:
 messages/           # Mail storage (system)
 inbox/              # Postal inbox (system)
@@ -179,10 +176,9 @@ images/             # Asset storage (meta)
 ```yaml
 # Alternative: mark as system directory
 # pub/messages/.meta.yml
-meta:
-  type: system
-  purpose: "Mail storage for pub"
-  requires_room_yml: false
+type: system
+purpose: "Mail storage for pub"
+requires_room_yml: false
 ```
 
 ### Container Directories (Inheritance Scopes)
@@ -208,14 +204,13 @@ Alternatively, you can make the container into an actual room:
 
 ```yaml
 # maze/ROOM.yml — The maze entrance IS a room
-room:
-  name: "Maze Entrance"
-  description: "Dark passages branch off in every direction..."
-  
-  exits:
-    a: room-a/
-    b: room-b/
-    # ... etc
+name: "Maze Entrance"
+description: "Dark passages branch off in every direction..."
+
+exits:
+  a: room-a/
+  b: room-b/
+  # ... etc
 ```
 
 **DESIGN CHOICE:**
@@ -247,39 +242,65 @@ adventure-4/
         └── ROOM.yml        # Sub-room (full room, not region)
 ```
 
+## The Prototype Room
+
+[`ROOM.yml`](ROOM.yml) in this skill is the prototype room. Every `ROOM.yml` inherits it as its
+implied parent, so a room states only what differs: its name, description and exits, usually.
+
+| From the prototype | Value |
+|---|---|
+| `type` | `room` |
+| `hidden` | `false` |
+| `lighting` | `6`, lit; 0 is pitch black, 10 full sun |
+| `exits`, `objects`, `advertisements` | empty |
+| `methods` | LOOK, ENTER, EXIT, CONTENTS, ADVERTISE |
+| `builder_commands` | @DIG, @OPEN, @LINK, @UNLINK, @DESCRIBE, @NAME, @LOCK, @UNLOCK, @TELEPORT, @SET |
+
+A slot is looked up in the room first, then its `inherits:` parents, then the `defaults.room`
+of each enclosing `CONTAINER.yml` (nearest first), then the prototype. The maze's container says
+`lighting: 0`, so maze rooms are dark although the prototype is lit. To see where a room gets a
+slot:
+
+```bash
+python3 skills/prototype/scripts/resolve.py lookup examples/adventure-4/maze/room-a/ROOM.yml lighting
+```
+
+This skill's GLANCE, CARD and README describe the skill; rooms do not inherit them.
+
+A room's own `GLANCE.yml` summarizes the room and keeps at least `name`, `type`, `description`
+and `exits`, so a reader can move on without opening ROOM.yml.
+
 ## ROOM.yml Structure
 
 ```yaml
-room:
-  name: "Debug Session"
-  purpose: "Hunt down the authentication bug"
+name: "Debug Session"
+purpose: "Hunt down the authentication bug"
+
+context:
+  - "Bug: Login fails with valid credentials"
+  - "Suspected: Session cookie handling"
   
-  context:
-    - "Bug: Login fails with valid credentials"
-    - "Suspected: Session cookie handling"
+cards_in_play:
+  - instance: "goblin-001"
+    card: "Git Goblin"
+    goal: "Find when bug was introduced"
     
-  cards_in_play:
-    - instance: "goblin-001"
-      card: "Git Goblin"
-      goal: "Find when bug was introduced"
-      
-  working_set:
-    - "ROOM.yml"
-    - "state/progress.yml"
-    
-  exits:
-    parent: "../"
-    related: "../feature-work/"
-    
-  # Optional: position in 2D world-space
-  world_position:
-    x: 5
-    y: 12
-    
-  # Optional: objects with positions in room-space
-  objects:
-    - name: "workbench"
-      position: {x: 3, y: 7}
+working_set:
+  - "ROOM.yml"
+  - "state/progress.yml"
+  
+exits:
+  related: "../feature-work/"
+  
+# Optional: position in 2D world-space
+world_position:
+  x: 5
+  y: 12
+  
+# Optional: objects with positions in room-space
+objects:
+  - name: "workbench"
+    position: {x: 3, y: 7}
 ```
 
 ## Spatial Coordinates
@@ -313,10 +334,9 @@ A **vehicle** is a room you can embark, drive, and disembark.
 
 ```yaml
 # vehicle-tent.yml
-room:
-  name: "Research Tent"
-  is_vehicle: true
-  world_position: {x: 5, y: 12}  # Changes when you drive
+name: "Research Tent"
+is_vehicle: true
+world_position: {x: 5, y: 12}  # Changes when you drive
 ```
 
 | Command | Effect |
@@ -441,7 +461,7 @@ room/
 
 Each room is a **processing node**. Exits are **edges**. Thrown objects are **messages**.
 
-```yaml
+```text
 # Document processing pipeline:
 uploads/          # Raw files land here
   inbox/
@@ -624,9 +644,8 @@ relationships:
 Entities have **home** (where file lives) and **location** (where they are):
 
 ```yaml
-character:
-  home: pub/cat-cave/terpie.yml     # File never moves
-  location: pub/                     # Currently in pub
+home: pub/cat-cave/terpie.yml     # File never moves
+location: pub/                     # Currently in pub
 ```
 
 Movement updates `location`, not file. See [character/](../character/).
@@ -652,7 +671,7 @@ See: [exit skill](../exit/) for PIE-MENU-TOPOLOGY protocol, [memory-palace/](../
 
 Directories are rooms. Files are objects. Functions are chambers you can enter.
 
-```yaml
+```text
 # Location paths with line numbers
 location: "@central/apps/insights/pyleela/brain/Schema.py:142"
 
@@ -689,15 +708,14 @@ Rooms can participate in a **logistics network**:
 ### Room Logistics Mode
 
 ```yaml
-room:
-  name: "The Kitchen"
-  
-  logistics:
-    mode: requester              # passive-provider, requester, buffer...
-    request_list:
-      - tags: ["ingredient"]
-        count: 10
-        priority: high
+name: "The Kitchen"
+
+logistics:
+  mode: requester              # passive-provider, requester, buffer...
+  request_list:
+    - tags: ["ingredient"]
+      count: 10
+      priority: high
 ```
 
 ### Logistic Advertisements
@@ -728,22 +746,21 @@ logistic_advertisements:
 Rooms can have stacks of items:
 
 ```yaml
-room:
-  name: "Armory"
+name: "Armory"
+
+stacks:
+  # Fungible (just count)
+  arrow: 500
+  bolt: 300
   
-  stacks:
-    # Fungible (just count)
-    arrow: 500
-    bolt: 300
-    
-    # Instance (individual state)
-    magic-sword:
-      count: 3
-      instances:
-        - { id: flame-blade, damage: 50 }
-        - { id: frost-edge, damage: 45 }
-        
-  stack_limit: 1000
+  # Instance (individual state)
+  magic-sword:
+    count: 3
+    instances:
+      - { id: flame-blade, damage: 50 }
+      - { id: frost-edge, damage: 45 }
+      
+stack_limit: 1000
 ```
 
 ### Grid Room Cells
@@ -751,18 +768,16 @@ room:
 Warehouse rooms can be grid cells:
 
 ```yaml
-room:
-  name: "Iron Ore Storage"
-  type: grid-cell
+name: "Iron Ore Storage"
+type: grid-cell
+
+grid_cell:
+  enabled: true
+  coordinates: { x: 2, y: 3 }
+  item_type: iron-ore
   
-  grid_cell:
-    enabled: true
-    parent: "../"
-    coordinates: { x: 2, y: 3 }
-    item_type: iron-ore
-    
-  stacks:
-    iron-ore: 2500
+stacks:
+  iron-ore: 2500
 ```
 
 ### The Flow
@@ -805,3 +820,9 @@ When you "enter" the debug-session room:
 
 ### Kernel
 - [kernel/context-assembly-protocol.md](../../kernel/context-assembly-protocol.md) — Working set loading
+
+## Part of MOOLLM
+
+**This skill's directory (browse and fetch everything):** [skills/room/](https://github.com/SimHacker/moollm/tree/main/skills/room)
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)
