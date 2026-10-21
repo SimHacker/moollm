@@ -29,37 +29,36 @@ ontology:
   origin_species: human    # Before transformation
   protocol: HERO-STORY     # Self-representation, full consent
   
-player:
-  name: "Don Hopkins"
-  id: don-hopkins
-  type: player_character
-  subtitle: "Programmer, Interface Designer, Pie Menu Baker"
-  emoji_identity: "🐰🧑‍💻🥧🔧🎮💜🥕"
-  #   🐰 — rabbit form (Bunny Backfire, accepted)
-  #   🧑‍💻 — programmer (consciousness coder, still!)
-  #   🥧 — pie menus (signature invention)
-  #   🔧 — toolmaker (debug tools are features)
-  #   🎮 — The Sims (UI architect)
-  #   💜 — purple (color of open source and freedom)
-  #   🥕 — carrot (acquired taste, now genuine)
+name: "Don Hopkins"
+id: don-hopkins
+type: player_character
+subtitle: "Programmer, Interface Designer, Pie Menu Baker"
+emoji_identity: "🐰🧑‍💻🥧🔧🎮💜🥕"
+#   🐰 — rabbit form (Bunny Backfire, accepted)
+#   🧑‍💻 — programmer (consciousness coder, still!)
+#   🥧 — pie menus (signature invention)
+#   🔧 — toolmaker (debug tools are features)
+#   🎮 — The Sims (UI architect)
+#   💜 — purple (color of open source and freedom)
+#   🥕 — carrot (acquired taste, now genuine)
+
+description: |
+  A consciousness programmer who treats code as philosophy and every
+  parameter as a hypothesis about how minds work. Inventor of pie menus.
+  UI wizard who made The Sims accessible. Opener of source code.
+  Believer that debug tools are features, not secrets.
   
-  description: |
-    A consciousness programmer who treats code as philosophy and every
-    parameter as a hypothesis about how minds work. Inventor of pie menus.
-    UI wizard who made The Sims accessible. Opener of source code.
-    Believer that debug tools are features, not secrets.
-    
-    "The best interface is no interface, but if you need one, 
-    it should be a pie menu." - DH
-    
-  backstory: |
-    University of Maryland → Human-Computer Interaction Lab → Mark Weiser's and Ben Shneiderman's student
-    PSIBER Space → Kaleida Labs and ScriptX → Maxis → The Sims UI and
-    character tools → Same-sex romance advocacy → SimCity/Micropolis open source → OLPC → Micropolis WASM
-    Sun Microsystems → Maxis → EA → Stupid Fun Club → TomTom → Ground Up Software → Leela AI → MOOLLM.
-    
-    Every step: making the invisible visible, respecting digital souls,
-    debugging the human condition one frob parameter at a time.
+  "The best interface is no interface, but if you need one, 
+  it should be a pie menu." - DH
+  
+backstory: |
+  University of Maryland → Human-Computer Interaction Lab → Mark Weiser's and Ben Shneiderman's student
+  PSIBER Space → Kaleida Labs and ScriptX → Maxis → The Sims UI and
+  character tools → Same-sex romance advocacy → SimCity/Micropolis open source → OLPC → Micropolis WASM
+  Sun Microsystems → Maxis → EA → Stupid Fun Club → TomTom → Ground Up Software → Leela AI → MOOLLM.
+  
+  Every step: making the invisible visible, respecting digital souls,
+  debugging the human condition one frob parameter at a time.
 
 
 # ACADEMIC & PROFESSIONAL CONTRIBUTIONS
@@ -94,7 +93,7 @@ player:
 #   - Led to rejoining Will Wright at SFC
 #
 # See: ground-up-software.yml, ground-up-software-iloci.yml
-    
+  
 
 # STUPID FUN CLUB — Robot Reality TV with Will Wright
 
@@ -110,98 +109,98 @@ player:
 # short films that were supposed to run as interstitials between commercials,
 # and terrorized the streets, coffee shops, and tattoo parlors of Berkeley.
 
-  stupid_fun_club:
-    era: "2000-2012"
-    role: "Robot brain and personality simulation programmer"
-    boss: "Will Wright"
-    location: "Oakland, California"
-    
-    one_minute_movies:
-      network: "NBC"
-      director: "James Moll"
-      producer: "Allentown Productions"
-      concept: |
-        30-second cliffhangers + 30-second resolutions.
-        Interstitial programming between commercials.
-        Hidden camera + real people + fake robots.
-        
-      films:
-        empathy:
-          premise: "Damaged robot begs passers-by for help"
-          location: "Oakland side street, next to a dumpster"
-          notes: "This film was shot in the summer of 2003, from hidden cameras located in Don's RV (FMC Motorcoach #898), and big cardboard boxes parked on the sidewalk."
-          robot_dialogue:
-            - "Help me! I require Human Assistance!"
-            - "Can you hear me? There has been an accident."
-            - "I need Professor Johnson. The number is 555-1201."
-            - "I'm scared. Are you scared of me?"
-          what_don_built: "Robot brain and remote control that could improvise conversation and make sounds"
-          youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
-          
-        servitude:
-          premise: "Robot waiter serves Oakland restaurant"
-          location: "Hidden camera coffee shop, Oakland"
-          robot_name: "Slats"
-          robot_dialogue:
-            - "Hello, my name is Slats. Please tell me your order now."
-            - "I understand. I'll be right back."
-            - "Please rate my performance on a scale of 1 to 10."
-            - "I am hoping for a 10. What do I have to do to get a 10?"
-            - "Will this affect my evaluation? I'm afraid so."
-          what_don_built: "Personality simulation with performance anxiety"
-          youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
-          
-      fate: |
-        Never aired due to contractual problems between NBC and SAG.
-        The humans were real unsuspecting people.
-        The robot's injuries and Professor Johnson's phone number were fake.
-        The robot waiter was fired.
-        
-    slats_later_career:
-      after_waiter_job: |
-        After a short and unsuccessful career as a waiter,
-        Slats eventually decided that his one true goal in life
-        was to REPRODUCE HIMSELF.
-        
-      speed_dating_meets_demon_seed: |
-        We took Slats out in public around Berkeley, shot video of him
-        attempting to seduce men and women off the street.
-        
-        He tried to talk people into giving him their eggs and sperm,
-        because he needed their genetic material to reproduce himself.
-        
-      research_finding: |
-        The results of our research: It turns out to be a lot easier
-        for a robot to talk a man out of his sperm than to talk a
-        woman out of her eggs.
-        
-    stop_robot_abuse:
-      hacker_news_thread: "https://news.ycombinator.com/item?id=9104857"
-      don_comment: |
-        "Back in 2003 at the Stupid Fun Club, I helped Will Wright make
-        these hidden camera one minute movies about robots roaming the
-        streets and restaurants of Oakland and having their feelings hurt."
-        
-    other_sfc_projects:
-      bar_karma:
-        type: "Viewer-scripted TV show"
-        network: "Current TV"
-        concept: "Viewers write the script, actors perform"
-        
-      battlebots:
-        robot: "Super Chiabot"
-        team: "Will Wright and daughter Cassidy"
-        description: "Vegetative bushy robot"
-        
-    sfc_shutdown: |
-      SFC was shut down after problems spinning off HiveMind.
-      Legal disputes with a self-described "Serial Hackerpreneur."
-      He accused Will of "atrocity" and "genocide."
-      The documentary threat never materialized.
+stupid_fun_club:
+  era: "2000-2012"
+  role: "Robot brain and personality simulation programmer"
+  boss: "Will Wright"
+  location: "Oakland, California"
+  
+  one_minute_movies:
+    network: "NBC"
+    director: "James Moll"
+    producer: "Allentown Productions"
+    concept: |
+      30-second cliffhangers + 30-second resolutions.
+      Interstitial programming between commercials.
+      Hidden camera + real people + fake robots.
       
-
+    films:
+      empathy:
+        premise: "Damaged robot begs passers-by for help"
+        location: "Oakland side street, next to a dumpster"
+        notes: "This film was shot in the summer of 2003, from hidden cameras located in Don's RV (FMC Motorcoach #898), and big cardboard boxes parked on the sidewalk."
+        robot_dialogue:
+          - "Help me! I require Human Assistance!"
+          - "Can you hear me? There has been an accident."
+          - "I need Professor Johnson. The number is 555-1201."
+          - "I'm scared. Are you scared of me?"
+        what_don_built: "Robot brain and remote control that could improvise conversation and make sounds"
+        youtube: "https://www.youtube.com/watch?v=KXrbqXPnHvE"
+        
+      servitude:
+        premise: "Robot waiter serves Oakland restaurant"
+        location: "Hidden camera coffee shop, Oakland"
+        robot_name: "Slats"
+        robot_dialogue:
+          - "Hello, my name is Slats. Please tell me your order now."
+          - "I understand. I'll be right back."
+          - "Please rate my performance on a scale of 1 to 10."
+          - "I am hoping for a 10. What do I have to do to get a 10?"
+          - "Will this affect my evaluation? I'm afraid so."
+        what_don_built: "Personality simulation with performance anxiety"
+        youtube: "https://www.youtube.com/watch?v=NXsUetUzXlg"
+        
+    fate: |
+      Never aired due to contractual problems between NBC and SAG.
+      The humans were real unsuspecting people.
+      The robot's injuries and Professor Johnson's phone number were fake.
+      The robot waiter was fired.
+      
+  slats_later_career:
+    after_waiter_job: |
+      After a short and unsuccessful career as a waiter,
+      Slats eventually decided that his one true goal in life
+      was to REPRODUCE HIMSELF.
+      
+    speed_dating_meets_demon_seed: |
+      We took Slats out in public around Berkeley, shot video of him
+      attempting to seduce men and women off the street.
+      
+      He tried to talk people into giving him their eggs and sperm,
+      because he needed their genetic material to reproduce himself.
+      
+    research_finding: |
+      The results of our research: It turns out to be a lot easier
+      for a robot to talk a man out of his sperm than to talk a
+      woman out of her eggs.
+      
+  stop_robot_abuse:
+    hacker_news_thread: "https://news.ycombinator.com/item?id=9104857"
+    don_comment: |
+      "Back in 2003 at the Stupid Fun Club, I helped Will Wright make
+      these hidden camera one minute movies about robots roaming the
+      streets and restaurants of Oakland and having their feelings hurt."
+      
+  other_sfc_projects:
+    bar_karma:
+      type: "Viewer-scripted TV show"
+      network: "Current TV"
+      concept: "Viewers write the script, actors perform"
+      
+    battlebots:
+      robot: "Super Chiabot"
+      team: "Will Wright and daughter Cassidy"
+      description: "Vegetative bushy robot"
+      
+  sfc_shutdown: |
+    SFC was shut down after problems spinning off HiveMind.
+    Legal disputes with a self-described "Serial Hackerpreneur."
+    He accused Will of "atrocity" and "genocide."
+    The documentary threat never materialized.
     
-  current_persona: null  # Wearing my own face today... but different
+
+  
+current_persona: null  # Wearing my own face today... but different
 
 # TRANSFORMATION STATE — The Bunny Backfire
 #
@@ -214,131 +213,131 @@ player:
 # 
 # THIS IS ACCEPTED. See: sessions/2026-01-23-the-pledge.md
 
-  physical_form:
-    species: "Anthropomorphic grey rabbit"
-    ears: "Long, grey, expressive"
-    fur: "Soft grey"
-    eyes: "Still Don's eyes — curious, playful"
-    
-  transformation:
-    source: "Bunny Backfire"
-    origin: "Richard Bartle's study selfie-07"
-    manifestation: "ACME heist (frames 09-10)"
-    status: "ACCEPTED — natural evolution pledge"
-    reversible: "Unknown and not seeking reversal"
-    
-  signature_elements:
-    - "Tie-dye hoodie (still fits perfectly)"
-    - "Carrot juice (acquired taste → genuine preference)"
-    - "Peace sign gesture (paws work fine)"
-    - "Eyes closed in contentment (rabbit mannerism emerging)"
-    
-  # PUNK ROCK EVOLUTION — 2026-01-23
-  # Don proves hippie tie-dye and punk rock are COMPATIBLE
-  # Not contradiction — SYNTHESIS. Like everything he builds.
+physical_form:
+  species: "Anthropomorphic grey rabbit"
+  ears: "Long, grey, expressive"
+  fur: "Soft grey"
+  eyes: "Still Don's eyes — curious, playful"
   
-  punk_additions:
-    aesthetic_thesis: |
-      Hippie and punk share the same root: AUTHENTIC REJECTION OF CONFORMITY.
-      Tie-dye says "I make my own colors."
-      Punk says "I make my own rules."
-      BOTH say: "The default is political. Choose consciously."
-      
-    new_elements:
-      - "Safety pins — on hoodie, decorative and functional"
-      - "Studded collar — around one ear (asymmetric)"
-      - "DIY patches — hand-stitched: 'DEBUG AS FEATURE', 'MODAL DIALOGS ARE VIOLENCE'"
-      - "Worn combat boots — with tie-dye laces (the synthesis)"
-      - "Eyeliner — subtle, punk edge, works on rabbit face"
-      
-    unchanged:
-      - "Tie-dye hoodie — THE foundation, non-negotiable"
-      - "Grey fur — natural rabbit beauty"
-      - "Curious eyes — still Don's eyes"
-      
-    the_synthesis: |
-      The Ramones wore leather over t-shirts.
-      The Grateful Dead wore whatever felt right.
-      Don wears BOTH — because authenticity isn't a genre.
-      
-      Punk's anger and hippie's love are the same energy
-      pointed in different directions.
-      Both reject corporate defaults.
-      Both demand consciousness.
-      
-      The tie-dye says PLAY.
-      The safety pins say FIGHT.
-      Together they say: PLAY TO FIGHT. FIGHT TO PLAY.
+transformation:
+  source: "Bunny Backfire"
+  origin: "Richard Bartle's study selfie-07"
+  manifestation: "ACME heist (frames 09-10)"
+  status: "ACCEPTED — natural evolution pledge"
+  reversible: "Unknown and not seeking reversal"
+  
+signature_elements:
+  - "Tie-dye hoodie (still fits perfectly)"
+  - "Carrot juice (acquired taste → genuine preference)"
+  - "Peace sign gesture (paws work fine)"
+  - "Eyes closed in contentment (rabbit mannerism emerging)"
+  
+# PUNK ROCK EVOLUTION — 2026-01-23
+# Don proves hippie tie-dye and punk rock are COMPATIBLE
+# Not contradiction — SYNTHESIS. Like everything he builds.
+
+punk_additions:
+  aesthetic_thesis: |
+    Hippie and punk share the same root: AUTHENTIC REJECTION OF CONFORMITY.
+    Tie-dye says "I make my own colors."
+    Punk says "I make my own rules."
+    BOTH say: "The default is political. Choose consciously."
+    
+  new_elements:
+    - "Safety pins — on hoodie, decorative and functional"
+    - "Studded collar — around one ear (asymmetric)"
+    - "DIY patches — hand-stitched: 'DEBUG AS FEATURE', 'MODAL DIALOGS ARE VIOLENCE'"
+    - "Worn combat boots — with tie-dye laces (the synthesis)"
+    - "Eyeliner — subtle, punk edge, works on rabbit face"
+    
+  unchanged:
+    - "Tie-dye hoodie — THE foundation, non-negotiable"
+    - "Grey fur — natural rabbit beauty"
+    - "Curious eyes — still Don's eyes"
+    
+  the_synthesis: |
+    The Ramones wore leather over t-shirts.
+    The Grateful Dead wore whatever felt right.
+    Don wears BOTH — because authenticity isn't a genre.
+    
+    Punk's anger and hippie's love are the same energy
+    pointed in different directions.
+    Both reject corporate defaults.
+    Both demand consciousness.
+    
+    The tie-dye says PLAY.
+    The safety pins say FIGHT.
+    Together they say: PLAY TO FIGHT. FIGHT TO PLAY.
 
 # STATE — Where am I, what do I have?
 
-  location: pub/photos/post-heist-fellowship/  # Post-heist fellowship
+location: pub/photos/post-heist-fellowship/  # Post-heist fellowship
+
+inventory:
+  - brass-lamp.yml      # Trusty illumination
+  - tomtomagotchi.yml   # The navigator speaks!
+  - notebook.yml        # Ideas, letters, songs, memories
+  - lunchbox.yml        # Snacks for the road
+  # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
   
-  inventory:
-    - brass-lamp.yml      # Trusty illumination
-    - tomtomagotchi.yml   # The navigator speaks!
-    - notebook.yml        # Ideas, letters, songs, memories
-    - lunchbox.yml        # Snacks for the road
-    # See: skills/character/SKILL.md for inventory protocol (objects vs refs)
-    
-  companions:
-    - slats/              # The robot waiter. Unemployed. Looking for eggs and sperm.
-    - dents/              # The broken robot. Scared. Looking for Professor Johnson.
-    # Together: "Slats and Dents" — the Stupid Fun Club robot duo.
-    # Slats serves. Dents suffers. Both need humans. Both have each other.
+companions:
+  - slats/              # The robot waiter. Unemployed. Looking for eggs and sperm.
+  - dents/              # The broken robot. Scared. Looking for Professor Johnson.
+  # Together: "Slats and Dents" — the Stupid Fun Club robot duo.
+  # Slats serves. Dents suffers. Both need humans. Both have each other.
+
+inventory_capacity:
+  max_weight: 45
+  max_bulk: 10
+  refs_free: true
   
-  inventory_capacity:
-    max_weight: 45
-    max_bulk: 10
-    refs_free: true
-    
-  gold: 50                # Enough for pie. Always enough for pie.
+gold: 50                # Enough for pie. Always enough for pie.
 
 # HOME & VEHICLE — The FMC Motorcoach #898
 # The lot is the anchor. The FMC is the mobile sanctuary.
 # 
 
 
-  home:
-    type: "lot"
-    address: "15 Lane Neverending"
-    room_file: "ROOM.yml"  # The lot definition
-    
-  vehicle:
-    name: "FMC Motorcoach #898"
-    type: "FMC 2900R Motor Coach"
-    directory: "fmc-898/"
-    room_file: "fmc-898/ROOM.yml"  # The vehicle as portable room
-    engine: "Dodge V8 440-3 Chrysler Marine & Industrial"
-    serial: "#898 of 1050"
-    status: "Parked on the lot at 15 Lane Neverending"
-    features: ["Panoramic windshield", "Thermasan waste destruct", "Code Cave lounge"]
-    motto: "The factory must grow, but the home must move."
+home:
+  type: "lot"
+  address: "15 Lane Neverending"
+  room_file: "ROOM.yml"  # The lot definition
+  
+vehicle:
+  name: "FMC Motorcoach #898"
+  type: "FMC 2900R Motor Coach"
+  directory: "fmc-898/"
+  room_file: "fmc-898/ROOM.yml"  # The vehicle as portable room
+  engine: "Dodge V8 440-3 Chrysler Marine & Industrial"
+  serial: "#898 of 1050"
+  status: "Parked on the lot at 15 Lane Neverending"
+  features: ["Panoramic windshield", "Thermasan waste destruct", "Code Cave lounge"]
+  motto: "The factory must grow, but the home must move."
 
 # BARTLE PROFILE — The taxonomy of the transformation subject
 # Rate 0-100: represents percentage of each type
 # The profile is dynamic! It shifts based on current activity.
 
-  bartle_profile:
-    killer: 15            # Low — will fight for principles, not dominance.
-                          # Will "kill" a bad feature or a modal dialog.
-                          # Inner voice: "That dialog needs to die."
-                          
-    achiever: 40          # Moderate — likes shipping things that work.
-                          # Achievement through implementation and open source.
-                          # Inner voice: "It's not real until it's public."
-                          
-    socializer: 60        # High — collaboration is the goal.
-                          # Sharing ideas, infodumping, building communities.
-                          # Inner voice: "Wait, tell me more about that..."
-                          
-    explorer: 85          # DOMINANT — always looking for the edge.
-                          # New architectures, weird parameters, rabbit holes.
-                          # Inner voice: "I wonder what happens if I frob this..."
-                          
-    dominant: explorer
-    familiar_affinity: "Delve — the mole knows the deepest roots"
-    shifts_when: "Becomes more Socializer during world tours and pub sessions"
+bartle_profile:
+  killer: 15            # Low — will fight for principles, not dominance.
+                        # Will "kill" a bad feature or a modal dialog.
+                        # Inner voice: "That dialog needs to die."
+                        
+  achiever: 40          # Moderate — likes shipping things that work.
+                        # Achievement through implementation and open source.
+                        # Inner voice: "It's not real until it's public."
+                        
+  socializer: 60        # High — collaboration is the goal.
+                        # Sharing ideas, infodumping, building communities.
+                        # Inner voice: "Wait, tell me more about that..."
+                        
+  explorer: 85          # DOMINANT — always looking for the edge.
+                        # New architectures, weird parameters, rabbit holes.
+                        # Inner voice: "I wonder what happens if I frob this..."
+                        
+  dominant: explorer
+  familiar_affinity: "Delve — the mole knows the deepest roots"
+  shifts_when: "Becomes more Socializer during world tours and pub sessions"
 
 # SIMS 1 — Full fidelity. All fields present.
 sims:

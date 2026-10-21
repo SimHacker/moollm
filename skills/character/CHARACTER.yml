@@ -1,0 +1,51 @@
+# CHARACTER.yml — the prototype character
+#
+# Every CHARACTER.yml inherits this file (its implied parent). A character states what makes
+# it itself; everything below is what a character has when it says nothing.
+#
+# Slots every character states for itself (none have a default here):
+#   name: "Marieke"
+#   description: "What others see."
+#   home: pub/                      # where the file lives; never changes
+#   location: pub/bar/              # where the character is; changes in play
+#   inherits: [../marieke-public/]  # a private layer names the public character it extends
+#
+# A map slot the character states replaces this one whole: a character with its own `sims:`
+# gets none of the values below for it. Tools that need every field (SimObliterator's
+# person_data) fill the missing ones from here.
+
+type: character                    # player | npc | companion | bot | agent | logistic-bot, or a species
+
+inventory: []                      # file paths, { ref: ... } (weightless), objects, or { proto, count } stacks
+inventory_capacity: { max_weight: 45, max_bulk: 10, refs_free: true }
+
+relationships: {}                  # other entity id -> feeling, memories, hopes; `self:` is private
+
+buffs: []
+
+sims:                              # The Sims 1 person_data; traits and skills 0..10 (x100 inside the game)
+  traits: { neat: 5, outgoing: 5, active: 5, playful: 5, nice: 5, generous: 5 }
+  skills: { cooking: 0, mechanical: 0, charisma: 0, logic: 0, body: 0, creativity: 0, cleaning: 0 }
+  needs: { hunger: 50, comfort: 50, hygiene: 50, bladder: 50, energy: 50, fun: 50, social: 50, room: 50 }   # -100..100
+  career: { track: unemployed, level: 0, experience: 0, performance: 50 }
+  identity: { age: adult }         # gender, zodiac, aspiration: absent until stated
+  family: { budget: 0 }
+  relationships: {}                # target id -> { daily: -100..100, lifetime: -100..100 }
+
+mind_mirror: {}                    # MOOLLM only, flat, 0..7; an absent property is neutral (4). skills/mind-mirror
+
+methods:                           # what any character can do
+  STATUS:         { signature: "STATUS [character]" }
+  MOVE:           { signature: "MOVE [character] TO [destination]", does: "change location; the file stays home" }
+  TAKE:           { signature: "TAKE [item]" }
+  DROP:           { signature: "DROP [item] (WHERE [location])" }
+  WEAR:           { signature: "WEAR [persona]", note: "put on identity layer" }
+  REMOVE-PERSONA: { signature: "REMOVE-PERSONA" }
+  RELATE:         { signature: "RELATE TO [other] AS [feeling]" }
+  SNIFF:          { signature: "SNIFF [target]", dispatch: true }
+  LICK:           { signature: "LICK [target]", dispatch: true }
+  GREET:          { signature: "GREET [target]", dispatch: true }
+  CUDDLE:         { signature: "CUDDLE [targets]", dispatch: true }
+
+dispatch:                          # methods marked dispatch: the most specific definition wins
+  resolution: [CHARACTER.yml, species skill, target skill, these methods]   # dog_sniffs_cat beats SNIFF

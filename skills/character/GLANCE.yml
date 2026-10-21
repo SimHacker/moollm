@@ -1,5 +1,6 @@
 # GLANCE.yml — character
-# Full file: CARD.yml (168 lines) | SKILL.md
+# Full file: CARD.yml | SKILL.md
+# CHARACTER.yml here is the prototype character every CHARACTER.yml inherits: type, inventory, sims, methods
 # 🧑 "Characters are BODIES. Personas are COSTUMES."
 
 what: |
@@ -27,12 +28,12 @@ character_types:
   agent: "LLM with own goals"
 
 state_fields:
-  - id, name
+  - name, description          # each character states these
   - home (never moves)
   - location (changes during play)
   - inventory, gold
-  - current-persona
-  - sims_traits, mind_mirror
+  - current_persona
+  - sims, mind_mirror          # defaults in the prototype CHARACTER.yml
   - buffs, relationships
 
 soul_and_mind: |

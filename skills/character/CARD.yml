@@ -24,6 +24,7 @@ files:
     - SKILL.md              # Full protocol documentation
     - README.md             # Human landing page
     - ETHICS.md             # Body / patron-mascot / memorial dimension
+    - CHARACTER.yml         # The prototype character every CHARACTER.yml inherits
   ethics:
     - ETHICS.md
     - skills/soul/ETHICS.md
@@ -73,38 +74,11 @@ invoke_when:
   - "Track character relationships"
   - "Need multiple dispatch for interactions"
 
-# METHODS — signatures only, see SKILL.md for protocols
+# METHODS — the skill's own. What every character can do (STATUS, MOVE, TAKE, DROP, WEAR,
+# RELATE, SNIFF...) and the dispatch rule live in the prototype CHARACTER.yml.
 
 methods:
-  # Lifecycle
-  CREATE:       { signature: "CREATE [name] (archetype) (home)" }
-  STATUS:       { signature: "STATUS [character]" }
-  
-  # Movement & Inventory
-  MOVE:         { signature: "MOVE [character] TO [destination]" }
-  TAKE:         { signature: "TAKE [item]" }
-  DROP:         { signature: "DROP [item] (WHERE [location])" }
-  
-  # Personas
-  WEAR:         { signature: "WEAR [persona]", note: "put on identity layer" }
-  REMOVE-PERSONA: { signature: "REMOVE-PERSONA" }
-  
-  # Relationships
-  RELATE:       { signature: "RELATE TO [other] AS [feeling]" }
-  
-  # Inter-character (multiple dispatch base methods)
-  SNIFF:        { signature: "SNIFF [target]", dispatch: true }
-  LICK:         { signature: "LICK [target]", dispatch: true }
-  GREET:        { signature: "GREET [target]", dispatch: true }
-  CUDDLE:       { signature: "CUDDLE [targets]", dispatch: true }
-
-# MULTIPLE DISPATCH (brief — see SKILL.md)
-
-dispatch:
-  principle: "Most specific method wins"
-  resolution: [CHARACTER.yml, species-skill, target-skill, base-method]
-  example: "dog_sniffs_cat beats character_sniffs_character"
-  see: "SKILL.md § Multiple Dispatch Protocol"
+  CREATE: { signature: "CREATE [name] (archetype) (home)", does: "write a CHARACTER.yml stating what differs from the prototype" }
 
 # ADVERTISEMENTS
 
@@ -135,108 +109,22 @@ types:
   agent:     "LLM with own goals and initiative"
   logistic-bot: "Factorio-style carrier"
 
-# STATE SCHEMA
+# STATE
 
 state:
-  fields: [id, name, home, location, inventory, gold, current-persona, sims, mind-mirror, buffs, relationships]
-  
+  own: [name, description, home, location]   # what each character states
+  inherited: CHARACTER.yml                    # type, inventory, relationships, buffs, sims, mind_mirror, methods
   ownership: |
     CHARACTER.yml is CANONICAL for:
     location, inventory, gold, sims, mind_mirror, relationships
     ADVENTURE.yml may mirror for convenience. CHARACTER.yml wins on conflict.
-
-# SIMS 1 COMPATIBLE — Full fidelity transport layer
-#
-# Every field maps 1:1 to SimObliterator's person_data array.
-# Traits/skills: 0-10 (display scale, ×100 for internal 0-1000)
-# Needs: -100 to 100 (Sims internal scale)
-# All sims: fields present in every character. This IS the save file.
-#
-# TRANSPORT PROTOCOL:
-#   BEAM UP (Sims → MOOLLM): SimObliterator reads save → sims: block fills → mind_mirror awaits
-#   BEAM DOWN (MOOLLM → Sims): sims: block writes → SimObliterator patches save → mind_mirror stays
-#   PARALLEL LIFE: Character exists in both. sims: is the sync surface. mind_mirror is MOOLLM-only.
-#   MERGE: Like git. sims: fields have merge semantics. LLM-enriched fields don't conflict.
-#
-# The sims: block replaces the old sims_traits: and needs: fields.
-
-sims_schema:
-  
-  traits:             # person_data[7-12]. Display 0-10 (×100 for internal 0-1000)
-    neat: 5           # 0=sloppy, 10=immaculate
-    outgoing: 5       # 0=shy, 10=party animal
-    active: 5         # 0=lazy, 10=hyperactive
-    playful: 5        # 0=serious, 10=clown
-    nice: 5           # 0=grouchy, 10=saint
-    generous: 5       # 0=stingy, 10=gives everything (internal trait, not in Sims 1 UI)
-
-  skills:             # person_data[0-6]. Display 0-10 (×100 for internal 0-1000)
-    cooking: 0
-    mechanical: 0
-    charisma: 0
-    logic: 0
-    body: 0
-    creativity: 0
-    cleaning: 0       # Hidden/internal skill
-
-  needs:              # person_data[13-20]. Range -100 to 100. Positive=satisfied.
-    hunger: 50
-    comfort: 50
-    hygiene: 50
-    bladder: 50
-    energy: 50
-    fun: 50
-    social: 50
-    room: 50
-
-  career:             # person_data[23-26]
-    track: unemployed # unemployed|cooking|entertainment|law_enforcement|medicine|military|politics|pro_athlete|science|xtreme
-    level: 0          # 1-10 within track
-    experience: 0     # XP points
-    performance: 50   # 0-100 job performance
-
-  identity:           # person_data[21-22] + CHAR chunk
-    age: adult        # child | adult | elder
-    gender: null      # male | female (Sims 1 binary; MOOLLM characters may omit)
-    zodiac: null      # aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces
-    aspiration: null  # family | popularity | romance | fortune
-
-  family:             # FAMI chunk
-    number: null      # Family ID (-1 for townies)
-    budget: 0         # Household simoleons §
-
-  relationships: {}   # NBRS chunk. target_id → {daily: -100..100, lifetime: -100..100}
-
-# MIND MIRROR — MOOLLM-only personality layer (does NOT exist in Sims 1)
-#
-# FLAT. Not nested. Properties carry their own plane metadata in the registry.
-# Characters define ONLY the properties that shape them. Omitted = neutral (4).
-# Scale: 0-7. YAML Jazz comments ARE the character's inner voice.
-# Full registry with plane tags, gradients, and Leary synonyms: skills/mind-mirror/CARD.yml
-#
-# The mind_mirror block lives ALONGSIDE sims:, not inside it.
-# sims: beams up and down to The Sims 1. mind_mirror: stays in MOOLLM.
-# Together they make a complete personality: sims = behavior, mind_mirror = motivation.
-#
-# EXAMPLE (Henk — 6 properties, you know him):
-#
-#   mind_mirror:
-#     calm: 7             # The still point of the turning pub
-#     analytical: 7       # Sees patterns. Says little.
-#     complex: 7          # More depth than he shows
-#     caring: 6           # Notices who's struggling. Doesn't say.
-#     restless: 1         # Third stool. Why move?
-#     approval_seeking: 1 # Has espresso. Needs nothing else.
-#
-# PEDAGOGICAL NOTE — The 32 properties fall into 4 planes:
-#   bio_energy:  energetic, enthusiastic, cheerful, easy_going, calm, cautious, serious, restless
-#   emotional:   forceful, confident, friendly, assertive, caring, outspoken, open, spontaneous
-#   mental:      analytical, logical, imaginative, idealistic, curious, open_minded, complex, artistic
-#   social:      social, group_oriented, trusting, dominant, intimate, approval_seeking, demonstrative, principled
-#
-# But characters NEVER nest under these categories. They list properties FLAT.
-# The plane grouping is metadata in the registry, for UI and pedagogy only.
-
+  sims: |
+    sims: maps 1:1 to SimObliterator's person_data. BEAM UP (Sims -> MOOLLM) fills it from a
+    save; BEAM DOWN writes it back; mind_mirror stays in MOOLLM. Defaults and ranges are in
+    the prototype CHARACTER.yml.
+  mind_mirror: |
+    Flat, never nested under planes; 0..7; a character lists only the properties that shape
+    it, with comments as its inner voice. Registry: skills/mind-mirror/CARD.yml.
 
 # CHARACTER LAYER OVERLAYS — Private extensions to public characters
 
@@ -266,9 +154,6 @@ character_layers:
       # In private CHARACTER.yml:
       inherits:
         - moollm://path/to/public/character/
-      extends:
-        public_character: "moollm://path/to/public/character/"
-        relationship: "private extends public"
         
   precedence:
     principle: "Negotiate precedence per-field in metadata"
@@ -466,12 +351,12 @@ tools:
 
 documentation:
   SKILL.md:
-    - "§ Multiple Dispatch Protocol"
-    - "§ Inventory Protocol (object vs ref)"
-    - "§ State Ownership"
+    - "§ The Prototype Character"
     - "§ Home vs Location"
-    - "§ Logistics Bot Behavior"
-    - "§ Character Types"
+    - "§ Character State Ownership"
+    - "§ Inventory Protocol (Objects vs Refs)"
+    - "§ Dispensers"
+  CHARACTER.yml: "The prototype: defaults, sims schema, methods, dispatch"
 
 # LINEAGE
 

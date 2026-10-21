@@ -18,14 +18,43 @@ Ethics: [ETHICS.md](ETHICS.md) · [soul/ETHICS.md](../soul/ETHICS.md) · [mind/E
 
 Characters are entities that exist in the world. Players, NPCs, companions, cats — all are characters.
 
+## The Prototype Character
+
+[`CHARACTER.yml`](CHARACTER.yml) in this skill is the prototype character. Every
+`CHARACTER.yml` inherits it as its implied parent, so a character states only what makes it
+itself: name, description, home, location, and whatever differs.
+
+| From the prototype | Value |
+|---|---|
+| `type` | `character` |
+| `inventory`, `buffs` | empty |
+| `relationships` | empty |
+| `sims` | Sims 1 person_data defaults: traits 5, skills 0, needs 50, unemployed |
+| `mind_mirror` | empty; an absent property is neutral (4) |
+| `methods` | STATUS, MOVE, TAKE, DROP, WEAR, REMOVE-PERSONA, RELATE, SNIFF, LICK, GREET, CUDDLE |
+
+A map the character states replaces the prototype's whole: a character with `sims:` of its
+own does not get the prototype's needs filled in by lookup. A character that extends another
+(a private layer over a public one) says `inherits: [path/to/public/]`; lookup reads the
+character, then that parent, then the prototype.
+
+A character's own `GLANCE.yml` keeps at least `name`, `description` and `location`.
+
+### Facts, not verdicts
+
+A character file records what is true of the character and leaves judgments to whoever
+judges. `lighting:` belongs to a room and the grue decides whether it hunts there; a
+character carries a lamp, not a `grue_safe: true`. The same goes for trust, danger and
+taste: store the observation, let the observer's rules decide.
+
 ## Home vs Location
 
 **The critical distinction:**
 
 ```yaml
-player:
-  home: characters/don-hopkins/   # Where FILE lives (never moves)
-  location: pub/                  # Where CHARACTER is (changes)
+# characters/don-hopkins/CHARACTER.yml
+home: characters/don-hopkins/   # Where FILE lives (never moves)
+location: pub/                  # Where CHARACTER is (changes)
 ```
 
 | Concept | Purpose | Changes? |
@@ -44,7 +73,7 @@ player:
 | `location` | CHARACTER.yml | Where the character is in the world |
 | `inventory` | CHARACTER.yml | What the character carries |
 | `gold` | CHARACTER.yml | Character's resources |
-| `sims_traits` | CHARACTER.yml | Personality (Sims-style) |
+| `sims` | CHARACTER.yml | Sims 1 traits, skills, needs |
 | `mind_mirror` | CHARACTER.yml | Personality (Leary-style) |
 | `relationships` | CHARACTER.yml | Who they know and feel about |
 | `memories` | CHARACTER.yml | What they remember |
@@ -53,9 +82,8 @@ player:
 
 ```yaml
 # CHARACTER.yml (CANONICAL — edit this first)
-player:
-  location: coatroom/  # CANONICAL — character owns their location
-  inventory: [lamp]    # CANONICAL — character owns their inventory
+location: coatroom/  # CANONICAL — character owns their location
+inventory: [lamp]    # CANONICAL — character owns their inventory
 
 # ADVENTURE.yml (MIRROR — optional convenience copy)
 player:
@@ -91,15 +119,15 @@ characters/
 Any character directory can have a `CARD.yml` sidecar to make the character card-playable:
 
 ```yaml
-# characters/don-hopkins/CARD.yml
-card:
-  for: ./CHARACTER.yml
-  type: hero-story
-  tradition: "Pie menus, SimCity, constructionism"
-  
-  advertisements:
-    SUMMON:
-      description: "Activate Don's design traditions"
+# characters/don-hopkins/CARD.yml — a view of the character directory
+subject*: ..       # the character; slots this card lacks come from there
+format*: card
+type: hero-story
+tradition: "Pie menus, SimCity, constructionism"
+
+advertisements:
+  SUMMON:
+    description: "Activate Don's design traditions"
 ```
 
 See [card skill](../card/SKILL.md#sidecar-cardyml-pattern) for full pattern.
@@ -256,8 +284,7 @@ inventory:
     
   # Lightweight ref
   - item: "ACME Catalog"
-    type: ref
-    prototype: street/lane-neverending/w1/acme-catalog.yml
+    ref: street/lane-neverending/w1/acme-catalog.yml
     annotations: ["circled portable hole", "margin notes on physics"]
 ```
 
@@ -276,18 +303,15 @@ When dropping a ref in a room:
 
 1. Remove from inventory
 2. Create pointer file in room directory: `[item-name].yml`
-3. Pointer contains: prototype path, dropped_by, condition, annotations
+3. Pointer contains: `inherits:` the catalog, dropped_by, condition, annotations
 4. Item now lives in that room (can be picked up again)
 
 ```yaml
 # kitchen/acme-catalog.yml — dropped instance
-object:
-  name: "ACME Catalog"
-  type: instance
-  prototype: ../street/lane-neverending/w1/acme-catalog.yml
-  origin: "Torn from dispenser at 4 Lane Neverending"
-  dropped_by: "don-hopkins"
-  annotations: ["DO NOT ORDER Rocket Skates", "circled portable hole"]
+inherits: [../street/lane-neverending/w1/acme-catalog.yml]
+origin: "Torn from dispenser at 4 Lane Neverending"
+dropped_by: "don-hopkins"
+annotations: ["DO NOT ORDER Rocket Skates", "circled portable hole"]
 ```
 
 ### Capacity
@@ -305,16 +329,14 @@ Some objects clone **full objects** on pickup. Original stays, you get instance.
 
 ```yaml
 # pub/cookie-jar.yml
-object:
-  id: cookie-jar
-  dispenser: true
-  instance_template: cookie
+name: "Cookie Jar"
+clones: ./cookie.yml     # what TAKE hands out; the jar is not the cookie's parent
 ```
 
 When picked up:
 1. Original stays
 2. Instance created: `characters/don-hopkins/cookie-1.yml`
-3. Instance inherits from prototype
+3. Instance file says `inherits: [pub/cookie.yml]` and holds only what differs
 
 ## Ephemeral vs Persistent
 
@@ -359,9 +381,8 @@ Two systems:
 Characters can live in other repositories:
 
 ```yaml
-player:
-  home: github:donhopkins/characters/don.yml
-  location: pub/
+home: github:donhopkins/characters/don.yml
+location: pub/
 ```
 
 ## Code Locations
@@ -369,11 +390,10 @@ player:
 Characters can be "at" a specific line in a file:
 
 ```yaml
-character:
-  name: schema-expert
-  home: characters/experts/schema-expert/
-  location: "@central/apps/insights/pyleela/brain/Schema.py:142"
-  # Currently examining line 142 of Schema.py
+name: schema-expert
+home: characters/experts/schema-expert/
+location: "@central/apps/insights/pyleela/brain/Schema.py:142"
+# Currently examining line 142 of Schema.py
 ```
 
 **Location path syntax for code:**
@@ -453,3 +473,9 @@ motivations:
 **See:** [representation-ethics/examples/aggregate-patterns.yml](../representation-ethics/examples/aggregate-patterns.yml) for the distinction between aggregate simulation (valid) and individual prediction (not valid).
 
 **K-line:** `MOTIVATION-ROLEPLAY`
+
+## Part of MOOLLM
+
+**This skill's directory (browse and fetch everything):** [skills/character/](https://github.com/SimHacker/moollm/tree/main/skills/character)
+
+- **MOOLLM:** [repo](https://github.com/SimHacker/moollm) · **Skill index and docs:** [skills/README](https://github.com/SimHacker/moollm/blob/main/skills/README.md)

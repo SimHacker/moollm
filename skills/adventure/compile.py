@@ -526,6 +526,24 @@ def compile_inventory(inventory_data: dict, base_path: Path, adventure_root: Pat
         'fungibles': [], # Stacks with count
     }
     
+    if isinstance(inventory_data, list):
+        # skills/character's list form: { ref: ... } or type: ref is a ref, a count makes a
+        # fungible, anything else (a dict or a file path) is an object carried.
+        grouped = {'refs': [], 'objects': [], 'fungibles': []}
+        for item in inventory_data:
+            if isinstance(item, str):
+                stem = Path(item).stem
+                grouped['objects'].append({'id': stem, 'name': stem.replace('-', ' ').title(), 'source': item})
+            elif isinstance(item, dict) and ('ref' in item or item.get('type') == 'ref'):
+                grouped['refs'].append(item)
+            elif isinstance(item, dict) and 'count' in item:
+                grouped['fungibles'].append(item)
+            elif isinstance(item, dict):
+                grouped['objects'].append(item)
+        inventory_data = grouped
+    elif not isinstance(inventory_data, dict):
+        return result
+    
     # Process refs (lightweight pointers)
     refs = inventory_data.get('refs', [])
     for ref in refs:
