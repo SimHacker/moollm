@@ -1,6 +1,6 @@
 # The classic case: The Sims
 
-*Part 1 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 1 of 6 of [An interface to agency](../INTERFACE-TO-AGENCY.md).*
 
 The argument is easiest to make where direct manipulation is least arguable. In The Sims you put
 a window in a wall by picking the window up and moving it along the wall. The window is visible
@@ -23,7 +23,7 @@ still there, and it has become better at guessing where you were going.
 The Sims already worked this way in 2000, for its own agents
 ([demo video](https://www.youtube.com/watch?v=-exdu4ETscs)). The people know how to walk around,
 but they don't know how to use the objects; the objects know how to make the people use them.
-Every object advertises what it can do — "I can do this, you can do that with me" — and each
+Every object advertises what it can do ("I can do this, you can do that with me"), and each
 advertisement says which motives it satisfies. The pie menu is generated from those
 advertisements, filtered by mood, personality and relationship, so the menu on a stranger has
 "Ask to Leave" and the menu on a lover does not. When a Sim acts on its own, its autonomy scores
@@ -34,14 +34,14 @@ screen, and you can cancel any of it with a click.
 
 Several interaction techniques together make this direct manipulation of agent behaviour:
 
-- **Selecting a character.** Click on a Sim, or press space to switch between them. A Sim under
+- Selecting a character: click on a Sim, or press space to switch between them. A Sim under
   the cursor slows down, like the tilt on a pinball machine, so you can catch someone walking
   past. That is Fitts's law in time: a moving target stays under the cursor longer, which grows
   its effective size.
-- **Pie menus** on people and objects, generated from the same advertisements autonomy scores.
-- **The action queue** of the selected character, showing what you queued and what the Sim queued
+- Pie menus on people and objects, generated from the same advertisements autonomy scores.
+- The action queue of the selected character, showing what you queued and what the Sim queued
   for itself, side by side.
-- **Cancelling** any queued action with a click on it.
+- Cancelling any queued action with a click on it.
 
 You pick for the Sim from the list it was already choosing from, and you watch the result. The
 player and the Sims share one set of verbs, and the objects supply them. This is also much easier
@@ -51,8 +51,8 @@ them.
 
 MOOLLM borrows this design from The Sims. Objects, rooms and characters advertise what can be done
 with them ([skills/advertisement/](../../skills/advertisement/)), and the LLM choosing an action
-reads the same advertisements a person browsing the directory reads. It has worked well with
-LLMs: the model gets a menu instead of a blank page, and the person can see the menu.
+reads the same advertisements a person browsing the directory reads. In MOOLLM's use with
+LLMs, the model gets a menu instead of a blank page, and the person can see the menu.
 
 What separates the two assistants is whether the object of interest stays in front of you, and
 whether the agent's hand and yours are on the same control. Any visible control can carry a

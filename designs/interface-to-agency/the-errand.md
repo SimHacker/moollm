@@ -1,6 +1,6 @@
-# The showcase: a Sim goes to work in another game
+# Worked example: a Sim goes to work in another game
 
-*Part 3 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 3 of 6 of [An interface to agency](../INTERFACE-TO-AGENCY.md).*
 
 This part and [the next](screen-angel.md) describe a system in which the automation has no private
 controls. Every action an agent takes goes through an affordance that is visible on screen,
@@ -21,7 +21,7 @@ This design applies all of them across programs that were not written to coopera
 ## The claim
 
 *An agent can do real work across closed programs, reaching into them only through the controls a
-person has — the screen, the mouse, the keyboard — and everything it does can stay visible,
+person has (the screen, the mouse, the keyboard), and everything it does can stay visible,
 interruptible and readable by that person.*
 
 Anything it calls outside the programs, a person could call too. A game from 2000 with no API is
@@ -30,14 +30,14 @@ close to the hardest case, which is why it is the example.
 ## Three names
 
 - **Screen Angel** is a layer that sits over any application as a transparent, always-on-top,
-  click-through overlay. It reads what is on screen — the accessibility tree where there is one,
-  the pixels where there is not — and acts on an application by moving the mouse and pressing keys.
+  click-through overlay. It reads what is on screen (the accessibility tree where there is one,
+  the pixels where there is not) and acts on an application by moving the mouse and pressing keys.
   Spec: [`SCREEN-ANGEL.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/SCREEN-ANGEL.yml) ·
   what it may do: [`CAPABILITIES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/CAPABILITIES.yml).
 - Outward, Screen Angel can call any service: LLM text completion, vision language models for
   understanding images, speech recognition and synthesis, or ordering a pizza. It is written in
-  TypeScript and runs in Electron. Its abilities come as modules — some for one game, some for all
-  of them — that can be plugged in, downloaded and upgraded without reinstalling it.
+  TypeScript and runs in Electron. Its abilities come as modules, some for one game and some for all
+  of them, that can be plugged in, downloaded and upgraded without reinstalling it.
   Module system: [`MODULES.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/MODULES.yml) ·
   agent surface: [`AGENT.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/AGENT.yml) ·
   code: [`apps/screen-angel/src/`](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/src).
@@ -59,7 +59,7 @@ different game.
 Soul Angel carries the errand across. It has no API into either game. It sees the screen and uses the
 mouse and keyboard, as a player does.
 
-While she is away, a painted **Easter egg** stands by the road where the car door was. Its paint tells
+While she is away, a painted Easter egg stands by the road where the car door was. Its paint tells
 both you and Soul Angel what state the job is in. Its pie menu lists every outcome the job is allowed
 to have, so the result comes home as a choice from a readable list.
 
@@ -75,14 +75,14 @@ Nothing in that loop is hidden from the player, and Soul Angel uses no verb the 
 closed game enforces this: with no API to go around the visible controls, there is no other way to
 do it.
 
-The rules for what may cross between games — conservation, fork and sync, roles as offices — are in
+The rules for what may cross between games (conservation, fork and sync, roles as offices) are in
 [`skills/soul-city/SOUL-BRIDGES.md`](../../skills/soul-city/SOUL-BRIDGES.md). The rest of this part
 covers the game, the egg and the errand. [The next part](screen-angel.md) covers the layer doing the
 clicking.
 
 ## The game, as it shipped
 
-The worked case is **The Sims 1**, the 2000 game, running as it shipped: no source, no patch, no
+The worked case is The Sims 1, the 2000 game, running as it shipped: no source, no patch, no
 injected code.
 
 What it does have is a content pipeline. Custom objects are `.iff` files with their own art, behaviour
@@ -112,7 +112,7 @@ game but its pixels.
 
 The code is colour bands up the egg's body, read like a resistor: position is the digit, colour is the
 value. A white cap above a black cap marks where the stack starts and ends. The caps also set the
-scale — a cap is exactly one band tall, so the egg gives its own scale at any zoom — and give the
+scale (a cap is one band tall, so the egg gives its own scale at any zoom) and give the
 reader a known white and a known black to correct colour against.
 
 Reading from a screen grab is cheap and exact. The frame comes off the compositor with no optics in

@@ -1,6 +1,6 @@
-# The other showcase: Ebike Safari
+# Second worked example: Ebike Safari
 
-*Part 5 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 5 of 6 of [An interface to agency](../INTERFACE-TO-AGENCY.md).*
 
 In the [Easter egg design](the-errand.md) the agent and the person share controls: Screen Angel
 clicks the pie item a person would click, and either can drive.

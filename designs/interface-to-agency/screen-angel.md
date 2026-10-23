@@ -1,6 +1,6 @@
 # Screen Angel: the layer doing the clicking
 
-*Part 4 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 4 of 6 of [An interface to agency](../INTERFACE-TO-AGENCY.md).*
 
 [The previous part](the-errand.md) told the story: a Sim takes a job as mayor in Micropolis, and
 comes home when someone picks from the pie menu of a painted Easter egg. This part is about the layer
@@ -55,9 +55,9 @@ Its limit is anything a player can do, with the tools players already use:
 - save and quit a game, read the save file, edit or regenerate it, and start the game again.
 
 The last item goes past what a player does by hand, since nobody reads a save file by eye. But
-players have edited Sims content with tools since 2000 — the Transmogrifier for cloning and
-repainting objects, community editors such as FreeSO's Volcanic for SimAntics — and Screen Angel
-works with that ecosystem of user-created content tools rather than replacing it. It reads and
+players have edited Sims content with tools since 2000 (the Transmogrifier for cloning and
+repainting objects, community editors such as FreeSO's Volcanic for SimAntics), and Screen Angel
+works with those user-created content tools rather than replacing them. It reads and
 writes the same files those tools do, so anything it changes, a person can open in one of them, or
 in a text editor once it has been converted to YAML.
 
@@ -71,18 +71,18 @@ save-quit-edit-relaunch cycle.
 How it perceives depends on how cooperative the application is, and games cooperate less than most
 software:
 
-- **The accessibility tree**, where one exists: real element bounds, real names, real events. Most
+- The accessibility tree, where one exists: real element bounds, real names, real events. Most
   applications have one. Almost no games do.
-- **Pixels**, where there is none. Anchor art located by correlation finds the window and its scale.
+- Pixels, where there is none. Anchor art located by correlation finds the window and its scale.
   The game's own bitmap font, read glyph by glyph, recovers text the game does not expose: 12 faces
   and 2,340 glyphs for The Sims 1
   ([`FONT-RECOGNITION.yml`](https://github.com/SimHacker/MicropolisCore/blob/main/apps/screen-angel/modules/soul-angel/bridges/sims1/FONT-RECOGNITION.yml),
   [bridge code](https://github.com/SimHacker/MicropolisCore/tree/main/apps/screen-angel/modules/soul-angel/bridges/sims1)).
   QR codes carry anything long, and the egg's bands carry live state at a distance.
-- **Models**, on top of both. Machine vision, vision language models and LLM completions supply the
+- Models, on top of both. Machine vision, vision language models and LLM completions supply the
   judgment neither pixels nor trees carry: what is happening in this scene, what this text means,
   what to do about it.
-- **The network**, when the answer is elsewhere: HTTP and API calls, which is how a job in another
+- The network, when the answer is elsewhere: HTTP and API calls, which is how a job in another
   game gets asked and answered.
 
 ## Both ends are open
@@ -124,8 +124,8 @@ so an afternoon of its actions can be reviewed afterwards.
 
 Four properties make this direct manipulation rather than delegation.
 
-**The automation's interface is the user's interface.** In a closed game this is enforced: there is
-no API to bypass the visible controls, because there is no API. The constraint comes from working
+**The automation's interface is the user's interface.** In a closed game this is enforced, because
+there is no API to bypass the visible controls. The constraint comes from working
 with a closed binary from 2000, and it is also the property the design wants. It is the same
 constraint most people meet at work, in software that is proprietary, embedded in how the job is
 done, and not theirs to change or replace. A design that has to work on The Sims cannot quietly
@@ -142,8 +142,8 @@ produce, for a person in a hurry or for a timeout.
 a named default, auto, or yolo, switchable while the job is outstanding. The user sets it; the agent
 does not infer it.
 
-The reason for all this is not that a person will always want to drive. A system whose automation
-uses the visible controls can be inspected, tested and repaired by the person whose data it is. A
+The point of these properties is inspection, whether or not the person wants to drive. A system
+whose automation uses the visible controls can be inspected, tested and repaired by the person whose data it is. A
 system with a private control channel cannot.
 
 Further reading: the Screen Angel skill
@@ -155,4 +155,4 @@ Philip K. Dick's *A Scanner Darkly* on the job of reviewing recordings of your o
 
 ---
 
-Previous: [The showcase: a Sim goes to work in another game](the-errand.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [The other showcase: Ebike Safari](ebike-safari.md)
+Previous: [Worked example: a Sim goes to work in another game](the-errand.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents) · Next: [Second worked example: Ebike Safari](ebike-safari.md)

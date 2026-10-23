@@ -1,6 +1,6 @@
 # Behind the scenes: the state is a file
 
-*Part 6 of 6 of [An interface to agency, not agents instead of an interface](../INTERFACE-TO-AGENCY.md).*
+*Part 6 of 6 of [An interface to agency](../INTERFACE-TO-AGENCY.md).*
 
 The [classic case](the-sims.md) needs a graphical interface that already exists, and most things
 agents work on have none. There is no build mode for a memorial, a consent record, or what a
@@ -107,4 +107,4 @@ keeps its state on a vendor's server has no file to hand over.
 
 ---
 
-Previous: [The other showcase: Ebike Safari](ebike-safari.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents)
+Previous: [Second worked example: Ebike Safari](ebike-safari.md) · [Contents](../INTERFACE-TO-AGENCY.md#contents)

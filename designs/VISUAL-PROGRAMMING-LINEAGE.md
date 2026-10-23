@@ -8,7 +8,7 @@ character simulation, and modern LLM orchestration.
 ### 1960s: Pioneers
 
 **Sketchpad** (Ivan Sutherland, MIT, 1963)
-- First graphical user interface
+- Early interactive graphical interface
 - Direct manipulation of geometric objects
 - Constraint-based graphics
 
@@ -66,7 +66,7 @@ several threads converged:
 
 **Hookup** (David Levitt) · **Body Electric → Bounce** (Chuck Blanchard, then Levitt and Don)
 
-**Two independently written dataflow languages.** Levitt wrote Hookup at MIT for
+These are two independently written dataflow languages. Levitt wrote Hookup at MIT for
 MIDI and music; Blanchard wrote Body Electric at VPL, in Pascal, for virtual
 reality. The one code descent is the second arrow: when VPL broke up Levitt
 acquired Body Electric, renamed it Bounce, and he and Don carried it forward.
@@ -77,15 +77,13 @@ acquired Body Electric, renamed it Bounce, and he and Don carried it forward.
 | **Body Electric** | Chuck Blanchard | VPL | VR, devices, Swivel3D trees | Independent |
 | **Bounce** | Levitt, then Don | Levity, Interval | Multimedia, components | Body Electric, renamed and extended |
 
-**What crosses between them is a person and a library.** Levitt integrated
-Macromedia's MMP library into Hookup himself; after joining VPL he added it to
-Body Electric too. The shared component travelled in the designer's head and
-hands. **The same engineer reached for the same solution twice, in two unrelated
-languages, in two industries, a decade apart.**
+What connects them is a person and a library. Levitt integrated Macromedia's
+MMP library into Hookup himself, and after joining VPL he added it to Body
+Electric too. The same engineer used the same library in two unrelated
+languages built for different industries.
 
-**The most direct answer in this file to the claim that visual programming never
-shipped anything real** comes from Body Electric's primary user rather than from
-an advocate:
+A direct answer to the claim that visual programming never produced real work
+comes from Body Electric's main user:
 
 > "The piece was written entirely in Body Electric, a visual programming
 > language for Virtual Reality. I am extremely fond of this software working
@@ -100,14 +98,12 @@ an advocate:
 at 20061017223445. Local copy:
 [sims/rescue-raw/jaron-lanier-instruments-2006.txt](./sims/rescue-raw/jaron-lanier-instruments-2006.txt)`
 
-That last clause is the whole argument in nine words, from someone who could
-certainly write C. Note also what he attributes it to: **immediate effect** — the
-environment property, not the pictures.
+Lanier could write C. He attributes the difference to seeing the effect
+immediately, which is a property of the environment rather than of the pictures.
 
-### The company was named after the language, not the other way around
+### VPL was named after the language
 
-Worth stating plainly because Wikipedia currently has it wrong: **VPL stood for
-Visual Programming Language.** Lanier settled it himself, describing how the
+VPL stood for Visual Programming Language. Lanier described how the
 September 1984 *Scientific American* cover used one of his visual programming
 experiments as its illustration, and an editor called in a panic because
 contributors must list an affiliation:
@@ -118,21 +114,21 @@ contributors must list an affiliation:
 
 `verified: Lanier, "Virtually There," Scientific American, April 2001.`
 
-Both expansions, singular *Language*, **visual first**. The Wikipedia article
-gives only "Virtual Programming Languages," plural, cited to a C-SPAN page that
-is a video listing and never expands the acronym at all. Don has filed the
-correction on the talk page.
+He gives both expansions, with singular *Language* and visual first. The
+Wikipedia article gives only "Virtual Programming Languages," plural, cited to a
+C-SPAN page that is a video listing and does not expand the acronym. Don has
+filed the correction on the talk page.
 
-So the visual programming language is not something VPL Research got around to
-building for its VR hardware. **The language came first and the company was named
-after it** — which is the strongest available answer to reading Body Electric as
-a scripting layer bolted onto a VR product.
+So visual programming was not something VPL Research added later for its VR
+hardware. The language came first and the company was named after it, which
+argues against reading Body Electric as a scripting layer added to a VR
+product.
 
-### Hookup has descendants of its own, and the claim needs sorting
+### Hookup's descendants
 
-Hookup is filed here because of Levitt rather than for itself. A 2000 interview
-with **Mark Coniglio**, who built Interactor and Isadora, puts it somewhere much
-less peripheral:
+Hookup is listed here because of Levitt rather than for itself. A 2000 interview
+with Mark Coniglio, who built Interactor and Isadora, gives it a more central
+place:
 
 > "In 1986 my soon-to-be mentor and Interactor collaborator Mort Subotnick had
 > just come from a residency at MIT where he was using a program called **Hookup**
@@ -148,21 +144,20 @@ And then, on what he built from it:
 
 `verified: Coniglio interviewed by Sher Doruff, sdela.dds.nl/sfd/isadora.html.`
 
-**Sort those two claims apart, because they are not equally strong.**
+These claims are not equally well supported.
 
 | Claim | Status |
 |---|---|
-| Coniglio's own work descends from Hookup | **Direct.** He watched Subotnick use it, was hired to reimplement its ideas, and says he set out to copy its interface. Interactor 1987 → Isadora. |
-| Hookup was first to the patch-cord metaphor | **Hedged by the claimant** — "the first program *I know of*." And he immediately names the real ancestor: "For those in the world of early analog, patch-cord programmed synthesizers, this was a familiar interface." |
-| Max inherits it from Hookup | **Unsupported as stated.** Puckette's Max work at IRCAM is contemporaneous with Hookup, not downstream of it. Coniglio is generalizing from his own case. |
+| Coniglio's own work descends from Hookup | Direct. He watched Subotnick use it, was hired to reimplement its ideas, and says he set out to copy its interface. Interactor 1987 → Isadora. |
+| Hookup was first to the patch-cord metaphor | Hedged by the claimant: "the first program *I know of*." He then names the real ancestor: "For those in the world of early analog, patch-cord programmed synthesizers, this was a familiar interface." |
+| Max inherits it from Hookup | Unsupported as stated. Puckette's Max work at IRCAM is contemporaneous with Hookup, not downstream of it. Coniglio is generalizing from his own case. |
 
-What survives is proximity, and it is more specific than the descent claim was.
-**Levitt shared an office with Miller Puckette at MIT — 545 Technology Square,
-the room known as the Music Hackers Hangout.** Hookup and Max are siblings from
-one room.
+What the record supports is proximity. Levitt shared an office with Miller
+Puckette at MIT, at 545 Technology Square, in the room known as the Music
+Hackers Hangout. Hookup and Max are siblings from one room.
 
-The room was known by that name to the machines as well. **"Music Hackers
-Hangout" was the registered location of the Lisp machine in that office**, so it
+The machines used that name too. "Music Hackers
+Hangout" was the registered location of the Lisp machine in that office, so it
 appeared as the site whenever you listed the Lisp machines or checked who was
 logged in from one. Don slept on the beanbag chair next to the Lounge Lizard Lisp
 Machine on the ninth floor.
@@ -171,13 +166,11 @@ Machine on the ninth floor.
 documentary — the Lisp machine host tables would settle the location string if
 anyone has a surviving dump.`
 
-**Which puts Levitt at the origin of the patch-cord line in music software**, and
-he is the man who later carried the MMP library, and then Bounce, out of that
+This places Levitt early in the patch-cord line in music software. He later carried the MMP library, and then Bounce, out of that
 world and into VR and multimedia. Hookup's own descendants are Interactor and
 Isadora.
 
-**Coniglio also names the property, in the same terms everyone else in this file
-reaches for:**
+Coniglio also names the property that others in this file describe:
 
 > "Part of the thing I reacted to in Hookup was the way you could easily drop
 > modules into the program and try things; a lot like you could do with the
@@ -185,14 +178,13 @@ reaches for:**
 > ability to **program improvisationally** allowed for that kind of artful
 > playfulness that is so important."
 
-Improvisational programming, Don's "extremely fun and productive zone," Lanier's
-"debugging is as much a pleasure as making new stuff." Three people, three
-decades, three industries, converging on liveness rather than on pictures.
+Coniglio's improvisational programming, Don's "extremely fun and productive
+zone," and Lanier's "debugging is as much a pleasure as making new stuff" all
+describe liveness rather than pictures.
 
-### The precise technical difference from Max, which is a real distinction
+### How Bounce differs from Max
 
-Don spelled out in 2000 what separates the two, and it is sharper than
-"they're both box-and-wire":
+Don described in 2000 what separates the two:
 
 > "Bounce is similar to Max in many ways, but also quite different. It's **more
 > data flow oriented than control flow oriented**, so it's like a whole
@@ -200,11 +192,11 @@ Don spelled out in 2000 what separates the two, and it is sharper than
 > modules through wires, rather than control flow (the program counter) jumping
 > from module to module through wires, like Max."
 
-**Same picture, opposite semantics.** In Bounce the wires carry values and
-everything evaluates continuously; in Max the wire is where the program counter
-goes next. A diagram that looks identical means two different things.
+In Bounce the wires carry values and everything evaluates continuously; in Max
+the wire is where the program counter goes next. Diagrams that look the same
+mean different things.
 
-And he states the cost of the pure-dataflow choice without softening it:
+He also describes the cost of the pure-dataflow choice:
 
 > "To implement conditionals, Bounce has a switching module like a relay, with
 > one output that switches between two inputs under control of a third input; or
@@ -213,73 +205,71 @@ And he states the cost of the pure-dataflow choice without softening it:
 > special nested container that executes its contents repeatedly until it returns
 > a false value, **but that was pretty unwieldy.**"
 
-**Continuous evaluation makes flow beautiful and control awkward.** A conditional
-becomes a relay and a loop becomes a container with a weird contract — both
-borrowed from circuits, because a circuit is what the model actually is. That is
-the same negative result as the state problem, one level up: *pure dataflow
-expresses flow well and everything else by analogy.*
+Continuous evaluation makes flow easy to express and control awkward. A
+conditional becomes a relay and a loop becomes a container with an unusual
+contract, both borrowed from circuits, because the model is a circuit. This is
+related to the state problem described below: pure dataflow expresses flow
+directly and everything else by analogy.
 
 ### How Levitt came to own it
 
-The provenance of Bounce turns out to be a debt settlement:
+Levitt acquired the basis of Bounce in settlement of a debt:
 
 > "David Levitt legally acquired the rights to Body Electric when VPL broke up,
 > **instead of money they owed him for Hookup.**"
 
-Which also explains the Interval credit dispute below: Levitt held the rights
-legitimately and Blanchard held the authorship, and those two facts came apart.
+This is why rights and authorship came apart: Levitt held the rights
+legitimately, and Blanchard was the author.
 
-### Two more provenance details worth keeping
+### Two more provenance details
 
-- **Body Electric was written in Pascal**, and "at some time it got converted to
+- Body Electric was written in Pascal, and "at some time it got converted to
   C through some automatic translator on an HP unix system." Don later described
   cleaning up "C code translated from Pascal, that no human had ever touched
   before." Anyone building Chuck's source tree should expect machine-translated C.
-- **The liveness, described from inside:** "the simulation ran while you were
+- Liveness, as Don described it: "the simulation ran while you were
   editing it, so programming was very interactive, **like soldering on a live
   circuit, or defusing an atomic bomb.**"
 
 `verified: all quotes in these four sections from bounce-notes.txt, mirrored at
 [sims/rescue-raw/bounce-notes-2000.txt](./sims/rescue-raw/bounce-notes-2000.txt).`
 
-### Who did what, settled
+### Who did what
 
 Lanier credits Body Electric's design primarily to Chuck Blanchard, and Don says
-the same thing in his own words — **"Chuck Blanchard (who wrote Body
-Electric)"** — so the lineage should name three people rather than one:
+the same in his own words ("Chuck Blanchard (who wrote Body
+Electric)"), so the lineage should name three people rather than one:
 
 | | |
 |---|---|
-| **Hookup** | David Levitt — MIDI visual programming, at MIT |
-| **Body Electric** | **Chuck Blanchard** wrote it, at VPL. Lanier was its principal user |
-| **The Macromedia Director Player (MMP) library** | Levitt integrated it into Hookup, then into Body Electric after joining VPL. **It later became the browser plugin known as Shockwave** |
-| **Bounce** | Levitt again, post-VPL at Levity — Body Electric acquired in lieu of money owed him for Hookup, then renamed and extended |
-| **Bounce, ported and extended** | Don — PowerPC port, user interface, the COM plug-in and type extension system, multimedia support, at Levity and Interval |
+| Hookup | David Levitt: MIDI visual programming, at MIT |
+| Body Electric | Chuck Blanchard wrote it, at VPL. Lanier was its principal user |
+| The Macromedia Director Player (MMP) library | Levitt integrated it into Hookup, then into Body Electric after joining VPL. It later became the browser plugin known as Shockwave |
+| Bounce | Levitt again, post-VPL at Levity: Body Electric acquired in lieu of money owed him for Hookup, then renamed and extended |
+| Bounce, ported and extended | Don: PowerPC port, user interface, the COM plug-in and type extension system, multimedia support, at Levity and Interval |
 
 `verified: Don Hopkins to Eric Hosick and a VPL mailing list including Brad
 Myers, Ben Shneiderman, Alan Kay, Henry Lieberman, Ben Bederson and Arthur van
 Hoff, 2014-03-07; Lanier to Don, 2007-01-03.`
 
-### The shared library became Shockwave, and the browser got the weaker half
+### MMP and Shockwave
 
-MMP is not a footnote. **Plugged into the browser it was renamed Shockwave**, and
-for a stretch of the late nineties it was how the web had animation at all. But
-the browser got the library running in its least interesting mode.
+Packaged as a browser plugin, MMP was renamed Shockwave, and in the late 1990s it
+was a common way to put animation on the web. In the browser it mostly ran in
+its simplest mode.
 
-**Shockwave played canned Director files.** Body Electric used the same library
-the other way round: **sprite and sound modules placing cast members on the stage
-directly**, with the animation generated as it ran. Same playback engine, and the
+Shockwave played prepared Director files. Body Electric used the same library
+the other way round: sprite and sound modules placed cast members on the stage
+directly, and the animation was generated as it ran. Same playback engine, and the
 difference is whether the frames exist before the program does.
 
-**Lingo could do it that way, and almost nobody did.** The capability was in
-Director all along; the working style around it was timelines, `go to frame`, and
-simple expressions. So the dynamic mode of the library reached its fullest use in
-a dataflow VR language rather than in the multimedia authoring tool it shipped
-with.
+Lingo could also work this way, but it was seldom used like that. The capability
+was in Director all along; the usual working style was timelines, `go to frame`,
+and simple expressions. So the dynamic mode of the library got more use in a
+dataflow VR language than in the multimedia authoring tool it shipped with.
 
-**Which sets up the best one-line diagnosis of the timeline in this file.** Don
-was hanging out with **Marc Canter** — MacroMind's founder, whose VideoWorks
-became Director — when Canter pointed out what the **Score** actually is:
+Don was spending time with Marc Canter (MacroMind's founder, whose VideoWorks
+became Director) when Canter described what the Score is:
 
 > A Director Score is a BASIC program rotated ninety degrees counter-clockwise,
 > with line numbers and gotos.
@@ -289,21 +279,20 @@ window: frames are the numbered columns, channels are the rows. Stewart Sharp, a
 Director artist and programmer who worked with Canter, would stop by and show off
 recent work.`
 
-**Rotate a BASIC listing counter-clockwise and the line numbers, which ran down,
-now run across.** That is the frame ruler. `GOTO 400` becomes `go to frame 400`.
-The channels stacked underneath are the one thing BASIC did not have — parallel
-tracks at each line number — which is exactly the part that made it good for
-animation and left it a numbered-line language everywhere else.
+Rotate a BASIC listing counter-clockwise and the line numbers, which ran down,
+now run across: that is the frame ruler. `GOTO 400` becomes `go to frame 400`.
+The channels stacked underneath are what BASIC did not have, parallel tracks at
+each line number. That made it good for animation and left it a numbered-line
+language everywhere else.
 
-**So the timeline is not the opposite of a patch graph, it is the opposite of
-dataflow.** A Score fixes what happens at time *t* in advance; a patch graph
+In this sense the timeline is the opposite of dataflow. A Score fixes what happens at time *t* in advance; a patch graph
 describes relationships and lets time fall out of evaluation. Levitt carried one
 library into both worlds, and in Bounce it ended up serving the model the
 timeline was built to avoid.
 
-**And the wire types explain the COM fix.** Body Electric's native data types
-were **integers, floating point numbers, and Swivel3D trees** — that is the
-whole vocabulary. So the extension Don built was not a luxury:
+The wire types explain the COM extension. Body Electric's native data types
+were integers, floating point numbers and Swivel3D trees, and nothing else, so
+the extension Don built was needed:
 
 > "One direction we took Bounce from its Body Electric roots was to extend it to
 > support MacroMedia MOA plug-in objects (like cross platform COM components) for
@@ -314,15 +303,15 @@ whole vocabulary. So the extension Don built was not a luxury:
 > made Bounce a lot more powerful, since **its original native data types were
 > not nearly as flexible.**"
 
-Read that against the reflection section below. Adding dictionaries and arrays
-to the wires is the same move PSIBER made — **make the aggregate a first-class
-thing you can pass around and open** — arriving by a different route, under
-production pressure, a decade later.
+Compare the reflection section below. Adding dictionaries and arrays to the
+wires is the same step PSIBER took, making the aggregate a first-class thing you
+can pass around and open, reached by a different route under production
+pressure, about a decade later.
 
-### The sweet spot, and the objection to it
+### The sweet spot, and Shneiderman's objection
 
-Don's summary of what the language proved is worth quoting exactly, because it
-is a claim about a *reachable* design point rather than about one product:
+Don's summary is a claim about a design point that can be reached, rather than
+about one product:
 
 > "I know there are a lot of visual programming languages, and that most of them
 > really suck, but I don't think that's endemic to all VPLs. After using Body
@@ -334,8 +323,7 @@ is a claim about a *reachable* design point rather than about one product:
 > mathematical models**, and good user interface design is even more important
 > for visual programming languages."
 
-**And the strongest objection came from Ben Shneiderman, in the same thread**,
-which is why it belongs here rather than in a footnote:
+Ben Shneiderman raised an objection in the same thread:
 
 > "Visual languages have struggled to make commercial impact, but it has been a
 > tough road. One issue is the **remarkable compactness of textual languages
@@ -343,23 +331,23 @@ which is why it belongs here rather than in a footnote:
 > breakthroughs and the right situations to make VPL more widespread, but I'm a
 > great fan of this direction."
 
-That is the same complaint Don makes about SimAntics — *"acres of bizarre
-spaghetti code"* with no way to list it out as text, grep it, or diff it. Two
-people who each spent years building visual languages, naming the same missing
-feature: **text is not a rival notation, it is the substrate that search,
-replace, copy, diff and version control are built on.** A visual language that
-cannot round-trip to text forfeits all of it.
+Don makes the same complaint about SimAntics: *"acres of bizarre
+spaghetti code"* with no way to list it as text, grep it or diff it. Both of
+them, after years of building visual languages, name the same missing feature.
+Text is the substrate that search, replace, copy, diff and version control are
+built on, and a visual language that cannot round-trip to text loses all of
+them.
 
-Which is the argument for the position this repository takes — files first,
-with structure — and the reason Don's proposal to Lanier was a language whose
+This is the argument for the position this repository takes (files first, with
+structure), and the reason Don's proposal to Lanier was a language whose
 underlying form is serializable, with the visual editor as one view of it.
 Lanier's counter-argument, that serialization endangers update latency, is in
 the same section below.
 
-### The same objection from Guido van Rossum, phrased as an open request
+### Guido van Rossum's request for a comparison
 
-Shneiderman's objection has a twin, made seven years earlier by the author of
-Python, and it is still open. March 2007, OLPC Sugar list: a subthread had formed
+Guido van Rossum made a related point seven years earlier, as a question that
+is still open. March 2007, OLPC Sugar list: a subthread had formed
 around round-tripping a modified Python AST back to source, and Guido asked what
 the point was.
 
@@ -373,25 +361,24 @@ the point was.
 `verified: sugar@laptop.org 001750, 11 March 2007. Full thread archived in Don's
 repo under characters/don-hopkins/correspondence/threads/2007-03-sugar-python-etoys-visual-programming/.`
 
-**Two things in there are worth separating.** The parenthesis is a refusal to
-claim his own side — unusual, and it is what makes the request a request rather
-than a position. And the argument itself is not about pictures at all: it is
-about **which representation is the ground truth**, because whichever one is
-canonical is the one that keeps your formatting and your comments. He had just
-offered the concrete answer for his side — the tool that became `2to3`, which
-does source-to-source transformation and *"retains the exact formatting, comments
-etc. of the input source code."* Text stays canonical; transformations are
+Two points are worth separating. In the parenthesis he declines to claim that
+his own preference is better, which makes this a request rather than a
+position. And the question is not about pictures: it is about which
+representation is the ground truth, because the canonical one is the one that
+keeps formatting and comments. He had just described the concrete answer for
+his side, the tool that became `2to3`, which does source-to-source
+transformation and *"retains the exact formatting, comments
+etc. of the input source code."* Text stays canonical, and transformations are
 functions on text.
 
-**Nobody wrote the comparison.** Nineteen years later this file is a partial
-answer to it, and it should say so plainly, because the three positions in that
-thread are still the three positions:
+No one in the thread wrote the comparison. This file is a partial answer,
+nineteen years later. The thread contains three positions:
 
 | Position | Ground truth | Advocate, in that thread |
 |---|---|---|
-| **Text, transformed** | Source text; tools parse and re-emit it | Guido — formatting and comments survive, and every existing tool works |
-| **Structure, rendered** | The tree; text is one view of it | the AST subthread; Ian Bicking's reading of Boxer as a middle — *"indentation is already a visual structure,"* plus non-text literals, *"all of that can be serialized to text"* |
-| **A separate visual notation, compiled down** | Neither; the visual language is its own language | Don |
+| Text, transformed | Source text; tools parse and re-emit it | Guido: formatting and comments survive, and every existing tool works |
+| Structure, rendered | The tree; text is one view of it | the AST subthread; Ian Bicking's reading of Boxer as a middle — *"indentation is already a visual structure,"* plus non-text literals, *"all of that can be serialized to text"* |
+| A separate visual notation, compiled down | Neither; the visual language is its own language | Don |
 
 Don's, stated at the end of the thread, is the one this repository builds on:
 
@@ -402,15 +389,14 @@ Don's, stated at the end of the thread, is the one this repository builds on:
 
 `verified: sugar@laptop.org 001947, 20 March 2007.`
 
-**That sidesteps the ground-truth fight rather than winning it.** If the visual
+This avoids the ground-truth question rather than settling it. If the visual
 language compiles to Python instead of being a view of Python, then Python text
 stays canonical for everything Guido cares about, and the visual notation is free
-to be as unlike Python as a nine-year-old needs — including deliberately weaker.
+to be as unlike Python as a nine-year-old needs, including deliberately weaker.
 The cost is a compiler and a debugging story across two levels, which is the
 price the "one faithful view" position does not pay.
 
-And he refuses the obvious corollary, which is where most kid-friendly tooling
-goes wrong:
+He also argued against a simplified dialect underneath:
 
 > "I think it would be wonderful to have a visual interface that **faithfully
 > represented the full power and semantics of Python** (without trying to put a
@@ -422,15 +408,15 @@ goes wrong:
 
 `verified: sugar@laptop.org 001809.`
 
-**Simplified notations on top, no crippled dialect underneath.** Which is Kay's
+Simplified notations on top, the full language underneath. Kay's
 "pop the hood on practically everything" and Shneiderman's round-trip requirement
-arriving at the same architecture from two directions.
+lead to the same architecture.
 
 - Hookup: Atari Cambridge/MIT Media Lab era, MIDI visual programming
 - Body Electric: VPL Research, inherited MMP (Macromedia Director player)
 - VR integration: Flock of Birds, Polhemus, DataGlove, Convolvotron
 - Swivel3D articulated trees for bodies, hands, gesture recognition
-- Broadcast positions via UDP to TWO SGI workstations (one per eye!)
+- Broadcast positions via UDP to two SGI workstations (one per eye)
 - Jaron Lanier performed with VR musical instruments live
 - Bounce: David's post-VPL version at Levity, Don Hopkins did UI
 - COM/ActiveX integration: new wire types for JSON-like nested data
@@ -438,54 +424,51 @@ arriving at the same architecture from two directions.
 - Don ported Bounce to PowerPC Mac and built a cross-platform plug-in
   architecture on COM, porting the ActiveX Template Library to the Mac to do it
 
-**The lesson is the one worth carrying forward, because it is a negative
-result stated by the people who built the thing:** *pure* dataflow becomes
+The people who built it report a negative result: pure dataflow becomes
 unwieldy once complex state is involved, and the fix was to let opaque
-objects — COM components — sit inside the graph and hold state, with richer wire
+objects (COM components) sit inside the graph and hold state, with richer wire
 types to carry nested data between them.
 
-**Note the word "opaque," because it is the whole cost.** The fix bought state
-and paid for it in *reflection*: you can see the wire, and you cannot see inside
-the box. A patch graph makes flow completely visible while making the thing the
-flow passes through completely dark. That is the trade the next section is
-about.
+The cost is in the word "opaque". The fix bought state and paid for it in
+reflection: you can see the wire but not inside the box. A patch graph makes
+flow visible while hiding what the flow passes through. The next section is
+about that trade.
 
 That is the same shape as the resolution in
-[AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md): not one mechanism winning, but a
-visual layer for the connections and a symbolic layer for the state, each doing
-what it is good at. A patch graph is a beautiful way to express *flow* and a bad
-way to express *memory*.
+[AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md): a visual layer for the connections
+and a symbolic layer for the state, each doing what it does well. A patch graph
+expresses flow well and memory badly.
 
-Note also the pairing with Lanier's augmentation/automation axis — the same
-Jaron Lanier, performing music with a dataflow language, is the person whose
-review supplies that axis. The instrument was augmentation, literally.
+Lanier, who performed music with a dataflow language, is also the source of the
+augmentation/automation axis in that file. The instrument was a case of
+augmentation.
 
-## The axis that actually separates these systems: how far down does it go?
+## Reflective depth: how far down does it go?
 
-"Visual programming" is the wrong category. It groups things by how they look,
-and the property that decides what you can *do* is **reflective depth** — how
-much of the running system is reachable as a first-class object you can see,
-inspect, name and edit, using the same machinery you use for everything else.
+"Visual programming" groups systems by how they look. A property that matters
+more for what you can do is reflective depth: how much of the running system is
+reachable as a first-class object you can see, inspect, name and edit, using the
+same machinery you use for everything else.
 
-Ask it as one question: **can you drill down to everything, or does the drill
-hit a floor?**
+The question is whether you can drill down to everything, or whether the drill
+hits a floor.
 
 | System | The floor |
 |---|---|
 | Max/MSP, Body Electric, Bounce | The patch is visible; the objects in it are opaque. Flow is transparent, state is dark |
 | Scratch | Scripts and sprites are visible; the interpreter and the block definitions are not |
-| **Snap!** | Much lower — first-class functions, lists, continuations, and blocks that build blocks. "First class" is the design thesis, not a feature |
-| **Smalltalk** | Nearly none — objects all the way down, classes are objects, the compiler is an object, the debugger edits live frames |
-| **Self / Morphic** | None in the UI either. Every visible thing is a morph you can halo, open, and restructure; there is no separate editor mode because there is no separate editor |
-| **SK8** | Apple's answer to the same question — an object system where everything authorable is an object, with a real language underneath, not a scripting veneer |
-| **eToys / Squeak** | Halos on every morph, viewers that expose an object's variables and scripts to a child |
-| **PSIBER Space Deck** | The extreme case, below |
+| Snap! | Much lower: first-class functions, lists, continuations, and blocks that build blocks. First-class data is the design principle |
+| Smalltalk | Nearly none: objects all the way down, classes are objects, the compiler is an object, the debugger edits live frames |
+| Self / Morphic | None in the UI either. Every visible thing is a morph you can halo, open, and restructure; there is no separate editor mode because there is no separate editor |
+| SK8 | Apple's answer to the same question: an object system where everything authorable is an object, with a full language underneath |
+| eToys / Squeak | Halos on every morph, viewers that expose an object's variables and scripts to a child |
+| PSIBER Space Deck | The extreme case, below |
 
-**Uniformity is the property, not visibility.** Smalltalk and Self are not on
-this list for being graphical — Smalltalk's syntax is text. They are here
+The property is uniformity rather than visibility. Smalltalk and Self are on
+this list not because they are graphical (Smalltalk's syntax is text) but
 because there is no privileged layer that the ordinary tools cannot open.
 
-### PSIBER: the floor removed entirely
+### PSIBER: removing the floor
 
 > **The Shape of PSIBER Space: PostScript Interactive Bug Eradication Routines**
 >
@@ -498,36 +481,33 @@ because there is no privileged layer that the ordinary tools cannot open.
 Paper and PostScript archived at art.net/~hopkins/Don/psiber/; demo film at
 donhopkins.com/home/movies/PSIBERDemo.mov`
 
-"Data structures, programs, **and processes**" is the claim that matters. Not a
-visualization *of* the system — a direct interface *to* it, in the live memory
-space, where the thing on screen is the thing itself.
+"Data structures, programs, **and processes**" is the important part. It is a
+direct interface to the system in its live memory space, rather than a
+visualization of it: the thing on screen is the thing itself.
 
-**And the sharpest demonstration is what happens to a dictionary.** In PSIBER a
-PostScript dictionary could be treated as a **command palette**: the same object
-is a data structure when you inspect it and a menu when you use it, with no
-conversion step and no separate palette-definition format. That is what removing
-the floor buys you. Under a partial object model you need a palette *format*, a
-palette *editor*, and glue mapping entries onto functions. Under a total one the
-dictionary already is all three, because a name bound to executable code is
-exactly what a menu item is.
+Dictionaries show what this allows. In PSIBER a PostScript dictionary could be
+used as a command palette: the same object is a data structure when you inspect
+it and a menu when you use it, with no conversion step and no separate
+palette-definition format. Under a partial object model you need a palette
+format, a palette editor, and glue mapping entries onto functions. Under a total
+one the dictionary already serves all three purposes, because a name bound to
+executable code is what a menu item is.
 
-**State the design intent before the cost, because they are easy to confuse.**
-Don, on the OLPC list in 2007:
+The design intent, in Don's words on the OLPC list in 2007:
 
 > "**The idea wasn't to invent a new visual language, just to implement a faithful
 > visual representation of how the language really is**, with a direct
 > manipulation interface for editing data and executing code."
 
-Not a new notation. A view of an existing one, at full fidelity. Which is why
-PostScript was the right substrate — *"a lot like Lisp […] because PostScript
+The aim was a full-fidelity view of an existing language, not a new notation.
+That is why PostScript suited it (*"a lot like Lisp […] because PostScript
 programs are simply executable arrays containing names, literals, primitive
-operators, nested arrays"* — and why the same deck could inspect a running
+operators, nested arrays"*), and why the same deck could inspect a running
 thread's dictionary stack, operand stack and execution stack.
 
-### The bill for removing the floor, itemised by the person who removed it
+### The cost of removing the floor
 
-Every celebration of reflective depth in this file owes a debt to this paragraph,
-so it goes right here rather than in a caveats section at the end:
+Don also described the cost:
 
 > "One problem with PSIBER was that it was **too easy to make a mistake dragging
 > and dropping, and accidentally totally hose the internals of the window
@@ -537,41 +517,40 @@ so it goes right here rather than in a caveats section at the end:
 
 `verified: sugar@laptop.org 001809, 13 March 2007.`
 
-**Direct manipulation of a live system includes direct destruction of it.** The
-floor was not only protecting you from the implementation, it was protecting the
-implementation from you — and a system with no floor and no guard rail hands a
-drag gesture the same authority as a deliberate edit. Note what he asks for as
-the fix: not less reflection, but a **mode** — a read-only shield you take off on
-purpose. Depth stays; the accident budget gets a switch.
+Direct manipulation of a live system also makes it easy to break. The floor
+protected the implementation from the user as well as the other way round, and
+without a floor or a guard a drag gesture has the same authority as a
+deliberate edit. The fix he asks for is not less reflection but a mode: a
+read-only shield that you turn off on purpose.
 
-That is the same shape as the resolution everywhere else in this file. Full
-access, plus an explicit gate on the consequential step.
+This matches the pattern elsewhere in this file: full access, with an explicit
+gate on consequential steps.
 
-### Why 3D changes the stakes rather than the principle
+### What 3D adds
 
-The version of this Don and Lanier were arguing about is stronger: **represent
-all data as first-class objects in 3D, with full reflection.** 3D does not make
-the reflection deeper — a dictionary is no more open for being a cube. What it
-adds is *room*: spatial arrangement, containment, adjacency and scale become
-free notation, so a large structure can be navigated by moving rather than by
-scrolling a tree. The peril is equally structural — occlusion, and objects that
-look manipulable but are pictures.
+The version Don and Lanier discussed goes further: represent all data as
+first-class objects in 3D, with full reflection. 3D does not make reflection
+deeper, since a dictionary is no more open for being a cube. What it adds is
+room: spatial arrangement, containment, adjacency and scale become available as
+notation, so a large structure can be navigated by moving rather than by
+scrolling a tree. The risks are also structural: occlusion, and objects that
+look manipulable but are only pictures.
 
-Which is why Body Electric belongs in this section and not only in the Interval
-one. It went furthest toward objects-in-space that you really operate on, and
-then hit the state problem, and the fix — opaque COM components — **reintroduced
-the floor.** The most reflective system on the list and the one that had to
-compromise reflection to ship are the same system.
+This is why Body Electric belongs in this section as well as the Interval one.
+It went far toward objects in space that you actually operate on, then ran into
+the state problem, and the fix (opaque COM components) brought the floor back.
+The same system went a long way toward reflection and then had to give some of
+it up to ship.
 
-That tension is unresolved rather than settled, and it is the reason this
-repository keeps skills as inspectable files: a directory is a dictionary you
-can open, and a `CARD.yml` is a command palette that is also just data. Same
-move as PSIBER's, in a substrate with no graphics at all.
+The tension is unresolved, and it is one reason this repository keeps skills as
+inspectable files: a directory is a dictionary you can open, and a `CARD.yml` is
+a command palette that is also just data. It is the same idea as PSIBER's, in a
+substrate with no graphics.
 
-### Lanier's own verdict, which is split down the middle on purpose
+### Lanier's assessment
 
-The retrospective assessment turns out to exist in two places, and the split is
-the point — the same person rates the same system best and worst in one sentence:
+Lanier's retrospective assessment appears in two places. In one sentence he
+rates the same system best and worst:
 
 > "The VPL software is **both the best and the worst VR software ever made.** It
 > has infuriating limitations and wasn't maintained during VPL's long dark ages
@@ -592,19 +571,17 @@ And on the language specifically:
 
 `verified: jaronlanier.com/vpl.html.`
 
-**Take the debugging claim seriously, because it is the rarest one in this
-document.** Every system here argues that its notation makes *construction*
-better. Lanier is claiming something else: that inspection was as pleasant as
-authoring. **Chuck's screenshots corroborate it structurally** — `Break` and
-`StripChart` sit in the standard primitive palette alongside `Constant` and
-`Slider`, so a breakpoint and a live value-over-time plot are things you drop
-into a wire, not a separate tool you switch to. Liveness plus a graph means the
-debugger and the editor are the same surface. That is the property Don named as
-the sweet spot, described from the other side.
+The debugging claim is unusual among the systems in this document. Most argue
+that their notation makes construction better; Lanier claims that inspection
+was as pleasant as authoring. Chuck Blanchard's screenshots are consistent with
+this: `Break` and `StripChart` sit in the standard primitive palette alongside
+`Constant` and `Slider`, so a breakpoint and a live plot of a value over time
+are things you drop onto a wire, not a separate tool you switch to. With
+liveness and a graph, the debugger and the editor are the same surface. This is
+the sweet spot Don described, seen from the debugging side.
 
-Which sets up the harder judgment, from Lanier's 1999 letter to Don. It is a
-public rebuke aimed at the VRML community, and the most useful passage in the
-archive for this document:
+Lanier's 1999 letter to Don makes a harder judgment, directed at the VRML
+community:
 
 > "There IS a community of Body Electric users. **It is STILL building the most
 > interactive 3D virtual worlds of any tool** (though Alice, from Carnegie
@@ -613,33 +590,30 @@ archive for this document:
 > ones, simply avoid the problem of deep interactivity. How could the community
 > be so whimpy, at this late date?**"
 
-**Read "SHAMEFUL" carefully — the shame is aimed at the field, not the tool.** He
-is saying that a decade-old unmaintained Macintosh program still held the record,
-and that this was an indictment of everyone who had shipped since.
+His "SHAMEFUL" is aimed at the field, not the tool. He is saying that a
+decade-old, unmaintained Macintosh program still led in interactivity, and that
+this reflected badly on the tools released since.
 
-**A system can be bad at nearly everything and still be the only one attempting
-the hard part.** Deep interactivity — the world reacting continuously to
-everything, in real time, editable while running — is what BE went after and what
-the standards-track successors declined. *Bad-at-the-hard-thing beats
-polished-at-the-easy-thing*, and a field can regress for a decade while every
-individual tool improves.
+A system can be weak in most respects and still be one of the few attempting
+the hard part. Deep interactivity (the world reacting continuously to
+everything, in real time, editable while running) is what BE attempted and what
+the standards-track successors did not. A field can lose ground on one property
+for years while individual tools improve in other ways.
 
-**The plea went unanswered.** VRML never grew a deep interactivity model; its
-scripting stayed bolted-on, the successor standard X3D inherited the same shape,
-and the format was overtaken rather than fixed. What eventually carried live 3D
-on the web came from elsewhere entirely — WebGL and the engine ecosystem — and
-arrived without the property Lanier was asking for. **Nobody built the thing, and
-nobody argued back either.**
+VRML did not develop a deep interactivity model: its scripting stayed separate
+from the scene, the successor standard X3D kept the same shape, and the format
+was overtaken rather than fixed. Live 3D on the web came instead from WebGL and
+game engines, without the property Lanier was asking for.
 
 `verified: quote from Lanier to Don, 1999, mirrored at
 [sims/rescue-raw/bounce-notes-2000.txt](./sims/rescue-raw/bounce-notes-2000.txt).
 The assessment of what VRML and X3D did next is this document's, not his.`
 
-### And Lanier's answer on how far down it should go
+### Lanier on how far down it should go
 
-Don's argument in this section — represent all data as first-class objects, with
-full reflection — got a reply from Lanier that reaches the same place from
-cognition rather than from Smalltalk:
+Don's argument for representing all data as first-class objects with full
+reflection got a reply from Lanier that reaches a similar place from cognition
+rather than from Smalltalk:
 
 > "I had always thought the swivel tree was ridiculous, of course, but on the
 > other hand I liked the idea that **the virtual world and the knowledge base
@@ -652,14 +626,13 @@ cognition rather than from Smalltalk:
 
 `verified: Lanier to Don, 1999-07-08, in bounce-notes.txt.`
 
-**"User interface all the way to the bottom" is this section's thesis in six
-words, and it was arrived at independently.** Not from the Smalltalk lineage, but
-from a claim about minds: that there is no level at which representation stops
-being manipulable. And notice he concedes the implementation was *ridiculous* in
-the same breath — the scene graph was a bad knowledge base — while defending the
-unification. **Right architecture, wrong data structure.** Which is exactly the
-gap the dict/array wire types later closed, and exactly the gap opaque COM
-components later reopened.
+"User interface all the way to the bottom" states this section's thesis. Lanier
+reaches it from a claim about minds rather than from the Smalltalk lineage: that
+there is no level at which representation stops being manipulable. In the same
+passage he calls the implementation *ridiculous* (the scene graph was a poor
+knowledge base) while defending the unification: the architecture was right and
+the data structure was wrong. The dict/array wire types later addressed that
+gap, and the opaque COM components reopened it.
 
 `open: Sun acquired Body Electric with VPL's assets, declined an open source
 release, and offered Lanier six hacking licences at a time. He notes the source
@@ -687,23 +660,22 @@ for PowerPC is on local disk at Code/BodyElectric.`
 - [Pluggers Survey](https://donhopkins.com/home/interval/pluggers) — snapshot of 1996
 - [IFC vs Bongo](https://donhopkins.com/home/interval/ifc-vs-bongo.html) — Java frameworks compared
 
-Key insight from Richard Gabriel's *Patterns of Software*:
+From Richard Gabriel's *Patterns of Software*:
 > "Data and control abstractions are generally best when they are codesigned,
 > and this is rarely done any more."
 
 ### 1996-2000: The Sims Era
 
-**SimAntics** (Maxis/EA) — the visual programming language the characters run on.
-The name is a pun on *semantics*, and it is the most widely deployed visual
-programming language in this whole lineage: it shipped inside a game that sold
-in the tens of millions, and players edited it.
+**SimAntics** (Maxis/EA), the visual programming language the characters run on.
+The name is a pun on *semantics*. It is probably the most widely deployed visual
+programming language in this lineage: it shipped inside a game that sold in the
+tens of millions, and players edited it.
 
 - Character simulation visual programming language
 - Simple local rules → complex global behavior
 - Players as authors, not just consumers
 
-**It did not start with The Sims — it came from SimCopter, and that matters for
-this document.** SimAntics is a link in a chain rather than a one-off:
+It did not start with The Sims. It came from SimCopter:
 
 > "Edith lets you view and edit SimAntics code, which is the visual programming
 > language for scripting the behavior of The Sims. […] The SymAntics [sic]
@@ -715,16 +687,15 @@ this document.** SimAntics is a link in a chain rather than a one-off:
 [sims/MEDIUM-RESCUE.md](./sims/MEDIUM-RESCUE.md). The email uses the early
 "SymAntics" variant; the established spelling is SimAntics.`
 
-So the sequence is **SimCopter people → the language → The Sims**, with the
-editor evolving alongside the language rather than being bolted on after.
+So the sequence is SimCopter people, then the language, then The Sims, with the
+editor developing alongside the language rather than added afterwards.
 
-**Two things that sentence gets wrong if read carelessly**, and both matter for a
-lineage document:
+Two details in that sentence need care.
 
-**1. Edith did not exist under that name yet.** The name arrived with the
+1. Edith did not yet exist under that name. The name arrived with the
 Windows port and the integration into The Sims. SimCopter used an earlier
 version of the environment, unnamed as far as anyone here recalls. Don did the
-Windows port himself, which is the basis for the correction — and the naming
+Windows port himself, which is the basis for the correction, and the naming
 story dates itself, because it comes out of a Sims-specific design phase:
 
 > "There was one terrible phase we went through, trying to frame it like a
@@ -737,14 +708,14 @@ story dates itself, because it comes out of a Sims-specific design phase:
 of The Sims' sitcom phase, so it cannot predate The Sims — which rules out
 SimCopter, 1996.`
 
-**2. "SimAntics" is probably also a later coinage.** The working name was **Tree
-Programming**, and the artifacts were **tree code** and **tree tables** — terms
+2. "SimAntics" is probably also a later coinage. The working name was Tree
+Programming, and the artifacts were tree code and tree tables, terms
 that survive in the shipped Edith menus (*Tree Editor*, *Tree Tracer*) and in
 the primitives documentation. When the name SimAntics was coined is unknown.
 
 There is dated corroboration for the working name. Reviewing The Sims Design
-Document Draft 3 in **August 1998** — two years after SimCopter shipped, with
-The Sims in development — Don writes:
+Document Draft 3 in August 1998, two years after SimCopter shipped and with
+The Sims in development, Don wrote:
 
 > "The whole relationship design and implementation (**I've looked at the tree
 > code**) is Heterosexist and Monosexist."
@@ -755,27 +726,26 @@ for unprompted, in writing, in 1998: tree code.`
 
 ### The Himbo easter egg was written in it
 
-Jacques Servin's easter egg in SimCopter — the "himbos" who appear and kiss —
-**was tree code.** Which makes it the most consequential program ever written in
-this language other than The Sims itself: it got Servin fired, it forced a
-public Maxis position on not being anti-gay, and that position is precisely what
-Don leveraged in the 1998 memo above. See
+Jacques Servin's easter egg in SimCopter, the "himbos" who appear and kiss,
+was tree code. Apart from The Sims itself, it may be the most consequential
+program written in the language: it led to Servin's firing, it prompted a
+public Maxis position that the company was not anti-gay, and Don relied on that
+position in the 1998 memo above. See
 [sims/sims-inclusivity.md](./sims/sims-inclusivity.md) and
 [../skills/no-ai-ideology/](../skills/no-ai-ideology/).
 
-The egg was behavioral rather than cosmetic — characters spawning and
-interacting — which is exactly the layer tree code controls, so the attribution
+The egg was behavioral rather than cosmetic (characters spawning and
+interacting), which is the layer tree code controls, so the attribution
 is consistent with the architecture as well as with memory.
 
-**And the chain has one more link than the public story does.** The position
-Maxis was pushed into is part of why Don was willing to work there, which means
-a program written in this language changed who was prepared to write programs in
-it next. Set out in full in
+There is one more link than the public story includes. The position Maxis took
+is part of why Don was willing to work there, so a program written in this
+language affected who wrote programs in it next. Set out in full in
 [sims/sims-inclusivity.md](./sims/sims-inclusivity.md).
 
 ### Open question: what was authoring actually like, and on what machine?
 
-**Marked as inference, not record.** For The Sims, before the environment was
+This is inference, not record. For The Sims, before the environment was
 ported to Windows, the workflow was sneakernet and Don was there for it:
 
 > Will would author on his Mac and carry the work in on a floppy — IFF files —
@@ -783,9 +753,9 @@ ported to Windows, the workflow was sneakernet and Don was there for it:
 
 The reasonable guess is that SimCopter worked the same way, possibly with
 Servin authoring on his own Mac rather than Will writing everything. The
-supporting argument is an absence: **porting the editor from Mac to Windows was
-a large job — Don did it for The Sims — and he would expect to have heard about
-it if someone had already done it for SimCopter.** No such port is remembered,
+supporting argument is an absence: porting the editor from Mac to Windows was
+a large job (Don did it for The Sims), and he would expect to have heard about
+it if someone had already done it for SimCopter. No such port is remembered,
 so Mac-plus-sneakernet is the parsimonious explanation.
 
 `todo: confirm with Jacques Servin and Will Wright rather than leaving this as
@@ -794,18 +764,17 @@ called anything yet, and when was "SimAntics" coined? Was SimCopter's workflow
 the same floppy-and-IFF sneakernet? Did Servin author his own tree code or hand
 it to someone?`
 
-**Edith** — the editor, and the reason this belongs in a *lineage* rather than a
-catalogue. Named for Edith Bunker, the first mother Sim, and doubling as "EDIT
-House." It was compiled *into* The Sims rather than shipped alongside it, and
-the payoff is the property every environment-side language in this document is
-chasing:
+**Edith** is the editor. It was named for Edith Bunker, the first mother Sim,
+and doubles as "EDIT
+House." It was compiled into The Sims rather than shipped alongside it, which
+gave it the property the environment-side languages in this document aim for:
 
 > "Edith has grown a lot and is much wiser, now that she's integrated into The
 > Sims instead of running as a separate program, so she is actually able to
 > **debug and edit code and data while it's running live in the game**."
 
 That is the Smalltalk image property, reached by a commercial game studio for
-production reasons. It also cost what liveness always costs: Edith was never
+production reasons. It also had the usual cost of liveness: Edith was never
 publicly released, and the blocker was *documentation*. See
 [AXES-NOT-CAMPS.md](./AXES-NOT-CAMPS.md) on the notation-side/environment-side
 trade this exemplifies.
@@ -816,89 +785,85 @@ The execution model outlived the notation, and the notation was replaced twice:
 
 | Version | How behavior is authored |
 |---|---|
-| The Sims 1 | **SimAntics tree code**, edited in Edith. Bespoke visual language |
-| The Sims Online | SimAntics — later reimplemented from scratch by the FreeSO project |
+| The Sims 1 | SimAntics tree code, edited in Edith. Bespoke visual language |
+| The Sims Online | SimAntics, later reimplemented from scratch by the FreeSO project |
 | The Sims 2 | Still SimAntics BHAVs; community tools such as SimPE edit them directly |
-| The Sims 3 | **C# on .NET/Mono.** Mods are class libraries compiled against `ScriptCore.dll`, `SimIFace.dll`, `Sims3GameplayObjects.dll`, packaged as `S3SA` resources |
-| The Sims 4 | **Python** — gameplay ships as `.pyc` under `simulation/` and `core/`, mods package as `.ts4script` |
+| The Sims 3 | C# on .NET/Mono. Mods are class libraries compiled against `ScriptCore.dll`, `SimIFace.dll`, `Sims3GameplayObjects.dll`, packaged as `S3SA` resources |
+| The Sims 4 | Python: gameplay ships as `.pyc` under `simulation/` and `core/`, mods package as `.ts4script` |
 
 `verified: Sims 3's C#/.NET toolchain and Sims 4's Python confirmed against
 modding documentation (Mod The Sims, SimsWiki, Sims 4 scripting templates),
 2026-09-07. Sims 4 sat on Python 3.7 long enough that the whole decompiler
 ecosystem targets it.`
 
-**The advertisement mechanism survived the notation changes, and became
-declarative.** In Sims 3 it is `ITUN` — Interaction Tuning — XML resources
+The advertisement mechanism survived the notation changes and became
+declarative. In Sims 3 it is `ITUN` (Interaction Tuning), XML resources
 carrying advertised motive deltas, with an `updateType` of `ImmediateDelta` or
-`ContinuousFlow`. A modding tutorial describes the consequence exactly as Wright
-would have:
+`ContinuousFlow`. A modding tutorial describes the consequence:
 
 > "you can rip your sims off by telling them this interaction will be very fun,
 > which in actual fact it wouldn't be!"
 
-That is Sims 1 advertising, intact, twelve years and two languages later — an
-object claiming a motive payoff, the Sim choosing on the claim, and the claim
-free to lie. The mechanism was never tied to the visual notation. It was tied to
-the **execution model**, which is why MOOLLM can borrow it from Sims 1 without
-inheriting tree code — see
+That is Sims 1 advertising, intact, twelve years and two languages later: an
+object claims a motive payoff, the Sim chooses on the claim, and the claim can
+be false. The mechanism was tied to the execution model, not to the visual
+notation, which is why MOOLLM can borrow it from Sims 1 without
+inheriting tree code; see
 [ADVERTISEMENT-AUCTION.md](./ADVERTISEMENT-AUCTION.md).
 
-**MOOLLM models Sims 1 deliberately, and that is the right target** — not
-because later versions are worse, but because Sims 1 is where the mechanism is
-*legible*: design documents, tree code, firsthand accounts. Sims 3 and 4 extended
-it and buried it in proprietary tuning data that has to be decompiled to read.
+MOOLLM models Sims 1 deliberately, not because later versions are worse but
+because Sims 1 is where the mechanism can be read: design documents, tree code
+and firsthand accounts. Sims 3 and 4 extended it in proprietary tuning data that
+has to be decompiled to read.
 
-**Why that much effort for a language nobody outside the building used.** Jamie
-Doornbos wrote it; Don ported it to Windows and made it easier to use; **Patrick
-J Barrett III wrote the most of it and became the resident expert**, adopting it
+Why so much effort for a language nobody outside the building used? Jamie
+Doornbos wrote it; Don ported it to Windows and made it easier to use; Patrick
+J Barrett III wrote the most of it and became the resident expert, adopting it
 fully and making it "much more colorful"; other programmers wrote it too; and Will
-Wright was among the users. The investment is not justified by user count — **it
-is justified by whose iteration cost you are lowering.** Wright is rare enough
-that making his loop faster changes what gets designed, so tooling spent on a
-handful of designers' throughput can return more than tooling spread across
-thousands. This is the strongest case in this whole file for visual programming
-as a *leverage* technology rather than a mass-adoption one, and it is the
-opposite of how the field usually argues for it.
+Wright was among the users. The case for the investment rests on whose
+iteration cost it lowered rather than on user count: tooling that speeds up a
+few designers' work can change what gets designed. This is an argument for
+visual programming as a leverage technology rather than a mass-adoption one.
 
 Will Wright's progression:
 - SimAnt: Too simple
 - SimEarth: Too complex  
 - SimCity 2000: Just right
-- The Sims: EVEN SWEETER — simple for kids, complex for artists
+- The Sims: simple for kids, complex for artists
 
 Don's contributions:
-- **Architectural editing and object placement tools** — the build-mode surface
-  players spend most of their time in
-- **Character animation system, pipeline and tools** — the path from authored
+- Architectural editing and object placement tools: the build-mode surface
+  players spend much of their time in
+- Character animation system, pipeline and tools: the path from authored
   motion to a Sim performing an interaction
-- **User-created content tools** — the ones listed below, treated as part of the
+- User-created content tools: the ones listed below, treated as part of the
   product rather than as an afterthought
 - SimAntics ported from Mac to Windows, documented and cleaned up, made easier to
   use
 - Pie menu interaction system
 - Extensive testing and exploration
 
-**Three of those four are notation-adjacent rather than notation.** Build mode,
-the animation pipeline, and the content tools are all editors over the same
-object model SimAntics scripts against — which is why they belong in a document
+The first three are adjacent to the notation rather than part of it. Build mode,
+the animation pipeline and the content tools are all editors over the same
+object model SimAntics scripts against, which is why they belong in a document
 about visual programming. The player dragging a wall and the designer wiring a
 behavior tree are manipulating the same world representation at different
 levels, and the animation pipeline is what makes a tree node resolve into
 something visible on screen.
 
 **User-Created Content Tools** (Don Hopkins, Maxis/EA)
-- SimShow: Pre-release tool for character skins — fans hit ground running
-- Transmogrifier (TMog): OLE component for custom objects without 3D Studio
-  — <https://thesimstransmogrifier.com/>
-- rug-o-matic: Template + drag-drop = storytelling "rugs" (title+description+image)
-- Fan communities (Yahoo Groups, personal blogs) = social currency economy
-- Heather "SimFreaks" + Steve "SimSlice" met in fandom, got married!
+- SimShow: pre-release tool for character skins, so fans could start before launch
+- Transmogrifier (TMog): OLE component for custom objects without 3D Studio,
+  <https://thesimstransmogrifier.com/>
+- rug-o-matic: a template plus drag and drop for storytelling "rugs" (title, description and image)
+- Fan communities (Yahoo Groups, personal blogs), where shared content worked as social currency
+- Heather "SimFreaks" and Steve "SimSlice" met in the fan community and later married
 
 ### 2000s-2010s: Constructionist Platforms
 
 **Scratch** (Mitchel Resnick, MIT Media Lab)
 - Block-based visual programming
-- Seymour Papert's constructionism realized
+- Builds on Seymour Papert's constructionism
 - Millions of young programmers
 
 **Snap!** (Brian Harvey, Jens Mönig)
@@ -908,18 +873,18 @@ something visible on screen.
 
 ### 2020s: MOOLLM
 
-MOOLLM synthesizes these threads:
+MOOLLM draws on these threads:
 
 **From Self's Prototype OOP:**
-- "OOP RISC microcode" — so simple you can build other OOP systems in it:
+- "OOP RISC microcode": simple enough that you can build other OOP systems in it:
   - Instance/class (Smalltalk)
   - Morphic composition
   - CLOS generic dispatch
   - HyperCard delegation
-  - **COM IUnknown / OLE IDispatch**
+  - COM IUnknown / OLE IDispatch
 - Multiple interfaces per directory (ROOM+CHARACTER, SKILL+CHARACTER, etc.)
-- Battle-tested patterns, extremely well represented in training data
-- Solves real problems: discovery, versioning, extension points, and aggregation
+- Established patterns, well represented in training data
+- Addresses discovery, versioning, extension points, and aggregation
   complementing interface inheritance, multiple inheritance and latent-space
   inheritance rather than replacing any of them
 - Dovetails with the other interlocking object systems
@@ -929,12 +894,12 @@ MOOLLM synthesizes these threads:
 **From COM/OLE (Microsoft) → MOOM/MOOLE:**
 - IUnknown: "QueryInterface" = check if directory has ROOM.yml, CHARACTER.yml, etc.
 - Multiple interfaces sharing state: one directory, many .yml schemas
-- **CARD.yml is like IDispatch** — advertisements + interface definitions for 
+- CARD.yml is like IDispatch: advertisements + interface definitions for 
   high-level polymorphic dispatch, automatically binding parameters from context,
   natural language triggers, skill composition, K-line activation
 - IDispatch: late-bound method invocation = LLM interpretation of affordances
-- Aggregation as well as inheritance, complementing it: tear-off interfaces,
-  other cool tricks. **Complementing all three kinds at once** — interface
+- Aggregation as well as inheritance, complementing it: tear-off interfaces
+  and related techniques. It complements all three kinds at once: interface
   inheritance from IUnknown, multiple inheritance through the ordered `parents:`
   list, and
   [latent-space inheritance](./object-system/LATENT-SPACE-INHERITANCE.md) from
@@ -945,7 +910,7 @@ MOOLLM synthesizes these threads:
 **From Minsky's Society of Mind:**
 - Debating experts, not single-voice averaging
 - K-lines as tradition activation
-- NO-AI-* suite prevents pathologies
+- NO-AI-* skills guard against known failure modes
 
 **From constructionism:**
 - Microworlds for exploration
@@ -954,7 +919,7 @@ MOOLLM synthesizes these threads:
 
 **From The Sims:**
 - Character simulation with emergent behavior
-- Speed-of-light: 8 characters × 99 turns in ONE call
+- Speed-of-light: 8 characters × 99 turns in one call
 - Memory + reflection + planning (realized with LLMs)
 
 **From GitHub as MMORPG:**
@@ -964,12 +929,12 @@ MOOLLM synthesizes these threads:
 
 **Layered Multi-Paradigm Integrated Object Systems:**
 
-All seamlessly interoperating together — ALL WELL DEFINED IN TRAINING DATA:
+These interoperate, and all are well represented in training data:
 
 | System | Contribution |
 |--------|--------------|
 | Self | Prototype OOP as RISC microcode |
-| Morphic | Composition, direct manipulation — full family tree in [MORPHIC-LINEAGE.md](MORPHIC-LINEAGE.md) |
+| Morphic | Composition, direct manipulation; full family tree in [MORPHIC-LINEAGE.md](MORPHIC-LINEAGE.md) |
 | Dan Ingalls' Lively Kernel | Web-native Morphic |
 | Smalltalk | Message passing, everything is an object |
 | Python, JavaScript, TypeScript | Modern dynamic languages |
@@ -987,42 +952,41 @@ All seamlessly interoperating together — ALL WELL DEFINED IN TRAINING DATA:
 
 | System | Type | Contribution |
 |--------|------|--------------|
-| **Svelte 5 Runes** | Push | Compiler-driven fine-grained reactivity. Fucking awesome! |
+| Svelte 5 Runes | Push | Compiler-driven fine-grained reactivity |
 | OpenLaszlo | Push | Declarative constraints compiled to Flash, worked with Henry Minsky |
-| Garnet (Brad Myers, CMU) | Pull | Built on KR (Knowledge Representation) Lisp frames library. **Structural inheritance** — see [GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md) |
-| React | (barely) | Virtual DOM diffing, NOT as reactive as its name claims |
+| Garnet (Brad Myers, CMU) | Pull | Built on KR (Knowledge Representation) Lisp frames library. Structural inheritance; see [GARNET-AMULET-PROTOTYPE-SYSTEM.md](GARNET-AMULET-PROTOTYPE-SYSTEM.md) |
+| React | (barely) | Virtual DOM diffing, less reactive than its name suggests |
 
 **Push vs Pull Constraints:**
 
-- **OpenLaszlo (Push/Eager):** When source changes, propagate immediately.
+- OpenLaszlo (Push/Eager): When source changes, propagate immediately.
   Better for responsive UIs in Flash/ActionScript runtime.
   Don worked there with Henry Minsky and other MIT Lisp hackers.
   
-- **Garnet (Pull/Lazy):** Compute only when value is requested.
+- Garnet (Pull/Lazy): Compute only when value is requested.
   Better for high-latency environments (X11 round trips).
   Don worked on this with Brad Myers at CMU.
-  Built on KR (Knowledge Representation) — Lisp GOFAI frames library.
+  Built on KR (Knowledge Representation), a Lisp GOFAI frames library.
   
-- **Svelte 5 Runes:** Best of both worlds via compiler magic!
+- Svelte 5 Runes: reactivity handled by the compiler.
   `$state` = reactive source, `$derived` = computed value,
-  `$effect` = side effects. Business logic AND UI can be reactive!
+  `$effect` = side effects. Both business logic and UI can be reactive.
 
-We're using **SvelteKit** for our web stack. Delightful to use, great community.
-Not as well represented in training data as React (SO popular), but
-Svelte has a pretty big dedicated community — not such an underdog.
+We use SvelteKit for our web stack. It is less represented in training data
+than React, but Svelte has a large community.
 
-**Instance Substitution Principle** (Oliver Steele at Laszlo Systems):
+Instance Substitution Principle (Oliver Steele at Laszlo Systems):
 An instance can be replaced by its inline definition, and vice versa.
-This enables **Instance-First Development**: build specific, then generalize.
-Svelte components embody this — refactoring inline to component is trivial.
+This enables Instance-First Development: build specific, then generalize.
+Svelte components follow this; refactoring inline code into a component is easy.
 
-See: `MicropolisCore/laszlo/micropolis/README.md` — long essay comparing
+See `MicropolisCore/laszlo/micropolis/README.md`, a long essay comparing
 OpenLaszlo/Garnet constraints to Svelte 5 runes.
 
 ## The Connection to Generative Agents
 
-The Stanford Generative Agents paper (Park et al., 2023) finally builds
-what we designed in 1997 but couldn't implement without LLMs:
+The Stanford Generative Agents paper (Park et al., 2023) uses LLMs to build
+mechanisms comparable to ones The Sims was designed around in 1997:
 
 | The Sims (1997) | Generative Agents (2023) |
 |-----------------|--------------------------|
@@ -1046,6 +1010,6 @@ MOOLLM extends this with:
 
 ---
 
-*This document traces the intellectual lineage from Papert and Kay through
-The Sims to modern LLM-based agents. The thread is continuous: microworlds,
-direct manipulation, character simulation, constructionist learning.*
+*This document traces ideas from Papert and Kay through The Sims to LLM-based
+agents: microworlds, direct manipulation, character simulation and
+constructionist learning.*
