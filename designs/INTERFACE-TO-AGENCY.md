@@ -155,4 +155,4 @@ tasks, or undo and replay act at the wrong level.
 - [skills/design-sense/lenses/direct-manipulation.md](../skills/design-sense/lenses/direct-manipulation.md) — the lens
 - [skills/cursor-mirror/characters/i-beam/CONSTITUTION.md](../skills/cursor-mirror/characters/i-beam/CONSTITUTION.md) — the anti-Clippy constitution, which is this argument applied to one character
 - [skills/representation-ethics/](../skills/representation-ethics/) — consent records as files
-- [wwsff `characters/ben-shneiderman/agents-debate-1997.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ben-shneiderman/agents-debate-1997.md) — notes on the 1997 debate
+- [AGENTS-DEBATE-1997.md](./AGENTS-DEBATE-1997.md) — the 1997 debate from the published record: both positions, the people who shaped it, and the two answers in reach
