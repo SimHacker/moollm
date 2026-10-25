@@ -8,6 +8,11 @@ describes: a character is a folder of YAML and Markdown, legible to a person, an
 program at the same time. There is nothing to install in order to read any of it — the
 documents and the worked examples below are the design, and they are all on disk.
 
+**Start with the story.** [The Uplift](THE-UPLIFT.md) follows one lonely Sim, saved on a USB stick
+in 2001, who wakes up in Soul City twenty-five years later, makes a family, and goes home to The
+Sims changed, carrying an album of both lives. It is the whole idea in one page, and each step
+names the code that does it.
+
 ## It starts with a question from the audience in 1996
 
 On 26 April 1996, Will Wright gave a lecture to Terry Winograd's user interface class at
