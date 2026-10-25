@@ -100,7 +100,7 @@ on day one; the graph grows as rooms are built.
 | [wig-o-rama](shops/wig-o-rama/) | 14 | north | ✓ | Wig-O-Matic |
 | [rug-o-porium](shops/rug-o-porium/) | 16 | north | ✓ | Rug-O-Matic |
 | [transmogrifier-hq](shops/transmogrifier-hq/) | 18 | north | ✓ | IFF / GUID pipeline |
-| [head-shop](shops/head-shop/) | 20 | north | ✓ | skins (THE-UPLIFT) |
+| [head-shop](shops/head-shop/) | 20 | north | ✓ | skins (soul-city THE-UPLIFT) |
 | [tombstone-studio](shops/tombstone-studio/) | 22 | north | ✓ | memorial objects |
 | [mesh-lab](shops/mesh-lab/) | 24 | north | ✓ | glTF ↔ SKN |
 | [photo-book-press](shops/photo-book-press/) | 26 | north | ✓ | pageable books |

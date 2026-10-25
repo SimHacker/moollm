@@ -3,7 +3,7 @@
 > *"Don't take the guinea pig to the vet. Open the guinea pig."*
 
 **Status:** Design
-**Related:** [THE-UPLIFT.md](THE-UPLIFT.md) (the character bridge) · [BRIDGE.md](BRIDGE.md) (field mappings) · [README.md](README.md)
+**Related:** [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md) (the character bridge) · [BRIDGE.md](BRIDGE.md) (field mappings) · [README.md](README.md)
 **Depends on:** [SimObliterator Suite](https://github.com/DnfJeff/SimObliterator_Suite) (IFF + save editing) · [soul-chat](https://github.com/SimHacker/moollm/tree/main/skills/soul-chat) (a pet has a soul = its editable state)
 
 The canonical patient is **the guinea pig** — The Sims' famous caged pet with the
@@ -38,7 +38,7 @@ The shop is a conversation, not a counter:
 3. **Cure both.** Reset the cage/guinea-pig illness attributes and restore its motives;
    clear the Sim's disease and top up the motives the sickness drained.
 4. **The coffee-table book.** You leave with *Guinea Pig Maintenance* — a pageable
-   in-game book object (built by the [Photo Book Press](THE-UPLIFT.md#the-moollm-mall-shopping-crafting-and-content-creation)):
+   in-game book object (built by the [Photo Book Press](../../../skills/soul-city/THE-UPLIFT.md#making-things-to-take-home)):
    how to keep the cage clean, the warning signs, your guinea pig's own care schedule,
    illustrated. Click it on your Sims coffee table and page through it, in any of the 20
    languages via the [auto-internationalizer](BRIDGE.md#auto-internationalizer).
@@ -99,7 +99,7 @@ That move is the **polymorphic inline cache** miracle, applied to a save file. A
 — Hölzle, Chambers, Ungar) is a running JIT rewriting its own call sites: it replaces a
 generic, slow, polymorphic dispatch with a specialized monomorphic fast path *patched in
 live at the call site*. The Sims object system is prototype/delegation-based — the same
-[Self lineage (Ungar)](THE-UPLIFT.md#parallel-existence) — so the analogy is exact:
+[Self lineage (Ungar)](../../../skills/soul-city/THE-UPLIFT.md#parallel-existence) — so the analogy is exact:
 
 - **call site** ↔ the cage slot in the lot
 - **generic polymorphic target** ↔ the stock guinea-pig prototype
@@ -125,14 +125,14 @@ fast, aimed at making a virtual pet *specifically yours*.
   tombstone module wrote custom IFF objects directly. Generating a bespoke guinea pig is a
   known trade — the new part is the *save-file instance swap*.
 - **Setters exist.** `set_sim_motive()`, `set_sim_skill()`, `set_sim_personality()` (from
-  [THE-UPLIFT.md](THE-UPLIFT.md#feasibility)) already write these fields; a caged pet needs
+  [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md#what-exists-and-what-doesnt)) already write these fields; a caged pet needs
   the object-attribute equivalent — small, mechanical.
 - **Species framing is solved.** The uplift templates map Sims traits to animal behavior
   (neat→fastidious, playful→mischievous), so the healed guinea pig reads as *itself*.
 
 ## Small pets get souls too
 
-The [uplift](THE-UPLIFT.md) work covers cats and dogs (rich `person_data`). Caged pets —
+The [uplift](../../../skills/soul-city/THE-UPLIFT.md) work covers cats and dogs (rich `person_data`). Caged pets —
 guinea pigs, birds, fish — are thinner in the save file, mostly object attributes rather
 than a full neighbor record. The Pet Shop is where they earn a fuller soul: on the first
 visit the LLM writes a `CHARACTER.yml` for the guinea pig (the name you gave it, a
@@ -152,7 +152,7 @@ home with a story — its own **specialized organelle**, inherited soul plus loc
 
 ## Place in the world
 
-This is a shop in the **[MOOLLM Mall](THE-UPLIFT.md#the-moollm-mall-shopping-crafting-and-content-creation)**
+This is a shop in the **[MOOLLM Mall](../../../skills/soul-city/THE-UPLIFT.md#making-things-to-take-home)**
 (Soul City's Plaza) alongside the Head Shop, Rug-O-Matic, and Tombstone Studio — the one
 that works on the living. In Soul-family terms it's a **soul catcher + soul transmogrifier**
 pointed at animals: ingest the pet's state, edit or regenerate it, write it home.

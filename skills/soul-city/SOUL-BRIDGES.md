@@ -358,7 +358,7 @@ and the per-game work live in documents that use their own vocabulary for the sa
 
 | This document | Named elsewhere | Where |
 |---|---|---|
-| The crossing, and a soul waking up on the far side | **The Bifrost** · **The Uplift** | [moollm-microworld-os.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md) · [roadmap Phase 0](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md) |
+| The crossing, and a soul waking up on the far side | **The Bifrost** · **[The Uplift](THE-UPLIFT.md)** | [moollm-microworld-os.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/moollm-microworld-os.md) · [roadmap Phase 0](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/soul-city-uplift-roadmap.md) |
 | Field-level mapping for one game | `PersonData` ⇄ soul file, in TypeScript | [`packages/sims-io/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/sims-io) |
 | Monotonic-up, round-trippable-down | L0–L4 resource layers | [`packages/vitamoo/`](https://github.com/SimHacker/MicropolisCore/tree/main/packages/vitamoo) · [layered stack](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/vitamoo/OBLITERATOR-TYPESCRIPT.md) |
 | Editing a soul as the whole demo | **The Pet Shop** — one sick guinea pig | [pet-shop-soul-surgery.md](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/pet-shop-soul-surgery.md) |

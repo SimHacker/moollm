@@ -348,7 +348,7 @@ problem this document needs to solve — it is a solved piece this bus supplies 
 for. The pet shop answers *how to inject*; the bus answers *what asked for it, and when*.
 
 Likewise the album-to-content direction is this corpus's founding image: family album
-archaeology in [THE-UPLIFT.md](THE-UPLIFT.md), and a literary precedent —
+archaeology in [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md), and a literary precedent —
 [Marusek's "The Wedding Album"](https://en.wikipedia.org/wiki/The_Wedding_Album_(short_story))
 — in which recordings of newlyweds become people. A wedding album that compiles itself into
 objects is the same story told from the tooling side.

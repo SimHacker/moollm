@@ -104,6 +104,7 @@ describe their own thinking.
 | [PORTABLE-NPCS.md](PORTABLE-NPCS.md) | How do characters — and the games they embody — travel between worlds? |
 | [SOUL-BRIDGES.md](SOUL-BRIDGES.md) | How does anything cross into a *shipped* game's save file? |
 | [SOUVENIRS.md](SOUVENIRS.md) | What can a traveler carry, and what crosses between *any* two games? |
+| [THE-UPLIFT.md](THE-UPLIFT.md) | What does one whole crossing look like, Sims save to Soul City and home again, and which module does each step? |
 | [GLOSSARY.md](GLOSSARY.md) | What did each of these words already mean, before we borrowed it? |
 | [`examples/characters/robin/`](examples/characters/robin/) | What does one of these beings look like on disk? |
 | [`examples/adventure-4/maze/`](../../examples/adventure-4/maze/) | What does cross-game interop look like when it actually runs? |

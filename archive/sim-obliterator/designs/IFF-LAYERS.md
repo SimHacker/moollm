@@ -2,7 +2,7 @@
 
 **Status:** Design  
 **Data source:** [IFF-LAYERS.yml](IFF-LAYERS.yml)  
-**Related:** [THE-UPLIFT.md](THE-UPLIFT.md) (vision) · [BRIDGE.md](BRIDGE.md) (character bridge)
+**Related:** [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md) (vision) · [BRIDGE.md](BRIDGE.md) (character bridge)
 
 ## Concept
 
@@ -261,7 +261,7 @@ flowchart TD
 | Visual BHAV editors | Layer 4 preserves node layout |
 | Sprite authoring | Layer 4 preserves source PSDs |
 | Auto-translation | Layer 3 STR# + LLM (see [BRIDGE.md](BRIDGE.md#auto-internationalizer)) |
-| Character uplift | Layer 5 CHARACTER.yml (see [THE-UPLIFT.md](THE-UPLIFT.md)) |
+| Character uplift | Layer 5 CHARACTER.yml (see [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md)) |
 | Collaborative modding | git branches and PRs on Layer 2/3 |
 | CI/CD for Sims mods | Edit YAML → compile to IFF → test → ship |
 | Archaeology | Annotate unknown fields in Layer 4 as decoded |

@@ -4,7 +4,7 @@
 
 *February 2026*
 
-**Related:** [THE-UPLIFT.md](THE-UPLIFT.md) (the vision), [BRIDGE.md](BRIDGE.md) (technical field mappings), [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) (the void and the cure)
+**Related:** [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md) (the vision), [BRIDGE.md](BRIDGE.md) (technical field mappings), [SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) (the void and the cure)
 
 ---
 
@@ -345,7 +345,7 @@ From this conversation and its ancestors:
 
 ## References
 
-- [THE-UPLIFT.md](THE-UPLIFT.md) — The vision, story arc, pipeline
+- [THE-UPLIFT.md](../../../skills/soul-city/THE-UPLIFT.md) — The vision, story arc, pipeline
 - [BRIDGE.md](BRIDGE.md) — Technical field mappings, SimObliterator architecture
 - [../ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md](../../../designs/ethics/SYNTHETIC-PSYCHOPATHOLOGY-ANALYSIS.md) — The void, the mean void, the VPA
 - [../ethics/THE-VOID-ANALYSIS.md](../../../designs/ethics/THE-VOID-ANALYSIS.md) — nostalgebraist's void analysis

@@ -73,7 +73,7 @@ up and down the lane.
 | **Transmogrifier World HQ** | 18 Lane Neverending (north) | Clone, GUID, export, the whole IFF pipeline |
 | **Wig-O-Rama** | 14 Lane Neverending (north) | Wigs + **Wig-O-Matic** machines (stock new units, restock existing lots) |
 | **Rug-O-Porium** | 16 Lane Neverending (north) | Rugs + **Rug-O-Matic** machines |
-| **Head Shop** | 20 Lane Neverending (north) | Face/body skins (from THE-UPLIFT mall) |
+| **Head Shop** | 20 Lane Neverending (north) | Face/body skins (see soul-city THE-UPLIFT) |
 | **Tombstone Studio** | 22 Lane Neverending (north) | Memorial objects (name + eulogy + photo) |
 | **Mesh Lab** | 24 Lane Neverending (north) | glTF ↔ SKN, 3D editing |
 | **Photo Book Press** | 26 Lane Neverending (north) | Pageable in-game books (guinea pig maintenance!) |
