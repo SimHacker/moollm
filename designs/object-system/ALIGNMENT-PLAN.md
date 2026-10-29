@@ -19,8 +19,8 @@ needs both; phase 4 runs after every batch and once at the end.
 
 Don approves, edits or rejects the decisions in both analyses. Approved decisions go into
 [SCHEMA.md](SCHEMA.md) and the objsys-001 history; rejected ones are struck from the
-analyses. Two facts need a human regardless: the consent levels of bill-joy (wwsff 1,
-DonHopkins 3) and scott-draves (2 vs 3).
+analyses. Facts about real people need a human regardless: every `consent.state: unverified`
+and every cross-layer disagreement is listed in `tasks/ALIGNMENT-REVIEW.yml`.
 
 ## Phase 1: define the schemas
 
@@ -41,7 +41,7 @@ score:
 | S2 | method | `skills/object/OBJECT.yml` `methods:` section | core fields (CARD-ANALYSIS §4), name-case rule, `effect_js` compilation | 10, 11 |
 | S3 | card | `skills/card/CARD.yml` and a "What a CARD carries" section in `skills/card/SKILL.md` | the layers of a CARD, standard keys and shapes, copy-down rule, aligned names for overlapping jazz, what a projection may rely on | 9, 12, 15–18 |
 | S4 | character core and layers | `skills/character/CHARACTER.yml` | core keys with defaults, `layer:`/`role:`, `layers:`, `derived_from:` | L1, L2, L5–L9 |
-| S5 | representation | `skills/representation-ethics/` | consent levels 1–5 as data, `governed_by:`, `may`/`must_not`, subject rights; wwsff `portrayal-standards.yml` declares it extends this | L7, L8, L12 |
+| S5 | representation | `skills/representation-ethics/` | consent as facts (`public_figure`, `consent: {state, scope, date, evidence}`), computed portrayal rules, `governed_by:`, `may`/`must_not`, subject rights; wwsff `portrayal-standards.yml` declares it extends this | L7, L8, L12 |
 | S6 | references | SCHEMA.md and `resolve.py` | `moollm://github/<owner>/<repo>/<path>` resolved to a sibling checkout, else a URL | L3 |
 
 One agent per schema (S1–S6 in parallel), each producing the schema file, SKILL.md section and
@@ -70,17 +70,18 @@ Open:
 - `score_if`: S1 defines a false `score_if` as bid 0 (still available), a numeric `score_if_js`
   replaces the score. `adventure_runtime.py` instead adds +20 when it holds. T6 aligns the
   runtime with whichever Don picks.
-- Level 3 forbids "defame or mock"; the satire frames (🃏, snatch-game) and `donna-toadstool`'s
-  unmapped `consent_level: public_figure_34_felonies_fair_game` need a framing exception or
-  narrower wording.
-- Level 5 subject rights (family, estate and people who knew them may correct; care with a
+- The public-figure rule forbids "defame or mock"; the satire frames (🃏, snatch-game) and
+  `donna-toadstool` (fictional satire of a public figure; its `ethics.consent_level:
+  public_figure_34_felonies_fair_game` is unmigrated until this is settled) need a framing
+  exception or narrower wording.
+- Memorial subject rights (family, estate and people who knew them may correct; care with a
   recent death) are policy written by S5, not sourced from an existing doc.
-- `self-consent-card.yml`'s `consent_level: open/closed/friends/copyleft` is a level-1 subject's
-  grant to others, not a tier; proposed home: a `grants:` key.
-- A layer with no `consent_level` defaults to level 3 (public figure). Either lint flags a
-  missing level unless `status: deceased`, or an unknown real person defaults to 4 (S4, S5).
-- Consent disagreements across layers (`resolve.py layers`): bill-joy 3 vs 1, scott-draves
-  3 vs 2, ian-bogost 3 vs 2 (biography vs profile). In `tasks/ALIGNMENT-REVIEW.yml`.
+- `public_figure` is unknown, so the private rule applies, for real people whose old level was
+  1 or 2 (about 115 layers). A pass can propose `public_figure: true` where the layer's own bio
+  cites published work, for Don to confirm in bulk.
+- 18 DonHopkins layers and a few wwsff ones claimed explicit consent with no evidence on file:
+  `consent.state: unverified`, listed in `tasks/ALIGNMENT-REVIEW.yml` for Don to confirm with a
+  date and evidence, or correct.
 - `real_being` defaults to false in the adventure layer, so adventure-4's don-hopkins and
   richard-bartle must state `true`; or default true everywhere unless `status: fictional` (S4).
 - `invitation.status` values in use but missing from wwsff `invitation-workflow.yml`: `warm`,
@@ -100,7 +101,7 @@ Code, each with tests in the existing style (`skills/prototype/scripts/test_reso
 |---|---|---|---|
 | T1 | compiler fixes | `skills/adventure/adventure.py` | list-form advertisements keyed by `action:`/`name:` keep all fields; linter iterates lists and stops swallowing exceptions; map-form methods compile `effect:` to `effect_js:`; compiled adventure-4 compared before/after |
 | T2 | schema-driven lint | `resolve.py lint` | reads S1–S4; reports shape, unknown-synonym and default-restating findings per file; `--cards` adds the projection-readiness checks (CARD-ANALYSIS §7) |
-| T3 | cross-layer lint | `resolve.py layers` (from `layers_survey.py`) | same-id layers agree on name, life facts, consent level; every layer declares its relations |
+| T3 | cross-layer lint | `resolve.py layers` (from `layers_survey.py`) | same-id layers agree on name, life facts, `public_figure`, `consent.state`; granted needs evidence; every layer declares its relations |
 | T4 | agreement lint | `resolve.py views` | GLANCE `when:` targets exist in the CARD; CARD copies of interface-file methods and keys match their source |
 | T5 | migration scripts | `designs/object-system/tasks/migrations/` | one script per mechanical row below, each with dry run, reparse check, and a diff limited to the intended keys (the pattern of `parents.py` and `lighting.py`) |
 | T6 | engine support | `adventure.js`, `adventure_runtime.py` | the first graduated keys: `requires_tags`, `requires_items`, `when_state`, `when_flags`, `trigger` words, `say`, `set`, with their defaults |
@@ -135,6 +136,13 @@ agents over disjoint shards of files. Smallest blast radius first; each row is o
 per repo, with the surveys rerun before and after and the numbers in the commit message.
 
 ### Mechanical
+
+Scripts in [tasks/migrations/](tasks/migrations/), dry run by default, `--apply` to write; a
+file is written only when the edited text parses and equals the same change made on the data.
+Wave 1 dry run: M2 110 files, M3 114, M4 55, M5 24, M6 13, M7 12, M8 436 (0 collisions),
+M9 8 of 32 (20 cast `inherits:` maps mixing parents and `moollm_skills` go to J6), M10 62.
+Order: M2 before M3, M4, M5; M3 before M5; M8 before M9. Rerun the dry run right before
+applying. M12 (consent as facts) is applied.
 
 | Row | Repos | Files (approx.) | Change |
 |---|---|---|---|

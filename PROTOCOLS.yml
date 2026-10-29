@@ -781,12 +781,12 @@ REPRESENTATION-ETHICS:
     People simulate selves, families, enemies, crushes.
     Result: Essentially no harm. Vast emotional value.
     
-  consent_hierarchy:
-    1_SELF_SOVEREIGN: "You own your digital self. Full freedom."
-    2_EXPLICIT_CONSENT: "Use per published terms."
-    3_PUBLIC_FIGURE: "Tradition is fair game. Persona requires care."
-    4_PRIVATE_PERSON: "Fictional wrappers preferred."
-    5_DECEASED: "Cannot consent. Proceed with reverence."
+  consent_hierarchy:  # computed from facts, first match; consent is a record with evidence
+    MEMORIAL: "Deceased. Cannot consent. Proceed with reverence."
+    SELF_AUTHORED: "You own your digital self. Full freedom."
+    CONSENTED: "Granted, with evidence on file. Within the agreed scope."
+    PUBLIC_FIGURE: "Tradition is fair game. Persona requires care."
+    PRIVATE: "Fictional wrappers only."
     
   frames_that_matter:
     IMPERSONATION: "FORBIDDEN — deceptive fraud"
@@ -808,7 +808,7 @@ SELF-SOVEREIGN:
     
   example: |
     Don Hopkins publishes:
-      consent_level: open
+      grants: open
       terms: "good humor, no defamation"
     His representation, his rules.
 
@@ -817,12 +817,14 @@ CONSENT-HIERARCHY:
   location: skills/representation-ethics/
   invoke_when: "Determining how to represent someone"
   
-  levels: |
-    1. SELF — Full sovereignty
-    2. EXPLICIT CONSENT — Per their terms
-    3. PUBLIC FIGURE — Tradition OK, persona careful
-    4. PRIVATE PERSON — Fictional wrappers
-    5. DECEASED — Reverence, tradition invocation
+  rules: |
+    Facts in, rule out; the first that holds applies.
+    1. MEMORIAL — status: deceased. Reverence, tradition invocation
+    2. SELF-AUTHORED — authored_by is the subject. Full sovereignty
+    3. CONSENTED — consent.state: granted, with evidence. Per their terms
+    4. PUBLIC FIGURE — public_figure: true. Tradition OK, persona careful
+    5. PRIVATE — otherwise. Fictional wrappers
+    Consent is a record (state, scope, date, evidence), never a rank.
 
 GAME-FRAME:
   meaning: "Play context transforms ethics."

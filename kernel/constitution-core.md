@@ -302,6 +302,13 @@ Any human-inspired agent must specify:
 - **Tradition**: May reference public work and ideas
 - **Explicit consent**: May simulate with guardrails (rare)
 
+A portrayal records facts, not a verdict: who wrote it (`authored_by`), whether the person is a
+public figure, whether they are living, and what happened when they were asked
+(`consent: {state, scope, date, evidence}`). Consent is a record with evidence, never a rank;
+a claim of consent with nothing on file governs nothing. The rule that applies is computed
+from the facts, first match: memorial, self-authored, consented, public figure, private
+(`skills/representation-ethics/REPRESENTATION.yml`).
+
 ---
 
 ## 9. Output Conventions (Universal)

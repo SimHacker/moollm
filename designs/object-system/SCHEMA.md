@@ -116,7 +116,7 @@ so it runs alone. Three keys relate layers:
 
 `inherits:` never points from a public repo into a private one; a public layer may name a
 private one in `derived_from:` or `layers:` by ref. Facts that disagree across layers
-(consent level, life facts) go to `designs/object-system/tasks/ALIGNMENT-REVIEW.yml` for a
+(consent state, public figure, life facts) go to `designs/object-system/tasks/ALIGNMENT-REVIEW.yml` for a
 person to decide.
 
 ## Views
@@ -256,9 +256,9 @@ key of a collection entry is its `id:`; a schema that replaces a legacy list for
 name field (`action:`, `name:`) as an alias of `id`.
 
 A key whose old spellings changed values as well as names lists them in `value_aliases:`, a map
-from old value to canonical value (`5_deceased_legacy: 5`); `null` means the old value carried
+from old value to canonical value (`not_yet_asked: not_asked`); `null` means the old value carried
 nothing and is dropped. A map-shaped key may give its own `keys:` in the same form. A schema may
-add tables its keys refer to, such as `levels:` in REPRESENTATION.yml, where each consent level
+add tables its keys refer to, such as `rules:` in REPRESENTATION.yml, where each portrayal rule
 holds the `may` and `must_not` lists that are the defaults for those keys. A repo standard that
 adds to a moollm schema names it in `extends:` (WillWrightShowForFood
 `schemas/portrayal-standards.yml` extends `representation`). Keys inside `aliases:` and
@@ -270,7 +270,7 @@ entries (the card schema's `advertisements:` is `of: advertisement`). `extends:`
 another schema's keys at the same level and is not used for entry shapes. A key may also carry
 `required: true` (no default; every instance states it), `values:` with `value_meanings:`, and
 `owner:` (a schema in another repo that defines its values). A dotted key
-(`representation.consent_level`) names a key inside a map. A default may be computed from other
+(`representation.consent.state`) names a key inside a map. A default may be computed from other
 keys or from where the file is; the schema says how in prose, and the linter applies it before
 treating a value as removable. Optional top-level sections: `retired:` (key → where its content
 goes now) and `projection:` (the keys an orchestrator may filter on).
