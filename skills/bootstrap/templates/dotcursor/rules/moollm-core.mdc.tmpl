@@ -39,7 +39,7 @@ Recompile after: `git pull`, adding/removing ambient skills, or when context fee
 
 **Rule:** Never load a lower level without first loading the level above.
 
-**Not DRY, more concentrated** (constitution §15): CARD is the one file that says what the object does, including the most important fields and methods of its interface files (ROOM, CHARACTER). GLANCE is smaller under the same rule. Never drop a field from a smaller level because a larger file has it; lint copies for agreement.
+**Not DRY, more concentrated** (constitution §15): CARD is the one file that says what the object does, including the most important fields and methods of its interface files (ROOM, CHARACTER). GLANCE is smaller under the same rule. Never drop a field from a smaller level because a larger file has it; lint copies for agreement. One CARD per object, never split into aspect files (no `ADVERTISEMENTS.yml`); all of a directory's interfaces feed it; regular structure so orchestrators can filter and project it.
 
 **Advertisements** (constitution §16): the one behavior offer, pushed into an auction. Reactions, provisions and skill relevance are advertisements. Prose keys compile to `_js`; recurring patterns graduate to standard parameterized keys the engine runs without an LLM.
 

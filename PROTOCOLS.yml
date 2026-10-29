@@ -53,7 +53,7 @@ THREE-AXIS-ACCESSIBILITY:
   related: [YAML-JAZZ, COMMENTS-MATTER, POSTEL, NO-AI-HUMANSPLAINING]
 
 SEMANTIC-IMAGE-PYRAMID:
-  meaning: "GLANCE → CARD → SKILL → README, plus interface files (ROOM, CHARACTER). Each level stands alone at its size. CARD is the one file that says what the object does: advertisements, methods, Dublin Core, operational keys, YAML Jazz, and the most important keys of the objects it makes. Not DRY: more concentrated. Copies are linted for agreement, never deleted for being copies."
+  meaning: "GLANCE → CARD → SKILL → README, plus interface files (ROOM, CHARACTER). Each level stands alone at its size. CARD is the one file that says what the object does: advertisements, methods, Dublin Core, operational keys, YAML Jazz, and the most important keys of the objects it makes. Not DRY: more concentrated. Copies are linted for agreement, never deleted for being copies. One CARD per object, never split into aspect files (no ADVERTISEMENTS.yml); all of a directory's selfish-COM interfaces feed it; regular structure so orchestrators can filter and project cards by k-line activation and heat."
   location: kernel/constitution-core.md §15
   shorthand: "NOT-DRY"
   invoke_when: "Deciding what goes in a CARD or GLANCE; tempted to remove a field because a bigger file has it; moving fields into an interface file"

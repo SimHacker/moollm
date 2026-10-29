@@ -9,7 +9,8 @@ constitution: [§15](../../kernel/constitution-core.md#15-the-semantic-image-pyr
 migrated.
 
 Cards keep object-specific YAML Jazz. Where a card's keys overlap a standard pattern, they
-align with it.
+align with it. A card is one file: every aspect (advertisements, methods, k-lines, state) and
+every interface of its directory feeds it, and nothing is split out into aspect files.
 
 Reproduce: `python3 skills/prototype/scripts/behavior_survey.py all` (sections `cards`,
 `methods`, `adverts`, `activation`, `world`). Counts below are from 2026-10-29: 153 cards
@@ -242,6 +243,29 @@ Kept, because they mean something else: Sims personality interests (`interests:`
 `skills/mind-mirror/SIMS-STATS.yml`, `subject.interests.physics` in ADVENTURE-COMPILER.md,
 character interest lists), "Person of Interest", and ordinary English.
 
+## 7. Projection readiness
+
+An orchestrator composes filtered projections from more cards than fit whole: the
+advertisements whose triggers match, the methods a role may invoke, the cards a k-line
+activation or heat map has warmed. It can only do that over standard shapes. What breaks a
+mechanical projection today:
+
+| Irregularity | Cards |
+|---|---|
+| unparseable | 3 |
+| `advertisements:` as a list | 10 |
+| advertisement without a numeric score | 23 (22 none, 1 formula) |
+| `methods:` as a list, or string entries | 3, 11 entries in 2 |
+| `type:` as a list | 120 |
+| `invoke_when:` beside advertisements (two places to look for one thing) | 41 |
+| hyphenated top-level keys | 37 keys in 22 cards |
+
+Selfish COM: one directory, many interfaces, one CARD. 62 directories hold two or more
+UPPERCASE YAML files (an upper bound: data files such as `LAYOUTS.yml` and `SERIES.yml` match
+the pattern), and 13 of them have a CARD. `donna-toadstool` (CHARACTER + ENEMIES) and
+`wumpus-snorax` (CHARACTER + GAME) do; `pub` (ROOM + SECRET-WORD-CARD) and `deep-storage`
+(ROOM + PROTOTYPES + LAYOUTS) don't.
+
 ## Decisions
 
 | # | Decision | Leaning | Confidence |
@@ -262,3 +286,5 @@ character interest lists), "Person of Interest", and ordinary English.
 | 14 | Recast the three "interest" uses in section 6 | yes | 90% |
 | 15 | Synonym table in section 1, one batch per row, after a "what a CARD carries" section in `skills/card/SKILL.md` | yes | 70% |
 | 16 | `type:` one id, extra values to `tags:` | yes | 65% |
+| 17 | A card-shape lint (`resolve.py lint` on CARDs): the section 7 irregularities, so projections can rely on shapes | yes | 85% |
+| 18 | Directories with two or more real interfaces get one CARD summarizing all of them; which UPPERCASE files count as interfaces is decided per file | yes | 60% |

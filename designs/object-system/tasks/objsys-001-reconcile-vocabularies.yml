@@ -76,10 +76,11 @@ history:
       room/container skill docs and context/runtime closure examples use world.room.lighting.
       adventure-4 compiles: 121 rooms, no grue_safe. dist/world.json is stale until recompiled.
   - { at: 2026-10-29, event: decided, by: don, note: "constitution §15: CARD is one file, concentrated not DRY; copy the important fields and methods of interface files down into CARD and GLANCE. §16: advertisements are the one behavior offer (reactions, provides/wants, skill relevance included; 'interest' means advertisement); prose compiles to _js, recurring patterns graduate to parameterized keys the engine runs" }
+  - { at: 2026-10-29, event: decided, by: don, note: "one CARD per object, never split into aspect files (no ADVERTISEMENTS.yml); all of a directory's selfish-COM interfaces feed it; regular enough for orchestrators to filter and project by k-line activation and heat" }
   - at: 2026-10-29
     event: analyzed
     note: >
-      Round 2, read as one CARD: designs/object-system/CARD-ANALYSIS.md (16 decisions).
+      Round 2, read as one CARD: designs/object-system/CARD-ANALYSIS.md (18 decisions).
       Advertisements are one concept (offers, triggers, skill relevance, provides/wants);
       the compiler drops list-form advertisements' names and fields (442 entries, 97 files)
       and compiles no map-form method (444); 3 of 321 _js slots filled, nothing graduated;
@@ -116,7 +117,7 @@ phases:
       - "tier: outside skills?"
       - "placement listing keys (objects:, characters:, residents:, contains:): retire, or hints linted against the directory?"
       - "when: (GLANCE) and invoke_when: (CARD): one key or two? (CARD-ANALYSIS.md section 5)"
-      - "decisions 1-16 in CARD-ANALYSIS.md: one advertisement schema, graduated keys, copy-down, method core, card keys"
+      - "decisions 1-18 in CARD-ANALYSIS.md: one advertisement schema, graduated keys, copy-down, method core, card keys, projection lint"
   - id: migrate
     status: claimed
     # One batch per row, smallest blast radius first. Each batch: run, verify, rerun the

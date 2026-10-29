@@ -41,7 +41,7 @@ rules:
       - "📜 SKILL.md → protocol details (200-1000 lines)"
       - "📚 README.md → deep context only if needed (500+ lines)"
     rule: "Never load a lower level without first loading the level above."
-    not_dry: "Concentrated, not DRY (constitution §15). CARD is ONE file saying what the object does: advertisements, methods, Dublin Core, operational keys, YAML Jazz, and the most important fields of its interface files (ROOM, CHARACTER). GLANCE is smaller, same rule. Never drop a field from a smaller level because a larger file has it."
+    not_dry: "Concentrated, not DRY (constitution §15). CARD is ONE file saying what the object does: advertisements, methods, Dublin Core, operational keys, YAML Jazz, and the most important fields of its interface files (ROOM, CHARACTER). GLANCE is smaller, same rule. Never drop a field from a smaller level because a larger file has it. One CARD per object, never split into aspect files (no ADVERTISEMENTS.yml, METHODS.yml); all of a directory's interfaces feed it; keep its structure regular so orchestrators can filter and project it."
     advertisements: "Advertisements are the one behavior offer, pushed into an auction (constitution §16). Reactions, provisions and skill relevance are advertisements. Prose keys compile to _js; recurring patterns graduate to standard parameterized keys the engine runs without an LLM."
 
   - name: skill-publishing

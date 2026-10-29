@@ -114,7 +114,10 @@ what the skill and its objects do, so it copies down the most important slots an
 its prototype file: the room CARD lists LOOK, ENTER, EXIT and the keys every room has, even
 though `skills/room/ROOM.yml` is canonical for instances. Fall-through covers what a view
 leaves out; it is never a reason to leave out what matters at that size. A copy that
-disagrees with its source is a lint finding, fixed by updating the copy.
+disagrees with its source is a lint finding, fixed by updating the copy. A CARD is one file:
+all of a directory's interfaces feed it, and it is never split into aspect files
+(`ADVERTISEMENTS.yml`, `METHODS.yml`). Its keys keep standard shapes so orchestrators can
+filter and project many cards at once.
 
 A view is a cache, so it can go stale. Git says when: a view is stale when anything it
 summarizes has a later commit, or uncommitted changes. `resolve.py stale` lists them. Views

@@ -582,6 +582,22 @@ rooms have, the keys characters have. Interface files stay canonical for instanc
 copies down their most important fields and methods so that the card level of the pyramid
 represents them.
 
+**One CARD per object, never split by aspect.** There is no `ADVERTISEMENTS.yml`,
+`METHODS.yml` or `K-LINES.yml` beside a card: advertisements, methods, k-lines, state and
+jazz all live in the one `CARD.yml`. Selfish COM gives a directory many interfaces
+(`CHARACTER.yml`, `ROOM.yml`, ...); they all contribute to its single CARD, which has the
+mission, not just the permission, to summarize the most important things from every higher
+resolution level and every interface. Splitting a card defeats its purpose: one read, one
+resolution, the whole object.
+
+**Regular enough to project.** A card is read whole by a model and also filtered by
+orchestrators that cannot fit every card: select the advertisements whose triggers match,
+the methods a role may invoke, the cards a k-line activation or attention-diffusion heat map
+has warmed ([designs/ongoingness/KLINE-CONTEXT-CACHE.md](../designs/ongoingness/KLINE-CONTEXT-CACHE.md)),
+and compose a projection from many cards. That needs standard keys with standard shapes:
+maps keyed by name, numeric scores, lists where lists are expected. YAML Jazz rides on that
+structure; it doesn't replace it.
+
 **Not DRY. More concentrated.** Repeating a field at a smaller level is the point of the
 pyramid, not a defect. Never remove something from a CARD or GLANCE because a larger file
 already says it; ask whether it is among the most important things at that size. GLANCE
@@ -640,7 +656,7 @@ These MUST be true regardless of driver:
 10. **Skills are duck-typed**: A directory is a skill iff it has `SKILL.md` OR lives inside `skills/`; no registry, no gatekeeper, equal-citizen mounted roots
 11. **Plural containers type their children**: `farts/fart-01/` is a fart with no declaration; an empty directory is a valid instance; `FARTS.yml` lets the container specialize its children in one place; one namespace per plural container (§14)
 12. **Three-axis accessibility**: Prefer forms that balance human + LLM + program access; YAML Jazz is the default because it does (§3)
-13. **Concentrated, not DRY**: CARD and GLANCE copy the most important things down from larger files; agreement is linted, the smaller copy is never deleted for being a copy (§15)
+13. **Concentrated, not DRY**: CARD and GLANCE copy the most important things down from larger files; agreement is linted, the smaller copy is never deleted for being a copy. One CARD per object, never split into aspect files; all of a directory's interfaces feed it; its structure is regular enough for orchestrators to filter and project (§15)
 14. **Advertisements are the one behavior offer**: reactions, provisions and skill relevance are advertisements; prose keys compile to `_js`, recurring patterns graduate to standard keys (§16)
 
 ---
