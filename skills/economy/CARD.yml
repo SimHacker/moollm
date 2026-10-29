@@ -64,10 +64,11 @@ currencies:
 
   # REAL-WORLD (for grounded simulations)
   real_world:
-    - { name: "Dollar", symbol: "$", code: "USD", emoji: "💵" }
-    - { name: "Euro", symbol: "€", code: "EUR", emoji: "💶" }
-    - { name: "Pound", symbol: "£", code: "GBP", emoji: "💷" }
-    - { name: "Yen", symbol: "¥", code: "JPY", emoji: "💴" }
+    currencies:
+      - { name: "Dollar", symbol: "$", code: "USD", emoji: "💵" }
+      - { name: "Euro", symbol: "€", code: "EUR", emoji: "💶" }
+      - { name: "Pound", symbol: "£", code: "GBP", emoji: "💷" }
+      - { name: "Yen", symbol: "¥", code: "JPY", emoji: "💴" }
     use: "Grounded simulations, real-world scenarios"
 
   # CUSTOM TEMPLATE

@@ -409,7 +409,7 @@ well-named file advertises what reading it will satisfy. Will Wright was right i
 advertisement-based dispatch scales, and here the advertisements are free because the names had
 to exist anyway.
 
-**Big-endian naming** ([skills/skill CARD, `directories_as_interests`](../../skills/skill/CARD.yml)):
+**Big-endian naming** ([skills/skill CARD, `directories_as_advertisements`](../../skills/skill/CARD.yml)):
 most significant component first — `2026-01-24-description.yml` groups by time, `RUN-001-name.yml`
 by sequence, `CARD.yml` by type. Sorted `ls` output becomes a semantic outline for free. The
 counter-examples are instructive: `example1.yml` advertises nothing; `fluxx-amsterdam-001.yml`

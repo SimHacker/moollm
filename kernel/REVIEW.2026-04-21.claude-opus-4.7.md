@@ -9,7 +9,7 @@ parent: ../REVIEW.2026-04-21.claude-opus-4.7.md
 
 # Kernel — Deep Review
 
-**Scope:** `kernel/README.md`, `ARCHITECTURE.md`, `DIRECTORY-AS-OBJECT.md` full-read; `SELFISH-COM-IMPLEMENTATION.md`, `INTEREST-GATES.yml`, `NAMING.yml` partial. The constitution and protocol files (context-assembly, memory-management, event-logging, self-healing, tool-calling) not deeply read this pass. **Confidence in kernel-wide judgment: 80%.**
+**Scope:** `kernel/README.md`, `ARCHITECTURE.md`, `DIRECTORY-AS-OBJECT.md` full-read; `SELFISH-COM-IMPLEMENTATION.md`, `ADVERTISEMENT-GATES.yml`, `NAMING.yml` partial. The constitution and protocol files (context-assembly, memory-management, event-logging, self-healing, tool-calling) not deeply read this pass. **Confidence in kernel-wide judgment: 80%.**
 
 ## The move that matters
 
@@ -47,7 +47,7 @@ The reconciliation (not stated explicitly in the docs I read, my inference from 
 
 Fine, but the distinction is subtle and the docs don't defend it. A naive reader sees "kernel parses CARD.yml" and assumes leak. A single diagram showing "kernel gives file contents to orchestrator; orchestrator interprets" would close this.
 
-**INTEREST-GATES vs. advertisements.** `INTEREST-GATES.yml` defines proximity-based visibility gates (world / in-room / within-room-N / near:Nm / adjacent / touch). Advertisements use score/condition/effect. These overlap: an advertisement can have a `condition:` that amounts to "player is in same room." Two related mechanisms, unclear composition. Does a gate short-circuit score evaluation? Does `score × gate_passed` compose? The kernel names both; I couldn't find the composition rule. Likely in a skill; doesn't belong in the kernel itself; but a pointer would help.
+**ADVERTISEMENT-GATES vs. advertisements.** `ADVERTISEMENT-GATES.yml` defines proximity-based visibility gates (world / in-room / within-room-N / near:Nm / adjacent / touch). Advertisements use score/condition/effect. These overlap: an advertisement can have a `condition:` that amounts to "player is in same room." Two related mechanisms, unclear composition. Does a gate short-circuit score evaluation? Does `score × gate_passed` compose? The kernel names both; I couldn't find the composition rule. Likely in a skill; doesn't belong in the kernel itself; but a pointer would help.
 
 ## Frontiers
 

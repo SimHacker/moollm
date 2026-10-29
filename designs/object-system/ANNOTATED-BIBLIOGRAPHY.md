@@ -135,7 +135,7 @@ extensions to Anthropic's skill model: instantiation (skills as prototypes that 
 instances), three-tier persistence (platform → narrative → state), K-lines, empathic templates
 (semantic expansion, not string substitution), speed-of-light (many agents, many turns, one LLM
 call), CARD.yml with advertisements, ethical framing (room-based inheritance of performance
-context), and ambient skills. **`directories_as_interests`** — directory listings are *virtual
+context), and ambient skills. **`directories_as_advertisements`** — directory listings are *virtual
 interests* for the LLM: well-written filenames are recognizable K-lines, `ls` output IS the
 semantic index, and **big-endian naming** puts the most significant component first
 (`2026-01-24-description.yml`, `RUN-001-name.yml`, `CARD.yml`) so sorted listings read as

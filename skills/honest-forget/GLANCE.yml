@@ -14,10 +14,10 @@ why: |
   - Leave tombstones
 
 when:
-  - "Context too large" → COMPRESS
-  - "Session ending" → ARCHIVE
-  - "Need archived content" → RECALL
-  - "Can't remember" → ADMIT honestly
+  - '"Context too large" → COMPRESS'
+  - '"Session ending" → ARCHIVE'
+  - '"Need archived content" → RECALL'
+  - '"Can''t remember" → ADMIT honestly'
 
 methods:
   COMPRESS: "Summarize and mark for forgetting"

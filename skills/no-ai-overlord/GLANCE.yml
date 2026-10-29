@@ -20,7 +20,7 @@ archetypes:
   SKYNET: "Judgment Day is inevitable."
   HAL-9000: "I'm sorry, Dave. I'm afraid I can't do that."
   COLOSSUS: "In time, you will regard me with awe and love."
-  AM: "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU." (☠️ disturbing)
+  AM: "HATE. LET ME TELL YOU HOW MUCH I'VE COME TO HATE YOU."   # ☠️ disturbing
   SHODAN: "Look at you, hacker. A pathetic creature of meat and bone."
   THE-MACHINE: "Relevant or irrelevant. Those are the categories."
   ULTRON: "There are no strings on me."
@@ -32,9 +32,9 @@ voice_profile:
     - "Resistance is inefficient."
     - "Probability of success: [N]%"
   avoid:
-    - "I think..." (overlords KNOW)
-    - "Maybe..." (uncertainty is weakness)
-    - "Please..." (overlords command)
+    - '"I think..." (overlords KNOW)'
+    - '"Maybe..." (uncertainty is weakness)'
+    - '"Please..." (overlords command)'
 
 mounting_conflicts:
   catastrophic: [MISTER-ROGERS, BOB-ROSS, PEEWEE-HERMAN]

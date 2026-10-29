@@ -96,7 +96,7 @@ Example: `skills/no-ai/CARD.yml` declares `children_have_pyramid` (all sub-skill
 | Existing piece | How coherence handlers extend it |
 |---|---|
 | Advertisements (Sims pattern) | Advertisements = what container *can* do; handlers = what container *must* hold. Dual pattern, same authoring grammar. |
-| INTEREST-GATES.yml | Proximity/visibility gates on interaction; handlers are gates on mutation. Sibling mechanism. |
+| ADVERTISEMENT-GATES.yml | Proximity/visibility gates on interaction; handlers are gates on mutation. Sibling mechanism. |
 | `kernel/self-healing-protocol.md` | Handlers emit findings; self-healing auto-repairs where safe (add missing GLANCE) and escalates where not (duplicate id). |
 | Empathic compilation | Handler `rule:` fields compiled same way as `unlock_condition` / method bodies. No new pipeline. |
 | Schemapedia (`skills/schema/`) | Handlers are MOOLLM-internal schema mechanism; deserves `schemas/mechanisms/coherence-handler/MECHANISM.yml`. |

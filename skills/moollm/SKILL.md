@@ -93,7 +93,7 @@ When invoked, this skill should:
 - `kernel/self-healing-protocol.md` — recovery and repair behaviors
 - `kernel/DIRECTORY-AS-OBJECT.md` — directory as object model
 - `kernel/SELFISH-COM-IMPLEMENTATION.md` — SELF lineage in practice
-- `kernel/INTEREST-GATES.yml` — attention gating rules
+- `kernel/ADVERTISEMENT-GATES.yml` — attention gating rules
 - `kernel/NAMING.yml` — top-level naming policy
 - `kernel/naming/NAMING.yml` — detailed naming rules
 - `kernel/naming/NAMING-K-LINES.yml` — K-line naming standards

@@ -168,7 +168,7 @@ member; `{ not: [...] }` excludes. Defaults are proposals for review.
 | bare flag or state word (`open`, `lit`), `state == x` | 20 | `when_state: { open: true }` | all pairs match, on the advertiser |
 | flag disjunctions (`good_news OR victory OR milestone`) | 4, 3 compiled | `when_flags: [good_news, victory, milestone]` | any flag set, in the world |
 | darkness and lighting | 6 | `requires_lighting: { max: 2 }` | the actor's room; `min`/`max` inclusive, 0..10 |
-| proximity (in room, near, touching) | 7 | `reach: near` | `room`; scale from [kernel/INTEREST-GATES.yml](../../kernel/INTEREST-GATES.yml) without its `in-` prefixes: self, holding, touch, adjacent, near, room, world, user |
+| proximity (in room, near, touching) | 7 | `reach: near` | `room`; scale from [kernel/ADVERTISEMENT-GATES.yml](../../kernel/ADVERTISEMENT-GATES.yml) without its `in-` prefixes: self, holding, touch, adjacent, near, room, world, user |
 | fees and coins in guards | 1 compiled, 50 pay effects | `cost: 5` | coins, paid by the actor to the advertiser's owner when chosen; a map names another currency |
 | single-word triggers | 192 of 253 | `trigger: [latte, espresso]` | words, any of them, whole-word, case-insensitive, in what the actor says |
 | phrase and concept triggers | 61 | `trigger: { phrases: [...], concepts: [...] }` | phrases match mechanically; concepts are judged by the LLM |
