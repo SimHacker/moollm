@@ -1,38 +1,44 @@
 # CARD.yml — The Card Card
 #
-# SNIFFABLE INTERFACE — see SKILL.md for full documentation
 # "Portable tokens of capability, identity, and access."
-#
-# KEY INSIGHT: Cards are ACTIVATION TRIGGERS, not handlers.
-# This CARD tells you IF to use the card skill.
-# SKILL.md tells you HOW to write and structure cards.
+# This card follows the schema it defines: the schema: section at the bottom is the
+# standard for every CARD.yml. SKILL.md § What a CARD carries explains it in prose.
+
+# IDENTITY AND DUBLIN CORE
 
 id: card
 name: "The Card Card"
-type: [skill, meta, capability]
+type: skill
+tags: [meta, capability, actor, gamification]
+
+description: |
+  The meta-skill for understanding and creating cards.
+  Cards are portable tokens you carry, play, and activate.
+  A CARD.yml is the one file a model reads to learn what an object does.
+
+  Trading cards, playing cards, Magic cards, Tarot cards,
+  business cards, key cards, receipts, tickets — all cards.
+
+# CARD FACE
+
 emoji: 🎴
 tier: 1
 rarity: mythic
 tagline: "Portable tokens of capability, identity, and access."
 
-description: |
-  The meta-skill for understanding and creating cards.
-  Cards are portable tokens you carry, play, and activate.
-  
-  Trading cards, playing cards, Magic cards, Tarot cards,
-  business cards, key cards, receipts, tickets — all cards.
-
-# FILES INDEX — Activate together for full context
+tools:
+  required: [read_file, write_file, list_dir]
+  optional: [grep]
 
 files:
   docs:
-    - SKILL.md              # Full protocol + CARD ARCHITECTURE
+    - SKILL.md              # Full protocol, card architecture, What a CARD carries
     - README.md             # Human landing page
     - ACTIVATION.md         # Activation record protocol
     - ENSEMBLES.md          # Card combinations
     - FLUXX.md              # Rule-changing cards
   templates:
-    - CARD.yml.tmpl         # Individual card template
+    - CARD.yml.tmpl         # Individual card, in the standard schema
     - COLLECTION.yml.tmpl   # Card collection template
   examples/:                # 35+ example cards by category
     monsters: [clockwork-dragon, gelatinous-cube, mimic, owlbear, shadow]
@@ -40,65 +46,49 @@ files:
     buffs: [chain-trigger, pie-menu, stacking]
     worms: [pointer, sitemap-caster]
 
-# K-LINES
+# ACTIVATION
 
-k_lines:
-  activates:
-    - CARD
-    - TRADING-CARD
-    - PLAYING-CARD
-    - CARD-ARCHITECTURE     # How to write cards
-    - SIDECAR-PATTERN       # CARD.yml alongside entities
-  related:
-    - { ref: skill, relation: "cards are skill instances" }
-    - { ref: advertisement, relation: "cards advertise methods" }
-    - { ref: room, relation: "cards activate in rooms" }
-    - { ref: buff, relation: "cards grant buffs" }
+k_lines: [CARD, TRADING-CARD, PLAYING-CARD, CARD-ARCHITECTURE, CARD-SCHEMA, SIDECAR-PATTERN]
 
-# INVOKE WHEN
-
-invoke_when:
-  - "Create a new capability as a card"
-  - "Understand card system architecture"
-  - "Design card-based game mechanics"
-  - "Add CARD.yml sidecar to entity"
-  - "Learn what goes in CARD.yml vs SKILL.md"
-
-# ADVERTISEMENTS (PRIMARY)
+# BEHAVIOR — advertisements first: a model scans top-down to decide
 
 advertisements:
   CREATE-CARD:
     score: 95
-    condition: "Need to make a new capability portable"
-    
+    score_if: ["need to make a new capability portable", "create a new capability as a card"]
+    method: CREATE
+
   CARD-ARCHITECTURE:
     score: 95
-    condition: "Learning what goes in CARD.yml vs SKILL.md"
+    score_if: "learning what goes in CARD.yml vs SKILL.md"
     see: "SKILL.md § Card Architecture"
-    
+
+  CARD-SCHEMA:
+    score: 90
+    score_if: "writing, reviewing or migrating a CARD.yml; checking a key's shape, default or alias"
+    effect: "read schema: below and SKILL.md § What a CARD carries"
+
   UNDERSTAND-CARDS:
     score: 85
-    condition: "Learning how the card system works"
-    
-  DESIGN-GAME:
-    score: 80
-    condition: "Building card-based game mechanics"
-    
+    score_if: "learning how the card system works"
+
   SIDECAR-PATTERN:
     score: 85
-    condition: "Adding CARD.yml to existing entity"
+    score_if: "adding a CARD.yml to an existing entity"
 
-# METHODS — signatures only
+  DESIGN-GAME:
+    score: 80
+    score_if: "building card-based game mechanics"
 
 methods:
-  CREATE:   { signature: "CREATE [name] TYPE [types]" }
+  CREATE:   { signature: "CREATE [name] TYPE [type]" }
   PLAY:     { signature: "PLAY [card] (IN [room])" }
   COLLECT:  { signature: "COLLECT [card] TO [collection]" }
   TRADE:    { signature: "TRADE [cards] WITH [character]" }
   EXAMINE:  { signature: "EXAMINE [card]" }
   ACTIVATE: { signature: "ACTIVATE [card] [method]" }
 
-# CARD TYPES (brief — see SKILL.md)
+# CARD TYPES (brief — see SKILL.md § Card Types)
 
 types:
   trading-card:  "Hero-Story cards for real people"
@@ -109,26 +99,11 @@ types:
   item-card:     "Objects with effects"
   key-card:      "Access tokens"
 
-# CARD STRUCTURE OVERVIEW (brief — see SKILL.md § Card Architecture)
-
 card_structure:
   principle: "Cards are ACTIVATION TRIGGERS, not handlers"
-  
-  recommended_order:
-    1: "card: (id, name, emoji, tagline, description)"
-    2: "files: (index for context activation)"
-    3: "k-lines: (activation vectors)"
-    4: "advertisements: (PRIMARY — before methods!)"
-    5: "methods: (signatures only)"
-    6: "state: (brief)"
-    7: "documentation: (pointers to SKILL.md)"
-    
-  target_size: "~150-200 lines"
-  smell: "If CARD > 300 lines, move content to SKILL.md"
-  
-  full_docs: "SKILL.md § Card Architecture"
-
-# SIDECAR PATTERN (brief)
+  order: [identity, card face, k_lines, advertisements, methods, interfaces, state, relations, jazz]
+  target_size: "~150-200 lines, not counting a schema: section"
+  smell: "If CARD > 300 lines, move protocol detail to SKILL.md; never move out what matters at card size"
 
 sidecar_pattern:
   description: "Any entity can have a CARD.yml sidecar"
@@ -137,30 +112,331 @@ sidecar_pattern:
     - "characters/don/CARD.yml — trading card"
     - "objects/lamp/CARD.yml — item card"
 
-# TOOLS
+# RELATIONS
 
-tools:
-  required: [read_file, write_file, list_dir]
-  optional: [grep]
+related:
+  - { id: skill, role: sibling, why: "cards are skill instances" }
+  - { id: advertisement, role: uses, why: "cards advertise methods" }
+  - { id: object, role: uses, why: "the method schema lives in OBJECT.yml" }
+  - { id: room, role: composes, why: "cards activate in rooms" }
+  - { id: buff, role: composes, why: "cards grant buffs" }
+  - { id: GLANCE, role: sibling, why: "GLANCE is the smaller view, linted against the CARD" }
 
-# DOCUMENTATION POINTERS
-
-documentation:
-  SKILL.md:
-    - "§ Card Architecture — what goes where and why"
-    - "§ Recommended Section Order"
-    - "§ Advertisements Before Methods"
-    - "§ Method Placement Rules"
-    - "§ Sidecar Pattern"
-    - "§ Activation Records"
-    - "§ Card Types"
-  README.md: "Human-friendly overview"
-  examples/: "35+ example cards"
-
-# LINEAGE
+see_also:
+  - SKILL.md: ["§ What a CARD carries", "§ Card Architecture", "§ Sidecar Pattern", "§ Activation Records", "§ Card Types"]
+  - README.md
+  - examples/
+  - kernel/constitution-core.md   # §15 semantic image pyramid, §16 advertisements
+  - designs/object-system/SCHEMA.md
+  - designs/object-system/CARD-ANALYSIS.md
 
 lineage:
   - "Magic: The Gathering — Complex card interactions"
   - "Fluxx — Rule-changing cards"
   - "Tarot — Archetypal prompts"
   - "Self language — Cards as prototype objects"
+  - "HyperCard — the card as a self-contained navigable unit"
+  - "COM type libraries — dispatch metadata a tool reads without running the object"
+
+# THE CARD SCHEMA
+# Every CARD.yml follows this. Format: designs/object-system/SCHEMA.md § Schema files.
+# Under schema: so it is read as a standard, not inherited as slots.
+
+schema:
+  id: card
+  applies_to: "every CARD.yml"
+  extends: []                       # advertisements: and methods: entries take their shapes through of:
+  extensions: "object-specific keys are allowed and stay as YAML Jazz; never reuse a standard key or alias with another meaning"
+
+  conventions:
+    list_of_one: "a bare string where a list is expected is a list of one"
+    any_all_not: "a list means any; { all: [...] } every; { not: [...] } none"
+    omit_defaults: "an omitted key means its default; state only what is unusual. A value equal to the default is removable"
+    maps_keyed_by_name: "collections are maps keyed by name; a list is read as a map keyed by each item's name, action or id"
+    one_file: "one CARD per object; every aspect and every interface of the directory feeds it; no ADVERTISEMENTS.yml, METHODS.yml or K-LINES.yml beside it"
+    concentrated_not_dry: "never drop a key because a larger file has it; copies are kept in agreement by lint, never by deleting the smaller copy"
+    names: "keys use underscores; names of things use hyphens; UPPER-DASHES advertisement and method names are commands a player types, lowercase names are functions or protocol steps"
+    order: "identity and card face, then k_lines, then advertisements before methods: a model scans top-down to decide"
+    glance_agreement: "GLANCE.yml when: arrows name an advertisement or method in this card; every key GLANCE copies agrees with the card"
+    jazz: "comments carry meaning; YAML Jazz rides on the standard shapes and never replaces them"
+    compiled_keys: "no card-level key compiles; prose that gets _js/_py siblings lives inside advertisement and method entries"
+
+  keys:
+
+    # Identity and Dublin Core (title=name, subject=tags, creator=credits, rights=license, relation=related, source=lineage)
+
+    id:
+      shape: string
+      default: "the directory name"
+      meaning: "kebab-case identifier; the name lookup and k_lines resolve"
+      aliases: []
+      example: room
+
+    name:
+      shape: string
+      default: "the id, hyphens to spaces, title case"
+      meaning: "display name"
+      aliases: []
+
+    description:
+      shape: prose
+      default: null
+      meaning: "two to six sentences: what the object is and why you would use it"
+      aliases: []
+
+    type:
+      shape: ref
+      default: "skill in a skills/ directory; otherwise the skill implied by the directory's first interface file (ROOM.yml means room)"
+      meaning: "one id saying what kind of object this is; classification, never dispatch"
+      aliases: ["type: [list] (first item stays, the rest move to tags:)"]
+      example: skill
+
+    tags:
+      shape: list
+      of: string
+      default: []
+      meaning: "free classification words; extra type values land here"
+      aliases: []
+
+    credits:
+      shape: map
+      of: list
+      default: null
+      meaning: "people and works, keyed by role (origin, inspiration, methodology, ...); a bare list is one unnamed role"
+      aliases: []
+      example: { origin: ["Jon Postel — RFC 761 (1980)"] }
+
+    license:
+      shape: string
+      default: "the repository's license"
+      meaning: "rights, when they differ from the repository's"
+      aliases: []
+
+    # Card face: what a reader sees before reading anything else
+
+    emoji:
+      shape: string
+      default: null
+      meaning: "one emoji for quick recognition in listings"
+      aliases: []
+
+    tier:
+      shape: enum
+      values: [0, 1, 2, 3]
+      default: 2
+      meaning: "0 foundational or ambient, 1 core, 2 standard, 3 experimental"
+      aliases: []
+
+    rarity:
+      shape: enum
+      values: [common, uncommon, rare, epic, legendary, mythic]
+      default: common
+      meaning: "collectible flavor; how unusual the capability is"
+      aliases: []
+
+    tagline:
+      shape: string
+      default: "the first sentence of description"
+      meaning: "one line that appears in listings and GLANCE"
+      aliases: [one_liner]
+
+    t_shirt:
+      shape: string
+      default: null
+      meaning: "a slogan short enough to print on a shirt"
+      aliases: []
+
+    tools:
+      shape: map
+      default: { required: [], optional: [] }
+      meaning: "agent tools the object needs"
+      aliases: [allowed_tools, "tools: [list] (read as required:)"]
+      keys:
+        required: { shape: list, of: string, default: [], meaning: "must have these to function" }
+        optional: { shape: list, of: string, default: [], meaning: "used when present" }
+      notes: "SKILL.md frontmatter keeps the foreign spelling allowed-tools; the card copies it here"
+
+    files:
+      shape: map
+      of: list
+      default: "the directory listing"
+      meaning: "what else to read when activated, grouped (docs, templates, examples, prototype, ...), most important first"
+      aliases: ["files: [list] (one unnamed group)"]
+
+    # Behavior
+
+    advertisements:
+      shape: map
+      of: advertisement
+      default: {}
+      meaning: "what the object offers and when it wants to be chosen; keyed by UPPER-DASHES name; the primary activation signal"
+      aliases:
+        - advertisement                    # singular provides/wants/motives: one advertisement per provides item
+        - advertisement_names
+        - ambient-advertisement
+        - invoke_when                      # each line becomes a score_if of the advertisement it describes
+        - when_to_use
+        - use_when
+        - "advertisements: [list] (keyed by action or name)"
+        - "condition: inside an entry (score_if: on a card, guard: on a world object)"
+      notes:
+        - "on a card an advertisement is mostly skill relevance: score_if is prose an LLM judges and needs no _js"
+        - "method: is optional; with no method the effect is 'load this object and act'"
+        - "score is 0..100; a 0..1 trigger score is multiplied by 100"
+      example: { CREATE-CARD: { score: 95, score_if: "need to make a new capability portable", method: CREATE } }
+
+    methods:
+      shape: map
+      of: method
+      default: {}
+      meaning: "messages the object answers, keyed by name; signature, description, parameters, invoked_by, effect"
+      aliases: ["methods: [list] (keyed by each item's name or id)"]
+      notes:
+        - "entry shapes, string entries and entry-level aliases (does:, params:) follow the method schema in skills/object/OBJECT.yml"
+        - "a method copied down from an interface file carries from: <file>; the copy agrees with its source"
+      example: { LOOK: { signature: "LOOK (AT [thing])", from: ROOM.yml } }
+
+    # Activation
+
+    k_lines:
+      shape: list
+      of: string
+      default: "[the id in UPPER-DASHES]"
+      meaning: "K-LINE words and concepts that wake this card; the same matcher runs on k_lines and on trigger: word lists"
+      aliases:
+        - k_lines.activates                # the old map form; k_lines.related moves to related:
+        - activates
+        - protocol
+        - aliases
+      example: [ROOM, SPATIAL, NAVIGATION]
+
+    # State
+
+    state:
+      shape: map
+      default: {}
+      meaning: "per-instance mutable state of the objects this card makes or of the card in play: field name → default value, or prose"
+      aliases: ["state: { fields: [list] } (each field with no default)"]
+      notes: "state is never inherited through parents; a full state schema goes in schema:"
+
+    # Copy-down from interfaces (constitution §15)
+    # The card copies down the most important slots and methods of every interface file in its
+    # directory and of its skill's prototype file. Interface files stay canonical for instances;
+    # copied methods go into methods: with from:, so one map holds everything callable.
+
+    interfaces:
+      shape: map
+      default: "the UPPERCASE interface files in the card's directory, plus the skill's prototype file; nothing copied"
+      meaning: "which interface files feed this card, keyed by path relative to the card, and the slots copied from each"
+      aliases: []
+      keys:
+        role: { shape: enum, values: [prototype, interface], default: interface, meaning: "prototype: what every instance inherits (skills/room/ROOM.yml); interface: an interface of this directory (CHARACTER.yml beside ROOM.yml)" }
+        slots: { shape: map, default: {}, meaning: "the most important keys an instance has: key → default and meaning, in a phrase" }
+        methods: { shape: list, of: string, default: [], meaning: "names of the methods copied into the card's methods: with from: this file" }
+      notes:
+        - "lint: every copied slot and method exists in its source and agrees with it; fix by updating the copy"
+        - "lint: a card whose interface files have methods, none of which appear in the card, is thin"
+        - "which UPPERCASE files count as interfaces is decided per file; data files (LAYOUTS.yml) are listed in files:, not here"
+      example:
+        ROOM.yml:
+          role: prototype
+          slots: { exits: "map DIRECTION → path or { destination, description, guard }", lighting: "0 pitch black .. 10 full sun; default 6" }
+          methods: [LOOK, ENTER, EXIT, CONTENTS, ADVERTISE]
+
+    # Relations
+
+    inherits:
+      shape: list
+      of: ref
+      default: []
+      meaning: "the object's parents, most specific first, in the form of SCHEMA.md § Parents; a copy of what its interface files or SKILL.md declare; a CARD-only directory declares them here"
+      aliases: [inherits_from]
+
+    inherited_by:
+      shape: list
+      of: ref
+      default: "computed by resolve.py"
+      meaning: "a concentrated copy of the computed child index; kept, linted against the resolver"
+      aliases: [can-be-inherited-by]
+
+    related:
+      shape: list
+      of: map
+      default: []
+      meaning: "navigation links to other objects; never parents. An entry is a bare id or path, or a map"
+      aliases:
+        - related_skills
+        - sibling_skills                   # entries get role: sibling
+        - composes_with                    # entries get role: composes
+        - k_lines.related
+        - "related: {map} (each key an id)"
+      keys:
+        id: { shape: ref, meaning: "skill id, path, or K-LINE", aliases: [ref] }
+        role: { shape: string, default: related, meaning: "sibling, composes, uses, used_by, contrasts, or another word" }
+        when: { shape: prose, default: null, meaning: "the situation in which to go there instead or as well" }
+        why: { shape: prose, default: null, meaning: "how the two connect", aliases: [relation] }
+      example: [skills/soul-chat, { id: room, role: sibling, when: "for places" }]
+
+    see_also:
+      shape: list
+      of: ref
+      default: "[SKILL.md, README.md] when present"
+      meaning: "documents to read, most useful first; an entry may be { path: [sections] } to name sections"
+      aliases: [references, documentation]
+      example: [{ SKILL.md: ["§ Builder Commands"] }, TOPOLOGY.yml]
+
+    lineage:
+      shape: list
+      default: []
+      meaning: "intellectual ancestry; never parents. An entry is a string or { name, year, source, note }"
+      aliases: []
+
+    # Aligned names for common YAML Jazz
+
+    schema:
+      shape: map
+      default: null
+      meaning: "the card's description of its own objects in SCHEMA.md format (has keys:), or a map of schema id → schema when it describes several"
+      aliases: [state_schema, plugin_schema, attribution_schema, advertisement_schema, ambient_advertisement_schema]
+      notes: "an aliased schema keeps its stem as its id: state_schema becomes schema: { state: ... }"
+
+    examples:
+      shape: list
+      default: "the examples/ directory when present"
+      meaning: "worked cases: prose, inline YAML, or paths"
+      aliases: [example, examples_worked, examples_public, example-script]
+
+    principles:
+      shape: map
+      of: prose
+      default: {}
+      meaning: "the ideas the object stands on, keyed by name; a list is accepted"
+      aliases: [principle, philosophy, core_insight, insight, the-insight]
+
+    anti_patterns:
+      shape: map
+      of: prose
+      default: {}
+      meaning: "what not to do and what to do instead, keyed by name"
+      aliases: [anti-patterns]
+
+  retired:
+    status: "work state is not stored (SCHEMA.md); done_when:/fail_when: say when work is finished. A being's life fact stays in CHARACTER.yml"
+    version: "git records versions"
+    skill: "envelope; flatten its keys to the top level"
+    card: "envelope; flatten its keys to the top level"
+
+  projection:
+    meaning: "keys an orchestrator may rely on when it filters and projects many cards it cannot read whole, selected by k-line activation, trigger match, role, or a heat map"
+    filter_keys:
+      - id
+      - name
+      - type
+      - tags
+      - tier
+      - k_lines
+      - "advertisements[*].score"
+      - "advertisements[*].trigger"
+      - "advertisements[*].score_if"
+      - "methods[*].invoked_by"
+    requires: "the shapes above: maps keyed by name, numeric scores, lists where lists are expected, one type id. A card that breaks them is read whole or skipped, never misread"

@@ -24,7 +24,7 @@ files:
     - SKILL.md              # Full protocol documentation
     - README.md             # Human landing page
     - ETHICS.md             # Body / patron-mascot / memorial dimension
-    - CHARACTER.yml         # The prototype character every CHARACTER.yml inherits
+    - CHARACTER.yml         # The prototype character every CHARACTER.yml inherits; its schema: key is the character schema
   ethics:
     - ETHICS.md
     - skills/soul/ETHICS.md
@@ -126,6 +126,39 @@ state:
     Flat, never nested under planes; 0..7; a character lists only the properties that shape
     it, with comments as its inner voice. Registry: skills/mind-mirror/CARD.yml.
 
+# CORE AND LAYERS — one being, one layer per purpose and repo; each layer carries the core.
+# Canonical: the schema: key of CHARACTER.yml. SKILL.md § Layers.
+
+core_keys:
+  id: "directory name by default; the same in every layer"
+  name: "required in every layer"
+  real_being: "default false if status is fictional or layer is adventure, cast or prototype; true otherwise, including no layer"
+  status: "living | deceased | fictional, a life fact; omitted: fictional for a non-real being, else unknown and treated as living"
+  born: "date at the sources' precision; died likewise, only when deceased"
+  signifier: "👤 living or unknown · 🕯️ deceased · 🎭 fictional · 🤖 robot or AI; topical emoji go in emoji:"
+  type: "the being's kind (person, animal, robot, ai_agent, a species) or role in play; default character"
+  layer: "adventure | prototype | biography | profile | invitation | memorial | dream_guest | cast | audience | page; default from the file's location"
+  representation:
+    consent_level: "1 self · 2 explicit · 3 public figure · 4 private · 5 deceased; default 5 if deceased, 3 for other real beings, none if fictional"
+    authored_by: "the being itself at level 1; otherwise unattributed (a lint finding)"
+    governed_by: "default skills/real-being/ and skills/representation-ethics/ for a real being; replaces protocol:"
+  safe_defaults: "every omitted value errs toward caution for a real person; a real person in a fictional layer states real_being: true"
+
+layer_relations:
+  inherits: "lookup: slots this layer lacks come from that layer (SCHEMA.md Parents)"
+  derived_from: "authoring: [{ref, transform, copies}]; the cross-layer lint checks the copies agree; not lookup"
+  layers: "navigation: {layer: ref or [refs]} to the being's other layers; linted against disk; not lookup"
+  relationships: "map id → {type, narrative}; relationship: is prose about this layer's tie to its author or show"
+  refs: "across repos: moollm://github/<owner>/<repo>/<path>, resolved to a sibling checkout or a GitHub URL"
+  consent_is_two_facts: "representation.consent_level is what the being agreed to; invitation.consent is whether an invitation was accepted"
+  aliases:
+    inherits: [character_ref, moollm_source, wwsff_local, canonical_soul, prototype_ref, canonical_home, moollm_home]
+    derived_from: [upstream]
+    layers: [menagerie, profile_home, wwsff_overlay.audience_fork]
+    representation.governed_by: [protocol]
+    relationships: [connections, friends]
+    flat: [character]   # the envelope
+
 # CHARACTER LAYER OVERLAYS — Private extensions to public characters
 
 
@@ -138,7 +171,7 @@ character_layers:
     
   visibility:
     rule: "One-way inheritance: private sees public, public cannot see private"
-    public_layer: "Shareable, forkable, no references to private layers"
+    public_layer: "Shareable, forkable; inherits nothing private; may name a private layer in derived_from or layers by ref only"
     private_layer: "Extends via inherits:, adds personal/sensitive content"
     
   declaration:
@@ -352,11 +385,12 @@ tools:
 documentation:
   SKILL.md:
     - "§ The Prototype Character"
+    - "§ Layers"
     - "§ Home vs Location"
     - "§ Character State Ownership"
     - "§ Inventory Protocol (Objects vs Refs)"
     - "§ Dispensers"
-  CHARACTER.yml: "The prototype: defaults, sims schema, methods, dispatch"
+  CHARACTER.yml: "The prototype: defaults, sims schema, methods, dispatch; schema: core keys, layers, aliases, examples"
 
 # LINEAGE
 

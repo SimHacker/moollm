@@ -36,6 +36,12 @@ state_fields:
   - sims, mind_mirror          # defaults in the prototype CHARACTER.yml
   - buffs, relationships
 
+layers: |
+  One being, one layer per purpose and repo (adventure, biography, invitation, cast, audience, page...).
+  Every layer carries id, name, real_being, status, signifier, representation.consent_level.
+  inherits = lookup · derived_from = authoring copy, linted · layers = navigation.
+  Schema: the schema: key of CHARACTER.yml.
+
 soul_and_mind: |
   character = entity/directory pattern.
   soul = continuity body (location + inventory + minds[] + history).

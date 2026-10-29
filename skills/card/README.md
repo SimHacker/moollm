@@ -82,19 +82,18 @@ The same pattern, different eras, all deeply understood by models trained on hum
 ## Quick Example
 
 ```yaml
-card:
-  name: "Git Goblin"
-  type: familiar
-  emoji: "🧌"
-  
-  ability:
-    name: "Bisect"
+name: "Git Goblin"
+type: familiar
+emoji: "🧌"
+
+advertisements:
+  BISECT:
+    score: 90
     effect: "Binary search for bug introduction"
-    
-  advertisements:
-    - action: BISECT
-      score: 90
 ```
+
+Every card key, its default and its older spellings: the `schema:` section of
+[CARD.yml](CARD.yml), explained in [SKILL.md § What a CARD carries](SKILL.md#what-a-card-carries).
 
 ## Card Types
 

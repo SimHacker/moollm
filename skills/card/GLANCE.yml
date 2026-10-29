@@ -1,5 +1,5 @@
 # GLANCE.yml — card
-# Full file: CARD.yml (168 lines) | SKILL.md
+# Full file: CARD.yml (442 lines; the card schema is lines 145-442) | SKILL.md
 # 🎴 "Portable tokens of capability, identity, and access."
 
 what: |
@@ -29,12 +29,13 @@ why: |
 when:
   - '"Make capability portable" → CREATE'
   - '"Learn card architecture" → CARD-ARCHITECTURE'
-  - '"Add card to entity" → sidecar pattern'
+  - '"Write, review or migrate a CARD.yml" → CARD-SCHEMA'
+  - '"Add card to entity" → SIDECAR-PATTERN'
 
 key_insight: "Cards are ACTIVATION TRIGGERS, not handlers."
 
 methods:
-  CREATE: "CREATE [name] TYPE [types]"
+  CREATE: "CREATE [name] TYPE [type]"
   PLAY: "PLAY [card] (IN [room])"
   COLLECT: "COLLECT [card] TO [collection]"
   TRADE: "TRADE [cards] WITH [character]"
@@ -51,12 +52,21 @@ card_types:
   key_card: "Access tokens"
 
 structure: |
-  1. card: (id, name, emoji)
-  2. files: (index)
-  3. k-lines:
-  4. advertisements: (PRIMARY!)
-  5. methods: (signatures only)
+  Flat keys, no card: envelope. One file per object: never split into ADVERTISEMENTS.yml etc.
+  1. identity + face: id, name, type (one id), tags, emoji, tier, tagline, tools, files
+  2. k_lines: [LIST]
+  3. advertisements: (PRIMARY! map, score + score_if)
+  4. methods: (map, signatures)
+  5. interfaces: (copy-down of ROOM.yml, CHARACTER.yml... slots and methods), state:
+  6. relations: inherits, related {id, role}, see_also, lineage
   Target: 150-200 lines
+
+card_schema: |
+  CARD.yml schema: — every key's shape, default, meaning, aliases.
+  Omitted key = its default. Aliases (one_liner, invoke_when, documentation,
+  related_skills, activates...) are read, never written.
+  Projection keys: id, name, type, tags, tier, k_lines,
+  advertisements[*].score/trigger/score_if, methods[*].invoked_by.
 
 sidecar_pattern: |
   Any entity can have CARD.yml:

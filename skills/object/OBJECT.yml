@@ -133,6 +133,13 @@ schema:
       compiles: true
       aliases: []
       example: "Reduce fuel by amount (default 1). Fuel cannot go below 0."
+    from:
+      shape: ref
+      default: null                  # defined here
+      meaning: "the interface file a CARD copied this method down from"
+      compiles: false
+      aliases: []
+      example: ROOM.yml
   examples:
     LOOK:                            # a command: every unstated key is its default
       signature: "LOOK (AT [thing])"

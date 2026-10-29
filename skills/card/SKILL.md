@@ -68,6 +68,7 @@ This is why a CARD-only directory (no `SKILL.md`) is already a first-class dispa
 
 **Architecture**
 - [The Card Pun Stack — What A CARD Is](#the-card-pun-stack--what-a-card-is)
+- [What a CARD carries](#what-a-card-carries) — the standard keys, defaults, copy-down, projection
 - [Card Architecture](#card-architecture) — The most important section!
 - [Recommended Section Order](#recommended-section-order)
 - [What Goes Where](#what-goes-where)
@@ -83,6 +84,101 @@ This is why a CARD-only directory (no `SKILL.md`) is already a first-class dispa
 - [Activation Records](#activation-records)
 - [Card State](#card-state)
 - [Collections](#collections)
+
+---
+
+## What a CARD carries
+
+`CARD.yml` is the one file a model reads to learn what an object does
+([constitution §15](../../kernel/constitution-core.md#15-the-semantic-image-pyramid-concentrated-not-dry-universal)).
+The standard is the `schema:` section of [CARD.yml](CARD.yml): every key's shape, default,
+meaning and aliases, in the format of
+[SCHEMA.md § Schema files](../../designs/object-system/SCHEMA.md#schema-files).
+
+### One file, concentrated, not DRY
+
+A card holds the object's advertisements, methods, k-lines, state, Dublin Core, card face,
+relations and its own YAML Jazz, all in one file. There is no `ADVERTISEMENTS.yml`,
+`METHODS.yml` or `K-LINES.yml` beside it. A directory with several interfaces (`ROOM.yml` and
+`CHARACTER.yml`) still has one CARD, and every interface feeds it.
+
+Repeating a key that `SKILL.md`, an interface file or the prototype file already has is the
+point, not a defect. Never remove something from a card because a larger file says it; ask
+whether it is among the most important things at card size. Lint keeps the copies in
+agreement; the fix for a disagreement is updating the copy.
+
+### The keys
+
+| Group | Keys | Defaults when omitted |
+|---|---|---|
+| Identity, Dublin Core | `id`, `name`, `type`, `tags`, `description`, `credits`, `license` | `id` the directory name; `name` the id in title case; `type` `skill` in `skills/`, else the implied skill of the first interface file; `license` the repo's |
+| Card face | `emoji`, `tier`, `rarity`, `tagline`, `t_shirt`, `tools {required, optional}`, `files` | `tier: 2`; `rarity: common`; `tagline` the first sentence of description; `files` the directory listing |
+| Behavior | `advertisements` (map of [advertisement](../advertisement/)), `methods` (map of method, [OBJECT.yml](../object/OBJECT.yml)) | empty |
+| Activation | `k_lines` | the id in UPPER-DASHES |
+| State | `state` | empty |
+| Copy-down | `interfaces` | the directory's interface files and the skill's prototype file, nothing copied |
+| Relations | `inherits`, `inherited_by`, `related` (`{id, role, when, why}`), `see_also`, `lineage` | `see_also` is SKILL.md and README.md when present |
+| Common jazz | `schema`, `examples`, `principles`, `anti_patterns` | `examples` the `examples/` directory |
+
+`type:` is one id; other kinds go in `tags:`. `k_lines:` is a flat list of K-LINE words, run by
+the same matcher as an advertisement's `trigger:` words. Situations that call for the card
+are advertisement `score_if:` lines, not a separate `invoke_when:` list. `status:` and
+`version:` are retired (git knows), and so are `card:` and `skill:` envelopes: cards are
+flat.
+
+Readers accept the older spellings listed as `aliases:` in the schema (`one_liner`,
+`documentation`, `related_skills`, `activates`, `invoke_when`, `allowed_tools`, ...); writers
+emit only the canonical key. Lint reports an alias as a finding.
+
+### Copy-down from interfaces
+
+Interface files stay canonical for instances: `skills/room/ROOM.yml` is what every room
+inherits. The card copies down their most important slots and methods so the card level of
+the pyramid represents them. A model reading the room card learns that every room answers
+LOOK.
+
+```yaml
+interfaces:
+  ROOM.yml:                        # path relative to the card
+    role: prototype                # prototype: what every instance inherits; interface: one of this directory's
+    slots: { exits: "map DIRECTION → path", lighting: "0 pitch black .. 10 full sun; default 6" }
+    methods: [LOOK, ENTER, EXIT, CONTENTS, ADVERTISE]
+
+methods:
+  LOOK: { signature: "LOOK (AT [thing])", from: ROOM.yml }   # the copy, in the one methods map
+```
+
+Copied methods go into `methods:` with `from:`, so everything callable is in one map.
+Which UPPERCASE files count as interfaces is decided per file; data files such as
+`LAYOUTS.yml` belong in `files:`.
+
+### Defaults keep cards short
+
+Every key documents its default, and the default is the sensible case
+([constitution §16](../../kernel/constitution-core.md#16-advertisements-push-into-the-auction-compile-graduate-universal)).
+An omitted key means its default, so a card states only what is unusual about its object:
+no `tier:` means standard, no `score_if:` means always, no `method:` on an advertisement
+means the method of the same name, or "load this object and act". A value equal to its
+default is removable.
+
+### Projection
+
+Orchestrators filter cards they can't read whole: the advertisements whose triggers match,
+the methods a role may invoke, the cards a k-line activation or heat map has warmed. They
+rely on these keys and nothing else:
+
+`id`, `name`, `type`, `tags`, `tier`, `k_lines`, `advertisements[*].score`,
+`advertisements[*].trigger`, `advertisements[*].score_if`, `methods[*].invoked_by`
+
+That works only on standard shapes: maps keyed by name, numeric scores, lists where lists are
+expected, one type id. A card with irregular shapes gets read whole or skipped.
+
+### YAML Jazz rides on structure
+
+Comments carry meaning, and object-specific keys (`types:`, `world_generation:`,
+`self_correction:`) stay. Jazz goes on top of the standard keys and never stands in for one.
+Where a jazz key means the same as a standard key, rename it to the standard one; a jazz key
+that collides with an alias gets renamed too.
 
 ---
 
@@ -107,48 +203,45 @@ The SKILL.md answers: "Here's how to actually do it."
 
 ### Recommended Section Order
 
-Order sections for optimal LLM scanning:
+Order sections for optimal LLM scanning. Flat keys, no `card:` envelope; the full template is
+[CARD.yml.tmpl](CARD.yml.tmpl).
 
 ```yaml
-# 1. Identity (who am I?)
-card:
-  id: my-skill
-  name: "My Skill"
-  emoji: 🎯
-  tagline: "One-line pitch"
-  description: "Brief paragraph"
+# 1. Identity and card face (who am I?)
+id: my-skill
+name: "My Skill"
+type: skill
+emoji: 🎯
+tagline: "One-line pitch"
+description: "Brief paragraph"
 
 # 2. Files index (what else should LLM read?)
 files:
-  - SKILL.md
-  - examples/
+  docs: [SKILL.md]
+  examples: [examples/]
 
-# 3. K-lines (what concepts does this activate?)
-k_lines:
-  activates: [MY-SKILL, RELATED-CONCEPT]
+# 3. K-lines (what words and concepts wake this card?)
+k_lines: [MY-SKILL, RELATED-CONCEPT]
 
-# 4. Invoke when (trigger conditions)
-invoke_when:
-  - "Situation that calls for this skill"
-
-# 5. ADVERTISEMENTS — PRIMARY! Put BEFORE methods!
+# 4. ADVERTISEMENTS — PRIMARY! Put BEFORE methods!
 advertisements:
   DO-THE-THING:
     score: 90
-    condition: "When this applies"
+    score_if: "situation that calls for this skill"
 
-# 6. Methods (signatures only, implementations in SKILL.md)
+# 5. Methods (signatures only, implementations in SKILL.md)
 methods:
   DO-THING: { signature: "DO-THING [arg]" }
 
-# 7. State (brief field list)
+# 6. Copy-down from interface files, then state
+interfaces:
+  MY-SKILL.yml: { role: prototype, methods: [DO-THING] }
 state:
-  fields: [field1, field2]
+  field1: 0
 
-# 8. Documentation pointers
-documentation:
-  SKILL.md:
-    - "§ Detailed section"
+# 7. Relations: inherits, related, see_also, lineage
+see_also:
+  - SKILL.md: ["§ Detailed section"]
 ```
 
 ### Why Advertisements Before Methods?
@@ -165,7 +258,7 @@ Advertisements are the **PRIMARY activation signal**:
 advertisements:
   PET-THE-CAT:
     score: 80
-    condition: "Cat is present"
+    score_if: "cat is present"
     
 methods:
   PAT: { signature: "PAT [cat]" }
@@ -190,8 +283,9 @@ advertisements:  # Too late! LLM already moved on
 - K-lines (activation vectors)
 - Advertisements (PRIMARY!)
 - Method SIGNATURES (one-liners)
-- Brief state schema (field names only)
-- Documentation pointers
+- The most important slots and methods of the interface files (copy-down)
+- Brief state (field names and defaults)
+- see_also pointers
 
 # NO — Move these to SKILL.md
 - Implementation details
@@ -350,24 +444,26 @@ objects/magic-lamp/
 
 ```yaml
 # pub/CARD.yml — makes the pub a playable card
-card:
-  for: ./ROOM.yml           # What this card represents
-  type: location-card       # Card type
-  
-  # Card-specific presentation
-  name: "Gezelligheid Grotto"
-  art: "cozy-coffeeshop.png"
-  flavor: "Where good vibes flow like espresso"
-  
-  # What playing this card does
-  advertisements:
-    VISIT:
-      description: "Teleport party to this location"
-      effect: "Set party.location = pub/"
-      
-    SUMMON:
-      description: "Bring the pub's vibe to current room"
-      effect: "Apply pub buffs to current location"
+type: room
+tags: [location-card]
+
+# Card-specific presentation (YAML Jazz)
+name: "Gezelligheid Grotto"
+art: "cozy-coffeeshop.png"
+flavor: "Where good vibes flow like espresso"
+
+interfaces:
+  ROOM.yml: {}              # the room this card represents
+
+# What playing this card does
+advertisements:
+  VISIT:
+    description: "Teleport party to this location"
+    effect: "Set party.location = pub/"
+
+  SUMMON:
+    description: "Bring the pub's vibe to current room"
+    effect: "Apply pub buffs to current location"
 ```
 
 ### Character Cards
@@ -376,23 +472,22 @@ Characters automatically become tradeable/playable:
 
 ```yaml
 # characters/don-hopkins/CARD.yml
-card:
-  for: ./CHARACTER.yml
-  type: hero-story        # Real person tradition
-  
-  # K-line activation
-  tradition: "HyperCard, SimCity, OLPC, procedural rhetoric, Maxis"
-  concepts:
-    - pie_menus
-    - constructionist_games
-    - micropolis
-    
-  # Playing the card
-  summon: |
-    Activate Don's documented ideas:
-    - Pie menu interaction patterns
-    - Constructionist game design
-    - Urban simulation philosophy
+type: character
+tags: [hero-story]        # Real person tradition
+
+# K-line activation
+k_lines: [PIE-MENUS, CONSTRUCTIONIST-GAMES, MICROPOLIS]
+tradition: "HyperCard, SimCity, OLPC, procedural rhetoric, Maxis"
+
+interfaces:
+  CHARACTER.yml: {}       # the character this card represents
+
+# Playing the card
+summon: |
+  Activate Don's documented ideas:
+  - Pie menu interaction patterns
+  - Constructionist game design
+  - Urban simulation philosophy
 ```
 
 ---
@@ -481,19 +576,18 @@ Just like [objects in rooms](../advertisement/), cards **advertise what they can
 ```yaml
 # Git Goblin card
 advertisements:
-  - action: BISECT
+  BISECT:
     description: "Binary search for bug introduction"
     score_if: "debugging AND has_git_repo"
     score: 90
-    
-  - action: BLAME
-    description: "Find who changed this line"  
+
+  BLAME:
+    description: "Find who changed this line"
     score_if: "examining_code"
     score: 70
-    
-  - action: LOG
-    description: "Show commit history"
-    score: 50
+
+  LOG:
+    description: "Show commit history"   # score 50 is the default
 ```
 
 **In inventory:** Advertisements visible but lower priority.
@@ -517,20 +611,19 @@ A "Dave Ungar" card doesn't impersonate Dave Ungar. It **activates the tradition
 This is like citing someone's work, not pretending to be them.
 
 ```yaml
-card:
-  name: "Dave Ungar"
-  type: person
-  # NOT impersonation — K-line activation
-  
-  invokes:
-    - "Self language"
-    - "Prototype-based inheritance"
-    - "ITS-ABOUT-TIME compilation"
-    - "Message-passing purity"
-    
-  wisdom: |
-    "Programming should be about the experience
-    of programming, not fighting the language."
+name: "Dave Ungar"
+type: person
+# NOT impersonation — K-line activation
+
+invokes:
+  - "Self language"
+  - "Prototype-based inheritance"
+  - "ITS-ABOUT-TIME compilation"
+  - "Message-passing purity"
+
+wisdom: |
+  "Programming should be about the experience
+  of programming, not fighting the language."
 ```
 
 When you "play" this card, you invoke the tradition — not simulate the person.
@@ -556,57 +649,55 @@ When you "play" this card, you invoke the tradition — not simulate the person.
 ### Hero-Story (Real Person)
 
 ```yaml
-card:
-  name: "Dave Ungar"
-  type: person
-  
-  # K-line activation — what tradition this invokes
-  invokes:
-    - "Self language"
-    - "Prototype-based inheritance"
-    - "ITS-ABOUT-TIME compilation"
-    - "Message-not-class thinking"
-    
-  wisdom: |
-    "Programming should be about the experience
-    of programming, not fighting the language."
-    
-  contributions:
-    - "Self programming language"
-    - "Morphic UI framework"
-    - "Optimistic compilation"
-    
-  stats:
-    wisdom: 10
-    influence: 9
-    domain_expertise: ["languages", "VMs", "UI"]
+name: "Dave Ungar"
+type: person
+
+# K-line activation — what tradition this invokes
+invokes:
+  - "Self language"
+  - "Prototype-based inheritance"
+  - "ITS-ABOUT-TIME compilation"
+  - "Message-not-class thinking"
+
+wisdom: |
+  "Programming should be about the experience
+  of programming, not fighting the language."
+
+contributions:
+  - "Self programming language"
+  - "Morphic UI framework"
+  - "Optimistic compilation"
+
+stats:
+  wisdom: 10
+  influence: 9
+  domain_expertise: ["languages", "VMs", "UI"]
 ```
 
 ### Familiar (Tool Spirit Animal)
 
 ```yaml
-card:
-  name: "Git Goblin"
-  type: familiar
-  emoji: "🧌"
-  enthralled_by: "Linus Torvalds" # My master (I mean main)!
-  
-  abilities:
-    - "Track changes"
-    - "Commit with message"
-    - "Navigate history"
-    
-  parameters:
-    repo_path: { type: string, required: true }
-    
-  stats:
-    power: 7
-    reliability: 9
-    learning_curve: 4
-    
-  synergizes_with:
-    - "Session Log"
-    - "Plan Then Execute"
+name: "Git Goblin"
+type: familiar
+emoji: "🧌"
+enthralled_by: "Linus Torvalds" # My master (I mean main)!
+
+abilities:
+  - "Track changes"
+  - "Commit with message"
+  - "Navigate history"
+
+parameters:
+  repo_path: { type: string, required: true }
+
+stats:
+  power: 7
+  reliability: 9
+  learning_curve: 4
+
+related:
+  - { id: session-log, role: composes }
+  - { id: plan-then-execute, role: composes }
 ```
 
 ---

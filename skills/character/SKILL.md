@@ -47,6 +47,95 @@ judges. `lighting:` belongs to a room and the grue decides whether it hunts ther
 character carries a lamp, not a `grue_safe: true`. The same goes for trust, danger and
 taste: store the observation, let the observer's rules decide.
 
+## Layers
+
+One being can have a tree of incarnations, one layer per purpose and repo. Palm plays in
+moollm's adventure-4, has a profile and a cast entry in WillWrightShowForFood, and sits in
+the audience of two repo shows. A real person has a biography layer in DonHopkins, an
+invitation or memorial layer in a show repo, and sometimes a published page. Each layer runs
+alone as far as it can, so each carries the core keys and the representation ethics itself
+([constitution §15](../../kernel/constitution-core.md#15-the-semantic-image-pyramid-concentrated-not-dry-universal)).
+The schema, with defaults, aliases and worked examples, is the `schema:` key of
+[`CHARACTER.yml`](CHARACTER.yml).
+
+### Core keys
+
+| Key | Default when omitted |
+|---|---|
+| `id` | the directory name; the same in every layer |
+| `name` | none: every layer states it |
+| `real_being` | `false` if `status: fictional` or `layer` is `adventure`, `cast` or `prototype`; otherwise `true`, including when `layer` is absent |
+| `status` | `living`, `deceased` or `fictional`: a life fact. Omitted: `fictional` for a non-real being, otherwise unknown and treated as living |
+| `born`, `died` | absent; dates agree at the lower precision (`1940` and `1940-05-17`) |
+| `signifier` | 👤 living or unknown, 🕯️ deceased, 🎭 fictional (🤖 robot or AI). A topical emoji goes in `emoji:` |
+| `type` | `character`. The being's kind (person, animal, robot, ai_agent, a species) or role in play (player, npc) |
+| `layer` | from the file's location: `adventure`, `prototype`, `biography`, `profile`, `invitation`, `memorial`, `dream_guest`, `cast`, `audience`, `page` |
+| `representation.consent_level` | 1 self-sovereign · 2 explicit consent · 3 public figure · 4 private individual · 5 deceased. Omitted: 5 if deceased, 3 for any other real being (a private person states 4), none for a fictional being |
+| `representation.authored_by` | the being itself at level 1; otherwise unattributed, which the lint reports |
+| `representation.governed_by` | `skills/real-being/` and `skills/representation-ethics/` for a real being. Replaces `protocol:` |
+
+Every omitted value errs toward caution for a real person. A real person in an adventure,
+cast or prototype layer states `real_being: true`; the cross-layer lint reports one that
+doesn't when another layer of the same id says it is real.
+
+`representation.consent_level` is what the being has agreed to. `invitation.consent`
+(`not_yet_asked`, `granted`, `declined`) is whether an invitation was accepted, and
+`invitation.status` is a work status validated against the show repo's
+`schemas/invitation-workflow.yml`. Three different facts, three keys.
+
+### Three relations
+
+| Key | Relation | Read by |
+|---|---|---|
+| `inherits:` | lookup: slots this layer lacks come from that layer | lookup, like any parent |
+| `derived_from:` | authoring: this layer was projected from that one; `copies:` lists the keys that must agree | the cross-layer lint |
+| `layers:` | navigation: the being's other layers, keyed by layer | readers; linted against what is on disk |
+
+```yaml
+# WillWrightShowForFood/characters/alan-kay/CHARACTER.yml
+id: alan-kay
+name: Alan Kay
+type: person
+layer: invitation
+status: living
+born: "1940-05-17"
+signifier: "👤"
+emoji: "💡"
+representation:
+  consent_level: 3
+  authored_by: don-hopkins
+  governed_by: [../../schemas/portrayal-standards.md]
+derived_from:
+  - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+    transform: "projected for the show: adds the invitation, sources and people to discuss"
+    copies: [name, status, born, died, representation.consent_level]
+layers:
+  biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+```
+
+`relationships:` is a map of id → `{type, narrative}` (plus `feeling`, `memories`, `hopes`);
+`relationship:` is prose about this layer's tie to its author or show.
+
+Across repos a reference is `moollm://github/<owner>/<repo>/<path>`, resolved to a sibling
+checkout or a GitHub URL. `inherits:` never points from a public repo into a private one; a
+public layer may name a private layer in `derived_from:` or `layers:` by ref only.
+
+### Older spellings
+
+| Older | Canonical |
+|---|---|
+| `character:` envelope | flat |
+| `character_ref:`, `moollm_source:`, `wwsff_local:`, `canonical_soul:`, `prototype_ref:`, `canonical_home:`, `moollm_home:` | `inherits:` |
+| `inherits: {repo, path, absolute_url, ...}` | `inherits: [moollm://github/<owner>/<repo>/<path>]` |
+| `inherits: {moollm_skills: [...]}` | the skill ids as further `inherits:` entries |
+| `upstream:` | `derived_from:` |
+| `menagerie:`, `profile_home:`, `wwsff_overlay.audience_fork` | `layers:` |
+| `representation.protocol:` | `representation.governed_by:` |
+| `consent_level: 5_deceased_legacy`, `representation.consent: self-sovereign` | `representation.consent_level: 5`, `1` |
+| `type: invitation`, `memorial`, `representational`, `audience_member` | `layer:`; `type:` takes the being's kind |
+| `connections:`, `friends:` | `relationships:` |
+| `status: memorial` | `status: deceased` |
+
 ## Home vs Location
 
 **The critical distinction:**

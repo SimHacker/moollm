@@ -56,6 +56,15 @@ Settled while drafting, open to reversal:
   header (S5).
 - `score_hint` words map to numbers: high 80, medium 50, low 20 (S1).
 - `requires_items` defaults to all, not any; `consume` lives in its map form (S1).
+- Card defaults: `k_lines` = the id uppercased, `tier` 2 (0 = foundational/ambient), `rarity`
+  common (values include epic), `see_also` = SKILL.md and README.md, `related:` entries
+  `{id, role, when, why}`, `license` added as the Dublin Core rights field (S3).
+- A card's `advertisements:`/`methods:` take entry shapes through `of:`, not `extends:` (S3).
+- Layer values add `profile` (Palm's wwsff page) and `prototype` (other moollm characters) (S4).
+- A public layer may name a private one in `derived_from:` or `layers:` by ref, never
+  `inherits:` from it (S4; the Alan Kay example names the DonHopkins repo).
+- Canonical layer order for disagreements: real beings biography, profile, adventure,
+  prototype, page, cast, audience; fictional beings adventure first (T3).
 
 Open:
 - `score_if`: S1 defines a false `score_if` as bid 0 (still available), a numeric `score_if_js`
@@ -68,9 +77,18 @@ Open:
   recent death) are policy written by S5, not sourced from an existing doc.
 - `self-consent-card.yml`'s `consent_level: open/closed/friends/copyleft` is a level-1 subject's
   grant to others, not a tier; proposed home: a `grants:` key.
-- A layer with no `consent_level` defaults to level 3 (public figure). Lint should flag a
-  missing level unless `status: deceased`, since a private person would otherwise get
-  public-figure rules.
+- A layer with no `consent_level` defaults to level 3 (public figure). Either lint flags a
+  missing level unless `status: deceased`, or an unknown real person defaults to 4 (S4, S5).
+- Consent disagreements across layers (`resolve.py layers`): bill-joy 3 vs 1, scott-draves
+  3 vs 2, ian-bogost 3 vs 2 (biography vs profile). In `tasks/ALIGNMENT-REVIEW.yml`.
+- `real_being` defaults to false in the adventure layer, so adventure-4's don-hopkins and
+  richard-bartle must state `true`; or default true everywhere unless `status: fictional` (S4).
+- `invitation.status` values in use but missing from wwsff `invitation-workflow.yml`: `warm`,
+  `dream_guest` (also a layer), `stub`, `not_offered`; cast `status: active` is unmapped (S4).
+- Fictional signifier: 🎭 (representation-ethics table) or 📖 (adventure-4 headers); 🤖 for
+  robots and AIs (S4).
+- `moollm_home:` is aliased to `inherits:`, but `audience-character.yml` describes it as a
+  cross-promotion link, which reads like `layers.adventure` (S4).
 - wwsff `portrayal-standards.yml` uses `meta:`, not `schema:`, and its consent table omits
   level 4; it becomes `schema: { extends: [representation] }` in phase 3.
 
@@ -98,6 +116,14 @@ T6 also carries the runtime gaps T1 found once the export stopped dropping field
 - exit guards written as statement bodies (`pub/ROOM.yml` UP and BAR) abort the JS `load()`
 - duplicate object ids collapse 491 objects to 315 in both runtimes
 - `compile` on adventure-4 stops on 48 non-standard `mind_mirror` properties
+
+Schema lint baseline (wave 1): `skills/` cards 50 errors, 212 warnings; adventure-4 737 errors,
+737 warnings, mostly `parameters:` and `files:` as lists, `tier: character`, and aliases
+(`response`, `action`, `result`, `condition`). `LINTER.yml` event logs get linted as objects
+and should be skipped. Layers lint: 3 consent errors, 117 missing core keys (54 profiles
+without `real_being`, 35 biographies without `id`), 58 missing back-relations, 4 unresolved
+refs (`skills/game` for grue, troll, wumpus-snorax; `AMBIGUOUSLY-GAY-DUO` for doctor-no), and
+turing-chess `slats/CHARACTER.yml` unparseable at line 67.
 
 T1, T2, T3 and T5 can start as soon as phase 0 is done; T4 needs S3, T6 needs S1. One agent
 per tool.

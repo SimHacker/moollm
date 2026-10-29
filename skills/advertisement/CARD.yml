@@ -51,8 +51,7 @@ tools:
 
 # The schema, concentrated. name: meaning. Default.
 # An omitted key means its default, so an advertisement states only what is unusual.
-schema:
-  id: advertisement
+schema:                          # a concentrated copy; no id, so linters read the canonical one
   canonical: ADVERTISEMENT.yml#schema
   applies_to: "each entry of an advertisements: map, in any object, room, character or CARD"
   conventions:

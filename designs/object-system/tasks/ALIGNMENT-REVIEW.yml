@@ -1,0 +1,52 @@
+# Facts for Don to decide. Agents must not resolve them.
+#
+# Each entry is one being whose layers disagree about a consent level or a life fact
+# (status, born, died, real_being). One of the layers is wrong about a real person, and only
+# Don knows which: what the person agreed to, whether they are living, when they were born.
+# Agents read this list, never edit the CHARACTER.yml files to make the values match, and
+# never fill in decision:. Don writes decision: (the value, and why); a later pass applies it.
+#
+# Regenerate: python3 skills/prototype/scripts/layers_lint.py --review
+# Rule: kernel/constitution-core.md §15 "Layers across repos";
+# designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10.
+
+generated_by: skills/prototype/scripts/layers_lint.py --review
+generated: '2026-10-29'
+root: /Users/a2deh/GroundUp/git
+items:
+- id: bill-joy
+  fact: consent_level
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/bill-joy/CHARACTER.yml
+    value: 3
+    spelled: representation.consent_level
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/bill-joy/CHARACTER.yml
+    value: 1
+    spelled: representation.consent_level
+  decision: null
+- id: ian-bogost
+  fact: consent_level
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/ian-bogost/CHARACTER.yml
+    value: 3
+    spelled: representation.consent_level
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/ian-bogost/CHARACTER.yml
+    value: 2
+    spelled: representation.consent_level
+  decision: null
+- id: scott-draves
+  fact: consent_level
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/scott-draves/CHARACTER.yml
+    value: 3
+    spelled: representation.consent_level
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/scott-draves/CHARACTER.yml
+    value: 2
+    spelled: representation.consent_level
+  decision: null

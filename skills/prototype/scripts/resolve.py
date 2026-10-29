@@ -37,7 +37,8 @@ ROOM.yml, `object:` wrapping an object file), which are read as if flat.
 Usage:
     resolve.py lookup  OBJECT[#path] SLOT [--all]
     resolve.py parents OBJECT[#path]
-    resolve.py lint    [PATH ...] [--verbose] [--strict]
+    resolve.py lint    [PATH ...] [--verbose] [--strict] [--schema [--cards] [--summary]]
+    resolve.py layers  [layers_lint options]     one being's layers agree across sibling repos
     resolve.py stale   [PATH ...] [--verbose]     views older than their subject, per git
 
 Standard library plus PyYAML. Read-only.
@@ -720,9 +721,20 @@ def cmd_lint(args: argparse.Namespace, root: Path) -> int:
             print("unparseable:")
             for u in unparsed:
                 print(f"  {u}")
-    if args.strict and (legacy or broken or cycles):
-        return 1
-    return 0
+    code = 1 if args.strict and (legacy or broken or cycles) else 0
+    if args.schema:
+        import schema_lint
+        flags = [*(["--cards"] if args.cards else []), *(["--summary"] if args.summary else [])]
+        code = max(code, schema_lint.main([*map(str, args.paths), "--root", str(root), *flags]))
+    return code
+
+
+def cmd_layers(rest: list[str]) -> int:
+    """Pass-through: layers_lint's --root is the directory holding the sibling repos."""
+    import layers_lint
+    if "--root" not in rest:
+        rest = [*rest, "--root", str(find_root(Path.cwd()).parent)]
+    return layers_lint.main(rest)
 
 
 def git_times(root: Path) -> dict[Path, float]:
@@ -775,6 +787,9 @@ def cmd_stale(args: argparse.Namespace, root: Path) -> int:
 
 
 def main(argv: list[str] | None = None) -> int:
+    argv = sys.argv[1:] if argv is None else argv
+    if argv[:1] == ["layers"]:
+        return cmd_layers(argv[1:])
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--root", help="repo root (default: nearest .git)")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -788,6 +803,10 @@ def main(argv: list[str] | None = None) -> int:
     li.add_argument("paths", nargs="*")
     li.add_argument("--verbose", "-v", action="store_true")
     li.add_argument("--strict", action="store_true", help="exit 1 on legacy spellings, broken refs or cycles")
+    li.add_argument("--schema", action="store_true", help="also check keys against the schema files (schema_lint.py)")
+    li.add_argument("--cards", action="store_true", help="with --schema: CARD projection rules only")
+    li.add_argument("--summary", action="store_true", help="with --schema: counts per rule")
+    sub.add_parser("layers", help="cross-layer lint across sibling repos (layers_lint.py; its options pass through)")
     st = sub.add_parser("stale", help="views (GLANCE, CARD, INDEX) older than what they summarize, per git")
     st.add_argument("paths", nargs="*")
     st.add_argument("--verbose", "-v", action="store_true")

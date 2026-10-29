@@ -102,6 +102,23 @@ defaults (see Cascade); then implied parents; first match wins. A dotted slot
 reported. When two unrelated parents both define a slot, MOOLLM takes the first and
 `lookup --all` reports it, because Self 4 would call it ambiguous.
 
+## Layers
+
+One being can have a layer per purpose and repo (constitution §15). Each layer states the core
+keys of [skills/character/CHARACTER.yml](../../skills/character/CHARACTER.yml) `schema:` itself,
+so it runs alone. Three keys relate layers:
+
+| Key | Relation | Read by |
+|---|---|---|
+| `inherits:` | lookup: missing slots come from that layer | lookup |
+| `derived_from:` | authoring: `[{ref, transform, copies}]`; the copied keys must agree | `resolve.py layers` |
+| `layers:` | navigation: `{layer: ref or [refs]}` | readers; linted against disk |
+
+`inherits:` never points from a public repo into a private one; a public layer may name a
+private one in `derived_from:` or `layers:` by ref. Facts that disagree across layers
+(consent level, life facts) go to `designs/object-system/tasks/ALIGNMENT-REVIEW.yml` for a
+person to decide.
+
 ## Views
 
 `GLANCE.yml`, `CARD.yml` and `INDEX.yml` are views: instances of a view skill, summarizing
@@ -126,6 +143,10 @@ disagrees with its source is a lint finding, fixed by updating the copy. A CARD 
 all of a directory's interfaces feed it, and it is never split into aspect files
 (`ADVERTISEMENTS.yml`, `METHODS.yml`). Its keys keep standard shapes so orchestrators can
 filter and project many cards at once.
+
+The card schema is the `schema:` section of [skills/card/CARD.yml](../../skills/card/CARD.yml).
+A card names the interface files it summarizes in `interfaces:`, keyed by path, with the slots
+it copies; copied methods sit in the card's `methods:` with `from: <file>`.
 
 A view is a cache, so it can go stale. Git says when: a view is stale when anything it
 summarizes has a later commit, or uncommitted changes. `resolve.py stale` lists them. Views
@@ -176,13 +197,16 @@ scalar wins. `resolve.py lookup` applies this; the adventure compiler doesn't ye
 | Concept | Key | Never |
 |---|---|---|
 | names that activate it | `k_lines:` list of K-LINES | parents |
-| navigation links | `related:` ids or paths; `see_also:` documents | parents |
+| navigation links | `related:` entries `{id, role, when, why}`; `see_also:` documents | parents; `sibling_skills:`, `composes_with:` |
 | intellectual ancestry | `lineage:` | parents |
 | classification | `tags:`; `type:` one id | dispatch |
 | behavior | `methods:` map keyed by name, each `{description, signature, parameters, effect, output, returns, invoked_by, satisfies, body}` ([skills/object/OBJECT.yml](../../skills/object/OBJECT.yml) `schema:`), UPPERCASE names are commands, lowercase are functions or protocol steps, `effect:`/`body:` compile to `_js`/`_py` inside the entry; `advertisements:` map, each with score, guard, score_if, parameters, effect, optionally the method it runs; prose keys compile to `_js`/`_py` siblings (constitution §16) | lists; other keys for offers (`reactions:`, `interests:`, `provides:`) |
 | mutable state | `state:` | inherited through parents |
 | finished, or impossible | `done_when:`, `fail_when:` (goal; task inherits goal) | stored as a `status:` |
 | about the file | git; else a `-metadata.yml` sidecar | inside the file |
+| card face | `emoji`, `tier` 0..3, `rarity`, `tagline`, `t_shirt`, `tools: {required, optional}`, `files` | `one_liner`, `allowed_tools` |
+| copy-down | `interfaces:` map of file → `{role, slots, methods}` | aspect files beside a CARD |
+| being's layers | `layer:` the layer's role; `type:` the being's kind; `inherits:`, `derived_from:`, `layers:` (see Layers) | `type: invitation` |
 
 Keys the schema defines use underscores, so the key in the file is the name in code
 (`k_lines:` is `world.k_lines`). Names of things (skills, rooms, files, ids) use hyphens.
@@ -240,6 +264,21 @@ adds to a moollm schema names it in `extends:` (WillWrightShowForFood
 `schemas/portrayal-standards.yml` extends `representation`). Keys inside `aliases:` and
 `value_aliases:` maps are old spellings on purpose and lint does not report them.
 
+A map- or list-shaped key whose entries have their own keys defines them with a nested `keys:`
+(or `entry_keys:`) in the same form; `of: <schema id>` instead names another schema for its
+entries (the card schema's `advertisements:` is `of: advertisement`). `extends:` includes
+another schema's keys at the same level and is not used for entry shapes. A key may also carry
+`required: true` (no default; every instance states it), `values:` with `value_meanings:`, and
+`owner:` (a schema in another repo that defines its values). A dotted key
+(`representation.consent_level`) names a key inside a map. A default may be computed from other
+keys or from where the file is; the schema says how in prose, and the linter applies it before
+treating a value as removable. Optional top-level sections: `retired:` (key → where its content
+goes now) and `projection:` (the keys an orchestrator may filter on).
+
+[schema_lint.py](../../skills/prototype/scripts/schema_lint.py) (`resolve.py lint --schema`)
+discovers every `skills/*/*.yml` whose `schema:` has an `id`; a concentrated copy in a CARD
+names its `canonical:` and carries no `id`.
+
 ## Accepted legacy forms
 
 `lint --strict` counts these; the migration in
@@ -256,6 +295,11 @@ adds to a moollm schema names it in `extends:` (WillWrightShowForFood
 | `moollm/x` or `<owner>/<repo>/x` from another repo | `moollm://github/<owner>/<repo>/x` |
 | `https://github.com/<owner>/<repo>/tree/main/x` (also `blob/`, raw URLs) | `moollm://github/<owner>/<repo>/x` |
 | `{repo, path, absolute_url, canonical_dir, character_url}` map | `moollm://github/<owner>/<repo>/<path>` |
+| `character_ref:`, `moollm_source:`, `wwsff_local:`, `canonical_soul:`, `prototype_ref:`, `canonical_home:`, `moollm_home:` | `inherits:` |
+| `upstream:` | `derived_from:` |
+| `protocol:` (representation) | `representation.governed_by:` |
+| `type:` naming a layer's role (`invitation`, `memorial`, `representational`) | `layer:` |
+| `skill:` or `card:` wrapper in CARD.yml, `invoke_when:`, `k_lines: {activates, related}` | flat; advertisement `score_if:`; `k_lines: [list]` + `related:` |
 | `k-lines:`, `klines:`, `see-also:`, `invoked-by:` | `k_lines:`, `see_also:`, `invoked_by:` |
 | `complete_when:`, `research_complete_when:` | `done_when:` |
 | method `does:`, `summary:`, `doc:` | `description:` |

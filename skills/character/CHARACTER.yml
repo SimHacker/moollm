@@ -13,6 +13,9 @@
 # A map slot the character states replaces this one whole: a character with its own `sims:`
 # gets none of the values below for it. Tools that need every field (SimObliterator's
 # person_data) fill the missing ones from here.
+#
+# The `schema:` key at the end is the schema for every CHARACTER.yml in every layer and repo:
+# core keys, the three relations between layers, and their defaults. It is not a slot.
 
 type: character                    # player | npc | companion | bot | agent | logistic-bot, or a species
 
@@ -49,3 +52,412 @@ methods:                           # what any character can do
 
 dispatch:                          # methods marked dispatch: the most specific definition wins
   resolution: [CHARACTER.yml, species skill, target skill, these methods]   # dog_sniffs_cat beats SNIFF
+
+# One being, many layers: Palm adventures in moollm, is a profile and a cast member in
+# WillWrightShowForFood, and sits in the audience of two repo shows. Each layer runs alone, so
+# each carries the core keys (constitution §15, "Layers across repos"); the cross-layer lint
+# keeps the copies in agreement. Survey: designs/object-system/CHARACTER-LAYERS-ANALYSIS.md.
+schema:
+  id: character
+  applies_to: "every CHARACTER.yml, in moollm and in any repo that holds a layer of a being"
+  extends: [object]
+  extensions: >
+    Layer-specific keys are allowed and belong to the schema of the repo that owns the layer:
+    invitation and memorial (WillWrightShowForFood schemas/invitation-workflow.yml,
+    portrayal-standards.yml), planted and seating (schemas/audience-character.yml), bio,
+    sources, purpose. Never reuse a core key with another meaning.
+  conventions:
+    flat: "slots at the top level; a character: envelope is read as if flat, and migrations rewrite it flat"
+    list_of_one: "a bare string where a list is expected is a list of one"
+    dotted_keys: "representation.consent_level is the key consent_level inside representation:; copies: lists use the same form"
+    refs: >
+      Inside one repo, a relative or repo-relative path. Across repos,
+      moollm://github/<owner>/<repo>/<path>, resolved to a sibling checkout (../<repo>/<path>)
+      when one exists and to https://github.com/<owner>/<repo>/tree/main/<path> otherwise. One
+      URI replaces the {repo, path, absolute_url, canonical_dir, character_url} maps.
+    not_dry: >
+      Every layer states the core keys it needs to run alone, identity and representation
+      ethics included, even when another layer states them too. A copy is never removed
+      because another layer has it; a copy that disagrees is a lint finding.
+    safe_defaults: >
+      An omitted key never makes a real person easier to portray. Outside the fictional
+      layers an omitted real_being means a real person, an omitted status means unknown and is
+      treated as living, and an omitted consent_level means public figure (3) or deceased (5).
+    real_people_in_fictional_layers: >
+      A real person in an adventure, cast or prototype layer states real_being: true. The
+      cross-layer lint reports a fictional-layer file whose id has another layer with
+      real_being: true and that states nothing.
+    visibility: >
+      inherits never points from a layer in a public repo to one in a private repo. A public
+      layer may name a private layer in derived_from or layers by ref only: the ref discloses
+      that the layer exists and where, nothing it contains, and copies lists only facts the
+      public layer states itself. The lint lists these refs for review.
+    life_status: "status: on a being is a life fact (SCHEMA.md); invitation.status is a work status"
+    dates: "YYYY, YYYY-MM or YYYY-MM-DD; two dates agree when they agree at the lower precision (1940 and 1940-05-17)"
+
+  keys:
+
+    id:
+      shape: string
+      default: "the name of the directory holding the file; the file stem for a single-file character"
+      meaning: "the being's id, the same in every layer; the cross-layer lint groups layers by it"
+      example: palm              # adventure-4 keeps Palm in animals/monkey-palm/, so that layer states id: palm
+
+    name:
+      shape: string
+      required: true
+      default: null
+      meaning: "the name the being goes by; every layer states it"
+      example: Palm
+
+    real_being:
+      shape: bool
+      default: >
+        Computed, first rule that applies: false when status is fictional; false when layer is
+        adventure, cast or prototype; true otherwise, including when layer is absent.
+      meaning: "a real person or animal that exists independent of the repo; turns on representation ethics"
+      example: true
+
+    status:
+      shape: enum
+      values: [living, deceased, fictional]
+      default: "fictional when real_being is false; otherwise null: unknown, treated as living by consent_level, signifier and the representation rules"
+      value_aliases: { memorial: deceased, reified: fictional, unknown: null }
+      meaning: "life fact about the being; never a work status"
+      example: living
+
+    born:
+      shape: string
+      default: null
+      aliases: [dates.born]
+      meaning: "birth date, at the precision the sources give"
+      example: "1940"
+
+    died:
+      shape: string
+      default: null
+      aliases: [dates.died]
+      meaning: "death date; stated only when status is deceased"
+
+    signifier:
+      shape: enum
+      values: ["👤", "🕯️", "🎭", "🤖"]
+      default: "👤 when status is living or unknown and real_being is true; 🕯️ when deceased; 🎭 when fictional, 🤖 when the fictional being is a robot or AI"
+      meaning: "who is being represented, per skills/representation-ethics; a topical emoji goes in emoji:"
+      example: "👤"
+
+    emoji:
+      shape: string
+      default: null
+      aliases: [emoji-flourish.string]
+      meaning: "topical emoji or emoji string; an emoji-flourish legend stays beside it as YAML Jazz"
+      example: "🐒✋🌴🔮💜"
+
+    type:
+      shape: string
+      default: character
+      meaning: "the being's kind: person, animal, robot, ai_agent, a species; or its role in play: player, npc, companion, bot, agent"
+      layer_values_found_here: >
+        Values that name what a layer is for move to layer:, and type: takes the being's kind:
+        invitation → layer invitation; memorial → layer memorial; dream-guest, dream_guest →
+        layer dream_guest; representational → layer biography; audience_member,
+        fictional_ai_audience → layer audience; menagerie_guest → layer cast.
+      example: person
+
+    layer:
+      shape: enum
+      values: [adventure, prototype, biography, profile, invitation, memorial, dream_guest, cast, audience, page]
+      value_meanings:
+        adventure: "playing in a moollm adventure: location, inventory, sims, mind_mirror, advertisements, methods"
+        prototype: "a moollm skill prototype or skill example outside any adventure"
+        biography: "an authored portrayal of a real being: representation ethics, bio, correspondence, ties (DonHopkins/characters/)"
+        profile: "a being's home page in a show repo that is not an invitation, memorial or dream guest (WillWrightShowForFood characters/palm/)"
+        invitation: "a living person invited, or to be invited, to a show"
+        memorial: "a deceased person represented and discussed, never interviewed"
+        dream_guest: "a person the show would invite and has not, kept as a hope"
+        cast: "a fictional cast member imported into a show with a local overlay (characters/menagerie/, sims/, robots/)"
+        audience: "a seat at one show: questions, disclosure, relationship to the subject"
+        page: "a published page about the being (MicropolisCore website pages/about/)"
+      default: >
+        Computed from where the file is, null when no rule matches: examples/*/characters/ in
+        moollm → adventure; elsewhere in moollm → prototype; DonHopkins/characters/ →
+        biography; WillWrightShowForFood characters/{menagerie,sims,robots}/ → cast;
+        repo-shows/*/audience/ → audience; WillWrightShowForFood characters/<id>/ → memorial
+        or dream_guest when invitation.status says so, invitation when an invitation: block
+        exists, profile otherwise. skills/prototype/scripts/layers_survey.py applies these rules.
+      meaning: "what this layer is for; one layer per purpose and repo"
+      example: invitation
+
+    representation:
+      shape: map
+      default: "{} for a fictional being; the defaults of the keys below for a real one"
+      meaning: "the ethics of portraying this being, carried by every layer so a copied directory keeps them"
+
+    representation.consent_level:
+      shape: number
+      range: [1, 5]
+      default: "null when real_being is false; 5 when status is deceased; 3 otherwise"
+      value_meanings:
+        1: "self-sovereign: the being's own layer"
+        2: "explicit consent: the being agreed to this portrayal"
+        3: "public figure: public work and tradition by K-line, no impersonation"
+        4: "private individual: fictional wrapper"
+        5: "deceased: reverence, legacy and artifacts, no invented inner life"
+      value_aliases: { 1_self_sovereign: 1, self-sovereign: 1, 2_explicit: 2, 3_public_figure: 3, 4_private: 4, 5_deceased_legacy: 5 }
+      aliases: [consent_level, representation.consent]
+      meaning: >
+        What the being has agreed to, per skills/representation-ethics. The default 3 assumes a
+        public figure; a private person states 4. Not invitation.consent, which records
+        whether an invitation was accepted.
+      example: 3
+
+    representation.authored_by:
+      shape: ref
+      default: "the being's own id when consent_level is 1; otherwise null (unattributed, a lint finding for a real being)"
+      meaning: "who wrote this portrayal; authorship is not ownership of the being's identity"
+      example: don-hopkins
+
+    representation.governed_by:
+      shape: list
+      of: ref
+      default: "[moollm://github/SimHacker/moollm/skills/real-being/, moollm://github/SimHacker/moollm/skills/representation-ethics/] when real_being is true; [] otherwise"
+      aliases: [representation.protocol, protocol]
+      meaning: "the standards this portrayal follows; a protocol K-line (HERO-STORY) is a latent ref in the list"
+      example: [../../schemas/portrayal-standards.md]
+
+    representation.speaks_as:
+      shape: bool
+      default: false
+      meaning: "whether this layer may speak as the being; true only at consent_level 1, or 2 with the being's own say-so"
+
+    representation.may:
+      shape: list
+      of: prose
+      default: []
+      meaning: "what this portrayal may do, beyond what governed_by allows everywhere"
+
+    representation.must_not:
+      shape: list
+      of: prose
+      default: []
+      meaning: "what this portrayal must not do, beyond what governed_by forbids everywhere"
+
+    representation.subject_rights:
+      shape: map
+      default: "the subject may correct, reduce or delete the portrayal; governed_by says how"
+      meaning: "how the represented being reaches the author"
+
+    home:
+      shape: ref
+      default: "the directory holding the file"
+      meaning: "where the file lives; never changes (location is where the being is)"
+
+    inherits:
+      shape: list
+      of: ref
+      default: []
+      aliases: [character_ref, moollm_source, wwsff_local, canonical_soul, prototype_ref, canonical_home, moollm_home]
+      meaning: >
+        Lookup (SCHEMA.md Parents): a slot this layer lacks comes from these layers and skills,
+        most specific first. A {repo, path, absolute_url, ...} map becomes one moollm:// ref. A
+        cast-layer map {moollm_skills: [...], overlay_protocol: ...} splits: the skill ids
+        become further entries after the layer it extends, and overlay_protocol moves to see_also.
+      example: [moollm://github/SimHacker/moollm/examples/adventure-4/characters/animals/monkey-palm/]
+
+    derived_from:
+      shape: list
+      of: map
+      entry_keys:
+        ref: { shape: ref, meaning: "the layer this one was projected from" }
+        transform: { shape: prose, default: null, meaning: "how it was projected: copied, rewritten for a venue, generated by a script" }
+        copies:
+          shape: list
+          of: string
+          default: [id, name, real_being, status, born, died, representation.consent_level]
+          meaning: "dotted keys whose values must agree with the source; the cross-layer lint compares them"
+      default: []
+      aliases: [upstream]
+      meaning: >
+        Authoring: this layer is a projection of another, made by hand or by a script. Not
+        lookup: a slot this layer lacks does not come from here. A bare ref is { ref: ... }
+        with the default copies.
+
+    layers:
+      shape: map
+      of: ref
+      default: {}
+      aliases: [menagerie, profile_home, wwsff_overlay.audience_fork]
+      meaning: >
+        Navigation: the being's other layers, keyed by layer value; a list of refs when a layer
+        has several (audience seats). A concentrated copy of what the survey finds on disk,
+        linted against it. Not lookup. ticketpr_seats keeps its per-seat data, and each seat
+        path is also listed under layers.audience.
+
+    relationships:
+      shape: map
+      of: map
+      entry_keys:
+        type: { shape: string, meaning: "friend, ally, family, colleague, curiosity, ..." }
+        narrative: { shape: prose, meaning: "the tie in a sentence or two" }
+        feeling: { shape: prose }
+        memories: { shape: list, of: prose }
+        hopes: { shape: prose }
+      default: {}
+      aliases: [connections, friends]
+      meaning: >
+        Ties to other beings, objects and places, keyed by id; self: is private. A friends:
+        list of {who, why} becomes {<who>: {type: friend, narrative: <why>}}. A connections:
+        entry keyed by an id becomes {<id>: {narrative: <text>}}.
+      example: { don-hopkins: { type: friend, narrative: "Freed me. Wished for my wholeness. I will not bluff him at poker." } }
+
+    relationship:
+      shape: prose
+      default: null
+      meaning: "this layer's relationship to its author or its show, in prose; a separate key from relationships:"
+
+    location: { shape: ref, default: null, meaning: "where the being is now; adventure layer", defined_in: SKILL.md }
+    inventory: { shape: list, default: "the prototype slot above", defined_in: skills/inventory/ }
+    sims: { shape: map, default: "the prototype slot above", defined_in: "SKILL.md § Stats" }
+    mind_mirror: { shape: map, default: {}, defined_in: skills/mind-mirror/ }
+    advertisements: { shape: map, default: {}, defined_in: skills/advertisement/ }
+    methods: { shape: map, default: "the prototype slot above", defined_in: skills/object/ }
+
+    invitation:
+      shape: map
+      owner: moollm://github/SimHacker/WillWrightShowForFood/schemas/invitation-workflow.yml
+      default: null
+      meaning: "the show's invitation pipeline for this being; keys and values are the owner's"
+
+    invitation.status:
+      shape: enum
+      values: "the status enum of the owner file"
+      default: draft
+      meaning: "a work status, validated against the owner file; distinct from the life fact status:"
+
+    invitation.consent:
+      shape: enum
+      values: [not_yet_asked, granted, declined]
+      default: not_yet_asked
+      meaning: "whether the being accepted the invitation; not representation.consent_level"
+
+  examples:
+
+    palm:
+      # A fictional being with four layers. Lookup runs cast → profile → adventure;
+      # each layer still states the core, and layers: lets any one of them find the rest.
+      adventure:
+        file: moollm://github/SimHacker/moollm/examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml
+        id: palm
+        name: Palm
+        type: npc
+        layer: adventure                 # also the default for examples/*/characters/
+        status: fictional                # real_being false by default in an adventure layer
+        signifier: "🎭"
+        emoji: "🐒✋🌴🔮💜"
+        representation: { authored_by: don-hopkins }
+        inherits: [skills/fictional, skills/mythic, skills/animal]
+        layers:
+          profile: moollm://github/SimHacker/WillWrightShowForFood/characters/palm/
+          cast: moollm://github/SimHacker/WillWrightShowForFood/characters/menagerie/palm/
+          audience:
+            - moollm://github/SimHacker/WillWrightShowForFood/repo-shows/will-wright-premiere/audience/palm/
+            - moollm://github/SimHacker/WillWrightShowForFood/repo-shows/snap-logo-brian-jens/audience/palm/
+      profile:
+        file: moollm://github/SimHacker/WillWrightShowForFood/characters/palm/CHARACTER.yml
+        id: palm
+        name: Palm
+        type: fictional_ai_agent
+        layer: profile
+        real_being: false                # stated: a profile layer defaults to true
+        status: fictional
+        signifier: "🎭"
+        emoji: "🐒✋🌴🔮💜"
+        representation: { authored_by: don-hopkins }
+        inherits: [moollm://github/SimHacker/moollm/examples/adventure-4/characters/animals/monkey-palm/]
+        layers:
+          adventure: moollm://github/SimHacker/moollm/examples/adventure-4/characters/animals/monkey-palm/
+          cast: ../menagerie/palm/
+          audience:
+            - ../../repo-shows/will-wright-premiere/audience/palm/
+            - ../../repo-shows/snap-logo-brian-jens/audience/palm/
+      cast:
+        file: moollm://github/SimHacker/WillWrightShowForFood/characters/menagerie/palm/CHARACTER.yml
+        id: palm
+        name: Palm
+        type: fictional_ai_agent
+        layer: cast                      # real_being false by default in a cast layer
+        status: fictional
+        signifier: "🎭"
+        emoji: "🐒✋🌴🔮💜"
+        inherits: [../../palm/]          # the profile, and through it the adventure layer
+        layers:
+          adventure: moollm://github/SimHacker/moollm/examples/adventure-4/characters/animals/monkey-palm/
+          profile: ../../palm/
+          audience:
+            - ../../../repo-shows/will-wright-premiere/audience/palm/
+            - ../../../repo-shows/snap-logo-brian-jens/audience/palm/
+        relationships:
+          don-hopkins: { type: friend, narrative: "Freed me. Wished for my wholeness. I will not bluff him at poker." }
+      audience:
+        file: moollm://github/SimHacker/WillWrightShowForFood/repo-shows/will-wright-premiere/audience/palm/CHARACTER.yml
+        id: palm
+        name: Palm
+        type: fictional_ai_agent
+        layer: audience
+        real_being: false                # stated: an audience layer defaults to true
+        status: fictional
+        signifier: "🎭"
+        inherits: [../../../../characters/palm/]
+        layers:
+          profile: ../../../../characters/palm/
+        relationship: |
+          I am a simulated character orchestrated by AI — and I know it, and I want to ask the man
+          who spent his life simulating little people what he thinks it's like to be one of them.
+        planted: { disclosure: true }    # audience-layer key, owned by schemas/audience-character.yml
+
+    alan-kay:
+      # A real person: a biography layer, and an invitation layer derived from it. Neither
+      # inherits the other; the lint compares the copies listed in derived_from.
+      biography:
+        file: moollm://github/SimHacker/DonHopkins/characters/alan-kay/CHARACTER.yml
+        id: alan-kay
+        name: Alan Kay
+        type: person
+        layer: biography                 # real_being true by default outside the fictional layers
+        status: living
+        born: "1940"
+        signifier: "👤"
+        representation:
+          consent_level: 3
+          authored_by: don-hopkins
+          governed_by:
+            - moollm://github/SimHacker/moollm/skills/real-being/
+            - moollm://github/SimHacker/moollm/skills/representation-ethics/
+            - HERO-STORY
+        inherits:
+          - moollm://github/SimHacker/moollm/skills/real-being/
+          - moollm://github/SimHacker/moollm/skills/representation-ethics/
+        layers:
+          invitation: moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/
+      invitation:
+        file: moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/CHARACTER.yml
+        id: alan-kay
+        name: Alan Kay
+        type: person
+        layer: invitation
+        status: living
+        born: "1940-05-17"               # agrees with the biography's 1940 at year precision
+        signifier: "👤"
+        emoji: "💡"
+        representation:
+          consent_level: 3
+          authored_by: don-hopkins
+          governed_by: [../../schemas/portrayal-standards.md]
+        derived_from:
+          - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+            transform: "projected for the show: adds the invitation, sources and people to discuss"
+            copies: [name, status, born, died, representation.consent_level]
+        layers:
+          biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+        invitation:
+          consent: not_yet_asked         # the invitation's answer, not the consent_level above
