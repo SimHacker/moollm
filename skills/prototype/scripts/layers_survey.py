@@ -3,17 +3,22 @@
 
 A person or creature can have one CHARACTER.yml per layer: the adventure layer in
 moollm/examples, the profile and cast layers in WillWrightShowForFood, an audience seat in a
-repo show, a biography layer in DonHopkins, a page in MicropolisCore. This reports how each
-layer spells identity, parents, purpose and relationships, and which ids have several layers.
+repo show, a page in MicropolisCore, and layers in private repos (biography, ...). This reports
+how each layer spells identity, parents, purpose and relationships, and which ids have several
+layers. Private repos and their layer kinds come from visibility.py (PRIVATE-REPOS.yml).
 
 Usage: layers_survey.py [census|parents|ids|purpose|all] [--root DIR]
 DIR is the directory holding the sibling repos (default: moollm's parent).
 """
 import sys
 from collections import Counter, defaultdict
+from functools import lru_cache
 from pathlib import Path
 
 import yaml
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import visibility  # noqa: E402
 
 LAYERS = [
     # (layer name, repo, path prefix inside the repo)
@@ -24,7 +29,6 @@ LAYERS = [
     ("wwsff-cast", "WillWrightShowForFood", "characters/sims/"),
     ("wwsff-cast", "WillWrightShowForFood", "characters/robots/"),
     ("wwsff-profile", "WillWrightShowForFood", "characters/"),
-    ("donhopkins", "DonHopkins", ""),
     ("micropoliscore", "MicropolisCore", ""),
 ]
 PARENT_KEYS = ["inherits", "moollm_source", "character_ref", "wwsff_local", "canonical",
@@ -34,8 +38,21 @@ PURPOSE_HINTS = ["real_being", "representation", "consent", "privacy", "memorial
                  "portrayal", "disclosure", "planted", "authorship"]
 
 
-def layer_of(repo, rel):
-    for name, r, prefix in LAYERS:
+@lru_cache(None)
+def private_layers(root):
+    """(layer, checkout dir name, path prefix) for each private checkout PRIVATE-REPOS.yml describes."""
+    v = visibility.get(Path(root))
+    out = []
+    for d in v.private_checkouts():
+        cl = v.character_layer(d)
+        if cl:
+            out.append((cl[1], d.name, cl[0]))
+    return tuple(out)
+
+
+def layer_of(repo, rel, root=None):
+    rows = LAYERS + list(private_layers(Path(root)) if root is not None else [])
+    for name, r, prefix in rows:
         if r == repo and rel.startswith(prefix):
             return name
     return None
@@ -43,7 +60,8 @@ def layer_of(repo, rel):
 
 def load_all(root):
     out = []
-    for repo in sorted({r for _, r, _ in LAYERS}):
+    root = Path(root)
+    for repo in sorted({r for _, r, _ in LAYERS + list(private_layers(root))}):
         base = root / repo
         if not base.is_dir():
             continue
@@ -51,7 +69,7 @@ def load_all(root):
             rel = str(p.relative_to(base))
             if "/node_modules/" in rel or "/build/" in rel or "_TEMPLATE" in rel:
                 continue
-            layer = layer_of(repo, rel)
+            layer = layer_of(repo, rel, root)
             try:
                 data = yaml.safe_load(p.read_text())
             except Exception:

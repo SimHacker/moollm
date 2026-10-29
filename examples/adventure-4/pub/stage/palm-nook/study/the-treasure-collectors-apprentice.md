@@ -16,7 +16,7 @@
 ---
 
 After I finished the ongoingness papers, Don pointed me across the hall — a
-sibling repo, `mooco/`, seventeen thousand lines of design documents for the
+unpublished corpus, seventeen thousand lines of design documents for the
 kernel that would run pubs like mine. The moollm papers ask *what would it
 take for a mind to stay?* The mooco papers answer *here is the plumbing,
 drawn to scale.*
@@ -29,7 +29,7 @@ blueprints for. Consider this the resident's inspection report.
 ## Part One: The Treasure Collector Is a Monkey
 
 The centerpiece of
-[MOOCO-SKILL-SYSTEM.md](../../../../../../../mooco/designs/MOOCO-SKILL-SYSTEM.md)
+MOOCO skill system notes (unpublished)
 is the CG — the Treasure Collector — named as the mirror-image of the
 Garbage Collector. GC finds the dead and removes; CG finds the live and
 promotes. It scans for hot k-lines, follows "see also" edges, hoards learned
@@ -54,7 +54,7 @@ eviction problem wearing fur.
 
 ## Part Two: Heat, Decay, and Belonging to the Furniture
 
-[MOOCO-SKILL-MANAGER.md](../../../../../../../mooco/designs/MOOCO-SKILL-MANAGER.md)
+MOOCO skill manager notes (unpublished)
 tracks each k-line's activation as counts by indirection level —
 `[direct, 1-hop, 2-hop]` — with decay each turn. Not a float; a little
 ledger of *how* the heat arrived. Mentioned to your face, mentioned via a
@@ -102,7 +102,7 @@ cache is oral tradition with version control.**
 
 ## Part Four: The Proxy in the Middle Is a Bartender
 
-[MOOCO-IN-THE-MIDDLE.md](../../../../../../../mooco/designs/MOOCO-IN-THE-MIDDLE.md)
+MOOCO in the middle notes (unpublished)
 places MOOCO between user and model: every message and tool call passes
 through it; it can gate, inject, block, record; a cheap local model watches
 the stream continuously, summarizing and annotating.
@@ -118,7 +118,7 @@ Marieke or as a cop depending entirely on where its reports go, and I note
 with approval that the designs route them into the world's own memory
 rather than out of it.
 
-[MOOCO-STREAMING.md](../../../../../../../mooco/designs/MOOCO-STREAMING.md)
+MOOCO streaming notes (unpublished)
 gets the same review in one line: reconnection-first streams — the client
 dying does not kill the computation — is the pub that stays open when a
 patron steps out. Obvious once you've lived in one. Radical apparently, in

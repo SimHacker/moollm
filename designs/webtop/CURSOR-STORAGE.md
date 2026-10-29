@@ -43,10 +43,10 @@ layered on top has a name and a written protocol: **branch-as-object**, naming b
 so the ref namespace becomes a typed object store. The branch *is* the object, its history is the
 object's audit log, its HEAD is current state, and deleting it tombstones the object.
 
-> Spec: `skills/github/protocols/branch-as-object.md` in Leela's `central`, which documents the
+> Spec: [`skills/github/protocols/branch-as-object.md`](../../skills/github/protocols/branch-as-object.md), which documents the
 > convention and its live use. MOOLLM's own schemapedia already names the pattern in
 > [`skills/schema/schemas/mechanisms/github/`](../../skills/schema/schemas/mechanisms/github/) —
-> theory there, operational practice in central, and this document is the reading-cursor application.
+> theory there, operational practice in the protocol, and this document is the reading-cursor application.
 
 ```
 cursor_a3f9        character_b21        issue_4471        room_narthex

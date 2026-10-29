@@ -5,7 +5,7 @@ Dense. Top-level: MOOGLANCE.md. Full: MOONUAL.md §2.
 ## Forms
 
 - `moo://branch/path` — Repo from MOO_REPO or --repo. Example: `moo://Issue_42/ALERT.yml`.
-- `moollm://repo/branch/path` — Full. Example: `moollm://leela-ai/leela-alerts/Issue_42/ALERT.yml`.
+- `moollm://repo/branch/path` — Full. Example: `moollm://example-org/alerts/Issue_42/ALERT.yml`.
 
 ## Fragment (#)
 

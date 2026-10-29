@@ -455,9 +455,7 @@ cursor_context:
     os: "darwin 24.3.0"
     shell: "bash"
     workspaces:
-      - "/Users/a2deh/GroundUp/Leela/git/central"
       - "/Users/a2deh/GroundUp/git/moollm"
-      - "/Users/a2deh/GroundUp/git/mooco"
     date: "Thursday Jan 22, 2026"
     
   git_status:
@@ -488,7 +486,6 @@ cursor_context:
     
   workspace_rules:
     always_applied:
-      - "/Users/a2deh/GroundUp/Leela/git/central/.cursorrules"
       - "/Users/a2deh/GroundUp/git/moollm/.cursorrules"
     moollm_rules:
       boot_sequence: "Read kernel/drivers/cursor.yml, PROTOCOLS.yml, skills/bootstrap/"

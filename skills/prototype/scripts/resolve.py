@@ -39,6 +39,7 @@ Usage:
     resolve.py parents OBJECT[#path]
     resolve.py lint    [PATH ...] [--verbose] [--strict] [--schema [--cards] [--summary]]
     resolve.py layers  [layers_lint options]     one being's layers agree across sibling repos
+    resolve.py leaks   [private_leaks options]   private repo names in public checkouts
     resolve.py stale   [PATH ...] [--verbose]     views older than their subject, per git
 
 Standard library plus PyYAML. Read-only.
@@ -737,6 +738,14 @@ def cmd_layers(rest: list[str]) -> int:
     return layers_lint.main(rest)
 
 
+def cmd_leaks(rest: list[str]) -> int:
+    """Pass-through: private_leaks' --root is the directory holding the sibling repos."""
+    import private_leaks
+    if "--root" not in rest:
+        rest = [*rest, "--root", str(find_root(Path.cwd()).parent)]
+    return private_leaks.main(rest)
+
+
 def git_times(root: Path) -> dict[Path, float]:
     """Last commit time per file, from one `git log` pass; uncommitted changes count as now."""
     import subprocess
@@ -790,6 +799,8 @@ def main(argv: list[str] | None = None) -> int:
     argv = sys.argv[1:] if argv is None else argv
     if argv[:1] == ["layers"]:
         return cmd_layers(argv[1:])
+    if argv[:1] == ["leaks"]:
+        return cmd_leaks(argv[1:])
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0])
     ap.add_argument("--root", help="repo root (default: nearest .git)")
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -807,6 +818,7 @@ def main(argv: list[str] | None = None) -> int:
     li.add_argument("--cards", action="store_true", help="with --schema: CARD projection rules only")
     li.add_argument("--summary", action="store_true", help="with --schema: counts per rule")
     sub.add_parser("layers", help="cross-layer lint across sibling repos (layers_lint.py; its options pass through)")
+    sub.add_parser("leaks", help="private repo names in public checkouts (private_leaks.py; its options pass through)")
     st = sub.add_parser("stale", help="views (GLANCE, CARD, INDEX) older than what they summarize, per git")
     st.add_argument("paths", nargs="*")
     st.add_argument("--verbose", "-v", action="store_true")

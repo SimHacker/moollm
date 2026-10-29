@@ -28,7 +28,7 @@ pre-loads (or keeps loaded) the hot stuff in the context cache.
 
 ### Attention-aware paging → the `heat` operation
 
-[MOOCO-SKILL-MANAGER.md § Operation: heat](../../../mooco/designs/MOOCO-SKILL-MANAGER.md)
+MOOCO skill manager notes, § Operation: heat (unpublished)
 (mooco repo). K-lines track **discrete activation counts by indirection
 level** — `[direct, 1-hop, 2-hop]` — instead of a heat float:
 
@@ -68,7 +68,7 @@ with the orchestrator as its MMU.
 
 ### Speculative activation → diffusion, prefetch hints, and cluster activation
 
-[MOOCO-SKILL-SYSTEM.md](../../../mooco/designs/MOOCO-SKILL-SYSTEM.md)
+MOOCO skill system notes (unpublished)
 (mooco repo):
 
 - **Activation diffusion** — when X fires, bump Y by edge weight. One concept
@@ -233,7 +233,7 @@ the value. The K-CACHE hit rate is the baseline the fancy sensors must beat.
 ## See also
 
 - [MOOCO-KERNEL-IN-WAITING.md](MOOCO-KERNEL-IN-WAITING.md) — the full correspondence between the conversation and the mooco designs, beyond paging
-- [MOOCO-SKILL-SYSTEM.md](../../../mooco/designs/MOOCO-SKILL-SYSTEM.md) — Treasure Collector, prefetch hints, cache-miss learning, SHOUTED k-line extraction
-- [MOOCO-SKILL-MANAGER.md](../../../mooco/designs/MOOCO-SKILL-MANAGER.md) — the `heat` operation, activation arrays, decay, LLM paging actions
+- MOOCO skill system notes (unpublished) — Treasure Collector, prefetch hints, cache-miss learning, SHOUTED k-line extraction
+- MOOCO skill manager notes (unpublished) — the `heat` operation, activation arrays, decay, LLM paging actions
 - [nellm.md](../nellm.md) — the runtime this design upgrades into
 - [KLINE-STATE-OF-MIND.md](KLINE-STATE-OF-MIND.md) — what k-lines restore once paged in

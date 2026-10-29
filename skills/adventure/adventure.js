@@ -468,17 +468,16 @@ class Advertisement {
         return true;
     }
     
-    /** Calculate current score */
+    /** The bid: baseScore, or 0 while a score_if condition is false */
     score(world) {
-        let s = this.baseScore;
         if (this.scoreFn) {
             try {
-                if (this.scoreFn(world)) s += 20;  // Bonus if condition met
+                if (!this.scoreFn(world)) return 0;
             } catch (e) {
                 console.warn(`Score calculation failed for ${this.name}:`, e);
             }
         }
-        return s;
+        return this.baseScore;
     }
     
     /** Execute the action */

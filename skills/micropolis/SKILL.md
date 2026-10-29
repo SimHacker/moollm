@@ -201,7 +201,7 @@ A Method of Loci thread runs through this entire lineage — spatial thinking as
   - Svelte 5 runes for reactivity
   - Canvas/WebGL/WebGPU renderers
 
-- **mooco Orchestrator** (github.com/SimHacker/mooco — private, in development)
+- **mooco Orchestrator** (private, in development)
   - Multiplayer session management
   - AI coordination
 

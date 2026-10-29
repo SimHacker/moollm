@@ -222,7 +222,7 @@ These are *post-pilot* moves, sketched to anticipate. Not commitments; invitatio
 
 ### 7.1. Multi-society interop
 
-Different MOOLLM repos (dev / staging / prod; leela-ai/central / personal workspaces / other deployments) are separate Coherence Societies. They could observe each other: `leela-ai/central`'s society emits CR events; an observer society in `staging` aggregates patterns across weeks and emits meta-events. Hierarchical societies.
+Different MOOLLM repos (dev / staging / prod; company monorepos / personal workspaces / other deployments) are separate Coherence Societies. They could observe each other: a company monorepo's society emits CR events; an observer society in `staging` aggregates patterns across weeks and emits meta-events. Hierarchical societies.
 
 ### 7.2. Cross-driver observability
 

@@ -24,7 +24,7 @@ Always-injected, in that session's system context:
 |---|---|
 | `git/moollm/.cursorrules` | 12,874 |
 | `git/moollm/.cursor/rules/moollm-core.mdc` | 6,819 |
-| `Leela/git/central/.cursorrules` | 5,660 |
+| a private work repo's `.cursorrules` | 5,660 |
 | `~/.cursor/plugins/cache/cursor-public/svelte/.../svelte-mcp-tools.mdc` | — |
 
 `MicropolisCore`, the project, contributed nothing. A Svelte plugin rule was

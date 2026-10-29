@@ -349,4 +349,4 @@ rooms/
 - `skills/memory-palace/` — General spatial organization
 - `skills/adventure/` — Room navigation mechanics
 - `designs/SIMULATION-AS-SERVICE.md` — The larger vision
-- `Marconistraat25/` — Working example repo
+- A private household repo — Working example

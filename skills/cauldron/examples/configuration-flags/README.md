@@ -2,7 +2,7 @@
 
 **Patron:** Geordi La Forge — *"We melted one document until the phase boundaries were real, then ladled it into containers any crew could run in parallel."*
 
-This directory is the **public teaching copy** of a real cauldron brew: unifying environment variables and CLI flags across a 🖖 **Forward Sensor Inference Suite** (vision workers), a 🖖 **Positronic Action Processor** (insights), 🖖 **Forward Sensor Outposts** (edge deployments), and a cross-repo 🖖 **Validation Grid** (autotest). The proprietary source lives in the Leela `central` monorepo; here you get the **process**, the **substitution map**, a **condensed trekified monolith**, and **lessons**—without fleet-specific names or internals.
+This directory is the **public teaching copy** of a real cauldron brew: unifying environment variables and CLI flags across a 🖖 **Forward Sensor Inference Suite** (vision workers), a 🖖 **Positronic Action Processor** (insights), 🖖 **Forward Sensor Outposts** (edge deployments), and a cross-repo 🖖 **Validation Grid** (autotest). The proprietary source lives in a private monorepo; here you get the **process**, the **substitution map**, a **condensed trekified monolith**, and **lessons**—without fleet-specific names or internals.
 
 ## What problem the real brew solved
 
@@ -40,7 +40,7 @@ The reusable recipe for *how* to do Phase 1 → 2 is written up in the source tr
 
 For the full monolith, the split tree, playbooks, execution reviews, and Harper's-style scorecard:
 
-- Monolith draft: `docs/CONFIGURATION-FLAGS-PLAN.md` in [leela-ai/central](https://github.com/leela-ai/central)
+- Monolith draft: `docs/CONFIGURATION-FLAGS-PLAN.md` in the private consumer repo
 - Phase-2 tree: `docs/configuration/` (README, `01-overview.md` … `10-open-questions.md`, `design-wisdom.md`, `META-PLAN.md`, `playbooks/`, `HARPERS-INDEX.md`)
 
 Rough outcome from that effort (see Harper's Index in source): on the order of **18** merged PRs in **12** days, **13** playbook documents, **191** files touched, new shared packages for app config, logging, and retry—with documentation as a first-class deliverable.

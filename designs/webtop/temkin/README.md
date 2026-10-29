@@ -236,7 +236,7 @@ Don's one-liner from the pre-call agenda:
 - **No post-call transcript exists.** The 5 August agenda's hoped outcomes are all still unchecked,
   and the scheduled date drifts across our files (3 Aug thread says Wednesday 6 PM, the agenda says
   5 Aug 18:00, `CHARACTER.yml` says 6 Aug 18:00). Either the call notes were never written or they
-  live in RepoShowPrivate. **Resolve before the show.**
+  live in Don's private archive. **Resolve before the show.**
 - Which of the three shell options above.
 - Can a MOOLLM room be a Declare instance, with `CARD.yml` advertisements as constraints?
 - Does the view record ([`VIEW-STATE-ANCESTORS.md`](../../pie-stack-views/VIEW-STATE-ANCESTORS.md)) map onto

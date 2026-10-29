@@ -68,7 +68,7 @@ moollm://                                    # Scheme (like http://, file://, gi
 # Full examples:
 moollm://SimHacker/moollm/characters/animals/monkey-palm/CHARACTER.yml
 moollm://SimHacker/moollm/pub/stage/palm-nook/study/
-moollm://leela-ai/central/apps/pda/           # Cross-repo reference
+moollm://example-org/app-monorepo/apps/pda/   # Cross-repo reference
 moollm://live.grotto.local/sessions/current   # Live service endpoint
 ```
 
@@ -497,9 +497,9 @@ group: "characters/animals/"
 mode: "rw-r-----"
 
 # Cross-repo resource (full URI)
-resource: moollm://leela-ai/central/apps/pda/src/config.yml
+resource: moollm://example-org/app-monorepo/apps/pda/src/config.yml
 owner: "moollm://SimHacker/moollm/characters/operators/don-hopkins/"
-group: "moollm://leela-ai/central/apps/pda/team/"
+group: "moollm://example-org/app-monorepo/apps/pda/team/"
 mode: "rw-rw-r--"
 
 # Live service endpoint
@@ -527,7 +527,7 @@ def can_access(subject_uri, resource_uri, operation):
       
     resource_uri: what they want
       - "pub/stage/palm-nook/essay.md"                       (local)
-      - "moollm://leela-ai/central/apps/pda/config.yml"      (cross-repo)
+      - "moollm://example-org/app-monorepo/apps/pda/config.yml"  (cross-repo)
       
     operation: 'r', 'w', or 'x'
     """
@@ -587,7 +587,7 @@ graph TD
 identity: "moollm://SimHacker/moollm/characters/animals/monkey-palm/"
 groups:
   - "moollm://SimHacker/moollm/characters/animals/"      # Same repo
-  - "moollm://leela-ai/central/apps/pda/trusted/"       # Cross-repo!
+  - "moollm://example-org/app-monorepo/apps/pda/trusted/"  # Cross-repo!
 ```
 
 ### What the LLM Already Knows How to Check

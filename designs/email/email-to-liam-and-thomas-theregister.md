@@ -215,6 +215,5 @@ Happy to discuss, demo, or help you play it yourself.
 ## Notes
 
 - All links use `main` branch (merged)
-- GITHUB-AS-MMORPG.md has subtle link to tmnn7-8 repo at bottom for sleuths
 - Key selling points added: debating experts vs mean, speed-of-light, monkey's paw story
 - Session links show characters PLAYING not just developing

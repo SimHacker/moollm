@@ -3,7 +3,7 @@
 **Status:** Design Document  
 **Date:** 2026-01-21  
 **Author:** Don Hopkins, with Claude  
-**Related:** [MOOCO-TOOLS.md](../../mooco/designs/MOOCO-TOOLS.md), [kernel/](../kernel/), [skills/plain-text/](../skills/plain-text/)
+**Related:** MOOCO tools notes (unpublished), [kernel/](../kernel/), [skills/plain-text/](../skills/plain-text/)
 
 ---
 
@@ -572,8 +572,8 @@ Git is **the multiverse engine** that makes MOOLLM possible.
 
 ## References
 
-- [mooco/packages/tools-git/](../../mooco/packages/tools-git/) — Current implementation
-- [mooco/designs/MOOCO-TOOLS.md](../../mooco/designs/MOOCO-TOOLS.md) — Tool system design
+- the MOOCO app (unpublished) — Current implementation
+- MOOCO tools notes (unpublished) — Tool system design
 - [skills/plain-text/](../skills/plain-text/) — Why plain text matters
 - [skills/cursor-mirror/](../skills/cursor-mirror/) — Orchestrator introspection
 - [kernel/](../kernel/) — Core protocols

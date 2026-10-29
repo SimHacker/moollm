@@ -9,26 +9,36 @@ declares how it relates to the others. designs/object-system/CHARACTER-LAYERS-AN
               representation.public_figure and representation.consent.state agree across the
               layers that state them; a layer that omits a fact is unknown there, not a dissent
   relations   every layer but the canonical one declares inherits:, derived_from: or layers:
-              pointing at another layer of the same being; legacy spellings are reported
+              pointing at another layer of the same being, or is a public layer that a private
+              layer points at; legacy spellings are reported
   refs        declared relation refs resolve to an existing file or directory
   core keys   id, name, status, signifier; real_being and representation.authored_by for
               real beings
-  signifier   real living 👤, deceased 🕯️; a topical emoji belongs in emoji:
+  signifier   real living 👤, deceased 🕯️, fictional 🎭 (📖 is its alias), fictional robot or
+              AI 🤖; a topical emoji belongs in emoji:
 
 Every being, single-layer ones included, also gets the representation rules of
 skills/representation-ethics/REPRESENTATION.yml: the governing rule computed from its facts
 (memorial > self_authored > consented > public_figure > private, first match), granted
 consent without evidence, speaks_as outside self_authored or consented, living real beings
 whose public_figure no layer states, consent.state unverified, and retired consent spellings.
+A being is real unless a layer states real_being: false or status: fictional. Consent is read
+from whichever layer states it; it belongs in the public show layer, so a private layer that
+states it is reported (consent-placement) and a private layer without it is not.
+
+Visibility (visibility.py, PRIVATE-REPOS.yml): private layers may name and inherit public
+layers, never the reverse. A layer in a public repo whose values name a private repo (an
+owner/name slug, a private checkout dir followed by '/', a moollm:// ref into one) is an
+error (private-ref).
 
 Layers and envelopes come from layers_survey.py. Refs go through refs.py when it is importable.
 
-Usage: layers_lint.py [ids...] [--root DIR] [--format text|yaml] [--summary] [--review [FILE]]
+Usage: layers_lint.py [ids...] [--root DIR] [--format text|yaml] [--summary] [--review FILE]
   --root     directory holding the sibling repos (default: moollm's parent)
   --summary  counts only
   --review   write the facts a person must decide (layer disagreements about consent,
-             public_figure and life facts; unverified consent) as YAML;
-             FILE defaults to designs/object-system/tasks/ALIGNMENT-REVIEW.yml
+             public_figure and life facts; unverified consent) as YAML to FILE. The list
+             carries private paths, so FILE must be outside every public checkout.
 Exit status 1 when there are errors.
 """
 from __future__ import annotations
@@ -47,6 +57,7 @@ import yaml
 SCRIPTS = Path(__file__).resolve().parent
 sys.path.insert(0, str(SCRIPTS))
 import layers_survey as survey  # noqa: E402
+import visibility  # noqa: E402
 
 try:
     import refs as _refs  # type: ignore  # noqa: E402
@@ -54,8 +65,8 @@ except Exception:
     _refs = None
 
 MOOLLM = SCRIPTS.parents[2]
-DEFAULT_REVIEW = MOOLLM / "designs" / "object-system" / "tasks" / "ALIGNMENT-REVIEW.yml"
 REPRESENTATION = MOOLLM / "skills" / "representation-ethics" / "REPRESENTATION.yml"
+CHARACTER_SCHEMA = MOOLLM / "skills" / "character" / "CHARACTER.yml"
 
 RELATION_KEYS = ["inherits", "derived_from", "layers"]
 # legacy spelling -> the L2 relation it most likely becomes
@@ -76,17 +87,23 @@ SOFT_KEYS = ["see_also"]
 NOT_REF_KEYS = {"repo", "note", "import_mode", "overlay_protocol", "moollm_skills", "lineage"}
 
 # canonical layer, first present wins
-REAL_ORDER = ["donhopkins", "wwsff-profile", "adventure", "moollm-other", "micropoliscore",
-              "wwsff-cast", "show-audience"]
-FICTIONAL_ORDER = ["adventure", "moollm-other", "wwsff-cast", "wwsff-profile", "donhopkins",
-                   "show-audience", "micropoliscore"]
+REAL_ORDER = ["biography", "wwsff-profile", "adventure", "moollm-other", "micropoliscore",
+              "wwsff-cast", "show-audience", "private"]
+FICTIONAL_ORDER = ["adventure", "moollm-other", "wwsff-cast", "wwsff-profile", "biography",
+                   "show-audience", "micropoliscore", "private"]
 
 LIFE_STATUS = {"living", "deceased", "fictional"}
-STATUS_ALIASES = {"memorial": "deceased", "passed": "deceased", "dead": "deceased", "alive": "living"}
+# fallback when the character schema cannot be read; a None value means unknown
+STATUS_ALIASES: dict[str, str | None] = {"memorial": "deceased", "passed": "deceased", "dead": "deceased",
+                                         "alive": "living", "reified": "fictional", "unknown": None}
 SIGNIFIERS = {"living": "👤", "deceased": "🕯️"}
+FICTIONAL_SIGNIFIERS = {"🎭", "🤖"}
+# fallback when the character schema cannot be read
+SIGNIFIER_ALIASES = {"📖": "🎭"}
+ROBOT_TYPE = re.compile(r"robot|\bai\b|ai_|_ai|bot\b|android", re.I)
 
 # fallbacks when REPRESENTATION.yml cannot be read; the schema file wins when it parses
-CONSENT_STATES = ["not_asked", "asked", "granted", "declined", "revoked", "unverified"]
+CONSENT_STATES = ["not_asked", "asked", "interested", "granted", "declined", "revoked", "unverified"]
 CONSENT_ALIASES = {
     "not_yet_asked": "not_asked", "not_addressed": "not_asked", "asked_no_reply_yet": "asked",
     "awaiting_reply": "asked", "pending_response": "asked", "outreach_sent_awaiting_reply": "asked",
@@ -96,8 +113,6 @@ CONSENT_ALIASES = {
 CONSENT_DECISIVE = {"granted", "declined", "revoked"}
 RULES = ["memorial", "self_authored", "consented", "public_figure", "private"]
 SPEAKS_AS_OK = {"self_authored", "consented"}
-# repos whose content stays out of generated files: path and fact value only
-PRIVATE_REPOS = {"RepoShowPrivate"}
 
 SEVERITY_RANK = {"error": 0, "warning": 1, "info": 2}
 
@@ -115,6 +130,33 @@ def load_consent_vocabulary(path: Path = REPRESENTATION) -> tuple[list[str], dic
 
 
 STATES, STATE_ALIASES = load_consent_vocabulary()
+
+
+def load_signifier_aliases(path: Path = CHARACTER_SCHEMA) -> dict[str, str]:
+    try:
+        a = yaml.safe_load(path.read_text())["schema"]["keys"]["signifier"]["value_aliases"]
+        if isinstance(a, dict) and a:
+            return {str(k).replace("\ufe0f", ""): str(v) for k, v in a.items()}
+    except Exception:
+        pass
+    return SIGNIFIER_ALIASES
+
+
+SIGNIFIER_ALIASES = load_signifier_aliases()
+
+
+def load_status_aliases(path: Path = CHARACTER_SCHEMA) -> dict[str, str | None]:
+    try:
+        a = yaml.safe_load(path.read_text())["schema"]["keys"]["status"]["value_aliases"]
+        if isinstance(a, dict) and a:
+            return {**STATUS_ALIASES, **{str(k).lower(): (str(v) if v is not None else None)
+                                         for k, v in a.items()}}
+    except Exception:
+        pass
+    return STATUS_ALIASES
+
+
+STATUS_ALIASES = load_status_aliases()
 
 
 @dataclass
@@ -160,8 +202,10 @@ def load_layers(root: Path) -> tuple[dict[str, list[Layer]], list[Layer]]:
     """Group parseable CHARACTER.yml by id; unparseable files come back separately."""
     by: dict[str, list[Layer]] = defaultdict(list)
     bad: list[Layer] = []
+    vis = visibility.get(root)
     for name, repo, rel, path, data in survey.load_all(root):
-        lay = Layer(name or f"{repo}-other", repo, rel, path, data)
+        lay = Layer(name or ("private-other" if vis.is_private(root / repo) else f"{repo}-other"),
+                    repo, rel, path, data)
         if data == "UNPARSEABLE" or not isinstance(data, dict):
             bad.append(lay)
             continue
@@ -246,7 +290,43 @@ def legacy_consent(lay: Layer) -> list[str]:
 
 
 def is_private(lay: Layer) -> bool:
-    return lay.repo in PRIVATE_REPOS
+    """Content of a private layer stays out of generated files: path and fact value only."""
+    try:
+        return visibility.get(lay.repo_root.parent).is_private(lay.repo_root)
+    except Exception:
+        return True
+
+
+def strings(v: Any, path: str = "") -> list[tuple[str, str]]:
+    """(dotted key path, string) for every string key and value in the data."""
+    out: list[tuple[str, str]] = []
+    if isinstance(v, str):
+        out.append((path, v))
+    elif isinstance(v, list):
+        for n, e in enumerate(v):
+            out += strings(e, f"{path}[{n}]")
+    elif isinstance(v, dict):
+        for k, e in v.items():
+            p = f"{path}.{k}" if path else str(k)
+            if isinstance(k, str):
+                out.append((p, k))
+            out += strings(e, p)
+    return out
+
+
+def private_refs(lay: Layer) -> list[tuple[str, str]]:
+    """(key path, private name) for each value of a public layer that names a private repo."""
+    if is_private(lay):
+        return []
+    try:
+        vis = visibility.get(lay.repo_root.parent)
+    except Exception:
+        return []
+    out: list[tuple[str, str]] = []
+    for where, s in strings(lay.data):
+        for name in dict.fromkeys(vis.find(s)):
+            out.append((where, name))
+    return out
 
 
 def real_being_of(lay: Layer) -> Fact | None:
@@ -289,16 +369,13 @@ def dates_agree(a: str, b: str) -> bool:
 
 
 def is_real(layers: list[Layer]) -> bool:
+    """real_being as stated (true wins); else false when a layer says status: fictional; else true."""
     vals = [f.value for f in (real_being_of(l) for l in layers) if f]
     if True in vals:
         return True
     if False in vals:
         return False
-    if any(norm_status(l.f.get("status")) == "fictional" for l in layers):
-        return False
-    return any(public_figure_of(l) or legacy_consent(l) or governed_as_real(l)
-               or norm_status(l.f.get("status")) == "deceased"
-               or (rep(l).get("authored_by") or "") == "self" for l in layers)
+    return not any(norm_status(l.f.get("status")) == "fictional" for l in layers)
 
 
 def canonical(layers: list[Layer], real: bool) -> Layer:
@@ -365,6 +442,14 @@ def lint_being(i: str, layers: list[Layer], root: Path
 
     unverified: list[Fact] = []
     for lay in lays:
+        for where, name in private_refs(lay):
+            add(lay, "private-ref", "error",
+                f"{where} names private repo {name}; a public layer never names a private one "
+                "(private layers name and inherit public layers)")
+        if is_private(lay) and rep(lay).get("consent") is not None:
+            add(lay, "consent-placement", "info",
+                "representation.consent stated in a private layer; consent belongs in the public "
+                "show layer")
         for old in legacy_consent(lay):
             add(lay, "consent-legacy", "info",
                 f"{old} is a retired consent spelling; REPRESENTATION.yml states authored_by, "
@@ -644,10 +729,22 @@ def lint_id(i: str, layers: list[Layer], root: Path) -> tuple[list[Finding], lis
     life = {f.value for f in statuses if f and f.value in LIFE_STATUS}
     being_life = life.pop() if len(life) == 1 else None
 
+    targets: dict[int, set[int]] = {}
+    for lay in layers:
+        others = [o for o in layers if o is not lay]
+        hit: set[int] = set()
+        for value in [v for _, _, v in relations(lay)] + [lay.f.get(k) for k in SOFT_KEYS]:
+            for r in ref_strings(value):
+                status, p = resolve(r, lay, root)
+                if status == "ok" and p is not None:
+                    hit |= {id(o) for o in others if points_at(p, o)}
+        targets[id(lay)] = hit
+    pointed_by_private = {t for l in layers if is_private(l) for t in targets[id(l)]}
+
     for lay in layers:
         others = [o for o in layers if o is not lay]
         rels = relations(lay)
-        linked = False
+        linked = id(lay) in pointed_by_private and not is_private(lay)
         for spelled, becomes, value in rels:
             if spelled in ALIAS_KEYS or spelled == "representation.layers":
                 add(lay, "relation-alias", "info",
@@ -693,6 +790,15 @@ def lint_id(i: str, layers: list[Layer], root: Path) -> tuple[list[Finding], lis
             if sig.replace("\ufe0f", "") != want.replace("\ufe0f", ""):
                 add(lay, "signifier", "info",
                     f"signifier {sig} carries a topical emoji; move to emoji: and use {want} ({status})")
+        if not real and isinstance(sig, str) and sig:
+            s = sig.replace("\ufe0f", "").strip()
+            fic = "🤖" if ROBOT_TYPE.search(str(lay.f.get("type") or "")) else "🎭"
+            if s in SIGNIFIER_ALIASES:
+                add(lay, "signifier", "info", f"signifier {s} is an alias of {SIGNIFIER_ALIASES[s]}; "
+                    f"spell it {fic}")
+            elif s not in FICTIONAL_SIGNIFIERS:
+                add(lay, "signifier", "info",
+                    f"signifier {sig} carries a topical emoji; move to emoji: and use {fic} (fictional)")
 
     for f in findings:
         f.layers = f.layers or names
@@ -782,11 +888,20 @@ REVIEW_HEADER = """\
 # the values match, and never fill in decision:. Don writes decision: (the value, and why); a
 # later pass applies it. Entries from private repos carry only the file path and the value.
 #
-# Regenerate: python3 skills/prototype/scripts/layers_lint.py --review
+# Regenerate: python3 skills/prototype/scripts/layers_lint.py --review FILE (outside public repos)
 # Rule: kernel/constitution-core.md §15 "Layers across repos";
 # designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10;
 # skills/representation-ethics/REPRESENTATION.yml (facts and computed rules).
 """
+
+
+def review_refusal(path: Path, root: Path) -> str | None:
+    """The public checkout that would hold the review file, or None when it may be written."""
+    p = path.expanduser().resolve()
+    for d in [p, *p.parents]:
+        if (d / ".git").exists():
+            return None if visibility.get(root).is_private(d) else str(d)
+    return None
 
 
 def write_review(path: Path, res: dict[str, Any]) -> None:
@@ -831,9 +946,16 @@ def main(argv: list[str] | None = None) -> int:
                     help="directory holding the sibling repos")
     ap.add_argument("--format", choices=["text", "yaml"], default="text")
     ap.add_argument("--summary", action="store_true", help="counts only")
-    ap.add_argument("--review", nargs="?", const=str(DEFAULT_REVIEW), default=None, metavar="FILE",
-                    help=f"write the human-review list (default {rel_to(DEFAULT_REVIEW, MOOLLM)})")
+    ap.add_argument("--review", default=None, metavar="FILE",
+                    help="write the human-review list to FILE, outside every public checkout")
     args = ap.parse_args(argv)
+    if args.review:
+        where = review_refusal(Path(args.review), args.root.resolve())
+        if where:
+            print(f"--review {args.review}: inside the public checkout {where}; the review list "
+                  "carries private paths. Write it inside a private checkout or outside the "
+                  "sibling repos.", file=sys.stderr)
+            return 2
     res = run(args.root.resolve(), args.ids or None)
     if args.format == "yaml":
         out: dict[str, Any] = {"summary": summary(res)}

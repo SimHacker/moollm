@@ -16,11 +16,11 @@ Counts from 2026-10-29: 522 `CHARACTER.yml` files.
 |---|---|---|---|
 | adventure | `moollm/examples/adventure-4/characters/` | 57 | playing in the adventure: location, inventory, Sims motives, Mind Mirror, advertisements, methods |
 | moollm-other | elsewhere in moollm (skills, other examples) | 18 | prototypes and skill examples |
-| biography | `DonHopkins/characters/` | 90 | Don's authored portrayals of real people: representation ethics, bio, correspondence, ties |
+| biography | a private repo | 90 | Don's authored portrayals of real people: representation ethics, bio, correspondence, ties |
 | profile | `WillWrightShowForFood/characters/` | 303 | guests, subjects and memorials: life facts, invitation pipeline, memorial, sources, show suggestions |
 | cast | `WillWrightShowForFood/characters/{menagerie,sims,robots}/` | 25 | fictional cast members imported from moollm with a local overlay |
 | audience | `WillWrightShowForFood/repo-shows/*/audience/` | 28 | a seat at one show: planted questions (`questions.yml`, 31 files), disclosure, relationship to the subject |
-| private | `RepoShowPrivate/characters/` | no CHARACTER.yml | correspondence, invitation drafts, sources not yet public |
+| private | a private repo | no CHARACTER.yml | correspondence, invitation drafts, sources not yet public |
 | page | `MicropolisCore/apps/micropolis/website/pages/about/don-hopkins/` | 1 | a published page about a person; declares its upstream |
 
 wwsff also defines its own layer schemas in `WillWrightShowForFood/schemas/`:
@@ -63,7 +63,7 @@ layers are for real people. Overlap (Don, Richard Bartle, Palm) is by design.
 
 Most layers don't declare the relationship at all:
 
-- 63 directories in `DonHopkins/characters/` share an id with a profile (53 with a
+- 63 biography directories share an id with a profile (53 with a
   CHARACTER.yml on both sides). 19 biography files mention wwsff; 1 profile file points back.
 - 2 to 3 of 28 audience seats name their profile layer.
 
@@ -142,6 +142,12 @@ Three relations cover what the files do today:
 | `derived_from:` | authoring: this layer is a projection of that one, copied or transformed by hand or by a script; a lint checks the copied facts agree | `upstream:` (page), the biography → profile pairs (undeclared) |
 | `related:` / `layers:` | navigation: the being's other incarnations, a concentrated copy linted against the survey | `see_also:` paths, `wwsff_overlay.audience_fork`, `ticketpr_seats`, `menagerie:` |
 
+Visibility runs one way. A public layer never names a private layer, in any key or in prose;
+the private layer names and inherits the public one. Consent lives in the public show layer
+(the wwsff profile and invitation layer), because that is what the person consents to. A
+private biography layer carries no consent record and gets it by lookup. No consent record
+means no consent, and layers still state `not_asked` explicitly.
+
 Cross-repo references: the biography layer already writes
 `moollm://github/SimHacker/moollm/skills/...` in its headers, and the cast layer writes both
 an absolute GitHub URL and a repo-relative path. One form, a `moollm://github/<owner>/<repo>/<path>`
@@ -171,5 +177,5 @@ moollm are a smaller follow-up survey than characters.
 | L8 | `governed_by:` replaces `protocol:` in the biography layer | yes | 70% |
 | L9 | `status:` for life facts is allowed in SCHEMA.md; `invitation.status` lints against `schemas/invitation-workflow.yml` | yes | 70% |
 | L10 | A cross-layer lint: same-id layers agree on name, life facts, consent level; check bill-joy and scott-draves by hand first | yes | 85% |
-| L11 | Flatten the `character:` envelopes in wwsff and DonHopkins (434 files), with each repo's own commit | yes | 75% |
+| L11 | Flatten the `character:` envelopes in wwsff and the private biography repo (434 files), with each repo's own commit | yes | 75% |
 | L12 | wwsff `schemas/` declare that they extend moollm skills (character, representation-ethics, advertisement) with `inherits:` | yes | 65% |

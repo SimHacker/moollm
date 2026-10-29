@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""M8: flatten the `character:` envelope in CHARACTER.yml, in WillWrightShowForFood and DonHopkins.
+"""M8: flatten the `character:` envelope in CHARACTER.yml, in WillWrightShowForFood and the
+private biography repos (PRIVATE-REPOS.yml character_layers).
 
 Reuses skills/prototype/scripts/flatten.py: the envelope line goes, its block is dedented to the
 top level, a comment on the envelope line stays. The result must parse to exactly what
@@ -14,7 +15,7 @@ from __future__ import annotations
 import re
 import sys
 
-from mlib import MOOLLM, Result, Skip, run
+from mlib import MOOLLM, Result, Skip, private_character_repos, run
 
 sys.path.insert(0, str(MOOLLM / "skills" / "prototype" / "scripts"))
 import flatten  # noqa: E402
@@ -43,5 +44,5 @@ def pred(base, p):
 
 
 if __name__ == "__main__":
-    sys.exit(run("m08_flatten_envelopes", __doc__, ["WillWrightShowForFood", "DonHopkins"], pred,
+    sys.exit(run("m08_flatten_envelopes", __doc__, ["WillWrightShowForFood", *private_character_repos(layer="biography")], pred,
                  re.compile(r"^character:", re.M), transform))

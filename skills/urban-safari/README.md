@@ -57,4 +57,4 @@ Synthetic public demo (no real GPS): [examples/demo/web/data/](examples/demo/web
 
 [SKILL.md](SKILL.md) · [CARD.yml](CARD.yml) · [GLANCE.yml](GLANCE.yml)
 
-Private instance that seeded this skill: Marconistraat25 `ebike/` (real GPS stays there).
+Private instance that seeded this skill: a private household repo's `ebike/` (real GPS stays there).

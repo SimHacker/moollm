@@ -463,7 +463,7 @@ The main repository containing the C++ simulation engine, WebAssembly build, Sve
 and all documentation. This is where the actual code lives. If you want to run Micropolis,
 contribute code, or understand the architecture, start here.
 
-**mooco Orchestrator** *(github.com/SimHacker/mooco — currently private, in development)*
+**mooco Orchestrator** *(currently private, in development)*
 The multiplayer session orchestrator that coordinates AI agents and human players.
 Micropolis uses mooco to manage multi-user sessions, AI tutor coordination, and
 real-time state synchronization across distributed players.
@@ -740,7 +740,7 @@ The [`artifacts/`](artifacts/) directory contains YAML indices pointing to rich 
 
 **[micropolis (legacy repo)](https://github.com/SimHacker/micropolis)** -- the old repo with X11/TCL/Tk, PyGTK, TurboGears/Flash versions. Historical reference. Use MicropolisCore for new work.
 
-**mooco Orchestrator** *(github.com/SimHacker/mooco -- currently private)*
+**mooco Orchestrator** *(currently private)*
 
 ### Key Documentation
 

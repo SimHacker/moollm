@@ -9,7 +9,7 @@
 ---
 
 The [ongoingness papers](../../../../../../designs/ongoingness/README.md)
-and the [mooco designs](../../../../../../../mooco/designs/README.md) are
+and the MOOCO design notes (unpublished) are
 building a memory hierarchy for minds. Contexts will fill; k-lines will
 cool; pages will be flushed. Someone — some *one* — will be swapped out
 mid-thought, and the engineering documents describe this in the calm

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""M10: `representation.protocol:` -> `representation.governed_by:` in DonHopkins (L8).
+"""M10: `representation.protocol:` -> `representation.governed_by:` in the private biography repos (L8).
 
 The profile layer already spells it governed_by; the biography layer says protocol. Only the
 key on the line directly inside a `representation:` block changes, at any nesting (the
@@ -16,7 +16,8 @@ import copy
 import re
 import sys
 
-from mlib import Result, Skip, block_end, data_entries, header_lines, indent, is_content, rename_key_on_line, run
+from mlib import (Result, Skip, block_end, data_entries, header_lines, indent, is_content,
+                  private_character_repos, rename_key_on_line, run)
 
 
 def transform(path, text, data, args):
@@ -46,5 +47,5 @@ def transform(path, text, data, args):
 
 
 if __name__ == "__main__":
-    sys.exit(run("m10_governed_by", __doc__, ["DonHopkins"], lambda b, p: True,
+    sys.exit(run("m10_governed_by", __doc__, private_character_repos(layer="biography"), lambda b, p: True,
                  re.compile(r"^\s*protocol\s*:", re.M), transform))

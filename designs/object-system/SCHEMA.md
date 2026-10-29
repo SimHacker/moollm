@@ -114,10 +114,18 @@ so it runs alone. Three keys relate layers:
 | `derived_from:` | authoring: `[{ref, transform, copies}]`; the copied keys must agree | `resolve.py layers` |
 | `layers:` | navigation: `{layer: ref or [refs]}` | readers; linted against disk |
 
-`inherits:` never points from a public repo into a private one; a public layer may name a
-private one in `derived_from:` or `layers:` by ref. Facts that disagree across layers
-(consent state, public figure, life facts) go to `designs/object-system/tasks/ALIGNMENT-REVIEW.yml` for a
-person to decide.
+Visibility runs one way: a public layer never names a private layer, in any key or in prose.
+The private layer names and inherits the public one. `layers_lint` reports a public reference
+to a private repo as `private-ref`, and `resolve.py leaks` scans public repos for private repo
+names and paths, read from `PRIVATE-REPOS.yml`, a file kept in a private repo and found by name.
+
+Consent lives in the public show layer (the WillWrightShowForFood profile and invitation
+layer), because that is what the person consents to. A private biography layer carries no
+consent record and gets it by lookup. No consent record means no consent; layers still state
+`not_asked` explicitly. For real beings the biography layer wins other disagreements.
+
+Facts that disagree across layers (consent state, public figure, life facts) go on a review
+list, kept privately, for a person to decide.
 
 ## Views
 
@@ -295,7 +303,8 @@ names its `canonical:` and carries no `id`.
 | `moollm/x` or `<owner>/<repo>/x` from another repo | `moollm://github/<owner>/<repo>/x` |
 | `https://github.com/<owner>/<repo>/tree/main/x` (also `blob/`, raw URLs) | `moollm://github/<owner>/<repo>/x` |
 | `{repo, path, absolute_url, canonical_dir, character_url}` map | `moollm://github/<owner>/<repo>/<path>` |
-| `character_ref:`, `moollm_source:`, `wwsff_local:`, `canonical_soul:`, `prototype_ref:`, `canonical_home:`, `moollm_home:` | `inherits:` |
+| `character_ref:`, `moollm_source:`, `wwsff_local:`, `canonical_soul:`, `prototype_ref:`, `canonical_home:` | `inherits:` |
+| `moollm_home:` | `layers:` (navigation, not inheritance) |
 | `upstream:` | `derived_from:` |
 | `protocol:` (representation) | `representation.governed_by:` |
 | `type:` naming a layer's role (`invitation`, `memorial`, `representational`) | `layer:` |

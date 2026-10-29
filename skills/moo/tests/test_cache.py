@@ -6,7 +6,7 @@ from lib import cache
 
 
 def test_repo_slug():
-    assert cache.repo_slug("leela-ai/central") == "leela-ai__central"
+    assert cache.repo_slug("example-org/app-monorepo") == "example-org__app-monorepo"
     assert cache.repo_slug("") == ""
 
 

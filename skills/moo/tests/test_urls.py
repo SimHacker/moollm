@@ -4,7 +4,7 @@ from lib import urls
 
 def test_is_moo_url():
     assert urls.is_moo_url("moo://Issue_0/ALERT.yml") is True
-    assert urls.is_moo_url("moollm://leela-ai/leela-alerts/main/GLANCE.yml") is True
+    assert urls.is_moo_url("moollm://example-org/alerts/main/GLANCE.yml") is True
     assert urls.is_moo_url("https://example.com") is False
     assert urls.is_moo_url("") is False
     assert urls.is_moo_url(None) is False
@@ -22,12 +22,12 @@ def test_parse_moo_url_moo_scheme():
 
 
 def test_parse_moo_url_moollm_scheme():
-    # urlparse: netloc=leela-ai, path=/leela-alerts/main/skills/moo/GLANCE.yml → repo=netloc, branch=first segment, path=rest
-    p = urls.parse_moo_url("moollm://leela-ai/leela-alerts/main/skills/moo/GLANCE.yml")
+    # urlparse: netloc=example-org, path=/alerts/main/skills/moo/GLANCE.yml → repo=netloc, branch=first segment, path=rest
+    p = urls.parse_moo_url("moollm://example-org/alerts/main/skills/moo/GLANCE.yml")
     assert p is not None
     assert p["scheme"] == "moollm"
-    assert p["repo"] == "leela-ai"
-    assert p["branch"] == "leela-alerts"
+    assert p["repo"] == "example-org"
+    assert p["branch"] == "alerts"
     assert p["path"] == "main/skills/moo/GLANCE.yml"
 
 

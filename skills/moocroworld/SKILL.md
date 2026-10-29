@@ -63,7 +63,7 @@ moo://Character_Rocky/CARD.yml                 ← local
 moollm://moollm/Character_Rocky/CARD.yml       ← origin
 
 moo://Camera_BADHOEVEDORP_1/GLANCE.yml         ← local
-moollm://central/Camera_BADHOEVEDORP_1/GLANCE.yml ← origin
+moollm://app-monorepo/Camera_BADHOEVEDORP_1/GLANCE.yml ← origin
 ```
 
 Mooco mounts moos into the `moo://` namespace on demand:
@@ -266,9 +266,9 @@ When the repo is on GitHub, a moocroworld branch can be paired with a GitHub Iss
 
 ### Leela Alerts (first application)
 
-Alert events stored as `Issue_` branches in `leela-ai/leela-alerts`. Each alert is a moocroworld with `ALERT.yml`, evidence (video frames, dashboards), analysis (vision/LLM, human reviewer), actions (approve, reject, escalate, resolve), and delivery log. `Issue_0` is the prototype alert — the null alert, the schema-as-example.
+Alert events stored as `Issue_` branches in `example-org/alerts`. Each alert is a moocroworld with `ALERT.yml`, evidence (video frames, dashboards), analysis (vision/LLM, human reviewer), actions (approve, reject, escalate, resolve), and delivery log. `Issue_0` is the prototype alert — the null alert, the schema-as-example.
 
-Design: `leela-ai/central` `apps/alerts/doc/ALERTS-NODE-POSTGRES-DESIGN.md` §13.
+Design: `ALERTS-NODE-POSTGRES-DESIGN.md` §13 (private monorepo).
 
 ### Other candidates
 
@@ -290,6 +290,6 @@ See **ATTENTION-TREE.md** for the overlay format and **ATTENTION-TREE.example.ym
 
 ## Part of MOOLLM
 
-- Repository: https://github.com/leela-ai/moollm
+- Repository: https://github.com/SimHacker/moollm
 - Skills index: `skills/INDEX.yml`
 - Related skills: room, incarnation, mooco, adventure, object, yaml-jazz, k-lines, society-of-mind

@@ -243,7 +243,7 @@ The compiler sees a **merged view** — it doesn't know which layer each example
 The MOOCO orchestrator uses MOOFS natively:
 
 ```yaml
-# mooco/apps/mooco/src/lib/moofs.ts
+# MOOCO app (unpublished): moofs.ts
 
 interface MOOFSLayer {
   type: 'shadow' | 'working' | 'tracking' | 'base';
@@ -378,7 +378,7 @@ This enables:
 | Mount skill | `skills/mount/CARD.yml` |
 | NO-AI Brand | `designs/eval/NO-AI-BRAND.md` |
 | Cursor optimization | `kernel/ARCHITECTURE.md` |
-| MOOCO architecture | `mooco/designs/MOOCO-ARCHITECTURE.md` |
+| MOOCO architecture | MOOCO architecture notes (unpublished) |
 | Contribution workflow | `skills/cursor-mirror/CARD.yml` |
 
 ---

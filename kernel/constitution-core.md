@@ -308,6 +308,11 @@ public figure, whether they are living, and what happened when they were asked
 a claim of consent with nothing on file governs nothing. The rule that applies is computed
 from the facts, first match: memorial, self-authored, consented, public figure, private
 (`skills/representation-ethics/REPRESENTATION.yml`).
+`interested` records an open door and governs nothing until it becomes `granted`. A public
+figure may be the target of declared parody (`parody:`) of their public conduct: it punches
+up, never claims to be them, and invents no private life. The consent record lives in the
+public layer the subject is consenting to; private layers inherit it, and public layers never
+name private ones.
 
 ---
 

@@ -10,15 +10,10 @@
 repos:
 
   alerts:
-    github: leela-ai/leela-alerts
+    github: example-org/alerts
     description: "Alert issues and evidence (customer + Leela ops)"
     default_type: Issue
     # Auth: uses default gh token (leela-ai org member)
-
-  central:
-    github: leela-ai/central
-    description: "Main Leela monorepo (alert definitions, camera configs, etc.)"
-    # No default type — central branches are code branches, not moo branches
 
   moollm:
     github: SimHacker/moollm
@@ -27,6 +22,11 @@ repos:
     # Auth: uses default gh token (SimHacker org)
 
 # Customer repos (examples, add as needed):
+#
+#  app-monorepo:
+#    github: example-org/app-monorepo
+#    description: "Main monorepo (alert definitions, camera configs, etc.)"
+#    # No default type — monorepo branches are code branches, not moo branches
 #
 #  zion-site:
 #    github: zion-corp/site-monitoring

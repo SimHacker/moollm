@@ -69,8 +69,8 @@ Run the sanitization toolchain:
 
 ## The first example
 
-The `configuration-flags/` example is derived from a real 30-turn conversation plus 27-file Phase-2 tree that lives in `leela-ai/central` under `docs/configuration/`. The trekified copy strips every proprietary term while preserving the architectural pattern (vision+inference+cloud+edgebox, five orthogonal driver flags, `pylogsink` / `pyretry` / `pyappconfig` shared packages, ChainMap configuration layering).
+The `configuration-flags/` example is derived from a real 30-turn conversation plus 27-file Phase-2 tree that lives in a private consumer repo under `docs/configuration/`. The trekified copy strips every proprietary term while preserving the architectural pattern (vision+inference+cloud+edgebox, five orthogonal driver flags, `pylogsink` / `pyretry` / `pyappconfig` shared packages, ChainMap configuration layering).
 
 To produce it: point the trekify skill at `central/docs/configuration/` with the substitution dictionary drafted in cauldron's example-pipeline notes. Audit with skill-snitch. Commit here.
 
-**Status:** `configuration-flags/` holds a complete teaching example (process, substitution dictionary, trekified monolith excerpt, lessons, Phase-2 index). A line-by-line trekify of every playbook into `examples/` remains optional; primary sources stay in `leela-ai/central`.
+**Status:** `configuration-flags/` holds a complete teaching example (process, substitution dictionary, trekified monolith excerpt, lessons, Phase-2 index). A line-by-line trekify of every playbook into `examples/` remains optional; primary sources stay in the private consumer repo.

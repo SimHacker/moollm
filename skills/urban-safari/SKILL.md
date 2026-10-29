@@ -8,7 +8,7 @@ tags: [gps, fit, video, ebike, map, pipeline]
 
 # Urban Safari — ride map + video sync pipeline
 
-Lifted from the Marconistraat25 private ebike workflow into a shareable MOOLLM skill. FIT files
+Lifted from a private ebike workflow into a shareable MOOLLM skill. FIT files
 in, static JSON for a map app out, optional video clips synced to GPS with frame paths drawn
 over the track.
 

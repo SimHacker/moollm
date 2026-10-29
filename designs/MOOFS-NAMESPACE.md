@@ -5,7 +5,7 @@
 feature).
 **Companions:** [MOOFS-DESIGN.md](MOOFS-DESIGN.md) — overlay resolution ·
 [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) — composition ·
-`mooco/designs/MOOCO-REPOS.md` — repo model (private repo)
+MOOCO repos notes (unpublished) — repo model
 
 ---
 
@@ -325,7 +325,7 @@ announce itself.
 | `moorl` URL parsing (`moollm://repo/branch/path`) | **ships** | `moo resolve` |
 | Branch-as-object convention | **ships** (spec) | [protocols/branch-as-object.md](../skills/github/protocols/branch-as-object.md) |
 | Overlay layer stack | design | [MOOFS-DESIGN.md](MOOFS-DESIGN.md) |
-| Local repo registry | stub | `mooco/apps/mooco/src/lib/workspace.ts` |
+| Local repo registry | stub | the MOOCO app (unpublished) |
 | **Bind mounts, typed object mounts, `/proc`** | **design — this document** | — |
 
 The gap between `moo read` and a mount is smaller than it looks: `moo` already resolves

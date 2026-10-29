@@ -650,8 +650,8 @@ moollm/examples/adventure-4/pub/regulars/don-hopkins/
   CHARACTER.yml    # Adventure-specific behaviors
   parents: [$CHARACTERS/real-people/don-hopkins/]
 
-# Layer 3: Private overlay (DonHopkins repo)
-DonHopkins/characters/don-hopkins/
+# Layer 3: Private overlay (private repo)
+private-archive/characters/don-hopkins/
   CHARACTER.yml    # Private notes, contacts, unfiltered content
   overlay: true    # Signals this layers on top of public
 ```
@@ -864,26 +864,26 @@ Many of these are addressed in the **mooco** repo design documents!
    → See: `skills/moo/` (moo resolve/read) and `designs/MOOCO-MOO-VM.md` — moorl namespace (shipped)
 
 2. **Empathic link caching**: Can we cache LLM-resolved references for performance?
-   → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — CG (Context Gatherer), k-line heat, K-CACHE.yml
+   → See: MOOCO skill system notes (unpublished) — CG (Context Gatherer), k-line heat, K-CACHE.yml
 
 3. **Cross-repo permissions**: How do we handle private repos? OAuth? Tokens?
    → Today: `gh` auth + `gh_token_env` per repo in moocroworld `REPOS.yml`. Hosted auth: `mixin-auth-*` in `designs/PROTOTYPE-FRAGMENT-CONFIG.md`.
 
 4. **Conflict resolution**: When two repos define `skills/cat/`, which wins beyond search order?
-   → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — skill namespacing, k-line prefixes
+   → See: MOOCO skill manager notes (unpublished) — skill namespacing, k-line prefixes
 
 5. **Live linking**: Can MooCo provide real-time cross-repo references like MOO's networked SunNET?
-   → See: `skills/moo/` (remote gh-backed VM) and `mooco/designs/MOOKIE.md` (local MOOT sketch)
+   → See: `skills/moo/` (remote gh-backed VM) and the unpublished MOOKIE notes (local MOOT sketch)
 
 6. **INDEX format**: Markdown vs YAML for skill registries?
    → The CG uses K-CACHE.yml for machine-readable, CARD.yml for LLM-readable, INDEX.md for humans.
-   → See: `mooco/designs/MOOCO-SKILL-SYSTEM.md` — Treasure Collector architecture
+   → See: MOOCO skill system notes (unpublished) — Treasure Collector architecture
 
 7. **Skill containment**: When a skill contains sub-skills, how do we represent that in the registry?
-   → See: `mooco/designs/MOOCO-SKILL-MANAGER.md` — safe skill invocation, nested skills
+   → See: MOOCO skill manager notes (unpublished) — safe skill invocation, nested skills
 
 8. **Translucent mount semantics**: When layering repos, what happens on write?
-   → See: `designs/MOOFS-DESIGN.md` (overlay/write semantics) and `mooco/designs/MOOKIE.md` (local MOOT reifier)
+   → See: `designs/MOOFS-DESIGN.md` (overlay/write semantics) and the unpublished MOOKIE notes (local MOOT reifier)
 
 ## Academic Research: Presence in Text-Based Virtual Environments
 

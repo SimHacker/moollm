@@ -24,7 +24,7 @@ defaults:
 
 # Repos (and optionally aliases from REPOS.yml). Each entry defines a mooniverse.
 repos:
-  - repo: leela-ai/leela-alerts
+  - repo: example-org/alerts
     type: Issue
     depth: 2
     at_depth:
@@ -34,7 +34,7 @@ repos:
     fragments:
       ALERT.yml: [severity, payload/camera_name, status]
       "data/query-result.json": [confidence]
-  - repo: leela-ai/moollm
+  - repo: SimHacker/moollm
     type: Character
     depth: 1
     at_depth:

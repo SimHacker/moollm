@@ -442,7 +442,7 @@ The webtop is the shell all five of them wanted and none of them had: a way to o
 size, route it into a window, zoom the graph, and hand someone your path through it.
 
 Canonical sources, in reading order for anyone extending this:
-[FRAMING-PITCH-AND-LINEAGE.md](https://github.com/SimHacker/DonHopkins/blob/main/projects/willwrightshowforfood/strategy/reviews/chatgpt-research-review/framing/FRAMING-PITCH-AND-LINEAGE.md)
+FRAMING-PITCH-AND-LINEAGE.md (Don's private archive)
 for the participation escalation ·
 [StoryMaker `architectural-overview.md`](https://github.com/SimHacker/MicropolisCore/blob/main/documentation/designs/storymaker/architectural-overview.md)
 for the canonical data model ·

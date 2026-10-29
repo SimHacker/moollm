@@ -149,5 +149,5 @@ Layering keeps state durable, analyzable, and portable.
 
 ## See Also
 
-- [MOOCO-ARCHITECTURE.md](../../../mooco/designs/MOOCO-ARCHITECTURE.md) — Full architecture with event mapping appendix
-- [MOOCO-SCHEMA.md](../../../mooco/designs/MOOCO-SCHEMA.md) — Database schema and MessagePart extensions
+- MOOCO architecture notes (unpublished) — Full architecture with event mapping appendix
+- MOOCO schema notes (unpublished) — Database schema and MessagePart extensions

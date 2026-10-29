@@ -256,12 +256,12 @@ This pattern is already the corpus's stated architecture rather than a new idea 
 [`kernel/ARCHITECTURE.md`](../../kernel/ARCHITECTURE.md#the-magic-dictionary-analogy) for the
 orchestrator as magic dictionary and [`MOOFS-DESIGN.md`](../MOOFS-DESIGN.md#the-magic-dictionary-pattern)
 for layered reads behind an ordinary-looking file interface. What has not been built is the direction
-that closes *this* gap: **a `/proc`-shaped view of the mooco orchestrator kernel** — the live
+that closes *this* gap: **a `/proc`-shaped view of the orchestrator kernel** — the live
 interpreter state exposed as YAML Jazz files, openable with the same `cat`, `grep`, and `diff` as
 everything else.
 
 That is the precise NeWS trick, one substrate over. `/proc/self/status` is not a file on a disk; it
-is kernel state wearing a file's interface, and every tool that reads files reads it anyway. A mooco
+is kernel state wearing a file's interface, and every tool that reads files reads it anyway. An orchestrator
 `/proc` would make the running orchestrator — active skills, assembled context, resolved
 advertisements, the current dictionary stack of scopes — into artifacts, which is exactly what
 property 4 requires and exactly what "make the environment an artifact" means concretely.

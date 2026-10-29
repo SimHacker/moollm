@@ -39,7 +39,7 @@ quotes ────────────>│        │──> SOUL.md (voice
 
 ### StIGNUcius
 
-**Source:** `tmnn7-8/analysis/characters/StIGNUcius/CHARACTER.yml`
+**Source:** StIGNUcius `CHARACTER.yml` (TMNN code review project, private)
 
 **OpenClaw SOUL.md:**
 

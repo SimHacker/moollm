@@ -493,7 +493,7 @@ Still open:
 - [CARD-ANALYSIS.md](CARD-ANALYSIS.md): round 2, a CARD read as one file: advertisements,
   methods, compile-then-graduate candidates, copy-down from interface files, card keys.
 - [CHARACTER-LAYERS-ANALYSIS.md](CHARACTER-LAYERS-ANALYSIS.md): character layers across moollm,
-  WillWrightShowForFood, DonHopkins, RepoShowPrivate and MicropolisCore.
+  WillWrightShowForFood, MicropolisCore and private layers.
 - [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md): the lookup semantics these keys feed.
 - [DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md): the
   metadata vocabulary clusters 5, 8, 9 and 10 can map onto.

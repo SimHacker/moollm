@@ -280,9 +280,9 @@ as game mechanics that were there all along, waiting to be named.
 
 ## Implementation Notes
 
-Skills for GitHub-as-stage exist in a related project. See:
-- [github-simulation](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-simulation) — The stage
-- [github-user](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/skills/github-user) — The actors
+Skills for GitHub-as-stage exist in a related project (not public):
+- github-simulation — The stage
+- github-user — The actors
 
 ---
 

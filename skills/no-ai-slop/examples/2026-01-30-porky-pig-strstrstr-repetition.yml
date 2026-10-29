@@ -155,14 +155,14 @@ example:
   # CONTEXT
   
   context:
-    project: "tmnn7-8 — Archaeological analysis of ESR's news reader"
+    project: "TMNN — Archaeological analysis of ESR's news reader"
     task: "Enriching GLANCE.yml files with security analysis"
     trigger: "Writing about C string functions (strstr, strcpy, strcat, gets)"
     
   # THE CHAIN OF DOCUMENTATION
   
   documented_in:
-    - tmnn7-8/analysis/self-analysis.yml       # Project incident report
+    - analysis/self-analysis.yml               # Project incident report
     - github-user/SKILL.md                     # Operational knowledge
     - github-user/CARD.yml                     # K-lines
     - THIS FILE                                # Canonical example

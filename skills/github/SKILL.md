@@ -191,4 +191,4 @@ From Linus (mellowed):
 
 ---
 
-*See also: [tmnn7-8/github-simulation](../../../tmnn7-8/analysis/skills/github-simulation/) for GitHub as MMORPG*
+*See also: the github-simulation skill (private TMNN project) for GitHub as MMORPG*

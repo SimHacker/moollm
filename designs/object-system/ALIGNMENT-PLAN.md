@@ -8,8 +8,8 @@ constitution [§15](../../kernel/constitution-core.md#15-the-semantic-image-pyra
 [§16](../../kernel/constitution-core.md#16-advertisements-push-into-the-auction-compile-graduate-universal)
 (one advertisement schema, compile then graduate, documented defaults).
 
-Repos in scope: moollm, WillWrightShowForFood (wwsff), DonHopkins, MicropolisCore,
-RepoShowPrivate. Each repo gets its own commits; untracked files in a repo are Don's work in
+Repos in scope: moollm, WillWrightShowForFood (wwsff), MicropolisCore, and private repos that
+are not named here, including the private biography repo. Each repo gets its own commits; untracked files in a repo are Don's work in
 progress and go into that repo's first commit.
 
 Work runs in five phases. Phases 1 and 2 can run in parallel once phase 0 is done; phase 3
@@ -20,7 +20,8 @@ needs both; phase 4 runs after every batch and once at the end.
 Don approves, edits or rejects the decisions in both analyses. Approved decisions go into
 [SCHEMA.md](SCHEMA.md) and the objsys-001 history; rejected ones are struck from the
 analyses. Facts about real people need a human regardless: every `consent.state: unverified`
-and every cross-layer disagreement is listed in `tasks/ALIGNMENT-REVIEW.yml`.
+and every cross-layer disagreement goes on a review list that is kept privately, because it
+names private files and individual people.
 
 ## Phase 1: define the schemas
 
@@ -49,47 +50,60 @@ CARD copy-down. Don reviews all six together before phase 3; this is the main hu
 
 ### Questions for that review
 
+Decided by Don on 2026-10-29:
+- Layer visibility: a public layer never names a private layer, in any key or in prose. The
+  private layer names and inherits the public one. The `private-ref` rule in `layers_lint`
+  and the `resolve.py leaks` scanner enforce this, reading the list of private repos from
+  `PRIVATE-REPOS.yml`, a file kept in a private repo and found by name (S4, T3).
+- Consent lives in the public show layer (the wwsff profile and invitation layer), because
+  that is what the person consents to. Private biography layers carry no consent record and
+  get it by lookup. No consent record means no consent; layers still state `not_asked`
+  explicitly (S5).
+- Consent state `interested` means the person said yes to the idea and nothing is agreed yet;
+  it governs nothing (S5).
+- What people consent to varies: a repo show invites any mix of media, timelines and levels of
+  participation. Confirming what Don wrote about them is participation, and there can be any
+  number of video, audio or email interviews. Consent is to participate; participation is
+  recorded per contribution in `invitation.participation` (wwsff `invitation-workflow.yml`) (S5).
+- Satire: declared parody of a public figure's public conduct is allowed as long as it never
+  claims to be them and invents no private life. Punch up, never down. The 🃏 and snatch-game
+  frames and `donna-toadstool` fall under this rule (S5).
+- `score_if`: a false `score_if` drops the bid to 0; there is no +20 bonus. T6 aligns
+  `adventure_runtime.py` with this (S1).
+- Memorial subject rights stay: family, estate and people who knew them may correct a
+  portrayal, with care after a recent death (S5).
+- `real_being` defaults to true unless `status: fictional`. Migration m13 adds
+  `status: fictional` to the fictional beings in adventure layers (S4).
+- wwsff `invitation-workflow.yml` adds the `invitation.status` values `warm`, `dream_guest`,
+  `stub` and `not_offered`; warmth moves to notes (S4).
+- Fictional signifier is 🎭, with 📖 as an alias; 🤖 marks robots and AIs (S4).
+- `moollm_home:` is navigation (`layers:`), not inheritance (S4).
+- Confirmed defaults: `invoked_by` is `[self, engine]` for lowercase methods (S2); cards
+  default to `tier` 2 and `k_lines` = the id uppercased (S3); `requires_items` means all (S1);
+  for real beings the biography layer wins disagreements (T3).
+
 Settled while drafting, open to reversal:
-- `invoked_by` default depends on name case: `[player, npc]` for UPPERCASE commands,
-  `[self, engine]` for lowercase functions (S2).
+- `invoked_by` defaults to `[player, npc]` for UPPERCASE commands (S2).
 - `governed_by` defaults to both real-being and representation-ethics, matching the biography
   header (S5).
 - `score_hint` words map to numbers: high 80, medium 50, low 20 (S1).
-- `requires_items` defaults to all, not any; `consume` lives in its map form (S1).
-- Card defaults: `k_lines` = the id uppercased, `tier` 2 (0 = foundational/ambient), `rarity`
-  common (values include epic), `see_also` = SKILL.md and README.md, `related:` entries
-  `{id, role, when, why}`, `license` added as the Dublin Core rights field (S3).
+- `consume` lives in its map form (S1).
+- Card defaults: `tier` 0 means foundational/ambient, `rarity` common (values include epic),
+  `see_also` = SKILL.md and README.md, `related:` entries `{id, role, when, why}`, `license`
+  added as the Dublin Core rights field (S3).
 - A card's `advertisements:`/`methods:` take entry shapes through `of:`, not `extends:` (S3).
 - Layer values add `profile` (Palm's wwsff page) and `prototype` (other moollm characters) (S4).
-- A public layer may name a private one in `derived_from:` or `layers:` by ref, never
-  `inherits:` from it (S4; the Alan Kay example names the DonHopkins repo).
 - Canonical layer order for disagreements: real beings biography, profile, adventure,
   prototype, page, cast, audience; fictional beings adventure first (T3).
 
 Open:
-- `score_if`: S1 defines a false `score_if` as bid 0 (still available), a numeric `score_if_js`
-  replaces the score. `adventure_runtime.py` instead adds +20 when it holds. T6 aligns the
-  runtime with whichever Don picks.
-- The public-figure rule forbids "defame or mock"; the satire frames (🃏, snatch-game) and
-  `donna-toadstool` (fictional satire of a public figure; its `ethics.consent_level:
-  public_figure_34_felonies_fair_game` is unmigrated until this is settled) need a framing
-  exception or narrower wording.
-- Memorial subject rights (family, estate and people who knew them may correct; care with a
-  recent death) are policy written by S5, not sourced from an existing doc.
 - `public_figure` is unknown, so the private rule applies, for real people whose old level was
   1 or 2 (about 115 layers). A pass can propose `public_figure: true` where the layer's own bio
   cites published work, for Don to confirm in bulk.
-- 18 DonHopkins layers and a few wwsff ones claimed explicit consent with no evidence on file:
-  `consent.state: unverified`, listed in `tasks/ALIGNMENT-REVIEW.yml` for Don to confirm with a
-  date and evidence, or correct.
-- `real_being` defaults to false in the adventure layer, so adventure-4's don-hopkins and
-  richard-bartle must state `true`; or default true everywhere unless `status: fictional` (S4).
-- `invitation.status` values in use but missing from wwsff `invitation-workflow.yml`: `warm`,
-  `dream_guest` (also a layer), `stub`, `not_offered`; cast `status: active` is unmapped (S4).
-- Fictional signifier: 🎭 (representation-ethics table) or 📖 (adventure-4 headers); 🤖 for
-  robots and AIs (S4).
-- `moollm_home:` is aliased to `inherits:`, but `audience-character.yml` describes it as a
-  cross-promotion link, which reads like `layers.adventure` (S4).
+- 18 biography layers and a few wwsff ones claimed explicit consent with no evidence on file:
+  `consent.state: unverified`, on the private review list for Don to confirm with a date and
+  evidence, or correct.
+- Cast `status: active` is unmapped (S4).
 - wwsff `portrayal-standards.yml` uses `meta:`, not `schema:`, and its consent table omits
   level 4; it becomes `schema: { extends: [representation] }` in phase 3.
 
@@ -153,9 +167,9 @@ applying. M12 (consent as facts) is applied.
 | M5 | moollm | 58 | drop `score_if: always` and other values that restate a default |
 | M6 | moollm | 20 entries, prototypes | `does:` → `description:`; `params`/`args`/`input` → `parameters` |
 | M7 | moollm | synonym table rows | `one_liner`, `references`, `related_skills`, `inherits_from`, `activates`, `allowed_tools`, ... one row per commit |
-| M8 | wwsff, DonHopkins | 434 | flatten `character:` envelopes (`flatten.py`) |
-| M9 | wwsff, DonHopkins, MicropolisCore | ~70 | parent spellings → `inherits:` / `derived_from:` / `layers:`; cross-repo refs → `moollm://` |
-| M10 | DonHopkins | ~70 | `representation.protocol:` → `governed_by:` |
+| M8 | wwsff, private biography repo | 434 | flatten `character:` envelopes (`flatten.py`) |
+| M9 | wwsff, private biography repo, MicropolisCore | ~70 | parent spellings → `inherits:` / `derived_from:` / `layers:`; cross-repo refs → `moollm://` |
+| M10 | private biography repo | ~70 | `representation.protocol:` → `governed_by:` |
 | M11 | moollm | 3 | recast "interest": `INTEREST-GATES.yml` → `ADVERTISEMENT-GATES.yml`, `directories_as_interests`, event-handler wording |
 
 ### Judgment
@@ -166,10 +180,10 @@ applying. M12 (consent as facts) is applied.
 | J2 | moollm | 153 cards in 8 shards of ~20 | `invoke_when:` lines into advertisement `score_if:`; `type:` list → one id + `tags:`; singular `advertisement:` → advertisements; `skill:` envelope; `status`/`version`; hyphenated keys; check GLANCE `when:` agreement |
 | J3 | moollm | adventure-4 in 6 shards by directory | graduate the obvious patterns (tag lists, items, state, flags, triggers, say/set) beside the prose, keep prose where it says more |
 | J4 | moollm, wwsff | 62 multi-interface directories in 3 shards | decide which UPPERCASE files are interfaces; write or extend the one CARD that summarizes them |
-| J5 | wwsff | 303 profiles in 8 shards of ~40 | core keys present (L1), `signifier`/`emoji` split, `type:` → being kind + `layer:` role, consent spelling, declare `derived_from:` the DonHopkins layer where one exists |
+| J5 | wwsff | 303 profiles in 8 shards of ~40 | core keys present (L1), `signifier`/`emoji` split, `type:` → being kind + `layer:` role, consent spelling; no reference to private layers (the private layer names the profile) |
 | J6 | wwsff | 28 audience seats, 25 cast | each seat names its profile layer; cast `inherits:` maps split; `layers:` copies |
-| J7 | DonHopkins | 90 in 3 shards | core keys, `layers:` pointing at the wwsff profile, ethics header kept (it is the travelling copy) |
-| J8 | MicropolisCore, RepoShowPrivate | 1 page, 4 cards; private characters | declare relations only; RepoShowPrivate stays private and nothing from it is copied into public repos |
+| J7 | private biography repo | 90 in 3 shards | core keys, `inherits:` and `layers:` pointing at the wwsff profile, ethics header kept (it is the travelling copy), consent read from the profile by lookup |
+| J8 | MicropolisCore, a private repo | 1 page, 4 cards; private characters | declare relations only; private layers name the public ones, and nothing from a private repo is copied into public repos |
 
 Rules every judgment agent gets with its shard:
 
@@ -191,8 +205,9 @@ After each batch and at the end:
   commit message and the objsys-001 history.
 - Compile adventure-4 and compare `build/adventure.json`: no advertisement, method or key lost.
 - Reparse every changed file.
-- A human-review list collects facts flagged by agents (consent, life dates, relations) in
-  `designs/object-system/tasks/ALIGNMENT-REVIEW.yml`.
+- A human-review list collects facts flagged by agents (consent, life dates, relations). It is
+  kept privately, because it names private files and individual people.
+- `resolve.py leaks` finds no private repo name or path in any public repo.
 
 ## Running it with agents
 

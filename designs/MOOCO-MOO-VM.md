@@ -115,7 +115,7 @@ Every invocation should carry **`--why`** (moo accepts it; orchestrator mandates
 | Session traces, `--why` audit | **MOOCO** |
 | Local multi-repo path map | **mooco** `workspace.json` + `git_*` tools (stub) |
 | Shadow overlays (GRANT/AFFLICT) | **MOOFS** ([MOOFS-DESIGN.md](MOOFS-DESIGN.md)) |
-| Local disk reification (symlink mounts) | **MOOT** (future — [private MOOKIE sketch](../../mooco/designs/MOOKIE.md)) |
+| Local disk reification (symlink mounts) | **MOOT** (future — unpublished MOOKIE sketch) |
 
 Moo solves **remote virtual filesystem** over GitHub. MOOT/MOOKIE (when built) solves **local tree composition**. MOOFS solves **which layer wins**. MOOCO holds the session together. Fragment **compose** → [PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md). Namespace table → [MOOCO-MANIFESTO.md](MOOCO-MANIFESTO.md).
 
@@ -236,7 +236,7 @@ The orchestrator prototype (`apps/mooco/`) today has:
 - `~/.mooco/workspace.json` — name → absolute path for **local** repos
 - `@moollm/tools-git` — scoped git operations
 
-It should **delegate remote `moollm://` to the moo skill**, not reimplement URL parsing. See [mooco/designs/MOOCO-REPOS.md](../../mooco/designs/MOOCO-REPOS.md) and [MOOKIE.md](../../mooco/designs/MOOKIE.md) for the trimmed private sketches.
+It should **delegate remote `moollm://` to the moo skill**, not reimplement URL parsing. See MOOCO repos notes (unpublished) and MOOKIE notes, both unpublished sketches.
 
 ---
 

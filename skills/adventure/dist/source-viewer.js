@@ -31,13 +31,13 @@
  * 
  * Examples:
  *   moollm://github/SimHacker/moollm/examples/adventure-4/street/lane-neverending
- *   moollm://github/leela-ai/central/apps/insights/pyleela/brain/WAMPAgent
+ *   moollm://github/example-org/app-monorepo/apps/insights/brain/Agent
  *   moollm://gitlab/myorg/myrepo/path/to/object
  *   moollm://local/path/to/file  (local filesystem)
  * 
  * SHORT FORMAT (uses aliases):
  *   moollm://moollm/skills/adventure  → expands to github/SimHacker/moollm/...
- *   moollm://central/apps/insights    → expands to github/leela-ai/central/...
+ *   moollm://app/apps/insights        → expands to github/example-org/app-monorepo/... (alias from config)
  * 
  * WITH GIT REF:
  *   moollm://github/SimHacker/moollm@v1.0.0/skills/adventure
@@ -98,27 +98,6 @@ class MoollmNamespace {
                 repo: 'moollm',
                 defaultBranch: 'main',
                 description: 'MOOLLM — Skills, adventures, and kernel'
-            }],
-            ['central', {
-                platform: 'github',
-                owner: 'leela-ai',
-                repo: 'central',
-                defaultBranch: 'main',
-                description: 'Leela Central — Main monorepo'
-            }],
-            ['gastown', {
-                platform: 'github',
-                owner: 'leela-ai',
-                repo: 'gastown',
-                defaultBranch: 'main',
-                description: 'Gastown — Go runtime'
-            }],
-            ['mooco', {
-                platform: 'github',
-                owner: 'leela-ai',
-                repo: 'mooco',
-                defaultBranch: 'main',
-                description: 'Mooco — New orchestrator'
             }]
         ]);
         

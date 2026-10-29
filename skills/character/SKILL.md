@@ -112,11 +112,11 @@ representation:
   consent: { state: not_asked }
   governed_by: [../../schemas/portrayal-standards.md]
 derived_from:
-  - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+  - ref: moollm://github/example-owner/private-archive/characters/alan-kay/
     transform: "projected for the show: adds the invitation, sources and people to discuss"
     copies: [name, status, born, died, representation.public_figure, representation.consent.state]
 layers:
-  biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+  biography: moollm://github/example-owner/private-archive/characters/alan-kay/
 ```
 
 `relationships:` is a map of id → `{type, narrative}` (plus `feeling`, `memories`, `hopes`);
@@ -278,7 +278,7 @@ auxiliary_files:
     parrot_can_squawk: false  # EXPLICIT PROHIBITION
 ```
 
-**See:** [tmnn7-8 StIGNUcius QUOTES.yml](https://github.com/SimHacker/tmnn7-8/tree/main/analysis/characters/StIGNUcius/QUOTES.yml) for an exemplary implementation.
+**See:** StIGNUcius `QUOTES.yml` in the TMNN code review project (private) for an exemplary implementation.
 
 ### Embedded NPCs (Room is Home)
 

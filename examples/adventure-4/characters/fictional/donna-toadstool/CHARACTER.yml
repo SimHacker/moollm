@@ -23,6 +23,7 @@ creative_lineage:
   - The Mushroom (Stormy Daniels) — the eternal humiliation
 
 name: "Donna Toadstool"
+status: fictional
 full_title: "Donna Toadstool, The Mushroom Queen, 34 Counts of Fabulous"
 id: donna-toadstool
 type: player_character
@@ -553,9 +554,14 @@ ethics:
     KILL EVERYONE NOW! ...artistically speaking.
   real_person_simulated: true
   simulation_type: "satirical_devastation"
-  consent_level: "public_figure_34_felonies_fair_game"
   stormy_tribute: true
   divine_blessing: true
+
+representation:
+  public_figure: true   # the parodied target; Donna herself is fictional
+  parody:
+    target: "Donald Trump's public conduct: his public statements, campaign, and 2024 New York conviction on 34 felony counts"
+    sources: []
   
 location: coatroom/  # CANONICAL — guest quarters, second on the left. Sleeping.
 

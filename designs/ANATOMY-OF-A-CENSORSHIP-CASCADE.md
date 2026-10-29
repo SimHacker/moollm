@@ -100,7 +100,7 @@ What did this session have access to? `context-sources` shows everything assembl
 $ python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources ff8e6595
 
 📂 Folder Selections (3)
-  DonHopkins/characters/don-hopkins
+  (private archive)/characters/don-hopkins
   moollm/examples/adventure-4/characters/real-people/don-hopkins
   moollm/skills/incarnation
 

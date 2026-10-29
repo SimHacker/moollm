@@ -28,7 +28,7 @@ name: moo
 description: |
   Moo VM
 repos:
-  - leela-ai/central
+  - example-org/app-monorepo
 """
     count, lines = sniff.sniff_smelly_lines(text, "x.yml")
     assert count >= 3
@@ -76,7 +76,7 @@ def test_sniff_skeleton_json():
 
 
 def test_sniff_skeleton_yaml():
-    content = "defaults:\n  depth: 1\nrepos:\n  - repo: leela-ai/alerts\n  - repo: leela-ai/central\n"
+    content = "defaults:\n  depth: 1\nrepos:\n  - repo: example-org/alerts\n  - repo: example-org/app-monorepo\n"
     out = sniff.sniff_skeleton(content, "overlay.yml", max_depth=None, format="text")
     assert out is not None
     assert "object	keys:" in out and "array	length:" in out

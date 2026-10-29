@@ -14,7 +14,7 @@ prefixes:
     translates_to: "https://github.com/{org}/{repo}/blob/main/{path}"
     examples:
       - moollm://github/SimHacker/moollm/skills/adventure/CARD.yml
-      - moollm://github/leela-ai/central/packages/llm/README.md
+      - moollm://github/example-org/app-monorepo/packages/llm/README.md
     notes:
       - "Default branch assumed 'main', can specify: moollm://github/org/repo@branch/path"
       - "Can address any file or directory"

@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """M9: parent spellings in CHARACTER.yml -> `inherits:` / `derived_from:`, cross-repo refs -> moollm://.
 
-Scope: CHARACTER.yml in WillWrightShowForFood, DonHopkins, MicropolisCore. Keys at the top level
-or directly inside a `character:` envelope:
+Scope: CHARACTER.yml in WillWrightShowForFood, MicropolisCore and the private biography repos
+(PRIVATE-REPOS.yml character_layers). Keys at the top level or directly inside a `character:`
+envelope:
 
-  character_ref, canonical_soul, prototype_ref, canonical_home, moollm_home, wwsff_local,
+  character_ref, canonical_soul, prototype_ref, canonical_home, wwsff_local,
   moollm_source, and an `inherits:` map           -> inherits: [ref, ...]
   upstream                                        -> derived_from: [ref]
 
@@ -36,7 +37,7 @@ import sys
 from functools import lru_cache
 from pathlib import Path
 
-from mlib import MOOLLM, Result, Skip, block_end, indent, is_content, run, split_comment
+from mlib import MOOLLM, Result, Skip, block_end, indent, is_content, private_character_repos, run, split_comment
 
 sys.path.insert(0, str(MOOLLM / "skills" / "prototype" / "scripts"))
 try:
@@ -44,7 +45,8 @@ try:
 except ImportError:
     refs = None
 
-INHERITS = ("character_ref", "canonical_soul", "prototype_ref", "canonical_home", "moollm_home",
+# moollm_home is navigation, an alias of layers:, never inherits:
+INHERITS = ("character_ref", "canonical_soul", "prototype_ref", "canonical_home",
             "wwsff_local", "moollm_source")
 DERIVED = ("upstream",)
 REF_KEYS = {"repo", "path", "absolute_url", "canonical_dir", "character_url", "character_dir",
@@ -289,5 +291,5 @@ def pred(base, p):
 
 
 if __name__ == "__main__":
-    sys.exit(run("m09_parent_spellings", __doc__, ["WillWrightShowForFood", "DonHopkins", "MicropolisCore"], pred,
+    sys.exit(run("m09_parent_spellings", __doc__, ["WillWrightShowForFood", "MicropolisCore", *private_character_repos(layer="biography")], pred,
                  re.compile(r"^\s*(" + "|".join(INHERITS + DERIVED) + r"|inherits)\s*:", re.M), transform))

@@ -4,8 +4,7 @@
 # ⬑ CAPTURED CANONICAL EXAMPLE.
 #   This is the quintessential INSTANCE the `stone` skill was generalized from.
 #   The skill (../SKILL.md) was "read off" THIS file — instance precedes class.
-#   Canonical authoring home (private): DonHopkins/characters/stone-librande/STONE.md
-#   captured_from: DonHopkins/characters/stone-librande/STONE.md
+#   Canonical authoring home: private archive (not public)
 #
 # This file is two things at once:
 #   1. A STONE — a quintessential one-page design (its subject: Stone Librande).

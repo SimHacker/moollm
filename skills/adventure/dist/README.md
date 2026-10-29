@@ -371,7 +371,7 @@ moollm://PLATFORM/OWNER/REPO/PATH/TO/OBJECT
 
 Examples:
   moollm://github/SimHacker/moollm/examples/adventure-4/street/lane-neverending
-  moollm://github/leela-ai/central/apps/insights/pyleela/brain
+  moollm://github/example-org/app-monorepo/apps/insights/brain
   moollm://gitlab/myorg/myrepo/path/to/object
   moollm://local/path/to/file
 ```
@@ -386,7 +386,7 @@ moollm://github/SimHacker/moollm@abc123def/debug-snapshot
 **Short format (uses aliases):**
 ```
 moollm://moollm/examples/adventure-4  → expands to github/SimHacker/moollm/...
-moollm://central/apps/insights        → expands to github/leela-ai/central/...
+moollm://app/apps/insights            → expands to github/example-org/app-monorepo/...
 moollm://moollm@v1.0.0/skills/adventure
 ```
 

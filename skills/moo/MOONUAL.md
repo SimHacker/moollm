@@ -32,7 +32,7 @@ An overlay YAML (e.g. ATTENTION-TREE.example.yml) defines which repos and branch
   Branch is the first path component (netloc in URL terms). Repo comes from `MOO_REPO` or `--repo`. Example: `moo://Issue_42/ALERT.yml`.
 
 - **moollm://**`repo`**/**`branch`**/**`path`  
-  Repo = netloc (owner/name). Path = `branch/path`. Example: `moollm://leela-ai/leela-alerts/Issue_42/ALERT.yml`.
+  Repo = netloc (owner/name). Path = `branch/path`. Example: `moollm://example-org/alerts/Issue_42/ALERT.yml`.
 
 ### 2.2 Fragment and query
 

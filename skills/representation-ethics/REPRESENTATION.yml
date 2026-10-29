@@ -58,14 +58,18 @@ schema:
         The record of asking the subject about this portrayal or show. A record, not a rank:
         it says what happened, when, and where the proof is. granted without evidence is a
         lint error and governs nothing; the rule falls through as if not asked.
+        The record lives in the public show layer, because the show is what the subject
+        consents to; private layers carry none and find it by lookup. No record means no
+        consent, and layers still state not_asked rather than leave it out.
       keys:
         state:
           shape: enum
-          values: [not_asked, asked, granted, declined, revoked, unverified]
+          values: [not_asked, asked, interested, granted, declined, revoked, unverified]
           default: not_asked
           value_meanings:
             not_asked: "nobody has asked them"
             asked: "asked; no answer yet"
+            interested: "wants to take part; planning the time, medium and scope. Governs nothing until granted: the rule falls through as for asked"
             granted: "agreed, within scope, with evidence"
             declined: "said no; the public-figure or private rule applies and the layer says what was declined"
             revoked: "agreed, then withdrew; nothing past the revocation date"
@@ -81,8 +85,14 @@ schema:
             invitation_accepted: granted
         scope:
           shape: prose
-          default: null
-          meaning: "what was agreed: which show, which uses, speaking as them or not"
+          default: "participate in the show, in any medium and on any timeline the subject chooses"
+          meaning: |
+            What was agreed. Consent to a repo show is consent to participate, and
+            participation takes many forms over time: confirming or correcting what was
+            written about them, email exchanges, any number of audio or video interviews,
+            writing their own lines. The show records each contribution separately
+            (invitation.participation). scope narrows that, and says whether they may be
+            simulated or spoken as; neither is implied by consent to participate.
         date:
           shape: string
           default: null
@@ -90,7 +100,9 @@ schema:
         evidence:
           shape: ref
           default: null
-          meaning: "the file or message that shows it: correspondence/..., an email subject and date"
+          meaning: |
+            What shows it: a public file, or a description of the message (medium, date,
+            subject). A public layer never gives a path into a private repo.
         note:
           shape: prose
           default: null
@@ -155,6 +167,21 @@ schema:
         right_to_object: { shape: bool, default: true }
         contact: { shape: prose, default: "via the author (authored_by)", aliases: [contact_for_correction] }
         note: { shape: prose, default: null }
+
+    parody:
+      shape: map
+      default: null
+      meaning: |
+        Declares the portrayal a parody. Allowed only under the public_figure rule, and only
+        of the target's public conduct: it never claims to be them, and invents no private
+        life. It punches up, at power and public acts, never down. The disclaimer names it
+        parody wherever it is rendered.
+      keys:
+        target: { shape: prose, meaning: "the public conduct parodied, with sources" }
+        sources: { shape: list, of: ref, default: [] }
+      example:
+        target: "his published statements and court record"
+        sources: [sources/]
 
     disclaimer:
       shape: prose
@@ -236,11 +263,14 @@ schema:
         - Quote only confirmed, sourced quotes, marked 💬 with citation and kept in context
         - Speculate only when clearly marked ("they might say", never "they said")
         - "Invoke their tradition as a K-line: \"the Minsky tradition suggests\""
+        - Declared parody (parody:) of their public conduct, punching up
       must_not:
         - "Impersonate or speak as them (\"I am Minsky and I think\")"
         - Fabricate quotes or positions as if real
         - Use quotes out of context
-        - Defame or mock
+        - Defame, or mock anything but their public conduct in a declared parody
+        - In a parody, claim to be them or invent a private life
+        - Punch down
         - Exploit commercially
         - Expose private information or private life details
 

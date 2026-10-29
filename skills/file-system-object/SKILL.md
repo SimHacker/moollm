@@ -656,7 +656,7 @@ So `foobars/` can answer messages (`CARD.yml` methods), describe itself at a gla
 Git branches are directories-with-history. The grammar extends:
 
 ```
-Branch ALERT_42 in leela-ai/leela-alerts:
+Branch ALERT_42 in example-org/alerts:
 ├── ALERT.yml                  ← "this branch exports the ALERT interface"
 ├── README.md                  ← "I have a human landing page"
 └── attachments/
@@ -782,7 +782,7 @@ When creating a new directory:
 | **[adventure](../adventure/)** | Hierarchical nesting: adventures contain sessions, sessions contain rooms, rooms contain characters, characters contain memory. Every level uses the grammar. |
 | **[yaml-jazz](../yaml-jazz/)** | UPPERCASE YAML marker files are all YAML Jazz — structured YAML where comments + structure both carry meaning |
 | **DOP** ([delegation-object-protocol.md](../skill/delegation-object-protocol.md)) | PROTOTYPES.yml is the ordered prototype stack declaration; first-match-wins resolution walks the directory tree guided by this grammar |
-| **Branch-as-object** (leela-ai/leela-alerts `Issue_<id>` pattern) | Same grammar, git-branch storage backend. The branch root directory implements an interface declared by an UPPERCASE marker file. |
+| **Branch-as-object** (example-org/alerts `Issue_<id>` pattern) | Same grammar, git-branch storage backend. The branch root directory implements an interface declared by an UPPERCASE marker file. |
 
 ---
 
@@ -862,7 +862,7 @@ This grammar did not appear from nowhere. The ideas it combines have been circli
 
 **MOOLLM DOP** ([`../skill/delegation-object-protocol.md`](../skill/delegation-object-protocol.md)). Formalized Self-style delegation for LLM-read-able filesystems. `PROTOTYPES.yml` is an interface export under the grammar this skill names; DOP is the resolution algorithm that uses the grammar.
 
-**MOOLLM branch-as-object** (`leela-ai/leela-alerts` Issue_<n> / ALERT_<n> branches). Extends the grammar from filesystems to git branches — the branch's root directory declares its implemented interface via an UPPERCASE marker file. See [`skills/github/protocols/branch-as-object.md`](../github/protocols/branch-as-object.md).
+**MOOLLM branch-as-object** (`example-org/alerts` Issue_<n> / ALERT_<n> branches). Extends the grammar from filesystems to git branches — the branch's root directory declares its implemented interface via an UPPERCASE marker file. See [`skills/github/protocols/branch-as-object.md`](../github/protocols/branch-as-object.md).
 
 What MOOLLM adds to this long conversation:
 

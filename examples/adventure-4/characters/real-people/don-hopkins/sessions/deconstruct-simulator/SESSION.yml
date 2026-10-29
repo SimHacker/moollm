@@ -5,7 +5,6 @@
 # Location: moollm/examples/adventure-4/characters/real-people/don-hopkins/sessions/deconstruct-simulator/
 #
 # Cross-references:
-#   tmnn7-8 wiki: https://github.com/SimHacker/tmnn7-8/wiki/Deconstructing-the-Simulator
 #   Morningstar original: https://www.fudco.com/chip/deconstr.html
 #   Habitat lessons: http://www.fudco.com/chip/lessons.html
 
@@ -76,7 +75,7 @@ session_log:
   - speaker: don_hopkins
     type: opening
     content: |
-      I want to understand how the tmnn7-8 simulation actually works.
+      I want to understand how the TMNN simulation actually works.
       
       Not just "it uses the gh CLI" — but the full architectural stack.
       How do skills compose? What patterns emerge? What's hidden?
@@ -321,7 +320,7 @@ session_log:
       
       **Consequence 4: Teaching Through Simulation**
       
-      The tmnn7-8 simulation teaches:
+      The TMNN simulation teaches:
       - Security practices (real bugs, real fixes)
       - Open source dynamics (endless discussion, sparse action)
       - Epistemology (what does "code review" actually check?)
@@ -394,7 +393,7 @@ conclusions:
 
   - title: "Teaching Through Simulation Works"
     detail: |
-      The tmnn7-8 simulation teaches security, open source dynamics,
+      The TMNN simulation teaches security, open source dynamics,
       and epistemology through play. The joke (endless discussion,
       sparse action) is also the lesson.
 
@@ -402,7 +401,7 @@ next_actions:
   - Create a MOOLLM skill for other forges (GitLab, Gitea)
   - Document the representation-ethics pattern for reuse
   - Build simulations for other domains (moderation, support)
-  - Extend the tmnn7-8 cast with new characters
+  - Extend the TMNN cast with new characters
   - Write the wiki page documenting this session
 
 references:
@@ -484,9 +483,5 @@ references:
       - "Linus's Law" — named after Linus without permission
       - "Open Source" — relabeled RMS's "Free Software" movement
       
-      The tmnn7-8 simulation respects Linus by making him a PATRON SAINT
+      The TMNN simulation respects Linus by making him a PATRON SAINT
       whose wisdom infuses the skill, rather than putting words in his mouth.
-    
-  tmnn7-8_wiki:
-    title: "Deconstructing the Simulator"
-    url: https://github.com/SimHacker/tmnn7-8/wiki/Deconstructing-the-Simulator

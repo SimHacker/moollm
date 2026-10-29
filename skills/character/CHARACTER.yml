@@ -80,20 +80,24 @@ schema:
       ethics included, even when another layer states them too. A copy is never removed
       because another layer has it; a copy that disagrees is a lint finding.
     safe_defaults: >
-      An omitted key never makes a real person easier to portray. Outside the fictional
-      layers an omitted real_being means a real person, an omitted status means unknown and is
+      An omitted key never makes a real person easier to portray. In every layer an omitted
+      real_being means a real person unless status is fictional, an omitted status means unknown and is
       treated as living, an omitted public_figure means unknown and is treated as private, and
       an omitted consent means not asked. The governing rule is computed from these facts
       (skills/representation-ethics/REPRESENTATION.yml schema.rules) and never stored.
-    real_people_in_fictional_layers: >
-      A real person in an adventure, cast or prototype layer states real_being: true. The
-      cross-layer lint reports a fictional-layer file whose id has another layer with
-      real_being: true and that states nothing.
+    fictional_beings_say_so: >
+      A fictional being states status: fictional (or real_being: false) in every layer,
+      adventure, cast and prototype layers included, so a real person is never treated as
+      fictional because a key was left out.
     visibility: >
-      inherits never points from a layer in a public repo to one in a private repo. A public
-      layer may name a private layer in derived_from or layers by ref only: the ref discloses
-      that the layer exists and where, nothing it contains, and copies lists only facts the
-      public layer states itself. The lint lists these refs for review.
+      A layer in a public repo never names a private repo or a layer in one: not in inherits,
+      derived_from, layers, see_also, evidence or prose. The private layer names and inherits
+      the public one. Which repos are private is kept in a PRIVATE-REPOS.yml in a private
+      repo, found by name; layers_lint reports private-ref and resolve.py leaks scans every
+      public checkout.
+    consent_placement: >
+      The consent record lives in the public show layer, the one the subject consents to.
+      Private layers state none and find it by lookup.
     life_status: "status: on a being is a life fact (SCHEMA.md); invitation.status is a work status"
     dates: "YYYY, YYYY-MM or YYYY-MM-DD; two dates agree when they agree at the lower precision (1940 and 1940-05-17)"
 
@@ -115,8 +119,7 @@ schema:
     real_being:
       shape: bool
       default: >
-        Computed, first rule that applies: false when status is fictional; false when layer is
-        adventure, cast or prototype; true otherwise, including when layer is absent.
+        Computed: false when status is fictional; true otherwise, in every layer.
       meaning: "a real person or animal that exists independent of the repo; turns on representation ethics"
       example: true
 
@@ -144,6 +147,7 @@ schema:
     signifier:
       shape: enum
       values: ["👤", "🕯️", "🎭", "🤖"]
+      value_aliases: { "📖": "🎭" }
       default: "👤 when status is living or unknown and real_being is true; 🕯️ when deceased; 🎭 when fictional, 🤖 when the fictional being is a robot or AI"
       meaning: "who is being represented, per skills/representation-ethics; a topical emoji goes in emoji:"
       example: "👤"
@@ -172,7 +176,7 @@ schema:
       value_meanings:
         adventure: "playing in a moollm adventure: location, inventory, sims, mind_mirror, advertisements, methods"
         prototype: "a moollm skill prototype or skill example outside any adventure"
-        biography: "an authored portrayal of a real being: representation ethics, bio, correspondence, ties (DonHopkins/characters/)"
+        biography: "an authored portrayal of a real being, kept in a private repo: bio, correspondence, ties"
         profile: "a being's home page in a show repo that is not an invitation, memorial or dream guest (WillWrightShowForFood characters/palm/)"
         invitation: "a living person invited, or to be invited, to a show"
         memorial: "a deceased person represented and discussed, never interviewed"
@@ -182,8 +186,8 @@ schema:
         page: "a published page about the being (MicropolisCore website pages/about/)"
       default: >
         Computed from where the file is, null when no rule matches: examples/*/characters/ in
-        moollm → adventure; elsewhere in moollm → prototype; DonHopkins/characters/ →
-        biography; WillWrightShowForFood characters/{menagerie,sims,robots}/ → cast;
+        moollm → adventure; elsewhere in moollm → prototype; a private repo's characters/ →
+        the layer its PRIVATE-REPOS.yml entry names (biography); WillWrightShowForFood characters/{menagerie,sims,robots}/ → cast;
         repo-shows/*/audience/ → audience; WillWrightShowForFood characters/<id>/ → memorial
         or dream_guest when invitation.status says so, invitation when an invitation: block
         exists, profile otherwise. skills/prototype/scripts/layers_survey.py applies these rules.
@@ -216,11 +220,12 @@ schema:
 
     representation.consent.state:
       shape: enum
-      values: [not_asked, asked, granted, declined, revoked, unverified]
+      values: [not_asked, asked, interested, granted, declined, revoked, unverified]
       default: not_asked
       value_meanings:
         not_asked: "nobody has asked them"
         asked: "asked; no answer yet"
+        interested: "wants to take part; planning the time, medium and scope; governs nothing until granted"
         granted: "agreed, within scope, with evidence; without evidence it is a lint error and governs nothing"
         declined: "said no; the public-figure or private rule applies"
         revoked: "agreed, then withdrew; nothing past the revocation date"
@@ -279,7 +284,7 @@ schema:
       shape: list
       of: ref
       default: []
-      aliases: [character_ref, moollm_source, wwsff_local, canonical_soul, prototype_ref, canonical_home, moollm_home]
+      aliases: [character_ref, moollm_source, wwsff_local, canonical_soul, prototype_ref, canonical_home]
       meaning: >
         Lookup (SCHEMA.md Parents): a slot this layer lacks comes from these layers and skills,
         most specific first. A {repo, path, absolute_url, ...} map becomes one moollm:// ref. A
@@ -309,7 +314,7 @@ schema:
       shape: map
       of: ref
       default: {}
-      aliases: [menagerie, profile_home, wwsff_overlay.audience_fork]
+      aliases: [menagerie, profile_home, moollm_home, wwsff_overlay.audience_fork]
       meaning: >
         Navigation: the being's other layers, keyed by layer value; a list of refs when a layer
         has several (audience seats). A concentrated copy of what the survey finds on disk,
@@ -368,7 +373,7 @@ schema:
         name: Palm
         type: npc
         layer: adventure                 # also the default for examples/*/characters/
-        status: fictional                # real_being false by default in an adventure layer
+        status: fictional                # so real_being is false
         signifier: "🎭"
         emoji: "🐒✋🌴🔮💜"
         representation: { authored_by: don-hopkins }
@@ -385,7 +390,7 @@ schema:
         name: Palm
         type: fictional_ai_agent
         layer: profile
-        real_being: false                # stated: a profile layer defaults to true
+        real_being: false
         status: fictional
         signifier: "🎭"
         emoji: "🐒✋🌴🔮💜"
@@ -402,7 +407,7 @@ schema:
         id: palm
         name: Palm
         type: fictional_ai_agent
-        layer: cast                      # real_being false by default in a cast layer
+        layer: cast
         status: fictional
         signifier: "🎭"
         emoji: "🐒✋🌴🔮💜"
@@ -421,7 +426,7 @@ schema:
         name: Palm
         type: fictional_ai_agent
         layer: audience
-        real_being: false                # stated: an audience layer defaults to true
+        real_being: false
         status: fictional
         signifier: "🎭"
         inherits: [../../../../characters/palm/]
@@ -433,30 +438,9 @@ schema:
         planted: { disclosure: true }    # audience-layer key, owned by schemas/audience-character.yml
 
     alan-kay:
-      # A real person: a biography layer, and an invitation layer derived from it. Neither
-      # inherits the other; the lint compares the copies listed in derived_from.
-      biography:
-        file: moollm://github/SimHacker/DonHopkins/characters/alan-kay/CHARACTER.yml
-        id: alan-kay
-        name: Alan Kay
-        type: person
-        layer: biography                 # real_being true by default outside the fictional layers
-        status: living
-        born: "1940"
-        signifier: "👤"
-        representation:
-          authored_by: don-hopkins
-          public_figure: true
-          consent: { state: not_asked }
-          governed_by:
-            - moollm://github/SimHacker/moollm/skills/real-being/
-            - moollm://github/SimHacker/moollm/skills/representation-ethics/
-            - HERO-STORY
-        inherits:
-          - moollm://github/SimHacker/moollm/skills/real-being/
-          - moollm://github/SimHacker/moollm/skills/representation-ethics/
-        layers:
-          invitation: moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/
+      # A real person: a public invitation layer, and a biography layer in a private repo
+      # that inherits it. The public layer names no private layer; the consent record is
+      # the invitation's, and the biography finds it by lookup.
       invitation:
         file: moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/CHARACTER.yml
         id: alan-kay
@@ -464,7 +448,7 @@ schema:
         type: person
         layer: invitation
         status: living
-        born: "1940-05-17"               # agrees with the biography's 1940 at year precision
+        born: "1940-05-17"
         signifier: "👤"
         emoji: "💡"
         representation:
@@ -472,9 +456,25 @@ schema:
           public_figure: true
           consent: { state: not_asked }  # one record for the portrayal and the invitation
           governed_by: [../../schemas/portrayal-standards.md]
-        derived_from:
-          - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
-            transform: "projected for the show: adds the invitation, sources and people to discuss"
-            copies: [name, status, born, died, representation.public_figure, representation.consent.state]
+      biography:
+        file: "moollm://github/<owner>/<private-repo>/characters/alan-kay/CHARACTER.yml"
+        id: alan-kay
+        name: Alan Kay
+        type: person
+        layer: biography
+        status: living
+        born: "1940"                     # agrees with the invitation's 1940-05-17 at year precision
+        signifier: "👤"
+        representation:                  # no consent: it comes from the invitation by lookup
+          authored_by: don-hopkins
+          public_figure: true
+          governed_by:
+            - moollm://github/SimHacker/moollm/skills/real-being/
+            - moollm://github/SimHacker/moollm/skills/representation-ethics/
+            - HERO-STORY
+        inherits:
+          - moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/
+          - moollm://github/SimHacker/moollm/skills/real-being/
+          - moollm://github/SimHacker/moollm/skills/representation-ethics/
         layers:
-          biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
+          invitation: moollm://github/SimHacker/WillWrightShowForFood/characters/alan-kay/

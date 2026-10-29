@@ -28,7 +28,7 @@ import re
 import sys
 from pathlib import Path
 
-from mlib import Result, Skip, block_end, header_lines, indent, is_content, run, split_comment
+from mlib import Result, Skip, block_end, header_lines, indent, is_content, private_character_repos, run, split_comment
 
 LEVEL_KEYS = ("consent_level", "consent", "kind")
 STATE = {
@@ -259,6 +259,6 @@ def yaml_scalar(v) -> str:
 
 
 if __name__ == "__main__":
-    sys.exit(run("m12_consent", __doc__, ["DonHopkins", "WillWrightShowForFood", "MicropolisCore", "moollm", "RepoShow", "RepoShowPrivate"],
+    sys.exit(run("m12_consent", __doc__, ["WillWrightShowForFood", "MicropolisCore", "moollm", "RepoShow", *private_character_repos()],
                  lambda b, p: p.name == "CHARACTER.yml" or "audience" in p.parts,
                  re.compile(r"consent_level|^\s*consent\s*:|^\s*kind\s*:\s*self", re.M), transform))

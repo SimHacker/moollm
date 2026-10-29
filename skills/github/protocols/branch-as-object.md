@@ -264,8 +264,8 @@ An empty `parents` array is what makes it a root commit, so the object's tree sh
 
 | Repo | Type | Branch | Stores |
 |---|---|---|---|
-| `leela-ai/leela-alerts` | `Issue` | `Issue_<id>` | per-alert state, evidence, query results |
-| `leela-ai/leela-alerts` | `ALERT` | `ALERT_<n>` | alert definition + evolution |
+| `example-org/alerts` | `Issue` | `Issue_<id>` | per-alert state, evidence, query results |
+| `example-org/alerts` | `ALERT` | `ALERT_<n>` | alert definition + evolution |
 | reading cursors | `cursor`, `character` | `cursor_<id>` | position, inventory, path — [CURSOR-STORAGE.md](../../../designs/webtop/CURSOR-STORAGE.md) |
 
 ## References

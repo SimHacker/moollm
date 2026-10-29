@@ -21,7 +21,7 @@ defaults:
     0: [GLANCE.yml]
     1: [CARD.yml]
 repos:
-  - repo: leela-ai/alerts
+  - repo: example-org/alerts
     type: Issue
     depth: 2
     at_depth:
@@ -29,11 +29,11 @@ repos:
       1: [CARD.yml]
       2: [ALERT.yml]
 """)
-    repos_config = {"alerts": {"github": "leela-ai/alerts"}}
+    repos_config = {"alerts": {"github": "example-org/alerts"}}
     out = overlay.load_overlay(str(f), repos_config)
     assert len(out["repos"]) == 1
     r = out["repos"][0]
-    assert r["repo"] == "leela-ai/alerts"
+    assert r["repo"] == "example-org/alerts"
     assert r["type"] == "Issue"
     assert r["depth"] == 2
     assert r["at_depth"][0] == ["GLANCE.yml"]

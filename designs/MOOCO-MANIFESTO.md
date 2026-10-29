@@ -40,7 +40,7 @@ This is the **single source** for what each name means and its status. Other doc
 | **MOOFS**       | design           | Overlay file system — git layers, shadows, GRANT/AFFLICT mounts ([MOOFS-DESIGN.md](MOOFS-DESIGN.md))                                                                               |
 | **fragments**   | proposed         | Self-ish session/workspace config — `parents` merge, materialize scripts ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md))                                            |
 | **MOOMC**       | future           | Meta compiler — distill fragments/skills into git-addressable artifacts (branch `ClassName_ObjectID`, tag, or repo) ([PROTOTYPE-FRAGMENT-CONFIG.md](PROTOTYPE-FRAGMENT-CONFIG.md)) |
-| **MOOT**        | future           | Local git tree reifier — symlinks/worktrees on disk; complements moo's remote gh-backed VM ([mooco MOOKIE sketch](../../mooco/designs/MOOKIE.md))                                  |
+| **MOOT**        | future           | Local git tree reifier — symlinks/worktrees on disk; complements moo's remote gh-backed VM (unpublished MOOKIE sketch)                                  |
 
 
 ---

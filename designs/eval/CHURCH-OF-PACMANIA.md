@@ -15,7 +15,7 @@ Don Hopkins built it as a scripted-agent demo for Micropolis Online (Python/SWIG
 | HN 2020 | [Enemy AI: chasing a player](https://news.ycombinator.com/item?id=22849908) — the algorithm |
 | HN 2025 | [Citybound](https://news.ycombinator.com/item?id=44911545) — PacMania named as automotive Rautavaara |
 | HN 2026 | [When 2+2=5](https://news.ycombinator.com/item?id=48805234) — Don's plot of the Dick story, plus Rosenthal on coprophagia |
-| Harvest | [pacbot-church-of-pacmania.yml](https://github.com/SimHacker/DonHopkins/blob/main/characters/don-hopkins/notes/hacker-news/pacbot-church-of-pacmania.yml) |
+| Harvest | pacbot-church-of-pacmania.yml (Don's private archive) |
 | Show gag | [Gods Eat Worshippers](https://github.com/SimHacker/WillWrightShowForFood/blob/main/bits/gag-gods-eat-worshippers/gag-gods-eat-worshippers.yml) |
 
 Same zone file also defines `MicropolisZone_ChurchOfScientology` (Xenu bot). Another rite on the same generator. Not this chapel.

@@ -31,8 +31,7 @@ Near the end, in Q&A, **Nicole Lazzaro** asked what he thought of mind mapping s
 
 That is Ted, on the record, answering a question. Not a paraphrase of Don. Digest:
 [`WillWrightShowForFood/.../2021-08-10-baychi-hci-constructs-transcript-digest.md`](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/ted-nelson/sources/2021-08-10-baychi-hci-constructs-transcript-digest.md)
-· puppet/MCC notes:
-[`DonHopkins/.../2021-08-10-baychi-ted-nelson-qa.md`](https://github.com/SimHacker/DonHopkins/blob/main/characters/aaron-marcus/sources/2021-08-10-baychi-ted-nelson-qa.md)
+· puppet/MCC notes: `2021-08-10-baychi-ted-nelson-qa.md` (Don's private archive)
 
 His criterion, same talk, answering Aaron Marcus: a document is **sendable**, it **expresses
 a point of view**, and **a person has to make it**. A mind map is a tangle. A trail is a

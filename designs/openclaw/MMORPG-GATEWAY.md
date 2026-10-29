@@ -4,7 +4,7 @@
 
 **Date:** 2026-02-06
 **Status:** Design Document
-**Related:** [../GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md), tmnn7-8 github-simulation skill
+**Related:** [../GITHUB-AS-MMORPG.md](../GITHUB-AS-MMORPG.md), github-simulation skill (private TMNN project)
 
 ---
 
@@ -246,7 +246,7 @@ Which characters go where, and why:
 # openclaw.yml additions for MMORPG mode
 mmorpg:
   enabled: true
-  github_repo: "SimHacker/tmnn7-8"  # or whatever repo
+  github_repo: "example-org/parody-repo"  # or whatever repo
   characters:
     - name: StIGNUcius
       channel: telegram

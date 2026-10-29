@@ -360,7 +360,7 @@ room:
 |------|--------|------------|----------|
 | 1 | Deploy church-of-emacs skill to OpenClaw | StIGNUcius | Local CLI |
 | 2 | Deploy eval-genius skill | "Val" Dobias | Local CLI |
-| 3 | Deploy github-mmorpg skill | All tmnn7-8 characters | GitHub |
+| 3 | Deploy github-mmorpg skill | All TMNN characters | GitHub |
 | 4 | StIGNUcius goes live on Telegram | StIGNUcius + Copyleft | Telegram |
 | 5 | Church of Eval Genius opens Discord | "Val", Sisters | Discord |
 | 6 | MOOLLM extension for OpenClaw | All characters | All channels |

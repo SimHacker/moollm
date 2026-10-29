@@ -389,6 +389,28 @@ def test_empty_command():
     return True
 
 
+def test_score_if_gates_the_bid():
+    """score_if false bids 0; true or absent bids base_score, no bonus."""
+    print("\n=== test_score_if_gates_the_bid ===")
+
+    from adventure_runtime import Advertisement
+
+    world = WorldState()
+    lonely = Advertisement("CHAT", base_score=60, score_if="player is lonely",
+                           score_if_py=lambda w: w.get_flag("lonely"))
+    assert lonely.score(world) == 0, "false score_if should bid 0"
+    world.set_flag("lonely", True)
+    assert lonely.score(world) == 60, "true score_if should bid base_score"
+    assert Advertisement("LOOK", base_score=40).score(world) == 40, "no score_if bids base_score"
+
+    def boom(w):
+        raise RuntimeError("bad condition")
+    assert Advertisement("X", base_score=30, score_if_py=boom).score(world) == 30
+
+    print("✓ score_if gates the bid")
+    return True
+
+
 # TEST RUNNER
 
 def run_all_tests():
@@ -411,6 +433,7 @@ def run_all_tests():
         test_stats_command,
         test_save_load_commands,
         test_empty_command,
+        test_score_if_gates_the_bid,
     ]
     
     passed = 0

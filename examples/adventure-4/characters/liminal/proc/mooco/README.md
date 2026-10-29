@@ -2,7 +2,7 @@
 
 > *The moo custom orchestrator. Proc sees both.*
 
-When MOOLLM runs on [MOOCO](https://github.com/SimHacker/mooco) (the custom orchestrator with explicit context control) instead of Cursor, this directory replaces `/proc/cursor/*` as the IDE-layer view. MOOCO-mirror provides the equivalent introspection.
+When MOOLLM runs on MOOCO (the custom orchestrator with explicit context control) instead of Cursor, this directory replaces `/proc/cursor/*` as the IDE-layer view. MOOCO-mirror provides the equivalent introspection.
 
 | Virtual File | What It Shows |
 |-------------|---------------|

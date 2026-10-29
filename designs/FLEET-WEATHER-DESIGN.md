@@ -1,7 +1,6 @@
 # Fleet Weather — Reactive Capacity Orchestration with LLM-in-the-Loop
 
-*Copied out of Leela AI's private `central` repo (tools/utils/docs/
-fleet-weather-design.md, captured 2026-04-25) and shared by Don Hopkins
+*Copied out of a private Leela AI repo (captured 2026-04-25) and shared by Don Hopkins
 as a concrete production example of the selfish configuration lineage —
 see [SELFISH-CONFIG-IN-PRODUCTION](SELFISH-CONFIG-IN-PRODUCTION.md) and
 [PROTOTYPE-FRAGMENT-CONFIG](PROTOTYPE-FRAGMENT-CONFIG.md). Relative

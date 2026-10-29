@@ -168,14 +168,14 @@ Extradition requests are PRs.
 | Repo | Diplomatic Status | Notes |
 |------|-------------------|-------|
 | moollm (public) | Main embassy | Official MOOLLM territory |
-| DonHopkins (private) | Personal consulate | Private character development |
-| tmnn7-8 | Satirical enclave | Protected parody zone |
+| Don's private archive | Personal consulate | Private character development |
+| TMNN code review (private) | Satirical enclave | Protected parody zone |
 | MicropolisCore | Historical museum | SimCity/Micropolis archives |
 
 ### The TMNN Incident
 
 The TMNN Archaeological Code Review project exists to document ESR's
-conduct through his own words. The [parody Code of Conduct](https://github.com/SimHacker/tmnn7-8/blob/main/CODE-OF-CONDUCT.md)
+conduct through his own words. The parody Code of Conduct
 is performance art that holds a mirror to decades of documented behavior.
 
 ---
@@ -384,8 +384,8 @@ MOOLLM uses a layered approach to public/private repos:
 |-------|------|------------|----------|
 | Public | SimHacker/moollm | Public | Skills, designs, documentation |
 | Public | SimHacker/MicropolisCore | Public | Micropolis, historical |
-| Public | SimHacker/tmnn7-8 | Public | Satirical archaeology |
-| Private | DonHopkins | Private | Personal character, detailed history |
+| Private | TMNN code review | Private | Satirical archaeology |
+| Private | Don's private archive | Private | Personal character, detailed history |
 
 ### One-Way References
 

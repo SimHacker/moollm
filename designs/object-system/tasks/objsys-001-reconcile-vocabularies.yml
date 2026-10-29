@@ -89,8 +89,8 @@ history:
   - at: 2026-10-29
     event: analyzed
     note: >
-      Character layers across moollm, WillWrightShowForFood, DonHopkins, RepoShowPrivate,
-      MicropolisCore: designs/object-system/CHARACTER-LAYERS-ANALYSIS.md (decisions L1-L12).
+      Character layers across moollm, WillWrightShowForFood, MicropolisCore and private
+      layers: designs/object-system/CHARACTER-LAYERS-ANALYSIS.md (decisions L1-L12).
       522 CHARACTER.yml, 67 ids with several layers; seven parent spellings; consent level
       disagrees for bill-joy and scott-draves. Survey: skills/prototype/scripts/layers_survey.py.
   - { at: 2026-10-29, event: decided, by: don, note: "approved all leanings: CARD-ANALYSIS 1-18, CHARACTER-LAYERS-ANALYSIS L1-L12; consent levels of bill-joy and scott-draves stay with Don. Schema file format in SCHEMA.md 'Schema files'. ALIGNMENT-PLAN wave 1 started" }
@@ -113,7 +113,7 @@ phases:
   - { id: clusters, status: done, out: "designs/object-system/VOCABULARY-CLUSTERS.md" }
   - { id: schema,   status: done, out: "designs/object-system/SCHEMA.md" }
   - { id: behavior, status: done, out: "designs/object-system/CARD-ANALYSIS.md, skills/prototype/scripts/behavior_survey.py" }
-  - { id: alignment-plan, status: opened, out: "designs/object-system/ALIGNMENT-PLAN.md: schemas S1-S6, tools T1-T6, migrations M1-M11 and J1-J8 across moollm, wwsff, DonHopkins, MicropolisCore, RepoShowPrivate" }
+  - { id: alignment-plan, status: opened, out: "designs/object-system/ALIGNMENT-PLAN.md: schemas S1-S6, tools T1-T6, migrations M1-M11 and J1-J8 across moollm, wwsff, MicropolisCore and private repos" }
   - id: resolver
     status: done
     out: >

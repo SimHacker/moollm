@@ -62,7 +62,7 @@ addressing:
     origin:
       - "moollm://leela-alerts/Issue_0/ALERT.yml"
       - "moollm://leela-alerts/Issue_abc123/evidence/frames/frame-000-t0.jpg"
-      - "moollm://central/Camera_BADHOEVEDORP_1/GLANCE.yml"
+      - "moollm://app-monorepo/Camera_BADHOEVEDORP_1/GLANCE.yml"
       - "moollm://moollm/Character_Rocky/CARD.yml"
   mounting: |
     The mooco orchestrator mounts moos into the local moo:// namespace from
@@ -73,7 +73,7 @@ addressing:
   mount_examples:
     - "mount: moo://Issue_0 from moollm://leela-alerts/Issue_0"
     - "mount: moo://Character_Rocky from moollm://moollm/Character_Rocky"
-    - "mount: moo://Camera_BADHOEVEDORP_1 from moollm://central/Camera_BADHOEVEDORP_1"
+    - "mount: moo://Camera_BADHOEVEDORP_1 from moollm://app-monorepo/Camera_BADHOEVEDORP_1"
   fragments: |
     URLs drill into structured files using # fragment paths.
     moo://Issue_0/ALERT.yml#severity → "info"
@@ -220,12 +220,12 @@ related:
 # First application
 first_application:
   name: "Leela Alerts"
-  repo: "leela-ai/leela-alerts"
+  repo: "example-org/alerts"
   description: |
     Alert events stored as Issue_ branches. Each alert is a moocroworld
     with ALERT.yml, evidence (frames, dashboards), analysis (vision/LLM),
     actions (approve, reject, escalate, resolve), and delivery log.
     Issue_0 is the prototype alert — the schema-as-example.
-  design_doc: "leela-ai/central apps/alerts/doc/ALERTS-NODE-POSTGRES-DESIGN.md §13"
+  design_doc: "ALERTS-NODE-POSTGRES-DESIGN.md §13 (private monorepo)"
 
 tier: 1

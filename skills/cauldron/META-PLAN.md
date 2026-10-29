@@ -24,9 +24,9 @@ The first thing cauldron was used to brew was another cauldron. Specifically: th
 
 This was the hand-compiled, bootstrap cauldron:
 
-1. A real project's docs accumulated over 30+ conversational turns (`leela-ai/central/docs/CONFIGURATION-FLAGS-PLAN.md`, 1917 lines).
+1. A real project's docs accumulated over 30+ conversational turns (`CONFIGURATION-FLAGS-PLAN.md` in a private consumer repo, 1917 lines).
 2. A Phase-2 tree was produced by one single user turn ("now break it up").
-3. The process was observed, named, and generalized into a pattern (`central/docs/configuration/META-PLAN.md`, 263 lines).
+3. The process was observed, named, and generalized into a pattern (`docs/configuration/META-PLAN.md` in the same repo, 263 lines).
 4. That pattern was lifted into a MOOLLM skill (`moollm/skills/cauldron/`).
 5. This META-PLAN — the one you are reading — is the *skill's own retrospective* on that origin, separate from but dual to the project's.
 

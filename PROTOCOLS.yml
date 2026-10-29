@@ -785,8 +785,9 @@ REPRESENTATION-ETHICS:
     MEMORIAL: "Deceased. Cannot consent. Proceed with reverence."
     SELF_AUTHORED: "You own your digital self. Full freedom."
     CONSENTED: "Granted, with evidence on file. Within the agreed scope."
-    PUBLIC_FIGURE: "Tradition is fair game. Persona requires care."
+    PUBLIC_FIGURE: "Tradition is fair game. Persona requires care. Declared parody of public conduct, punching up."
     PRIVATE: "Fictional wrappers only."
+    # interested governs nothing until granted
     
   frames_that_matter:
     IMPERSONATION: "FORBIDDEN — deceptive fraud"
@@ -825,6 +826,8 @@ CONSENT-HIERARCHY:
     4. PUBLIC FIGURE — public_figure: true. Tradition OK, persona careful
     5. PRIVATE — otherwise. Fictional wrappers
     Consent is a record (state, scope, date, evidence), never a rank.
+    interested is an open door, not consent. Parody (parody:) is a public-figure
+    allowance: public conduct only, punch up, never claim to be them, no invented private life.
 
 GAME-FRAME:
   meaning: "Play context transforms ethics."

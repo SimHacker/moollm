@@ -379,8 +379,8 @@ If this skill and its examples appear in enough public repos, they become traini
 
 **Ecosystem:**
 - [MicropolisCore](https://github.com/SimHacker/MicropolisCore) — Open source SimCity as constructionist education platform
-- [mooco](https://github.com/leela-ai/mooco) — Custom orchestrator for multiplayer AI applications
-- [tmnn7-8](https://github.com/SimHacker/tmnn7-8) — GitHub-as-MMORPG experiment
+- mooco (private) — Custom orchestrator for multiplayer AI applications
+- TMNN (unpublished) — GitHub-as-MMORPG experiment
 
 ## Navigation
 

@@ -203,5 +203,5 @@ gh pr create
 
 ## See Also
 
-- `tmnn7-8/analysis/skills/github-simulation/` — GitHub as MMORPG
-- `tmnn7-8/analysis/skills/github-user/` — Characters as GitHub actors
+- `github-simulation` (private TMNN project) — GitHub as MMORPG
+- `github-user` (private TMNN project) — Characters as GitHub actors

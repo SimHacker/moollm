@@ -472,7 +472,7 @@ This isn't just branding. It's a design philosophy that produces fundamentally d
 
 ### The Discovery
 
-The [tmnn7-8 experiment](https://github.com/SimHacker/tmnn7-8) proved that GitHub is accidentally an MMORPG engine:
+The TMNN experiment proved that GitHub is accidentally an MMORPG engine:
 
 | GitHub Feature | MMORPG Equivalent |
 |----------------|-------------------|

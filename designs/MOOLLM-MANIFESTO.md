@@ -328,7 +328,7 @@ They exist to help creative people plant seeds, not to "kill" anything.
 
 ### The Discovery
 
-The [tmnn7-8 experiment](https://github.com/SimHacker/tmnn7-8) proved that GitHub is accidentally an MMORPG engine:
+The TMNN experiment proved that GitHub is accidentally an MMORPG engine:
 
 | GitHub Feature | MMORPG Equivalent |
 |----------------|-------------------|

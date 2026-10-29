@@ -17,7 +17,7 @@ allowed-tools:
   - grep
 related: [skill, schema, prototype, card, yaml-jazz, file-system-object, sister-script]
 tags: [biome, meta, mother, prototype, platform-descriptor, schemapedia, ecology, microworld]
-credits: "MOOLLM — lifted from three sister biomes that accreted independently in a consumer repo (leela-ai/central: edgebox, gcs, azure) then congealed into a publishable meta-skill pattern, 2026-04"
+credits: "MOOLLM — lifted from three sister biomes that accreted independently in a private consumer repo (edgebox, gcs, azure) then congealed into a publishable meta-skill pattern, 2026-04"
 ---
 
 # BIOME — Mother Skill for Platform Descriptors
@@ -318,4 +318,4 @@ Cross-cutting biomes are structurally **the same shape** as bounded ones (same s
 
 This skill is **Tier 1** (MOOLLM core). It is published as part of the MOOLLM distribution and is freely reusable under MIT. Consumer repos adopt it by declaring `inherits: biome` in their platform-descriptor skills and populating their own `biomes/registry.yml` + `biomes/gateways.yml`.
 
-Origin: this skill was synthesized from three sister biomes (`edgebox`, `gcs`, `azure`) that accreted independently in a consumer infrastructure repo (leela-ai/central), until the shared shape became obvious enough to extract. The PLAY-LEARN-LIFT arc — three concrete biomes → meta-skill — is the archetypal MOOLLM lift.
+Origin: this skill was synthesized from three sister biomes (`edgebox`, `gcs`, `azure`) that accreted independently in a private consumer infrastructure repo, until the shared shape became obvious enough to extract. The PLAY-LEARN-LIFT arc — three concrete biomes → meta-skill — is the archetypal MOOLLM lift.

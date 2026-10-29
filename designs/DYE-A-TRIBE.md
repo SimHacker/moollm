@@ -5,7 +5,7 @@ self-revealing UI, visible signifiers** — not glass that photographs well and 
 
 ## Canonical essay (Don's voice)
 
-https://github.com/SimHacker/DonHopkins/blob/main/characters/don-hopkins/dye-a-tribe.md
+https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/dye-a-tribe.md
 
 ## Companion series (constructive program)
 

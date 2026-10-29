@@ -166,7 +166,7 @@ Player 3: 🐢 "I'm walking the perimeter, laying down paths"
 | Time | Event |
 |------|-------|
 | 20:08:24 | 📍 **User:** "Write design doc about git importance for moollm" |
-| 20:08:30 | 📂 `mooco/` — exploring orchestrator |
+| 20:08:30 | 📂 MOOCO design notes (unpublished) — exploring orchestrator |
 | 20:08:31 | 🔍 grep "git" in skills/ |
 | 20:08:42 | 🧠 6.5s — Found tools-git package |
 | 20:08:50 | ✏️ Creating `GIT-AS-FOUNDATION.md` |

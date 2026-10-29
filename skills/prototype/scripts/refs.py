@@ -12,7 +12,7 @@ for directories).
 Accepted spellings (read, never emitted):
   moollm://github/SimHacker/moollm/skills/real-being/
   https://github.com/SimHacker/moollm/tree/main/examples/...   (also blob/, raw.githubusercontent.com)
-  moollm/examples/...           first segment is a known repo (KNOWN_REPOS)
+  moollm/examples/...           first segment is a known repo (known_repos())
   SimHacker/moollm/examples/... owner/repo prefix
   {repo: SimHacker/moollm, path: moollm/examples/..., absolute_url: ..., canonical_dir: ...,
    character_url: ..., card: ..., character_yml: ...}   the wwsff cast/profile map
@@ -23,7 +23,9 @@ Bare ids, K-lines and prose are not refs here (parse_ref returns None); resolve.
 them. Nothing raises on bad input: unparseable values give None and callers report.
 
 Roots, searched in order: $MOOLLM_ROOTS (os.pathsep-separated), then the directory holding
-the moollm checkout this file lives in.
+the moollm checkout this file lives in. A repo's owner comes from `git remote get-url origin`
+of its sibling checkout under a root (visibility.remote_slug); PUBLIC_REPOS covers the public
+repos when no checkout is there.
 
 Usage:
     refs.py parse  VALUE              print the Ref and its canonical URI
@@ -40,26 +42,29 @@ import posixpath
 import re
 import sys
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+try:
+    from visibility import remote_slug  # noqa: E402
+except Exception:
+    def remote_slug(checkout: Path | str) -> str | None:
+        return None
+
 SCHEME = "moollm://github/"
 DEFAULT_OWNER = "SimHacker"
 DEFAULT_BRANCH = "main"
-# Owners checked against `git remote get-url origin` of each sibling checkout, 2026-10-29.
-KNOWN_REPOS = {
+# public repos whose owner holds when no sibling checkout says otherwise
+PUBLIC_REPOS = {
     "moollm": "SimHacker",
     "WillWrightShowForFood": "SimHacker",
-    "DonHopkins": "SimHacker",
     "MicropolisCore": "SimHacker",
     "RepoShow": "SimHacker",
-    "RepoShowPrivate": "SimHacker",
-    "mooco": "SimHacker",
 }
-_REPO_BY_LOWER = {k.lower(): k for k in KNOWN_REPOS}
-_OWNERS_LOWER = {v.lower(): v for v in KNOWN_REPOS.values()}
 
 GITHUB_URL = re.compile(r"^https?://(?:www\.)?github\.com/([^/]+)/([^/?#]+)(?:/(tree|blob)/([^/?#]+)(/[^?#]*)?)?/?(?:\?[^#]*)?$")
 RAW_URL = re.compile(r"^https?://raw\.githubusercontent\.com/([^/]+)/([^/]+)/([^/]+)/([^?#]*)")
@@ -93,6 +98,44 @@ def default_roots() -> list[Path]:
     return norm_roots(roots)
 
 
+@lru_cache(None)
+def _sibling_repos(roots: tuple[Path, ...]) -> dict[str, str]:
+    """repo name -> owner from the origin of each checkout under the roots, for the owners of
+    PUBLIC_REPOS only: another owner's repo name ('ai', 'blog') is too likely a plain path."""
+    owners = {o.lower() for o in PUBLIC_REPOS.values()}
+    out: dict[str, str] = {}
+    for root in roots:
+        try:
+            dirs = sorted(d for d in root.iterdir() if (d / ".git").exists())
+        except OSError:
+            continue
+        for d in dirs:
+            slug = remote_slug(d)
+            if not slug:
+                continue
+            owner, name = slug.split("/", 1)
+            if owner.lower() in owners:
+                out.setdefault(name, owner)
+    return out
+
+
+def known_repos() -> dict[str, str]:
+    """repo name -> owner: PUBLIC_REPOS, then what the sibling checkouts' remotes say."""
+    try:
+        siblings = _sibling_repos(tuple(default_roots()))
+    except Exception:
+        siblings = {}
+    return {**PUBLIC_REPOS, **siblings}
+
+
+def _repo_by_lower() -> dict[str, str]:
+    return {k.lower(): k for k in known_repos()}
+
+
+def _owners_lower() -> dict[str, str]:
+    return {v.lower(): v for v in known_repos().values()}
+
+
 def norm_roots(roots: list[Path] | list[str] | None) -> list[Path]:
     if roots is None:
         return default_roots()
@@ -107,9 +150,10 @@ def norm_roots(roots: list[Path] | list[str] | None) -> list[Path]:
 def canonical_repo(owner: str | None, repo: str) -> tuple[str, str]:
     """Known repos get their canonical spelling and owner; GitHub names are case-insensitive."""
     repo = repo[:-4] if repo.endswith(".git") else repo
-    known = _REPO_BY_LOWER.get(repo.lower())
-    if known and (owner is None or owner.lower() == KNOWN_REPOS[known].lower()):
-        return KNOWN_REPOS[known], known
+    known = _repo_by_lower().get(repo.lower())
+    owners = known_repos()
+    if known and (owner is None or owner.lower() == owners[known].lower()):
+        return owners[known], known
     return owner or DEFAULT_OWNER, repo
 
 
@@ -163,9 +207,10 @@ def _parse_string(value: str) -> Ref | None:
     if path and not PATH_LIKE.match(path):
         return None  # prose
     segs = [p for p in path.split("/") if p]
-    if len(segs) >= 2 and segs[0].lower() in _OWNERS_LOWER and segs[1].lower() in _REPO_BY_LOWER:
+    repos = _repo_by_lower()
+    if len(segs) >= 2 and segs[0].lower() in _owners_lower() and segs[1].lower() in repos:
         return _absolute(segs[0], segs[1], "/".join(segs[2:]) + ("/" if path.endswith("/") else ""), frag)
-    if segs and segs[0].lower() in _REPO_BY_LOWER and "/" in path:
+    if segs and segs[0].lower() in repos and "/" in path:
         return _absolute(None, segs[0], "/".join(segs[1:]) + ("/" if path.endswith("/") else ""), frag)
     if not path and frag:
         return Ref(None, None, "", frag, "file")  # "#objects.bench": the same file
@@ -277,15 +322,12 @@ def checkout_of(path: Path, roots: list[Path]) -> tuple[Path, str, str] | None:
 
 
 def remote_of(checkout: Path) -> tuple[str, str] | None:
-    """owner/repo from the checkout's .git/config origin url; None for a known repo or no config."""
-    if checkout.name.lower() in _REPO_BY_LOWER:
+    """(owner, repo) from the checkout's origin; None when it has none."""
+    slug = remote_slug(checkout)
+    if not slug:
         return None
-    try:
-        text = (checkout / ".git" / "config").read_text(encoding="utf-8")
-    except (OSError, UnicodeDecodeError):
-        return None
-    m = re.search(r'\[remote "origin"\][^\[]*?url\s*=\s*\S*github\.com[:/]([^/\s]+)/([^/\s]+?)(?:\.git)?\s', text + "\n")
-    return (m.group(1), m.group(2)) if m else None
+    owner, repo = slug.split("/", 1)
+    return owner, repo
 
 
 def absolutize(ref: Ref, base: Path | str, roots: list[Path] | None = None) -> Ref | None:

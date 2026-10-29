@@ -55,7 +55,7 @@ class UriForm(unittest.TestCase):
         self.assertEqual(r, Ref("SimHacker", "moollm", "examples/aisle-e/PROTOTYPES.yml", "prototypes.wine-rack", "file"))
 
     def test_repo_root(self) -> None:
-        self.assertEqual(parse_ref("moollm://github/SimHacker/DonHopkins/"), Ref("SimHacker", "DonHopkins", "", "", "dir"))
+        self.assertEqual(parse_ref("moollm://github/SimHacker/RepoShow/"), Ref("SimHacker", "RepoShow", "", "", "dir"))
 
     def test_unknown_repo_keeps_its_owner(self) -> None:
         self.assertEqual(parse_ref("moollm://github/open-simh/simh/PDP18B/"), Ref("open-simh", "simh", "PDP18B", "", "dir"))
@@ -92,8 +92,22 @@ class RepoRelative(unittest.TestCase):
         self.assertEqual(parse_ref("SimHacker/moollm/skills/real-being/"), Ref("SimHacker", "moollm", "skills/real-being", "", "dir"))
 
     def test_every_known_repo(self) -> None:
-        for repo, owner in refs.KNOWN_REPOS.items():
+        for repo, owner in refs.known_repos().items():
             self.assertEqual(parse_ref(f"{repo}/README.md"), Ref(owner, repo, "README.md", "", "file"), repo)
+
+    def test_owners_come_from_sibling_remotes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp).resolve()
+            for name, url in (("zeta-notes", "git@github.com:SimHacker/zeta-notes.git"),
+                              ("ai", "https://github.com/someone-else/ai.git")):
+                (root / name / ".git").mkdir(parents=True)
+                (root / name / ".git" / "config").write_text(f'[remote "origin"]\n\turl = {url}\n')
+            (root / "no-remote" / ".git").mkdir(parents=True)
+            self.assertEqual(refs._sibling_repos((root,)), {"zeta-notes": "SimHacker"})
+            with mock.patch.dict(os.environ, {"MOOLLM_ROOTS": str(root)}):
+                self.assertEqual(parse_ref("zeta-notes/characters/x/"),
+                                 Ref("SimHacker", "zeta-notes", "characters/x", "", "dir"))
+                self.assertEqual(parse_ref("ai/x/y.yml"), Ref(None, None, "ai/x/y.yml", "", "file"))
 
 
 class MapForm(unittest.TestCase):
@@ -192,7 +206,7 @@ class Canonical(unittest.TestCase):
 
     def test_round_trip(self) -> None:
         for v in (MONKEY_PALM_URI, PALM_INHERITS["card"], "moollm://github/SimHacker/moollm/a/B.yml#objects.x",
-                  "SimHacker/moollm/", "DonHopkins/characters/will-wright/CHARACTER.yml"):
+                  "SimHacker/moollm/", "WillWrightShowForFood/characters/palm/CHARACTER.yml"):
             r = parse_ref(v)
             self.assertEqual(parse_ref(to_uri(r)), r, v)
 
@@ -221,8 +235,8 @@ class Locate(unittest.TestCase):
     def test_missing_falls_back_to_github(self) -> None:
         self.assertEqual(locate("moollm://github/SimHacker/moollm/skills/dog/", roots=[self.root]),
                          "https://github.com/SimHacker/moollm/tree/main/skills/dog")
-        self.assertEqual(locate("moollm://github/SimHacker/mooco/README.md", roots=[self.root]),
-                         "https://github.com/SimHacker/mooco/blob/main/README.md")
+        self.assertEqual(locate("moollm://github/SimHacker/NotCheckedOut/README.md", roots=[self.root]),
+                         "https://github.com/SimHacker/NotCheckedOut/blob/main/README.md")
 
     def test_env_roots_come_first(self) -> None:
         with mock.patch.dict(os.environ, {"MOOLLM_ROOTS": f"/nonexistent{os.pathsep}{self.root}"}):

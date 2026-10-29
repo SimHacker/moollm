@@ -4,7 +4,7 @@ The rwk-chat conversation talks about "the orchestrator" as if it were
 hypothetical: the kernel that manages the context window as virtual memory,
 handles interrupts at token boundaries, pages skills in and out, schedules
 background cognition. It is not hypothetical. It is MOOCO — the MOO Custom
-Orchestrator, a sibling repo (`mooco/`) with roughly 17,000 lines of design
+Orchestrator, an unpublished corpus of roughly 17,000 lines of design
 documents, derived from Leela's production PDA orchestrator (Juho Hietala) and
 extended with MOOLLM patterns. ChatGPT never heard about it; there wasn't
 bandwidth in the session. This document supplies the half of the conversation

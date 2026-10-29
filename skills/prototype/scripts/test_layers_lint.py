@@ -16,7 +16,7 @@ import yaml
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import layers_lint as ll  # noqa: E402
 
-BIO = "DonHopkins/characters"
+BIO = "secret-notes/characters"
 PROFILE = "WillWrightShowForFood/characters"
 CAST = "WillWrightShowForFood/characters/menagerie"
 AUDIENCE = "WillWrightShowForFood/repo-shows/show/audience"
@@ -43,8 +43,16 @@ GRANTED = {"state": "granted", "date": "2026-08-01", "evidence": "correspondence
 class LintCase(unittest.TestCase):
     def setUp(self) -> None:
         self.root = Path(tempfile.mkdtemp(prefix="layers_lint_"))
-        for repo in ("moollm", "DonHopkins", "WillWrightShowForFood"):
-            (self.root / repo).mkdir()
+        for repo, slug in (("moollm", "SimHacker/moollm"), ("secret-notes", "acme/secret-notes"),
+                           ("WillWrightShowForFood", "SimHacker/WillWrightShowForFood"),
+                           ("ZetaPrivate", "acme/ZetaPrivate")):
+            (self.root / repo / ".git").mkdir(parents=True)
+            (self.root / repo / ".git" / "config").write_text(
+                f'[remote "origin"]\n\turl = git@github.com:{slug}.git\n')
+        (self.root / "ZetaPrivate" / "PRIVATE-REPOS.yml").write_text(yaml.safe_dump({
+            "naming_rule": "names containing private",
+            "repos": ["acme/secret-notes", "acme/ZetaPrivate"],
+            "character_layers": {"acme/secret-notes": {"path": "characters/", "layer": "biography"}}}))
         (self.root / "moollm/skills/real-being").mkdir(parents=True)
         self.saved_refs = ll._refs
         ll._refs = None
@@ -68,15 +76,15 @@ class LintCase(unittest.TestCase):
 
 class FactTests(LintCase):
     def test_public_figure_disagreement_is_error_and_review_item(self) -> None:
-        self.put(BIO, "bill", person("bill"))
-        self.put(PROFILE, "bill", person("bill", representation=rep(public_figure=False),
-                                         inherits=["moollm://github/x/DonHopkins/characters/bill/"]))
+        self.put(BIO, "bill", person("bill",
+                                     inherits=["moollm://github/x/WillWrightShowForFood/characters/bill/"]))
+        self.put(PROFILE, "bill", person("bill", representation=rep(public_figure=False)))
         res = self.lint()
         errs = [f for f in res["findings"] if f.severity == "error"]
         self.assertEqual([(f.rule, f.file) for f in errs],
                          [("fact-public-figure", f"{PROFILE}/bill/CHARACTER.yml")])
         self.assertIn("False here", errs[0].message)
-        self.assertEqual(errs[0].layers, ["donhopkins", "wwsff-profile"])
+        self.assertEqual(errs[0].layers, ["biography", "wwsff-profile"])
         self.assertEqual(len(res["review"]), 1)
         item = res["review"][0]
         self.assertEqual((item["id"], item["fact"], item["reason"], item["decision"]),
@@ -111,7 +119,7 @@ class FactTests(LintCase):
         res = self.lint()
         stale = [f for f in res["findings"] if f.rule == "consent-stale"]
         self.assertEqual([(f.severity, f.file) for f in stale], [("warning", f"{BIO}/s/CHARACTER.yml")])
-        self.assertIn("donhopkins is behind", stale[0].message)
+        self.assertIn("biography is behind", stale[0].message)
         self.assertNotIn("error", [s for s, _ in self.rules(res, "s")])
         self.assertEqual(res["review"], [])
 
@@ -150,6 +158,13 @@ class FactTests(LintCase):
         r = self.rules(self.lint(), "bot")
         self.assertIn(("warning", "status-vocabulary"), r)
         self.assertNotIn("error", [s for s, _ in r])
+
+    def test_reified_is_fictional(self) -> None:
+        self.put(ADVENTURE, "elf", {"id": "elf", "name": "Elf", "status": "fictional", "signifier": "🎭"})
+        self.put(CAST, "elf", {"id": "elf", "name": "Elf", "status": "reified", "signifier": "🎭"})
+        r = self.rules(self.lint(), "elf")
+        self.assertNotIn(("warning", "status-vocabulary"), r)
+        self.assertNotIn(("warning", "public-figure-unknown"), r)
 
     def test_name_disagreement_is_warning(self) -> None:
         self.put(BIO, "n", person("n", name="Ann Smith"))
@@ -233,13 +248,13 @@ class RepresentationRuleTests(LintCase):
                                            "note": "old friend; cheered the plans"}])
 
     def test_private_repo_entries_carry_only_path_and_value(self) -> None:
-        p = self.root / "RepoShowPrivate/characters/q/CHARACTER.yml"
-        lay = ll.Layer("private", "RepoShowPrivate", "characters/q/CHARACTER.yml", p,
+        p = self.root / "ZetaPrivate/characters/q/CHARACTER.yml"
+        lay = ll.Layer("private", "ZetaPrivate", "characters/q/CHARACTER.yml", p,
                        {"representation": {"consent": {"state": "unverified", "note": "secret"}}})
         lay.f = lay.data
         entry = ll.value_entry(ll.Fact(lay, "unverified", "representation.consent.state"),
                                self.root, note=True)
-        self.assertEqual(entry, {"layer": "private", "file": "RepoShowPrivate/characters/q/CHARACTER.yml",
+        self.assertEqual(entry, {"layer": "private", "file": "ZetaPrivate/characters/q/CHARACTER.yml",
                                  "value": "unverified"})
 
     def test_bad_consent_values_warn_without_crashing(self) -> None:
@@ -271,37 +286,38 @@ class RelationTests(LintCase):
     def test_legacy_spelling_counts_and_is_reported(self) -> None:
         self.put(BIO, "p", person("p", public_portrayal="WillWrightShowForFood/characters/p/"))
         self.put(PROFILE, "p", person("p", moollm_source={
-            "repo": "SimHacker/DonHopkins", "path": "DonHopkins/characters/p",
-            "absolute_url": "https://github.com/SimHacker/DonHopkins/tree/main/characters/p"}))
+            "repo": "SimHacker/moollm", "path": "moollm/examples/adventure-4/characters/p",
+            "absolute_url": "https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/characters/p"}))
+        self.put(ADVENTURE, "p", person("p", see_also=["../../../../../WillWrightShowForFood/characters/p/"]))
         r = self.rules(self.lint(), "p")
         self.assertNotIn(("warning", "relation-missing"), r)
         self.assertNotIn(("warning", "ref-unresolved"), r)
-        self.assertEqual(r.count(("info", "relation-alias")), 2)
+        self.assertEqual(r.count(("info", "relation-alias")), 3)
 
     def test_relative_ref_and_see_also(self) -> None:
         self.put(PROFILE, "q", person("q"))
         self.put(AUDIENCE, "q", person("q", character_ref="../../../../characters/q/CHARACTER.yml"))
         self.put(BIO, "q", person("q", see_also=["../../../WillWrightShowForFood/characters/q/"]))
         r = self.rules(self.lint(), "q")
-        self.assertEqual(r.count(("warning", "relation-missing")), 1)
+        self.assertEqual(r.count(("warning", "relation-missing")), 0)
         self.assertEqual(r.count(("info", "relation-alias")), 2)
 
     def test_unresolved_ref(self) -> None:
-        self.put(BIO, "u", person("u"))
-        self.put(PROFILE, "u", person("u", upstream="../../../DonHopkins/characters/nobody/"))
+        self.put(PROFILE, "u", person("u"))
+        self.put(BIO, "u", person("u", upstream="../../../WillWrightShowForFood/characters/nobody/"))
         self.assertIn(("warning", "ref-unresolved"), self.rules(self.lint(), "u"))
 
     def test_absent_repo_and_foreign_urls_are_not_checked(self) -> None:
         self.put(BIO, "u", person("u"))
-        self.put(PROFILE, "u", person("u", inherits=["moollm://github/x/RepoShowPrivate/characters/u/",
+        self.put(PROFILE, "u", person("u", inherits=["moollm://github/x/NotCheckedOut/characters/u/",
                                                     "https://example.com/u"]))
         self.assertNotIn(("warning", "ref-unresolved"), self.rules(self.lint(), "u"))
 
     def test_fictional_canonical_is_adventure(self) -> None:
         self.put(ADVENTURE, "grue", {"id": "grue", "name": "Grue", "status": "fictional",
-                                    "signifier": "👾", "inherits": ["skills/real-being"]})
+                                    "signifier": "🎭", "inherits": ["skills/real-being"]})
         self.put(CAST, "grue", {"character": {"id": "grue", "name": "Grue", "real_being": False,
-                                              "status": "fictional", "signifier": "👾"}})
+                                              "status": "fictional", "signifier": "🎭"}})
         res = self.lint()
         missing = [f.file for f in res["findings"] if f.rule == "relation-missing"]
         self.assertEqual(missing, [f"{CAST}/grue/CHARACTER.yml"])
@@ -350,8 +366,8 @@ class RobustnessTests(LintCase):
                 raise ValueError("nope")
 
         ll._refs = Broken()
-        self.put(BIO, "r", person("r"))
-        self.put(PROFILE, "r", person("r", inherits=["moollm://github/x/DonHopkins/characters/r/"]))
+        self.put(PROFILE, "r", person("r"))
+        self.put(BIO, "r", person("r", inherits=["moollm://github/x/WillWrightShowForFood/characters/r/"]))
         self.assertNotIn(("warning", "relation-missing"), self.rules(self.lint(), "r"))
 
     def test_refs_module_hit_is_used(self) -> None:
@@ -372,12 +388,107 @@ class RobustnessTests(LintCase):
         except Exception:
             self.skipTest("refs.py not importable")
         ll._refs = refs
-        self.put(BIO, "t", person("t"))
-        self.put(PROFILE, "t", person("t", inherits=["moollm://github/SimHacker/DonHopkins/characters/t/"],
-                                      upstream="../../../DonHopkins/characters/missing/"))
+        self.put(PROFILE, "t", person("t"))
+        self.put(BIO, "t", person("t", inherits=["moollm://github/SimHacker/WillWrightShowForFood/characters/t/"],
+                                  upstream="../../../WillWrightShowForFood/characters/missing/"))
         r = self.rules(self.lint(), "t")
         self.assertNotIn(("warning", "relation-missing"), r)
         self.assertIn(("warning", "ref-unresolved"), r)
+
+
+class VisibilityTests(LintCase):
+    def test_public_layer_naming_a_private_repo_is_an_error(self) -> None:
+        self.put(BIO, "v", person("v", inherits=["moollm://github/SimHacker/WillWrightShowForFood/characters/v/"]))
+        self.put(PROFILE, "v", person("v", inherits=["moollm://github/acme/secret-notes/characters/v/"],
+                                      see_also=["../../../secret-notes/characters/v/"],
+                                      notes={"where": "drafts live in ZetaPrivate/notes/",
+                                             "hn": "news.ycombinator.com/user?id=secret-notes"}))
+        res = self.lint()
+        hits = [f for f in res["findings"] if f.rule == "private-ref"]
+        self.assertEqual([(f.severity, f.file) for f in hits], [("error", f"{PROFILE}/v/CHARACTER.yml")] * 3)
+        self.assertEqual(sorted(f.message.split(" names")[0] for f in hits),
+                         ["character.inherits[0]", "character.notes.where", "character.see_also[0]"])
+
+    def test_private_layer_may_name_public_layers(self) -> None:
+        self.put(BIO, "w", person("w", inherits=["moollm://github/SimHacker/WillWrightShowForFood/characters/w/"]))
+        self.put(PROFILE, "w", person("w"))
+        r = self.rules(self.lint(), "w")
+        self.assertNotIn(("error", "private-ref"), r)
+        self.assertNotIn(("warning", "relation-missing"), r)
+
+    def test_private_layer_layer_kind_comes_from_private_repos_file(self) -> None:
+        self.put(BIO, "k", person("k"))
+        self.put("secret-notes/drafts", "k", person("k"))
+        res = self.lint()
+        self.assertEqual(sorted({l for f in res["findings"] for l in f.layers if f.id == "k"}),
+                         ["biography", "private-other"])
+
+    def test_consent_lives_in_the_public_layer(self) -> None:
+        self.put(BIO, "c", person("c", inherits=["moollm://github/SimHacker/WillWrightShowForFood/characters/c/"],
+                                  representation=rep(public_figure=False)))
+        self.put(PROFILE, "c", person("c", representation=rep(public_figure=False, consent=GRANTED)))
+        self.put(BIO, "d", person("d", representation=rep(consent={"state": "asked"})))
+        self.put(PROFILE, "d", person("d"))
+        res = self.lint()
+        self.assertEqual(next(b["rule"] for b in res["beings"] if b["id"] == "c"), "consented")
+        self.assertNotIn("consent-placement", [f.rule for f in res["findings"] if f.id == "c"])
+        self.assertIn(("info", "consent-placement"), self.rules(res, "d"))
+
+
+class ConsentVocabularyTests(LintCase):
+    def test_interested_comes_from_the_schema_and_governs_nothing(self) -> None:
+        schema = self.root / "REPRESENTATION.yml"
+        schema.write_text(yaml.safe_dump({"schema": {"keys": {"consent": {"keys": {"state": {
+            "values": ["not_asked", "asked", "interested", "granted", "declined", "revoked",
+                       "unverified"]}}}}}}))
+        states, _ = ll.load_consent_vocabulary(schema)
+        self.assertIn("interested", states)
+        saved = ll.STATES
+        ll.STATES = states
+        try:
+            self.put(PROFILE, "i", person("i", representation=rep(public_figure=True,
+                                                                  consent={"state": "interested"})))
+            self.put(PROFILE, "j", person("j", representation=rep(public_figure=False,
+                                                                  consent={"state": "interested"})))
+            res = self.lint(["i", "j"])
+        finally:
+            ll.STATES = saved
+        self.assertNotIn("consent-state-unknown", [f.rule for f in res["findings"]])
+        self.assertEqual({b["id"]: b["rule"] for b in res["beings"]}, {"i": "public_figure", "j": "private"})
+
+    def test_fallback_vocabulary_knows_interested(self) -> None:
+        states, _ = ll.load_consent_vocabulary(self.root / "missing.yml")
+        self.assertIn("interested", states)
+
+
+class RealBeingDefaultTests(LintCase):
+    def test_real_unless_fictional_in_every_layer(self) -> None:
+        self.put(ADVENTURE, "plain", {"id": "plain", "name": "Plain"})
+        self.put(CAST, "fic", {"id": "fic", "name": "Fic", "status": "fictional"})
+        self.put(ADVENTURE, "no", {"id": "no", "name": "No", "real_being": False, "status": "living"})
+        res = self.lint(["plain", "fic", "no"])
+        self.assertEqual({b["id"]: b["real_being"] for b in res["beings"]},
+                         {"plain": True, "fic": False, "no": False})
+
+    def test_fictional_signifier_and_alias(self) -> None:
+        self.put(ADVENTURE, "book", {"id": "book", "name": "Book", "status": "fictional", "signifier": "📖"})
+        self.put(CAST, "book", {"id": "book", "name": "Book", "status": "fictional", "signifier": "🎭"})
+        self.put(ADVENTURE, "bot", {"id": "bot", "name": "Bot", "status": "fictional", "type": "robot",
+                                    "signifier": "👾"})
+        self.put(CAST, "bot", {"id": "bot", "name": "Bot", "status": "fictional", "signifier": "🤖"})
+        res = self.lint()
+        sig = {(f.id, f.file): f.message for f in res["findings"] if f.rule == "signifier"}
+        self.assertEqual(sorted(sig), [("book", f"{ADVENTURE}/book/CHARACTER.yml"),
+                                       ("bot", f"{ADVENTURE}/bot/CHARACTER.yml")])
+        self.assertIn("alias of 🎭", sig[("book", f"{ADVENTURE}/book/CHARACTER.yml")])
+        self.assertIn("use 🤖", sig[("bot", f"{ADVENTURE}/bot/CHARACTER.yml")])
+
+    def test_signifier_aliases_come_from_the_schema(self) -> None:
+        schema = self.root / "CHARACTER.yml"
+        schema.write_text(yaml.safe_dump({"schema": {"keys": {"signifier": {
+            "value_aliases": {"📕": "🎭"}}}}}, allow_unicode=True))
+        self.assertEqual(ll.load_signifier_aliases(schema), {"📕": "🎭"})
+        self.assertEqual(ll.load_signifier_aliases(self.root / "missing.yml"), {"📖": "🎭"})
 
 
 class CliTests(LintCase):
@@ -418,9 +529,20 @@ class CliTests(LintCase):
                          {"fact-public-figure"})
         self.assertEqual({b["id"]: b["rule"] for b in doc["beings"]}, {"b": "public_figure", "u": "private"})
 
+    def test_review_refuses_a_public_checkout(self) -> None:
+        self.put(BIO, "b", person("b"))
+        inside = self.root / "moollm" / "designs" / "REVIEW.yml"
+        code, _, err = self.cli("--review", str(inside))
+        self.assertEqual(code, 2)
+        self.assertIn("public checkout", err)
+        self.assertFalse(inside.exists())
+        ok = self.root / "secret-notes" / "REVIEW.yml"
+        self.cli("--review", str(ok))
+        self.assertTrue(ok.exists())
+
     def test_clean_exit_zero(self) -> None:
-        self.put(BIO, "c", person("c"))
-        self.put(PROFILE, "c", person("c", derived_from="../../../DonHopkins/characters/c/"))
+        self.put(PROFILE, "c", person("c"))
+        self.put(BIO, "c", person("c", derived_from="../../../WillWrightShowForFood/characters/c/"))
         code, out, _ = self.cli("--summary")
         self.assertEqual(code, 0)
         self.assertIn("error 0", out)

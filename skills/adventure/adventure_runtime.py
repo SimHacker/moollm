@@ -277,15 +277,14 @@ class Advertisement:
         return True
     
     def score(self, world: WorldState) -> int:
-        """Calculate current score."""
-        s = self.base_score
+        """The bid: base_score, or 0 while a score_if condition is false."""
         if self.score_if_py:
             try:
-                if self.score_if_py(world):
-                    s += 20  # Bonus if condition met
+                if not self.score_if_py(world):
+                    return 0
             except Exception as e:
                 print(f"Score calculation failed for {self.name}: {e}")
-        return s
+        return self.base_score
     
     def execute(self, world: WorldState) -> str:
         """Execute the action."""

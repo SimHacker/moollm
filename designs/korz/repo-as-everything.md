@@ -160,7 +160,7 @@ A checkout is dead, but mooco is not a checkout. Its design is Plan 9's structur
 **multiple repos, possibly sparse subtree mounts, bound at arbitrary points in a virtual namespace,**
 plus `/proc`-like magic-dictionary YAML files through which the orchestrator and the model actually
 talk. Written up in [`../MOOFS-NAMESPACE.md`](../MOOFS-NAMESPACE.md) and
-[`mooco/designs/MOOCO-REPOS.md`](https://github.com/SimHacker/mooco) — this section only records what
+the MOOCO orchestrator's private repo design notes — this section only records what
 Kell's paper adds to a design that already exists.
 
 Two things, and both are cases where Kell names a defect that this shape happens to answer.

@@ -76,10 +76,6 @@ substitutions:
     to: Task Core (Memory Core Alpha queue)
 
   # Repos / org (redact to generic if publishing outside trusted readers)
-  - from: leela-ai/central
-    to: Fleet Monorepo (canonical)
-    optional: true
-
   - from: central monorepo
     to: Fleet Monorepo
 

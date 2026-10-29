@@ -66,7 +66,7 @@ A proper CLI tool following the sister-script pattern:
 - `~/.moollm/skills/groceries/.tokens.json` — cached auth tokens
 - Personal shopping lists, order history, pantry data
 
-The external repo pattern (`Marconistraat25/household/shopping/`) is documented for keeping personal data in a separate git repo.
+The external repo pattern (`my-household/household/shopping/`) is documented for keeping personal data in a separate git repo.
 
 ### Trekified Examples
 

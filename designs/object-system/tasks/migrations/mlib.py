@@ -24,6 +24,11 @@ import yaml
 HERE = Path(__file__).resolve().parent
 MOOLLM = HERE.parents[3]
 GIT = MOOLLM.parent
+sys.path.insert(0, str(MOOLLM / "skills" / "prototype" / "scripts"))
+try:
+    import visibility  # type: ignore  # noqa: E402
+except Exception:
+    visibility = None
 SKIP_DIRS = {".git", "node_modules", "temp", ".moollm", "dist", "build", "__pycache__"}
 VIEWS = {"CARD.yml", "GLANCE.yml", "INDEX.yml"}
 
@@ -437,6 +442,19 @@ def run(name: str, doc: str, repos: Iterable[str], pred: Callable[[Path, Path], 
     if after:
         after(args)
     return 0
+
+
+def private_character_repos(root: Path = GIT, layer: str | None = None) -> list[str]:
+    """Dir names of the private checkouts PRIVATE-REPOS.yml gives a character layer (of this
+    kind); none when no such file is checked out."""
+    if visibility is None:
+        return []
+    try:
+        v = visibility.get(root)
+        return [d.name for d in v.private_checkouts()
+                if (cl := v.character_layer(d)) and (layer is None or cl[1] == layer)]
+    except Exception:
+        return []
 
 
 def under(base: Path, p: Path, *prefixes: str) -> bool:
