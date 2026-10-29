@@ -180,6 +180,42 @@ Keys the schema defines use underscores, so the key in the file is the name in c
 (`k_lines:` is `world.k_lines`). Names of things (skills, rooms, files, ids) use hyphens.
 Foreign schemas keep their own spelling (`allowed-tools`).
 
+`status:` on a being states a life fact (`living`, `deceased`, `fictional`) and is allowed;
+the rule against stored status is about work.
+
+## Schema files
+
+Each standard schema is a YAML Jazz file in the skill that owns it, read by the linters and by
+models: `skills/advertisement/ADVERTISEMENT.yml`, `skills/object/OBJECT.yml` (methods),
+`skills/card/CARD.yml` (card schema section), `skills/character/CHARACTER.yml`,
+`skills/representation-ethics/` (consent). Where the file is also a prototype, the schema sits
+under a top-level `schema:` key so it is not inherited as slots. Its shape:
+
+```yaml
+schema:
+  id: advertisement
+  applies_to: "each entry of an advertisements: map, in any object or CARD"
+  extends: []                     # other schema ids whose keys this one includes
+  extensions: "object-specific keys are allowed; never reuse a standard key with another meaning"
+  conventions:                    # rules shared by every key unless the key says otherwise
+    list_of_one: "a bare string where a list is expected is a list of one"
+    any_all_not: "a list means any; { all: [...] } every; { not: [...] } none"
+  keys:
+    score:
+      shape: number               # string | prose | number | bool | enum | ref | list | map
+      range: [0, 100]             # optional; enum uses values: [...]
+      of: null                    # element shape for list/map, e.g. of: ref, or of: advertisement
+      default: 50                 # what an omitted key means; null means "absent, nothing happens"
+      meaning: "how much the advertiser wants to be chosen, before score_if"
+      compiles: false             # true for prose keys that get _js/_py siblings
+      aliases: [score_hint]       # older spellings; lint reports them, migrations rewrite them
+      example: 80
+```
+
+`prose` is natural language a model reads; with `compiles: true` it also gets `<key>_js` and
+`<key>_py` siblings. A linter treats a value equal to the default as removable, an alias as a
+finding, and an unknown key as YAML Jazz unless it collides with an alias.
+
 ## Accepted legacy forms
 
 `lint --strict` counts these; the migration in
