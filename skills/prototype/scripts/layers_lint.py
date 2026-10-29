@@ -5,21 +5,29 @@ Constitution §15 "Layers across repos": each layer carries the core it needs to
 declares how it relates to the others. designs/object-system/CHARACTER-LAYERS-ANALYSIS.md
 (decisions L1-L12) names the core keys and relations. Per id with more than one layer:
 
-  facts       name, status (memorial = deceased), born, died, real_being and
-              representation.consent_level agree across layers
+  facts       name, status (memorial, passed = deceased), born, died, real_being,
+              representation.public_figure and representation.consent.state agree across the
+              layers that state them; a layer that omits a fact is unknown there, not a dissent
   relations   every layer but the canonical one declares inherits:, derived_from: or layers:
               pointing at another layer of the same being; legacy spellings are reported
   refs        declared relation refs resolve to an existing file or directory
-  core keys   id, name, status, signifier; real_being and representation.consent_level for
+  core keys   id, name, status, signifier; real_being and representation.authored_by for
               real beings
   signifier   real living 👤, deceased 🕯️; a topical emoji belongs in emoji:
+
+Every being, single-layer ones included, also gets the representation rules of
+skills/representation-ethics/REPRESENTATION.yml: the governing rule computed from its facts
+(memorial > self_authored > consented > public_figure > private, first match), granted
+consent without evidence, speaks_as outside self_authored or consented, living real beings
+whose public_figure no layer states, consent.state unverified, and retired consent spellings.
 
 Layers and envelopes come from layers_survey.py. Refs go through refs.py when it is importable.
 
 Usage: layers_lint.py [ids...] [--root DIR] [--format text|yaml] [--summary] [--review [FILE]]
   --root     directory holding the sibling repos (default: moollm's parent)
   --summary  counts only
-  --review   write the disagreements a person must decide (consent, life facts) as YAML;
+  --review   write the facts a person must decide (layer disagreements about consent,
+             public_figure and life facts; unverified consent) as YAML;
              FILE defaults to designs/object-system/tasks/ALIGNMENT-REVIEW.yml
 Exit status 1 when there are errors.
 """
@@ -47,6 +55,7 @@ except Exception:
 
 MOOLLM = SCRIPTS.parents[2]
 DEFAULT_REVIEW = MOOLLM / "designs" / "object-system" / "tasks" / "ALIGNMENT-REVIEW.yml"
+REPRESENTATION = MOOLLM / "skills" / "representation-ethics" / "REPRESENTATION.yml"
 
 RELATION_KEYS = ["inherits", "derived_from", "layers"]
 # legacy spelling -> the L2 relation it most likely becomes
@@ -72,19 +81,40 @@ REAL_ORDER = ["donhopkins", "wwsff-profile", "adventure", "moollm-other", "micro
 FICTIONAL_ORDER = ["adventure", "moollm-other", "wwsff-cast", "wwsff-profile", "donhopkins",
                    "show-audience", "micropoliscore"]
 
-LIFE_STATUS = {"living", "deceased"}
-STATUS_ALIASES = {"memorial": "deceased", "dead": "deceased", "alive": "living"}
-CONSENT_NAMES = {
-    "self-sovereign": 1, "self_sovereign": 1, "self": 1,
-    "explicit": 2,
-    "public-figure": 3, "public_figure": 3, "public": 3,
-    "private": 4,
-    "deceased": 5, "memorial": 5, "deceased-legacy": 5, "deceased_legacy": 5,
-}
+LIFE_STATUS = {"living", "deceased", "fictional"}
+STATUS_ALIASES = {"memorial": "deceased", "passed": "deceased", "dead": "deceased", "alive": "living"}
 SIGNIFIERS = {"living": "👤", "deceased": "🕯️"}
 
+# fallbacks when REPRESENTATION.yml cannot be read; the schema file wins when it parses
+CONSENT_STATES = ["not_asked", "asked", "granted", "declined", "revoked", "unverified"]
+CONSENT_ALIASES = {
+    "not_yet_asked": "not_asked", "not_addressed": "not_asked", "asked_no_reply_yet": "asked",
+    "awaiting_reply": "asked", "pending_response": "asked", "outreach_sent_awaiting_reply": "asked",
+    "collaborator_invited": "asked", "invitation_accepted": "granted",
+}
+# a disagreement involving one of these changes what the portrayal may do
+CONSENT_DECISIVE = {"granted", "declined", "revoked"}
+RULES = ["memorial", "self_authored", "consented", "public_figure", "private"]
+SPEAKS_AS_OK = {"self_authored", "consented"}
+# repos whose content stays out of generated files: path and fact value only
+PRIVATE_REPOS = {"RepoShowPrivate"}
+
 SEVERITY_RANK = {"error": 0, "warning": 1, "info": 2}
-REVIEW_RULES = {"consent-level", "fact-status", "fact-born", "fact-died", "fact-real-being"}
+
+
+def load_consent_vocabulary(path: Path = REPRESENTATION) -> tuple[list[str], dict[str, str]]:
+    try:
+        state = yaml.safe_load(path.read_text())["schema"]["keys"]["consent"]["keys"]["state"]
+        values = [str(v) for v in state["values"]]
+        aliases = {str(k): str(v) for k, v in (state.get("value_aliases") or {}).items()}
+        if values:
+            return values, aliases
+    except Exception:
+        pass
+    return CONSENT_STATES, CONSENT_ALIASES
+
+
+STATES, STATE_ALIASES = load_consent_vocabulary()
 
 
 @dataclass
@@ -152,29 +182,71 @@ def norm_status(v: Any) -> str | None:
     return STATUS_ALIASES.get(s, s)
 
 
-def norm_consent(v: Any) -> int | None:
-    if isinstance(v, bool):
+def consent_map(lay: Layer) -> dict[str, Any]:
+    c = rep(lay).get("consent")
+    return c if isinstance(c, dict) else {}
+
+
+def norm_state(v: Any) -> str | None:
+    if not isinstance(v, str) or not v.strip():
         return None
-    if isinstance(v, int):
-        return v
-    if isinstance(v, str):
-        s = v.strip().lower()
-        m = re.match(r"^(\d+)(?:\b|_|-|$)", s)
-        if m:
-            return int(m.group(1))
-        return CONSENT_NAMES.get(s)
-    return None
+    s = v.strip().lower().replace("-", "_").replace(" ", "_")
+    return STATE_ALIASES.get(s, s)
 
 
-def consent_of(lay: Layer) -> Fact | None:
+def state_of(lay: Layer) -> Fact | None:
+    """consent.state as stated in this layer; absent is unknown here, not not_asked."""
+    s = norm_state(consent_map(lay).get("state"))
+    return Fact(lay, s, "representation.consent.state") if s else None
+
+
+def evidence_of(lay: Layer) -> Any:
+    e = consent_map(lay).get("evidence")
+    return e if e not in (None, "", [], {}) else None
+
+
+def public_figure_of(lay: Layer) -> Fact | None:
+    v = rep(lay).get("public_figure")
+    return Fact(lay, v, "representation.public_figure") if isinstance(v, bool) else None
+
+
+def author_of(lay: Layer, subject: str | None = None) -> str | None:
+    """authored_by as a character id; 'self' reads as the subject's id."""
+    a = rep(lay).get("authored_by")
+    if not isinstance(a, str) or not a.strip():
+        return None
+    a = a.strip().rstrip("/").split("/")[-1].split("#")[0]
+    if a.lower() == "self" and subject:
+        return subject
+    return a or None
+
+
+REAL_GOVERNORS = ("real-being", "representation-ethics", "portrayal-standards")
+
+
+def governed_as_real(lay: Layer) -> bool:
+    g = rep(lay).get("governed_by", rep(lay).get("protocol"))
+    gs = g if isinstance(g, list) else [g]
+    return any(isinstance(x, str) and any(k in x for k in REAL_GOVERNORS) for x in gs)
+
+
+def legacy_consent(lay: Layer) -> list[str]:
+    """Retired consent spellings on this layer (REPRESENTATION.yml retired: consent_level)."""
     r = rep(lay)
-    for spelled, v in (("representation.consent_level", r.get("consent_level")),
-                       ("consent_level", lay.f.get("consent_level")),
-                       ("representation.consent", r.get("consent"))):
-        n = norm_consent(v)
-        if n is not None:
-            return Fact(lay, n, spelled if isinstance(v, int) else f"{spelled}: {v}")
-    return None
+    out = []
+    if "consent_level" in r:
+        out.append(f"representation.consent_level: {r['consent_level']!r}")
+    if "consent_level" in lay.f:
+        out.append(f"consent_level: {lay.f['consent_level']!r}")
+    if isinstance(r.get("consent"), (str, int)) and not isinstance(r.get("consent"), bool):
+        out.append(f"representation.consent: {r['consent']!r}")
+    if "kind" in r:
+        out.append(f"representation.kind: {r['kind']!r}")
+    return out
+
+
+def is_private(lay: Layer) -> bool:
+    return lay.repo in PRIVATE_REPOS
 
 
 def real_being_of(lay: Layer) -> Fact | None:
@@ -222,13 +294,135 @@ def is_real(layers: list[Layer]) -> bool:
         return True
     if False in vals:
         return False
-    return any(consent_of(l) for l in layers)
+    if any(norm_status(l.f.get("status")) == "fictional" for l in layers):
+        return False
+    return any(public_figure_of(l) or legacy_consent(l) or governed_as_real(l)
+               or norm_status(l.f.get("status")) == "deceased"
+               or (rep(l).get("authored_by") or "") == "self" for l in layers)
 
 
 def canonical(layers: list[Layer], real: bool) -> Layer:
     order = REAL_ORDER if real else FICTIONAL_ORDER
     rank = {n: i for i, n in enumerate(order)}
     return sorted(layers, key=lambda l: (rank.get(l.name, len(order)), l.repo, l.rel))[0]
+
+
+def ordered(layers: list[Layer], real: bool) -> list[Layer]:
+    """Canonical layer first: where layers state different values, its value is the reference."""
+    order = REAL_ORDER if real else FICTIONAL_ORDER
+    rank = {n: i for i, n in enumerate(order)}
+    return sorted(layers, key=lambda l: (rank.get(l.name, len(order)), l.repo, l.rel))
+
+
+def first(facts: list[Fact | None]) -> Fact | None:
+    return next((f for f in facts if f is not None), None)
+
+
+def status_fact(lay: Layer) -> Fact | None:
+    s = norm_status(lay.f.get("status"))
+    return Fact(lay, s, "status") if s in LIFE_STATUS else None
+
+
+def rule_for(i: str, lay: Layer, layers: list[Layer]) -> str:
+    """The governing rule for one layer, first match. A fact the layer omits, authorship
+    included, comes from the first layer (canonical first) that states it."""
+    own = [lay] + [l for l in layers if l is not lay]
+    status = first([status_fact(l) for l in own])
+    if status and status.value == "deceased":
+        return "memorial"
+    if next((a for a in (author_of(l, i) for l in own) if a), None) == i:
+        return "self_authored"
+    state = first([state_of(l) for l in own])
+    if state and state.value == "granted" and evidence_of(state.layer) is not None:
+        return "consented"
+    pf = first([public_figure_of(l) for l in own])
+    if pf and pf.value is True:
+        return "public_figure"
+    return "private"
+
+
+def value_entry(f: Fact, root: Path, note: bool = False) -> dict[str, Any]:
+    e: dict[str, Any] = {"layer": f.layer.label, "file": rel_to(f.layer.path, root), "value": f.value}
+    if is_private(f.layer):
+        return e
+    e["spelled"] = f.spelled
+    n = consent_map(f.layer).get("note")
+    if note and isinstance(n, str) and n.strip():
+        e["note"] = " ".join(n.split())
+    return e
+
+
+def lint_being(i: str, layers: list[Layer], root: Path
+               ) -> tuple[list[Finding], list[dict[str, Any]], dict[str, Any]]:
+    """Representation rules for one being, any number of layers."""
+    findings: list[Finding] = []
+    review: list[dict[str, Any]] = []
+    real = is_real(layers)
+    lays = ordered(layers, real)
+
+    def add(lay: Layer, rule: str, sev: str, msg: str) -> None:
+        findings.append(Finding(i, [lay.label], rel_to(lay.path, root), rule, sev, msg))
+
+    unverified: list[Fact] = []
+    for lay in lays:
+        for old in legacy_consent(lay):
+            add(lay, "consent-legacy", "info",
+                f"{old} is a retired consent spelling; REPRESENTATION.yml states authored_by, "
+                "consent: {state, evidence}, public_figure and status instead")
+        if str(rep(lay).get("authored_by") or "").strip().lower() == "self":
+            add(lay, "authored-by-spelling", "info",
+                f"authored_by: self; REPRESENTATION.yml spells the subject's id ({i})")
+        c = rep(lay).get("consent")
+        if c is not None and not isinstance(c, (dict, str, int)):
+            add(lay, "consent-state-unknown", "warning",
+                f"representation.consent is a {type(c).__name__}; expected a map with state:")
+        st = state_of(lay)
+        if st is None and isinstance(c, dict) and c.get("state") is not None:
+            add(lay, "consent-state-unknown", "warning",
+                f"consent.state {c.get('state')!r} is not one of {', '.join(STATES)}")
+        if st is None:
+            continue
+        if st.value not in STATES:
+            add(lay, "consent-state-unknown", "warning",
+                f"consent.state {st.value!r} is not one of {', '.join(STATES)}")
+        if st.value == "granted" and evidence_of(lay) is None:
+            add(lay, "consent-no-evidence", "error",
+                "consent.state granted without consent.evidence; it governs nothing until the "
+                "evidence is on file")
+        if st.value == "unverified":
+            unverified.append(st)
+            add(lay, "consent-unverified", "warning",
+                "consent.state unverified: an earlier record claimed consent with no evidence on "
+                "file; Don confirms or corrects")
+
+    rule = rule_for(i, lays[0], lays) if real else None
+    pf_unknown = False
+    if real:
+        for lay in lays:
+            if rep(lay).get("speaks_as") is True:
+                r = rule_for(i, lay, lays)
+                if r not in SPEAKS_AS_OK:
+                    add(lay, "speaks-as", "error",
+                        f"speaks_as: true under the {r} rule; only self_authored or consented "
+                        "(with a scope that says so) may speak as the subject")
+        status = first([status_fact(l) for l in lays])
+        if (status is None or status.value == "living") and not any(public_figure_of(l) for l in lays):
+            pf_unknown = True
+            lay = lays[0]
+            add(lay, "public-figure-unknown", "warning",
+                f"no layer of {i} states representation.public_figure"
+                f"{'' if status else ' (status unknown)'}; the private rule applies until one does")
+    if unverified:
+        review.append({
+            "id": i,
+            "fact": "consent.state",
+            "reason": "unverified: an earlier record claimed consent and no evidence is on file",
+            "values": [value_entry(f, root, note=True) for f in unverified],
+            "decision": None,
+        })
+    info = {"id": i, "rule": rule, "real_being": real, "public_figure_unknown": pf_unknown,
+            "layers": [l.label for l in lays]}
+    return findings, review, info
 
 
 def rel_to(p: Path, root: Path) -> str:
@@ -395,8 +589,8 @@ def lint_id(i: str, layers: list[Layer], root: Path) -> tuple[list[Finding], lis
             review.append({
                 "id": i,
                 "fact": what,
-                "values": [{"layer": f.layer.label, "file": rel_to(f.layer.path, root),
-                            "value": f.value, "spelled": f.spelled} for f in facts],
+                "reason": "layers disagree",
+                "values": [value_entry(f, root) for f in facts],
                 "decision": None,
             })
 
@@ -413,13 +607,39 @@ def lint_id(i: str, layers: list[Layer], root: Path) -> tuple[list[Finding], lis
     compare("fact-born", "error", [date_of(l, "born") for l in layers], dates_agree, "born")
     compare("fact-died", "error", [date_of(l, "died") for l in layers], dates_agree, "died")
     compare("fact-real-being", "error", [real_being_of(l) for l in layers], eq, "real_being")
-    consents = [consent_of(l) for l in layers]
-    compare("consent-level", "error", consents, eq, "consent_level")
+    compare("fact-public-figure", "error", [public_figure_of(l) for l in layers], eq, "public_figure")
 
-    for c in consents:
-        if c and c.spelled != "representation.consent_level":
-            add(c.layer, "consent-spelling", "info",
-                f"consent level spelled {c.spelled}; L7 spells it representation.consent_level: {c.value}")
+    states = [f for f in (state_of(l) for l in ordered(layers, real)) if f is not None]
+    if states:
+        ref = states[0]
+        decisive = False
+        for f in states[1:]:
+            if f.value == ref.value:
+                continue
+            pair = {f.value, ref.value}
+            where = (f"{f.value!r} here vs {ref.value!r} in {ref.layer.label} "
+                     f"{rel_to(ref.layer.path, root)}")
+            if pair & CONSENT_DECISIVE:
+                decisive = True
+                add(f.layer, "consent-state", "error", f"consent.state {where}",
+                    [ref.layer.label, f.layer.label])
+            elif pair == {"asked", "not_asked"}:
+                behind = f if f.value == "not_asked" else ref
+                ahead = ref if behind is f else f
+                add(behind.layer, "consent-stale", "warning",
+                    f"consent.state {where}; {behind.layer.label} is behind "
+                    f"({ahead.layer.label} records asked)", [ref.layer.label, f.layer.label])
+            else:
+                add(f.layer, "consent-state", "warning", f"consent.state {where}",
+                    [ref.layer.label, f.layer.label])
+        if decisive:
+            review.append({
+                "id": i,
+                "fact": "consent.state",
+                "reason": "layers disagree",
+                "values": [value_entry(f, root, note=True) for f in states],
+                "decision": None,
+            })
 
     life = {f.value for f in statuses if f and f.value in LIFE_STATUS}
     being_life = life.pop() if len(life) == 1 else None
@@ -460,16 +680,16 @@ def lint_id(i: str, layers: list[Layer], root: Path) -> tuple[list[Finding], lis
         if real:
             if real_being_of(lay) is None:
                 missing.append("real_being")
-            if consent_of(lay) is None:
-                missing.append("representation.consent_level")
+            if author_of(lay) is None:
+                missing.append("representation.authored_by")
         if missing:
             add(lay, "key-missing", "warning", f"core keys missing: {', '.join(missing)}")
 
         sig = lay.f.get("signifier")
         status = norm_status(lay.f.get("status"))
         status = status if status in LIFE_STATUS else being_life
-        if real and isinstance(sig, str) and sig and status:
-            want = SIGNIFIERS[status]
+        want = SIGNIFIERS.get(status or "")
+        if real and isinstance(sig, str) and sig and want:
             if sig.replace("\ufe0f", "") != want.replace("\ufe0f", ""):
                 add(lay, "signifier", "info",
                     f"signifier {sig} carries a topical emoji; move to emoji: and use {want} ({status})")
@@ -487,6 +707,19 @@ def run(root: Path, ids: list[str] | None = None) -> dict[str, Any]:
         chosen = {i: ls for i, ls in by.items() if len({l.name for l in ls}) > 1}
     findings: list[Finding] = []
     review: list[dict[str, Any]] = []
+    beings: list[dict[str, Any]] = []
+    for i in sorted(set(ids) if ids else by):
+        layers = by.get(i, [])
+        if not layers:
+            continue
+        try:
+            f, r, info = lint_being(i, layers, root)
+        except Exception as e:
+            f, r, info = [Finding(i, [l.label for l in layers], "", "lint-crashed", "warning",
+                                  f"{type(e).__name__}: {e}")], [], {"id": i, "rule": None}
+        findings += f
+        review += r
+        beings.append(info)
     for i in sorted(chosen):
         layers = chosen[i]
         if len(layers) < 2:
@@ -505,24 +738,31 @@ def run(root: Path, ids: list[str] | None = None) -> dict[str, Any]:
         if Path(lay.rel).parent.name in chosen:
             findings.append(Finding(Path(lay.rel).parent.name, [lay.label], rel_to(lay.path, root),
                                     "unparseable", "warning", "CHARACTER.yml does not parse as a map"))
-    findings.sort(key=lambda f: (f.id, SEVERITY_RANK[f.severity], f.rule, f.file))
+    findings.sort(key=lambda f: (f.id, SEVERITY_RANK.get(f.severity, 9), f.rule, f.file))
+    review.sort(key=lambda r: (r["id"], r["fact"], r.get("reason", "")))
     return {"root": root, "files": sum(len(v) for v in by.values()) + len(bad), "ids": len(by),
-            "checked": sorted(chosen), "findings": findings, "review": review}
+            "checked": sorted(chosen), "findings": findings, "review": review, "beings": beings}
 
 
 def summary(res: dict[str, Any]) -> dict[str, Any]:
     fs: list[Finding] = res["findings"]
     sev = Counter(f.severity for f in fs)
     rules = Counter((f.severity, f.rule) for f in fs)
+    beings = res.get("beings", [])
+    gov = Counter(b.get("rule") for b in beings if b.get("rule"))
+    pf_unknown = sorted(b["id"] for b in beings if b.get("public_figure_unknown"))
     return {
         "root": str(res["root"]),
         "files": res["files"],
         "ids": res["ids"],
         "ids_checked": len(res["checked"]),
         "findings": {s: sev.get(s, 0) for s in SEVERITY_RANK},
-        "by_rule": {f"{s} {r}": n for (s, r), n in sorted(rules.items(),
-                                                          key=lambda x: (SEVERITY_RANK[x[0][0]], -x[1]))},
+        "by_rule": {f"{s} {r}": n for (s, r), n in sorted(
+            rules.items(), key=lambda x: (SEVERITY_RANK.get(x[0][0], 9), -x[1]))},
         "error_ids": sorted({f.id for f in fs if f.severity == "error"}),
+        "real_beings": sum(gov.values()),
+        "governing_rules": {r: gov.get(r, 0) for r in RULES},
+        "public_figure_unknown": {"count": len(pf_unknown), "ids": pf_unknown},
         "review_items": len(res["review"]),
     }
 
@@ -530,15 +770,22 @@ def summary(res: dict[str, Any]) -> dict[str, Any]:
 REVIEW_HEADER = """\
 # Facts for Don to decide. Agents must not resolve them.
 #
-# Each entry is one being whose layers disagree about a consent level or a life fact
-# (status, born, died, real_being). One of the layers is wrong about a real person, and only
-# Don knows which: what the person agreed to, whether they are living, when they were born.
-# Agents read this list, never edit the CHARACTER.yml files to make the values match, and
-# never fill in decision:. Don writes decision: (the value, and why); a later pass applies it.
+# Each entry is one being and one representation or life fact that only Don can settle:
+#   reason "layers disagree"  two layers state different values for public_figure,
+#                             consent.state, status, born, died or real_being; one of them is
+#                             wrong about a real person
+#   reason "unverified"       consent.state unverified: an earlier record claimed consent and
+#                             no evidence is on file; Don confirms (granted, with evidence) or
+#                             corrects it
+# Only Don knows what the person agreed to, whether they are a public figure, whether they are
+# living, when they were born. Agents read this list, never edit the CHARACTER.yml files to make
+# the values match, and never fill in decision:. Don writes decision: (the value, and why); a
+# later pass applies it. Entries from private repos carry only the file path and the value.
 #
 # Regenerate: python3 skills/prototype/scripts/layers_lint.py --review
 # Rule: kernel/constitution-core.md §15 "Layers across repos";
-# designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10.
+# designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10;
+# skills/representation-ethics/REPRESENTATION.yml (facts and computed rules).
 """
 
 
@@ -557,14 +804,23 @@ def write_review(path: Path, res: dict[str, Any]) -> None:
 def print_text(res: dict[str, Any], only_summary: bool) -> None:
     s = summary(res)
     if not only_summary:
-        for f in res["findings"]:
-            print(f"{f.severity:7} {f.rule:18} {f.id:24} [{', '.join(f.layers)}] {f.file}: {f.message}")
+        for b in res.get("beings", []):
+            if b.get("rule"):
+                print(f"rule:   {b['rule']:14} {b['id']:24} [{', '.join(b.get('layers', []))}]")
         print()
-    print(f"root {s['root']}: {s['files']} CHARACTER.yml, {s['ids']} ids, {s['ids_checked']} checked")
+        for f in res["findings"]:
+            print(f"{f.severity:7} {f.rule:21} {f.id:24} [{', '.join(f.layers)}] {f.file}: {f.message}")
+        print()
+    print(f"root {s['root']}: {s['files']} CHARACTER.yml, {s['ids']} ids, {s['ids_checked']} "
+          "with several layers compared")
     print("findings: " + ", ".join(f"{k} {v}" for k, v in s["findings"].items()))
     for k, v in s["by_rule"].items():
-        print(f"   {k:28} {v}")
+        print(f"   {k:31} {v}")
     print(f"error ids ({len(s['error_ids'])}): {', '.join(s['error_ids'])}")
+    print(f"governing rule ({s['real_beings']} real beings): "
+          + ", ".join(f"{k} {v}" for k, v in s["governing_rules"].items()))
+    pf = s["public_figure_unknown"]
+    print(f"public_figure unknown ({pf['count']}): {', '.join(pf['ids'])}")
     print(f"review items: {s['review_items']}")
 
 
@@ -582,6 +838,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.format == "yaml":
         out: dict[str, Any] = {"summary": summary(res)}
         if not args.summary:
+            out["beings"] = [{"id": b["id"], "rule": b.get("rule"), "layers": b.get("layers", [])}
+                             for b in res["beings"] if b.get("rule")]
             out["findings"] = [f.as_dict() for f in res["findings"]]
         print(yaml.safe_dump(out, sort_keys=False, allow_unicode=True, width=120), end="")
     else:

@@ -1,52 +1,267 @@
 # Facts for Don to decide. Agents must not resolve them.
 #
-# Each entry is one being whose layers disagree about a consent level or a life fact
-# (status, born, died, real_being). One of the layers is wrong about a real person, and only
-# Don knows which: what the person agreed to, whether they are living, when they were born.
-# Agents read this list, never edit the CHARACTER.yml files to make the values match, and
-# never fill in decision:. Don writes decision: (the value, and why); a later pass applies it.
+# Each entry is one being and one representation or life fact that only Don can settle:
+#   reason "layers disagree"  two layers state different values for public_figure,
+#                             consent.state, status, born, died or real_being; one of them is
+#                             wrong about a real person
+#   reason "unverified"       consent.state unverified: an earlier record claimed consent and
+#                             no evidence is on file; Don confirms (granted, with evidence) or
+#                             corrects it
+# Only Don knows what the person agreed to, whether they are a public figure, whether they are
+# living, when they were born. Agents read this list, never edit the CHARACTER.yml files to make
+# the values match, and never fill in decision:. Don writes decision: (the value, and why); a
+# later pass applies it. Entries from private repos carry only the file path and the value.
 #
 # Regenerate: python3 skills/prototype/scripts/layers_lint.py --review
 # Rule: kernel/constitution-core.md §15 "Layers across repos";
-# designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10.
+# designs/object-system/CHARACTER-LAYERS-ANALYSIS.md decision L10;
+# skills/representation-ethics/REPRESENTATION.yml (facts and computed rules).
 
 generated_by: skills/prototype/scripts/layers_lint.py --review
 generated: '2026-10-29'
 root: /Users/a2deh/GroundUp/git
 items:
-- id: bill-joy
-  fact: consent_level
+- id: arthur-van-hoff
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
   values:
   - layer: donhopkins
-    file: DonHopkins/characters/bill-joy/CHARACTER.yml
-    value: 3
-    spelled: representation.consent_level
-  - layer: wwsff-profile
-    file: WillWrightShowForFood/characters/bill-joy/CHARACTER.yml
-    value: 1
-    spelled: representation.consent_level
+    file: DonHopkins/characters/arthur-van-hoff/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
   decision: null
-- id: ian-bogost
-  fact: consent_level
+- id: ben-cerveny
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
   values:
   - layer: donhopkins
-    file: DonHopkins/characters/ian-bogost/CHARACTER.yml
-    value: 3
-    spelled: representation.consent_level
-  - layer: wwsff-profile
-    file: WillWrightShowForFood/characters/ian-bogost/CHARACTER.yml
-    value: 2
-    spelled: representation.consent_level
+    file: DonHopkins/characters/ben-cerveny/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
   decision: null
-- id: scott-draves
-  fact: consent_level
+- id: brian-harvey
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
   values:
   - layer: donhopkins
-    file: DonHopkins/characters/scott-draves/CHARACTER.yml
-    value: 3
-    spelled: representation.consent_level
+    file: DonHopkins/characters/brian-harvey/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: chris-trottier
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/chris-trottier/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: coco-conn
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
   - layer: wwsff-profile
-    file: WillWrightShowForFood/characters/scott-draves/CHARACTER.yml
-    value: 2
-    spelled: representation.consent_level
+    file: WillWrightShowForFood/characters/coco-conn/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: craig-latta
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/craig-latta/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: warm — rehearsed Vanessa tribute 2026-07-20; cheered repo plans 2026-08-20; formal show ask
+      pending
+  decision: null
+- id: david-fleck
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/david-fleck/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: async_welcome
+  decision: null
+- id: david-rosenthal
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/david-rosenthal/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: edd-coates
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/edd-coates/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: golan-levin
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/golan-levin/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: james-gosling
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/james-gosling/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: jeff-braun
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/jeff-braun/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: jens-monig
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/jens-monig/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: jerry-martin
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/jerry-martin/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: keith-lynch
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/keith-lynch/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: margaret-minsky
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/margaret-minsky/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: peter-norvig
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/peter-norvig/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: warm_lead
+  decision: null
+- id: richard-bartle
+  fact: consent.state
+  reason: layers disagree
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/richard-bartle/CHARACTER.yml
+    value: granted
+    spelled: representation.consent.state
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/richard-bartle/CHARACTER.yml
+    value: not_asked
+    spelled: representation.consent.state
+  - layer: adventure
+    file: moollm/examples/adventure-4/characters/real-people/richard-bartle/CHARACTER.yml
+    value: granted
+    spelled: representation.consent.state
+  - layer: show-audience
+    file: WillWrightShowForFood/repo-shows/will-wright-premiere/audience/richard-bartle/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: richard-bartle
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: show-audience
+    file: WillWrightShowForFood/repo-shows/will-wright-premiere/audience/richard-bartle/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: roy-eagleson
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/roy-eagleson/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: scott-adams
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/scott-adams/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: correspondence_verified
+  decision: null
+- id: steve-alvey
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/steve-alvey/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: invitation.consent said granted; no evidence on file
+  decision: null
+- id: terry-winograd
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/terry-winograd/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: thomas-cherryhomes
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: donhopkins
+    file: DonHopkins/characters/thomas-cherryhomes/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+  decision: null
+- id: tom-van-dijk
+  fact: consent.state
+  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
+  values:
+  - layer: wwsff-profile
+    file: WillWrightShowForFood/characters/tom-van-dijk/CHARACTER.yml
+    value: unverified
+    spelled: representation.consent.state
+    note: warm_reconnect
   decision: null

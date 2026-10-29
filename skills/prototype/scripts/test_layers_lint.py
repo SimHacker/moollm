@@ -23,14 +23,21 @@ AUDIENCE = "WillWrightShowForFood/repo-shows/show/audience"
 ADVENTURE = "moollm/examples/adventure-4/characters"
 
 
-def person(i: str, consent: Any = 3, envelope: bool = True, **extra: Any) -> dict[str, Any]:
+def person(i: str, envelope: bool = True, **extra: Any) -> dict[str, Any]:
     core = {"id": i, "name": i.replace("-", " ").title(), "real_being": True, "status": "living",
             "signifier": "👤"}
     core.update({k: v for k, v in extra.items() if k != "representation"})
-    rep = extra.get("representation", {"consent_level": consent, "authored_by": "don-hopkins"})
+    rep = extra.get("representation", {"authored_by": "don-hopkins", "public_figure": True})
     if envelope:
         return {"character": core, "representation": rep}
     return {**core, "representation": rep}
+
+
+def rep(**kv: Any) -> dict[str, Any]:
+    return {"authored_by": "don-hopkins", **kv}
+
+
+GRANTED = {"state": "granted", "date": "2026-08-01", "evidence": "correspondence/2026-08-01-yes.md"}
 
 
 class LintCase(unittest.TestCase):
@@ -60,29 +67,68 @@ class LintCase(unittest.TestCase):
 
 
 class FactTests(LintCase):
-    def test_consent_disagreement_is_error_and_review_item(self) -> None:
-        self.put(BIO, "bill", person("bill", 3))
-        self.put(PROFILE, "bill", person("bill", 1, inherits=["moollm://github/x/DonHopkins/characters/bill/"]))
+    def test_public_figure_disagreement_is_error_and_review_item(self) -> None:
+        self.put(BIO, "bill", person("bill"))
+        self.put(PROFILE, "bill", person("bill", representation=rep(public_figure=False),
+                                         inherits=["moollm://github/x/DonHopkins/characters/bill/"]))
         res = self.lint()
         errs = [f for f in res["findings"] if f.severity == "error"]
         self.assertEqual([(f.rule, f.file) for f in errs],
-                         [("consent-level", f"{PROFILE}/bill/CHARACTER.yml")])
-        self.assertIn("1 here", errs[0].message)
+                         [("fact-public-figure", f"{PROFILE}/bill/CHARACTER.yml")])
+        self.assertIn("False here", errs[0].message)
         self.assertEqual(errs[0].layers, ["donhopkins", "wwsff-profile"])
         self.assertEqual(len(res["review"]), 1)
         item = res["review"][0]
-        self.assertEqual((item["id"], item["fact"], item["decision"]), ("bill", "consent_level", None))
-        self.assertEqual(sorted(v["value"] for v in item["values"]), [1, 3])
+        self.assertEqual((item["id"], item["fact"], item["reason"], item["decision"]),
+                         ("bill", "public_figure", "layers disagree", None))
+        self.assertEqual(sorted(v["value"] for v in item["values"]), [False, True])
 
-    def test_spellings_normalize(self) -> None:
-        self.put(BIO, "mouse", person("mouse", 5, status="deceased", signifier="🕯️"))
-        self.put(PROFILE, "mouse", person("mouse", "5_deceased_legacy", status="memorial", signifier="🕯"))
-        self.put(BIO, "don", person("don", 1))
-        self.put(PROFILE, "don", person("don", representation={"consent": "self-sovereign"}))
+    def test_absent_fact_is_unknown_not_disagreement(self) -> None:
+        self.put(BIO, "ann", person("ann", representation=rep(public_figure=True, consent=GRANTED)))
+        self.put(PROFILE, "ann", person("ann", representation=rep()))
+        res = self.lint()
+        self.assertNotIn("error", [s for s, _ in self.rules(res, "ann")])
+        self.assertNotIn(("warning", "public-figure-unknown"), self.rules(res, "ann"))
+        self.assertEqual(res["review"], [])
+
+    def test_consent_state_decisive_disagreement_is_error(self) -> None:
+        self.put(BIO, "g", person("g", representation=rep(public_figure=True, consent=GRANTED)))
+        self.put(PROFILE, "g", person("g", representation=rep(consent={"state": "asked"})))
+        self.put(BIO, "d", person("d", representation=rep(public_figure=True,
+                                                          consent={"state": "declined"})))
+        self.put(PROFILE, "d", person("d", representation=rep(consent={"state": "not_asked"})))
+        res = self.lint()
+        for i in ("g", "d"):
+            self.assertIn(("error", "consent-state"), self.rules(res, i))
+        self.assertEqual([(r["id"], r["fact"]) for r in res["review"]],
+                         [("d", "consent.state"), ("g", "consent.state")])
+        self.assertEqual([v["value"] for v in res["review"][1]["values"]], ["granted", "asked"])
+
+    def test_asked_vs_not_asked_is_stale_warning_naming_the_layer_behind(self) -> None:
+        self.put(BIO, "s", person("s", representation=rep(public_figure=True,
+                                                          consent={"state": "not_asked"})))
+        self.put(PROFILE, "s", person("s", representation=rep(consent={"state": "awaiting_reply"})))
+        res = self.lint()
+        stale = [f for f in res["findings"] if f.rule == "consent-stale"]
+        self.assertEqual([(f.severity, f.file) for f in stale], [("warning", f"{BIO}/s/CHARACTER.yml")])
+        self.assertIn("donhopkins is behind", stale[0].message)
+        self.assertNotIn("error", [s for s, _ in self.rules(res, "s")])
+        self.assertEqual(res["review"], [])
+
+    def test_legacy_consent_spellings_are_info_and_never_compared(self) -> None:
+        self.put(BIO, "m", person("m", representation=rep(public_figure=True, consent_level=3)))
+        self.put(PROFILE, "m", person("m", representation=rep(consent="self-sovereign", kind="x")))
+        self.put(AUDIENCE, "m", person("m", consent_level="5_deceased_legacy"))
+        res = self.lint()
+        self.assertNotIn("error", [s for s, _ in self.rules(res, "m")])
+        self.assertEqual(self.rules(res, "m").count(("info", "consent-legacy")), 4)
+
+    def test_status_spellings_normalize(self) -> None:
+        self.put(BIO, "mouse", person("mouse", status="deceased", signifier="🕯️"))
+        self.put(PROFILE, "mouse", person("mouse", status="memorial", signifier="🕯"))
+        self.put(AUDIENCE, "mouse", person("mouse", status="passed", signifier="🕯️"))
         res = self.lint()
         self.assertNotIn("error", [s for s, _ in self.rules(res)])
-        self.assertEqual(self.rules(res, "mouse").count(("info", "consent-spelling")), 1)
-        self.assertIn(("info", "consent-spelling"), self.rules(res, "don"))
         self.assertNotIn(("info", "signifier"), self.rules(res, "mouse"))
 
     def test_life_facts(self) -> None:
@@ -109,6 +155,101 @@ class FactTests(LintCase):
         self.put(BIO, "n", person("n", name="Ann Smith"))
         self.put(PROFILE, "n", person("n", name="Anne Smith"))
         self.assertIn(("warning", "fact-name"), self.rules(self.lint(), "n"))
+
+
+class RepresentationRuleTests(LintCase):
+    def rule_of(self, res: dict[str, Any], i: str) -> str | None:
+        return next(b["rule"] for b in res["beings"] if b["id"] == i)
+
+    def test_governing_rule_first_match(self) -> None:
+        self.put(BIO, "old", person("old", status="deceased", signifier="🕯️",
+                                    representation=rep(authored_by="old", public_figure=True)))
+        self.put(BIO, "me", person("me", representation=rep(authored_by="me")))
+        self.put(PROFILE, "me2", person("me2", representation={"authored_by": "self"}))
+        self.put(BIO, "yes", person("yes", representation=rep(public_figure=False, consent=GRANTED)))
+        self.put(BIO, "pub", person("pub"))
+        self.put(BIO, "priv", person("priv", representation=rep(public_figure=False)))
+        self.put(ADVENTURE, "grue", {"id": "grue", "name": "Grue", "status": "fictional"})
+        res = self.lint()
+        self.assertEqual({i: self.rule_of(res, i) for i in ("old", "me", "me2", "yes", "pub", "priv", "grue")},
+                         {"old": "memorial", "me": "self_authored", "me2": "self_authored",
+                          "yes": "consented", "pub": "public_figure", "priv": "private", "grue": None})
+        self.assertIn(("info", "authored-by-spelling"), self.rules(res, "me2"))
+        s = ll.summary(res)
+        self.assertEqual(s["governing_rules"], {"memorial": 1, "self_authored": 2, "consented": 1,
+                                                "public_figure": 1, "private": 1})
+
+    def test_rule_reads_facts_from_other_layers(self) -> None:
+        self.put(BIO, "x", person("x", status="deceased", signifier="🕯️"))
+        self.put(PROFILE, "x", {"character": {"id": "x", "name": "X", "real_being": True},
+                                "representation": rep()})
+        self.assertEqual(self.rule_of(self.lint(), "x"), "memorial")
+
+    def test_granted_without_evidence_is_error_and_governs_nothing(self) -> None:
+        self.put(BIO, "e", person("e", representation=rep(public_figure=True,
+                                                          consent={"state": "granted"})))
+        res = self.lint(["e"])
+        self.assertIn(("error", "consent-no-evidence"), self.rules(res, "e"))
+        self.assertEqual(self.rule_of(res, "e"), "public_figure")
+
+    def test_speaks_as_only_under_self_authored_or_consented(self) -> None:
+        self.put(BIO, "a", person("a", representation=rep(authored_by="a", speaks_as=True)))
+        self.put(BIO, "b", person("b", representation=rep(consent=GRANTED, speaks_as=True,
+                                                          public_figure=True)))
+        self.put(BIO, "c", person("c", representation=rep(public_figure=True, speaks_as=True)))
+        self.put(BIO, "d", person("d", status="deceased", signifier="🕯️",
+                                  representation=rep(authored_by="d", speaks_as=True)))
+        res = self.lint(["a", "b", "c", "d"])
+        errs = sorted(f.id for f in res["findings"] if f.rule == "speaks-as")
+        self.assertEqual(errs, ["c", "d"])
+        self.assertIn("public_figure rule", next(f.message for f in res["findings"]
+                                                 if f.rule == "speaks-as" and f.id == "c"))
+
+    def test_public_figure_unknown_counted_per_being(self) -> None:
+        self.put(BIO, "u", person("u", representation=rep()))
+        self.put(PROFILE, "u", person("u", representation=rep(consent={"state": "not_asked"})))
+        self.put(BIO, "v", person("v", representation=rep()))
+        self.put(BIO, "dead", person("dead", status="deceased", signifier="🕯️", representation=rep()))
+        self.put(BIO, "fic", {"id": "fic", "name": "Fic", "real_being": False, "status": "living",
+                              "representation": rep()})
+        self.put(BIO, "k", person("k"))
+        res = self.lint()
+        pf = [f for f in res["findings"] if f.rule == "public-figure-unknown"]
+        self.assertEqual(sorted((f.id, f.severity) for f in pf), [("u", "warning"), ("v", "warning")])
+        self.assertEqual(ll.summary(res)["public_figure_unknown"], {"count": 2, "ids": ["u", "v"]})
+        self.assertEqual(self.rule_of(res, "u"), "private")
+
+    def test_unverified_is_warning_and_review_item_with_note(self) -> None:
+        self.put(PROFILE, "w", person("w", representation=rep(public_figure=True, consent={
+            "state": "unverified", "note": "old friend;\n  cheered the plans"})))
+        res = self.lint()
+        self.assertIn(("warning", "consent-unverified"), self.rules(res, "w"))
+        self.assertEqual(len(res["review"]), 1)
+        item = res["review"][0]
+        self.assertEqual((item["id"], item["fact"], item["decision"]), ("w", "consent.state", None))
+        self.assertTrue(item["reason"].startswith("unverified"))
+        self.assertEqual(item["values"], [{"layer": "wwsff-profile", "file": f"{PROFILE}/w/CHARACTER.yml",
+                                           "value": "unverified", "spelled": "representation.consent.state",
+                                           "note": "old friend; cheered the plans"}])
+
+    def test_private_repo_entries_carry_only_path_and_value(self) -> None:
+        p = self.root / "RepoShowPrivate/characters/q/CHARACTER.yml"
+        lay = ll.Layer("private", "RepoShowPrivate", "characters/q/CHARACTER.yml", p,
+                       {"representation": {"consent": {"state": "unverified", "note": "secret"}}})
+        lay.f = lay.data
+        entry = ll.value_entry(ll.Fact(lay, "unverified", "representation.consent.state"),
+                               self.root, note=True)
+        self.assertEqual(entry, {"layer": "private", "file": "RepoShowPrivate/characters/q/CHARACTER.yml",
+                                 "value": "unverified"})
+
+    def test_bad_consent_values_warn_without_crashing(self) -> None:
+        self.put(BIO, "z", person("z", representation=rep(public_figure=True, consent={"state": "maybe"})))
+        self.put(PROFILE, "z", person("z", representation=rep(consent=["granted"])))
+        self.put(AUDIENCE, "z", person("z", representation=rep(consent={"state": 7})))
+        self.put(ADVENTURE, "z", person("z", representation="not a map"))
+        res = self.lint()
+        self.assertEqual(self.rules(res, "z").count(("warning", "consent-state-unknown")), 3)
+        self.assertNotIn(("warning", "lint-crashed"), self.rules(res, "z"))
 
 
 class RelationTests(LintCase):
@@ -174,7 +315,7 @@ class KeyAndSignifierTests(LintCase):
         self.put(PROFILE, "k", {"character": {"id": "k", "name": "K", "status": "living"}})
         res = self.lint()
         msgs = [f.message for f in res["findings"] if f.rule == "key-missing"]
-        self.assertEqual(msgs, ["core keys missing: signifier, real_being, representation.consent_level"])
+        self.assertEqual(msgs, ["core keys missing: signifier, real_being, representation.authored_by"])
 
     def test_signifier_convention(self) -> None:
         self.put(BIO, "w", person("w", signifier="🌍"))
@@ -247,25 +388,35 @@ class CliTests(LintCase):
         return code, out.getvalue(), err.getvalue()
 
     def test_text_yaml_summary_and_review(self) -> None:
-        self.put(BIO, "b", person("b", 3))
-        self.put(PROFILE, "b", person("b", 2))
+        self.put(BIO, "b", person("b"))
+        self.put(PROFILE, "b", person("b", representation=rep(public_figure=False)))
+        self.put(BIO, "u", person("u", representation=rep()))
         review = self.root / "out" / "REVIEW.yml"
         code, out, _ = self.cli("--review", str(review))
         self.assertEqual(code, 1)
-        self.assertIn("consent-level", out)
+        self.assertIn("fact-public-figure", out)
+        self.assertIn("rule:   public_figure", out)
         text = review.read_text()
         self.assertTrue(text.startswith("# Facts for Don to decide. Agents must not resolve them."))
         doc = yaml.safe_load(text)
-        self.assertEqual([(i["id"], i["fact"]) for i in doc["items"]], [("b", "consent_level")])
+        self.assertEqual([(i["id"], i["fact"]) for i in doc["items"]], [("b", "public_figure")])
+
+        code, out, _ = self.cli("--summary")
+        self.assertIn("public_figure unknown (1): u", out)
+        self.assertIn("governing rule (2 real beings): memorial 0, self_authored 0, consented 0, "
+                      "public_figure 1, private 1", out)
 
         code, out, _ = self.cli("--format", "yaml", "--summary")
         doc = yaml.safe_load(out)
         self.assertEqual(doc["summary"]["findings"]["error"], 1)
+        self.assertEqual(doc["summary"]["governing_rules"]["private"], 1)
         self.assertNotIn("findings", {k for k in doc if k != "summary"})
 
         code, out, _ = self.cli("--format", "yaml")
-        self.assertEqual({f["rule"] for f in yaml.safe_load(out)["findings"] if f["severity"] == "error"},
-                         {"consent-level"})
+        doc = yaml.safe_load(out)
+        self.assertEqual({f["rule"] for f in doc["findings"] if f["severity"] == "error"},
+                         {"fact-public-figure"})
+        self.assertEqual({b["id"]: b["rule"] for b in doc["beings"]}, {"b": "public_figure", "u": "private"})
 
     def test_clean_exit_zero(self) -> None:
         self.put(BIO, "c", person("c"))
