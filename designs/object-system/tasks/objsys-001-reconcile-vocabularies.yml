@@ -112,6 +112,7 @@ phases:
   - { id: clusters, status: done, out: "designs/object-system/VOCABULARY-CLUSTERS.md" }
   - { id: schema,   status: done, out: "designs/object-system/SCHEMA.md" }
   - { id: behavior, status: done, out: "designs/object-system/CARD-ANALYSIS.md, skills/prototype/scripts/behavior_survey.py" }
+  - { id: alignment-plan, status: opened, out: "designs/object-system/ALIGNMENT-PLAN.md: schemas S1-S6, tools T1-T6, migrations M1-M11 and J1-J8 across moollm, wwsff, DonHopkins, MicropolisCore, RepoShowPrivate" }
   - id: resolver
     status: done
     out: >
