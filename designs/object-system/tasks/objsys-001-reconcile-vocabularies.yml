@@ -75,6 +75,13 @@ history:
       lit brighter, nothing watching, no repellent buff); maze CONTAINER defaults lighting 0;
       room/container skill docs and context/runtime closure examples use world.room.lighting.
       adventure-4 compiles: 121 rooms, no grue_safe. dist/world.json is stale until recompiled.
+  - at: 2026-10-29
+    event: analyzed
+    note: >
+      Round 2, behavior keys and card keys: designs/object-system/analysis/ (README lists 14
+      decisions). advertisements: carries four concepts; the compiler drops list-form
+      advertisements' names and fields (442 entries, 97 files) and compiles no map-form
+      method (444). Survey: skills/prototype/scripts/behavior_survey.py. Nothing migrated.
 
 # Measured by `resolve.py lint` after the work-vocabulary batch.
 meter:
@@ -93,6 +100,7 @@ phases:
   - { id: survey,   status: done, out: "skills/prototype/scripts/vocab_survey.py" }
   - { id: clusters, status: done, out: "designs/object-system/VOCABULARY-CLUSTERS.md" }
   - { id: schema,   status: done, out: "designs/object-system/SCHEMA.md" }
+  - { id: behavior, status: done, out: "designs/object-system/analysis/, skills/prototype/scripts/behavior_survey.py" }
   - id: resolver
     status: done
     out: >
@@ -105,7 +113,8 @@ phases:
       - "broken skills/* parents: write the skills, or respell as K-lines?"
       - "tier: outside skills?"
       - "placement listing keys (objects:, characters:, residents:, contains:): retire, or hints linted against the directory?"
-      - "when: (GLANCE) and invoke_when: (CARD): one key or two?"
+      - "when: (GLANCE) and invoke_when: (CARD): one key or two? (analysis/ACTIVATION.md)"
+      - "decisions 1-14 in analysis/README.md: advertisement concepts, method core, card keys"
   - id: migrate
     status: claimed
     # One batch per row, smallest blast radius first. Each batch: run, verify, rerun the

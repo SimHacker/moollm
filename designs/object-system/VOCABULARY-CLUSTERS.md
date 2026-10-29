@@ -490,6 +490,8 @@ Still open:
 
 ## Related
 
+- [analysis/](analysis/README.md): round 2, inside methods and advertisements, and every card
+  top-level key.
 - [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md): the lookup semantics these keys feed.
 - [DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md](DUBLIN-CORE-AND-THE-ADVENTURE-COMPILER.md): the
   metadata vocabulary clusters 5, 8, 9 and 10 can map onto.
