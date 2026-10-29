@@ -1,0 +1,342 @@
+# ADVERTISEMENT.yml — the prototype advertisement
+#
+# The implied parent of every entry in an `advertisements:` map, anywhere: an object, a room,
+# a character, a skill CARD. An advertisement says "choose me, here, for this" and pushes
+# itself into the auction (designs/ADVERTISEMENT-AUCTION.md); the actor scores what is
+# advertised and something wins (constitution §16).
+#
+# An advertisement states only what is unusual about it. Every key below has a default,
+# and an omitted key means that default: no score_if means always, no guard means always
+# available, no reach means the advertiser's room. Values equal to the default are removable.
+#
+# The slots below are what every advertisement inherits. The schema under `schema:` is not
+# inherited; it describes the keys for linters and models.
+#
+# The graduation ladder, per behavior:
+#   1. prose          guard: "player has a feather token"            the LLM reads and judges it
+#   2. prose + _js    guard_js: "(world) => world.has('feather_token')"  the engine runs it; an
+#                     LLM wrote it at compile time; _py is the twin for adventure_runtime.py
+#   3. graduated key  requires_items: [feather_token]                 the engine runs it with no
+#                     generated code, because enough compiled guards had that one shape
+# Rungs coexist: an advertisement may carry requires_tags plus a prose guard for what the
+# tags don't capture, and only the prose needs a _js. Plugged-in objects extend the ladder:
+# a coin dispenser that implements cost makes cost runnable in any room that holds one.
+
+score: 50                          # the compiler export already defaults to 50
+reach: room                        # actors in the advertiser's room see it
+invoked_by: [player, npc]          # a player can pick it from the menu; an NPC can pick it by autonomy
+
+schema:
+  id: advertisement
+  applies_to: "each entry of an advertisements: map, in any object, room, character or CARD"
+  extends: []
+  extensions: |
+    Object-specific keys are allowed and are YAML Jazz until they graduate; never reuse a
+    standard key with another meaning. Known extensions:
+    - AMBIENT advertisements on skill CARDs add scope (session | conversation | room | card-only)
+      and resolution (full | summary | sniff | card-only): how long, and how much of the skill,
+      to keep in context. 14 skills use it; bootstrap compiles them into the ambient rules.
+    - WillWrightShowForFood schemas/advertisement-dispatch.yml extends this schema with
+      dispatch (forward | inject | hub | magazine | spawn), menu_host, ability_owner, invoke_as,
+      requires_participants, hub_state_required, locked_until, guidance_when_locked,
+      reciprocal_with and protocol. Its score_when is this schema's score_if. Dispatch decides
+      where a slice appears and who executes; the keys here decide whether and how much.
+  conventions:
+    list_of_one: "a bare string where a list is expected is a list of one"
+    any_all_not: "a list means any; { all: [...] } every; { not: [...] } none"
+    map_keyed_by_name: |
+      advertisements: is a map keyed by the advertisement's name. UPPERCASE names are commands
+      a player types (CRAFT, LOOK); lowercase names are code-callable. The list form, with the
+      name in action: or name: on each entry, is legacy; migrations key the map by it.
+    prose_compiles: |
+      A key with compiles: true is natural language a model reads, and also gets <key>_js and
+      <key>_py siblings that evaluate it procedurally. Writers of compiled code fill them;
+      readers that find them run them and fall back to the prose when they are empty.
+    templates: "{name} in prose and say fills from parameters, then from context: {actor}, {advertiser}, {room}"
+  keys:
+
+    # Base keys: every population uses these.
+
+    id:
+      shape: string
+      default: "the map key"
+      meaning: "the advertisement's name; write it as the key in advertisements:, not as a field"
+      compiles: false
+      aliases: [action, name]      # action: names 243 list-form world entries; the export reads name:
+      example: RING-GONG
+    description:
+      shape: prose
+      default: null                # the name is its own label
+      meaning: "what the advertisement offers, as a menu or a model reads it; the LLM performs it from this when there is no effect and no method"
+      compiles: false
+      aliases: []
+      example: "Ring the brass gong to announce good news to the whole pub"
+    score:
+      shape: number
+      range: [0, 100]
+      default: 50
+      meaning: "how much the advertiser wants to be chosen: the bid when score_if holds or is absent"
+      compiles: false
+      aliases: [score_hint]        # ties uses score_hint: high | medium; high is 80, medium 50, low 20
+      # word and concept trigger entries scored 0..1 (259 of 260); migration multiplies by 100
+      example: 80
+    score_if:
+      shape: prose
+      default: null                # absent: the score stands as given, always
+      meaning: |
+        the situation in which the advertiser wants to be chosen. Holds: the bid is score.
+        Does not hold: the bid is 0 and the advertisement stays available (availability is
+        guard's job), so a player can still pick it and autonomy will not. score_if_js may
+        return a number instead of a bool; the number replaces score, for need-scaled bids.
+      compiles: true
+      aliases:
+        - condition                # in a CARD; in a world object condition: means guard
+        - score-if
+      example: "the actor is tired"
+    guard:
+      shape: prose
+      default: null                # absent: always available
+      meaning: "what must be true for the advertisement to be offered at all; false hides it, or refuses it with guard_fail when invoked by name"
+      compiles: true
+      aliases:
+        - condition                # in a world object; in a CARD condition: means score_if
+        - preconditions            # a list of prose clauses, all of which must hold
+      example: "the player has a feather token"
+    guard_fail:
+      shape: string
+      default: "the engine's generic refusal, naming the advertisement"
+      meaning: "what the actor is told when it invokes the advertisement by name and the guard is false"
+      compiles: false
+      aliases: []
+      example: "The gong is wrapped in a cloth. Not tonight."
+    parameters:
+      shape: map
+      of: prose
+      default: null
+      meaning: "what the advertisement needs from the actor or the context, name → prose; a provider's wants become these"
+      compiles: false
+      aliases: [params, wants]     # params: the engine dataclass and delegate.params; wants: singular advertisement: blocks
+      example: { drink: "what the actor orders", tip: "coins, optional" }
+    effect:
+      shape: prose
+      default: null                # absent: the method runs, or the LLM performs the description
+      meaning: "what happens when the advertisement is chosen, beyond what the graduated effect keys say"
+      compiles: true
+      aliases: []
+      example: "the gong booms; everyone in the pub turns to look"
+    method:
+      shape: ref
+      default: "the method with the advertisement's name, if there is one"
+      meaning: "the method that performs the advertisement, called with its parameters; optional, most skill advertisements name none"
+      compiles: false
+      aliases: [delegate]          # delegate: { method, params } splits into method and parameters
+      example: SCAN
+    satisfies:
+      shape: list
+      of: string
+      default: null
+      meaning: "the motives or goals the advertisement satisfies, on the actor; a list without amounts means 10 each, a map motive → amount gives amounts"
+      compiles: false
+      aliases: [motives_satisfied]
+      example: { hunger: 30, social: 10 }
+    invoked_by:
+      shape: list
+      of: enum
+      values: [player, npc, self, any]
+      default: [player, npc]
+      meaning: |
+        who may choose it. player: from a menu or by typing its name. npc: by autonomy, any
+        non-player actor. self: only the advertiser. In a skill CARD the player is the user
+        and the npc is the model choosing a skill.
+      compiles: false
+      aliases: [invoked-by, customers]
+      example: [self]
+    reach:
+      shape: enum
+      values: [self, holding, touch, adjacent, near, room, world, user]
+      default: room
+      meaning: |
+        how close an actor must be to see the advertisement, measured from the advertiser.
+        The scale is kernel/ADVERTISEMENT-GATES.yml without its in- prefixes. For a skill CARD,
+        room is the context the card is loaded in.
+      compiles: false
+      aliases: []
+      example: near
+
+    # Graduated conditions: shapes the compiled guards repeat, run by the engine without code.
+
+    requires_tags:
+      shape: list
+      of: string
+      default: null                # anyone
+      meaning: "tags or roles the actor must carry; any of them (any_all_not applies)"
+      compiles: false
+      aliases: [requires]          # requires: [staff, bartender] tag lists; requires: prose is guard
+      example: [staff, cat, dog, monkey]
+    requires_items:
+      shape: list
+      of: ref
+      default: null
+      meaning: |
+        items the actor must hold in its inventory; ALL of them, unlike the any convention.
+        Not consumed. The map form { all: [...], consume: true } uses them up when chosen;
+        { any: [...] } asks for one of them.
+      compiles: false
+      aliases: []
+      example: [feather_token]
+    when_state:
+      shape: map
+      default: null
+      meaning: "state pairs on the advertiser; all must match"
+      compiles: false
+      aliases: []
+      example: { open: true, broken: false }
+    when_flags:
+      shape: list
+      of: string
+      default: null
+      meaning: "world flags; any one set is enough (any_all_not applies)"
+      compiles: false
+      aliases: []
+      example: [good_news, victory, milestone]
+    requires_lighting:
+      shape: map
+      default: null                # any light
+      meaning: "the actor's room lighting, 0..10, min and max inclusive; either may be omitted"
+      compiles: false
+      aliases: []
+      example: { max: 2 }
+    cost:
+      shape: number
+      default: null                # free
+      meaning: |
+        coins paid by the actor to the advertiser's owner when chosen; the actor must have
+        them, so cost is also a guard. A map names other currencies: { gold: 5 }.
+      compiles: false
+      aliases: []
+      example: 2
+    trigger:
+      shape: list
+      of: string
+      default: null                # no words wake it; it competes on score alone
+      meaning: |
+        what the actor says that should wake the advertisement. A list: words or phrases, any
+        of them, whole-word, case-insensitive. The map form { phrases: [...], concepts: [...] }:
+        phrases match mechanically, concepts are judged by the LLM. A trigger only wakes the
+        advertisement; guard, score_if and parameters still apply. k_lines use the same matcher.
+      compiles: false
+      aliases: [triggers]
+      example: [latte, espresso, "flat white"]
+
+    # Graduated effects: the verbs of the deterministic DSL.
+
+    say:
+      shape: string
+      default: null
+      meaning: "spoken by the advertiser to its room when chosen; {name} templates fill from parameters and context"
+      compiles: false
+      aliases: [response, result]  # on trigger entries: 297 response, 161 result
+      example: "{advertiser} slides a {drink} across the bar."
+    set:
+      shape: map
+      default: null
+      meaning: "state pairs written on the advertiser when chosen"
+      compiles: false
+      aliases: []
+      example: { lit: true }
+    move_to:
+      shape: ref
+      default: null
+      meaning: "moves the actor; a path relative to the advertiser's room"
+      compiles: false
+      aliases: []
+      example: ../stage
+    give:
+      shape: list
+      of: ref
+      default: null
+      meaning: "one of each item, from the advertiser to the actor"
+      compiles: false
+      aliases: []
+      example: [lamp]
+    take:
+      shape: list
+      of: ref
+      default: null
+      meaning: "one of each item, from the actor to the advertiser"
+      compiles: false
+      aliases: []
+      example: [empty-glass]
+    pay:
+      shape: number
+      default: null
+      meaning: "coins from the advertiser to the actor; a map names other currencies. cost is the other direction"
+      compiles: false
+      aliases: []
+      example: 5
+    buff:
+      shape: list
+      of: string
+      default: null
+      meaning: "buffs applied to the actor, by name (skills/buff)"
+      compiles: false
+      aliases: []
+      example: inspired
+    spawn:
+      shape: list
+      of: ref
+      default: null
+      meaning: "objects or characters created in the advertiser's room"
+      compiles: false
+      aliases: []
+      example: [rubber-duck]
+
+  examples:
+
+    # A world offer: the soda machine graduated all the way. No guard needed: cost is one.
+    soda-machine:
+      advertisements:
+        BUY-SODA:
+          description: "Feed the machine two coins for a cold can"
+          cost: 2
+          when_state: { broken: false }
+          satisfies: { thirst: 40 }
+          give: [soda-can]
+          say: "The machine clunks and drops a can of {flavor}."
+          parameters: { flavor: "what the actor picks; cola if they don't" }
+        KICK:
+          score: 10
+          score_if: "the machine is broken or the actor is angry"
+          effect: "sometimes a free can falls out, sometimes the actor hurts a toe"
+
+    # A trigger advertisement: words wake it, the guard and score still decide.
+    barista:
+      advertisements:
+        MAKE-COFFEE:
+          trigger: [latte, espresso, cappuccino, "flat white"]
+          guard: "the cafe is open and the actor is not already holding a coffee"
+          guard_fail: "Kitchen's closed, love. Come back at seven."
+          score: 70
+          parameters: { drink: "the word that woke it" }
+          cost: 3
+          say: "One {drink}, coming up."
+          give: [coffee]
+
+    # Skill relevance in a CARD: a score and a prose score_if the model judges. No method:
+    # the effect is "load this skill and act". skills/debugging/CARD.yml, condition: renamed.
+    debugging-card:
+      advertisements:
+        FIX-BUG:
+          score: 95
+          score_if: "something is broken and needs fixing"
+
+    # A provides item recast: leela-ai's singular advertisement: { provides, wants,
+    # motives_satisfied } becomes one advertisement per provided thing.
+    leela-ai-card:
+      advertisements:
+        CAUSAL-INFERENCE:
+          score: 80
+          score_if: "a visual event needs a why, not just a what"
+          parameters: { video_feeds: "camera streams", domain_context: "what this factory makes" }
+          satisfies: [safety, compliance]
+          effect: "schema mechanism explains the event as a causal chain"

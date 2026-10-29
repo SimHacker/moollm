@@ -1,11 +1,11 @@
 # GLANCE.yml — advertisement
-# Full file: CARD.yml (250 lines) | SKILL.md
+# Full file: CARD.yml | SKILL.md | schema: ADVERTISEMENT.yml
 # 📢 "Objects don't wait — they announce what's possible."
 
 what: |
-  Sims-style object interaction. Objects broadcast available actions.
-  Scored by relevance. Plug-in architecture.
-  This is how The Sims enabled infinite expansion.
+  Sims-style interaction. Objects, rooms, characters and skills push offers into an
+  auction, scored by relevance; the actor picks. Prose keys compile to _js/_py;
+  recurring shapes graduate to keys the engine runs without an LLM.
 
 why: |
   - Objects self-describe (no code changes)
@@ -14,31 +14,31 @@ why: |
   - Infinite expansion via new objects
 
 when:
-  - '"New room, unsure what to do" → SCAN'
-  - '"Creating interactive object" → add advertisements'
-  - '"Understanding Sims pattern" → EVALUATE'
+  - '"New room, unsure what to do" → DISCOVER-ACTIONS → SCAN'
+  - '"Creating an object that needs interactions" → BUILD-OBJECT → SHOW'
+  - '"Picking an action for a character" → SELECT'
+  - '"Understanding the Sims pattern" → UNDERSTAND-SIMS → EVALUATE'
 
 methods:
-  SCAN: "Collect all ads from current room"
-  SHOW: "Display object's advertisements"
-  SELECT: "Choose an advertised action"
+  SCAN: "Collect, guard and rank ads within reach"
+  SHOW: "Display an object's ads, defaults filled in"
+  SELECT: "Choose an ad and perform it"
   EVALUATE: "Score ads against character needs"
 
 ad_schema:
-  action: "Action name"
-  description: "What it does"
-  score: "Base priority (0-100)"
-  score_if: "Conditional modifier"
-  preconditions: "What must be true"
-  satisfies: "Needs/goals fulfilled"
+  # an omitted key means its default; state only what is unusual
+  score: "0..100 bid. Default 50"
+  score_if: "prose: when it wants to be chosen. Default always"
+  guard: "prose: when it is offered at all. Default always"
+  parameters: "what it needs"
+  effect: "prose: what happens"
+  method: "Default: the method with its name"
+  satisfies: "motives on the actor"
+  trigger: "words, phrases, concepts that wake it"
+  reach: "Default room"
+  graduated: [requires_tags, requires_items, when_state, when_flags, requires_lighting, cost, say, set, move_to, give, take, pay, buff, spawn]
 
-ambient_advertisement: |
-  Special type for "in the air" skills:
-  AMBIENT:
-    score: 100
-    condition: always
-    scope: [session, conversation, room, card-only]
-    resolution: [full, summary, sniff, card-only]
+ambient_advertisement: "AMBIENT: { score, score_if, scope, resolution } keeps a skill in context"
 
 sims_insight: |
   Why it worked:
@@ -48,6 +48,6 @@ sims_insight: |
   - Community millions of objects
 
 pie_menu: "Ads become pie menu slices, sorted by score"
-score_dynamics: "Base + score_if + needs + context"
+score_dynamics: "score if score_if holds, 0 if not; needs and find-best-N pick"
 lineage: [Will Wright (The Sims), Don Hopkins (Pie Menus)]
 tier: 1

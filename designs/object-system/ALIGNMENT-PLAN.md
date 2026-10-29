@@ -47,6 +47,33 @@ score:
 One agent per schema (S1–S6 in parallel), each producing the schema file, SKILL.md section and
 CARD copy-down. Don reviews all six together before phase 3; this is the main human gate.
 
+### Questions for that review
+
+Settled while drafting, open to reversal:
+- `invoked_by` default depends on name case: `[player, npc]` for UPPERCASE commands,
+  `[self, engine]` for lowercase functions (S2).
+- `governed_by` defaults to both real-being and representation-ethics, matching the biography
+  header (S5).
+- `score_hint` words map to numbers: high 80, medium 50, low 20 (S1).
+- `requires_items` defaults to all, not any; `consume` lives in its map form (S1).
+
+Open:
+- `score_if`: S1 defines a false `score_if` as bid 0 (still available), a numeric `score_if_js`
+  replaces the score. `adventure_runtime.py` instead adds +20 when it holds. T6 aligns the
+  runtime with whichever Don picks.
+- Level 3 forbids "defame or mock"; the satire frames (🃏, snatch-game) and `donna-toadstool`'s
+  unmapped `consent_level: public_figure_34_felonies_fair_game` need a framing exception or
+  narrower wording.
+- Level 5 subject rights (family, estate and people who knew them may correct; care with a
+  recent death) are policy written by S5, not sourced from an existing doc.
+- `self-consent-card.yml`'s `consent_level: open/closed/friends/copyleft` is a level-1 subject's
+  grant to others, not a tier; proposed home: a `grants:` key.
+- A layer with no `consent_level` defaults to level 3 (public figure). Lint should flag a
+  missing level unless `status: deceased`, since a private person would otherwise get
+  public-figure rules.
+- wwsff `portrayal-standards.yml` uses `meta:`, not `schema:`, and its consent table omits
+  level 4; it becomes `schema: { extends: [representation] }` in phase 3.
+
 ## Phase 2: tools
 
 Code, each with tests in the existing style (`skills/prototype/scripts/test_resolve.py`).

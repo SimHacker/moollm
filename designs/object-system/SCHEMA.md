@@ -188,7 +188,7 @@ the rule against stored status is about work.
 Each standard schema is a YAML Jazz file in the skill that owns it, read by the linters and by
 models: `skills/advertisement/ADVERTISEMENT.yml`, `skills/object/OBJECT.yml` (methods),
 `skills/card/CARD.yml` (card schema section), `skills/character/CHARACTER.yml`,
-`skills/representation-ethics/` (consent). Where the file is also a prototype, the schema sits
+`skills/representation-ethics/REPRESENTATION.yml` (the `representation:` block of real-being layers). Where the file is also a prototype, the schema sits
 under a top-level `schema:` key so it is not inherited as slots. Its shape:
 
 ```yaml
@@ -216,6 +216,21 @@ schema:
 `<key>_py` siblings. `lookup` never returns a top-level schema block as a slot; `FILE#schema.keys` reaches it.
 A linter treats a value equal to the default as removable, an alias as a
 finding, and an unknown key as YAML Jazz unless it collides with an alias.
+
+A key may be the alias of two canonical keys when the meaning depends on where it appears
+(`condition:` is `guard:` in world objects and `score_if:` in CARDs); a comment on the alias
+says which, and the migration decides by location. `enum` keys list `values: [...]`. The map
+key of a collection entry is its `id:`; a schema that replaces a legacy list form lists the old
+name field (`action:`, `name:`) as an alias of `id`.
+
+A key whose old spellings changed values as well as names lists them in `value_aliases:`, a map
+from old value to canonical value (`5_deceased_legacy: 5`); `null` means the old value carried
+nothing and is dropped. A map-shaped key may give its own `keys:` in the same form. A schema may
+add tables its keys refer to, such as `levels:` in REPRESENTATION.yml, where each consent level
+holds the `may` and `must_not` lists that are the defaults for those keys. A repo standard that
+adds to a moollm schema names it in `extends:` (WillWrightShowForFood
+`schemas/portrayal-standards.yml` extends `representation`). Keys inside `aliases:` and
+`value_aliases:` maps are old spellings on purpose and lint does not report them.
 
 ## Accepted legacy forms
 

@@ -20,6 +20,7 @@
 - [Philosophical Foundations](#philosophical-foundations)
 - [The Sims Ethics Deep Dive](#the-sims-ethics-deep-dive)
 - [The Consent Hierarchy](#the-consent-hierarchy) → `examples/consent-hierarchy.yml`
+- [Schema: the `representation:` block](#schema-the-representation-block) → `REPRESENTATION.yml`
 - [Self-Authored Personae: Owned and Disowned](#self-authored-personae-owned-and-disowned) → `examples/self-authored-persona.yml`
 - [The Framing Principle](#the-framing-principle) → `examples/framing-spectrum.yml`
 - [Distance Sets the License](#distance-sets-the-license) → `examples/patron-mascot-stack.yml`
@@ -302,6 +303,67 @@ Five levels of representation rights. **Full details:** `examples/consent-hierar
 - "The Minsky tradition suggests..." → ✅ safe
 - "Minsky would say..." → ⚠️ less safe
 - "I am Minsky and I think..." → ❌ NO
+
+---
+
+## Schema: the `representation:` block
+
+Every character layer that portrays a real being carries a `representation:` map. Its standard
+schema is [REPRESENTATION.yml](REPRESENTATION.yml) (`schema.id: representation`, in the
+[SCHEMA.md](../../designs/object-system/SCHEMA.md) format). The layer copies the block into
+itself, together with the ethics header it needs, so it still runs when its directory is copied
+into another repo (constitution §15, layers across repos). The schema keeps those copies in
+agreement.
+
+```yaml
+representation:
+  consent_level: 3          # 1 self-sovereign · 2 explicit · 3 public figure · 4 private · 5 deceased
+  authored_by: don-hopkins
+  governed_by: moollm://github/SimHacker/moollm/skills/representation-ethics/
+```
+
+| Key | Shape | Default when omitted |
+|-----|-------|----------------------|
+| `consent_level` | 1..5 | 3 when the subject is real and alive (or `status` is absent); 5 when `status: deceased` |
+| `authored_by` | character id | the subject at level 1; otherwise none, which lint reports |
+| `governed_by` | list of refs | `[moollm://github/SimHacker/moollm/skills/real-being/, moollm://github/SimHacker/moollm/skills/representation-ethics/]` |
+| `may` | list of prose | the level's `may` list |
+| `must_not` | list of prose | the level's `must_not` list |
+| `speaks_as` | bool | `false` |
+| `subject_rights` | map | the subject may correct or object; contact via the author |
+| `disclaimer` | prose | "This is a portrayal published ABOUT {name}. It is not {name}, is not endorsed by {name} unless noted, and does not speak as them." |
+| `note` | prose | none |
+
+| Level | Name | Signifier | Core rule |
+|-------|------|-----------|-----------|
+| 1 | self-sovereign | 👤 | The subject authors it; may speak as themselves |
+| 2 | explicit consent | 👤 | Published terms, scope, revocation; honor them |
+| 3 | public figure: tradition, K-line | 👤 | Documented work and sourced 💬 quotes; never speak as them |
+| 4 | private individual: fictional wrapper | 👤 | Inspired-by character with disclaimer; no identifying details |
+| 5 | deceased: reverence, legacy and artifacts only | 🕯️ | No speaking as them, no invented inner life, dialogue or quotes |
+
+Each level's full `may` and `must_not` lists are data under `schema.levels` in
+REPRESENTATION.yml. A layer's own lists add to its level's lists: a layer can forbid more than
+its level, never permit what the level forbids. Only the subject widens them, by authoring
+(level 1) or by published terms (level 2). `speaks_as: true` is valid only at level 1, or at
+level 2 when the terms grant it.
+
+**Older spellings** that lint reports and migrations rewrite:
+
+- `protocol:` → `governed_by:`; `protocol: HERO-STORY` becomes the real-being and
+  representation-ethics refs.
+- `consent:` → `consent_level:`; `consent: self-sovereign` → `consent_level: 1`.
+- `kind: self` → `consent_level: 1`; `kind: representational` names no level and is dropped.
+- string levels such as `5_deceased_legacy`, `3_public_figure`, `public` → their number.
+- `subject_rights.contact_for_correction` → `subject_rights.contact`.
+
+**Not this schema:** `invitation.consent` (`not_yet_asked`, `granted`, `declined`) records whether
+an invitation was accepted. It stays under `invitation:`.
+
+**Repo standards extend it.** A repo's own portrayal standard declares that it extends this
+schema and adds what the repo needs. WillWrightShowForFood's `schemas/portrayal-standards.yml`
+(subject rights, memorial mode, stealth mode, invitation documents) is that kind of standard and
+should carry `extends: [representation]`; layers there may name it in `governed_by`.
 
 ---
 

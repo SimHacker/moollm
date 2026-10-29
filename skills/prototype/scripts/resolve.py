@@ -604,9 +604,12 @@ SCHEMA_KEY_RENAMES = {"k-lines": "k_lines", "klines": "k_lines", "see-also": "se
                       "invoked-by": "invoked_by"}
 
 
+ALIAS_MAPS = {"aliases", "value_aliases"}  # keys inside these name old spellings on purpose
+
+
 def nested_keys(v: Any) -> set[str]:
     if isinstance(v, dict):
-        return set(map(str, v)).union(*(nested_keys(x) for x in v.values()))
+        return set(map(str, v)).union(*(nested_keys(x) for k, x in v.items() if k not in ALIAS_MAPS))
     if isinstance(v, list):
         return set().union(*(nested_keys(x) for x in v))
     return set()

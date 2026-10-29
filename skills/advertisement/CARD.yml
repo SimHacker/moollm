@@ -3,264 +3,200 @@
 # Objects announce what they can do — The Sims style.
 # "Objects don't wait to be used — they announce what's possible."
 #
-# FUNDAMENTAL ARCHITECTURE:
-# Advertisements are NOT just for skills or objects — they can be ANYWHERE:
-#   - A room can advertise (ROOM.yml)
-#   - A character can advertise (CHARACTER.yml)
-#   - A YAML section can advertise inline (inventory.magic_sword.advertisements)
-#   - Any file, any directory, any nested structure
+# Advertisements are not just for skills or objects; they can be anywhere:
+#   - a room advertises (ROOM.yml), a character advertises (CHARACTER.yml)
+#   - a YAML section advertises inline (inventory.magic_sword.advertisements)
+#   - a skill CARD advertises when it wants to be loaded
+#   - what a skill provides and what it wants are advertisements with parameters and satisfies
 #
-# An advertisement is a LEXICALLY SCOPED AGENT:
-#   - Captures its environment (the directory, the object's state)
-#   - Responds to patterns (triggers)
-#   - Can create side effects (files, messages, state changes)
-#   - Or just returns a value
+# An advertisement is a lexically scoped agent: it captures its environment (the directory,
+# the object's state), responds to patterns (triggers, situations), and creates side effects
+# or just returns a value. The "event" need not be reified: a word in chat, a concept, a
+# delegated method, a need state, a message.
 #
-# The "event" doesn't have to be reified — it can be:
-#   - A word in chat
-#   - A concept
-#   - A delegated method from another skill
-#   - A need state
-#   - Just... a message
+# The canonical schema is ADVERTISEMENT.yml in this directory (its `schema:` key). The key
+# list below is the concentrated copy; lint keeps them in agreement.
 #
-# See: kernel/ARCHITECTURE.md → "The Universal Foundation: Agents All The Way Down"
-# See: designs/MOO-HERITAGE.md → "Advertisements Are Everywhere"
+# See: kernel/constitution-core.md §16, designs/ADVERTISEMENT-AUCTION.md,
+#      kernel/ARCHITECTURE.md "Agents All The Way Down", designs/MOO-HERITAGE.md
 
 name: ADVERTISEMENT
-type: [skill, interaction, game]
+type: skill
+tags: [moollm, sims, interaction, advertisement, game]
 tier: 1
-invoke_when: ["Need objects to announce actions", "Build plug-in interactions"]
-advertisement_names:
-  - DISCOVER-ACTIONS
-  - BUILD-OBJECT
-  - UNDERSTAND-SIMS
+emoji: "📢"
+tagline: "Objects don't wait to be used — they announce what's possible."
+description: |
+  Sims-style interaction: every object, room, character and skill pushes its offers into an
+  auction, scored by relevance, and the actor picks. One parameterized advertisement covers
+  a manifold of stimulus and response. Prose keys compile to _js/_py; recurring shapes
+  graduate to standard keys the engine runs without an LLM.
 related:
-  - skills/action-queue
+  - skills/object
   - skills/room
-  - skills/needs
+  - skills/character
   - skills/card
+  - skills/action-queue
+  - skills/needs
+  - skills/buff
   - skills/coherence-engine
   - skills/rubric
-tags: [moollm, sims, interaction, advertisement]
-description: |
-  Sims-style object interaction: every object broadcasts available actions,
-  scored by relevance. Use for plug-in architectures where objects
-  self-describe behaviors. "Objects don't wait to be used — they announce
-  what's possible."
-
-# TOOLS REQUIRED
 
 tools:
   required:
-    - read_file   # Read object advertisements
-    - write_file  # Update ad scores/state
-    - list_dir    # Find objects in room
+    - read_file   # read object advertisements
+    - write_file  # update ad scores and state
+    - list_dir    # find objects in a room
   optional: []
+
+# The schema, concentrated. name: meaning. Default.
+# An omitted key means its default, so an advertisement states only what is unusual.
+schema:
+  id: advertisement
+  canonical: ADVERTISEMENT.yml#schema
+  applies_to: "each entry of an advertisements: map, in any object, room, character or CARD"
+  conventions:
+    list_of_one: "a bare string where a list is expected is a list of one"
+    any_all_not: "a list means any; { all: [...] } every; { not: [...] } none"
+    map_keyed_by_name: "advertisements: is a map keyed by name; UPPERCASE = player command; list form with action: is legacy"
+    prose_compiles: "score_if, guard, effect are prose and get _js/_py siblings"
+  keys:
+    # base
+    id: "the advertisement's name, written as the map key. Default: the map key"
+    description: "what it offers, for menus and models; the LLM performs it when there is no effect or method. Default: none, the name is the label"
+    score: "0..100 bid when score_if holds or is absent. Default 50"
+    score_if: "prose: the situation in which it wants to be chosen; false bids 0 but stays available; _js may return a number. Default: always"
+    guard: "prose: what must be true for it to be offered at all. Default: always available"
+    guard_fail: "what an actor hears when the guard refuses. Default: the engine's generic refusal, naming it"
+    parameters: "map name → prose of what it needs from actor or context. Default: none"
+    effect: "prose: what happens beyond the graduated effect keys. Default: none, the method or the LLM performs it"
+    method: "the method that performs it. Default: the method with its name, if any"
+    satisfies: "motives on the actor; list = 10 each, map = amounts. Default: none"
+    invoked_by: "player | npc | self | any. Default [player, npc]; in a CARD the npc is the model"
+    reach: "self | holding | touch | adjacent | near | room | world | user, from the advertiser. Default room"
+    # graduated conditions
+    requires_tags: "actor carries any of these tags. Default: anyone"
+    requires_items: "actor holds all of these, not consumed; { all: [...], consume: true } uses them up. Default: none"
+    when_state: "advertiser's state pairs, all match. Default: none"
+    when_flags: "world flags, any set. Default: none"
+    requires_lighting: "{ min, max } 0..10 inclusive, actor's room. Default: any light"
+    cost: "coins actor → advertiser's owner when chosen, and a guard; map for other currencies. Default: free"
+    trigger: "words or phrases, any, whole-word, case-insensitive; { phrases, concepts } for LLM-judged concepts. Default: none, score alone"
+    # graduated effects
+    say: "spoken by the advertiser to its room; {name} templates. Default: none"
+    set: "state pairs written on the advertiser. Default: none"
+    move_to: "moves the actor, path relative to the advertiser's room. Default: none"
+    give: "one of each, advertiser → actor. Default: none"
+    take: "one of each, actor → advertiser. Default: none"
+    pay: "coins advertiser → actor. Default: none"
+    buff: "buffs on the actor. Default: none"
+    spawn: "created in the advertiser's room. Default: none"
+  aliases:
+    # old spellings; lint reports them, migrations rewrite them
+    condition: "guard in world objects; score_if in CARDs"
+    preconditions: guard
+    score-if: score_if
+    score_hint: score
+    action: id
+    name: id
+    delegate: "method + parameters"
+    params: parameters
+    wants: parameters
+    motives_satisfied: satisfies
+    requires: "requires_tags, when it is a tag list; guard, when it is prose"
+    response: say
+    result: say
+    triggers: trigger
+    invoked-by: invoked_by
+  ladder: "prose → prose + _js/_py → graduated key; rungs coexist, only prose needs _js"
+  extensions: "object-specific keys are YAML Jazz; WillWrightShowForFood schemas/advertisement-dispatch.yml adds dispatch modes, locked ads, reciprocal services"
+
+  # AMBIENT: a skill advertising "keep me in context". An extension, not a separate file.
+  ambient:
+    shape: "AMBIENT: { score, score_if, scope, resolution }"
+    scope: [session, conversation, room, card-only]        # how long it stays
+    resolution: [full, summary, sniff, card-only]          # how much of the skill to keep
+    orchestrator: |
+      Collect AMBIENT advertisements from loaded skills, evaluate score_if against the current
+      context, sort by score, load each at its resolution until the context budget runs out,
+      refresh on context change (new room, new topic).
+    why_in_card: |
+      CARD.yml is already the sniffable interface, and hosts like Cursor and Claude Code don't
+      run a layered wake-up orchestrator. So AMBIENT lives in the CARD, the hot list pages the
+      CARD in, and the model applies it. A separate AMBIENT.yml waits for MOOCO.
+    examples:
+      always_on: "no-ai-slop — AMBIENT: { score: 100, scope: session, resolution: card-only }"
+      conditional: "yaml-jazz — AMBIENT: { score: 90, score_if: \"writing or editing YAML\", scope: conversation, resolution: summary }"
 
 methods:
   SCAN:
-    description: "Collect all advertisements from current room"
+    description: "Collect every advertisement within reach of the actor, apply guards, score and sort"
     parameters:
-      room: "Path to room (defaults to current)"
+      room: "path to the room; the current room if omitted"
     output: chat
-    effect: "Read *.yml, extract ads, score and sort"
+    effect: "read the room's interfaces and objects, merge their advertisements maps, drop failed guards, rank by score after score_if"
 
   SHOW:
-    description: "Display what an object advertises"
+    description: "Display what one object advertises, with defaults filled in"
     parameters:
-      object: "Object to inspect"
+      object: "object to inspect; the ADVERTISEMENT.yml examples if omitted"
     output: chat
-    effect: "Show object's ads with scores"
+    effect: "list each advertisement with its score, guard, trigger and effect keys"
 
   SELECT:
-    description: "Choose an advertised action"
+    description: "Choose an advertised action and perform it"
     parameters:
-      object: "Object offering the action"
-      action: "Action to take"
+      object: "object offering the action"
+      action: "advertisement name"
     output: chat + state-change
-    effect: "Execute the action; may queue more actions"
+    effect: "check the guard (say guard_fail if false), pay cost, run graduated effects, then effect or method; may queue more actions"
 
   EVALUATE:
-    description: "Score ads against character needs"
+    description: "Score advertisements against a character's needs"
     parameters:
-      character: "Character to score for"
+      character: "character to score for; the player if omitted"
     output: chat
-    effect: "Adjust scores based on needs/goals/context"
-
-# STATE
-# Advertisements are declared in object files, not here
-
-state:
-  # Ads live on objects; this card has no persistent instance state.
-  advertisement-schema:
-    action:
-      type: string
-      description: "Action name (CRAFT, EXAMINE, USE, AMBIENT, etc.)"
-    description:
-      type: string
-      description: "What the action does"
-    preconditions:
-      type: array
-      description: "What must be true for action to be available"
-    score:
-      type: integer
-      description: "Base score (0-100)"
-    score-if:
-      type: string
-      description: "Condition that modifies score"
-    satisfies:
-      type: array
-      description: "What needs/goals this action satisfies"
-
-# SPECIAL ADVERTISEMENT: AMBIENT
-# Skills can advertise "I want to be in context" using AMBIENT
-
-ambient-advertisement:
-  description: |
-    AMBIENT is a special advertisement type for skills that should be
-    "in the air" — always available, always shaping output without
-    explicit invocation. Like air filters that clean continuously.
-    
-  schema:
-    AMBIENT:
-      score:
-        type: integer
-        range: [0, 100]
-        description: "Priority for context budget allocation"
-      condition:
-        type: string
-        options: [always, condition-string]
-        description: "'always' or a condition the orchestrator evaluates"
-      scope:
-        type: string
-        options: [session, conversation, room, card-only]
-        description: "How long the ambient effect persists"
-      resolution:
-        type: string
-        options: [full, summary, sniff, card-only]
-        description: "How much of the skill to keep in context"
-        
-  examples:
-    always-on: |
-      # no-ai-slop: Syntactic hygiene
-      AMBIENT:
-        score: 100
-        condition: always
-        scope: session
-        resolution: card-only
-        
-    conditional: |
-      # yaml-jazz: When writing YAML
-      AMBIENT:
-        score: 90
-        condition: "when writing or editing YAML files"
-        scope: conversation
-        resolution: summary
-        
-  orchestrator-behavior: |
-    The orchestrator:
-    1. Collects all AMBIENT advertisements from loaded skills
-    2. Evaluates conditions against current context
-    3. Sorts by score (highest priority first)
-    4. Loads skills at their declared resolution until context budget exhausted
-    5. Refreshes on context change (new room, new topic, etc.)
-    
-  # DESIGN DECISION: Why AMBIENT lives in CARD.yml, not AMBIENT.yml
-  
-  design-decision:
-    title: "AMBIENT in CARD, not separate file"
-    date: "2026-01-24"
-    
-    considered: |
-      A layered wake-up system with AMBIENT.yml:
-      - Compressed activation file (always paged in)
-      - Triggers loading SKILL.md → resources → templates  
-      - Dynamic scoring, context gates, resource bundles
-      
-    rejected-because:
-      - "Requires smart orchestrator we don't control (Cursor, Claude Code)"
-      - "CARD.yml already serves as sniffable interface"
-      - "Adds complexity without current runtime support"
-      - "Advertisement metaphor already captures the intent"
-      
-    pragmatic-solution: |
-      "Throw down the gauntlet" architecture:
-      1. Declare AMBIENT in CARD.yml — skill advertises its ambient nature
-      2. Manual hot list — keep CARDs in .moollm/hot.yml or working set
-      3. Resolution field — skill declares how much to page in
-      4. Trust the LLM — once CARD is in context, constraints apply
-      
-    future: |
-      When we build our own orchestrator (MOOCO), AMBIENT.yml becomes viable.
-      For now: CARD.yml + hot list is the pragmatic path.
-
-# ADVERTISEMENTS
-# What this card offers (yes, it advertises its own advertisements)
+    effect: "weight each bid by the motives it satisfies and the character's current needs; pick among the top N (find-best-N)"
 
 advertisements:
   DISCOVER-ACTIONS:
     score: 90
-    condition: "New room or unsure what to do"
-    effect: "Scan and list ads with scores"
-    delegate:
-      method: SCAN
-      params:
-        room: "{{room|.}}"
+    score_if: "a new room, or the actor is unsure what to do"
+    method: SCAN
   BUILD-OBJECT:
     score: 85
-    condition: "Creating an object that needs interactions"
-    effect: "Show example ad schema and scoring"
-    delegate:
-      method: SHOW
-      params:
-        object: "{{object|example}}"
+    score_if: "creating an object, room, character or skill that needs advertisements"
+    method: SHOW
+    effect: "show the ADVERTISEMENT.yml key list and examples; write only what differs from the defaults"
   UNDERSTAND-SIMS:
     score: 75
-    condition: "Learning how Sims-style interaction works"
-    effect: "Explain advertisement system and scoring"
-    delegate:
-      method: EVALUATE
-      params:
-        character: "{{character|player}}"
+    score_if: "learning how Sims-style interaction or the auction works"
+    method: EVALUATE
 
-# THE SIMS SECRET SAUCE
-# Why this pattern enabled massive expansion
-
-sims-insight:
-  why-it-worked:
-    - "User-created objects — anyone could make new furniture/items"
-    - "Expansion packs — drop in new objects with advertisements"
-    - "No code changes — objects self-describe behaviors"
-    - "Infinite variety — community created millions of objects"
-    
-  moollm-parallel:
+sims_insight:
+  why_it_worked:
+    - "User-created objects: anyone could make new furniture and items"
+    - "Expansion packs: drop in new objects with their advertisements"
+    - "No code changes: objects self-describe behaviors"
+    - "Community created millions of objects"
+  moollm_parallel:
     - "YAML files self-describe capabilities"
-    - "New skills/objects plug in without changing core"
-    - "LLM reads descriptions, figures out interactions"
-    - "Community can share object definitions"
+    - "New skills and objects plug in without changing the core"
+    - "The LLM reads descriptions and figures out interactions"
+    - "Graduated keys let the engine run them without the LLM"
 
-# PIE MENU INTEGRATION
-
-pie-menu:
-  description: "Advertisements naturally map to pie menus"
+pie_menu:
+  description: "Advertisements map onto pie menus"
   behavior: |
-    When player clicks an object, advertisements become
-    pie menu slices, sorted by score, highest at top.
-    
-    Just like Don Hopkins' original pie menus: fast access
-    to contextually-relevant actions.
-
-# RELATED
+    When the player clicks an object, its advertisements become pie menu slices, sorted by
+    score, highest at the center as the default action. Don Hopkins' pie menus: fast access
+    to contextually relevant actions.
 
 see_also:
-  - skills/action-queue    # Actions get queued from ads
-  - skills/room            # Where objects live
-  - skills/needs           # Scores adjusted by needs
-  - skills/card            # Cards have advertisements too
-  - skills/coherence-engine # Orchestrates ad evaluation
-  - skills/rubric          # Structured scoring criteria
-
-# CREDITS
+  - ADVERTISEMENT.yml                    # canonical schema and worked examples
+  - ../../designs/ADVERTISEMENT-AUCTION.md   # how the winner is picked
+  - ../../designs/object-system/SCHEMA.md    # schema file format
+  - ../../designs/object-system/CARD-ANALYSIS.md   # the populations this schema unifies
 
 credits:
   inspiration:

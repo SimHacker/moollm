@@ -1,0 +1,222 @@
+# REPRESENTATION.yml — the consent and portrayal schema for real beings
+# Format: designs/object-system/SCHEMA.md "Schema files". Prose: SKILL.md "Schema".
+# A layer copies its representation: block into itself so it runs alone (constitution §15);
+# this file says what each key means and what an omitted key means, so the copies agree.
+
+schema:
+  id: representation
+  applies_to: "the representation: map of any character layer that portrays a real being"
+  extends: []
+  extensions: |
+    Layer-specific keys are allowed (the biography layer has purpose, scope, sources).
+    Never reuse a standard key with another meaning. invitation.consent (not_yet_asked,
+    granted, declined) records whether an invitation was accepted; it is a different fact,
+    lives under invitation:, and is not part of this schema.
+  conventions:
+    list_of_one: "a bare string where a list is expected is a list of one"
+    narrow_not_widen: |
+      A layer's may and must_not ADD to the lists of its consent level. A layer may forbid
+      more than its level; it may not permit what its level forbids. Only the subject widens:
+      at level 1 by authoring, at level 2 by published terms.
+    most_restrictive_wins: "when two layers or frames disagree, the stricter level and the longer must_not apply"
+    life_facts_outside: |
+      status (living | deceased) and signifier are character keys, not representation keys.
+      This schema reads status to choose the default level and states the signifier each
+      level implies; the character file carries both.
+    value_aliases: "an alias may rename a value as well as a key; lint reports both, migrations rewrite both"
+
+  keys:
+    consent_level:
+      shape: enum
+      values: [1, 2, 3, 4, 5]
+      default: "3 when the subject is real and alive (or status is absent); 5 when status: deceased"
+      meaning: "which consent tier governs this portrayal; each value's may, must_not and signifier are in schema.levels"
+      aliases: [consent, kind]
+      value_aliases:
+        self: 1
+        self-sovereign: 1
+        self_sovereign: 1
+        1_self: 1
+        1_self_sovereign: 1
+        explicit: 2
+        2_explicit: 2
+        public: 3
+        public_figure: 3
+        3_public: 3
+        3_public_figure: 3
+        private: 4
+        4_private: 4
+        deceased: 5
+        5_deceased: 5
+        5_deceased_legacy: 5
+        representational: null   # kind: representational names no level; the default applies
+      example: 3
+
+    authored_by:
+      shape: ref
+      default: "the subject, at level 1; otherwise null"
+      meaning: |
+        Who wrote this portrayal, as a character id. Authorship is not ownership: the author
+        writes the portrayal and does not own the subject's identity. null at levels 2-5 is
+        a lint finding, because subject_rights routes through the author.
+      example: don-hopkins
+
+    governed_by:
+      shape: list
+      of: ref
+      default:
+        - "moollm://github/SimHacker/moollm/skills/real-being/"
+        - "moollm://github/SimHacker/moollm/skills/representation-ethics/"
+      meaning: |
+        The standards this portrayal follows, as global refs that survive a copy. A repo
+        standard that extends this schema (wwsff schemas/portrayal-standards) may be listed
+        instead; it carries this schema through extends.
+      aliases: [protocol]
+      value_aliases:
+        HERO-STORY:
+          - moollm://github/SimHacker/moollm/skills/real-being/
+          - moollm://github/SimHacker/moollm/skills/representation-ethics/
+      example:
+        - moollm://github/SimHacker/moollm/skills/real-being/
+        - moollm://github/SimHacker/moollm/skills/representation-ethics/
+
+    may:
+      shape: list
+      of: prose
+      default: "schema.levels[consent_level].may"
+      meaning: "what this portrayal may do, added to its level's list"
+      example: ["Link to his canonical full-resolution site, donhopkins.com."]
+
+    must_not:
+      shape: list
+      of: prose
+      default: "schema.levels[consent_level].must_not"
+      meaning: "what this portrayal must never do, added to its level's list; a layer cannot remove a level entry"
+      example: ["Invent quotes or put words in his mouth."]
+
+    speaks_as:
+      shape: bool
+      default: false
+      meaning: |
+        Whether the character may speak in the first person AS the subject. true is allowed
+        at level 1, at level 2 only when the published terms grant it, and never at 3, 4 or 5;
+        a true there is a lint error.
+      example: false
+
+    subject_rights:
+      shape: map
+      default:
+        right_to_correct: true
+        right_to_object: true
+        contact: "via the author (authored_by)"
+      meaning: |
+        What the portrayed person may do about the portrayal and how to reach someone who
+        acts on it. A prose string is accepted and read as note. At level 5 the subject cannot
+        act; corrections from family, estate and people who knew them are honored.
+      keys:
+        right_to_correct: { shape: bool, default: true }
+        right_to_object: { shape: bool, default: true }
+        contact: { shape: prose, default: "via the author (authored_by)", aliases: [contact_for_correction] }
+        note: { shape: prose, default: null }
+      example:
+        right_to_correct: true
+        contact: "via Don Hopkins"
+        note: "Alan Kay retains the right to correct or object to this portrayal."
+
+    disclaimer:
+      shape: prose
+      default: "This is a portrayal published ABOUT {name}. It is not {name}, is not endorsed by {name} unless noted, and does not speak as them."
+      meaning: "the sentence shown wherever the portrayal is rendered; {name} is the character's name"
+      example: "Representational page. Factual and friendly, no puffery."
+
+    note:
+      shape: prose
+      default: null
+      meaning: "anything about this portrayal's consent the other keys cannot hold: correspondence state, scope agreed in conversation"
+      example: "Subject may edit or remove anytime."
+
+  levels:
+    1:
+      name: self-sovereign
+      signifier: "👤"
+      meaning: "The subject authors their own character and sets its terms."
+      may:
+        - Represent themselves in any way they choose
+        - Speak as themselves in the first person (speaks_as may be true)
+        - Publish terms under which others may portray them (which makes those others level 2)
+        - Revoke or change those terms at any time
+      must_not:
+        - Grant through their own character a license over other real beings; each keeps their own level
+
+    2:
+      name: explicit consent
+      signifier: "👤"
+      meaning: "The subject has agreed, with published terms, to this portrayal or show."
+      requires:
+        - Terms of use the subject wrote or agreed to
+        - A scope
+        - A revocation path
+        - Attribution as the subject asks
+      may:
+        - Portray documented facts, contributions and published work
+        - Quote only confirmed, sourced quotes, marked 💬 with citation and kept in context
+        - Speculate only when clearly marked ("they might say", never "they said")
+        - "Invoke their tradition as a K-line: \"the Minsky tradition suggests\""
+        - What the subject's terms allow, within their scope
+        - Speak as the subject only when the terms say so
+      must_not:
+        - Go beyond the agreed scope
+        - Continue after revocation
+        - Present simulation without disclosure
+        - Fabricate quotes or positions as if real
+        - Expose private information the terms do not release
+
+    3:
+      name: "public figure: tradition, K-line"
+      signifier: "👤"
+      meaning: "Public work is fair game; the persona is not. Invoke the tradition, not the identity."
+      may:
+        - Portray documented facts, contributions and published work
+        - Quote only confirmed, sourced quotes, marked 💬 with citation and kept in context
+        - Speculate only when clearly marked ("they might say", never "they said")
+        - "Invoke their tradition as a K-line: \"the Minsky tradition suggests\""
+      must_not:
+        - "Impersonate or speak as them (\"I am Minsky and I think\")"
+        - Fabricate quotes or positions as if real
+        - Use quotes out of context
+        - Defame or mock
+        - Exploit commercially
+        - Expose private information or private life details
+
+    4:
+      name: "private individual: fictional wrapper"
+      signifier: "👤"
+      meaning: "A person without a public role. Without explicit consent, portray only through a fictional inspired-by character."
+      may:
+        - Create a fictional character inspired by them, with a disclaimer
+        - Move to level 2 by asking and receiving explicit consent
+      must_not:
+        - Use identifying details
+        - Distribute without their consent
+        - Speak as them
+        - Expose private information
+
+    5:
+      name: "deceased: reverence, legacy and artifacts only"
+      signifier: "🕯️"
+      meaning: "They cannot consent. Represent and discuss them through documented work, stories and artifacts."
+      may:
+        - Portray documented work, ideas, stories and artifacts
+        - Quote only confirmed, sourced quotes, marked 💬 with citation
+        - Discuss them with living people who knew them, with those people's consent first
+        - Invoke their tradition with reverence
+      must_not:
+        - Speak as them, or interview them
+        - Invent inner thoughts, inner life, dialogue or quotes
+        - Create audience personas that speak as them
+        - Fabricate quotes or positions as if real
+        - Use quotes out of context
+        - Defame or mock
+        - Exploit commercially
+        - Expose private information or private life details
+        - Disregard the family's feelings after a recent death

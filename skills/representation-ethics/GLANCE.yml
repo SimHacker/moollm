@@ -29,6 +29,7 @@ when:
 
 stack_integration: ETHICS.md
 protocol: SKILL.md
+schema: REPRESENTATION.yml   # representation: { consent_level 1..5, authored_by, governed_by, may, must_not, speaks_as: false, subject_rights, disclaimer }
 examples: examples/
 
 consent_hierarchy:

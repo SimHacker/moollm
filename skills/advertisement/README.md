@@ -29,23 +29,26 @@ The Sims-style object interaction: every object broadcasts available actions, sc
 ```yaml
 # workbench.yml
 advertisements:
-  - action: CRAFT
-    score_if: "has_materials"
+  CRAFT:
+    score: 80
+    score_if: "the actor has materials"
     satisfies: [productivity, creativity]
-    
-  - action: EXAMINE
-    score: 50
-    satisfies: [curiosity]
+  EXAMINE:
+    satisfies: [curiosity]   # score 50 and always: the defaults
 ```
 
 ## Key Concepts
 
+Schema: [ADVERTISEMENT.yml](ADVERTISEMENT.yml). An omitted key means its default.
+
 | Concept | Description |
 |---------|-------------|
-| **Score** | Base relevance (0-100) |
-| **score_if** | Condition that boosts/reduces |
-| **satisfies** | Needs/goals this addresses |
-| **preconditions** | What must be true to enable |
+| **score** | Bid, 0..100. Default 50 |
+| **score_if** | Prose: when it wants to be chosen. Default always |
+| **guard** | Prose: when it is offered at all. Default always |
+| **satisfies** | Motives this feeds |
+| **trigger** | Words, phrases or concepts that wake it |
+| **graduated keys** | `requires_tags`, `cost`, `say`, `give`, ... run by the engine without an LLM |
 
 ## Autonomous Selection
 
