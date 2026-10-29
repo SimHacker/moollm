@@ -106,6 +106,7 @@ directory without changing any lookup result. Worked objects are in [`examples/`
 | `hidden` | Invisible to players (prototypes, triggers, agents) |
 | `state` | Mutable properties |
 | `advertisements` | Available actions |
+| `methods` | Named behaviors (see [Methods](#methods)) |
 | `inherits` | Prototype chain |
 
 ---
@@ -236,40 +237,83 @@ simulate: |
 
 ---
 
-## Methods — Named Behaviors
+## Methods
 
-Objects can define **named methods** that `simulate` or advertisements can call. Natural language → compiled closures. **1:1 mapping!**
+A `methods:` map holds an object's named behaviors. One schema covers every methods map:
+world objects, the prototype files (`ROOM.yml`, `CHARACTER.yml`, this skill's `OBJECT.yml`)
+and skill CARDs. It is defined in [`OBJECT.yml`](OBJECT.yml) under `schema:`, which is not a
+slot and is not inherited. Each entry is a map keyed by the method's name, and every key has
+a default, so an entry states only what is unusual about it.
+
+| Key | Meaning | Default when omitted | Aliases read |
+|---|---|---|---|
+| `description` | what it does, one line | none: the name and signature say it | `does`, `summary`, `doc` |
+| `signature` | how it is typed or called; starts with the name | the bare name | `syntax`, `call`, `invocation` |
+| `parameters` | map of name → prose | `{}`: takes nothing | `params`, `args`, `input` |
+| `effect` | what changes in the world; compiles to `effect_js`/`effect_py` | none | |
+| `output` | list from `chat`, `state-change`, `file` | `[chat]` | |
+| `returns` | the value a caller gets back | nothing | |
+| `invoked_by` | roles that may call it: player, npc, self, engine, llm, any, or a skill's own roles | `[player, npc]` for UPPERCASE commands, `[self, engine]` for lowercase functions | `customers`, `invoked-by` |
+| `satisfies` | motive → amount, as in advertisements | `{}` | |
+| `body` | the function body in prose; compiles to `body_js`/`body_py` | none | |
+
+**Name case carries meaning.** An UPPERCASE name (`LOOK`, `REMOVE-PERSONA`) is a command a
+player or model types. A lowercase name (`consume_fuel`) is a function that code calls, or a
+step in a protocol. Command signatures write literal words in UPPERCASE, parameters as
+`[thing]` and optional parts in parentheses: `LOOK (AT [thing])`. Function signatures use call
+form: `consume_fuel(amount)`.
 
 ```yaml
 methods:
-  consume_fuel: "reduce fuel by amount, minimum 0"
-  extinguish: "set lit to false, emit darkness event"
-  ignite: "set lit to true if fuel > 0"
+  LOOK:                                  # a command; output [chat], invoked_by [player, npc]
+    signature: "LOOK (AT [thing])"
+    description: "describe the room, or one thing in it"
+    parameters:
+      thing: "an object, exit or character here; omitted means the room"
+
+  consume_fuel:                          # a function that simulate and effects call
+    signature: "consume_fuel(amount)"
+    parameters:
+      amount: "fuel units to burn; default 1"
+    body: |
+      Reduce fuel by amount (default 1). Fuel cannot go below 0.
+      If fuel reaches 0 and the lamp is lit, call extinguish().
+    output: [state-change]
+    returns: "the fuel left"
+    invoked_by: [self]
 ```
 
-Compiles to:
+The compiler writes the compiled form beside the prose, inside the entry:
 
 ```javascript
-methods_js: {
-  consume_fuel: (world, amount) => { 
-    world.object.state.fuel = Math.max(0, world.object.state.fuel - amount); 
-  },
-  extinguish: (world) => { 
-    world.object.state.lit = false; 
-    world.emit('DARKNESS'); 
-  },
-  ignite: (world) => { 
-    if (world.object.state.fuel > 0) world.object.state.lit = true; 
-  }
+body_js: (world, amount = 1) => {
+  const state = world.object.state ??= {};
+  state.fuel = Math.max(0, (state.fuel ?? 0) - amount);
+  if (state.fuel === 0 && state.lit) world.extinguish();
+  return state.fuel;
 }
 ```
 
-### The Power of 1:1 Methods
+The engine runs `body_js` if there is one, else `effect_js`, else graduated effect keys such
+as `say:` and `set:` (which need no body), else the LLM performs `effect:` or `description:`.
 
-- Method name in natural language = method name in JS/PY
-- `consume_fuel(1)` in YAML → `world.consume_fuel(1)` in JS
-- Methods compose — `extinguish()` can call other methods
-- Advertisements can call methods in their `effect`
+### Names are the same in prose and code
+
+- `consume_fuel(1)` in a `simulate:` or `effect:` is `world.consume_fuel(1)` in JS.
+- Methods compose: `consume_fuel` calls `extinguish()`.
+- Advertisements call methods from their `effect`, or name one with `method:`.
+
+### Older forms
+
+Readers accept them; writers emit the map form.
+
+- **String form:** `consume_fuel: "reduce fuel by amount"` means `consume_fuel: { body: "reduce fuel by amount" }`.
+  The adventure compiler's `_check_methods` compiles only this form today, into sibling
+  `methods_js:`/`methods_py:` maps keyed by name; the entry-level `body_js` is the canonical target.
+- **List form:** a `methods:` list becomes a map keyed by each item's name.
+- **Free-text output:** `output: file + chat` is `[file, chat]`; `chat (interpretation)` is
+  `[chat]` with the parenthetical kept as YAML Jazz.
+- **List parameters:** `parameters: [id, owner]` is names without descriptions.
 
 ---
 

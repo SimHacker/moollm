@@ -171,7 +171,7 @@ scalar wins. `resolve.py lookup` applies this; the adventure compiler doesn't ye
 | navigation links | `related:` ids or paths; `see_also:` documents | parents |
 | intellectual ancestry | `lineage:` | parents |
 | classification | `tags:`; `type:` one id | dispatch |
-| behavior | `methods:` map; `advertisements:` map, each with score, guard, score_if, parameters, effect, optionally the method it runs; prose keys compile to `_js`/`_py` siblings (constitution §16) | lists; other keys for offers (`reactions:`, `interests:`, `provides:`) |
+| behavior | `methods:` map keyed by name, each `{description, signature, parameters, effect, output, returns, invoked_by, satisfies, body}` ([skills/object/OBJECT.yml](../../skills/object/OBJECT.yml) `schema:`), UPPERCASE names are commands, lowercase are functions or protocol steps, `effect:`/`body:` compile to `_js`/`_py` inside the entry; `advertisements:` map, each with score, guard, score_if, parameters, effect, optionally the method it runs; prose keys compile to `_js`/`_py` siblings (constitution §16) | lists; other keys for offers (`reactions:`, `interests:`, `provides:`) |
 | mutable state | `state:` | inherited through parents |
 | finished, or impossible | `done_when:`, `fail_when:` (goal; task inherits goal) | stored as a `status:` |
 | about the file | git; else a `-metadata.yml` sidecar | inside the file |
@@ -213,7 +213,8 @@ schema:
 ```
 
 `prose` is natural language a model reads; with `compiles: true` it also gets `<key>_js` and
-`<key>_py` siblings. A linter treats a value equal to the default as removable, an alias as a
+`<key>_py` siblings. `lookup` never returns a top-level schema block as a slot; `FILE#schema.keys` reaches it.
+A linter treats a value equal to the default as removable, an alias as a
 finding, and an unknown key as YAML Jazz unless it collides with an alias.
 
 ## Accepted legacy forms
@@ -231,6 +232,12 @@ finding, and an unknown key as YAML Jazz unless it collides with an alias.
 | `moollm/skills/x` | `skills/x` |
 | `k-lines:`, `klines:`, `see-also:`, `invoked-by:` | `k_lines:`, `see_also:`, `invoked_by:` |
 | `complete_when:`, `research_complete_when:` | `done_when:` |
+| method `does:`, `summary:`, `doc:` | `description:` |
+| method `syntax:`, `call:`, `invocation:` | `signature:` |
+| method `params:`, `args:`, `input:`, or a list of names | `parameters:` map |
+| `customers:` | `invoked_by:` |
+| `NAME: "prose"` method with sibling `methods_js:`/`methods_py:` | `NAME: { body: "prose" }`, `body_js:` inside the entry |
+| `methods:` or `advertisements:` as a list | map keyed by name |
 
 ```bash
 python3 skills/prototype/scripts/resolve.py lint --strict      # exit 0 when clean

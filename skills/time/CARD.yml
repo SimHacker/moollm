@@ -3,19 +3,18 @@
 # Simulation turns vs LLM iterations — narrative time flow.
 # "Time is subjective. The LLM judges."
 
-card:
-  id: time
-  name: "Time"
-  type: [skill, game, simulation]
-  
-  emoji: ⏰
-  
-  rarity: common
-  
-  description: |
-    Simulation turns are NOT LLM iterations. A single LLM response
-    might cover many turns. The LLM judges how time passes based
-    on context and narrative.
+id: time
+name: "Time"
+type: [skill, game, simulation]
+
+emoji: ⏰
+
+rarity: common
+
+description: |
+  Simulation turns are NOT LLM iterations. A single LLM response
+  might cover many turns. The LLM judges how time passes based
+  on context and narrative. One turn per room navigation is a good default.
 
 # TOOLS REQUIRED
 
@@ -108,6 +107,12 @@ advertisements:
   CONTROL-TIME:
     score: 90
     condition: "Need to advance or pause time"
+  MANAGE-TIME:
+    score: 85
+    condition: "Need to control time flow"
+  BUFF-DECAY:
+    score: 80
+    condition: "Buffs need to tick down"
 
 # RELATED
 
@@ -123,70 +128,3 @@ credits:
   insight:
     - "Simulation time vs wall time"
     - "The Sims — Speed controls"
-
-#
-# Simulation turns vs LLM iterations — narrative time flow.
-# "Game time is not real time."
-
-card:
-  id: time
-  name: "Time"
-  type: [skill, game, mechanics]
-  emoji: ⏰
-  rarity: common
-  
-  description: |
-    Simulation time management. Turns are abstract game time,
-    not LLM response iterations. One turn per room navigation
-    is a good default.
-
-tools:
-  required: [read_file, write_file]
-tier: 1
-
-methods:
-  TICK:
-    description: "Advance time by one turn"
-    parameters: {}
-    output: state-changes (buff decay, need decay)
-    invoked_by: [simulation, navigation]
-    
-  PAUSE:
-    description: "Stop time advancement"
-    parameters: {}
-    output: state-change
-    invoked_by: [player]
-    
-  RESUME:
-    description: "Restart time"
-    parameters: {}
-    output: state-change
-    invoked_by: [player]
-    
-  STATUS:
-    description: "Show current time state"
-    parameters: {}
-    output: chat
-    invoked_by: [player]
-    
-  WAIT:
-    description: "Advance time without action"
-    parameters: { turns: "How many" }
-    output: state-changes
-    invoked_by: [player]
-
-state:
-  time:
-    turn: { type: integer }
-    paused: { type: boolean }
-    time-of-day: { type: string }
-
-advertisements:
-  MANAGE-TIME:
-    score: 85
-    condition: "Need to control time flow"
-  BUFF-DECAY:
-    score: 80
-    condition: "Buffs need to tick down"
-
-see_also: [skills/simulation, skills/buff, skills/needs]

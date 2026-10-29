@@ -155,8 +155,17 @@ def flat(path: Path, data: Any) -> dict[str, Any]:
     return out
 
 
-def file_slots(path: Path) -> dict[str, Any]:
-    return flat(path, load_yaml(path))
+def is_schema_block(v: Any) -> bool:
+    return isinstance(v, dict) and isinstance(v.get("keys"), dict)
+
+
+def file_slots(path: Path, keep_schema: bool = False) -> dict[str, Any]:
+    """A file's slots. A top-level schema block describes the skill's instances and is never
+    inherited as a slot; fragment addresses (FILE#schema.keys) still reach it."""
+    slots = flat(path, load_yaml(path))
+    if not keep_schema and is_schema_block(slots.get("schema")):
+        slots = {k: v for k, v in slots.items() if k != "schema"}
+    return slots
 
 
 def interface_files(d: Path) -> list[Path]:
@@ -299,7 +308,7 @@ def load_obj(key: Key, root: Path) -> Obj:
     implied: list[ParentRef] = []
 
     if frag:
-        value: Any = file_slots(path)
+        value: Any = file_slots(path, keep_schema=True)
         parts = frag.split(".")
         for part in parts:
             value = value.get(part) if isinstance(value, dict) else None

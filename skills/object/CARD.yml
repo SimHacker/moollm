@@ -34,11 +34,15 @@ schema:
     - inherits
     - location
     - simulate      # Per-turn update (natural language)
-    - methods       # Named behaviors (natural language)
+    - methods       # Named behaviors; each entry follows method_schema below
   computed:
     - simulate_js    # Compiled simulation closure
     - simulate_py
-    - methods_js     # Compiled method closures (1:1 name mapping)
+    - methods.*.body_js     # Compiled method body, inside the entry
+    - methods.*.body_py
+    - methods.*.effect_js
+    - methods.*.effect_py
+    - methods_js     # Older string-form compile target (1:1 name mapping)
     - methods_py
     - advertisements.*.guard_js
     - advertisements.*.guard_py
@@ -81,7 +85,23 @@ advertisement_schema:
     - guard_py
     - effect_js
     - effect_py
-    
+
+# Method schema, concentrated from OBJECT.yml schema: (canonical). Every methods: map in
+# objects, prototype files and CARDs. Map form, keyed by name; key: meaning, then default.
+# UPPERCASE name = a command a player or model types; lowercase = a code-callable function or protocol step.
+# NAME: "prose" means NAME: { body: "prose" }.
+method_schema:
+  description: { meaning: "what it does, one line", default: null, aliases: [does, summary, doc] }
+  signature:   { meaning: "how it is typed or called; starts with the name; LOOK (AT [thing]) or consume_fuel(amount)", default: "{name}", aliases: [syntax, call, invocation] }
+  parameters:  { meaning: "map name → prose", default: {}, aliases: [params, args, input] }
+  effect:      { meaning: "what changes in the world; compiles to effect_js/effect_py", default: null }
+  output:      { meaning: "list from chat, state-change, file", default: [chat] }
+  returns:     { meaning: "the value a caller gets back", default: null }
+  invoked_by:  { meaning: "roles that may call it: player, npc, self, engine, llm, any, or the skill's own", default: "[player, npc] for UPPERCASE commands, [self, engine] for lowercase functions", aliases: [customers, invoked-by] }
+  satisfies:   { meaning: "motive → amount, as in advertisements", default: {} }
+  body:        { meaning: "function body in prose; compiles to body_js/body_py", default: null }
+  # run order: body_js, else effect_js, else graduated effect keys (say:, set:), else the LLM
+
 # Compilation events this primitive can trigger
 compile_events:
   # Simulation loop
@@ -92,7 +112,20 @@ compile_events:
     expected_type: closure
     description: "Per-turn update closure over ctx"
     
-  # Named methods (each method compiles separately)
+  # Method entries (map form): body and effect compile inside each entry
+  - type: COMPILE_EXPRESSION
+    field: methods.*.body
+    target_js: methods.*.body_js
+    target_py: methods.*.body_py
+    expected_type: method
+
+  - type: COMPILE_EXPRESSION
+    field: methods.*.effect
+    target_js: methods.*.effect_js
+    target_py: methods.*.effect_py
+    expected_type: action
+
+  # String-form methods: what _check_methods compiles today
   - type: COMPILE_METHODS
     field: methods
     target_js: methods_js

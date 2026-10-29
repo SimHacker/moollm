@@ -126,6 +126,13 @@ def test_prototype_file_is_not_its_own_parent() -> None:
     assert all(p.target is None or p.target[0] != o.key[0] for p in o.parents)
 
 
+def test_schema_block_is_not_a_slot() -> None:
+    o = resolve.load_obj(resolve.key_of(str(ROOT / "skills/object/OBJECT.yml")), ROOT)
+    assert "schema" not in o.slots
+    s = resolve.load_obj(resolve.key_of(str(ROOT / "skills/object/OBJECT.yml#schema")), ROOT)
+    assert "keys" in s.slots
+
+
 def test_skill_views_are_not_instance_slots() -> None:
     assert definer("experiment/runs/first/RUN.yml", "description") is None
     assert definer("garden/GLANCE.yml", "exits") == "garden"

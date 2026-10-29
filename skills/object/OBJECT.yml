@@ -41,4 +41,131 @@ state: {}                          # mutable per-instance data: lit, fuel, uses_
 advertisements: {}                 # ACTION: { description, score, score_if, guard, effect }, Sims style
                                    # guard, score_if and effect are natural language; compiled to _js/_py
 
-methods: {}                        # name: natural language; 1:1 with methods_js/_py; simulate and effects call them
+methods: {}                        # name: { signature, description, parameters, effect, body, ... }; schema below
+
+# Everything above is a prototype slot that objects inherit. `schema:` is not a slot: nothing
+# inherits it and an object never states it. It defines the shape of one entry in any
+# `methods:` map: here, in ROOM.yml and CHARACTER.yml, in world objects and in CARDs.
+
+schema:
+  id: method
+  applies_to: "each entry of a methods: map in any object, prototype or CARD"
+  extends: []
+  extensions: "object-specific keys are allowed (dispatch, note, example, variants, delegates_to, gate); never reuse a standard key with another meaning"
+  conventions:
+    map_form: "an entry is a map; the map key is the method's name"
+    string_form: "NAME: 'prose' is read as NAME: { body: 'prose' }; writers emit the map form"
+    list_form: "a methods: list is deprecated; each item's name or id becomes its key"
+    name_case: "UPPERCASE (LOOK, REMOVE-PERSONA) is a command a player or model types; lowercase (consume_fuel) is a code-callable function or protocol step"
+    signature_notation: "literal words in UPPERCASE, [placeholder] a parameter, (group) optional; lowercase functions use call form, name(arg, ...)"
+    list_of_one: "a bare string where a list is expected is a list of one"
+    joined_list: "output: 'file + chat' or 'chat, file' is the list [file, chat]; a parenthetical after a value is YAML Jazz"
+    name_in_default: "{name} in a default is the method's key"
+    compiled_siblings: "a key with compiles: true gets <key>_js and <key>_py beside it, inside the entry"
+    graduated_effects: "graduated advertisement effect keys (say:, set:, move_to:, give:, take:, spawn:) may stand in a method entry; they run without a body"
+    run_order: "the engine runs body_js, else effect_js, else graduated effect keys, else the LLM performs effect or description"
+  keys:
+    description:
+      shape: prose
+      default: null                  # the name and signature say it
+      meaning: "what the method does, in one line, for the player or model choosing it"
+      compiles: false
+      aliases: [does, summary, doc]
+      example: "describe the room, or one thing in it"
+    signature:
+      shape: string
+      default: "{name}"              # a command typed bare, or a function called with no arguments
+      meaning: "how it is typed or called; starts with the method's name"
+      compiles: false
+      aliases: [syntax, call, invocation]
+      example: "LOOK (AT [thing])"
+    parameters:
+      shape: map
+      of: prose
+      default: {}                    # takes nothing
+      meaning: "name → what the argument is; 'required', 'optional' or a default are prose too"
+      compiles: false
+      aliases: [params, args, input]   # a list of names is deprecated: names with no prose
+      example: { thing: "an object, exit or character in the room; omitted means the room" }
+    effect:
+      shape: prose
+      default: null                  # performed by body, or by the LLM from description
+      meaning: "what changes in the world when it runs; same word and meaning as in advertisements"
+      compiles: true
+      aliases: []
+      example: "Write the task file with history [{event: opened}]"
+    output:
+      shape: list
+      of: enum
+      values: [chat, state-change, file]
+      default: [chat]                # says something, changes nothing
+      meaning: "where its results land: the conversation, world or object state, files on disk"
+      compiles: false
+      aliases: []
+      example: [file, chat]
+    returns:
+      shape: prose
+      default: null                  # returns nothing; a command's result is its output
+      meaning: "the value a caller gets back; for functions and protocol steps"
+      compiles: false
+      aliases: []
+      example: "the fuel left, 0..100"
+    invoked_by:
+      shape: list
+      of: string                     # player, npc, self, engine, llm, any, or a role the skill names (workflow, executor)
+      default: [player, npc]           # UPPERCASE commands; lowercase functions default to [self, engine]
+      meaning: "who may call it; an orchestrator filters methods by role with this. Default depends on the name's case: commands [player, npc], functions and protocol steps [self, engine]"
+      compiles: false
+      aliases: [customers, invoked-by]
+      example: [self]
+    satisfies:
+      shape: map
+      of: number
+      default: {}                    # serves no motive
+      meaning: "motive → amount it fills, as in advertisements; a list of motives means 10 each"
+      compiles: false
+      aliases: []
+      example: { fun: 20, social: 10 }
+    body:
+      shape: prose
+      default: null                  # no procedure; effect or the LLM performs it
+      meaning: "the function body in natural language, step by step; for engine functions that simulate, effects and other methods call"
+      compiles: true
+      aliases: []
+      example: "Reduce fuel by amount (default 1). Fuel cannot go below 0."
+  examples:
+    LOOK:                            # a command: every unstated key is its default
+      signature: "LOOK (AT [thing])"
+      description: "describe the room, or one thing in it"
+      parameters:
+        thing: "an object, exit or character here; omitted means the room"
+      # output [chat], invoked_by [player, npc]; the LLM performs it from description
+    consume_fuel:                    # a world function, compiled
+      signature: "consume_fuel(amount)"
+      description: "burn lamp oil"
+      parameters:
+        amount: "fuel units to burn; default 1"
+      body: |
+        Reduce fuel by amount (default 1). Fuel cannot go below 0.
+        If fuel reaches 0 and the lamp is lit, call extinguish().
+      body_js: |
+        (world, amount = 1) => {
+          const state = world.object.state ??= {};
+          state.fuel = Math.max(0, (state.fuel ?? 0) - amount);
+          if (state.fuel === 0 && state.lit) world.extinguish();
+          return state.fuel;
+        }
+      output: [state-change]
+      returns: "the fuel left"
+      invoked_by: [self]             # simulate and the lamp's own effects call it
+    OPEN:                            # a card method: skills/task/CARD.yml
+      signature: "OPEN [title] UNTIL [done_when]"
+      description: "create a task"
+      parameters:
+        title: required
+        done_when: "required; prose, plus a judge when it is not mechanical"
+        priority: optional
+        where: "file | ledger | playbook | issue; default file"
+      effect: "write the task with history [{event: opened}]; refuse without a done_when"
+      output: [file, chat]
+      invoked_by: [player, llm, workflow]
