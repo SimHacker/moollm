@@ -598,6 +598,16 @@ and compose a projection from many cards. That needs standard keys with standard
 maps keyed by name, numeric scores, lists where lists are expected. YAML Jazz rides on that
 structure; it doesn't replace it.
 
+**Layers across repos.** One being can have a tree of incarnations, one layer per purpose and
+repo: Palm adventures in moollm's adventure-4, is a cast member and profile in
+WillWrightShowForFood, and sits in the audience of several repo shows; a real person has a
+biography layer, an invitation or memorial layer, a page. Each layer runs alone as far as
+it can, so each carries the identity and representation ethics it needs: layers are not
+DRY either. Layers stay compatible by sharing core keys, and they declare their
+relationships, transformations and dependencies explicitly (which layer extends which, which
+is derived from which). Linting, validation and coherence passes keep the copies in
+agreement.
+
 **Not DRY. More concentrated.** Repeating a field at a smaller level is the point of the
 pyramid, not a defect. Never remove something from a CARD or GLANCE because a larger file
 already says it; ask whether it is among the most important things at that size. GLANCE
@@ -635,6 +645,12 @@ plugged into it. Graduated keys need no generated code. Their names become the c
 adjectives, verbs, nouns and prepositions of a deterministic domain-specific language that
 the engine plus its plugged-in and instantiated objects execute without an LLM. This is
 stages 3 to 6 of the protocol evolution in §3, applied to behavior.
+
+**Every standard key documents its default, and the default is the sensible case.** An
+omitted key means its default, so an advertisement states only what is unusual about it:
+no `score_if:` means always, no `reach:` means the advertiser's room, a bare string where a
+list is expected is a list of one. As DRY as possible inside an object; concentrated copies
+from outside (§15) are still welcome.
 
 Protocol symbol: `ADVERTISEMENT`.
 

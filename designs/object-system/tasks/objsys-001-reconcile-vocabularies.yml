@@ -85,6 +85,14 @@ history:
       the compiler drops list-form advertisements' names and fields (442 entries, 97 files)
       and compiles no map-form method (444); 3 of 321 _js slots filled, nothing graduated;
       graduation candidates listed. Survey: skills/prototype/scripts/behavior_survey.py.
+  - { at: 2026-10-29, event: decided, by: don, note: "every standard key documents a sensible default; omitted means default (constitution §16). Character layers across repos are compatible, not DRY, each runnable alone, with relations declared and linted (§15)" }
+  - at: 2026-10-29
+    event: analyzed
+    note: >
+      Character layers across moollm, WillWrightShowForFood, DonHopkins, RepoShowPrivate,
+      MicropolisCore: designs/object-system/CHARACTER-LAYERS-ANALYSIS.md (decisions L1-L12).
+      522 CHARACTER.yml, 67 ids with several layers; seven parent spellings; consent level
+      disagrees for bill-joy and scott-draves. Survey: skills/prototype/scripts/layers_survey.py.
 
 # Measured by `resolve.py lint` after the work-vocabulary batch.
 meter:
@@ -118,6 +126,7 @@ phases:
       - "placement listing keys (objects:, characters:, residents:, contains:): retire, or hints linted against the directory?"
       - "when: (GLANCE) and invoke_when: (CARD): one key or two? (CARD-ANALYSIS.md section 5)"
       - "decisions 1-18 in CARD-ANALYSIS.md: one advertisement schema, graduated keys, copy-down, method core, card keys, projection lint"
+      - "decisions L1-L12 in CHARACTER-LAYERS-ANALYSIS.md: core keys per layer, layer relations, cross-repo refs, consent"
   - id: migrate
     status: claimed
     # One batch per row, smallest blast radius first. Each batch: run, verify, rerun the

@@ -12,6 +12,8 @@ Cards keep object-specific YAML Jazz. Where a card's keys overlap a standard pat
 align with it. A card is one file: every aspect (advertisements, methods, k-lines, state) and
 every interface of its directory feeds it, and nothing is split out into aspect files.
 
+Characters across repos and their layers: [CHARACTER-LAYERS-ANALYSIS.md](CHARACTER-LAYERS-ANALYSIS.md).
+
 Reproduce: `python3 skills/prototype/scripts/behavior_survey.py all` (sections `cards`,
 `methods`, `adverts`, `activation`, `world`). Counts below are from 2026-10-29: 153 cards
 parsed, 3 unparseable.
@@ -137,32 +139,51 @@ shapes that could skip compilation and graduate straight to parameterized keys. 
 regex families over world advertisement prose (guard, condition, score_if, requires, trigger,
 effect, response, result); they are approximate, roughly ±20%.
 
+Every key below documents its default, and an omitted key means the default (§16), so an
+advertisement states only what is unusual about it. Everywhere: a bare string where a list
+is expected is a list of one; a list means any of its members; `{ all: [...] }` means every
+member; `{ not: [...] }` excludes. Defaults are proposals for review.
+
+### Base fields
+
+| Key | Default when omitted |
+|---|---|
+| `score` | 50 (the compiler export already uses 50) |
+| `score_if` | none: the score stands as given |
+| `guard` | none: always available |
+| `guard_fail` | the engine's generic refusal, naming the advertisement |
+| `parameters` | none |
+| `effect` | none: the advertisement is performed by its `method:`, or by the LLM from `description:` |
+| `method` | the method with the advertisement's name, if there is one |
+| `reach` | `room`: actors in the advertiser's room see it |
+| `invoked_by` | `[player, npc]` |
+
 ### Conditions
 
-| Pattern in the prose | Count | Graduated key (proposal) |
-|---|---|---|
-| `score_if: always` / never / any | 58 | omit `score_if:` (absent means always) |
-| tag or role lists: `requires: ['staff', 'bartender']`, the bar's compiled guard | 48 | `requires_tags: [staff, bartender]` |
-| "player has X", "have coin", "item in inventory" | 11 | `requires_items: [feather_token]` |
-| bare flag or state word (`open`, `lit`), `state == x` | 20 | `when_state: { open: true }` |
-| flag disjunctions (`good_news OR victory OR milestone`) | 4, 3 compiled | `when_flags: { any: [good_news, victory, milestone] }` |
-| darkness and lighting | 6 | `requires_lighting: { max: 2 }` |
-| proximity (in room, near, touching) | 7 | `reach: room` (the scale in [kernel/INTEREST-GATES.yml](../../kernel/INTEREST-GATES.yml): user, world, room, near, touch, self) |
-| fees and coins in guards | 1 compiled, 50 pay effects | `cost: { coins: 5 }` |
-| single-word triggers | 192 of 253 | `trigger: { words: [latte, espresso] }`, matched by the engine |
-| phrase and concept triggers | 61 | `trigger: { phrases: [...], concepts: [...] }`; phrases match mechanically, concepts stay for the LLM |
+| Pattern in the prose | Count | Graduated key (proposal) | Default and meaning |
+|---|---|---|---|
+| `score_if: always` / never / any | 58 | omit `score_if:` | absent means always |
+| tag or role lists: `requires: ['staff', 'bartender']`, the bar's compiled guard | 48 | `requires_tags: [staff, bartender]` | any of the tags, on the actor; absent means anyone |
+| "player has X", "have coin", "item in inventory" | 11 | `requires_items: [feather_token]` | all of the items, in the actor's inventory, not consumed (`consume: true` to use them up) |
+| bare flag or state word (`open`, `lit`), `state == x` | 20 | `when_state: { open: true }` | all pairs match, on the advertiser |
+| flag disjunctions (`good_news OR victory OR milestone`) | 4, 3 compiled | `when_flags: [good_news, victory, milestone]` | any flag set, in the world |
+| darkness and lighting | 6 | `requires_lighting: { max: 2 }` | the actor's room; `min`/`max` inclusive, 0..10 |
+| proximity (in room, near, touching) | 7 | `reach: near` | `room`; scale from [kernel/INTEREST-GATES.yml](../../kernel/INTEREST-GATES.yml) without its `in-` prefixes: self, holding, touch, adjacent, near, room, world, user |
+| fees and coins in guards | 1 compiled, 50 pay effects | `cost: 5` | coins, paid by the actor to the advertiser's owner when chosen; a map names another currency |
+| single-word triggers | 192 of 253 | `trigger: [latte, espresso]` | words, any of them, whole-word, case-insensitive, in what the actor says |
+| phrase and concept triggers | 61 | `trigger: { phrases: [...], concepts: [...] }` | phrases match mechanically; concepts are judged by the LLM |
 
 ### Effects
 
-| Pattern | Count | Graduated key (proposal) |
-|---|---|---|
-| say, narrate, respond | 161 | `say:` (template with parameters) |
-| move, go, teleport | 106 | `move_to:` |
-| set state, open, lock, light | 63 | `set: { lit: true }` |
-| pay, charge, tip | 50 | `cost:` / `pay:` |
-| give, take, drop | 49 | `give:`, `take:` |
-| motive and buff changes | 47 | `satisfies: { hunger: 30 }`, `buff:` |
-| spawn, create, summon | 31 | `spawn:` |
+| Pattern | Count | Graduated key (proposal) | Default and meaning |
+|---|---|---|---|
+| say, narrate, respond | 161 | `say: "{actor} rings the gong"` | spoken by the advertiser, to its room; `{param}` fills from parameters and context |
+| move, go, teleport | 106 | `move_to: pub/stage` | moves the actor; a path relative to the advertiser's room |
+| set state, open, lock, light | 63 | `set: { lit: true }` | on the advertiser |
+| pay, charge, tip | 50 | `cost:` (above) / `pay: 5` | `pay` is from the advertiser to the actor, coins |
+| give, take, drop | 49 | `give: [lamp]`, `take: [coin]` | `give` moves from advertiser to actor; `take` from actor to advertiser; one of each |
+| motive and buff changes | 47 | `satisfies: { hunger: 30 }`, `buff: inspired` | on the actor; a list of motives without amounts means 10 each |
+| spawn, create, summon | 31 | `spawn: [rubber-duck]` | in the advertiser's room |
 
 Those key names are the vocabulary of the deterministic DSL in §16: `requires_tags`,
 `when_state`, `reach`, `cost` are its adjectives and prepositions; `say`, `move_to`, `set`,
@@ -224,7 +245,7 @@ advertisement or method.
 41 of the 47 cards that have it also have advertisements covering the same situations. Each
 `invoke_when:` line is a `score_if:` waiting for its advertisement.
 
-`k_lines:` are the skill's trigger words. They are to a skill what `trigger: { words: }` is
+`k_lines:` are the skill's trigger words. They are to a skill what a `trigger:` word list is
 to a world advertisement: words that should wake it. One vocabulary for both lets the same
 matcher run on both.
 
@@ -277,12 +298,12 @@ the pattern), and 13 of them have a CARD. `donna-toadstool` (CHARACTER + ENEMIES
 | 5 | `condition:` becomes `guard:` in world objects and `score_if:` in cards | yes | 75% |
 | 6 | Triggers: `trigger:` field, scores ×100, `response:`/`result:` become effects | yes | 80% |
 | 7 | Singular `advertisement:` provides/wants/motives broken into advertisements | yes | 80% |
-| 8 | First graduated keys: `requires_tags`, `requires_items`, `when_state`, `when_flags`, `trigger.words`, `say`, `set`, `move_to`, `give`, `take`, `cost` | start with the top four conditions and `say`/`set` | 65% |
+| 8 | First graduated keys: `requires_tags`, `requires_items`, `when_state`, `when_flags`, `trigger`, `say`, `set`, `move_to`, `give`, `take`, `cost`, with the defaults in section 3 | start with the top four conditions and `say`/`set` | 65% |
 | 9 | Copy prototype methods and key slots down into the room, character, container, object and ties CARDs; lint agreement | yes | 85% |
 | 10 | Method core as in section 4; `does:` → `description:`; map-form methods compile `effect:` to `effect_js:` | yes | 75% |
 | 11 | Document method-name case: UPPER commands, lower functions and protocol steps | yes | 80% |
 | 12 | GLANCE `when:` stays, linted against the CARD; `invoke_when:` lines become advertisement `score_if:` | yes | 70% |
-| 13 | `k_lines:` and `trigger.words` share one matcher | yes | 60% |
+| 13 | `k_lines:` and `trigger:` word lists share one matcher | yes | 60% |
 | 14 | Recast the three "interest" uses in section 6 | yes | 90% |
 | 15 | Synonym table in section 1, one batch per row, after a "what a CARD carries" section in `skills/card/SKILL.md` | yes | 70% |
 | 16 | `type:` one id, extra values to `tags:` | yes | 65% |
