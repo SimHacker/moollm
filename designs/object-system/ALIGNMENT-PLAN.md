@@ -87,6 +87,18 @@ Code, each with tests in the existing style (`skills/prototype/scripts/test_reso
 | T5 | migration scripts | `designs/object-system/tasks/migrations/` | one script per mechanical row below, each with dry run, reparse check, and a diff limited to the intended keys (the pattern of `parents.py` and `lighting.py`) |
 | T6 | engine support | `adventure.js`, `adventure_runtime.py` | the first graduated keys: `requires_tags`, `requires_items`, `when_state`, `when_flags`, `trigger` words, `say`, `set`, with their defaults |
 
+T6 also carries the runtime gaps T1 found once the export stopped dropping fields:
+- trigger scores are 0..1 and need rescaling to 0..100; JS `data.score || 50` turns 0 into 50
+- effect text falls back `effect` → `result` → `response` → `description`; neither runtime reads
+  the last three, so 248 ads print "You on-hello the X."
+- `trigger:` words are matched against what the player says; today the 199 `ON-*` ads can only
+  be invoked by typing their name
+- the Python runtime reads only `_py` siblings, never `_js`; uncompiled prose guards never run
+- the world export carries `methods:` and their compiled `body_js`/`effect_js`
+- exit guards written as statement bodies (`pub/ROOM.yml` UP and BAR) abort the JS `load()`
+- duplicate object ids collapse 491 objects to 315 in both runtimes
+- `compile` on adventure-4 stops on 48 non-standard `mind_mirror` properties
+
 T1, T2, T3 and T5 can start as soon as phase 0 is done; T4 needs S3, T6 needs S1. One agent
 per tool.
 

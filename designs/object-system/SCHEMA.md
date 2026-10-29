@@ -77,6 +77,14 @@ mood*: moods/sleepy
 A reference that names no file is latent. That's legitimate for K-lines and prose; a
 path-shaped reference that names no file is a broken link.
 
+**Cross-repo references.** A parent in another repo is written
+`moollm://github/<owner>/<repo>/<path>[#slot.path]`, a directory ending in `/`. The resolver
+([refs.py](../../skills/prototype/scripts/refs.py)) maps it to a sibling checkout
+(`<root>/<repo>/<path>`, roots from `$MOOLLM_ROOTS`, else the directory holding moollm), else to
+its GitHub URL, where it is a `remote` parent: real, just not loaded. The form carries no
+branch; a GitHub URL on another branch parses and loses it. Layers in different repos that
+inherit from each other use this form, so a copy keeps working.
+
 **Implied parents.** Every interface file implies the skill its name names: `ROOM.yml` implies
 `room`, `RUN.yml` implies `run`. What an instance gets from the skill is the skill's
 **prototype file**, a concrete object named for the interface (`skills/room/ROOM.yml`): the
@@ -244,7 +252,10 @@ adds to a moollm schema names it in `extends:` (WillWrightShowForFood
 | `prototype: {source: FILE, id: X}` | `inherits: [FILE#collection.X]` |
 | `inherits: {key: value, ...}` (values, not parents) | plain slots, or `defaults:` on a container |
 | `container.inherits:` | `defaults:` |
-| `moollm/skills/x` | `skills/x` |
+| `moollm/skills/x` inside moollm | `skills/x` |
+| `moollm/x` or `<owner>/<repo>/x` from another repo | `moollm://github/<owner>/<repo>/x` |
+| `https://github.com/<owner>/<repo>/tree/main/x` (also `blob/`, raw URLs) | `moollm://github/<owner>/<repo>/x` |
+| `{repo, path, absolute_url, canonical_dir, character_url}` map | `moollm://github/<owner>/<repo>/<path>` |
 | `k-lines:`, `klines:`, `see-also:`, `invoked-by:` | `k_lines:`, `see_also:`, `invoked_by:` |
 | `complete_when:`, `research_complete_when:` | `done_when:` |
 | method `does:`, `summary:`, `doc:` | `description:` |

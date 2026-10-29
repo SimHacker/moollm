@@ -491,6 +491,89 @@ class Advertisement(YAMLObject):
     params: dict = field(default_factory=dict)
 
 
+def _advertisement_slug(text: Any) -> str:
+    """Uppercase, hyphen-separated name from an action or trigger phrase."""
+    if isinstance(text, (list, tuple)):
+        text = text[0] if text else ''
+    return re.sub(r'[^A-Z0-9_]+', '-', str(text).strip().upper()).strip('-')[:48]
+
+
+def advertisement_name(entry: Any, index: int) -> str:
+    """
+    Name for a list-form advertisement entry: name:, else action: (uppercased,
+    spaces to hyphens), else trigger: as ON-<SLUG>, else ACTION_<index>.
+    """
+    if isinstance(entry, dict):
+        if entry.get('name'):
+            return str(entry['name'])
+        if entry.get('action'):
+            return re.sub(r'\s+', '-', str(entry['action']).strip().upper())
+        if entry.get('trigger'):
+            slug = _advertisement_slug(entry['trigger'])
+            if slug:
+                return f'ON-{slug}'
+    return f'ACTION_{index}'
+
+
+def iter_advertisements(ads: Any):
+    """
+    Yield (name, yaml_path, entry) for map-form or list-form advertisements.
+
+    yaml_path addresses the entry in the source YAML: advertisements.NAME for
+    map form, advertisements[i] for list form. A bare string entry becomes
+    {'description': string}. Duplicate list names get -2, -3, ... suffixes.
+    """
+    if isinstance(ads, dict):
+        for name, entry in ads.items():
+            if not isinstance(entry, dict):
+                entry = {'description': entry} if entry is not None else {}
+            yield str(name), f'advertisements.{name}', entry
+    elif isinstance(ads, list):
+        seen: dict[str, int] = {}
+        for i, entry in enumerate(ads):
+            if not isinstance(entry, dict):
+                entry = {'description': entry} if entry is not None else {}
+            name = advertisement_name(entry, i)
+            seen[name] = seen.get(name, 0) + 1
+            if seen[name] > 1:
+                name = f'{name}-{seen[name]}'
+            yield name, f'advertisements[{i}]', entry
+
+
+def normalize_advertisements(ads: Any) -> dict[str, dict]:
+    """Advertisements as a name → entry map, whatever shape the YAML used."""
+    return {name: entry for name, _, entry in iter_advertisements(ads)}
+
+
+ADVERTISEMENT_EXPORT_DEFAULTS = {
+    'description': '',
+    'score': 50,
+    'effect': '',
+    'guard': '',
+    'guard_js': '',
+    'guard_py': '',
+    'guard_fail': '',
+    'score_if': '',
+    'score_if_js': '',
+    'score_if_py': '',
+    'effect_js': '',
+    'effect_py': '',
+}
+
+
+def export_advertisement(entry: dict) -> dict:
+    """
+    Runtime JSON for one advertisement: engine fields with their defaults,
+    then every key of the entry. condition: also fills guard: when the entry
+    has no guard.
+    """
+    out = dict(ADVERTISEMENT_EXPORT_DEFAULTS)
+    out.update(entry)
+    if 'guard' not in entry and entry.get('condition') not in (None, ''):
+        out['guard'] = entry['condition']
+    return out
+
+
 @dataclass
 class Room(YAMLObject):
     """
@@ -1512,44 +1595,54 @@ class AdventureLinter:
             obj = Object.from_yaml(obj_data, path)
             obj._raw_yaml = raw
             obj.type = obj_type
-            
-            self.objects[path] = obj
-            self.report.objects_found += 1
-            
-            rel_path = path.relative_to(self.adventure_path)
-            
-            self.report.add_event(LintEvent(
-                type=EventType.FOUND_OBJECT,
-                severity=EventSeverity.DEBUG,
-                path=str(rel_path),
-                message=f"Found {obj_type}: {obj.name or obj.id or path.stem}",
-                data={
-                    'type': obj_type,
-                    'takeable': obj.takeable,
-                    'advertisements': list(obj.advertisements.keys()) if obj.advertisements else []
-                }
-            ))
-            
-            # Check advertisements for expressions
-            for action_name, action_data in (obj.advertisements or {}).items():
-                self._check_advertisement(path, action_name, action_data)
-            
-            # Check for simulate field
-            self._check_simulate(path, obj_data)
-            
-            # Check for methods field
-            self._check_methods(path, obj_data)
-            
-        except Exception as e:
+        except Exception:
             # Not all YAML files are objects — silently skip parse failures
-            pass
+            return
+        
+        self.objects[path] = obj
+        self.report.objects_found += 1
+        
+        rel_path = path.relative_to(self.adventure_path)
+        ads = list(iter_advertisements(obj.advertisements))
+        
+        self.report.add_event(LintEvent(
+            type=EventType.FOUND_OBJECT,
+            severity=EventSeverity.DEBUG,
+            path=str(rel_path),
+            message=f"Found {obj_type}: {obj.name or obj.id or path.stem}",
+            data={
+                'type': obj_type,
+                'takeable': obj.takeable,
+                'advertisements': [name for name, _, _ in ads]
+            }
+        ))
+        
+        checks = [
+            (f'advertisements.{name}',
+             lambda n=name, yp=yaml_path, e=entry: self._check_advertisement(path, n, e, yaml_path=yp))
+            for name, yaml_path, entry in ads
+        ]
+        checks.append(('simulate', lambda: self._check_simulate(path, obj_data)))
+        checks.append(('methods', lambda: self._check_methods(path, obj_data)))
+        for label, check in checks:
+            try:
+                check()
+            except Exception as e:
+                self.report.add_event(LintEvent(
+                    type=EventType.INVALID_SCHEMA,
+                    severity=EventSeverity.WARNING,
+                    path=str(rel_path),
+                    message=f"Check of {label} failed: {type(e).__name__}: {e}"
+                ))
     
-    def _check_advertisement(self, obj_path: Path, action_name: str, action_data):
+    def _check_advertisement(self, obj_path: Path, action_name: str, action_data,
+                             yaml_path: Optional[str] = None):
         """Check an advertisement for expressions needing compilation."""
         if not isinstance(action_data, dict):
             return
         
         rel_path = str(obj_path.relative_to(self.adventure_path))
+        ad_path = yaml_path or f"advertisements.{action_name}"
         
         # Check for natural language expressions that need JS/PY compilation
         for field, expected_type in self.EXPRESSION_FIELDS:
@@ -1568,9 +1661,9 @@ class AdventureLinter:
                             path=rel_path,
                             message=f"Expression needs compilation: {action_name}.{field}",
                             source_expression=value,
-                            source_field=f"advertisements.{action_name}.{field}",
-                            target_field_js=f"advertisements.{action_name}.{field}_js",
-                            target_field_py=f"advertisements.{action_name}.{field}_py",
+                            source_field=f"{ad_path}.{field}",
+                            target_field_js=f"{ad_path}.{field}_js",
+                            target_field_py=f"{ad_path}.{field}_py",
                             expected_type=expected_type,
                             context=f"Action: {action_name}, Object: {obj_path.stem}",
                             runtime_context=self._make_runtime_context(
@@ -1633,6 +1726,9 @@ class AdventureLinter:
         methods_py = obj_data.get('methods_py', {})
         
         for method_name, method_desc in methods.items():
+            if isinstance(method_desc, dict):
+                self._check_method_entry(obj_path, rel_path, method_name, method_desc)
+                continue
             if not isinstance(method_desc, str):
                 continue
             
@@ -1656,6 +1752,34 @@ class AdventureLinter:
                         expected_type='method'
                     )
                 ))
+    
+    def _check_method_entry(self, obj_path: Path, rel_path: str, method_name: str, entry: dict):
+        """
+        Map-form method: prose effect: (or body:) compiles to an entry-level
+        effect_js:/effect_py: (or body_js:/body_py:), as advertisements do.
+        """
+        for field in ('effect', 'body'):
+            value = entry.get(field)
+            if not isinstance(value, str) or not value.strip() or value.strip().startswith('('):
+                continue
+            if f"{field}_js" in entry and f"{field}_py" in entry:
+                continue
+            self.report.add_event(LintEvent(
+                type=EventType.COMPILE_EXPRESSION,
+                severity=EventSeverity.INFO,
+                path=rel_path,
+                message=f"Method needs compilation: {obj_path.stem}.methods.{method_name}.{field}",
+                source_expression=value,
+                source_field=f"methods.{method_name}.{field}",
+                target_field_js=f"methods.{method_name}.{field}_js",
+                target_field_py=f"methods.{method_name}.{field}_py",
+                expected_type="method",
+                context=f"Object: {obj_path.stem}, Method: {method_name}",
+                runtime_context=self._make_runtime_context(
+                    subject='object',
+                    expected_type='method'
+                )
+            ))
     
     def _validate_schemas(self):
         """
@@ -2603,7 +2727,7 @@ def cmd_compile(args):
     # Write adventure.json
     json_path = output_dir / 'adventure.json'
     with open(json_path, 'w') as f:
-        json.dump(runtime_json, f, indent=2)
+        json.dump(runtime_json, f, indent=2, default=str)
     print(f"   📄 {json_path}")
     
     # Copy or generate index.html
@@ -2716,35 +2840,8 @@ def export_runtime_json(linter: 'AdventureLinter') -> dict:
             'advertisements': {}
         }
         
-        # Export advertisements (could be dict or list)
-        ads = obj.advertisements or {}
-        if isinstance(ads, dict):
-            for ad_name, ad_data in ads.items():
-                if isinstance(ad_data, dict):
-                    obj_data['advertisements'][ad_name] = {
-                        'description': ad_data.get('description', ''),
-                        'score': ad_data.get('score', 50),
-                        'effect': ad_data.get('effect', ''),
-                        'guard': ad_data.get('guard', ''),
-                        'guard_js': ad_data.get('guard_js', ''),
-                        'guard_py': ad_data.get('guard_py', ''),
-                        'guard_fail': ad_data.get('guard_fail', ''),
-                        'score_if': ad_data.get('score_if', ''),
-                        'score_if_js': ad_data.get('score_if_js', ''),
-                        'score_if_py': ad_data.get('score_if_py', ''),
-                        'effect_js': ad_data.get('effect_js', ''),
-                        'effect_py': ad_data.get('effect_py', '')
-                    }
-        # Handle list-style advertisements if present
-        elif isinstance(ads, list):
-            for i, ad_data in enumerate(ads):
-                if isinstance(ad_data, dict):
-                    ad_name = ad_data.get('name', f'ACTION_{i}')
-                    obj_data['advertisements'][ad_name] = {
-                        'description': ad_data.get('description', ''),
-                        'score': ad_data.get('score', 50),
-                        'effect': ad_data.get('effect', '')
-                    }
+        for ad_name, ad_data in normalize_advertisements(obj.advertisements).items():
+            obj_data['advertisements'][ad_name] = export_advertisement(ad_data)
         
         result['objects'].append(obj_data)
     
@@ -2881,7 +2978,7 @@ def generate_index_html(adventure_data: dict) -> str:
 def generate_standalone_html(adventure_data: dict, js_code: str) -> str:
     """Generate standalone HTML with embedded JS and data."""
     name = adventure_data.get('name', 'Adventure')
-    json_str = json.dumps(adventure_data)
+    json_str = json.dumps(adventure_data, default=str)
     
     return f'''<!DOCTYPE html>
 <html lang="en">

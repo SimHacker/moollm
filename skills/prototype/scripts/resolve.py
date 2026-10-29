@@ -54,6 +54,9 @@ from typing import Any
 
 import yaml
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import refs  # noqa: E402
+
 PARENT_KEYS = ("inherits", "parents", "parent", "prototype", "extends")
 KLINE = re.compile(r"^[A-Z0-9][A-Z0-9_-]+$")
 REF_LIKE = re.compile(r"^[\w./~#-]+$")
@@ -87,9 +90,12 @@ class ParentRef:
 
     @property
     def form(self) -> str:
-        """file | url | broken (path-shaped, no file) | kline | prose"""
+        """file | remote (another repo, no local checkout) | url | broken (path-shaped, no file) | kline | prose"""
         if self.target is not None:
             return "file"
+        r = refs.parse_ref(self.ref)
+        if r is not None and not r.relative:
+            return "remote"
         if "://" in self.ref:
             return "url"
         if "/" in self.ref:
@@ -190,6 +196,11 @@ def raw_parent_refs(m: dict[str, Any]) -> list[tuple[str, str | None]]:
             for item in value:
                 add(item)
         elif isinstance(value, dict):
+            if "repo" in value or any(k in value for k in refs.URL_KEYS):
+                uri = refs.to_uri(refs.parse_ref(value))
+                if uri:
+                    out.append((uri, value.get("as", role)))
+                    return
             if isinstance(value.get("source"), str) and isinstance(value.get("id"), str):
                 out.append((f"{value['source']}#*.{value['id']}", value.get("as", role)))  # catalog entry
                 return
@@ -227,8 +238,10 @@ def resolve_ref(ref: str, base: Path, root: Path, self_path: Path | None = None)
     Never resolves to the referring file itself: `prototype: wine-rack` inside
     wine-rack.yml means some other wine rack.
     """
-    if "://" in ref or "\n" in ref or len(ref) > 200:
+    if "\n" in ref or len(ref) > 200:
         return None
+    if "://" in ref:
+        return located(ref, base)
     ref, frag = parse_address(ref)
     if ref.startswith("moollm/"):
         ref = ref[len("moollm/"):]
@@ -249,7 +262,18 @@ def resolve_ref(ref: str, base: Path, root: Path, self_path: Path | None = None)
                 return (c.resolve(), find_fragment(c.resolve(), frag))
         except OSError:
             continue
-    return None
+    return located(f"{ref}#{frag}" if frag else ref, base) if "/" in ref else None
+
+
+def located(ref: str, base: Path) -> Key | None:
+    """A cross-repo ref (moollm://, GitHub URL, owner/repo/path) in a sibling checkout."""
+    r = refs.parse_ref(ref)
+    if r is None or r.relative:
+        return None
+    loc = refs.locate(r, from_file=base)
+    if not isinstance(loc, Path):
+        return None
+    return (loc.resolve(), find_fragment(loc.resolve(), r.fragment))
 
 
 def find_fragment(path: Path, frag: str) -> str:
@@ -361,7 +385,7 @@ def get_slot(obj: Obj, dotted: str, root: Path) -> tuple[bool, Any]:
     value = obj.slots[head]
     if not rest:
         return True, value
-    if isinstance(value, str) and REF_LIKE.match(value):
+    if isinstance(value, str) and (REF_LIKE.match(value) or value.startswith(refs.SCHEME)):
         target = resolve_ref(value, obj.path if obj.path.is_dir() else obj.path.parent, root)
         if target:
             return get_slot(load_obj(target, root), rest, root)
@@ -591,6 +615,10 @@ def legacy_spellings(d: dict[str, Any], path: Path | None = None) -> list[str]:
         out.append("prototype: {source, id} (use inherits: [file#collection.id])")
     if any(r.startswith("moollm/") for r, _ in raw_parent_refs(d)):
         out.append("moollm/ path prefix")
+    if any(r.startswith(("http://", "https://")) and "github" in r for r, _ in raw_parent_refs(d)):
+        out.append("GitHub URL parent (use moollm://github/...)")
+    if any(isinstance(d.get(k), dict) and "repo" in d[k] for k in PARENT_KEYS):
+        out.append("{repo, path} parent map (use moollm://github/...)")
     keys = nested_keys(d)
     out += [f"{k}: (use done_when:)" for k in sorted(keys & DONE_WHEN_SPELLINGS)]
     out += [f"{k}: (use {SCHEMA_KEY_RENAMES[k]}:)" for k in sorted(keys & set(SCHEMA_KEY_RENAMES))]
