@@ -568,7 +568,63 @@ Full resolver algorithm, shadowing rules, ambient-parent enumeration, and the di
 
 ---
 
-## 15. Invariants (Universal)
+## 15. The Semantic Image Pyramid: Concentrated, Not DRY (Universal)
+
+An object is read at several resolutions: `GLANCE.yml` (is this relevant?), `CARD.yml` (what
+can it do?), `SKILL.md` (how does it work?), `README.md` (why was it built?), plus interface
+files such as `ROOM.yml` and `CHARACTER.yml` that define what instances have. Each level is
+for context management, so each must stand alone at its size.
+
+**`CARD.yml` is one file an LLM reads to understand what the object does.** It holds the
+object's advertisements and methods, its Dublin Core and MOOLLM operational and informational
+keys, its own YAML Jazz, and the conventions of the objects it makes or works with: the keys
+rooms have, the keys characters have. Interface files stay canonical for instances; the card
+copies down their most important fields and methods so that the card level of the pyramid
+represents them.
+
+**Not DRY. More concentrated.** Repeating a field at a smaller level is the point of the
+pyramid, not a defect. Never remove something from a CARD or GLANCE because a larger file
+already says it; ask whether it is among the most important things at that size. GLANCE
+follows the same rule at a smaller size. Keep the copies in agreement by linting, never by
+deleting the smaller copy.
+
+Protocol symbol: `SEMANTIC-IMAGE-PYRAMID`.
+
+---
+
+## 16. Advertisements: Push Into the Auction, Compile, Graduate (Universal)
+
+**Advertisements are the one way an object says what it can do and when it wants to be
+chosen.** Objects, rooms, characters and skills advertise into an auction; the actor (a
+character, the engine, or an LLM picking a skill) scores the advertisements and something
+wins ([designs/ADVERTISEMENT-AUCTION.md](../designs/ADVERTISEMENT-AUCTION.md)). Responding to
+words, phrases or concepts is an advertisement with a trigger. What an object provides and
+what it needs are advertisements with their parameters and the motives they satisfy. A
+canned response is the degenerate case, not the model.
+
+An advertisement is smart and parameterized: score, guard, score_if, parameters, effect,
+satisfies, triggers, and any YAML Jazz the object needs. One parameterized advertisement
+covers a manifold of stimulus and response that would otherwise be written as many near
+copies.
+
+**Every natural-language key aims to be compilable.** The adventure compiler has the LLM
+write a `_js` (and `_py`) sibling that evaluates the prose key procedurally: `guard:` →
+`guard_js:`, `score_if:` → `score_if_js:`, `effect:` → `effect_js:`. YAML Jazz the engine
+can't run stays for the LLM to read and act on.
+
+**Recurring compiled patterns graduate into standard keys.** When enough compiled
+expressions repeat one shape, the shape becomes a named key with simple granular parameters
+(for example, a list of tags a guard requires) run directly by the engine or by an object
+plugged into it. Graduated keys need no generated code. Their names become the commands,
+adjectives, verbs, nouns and prepositions of a deterministic domain-specific language that
+the engine plus its plugged-in and instantiated objects execute without an LLM. This is
+stages 3 to 6 of the protocol evolution in §3, applied to behavior.
+
+Protocol symbol: `ADVERTISEMENT`.
+
+---
+
+## 17. Invariants (Universal)
 
 These MUST be true regardless of driver:
 
@@ -584,6 +640,8 @@ These MUST be true regardless of driver:
 10. **Skills are duck-typed**: A directory is a skill iff it has `SKILL.md` OR lives inside `skills/`; no registry, no gatekeeper, equal-citizen mounted roots
 11. **Plural containers type their children**: `farts/fart-01/` is a fart with no declaration; an empty directory is a valid instance; `FARTS.yml` lets the container specialize its children in one place; one namespace per plural container (§14)
 12. **Three-axis accessibility**: Prefer forms that balance human + LLM + program access; YAML Jazz is the default because it does (§3)
+13. **Concentrated, not DRY**: CARD and GLANCE copy the most important things down from larger files; agreement is linted, the smaller copy is never deleted for being a copy (§15)
+14. **Advertisements are the one behavior offer**: reactions, provisions and skill relevance are advertisements; prose keys compile to `_js`, recurring patterns graduate to standard keys (§16)
 
 ---
 

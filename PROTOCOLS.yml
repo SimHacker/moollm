@@ -52,6 +52,13 @@ THREE-AXIS-ACCESSIBILITY:
     program: "Parseable, round-trippable, machine-usable"
   related: [YAML-JAZZ, COMMENTS-MATTER, POSTEL, NO-AI-HUMANSPLAINING]
 
+SEMANTIC-IMAGE-PYRAMID:
+  meaning: "GLANCE → CARD → SKILL → README, plus interface files (ROOM, CHARACTER). Each level stands alone at its size. CARD is the one file that says what the object does: advertisements, methods, Dublin Core, operational keys, YAML Jazz, and the most important keys of the objects it makes. Not DRY: more concentrated. Copies are linted for agreement, never deleted for being copies."
+  location: kernel/constitution-core.md §15
+  shorthand: "NOT-DRY"
+  invoke_when: "Deciding what goes in a CARD or GLANCE; tempted to remove a field because a bigger file has it; moving fields into an interface file"
+  related: [THREE-AXIS-ACCESSIBILITY, ADVERTISEMENT]
+
 FILES-AS-STATE:
   meaning: "Everything is files. No hidden memory."
   location: kernel/constitution-core.md §2
@@ -2246,9 +2253,9 @@ MULTI-PRESENCE:
 # Autonomous selection → Goal-driven activation | Action queues → Task sequences
 
 ADVERTISEMENT:
-  meaning: "Objects (files) advertise what they can do, with scores."
+  meaning: "Objects (files) advertise what they can do, with scores, into an auction. The one behavior offer: reactions to words and concepts, what an object provides and needs, and when a skill is relevant are all advertisements. Prose keys compile to _js/_py; recurring compiled patterns graduate to standard parameterized keys the engine runs without an LLM."
   origin: "The Sims (Will Wright / Don Hopkins)"
-  location: skills/card/, skills/room/
+  location: kernel/constitution-core.md §16, skills/advertisement/, skills/card/, skills/room/
   invoke_when: "Deciding what action to take next"
   see_also: [SNAP-CURSOR, AUTONOMOUS-SELECTION, PIE-MENU]
   

@@ -109,6 +109,13 @@ from its GLANCE. A view that lacks a slot falls through to its subject first, th
 object is a delegation chain. GLANCE and CARD summarize the object; INDEX summarizes its
 contents, one entry per child.
 
+Views are concentrated, not DRY (constitution §15). A skill's CARD is the one file that says
+what the skill and its objects do, so it copies down the most important slots and methods of
+its prototype file: the room CARD lists LOOK, ENTER, EXIT and the keys every room has, even
+though `skills/room/ROOM.yml` is canonical for instances. Fall-through covers what a view
+leaves out; it is never a reason to leave out what matters at that size. A copy that
+disagrees with its source is a lint finding, fixed by updating the copy.
+
 A view is a cache, so it can go stale. Git says when: a view is stale when anything it
 summarizes has a later commit, or uncommitted changes. `resolve.py stale` lists them. Views
 carry no hashes or dates.
@@ -161,7 +168,7 @@ scalar wins. `resolve.py lookup` applies this; the adventure compiler doesn't ye
 | navigation links | `related:` ids or paths; `see_also:` documents | parents |
 | intellectual ancestry | `lineage:` | parents |
 | classification | `tags:`; `type:` one id | dispatch |
-| behavior | `methods:` map; `advertisements:` map, each naming a method plus guard and score | lists |
+| behavior | `methods:` map; `advertisements:` map, each with score, guard, score_if, parameters, effect, optionally the method it runs; prose keys compile to `_js`/`_py` siblings (constitution §16) | lists; other keys for offers (`reactions:`, `interests:`, `provides:`) |
 | mutable state | `state:` | inherited through parents |
 | finished, or impossible | `done_when:`, `fail_when:` (goal; task inherits goal) | stored as a `status:` |
 | about the file | git; else a `-metadata.yml` sidecar | inside the file |
