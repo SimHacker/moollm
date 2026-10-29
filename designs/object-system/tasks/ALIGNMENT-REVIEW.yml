@@ -178,36 +178,6 @@ items:
     spelled: representation.consent.state
     note: warm_lead
   decision: null
-- id: richard-bartle
-  fact: consent.state
-  reason: layers disagree
-  values:
-  - layer: donhopkins
-    file: DonHopkins/characters/richard-bartle/CHARACTER.yml
-    value: granted
-    spelled: representation.consent.state
-  - layer: wwsff-profile
-    file: WillWrightShowForFood/characters/richard-bartle/CHARACTER.yml
-    value: not_asked
-    spelled: representation.consent.state
-  - layer: adventure
-    file: moollm/examples/adventure-4/characters/real-people/richard-bartle/CHARACTER.yml
-    value: granted
-    spelled: representation.consent.state
-  - layer: show-audience
-    file: WillWrightShowForFood/repo-shows/will-wright-premiere/audience/richard-bartle/CHARACTER.yml
-    value: unverified
-    spelled: representation.consent.state
-  decision: null
-- id: richard-bartle
-  fact: consent.state
-  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
-  values:
-  - layer: show-audience
-    file: WillWrightShowForFood/repo-shows/will-wright-premiere/audience/richard-bartle/CHARACTER.yml
-    value: unverified
-    spelled: representation.consent.state
-  decision: null
 - id: roy-eagleson
   fact: consent.state
   reason: 'unverified: an earlier record claimed consent and no evidence is on file'
@@ -226,16 +196,6 @@ items:
     value: unverified
     spelled: representation.consent.state
     note: correspondence_verified
-  decision: null
-- id: steve-alvey
-  fact: consent.state
-  reason: 'unverified: an earlier record claimed consent and no evidence is on file'
-  values:
-  - layer: wwsff-profile
-    file: WillWrightShowForFood/characters/steve-alvey/CHARACTER.yml
-    value: unverified
-    spelled: representation.consent.state
-    note: invitation.consent said granted; no evidence on file
   decision: null
 - id: terry-winograd
   fact: consent.state
