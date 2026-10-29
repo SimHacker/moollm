@@ -121,7 +121,7 @@ what you do not yet understand while it is still cheap to go find out. Doing it
 in the other order produces prose that gets diagrammed, which is decoration.
 
 Front matter carries `is_a`, `parents`, and — when the subject is a real person
-— `representation:` with a consent level per
+— `representation:` with its consent facts (`public_figure`, `consent`) per
 [`representation-ethics`](../representation-ethics/). The seed demonstrates all
 of it.
 

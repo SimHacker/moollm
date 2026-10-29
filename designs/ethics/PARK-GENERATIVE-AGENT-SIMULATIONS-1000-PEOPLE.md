@@ -167,7 +167,7 @@ Participants were explicitly informed:
 | **Scaffolding approach** | Expert reflection module = scaffolded reasoning |
 | **Frame-based ethics** | Context (interview) transforms accuracy, not just rules |
 | **Human checkpoints** | Agent bank requires human oversight for restricted access |
-| **Consent hierarchy** | Two-pronged access models consent levels |
+| **Consent hierarchy** | Two-pronged access models consent rules |
 | **Qualitative grounding** | Interviews >> demographics for individual simulation |
 
 ### What This Challenges

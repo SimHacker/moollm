@@ -96,7 +96,7 @@ Creator does not lock the graph. Full protocol: [incarnation/ETHICS.md](../incar
 ## Checklist (mind)
 
 1. [ ] Well vs cup vs impersonator vs stub — which is this?
-2. [ ] If real-person model — consent level + disclosure?
+2. [ ] If real-person model — consent record, public figure or private, + disclosure?
 3. [ ] Speaker id clear when multiple minds counsel?
 4. [ ] Mute / displace / delete documented?
 5. [ ] Organelle sync respecting sibling DNA + host?

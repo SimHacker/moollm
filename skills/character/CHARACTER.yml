@@ -69,7 +69,7 @@ schema:
   conventions:
     flat: "slots at the top level; a character: envelope is read as if flat, and migrations rewrite it flat"
     list_of_one: "a bare string where a list is expected is a list of one"
-    dotted_keys: "representation.consent_level is the key consent_level inside representation:; copies: lists use the same form"
+    dotted_keys: "representation.consent.state is the key state inside consent: inside representation:; copies: lists use the same form"
     refs: >
       Inside one repo, a relative or repo-relative path. Across repos,
       moollm://github/<owner>/<repo>/<path>, resolved to a sibling checkout (../<repo>/<path>)
@@ -82,7 +82,9 @@ schema:
     safe_defaults: >
       An omitted key never makes a real person easier to portray. Outside the fictional
       layers an omitted real_being means a real person, an omitted status means unknown and is
-      treated as living, and an omitted consent_level means public figure (3) or deceased (5).
+      treated as living, an omitted public_figure means unknown and is treated as private, and
+      an omitted consent means not asked. The governing rule is computed from these facts
+      (skills/representation-ethics/REPRESENTATION.yml schema.rules) and never stored.
     real_people_in_fictional_layers: >
       A real person in an adventure, cast or prototype layer states real_being: true. The
       cross-layer lint reports a fictional-layer file whose id has another layer with
@@ -121,8 +123,8 @@ schema:
     status:
       shape: enum
       values: [living, deceased, fictional]
-      default: "fictional when real_being is false; otherwise null: unknown, treated as living by consent_level, signifier and the representation rules"
-      value_aliases: { memorial: deceased, reified: fictional, unknown: null }
+      default: "fictional when real_being is false; otherwise null: unknown, treated as living by the signifier and the representation rules"
+      value_aliases: { memorial: deceased, passed: deceased, reified: fictional, unknown: null }
       meaning: "life fact about the being; never a work status"
       example: living
 
@@ -191,30 +193,51 @@ schema:
     representation:
       shape: map
       default: "{} for a fictional being; the defaults of the keys below for a real one"
-      meaning: "the ethics of portraying this being, carried by every layer so a copied directory keeps them"
-
-    representation.consent_level:
-      shape: number
-      range: [1, 5]
-      default: "null when real_being is false; 5 when status is deceased; 3 otherwise"
-      value_meanings:
-        1: "self-sovereign: the being's own layer"
-        2: "explicit consent: the being agreed to this portrayal"
-        3: "public figure: public work and tradition by K-line, no impersonation"
-        4: "private individual: fictional wrapper"
-        5: "deceased: reverence, legacy and artifacts, no invented inner life"
-      value_aliases: { 1_self_sovereign: 1, self-sovereign: 1, 2_explicit: 2, 3_public_figure: 3, 4_private: 4, 5_deceased_legacy: 5 }
-      aliases: [consent_level, representation.consent]
       meaning: >
-        What the being has agreed to, per skills/representation-ethics. The default 3 assumes a
-        public figure; a private person states 4. Not invitation.consent, which records
-        whether an invitation was accepted.
-      example: 3
+        The ethics of portraying this being, carried by every layer so a copied directory keeps
+        them. Its keys are facts; the rule that governs (memorial, self_authored, consented,
+        public_figure, private: first match) is computed from them with status, never stored.
+        Canonical schema: skills/representation-ethics/REPRESENTATION.yml.
+
+    representation.public_figure:
+      shape: bool
+      default: "null: unknown, treated as private (the stricter rule); a lint finding for a living real being"
+      meaning: "whether the being has a public role or published work that portrayal draws on; independent of consent"
+      example: true
+
+    representation.consent:
+      shape: map
+      default: "{ state: not_asked }"
+      aliases: [invitation.consent]
+      meaning: >
+        The record of asking the being about this portrayal or show: what happened, when, and
+        where the proof is. A record, not a rank. Relationship warmth goes in note, never state.
+      example: { state: asked, date: "2026-08-23", evidence: correspondence/2026-08-23-don-to-ian-roles-not-characters.md }
+
+    representation.consent.state:
+      shape: enum
+      values: [not_asked, asked, granted, declined, revoked, unverified]
+      default: not_asked
+      value_meanings:
+        not_asked: "nobody has asked them"
+        asked: "asked; no answer yet"
+        granted: "agreed, within scope, with evidence; without evidence it is a lint error and governs nothing"
+        declined: "said no; the public-figure or private rule applies"
+        revoked: "agreed, then withdrew; nothing past the revocation date"
+        unverified: "an earlier record claimed consent and no evidence is on file"
+      value_aliases: { not_yet_asked: not_asked, not_addressed: not_asked, asked_no_reply_yet: asked, awaiting_reply: asked, pending_response: asked, outreach_sent_awaiting_reply: asked, collaborator_invited: asked, invitation_accepted: granted }
+
+    representation.consent.scope: { shape: prose, default: null, meaning: "what was agreed: which show, which uses, speaking as them or not" }
+    representation.consent.date: { shape: string, default: null, meaning: "when the state last changed, YYYY-MM-DD" }
+    representation.consent.evidence: { shape: ref, default: null, meaning: "the correspondence file or message that shows it; granted requires it" }
+    representation.consent.note: { shape: prose, default: null, meaning: "relationship context that is not consent: warm lead, old friend" }
 
     representation.authored_by:
       shape: ref
-      default: "the being's own id when consent_level is 1; otherwise null (unattributed, a lint finding for a real being)"
-      meaning: "who wrote this portrayal; authorship is not ownership of the being's identity"
+      default: "null: unattributed, a lint finding for a real being"
+      meaning: >
+        Who wrote this portrayal, as a character id. The being's own id means self-authored,
+        and the being's terms govern. Authorship is not ownership of the being's identity.
       example: don-hopkins
 
     representation.governed_by:
@@ -228,7 +251,7 @@ schema:
     representation.speaks_as:
       shape: bool
       default: false
-      meaning: "whether this layer may speak as the being; true only at consent_level 1, or 2 with the being's own say-so"
+      meaning: "whether this layer may speak as the being; true only when self-authored, or when consent is granted and its scope says so"
 
     representation.may:
       shape: list
@@ -273,7 +296,7 @@ schema:
         copies:
           shape: list
           of: string
-          default: [id, name, real_being, status, born, died, representation.consent_level]
+          default: [id, name, real_being, status, born, died, representation.public_figure, representation.consent.state]
           meaning: "dotted keys whose values must agree with the source; the cross-layer lint compares them"
       default: []
       aliases: [upstream]
@@ -333,12 +356,6 @@ schema:
       values: "the status enum of the owner file"
       default: draft
       meaning: "a work status, validated against the owner file; distinct from the life fact status:"
-
-    invitation.consent:
-      shape: enum
-      values: [not_yet_asked, granted, declined]
-      default: not_yet_asked
-      meaning: "whether the being accepted the invitation; not representation.consent_level"
 
   examples:
 
@@ -428,8 +445,9 @@ schema:
         born: "1940"
         signifier: "👤"
         representation:
-          consent_level: 3
           authored_by: don-hopkins
+          public_figure: true
+          consent: { state: not_asked }
           governed_by:
             - moollm://github/SimHacker/moollm/skills/real-being/
             - moollm://github/SimHacker/moollm/skills/representation-ethics/
@@ -450,14 +468,13 @@ schema:
         signifier: "👤"
         emoji: "💡"
         representation:
-          consent_level: 3
           authored_by: don-hopkins
+          public_figure: true
+          consent: { state: not_asked }  # one record for the portrayal and the invitation
           governed_by: [../../schemas/portrayal-standards.md]
         derived_from:
           - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
             transform: "projected for the show: adds the invitation, sources and people to discuss"
-            copies: [name, status, born, died, representation.consent_level]
+            copies: [name, status, born, died, representation.public_figure, representation.consent.state]
         layers:
           biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
-        invitation:
-          consent: not_yet_asked         # the invitation's answer, not the consent_level above

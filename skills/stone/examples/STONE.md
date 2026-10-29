@@ -29,7 +29,7 @@ parents:                         # clone-from-example, not instance-from-class
 prototype_of: "every other STONE.md — set parents: [ moollm://…/skills/stone/examples/STONE.md ]"
 
 subject: Stone Librande
-representation: { protocol: HERO-STORY, consent_level: 3, ethics: "moollm://github/SimHacker/moollm/skills/representation-ethics/" }
+representation: { governed_by: ["moollm://github/SimHacker/moollm/skills/real-being/", "moollm://github/SimHacker/moollm/skills/representation-ethics/"], public_figure: true, consent: { state: not_asked } }
 quotes_are: "💬 confirmed + sourced only — tribute / K-line, never impersonation"
 ---
 

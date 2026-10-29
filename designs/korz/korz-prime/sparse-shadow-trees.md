@@ -43,7 +43,7 @@ fall through — which is why it feels Self-shaped: the shadow tree is
 to the containment tree what the parent slot is to the object.
 
 **Ethics is one of the shadows.** A MOOLLM directory can optionally
-declare an ethical scope — consent levels, portrayal rules, forbidden
+declare an ethical scope — consent rules, portrayal rules, forbidden
 topics, what may be quoted — or declare nothing and inherit from its
 **ethics-parent**. A child scope *refines*: it makes the inherited
 rules more specific, tightens them, or sandboxes its subtree entirely,

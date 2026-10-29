@@ -104,7 +104,7 @@ Creating a character with autonomy claims → [incarnation](../incarnation/) ·
 ## Checklist (character)
 
 1. [ ] Body vs persona vs mind — which layer is doing the claiming?
-2. [ ] Real person? Consent level + patron-mascot or K-line or impersonator?
+2. [ ] Real person? Governing rule (status, consent, public_figure) + patron-mascot or K-line or impersonator?
 3. [ ] Memorial vs living — correct frame?
 4. [ ] Aggregate / role play — not individual prediction of a private person?
 5. [ ] Name / home / inventory respecting change-name and privacy?

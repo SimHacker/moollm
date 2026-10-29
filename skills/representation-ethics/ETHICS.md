@@ -32,7 +32,7 @@ Deep protocol: [SKILL.md](SKILL.md). Worked cases: [`examples/`](examples/).
 
 | Need | File |
 |------|------|
-| Consent levels | [examples/consent-hierarchy.yml](examples/consent-hierarchy.yml) |
+| Consent rules | [examples/consent-hierarchy.yml](examples/consent-hierarchy.yml), [REPRESENTATION.yml](REPRESENTATION.yml) |
 | Framing spectrum | [examples/framing-spectrum.yml](examples/framing-spectrum.yml) |
 | Performance / tribute | [examples/performance-frames.yml](examples/performance-frames.yml) |
 | Elvis / Snatch Game | [examples/snatch-game.yml](examples/snatch-game.yml) |
@@ -84,7 +84,7 @@ Stack hub (container + index): [soul/ETHICS.md](../soul/ETHICS.md#ethics-stack-h
 
 ## Checklist (representation)
 
-1. [ ] Consent level known and honored?
+1. [ ] Governing rule known (status, authored_by, consent with evidence, public_figure) and honored?
 2. [ ] Reasonable-person deception test passed?
 3. [ ] Venue framing appropriate ([room/ETHICS.md](../room/ETHICS.md))?
 4. [ ] Disclosure present?

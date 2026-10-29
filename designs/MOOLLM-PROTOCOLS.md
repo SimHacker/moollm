@@ -284,7 +284,7 @@ P-HANDLE-K.
 ### Ethical Scope
 **Ethics inherit down the tree; children may only tighten.**
 
-Any directory can declare an ethical scope — consent levels, portrayal rules,
+Any directory can declare an ethical scope — consent rules, portrayal rules,
 forbidden topics, what may be quoted. Directories that declare nothing inherit
 from their ethics-parent, so most of the tree carries no local rules at all:
 the ethics live as a sparse shadow over the directory hierarchy, materialized

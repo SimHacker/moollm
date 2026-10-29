@@ -38,7 +38,8 @@ state_fields:
 
 layers: |
   One being, one layer per purpose and repo (adventure, biography, invitation, cast, audience, page...).
-  Every layer carries id, name, real_being, status, signifier, representation.consent_level.
+  Every layer carries id, name, real_being, status, signifier, and for a real being
+  representation.authored_by, public_figure, consent; the governing rule is computed, never stored.
   inherits = lookup · derived_from = authoring copy, linted · layers = navigation.
   Schema: the schema: key of CHARACTER.yml.
 

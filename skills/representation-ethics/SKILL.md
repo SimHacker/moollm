@@ -289,15 +289,17 @@ The "underground lesbian houses built to hide from parents" provided real psycho
 
 ## The Consent Hierarchy
 
-Five levels of representation rights. **Full details:** `examples/consent-hierarchy.yml`
+Five rules of representation rights. The first one whose condition holds governs the
+portrayal, so the deceased are always memorial and a public figure who consented is governed by
+that consent. **Full details:** `examples/consent-hierarchy.yml`
 
-| Level | Who | Principle |
-|-------|-----|-----------|
-| 1 | **Self** | You own your digital self. Full freedom. |
-| 2 | **Explicit Consent** | Published terms. Honor them. |
-| 3 | **Public Figures** | Public work fair game. Persona requires care. |
-| 4 | **Private Individuals** | Fictional wrappers preferred. |
-| 5 | **Deceased** | Invoke tradition with reverence. |
+| Rule | Who | Principle |
+|------|-----|-----------|
+| memorial | **Deceased** | Invoke tradition with reverence. |
+| self_authored | **Self** | You own your digital self. Full freedom. |
+| consented | **Explicit Consent** | Agreed, with evidence, within a scope. Honor it. |
+| public_figure | **Public Figures** | Public work fair game. Persona requires care. |
+| private | **Private Individuals** | Fictional wrappers preferred. |
 
 **The K-Line Solution:**
 - "The Minsky tradition suggests..." → ✅ safe
@@ -315,50 +317,78 @@ itself, together with the ethics header it needs, so it still runs when its dire
 into another repo (constitution §15, layers across repos). The schema keeps those copies in
 agreement.
 
+A layer states facts. The rule that governs the portrayal is computed from them by
+`resolve.py layers` and by the engine, and is never stored, so it cannot drift from the facts.
+Four facts, four keys:
+
+| Fact | Key |
+|------|-----|
+| who wrote it | `representation.authored_by` |
+| did they agree | `representation.consent: { state, scope, date, evidence, note }` |
+| public or private | `representation.public_figure` |
+| living or dead | `status` (a character key: `living`, `deceased`, `fictional`) |
+
 ```yaml
+status: living
 representation:
-  consent_level: 3          # 1 self-sovereign · 2 explicit · 3 public figure · 4 private · 5 deceased
   authored_by: don-hopkins
+  consent:
+    state: asked
+    date: "2026-08-23"
+    evidence: correspondence/2026-08-23-don-to-ian-roles-not-characters.md
   governed_by: moollm://github/SimHacker/moollm/skills/representation-ethics/
 ```
 
 | Key | Shape | Default when omitted |
 |-----|-------|----------------------|
-| `consent_level` | 1..5 | 3 when the subject is real and alive (or `status` is absent); 5 when `status: deceased` |
-| `authored_by` | character id | the subject at level 1; otherwise none, which lint reports |
+| `authored_by` | character id | none, which lint reports; the subject's own id means self-authored |
+| `public_figure` | bool | unknown, treated as private (the stricter rule); lint reports it for every living real being |
+| `consent` | map | `{ state: not_asked }` |
+| `consent.state` | `not_asked` · `asked` · `granted` · `declined` · `revoked` · `unverified` | `not_asked` |
+| `consent.scope` | prose | none: what was agreed, which show, which uses, speaking as them or not |
+| `consent.date` | YYYY-MM-DD | none: when the state last changed |
+| `consent.evidence` | ref | none: the correspondence file or message that shows it |
+| `consent.note` | prose | none: relationship context that is not consent |
 | `governed_by` | list of refs | `[moollm://github/SimHacker/moollm/skills/real-being/, moollm://github/SimHacker/moollm/skills/representation-ethics/]` |
-| `may` | list of prose | the level's `may` list |
-| `must_not` | list of prose | the level's `must_not` list |
+| `may` | list of prose | the governing rule's `may` list |
+| `must_not` | list of prose | the governing rule's `must_not` list |
 | `speaks_as` | bool | `false` |
 | `subject_rights` | map | the subject may correct or object; contact via the author |
 | `disclaimer` | prose | "This is a portrayal published ABOUT {name}. It is not {name}, is not endorsed by {name} unless noted, and does not speak as them." |
 | `note` | prose | none |
 
-| Level | Name | Signifier | Core rule |
-|-------|------|-----------|-----------|
-| 1 | self-sovereign | 👤 | The subject authors it; may speak as themselves |
-| 2 | explicit consent | 👤 | Published terms, scope, revocation; honor them |
-| 3 | public figure: tradition, K-line | 👤 | Documented work and sourced 💬 quotes; never speak as them |
-| 4 | private individual: fictional wrapper | 👤 | Inspired-by character with disclaimer; no identifying details |
-| 5 | deceased: reverence, legacy and artifacts only | 🕯️ | No speaking as them, no invented inner life, dialogue or quotes |
+`consent.state: granted` requires `consent.evidence`. Granted without evidence is a lint error
+and governs nothing: the rule falls through as if nobody asked. `unverified` means an earlier
+record claimed consent and no evidence is on file; Don confirms or corrects it. Warmth (old
+friend, warm lead, cheered the plans) goes in `consent.note`, never in `state`.
 
-Each level's full `may` and `must_not` lists are data under `schema.levels` in
-REPRESENTATION.yml. A layer's own lists add to its level's lists: a layer can forbid more than
-its level, never permit what the level forbids. Only the subject widens them, by authoring
-(level 1) or by published terms (level 2). `speaks_as: true` is valid only at level 1, or at
-level 2 when the terms grant it.
+The first rule whose condition holds governs:
+
+| Rule | When | Signifier | Core rule |
+|------|------|-----------|-----------|
+| memorial | `status: deceased` | 🕯️ | No speaking as them, no invented inner life, dialogue or quotes |
+| self_authored | `authored_by` is the subject's own id | 👤 | The subject authors it; may speak as themselves |
+| consented | `consent.state: granted`, with `consent.evidence` | 👤 | Within `consent.scope`, revocable; honor it |
+| public_figure | `public_figure: true` | 👤 | Documented work and sourced 💬 quotes; never speak as them |
+| private | otherwise (`public_figure` false or unknown) | 👤 | Inspired-by character with disclaimer; no identifying details |
+
+Each rule's full `may` and `must_not` lists are data under `schema.rules` in
+REPRESENTATION.yml. A layer's own lists add to its rule's lists: a layer can forbid more than
+its rule, never permit what the rule forbids. Only the subject widens them, by authoring their
+own layer or by the scope they consented to. `speaks_as: true` is valid only when self-authored,
+or when consent is granted and its scope says so.
 
 **Older spellings** that lint reports and migrations rewrite:
 
 - `protocol:` → `governed_by:`; `protocol: HERO-STORY` becomes the real-being and
   representation-ethics refs.
-- `consent:` → `consent_level:`; `consent: self-sovereign` → `consent_level: 1`.
-- `kind: self` → `consent_level: 1`; `kind: representational` names no level and is dropped.
-- string levels such as `5_deceased_legacy`, `3_public_figure`, `public` → their number.
+- `invitation.consent` → `representation.consent`; its values map onto `consent.state`
+  (`not_yet_asked` → `not_asked`, `awaiting_reply` → `asked`, `invitation_accepted` → `granted`).
+- `consent_level` (also spelled `consent:`, `kind:`, `5_deceased_legacy`, `memorial`,
+  `self-sovereign`, `3_warm_contact`) is retired: 1 → `authored_by` is the subject; 2 →
+  `consent.state: granted` with evidence, else `unverified`; 3 → `public_figure: true`; 4 →
+  `public_figure: false`; 5 → `status: deceased`. The mapping is under `schema.retired`.
 - `subject_rights.contact_for_correction` → `subject_rights.contact`.
-
-**Not this schema:** `invitation.consent` (`not_yet_asked`, `granted`, `declined`) records whether
-an invitation was accepted. It stays under `invitation:`.
 
 **Repo standards extend it.** A repo's own portrayal standard declares that it extends this
 schema and adds what the repo needs. WillWrightShowForFood's `schemas/portrayal-standards.yml`
@@ -585,7 +615,7 @@ When creating person cards:
 
 | Required | Description |
 |----------|-------------|
-| `consent_level` | explicit / tradition / inspired-by |
+| `status`, `public_figure`, `consent` | the facts the governing rule is computed from |
 | `sources` | Documented basis |
 | `scope` | What this card covers |
 | `disclaimer` | What this is NOT |

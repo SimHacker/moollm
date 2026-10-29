@@ -556,7 +556,7 @@ self_consent_card:
   creator: "you"
   subject: "you"
   
-  consent_level:
+  grants:
     options:
       closed:   "Only I can simulate me"
       friends:  "Named individuals may simulate me"

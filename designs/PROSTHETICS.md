@@ -45,7 +45,7 @@ switch off when it disagrees with you is a crutch.
 ### WillWrightShowForFood — the correction no head produces
 
 Claims accumulate instead of overwriting; two dated observations that disagree stay a finding
-rather than a mess; portrayal standards, consent levels, right-to-correct.
+rather than a mess; portrayal standards, consent records with evidence, right-to-correct.
 
 The proof that it works is the one time it fired hardest. An entry in this archive credited
 a friend as the spark of open-source SimCity, and the archive is what forced that back to two
@@ -102,7 +102,7 @@ arguments keep going well. Four of GitHub's mechanics are directly aimed at that
 reputation, and people will say things in a role they will not say as themselves — which is
 the Bartle and MUD result, and why a repo that admits it is a stage gets contributions a
 professional one does not. The enabling constraint is the thing that keeps it from being
-puppeteering: `real_being`, consent levels, right-to-correct, K-line rather than
+puppeteering: `real_being`, consent records, right-to-correct, K-line rather than
 impersonation. **Invoke the tradition, never claim the identity.** Without those, a stage
 with real people on it is just ventriloquism with good lighting.
 

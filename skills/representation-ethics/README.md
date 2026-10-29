@@ -160,25 +160,25 @@ character:
 
 ```mermaid
 flowchart LR
-    subgraph CONSENT["Consent Levels"]
-        L1[🏠 Self<br/>SOVEREIGN]
-        L2[📜 Published<br/>THEIR TERMS]
-        L3[📚 Public<br/>TRADITION]
-        L4[🔒 Private<br/>FICTIONAL]
+    subgraph CONSENT["Consent Rules (first match governs)"]
         L5[⏳ Deceased<br/>REVERENCE]
+        L1[🏠 Self-authored<br/>SOVEREIGN]
+        L2[📜 Consented<br/>THEIR SCOPE]
+        L3[📚 Public figure<br/>TRADITION]
+        L4[🔒 Private<br/>FICTIONAL]
     end
     
-    L1 --> |"Full freedom"|SAFE[✅ Safe]
-    L2 --> |"Honor terms"|SAFE
+    L5 --> |"Invoke tradition"|SAFE[✅ Safe]
+    L1 --> |"Full freedom"|SAFE
+    L2 --> |"Honor scope"|SAFE
     L3 --> |"K-lines only"|SAFE
     L4 --> |"Inspired-by"|SAFE
-    L5 --> |"Invoke tradition"|SAFE
     
     style L1 fill:#c8e6c9
     style L5 fill:#ffccbc
 ```
 
-**Each level is like navigating to a different room.** Different rooms have different rules. The consent hierarchy is a map.
+**Each rule is like navigating to a different room.** Different rooms have different rules. The consent hierarchy is a map, and the facts on the character (`status`, `authored_by`, `consent`, `public_figure`) say which room you are in.
 
 ---
 
@@ -273,19 +273,21 @@ tribute_protocol:
 
 **Invocation. Performance. Acknowledgment.** Three beats that frame the ethics.
 
-### Characters Have Consent Levels
+### Characters Carry Their Consent Facts
 
 From [characters/real-people/don-hopkins/](../../examples/adventure-4/characters/real-people/don-hopkins/):
 
 ```yaml
-consent:
-  level: self-sovereign
-  terms: "Simulate freely with good humor"
-  contact: "don@donhopkins.com"
-  revocation: "Ask me to stop"
+status: living
+representation:
+  authored_by: don-hopkins       # the subject's own id
+  may: ["Simulate freely with good humor"]
+  subject_rights:
+    contact: "don@donhopkins.com"
+    note: "Ask me to stop"
 ```
 
-**Don published his own terms.** He's a Level 1: Self-Representation (Sovereign). Full freedom, his rules.
+**Don published his own terms.** `authored_by` is his own id, so the self-authored rule governs: full freedom, his rules.
 
 ---
 

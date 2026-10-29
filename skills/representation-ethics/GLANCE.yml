@@ -12,7 +12,7 @@ why: |
   - Know when representation is ethical vs problematic
   - Use proper disclosure (🤖 Robot Rule, framing)
   - Reference wisdom without puppeteering
-  - 'Navigate consent hierarchy (self → explicit → public → private → deceased)'
+  - 'Navigate consent hierarchy (deceased → self → consented → public → private; first match governs)'
   - Integrate with other ETHICS.md files (see ETHICS.md)
 
 when:
@@ -29,15 +29,16 @@ when:
 
 stack_integration: ETHICS.md
 protocol: SKILL.md
-schema: REPRESENTATION.yml   # representation: { consent_level 1..5, authored_by, governed_by, may, must_not, speaks_as: false, subject_rights, disclaimer }
+schema: REPRESENTATION.yml   # representation: { authored_by, public_figure, consent: {state, scope, date, evidence, note}, governed_by, may, must_not, speaks_as: false, subject_rights, disclaimer }; reads status
 examples: examples/
 
+# The rule is computed from the facts, never stored. First match governs.
 consent_hierarchy:
-  1_self: "You own your digital self. Full freedom."
-  2_explicit: "Published consent with terms. Honor terms."
-  3_public: "Public figures: public words only. K-line, not persona."
-  4_private: "Private people: explicit consent or fictional wrapper."
-  5_deceased: "Cannot consent. Invoke tradition with reverence."
+  memorial: "status: deceased. Cannot consent. Invoke tradition with reverence."
+  self_authored: "authored_by is the subject. You own your digital self. Full freedom."
+  consented: "consent.state: granted, with evidence. Honor the scope."
+  public_figure: "public_figure: true. Public words only. K-line, not persona."
+  private: "Otherwise, including unknown. Explicit consent or fictional wrapper."
 
 self_authored_personae: |
   Cuts across all five. Owned ("this is my act" — St. Ignucius) → play it straight.

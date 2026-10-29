@@ -139,9 +139,11 @@ core_keys:
   type: "the being's kind (person, animal, robot, ai_agent, a species) or role in play; default character"
   layer: "adventure | prototype | biography | profile | invitation | memorial | dream_guest | cast | audience | page; default from the file's location"
   representation:
-    consent_level: "1 self · 2 explicit · 3 public figure · 4 private · 5 deceased; default 5 if deceased, 3 for other real beings, none if fictional"
-    authored_by: "the being itself at level 1; otherwise unattributed (a lint finding)"
-    governed_by: "default skills/real-being/ and skills/representation-ethics/ for a real being; replaces protocol:"
+    authored_by: "who wrote it; the being's own id = self-authored; omitted: unattributed (a lint finding)"
+    public_figure: "bool; omitted: unknown, treated as private (the stricter rule)"
+    consent: "{state, scope, date, evidence, note}; state not_asked | asked | granted | declined | revoked | unverified; default not_asked; granted needs evidence"
+    governed_by: "default skills/real-being/ and skills/representation-ethics/ for a real being"
+    rule: "computed, never stored: memorial (deceased) > self_authored > consented > public_figure > private; skills/representation-ethics/REPRESENTATION.yml"
   safe_defaults: "every omitted value errs toward caution for a real person; a real person in a fictional layer states real_being: true"
 
 layer_relations:
@@ -150,8 +152,9 @@ layer_relations:
   layers: "navigation: {layer: ref or [refs]} to the being's other layers; linted against disk; not lookup"
   relationships: "map id → {type, narrative}; relationship: is prose about this layer's tie to its author or show"
   refs: "across repos: moollm://github/<owner>/<repo>/<path>, resolved to a sibling checkout or a GitHub URL"
-  consent_is_two_facts: "representation.consent_level is what the being agreed to; invitation.consent is whether an invitation was accepted"
+  consent_is_a_record: "representation.consent records asking the being, for the portrayal and the invitation alike; invitation.status is a work status"
   aliases:
+    representation.consent: [invitation.consent]
     inherits: [character_ref, moollm_source, wwsff_local, canonical_soul, prototype_ref, canonical_home, moollm_home]
     derived_from: [upstream]
     layers: [menagerie, profile_home, wwsff_overlay.audience_fork]

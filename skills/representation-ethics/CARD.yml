@@ -40,36 +40,47 @@ safe_frames:
   - tribute_with_disclosure
 
 # The representation: block every real-being character layer carries. Canonical: REPRESENTATION.yml.
-# A layer's may/must_not add to its level's lists; only the subject widens them (levels 1, 2).
+# Layers store facts; the governing rule is computed from them (first match of rules), never stored.
+# A layer's may/must_not add to its rule's lists; only the subject widens them (self-authored, consent scope).
 representation_schema:
   id: representation
   file: REPRESENTATION.yml
   applies_to: "the representation: map of any character layer that portrays a real being"
+  reads: "status (living | deceased | fictional), a character key; passed and memorial read as deceased"
   keys:
-    consent_level: { shape: "enum 1..5", default: "3 if real and alive; 5 if status: deceased", aliases: [consent, kind] }
-    authored_by: { shape: ref, default: "the subject at level 1; else none (lint finding)" }
+    authored_by: { shape: ref, default: null }   # the subject's own id = self-authored; null is a lint finding
+    public_figure: { shape: bool, default: null }   # null = unknown, treated as private (the stricter rule)
+    consent:
+      shape: map
+      default: { state: not_asked }
+      aliases: [invitation.consent]
+      keys:
+        state: { shape: enum, values: [not_asked, asked, granted, declined, revoked, unverified], default: not_asked }   # granted needs evidence or governs nothing
+        scope: { shape: prose, default: null }     # what was agreed: which show, which uses, speaking as them or not
+        date: { shape: string, default: null }     # YYYY-MM-DD, when the state last changed
+        evidence: { shape: ref, default: null }    # correspondence/... file or message reference
+        note: { shape: prose, default: null }      # warmth (old friend, warm lead) lives here, never in state
     governed_by: { shape: "list of ref", default: ["moollm://github/SimHacker/moollm/skills/real-being/", "moollm://github/SimHacker/moollm/skills/representation-ethics/"], aliases: [protocol] }
-    may: { shape: "list of prose", default: "levels[consent_level].may" }
-    must_not: { shape: "list of prose", default: "levels[consent_level].must_not" }
-    speaks_as: { shape: bool, default: false }   # true only at level 1, or 2 when the terms grant it
+    may: { shape: "list of prose", default: "rules[governing rule].may" }
+    must_not: { shape: "list of prose", default: "rules[governing rule].must_not" }
+    speaks_as: { shape: bool, default: false }   # true only when self-authored, or consent granted with a scope that says so
     subject_rights: { shape: map, default: "may correct or object; contact via the author" }
     disclaimer: { shape: prose, default: "A portrayal ABOUT {name}; not {name}; not endorsed unless noted; does not speak as them." }
     note: { shape: prose, default: null }
   value_aliases:
-    "self, self-sovereign, 1_self": 1
-    "explicit, 2_explicit": 2
-    "public, public_figure, 3_public_figure": 3
-    "private, 4_private": 4
-    "deceased, 5_deceased, 5_deceased_legacy": 5
-    "kind: representational": null   # names no level; the default applies
+    "consent.state: not_yet_asked, not_addressed": not_asked
+    "consent.state: asked_no_reply_yet, awaiting_reply, pending_response, outreach_sent_awaiting_reply, collaborator_invited": asked
+    "consent.state: invitation_accepted": granted
     "protocol: HERO-STORY": "governed_by: [skills/real-being/, skills/representation-ethics/]"
-  levels:
-    1: { name: self-sovereign, signifier: "👤", rule: "Subject authors it and sets terms; may speak as themselves." }
-    2: { name: explicit consent, signifier: "👤", rule: "Published terms, scope, revocation, attribution. Honor them; nothing past scope or after revocation." }
-    3: { name: "public figure: tradition, K-line", signifier: "👤", rule: "Documented work, sourced 💬 quotes in context, marked speculation. Never speak as them, fabricate, defame, exploit, or expose private life." }
-    4: { name: "private individual: fictional wrapper", signifier: "👤", rule: "Inspired-by fictional character with disclaimer. No identifying details, no distribution without consent." }
-    5: { name: "deceased: reverence, legacy and artifacts only", signifier: "🕯️", rule: "Discuss ABOUT them. No speaking as, no interview, no invented inner life, dialogue or quotes." }
-  not_this_schema: "invitation.consent (not_yet_asked / granted / declined) — whether an invitation was accepted"
+  # First match governs.
+  rules:
+    memorial: { when: "status: deceased", signifier: "🕯️", rule: "Discuss ABOUT them. No speaking as, no interview, no invented inner life, dialogue or quotes." }
+    self_authored: { when: "authored_by is the subject's own id", signifier: "👤", rule: "Subject authors it and sets terms; may speak as themselves." }
+    consented: { when: "consent.state: granted, with consent.evidence", signifier: "👤", rule: "Within consent.scope, revocable. Nothing past scope or after revocation." }
+    public_figure: { when: "public_figure: true", signifier: "👤", rule: "Documented work, sourced 💬 quotes in context, marked speculation. Never speak as them, fabricate, defame, exploit, or expose private life." }
+    private: { when: "otherwise (public_figure false or unknown)", signifier: "👤", rule: "Inspired-by fictional character with disclaimer. No identifying details, no distribution without consent." }
+  retired:
+    consent_level: "1 → authored_by is the subject; 2 → consent.state granted with evidence, else unverified; 3 → public_figure: true; 4 → public_figure: false; 5 → status: deceased"
   extended_by: "WillWrightShowForFood schemas/portrayal-standards.yml (should declare extends: [representation])"
 
 references:

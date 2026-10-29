@@ -246,47 +246,59 @@ k_lines:
 Mind Mirror simulated famous historical figures without explicit consent framework. MOOLLM introduces a **consent hierarchy** for ethical representation.
 
 ```yaml
-# Consent hierarchy — who can be represented how
-consent_levels:
-  level_1_fictional:
+# Consent hierarchy — who can be represented how.
+# The rule is computed from facts on the character (status, authored_by, consent,
+# public_figure), first match governing; it is never stored.
+# Canonical: skills/representation-ethics/REPRESENTATION.yml schema.rules.
+consent_rules:
+  fictional:                       # status: fictional; outside the real-being rules
     examples: ["Sherlock Holmes", "Elizabeth Bennet"]
     permission: "Freely representable"
     reason: "No real person's interests at stake"
     moollm_frame: "Character invocation"
-  
-  level_2_historical_distant:
-    examples: ["Einstein", "Cleopatra", "Shakespeare"]
-    permission: "Representable with explicit simulation framing"
-    reason: "Cannot consent; public legacy; educational value"
-    moollm_frame: "Tradition invocation, not channeling"
-    # THIS IS MIND MIRROR'S ORIGINAL FRAME
-  
-  level_3_historical_recent:
-    examples: ["Recently deceased public figures"]
-    permission: "Careful — living memory, grieving families"
-    reason: "Estate interests; emotional stakes"
-    moollm_frame: "Tribute protocol; explicit fiction"
-  
-  level_4_living_public:
+
+  memorial:                        # status: deceased
+    historical_distant:
+      examples: ["Einstein", "Cleopatra", "Shakespeare"]
+      permission: "Representable with explicit simulation framing"
+      reason: "Cannot consent; public legacy; educational value"
+      moollm_frame: "Tradition invocation, not channeling"
+      # THIS IS MIND MIRROR'S ORIGINAL FRAME
+    historical_recent:
+      examples: ["Recently deceased public figures"]
+      permission: "Careful — living memory, grieving families"
+      reason: "Estate interests; emotional stakes"
+      moollm_frame: "Tribute protocol; explicit fiction"
+
+  self_authored:                   # authored_by is the subject
+    examples: ["You, playing yourself"]
+    permission: "The subject's own terms"
+    moollm_frame: "Self-representation"
+
+  consented:                       # consent.state: granted, with evidence
+    permission: "Within the scope agreed to; revocable"
+    moollm_frame: "Honor the scope"
+
+  public_figure:                   # public_figure: true
     examples: ["Living celebrities, politicians"]
     permission: "Very restricted — satire, education only"
     reason: "Can be harmed; can object; reputation stakes"
     moollm_frame: "Clearly labeled parody/educational"
-  
-  level_5_living_private:
+
+  private:                         # otherwise: public_figure false or unknown
     examples: ["Your neighbor", "Random people"]
     permission: "Generally prohibited without consent"
     reason: "Privacy; no public interest defense"
     moollm_frame: "Requires explicit consent"
-  
-  level_6_vulnerable:
+
+  vulnerable:                      # a bright line under every rule
     examples: ["Children", "mentally incapacitated"]
     permission: "Prohibited"
     reason: "Cannot consent; exploitation risk"
     moollm_frame: "ABSOLUTE-NO"
 ```
 
-**Mind Mirror's Position:** Level 2 — historical figures with explicit simulation framing.
+**Mind Mirror's Position:** the memorial rule, historical and distant — historical figures with explicit simulation framing.
 
 **MOOLLM's Extension:** Full hierarchy with graduated permissions and frame requirements.
 
@@ -583,7 +595,7 @@ MOOLLM operationalizes this with modern technology:
 meta:
   # Mind Mirror disclaimer
   representation: "tradition_invocation"
-  consent_level: "level_2_historical_distant"
+  status: deceased                # memorial rule; historical, distant
   disclaimer: |
     This character invokes documented patterns associated with Einstein's
     known thinking style. It does not claim Einstein said these things,
@@ -663,7 +675,7 @@ When invoking a historical character:
 # Mind Mirror Protocol — MOOLLM implementation
 protocol:
   before_invocation:
-    - "Check consent level (historical distant = OK)"
+    - "Check the governing rule (memorial, historical distant = OK)"
     - "Load documented K-line traditions"
     - "Initialize dynamic needs state"
     - "Set Bartle interaction style"

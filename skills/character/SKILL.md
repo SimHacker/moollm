@@ -70,18 +70,23 @@ The schema, with defaults, aliases and worked examples, is the `schema:` key of
 | `signifier` | 👤 living or unknown, 🕯️ deceased, 🎭 fictional (🤖 robot or AI). A topical emoji goes in `emoji:` |
 | `type` | `character`. The being's kind (person, animal, robot, ai_agent, a species) or role in play (player, npc) |
 | `layer` | from the file's location: `adventure`, `prototype`, `biography`, `profile`, `invitation`, `memorial`, `dream_guest`, `cast`, `audience`, `page` |
-| `representation.consent_level` | 1 self-sovereign · 2 explicit consent · 3 public figure · 4 private individual · 5 deceased. Omitted: 5 if deceased, 3 for any other real being (a private person states 4), none for a fictional being |
-| `representation.authored_by` | the being itself at level 1; otherwise unattributed, which the lint reports |
-| `representation.governed_by` | `skills/real-being/` and `skills/representation-ethics/` for a real being. Replaces `protocol:` |
+| `representation.authored_by` | unattributed, which the lint reports for a real being. The being's own id means self-authored |
+| `representation.public_figure` | unknown, treated as private (the stricter rule); the lint reports it for a living real being |
+| `representation.consent` | `{ state: not_asked }`. `state` is `not_asked`, `asked`, `granted`, `declined`, `revoked` or `unverified`, with `scope`, `date`, `evidence`, `note` |
+| `representation.governed_by` | `skills/real-being/` and `skills/representation-ethics/` for a real being |
 
 Every omitted value errs toward caution for a real person. A real person in an adventure,
 cast or prototype layer states `real_being: true`; the cross-layer lint reports one that
 doesn't when another layer of the same id says it is real.
 
-`representation.consent_level` is what the being has agreed to. `invitation.consent`
-(`not_yet_asked`, `granted`, `declined`) is whether an invitation was accepted, and
-`invitation.status` is a work status validated against the show repo's
-`schemas/invitation-workflow.yml`. Three different facts, three keys.
+A layer states facts and never the rule. The rule that governs the portrayal is the first of
+memorial (`status: deceased`), self_authored, consented (`consent.state: granted` with
+`consent.evidence`), public_figure, private; its lists are in
+[REPRESENTATION.yml](../representation-ethics/REPRESENTATION.yml). `granted` without evidence
+governs nothing. Warmth (old friend, warm lead) goes in `consent.note`, never in `state`.
+`representation.consent` is also the invitation's answer; `invitation.status` is a work status
+validated against the show repo's `schemas/invitation-workflow.yml`. A life fact, a consent
+record and a work status: three keys.
 
 ### Three relations
 
@@ -102,13 +107,14 @@ born: "1940-05-17"
 signifier: "👤"
 emoji: "💡"
 representation:
-  consent_level: 3
   authored_by: don-hopkins
+  public_figure: true
+  consent: { state: not_asked }
   governed_by: [../../schemas/portrayal-standards.md]
 derived_from:
   - ref: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
     transform: "projected for the show: adds the invitation, sources and people to discuss"
-    copies: [name, status, born, died, representation.consent_level]
+    copies: [name, status, born, died, representation.public_figure, representation.consent.state]
 layers:
   biography: moollm://github/SimHacker/DonHopkins/characters/alan-kay/
 ```
@@ -131,10 +137,11 @@ public layer may name a private layer in `derived_from:` or `layers:` by ref onl
 | `upstream:` | `derived_from:` |
 | `menagerie:`, `profile_home:`, `wwsff_overlay.audience_fork` | `layers:` |
 | `representation.protocol:` | `representation.governed_by:` |
-| `consent_level: 5_deceased_legacy`, `representation.consent: self-sovereign` | `representation.consent_level: 5`, `1` |
+| `representation.consent_level` (also `consent_level:`, `5_deceased_legacy`, `self-sovereign`) | retired: 1 → `authored_by` is the being; 2 → `consent.state: granted` with evidence, else `unverified`; 3 → `public_figure: true`; 4 → `public_figure: false`; 5 → `status: deceased` |
+| `invitation.consent: not_yet_asked`, `awaiting_reply`, `invitation_accepted` | `representation.consent.state: not_asked`, `asked`, `granted` |
 | `type: invitation`, `memorial`, `representational`, `audience_member` | `layer:`; `type:` takes the being's kind |
 | `connections:`, `friends:` | `relationships:` |
-| `status: memorial` | `status: deceased` |
+| `status: memorial`, `status: passed` | `status: deceased` |
 
 ## Home vs Location
 

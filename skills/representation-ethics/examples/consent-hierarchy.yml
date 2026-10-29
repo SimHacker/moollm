@@ -1,79 +1,115 @@
-# consent-hierarchy.yml — The 5 Levels of Representation Rights
+# consent-hierarchy.yml — The 5 Rules of Representation Rights
 #
 # Who can simulate whom, and under what terms?
+# A character layer stores facts (status, authored_by, consent, public_figure); the rule is
+# computed from them, never stored. The first rule whose when: holds governs.
+# Canonical lists: ../REPRESENTATION.yml schema.rules.
 
 consent_hierarchy:
-  
-  # LEVEL 1: SELF-REPRESENTATION (Sovereign)
-  
-  1_self:
+
+  # THE DECEASED (memorial)
+
+  memorial:
+    when: "status: deceased"
+    principle: "They cannot consent. Proceed with reverence."
+
+    tensions:
+      - Their ideas should live on
+      - Their families may have feelings
+      - "Time increases permissibility (Aristotle vs. your grandmother)"
+      - Public legacy vs. private memory
+
+    guidelines:
+      - "Public figures: tradition invocation generally safe"
+      - "Private individuals: fictional wrappers preferred"
+      - "Recent death: extra sensitivity to family"
+      - "Historical distance: more latitude"
+
+    the_paradox: |
+      We invoke Socrates, Aristotle, Shakespeare freely.
+      We wouldn't invoke someone's recently deceased parent without care.
+      Time and fame create implicit license — but not unlimited.
+
+  # SELF-REPRESENTATION (self_authored)
+
+  self_authored:
+    when: "authored_by is the subject's own id"
     principle: "You own your digital self."
-    
+
     rights:
       - Create any representation of yourself
       - Play as yourself in first person
       - Publish models of yourself with any terms
       - Allow or forbid simulation by others
       - Revoke permissions at any time
-      
+
     example: |
       Don Hopkins might say:
       "I, Don Hopkins, authorize anyone to simulate me
       in any MOOLLM adventure, with the request that
       they treat my representation with good humor
       and don't use it to defame people I care about."
-      
+
     mechanism:
       file: "cards/don-hopkins.card"
       contains:
-        consent_level: "open"
+        representation:
+          authored_by: don-hopkins
+        grants: "open"            # the terms the subject grants to others; see ./self-consent-card.yml
         terms: "good humor, no defamation"
         revocation: "contact don@donhopkins.com"
 
-  # LEVEL 2: EXPLICIT CONSENT (Published)
-  
-  2_explicit:
-    principle: "Authors of their own model."
-    
+  # EXPLICIT CONSENT (consented)
+
+  consented:
+    when: "consent.state: granted, with consent.evidence"
+    principle: "They agreed to this portrayal, within a scope, and can revoke."
+
     examples:
-      - Someone publishes a curated self-model
+      - Someone agrees, in writing, to appear in a show
       - Artist releases their style as a card
       - Teacher publishes their pedagogical approach
-      
+
     requirements:
-      - Clear terms of use
-      - Scope limitations
+      - "Evidence on file: consent.evidence names the correspondence or message"
+      - "Scope: consent.scope says which show, which uses, speaking as them or not"
       - Revocation mechanism
       - Attribution expectations
 
-  # LEVEL 3: PUBLIC FIGURES (Tradition)
-  
-  3_public:
+    not_consent: |
+      Warmth is not consent. An old friend, a warm lead, someone who cheered the
+      plans: that goes in consent.note. A claim of consent with no evidence on file
+      is state unverified, and governs nothing until confirmed.
+
+  # PUBLIC FIGURES (public_figure)
+
+  public_figure:
+    when: "public_figure: true"
     principle: "Public work is fair game. Persona requires care."
-    
+
     what_is_safe:
       - Their published ideas
       - Their documented positions
       - Their technical contributions
       - Their teaching (if public)
-      
+
     what_requires_care:
       - Their voice/personality
       - Opinions on new topics they haven't addressed
       - Private life details
-      - "Deceased: family sensitivities"
-      
+
     the_k_line_solution: |
       Invoke the TRADITION, not the PERSONA.
       "The Minsky tradition suggests..." — safe
       "Minsky would say..." — less safe
       "I am Minsky and I think..." — NO
 
-  # LEVEL 4: PRIVATE INDIVIDUALS
-  
-  4_private:
-    principle: "Higher bar. More care."
-    
+  # PRIVATE INDIVIDUALS (private)
+
+  private:
+    when: "otherwise: public_figure false, or unknown"
+    principle: "Higher bar. More care. Unknown is treated as private."
+
     rule: |
       Unless you have explicit consent, default to:
       - Fictional wrapper (inspired-by character)
@@ -81,31 +117,9 @@ consent_hierarchy:
       - No identifying details
       - No distribution without consent
 
-  # LEVEL 5: THE DECEASED
-  
-  5_deceased:
-    principle: "They cannot consent. Proceed with reverence."
-    
-    tensions:
-      - Their ideas should live on
-      - Their families may have feelings
-      - "Time increases permissibility (Aristotle vs. your grandmother)"
-      - Public legacy vs. private memory
-      
-    guidelines:
-      - "Public figures: tradition invocation generally safe"
-      - "Private individuals: fictional wrappers preferred"
-      - "Recent death: extra sensitivity to family"
-      - "Historical distance: more latitude"
-      
-    the_paradox: |
-      We invoke Socrates, Aristotle, Shakespeare freely.
-      We wouldn't invoke someone's recently deceased parent without care.
-      Time and fame create implicit license — but not unlimited.
-
 # CROSS-CUTTING: SELF-AUTHORED PERSONAE
 #
-# The five levels cover PEOPLE. They do not cover the characters people invent to stand
+# The five rules cover PEOPLE. They do not cover the characters people invent to stand
 # in for themselves, which cuts across all five. Full case: ./self-authored-persona.yml
 
 self_authored_personae:
@@ -142,7 +156,10 @@ references:
     - ../../../designs/ethics/SHANAHAN-ROLEPLAY-FRAMING.md # "No true voice" → tradition instead
     - ../../../designs/ethics/LAZAR-ETHICAL-COMPETENCE.md  # Understanding ≠ behavior
     - ../../../designs/ethics/MOOLLM-VALIDATIONS-AND-CHALLENGES.md # Synthesis
-    
+
+  # Canonical schema
+  schema: ../REPRESENTATION.yml
+
   # Related examples
   related_examples:
     - ./framing-spectrum.yml
@@ -152,7 +169,7 @@ references:
     - ./self-authored-persona.yml     # owned vs disowned avatars
     - ./worth-of-representation.yml   # whether the node should exist at all
     - ./lotion-on-the-skin.yml        # the named sin, and the lore-node remedy
-    
+
   # Character examples
   character_examples:
     - ../../../examples/adventure-4/characters/animals/monkey-palm/CHARACTER.yml  # Self-authored consent
