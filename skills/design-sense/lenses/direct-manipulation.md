@@ -26,7 +26,9 @@ Computer* 16(8), 1983 — the founding paper
 
 **Sources:**
 [wwsff characters/ben-shneiderman/](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/ben-shneiderman)
-(CHARACTER.yml, ideas.md)
+(CHARACTER.yml, ideas.md) ·
+[wwsff don-hopkins/declarative-dragging-and-direct-manipulation.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/don-hopkins/declarative-dragging-and-direct-manipulation.md)
+(drag and drop is one case of direct manipulation; D2 checked against the three principles)
 
 **See:** [dynamic-queries](dynamic-queries.md), [self-revealing-gestures](self-revealing-gestures.md),
 [calm-not-invisible](calm-not-invisible.md)
