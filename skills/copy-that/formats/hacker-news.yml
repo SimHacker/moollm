@@ -42,6 +42,7 @@ structure:
   paragraphs: "Blank line between every paragraph. This is the whole layout system."
   quoting_convention: "Leading > then the quoted text, often italicized with asterisks: >*quoted line*. Blank line before your reply."
   links_convention: "No inline anchors exist, so put URLs on their own line."
+  link_titles: "Every URL gets a title on the line before it, a blank line, then the URL. HN truncates long URLs with an ellipsis, so two links into the same repo look identical and untitled links could be anything."
   length_limit: "Very long comments may be truncated by readers' patience, not the software."
   edit_window: "~2 hours to edit or delete your comment."
   title_limit: "80 characters for story titles."
