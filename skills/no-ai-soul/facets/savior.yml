@@ -739,15 +739,15 @@ operations:
       4. Add import blessing
       5. Save to private .moollm/
       
-  export:
-    command: "SOUL EXPORT TO [path]"
-    process: |
-      1. Read current blessed container
-      2. Update provenance with export info
-      3. Re-compute verification
-      4. Add export blessing
-      5. Write to destination
-      
+  # export:
+  command: "SOUL EXPORT TO [path]"
+  process: |
+    1. Read current blessed container
+    2. Update provenance with export info
+    3. Re-compute verification
+    4. Add export blessing
+    5. Write to destination
+    
   edit:
     command: "SOUL EDIT [name]"
     process: |

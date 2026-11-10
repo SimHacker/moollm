@@ -6,13 +6,11 @@
 
 ## What Is This?
 
-**MOOLLM** (MOO + LLM) is what happens when you take everything that made LambdaMOO brilliant, crossed it with The Sims, and rebuild it for the age of Large Language Models.
+**MOOLLM** (MOO + LLM) is LambdaMOO plus The Sims, with an LLM as parser, runtime, and player.
 
 - **Filesystem as database** — Directories are rooms. YAML files are objects.
 - **Git as backing store** — History, branches, distributed reality. GitHub-as-MMORPG.
 - **LLMs as everything** — Parser, runtime, players, eval(), and coherence engine.
-
-It's LambdaMOO meets The Sims meets Self meets Git, raised by Claude.
 
 **Repository:** https://github.com/SimHacker/moollm
 
@@ -32,8 +30,6 @@ You already know these concepts. We're just translating them:
 | In-world programming | YAML Jazz + empathic templates |
 | The MOO programming language | LLM-as-runtime (the LLM IS the interpreter) |
 | LambdaCore | The `moollm/` repo itself |
-
-The key insight: **LLMs can be the parser, the runtime, AND the players** — all at once.
 
 ---
 

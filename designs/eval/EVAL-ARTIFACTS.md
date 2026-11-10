@@ -278,8 +278,6 @@ Short reflections on:
   - comparisons, tracking
   - role playing games
 
-**This is the anti-burnout module.**
-
 ---
 
 ## Social Artifacts (The Evals)
@@ -342,7 +340,6 @@ Short reflections on:
 | Feels familiar | Not clinical |
 | Legible | To non-experts |
 
-**And crucially:**
 - You can throw artifacts away
 - You can ignore them
 - You can come back later

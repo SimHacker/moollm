@@ -5,7 +5,8 @@
 
 id: scoring
 name: "Scoring"
-type: [skill, game, evaluation]
+type: skill
+tags: [game, evaluation]
 
 emoji: 🎯
 
@@ -78,7 +79,7 @@ factors:
 advertisements:
   EVALUATE-PERFORMANCE:
     score: 85
-    condition: "Task completed, need assessment"
+    score_if: "Task completed, need assessment"
 
 # RELATED
 

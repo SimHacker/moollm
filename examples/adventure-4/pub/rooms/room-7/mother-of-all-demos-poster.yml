@@ -61,26 +61,29 @@ state:
   audience_amazement_level: "∞"
   
 advertisements:
-  - trigger: "demo"
-    score: 1.0
-    response: |
+  ON-DEMO:
+    trigger: "demo"
+    score: 100
+    say: |
       *poster glows*
       
       Touch me. Summon the Demo.
       It has been waiting since 1968.
       
-  - trigger: "1968"
-    score: 0.95
-    response: |
+  ON-1968:
+    trigger: "1968"
+    score: 95
+    say: |
       *image flickers*
       
       December 9, 1968. San Francisco.
       3,000 people watched. None were ready.
       The future arrived 30 years early.
       
-  - trigger: "show me"
-    score: 0.9
-    response: |
+  ON-SHOW-ME:
+    trigger: "show me"
+    score: 90
+    say: |
       *the screen in the poster brightens*
       
       The Demo wants to show you. Touch the poster.

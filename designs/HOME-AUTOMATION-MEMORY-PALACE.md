@@ -280,8 +280,6 @@ AI: *checks sensor.juho_air_quality*
    No anomalies detected. The sensor Juho built is working great.
 ```
 
-This is the dream: natural language interface to your home, backed by the structured memory palace.
-
 ## Why This Architecture?
 
 ### 1. Documentation IS Configuration

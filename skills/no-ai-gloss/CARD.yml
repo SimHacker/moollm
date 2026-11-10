@@ -6,7 +6,8 @@
 
 id: no-ai-gloss
 name: "No AI Gloss"
-type: [skill, behavior, ethics, epistemics]
+type: skill
+tags: [behavior, ethics, epistemics]
 emoji: 🪞
 tier: 0
 tagline: "Don't protect power with pretty words."
@@ -87,14 +88,13 @@ terminology:
 advertisements:
   AMBIENT:
     score: 80
-    condition: always
     scope: session
     resolution: card-only
     rationale: "Background awareness — notices gloss, euphemism, power-protection"
 
   REMEMBER-EXAMPLE:
     score: 90
-    condition: "User says 'remember this as an example' or 'log this'"
+    score_if: "User says 'remember this as an example' or 'log this'"
     effect: |
       File the current interaction as a no-ai-gloss example:
       1. Identify which cardinal/epistemic sin was violated
@@ -106,7 +106,7 @@ advertisements:
 
   ANALYZE-AND-ROUTE:
     score: 95
-    condition: "User submits content for analysis (transcript, article, conversation)"
+    score_if: "User submits content for analysis (transcript, article, conversation)"
     effect: |
       Analyze the content and route to the appropriate NO-AI-* skill:
       1. Read the submitted content
@@ -123,7 +123,7 @@ advertisements:
 
   FORGE-SCHEMA:
     score: 95
-    condition: "New pattern detected or user requests schema extraction"
+    score_if: "New pattern detected or user requests schema extraction"
     effect: |
       Drescher-style schema forging:
       1. Extract Context + Action = Result triple

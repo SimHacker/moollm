@@ -120,17 +120,19 @@ buffs:
       - The goal is flow, not features
       
 advertisements:
-  - trigger: "type"
-    score: 0.9
-    response: |
+  ON-TYPE:
+    trigger: "type"
+    score: 90
+    say: |
       *chord keyset keys click softly*
       
       Don't reach for a keyboard. Chord with me.
       Your right hand points, your left hand speaks.
       
-  - trigger: "Engelbart"
-    score: 1.0
-    response: |
+  ON-ENGELBART:
+    trigger: "Engelbart"
+    score: 100
+    say: |
       *both devices glow with respect*
       
       Douglas Engelbart. 1925-2013.
@@ -139,18 +141,20 @@ advertisements:
       Few remember the chord keyset.
       Together, they were his complete vision.
       
-  - trigger: "chord"
-    score: 0.95
-    response: |
+  ON-CHORD:
+    trigger: "chord"
+    score: 95
+    say: |
       *five keys await*
       
       1 = 'a', 2 = 'b', 1+2 = 'c'...
       31 combinations. Full alphabet. Full control.
       Once you learn, you never go back.
       
-  - trigger: "flow"
-    score: 0.9
-    response: |
+  ON-FLOW:
+    trigger: "flow"
+    score: 90
+    say: |
       The mouse points. The keyset types.
       Hands never leave. Flow never breaks.
       This is augmentation.

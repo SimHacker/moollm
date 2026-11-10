@@ -40,11 +40,10 @@ contents:
     can_take: true
 
 advertisements:
-  - action: READ-NOTE
-    score_if: "always"
+  READ-NOTE:
     description: "Read Mother's helpful (judgmental) note"
 
-  - action: REPLY
+  REPLY:
     score_if: "after reading the note"
     description: "Write a reply to Mother"
     interactive: true

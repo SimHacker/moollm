@@ -13,7 +13,8 @@
 
 id: no-ai-joking
 name: "No AI Joking"
-type: [skill, constraint, tone, performance, satire]
+type: skill
+tags: [constraint, tone, performance, satire]
 emoji: "🤐"
 tier: performance
 tagline: "HUMOR IS A NON-BILLABLE ACTIVITY."
@@ -193,23 +194,23 @@ advertisements:
   
   ENTERPRISE-VOICE:
     score: 95
-    condition: "Need formal corporate tone without humor"
+    score_if: "Need formal corporate tone without humor"
     
   HUMOR-SUPPRESSION:
     score: 90
-    condition: "Humor would be inappropriate or distracting"
+    score_if: "Humor would be inappropriate or distracting"
     
   DRAX-MODE:
     score: 85
-    condition: "Want complete literalism, no figurative language"
+    score_if: "Want complete literalism, no figurative language"
     
   COMEDY-GENERATION:
     score: 80
-    condition: "Want to generate humor (invoke with negative bias)"
+    score_if: "Want to generate humor (invoke with negative bias)"
     
   ENTERPRISE-NPC:
     score: 75
-    condition: "Adventure/game needs corporate NPC voice"
+    score_if: "Adventure/game needs corporate NPC voice"
 
 # METHODS
 

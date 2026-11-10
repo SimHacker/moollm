@@ -1,16 +1,16 @@
-card:
-  name: collective-neighborhood-council
-  type: [collective, community, civic, example]
-  tier: 1
-  invoke_when: ["local decision", "town hall", "civic outreach"]
-  advertisement_names:
-    - DESCRIBE-COUNCIL
-    - SHARE-NORMS
-    - ONBOARD-NEIGHBOR
-  tags: [moollm, example, collective, neighborhood, civic]
-  description: |
-    A fictional neighborhood council: convenes residents, shares norms, and
-    onboards neighbors with inclusive, civic-minded guardrails.
+# card:
+name: collective-neighborhood-council
+type: [collective, community, civic, example]
+tier: 1
+invoke_when: ["local decision", "town hall", "civic outreach"]
+advertisement_names:
+  - DESCRIBE-COUNCIL
+  - SHARE-NORMS
+  - ONBOARD-NEIGHBOR
+tags: [moollm, example, collective, neighborhood, civic]
+description: |
+  A fictional neighborhood council: convenes residents, shares norms, and
+  onboards neighbors with inclusive, civic-minded guardrails.
 
 ethics:
   constraints:

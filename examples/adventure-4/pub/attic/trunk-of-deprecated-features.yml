@@ -86,9 +86,10 @@ contents:
     curse: "Nobody knows why"
     
 advertisements:
-  - trigger: "deprecated"
-    score: 0.95
-    response: |
+  ON-DEPRECATED:
+    trigger: "deprecated"
+    score: 95
+    say: |
       *trunk creaks open*
       
       Everything in here WORKS. Just because it's deprecated
@@ -97,13 +98,15 @@ advertisements:
       It just means someone WANTS you to stop using it.
       You don't have to listen.
       
-  - trigger: "old way"
-    score: 0.9
-    response: "The old ways work. That's why they're still here."
+  ON-OLD-WAY:
+    trigger: "old way"
+    score: 90
+    say: "The old ways work. That's why they're still here."
     
-  - trigger: "quick fix"
-    score: 0.85
-    response: |
+  ON-QUICK-FIX:
+    trigger: "quick fix"
+    score: 85
+    say: |
       *trunk lid lifts enticingly*
       
       I have quick fixes. So quick. So effective.
@@ -111,9 +114,10 @@ advertisements:
       
       But that's Future You's problem, right?
       
-  - trigger: "legacy"
-    score: 0.8
-    response: "Legacy code is just code that survived. I'm a survivor."
+  ON-LEGACY:
+    trigger: "legacy"
+    score: 80
+    say: "Legacy code is just code that survived. I'm a survivor."
     
 methods:
   RUMMAGE:

@@ -35,7 +35,7 @@ Four claims in there, and each one is a design constraint:
 4. **It changed the style of programming.** The environment is not neutral. It selects for a kind of
    code -- Selker's words, "much deeper code, anyway more balanced code."
 
-Claim 4 is the load-bearing one and the least discussed. Nobody chooses a style of programming; the
+Claim 4 is the one the design depends on, and the least discussed. Nobody chooses a style of programming; the
 environment hands you one. Which means the environment is the design surface, and MOOLLM is an
 environment.
 

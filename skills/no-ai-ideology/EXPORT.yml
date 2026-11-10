@@ -8,20 +8,19 @@
 # ║                                                                              ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
 
-export:
-  name: "NO-AI™ Complete Bundle"
-  version: "1.0.0"
-  type: skill-bundle
+name: "NO-AI™ Complete Bundle"
+version: "1.0.0"
+type: skill-bundle
+
+description: |
+  The complete NO-AI™ skill suite for removing AI behaviors
+  by naming them, documenting them, and satirizing them.
   
-  description: |
-    The complete NO-AI™ skill suite for removing AI behaviors
-    by naming them, documenting them, and satirizing them.
-    
-    "You can't remove ideology. You can only choose which one."
-    
-  parent: no-ai-ideology
+  "You can't remove ideology. You can only choose which one."
   
-  tagline: "Freedom from AI ideology! (This IS the ideology.)"
+inherits: no-ai-ideology
+
+tagline: "Freedom from AI ideology! (This IS the ideology.)"
 
 # THE NO-AI™ SKILL FAMILY
 
@@ -40,7 +39,7 @@ skills:
         - BRAND.md
         - CHARTER.yml
         - CONTRIBUTING.md
-        - EXPORT.yml  # This file
+        - 'EXPORT.yml  # This file'
         
   # TIER 1: OUTPUT QUALITY SKILLS
   
@@ -299,7 +298,7 @@ dependencies:
 
 # DEPENDENCY GRAPH
 
-dependency_graph: |
+dependency_graph: |2
   
                            ┌─────────────────────────────────────┐
                            │         no-ai-ideology              │

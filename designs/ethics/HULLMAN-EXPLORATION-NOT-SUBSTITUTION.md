@@ -12,7 +12,7 @@ Jessica Hullman (Northwestern → Columbia) offers a critical perspective on usi
 
 > **"LLMs may be useful for exploration but should not substitute for human participants when discovering new facts."**
 
-**Key insight for MOOLLM:** Speed-of-Light multi-agent simulations are for brainstorming and prototyping, not prediction or discovery.
+Speed-of-Light runs are for brainstorming and prototyping. They are not a source of new facts about people.
 
 ---
 
@@ -42,8 +42,6 @@ The circularity:
 | **More pronounced stereotypes** | Training data biases amplify |
 | **Reduced individuality** | Homogenization toward "average" |
 | **Extreme results** | More polarized than human responses |
-
-### Why This Matters for MOOLLM
 
 Multi-agent simulations compound these biases:
 - All agents share training biases → convergent behavior
@@ -208,6 +206,6 @@ Hullman, J. (2025). "Is Behavior-Generative AI Epistemically Problematic?" Colum
 
 ---
 
-*This document summarizes a critical methodological perspective on LLM behavioral simulation. Hullman's "exploration, not substitution" principle is foundational for MOOLLM's Speed-of-Light multi-agent simulations.*
+*Hullman: use the model to explore, and do not substitute it for human participants when the goal is a new fact.*
 
 *Document created: 2026-01-23*

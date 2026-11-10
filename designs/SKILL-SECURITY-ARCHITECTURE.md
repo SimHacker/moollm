@@ -14,7 +14,7 @@ skill-snitch audits skills through a three-layer plugin architecture — Pattern
 
 cursor-mirror provides 59 read-only introspection commands into Cursor's SQLite databases, transcripts, tool calls, and context assembly. Its deep-snitch command scans sessions for sensitive secret patterns and data exfiltration. skill-snitch composes with cursor-mirror to compare what skills declare vs what they actually do at runtime. thoughtful-commitment persists session reasoning into git commits for provenance.
 
-Empathic templates are both MOOLLM's most powerful feature and its most honest attack surface disclosure. 121 skills scanned, all reports public. Limitations documented explicitly.
+Empathic templates are the attack surface. 121 skills scanned, all reports public. Limitations documented explicitly.
 
 ---
 
@@ -99,7 +99,7 @@ The first five are best practices for any skill. The rest depend on what you're 
 
 ### Instantiation: The Self Prototype Object Model
 
-Instantiation is the most important extension. MOOLLM uses Self's prototype object model — not classes and instances, not constructors you call with `new`, just prototypes and delegation with multiple inheritance. Clone a prototype, override what's different, delegate everything else up the chain. Multiple parent slots, not JavaScript's single-prototype chain. A skill can inherit from both a character prototype and a room prototype simultaneously. JS took Self's core idea and crippled it with single inheritance, pointless complexity, and constructor function foot guns — MOOLLM doesn't repeat those mistakes, and is not confused about the meaning of equality like Brendan Eich.
+MOOLLM uses Self's prototype object model — not classes and instances, not constructors you call with `new`, just prototypes and delegation with multiple inheritance. Clone a prototype, override what's different, delegate everything else up the chain. Multiple parent slots, not JavaScript's single-prototype chain. A skill can inherit from both a character prototype and a room prototype simultaneously. JS took Self's core idea and crippled it with single inheritance, pointless complexity, and constructor function foot guns — MOOLLM doesn't repeat those mistakes, and is not confused about the meaning of equality like Brendan Eich.
 
 Why Self? Because Self's core insight is simplicity. Self is like microcode for object-oriented programming. It's simpler than any of its descendants, yet powerful enough to implement all of them. The LLM has seen Self, JavaScript, Java, Lua, HyperCard, ScriptX/CLOS generics, Lisp Machine Flavors, The Sims advertisements, and COM/IUnknown OLE/IDispatch extensively in training data. It knows these models. Self is the substrate that unifies them:
 

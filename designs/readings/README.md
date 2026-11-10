@@ -23,7 +23,6 @@ so they are used here as terms rather than as metaphors.
 | **Bootstrapping** | the loop, when a reading becomes text that becomes corpus for the next score |
 | **Line reading** | the failure mode. When the score dictates delivery instead of supplying structure |
 
-"A reading" is the load-bearing one, and the word arrives already honorable.
 Nobody thinks a staged reading is a forgery. The script is not
 diminished by being read and the reading is not diminished by having a script,
 which is exactly the relation between the score and the spoken text.
@@ -160,7 +159,7 @@ interpretation:
 
 | Signal in the corpus | What it recovers |
 |---|---|
-| What he repeats, and how often | Which claims he considers load-bearing |
+| What he repeats, and how often | Which claims he will not drop |
 | The sequence he repeats it in | His own established order of argument |
 | What he links, quotes and reformulates | Which sources he treats as authority |
 | How many times over how many decades | How settled a position is, by his own conduct |

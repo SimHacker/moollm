@@ -94,15 +94,14 @@ against the CAM-6's output.
 **Automatic particle cataloging.** Filter to walls, connected-component them, track them over time,
 cluster the trajectories by velocity and profile, and the particle zoo and its interaction table
 come out generated instead of hand-compiled. This is a great deal of compute spent stupidly, which
-is precisely what's cheap now and wasn't in 1993 — and it's the strongest argument that the old
-method deserves a new instrument.
+is precisely what's cheap now and wasn't in 1993.
 
 **Learned classifiers, honestly placed.** A CNN on patches would work, and for *this* problem it
 would be worse than the predictor test, because the rules are known and the exact answer is cheaper
 than the approximate one. Spend the learning budget where the answer isn't known: on **discovering
 domains nobody declared.** Hanson and Crutchfield found that walls between domains can themselves be
 domains — a third phase living inside the interface. A classifier allowed to find a category you
-didn't paint is looking for exactly that, and that's the result worth chasing.
+didn't paint is looking for exactly that.
 
 ## The compression bench
 
@@ -127,7 +126,7 @@ incompressible.** Sort the rule catalog by compression ratio and pure noise come
 means compression alone reproduces precisely the confusion — random mistaken for complex — that
 computational mechanics was built to correct.
 
-That's good news rather than bad. **The compression question arrives at the two-meter ask on its
+**The compression question arrives at the two-meter ask on its
 own.** Nobody has to be talked into believing one number is insufficient; you discover it the first
 time you sort the zoo by gzip ratio and find noise at the top. That's a far better argument than a
 theoretical preference, and it's an experiment anyone can run this afternoon.
@@ -176,19 +175,17 @@ straddling it at maximum contrast. And `frob` — the DC offset added to every c
 field up and down *through* that discontinuity, on the mouse wheel.
 
 So it's an **isoline visualizer built from a colormap discontinuity plus a DC offset**: no contour
-algorithm, no extra pass, full frame rate, and you hunt for the interesting level by hand. That's the
-violin, and it's a [Turn Table](turn-tables.md) — a rotational control sweeping a continuous
+algorithm, no extra pass, full frame rate, and you hunt for the interesting level by hand. It's a [Turn Table](turn-tables.md) — a rotational control sweeping a continuous
 parameter. (⚠️ Reconstructed from Don's description; confirm the colormap details against the running
 app.)
 
 ### The dancing patterns are the scheduler made visible
 
-Don's own sharpening of this is the important part: **that texture is not a cellular automaton
+**That texture is not a cellular automaton
 artifact, by definition.** A CA is a uniform local rule applied as a function of a fixed neighborhood,
 independent of position and update order. The dither carry threads through cells *in scan order*, so
 the pattern depends on where a cell sits in the update sequence and not only on its neighborhood.
 
-Which makes it the display this whole project needed and didn't know it had.
 [`schedulers.md`](schedulers.md) argues at length that iteration order is part of the rule and is
 invisible in every engine. This is **the instrument that makes it visible** — built years before the
 argument for it.
@@ -207,8 +204,7 @@ circle rotation. Sturmian sequences have **zero entropy rate and nonzero excess 
 
 Low h_μ, real C_μ. That is *exactly* the structured-but-not-random corner the two meters exist to
 find — which means **the dither texture is a naturally occurring specimen of the phenomenon this
-entire project is asking Crutchfield about**, generated for free inside Don's own engine, and found
-beautiful before anyone supplied the theory. It's the same DDA the
+entire project is asking Crutchfield about**, generated for free inside Don's own engine. It's the same DDA the
 [Bresenham turtles](schedulers.md) run on, seen from the other end.
 
 ⚠️ The 1-D statement is solid; 2-D error diffusion with a distributed kernel is richer than Sturmian,

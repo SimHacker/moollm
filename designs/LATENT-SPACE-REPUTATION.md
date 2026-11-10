@@ -172,12 +172,12 @@ And on what is automated last — asked what the final keystroke would be:
 > "the **Steve Jobs-thing of choosing.** My AI minions are bringing me wonderful essays. I'm saying,
 > 'This one is better. This is the one that I like,' and possibly building on that."
 
-**This is the readings thesis arrived at independently, and it should be cited there.** The
+Gwern arrived at this independently. The
 defensible division of labor is that the human supplies judgment, preference and ordering, and the
 machine supplies retrieval and drafting. See [readings](readings/README.md), whose
 "direction of the arrow" principle is the same claim about provenance.
 
-**The tension worth keeping honest about:** "write for the persona you would like to become" points
+"write for the persona you would like to become" points
 the other way. It is aspiration when you then go be that person, and fabrication when you don't, and
 the difference is invisible in the text.
 
@@ -245,8 +245,7 @@ And the failure mode named:
 > could have continued if they'd only been able to **let go of the ideas and arguments and move on to
 > the next topic.**"
 
-**This is the load-bearing external citation for [no-ai-parrot](../skills/no-ai-parrot/) and belongs
-in its corpus.** The skill exists to answer people who are wrong on the internet, which means it
+Belongs in the [no-ai-parrot](../skills/no-ai-parrot/) corpus. The skill exists to answer people who are wrong on the internet, which means it
 runs on exactly this fuel and is exposed to exactly this failure. Gwern's rule — spite is a starter
 motor, not an engine — is the discipline that keeps the practice from becoming the pathology, and it
 is an argument against any reply whose only content is contempt.
@@ -355,7 +354,7 @@ The role he wants instead is one he found by looking at how models already rende
 maps precisely onto this repo's portrayal standards: a character named for a person is a constellation
 of traditions, not the person. Gwern is describing the moment he met his own portrayal.
 
-### The channel, and a resonance worth noting
+### The channel
 
 Hearing impaired since birth, on why conversation is hard:
 

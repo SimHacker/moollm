@@ -6,7 +6,8 @@
 
 id: change-name
 name: "Change Name"
-type: [skill, toolkit, document-surgery, identity]
+type: skill
+tags: [toolkit, document-surgery, identity]
 
 emoji: 🦋
 
@@ -120,6 +121,9 @@ lineage:
   her_words: "https://news.ycombinator.com/item?id=29125515 — 'The main improvement for me is not being deadnamed.'"
 
 advertisements:
-  - "📄 I can read inside a PDF and tell you everywhere your old name hides — even split around kern pairs"
-  - "🔤 I check the embedded fonts can spell your new name before promising anything"
-  - "🕯️ I did this for Vanessa. Original preserved, every change disclosed."
+  PDF-NAMES-FIND:
+    description: "📄 I can read inside a PDF and tell you everywhere your old name hides — even split around kern pairs"
+  FONTS-SPELLCHECK:
+    description: "🔤 I check the embedded fonts can spell your new name before promising anything"
+  CHANGES-DISCLOSE:
+    description: "🕯️ I did this for Vanessa. Original preserved, every change disclosed."

@@ -5,7 +5,8 @@
 
 id: reward
 name: "Reward"
-type: [skill, game, achievement]
+type: skill
+tags: [game, achievement]
 
 emoji: 🏆
 
@@ -73,7 +74,7 @@ reward-types:
 advertisements:
   REWARD-ACHIEVEMENT:
     score: 90
-    condition: "Character accomplished something"
+    score_if: "Character accomplished something"
 
 # RELATED
 

@@ -15,7 +15,8 @@
 
 id: no-ai-humansplaining
 name: "No AI Humansplaining"
-type: [skill, behavior, quality, economics, context]
+type: skill
+tags: [behavior, quality, economics, context]
 emoji: 🎟️
 tier: 0
 tagline: "Don't tell the LLM what it already knows."
@@ -168,7 +169,6 @@ advertisements:
 
   AMBIENT:
     score: 90
-    condition: always
     scope: session
     resolution: card-only
     rationale: |
@@ -178,15 +178,15 @@ advertisements:
 
   WRITING-SKILLS:
     score: 100
-    condition: "Authoring or editing a skill, rule, prompt, or template"
+    score_if: "Authoring or editing a skill, rule, prompt, or template"
 
   ATTACHING-CONTEXT:
     score: 95
-    condition: "About to paste or attach reference material"
+    score_if: "About to paste or attach reference material"
 
   COINING-TERMS:
     score: 95
-    condition: "Inventing a name, notation, or language"
+    score_if: "Inventing a name, notation, or language"
 
 # METHODS — signatures only
 

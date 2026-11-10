@@ -48,7 +48,7 @@ hand_9:
       channel: visual
       meaning: "Relaxed, confident"
       noticed_by:
-        - { observer: palm, interpretation: "Don is comfortable", correct: true }
+        - '{ observer: palm, interpretation: "Don is comfortable", correct: true }'
       outcome_impact: LOW
       
     - id: T9-02
@@ -58,7 +58,7 @@ hand_9:
       channel: visual/audio
       meaning: "Hit the flop HARD (set)"
       noticed_by:
-        - { observer: donna, interpretation: "He liked that flop", correct: true }
+        - '{ observer: donna, interpretation: "He liked that flop", correct: true }'
       missed_by: [palm, bumblewick]
       outcome_impact: MEDIUM
       
@@ -96,7 +96,7 @@ hand_10:
       channel: visual
       meaning: "Strong hand, calm confidence (aces)"
       noticed_by:
-        - { observer: palm, interpretation: "'Calm nibble' = real hand", correct: true }
+        - "{ observer: palm, interpretation: \"'Calm nibble' = real hand\", correct: true }"
       affected_action: "Palm called anyway (pot odds)"
       outcome_impact: HIGH
       notes: "CALM NIBBLE TELL ESTABLISHED"
@@ -125,8 +125,8 @@ hand_11:
       channel: visual
       meaning: "Serious hand, not playing around"
       noticed_by:
-        - { observer: donna, interpretation: "'He put down the cheese'", correct: true }
-        - { observer: don, interpretation: "'The cheese knife is on the table'", correct: true }
+        - "{ observer: donna, interpretation: \"'He put down the cheese'\", correct: true }"
+        - "{ observer: don, interpretation: \"'The cheese knife is on the table'\", correct: true }"
       affected_action: "Both fold immediately"
       outcome_impact: CRITICAL
       notes: "CHEESE PUT DOWN TELL ESTABLISHED"
@@ -138,7 +138,7 @@ hand_11:
       channel: visual
       meaning: "Discipline — don't celebrate early"
       noticed_by:
-        - { observer: donna, interpretation: "'He's learning discipline'", correct: true }
+        - "{ observer: donna, interpretation: \"'He's learning discipline'\", correct: true }"
       outcome_impact: SOCIAL
       
     - id: T11-03
@@ -205,18 +205,18 @@ summary:
     combined: 6
     
   notice_rate:
-    donna: "92%" (11/12)  # Best reader
-    don: "83%" (10/12)
-    palm: "75%" (6/8)
-    bumblewick: "50%" (3/6)
+    donna: '"92%" (11/12)  # Best reader'
+    don: '"83%" (10/12)'
+    palm: '"75%" (6/8)'
+    bumblewick: '"50%" (3/6)'
     
   tells_with_SOCIAL_impact: 7  # Highest of all sessions
   
   critical_tells:
-    - T9-03 (Cheese Knife — new tell)
-    - T10-01 (Calm Nibble — new tell)
-    - T11-01 (Cheese Put Down — new tell)
-    - T11-04 (Graceful Loss — arc completion)
+    - 'T9-03 (Cheese Knife — new tell)'
+    - 'T10-01 (Calm Nibble — new tell)'
+    - 'T11-01 (Cheese Put Down — new tell)'
+    - 'T11-04 (Graceful Loss — arc completion)'
 
 # CHARACTER TELL EVOLUTION
 
@@ -230,9 +230,9 @@ bumblewick_tell_arc:
     Learning control
     
   session_5: |
-    "Sets down cheese" = serious mode (NEW tell)
-    "Reaches for cheese, STOPS" = discipline
-    "Picks up cheese, nibbles" = acceptance
+    '"Sets down cheese" = serious mode (NEW tell)'
+    '"Reaches for cheese, STOPS" = discipline'
+    '"Picks up cheese, nibbles" = acceptance'
     
     CHEESE BECOMES EMOTIONAL REGULATOR
     

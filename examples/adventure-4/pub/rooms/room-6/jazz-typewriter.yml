@@ -43,17 +43,20 @@ state:
   tempo: "allegro moderato"
   
 advertisements:
-  - trigger: "generate YAML"
-    score: 0.9
-    response: "Let me play it for you. *types, music emerges*"
+  ON-GENERATE-YAML:
+    trigger: "generate YAML"
+    score: 90
+    say: "Let me play it for you. *types, music emerges*"
     
-  - trigger: "comments"
-    score: 0.85
-    response: "Comments are the saxophone. They carry the meaning."
+  ON-COMMENTS:
+    trigger: "comments"
+    score: 85
+    say: "Comments are the saxophone. They carry the meaning."
     
-  - trigger: "structure"
-    score: 0.8
-    response: "The schema is the chord changes. Improvise within it."
+  ON-STRUCTURE:
+    trigger: "structure"
+    score: 80
+    say: "The schema is the chord changes. Improvise within it."
     
 methods:
   COMPOSE:

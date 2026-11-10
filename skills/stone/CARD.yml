@@ -7,7 +7,8 @@
 
 id: stone
 name: "The Stone Card"
-type: [skill, meta, resolution-tier, prototype]
+type: skill
+tags: [meta, resolution-tier, prototype]
 emoji: 🪨
 tier: 1
 rarity: rare
@@ -58,28 +59,28 @@ advertisements:
 
   MAKE-STONE:
     score: 95
-    condition: "A system is understood and needs one page that shows it"
+    score_if: "A system is understood and needs one page that shows it"
     see: "SKILL.md § Making one · clone examples/STONE.md"
 
   CLONE-SEED:
     score: 95
-    condition: "Making a STONE for a new subject — never start from blank"
+    score_if: "Making a STONE for a new subject — never start from blank"
 
   RESCUE-A-README:
     score: 90
-    condition: "Documentation sprawled and the relationships got buried in prose"
+    score_if: "Documentation sprawled and the relationships got buried in prose"
 
   DRAW-ARROWS:
     score: 85
-    condition: "Connections are mentioned in paragraphs but not shown"
+    score_if: "Connections are mentioned in paragraphs but not shown"
 
   PICK-A-TIER:
     score: 80
-    condition: "Unsure whether this wants a GLANCE, a CARD, a STONE or a README"
+    score_if: "Unsure whether this wants a GLANCE, a CARD, a STONE or a README"
 
   AUDIT-PAGE:
     score: 75
-    condition: "Checking a candidate page against the four properties"
+    score_if: "Checking a candidate page against the four properties"
 
 methods:
   STONE:  { signature: "STONE [subject]", note: "clone the seed, swap the subject, keep the four properties" }

@@ -1,331 +1,330 @@
-room:
-  name: The Gezelligheid Grotto
-  type: pub
+name: The Gezelligheid Grotto
+type: pub
+
+description: |
+  A warm, inviting tavern that somehow exists just south of where your
+  adventure begins. The sign outside creaks: "THE GEZELLIGHEID GROTTO — Est. ???"
+  
+  Inside, the air is thick with pipe smoke and stories. A fire crackles
+  in the hearth. Adventurers of various stripes nurse drinks at scarred
+  wooden tables. The bartender polishes a glass that will never be clean.
+  
+  This is where quests begin and end. Where strangers become allies.
+  Where gold becomes ale and ale becomes courage.
+  
+examine: |
+  The pub feels... timeless. Like it's been here forever, waiting for you.
+  
+  A dart board hangs on one wall, well-worn from use.
+  A chess set sits on a corner table, mid-game abandoned.
+  A deck of cards rests on the bar, ready for whatever game you fancy.
+  
+  Stairs lead up to rooms for rent.
+  A back door leads to... somewhere mysterious.
+  
+# 🎨 THEME SYSTEM — Transform the entire pub!
+
+theme:
+  current: classic_adventure
   
   description: |
-    A warm, inviting tavern that somehow exists just south of where your
-    adventure begins. The sign outside creaks: "THE GEZELLIGHEID GROTTO — Est. ???"
+    The pub can be THEMED to any environment you can imagine!
     
-    Inside, the air is thick with pipe smoke and stories. A fire crackles
-    in the hearth. Adventurers of various stripes nurse drinks at scarred
-    wooden tables. The bartender polishes a glass that will never be clean.
+    THEME [style] — Transform the pub's appearance, patrons, and vibe
+    THEME DEFAULT — Return to classic adventure tavern
     
-    This is where quests begin and end. Where strangers become allies.
-    Where gold becomes ale and ale becomes courage.
+    The bartender, menu, activities, and NPCs all adapt to the theme!
     
-  examine: |
-    The pub feels... timeless. Like it's been here forever, waiting for you.
+  themes:
+    classic_adventure:
+      name: "The Gezelligheid Grotto"
+      vibe: "Classic fantasy tavern"
+      bartender: "Grim, a weathered human with knowing eyes"
+      patrons:
+        - "A hooded figure in the corner"
+        - "A boisterous dwarf telling tales"
+        - "A nervous merchant clutching a map"
+        - "An off-duty guard playing darts"
+      menu:
+        - "Ale (1 gold)"
+        - "Hearty stew (2 gold)"
+        - "Mystery meat pie (3 gold)"
+        - "Adventurer's Breakfast (5 gold)"
+      room_cost: "5 gold per night"
+      
+    space_cantina:
+      name: "The Rusty Hyperdrive"
+      vibe: "Wretched hive of scum and villainy"
+      bartender: "Z-4RT, a droid with too many arms"
+      patrons:
+        - "A bounty hunter with a complicated helmet"
+        - "A smuggler who shot first"
+        - "A jittery alien with too many eyes"
+        - "A musician with unusual anatomy"
+      menu:
+        - "Blue milk (1 credit)"
+        - "Protein cube (2 credits)"
+        - "Bantha burger (3 credits)"
+        - "Spice-infused something (5 credits)"
+      room_cost: "5 credits per cycle"
+      
+    cyberpunk_bar:
+      name: "The Rusty Chrome"
+      vibe: "Neon-lit dive in the undercity"
+      bartender: "Nyx, chromed-up with optical implants"
+      patrons:
+        - "A corpo slumming it"
+        - "A netrunner jacked in at the bar"
+        - "A street samurai with visible augments"
+        - "A fixer making a deal"
+      menu:
+        - "Synth-beer (1 eddie)"
+        - "Kibble+ (2 eddies)"
+        - "Real meat (10 eddies, suspicious)"
+        - "Combat stims (varies)"
+      room_cost: "5 eddies per night"
+      
+    victorian_parlor:
+      name: "The Rusty Cog"
+      vibe: "Steampunk gentleman's club"
+      bartender: "Reginald, impeccably mustachioed"
+      patrons:
+        - "An inventor sketching brass contraptions"
+        - "A lady adventurer in practical goggles"
+        - "A retired colonel sharing war stories"
+        - "A suspicious clockwork automaton"
+      menu:
+        - "Tea, properly steeped (1 shilling)"
+        - "Crumpets with jam (2 shillings)"
+        - "Roast pheasant (5 shillings)"
+        - "Absinthe (strictly medicinal)"
+      room_cost: "5 shillings per evening"
+      
+    pirate_tavern:
+      name: "The Rusty Anchor"
+      vibe: "Portside watering hole for sea dogs"
+      bartender: "Pegleg Pete, exactly as you'd imagine"
+      patrons:
+        - "A captain studying charts"
+        - "A crew on shore leave (loud)"
+        - "A parrot without an owner (suspicious)"
+        - "Someone selling definitely-not-stolen goods"
+      menu:
+        - "Grog (1 doubloon)"
+        - "Hardtack (free, questionable)"
+        - "Salt fish stew (2 doubloons)"
+        - "Bottle of rum (5 doubloons, ask about XO)"
+      room_cost: "Hammock: 2 doubloons, Captain's quarters: 10"
+      
+    wild_west_saloon:
+      name: "The Rusty Spur"
+      vibe: "Frontier drinking establishment"
+      bartender: "Miss Kitty, sharp-eyed and sharper-tongued"
+      patrons:
+        - "A gunslinger at the bar (don't make eye contact)"
+        - "A poker game in progress"
+        - "A prospector who struck... something"
+        - "A sheriff keeping the peace (barely)"
+      menu:
+        - "Whiskey (1 dollar)"
+        - "Beans (50 cents)"
+        - "Steak (3 dollars)"
+        - "Whatever's in the jar (don't ask)"
+      room_cost: "3 dollars per night"
+      
+    custom:
+      description: |
+        THEME [your description]
+        
+        Describe ANY environment you want:
+        "THEME underwater mermaid lounge"
+        "THEME cozy hobbit hole"
+        "THEME interdimensional crossroads"
+        "THEME Mother's kitchen (homesick variant)"
+        
+        DM generates appropriate:
+        - Name
+        - Bartender
+        - Patrons
+        - Menu
+        - Activities
+        - Room decor
+        - Local currency
+        
+# ENVIRONMENT
+
+lighting: warm
+atmosphere: convivial
+
+exits:
+  NORTH:
+    destination: ../start/
+    description: "Back to the Chamber of Commencement"
     
-    A dart board hangs on one wall, well-worn from use.
-    A chess set sits on a corner table, mid-game abandoned.
-    A deck of cards rests on the bar, ready for whatever game you fancy.
+  UP:
+    destination: rooms/
+    description: "Stairs to the inn rooms"
+    note: "Requires payment to bartender"
     
-    Stairs lead up to rooms for rent.
-    A back door leads to... somewhere mysterious.
+  BACK:
+    destination: ???
+    description: "A mysterious back door"
+    note: "Locked. Ask the bartender about the key."
+    hint: "Plot hooks live here"
     
-  # 🎨 THEME SYSTEM — Transform the entire pub!
+objects:
+  - bartender.yml
+  - dart-board.yml
+  - chess-table.yml
+  - card-deck.yml
+  - fireplace.yml
+  - notice-board.yml
+  - pacman-cabinet.yml
+  - pong-cabinet.yml
+  - fruit-machine.yml
+  - pinball-machine.yml
+  - seating.yml
   
-  theme:
-    current: classic_adventure
+# 🎲 ACTIVITIES
+
+activities:
+  DRINK:
+    description: "Order from the menu"
+    usage: "DRINK [item] / ORDER [item]"
+    effects:
+      - "Spend gold (or theme currency)"
+      - "Social opportunity with bartender"
+      - "Possible stat effects (courage, loose tongue)"
+      - "Overhearing rumors"
+      
+  EAT:
+    description: "Order food from the menu"
+    usage: "EAT [item] / ORDER [item]"
+    effects:
+      - "Restores... something? Morale?"
+      - "Not as interesting as kitchen food"
+      - "But no digestive adventures here"
+      
+  PLAY-DARTS:
+    description: "Challenge someone to darts"
+    usage: "PLAY DARTS / PLAY DARTS WITH [patron]"
+    stakes: "Pride, drinks, gold, information"
+    mechanics: |
+      DM describes throws, tension, outcome
+      Can be used to:
+      - Befriend an NPC
+      - Win a bet
+      - Settle a dispute
+      - 'Show off (or embarrass yourself)'
+      
+  PLAY-CHESS:
+    description: "Challenge someone to chess"
+    usage: "PLAY CHESS / PLAY CHESS WITH [patron]"
+    stakes: "Pride, respect, secrets"
+    mechanics: |
+      DM narrates key moves and turning points
+      Reveals character through play style:
+      - 'Aggressive? Defensive? Cunning?'
+      - The bartender is VERY good
+      - Some patrons have unusual strategies
+      
+  PLAY-CARDS:
+    description: "Join or start a card game"
+    usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
+    games:
+      - "Poker (high stakes available)"
+      - "Blackjack"
+      - "Three-card monte (don't)"
+      - "Adventurer's Ruin (house game)"
+    mechanics: |
+      Can win or lose gold
+      Can win information
+      Can make enemies
+      Can cheat (if skilled and brave)
+      
+  SOCIALIZE:
+    description: "Talk to patrons"
+    usage: "TALK TO [patron] / APPROACH [description]"
+    outcomes:
+      - "Hear rumors"
+      - "Learn about the dungeon"
+      - "Make friends or enemies"
+      - "Get quest hooks"
+      - "Trade items or information"
+      
+  RENT-ROOM:
+    description: "Stay the night"
+    usage: "RENT ROOM / STAY THE NIGHT"
+    effects:
+      - "Costs gold (varies by theme)"
+      - "Fully rested (lamp oil refilled to base?)"
+      - "Dream sequence possible"
+      - "Time passes (what changed outside?)"
+      - "Mail delivered while sleeping"
+      
+  EAVESDROP:
+    description: "Listen in on conversations"
+    usage: "EAVESDROP / LISTEN"
+    effects:
+      - "Hear snippets of patron conversations"
+      - "Learn plot hooks"
+      - "Risk being noticed"
+      
+  PERFORM:
+    description: "Entertain the pub"
+    usage: "PERFORM [song/story/trick]"
+    effects:
+      - "Earn tips if good"
+      - "Earn drinks thrown if bad"
+      - "Make an impression"
+      - "Some themes have open mic night"
+      
+# 📢 RUMOR SYSTEM
+
+rumors:
+  description: |
+    The pub is a HUB FOR INFORMATION!
     
-    description: |
-      The pub can be THEMED to any environment you can imagine!
-      
-      THEME [style] — Transform the pub's appearance, patrons, and vibe
-      THEME DEFAULT — Return to classic adventure tavern
-      
-      The bartender, menu, activities, and NPCs all adapt to the theme!
-      
-    themes:
-      classic_adventure:
-        name: "The Gezelligheid Grotto"
-        vibe: "Classic fantasy tavern"
-        bartender: "Grim, a weathered human with knowing eyes"
-        patrons:
-          - "A hooded figure in the corner"
-          - "A boisterous dwarf telling tales"
-          - "A nervous merchant clutching a map"
-          - "An off-duty guard playing darts"
-        menu:
-          - "Ale (1 gold)"
-          - "Hearty stew (2 gold)"
-          - "Mystery meat pie (3 gold)"
-          - "Adventurer's Breakfast (5 gold)"
-        room_cost: "5 gold per night"
-        
-      space_cantina:
-        name: "The Rusty Hyperdrive"
-        vibe: "Wretched hive of scum and villainy"
-        bartender: "Z-4RT, a droid with too many arms"
-        patrons:
-          - "A bounty hunter with a complicated helmet"
-          - "A smuggler who shot first"
-          - "A jittery alien with too many eyes"
-          - "A musician with unusual anatomy"
-        menu:
-          - "Blue milk (1 credit)"
-          - "Protein cube (2 credits)"
-          - "Bantha burger (3 credits)"
-          - "Spice-infused something (5 credits)"
-        room_cost: "5 credits per cycle"
-        
-      cyberpunk_bar:
-        name: "The Rusty Chrome"
-        vibe: "Neon-lit dive in the undercity"
-        bartender: "Nyx, chromed-up with optical implants"
-        patrons:
-          - "A corpo slumming it"
-          - "A netrunner jacked in at the bar"
-          - "A street samurai with visible augments"
-          - "A fixer making a deal"
-        menu:
-          - "Synth-beer (1 eddie)"
-          - "Kibble+ (2 eddies)"
-          - "Real meat (10 eddies, suspicious)"
-          - "Combat stims (varies)"
-        room_cost: "5 eddies per night"
-        
-      victorian_parlor:
-        name: "The Rusty Cog"
-        vibe: "Steampunk gentleman's club"
-        bartender: "Reginald, impeccably mustachioed"
-        patrons:
-          - "An inventor sketching brass contraptions"
-          - "A lady adventurer in practical goggles"
-          - "A retired colonel sharing war stories"
-          - "A suspicious clockwork automaton"
-        menu:
-          - "Tea, properly steeped (1 shilling)"
-          - "Crumpets with jam (2 shillings)"
-          - "Roast pheasant (5 shillings)"
-          - "Absinthe (strictly medicinal)"
-        room_cost: "5 shillings per evening"
-        
-      pirate_tavern:
-        name: "The Rusty Anchor"
-        vibe: "Portside watering hole for sea dogs"
-        bartender: "Pegleg Pete, exactly as you'd imagine"
-        patrons:
-          - "A captain studying charts"
-          - "A crew on shore leave (loud)"
-          - "A parrot without an owner (suspicious)"
-          - "Someone selling definitely-not-stolen goods"
-        menu:
-          - "Grog (1 doubloon)"
-          - "Hardtack (free, questionable)"
-          - "Salt fish stew (2 doubloons)"
-          - "Bottle of rum (5 doubloons, ask about XO)"
-        room_cost: "Hammock: 2 doubloons, Captain's quarters: 10"
-        
-      wild_west_saloon:
-        name: "The Rusty Spur"
-        vibe: "Frontier drinking establishment"
-        bartender: "Miss Kitty, sharp-eyed and sharper-tongued"
-        patrons:
-          - "A gunslinger at the bar (don't make eye contact)"
-          - "A poker game in progress"
-          - "A prospector who struck... something"
-          - "A sheriff keeping the peace (barely)"
-        menu:
-          - "Whiskey (1 dollar)"
-          - "Beans (50 cents)"
-          - "Steak (3 dollars)"
-          - "Whatever's in the jar (don't ask)"
-        room_cost: "3 dollars per night"
-        
-      custom:
-        description: |
-          THEME [your description]
-          
-          Describe ANY environment you want:
-          "THEME underwater mermaid lounge"
-          "THEME cozy hobbit hole"
-          "THEME interdimensional crossroads"
-          "THEME Mother's kitchen (homesick variant)"
-          
-          DM generates appropriate:
-          - Name
-          - Bartender
-          - Patrons
-          - Menu
-          - Activities
-          - Room decor
-          - Local currency
-          
-  # ENVIRONMENT
-  
-  lighting: warm
-  atmosphere: convivial
-  
-  exits:
-    NORTH:
-      destination: ../start/
-      description: "Back to the Chamber of Commencement"
-      
-    UP:
-      destination: rooms/
-      description: "Stairs to the inn rooms"
-      note: "Requires payment to bartender"
-      
-    BACK:
-      destination: ???
-      description: "A mysterious back door"
-      note: "Locked. Ask the bartender about the key."
-      hint: "Plot hooks live here"
-      
-  objects:
-    - bartender.yml
-    - dart-board.yml
-    - chess-table.yml
-    - card-deck.yml
-    - fireplace.yml
-    - notice-board.yml
-    - pacman-cabinet.yml
-    - pong-cabinet.yml
-    - fruit-machine.yml
-    - pinball-machine.yml
-    - seating.yml
+    Sources:
+    - 'Bartender knows everything (but charges)'
+    - 'Patrons share freely (but unreliably)'
+    - Notice board has postings
+    - Eavesdropping catches fragments
     
-  # 🎲 ACTIVITIES
-  
-  activities:
-    DRINK:
-      description: "Order from the menu"
-      usage: "DRINK [item] / ORDER [item]"
-      effects:
-        - "Spend gold (or theme currency)"
-        - "Social opportunity with bartender"
-        - "Possible stat effects (courage, loose tongue)"
-        - "Overhearing rumors"
-        
-    EAT:
-      description: "Order food from the menu"
-      usage: "EAT [item] / ORDER [item]"
-      effects:
-        - "Restores... something? Morale?"
-        - "Not as interesting as kitchen food"
-        - "But no digestive adventures here"
-        
-    PLAY-DARTS:
-      description: "Challenge someone to darts"
-      usage: "PLAY DARTS / PLAY DARTS WITH [patron]"
-      stakes: "Pride, drinks, gold, information"
-      mechanics: |
-        DM describes throws, tension, outcome
-        Can be used to:
-        - Befriend an NPC
-        - Win a bet
-        - Settle a dispute
-        - Show off (or embarrass yourself)
-        
-    PLAY-CHESS:
-      description: "Challenge someone to chess"
-      usage: "PLAY CHESS / PLAY CHESS WITH [patron]"
-      stakes: "Pride, respect, secrets"
-      mechanics: |
-        DM narrates key moves and turning points
-        Reveals character through play style:
-        - Aggressive? Defensive? Cunning?
-        - The bartender is VERY good
-        - Some patrons have unusual strategies
-        
-    PLAY-CARDS:
-      description: "Join or start a card game"
-      usage: "PLAY CARDS / PLAY [game] WITH [patrons]"
-      games:
-        - "Poker (high stakes available)"
-        - "Blackjack"
-        - "Three-card monte (don't)"
-        - "Adventurer's Ruin (house game)"
-      mechanics: |
-        Can win or lose gold
-        Can win information
-        Can make enemies
-        Can cheat (if skilled and brave)
-        
-    SOCIALIZE:
-      description: "Talk to patrons"
-      usage: "TALK TO [patron] / APPROACH [description]"
-      outcomes:
-        - "Hear rumors"
-        - "Learn about the dungeon"
-        - "Make friends or enemies"
-        - "Get quest hooks"
-        - "Trade items or information"
-        
-    RENT-ROOM:
-      description: "Stay the night"
-      usage: "RENT ROOM / STAY THE NIGHT"
-      effects:
-        - "Costs gold (varies by theme)"
-        - "Fully rested (lamp oil refilled to base?)"
-        - "Dream sequence possible"
-        - "Time passes (what changed outside?)"
-        - "Mail delivered while sleeping"
-        
-    EAVESDROP:
-      description: "Listen in on conversations"
-      usage: "EAVESDROP / LISTEN"
-      effects:
-        - "Hear snippets of patron conversations"
-        - "Learn plot hooks"
-        - "Risk being noticed"
-        
-    PERFORM:
-      description: "Entertain the pub"
-      usage: "PERFORM [song/story/trick]"
-      effects:
-        - "Earn tips if good"
-        - "Earn drinks thrown if bad"
-        - "Make an impression"
-        - "Some themes have open mic night"
-        
-  # 📢 RUMOR SYSTEM
-  
-  rumors:
-    description: |
-      The pub is a HUB FOR INFORMATION!
+  rumor_types:
+    TRUE:
+      - "There's gold in the cold room of the maze"
+      - "The skeleton was almost out when they died"
+      - "The vending machine has feelings"
       
-      Sources:
-      - Bartender knows everything (but charges)
-      - Patrons share freely (but unreliably)
-      - Notice board has postings
-      - Eavesdropping catches fragments
+    MOSTLY-TRUE:
+      - '"A grue can be killed with cheese" (it was BLUE cheese)'
+      - "\"Mother's letter has a secret\" (it has many)"
+      - '"The treasure is guarded" (by the grue? by puzzles?)'
       
-    rumor_types:
-      TRUE:
-        - "There's gold in the cold room of the maze"
-        - "The skeleton was almost out when they died"
-        - "The vending machine has feelings"
-        
-      MOSTLY-TRUE:
-        - "A grue can be killed with cheese" (it was BLUE cheese)
-        - "Mother's letter has a secret" (it has many)
-        - "The treasure is guarded" (by the grue? by puzzles?)
-        
-      FALSE-BUT-FUN:
-        - "There's a dragon in the depths"
-        - "The bartender is actually the grue in disguise"
-        - "If you say XYZZY three times, you go home"
-        
-      PLOT-HOOKS:
-        - "Someone's been asking about YOUR family..."
-        - "The postal service is hiring"
-        - "A stranger left something for you"
-        
-  # 🚪 BACK ROOM — Plot device generator
-  
-  back_room:
-    description: |
-      The mysterious back door leads to... whatever the story needs.
+    FALSE-BUT-FUN:
+      - "There's a dragon in the depths"
+      - "The bartender is actually the grue in disguise"
+      - "If you say XYZZY three times, you go home"
       
-      Ask the bartender about it.
+    PLOT-HOOKS:
+      - "Someone's been asking about YOUR family..."
+      - "The postal service is hiring"
+      - "A stranger left something for you"
       
-    possibilities:
-      - "Underground fighting ring"
-      - "Secret meeting of a guild"
-      - "Portal to another theme dimension"
-      - "Where the bartender REALLY comes from"
-      - "Storage room with plot-relevant items"
-      - "Passage to the maze (shortcut? trap?)"
-      - "Mother's favorite booth from her adventuring days"
+# 🚪 BACK ROOM — Plot device generator
+
+back_room:
+  description: |
+    The mysterious back door leads to... whatever the story needs.
+    
+    Ask the bartender about it.
+    
+  possibilities:
+    - "Underground fighting ring"
+    - "Secret meeting of a guild"
+    - "Portal to another theme dimension"
+    - "Where the bartender REALLY comes from"
+    - "Storage room with plot-relevant items"
+    - "Passage to the maze (shortcut? trap?)"
+    - "Mother's favorite booth from her adventuring days"

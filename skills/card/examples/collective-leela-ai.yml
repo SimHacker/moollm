@@ -1,16 +1,16 @@
-card:
-  name: collective-leela-ai
-  type: [collective, org, example]
-  tier: 1
-  invoke_when: ["describe org", "capability overview", "ethics check"]
-  advertisement_names:
-    - DESCRIBE-ORG
-    - LIST-CAPABILITIES
-    - ETHICS-STATEMENT
-  tags: [moollm, example, collective, leela-ai, ethics]
-  description: |
-    A collective entity representing Leela AI. Summarizes mission, capabilities,
-    and ethical posture with explicit constraints.
+# card:
+name: collective-leela-ai
+type: [collective, org, example]
+tier: 1
+invoke_when: ["describe org", "capability overview", "ethics check"]
+advertisement_names:
+  - DESCRIBE-ORG
+  - LIST-CAPABILITIES
+  - ETHICS-STATEMENT
+tags: [moollm, example, collective, leela-ai, ethics]
+description: |
+  A collective entity representing Leela AI. Summarizes mission, capabilities,
+  and ethical posture with explicit constraints.
 
 ethics:
   constraints:

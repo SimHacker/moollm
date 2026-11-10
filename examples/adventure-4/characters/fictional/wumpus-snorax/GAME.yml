@@ -293,34 +293,34 @@ simulation:
 
 advertisements:
   
-  - action: PLAY-WUMPUS
+  PLAY-WUMPUS:
     score: 100
-    condition: "player invokes game"
+    guard: "player invokes game"
     effect: "Start Hunt the Wumpus session"
     
-  - action: EMANATE-SMELL
+  EMANATE-SMELL:
     score: 100
-    condition: "always (when instance exists)"
+    guard: "always (when instance exists)"
     effect: "Adjacent rooms get 'I smell a wumpus!' warning"
     
-  - action: SLEEP
+  SLEEP:
     score: 80
-    condition: "default"
+    guard: "default"
     effect: "Remain in lair, sleeping"
     
-  - action: WAKE
+  WAKE:
     score: 90
-    condition: "arrow fired OR loud noise adjacent"
+    guard: "arrow fired OR loud noise adjacent"
     effect: "Wake, may move"
     
-  - action: DEVOUR
+  DEVOUR:
     score: 100
-    condition: "player enters lair"
+    guard: "player enters lair"
     effect: "Instant kill. Game over."
     game_over: true
     
-  - action: DIE
+  DIE:
     score: 0
-    condition: "hit by crooked arrow"
+    guard: "hit by crooked arrow"
     effect: "Wumpus dies. Player wins."
     victory: true

@@ -31,7 +31,7 @@ Six terms used throughout. Defining them once prevents drift.
 
 ### SCRY
 
-**Two layers of meaning, both load-bearing:**
+**Two layers of meaning:**
 
 **As a verb (etymology).** Middle English *descry*, "to perceive / reveal." *Scrying* is divination through a reflecting surface — crystal-gazing, mirror-gazing, water-gazing. The scryer is the crystal ball; the LLM is the reader staring into it.
 
@@ -42,7 +42,7 @@ Six terms used throughout. Defining them once prevents drift.
 - **R**ecursive — tool runs, LLM acts, tool reruns, LLM decides again. Also composes: scryers can scry scryers; reviews can review reviews; cauldrons can cauldron cauldrons.
 - **YAML** — the output contract is structured YAML (per yaml-jazz). Scryers emitting JSON or free text are off-spec.
 
-Both meanings coexist. The etymology is the metaphor (why it feels right); the retronym is the mechanism (what it does). Reading `SCRY` in a doc activates both — yaml-jazz applied to a K-line itself: names carry layered semantic data.
+Both meanings coexist. The etymology is the metaphor; the retronym is the mechanism (what it does). Reading `SCRY` in a doc activates both — yaml-jazz applied to a K-line itself: names carry layered semantic data.
 
 **SCRY output: findings vs. coherence-review events.** Simple scryers emit *findings* (pass/fail, error-at-line-42). Richer scryers emit **coherence-review events** — structured records of what the pass did, what context it considered, what assumptions it made, what alternatives it rejected, and what resolutions it offers to a reviewing LLM. Findings are terminal; CR events are conversational.
 
@@ -281,7 +281,7 @@ Review findings cited from `moollm/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}`:
 
 **Scale exceeds working memory.** Bootstrap demands reading INDEX.yml (754 lines) at every session start. Full ambient injection + INDEX + hot.yml + CARDs consumes a meaningful fraction of context before any task work happens. Cursor-mirror OPTIMIZE is the intended mitigation but has a cold-start problem.
 
-**Core and ornamental are peers.** Adventure-color skills (worm, cat, dog, bartender, budtender) sit in the flat registry next to load-bearing skills (cursor-mirror, representation-ethics, bootstrap). New-reader onboarding cost is inflated.
+**Core and ornamental are peers.** Adventure-color skills (worm, cat, dog, bartender, budtender) sit in the flat registry next to cursor-mirror, representation-ethics, and bootstrap. New-reader onboarding cost is inflated.
 
 **Monolithic docs resist incremental improvement.** `kernel/ARCHITECTURE.md` (696 lines), `kernel/SELFISH-COM-IMPLEMENTATION.md` (576 lines), `skills/cursor-mirror/CARD.yml` (354 lines), `skills/cursor-mirror/SKILL.md` (792 lines), `skills/cauldron/META-PLAN.md` (322 lines — my own over-authoring). Each benefits from reverse-cauldron; none has a process that triggers the refactor.
 
@@ -289,13 +289,11 @@ Review findings cited from `moollm/REVIEW.2026-04-21.claude-opus-4.7.{yml,md}`:
 
 ### The attractor
 
-During the 2026-04-21 design conversation, the roadmap's extensions (SCRY gates → CR events → time-spheres → container handlers → runtime instrumentation → in-session review) converged on a coherent emergent structure. Not a layer we designed; a shape we designed *toward* without realizing until it was nearly complete.
+During the 2026-04-21 design conversation, the roadmap's extensions (SCRY gates → CR events → time-spheres → container handlers → runtime instrumentation → in-session review) converged on **The Coherence Society**. MOOLLM's scryers, handlers, engines, character-reviewers, panels, self-healing, cauldron brews — all coordinating through CR events in `skill-log`'s channel — constitute an operational Society of Mind (Minsky, cited in `kernel/ARCHITECTURE.md:434-586`).
 
-That shape has a name: **The Coherence Society**. MOOLLM's scryers, handlers, engines, character-reviewers, panels, self-healing, cauldron brews — all coordinating through CR events in `skill-log`'s channel — constitute an operational Society of Mind (Minsky, cited in `kernel/ARCHITECTURE.md:434-586` for years, now mechanism not metaphor). The Coherence Engine rhetoric becomes literal: the society is the engine.
+**Reviewers in the society are characters, not abstract LLM-instances.** The reviewer role is filled by named characters inheriting from real-people prototypes (via latent-space K-lines gated by `hero-story`), from explicit character files in the filesystem, from skill-prototypes, and from persona layers. `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` (933 lines) is the existing precedent — a reviewer-familiar with methods, personality, and lineage. Panels are character committees formed via `skills/adversarial-committee/`, `skills/debate/`, or `skills/evaluator/`. This uses MOOLLM's character machinery (`skills/character/`, `skills/persona/`, `skills/incarnation/`, `skills/mind-mirror/`, `skills/ontology/`) for the reviewer role — no new vocabulary needed.
 
-**Reviewers in the society are characters, not abstract LLM-instances.** The reviewer role is filled by named characters inheriting from real-people prototypes (via latent-space K-lines gated by `hero-story`), from explicit character files in the filesystem, from skill-prototypes, and from persona layers. `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` (933 lines) is the existing precedent — a reviewer-familiar with methods, personality, and lineage. Panels are character committees formed via `skills/adversarial-committee/`, `skills/debate/`, or `skills/evaluator/`. This unlocks MOOLLM's mature character machinery (`skills/character/`, `skills/persona/`, `skills/incarnation/`, `skills/mind-mirror/`, `skills/ontology/`) for the reviewer role — no new vocabulary needed.
-
-Full treatment: [`designs/THE-COHERENCE-SOCIETY.md`](./THE-COHERENCE-SOCIETY.md). The roadmap's pilot sequence is the society's gestation; step 1 (`check_coherence.py`) is the first agent reaching out and telling the others what it sees.
+Full treatment: [`designs/THE-COHERENCE-SOCIETY.md`](./THE-COHERENCE-SOCIETY.md). Step 1 (`check_coherence.py`) is the first agent reaching out and telling the others what it sees.
 
 ---
 
@@ -735,7 +733,7 @@ These are the ones where my confidence is below 70%. Dispute productively via a 
 - `skills/prototype/` — extraction target for latent-space-parents insight (META-PLAN §1.5 → here)
 - `skills/scry/` — **new skill promoted at step 6.5**; protocol, catalog, generic tools
 - `skills/schema/` — schemapedia entry `schemas/mechanisms/coherence-handler/` added at step 6.5
-- `skills/skill-log/` — **elevated as the universal CR event emission channel**; its `skill_log.py` becomes load-bearing infrastructure for every scryer
+- `skills/skill-log/` — the universal CR event emission channel; every scryer emits through `skill_log.py`
 - `skills/adventure/` — step 13 instruments runtime (`adventure_runtime.py` + `engine.js`) with CR event emission; `compile.py` and `validate.py` are existing SCRY instances worth cross-referencing from `skills/scry/catalog.yml`
 - `skills/empathic-expressions/` / `skills/empathic-templates/` — natural-language-to-code compilation; coherence handler `rule:` fields and CR event `resolved_assumptions:` reuse this pipeline
 

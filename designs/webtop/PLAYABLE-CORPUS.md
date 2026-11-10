@@ -166,12 +166,11 @@ bit** (a flag), state is ephemeral, and nothing is durable. That is precisely th
 tier can afford, and it sits below the Supabase-plus-git arrangement rather than competing with it —
 see [CURSOR-STORAGE.md](CURSOR-STORAGE.md) on starting from local storage with no login.
 
-### Why the virtual cursor is the load-bearing trick
+### The virtual cursor
 
 The cursor you see in Cursor Camp is **drawn by the page**, not the system pointer, which is what
 lets it be warped through a door. Browsers do not expose cursor warping, so a drawn cursor is the
-only way to get it — and that one decision is what makes three things we are building possible at
-all:
+only way to get it:
 
 | What we are building | What the virtual cursor buys |
 |---|---|

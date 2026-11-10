@@ -38,17 +38,18 @@ state:
   last_insight: "The observer affects the observed"
   
 advertisements:
-  - trigger: "what am I thinking"
-    score: 0.95
-    response: "Look in the mirror. It already knows."
-    
-  - trigger: "why did I do that"
-    score: 0.9
-    response: "The mirror shows the reasoning. Scroll back."
-    
-  - trigger: "introspection"
-    score: 0.85
-    response: "Introspection is just reading your own thinking blocks."
+  INTROSPECTION-DESCRIBE:
+    trigger: "what am I thinking"
+    score: 95
+    say: "Look in the mirror. It already knows."
+  ACTIONS-EXPLAIN:
+    trigger: "why did I do that"
+    score: 90
+    say: "The mirror shows the reasoning. Scroll back."
+  INTROSPECTION:
+    trigger: "introspection"
+    score: 85
+    say: "Introspection is just reading your own thinking blocks."
     
 methods:
   GAZE:

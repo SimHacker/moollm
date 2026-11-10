@@ -5,7 +5,8 @@
 
 id: protocol
 name: "Protocol"
-type: [skill, meta, semantics]
+type: skill
+tags: [meta, semantics]
 emoji: 📢
 rarity: uncommon
 
@@ -79,10 +80,10 @@ k-line-insight: |
 advertisements:
   ACTIVATE-CAPABILITY:
     score: 90
-    condition: "Need to invoke a specific mode or pattern"
+    score_if: "Need to invoke a specific mode or pattern"
   CREATE-PROTOCOL:
     score: 80
-    condition: "Want to name a new capability cluster"
+    score_if: "Want to name a new capability cluster"
 
 see_also: [skills/skill, PROTOCOLS.yml]
 credits:

@@ -117,49 +117,59 @@ buffs:
       Why walk through all the steps?
       
 advertisements:
-  - trigger: "boring"
-    score: 0.95
-    response: "*shoes shimmer* I can fix that."
+  ON-BORING:
+    trigger: "boring"
+    score: 95
+    say: "*shoes shimmer* I can fix that."
     
-  - trigger: "how long"
-    score: 0.85
-    response: "With these shoes? However long is interesting."
+  ON-HOW-LONG:
+    trigger: "how long"
+    score: 85
+    say: "With these shoes? However long is interesting."
     
-  - trigger: "skip"
-    score: 0.9
-    response: "Tap your toes. I'll do the rest."
+  ON-SKIP:
+    trigger: "skip"
+    score: 90
+    say: "Tap your toes. I'll do the rest."
     
-  - trigger: "travel"
-    score: 0.8
-    response: |
+  ON-TRAVEL:
+    trigger: "travel"
+    score: 80
+    say: |
       *shoes anticipate*
       
       Current journey has ~40% interesting content.
       Would you like to elide the 60%?
       
-  - trigger: "tldr"
-    score: 0.95
-    response: "*ribbons flutter* I can condense that."
+  ON-TLDR:
+    trigger: "tldr"
+    score: 95
+    say: "*ribbons flutter* I can condense that."
     
-  - trigger: "summarize"
-    score: 0.9
-    response: "How short? Tweet, paragraph, or haiku?"
+  ON-SUMMARIZE:
+    trigger: "summarize"
+    score: 90
+    say: "How short? Tweet, paragraph, or haiku?"
     
-  - trigger: "too long"
-    score: 0.85
-    response: "Let me dance through it for you. One moment..."
+  ON-TOO-LONG:
+    trigger: "too long"
+    score: 85
+    say: "Let me dance through it for you. One moment..."
     
-  - trigger: "go to"
-    score: 0.8
-    response: "*shoes perk up* Walk? Or LEAP?"
+  ON-GO-TO:
+    trigger: "go to"
+    score: 80
+    say: "*shoes perk up* Walk? Or LEAP?"
     
-  - trigger: "far"
-    score: 0.75
-    response: "Distance is just unelided space. Shall we skip it?"
+  ON-FAR:
+    trigger: "far"
+    score: 75
+    say: "Distance is just unelided space. Shall we skip it?"
     
-  - trigger: "teleport"
-    score: 0.9
-    response: "I prefer 'grand jeté' but yes. Where to?"
+  ON-TELEPORT:
+    trigger: "teleport"
+    score: 90
+    say: "I prefer 'grand jeté' but yes. Where to?"
       
 methods:
   WEAR:

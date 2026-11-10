@@ -36,21 +36,21 @@ framing_spectrum:
   3_game_play:
     example:
       # Einstein card in a "Great Minds" card game
-      card:
-        name: "Albert Einstein"
-        type: hero-story
-        game_context: "Battle of Ideas"
+      # card:
+      name: "Albert Einstein"
+      type: hero-story
+      game_context: "Battle of Ideas"
+      
+      abilities:
+        - "Thought Experiment — visualize consequences"
+        - "Unifying Theory — find hidden connections"
+        - "Letter to Roosevelt — escalate to authorities"
         
-        abilities:
-          - "Thought Experiment — visualize consequences"
-          - "Unifying Theory — find hidden connections"
-          - "Letter to Roosevelt — escalate to authorities"
-          
-        disclaimer: |
-          This card represents Einstein's documented ideas
-          in a game context. It is not a simulation of
-          the actual person.
-          
+      disclaimer: |
+        This card represents Einstein's documented ideas
+        in a game context. It is not a simulation of
+        the actual person.
+        
     characteristics:
       - Clear fictional frame
       - Game mechanics distance from reality
@@ -76,15 +76,15 @@ framing_spectrum:
   
   5_tribute:
     example:
-      character:
-        name: "Einstein Impersonator"
-        type: tribute_performer
+      # character:
+      name: "Einstein Impersonator"
+      type: tribute_performer
+      
+      declaration: |
+        "I am NOT Albert Einstein. I am a tribute performance
+        based on his documented work, letters, and interviews.
+        Think of me as an Elvis impersonator for physics."
         
-        declaration: |
-          "I am NOT Albert Einstein. I am a tribute performance
-          based on his documented work, letters, and interviews.
-          Think of me as an Elvis impersonator for physics."
-          
     why_it_works:
       - "Explicitly declared — 'I am an IMPERSONATOR'"
       - "No deception possible — the word 'impersonator' is definitionally not-the-person"
@@ -100,16 +100,16 @@ framing_spectrum:
   
   6_drag_tribute:
     example:
-      character:
-        name: "Cher-ity Case"
-        type: drag_tribute
-        evokes: "Cher"
+      # character:
+      name: "Cher-ity Case"
+      type: drag_tribute
+      evokes: "Cher"
+      
+      declaration: |
+        The pun name IS the disclosure. Everyone knows
+        "Cher-ity Case" is not Cher. The theatrical context,
+        the costume, the lip-sync — it's unmistakably tribute.
         
-        declaration: |
-          The pun name IS the disclosure. Everyone knows
-          "Cher-ity Case" is not Cher. The theatrical context,
-          the costume, the lip-sync — it's unmistakably tribute.
-          
     why_it_works:
       - "Pun name declares fiction — 'Cher-ity Case' ≠ 'Cher'"
       - "Drag context is theatrical — everyone knows it's performance"

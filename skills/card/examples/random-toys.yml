@@ -1,17 +1,17 @@
-card:
-  name: random-toys
-  type: [tool, random, example]
-  tier: 1
-  invoke_when: ["need randomness", "roll dice", "flip coin", "spin wheel"]
-  advertisement_names:
-    - ROLL-DICE
-    - FLIP-COIN
-    - SPIN-WHEEL
-    - PICK-NUMBER
-  tags: [moollm, example, rng, dice, coin, spinner]
-  description: |
-    Virtual D&D dice, coin flips, spinners, and wheels of fortune. Multiple
-    manifestations; pick by params or use presets.
+# card:
+name: random-toys
+type: [tool, random, example]
+tier: 1
+invoke_when: ["need randomness", "roll dice", "flip coin", "spin wheel"]
+advertisement_names:
+  - ROLL-DICE
+  - FLIP-COIN
+  - SPIN-WHEEL
+  - PICK-NUMBER
+tags: [moollm, example, rng, dice, coin, spinner]
+description: |
+  Virtual D&D dice, coin flips, spinners, and wheels of fortune. Multiple
+  manifestations; pick by params or use presets.
 
 state:
   dice_presets: [d4, d6, d8, d10, d12, d20, d100]

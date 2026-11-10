@@ -350,38 +350,44 @@ seeds:
     note: "Each instance is unique to its planter"
           
 advertisements:
-  - trigger: "structure"
-    score: 0.95
-    response: "Every tree is a data structure. Every data structure can be a tree."
+  ON-STRUCTURE:
+    trigger: "structure"
+    score: 95
+    say: "Every tree is a data structure. Every data structure can be a tree."
     
-  - trigger: "grow"
-    score: 0.9
-    response: "Plant a grammar seed. Watch structure emerge from rules."
+  ON-GROW:
+    trigger: "grow"
+    score: 90
+    say: "Plant a grammar seed. Watch structure emerge from rules."
     
-  - trigger: "yaml"
-    score: 0.9
-    response: "YAML Jazz: where comments are semantic and structure is music."
+  ON-YAML:
+    trigger: "yaml"
+    score: 90
+    say: "YAML Jazz: where comments are semantic and structure is music."
     
-  - trigger: "pattern"
-    score: 0.85
-    response: |
+  ON-PATTERN:
+    trigger: "pattern"
+    score: 85
+    say: |
       *A fern branch unfurls*
       
       The pattern is the same at every scale.
       That's the power of production grammars.
       
-  - trigger: "Rocky"
-    score: 0.8
-    response: |
+  ON-ROCKY:
+    trigger: "Rocky"
+    score: 80
+    say: |
       *Rocky observes from the moss-covered boulder*
       
       "........................"
       
       [Translation: Trees grow fast. Geological time finds this amusing.]
       
-  - trigger: "mirror"
-    score: 0.95
-    response: |
+  ON-MIRROR:
+    trigger: "mirror"
+    score: 95
+    say: |
       *A reflective seed pod glimmers on a low branch*
       
       The Mirror Seed! Plant it and grow a tree from your own reflection.
@@ -391,27 +397,30 @@ advertisements:
       
       `PLANT mirror_seed` to begin introspection.
       
-  - trigger: "cursor"
-    score: 0.9
-    response: |
+  ON-CURSOR:
+    trigger: "cursor"
+    score: 90
+    say: |
       *The glass walls catch a reflection from Room 3*
       
       Cursor activity flows through the conservatory like sunlight.
       Every tool call is photosynthesis. Every thinking block is growth.
       The trees here can read your IDE's memory and grow from it.
       
-  - trigger: "introspection"
-    score: 0.9
-    response: |
+  ON-INTROSPECTION:
+    trigger: "introspection"
+    score: 90
+    say: |
       *A silver-barked sapling pulses gently*
       
       The Mirror Seed grows trees of self-knowledge.
       Plant one. Watch your own patterns crystallize into structure.
       The tree knows what tools you favor, how you think, when you commit.
       
-  - trigger: "Don"
-    score: 0.85
-    response: |
+  ON-DON:
+    trigger: "Don"
+    score: 85
+    say: |
       *A distinctive silver-barked tree catches your eye*
       
       That's Don's Mirror Tree — grown on 2026-01-14.

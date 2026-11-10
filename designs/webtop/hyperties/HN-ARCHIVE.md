@@ -372,9 +372,9 @@ And the irony he names himself:
 > has always thought should be built in and automatic, **not something you have to do laboriously by
 > hand.**
 
-Two things follow directly, and they are the load-bearing requirements of this whole design pack.
+Two things follow.
 
-**The definition preview is the fix for the cost of following a link.** Not a nicety. The reason
+**The definition preview is the fix for the cost of following a link.** The reason
 people do not follow links is that losing and re-establishing context is expensive, so authors
 compensate by transcluding by hand, which is also expensive and does not stay correct. Give the
 reader the abstract without the navigation and the economics change.

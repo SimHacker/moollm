@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-This comprehensive survey argues that advancing LLM-based human simulation requires addressing **both** LLM inherent limitations **and** simulation framework design challenges—a dual-challenge framing that maps directly to MOOLLM's scaffolding approach.
+This survey says LLM-based human simulation has two limits: the model, and the simulation design.
 
 > **Key Thesis**: "Humans cannot be encoded as two-dimensional tokens; they embody unique preferences, lived experiences, and intricate behaviors."
 
@@ -158,12 +158,12 @@ This creates iterative improvement through feedback loops.
 
 ## Implications for MOOLLM
 
-### What This Paper Validates
+### Design notes
 
-1. **Scaffolding approach**: The dual-challenge framing confirms that LLM limitations require *design* solutions, not just better models
-2. **Frame-based ethics**: Rooms/characters/frames address the "comprehensive human experiences" gap
-3. **Human checkpoints**: The validation gaps justify MOOLLM's human-in-loop approach
-4. **Motivation as declared**: Confirms our approach to character motivations (Section 4.1)
+1. **Scaffolding** — The paper says the limits are in the model and in the design.
+2. **Frames** — Rooms, characters, and frames are the design side of that gap.
+3. **Human checkpoints** — The paper names validation gaps.
+4. **Incentives** — Section 4.1: simplified reward systems.
 
 ### New Insights for MOOLLM
 

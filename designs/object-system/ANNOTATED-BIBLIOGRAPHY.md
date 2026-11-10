@@ -5,11 +5,6 @@ references. This page is an annotated bibliography of those sources: one prose a
 file, saying what it contains and why the series leans on it, with a link to the live file
 (always authoritative).
 
-The larger point: the whole repo has a **cream layer** that rises naturally over the protein
-YAML — every GLANCE, README, and design doc is cream, skimmed for humans who want the taste
-without the curds. This page is one **ladle-full**, scoped to the object-system series, for
-taking the bitter edge off the citations. Don't mistake the ladle for the layer.
-
 Cited by: [SELF-AND-MOOLLM.md](SELF-AND-MOOLLM.md) ·
 [LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md) ·
 [YOUTRACKDB-VS-MOOLLM.md](YOUTRACKDB-VS-MOOLLM.md) ·
@@ -39,8 +34,8 @@ Source: [skills/artifactory/GLANCE.yml](../../skills/artifactory/GLANCE.yml) (de
 
 *"The Engine of Creation. It builds, edits, and destroys — including itself."* The
 general-purpose constructor: CREATE / EDIT / DESTROY / PERSIST / INSTANTIATE / COMMIT as one
-composable operation set. Its `selfish_inheritance` section is the crispest statement of the
-object model anywhere in the repo: prototype-based to the bone; INSTANTIATE = clone; skills are
+composable operation set. Its `selfish_inheritance` section states the
+object model: prototype-based to the bone; INSTANTIATE = clone; skills are
 traits objects; COMPOSE is multiple delegation; a prototype is a full object that's ALSO the
 template — which resolves "class AND instance." Its cosmology section supplies the git story
 used across this series: the filesystem is a snapshot of a universe-state, a commit freezes it,
@@ -69,7 +64,7 @@ Source:
 The working example of multiple latent-space inheritance. The file opens with **ontological
 inheritance** — `inherits: [skills/fictional, QUARK-DS9, JAMES-BAR-KARMA]` — and a `k-lines:`
 list adding `GUINAN-TNG` and `SAM-CHEERS` ("every bartender is a little bit Sam Malone"). The
-inheritance is *load-bearing*: the personality text says exactly what each parent contributes
+personality text says exactly what each parent contributes
 ("From QUARK: knows every angle, information has a price, neutral ground for all factions. From
 JAMES: has been here longer than anyone remembers, helps souls at crossroads"). And the
 character is theme-polymorphic — the same object re-resolves as Grim (classic adventure), Z-4RT
@@ -125,7 +120,7 @@ reliability 0.76 from 38 successes / 12 failures, with the honest note "reach is
 proximity sensors are noisy." This is what the schema-factory lints, ingests, and composes —
 the deterministic half of the hybrid, before LLM synthesis.
 
-## skill CARD — directories as interests, and the eight extensions
+## skill CARD — directories as advertisements, and the eight extensions
 
 Source: [skills/skill/CARD.yml](../../skills/skill/CARD.yml) (deeper:
 [SKILL.md](../../skills/skill/SKILL.md) · [GLANCE.yml](../../skills/skill/GLANCE.yml))
@@ -136,7 +131,7 @@ instances), three-tier persistence (platform → narrative → state), K-lines, 
 (semantic expansion, not string substitution), speed-of-light (many agents, many turns, one LLM
 call), CARD.yml with advertisements, ethical framing (room-based inheritance of performance
 context), and ambient skills. **`directories_as_advertisements`** — directory listings are *virtual
-interests* for the LLM: well-written filenames are recognizable K-lines, `ls` output IS the
+advertisements* for the LLM: well-written filenames are recognizable K-lines, `ls` output IS the
 semantic index, and **big-endian naming** puts the most significant component first
 (`2026-01-24-description.yml`, `RUN-001-name.yml`, `CARD.yml`) so sorted listings read as
 outlines. With anti-examples: `example1.yml` says nothing; `fluxx-amsterdam-001.yml` buries the

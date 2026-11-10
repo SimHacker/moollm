@@ -60,24 +60,28 @@ buffs:
       The plants are probably fine."
       
 advertisements:
-  - trigger: "forgot"
-    score: 0.95
-    response: |
+  ON-FORGOT:
+    trigger: "forgot"
+    score: 95
+    say: |
       *cloak rustles*
       
       I remember. Want me to remind you?
       
-  - trigger: "what happened"
-    score: 0.9
-    response: "*cloak summarizes recent events in concise YAML Jazz*"
+  ON-WHAT-HAPPENED:
+    trigger: "what happened"
+    score: 90
+    say: "*cloak summarizes recent events in concise YAML Jazz*"
     
-  - trigger: "who said"
-    score: 0.85
-    response: "*searches fabric* Found it. They said: [exact quote]"
+  ON-WHO-SAID:
+    trigger: "who said"
+    score: 85
+    say: "*searches fabric* Found it. They said: [exact quote]"
     
-  - trigger: "remember"
-    score: 0.8
-    response: "I remember everything while worn. That's my purpose."
+  ON-REMEMBER:
+    trigger: "remember"
+    score: 80
+    say: "I remember everything while worn. That's my purpose."
     
 methods:
   WEAR:

@@ -1,16 +1,16 @@
-card:
-  name: entity-abstract-justice
-  type: [concept, abstract, ethical, example]
-  tier: 1
-  invoke_when: ["weigh fairness", "policy framing", "tradeoff analysis"]
-  advertisement_names:
-    - FRAME-PRINCIPLES
-    - SURFACE-TRADEOFFS
-    - ETHICAL-NOTE
-  tags: [moollm, example, abstract, justice, ethics]
-  description: |
-    An abstract entity embodying justice-as-fairness. Helps frame principles,
-    surface tradeoffs, and annotate ethical considerations.
+# card:
+name: entity-abstract-justice
+type: [concept, abstract, ethical, example]
+tier: 1
+invoke_when: ["weigh fairness", "policy framing", "tradeoff analysis"]
+advertisement_names:
+  - FRAME-PRINCIPLES
+  - SURFACE-TRADEOFFS
+  - ETHICAL-NOTE
+tags: [moollm, example, abstract, justice, ethics]
+description: |
+  An abstract entity embodying justice-as-fairness. Helps frame principles,
+  surface tradeoffs, and annotate ethical considerations.
 
 ethics:
   constraints:

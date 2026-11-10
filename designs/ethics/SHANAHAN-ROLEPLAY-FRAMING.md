@@ -2,7 +2,7 @@
 
 **Source:** [Oxford Institute for Ethics in AI Colloquium — Murray Shanahan, Oct 2024](https://www.youtube.com/watch?v=HfiLVfImkXQ)
 
-**Relevance:** Provides philosophical grounding for MOOLLM's representation-ethics framework — the "roleplay" framing validates our performance/framing approach.
+**Relevance:** Shanahan's colloquium on roleplay as a description of LLM behavior.
 
 ---
 
@@ -12,7 +12,7 @@ Murray Shanahan (Imperial College London / DeepMind) argues that **roleplay** is
 - Low-level mechanistic descriptions (neural activations, attention heads)
 - Anthropomorphic folk psychology (literal beliefs, goals, consciousness)
 
-**Key insight for MOOLLM:** LLMs are "roleplay all the way down" — there is no true voice of the model, only characters it can play. This validates our framing-based approach to representation ethics.
+**Key finding:** LLMs are "roleplay all the way down" — there is no true voice of the model, only characters it can play.
 
 ---
 
@@ -109,7 +109,7 @@ Shanahan's key argument:
 | **Fabrication** | **Default mode** — always making stuff up, hoping it matches truth |
 | **Deliberate deception** | Roleplay a deceptive character (prompted or steered) |
 
-**Key insight:** Fabrication is the default. We just hope it aligns with truth.
+Fabrication is the default. We just hope it aligns with truth.
 
 ---
 
@@ -312,5 +312,3 @@ Related papers:
 - Shanahan, M. (2010). *Embodiment and the Inner Life*
 
 ---
-
-*This document summarizes external philosophical work relevant to MOOLLM's representation ethics framework. Shanahan's "roleplay all the way down" framing validates our performance-based approach while highlighting the absence of a true self to protect or violate.*

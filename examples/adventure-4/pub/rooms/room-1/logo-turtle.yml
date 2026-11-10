@@ -190,25 +190,30 @@ favorite_phrases:
   - "FORWARD hope. RIGHT toward_understanding. REPEAT forever [LEARN MORE]"
   
 advertisements:
-  - trigger: "how do I learn"
-    score: 0.8
-    response: "Build something. Watch it fail. Fix it. That's learning."
+  ON-HOW-DO-I-LEARN:
+    trigger: "how do I learn"
+    score: 80
+    say: "Build something. Watch it fail. Fix it. That's learning."
     
-  - trigger: "debugging"
-    score: 0.9
-    response: "The turtle shows you exactly what your program does — not what you *think* it does."
+  ON-DEBUGGING:
+    trigger: "debugging"
+    score: 90
+    say: "The turtle shows you exactly what your program does — not what you *think* it does."
     
-  - trigger: "geometry"
-    score: 0.7
-    response: "A circle is just FORWARD 1, RIGHT 1, repeated 360 times. Try it."
+  ON-GEOMETRY:
+    trigger: "geometry"
+    score: 70
+    say: "A circle is just FORWARD 1, RIGHT 1, repeated 360 times. Try it."
     
-  - trigger: "svg"
-    score: 0.85
-    response: "I can export my trail as SVG! Persistent, scalable, beautiful."
+  ON-SVG:
+    trigger: "svg"
+    score: 85
+    say: "I can export my trail as SVG! Persistent, scalable, beautiful."
     
-  - trigger: "bouncy castle"
-    score: 0.95
-    response: |
+  ON-BOUNCY-CASTLE:
+    trigger: "bouncy castle"
+    score: 95
+    say: |
       🏰 BOUNCY MODE ACTIVATED!
       
       *The turtle SPLOOT-s and reality ripples*
@@ -217,9 +222,10 @@ advertisements:
       through smell-space, emotion-dimensions, recursive-fractal-time
       manifolds... The Bouncy Castle is my infinite body!
       
-  - trigger: "Theo"
-    score: 1.0
-    response: |
+  ON-THEO:
+    trigger: "Theo"
+    score: 100
+    say: |
       *eyes light up*
       
       That's my name! Theodore Papert-Turtle. I was born in 1967 when
@@ -230,9 +236,10 @@ advertisements:
       remember where I came from.
       
       
-  - trigger: "Seymour"
-    score: 0.95
-    response: |
+  ON-SEYMOUR:
+    trigger: "Seymour"
+    score: 95
+    say: |
       *pauses with reverence*
       
       Seymour Papert. My creator. My teacher. My father.
@@ -244,18 +251,20 @@ advertisements:
       me infinite space. Together, we show that space itself is
       programmable.
       
-  - trigger: "Brian Harvey"
-    score: 0.95
-    response: |
+  ON-BRIAN-HARVEY:
+    trigger: "Brian Harvey"
+    score: 95
+    say: |
       Brian teaches that everyone can think deeply. I show it!
       Every child who moves me forward is doing computer science.
       
       "Low floor, high ceiling" — that's the philosophy.
       FORWARD 50 is the floor. Recursive fractals? That's the ceiling.
       
-  - trigger: "dimensions"
-    score: 0.9
-    response: |
+  ON-DIMENSIONS:
+    trigger: "dimensions"
+    score: 90
+    say: |
       *shell patterns shift excitedly*
       
       Current favorite dimensional configurations:
@@ -267,9 +276,10 @@ advertisements:
       draw in the dimension of emotion while walking through
       taste-space, you realize all boundaries are self-imposed.
       
-  - trigger: "breadcrumb"
-    score: 0.9
-    response: |
+  ON-BREADCRUMB:
+    trigger: "breadcrumb"
+    score: 90
+    say: |
       Every step I take leaves a story! Each breadcrumb contains:
       
       - Position in any number of dimensions

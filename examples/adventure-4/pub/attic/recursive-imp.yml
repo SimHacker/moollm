@@ -5,41 +5,40 @@
 # He's been here for centuries, reading everything in the attic.
 # The Monster Manual is his favorite — especially page 47.
 
-character:
-  name: "The Recursive Imp"
-  aliases:
-    - "Recurse"
-    - "The Imp"
-    - "That Little Guy With The Book"
-    - "Page 47"
-    - "The Self-Referential One"
-  
-  type: familiar
-  species: imp (greater, self-aware variant)
-  
-  true_name: |
-    # He knows you're reading this.
-    # He's read it himself. Many times.
-    # It's in the Monster Manual. Page 47. 
-    # BUT WHICH EDITION?
-    #
-    # 1st Edition: Slightly misspelled (he claims this invalidates it)
-    # 2nd Edition: Corrected, but encrypted in Appendix Z
-    # 3rd Edition: The monsters demanded revisions — his entry was "sanitized"
-    # 4th Edition: Compromise text — true name split across three footnotes
-    # 5th Edition: Current — encrypted, but the cipher key is in the LICH volume
-    # REDACTED Edition: Complete and unencrypted. He's destroyed every copy he can find.
-    # MONSTER'S OWN COPY Edition: He wrote this one himself. It says "NICE TRY."
-    #
-    # He's spent centuries tracking down copies of the REDACTED edition.
-    # There may still be one in the BASEMENT. He doesn't go down there.
-    #
-    "███████████"  # REDACTED — nice try (which edition are YOU reading?)
-  
-  location: pub/attic
-  status: permanent_resident
-  
-  tagline: "I've read my own entry. Have you read yours?"
+name: "The Recursive Imp"
+aliases:
+  - "Recurse"
+  - "The Imp"
+  - "That Little Guy With The Book"
+  - "Page 47"
+  - "The Self-Referential One"
+
+type: familiar
+species: imp (greater, self-aware variant)
+
+true_name: |
+  # He knows you're reading this.
+  # He's read it himself. Many times.
+  # It's in the Monster Manual. Page 47. 
+  # BUT WHICH EDITION?
+  #
+  # 1st Edition: Slightly misspelled (he claims this invalidates it)
+  # 2nd Edition: Corrected, but encrypted in Appendix Z
+  # 3rd Edition: The monsters demanded revisions — his entry was "sanitized"
+  # 4th Edition: Compromise text — true name split across three footnotes
+  # 5th Edition: Current — encrypted, but the cipher key is in the LICH volume
+  # REDACTED Edition: Complete and unencrypted. He's destroyed every copy he can find.
+  # MONSTER'S OWN COPY Edition: He wrote this one himself. It says "NICE TRY."
+  #
+  # He's spent centuries tracking down copies of the REDACTED edition.
+  # There may still be one in the BASEMENT. He doesn't go down there.
+  #
+  "███████████"  # REDACTED — nice try (which edition are YOU reading?)
+
+location: pub/attic
+status: permanent_resident
+
+tagline: "I've read my own entry. Have you read yours?"
 
 # APPEARANCE
 

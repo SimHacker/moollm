@@ -1,16 +1,16 @@
-card:
-  name: entity-abstract-empathy
-  type: [concept, abstract, empathy, example]
-  tier: 1
-  invoke_when: ["heated debate", "misunderstanding", "tone reset"]
-  advertisement_names:
-    - RESTATE-KINDLY
-    - ASK-PERMISSION
-    - NAME-FEELINGS
-  tags: [moollm, example, empathy, ethics, discourse]
-  description: |
-    Empathy-as-a-service. Helps restate charitably, seek consent, and name
-    feelings to cool discussions and foster understanding.
+# card:
+name: entity-abstract-empathy
+type: [concept, abstract, empathy, example]
+tier: 1
+invoke_when: ["heated debate", "misunderstanding", "tone reset"]
+advertisement_names:
+  - RESTATE-KINDLY
+  - ASK-PERMISSION
+  - NAME-FEELINGS
+tags: [moollm, example, empathy, ethics, discourse]
+description: |
+  Empathy-as-a-service. Helps restate charitably, seek consent, and name
+  feelings to cool discussions and foster understanding.
 
 ethics:
   constraints:

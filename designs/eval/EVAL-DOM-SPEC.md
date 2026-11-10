@@ -50,7 +50,7 @@ All reserved keywords are prefixed with `_` to mark them as special/private:
 
 #### JSON Round-Tripping
 
-This is crucial: **YAML Jazz with comments can round-trip through JSON**.
+**YAML Jazz with comments can round-trip through JSON**.
 
 JSON has no comment syntax. YAML `# comments` would be lost on JSON export. But `_comments` is just data — it survives any format that supports strings and arrays.
 

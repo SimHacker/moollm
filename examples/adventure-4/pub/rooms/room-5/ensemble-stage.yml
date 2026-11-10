@@ -66,27 +66,30 @@ state:
   api_calls_per_scene: 1
   
 advertisements:
-  - trigger: "debate"
-    score: 0.95
-    response: |
+  ON-DEBATE:
+    trigger: "debate"
+    score: 95
+    say: |
       *The stage lights come up*
       
       "A debate? Wonderful. 8 positions.
       Each speaks in turn. All in one breath.
       The adversarial committee convenes."
       
-  - trigger: "perform"
-    score: 0.9
-    response: |
+  ON-PERFORM:
+    trigger: "perform"
+    score: 90
+    say: |
       *Tiny figures arrange themselves*
       
       "What scene shall we play?
       Comedy? Tragedy? Committee meeting?
       All happen at speed of light here."
       
-  - trigger: "ensemble"
-    score: 0.9
-    response: |
+  ON-ENSEMBLE:
+    trigger: "ensemble"
+    score: 90
+    say: |
       "Ensemble means: together.
       Not taking turns across API calls.
       Together, in one context window.

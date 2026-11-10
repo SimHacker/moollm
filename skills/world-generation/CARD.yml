@@ -5,7 +5,8 @@
 
 id: world-generation
 name: "World Generation"
-type: [skill, creation, game]
+type: skill
+tags: [creation, game]
 emoji: 🌱
 rarity: uncommon
 
@@ -68,9 +69,9 @@ principle: |
 advertisements:
   EXPAND-WORLD:
     score: 90
-    condition: "Exploring beyond known areas"
+    score_if: "Exploring beyond known areas"
   CREATE-PLACE:
     score: 85
-    condition: "Need a new location"
+    score_if: "Need a new location"
 
 see_also: [skills/room, skills/adventure]

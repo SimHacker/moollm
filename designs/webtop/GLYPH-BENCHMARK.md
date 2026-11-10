@@ -7,7 +7,7 @@
 > semantic pyramid is a great way to grok something. — Don
 
 Simon Willison's "draw an SVG of a pelican riding a bicycle" is the best-known informal LLM
-comparison test, and it earns its place: cheap, memorable, hard to game, and it exposes the gap
+comparison test: cheap, memorable, hard to game, and it exposes the gap
 between describing a thing and constructing one. But it has no **referent**. There is no fact of the
 matter about what a pelican on a bicycle should look like, so scoring is vibes, and the only failure
 it can detect is incompetence.
@@ -15,14 +15,14 @@ it can detect is incompetence.
 Ask for the glyph of a *specific document* and the referent appears. Now the question is not "is
 this a good drawing" but **"is this a drawing of that?"** — and that has an answer.
 
-## Why this is the right test for this design
+## The glyph
 
 The glyph is the top rung of the pyramid ([hub](README.md#the-semantic-pyramid)), the one below
 gwern's link-icon: small enough to be a pie slice, a graph node, or a symbol on a map. It is also
-the rung with the least prior art and the highest leverage, because it is the only rung that can be
+the only rung that can be
 **apprehended in parallel**. A page of a thousand abstracts is read serially and takes an afternoon.
 A contact sheet of a thousand glyphs is scanned pre-attentively, in seconds, and the outliers jump
-out. That asymmetry is the entire reason to want glyphs, and it is why judging glyphs is fast enough
+out. That asymmetry is why judging glyphs is fast enough
 to be a benchmark at n=1000.
 
 The other reason: **you cannot fake a glyph by extraction.** A model can produce a passable abstract
@@ -46,7 +46,7 @@ abstract — for each document. Then:
    named document, and to describe what the corpus is about. Time both. This tests the claim that
    the tip of the pyramid is where understanding happens.
 5. **Misleading rate.** Separate from wrong: how often does a glyph confidently suggest the wrong
-   subject? This is the only metric that matters for shipping, because a wrong glyph is worse than
+   subject? A wrong glyph is worse than
    no glyph — it is the thing people navigate by.
 
 Steps 1 and 2 are the core. Everything else is diagnostic.
@@ -55,7 +55,7 @@ There is a variant with a scoring function that needs no human raters at all —
 squares can be scored by hit rate against comparable documents, with maximum information at *p* = ½.
 See [SUMMARY-GENRES.md](SUMMARY-GENRES.md#why-the-bingo-card-is-a-better-benchmark-than-the-glyph).
 
-## The predicted failure, which is the point
+## The predicted failure
 
 Mean regression. The ambient `no-ai-slop` diagnosis — *specific becomes generic, nuanced becomes
 puffed* — should show up here as a **visual** phenomenon, which makes it measurable in a way prose

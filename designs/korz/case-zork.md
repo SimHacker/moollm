@@ -1,9 +1,9 @@
 # Case study: Zorkizing Adventure
 
-*Part of the [Korz cauldron](README.md). KORZ is an anagram of ZORK —
-and the pun turns out to be load-bearing: the adventure game shipped
+*Part of the [Korz cauldron](README.md). KORZ is an anagram of ZORK.
+The adventure game shipped
 symmetric context dispatch in 1979, and rebuilding it as Korz slots is
-the most concrete test of the whole [design](korz-prime/README.md).*
+a test of the [design](korz-prime/README.md).*
 
 ## Knuth got here first (half way)
 
@@ -37,7 +37,7 @@ dimension), all become ordinary addable dimensions, the cascade
 becomes the specificity lattice, and "you can't get there from here"
 degrades from error to improvisation in the soft tier.
 
-**Character and location are the load-bearing pair.** They're the two
+**Character and location.** They're the two
 dimensions MOOLLM already reifies as first-class directories —
 `characters/` and rooms, the adventure-game pair — which is why the
 [hosting story](korz-prime/hosting-moollm.md) works: the filesystem tree *is*

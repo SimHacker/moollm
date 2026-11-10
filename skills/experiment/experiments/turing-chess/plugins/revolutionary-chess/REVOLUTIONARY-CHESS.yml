@@ -818,9 +818,9 @@ spectator-mode:
     After the revolution, players:
     - Watch the civil war unfold
     - Earn MOOLAH through engagement
-    - Provide commentary (optional)
-    - Occasionally intervene (costs MOOLAH)
-    - Bet on outcomes (if gambling enabled)
+    - 'Provide commentary (optional)'
+    - 'Occasionally intervene (costs MOOLAH)'
+    - 'Bet on outcomes (if gambling enabled)'
     - Root for factions
     
   engagement-rewards:
@@ -1137,9 +1137,9 @@ phases:
         
     note: |
       Eliminations can happen in ANY ORDER:
-      - Queen first? Everyone gets Queen moves.
-      - Knight first? Everyone can jump.
-      - King first? Decapitation — chaos!
+      - 'Queen first? Everyone gets Queen moves.'
+      - 'Knight first? Everyone can jump.'
+      - 'King first? Decapitation — chaos!'
       
       Each elimination is INDEPENDENT. You don't need to follow
       a specific sequence. Hunt whoever is vulnerable.
@@ -1190,10 +1190,10 @@ phases:
     
     cost: |
       What does an elite have to offer?
-      - Position advantage (move to worse square)
-      - Protection commitment (must defend a pawn)
-      - Service obligation (must follow pawn orders for N turns)
-      - Material tribute (if carrying captured pieces somehow)
+      - 'Position advantage (move to worse square)'
+      - 'Protection commitment (must defend a pawn)'
+      - 'Service obligation (must follow pawn orders for N turns)'
+      - 'Material tribute (if carrying captured pieces somehow)'
       
     acceptance: |
       Commoners vote whether to accept the bribe.
@@ -1425,7 +1425,7 @@ elite-options:
     - "Rook (fortification)"
     - "Bishop (clergy)"
     - "Knight (cavalry)"
-    not: "Pawns don't negotiate. They take."
+  not: "Pawns don't negotiate. They take."
     
   when:
     - "When threatened with capture"
@@ -1480,7 +1480,7 @@ elite-options:
       "I'll bribe them! They can't have my leap!"
       
       But consider:
-      - Everyone eventually inherits knight moves anyway (from captured knights)
+      - 'Everyone eventually inherits knight moves anyway (from captured knights)'
       - Meanwhile the bribed knight is STUCK with just L-jump
       - While pawns accumulate Queen + Rook + Bishop + Knight
       - The bribed knight becomes the WEAKEST piece on the board
@@ -1857,7 +1857,7 @@ piece-consciousness:
       abandoned:
         trigger: "Piece A could have saved Piece B but didn't"
         A-thinks: "'I couldn't. The position demanded—'"
-        B-thinks: "'You LET me die.'" (if captured)
+        B-thinks: "\"'You LET me die.'\" (if captured)"
         survivors-think: "'We saw what happened. We remember.'"
         relationship: -10
         
@@ -1913,7 +1913,7 @@ piece-consciousness:
       - from-square
       - to-square
       - was-capture
-      - piece-captured (if any)
+      - 'piece-captured (if any)'
       - was-sacrifice
       - alternative-moves-considered
       - who-was-protected
@@ -2232,7 +2232,7 @@ drama:
     narration: |
       The King raises a white flag.
       
-      "I yield," he says. "Let me live."
+      '"I yield," he says. "Let me live."'
       
       The pawns pause. They could take him anyway.
       But if they accept... his moves become theirs.
@@ -2259,7 +2259,7 @@ drama:
       The {{ piece.type }} sees what happened to the King.
       Surrender means survival. Surrender means sharing.
       
-      "I too yield," says the {{ piece.type }}.
+      '"I too yield," says the {{ piece.type }}.'
       
       One by one, the elites fall in line.
       The faster they surrender, the faster equality arrives.
@@ -2322,7 +2322,7 @@ drama:
       slide orthogonally, leap over nothing
       (they inherited the jump too, eventually).
       
-      "At least I can still leap," the Knight mutters.
+      '"At least I can still leap," the Knight mutters.'
       
       A pawn zooms past like a Queen.
       "Leap over WHAT, Sir Knight?"
@@ -2358,7 +2358,7 @@ drama:
       A piece moves to capture another.
       Then stops.
       
-      "Why?" it asks.
+      '"Why?" it asks.'
       
       The other piece has the same moves. The same power.
       Killing it accomplishes nothing.

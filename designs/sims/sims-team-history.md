@@ -133,13 +133,13 @@ Chris Trottier's philosophy directly informs MOOLLM:
 | Moral Compass | `representation-ethics`, ethical framing inheritance |
 | 10+ years of consistency | Constitution and protocols maintain vision across sessions |
 
-**The Sims worked because of Chris Trottier.** She deserves to be remembered as one of the most important game designers of her generation.
+**The Sims worked because of Chris Trottier.**
 
 ---
 
 ## The Naming Saga
 
-The legendary quest for what to call the game:
+What to call the game:
 
 | Name | Status | Problem |
 |------|--------|---------|

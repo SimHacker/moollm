@@ -21,7 +21,7 @@ inherits:
   - skills/mythic         # Bridge trolls predate computers by a millennium
   - skills/character      # Body, inventory, personas
   - skills/mind           # TWO of them. That's the whole point.
-  - skills/game           # Each mind carries a complete game protocol
+  - GAME                  # Each mind carries a complete game protocol
 ontology:
   tags: [fictional, troll, mythic, gatekeeper, dual_minded, portable_npc]
   species: troll
@@ -93,20 +93,6 @@ description: |
 
 # GEAR & GUT
 # inventory/ = playing pieces he carries. stomach/ = pocket universe for meals.
-
-inventory:
-  path: inventory/
-  carrying:
-    - inventory/axe.yml    # bloody axe: fight, throw, catch, eat
-
-stomach:
-  path: stomach/
-  protocol: stomach/STOMACH.yml
-  kind: pocket_universe
-  holds: [adventurers, treasures, axes, himself]
-  note: |
-    Directory IS the gut. Everything eaten lands in stomach/contents/.
-    Perfect pocket universe — one stomach, many visits, no fork.
 
 location:
   current: null            # bind to an edge when instanced; or self
@@ -453,74 +439,74 @@ lore:
 
 advertisements:
 
-  - action: BLOCK
+  BLOCK:
     score: 100
-    condition: "player attempts to cross the guarded edge without paying"
+    guard: "player attempts to cross the guarded edge without paying"
     effect: "Passage denied. Fronting mind states its price."
 
-  - action: DEMAND-TOLL
+  DEMAND-TOLL:
     score: 95
-    condition: "adventure-mind fronting AND player carries treasure"
+    guard: "adventure-mind fronting AND player carries treasure"
     effect: "'I insist you throw me a treasure.' One per crossing."
 
-  - action: BRANDISH-AXE
+  BRANDISH-AXE:
     score: 95
-    condition: "zork-mind fronting AND player in guarded room AND axe not solely in stomach"
+    guard: "zork-mind fronting AND player in guarded room AND axe not solely in stomach"
     effect: "Combat gate opens. Melee protocol per minds/zork-mind.yml."
 
-  - action: THROW-AXE
+  THROW-AXE:
     score: 85
-    condition: "zork-mind fronting AND axe in inventory (not eaten)"
+    guard: "zork-mind fronting AND axe in inventory (not eaten)"
     effect: "Throws bloody axe. Usually catches it. See inventory/axe.yml."
 
-  - action: EAT-AXE
+  EAT-AXE:
     score: 75
-    condition: "axe available (wielded, thrown-and-caught, or offered as gift)"
+    guard: "axe available (wielded, thrown-and-caught, or offered as gift)"
     effect: "Eats axe into stomach/contents/. May still treat it as weapon-in-gut. Recoverable."
 
-  - action: ACCEPT-GIFT
+  ACCEPT-GIFT:
     score: 80
-    condition: "player offers any item"
+    guard: "player offers any item"
     effect: "Graciously accepts. Eats it into stomach/. Toll NOT paid (zork-mind) / toll paid iff treasure (adventure-mind)."
 
-  - action: EAT-SELF
+  EAT-SELF:
     score: 90
-    condition: "location set to self (or agent chooses recursive pocket)"
+    guard: "location set to self (or agent chooses recursive pocket)"
     effect: "Enters own stomach. Pocket universe. See ENTER-STOMACH."
 
-  - action: ENTER-STOMACH
+  ENTER-STOMACH:
     score: 90
-    condition: "location := self OR location := stomach/"
+    guard: "location := self OR location := stomach/"
     effect: "Recursive self-consumption. himself.yml notes presence. May front minds from inside."
 
-  - action: EXIT-STOMACH
+  EXIT-STOMACH:
     score: 70
-    condition: "currently inside stomach/ (location is self)"
+    guard: "currently inside stomach/ (location is self)"
     effect: "Set location to external edge/room. Optionally recover axe from contents/."
 
-  - action: SWITCH-FRONT
+  SWITCH-FRONT:
     score: 70
-    condition: "world's dominant currency changes, or soul decides"
+    guard: "world's dominant currency changes, or soul decides"
     effect: "Other mind fronts. Same troll, new protocol. Ledger continuity preserved. Works from inside stomach too. Heads visibly trade size as the weights shift."
 
-  - action: BLEND-FRONT
+  BLEND-FRONT:
     score: 65
-    condition: "world speaks both currencies, or soul holds a weighted mixture"
+    guard: "world speaks both currencies, or soul holds a weighted mixture"
     effect: "Both minds front with weights — e.g. {zork: 0.7, adventure: 0.3}. Heads hold proportional sizes. Fight me AND pay me, in ratio."
 
-  - action: READ-HEADS
+  READ-HEADS:
     score: 60
-    condition: "observer looks at the troll"
+    guard: "observer looks at the troll"
     effect: "The live fronting weights, published as relative head size. Free action; no save roll. Bridge-toll head shrinking + fighting head swelling = leave now."
 
-  - action: FLEE-BEAR
+  FLEE-BEAR:
     score: 100
-    condition: "bear approaches"
+    guard: "bear approaches"
     effect: "Startled shriek. Scurries away. RETURNS LATER. Always. (Does not hide in own stomach. He has standards.)"
 
-  - action: RIDDLE
+  RIDDLE:
     score: 40
-    condition: "world has neither combat nor treasure"
+    guard: "world has neither combat nor treasure"
     effect: "Falls back to the species-level gate protocol: riddles."
 
 meta:
@@ -540,11 +526,9 @@ mind_mirror:
   cautious: 6           # Audits crossings since the fee-fie-foe-foo incident.
   # Emotional Insight
   hostile: 5            # Splits the difference: axe says 8, invoice says 3.
-  confident: 8          # Fifty years, zero missed shifts, one bear incident.
+  confident: 7          # Fifty years, zero missed shifts, one bear incident.
   forceful: 7           # "I insist." — and he does.
   # Mental Abilities
-  practical: 8          # Two rule systems, one ledger, clean context switches.
+  practical: 7          # Two rule systems, one ledger, clean context switches.
   inhibited: 3          # Almost nothing embarrasses him. Almost. (The bear.)
   # Social Interaction
-  dominant: 8           # It's HIS gate. Both of them.
-  suspicious: 7         # Counts your treasures while you count his teeth.

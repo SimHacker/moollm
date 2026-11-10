@@ -16,7 +16,7 @@ The Clarendon Dry Pile at Oxford — the Oxford Electric Bell — is a pair of Z
 clapper between two bells at 2 Hz. It has rung on the order of **ten billion times** and holds the
 Guinness record as the world's most durable battery, *"delivering ceaseless tintinnabulation."*
 
-Three properties of that apparatus are the whole design, which is why the name was worth keeping:
+Three properties of that apparatus:
 
 | The pile | The repo |
 |---|---|
@@ -42,9 +42,6 @@ European Journal of Physics, 1984.`
   networks from where they sit.
 
 ## A directory is a guard, and `ls` is a gather
-
-This is the load-bearing claim and it is why the idea belongs next to Korz rather than in a style
-guide.
 
 Putting a file at `skills/design-sense/lenses/fitts.md` already asserts everything a guard would
 have to say:

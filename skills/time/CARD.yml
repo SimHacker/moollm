@@ -5,7 +5,8 @@
 
 id: time
 name: "Time"
-type: [skill, game, simulation]
+type: skill
+tags: [game, simulation]
 
 emoji: ⏰
 
@@ -106,13 +107,13 @@ distinction:
 advertisements:
   CONTROL-TIME:
     score: 90
-    condition: "Need to advance or pause time"
+    score_if: "Need to advance or pause time"
   MANAGE-TIME:
     score: 85
-    condition: "Need to control time flow"
+    score_if: "Need to control time flow"
   BUFF-DECAY:
     score: 80
-    condition: "Buffs need to tick down"
+    score_if: "Buffs need to tick down"
 
 # RELATED
 

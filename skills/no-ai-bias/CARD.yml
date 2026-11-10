@@ -13,9 +13,11 @@
 
 id: no-ai-bias
 name: "NO AI BIAS"
-type: [skill, meta, protocol, cross-cutting, parameter]
+type: skill
+tags: [meta, protocol, cross-cutting, parameter]
 emoji: "⚖️"
 tier: 0
+ambient: false
 tagline: "The dial, not the direction."
 
 description: |
@@ -192,23 +194,23 @@ advertisements:
 
   BIAS-TUNING:
     score: 95
-    condition: "Need to adjust a skill's intensity or direction"
+    score_if: "Need to adjust a skill's intensity or direction"
     
   INVERSION-TESTING:
     score: 90
-    condition: "Want to explore a skill's opposite behavior"
+    score_if: "Want to explore a skill's opposite behavior"
     
   MIXING-BOARD:
     score: 85
-    condition: "Need to configure multiple skills together"
+    score_if: "Need to configure multiple skills together"
     
   PRESET-APPLICATION:
     score: 80
-    condition: "Want a pre-built configuration (enterprise, creative, chaos)"
+    score_if: "Want a pre-built configuration (enterprise, creative, chaos)"
     
   DRAX-EXPLORATION:
     score: 75
-    condition: "Want to explore what happens at bias = 0"
+    score_if: "Want to explore what happens at bias = 0"
 
 # METHODS
 

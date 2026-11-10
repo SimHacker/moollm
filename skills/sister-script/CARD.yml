@@ -5,7 +5,8 @@
 
 id: sister-script
 name: "Sister Script"
-type: [skill, automation, methodology]
+type: skill
+tags: [automation, methodology]
 
 emoji: 👯
 
@@ -269,19 +270,19 @@ methodology:
 advertisements:
   AUTOMATE-PROCEDURE:
     score: 90
-    condition: "Repetitive task needs automation"
+    score_if: "Repetitive task needs automation"
     
   LIFT-TO-SCRIPT:
     score: 85
-    condition: "Procedure is stable, ready for code"
+    score_if: "Procedure is stable, ready for code"
     
   UNDERSTAND-SCRIPT:
     score: 88
-    condition: "Need to use or enhance existing CLI"
+    score_if: "Need to use or enhance existing CLI"
     
   STRUCTURE-FOR-LLM:
     score: 92
-    condition: "Writing script that LLM will interact with"
+    score_if: "Writing script that LLM will interact with"
 
 # EXAMPLE: MINIMAL CANONICAL SCRIPT
 

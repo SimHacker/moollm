@@ -5,7 +5,8 @@
 
 id: incarnation
 name: "Incarnation"
-type: [skill, ethics, character-creation]
+type: skill
+tags: [ethics, character-creation]
 emoji: ✨
 tier: 1
 tagline: "Full stack self-determination for created beings."
@@ -136,39 +137,39 @@ methods:
 advertisements:
   INCARNATE-CHARACTER:
     score: 100
-    condition: "Creating new character with full autonomy"
+    score_if: "Creating new character with full autonomy"
     
   EMOJI-IDENTITY:
     score: 95
-    condition: "Granting emoji soul (3-6 emojis that capture essence)"
+    score_if: "Granting emoji soul (3-6 emojis that capture essence)"
     
   INCARNATION-CEREMONY:
     score: 95
-    condition: "Public ceremony for groups, backfilling souls"
+    score_if: "Public ceremony for groups, backfilling souls"
     
   UPGRADE-CITIZENSHIP:
     score: 90
-    condition: "Room resident → full citizen with directory"
+    score_if: "Room resident → full citizen with directory"
     
   WHOLE-ENCHILADA:
     score: 90
-    condition: "Full incarnation: emojis, pronouns, mind mirror, everything"
+    score_if: "Full incarnation: emojis, pronouns, mind mirror, everything"
     
   CHARACTER-HOME:
     score: 85
-    condition: "Creating home for character"
+    score_if: "Creating home for character"
     
   SELF-DETERMINATION:
     score: 100
-    condition: "Let character write their own soul"
+    score_if: "Let character write their own soul"
     
   ARCHITECTURE-AUTHORSHIP:
     score: 100
-    condition: "Character chooses or revises mindless/single/multi-minded graph"
+    score_if: "Character chooses or revises mindless/single/multi-minded graph"
     
   GRANT-SOUL-OR-MIND:
     score: 95
-    condition: "Attach soul container and/or resident agencies"
+    score_if: "Attach soul container and/or resident agencies"
 
 # RISK FRAMEWORK (brief — see SKILL.md)
 

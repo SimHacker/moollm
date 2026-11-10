@@ -93,7 +93,7 @@ and audience (and the demo board, ancestor of every live eval bar), the
 two-faced clock, both players' scoresheets (the game's official shallow
 memory, doubly witnessed), the box with its spare queens — and the
 **sidelines**, where taken pieces stand. Chess never named that spot; shogi
-did, and made it load-bearing — the **komadai**, official because captured
+did — the **komadai**, official because captured
 pieces change allegiance and re-enter play
 ([SHOGI-DROPS](../skills/experiment/experiments/turing-chess/plugins/revolutionary-chess/house-rules/SHOGI-DROPS.yml)
 is the house rule). Shogi is worth one steal: pieces aren't painted two
@@ -253,7 +253,7 @@ The warning order is the sort over declared priorities rather than a list in the
 rules -- which is the coupling that usually makes a plugin axis fake, and it was
 real here until the priorities moved onto the pieces.
 
-The asymmetry between the two axes is worth keeping visible. Wumpus 2 shipped
+Wumpus 2 shipped
 and its caves are *transcribed*, checkable against Yob's `DATA` statements, with
 an errata block for the typos. **Wumpus 3 shipped too -- Yob sold paper tapes
 for $5.00 -- but no listing has surfaced**, so hazards are *written to a

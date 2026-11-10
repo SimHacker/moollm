@@ -424,7 +424,7 @@ scenery. Any response means the raft is a vehicle in this sense.
 
 ## Where the seam is in a browser: warping was the lurch all along
 
-Don's practical payoff, and it retires a workaround that has been load-bearing since NeWS. **The pie
+Don's practical payoff, and it retires a workaround used since NeWS. **The pie
 menu edge problem:** pop a menu near a screen or window edge and some slices land outside, so they
 cannot be selected. The classic fix is to **warp the pointer** — `XWarpPointer`, `SetCursorPos` —
 teleporting the cursor inward far enough that the menu fits.
@@ -604,8 +604,7 @@ that invisibility is not incidental to the abuse, it *is* the abuse.
 > master, whatever it depicts. A field they cannot perceive is being used on them.
 
 Which promotes [render the state, not the geometry](#visual-thickness-is-independent-of-both) from a
-usability rule to the load-bearing ethical requirement of the whole document. It was always the
-interesting half.
+usability rule to the ethical requirement of the whole document.
 
 Which gives the determinism criterion a second axis, and learnability stops being purely good:
 

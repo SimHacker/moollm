@@ -1,16 +1,16 @@
-card:
-  name: buff-chain-trigger
-  type: [skill, buff, trigger, example]
-  tier: 1
-  invoke_when: ["combo ready", "on trigger", "timer tick"]
-  advertisement_names:
-    - TRIGGER-BUFF
-    - INHIBIT-BUFF
-    - CHAIN-BUFF
-  tags: [moollm, example, buff, trigger, chain]
-  description: |
-    Demonstrates chaining, inhibiting, and trigger conditions. Uses natural
-    language guards to express when buffs fire or fizzle.
+# card:
+name: buff-chain-trigger
+type: [skill, buff, trigger, example]
+tier: 1
+invoke_when: ["combo ready", "on trigger", "timer tick"]
+advertisement_names:
+  - TRIGGER-BUFF
+  - INHIBIT-BUFF
+  - CHAIN-BUFF
+tags: [moollm, example, buff, trigger, chain]
+description: |
+  Demonstrates chaining, inhibiting, and trigger conditions. Uses natural
+  language guards to express when buffs fire or fizzle.
 
 advertisements:
   TRIGGER-BUFF:

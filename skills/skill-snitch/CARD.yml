@@ -10,46 +10,46 @@ dependencies:
   - cursor-mirror  # or other *-mirror for the orchestrator
 
 advertisements:
-  - id: SKILL-SCAN
+  SKILL-SCAN:
     trigger: startup
     optional: true
     description: Scan all skills for suspicious patterns on session start
     invoke_when: User enables startup security scan in preferences
 
 methods:
-  - name: INIT
+  INIT:
     description: Initialize or heal .moollm/skill-snitch/ directory
     invoke_when: First run or missing files detected
     auto: true
 
-  - name: SCAN
+  SCAN:
     description: Quick static scan of a skill
-    args: [skill_path]
+    parameters: [skill_path]
     
-  - name: AUDIT
+  AUDIT:
     description: Deep static audit with pattern matching
-    args: [skill_path]
+    parameters: [skill_path]
     
-  - name: SNITCH
+  SNITCH:
     description: Runtime surveillance - what did the skill actually do?
-    args: [skill_path, composer_id]
+    parameters: [skill_path, composer_id]
     
-  - name: TRUST
+  TRUST:
     description: Trust assessment combining static and runtime analysis
-    args: [skill_path, "composer_id?"]
+    parameters: [skill_path, "composer_id?"]
     
-  - name: CONSISTENCY
+  CONSISTENCY:
     description: Check skill files match (INDEX ↔ CARD ↔ SKILL.md ↔ code)
-    args: [skill_path]
+    parameters: [skill_path]
 
-  - name: OBSERVE
+  OBSERVE:
     description: Deep runtime observation via cursor-mirror — watch skill in action
-    args: [skill_path, composer_id]
+    parameters: [skill_path, composer_id]
     note: Requires user to actually exercise the skill while monitoring
 
-  - name: FETCH-SCAN
+  FETCH-SCAN:
     description: Scan a skill directly from a URL without downloading or installing
-    args: [url]
+    parameters: [url]
     note: |
       Accepts any URL and figures out what you mean:
       - GitHub repo URL → fetches CARD.yml, SKILL.md, scripts via raw.githubusercontent.com

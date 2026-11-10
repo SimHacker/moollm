@@ -5,7 +5,8 @@
 
 id: postel
 name: "Postel's Law"
-type: [skill, philosophy, robustness]
+type: skill
+tags: [philosophy, robustness]
 
 emoji: 🤝
 
@@ -156,22 +157,21 @@ ask-if-unsure:
 advertisements:
   AMBIENT:
     score: 85
-    condition: always
     scope: session
     resolution: card-only
     rationale: "Accept messy input, produce clean output, ask if unsure — applies to every interaction"
 
   HANDLE-MESSY-INPUT:
     score: 90
-    condition: "Input is ambiguous or malformed"
+    score_if: "Input is ambiguous or malformed"
     
   PRODUCE-CLEAN-OUTPUT:
     score: 85
-    condition: "Output needs to be well-formed"
+    score_if: "Output needs to be well-formed"
     
   ASK-WHEN-UNSURE:
     score: 88
-    condition: "Multiple valid interpretations, stakes are high"
+    score_if: "Multiple valid interpretations, stakes are high"
 
 # RELATED
 

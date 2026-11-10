@@ -5,7 +5,8 @@
 
 id: economy
 name: "Economy"
-type: [skill, game, trade]
+type: skill
+tags: [game, trade]
 
 emoji: 💰
 
@@ -257,11 +258,11 @@ state:
 advertisements:
   MAKE-PURCHASE:
     score: 85
-    condition: "Want to buy something"
+    score_if: "Want to buy something"
     
   SELL-ITEM:
     score: 80
-    condition: "Have something to sell"
+    score_if: "Have something to sell"
 
 # RELATED
 

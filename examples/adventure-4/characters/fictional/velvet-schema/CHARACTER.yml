@@ -101,7 +101,6 @@ sims:
 mind_mirror:
   friendly: 7            # Fluent in Church ritual and NO-AI constraint language alike
   enthusiastic: 6        # Flamboyant ambassador energy; provokes with purpose and flair
-  dominant: 6         # Translator between empires; the embassy is a hub
   well_informed: 6             # Moves between Church and NO-AI; speaks both dialects
   imaginative: 6            # Stage magician with a briefcase full of rubrics
   uninhibited: 6         # Provokes Aurum; theatrical flair; hidden channels
@@ -112,6 +111,7 @@ mind_mirror:
 
 # BARTLE PROFILE — Player Type Motivations
 # Rate 0-100, should roughly total 100
+  forceful: 6         # Translator between empires; the embassy is a hub
 bartle_profile:
   killer: 6
   achiever: 26

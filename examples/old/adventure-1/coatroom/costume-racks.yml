@@ -88,17 +88,14 @@ featured_costumes:
       - Squeaky toy (for morale)
 
 advertisements:
-  - action: BROWSE
-    score_if: "always"
+  BROWSE:
     description: "Look through the costume racks"
     
-  - action: SEARCH-FOR
-    score_if: "always"
+  SEARCH-FOR:
     description: "Look for a specific type of costume"
     example: "SEARCH FOR something with a cape"
     
-  - action: WEAR
-    score_if: "always"
+  WEAR:
     description: "Put on a costume"
     example: "WEAR the pirate captain costume"
     

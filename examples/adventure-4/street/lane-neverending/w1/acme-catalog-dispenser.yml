@@ -321,9 +321,10 @@ quotes:
      With ACME, it's probably both."
      
 advertisements:
-  - trigger: "catalog"
-    score: 0.8
-    response: |
+  ON-CATALOG:
+    trigger: "catalog"
+    score: 80
+    say: |
       *The dispenser creaks invitingly*
       
       FREE CATALOGS! Take one! Read one!
@@ -333,9 +334,10 @@ advertisements:
       
       ACME: Everything you need! (Terms and conditions apply.)
       
-  - trigger: "order"
-    score: 0.9
-    response: |
+  ON-ORDER:
+    trigger: "order"
+    score: 90
+    say: |
       *The speaker crackles*
       
       "Ready to order? Just say the word!

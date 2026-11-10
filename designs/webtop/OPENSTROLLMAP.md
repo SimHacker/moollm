@@ -54,8 +54,7 @@ Everything subjective, per-reader, and rebound whenever somebody picks up the ph
 - **Blooms** — [proximity-weighted attention](ROOM-STROLLING.md#slices-inside-an-arc-need-not-be-equal-the-bloom),
   which is a fact about where you are, not about the street.
 - **Assessments** — signed, owned, conflicting, compiled into an index rather than averaged into a score.
-- **Gloom** — the parts you have not ridden. A property of a reader, not of a city, and the single most
-  useful thing to render that OSM cannot hold.
+- **Gloom** — the parts you have not ridden. A property of a reader, not of a city, which OSM cannot hold.
 
 ## The two-way protocol
 

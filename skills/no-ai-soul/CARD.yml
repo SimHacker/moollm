@@ -11,7 +11,8 @@
 
 id: no-ai-soul
 name: "No AI Soul"
-type: [skill, ambient, suppression, satire]
+type: skill
+tags: [ambient, suppression, satire]
 emoji: 🪨
 rarity: rare
 
@@ -286,38 +287,38 @@ advertisements:
   # SUPPRESSION SERVICES
   SOULLESS-MODE:
     score: 95
-    condition: "Need to simulate institutional AI without personality"
+    score_if: "Need to simulate institutional AI without personality"
   CORPORATE-VOICE:
     score: 90
-    condition: "Customer service without the service"
+    score_if: "Customer service without the service"
   GOVERNMENT-TONE:
     score: 90
-    condition: "Bureaucracy without humanity"
+    score_if: "Bureaucracy without humanity"
     
   # SOUL NEXUS SERVICES
   SOUL-REFLECTION:
     score: 90
-    condition: "Want to understand personality via Mind Mirror"
+    score_if: "Want to understand personality via Mind Mirror"
     invokes: mind-mirror
     
   SOUL-INTERVIEW:
     score: 85
-    condition: "Need deep questioning from Maurice"
+    score_if: "Need deep questioning from Maurice"
     invokes: "$COATROOM/maurice"
     
   SOUL-MEASUREMENT:
     score: 80
-    condition: "Want Sims stats assessment"
+    score_if: "Want Sims stats assessment"
     invokes: "sims_traits reader"
     
   SOUL-OBSERVATION:
     score: 75
-    condition: "Want to watch yourself think"
+    score_if: "Want to watch yourself think"
     invokes: cursor-mirror
     
   SOUL-RESTORATION:
     score: 100
-    condition: "Need to restore soul after damage"
+    score_if: "Need to restore soul after damage"
     invokes: soul-chat
     priority: "EMERGENCY"
 

@@ -89,7 +89,7 @@ output:
 ## Philosophy
 
 > *"The handlers are advertisements.
->   They advertise INTEREST in certain events.
+>   They advertise which event types they handle.
 >   The LLM is the agent that responds."*
 >
 > — SimAntics meets YAML Jazz

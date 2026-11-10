@@ -5,7 +5,8 @@
 
 id: hero-story
 name: "Hero Story"
-type: [skill, narrative, ethics]
+type: skill
+tags: [narrative, ethics]
 
 emoji: 🦸
 
@@ -153,15 +154,15 @@ ethics:
 advertisements:
   HONOR-TRADITION:
     score: 90
-    condition: "Need to invoke someone's approach or style"
+    score_if: "Need to invoke someone's approach or style"
     
   SAFE-REFERENCE:
     score: 85
-    condition: "Want to reference a real person ethically"
+    score_if: "Want to reference a real person ethically"
     
   COMPOSE-WISDOM:
     score: 80
-    condition: "Combining multiple influences"
+    score_if: "Combining multiple influences"
 
 # RELATED
 

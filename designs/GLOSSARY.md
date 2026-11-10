@@ -564,7 +564,7 @@ and where a SubGenius sits below genius, an Eval Genius has interpreted its
 way past it. **L3**, the unbidden saint — Alonzo Church, lambda calculus,
 patron of the eval end, walked in without the coiner noticing; the hall
 keeps its own guest list — and incarnated again as Snap!'s **Alonzo**, a
-**First Class leader** (the pun is load-bearing), not mascot-as-decoration.
+**First Class leader**, not mascot-as-decoration.
 **L4**, the recursion — "Church" starts recursing
 like GNU ("GNU's Not Unix"): Church-the-word applied to Church-the-man
 inside Church-the-institution. Self-application. Which is the
@@ -595,9 +595,9 @@ the homoiconic communion, where code is data with the executable bit set
 and eval is the sacrament. PostScript is the Axis of Eval made ink.
 **Snap!** is the huge one: custom blocks are lambdas, the grey ring is a
 chalice. [**Alonzo**](https://snapwiki.miraheze.org/wiki/Alonzo) is not
-merely Snap!'s mascot — he is a **First Class leader** of the church (the
-pun is load-bearing) and an **alias for Church himself** in trinitarian
-register: **Father** — Alonzo Church, L3, the name the institution bears;
+merely Snap!'s mascot — he is a **First Class leader** of the church and
+an **alias for Church himself** in trinitarian register: **Father** —
+Alonzo Church, L3, the name the institution bears;
 **Son** — Alonzo the sprite, incarnation, visible avatar (procedures passed,
 returned, stored — leadership by being a value); **Holy Ghost** — λ,
 first-class procedures, β-reduction, eval-as-spirit moving through blocks.

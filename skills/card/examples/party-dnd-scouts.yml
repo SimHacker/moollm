@@ -1,16 +1,16 @@
-card:
-  name: party-dnd-scouts
-  type: [party, dnd, example]
-  tier: 1
-  invoke_when: ["overland travel", "stealth mission", "recon"]
-  advertisement_names:
-    - LIST-PARTY
-    - SCOUT-AHEAD
-    - SET-CAMP
-  tags: [moollm, example, dnd, party, scouts]
-  description: |
-    A light-footed scouting party: ranger, druid, bard, monk. Good for recon,
-    camp setup, and quiet approaches.
+# card:
+name: party-dnd-scouts
+type: [party, dnd, example]
+tier: 1
+invoke_when: ["overland travel", "stealth mission", "recon"]
+advertisement_names:
+  - LIST-PARTY
+  - SCOUT-AHEAD
+  - SET-CAMP
+tags: [moollm, example, dnd, party, scouts]
+description: |
+  A light-footed scouting party: ranger, druid, bard, monk. Good for recon,
+  camp setup, and quiet approaches.
 
 state:
   members:

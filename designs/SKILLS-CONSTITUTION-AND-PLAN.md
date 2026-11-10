@@ -29,7 +29,7 @@ MOOLLM extends the base skill model with eight architectural innovations. Each h
 | 5 | **Speed of light** | Many turns in one call, minimal tokenization. | Latency and round-trips are the real cost; one call can embody a full interaction. | 33-turn Fluxx, 21-turn cat prowl; instant telepathy; simulation without chat ping-pong. |
 | 6 | **CARD.yml** | Machine-readable interface: methods, tools, state schema, advertisements. | Orchestrators and tools need to know what a skill can do without reading prose. | Containment (allowed-tools), snitch (declared vs actual), discovery, plugin surfaces. |
 | 7 | **Ethical framing** | Room-based inheritance of performance context (framing, boundaries). | Ethics and tone should flow from place and context, not be bolted on. | Stage vs backstage; counters, walls, tardis patterns; representation and tribute protocols. |
-| 8 | **Ambient skills** | Always-on behavioral shaping (no-AI hygiene suite). | Some constraints should apply to every turn without explicit invocation. | no-ai-slop, no-ai-gloss, no-ai-sycophancy, no-ai-hedging, no-ai-moralizing, postel, robust-first, yaml-jazz. |
+| 8 | **Ambient skills** | Always-on behavioral shaping (no-AI hygiene suite). | Some constraints should apply to every turn without explicit invocation. | no-ai-slop, no-ai-gloss, no-ai-sycophancy, no-ai-hedging, no-ai-moralizing, no-ai-humansplaining, postel, robust-first, yaml-jazz, design-sense, copy-that. |
 
 **And growing.** Further extensions and conventions are part of the same constitution:
 

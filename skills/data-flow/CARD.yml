@@ -5,7 +5,8 @@
 
 id: data-flow
 name: "Data Flow"
-type: [skill, programming, pipeline]
+type: skill
+tags: [programming, pipeline]
 
 emoji: 🔀
 
@@ -91,11 +92,11 @@ pattern:
 advertisements:
   BUILD-PIPELINE:
     score: 90
-    condition: "Need to process data through multiple stages"
+    score_if: "Need to process data through multiple stages"
     
   ROUTE-OBJECTS:
     score: 85
-    condition: "Objects need to flow between rooms"
+    score_if: "Objects need to flow between rooms"
 
 # RELATED
 

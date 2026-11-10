@@ -474,7 +474,7 @@ The Sims advertisement system maps naturally to A2UI buttons:
 | `EVALUATE` from "Val" | `Button` with `action: "evaluate"` | `userAction: { name: "evaluate" }` |
 | `GO-NORTH` exit | `Button` with `action: "go-north"` | `userAction: { name: "go-north" }` |
 
-This is the **iLoci vision realized**: rooms with things you can interact with, rendered natively, connected by exits.
+Rooms with things you can interact with, rendered natively, connected by exits.
 
 ---
 
@@ -1006,7 +1006,7 @@ This approach uses A2UI's Lit renderer directly, without OpenClaw. Good for test
 
 ### The Canvas `eval` Escape Hatch
 
-OpenClaw's canvas tool has an `eval` action that executes arbitrary JavaScript in the canvas context. This is the nuclear option for custom UI:
+OpenClaw's canvas tool has an `eval` action that executes arbitrary JavaScript in the canvas context.
 
 ```bash
 openclaw nodes canvas eval --js "

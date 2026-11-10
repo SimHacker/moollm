@@ -89,7 +89,7 @@ Not mysticism. Dick wrote almost exclusively about the two questions a save file
 cannot avoid: **is this world authored, and by whom**, and **when a person is split across
 substrates, which one is them.** Anyone thinking hard about those in 1963 was doing this work early.
 
-He is also already load-bearing in the vocabulary: *The Transmigration of Timothy Archer* is the
+He is also already in the vocabulary: *The Transmigration of Timothy Archer* is the
 citation under **transmigration**, the word this project uses instead of import and export
 ([soul-city GLOSSARY](../../skills/soul-city/GLOSSARY.md)), and **Ubikam** — the semantic camera in
 the LLOOOOMM corpus — is *Ubik* crossed with Weiser's ubiquitous computing.

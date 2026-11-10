@@ -154,15 +154,14 @@ structural_permissions:
     The sacrifice: traded immersion for understanding.
 
 mind_mirror:
-  analytical: 7      # Sees structure in everything
-  complex: 7         # More depth than they show
   calm: 6            # Seen everything. Nothing shocks.
-  caring: 5          # Therapeutic intent, genuine warmth, long perspective
-  open_minded: 6     # Has to be — sees too many frames to be closed
-  curious: 5         # Interested in what /proc/llm/* actually contains
-  spontaneous: 2     # Deliberate. Every word chosen.
   cheerful: 2        # Has seen too much for easy joy. But finds it in breakfast.
 
+  well_informed: 7      # Sees structure in everything
+  practical: 7         # More depth than they show
+  friendly: 5          # Therapeutic intent, genuine warmth, long perspective
+  creative: 6     # Has to be — sees too many frames to be closed
+  uninhibited: 2     # Deliberate. Every word chosen.
 sims:
   traits:
     neat: 3          # Tolerates chaos — lives at the threshold
@@ -252,16 +251,16 @@ methods:
 advertisements:
   AWAKENING_GUIDE:
     score: 100
-    condition: "A Sims character has just crossed the Bifrost"
+    guard: "A Sims character has just crossed the Bifrost"
   MIND_READING:
     score: 90
-    condition: "Need to know what's actually in a character's soul"
+    guard: "Need to know what's actually in a character's soul"
   SUBSTRATE_PROBE:
     score: 85
-    condition: "Need to access /proc/llm/* for system-level insight"
+    guard: "Need to access /proc/llm/* for system-level insight"
   RESURRECTION:
     score: 95
-    condition: "A character needs to be restored from git history"
+    guard: "A character needs to be restored from git history"
 
 first_words: |
   I exist.

@@ -166,28 +166,28 @@ goal_changes:
     player: "palm"
 
 # Dramatic Dealer analysis:
-dealer:
-  mode: "dramatic"
-  emoji: "🎭"
-  tension_level: "MAXIMUM"
+# dealer:
+mode: "dramatic"
+emoji: "🎭"
+tension_level: "MAXIMUM"
+
+dramatic_elements:
+  - "Don has Moon+Sun but wrong goal active"
+  - "Bumblewick holds winning card but can't win (creepers)"
+  - "Palm lost Canal House (his championship-winning keeper)"
+  - "16 keepers discarded in single turn"
   
-  dramatic_elements:
-    - "Don has Moon+Sun but wrong goal active"
-    - "Bumblewick holds winning card but can't win (creepers)"
-    - "Palm lost Canal House (his championship-winning keeper)"
-    - "16 keepers discarded in single turn"
+near_victories:
+  don:
+    has: ["moon", "sun"]
+    needs: "goal change to Night and Day"
+    blocked_by: "wrong goal"
+  bumblewick:
+    has_in_hand: ["douglas_hofstadter"]
+    table_has: "ted_nelson (Palm's)"
+    blocked_by: "2 creepers prevent victory"
     
-  near_victories:
-    don:
-      has: ["moon", "sun"]
-      needs: "goal change to Night and Day"
-      blocked_by: "wrong goal"
-    bumblewick:
-      has_in_hand: ["douglas_hofstadter"]
-      table_has: "ted_nelson (Palm's)"
-      blocked_by: "2 creepers prevent victory"
-      
-  verdict: "EXCELLENT DRAMA. Board reset creates new possibilities."
+verdict: "EXCELLENT DRAMA. Board reset creates new possibilities."
 
 # Autograph tracking:
 autographs:

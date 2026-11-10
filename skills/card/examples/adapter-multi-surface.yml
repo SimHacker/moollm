@@ -1,14 +1,14 @@
-card:
-  name: adapter-multi-surface
-  type: [skill, adapter, example]
-  tier: 1
-  invoke_when: ["capability needs multiple surfaces"]
-  advertisement_names:
-    - PING
-  tags: [moollm, example, adapter, proxy]
-  description: |
-    One ad, multiple surfaces. Keep card abstract; adapters map to MCP tool,
-    REST route, deeplink, or UI action outside the card.
+# card:
+name: adapter-multi-surface
+type: [skill, adapter, example]
+tier: 1
+invoke_when: ["capability needs multiple surfaces"]
+advertisement_names:
+  - PING
+tags: [moollm, example, adapter, proxy]
+description: |
+  One ad, multiple surfaces. Keep card abstract; adapters map to MCP tool,
+  REST route, deeplink, or UI action outside the card.
 
 advertisements:
   PING:

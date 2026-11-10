@@ -52,7 +52,7 @@ Kay"* — so the specific wording is web-attributed even in the paper that uses 
 framing is not in doubt and is Kay's own throughout the Smalltalk history writing; the exact sentence
 wants a primary cite before anyone quotes it in anger.
 
-The cell is the load-bearing part, not the network. A cell is a **membrane** with its own genome,
+The cell, not the network.  A cell is a **membrane** with its own genome,
 metabolising independently, addressed from outside by what it presents rather than what it contains.
 That is a directory, and it is why the TIES extension model is
 [endosymbiosis](../../skills/ties/TIES-SCHEMA.yml): a foreign schema arrives engulfed, keeps its own
@@ -60,7 +60,7 @@ genome, and the host never grows fields to accommodate it.
 
 ## What Plan 9 lacks: classes
 
-This is the diagnosis worth keeping, because it is precisely the gap TIES.yml was written into:
+The gap TIES.yml was written into:
 
 > As the filesystem's use has expanded, its semantics have become less clear. What do the timestamps
 > on a process represent? What about the size of a control file? [...] Can I use `cp` to take a
@@ -107,14 +107,14 @@ where the dictionary stack is the dispatch mechanism.
 gather along the axis the tree was cut on. The patent is that claim, nineteen years earlier, with
 inheritance attached and a filed date.
 
-## Why the in-band constraint is the whole reason git works
+## The in-band constraint
 
 `git` **does not store extended attributes.** A tree entry carries a path, a blob hash, and a mode
 that is effectively regular / executable / symlink / submodule. No xattrs, no owner, no ACLs, no
 timestamps. Anyone who has tried to make a metadata scheme survive a clone has met this.
 
 So a metasystem for a git repo has no choice but to be in-band: files and directories, or nothing.
-That constraint sounds like a limitation and is actually the licence, because Densmore and Rosenthal
+Densmore and Rosenthal
 proved a **full class system with inheritance fits inside it.** A screening layer is a much smaller
 ask than that.
 
@@ -172,7 +172,7 @@ fixed this with per-process namespaces. MOOFS fixes it the same way, and `/proc/
 **writing the file is the act of mounting** — makes the binding itself an ordinary object in the space
 it binds. That is Kell's third property, late binding, not bolted on but made editable.
 
-**A YAML control file is a Plan 9 control file that carries its own class.** This is the sharper point.
+**A YAML control file is a Plan 9 control file that carries its own class.**
 Kell's objection to control files is that they are semantically naked:
 
 > What do the timestamps on a process represent? What about the size of a control file? [...] It becomes

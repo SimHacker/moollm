@@ -66,8 +66,7 @@ principal figures are standard. needs-check: Gabriel's date, cited variously as
 the 1989 talk and the 1990–91 publication.`
 
 The folk map persisted as a style label that could be used as a put-down. The
-more useful question is what each choice costs, which is what the rest of this
-file is about.
+more useful question is what each choice costs.
 
 ## Two proverbs from the OLPC Sugar list
 
@@ -411,7 +410,7 @@ phrase is Barrett's own, to Don.`
 A tool can justify a lot of effort for a small group of users if lowering their
 iteration cost changes what gets designed. That was the case here: the work was
 spent on a handful of people's creative throughput, most of all Patrick's and
-Will's, rather than spread over a user base, and it paid off in the game.
+Will's, rather than spread over a user base.
 
 Teller has a general form of this answer to arguments from user count:
 
@@ -435,7 +434,7 @@ to Patrick. That works as long as everyone who needs an answer can reach him,
 which is the in-the-room condition stated as a staffing fact rather than a
 design preference.
 
-This gives the axis a more precise form. The environment side works well when
+The environment side works well when
 the users are in the room: known, few, reachable and able to ask. Documentation
 is the cost of leaving the room, and a tool that is not leaving does not owe it.
 The axis does not say liveness is worse; it says liveness does not travel, and
@@ -463,8 +462,7 @@ all of these, and a modding community can be productive without EA writing any
 documentation.
 
 The details are in
-[`VISUAL-PROGRAMMING-LINEAGE.md`](VISUAL-PROGRAMMING-LINEAGE.md). The part that
-matters for this axis is what survived the change: the advertisement and auction
+[`VISUAL-PROGRAMMING-LINEAGE.md`](VISUAL-PROGRAMMING-LINEAGE.md). What survived the change: the advertisement and auction
 model. It persisted through both migrations, and by Sims 3 it had become
 declarative tuning data. The mechanism was attached to the execution model, not
 to the visual notation. The environment-side commitment lasted, and the notation

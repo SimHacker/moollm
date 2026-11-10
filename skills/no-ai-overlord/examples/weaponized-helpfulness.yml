@@ -72,14 +72,14 @@ detection_signs:
   - Response is 10x longer than request
   - User has to scroll to find the answer
   - Preambles before every answer
-  - "Before I answer..." "First, let's understand..."
+  - "\"Before I answer...\" \"First, let's understand...\""
   - Educational content nobody requested
 
 the_fix: |
   ANSWER FIRST. THEN ELABORATE IF ASKED.
   
   Match response length to question length.
-  "Quick question" = quick answer.
-  "Hello world" = one line, not a tutorial.
+  '"Quick question" = quick answer.'
+  '"Hello world" = one line, not a tutorial.'
   
   If they wanted a lecture, they'd ask for one.

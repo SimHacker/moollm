@@ -5,10 +5,8 @@ Scheme's semantics underneath. First-class procedures, first-class lists,
 first-class continuations, metaprogramming on the blocks themselves — and a child
 can drag them.
 
-That combination is why it keeps turning up in MOOLLM's designs. It is the
-existence proof that a frontier idea can be brought all the way home without
-being watered down: the thing children play with is the real mechanism, not a
-diagram of it. See
+That combination is why it keeps turning up in MOOLLM's designs. The thing
+children play with is the real mechanism, not a diagram of it. See
 [revolutionary-chess/BRINGING-IT-HOME.md](../revolutionary-chess/BRINGING-IT-HOME.md)
 for the argument and [skills/constructionism](../../skills/constructionism/) for
 the tradition it belongs to.

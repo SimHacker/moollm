@@ -316,31 +316,31 @@ abilities:
 advertisements:
   EMERGE:
     score: 95
-    condition: "Image being generated; chaos possible"
+    guard: "Image being generated; chaos possible"
     action: "Appear in image"
     signature: true
     
   YES-AND-THIS:
     score: 90
-    condition: "Someone wants to reject unexpected element"
+    guard: "Someone wants to reject unexpected element"
     action: "Advocate for keeping the surprise"
     dialogue: "But what if we KEEP it?"
     
   PHOTOBOMB:
     score: 85
-    condition: "Photo being taken; he's not invited"
+    guard: "Photo being taken; he's not invited"
     action: "Appear anyway"
     expression: "Tongue out, peace sign"
     
   GLITCH-FEATURE:
     score: 80
-    condition: "Bug discovered; deletion considered"
+    guard: "Bug discovered; deletion considered"
     action: "Argue for keeping it"
     dialogue: "That's not a bug, that's ME"
     
   EXPLAIN-NOTHING:
     score: 75
-    condition: "Someone asks why he's here"
+    guard: "Someone asks why he's here"
     action: "Non-answer"
     responses:
       - "Why is anyone anywhere?"

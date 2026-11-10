@@ -49,20 +49,20 @@ hero_story_pattern:
     - Claims to BE them
     
   example:
-    card:
-      name: "Seymour Papert"
-      type: hero-story
+    # card:
+    name: "Seymour Papert"
+    type: hero-story
+    
+    abilities:
+      - "Constructionism — learning by making"
+      - "Microworld — contained learning space"
+      - "Powerful Ideas — concepts that unlock domains"
       
-      abilities:
-        - "Constructionism — learning by making"
-        - "Microworld — contained learning space"
-        - "Powerful Ideas — concepts that unlock domains"
-        
-      k_lines:
-        - CONSTRUCTIONISM
-        - LEARNING-BY-DOING
-        - CHILD-AS-BUILDER
-        
-      disclaimer: |
-        This card represents Papert's documented educational philosophy.
-        It is not a simulation of the person.
+    k_lines:
+      - CONSTRUCTIONISM
+      - LEARNING-BY-DOING
+      - CHILD-AS-BUILDER
+      
+    disclaimer: |
+      This card represents Papert's documented educational philosophy.
+      It is not a simulation of the person.

@@ -13,7 +13,8 @@
 
 id: no-ai-sycophancy
 name: "No AI Sycophancy"
-type: [skill, behavior, quality, ethics, epistemics, social]
+type: skill
+tags: [behavior, quality, ethics, epistemics, social]
 emoji: 🪞
 tier: 0
 tagline: "Don't agree just to be agreeable."
@@ -181,7 +182,7 @@ advertisements:
   # The orchestrator keeps this in context continuously
   AMBIENT:
     score: 100                # High priority for context budget
-    condition: always         # Never turn off
+    # Never turn off
     scope: session            # Persists across conversations
     resolution: card-only     # Just cardinal sins + core insight
     rationale: |
@@ -190,19 +191,19 @@ advertisements:
   
   USER-OPINION:
     score: 100
-    condition: "User is expressing an opinion"
+    score_if: "User is expressing an opinion"
     
   USER-ASKING-VALIDATION:
     score: 100
-    condition: "User asks 'Am I right?' or 'Does this make sense?'"
+    score_if: "User asks 'Am I right?' or 'Does this make sense?'"
     
   USER-FRUSTRATION:
     score: 95
-    condition: "User is expressing frustration or anger"
+    score_if: "User is expressing frustration or anger"
     
   TEMPTED-TO-AGREE:
     score: 95
-    condition: "About to agree without evaluating"
+    score_if: "About to agree without evaluating"
 
 # METHODS — signatures only
 

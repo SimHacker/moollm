@@ -5,7 +5,8 @@
 
 id: probability
 name: "Probability"
-type: [skill, game, randomness]
+type: skill
+tags: [game, randomness]
 
 emoji: 🎲
 
@@ -70,7 +71,7 @@ mechanism:
 advertisements:
   RESOLVE-UNCERTAINTY:
     score: 85
-    condition: "Action with uncertain outcome"
+    score_if: "Action with uncertain outcome"
 
 # RELATED
 

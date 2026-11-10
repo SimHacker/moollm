@@ -109,15 +109,15 @@ resolution:
   match_hash_prefixes: true
 
 # Export settings
-export:
-  # Include trailing newline in JSONL exports
-  trailing_newline: true
-  
-  # Default include types for JSONL
-  jsonl_include:
-    - messages
-    - tools
-    - thinking
+# export:
+# Include trailing newline in JSONL exports
+trailing_newline: true
+
+# Default include types for JSONL
+jsonl_include:
+  - messages
+  - tools
+  - thinking
 
 # Debug settings
 debug:

@@ -2,8 +2,7 @@
 
 **Source:** `~/GroundUp/git/gwern.net/js/` — 39 files, ~29k hand-written lines (plus
 generated bundles `script-GENERATED.js` ~24k and `head-GENERATED.js` ~7k). No framework:
-vanilla JS, global module objects, an event bus. This is the closest existing thing to the
-MOOLLM webtop's window layer, so it gets the deepest read.
+vanilla JS, global module objects, an event bus.
 
 ## Module map
 
@@ -143,9 +142,6 @@ bodies, transcluded blocks) flows through the identical pipeline as the initial 
 Key events: `GW.contentDidLoad/contentDidInject`, `Popups.popupDidSpawn`,
 `Collapse.collapseStateDidChange`, `Layout.layoutProcessorDidComplete`,
 `DarkMode.didSetMode`.
-
-This is the mechanism that makes windows-spawning-windows tractable — the exact problem a
-webtop multiplies.
 
 ## Sidenotes: margin as UI surface
 

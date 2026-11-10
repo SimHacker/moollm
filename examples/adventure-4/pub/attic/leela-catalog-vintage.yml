@@ -161,9 +161,10 @@ upgrade:
     smell: "Still has that wonderful old paper smell"
     
 advertisements:
-  - trigger: "catalog"
-    score: 0.9
-    response: |
+  ON-CATALOG:
+    trigger: "catalog"
+    score: 90
+    say: |
       *blows dust off*
       
       "Edition 12! This is a classic. Look at these prices..."
@@ -174,25 +175,28 @@ advertisements:
       but it's the SAME crate. Leela doesn't change designs
       that work."
       
-  - trigger: "vintage"
-    score: 0.95
-    response: |
+  ON-VINTAGE:
+    trigger: "vintage"
+    score: 95
+    say: |
       "This catalog is older than some of the guests downstairs.
       But flip to any page — every product listed is still
       available. Try that with an ACME catalog."
       
       *catalog does not explode*
       
-  - trigger: "leela"
-    score: 0.85
-    response: |
+  ON-LEELA:
+    trigger: "leela"
+    score: 85
+    say: |
       "Want to compare? There's a current Edition 47 in the
       lobby. But honestly? Most of what's in here is still
       exactly the same. Leela doesn't fix what isn't broken."
       
-  - trigger: "upgrade"
-    score: 1.0
-    response: |
+  ON-UPGRADE:
+    trigger: "upgrade"
+    score: 100
+    say: |
       *flips to back page*
       
       "See this perforated edge? Tear it out, fold it into
@@ -206,9 +210,10 @@ advertisements:
       
       *the paper airplane glows faintly, waiting*
       
-  - trigger: "paper airplane"
-    score: 0.95
-    response: |
+  ON-PAPER-AIRPLANE:
+    trigger: "paper airplane"
+    score: 95
+    say: |
       *you throw the paper airplane gently*
       
       It circles once... twice... glows golden...

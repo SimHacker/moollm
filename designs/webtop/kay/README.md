@@ -198,7 +198,7 @@ problems with limited degrees of freedom, and the multiple-views arrangement is 
 without giving up the deep dynamic language he wanted underneath: constrain the *view*, not the
 substrate.
 
-**The load-bearing requirement is comment preservation, and it is where this usually dies.** In
+**Comment preservation is where this usually dies.** In
 yaml-jazz, comments are semantic data that the model reads, not decoration — so an editor that
 round-trips a file and drops its comments has destroyed meaning, not formatting. That rules out the
 ordinary parse-and-re-emit pipeline (PyYAML discards comments by construction) and requires a
@@ -230,7 +230,7 @@ a promise rather than a mechanism.
 *Annotations for errors and kinds of measurements* is the signed assessment with its `evidence`
 dimension, described in 2007 as a property of good maps.
 
-**Gray boxes that pop open, which states our thesis better than we do:**
+**Gray boxes that pop open:**
 
 > "**the black and gray boxes that scaffold what they are doing can be popped open** and understood
 > and modified […] 'forward' is a black box initially, and very useful in that form. But there is a
@@ -256,8 +256,7 @@ Full extraction of all seven threads: [OLPC-2007.md](OLPC-2007.md).
 
 ## Views as watchers, from the MVC exchange
 
-Don asked Kay directly about the evolution of MVC and Morphic. The reply is short and every sentence
-in it is load-bearing here:
+Don asked Kay directly about the evolution of MVC and Morphic. The reply:
 
 > "**Things seem to hang on in computing just because they work a little bit.**
 >
@@ -323,7 +322,7 @@ each with a `donhopkins.com` node URL behind it:
 | node 140 | Visual programming |
 | node 132 | Programming languages |
 
-This is the substantive "discussions with Alan Kay" material, and it is public and Don's own archive.
+This is "discussions with Alan Kay" material, and it is public and Don's own archive.
 
 **Still to pin down:** the original venue and date of the "deserved to be successful" quote; whether
 the Kay/Rosenthal/Gosling email thread holds more that Don is willing to publish; whether the

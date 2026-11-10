@@ -1,26 +1,26 @@
-card:
-  name: worm-pointer
-  type: [character, cursor, worm, example]
-  tier: 1
-  invoke_when: ["crawl filesystem", "span structures", "eat/poop pipeline"]
-  advertisement_names:
-    - MOVE-WORM
-    - MOVE-HEAD
-    - MOVE-ASS
-    - EAT
-    - CHOMP
-    - POOP
-    - BARF
-    - STICK-UP-BUM
-  tags: [moollm, worm, cursor, pointer, pipeline]
-  description: |
-    A two-pointer worm (head/tail) that spans structures, inchworms through
-    directories and links, and can eat/poop/barf. Can pipe from one document to
-    another, or into a network of worms that eat each other's output. Head can
-    scan for patterns, chomp following text into its brain/parser, then emit
-    YAML/outbound tokens elsewhere. EAT/POOP/BARF/STICK-UP-BUM form a reversible
-    basis (undo/redo, serialize/deserialize). Default NOP worm leaves data
-    unchanged; length is distance between pointers (can be zero-length).
+# card:
+name: worm-pointer
+type: [character, cursor, worm, example]
+tier: 1
+invoke_when: ["crawl filesystem", "span structures", "eat/poop pipeline"]
+advertisement_names:
+  - MOVE-WORM
+  - MOVE-HEAD
+  - MOVE-ASS
+  - EAT
+  - CHOMP
+  - POOP
+  - BARF
+  - STICK-UP-BUM
+tags: [moollm, worm, cursor, pointer, pipeline]
+description: |
+  A two-pointer worm (head/tail) that spans structures, inchworms through
+  directories and links, and can eat/poop/barf. Can pipe from one document to
+  another, or into a network of worms that eat each other's output. Head can
+  scan for patterns, chomp following text into its brain/parser, then emit
+  YAML/outbound tokens elsewhere. EAT/POOP/BARF/STICK-UP-BUM form a reversible
+  basis (undo/redo, serialize/deserialize). Default NOP worm leaves data
+  unchanged; length is distance between pointers (can be zero-length).
 
 state:
   head: "."

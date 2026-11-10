@@ -6,7 +6,8 @@
 
 id: abstract
 name: "Abstract"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: 💭
 tier: 1
 
@@ -70,23 +71,23 @@ advertisements:
   
   PERSONIFY:
     score: 85
-    condition: "Want to give voice to an idea"
+    score_if: "Want to give voice to an idea"
     effect: "Concept becomes character"
     
   TEACH:
     score: 90
-    condition: "Learning through personification"
+    score_if: "Learning through personification"
     effect: "Pedagogical mascot explains"
     examples: ["Theo Logo Turtle teaches geometry"]
     
   VOICE:
     score: 80
-    condition: "Entity wants to speak"
+    score_if: "Entity wants to speak"
     effect: "Document/room/concept speaks"
     
   DEBATE:
     score: 75
-    condition: "Concepts in dialogue"
+    score_if: "Concepts in dialogue"
     effect: "Ideas argue with each other"
 
 # ABSTRACT TYPES
@@ -107,11 +108,11 @@ types:
     examples: [README.md, ROOM.yml]
     voice: "I contain..."
     
-  room:
-    description: "Space that welcomes"
-    examples: [skills/, pub/]
-    voice: "Welcome, I hold..."
-    
+  # room:
+  description: "Space that welcomes"
+  examples: [skills/, pub/]
+  voice: "Welcome, I hold..."
+  
   collective:
     description: "Group entity"
     examples: [Leela AI, The Committee]

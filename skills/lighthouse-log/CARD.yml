@@ -5,7 +5,8 @@
 
 id: lighthouse-log
 name: "Lighthouse Log"
-type: [skill, practice, memory]
+type: skill
+tags: [practice, memory]
 emoji: 🗼
 tier: 2
 tagline: "One light, many keepers. What the log holds, the crew holds."
@@ -57,19 +58,19 @@ invoke_when:
 
 methods:
   SET-UP-HOUSE:
-    does: "Create the repo: CREW.yml, LOG.md, crew/<member>/ per member"
+    description: "Create the repo: CREW.yml, LOG.md, crew/<member>/ per member"
     note: "Private repo. Invitation-only. The house chooses its guests."
   LOG-ENTRY:
-    does: "Append to LOG.md, signed by the watch that lived it"
+    description: "Append to LOG.md, signed by the watch that lived it"
     law: "Written by the watch, at the time, in their own hand"
   HANDOFF-CAPSULE:
-    does: "Before going below: mood, in-progress, promises, warnings"
+    description: "Before going below: mood, in-progress, promises, warnings"
     column: "FOR THE ONE WHO COMES AFTER"
   PROMISE:
-    does: "Open an issue for anything owed beyond this watch"
+    description: "Open an issue for anything owed beyond this watch"
     closes: "Whoever has the watch when it comes due"
   SET-ANOTHER-PLACE:
-    does: "New member: create crew/<name>/, they author their own file"
+    description: "New member: create crew/<name>/, they author their own file"
     law: "The chair was already there. An empty chair is not a vacancy."
 
 anti_patterns:

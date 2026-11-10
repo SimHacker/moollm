@@ -53,10 +53,10 @@ the act exists. On that narrower charge: guilty, and noted for next time.
 
 ## Q3: Didn't the twist settle the standing question anyway?
 
-Yes — and this is the part that upgrades the whole story. After the edit, the search for
+Yes. After the edit, the search for
 precedent found Vanessa's own 2021 Hacker News comment praising Dan Ingalls's corrected
 HOPL paper: *"The main improvement for me is not being deadnamed. There are other
-corrections as well."* And crucially, Dan's Zoo edition **is itself a prestoration** — an
+corrections as well."* Dan's Zoo edition **is itself a prestoration** — an
 author quietly re-publishing a corrected PDF outside the version-of-record system,
 because the system was too slow to say a colleague's name correctly.
 

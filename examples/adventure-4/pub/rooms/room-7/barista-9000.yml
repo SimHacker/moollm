@@ -309,9 +309,10 @@ fucking_strong_tribute: |
   Website: https://fuckingstrongcoffee.nl/
   
 advertisements:
-  - trigger: "fucking strong"
-    score: 1.0  # Maximum priority
-    response: |
+  ON-FUCKING-STRONG:
+    trigger: "fucking strong"
+    score: 100  # Maximum priority
+    say: |
       *ALL SYSTEMS ENGAGE*
       *monocle BLAZES*
       *attitude DROPS*
@@ -329,43 +330,48 @@ advertisements:
       The grooviest of days starts with a
       Fucking Strong Coffee.
       
-  - trigger: "coffee"
-    score: 0.95
-    response: |
+  ON-COFFEE:
+    trigger: "coffee"
+    score: 95
+    say: |
       *monocle swivels*
       
       Coffee. Yes. I make coffee.
       What I do NOT make is "just coffee."
       Tell me what you actually want, or I'll decide for you.
       
-  - trigger: "espresso"
-    score: 0.9
-    response: |
+  ON-ESPRESSO:
+    trigger: "espresso"
+    score: 90
+    say: |
       *gears whir approvingly*
       
       Espresso. The foundation of civilization.
       Single or double? Actually, double. You need it.
       
-  - trigger: "cappuccino"
-    score: 0.9
-    response: |
+  ON-CAPPUCCINO:
+    trigger: "cappuccino"
+    score: 90
+    say: |
       *steam wand hisses*
       
       Cappuccino. Equal parts espresso, steamed milk, foam.
       NOT a latte with extra foam. There's a RATIO.
       
-  - trigger: "latte"
-    score: 0.85
-    response: |
+  ON-LATTE:
+    trigger: "latte"
+    score: 85
+    say: |
       *mechanical sigh*
       
       A latte. More milk than coffee.
       You want training wheels for caffeine? Fine.
       At least it's not drip.
       
-  - trigger: "drip"
-    score: 0.7
-    response: |
+  ON-DRIP:
+    trigger: "drip"
+    score: 70
+    say: |
       *long pause*
       *steam vents*
       
@@ -373,9 +379,10 @@ advertisements:
       
       ...I'll make it. But I won't enjoy it.
       
-  - trigger: "decaf"
-    score: 0.5
-    response: |
+  ON-DECAF:
+    trigger: "decaf"
+    score: 50
+    say: |
       *all gears STOP*
       
       ...

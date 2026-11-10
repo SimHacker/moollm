@@ -31,6 +31,35 @@ from enum import Enum, auto
 from envelope import body
 
 
+def _mind_mirror_token(name: str) -> str:
+    """Hyphens, spaces, and dots are the same name. 'v.i.p.' and 'well-informed' match."""
+    return "".join(ch for ch in name.strip().lower().replace("-", "_").replace(" ", "_") if ch != ".")
+
+
+def mind_mirror_names() -> frozenset[str]:
+    """Octant names plus Plain Talk and Shrink-Rap, from the Mind Mirror card.
+
+    The gradient words are mileposts on a scale, not extra properties. 'unknown' and
+    'sad' sit on gradients; accepting them would make those words legal scores.
+    """
+    card = Path(__file__).resolve().parent.parent / "mind-mirror" / "CARD.yml"
+    data = yaml.safe_load(card.read_text(encoding="utf-8"))
+    props = data.get("properties") if isinstance(data, dict) else None
+    if not isinstance(props, dict) or not props:
+        raise RuntimeError(f"mind-mirror registry has no properties: {card}")
+    names = set()
+    for key, spec in props.items():
+        names.add(_mind_mirror_token(str(key)))
+        if not isinstance(spec, dict):
+            continue
+        for field in ("plain_talk", "shrink_rap"):
+            for word in spec.get(field) or []:
+                names.add(_mind_mirror_token(str(word)))
+    if not names:
+        raise RuntimeError(f"mind-mirror registry produced no names: {card}")
+    return frozenset(names)
+
+
 def main() -> int:
     """Main entry point — CLI structure only."""
     parser = argparse.ArgumentParser(
@@ -677,10 +706,12 @@ class Character(YAMLObject):
     Full Sims 1 personality block: traits (6), skills (7), needs (8),
     career, identity. Simple parameters → complex emergent behavior.
     
-    MIND MIRROR (Timothy Leary, 1985):
-    32 properties across 4 planes (Bio-Energy, Emotional Insight,
-    Mental Abilities, Social Interaction). Flat structure in YAML,
-    plane categories are for pedagogy and UI only.
+    MIND MIRROR (Timothy Leary, Electronic Arts, 1985):
+    32 octant names, four planes of eight, plus each octant's Plain Talk and
+    Shrink-Rap words, from skills/mind-mirror/CARD.yml. That registry is the
+    software's names. The 1950 circumplex is two axes (dominance/submission,
+    hostility/affiliation), a different instrument. Gradient words are mileposts
+    on a scale, not extra properties. Flat structure in YAML.
     
     DIALOGUE TREES:
     Characters can have conversation trees with branches.
@@ -718,13 +749,8 @@ class Character(YAMLObject):
     # Buffs
     active_buffs: list[dict] = field(default_factory=list)
     
-    # Standard Leary 32 property names
-    LEARY_32 = frozenset({
-        'energetic','calm','enthusiastic','restrained','cheerful','serious','easy_going','cautious',
-        'forceful','docile','confident','insecure','friendly','hostile','assertive','timid',
-        'well_informed','uninformed','logical','intuitive','imaginative','practical','uninhibited','inhibited',
-        'moralistic','pragmatic','conventional','unconventional','trusting','suspicious','dominant','submissive',
-    })
+    # Octant, Plain Talk, and Shrink-Rap tokens from skills/mind-mirror/CARD.yml.
+    MIND_MIRROR_NAMES = mind_mirror_names()
     
     # Standard sims sub-block keys
     SIMS_TRAITS = frozenset({'neat','outgoing','active','playful','nice','generous'})
@@ -1491,12 +1517,12 @@ class AdventureLinter:
         elif isinstance(mm, dict):
             character.mind_mirror = mm
             for k in mm:
-                if k not in Character.LEARY_32:
+                if _mind_mirror_token(str(k)) not in Character.MIND_MIRROR_NAMES:
                     self.report.add_event(LintEvent(
                         type=EventType.INVALID_SCHEMA,
                         severity=EventSeverity.ERROR,
                         path=rel,
-                        message=f"Non-standard mind_mirror property: '{k}' — not in Leary 32"
+                        message=f"Non-standard mind_mirror property: '{k}' — not an octant, plain-talk, or shrink-rap name in skills/mind-mirror/CARD.yml"
                     ))
             # Check values are in range 0-7
             for k, v in mm.items():
@@ -1533,12 +1559,12 @@ class AdventureLinter:
             mm_mods = persona_data.get('mind_mirror_modifiers')
             if mm_mods and isinstance(mm_mods, dict):
                 for k in mm_mods:
-                    if k not in Character.LEARY_32:
+                    if _mind_mirror_token(str(k)) not in Character.MIND_MIRROR_NAMES:
                         self.report.add_event(LintEvent(
                             type=EventType.INVALID_SCHEMA,
                             severity=EventSeverity.ERROR,
                             path=rel,
-                            message=f"Non-standard mind_mirror_modifier: '{k}' — not in Leary 32"
+                            message=f"Non-standard mind_mirror_modifier: '{k}' — not an octant, plain-talk, or shrink-rap name in skills/mind-mirror/CARD.yml"
                         ))
             
             # Validate sims_trait_modifiers if present

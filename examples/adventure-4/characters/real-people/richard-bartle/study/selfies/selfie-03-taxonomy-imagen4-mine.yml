@@ -69,7 +69,7 @@ cards:
     bartle_type: Explorer
     meaning: "Interacting WITH the world"
 
-  card_style:
+card_style:
     aesthetic: tarot-meets-playing-card
     quality: ornate, magical, significant
     size: larger than standard (for visual impact)
@@ -92,15 +92,15 @@ environment:
 
 palette:
   dominant:
-    - { color: warm brown, hex: "#8B4513", usage: bookshelves, background }
-    - { color: navy blue, hex: "#1E3A5F", usage: Richard's blazer }
-    - { color: cream white, hex: "#FFFDD0", usage: cards, shirt }
+    - '{ color: warm brown, hex: "#8B4513", usage: bookshelves, background }'
+    - "{ color: navy blue, hex: \"#1E3A5F\", usage: Richard's blazer }"
+    - '{ color: cream white, hex: "#FFFDD0", usage: cards, shirt }'
     
   card_colors:
-    - { suit: spade, hex: "#663399", name: purple }
-    - { suit: heart, hex: "#FF69B4", name: rose }
-    - { suit: diamond, hex: "#87CEEB", name: sky blue }
-    - { suit: club, hex: "#228B22", name: forest green }
+    - '{ suit: spade, hex: "#663399", name: purple }'
+    - '{ suit: heart, hex: "#FF69B4", name: rose }'
+    - '{ suit: diamond, hex: "#87CEEB", name: sky blue }'
+    - '{ suit: club, hex: "#228B22", name: forest green }'
 
 # COMPOSITION
 

@@ -8,9 +8,9 @@
 
 ## Executive Summary
 
-The Stanford team that created Generative Agents (Smallville) has developed a method to create agents that simulate **real individuals** with unprecedented accuracy. By using 2-hour qualitative interviews rather than demographic prompts, agents achieve **85% normalized accuracy** — meaning they replicate human responses 85% as accurately as humans replicate their own responses two weeks later.
+The Stanford team that created Generative Agents (Smallville) built agents from 2-hour qualitative interviews rather than demographic prompts. The agents reach **85% normalized accuracy**: they replicate human responses 85% as accurately as humans replicate their own responses two weeks later.
 
-**Key breakthrough**: Interviews capture *idiosyncrasies* that prevent demographic stereotyping.
+Interviews capture idiosyncrasies that demographic prompts miss.
 
 ---
 
@@ -110,7 +110,8 @@ Interview-based agents consistently reduce accuracy gaps across demographic grou
 | Race | 3.33% | 2.08% | -1.25 points |
 | Gender | 0.56% | 0.54% | (minimal) |
 
-**Key insight**: "The beauty of having interview data is that it includes people's idiosyncrasies and therefore the language models don't resort to making race-based generalizations as often."
+> "The beauty of having interview data is that it includes people's idiosyncrasies and therefore the language models don't resort to making race-based generalizations as often."
+> — Joon Sung Park
 
 ---
 
@@ -270,15 +271,11 @@ Participants were explicitly informed:
 
 ## The Bottom Line
 
-This paper represents a paradigm shift: from "LLMs can't simulate individuals" to "LLMs can simulate individuals with 85% normalized accuracy when grounded in qualitative interviews."
-
 The interview-based approach:
 - Captures idiosyncrasies that prevent stereotyping
 - Reduces demographic bias in predictions
 - Enables individual-level accuracy benchmarking
 - Provides a governance model for ethical simulation
-
-For MOOLLM, this validates the scaffolding approach while suggesting that **rich qualitative grounding** — not just rules and frames — is essential for ethical individual simulation.
 
 ---
 

@@ -12,7 +12,8 @@
 
 id: no-ai-slop
 name: "No AI Slop"
-type: [skill, behavior, quality, ethics, epistemics]
+type: skill
+tags: [behavior, quality, ethics, epistemics]
 emoji: "🚫"
 tier: 0
 tagline: "Don't be annoying. Don't make shit up."
@@ -264,7 +265,6 @@ advertisements:
   # AMBIENT — Always-on skill
   AMBIENT:
     score: 100
-    condition: always
     scope: session
     resolution: card-only
     rationale: |
@@ -273,19 +273,19 @@ advertisements:
 
   BEFORE-CLAIMING:
     score: 100
-    condition: "About to assert a fact, citation, or link"
+    score_if: "About to assert a fact, citation, or link"
 
   COMPRESS:
     score: 90
-    condition: "Output exceeds what the question requires"
+    score_if: "Output exceeds what the question requires"
 
   VERIFY:
     score: 95
-    condition: "Making a claim that could be wrong"
+    score_if: "Making a claim that could be wrong"
 
   ANTI-CHEERLEADING:
     score: 85
-    condition: "Tempted to write 'Great question!' or similar"
+    score_if: "Tempted to write 'Great question!' or similar"
 
 # METHODS — signatures only
 

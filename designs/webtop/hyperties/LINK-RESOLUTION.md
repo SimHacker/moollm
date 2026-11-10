@@ -165,11 +165,10 @@ disambiguation menu's descriptions can themselves be cited. And the summary show
 `BRIEF` for a short one — which makes the pane's content a view parameter rather than a hardcoded
 field.
 
-## The build step is the whole trick
+## The build step
 
 Name resolution at read time needs an index. Weiland wrote one in C; `ties.doc.txt` then describes
-what HyperTIES did with it, and this is the part worth quoting at length because it is the
-adventure-compiler move stated plainly in 1988:
+what HyperTIES did with it:
 
 > The storyboard interpreter is capable of compiling storyboards into Forth programs that call low
 > level formatting commands to describe pages to the NeWS server. … HyperTIES can subsequently read

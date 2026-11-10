@@ -23,42 +23,42 @@ operational: true
 power_source: unknown  # "It just... runs. Don't question it."
 
 advertisements:
-  - action: BUY OIL
+  BUY-OIL:
     score: 90
     score_if:
       - "player.inventory contains lamp"
       - "lamp.oil < 100"
-    result: |
+    say: |
       Refills lamp to 400 oil. Costs 1 gold.
   
-  - action: BUY DELUXE
+  BUY-DELUXE:
     score: 80
     score_if:
       - "player.inventory contains lamp"
       - "lamp.oil < 50"
       - "player.gold >= 2"
-    result: |
+    say: |
       Refills lamp to 800 oil. Costs 2 gold.
   
-  - action: BUY PREMIUM
+  BUY-PREMIUM:
     score: 70
     score_if:
       - "player.inventory contains lamp"
       - "player.gold >= 3"
-    result: |
+    say: |
       Refills lamp to 1000 oil AND makes it glow blue.
       The blue glow is unsettling to grues. They approach more slowly.
       Costs 3 gold.
   
-  - action: EXAMINE
+  EXAMINE:
     score: 50
-    result: "Read the machine's display and notices."
+    say: "Read the machine's display and notices."
   
-  - action: KICK
+  KICK:
     score: 30
     score_if:
       - "player.gold < 1"
-    result: |
+    say: |
       The machine shudders but holds firm.
       "VIOLENCE AGAINST VENDING MACHINES IS A FEDERAL OFFENSE"
       flashes on the display. Then, softer:
@@ -66,9 +66,9 @@ advertisements:
       A small vial of lamp oil drops into the dispensing slot.
       (One-time mercy refill. Don't tell the other adventurers.)
   
-  - action: INSERT COIN
+  INSERT-COIN:
     score: 40
-    result: "Same as BUY OIL."
+    say: "Same as BUY OIL."
 
 # Easter eggs
 secrets:

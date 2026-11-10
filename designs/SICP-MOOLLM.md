@@ -14,9 +14,9 @@
 
 ## The Vision
 
-SICP taught a generation how to think about computation through Scheme — not because Scheme was the point, but because it was a **minimal, elegant vehicle** for exploring ideas about abstraction, state, and interpretation.
+SICP taught a generation how to think about computation through Scheme — not because Scheme was the point, but because it was a **minimal vehicle** for exploring ideas about abstraction, state, and interpretation.
 
-MOOLLM could be that for a new generation — teaching how to think about **community, simulation, and emergent behavior** through YAML and markdown. Not because YAML is the point, but because it's a minimal, elegant vehicle for exploring ideas about:
+MOOLLM could be that for a new generation — teaching how to think about **community, simulation, and emergent behavior** through YAML and markdown. Not because YAML is the point, but because it's a minimal vehicle for exploring ideas about:
 
 - **Microworlds** as learning environments
 - **Skills as programs** that compose and inherit
@@ -83,7 +83,7 @@ MOOLLM could be that for a new generation — teaching how to think about **comm
   - **Leary's Mind Mirror**: set ↔ setting ↔ substance
   - **MOO-Maps**: glance ↔ card ↔ skill ↔ readme ↔ examples ↔ templates (resolution + schema pivoting)
   - **Character facets**: internal ↔ external ↔ observable ↔ remembered
-- The power move: rotate the interpretation, keep the structure
+- Rotate the interpretation, keep the structure
 - Necker cube as metaphor: same data, different meaning
 
 1.3 Comments as Semantic Content

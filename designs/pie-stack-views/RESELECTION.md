@@ -46,7 +46,7 @@ Reselection creates a feedback channel that recognition-based input structurally
 
 `needs-check: the student's name and the project's title, which would let this credit land on a person instead of a lab. That is the only thing still missing; the venue, the direction of influence, and the implementation are now established by Don's own recorded narration. The exact year within the IE5 window is not pinned.`
 
-**Two details in that demo are load-bearing for the verdict layer and are easy to miss.**
+**Two details in that demo are easy to miss.**
 
 First, **cancelling still writes.** At 5:16: *"I can pop up the menu, go yellow, oh no no I'll just cancel it — and now it's guessing that my favorite color is yellow, although I didn't select one."* A menu dismissed with no selection at all still produced a verdict, from attention alone. That is exactly the gesture [READ-UNREAD](../webtop/READ-UNREAD.md) needs — *linger writes, and pen-up is not required* — demonstrated on video roughly twenty-seven years before the document specifying it.
 

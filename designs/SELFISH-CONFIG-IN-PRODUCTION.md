@@ -132,9 +132,9 @@ as resolver-of-last-resort
 4. **The merged artifact is boring on purpose.** Flat env files, one
    YAML, one dispatch table — the fancy structure exists at compose
    time, then crystallizes (the tiered-JIT move, at devops speed).
-5. **Comments are load-bearing.** YAML jazz in industrial dress: the
-   config documents itself, because the person debugging it at 3 AM is
-   the reader that matters.
+5. **Comments are part of the config.** YAML jazz in industrial dress: the
+   config documents itself, because the person debugging it at 3 AM reads
+   the comments as data.
 
 Related: [PROTOTYPE-FRAGMENT-CONFIG](PROTOTYPE-FRAGMENT-CONFIG.md) ·
 [FLEET-WEATHER-DESIGN](FLEET-WEATHER-DESIGN.md) ·

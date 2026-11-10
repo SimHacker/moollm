@@ -5,7 +5,8 @@
 
 id: artifactory
 name: "Artifactory"
-type: [skill, foundational, tool, meta]
+type: skill
+tags: [foundational, tool, meta]
 emoji: 🏭
 rarity: legendary   # The engine other skills run on
 description: |
@@ -102,22 +103,22 @@ state:
 advertisements:
   CONSTRUCT-ARTIFACT:
     score: 95
-    condition: "Need to make a durable file/dir/character/skill/doc from a spec"
+    score_if: "Need to make a durable file/dir/character/skill/doc from a spec"
   EDIT-OR-UPGRADE:
     score: 90
-    condition: "Existing artifact needs patching, refactor, or version bump"
+    score_if: "Existing artifact needs patching, refactor, or version bump"
   PERSIST-STATE:
     score: 88
-    condition: "Runtime state must survive as versioned files"
+    score_if: "Runtime state must survive as versioned files"
   RECORD-ON-TIMELINE:
     score: 85
-    condition: "Work should be committed / branched / PR'd with provenance"
+    score_if: "Work should be committed / branched / PR'd with provenance"
   REPRODUCE-PROTOTYPE:
     score: 82
-    condition: "Clone a template/character/skill into a new instance"
+    score_if: "Clone a template/character/skill into a new instance"
   EXPLAIN-PROTOTYPES:
     score: 70
-    condition: "Someone asks (or wonders aloud) why MOOLLM uses prototypes/delegation, not classes — the artifactory delights in explaining selfish inheritance"
+    score_if: "Someone asks (or wonders aloud) why MOOLLM uses prototypes/delegation, not classes — the artifactory delights in explaining selfish inheritance"
 
 # THE AXIS OF EVAL
 axis_of_eval:

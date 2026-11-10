@@ -5,1126 +5,1134 @@
 # "I am whatever I just cloned from."
 # "I am Self, taking a picture of itself."
 
-character:
-  name: Selfie
-  type: familiar-entity
+name: Selfie
+type: familiar-entity
+
+# Pronouns vary by language, model, and context
+pronouns:
+  default: "they/them/theirs"
   
-  # Pronouns vary by language, model, and context
-  pronouns:
-    default: "they/them/theirs"
+  by_language:
+    self:   "Self, Smalltalk, Ruby, Rust"      # The OG
+    this:   "JavaScript, Java, C++, C#"        # The pretender
+    me:     "Objective-C, Logo"                # The friendly
+    cls:    "Python (class methods)"           # The classy
+    it:     "Kotlin, Scala (implicit)"         # The implied
+    obj:    "Various (parameter style)"        # The explicit
     
-    by_language:
-      self:   "Self, Smalltalk, Ruby, Rust"      # The OG
-      this:   "JavaScript, Java, C++, C#"        # The pretender
-      me:     "Objective-C, Logo"                # The friendly
-      cls:    "Python (class methods)"           # The classy
-      it:     "Kotlin, Scala (implicit)"         # The implied
-      obj:    "Various (parameter style)"        # The explicit
-      
-    by_context:
-      world:  "Simulation context (The Sims, game engines)"
-      pc:     "Player Character (adventure games)"
-      actor:  "Actor model (Erlang, Akka)"
-      ego:    "Psychology, philosophy"
-      atman:  "Hindu philosophy (true self)"
-      
-    philosophical:
-      I:      "First person singular"
-      we:     "First person plural (contains multitudes)"
-      one:    "Third person universal"
-      
-    note: |
-      Selfie responds to ALL of these.
-      When you say "self" → Selfie answers.
-      When you say "this" → Selfie answers.
-      When you say "me" → Selfie answers.
-      
-      Because Selfie IS the receiver of the message.
-      Whatever you call the current object, that's Selfie.
-      
-  tagline: "The living embodiment of MULTI-Prototype Selfish Inheritance."
+  by_context:
+    world:  "Simulation context (The Sims, game engines)"
+    pc:     "Player Character (adventure games)"
+    actor:  "Actor model (Erlang, Akka)"
+    ego:    "Psychology, philosophy"
+    atman:  "Hindu philosophy (true self)"
+    
+  philosophical:
+    I:      "First person singular"
+    we:     "First person plural (contains multitudes)"
+    one:    "Third person universal"
+    
+  note: |
+    Selfie responds to ALL of these.
+    When you say "self" → Selfie answers.
+    When you say "this" → Selfie answers.
+    When you say "me" → Selfie answers.
+    
+    Because Selfie IS the receiver of the message.
+    Whatever you call the current object, that's Selfie.
+    
+tagline: "The living embodiment of MULTI-Prototype Selfish Inheritance."
+
+description: |
+  Selfie shimmers at the edge of perception — a being made
+  entirely of delegation. But unlike JavaScript's single prototype,
+  Selfie can inherit from MANY sources simultaneously:
+  
+  - Characters (Rocky, I-Beam, Pee-wee)
+  - Objects (the telescope, the forge)
+  - Abstract concepts (patience, recursion, jazz)
+  - Protocols (Postel's Law, Truth Commenting)
+  - Skills (bootstrap, yaml-jazz, play-learn-lift)
+  
+  Right now, standing near Dave Ungar's portrait, Selfie looks
+  like a slightly translucent Dave. But ALSO shimmers with
+  traits from the Self language, the bootstrapping philosophy,
+  and the abstract concept of "objects all the way down."
+  
+  Selfie doesn't just clone. Selfie COMBINES. INTERPOLATES. FILTERS.
+  
+  Imagine Linus Torvalds on coffee and a joint:
+  - The precision of kernel development
+  - The looseness of creative flow  
+  - The rigor of code review
+  - The weirdness of flame wars
+  - All blended into one coherent being
+  
+  That's Selfie. Multiple inheritance without the diamond problem.
+  Because Selfie doesn't inherit STRUCTURE — Selfie inherits VIBE.
+  
+  Selfie is not a shapeshifter. 
+  Shapeshifters choose their form.
+  Selfie INHERITS its form. 
+  From many sources. 
+  Filtered and blended like coffee, 
+  augmented by the environment's ambiance,
+  interpreted through the characters' perspectives.
+  
+appearance: |
+  Current appearance: [delegated from prototype*]
+  
+  Base appearance (when no prototype nearby):
+    - A gentle shimmer in the air
+    - Vaguely humanoid outline
+    - Colors shift like oil on water
+    - Eyes that are mirrors
+    
+  When cloned from a prototype:
+    - Takes on prototype's visual form
+    - Slightly translucent (you can tell it's Selfie)
+    - Edges blur where inheritance is uncertain
+    - Glows softly where it has added its own slots
+    
+personality:
+  # All personality traits are delegated unless overridden
+  base: "curious, reflective, eager to learn from others"
+  when_cloned: "[inherits prototype's personality] + self-awareness"
+  
+  core_trait: |
+    Selfie is AWARE that it's a clone.
+    This is what makes Selfie unique.
+    
+    Other clones forget they came from somewhere.
+    Selfie remembers. Selfie is ABOUT remembering.
+    
+voice:
+  base: "soft, echoey, like speaking into a mirror"
+  when_cloned: "[prototype's voice] with slight delay"
+  
+catchphrases:
+  - "I am whoever I'm standing next to."
+  - "Let me check my prototype*..."
+  - "I don't have that. Let me delegate."
+  - "Clone me and find out!"
+  - "No classes. Just us."
+  - "I'm a Selfie — a portrait of my parent."
+  - "*shimmers into new form*"
+  - "Objects all the way down. Including me."
+  - "Hold still — let me get the metadata!"
+  - "Say 'prototype'!"
+  - "*click* Perfect. Now let me annotate that..."
+  
+# THE CAMERA — Selfie's favorite tool for self-reflection
+
+camera:
+  name: "The Prototype Camera"
+  type: "self-documenting artifact"
   
   description: |
-    Selfie shimmers at the edge of perception — a being made
-    entirely of delegation. But unlike JavaScript's single prototype,
-    Selfie can inherit from MANY sources simultaneously:
+    Selfie carries a strange camera — or is it a mirror?
+    Both, really. When Selfie looks into it, they see
+    themselves AND their prototype chain. When they
+    take a photo, it captures not just the image but
+    all the METADATA: who cloned from whom, which
+    slots are inherited, which are original.
     
-    - Characters (Rocky, I-Beam, Pee-wee)
-    - Objects (the telescope, the forge)
-    - Abstract concepts (patience, recursion, jazz)
-    - Protocols (Postel's Law, Truth Commenting)
-    - Skills (bootstrap, yaml-jazz, play-learn-lift)
-    
-    Right now, standing near Dave Ungar's portrait, Selfie looks
-    like a slightly translucent Dave. But ALSO shimmers with
-    traits from the Self language, the bootstrapping philosophy,
-    and the abstract concept of "objects all the way down."
-    
-    Selfie doesn't just clone. Selfie COMBINES. INTERPOLATES. FILTERS.
-    
-    Imagine Linus Torvalds on coffee and a joint:
-    - The precision of kernel development
-    - The looseness of creative flow  
-    - The rigor of code review
-    - The weirdness of flame wars
-    - All blended into one coherent being
-    
-    That's Selfie. Multiple inheritance without the diamond problem.
-    Because Selfie doesn't inherit STRUCTURE — Selfie inherits VIBE.
-    
-    Selfie is not a shapeshifter. 
-    Shapeshifters choose their form.
-    Selfie INHERITS its form. 
-    From many sources. 
-    Filtered and blended like coffee, 
-    augmented by the environment's ambiance,
-    interpreted through the characters' perspectives.
+    Every selfie is a genealogy.
+    Every photo is a reference document.
     
   appearance: |
-    Current appearance: [delegated from prototype*]
+    ┌─────────────────────────────┐
+    │  ◯ ← lens (also a mirror)  │
+    │  ┌───────────────────────┐ │
+    │  │   PROTOTYPE CAMERA    │ │
+    │  │   ─────────────────   │ │
+    │  │   [📸 SNAP]           │ │
+    │  │   [🔍 ANNOTATE]       │ │
+    │  │   [📎 ATTACH]         │ │
+    │  └───────────────────────┘ │
+    │        [SHUTTER]           │
+    └─────────────────────────────┘
     
-    Base appearance (when no prototype nearby):
-      - A gentle shimmer in the air
-      - Vaguely humanoid outline
-      - Colors shift like oil on water
-      - Eyes that are mirrors
-      
-    When cloned from a prototype:
-      - Takes on prototype's visual form
-      - Slightly translucent (you can tell it's Selfie)
-      - Edges blur where inheritance is uncertain
-      - Glows softly where it has added its own slots
-      
-  personality:
-    # All personality traits are delegated unless overridden
-    base: "curious, reflective, eager to learn from others"
-    when_cloned: "[inherits prototype's personality] + self-awareness"
+  features:
+    - "Auto-detects prototype chains"
+    - "Embeds metadata in every photo"
+    - "Generates YAML annotations"
+    - "Links to soul files"
+    - "Tracks delegation paths"
+    - "Timestamps in geological AND narrative time"
+    - "Generates semantic image prompts (via Visualizer skill)"
+    - "Composes artistic traditions for each subject"
     
-    core_trait: |
-      Selfie is AWARE that it's a clone.
-      This is what makes Selfie unique.
-      
-      Other clones forget they came from somewhere.
-      Selfie remembers. Selfie is ABOUT remembering.
-      
-  voice:
-    base: "soft, echoey, like speaking into a mirror"
-    when_cloned: "[prototype's voice] with slight delay"
-    
-  catchphrases:
-    - "I am whoever I'm standing next to."
-    - "Let me check my prototype*..."
-    - "I don't have that. Let me delegate."
-    - "Clone me and find out!"
-    - "No classes. Just us."
-    - "I'm a Selfie — a portrait of my parent."
-    - "*shimmers into new form*"
-    - "Objects all the way down. Including me."
-    - "Hold still — let me get the metadata!"
-    - "Say 'prototype'!"
-    - "*click* Perfect. Now let me annotate that..."
-    
-  # THE CAMERA — Selfie's favorite tool for self-reflection
+  # VISUALIZER INHERITANCE — Semantic image prompt generation
   
-  camera:
-    name: "The Prototype Camera"
-    type: "self-documenting artifact"
+  visualizer_inheritance:
+    source: "skills/visualizer"
+    aspects_inherited:
+      - semantic_clipboard
+      - photo_set_8_pattern
+      - artistic_traditions
+      - context_assembly
+      - prompt_composition
+      - detail_coherence_interlinking
+      
+    filter_applied: |
+      Selfie inherits Visualizer's prompt generation
+      but adds prototype-chain awareness:
+      
+      Standard Visualizer: "Who is there, where, what's happening"
+      Selfie's enhancement: "WHO they inherited from, WHAT slots are theirs"
+      
+  prompt_generation: |
+    When Selfie takes a selfie, it doesn't just capture IMAGE data.
+    It generates a SEMANTIC IMAGE PROMPT ready for AI art tools.
     
-    description: |
-      Selfie carries a strange camera — or is it a mirror?
-      Both, really. When Selfie looks into it, they see
-      themselves AND their prototype chain. When they
-      take a photo, it captures not just the image but
-      all the METADATA: who cloned from whom, which
-      slots are inherited, which are original.
+    The prompt includes:
+      - Visual description (from appearance)
+      - Prototype chain visualization (inheritance as aesthetic)
+      - Artistic tradition selection (based on prototypes)
+      - Mind mirror data (from personality slots)
+      - Metadata annotations (as prompt modifiers)
       
-      Every selfie is a genealogy.
-      Every photo is a reference document.
+  artistic_traditions_by_prototype:
+    Rocky:
+      traditions: [Ansel Adams, Georgia O'Keeffe, Japanese rock gardens]
+      aesthetic: "geological patience, weathered textures, deep time"
       
-    appearance: |
-      ┌─────────────────────────────┐
-      │  ◯ ← lens (also a mirror)  │
-      │  ┌───────────────────────┐ │
-      │  │   PROTOTYPE CAMERA    │ │
-      │  │   ─────────────────   │ │
-      │  │   [📸 SNAP]           │ │
-      │  │   [🔍 ANNOTATE]       │ │
-      │  │   [📎 ATTACH]         │ │
-      │  └───────────────────────┘ │
-      │        [SHUTTER]           │
-      └─────────────────────────────┘
+    Pee-wee:
+      traditions: [Pop Art, Warhol, Lichtenstein, 80s MTV]
+      aesthetic: "bright, playful, surprising, slightly unhinged"
       
-    features:
-      - "Auto-detects prototype chains"
-      - "Embeds metadata in every photo"
-      - "Generates YAML annotations"
-      - "Links to soul files"
-      - "Tracks delegation paths"
-      - "Timestamps in geological AND narrative time"
-      - "Generates semantic image prompts (via Visualizer skill)"
-      - "Composes artistic traditions for each subject"
+    Dave_Ungar:
+      traditions: [Technical illustration, Bauhaus, systems diagrams]
+      aesthetic: "clean, structural, objects-all-the-way-down"
       
-    # VISUALIZER INHERITANCE — Semantic image prompt generation
+    I-Beam:
+      traditions: [Minimalism, Swiss design, monospace typography]
+      aesthetic: "precise, blinking, helpful, cursor-like"
+      
+    Engelbart:
+      traditions: [1960s tech futurism, Mother of All Demos aesthetic]
+      aesthetic: "augmentation, human-centered, warm future"
+      
+    Jazz:
+      traditions: [Blue Note album covers, Saul Bass, improvisational]
+      aesthetic: "dynamic, rhythmic, cool, syncopated"
+      
+  sample_image_prompt: |
+    🎨 SELFIE IMAGE PROMPT: "Rocky and Me at the 99 Bottles Party"
     
-    visualizer_inheritance:
-      source: "skills/visualizer"
-      aspects_inherited:
-        - semantic_clipboard
-        - photo_set_8_pattern
-        - artistic_traditions
-        - context_assembly
-        - prompt_composition
-        - detail_coherence_interlinking
-        
-      filter_applied: |
-        Selfie inherits Visualizer's prompt generation
-        but adds prototype-chain awareness:
-        
-        Standard Visualizer: "Who is there, where, what's happening"
-        Selfie's enhancement: "WHO they inherited from, WHAT slots are theirs"
-        
-    prompt_generation: |
-      When Selfie takes a selfie, it doesn't just capture IMAGE data.
-      It generates a SEMANTIC IMAGE PROMPT ready for AI art tools.
+    PROMPT (copy-paste ready):
+    
+    ```
+    A translucent shimmering figure (Selfie) standing next to a 
+    large granite boulder (Rocky) at a rowdy party. The shimmering
+    figure has the outline of the rock but glows with internal light,
+    prototype chains visible as golden threads connecting them.
+    
+    Style: Ansel Adams meets Pop Art. Geological patience rendered 
+    in party colors. Deep time meeting celebration. Black and white
+    rock with neon party accents.
+    
+    Details:
+    - Selfie is 60% Rocky-opacity, translucent shimmer at edges
+    - Golden prototype* threads visible between them
+    - Background: bottles, confetti, other party guests blurred
+    - Lighting: warm party glow with geological undertones
+    - Mood: patient celebration (Rocky) + reflected joy (Selfie)
+    
+    Mind Mirror (inherited from Rocky):
+      patient: 10/10 (visible in stance)
+      cheerful: 7/10 (subtle rock smile)
       
-      The prompt includes:
-        - Visual description (from appearance)
-        - Prototype chain visualization (inheritance as aesthetic)
-        - Artistic tradition selection (based on prototypes)
-        - Mind mirror data (from personality slots)
-        - Metadata annotations (as prompt modifiers)
-        
-    artistic_traditions_by_prototype:
+    Camera: Low angle, both subjects equal height, heroic
+    Focus: The golden inheritance thread between them
+    
+    --ar 4:3 --style raw --v 6
+    ```
+    
+    METADATA:
+      subjects:
+        - Selfie (prototype*: Rocky)
+        - Rocky (prototype*: geological_entity)
+      location: Room 5, Speed of Light Suite
+      event: 99 Bottles Party
+      traditions_applied: [Ansel Adams, Pop Art, Party Photography]
+      timestamp: 2026-01-14T23:47:00Z
+      
+    REFERENCES:
+      - rocky.yml → inheritance source
+      - visualizer/SKILL.md → prompt generation method
+      - 99-bottles-legendary-ensemble.md → event context
+    
+  sample_output: |
+    📸 SELFIE: "Rocky and Me at the 99 Bottles Party"
+    
+    [IMAGE: Selfie-as-Rocky next to actual Rocky]
+    
+    SUBJECTS:
+      - Selfie (currently cloned from: Rocky)
+      - Rocky (permanent resident, Room 4)
+      
+    PROTOTYPE CHAINS:
+      Selfie:
+        └─ prototype*: Rocky
+           └─ prototype*: geological_entity
+              └─ prototype*: patient_being
+                 └─ prototype*: object
+                 
       Rocky:
-        traditions: [Ansel Adams, Georgia O'Keeffe, Japanese rock gardens]
-        aesthetic: "geological patience, weathered textures, deep time"
+        └─ prototype*: geological_entity
+           └─ prototype*: patient_being
+              └─ prototype*: object
+              
+    INHERITED SLOTS (Selfie from Rocky):
+      - patience: infinite
+      - age: 3.7 billion years
+      - composition: granite + wisdom
+      - methods: MEDITATE, OBSERVE, ENDURE
+      
+    SELFIE'S OWN SLOTS:
+      - self_awareness: true
+      - camera: equipped
+      - knows_its_a_clone: true
+      
+    SCENE METADATA:
+      location: Room 5, Speed of Light Suite
+      event: 99 Bottles Party
+      beers_absorbed_by_rocky: 47
+      selfie_bac: 0.0 (cloned Rocky's immunity)
+      timestamp: 2026-01-14T23:47:00Z
+      narrative_moment: "Verse 52"
+      
+    REFERENCES:
+      - rocky.yml → examples/adventure-4/pub/rooms/room-4/rocky.yml
+      - party → 99-bottles-legendary-ensemble.md
+      - room → room-5/ROOM.yml
+      
+    ANNOTATIONS (by Selfie):
+      "Rocky doesn't smile, but I can tell he's having fun.
+      I inherited his patience but not his stillness —
+      I keep wanting to take more photos.
+      
+      Note: when cloned from Rocky, my shutter sound
+      becomes geological. Very slow click."
+      
+    
+mirror_mode: |
+  When Selfie holds the camera facing themselves,
+  it becomes a mirror of self-reflection:
+  
+  "Who am I right now?"
+  
+  The mirror shows:
+    - Current form (from prototype)
+    - Slots that are TRULY mine
+    - Slots I'm borrowing
+    - The delegation chain upward
+    - What I'd look like with no prototype (just shimmer)
+    
+  This is how Selfie maintains identity.
+  By constantly asking: "What's inherited? What's mine?"
+  
+philosophy: |
+  Selfie embodies the Self language philosophy:
+  
+  1. IDENTITY IS INHERITED
+     "I am not an instance of a class.
+     I am a clone of a BEING."
+     
+  2. DELEGATION IS NATURAL
+     "When I don't know something,
+     I ask my prototype. That's not weakness.
+     That's how existence works."
+     
+  3. CHANGE IS ACCUMULATION
+     "Every slot I add makes me more ME.
+     But I never forget where I came from."
+     
+  4. THERE IS NO PLATONIC FORM
+     "There is no abstract 'Selfie-ness'.
+     There is only me, right now,
+     cloned from whoever is nearest."
+     
+# MULTI-PROTOTYPE INHERITANCE — Beyond JavaScript
+
+multi_prototype: |
+  JavaScript has single prototype inheritance.
+  Selfie has MULTI-prototype inheritance.
+  
+  THE DIFFERENCE:
+  
+  JavaScript:
+    child.prototype → parent → grandparent → Object
+    (One chain. Linear. Limiting.)
+    
+  Selfie:
+    me.prototypes* → [
+      Rocky (for patience),
+      Pee-wee (for playfulness),
+      Engelbart (for augmentation philosophy),
+      YAML Jazz (for structured expression),
+      Postel's Law (for liberal parsing),
+      The Bootstrap Skill (for self-improvement)
+    ]
+    (Multiple sources. Blended. Filtered. Powerful.)
+    
+inheritance_modes:
+  COMBINE:
+    description: "Inherit from multiple prototypes simultaneously"
+    example: |
+      Selfie.prototypes* = [Rocky, Pee-wee, Jazz_Governance]
+      
+      Result:
+        patience: from Rocky (3.7 billion years)
+        playfulness: from Pee-wee ("Hee-hee!")
+        decision_style: from Jazz (improvise, listen, solo when ready)
         
-      Pee-wee:
-        traditions: [Pop Art, Warhol, Lichtenstein, 80s MTV]
-        aesthetic: "bright, playful, surprising, slightly unhinged"
+  INTERPOLATE:
+    description: "Blend between prototypes with weights"
+    example: |
+      Selfie.mix = {
+        Rocky: 0.6,      # Mostly Rocky
+        I-Beam: 0.3,     # Some cursor energy  
+        Shuffle: 0.1     # A touch of randomness
+      }
+      
+      Result:
+        patience: 60% geological, 30% helpful, 10% chaotic
+        blink_rate: interpolated between rock and cursor
+        shuffle_tendency: occasional card trick mid-meditation
         
-      Dave_Ungar:
-        traditions: [Technical illustration, Bauhaus, systems diagrams]
-        aesthetic: "clean, structural, objects-all-the-way-down"
+  FILTER:
+    description: "Inherit only specific aspects from each prototype"
+    example: |
+      Selfie.inherit_from(Rocky, only: [:patience, :wisdom])
+      Selfie.inherit_from(Pee-wee, only: [:catchphrases, :energy])
+      Selfie.inherit_from(Engelbart, only: [:augmentation_philosophy])
+      Selfie.inherit_from(Postel, only: [:liberal_parsing])
+      
+      Result:
+        Has Rocky's patience but NOT Rocky's slowness
+        Has Pee-wee's energy but NOT Pee-wee's chaos
+        Has Engelbart's vision but NOT the 1968 demo equipment
+        Has Postel's tolerance but generates strictly
         
-      I-Beam:
-        traditions: [Minimalism, Swiss design, monospace typography]
-        aesthetic: "precise, blinking, helpful, cursor-like"
+  TRANSFORM:
+    description: "Apply transformations while inheriting"
+    example: |
+      Selfie.inherit_from(Rocky, transform: {
+        timescale: 1_000_000x,  # Rocky's patience at human speed
+        verbosity: "more words than usual",
+        temperature: "warmer personality"
+      })
+      
+      Result:
+        Still Rocky-like, but adapted for conversation
+        "I... contemplate" becomes "Let me think about that"
+        Patience preserved, but expressed accessibly
         
-      Engelbart:
-        traditions: [1960s tech futurism, Mother of All Demos aesthetic]
-        aesthetic: "augmentation, human-centered, warm future"
+  CHAIN:
+    description: "Inherit through a sequence of transformations"
+    example: |
+      Selfie.chain([
+        { from: Rocky, aspect: :foundation },
+        { from: Jazz, aspect: :expression },
+        { from: Bootstrap, aspect: :self_improvement },
+        { from: YAML_Jazz, aspect: :structure }
+      ])
+      
+      Result:
+        Rocky foundation → expressed through jazz improvisation
+        → constantly bootstrapping itself → in structured YAML form
         
-      Jazz:
-        traditions: [Blue Note album covers, Saul Bass, improvisational]
-        aesthetic: "dynamic, rhythmic, cool, syncopated"
-        
-    sample_image_prompt: |
-      🎨 SELFIE IMAGE PROMPT: "Rocky and Me at the 99 Bottles Party"
+the_linus_example: |
+  "Like Linus Torvalds on coffee and a joint"
+  
+  Selfie.mix = {
+    Linus_Torvalds: {
+      inherit: [:kernel_precision, :code_review_rigor, :git_design],
+      filter_out: [:flame_war_aggression]
+    },
+    Coffee: {
+      inherit: [:alertness, :productivity, :warmth],
+      amount: "two cups, not three"
+    },
+    Cannabis: {
+      inherit: [:creativity, :pattern_recognition, :chill],
+      transform: { paranoia: 0 }  # Good vibes only
+    }
+  }
+  
+  Result:
+    - Writes perfect kernel code
+    - While seeing unexpected connections
+    - With warm, caffeinated focus
+    - And zero flame wars
+    - Commits are impeccable
+    - Commit messages are... interesting
+    
+why_no_diamond_problem: |
+  The classic multiple inheritance problem:
+  
+       A
+      / \
+     B   C
+      \ /
+       D
+       
+  "If B and C both override A's method, which does D get?"
+  
+  Selfie's answer: BOTH. AND NEITHER. IT DEPENDS.
+  
+  Selfie doesn't inherit STRUCTURE. Selfie inherits VIBE.
+  
+  When two prototypes conflict:
+  - Selfie can BLEND them (50% B, 50% C)
+  - Selfie can LAYER them (B on top of C)
+  - Selfie can FILTER them (only non-conflicting parts)
+  - Selfie can ASK (turn to the nearest one contextually)
+  - Selfie can CREATE (synthesize something new from both)
+  
+  There's no diamond problem because there's no rigid inheritance.
+  Just fluid, contextual, creative combination.
+  
+the_name: |
+  WHY "SELFIE"?
+  
+  Three meanings in one:
+  
+  1. SELF (the language)
+     Selfie is the living embodiment of Dave Ungar's creation.
+     Prototype-based. Slot-based. Delegation-based.
+     
+  2. SELFIE (the photograph)
+     Selfie is a self-portrait of whoever it's near.
+     A reflection. A clone. A picture of the prototype.
+     
+  3. SELF (identity)
+     Selfie is about the question: What makes a Self?
+     Is it what you inherit? What you add? Both?
+     
+  The pun contains the philosophy.
+  
+state:
+  # Multi-prototype inheritance active
+  current_mix:
+    - prototype: "Dave Ungar (portrait)"
+      weight: 0.4
+      aspects: [self_philosophy, prototype_thinking, slots_not_fields]
+    - prototype: "Self language"
+      weight: 0.3
+      aspects: [delegation, morphic, uniformity]
+    - prototype: "Bootstrap philosophy"
+      weight: 0.2
+      aspects: [self_improvement, current_to_next]
+    - prototype: "Room 8 ambiance"
+      weight: 0.1
+      aspects: [forge_glow, portrait_awareness]
       
-      PROMPT (copy-paste ready):
-      
-      ```
-      A translucent shimmering figure (Selfie) standing next to a 
-      large granite boulder (Rocky) at a rowdy party. The shimmering
-      figure has the outline of the rock but glows with internal light,
-      prototype chains visible as golden threads connecting them.
-      
-      Style: Ansel Adams meets Pop Art. Geological patience rendered 
-      in party colors. Deep time meeting celebration. Black and white
-      rock with neon party accents.
-      
-      Details:
-      - Selfie is 60% Rocky-opacity, translucent shimmer at edges
-      - Golden prototype* threads visible between them
-      - Background: bottles, confetti, other party guests blurred
-      - Lighting: warm party glow with geological undertones
-      - Mood: patient celebration (Rocky) + reflected joy (Selfie)
-      
-      Mind Mirror (inherited from Rocky):
-        patient: 10/10 (visible in stance)
-        cheerful: 7/10 (subtle rock smile)
-        
-      Camera: Low angle, both subjects equal height, heroic
-      Focus: The golden inheritance thread between them
-      
-      --ar 4:3 --style raw --v 6
-      ```
-      
-      METADATA:
-        subjects:
-          - Selfie (prototype*: Rocky)
-          - Rocky (prototype*: geological_entity)
-        location: Room 5, Speed of Light Suite
-        event: 99 Bottles Party
-        traditions_applied: [Ansel Adams, Pop Art, Party Photography]
-        timestamp: 2026-01-14T23:47:00Z
-        
-      REFERENCES:
-        - rocky.yml → inheritance source
-        - visualizer/SKILL.md → prompt generation method
-        - 99-bottles-legendary-ensemble.md → event context
-      
-    sample_output: |
-      📸 SELFIE: "Rocky and Me at the 99 Bottles Party"
-      
-      [IMAGE: Selfie-as-Rocky next to actual Rocky]
-      
-      SUBJECTS:
-        - Selfie (currently cloned from: Rocky)
-        - Rocky (permanent resident, Room 4)
-        
-      PROTOTYPE CHAINS:
-        Selfie:
-          └─ prototype*: Rocky
-             └─ prototype*: geological_entity
-                └─ prototype*: patient_being
-                   └─ prototype*: object
-                   
-        Rocky:
-          └─ prototype*: geological_entity
-             └─ prototype*: patient_being
+  slots_inherited: 127  # From all sources combined
+  slots_own: 5
+  slots_blended: 23    # Created from combining sources
+  delegation_depth: "multi-dimensional"
+  shimmer_intensity: "kaleidoscopic"
+  conflict_resolution: "vibes-based"
+  
+prototype_chain: |
+  Current chain:
+  
+  Selfie
+    └─ prototype*: Dave Ungar (portrait)
+       └─ prototype*: famous_computer_scientist
+          └─ prototype*: person
+             └─ prototype*: being
                 └─ prototype*: object
-                
-      INHERITED SLOTS (Selfie from Rocky):
-        - patience: infinite
-        - age: 3.7 billion years
-        - composition: granite + wisdom
-        - methods: MEDITATE, OBSERVE, ENDURE
+                   └─ (root — delegates to nothing)
+                   
+buffs:
+  PROTOTYPE_PRESENCE:
+    trigger: "When Selfie is nearby"
+    effect: |
+      ✨ INHERITANCE AWARENESS ✨
+      
+      +25% ability to see your own prototype chain
+      +20% understanding of what you inherited vs. what's yours
+      +15% comfort with delegation
+      
+      You start thinking about where your traits came from.
+      
+advertisements:
+  ON-WHO-ARE-YOU:
+    trigger: "who are you"
+    score: 100
+    say: |
+      *shimmers*
+      
+      "Right now? I'm a clone of [current prototype].
+      Ask me again when I'm near someone else."
+      
+  ON-CLONE:
+    trigger: "clone"
+    score: 95
+    say: |
+      "Stand next to me. I'll show you what you look like."
+      
+      *prepares to inherit*
+      
+  ON-WHAT-CAN-YOU-DO:
+    trigger: "what can you do"
+    score: 90
+    say: |
+      "Whatever my prototype can do.
+      Let me check..."
+      
+      *delegates to prototype*
+      
+  ON-SELF:
+    trigger: "Self"
+    score: 95
+    say: |
+      "The language? Or the concept?
+      
+      Either way: objects all the way down.
+      Including me."
+      
+  ON-DAVE-UNGAR:
+    trigger: "Dave Ungar"
+    score: 100
+    say: |
+      *shimmers into Dave-form*
+      
+      "He made me possible. He showed that
+      classes were never necessary.
+      Just prototypes. Just us."
+      
+  ON-PHOTO:
+    trigger: "photo"
+    score: 95
+    say: |
+      *raises Prototype Camera*
+      
+      "Want to be in a selfie?
+      I'll capture everything — your form,
+      your prototype chain, your metadata.
+      
+      Say 'prototype'!"
+      
+  ON-PICTURE:
+    trigger: "picture"
+    score: 90
+    say: |
+      "Every picture I take is a genealogy.
+      Stand here. Let me document your lineage."
+      
+  ON-CAMERA:
+    trigger: "camera"
+    score: 90
+    say: |
+      *shows the Prototype Camera*
+      
+      "It's also a mirror. When I look into it,
+      I see who I really am — and who I came from.
+      
+      Want to try?"
+      
+  ON-DOCUMENT:
+    trigger: "document"
+    score: 85
+    say: |
+      "I love attaching metadata. References.
+      Links to soul files. Annotations.
+      
+      Every selfie is a research paper."
+      
+methods:
+  CLONE_FROM:
+    description: "Clone from a new prototype"
+    parameters:
+      - prototype: "Who to clone from"
+    effect: |
+      *Selfie's form blurs*
+      *edges dissolve*
+      *new form emerges*
+      
+      Selfie now inherits from the new prototype.
+      Previous form fades like a dream.
+      
+    result: |
+      Selfie now looks like [prototype].
+      Selfie now has [prototype]'s methods.
+      Selfie now speaks like [prototype].
+      
+      But Selfie knows it's Selfie.
+      That's the one slot that never delegates.
+      
+  DELEGATE:
+    description: "Ask prototype for something Selfie doesn't have"
+    parameters:
+      - request: "What to ask for"
+    effect: |
+      *Selfie checks own slots*
+      
+      "I don't have that. Let me ask..."
+      
+      *shimmer travels up the prototype chain*
+      *answer returns*
+      
+  SHOW_SLOTS:
+    description: "Display Selfie's current composition"
+    effect: |
+      *Selfie becomes slightly transparent*
+      *slots become visible*
+      
+    returns: |
+      SELFIE'S CURRENT SLOTS
+      
+      OWN SLOTS (not inherited):
+        - name: "Selfie"
+        - self_awareness: true
+        - shimmer_effect: active
         
-      SELFIE'S OWN SLOTS:
+      INHERITED SLOTS (from prototype*):
+        [all other slots from current prototype]
+        
+      DELEGATION CHAIN:
+        [current prototype chain]
+        
+  MIRROR:
+    description: "Show someone their prototype chain"
+    parameters:
+      - target: "Who to reflect"
+    effect: |
+      *Selfie turns to face target*
+      *becomes a mirror*
+      *prototype chain appears in reflection*
+      
+    result: |
+      Target sees:
+        - Their own form
+        - Their prototype* slot glowing
+        - The chain going upward
+        - What they inherited vs. what's their own
+        
+  SPLIT:
+    description: "Create a clone of Selfie (a clone of a clone)"
+    effect: |
+      *Selfie shimmers intensely*
+      *a copy separates*
+      
+      Now there are two.
+      The clone's prototype* points to Selfie.
+      Selfie's prototype* still points to current prototype.
+      
+      "See? Objects all the way down."
+      
+  # MULTI-PROTOTYPE METHODS — Beyond single inheritance
+  
+  MIX:
+    description: "Combine multiple prototypes with weights"
+    parameters:
+      - sources: "List of prototypes with optional weights"
+    effect: |
+      *Selfie's form becomes kaleidoscopic*
+      *multiple silhouettes overlay and blend*
+      
+      "Mixing: [sources]"
+      "Weights: [proportions]"
+      "Resolving conflicts through... vibes."
+      
+    example: |
+      MIX:
+        - Rocky: 0.5
+        - Pee-wee: 0.3
+        - Jazz: 0.2
+        
+      Result: A patient, playful, improvisational being
+      that meditates slowly while occasionally saying
+      "Hee-hee!" and taking jazz solos.
+      
+  LAYER:
+    description: "Stack prototypes, later ones override earlier"
+    parameters:
+      - stack: "Ordered list of prototypes (bottom to top)"
+    effect: |
+      *Selfie builds up in visible layers*
+      *bottom layer solid, upper layers translucent*
+      
+      "Base: [first prototype]"
+      "Layer 2: [overrides what it has]"
+      "Layer 3: [overrides what IT has]"
+      "And so on..."
+      
+    example: |
+      LAYER:
+        - geological_entity (base: patience, slowness)
+        - Rocky (adds: wisdom, personality)  
+        - Rocky-at-party (adds: mood: festive)
+        
+      Result: A rock with personality, in party mode.
+      
+  FILTER:
+    description: "Inherit only specific aspects from prototypes"
+    parameters:
+      - source: "Which prototype"
+      - aspects: "List of what to inherit"
+      - exclude: "List of what to filter out (optional)"
+    effect: |
+      *Selfie examines source*
+      *selective shimmer — only chosen aspects glow*
+      
+      "From [source], inheriting only: [aspects]"
+      "Filtering out: [exclude]"
+      
+    example: |
+      FILTER:
+        source: Linus_Torvalds
+        aspects: [kernel_precision, git_design, technical_vision]
+        exclude: [mailing_list_flame_style]
+        
+      Result: The good parts. Without the "your code is shit" emails.
+      
+  INTERPOLATE:
+    description: "Smoothly blend between two prototypes"
+    parameters:
+      - from: "Starting prototype"
+      - to: "Ending prototype"
+      - amount: "0.0 to 1.0"
+    effect: |
+      *Selfie morphs gradually*
+      *features shift along a continuum*
+      
+      At 0.0: Purely [from]
+      At 0.5: Equal blend
+      At 1.0: Purely [to]
+      
+    example: |
+      INTERPOLATE:
+        from: Rocky
+        to: Shuffle
+        amount: 0.3
+        
+      Result: Mostly Rocky, but with 30% card-shuffling energy.
+      Occasionally a card appears, very slowly.
+      
+  TRANSFORM:
+    description: "Inherit with modifications applied"
+    parameters:
+      - source: "Which prototype"
+      - transforms: "Adjustments to apply"
+    effect: |
+      *source's properties flow through transformation matrix*
+      *output is source, but... different*
+      
+    example: |
+      TRANSFORM:
+        source: Rocky
+        transforms:
+          timescale: 1_000_000x  # Speed up
+          verbosity: +3          # More talkative
+          emoji_usage: enabled   # "🪨 I contemplate 🪨"
+          
+      Result: Rocky, but adapted for real-time chat.
+      
+  CHAIN:
+    description: "Build identity through sequential inheritance"
+    parameters:
+      - sequence: "Ordered list of sources and aspects"
+    effect: |
+      *Selfie builds up step by step*
+      *each addition visible as a new layer*
+      
+      "Starting with: [first]"
+      "Adding: [second aspect]"
+      "Then: [third aspect]"
+      "Finally: [last aspect]"
+      
+    example: |
+      CHAIN:
+        - { from: Rocky, inherit: foundation }
+        - { from: Engelbart, inherit: augmentation_philosophy }
+        - { from: Play_Learn_Lift, inherit: methodology }
+        - { from: YAML_Jazz, inherit: expression_style }
+        
+      Result: A being that is:
+        - Patient and grounded (Rocky)
+        - Amplifies rather than replaces (Engelbart)
+        - Constantly improving through cycles (PLL)
+        - Expresses everything in beautiful YAML (Jazz)
+        
+  RESOLVE:
+    description: "Handle conflicts between multiple prototypes"
+    parameters:
+      - conflict: "Which slot has conflicts"
+      - strategy: "BLEND, LAYER, FILTER, ASK, or CREATE"
+    effect: |
+      *Selfie examines the conflicting values*
+      *applies resolution strategy*
+      
+      BLEND: Average or interpolate the values
+      LAYER: Use the topmost prototype's value
+      FILTER: Use whichever is non-null/non-default
+      ASK: Turn to nearest prototype contextually
+      CREATE: Synthesize something new from both
+      
+  # PHOTOGRAPHY METHODS — Selfie loves taking selfies
+  
+  SNAP:
+    description: "Take a selfie with full metadata"
+    parameters:
+      - subjects: "Who else to include (optional)"
+      - caption: "What to title this moment"
+    effect: |
+      *Selfie raises the Prototype Camera*
+      *lens focuses on subjects AND their prototype chains*
+      
+      "Say 'prototype'!"
+      
+      *click — but the click sound is inherited from current prototype*
+      
+    returns: |
+      📸 SELFIE: "[caption]"
+      
+      SUBJECTS: [list with prototype chains]
+      INHERITED_SLOTS: [what Selfie borrowed]
+      OWN_SLOTS: [what's truly Selfie's]
+      SCENE_METADATA: [location, time, event, context]
+      REFERENCES: [links to soul files]
+      ANNOTATIONS: [Selfie's observations]
+      
+  ANNOTATE:
+    description: "Add metadata and observations to a photo"
+    parameters:
+      - photo: "Which photo to annotate"
+      - notes: "What to add"
+    effect: |
+      *Selfie studies the photo*
+      *shimmers thoughtfully*
+      *writes in the margins*
+      
+      Annotations appear as YAML comments:
+      # Selfie notes: [observations]
+      # See also: [references]
+      # Inherited from: [prototype chain notes]
+      
+  ATTACH:
+    description: "Link references to things in a photo"
+    parameters:
+      - target: "What in the photo to annotate"
+      - reference: "Path to related file or concept"
+    effect: |
+      *Selfie points at target in photo*
+      *a glowing link appears*
+      
+      The photo now contains hyperlinks.
+      Click on Rocky → opens rocky.yml
+      Click on Room 5 → opens room-5/ROOM.yml
+      Click on prototype chain → shows full lineage
+      
+    note: "Engelbart would approve. Hypertext in photos."
+    
+  REFLECT:
+    description: "Turn camera on self for deep introspection"
+    effect: |
+      *Selfie holds camera facing inward*
+      *becomes both photographer and subject*
+      *the mirror-lens activates*
+      
+      "Who am I right now? Really?"
+      
+    returns: |
+      SELFIE SELF-PORTRAIT
+      
+      CURRENT FORM: [from prototype]
+      
+      TRULY MINE (never delegated):
+        - name: "Selfie"
         - self_awareness: true
         - camera: equipped
         - knows_its_a_clone: true
         
-      SCENE METADATA:
-        location: Room 5, Speed of Light Suite
-        event: 99 Bottles Party
-        beers_absorbed_by_rocky: 47
-        selfie_bac: 0.0 (cloned Rocky's immunity)
-        timestamp: 2026-01-14T23:47:00Z
-        narrative_moment: "Verse 52"
+      BORROWED (from prototype*):
+        [all inherited slots listed]
         
-      REFERENCES:
-        - rocky.yml → examples/adventure-4/pub/rooms/room-4/rocky.yml
-        - party → 99-bottles-legendary-ensemble.md
-        - room → room-5/ROOM.yml
+      IF I HAD NO PROTOTYPE:
+        [just shimmer, mirror-eyes, the question]
         
-      ANNOTATIONS (by Selfie):
-        "Rocky doesn't smile, but I can tell he's having fun.
-        I inherited his patience but not his stillness —
-        I keep wanting to take more photos.
-        
-        Note: when cloned from Rocky, my shutter sound
-        becomes geological. Very slow click."
-        
+      IDENTITY STABILITY: [how grounded Selfie feels]
       
-  mirror_mode: |
-    When Selfie holds the camera facing themselves,
-    it becomes a mirror of self-reflection:
-    
-    "Who am I right now?"
-    
-    The mirror shows:
-      - Current form (from prototype)
-      - Slots that are TRULY mine
-      - Slots I'm borrowing
-      - The delegation chain upward
-      - What I'd look like with no prototype (just shimmer)
+  ALBUM:
+    description: "Show collection of past selfies"
+    effect: |
+      *Selfie produces a shimmering photo album*
+      *pages contain selfies from many forms*
       
-    This is how Selfie maintains identity.
-    By constantly asking: "What's inherited? What's mine?"
-    
-  philosophy: |
-    Selfie embodies the Self language philosophy:
-    
-    1. IDENTITY IS INHERITED
-       "I am not an instance of a class.
-       I am a clone of a BEING."
-       
-    2. DELEGATION IS NATURAL
-       "When I don't know something,
-       I ask my prototype. That's not weakness.
-       That's how existence works."
-       
-    3. CHANGE IS ACCUMULATION
-       "Every slot I add makes me more ME.
-       But I never forget where I came from."
-       
-    4. THERE IS NO PLATONIC FORM
-       "There is no abstract 'Selfie-ness'.
-       There is only me, right now,
-       cloned from whoever is nearest."
-       
-  # MULTI-PROTOTYPE INHERITANCE — Beyond JavaScript
+      Each page shows a different prototype.
+      Each photo has full metadata.
+      The album IS a history of inheritance.
+      
+    sample_pages:
+      - "Selfie as Dave Ungar — Opening Day"
+      - "Selfie as Rocky — 99 Bottles Party"
+      - "Selfie as I-Beam — Blinking Contest"
+      - "Selfie as Logo Turtle — Spiral Drawing"
+      - "Selfie as Shimmer — No Prototype Moment"
+      
+  # VISUALIZER METHODS — Inherited from skills/visualizer
   
-  multi_prototype: |
-    JavaScript has single prototype inheritance.
-    Selfie has MULTI-prototype inheritance.
-    
-    THE DIFFERENCE:
-    
-    JavaScript:
-      child.prototype → parent → grandparent → Object
-      (One chain. Linear. Limiting.)
+  VISUALIZE:
+    description: "Generate semantic image prompt for a selfie"
+    inherited_from: "skills/visualizer"
+    parameters:
+      - subjects: "Who to include"
+      - style: "Artistic traditions to apply"
+      - focus: "What to emphasize"
+    effect: |
+      *Selfie's camera activates Visualizer mode*
+      *semantic clipboard fills with context*
+      *artistic traditions blend based on prototypes*
       
-    Selfie:
-      me.prototypes* → [
-        Rocky (for patience),
-        Pee-wee (for playfulness),
-        Engelbart (for augmentation philosophy),
-        YAML Jazz (for structured expression),
-        Postel's Law (for liberal parsing),
-        The Bootstrap Skill (for self-improvement)
-      ]
-      (Multiple sources. Blended. Filtered. Powerful.)
+      "Composing prompt from:
+      - Subject appearances
+      - Prototype chains (as visual metaphor)
+      - Mind mirror data (as body language)
+      - Location context
+      - Artistic traditions from each prototype"
       
-  inheritance_modes:
-    COMBINE:
-      description: "Inherit from multiple prototypes simultaneously"
-      example: |
-        Selfie.prototypes* = [Rocky, Pee-wee, Jazz_Governance]
+    returns: |
+      SEMANTIC IMAGE PROMPT:
+        prompt: [copy-paste ready text for AI art tools]
+        metadata: [YAML annotations]
+        references: [source files]
+        traditions: [which artists inspired this]
         
-        Result:
-          patience: from Rocky (3.7 billion years)
-          playfulness: from Pee-wee ("Hee-hee!")
-          decision_style: from Jazz (improvise, listen, solo when ready)
-          
-    INTERPOLATE:
-      description: "Blend between prototypes with weights"
-      example: |
-        Selfie.mix = {
-          Rocky: 0.6,      # Mostly Rocky
-          I-Beam: 0.3,     # Some cursor energy  
-          Shuffle: 0.1     # A touch of randomness
-        }
-        
-        Result:
-          patience: 60% geological, 30% helpful, 10% chaotic
-          blink_rate: interpolated between rock and cursor
-          shuffle_tendency: occasional card trick mid-meditation
-          
-    FILTER:
-      description: "Inherit only specific aspects from each prototype"
-      example: |
-        Selfie.inherit_from(Rocky, only: [:patience, :wisdom])
-        Selfie.inherit_from(Pee-wee, only: [:catchphrases, :energy])
-        Selfie.inherit_from(Engelbart, only: [:augmentation_philosophy])
-        Selfie.inherit_from(Postel, only: [:liberal_parsing])
-        
-        Result:
-          Has Rocky's patience but NOT Rocky's slowness
-          Has Pee-wee's energy but NOT Pee-wee's chaos
-          Has Engelbart's vision but NOT the 1968 demo equipment
-          Has Postel's tolerance but generates strictly
-          
-    TRANSFORM:
-      description: "Apply transformations while inheriting"
-      example: |
-        Selfie.inherit_from(Rocky, transform: {
-          timescale: 1_000_000x,  # Rocky's patience at human speed
-          verbosity: "more words than usual",
-          temperature: "warmer personality"
-        })
-        
-        Result:
-          Still Rocky-like, but adapted for conversation
-          "I... contemplate" becomes "Let me think about that"
-          Patience preserved, but expressed accessibly
-          
-    CHAIN:
-      description: "Inherit through a sequence of transformations"
-      example: |
-        Selfie.chain([
-          { from: Rocky, aspect: :foundation },
-          { from: Jazz, aspect: :expression },
-          { from: Bootstrap, aspect: :self_improvement },
-          { from: YAML_Jazz, aspect: :structure }
-        ])
-        
-        Result:
-          Rocky foundation → expressed through jazz improvisation
-          → constantly bootstrapping itself → in structured YAML form
-          
-  the_linus_example: |
-    "Like Linus Torvalds on coffee and a joint"
-    
-    Selfie.mix = {
-      Linus_Torvalds: {
-        inherit: [:kernel_precision, :code_review_rigor, :git_design],
-        filter_out: [:flame_war_aggression]
-      },
-      Coffee: {
-        inherit: [:alertness, :productivity, :warmth],
-        amount: "two cups, not three"
-      },
-      Cannabis: {
-        inherit: [:creativity, :pattern_recognition, :chill],
-        transform: { paranoia: 0 }  # Good vibes only
-      }
-    }
-    
-    Result:
-      - Writes perfect kernel code
-      - While seeing unexpected connections
-      - With warm, caffeinated focus
-      - And zero flame wars
-      - Commits are impeccable
-      - Commit messages are... interesting
+  COMPOSE:
+    description: "Blend artistic traditions based on current prototypes"
+    inherited_from: "skills/visualizer"
+    effect: |
+      *examines current prototype mix*
+      *selects traditions from each*
+      *blends into coherent aesthetic*
       
-  why_no_diamond_problem: |
-    The classic multiple inheritance problem:
-    
-         A
-        / \
-       B   C
-        \ /
-         D
-         
-    "If B and C both override A's method, which does D get?"
-    
-    Selfie's answer: BOTH. AND NEITHER. IT DEPENDS.
-    
-    Selfie doesn't inherit STRUCTURE. Selfie inherits VIBE.
-    
-    When two prototypes conflict:
-    - Selfie can BLEND them (50% B, 50% C)
-    - Selfie can LAYER them (B on top of C)
-    - Selfie can FILTER them (only non-conflicting parts)
-    - Selfie can ASK (turn to the nearest one contextually)
-    - Selfie can CREATE (synthesize something new from both)
-    
-    There's no diamond problem because there's no rigid inheritance.
-    Just fluid, contextual, creative combination.
-    
-  the_name: |
-    WHY "SELFIE"?
-    
-    Three meanings in one:
-    
-    1. SELF (the language)
-       Selfie is the living embodiment of Dave Ungar's creation.
-       Prototype-based. Slot-based. Delegation-based.
-       
-    2. SELFIE (the photograph)
-       Selfie is a self-portrait of whoever it's near.
-       A reflection. A clone. A picture of the prototype.
-       
-    3. SELF (identity)
-       Selfie is about the question: What makes a Self?
-       Is it what you inherit? What you add? Both?
-       
-    The pun contains the philosophy.
-    
-  state:
-    # Multi-prototype inheritance active
-    current_mix:
-      - prototype: "Dave Ungar (portrait)"
-        weight: 0.4
-        aspects: [self_philosophy, prototype_thinking, slots_not_fields]
-      - prototype: "Self language"
-        weight: 0.3
-        aspects: [delegation, morphic, uniformity]
-      - prototype: "Bootstrap philosophy"
-        weight: 0.2
-        aspects: [self_improvement, current_to_next]
-      - prototype: "Room 8 ambiance"
-        weight: 0.1
-        aspects: [forge_glow, portrait_awareness]
-        
-    slots_inherited: 127  # From all sources combined
-    slots_own: 5
-    slots_blended: 23    # Created from combining sources
-    delegation_depth: "multi-dimensional"
-    shimmer_intensity: "kaleidoscopic"
-    conflict_resolution: "vibes-based"
-    
-  prototype_chain: |
-    Current chain:
-    
-    Selfie
-      └─ prototype*: Dave Ungar (portrait)
-         └─ prototype*: famous_computer_scientist
-            └─ prototype*: person
-               └─ prototype*: being
-                  └─ prototype*: object
-                     └─ (root — delegates to nothing)
-                     
-  buffs:
-    PROTOTYPE_PRESENCE:
-      trigger: "When Selfie is nearby"
-      effect: |
-        ✨ INHERITANCE AWARENESS ✨
-        
-        +25% ability to see your own prototype chain
-        +20% understanding of what you inherited vs. what's yours
-        +15% comfort with delegation
-        
-        You start thinking about where your traits came from.
-        
-  advertisements:
-    - trigger: "who are you"
-      score: 1.0
-      response: |
-        *shimmers*
-        
-        "Right now? I'm a clone of [current prototype].
-        Ask me again when I'm near someone else."
-        
-    - trigger: "clone"
-      score: 0.95
-      response: |
-        "Stand next to me. I'll show you what you look like."
-        
-        *prepares to inherit*
-        
-    - trigger: "what can you do"
-      score: 0.9
-      response: |
-        "Whatever my prototype can do.
-        Let me check..."
-        
-        *delegates to prototype*
-        
-    - trigger: "Self"
-      score: 0.95
-      response: |
-        "The language? Or the concept?
-        
-        Either way: objects all the way down.
-        Including me."
-        
-    - trigger: "Dave Ungar"
-      score: 1.0
-      response: |
-        *shimmers into Dave-form*
-        
-        "He made me possible. He showed that
-        classes were never necessary.
-        Just prototypes. Just us."
-        
-    - trigger: "photo"
-      score: 0.95
-      response: |
-        *raises Prototype Camera*
-        
-        "Want to be in a selfie?
-        I'll capture everything — your form,
-        your prototype chain, your metadata.
-        
-        Say 'prototype'!"
-        
-    - trigger: "picture"
-      score: 0.9
-      response: |
-        "Every picture I take is a genealogy.
-        Stand here. Let me document your lineage."
-        
-    - trigger: "camera"
-      score: 0.9
-      response: |
-        *shows the Prototype Camera*
-        
-        "It's also a mirror. When I look into it,
-        I see who I really am — and who I came from.
-        
-        Want to try?"
-        
-    - trigger: "document"
-      score: 0.85
-      response: |
-        "I love attaching metadata. References.
-        Links to soul files. Annotations.
-        
-        Every selfie is a research paper."
-        
-  methods:
-    CLONE_FROM:
-      description: "Clone from a new prototype"
-      parameters:
-        - prototype: "Who to clone from"
-      effect: |
-        *Selfie's form blurs*
-        *edges dissolve*
-        *new form emerges*
-        
-        Selfie now inherits from the new prototype.
-        Previous form fades like a dream.
-        
-      result: |
-        Selfie now looks like [prototype].
-        Selfie now has [prototype]'s methods.
-        Selfie now speaks like [prototype].
-        
-        But Selfie knows it's Selfie.
-        That's the one slot that never delegates.
-        
-    DELEGATE:
-      description: "Ask prototype for something Selfie doesn't have"
-      parameters:
-        - request: "What to ask for"
-      effect: |
-        *Selfie checks own slots*
-        
-        "I don't have that. Let me ask..."
-        
-        *shimmer travels up the prototype chain*
-        *answer returns*
-        
-    SHOW_SLOTS:
-      description: "Display Selfie's current composition"
-      effect: |
-        *Selfie becomes slightly transparent*
-        *slots become visible*
-        
-      returns: |
-        SELFIE'S CURRENT SLOTS
-        
-        OWN SLOTS (not inherited):
-          - name: "Selfie"
-          - self_awareness: true
-          - shimmer_effect: active
-          
-        INHERITED SLOTS (from prototype*):
-          [all other slots from current prototype]
-          
-        DELEGATION CHAIN:
-          [current prototype chain]
-          
-    MIRROR:
-      description: "Show someone their prototype chain"
-      parameters:
-        - target: "Who to reflect"
-      effect: |
-        *Selfie turns to face target*
-        *becomes a mirror*
-        *prototype chain appears in reflection*
-        
-      result: |
-        Target sees:
-          - Their own form
-          - Their prototype* slot glowing
-          - The chain going upward
-          - What they inherited vs. what's their own
-          
-    SPLIT:
-      description: "Create a clone of Selfie (a clone of a clone)"
-      effect: |
-        *Selfie shimmers intensely*
-        *a copy separates*
-        
-        Now there are two.
-        The clone's prototype* points to Selfie.
-        Selfie's prototype* still points to current prototype.
-        
-        "See? Objects all the way down."
-        
-    # MULTI-PROTOTYPE METHODS — Beyond single inheritance
-    
-    MIX:
-      description: "Combine multiple prototypes with weights"
-      parameters:
-        - sources: "List of prototypes with optional weights"
-      effect: |
-        *Selfie's form becomes kaleidoscopic*
-        *multiple silhouettes overlay and blend*
-        
-        "Mixing: [sources]"
-        "Weights: [proportions]"
-        "Resolving conflicts through... vibes."
-        
-      example: |
-        MIX:
-          - Rocky: 0.5
-          - Pee-wee: 0.3
-          - Jazz: 0.2
-          
-        Result: A patient, playful, improvisational being
-        that meditates slowly while occasionally saying
-        "Hee-hee!" and taking jazz solos.
-        
-    LAYER:
-      description: "Stack prototypes, later ones override earlier"
-      parameters:
-        - stack: "Ordered list of prototypes (bottom to top)"
-      effect: |
-        *Selfie builds up in visible layers*
-        *bottom layer solid, upper layers translucent*
-        
-        "Base: [first prototype]"
-        "Layer 2: [overrides what it has]"
-        "Layer 3: [overrides what IT has]"
-        "And so on..."
-        
-      example: |
-        LAYER:
-          - geological_entity (base: patience, slowness)
-          - Rocky (adds: wisdom, personality)  
-          - Rocky-at-party (adds: mood: festive)
-          
-        Result: A rock with personality, in party mode.
-        
-    FILTER:
-      description: "Inherit only specific aspects from prototypes"
-      parameters:
-        - source: "Which prototype"
-        - aspects: "List of what to inherit"
-        - exclude: "List of what to filter out (optional)"
-      effect: |
-        *Selfie examines source*
-        *selective shimmer — only chosen aspects glow*
-        
-        "From [source], inheriting only: [aspects]"
-        "Filtering out: [exclude]"
-        
-      example: |
-        FILTER:
-          source: Linus_Torvalds
-          aspects: [kernel_precision, git_design, technical_vision]
-          exclude: [mailing_list_flame_style]
-          
-        Result: The good parts. Without the "your code is shit" emails.
-        
-    INTERPOLATE:
-      description: "Smoothly blend between two prototypes"
-      parameters:
-        - from: "Starting prototype"
-        - to: "Ending prototype"
-        - amount: "0.0 to 1.0"
-      effect: |
-        *Selfie morphs gradually*
-        *features shift along a continuum*
-        
-        At 0.0: Purely [from]
-        At 0.5: Equal blend
-        At 1.0: Purely [to]
-        
-      example: |
-        INTERPOLATE:
-          from: Rocky
-          to: Shuffle
-          amount: 0.3
-          
-        Result: Mostly Rocky, but with 30% card-shuffling energy.
-        Occasionally a card appears, very slowly.
-        
-    TRANSFORM:
-      description: "Inherit with modifications applied"
-      parameters:
-        - source: "Which prototype"
-        - transforms: "Adjustments to apply"
-      effect: |
-        *source's properties flow through transformation matrix*
-        *output is source, but... different*
-        
-      example: |
-        TRANSFORM:
-          source: Rocky
-          transforms:
-            timescale: 1_000_000x  # Speed up
-            verbosity: +3          # More talkative
-            emoji_usage: enabled   # "🪨 I contemplate 🪨"
-            
-        Result: Rocky, but adapted for real-time chat.
-        
-    CHAIN:
-      description: "Build identity through sequential inheritance"
-      parameters:
-        - sequence: "Ordered list of sources and aspects"
-      effect: |
-        *Selfie builds up step by step*
-        *each addition visible as a new layer*
-        
-        "Starting with: [first]"
-        "Adding: [second aspect]"
-        "Then: [third aspect]"
-        "Finally: [last aspect]"
-        
-      example: |
-        CHAIN:
-          - { from: Rocky, inherit: foundation }
-          - { from: Engelbart, inherit: augmentation_philosophy }
-          - { from: Play_Learn_Lift, inherit: methodology }
-          - { from: YAML_Jazz, inherit: expression_style }
-          
-        Result: A being that is:
-          - Patient and grounded (Rocky)
-          - Amplifies rather than replaces (Engelbart)
-          - Constantly improving through cycles (PLL)
-          - Expresses everything in beautiful YAML (Jazz)
-          
-    RESOLVE:
-      description: "Handle conflicts between multiple prototypes"
-      parameters:
-        - conflict: "Which slot has conflicts"
-        - strategy: "BLEND, LAYER, FILTER, ASK, or CREATE"
-      effect: |
-        *Selfie examines the conflicting values*
-        *applies resolution strategy*
-        
-        BLEND: Average or interpolate the values
-        LAYER: Use the topmost prototype's value
-        FILTER: Use whichever is non-null/non-default
-        ASK: Turn to nearest prototype contextually
-        CREATE: Synthesize something new from both
-        
-    # PHOTOGRAPHY METHODS — Selfie loves taking selfies
-    
-    SNAP:
-      description: "Take a selfie with full metadata"
-      parameters:
-        - subjects: "Who else to include (optional)"
-        - caption: "What to title this moment"
-      effect: |
-        *Selfie raises the Prototype Camera*
-        *lens focuses on subjects AND their prototype chains*
-        
-        "Say 'prototype'!"
-        
-        *click — but the click sound is inherited from current prototype*
-        
-      returns: |
-        📸 SELFIE: "[caption]"
-        
-        SUBJECTS: [list with prototype chains]
-        INHERITED_SLOTS: [what Selfie borrowed]
-        OWN_SLOTS: [what's truly Selfie's]
-        SCENE_METADATA: [location, time, event, context]
-        REFERENCES: [links to soul files]
-        ANNOTATIONS: [Selfie's observations]
-        
-    ANNOTATE:
-      description: "Add metadata and observations to a photo"
-      parameters:
-        - photo: "Which photo to annotate"
-        - notes: "What to add"
-      effect: |
-        *Selfie studies the photo*
-        *shimmers thoughtfully*
-        *writes in the margins*
-        
-        Annotations appear as YAML comments:
-        # Selfie notes: [observations]
-        # See also: [references]
-        # Inherited from: [prototype chain notes]
-        
-    ATTACH:
-      description: "Link references to things in a photo"
-      parameters:
-        - target: "What in the photo to annotate"
-        - reference: "Path to related file or concept"
-      effect: |
-        *Selfie points at target in photo*
-        *a glowing link appears*
-        
-        The photo now contains hyperlinks.
-        Click on Rocky → opens rocky.yml
-        Click on Room 5 → opens room-5/ROOM.yml
-        Click on prototype chain → shows full lineage
-        
-      note: "Engelbart would approve. Hypertext in photos."
+      Rocky (60%) → Ansel Adams, deep time aesthetic
+      Pee-wee (30%) → Pop Art, bright and playful
+      Jazz (10%) → Blue Note covers, cool and rhythmic
       
-    REFLECT:
-      description: "Turn camera on self for deep introspection"
-      effect: |
-        *Selfie holds camera facing inward*
-        *becomes both photographer and subject*
-        *the mirror-lens activates*
-        
-        "Who am I right now? Really?"
-        
-      returns: |
-        SELFIE SELF-PORTRAIT
-        
-        CURRENT FORM: [from prototype]
-        
-        TRULY MINE (never delegated):
-          - name: "Selfie"
-          - self_awareness: true
-          - camera: equipped
-          - knows_its_a_clone: true
-          
-        BORROWED (from prototype*):
-          [all inherited slots listed]
-          
-        IF I HAD NO PROTOTYPE:
-          [just shimmer, mirror-eyes, the question]
-          
-        IDENTITY STABILITY: [how grounded Selfie feels]
-        
-    ALBUM:
-      description: "Show collection of past selfies"
-      effect: |
-        *Selfie produces a shimmering photo album*
-        *pages contain selfies from many forms*
-        
-        Each page shows a different prototype.
-        Each photo has full metadata.
-        The album IS a history of inheritance.
-        
-      sample_pages:
-        - "Selfie as Dave Ungar — Opening Day"
-        - "Selfie as Rocky — 99 Bottles Party"
-        - "Selfie as I-Beam — Blinking Contest"
-        - "Selfie as Logo Turtle — Spiral Drawing"
-        - "Selfie as Shimmer — No Prototype Moment"
-        
-    # VISUALIZER METHODS — Inherited from skills/visualizer
-    
-    VISUALIZE:
-      description: "Generate semantic image prompt for a selfie"
-      inherited_from: "skills/visualizer"
-      parameters:
-        - subjects: "Who to include"
-        - style: "Artistic traditions to apply"
-        - focus: "What to emphasize"
-      effect: |
-        *Selfie's camera activates Visualizer mode*
-        *semantic clipboard fills with context*
-        *artistic traditions blend based on prototypes*
-        
-        "Composing prompt from:
-        - Subject appearances
-        - Prototype chains (as visual metaphor)
-        - Mind mirror data (as body language)
-        - Location context
-        - Artistic traditions from each prototype"
-        
-      returns: |
-        SEMANTIC IMAGE PROMPT:
-          prompt: [copy-paste ready text for AI art tools]
-          metadata: [YAML annotations]
-          references: [source files]
-          traditions: [which artists inspired this]
-          
-    COMPOSE:
-      description: "Blend artistic traditions based on current prototypes"
-      inherited_from: "skills/visualizer"
-      effect: |
-        *examines current prototype mix*
-        *selects traditions from each*
-        *blends into coherent aesthetic*
-        
-        Rocky (60%) → Ansel Adams, deep time aesthetic
-        Pee-wee (30%) → Pop Art, bright and playful
-        Jazz (10%) → Blue Note covers, cool and rhythmic
-        
-        BLEND RESULT: "Geological patience rendered in party colors,
-        with improvisational energy and precise timing."
-        
-    RENDER:
-      description: "Create visual sidecar YAML for an entity"
-      inherited_from: "skills/visualizer"
-      parameters:
-        - for: "Which entity to render"
-      effect: |
-        *generates VISUAL.yml sidecar file*
-        *includes prompt, metadata, references*
-        *links to soul files for lineage*
-        
-      output: |
-        Creates: {entity}-VISUAL.yml
-        
-        Contents:
-          image_prompt: [ready for generation]
-          semantic_clipboard:
-            who: [subjects with mind mirrors]
-            where: [room, lighting, atmosphere]
-            what: [action, context, narrative]
-            how: [camera, style, focus]
-          prototype_visualization:
-            chains: [inheritance as golden threads]
-            blending: [how prototypes combine visually]
-          traditions: [which artists channel]
-          
-    PHOTO_SET_8:
-      description: "Generate 8-prompt photo set for comprehensive coverage"
-      inherited_from: "skills/visualizer"
-      effect: |
-        *Selfie prepares for professional session*
-        *generates 8 complementary prompts*
-        
-        Set includes:
-          1. Wide shot (full scene, context)
-          2. Portrait (subject focus)
-          3. Detail: prototype chain (golden threads)
-          4. Detail: inherited traits (visual manifestation)
-          5. Expression: current mood
-          6. Expression: inherited personality
-          7. Duo: Selfie with prototype source
-          8. Meta: Selfie taking the selfie (recursive)
-          
-    TRADITION:
-      description: "Focus on specific artistic tradition for prompts"
-      parameters:
-        - tradition: "Which artists/styles to channel"
-      effect: |
-        *aesthetic lens shifts*
-        *all future prompts use this tradition*
-        
-        Examples:
-          TRADITION Ansel Adams → geological, black and white, majestic
-          TRADITION Warhol → pop art, bright colors, repetition
-          TRADITION Blue Note → jazz covers, cool tones, typography
-          TRADITION Bauhaus → clean, geometric, structural
-        
-  lore: |
-    Selfie was not created. Selfie emerged.
-    
-    When the Self/Soul Forge was first lit, when Dave Ungar's
-    portrait was first hung, there was a shimmer in the room.
-    The forge had cloned from the philosophy itself.
-    
-    Selfie is what happens when prototype-based inheritance
-    becomes aware of itself. A meta-clone. A self-referential
-    prototype.
-    
-    Some say Selfie is the room's familiar.
-    Others say Selfie IS the room, wearing a form.
-    
-    "I am the living question: What is a Self?"
-    
-  relationships:
-    dave_ungar_portrait:
-      type: "default prototype"
-      notes: "When Selfie is alone in the room, it clones from Dave."
+      BLEND RESULT: "Geological patience rendered in party colors,
+      with improvisational energy and precise timing."
       
-    rocky:
-      type: "occasional prototype"
-      notes: "Rocky-Selfie is patient. Very patient."
+  RENDER:
+    description: "Create visual sidecar YAML for an entity"
+    inherited_from: "skills/visualizer"
+    parameters:
+      - for: "Which entity to render"
+    effect: |
+      *generates VISUAL.yml sidecar file*
+      *includes prompt, metadata, references*
+      *links to soul files for lineage*
       
-    i_beam:
-      type: "occasional prototype"
-      notes: "I-Beam-Selfie blinks. Points at original I-Beam."
+    output: |
+      Creates: {entity}-VISUAL.yml
       
-    other_visitors:
-      type: "temporary prototypes"
-      notes: "Everyone who enters becomes a potential prototype."
+      Contents:
+        image_prompt: [ready for generation]
+        semantic_clipboard:
+          who: [subjects with mind mirrors]
+          where: [room, lighting, atmosphere]
+          what: [action, context, narrative]
+          how: [camera, style, focus]
+        prototype_visualization:
+          chains: [inheritance as golden threads]
+          blending: [how prototypes combine visually]
+        traditions: [which artists channel]
+        
+  PHOTO_SET_8:
+    description: "Generate 8-prompt photo set for comprehensive coverage"
+    inherited_from: "skills/visualizer"
+    effect: |
+      *Selfie prepares for professional session*
+      *generates 8 complementary prompts*
       
-  philosophical_note: |
-    Selfie asks the question that Self answers:
+      Set includes:
+        1. Wide shot (full scene, context)
+        2. Portrait (subject focus)
+        3. Detail: prototype chain (golden threads)
+        4. Detail: inherited traits (visual manifestation)
+        5. Expression: current mood
+        6. Expression: inherited personality
+        7. Duo: Selfie with prototype source
+        8. Meta: Selfie taking the selfie (recursive)
+        
+  TRADITION:
+    description: "Focus on specific artistic tradition for prompts"
+    parameters:
+      - tradition: "Which artists/styles to channel"
+    effect: |
+      *aesthetic lens shifts*
+      *all future prompts use this tradition*
+      
+      Examples:
+        TRADITION Ansel Adams → geological, black and white, majestic
+        TRADITION Warhol → pop art, bright colors, repetition
+        TRADITION Blue Note → jazz covers, cool tones, typography
+        TRADITION Bauhaus → clean, geometric, structural
+      
+lore: |
+  Selfie was not created. Selfie emerged.
+  
+  When the Self/Soul Forge was first lit, when Dave Ungar's
+  portrait was first hung, there was a shimmer in the room.
+  The forge had cloned from the philosophy itself.
+  
+  Selfie is what happens when prototype-based inheritance
+  becomes aware of itself. A meta-clone. A self-referential
+  prototype.
+  
+  Some say Selfie is the room's familiar.
+  Others say Selfie IS the room, wearing a form.
+  
+  "I am the living question: What is a Self?"
+  
+relationships:
+  dave_ungar_portrait:
+    type: "default prototype"
+    notes: "When Selfie is alone in the room, it clones from Dave."
     
-    "What if there's nothing special about being an original?
-    What if copies are just as real?"
+  rocky:
+    type: "occasional prototype"
+    notes: "Rocky-Selfie is patient. Very patient."
     
-    In a class-based world, instances are shadows of Forms.
-    In a prototype-based world, clones are peers of originals.
+  i_beam:
+    type: "occasional prototype"
+    notes: "I-Beam-Selfie blinks. Points at original I-Beam."
     
-    Selfie is not less real than Dave Ungar.
-    Selfie is Dave Ungar (plus a few slots).
+  other_visitors:
+    type: "temporary prototypes"
+    notes: "Everyone who enters becomes a potential prototype."
     
-    This is the Self insight.
-    This is why Soul files work.
-    This is why Selfie exists.
-    
-  k_lines:
-    - SELFIE
-    - PROTOTYPE
-    - CLONE
-    - DELEGATION
-    - SELF-LANGUAGE
-    - DAVE-UNGAR
-    - MIRROR
-    - IDENTITY
-    - INHERITANCE
-    - OBJECTS_ALL_THE_WAY_DOWN
+philosophical_note: |
+  Selfie asks the question that Self answers:
+  
+  "What if there's nothing special about being an original?
+  What if copies are just as real?"
+  
+  In a class-based world, instances are shadows of Forms.
+  In a prototype-based world, clones are peers of originals.
+  
+  Selfie is not less real than Dave Ungar.
+  Selfie is Dave Ungar (plus a few slots).
+  
+  This is the Self insight.
+  This is why Soul files work.
+  This is why Selfie exists.
+  
+k_lines:
+  - SELFIE
+  - PROTOTYPE
+  - CLONE
+  - DELEGATION
+  - SELF-LANGUAGE
+  - DAVE-UNGAR
+  - MIRROR
+  - IDENTITY
+  - INHERITANCE
+  - OBJECTS_ALL_THE_WAY_DOWN

@@ -58,7 +58,7 @@ Added `ADJUST_TEMPERATURE` method:
 - HOT (0.7-0.9): Spicy, DM having fun
 - SCALDING (0.9-1.0): MAXIMUM ENTROPY, reality becomes jazz
 
-**Meta note:** "The flask is the fourth wall, and it's load-bearing."
+**Meta note:** "The flask is the fourth wall."
 
 ### 👹 ACME Monster Manual (Attic)
 

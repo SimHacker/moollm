@@ -31,7 +31,7 @@ See [MOOCO-MOO-VM.md](MOOCO-MOO-VM.md) for the full mapping table.
 
 # Introduction
 
-MOOCO is not fundamentally a chatbot.
+MOOCO is not a chatbot.
 
 MOOCO is a protocol endpoint.
 
@@ -39,15 +39,9 @@ The orchestrator behaves similarly to a server.
 
 The LLM behaves similarly to one or more browsers.
 
-This analogy is intentional.
-
-But it is not the destination.
-
-It is a starting point.
-
 ---
 
-# Why The Browser Metaphor Matters
+# Browser concepts the model already knows
 
 Language models already understand browsers.
 
@@ -64,9 +58,7 @@ They understand:
 - cookies
 - sessions
 
-These concepts are deeply represented in training data.
-
-Therefore they make excellent cognitive primitives.
+These concepts are in the training data.
 
 The model does not need to learn them.
 

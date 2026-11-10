@@ -9,7 +9,7 @@
 
 ## Why this document exists
 
-Brad Myers' Garnet and Amulet systems are often summarized as "prototype OOP with constraints." That summary misses the feature Don Hopkins and later OpenLaszlo developers found most powerful: **structural inheritance** — parallel trees of prototypes, instances, and part hierarchies, kept coherent by constraints.
+Brad Myers' Garnet and Amulet systems are often summarized as "prototype OOP with constraints." That summary misses the feature Don Hopkins and later OpenLaszlo developers found: **structural inheritance** — parallel trees of prototypes, instances, and part hierarchies, kept coherent by constraints.
 
 MOOLLM already speaks Self (delegation, no classes, progressive revelation). Garnet/Amulet add a complementary lesson: **instancing is not one tree, it is two (or three) synchronized trees**. That maps directly onto how LLM context should be assembled from skills, directories, and reactive bindings.
 

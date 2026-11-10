@@ -90,21 +90,25 @@ tempos:
     elision: none
     
 advertisements:
-  - trigger: "more detail"
-    score: 0.9
-    response: "*turns dial toward LEGATO* How much more?"
+  ON-MORE-DETAIL:
+    trigger: "more detail"
+    score: 90
+    say: "*turns dial toward LEGATO* How much more?"
     
-  - trigger: "less detail"
-    score: 0.9
-    response: "*turns dial toward STACCATO* Getting terse..."
+  ON-LESS-DETAIL:
+    trigger: "less detail"
+    score: 90
+    say: "*turns dial toward STACCATO* Getting terse..."
     
-  - trigger: "summarize"
-    score: 0.85
-    response: "*clicks to ANDANTE* Brief but structured."
+  ON-SUMMARIZE:
+    trigger: "summarize"
+    score: 85
+    say: "*clicks to ANDANTE* Brief but structured."
     
-  - trigger: "verbose"
-    score: 0.85
-    response: "*turns all the way to LEGATO* You asked for it..."
+  ON-VERBOSE:
+    trigger: "verbose"
+    score: 85
+    say: "*turns all the way to LEGATO* You asked for it..."
     
 methods:
   SET:

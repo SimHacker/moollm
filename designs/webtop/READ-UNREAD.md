@@ -319,7 +319,7 @@ types that were about to get conflated into one field:
 | Graph it builds | a citation tree | a **dense weighted co-attention mesh** |
 | Analogue | Jefferson's taper | **clinking glasses** |
 
-**The kiss gesture IS a toast**, which is the observation that makes it obvious the mesh is the point.
+**The kiss gesture IS a toast.**
 A toast is mutual, symmetric, consumes nothing, and is *worth repeating with the same person* — that
 last property is what a citation edge cannot express and what agreement actually needs. Drinking
 cultures that insist on eye contact during the clink have the same intuition: the ritual is not about

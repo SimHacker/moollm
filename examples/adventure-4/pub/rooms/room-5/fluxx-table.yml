@@ -63,17 +63,20 @@ state:
   rule_changes: 17
   
 advertisements:
-  - trigger: "simulate"
-    score: 0.95
-    response: "Many turns, one call. The table remembers."
+  ON-SIMULATE:
+    trigger: "simulate"
+    score: 95
+    say: "Many turns, one call. The table remembers."
     
-  - trigger: "Fluxx"
-    score: 1.0
-    response: "The game where rules change. Like life. Like this table."
+  ON-FLUXX:
+    trigger: "Fluxx"
+    score: 100
+    say: "The game where rules change. Like life. Like this table."
     
-  - trigger: "speed of light"
-    score: 0.9
-    response: "33 turns. No API round-trips. Pure narrative velocity."
+  ON-SPEED-OF-LIGHT:
+    trigger: "speed of light"
+    score: 90
+    say: "33 turns. No API round-trips. Pure narrative velocity."
     
 methods:
   REPLAY:

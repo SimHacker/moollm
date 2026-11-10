@@ -6,8 +6,6 @@
 
 ## From Spiders to Worms
 
-### Why Worms Are Better Than Spiders
-
 | Spider Crawlers | Eval Worms |
 |-----------------|------------|
 | Scrape | Ingest |
@@ -18,13 +16,11 @@
 
 **A worm doesn't "analyze" soil. It passes through it and changes it.**
 
-That's the correct metaphor for evaluation.
-
 ---
 
 ## Two-Ended Worms
 
-The key insight: **worms have two ends**.
+**Worms have two ends**.
 
 ### Anatomy
 
@@ -47,7 +43,7 @@ The key insight: **worms have two ends**.
 
 ## Head and Tail Topology
 
-The key insight: **heads and tails don't have to be in the same place**.
+**Heads and tails don't have to be in the same place**.
 
 ### Cross-Document Worms (Common Pattern)
 

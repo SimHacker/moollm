@@ -5,7 +5,8 @@
 
 id: postgres-optimization
 name: "PostgreSQL Optimization"
-type: [skill, database, performance]
+type: skill
+tags: [database, performance]
 
 emoji: 🐘
 
@@ -222,47 +223,47 @@ index_types:
 advertisements:
   SLOW-QUERY:
     score: 85
-    condition: "Query is slower than expected"
+    score_if: "Query is slower than expected"
     
   LARGE-INDEX:
     score: 90
-    condition: "Index size is approaching table size"
+    score_if: "Index size is approaching table size"
     
   AD-HOC-QUERIES:
     score: 80
-    condition: "Users writing ad-hoc queries against table with constraints"
+    score_if: "Users writing ad-hoc queries against table with constraints"
     
   UNIQUE-LARGE-VALUES:
     score: 95
-    condition: "Need uniqueness on large text values like URLs"
+    score_if: "Need uniqueness on large text values like URLs"
     
   INDEX-TYPE-SELECTION:
     score: 90
-    condition: "Creating new index, unsure which type"
+    score_if: "Creating new index, unsure which type"
     
   EXPLAIN-ANALYZE-HELP:
     score: 88
-    condition: "Need to understand EXPLAIN ANALYZE output"
+    score_if: "Need to understand EXPLAIN ANALYZE output"
     
   ARRAY-JSONB-SEARCH:
     score: 92
-    condition: "Searching within arrays or JSONB columns"
+    score_if: "Searching within arrays or JSONB columns"
     
   TIME-SERIES-TABLE:
     score: 85
-    condition: "Large append-only table with timestamp column"
+    score_if: "Large append-only table with timestamp column"
     
   FULL-TEXT-SEARCH:
     score: 87
-    condition: "Need to search text content"
+    score_if: "Need to search text content"
     
   INDEX-NOT-USED:
     score: 88
-    condition: "Index exists but query planner not using it"
+    score_if: "Index exists but query planner not using it"
     
   UNUSED-INDEXES:
     score: 75
-    condition: "Want to find and remove unused indexes"
+    score_if: "Want to find and remove unused indexes"
 
 # PATTERNS
 

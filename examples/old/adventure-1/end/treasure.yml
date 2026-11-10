@@ -25,10 +25,10 @@ points: 10
 
 # Interactions
 advertisements:
-  - action: GET
+  GET:
     score_if: "not in_inventory"
     description: "Claim your prize!"
-    response: |
+    say: |
       You lift the Jeweled Chalice from its pedestal. It's surprisingly
       heavy — real gold does that. The gems sparkle triumphantly.
       
@@ -44,14 +44,12 @@ advertisements:
     on_take:
       player.score: "+= 10"
     
-  - action: EXAMINE
-    score_if: "always"
+  EXAMINE:
     description: "Admire the craftsmanship"
     
-  - action: DRINK-FROM
-    score_if: "always"
+  DRINK-FROM:
     description: "Use the chalice for its intended purpose"
-    response: "The chalice is empty. Also, drinking from priceless artifacts is frowned upon."
+    say: "The chalice is empty. Also, drinking from priceless artifacts is frowned upon."
 
 # Tribute
 lineage: |

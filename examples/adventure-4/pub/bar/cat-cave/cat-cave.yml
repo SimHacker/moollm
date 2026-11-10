@@ -17,7 +17,7 @@ type:
   # The entrance is furniture. The inside is a room.
   # The whole thing is a mystery.
   
-location: pub/   # The Cave entrance is in the pub
+location: pub/   # The entrance is in the pub. The cave is nested inside it.
 
 # VIRTUAL ZONES — No subdirectories needed!
 # 
@@ -32,35 +32,33 @@ location: pub/   # The Cave entrance is in the pub
 
 # AS A ROOM — Nested location with exits and zones
 
-room:
-  parent: pub/                    # Nested inside the pub
-  path: pub/cat-cave              # How to reference this location
+path: pub/cat-cave              # How to reference this location
+
+exits:
+  out:
+    to: pub/
+    restriction: "cats only"    # Humans can't use this exit (can't fit)
+    description: "The felt-lined entrance hole"
   
-  exits:
-    out:
-      to: pub/
-      restriction: "cats only"    # Humans can't use this exit (can't fit)
-      description: "The felt-lined entrance hole"
+  # Secret exits (cats know, humans don't)
+  bookshelf:
+    to: pub/           # Behind the bookshelf
+    restriction: "cats only"
+    hidden: true
     
-    # Secret exits (cats know, humans don't)
-    bookshelf:
-      to: pub/           # Behind the bookshelf
-      restriction: "cats only"
-      hidden: true
-      
-    cellar:
-      to: pub/cellar     # Under the stairs  
-      restriction: "cats only"
-      hidden: true
-      note: "New exits appear when needed"
-      
-  properties:
-    light: "None to bioluminescent (varies by zone)"
-    temperature: "Perfect (self-regulating)"
-    danger: 0                     # Absolute safety
-    capacity: "Unlimited (expands as needed)"
-    human_accessible: false       # Entrance rejects them
+  cellar:
+    to: pub/cellar     # Under the stairs  
+    restriction: "cats only"
+    hidden: true
+    note: "New exits appear when needed"
     
+properties:
+  light: "None to bioluminescent (varies by zone)"
+  temperature: "Perfect (self-regulating)"
+  danger: 0                     # Absolute safety
+  capacity: "Unlimited (expands as needed)"
+  human_accessible: false       # Entrance rejects them
+  
 # AS FURNITURE — What humans see
 
 furniture:

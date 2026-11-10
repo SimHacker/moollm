@@ -1,16 +1,16 @@
-card:
-  name: monster-shadow
-  type: [monster, undead, dnd, example]
-  tier: 1
-  invoke_when: ["creepy encounter", "undead threat", "low-light scare"]
-  advertisement_names:
-    - DESCRIBE
-    - THREAT
-    - WEAKNESS
-  tags: [moollm, example, monster, shadow, undead, dnd]
-  description: |
-    A malevolent shadow that drains strength in dim light. Silent, lurking,
-    vulnerable to bright light and radiant power.
+# card:
+name: monster-shadow
+type: [monster, undead, dnd, example]
+tier: 1
+invoke_when: ["creepy encounter", "undead threat", "low-light scare"]
+advertisement_names:
+  - DESCRIBE
+  - THREAT
+  - WEAKNESS
+tags: [moollm, example, monster, shadow, undead, dnd]
+description: |
+  A malevolent shadow that drains strength in dim light. Silent, lurking,
+  vulnerable to bright light and radiant power.
 
 ethics:
   constraints:

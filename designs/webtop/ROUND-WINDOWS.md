@@ -42,7 +42,7 @@ about it — when the chrome, the commands, and the menus are all shaped by the 
 
 ## Round frames want pie menus
 
-That is the composition that makes the circle load-bearing rather than cute. FRAMES.md
+FRAMES.md
 already names pie menus as the natural merged presentation for commands contributed by many
 concerns. On a round window the bezel **is** the ring: press the frame and the slices bloom
 in place, concerns claiming slices and subrings around geometry that was already circular.

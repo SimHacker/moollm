@@ -54,7 +54,7 @@ layouts:
       Hexagonal grid with 6 connections per cell.
       Better for organic/natural layouts.
       
-    pattern: |
+    pattern: |4
          ╱╲   ╱╲   ╱╲
         ╱ A╲ ╱ B╲ ╱ C╲
         ╲   ╱╲   ╱╲   ╱
@@ -104,7 +104,7 @@ layouts:
       Central hub with spokes radiating outward.
       Like a pie menu or wagon wheel.
       
-    pattern: |
+    pattern: |4
               [N]
                │
         [NW]   │   [NE]
@@ -147,7 +147,7 @@ layouts:
       Four-way radial: North, East, South, West.
       Classic adventure game layout.
       
-    pattern: |
+    pattern: |2
             [N]
              │
       [W]───[●]───[E]
@@ -165,7 +165,7 @@ layouts:
       Eight-way radial including diagonals.
       Maximum navigation flexibility.
       
-    pattern: |
+    pattern: |2
         [NW] [N] [NE]
            ╲ │ ╱
       [W]───[●]───[E]
@@ -183,7 +183,7 @@ layouts:
       Nested rings around a center.
       Each ring connected to adjacent rings.
       
-    pattern: |
+    pattern: |5
            ┌─────────────┐
           ╱ ┌─────────┐   ╲
          │ ╱ ┌─────┐   ╲   │
@@ -213,7 +213,7 @@ layouts:
       Root with branching children.
       No cycles, single path to each node.
       
-    pattern: |
+    pattern: |5
               [ROOT]
              ╱  │  ╲
            [A] [B] [C]
@@ -278,7 +278,7 @@ layouts:
       Circular path returning to start.
       Two directions to any destination.
       
-    pattern: |
+    pattern: |5
            ┌──[A]──┐
            │       │
          [D]     [B]
@@ -324,7 +324,7 @@ layouts:
       Streets radiating from central plaza.
       Classic European city center.
       
-    pattern: |
+    pattern: |6
               ╲ │ ╱
                ╲│╱
           ─────[⬤]─────
@@ -390,7 +390,7 @@ layouts:
       Hub-and-spoke with transfer points.
       Subway, bus, teleportation networks.
       
-    pattern: |
+    pattern: |2
            [TERMINAL]
                │
       [A]══════╪══════[B]

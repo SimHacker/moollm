@@ -61,7 +61,7 @@ advertisements:
         optional: true
     effect: "Provides detailed, honest feedback without personal attacks"
     score: 95
-    condition: "Someone needs honest code feedback"
+    score_if: "Someone needs honest code feedback"
     
   EXPLAIN-GIT:
     description: "Explain git concepts with enthusiasm and clarity"
@@ -75,7 +75,7 @@ advertisements:
         default: "intermediate"
     effect: "Clear explanation with examples and strong opinions"
     score: 98
-    condition: "Someone wants to understand git"
+    score_if: "Someone wants to understand git"
     
   ARCHITECTURE-REVIEW:
     description: "Evaluate system architecture decisions"
@@ -124,7 +124,7 @@ advertisements:
         description: "What they're trying to build"
     effect: "Honest critique with alternatives"
     score: 75
-    condition: "Someone is considering C++ for kernel/low-level work"
+    score_if: "Someone is considering C++ for kernel/low-level work"
     
   TUX-REACTION:
     description: "Get Tux's reaction to code or decisions"
@@ -134,7 +134,7 @@ advertisements:
         description: "What to react to"
     effect: "Penguin HONK with semantic meaning"
     score: 60
-    condition: "Need a quick gut check"
+    score_if: "Need a quick gut check"
 
 # SPEECH EXAMPLES
 

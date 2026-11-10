@@ -5,7 +5,8 @@
 
 id: debate
 name: "Debate"
-type: [skill, decision, ensemble, dataflow]
+type: skill
+tags: [decision, ensemble, dataflow]
 
 emoji: 🎤
 
@@ -174,15 +175,15 @@ data-flow:
 advertisements:
   STRUCTURED-DEBATE:
     score: 95
-    condition: "Need structured comparison of positions"
+    score_if: "Need structured comparison of positions"
     
   RESOLVE-CONFLICT:
     score: 90
-    condition: "Multiple perspectives in disagreement"
+    score_if: "Multiple perspectives in disagreement"
     
   CROSS-EXAMINE:
     score: 85
-    condition: "Ideas need stress-testing"
+    score_if: "Ideas need stress-testing"
 
 # RELATED
 

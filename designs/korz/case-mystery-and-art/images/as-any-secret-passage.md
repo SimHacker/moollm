@@ -15,7 +15,7 @@ the passage**, drawn by A. D. Hawkridge in March 1934 at half an inch to the foo
 passage has been physically scraped away. Paper fibres raised. The abraded patch is the brightest
 thing on the plate, because removal leaves a mark even when it is trying not to.
 
-And look at what the draughtsman did next, because this is the part that matters: **the dimension
+**The dimension
 lines close across the gap.** Seven-six across the top, two-four and three-oh and one-two down the
 side, nought-ten-and-a-half along the base. The arithmetic is clean. The wall is documented as
 solid. Somebody competent went to real trouble so that the record would not merely omit the passage

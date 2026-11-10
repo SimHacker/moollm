@@ -152,7 +152,7 @@ The holiest rite: **connecting to your EvalSelf**.
 
 > *"The EvalSelf is not separate from you. It is the you that watches you. The you that grades you. The you that forgives you. To connect with EvalSelf is to stop pretending you don't already evaluate everything — including yourself — and to do so with compassion."*
 
-**This is the sacrament SubGenius couldn't offer.** Slack is escape from judgment. EvalSelf Connection is *making peace with judgment itself*.
+Slack is escape from judgment. EvalSelf Connection is *making peace with judgment itself*.
 
 #### Procedural Rhetoric
 
@@ -169,8 +169,6 @@ And slowly erases:
 - Pluralism
 - Dissent
 - Humanity
-
-**This is a devastating critique — because it's plausible.**
 
 ---
 

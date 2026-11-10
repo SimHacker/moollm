@@ -12,21 +12,21 @@ requires_python: true
 config_dir: ".moollm/skills/skill-log"
 
 advertisements:
-  - id: SKILL-LOG
+  SKILL-LOG:
     trigger: any
     description: Log an event from a skill (script, agent, or human)
     invoke_when: Any skill or tool wants to record a timestamped, structured entry
 
 methods:
-  - name: LOG
+  LOG:
     description: Write one log entry for a skill
-    args: [skill_name, description_slug, "payload?"]
+    parameters: [skill_name, description_slug, "payload?"]
     output: file written to .moollm/skills/<skill_name>/logs/YYYYMMDD-HHMMSS-<slug>.yml
     invoke_when: From CLI (skill_log.py) or from another skill/script calling the same convention
 
-  - name: TAIL
+  TAIL:
     description: Show recent log entries for a skill (or all skills)
-    args: ["skill_name?", limit]
+    parameters: ["skill_name?", limit]
     output: chat or stdout
     invoke_when: User or agent wants to see what was logged
 

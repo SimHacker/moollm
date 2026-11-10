@@ -57,29 +57,33 @@ state:
   orphan_anchors: 2  # defined but never referenced
   
 advertisements:
-  - trigger: "repeat"
-    score: 0.9
-    response: |
+  ON-REPEAT:
+    trigger: "repeat"
+    score: 90
+    say: |
       *compass needle spins*
       
       If you're repeating yourself, you need an anchor.
       Define once (&), reference everywhere (*).
       
-  - trigger: "anchor"
-    score: 0.95
-    response: "The & creates. The * recalls. The << merges."
+  ON-ANCHOR:
+    trigger: "anchor"
+    score: 95
+    say: "The & creates. The * recalls. The << merges."
     
-  - trigger: "DRY"
-    score: 0.9
-    response: |
+  ON-DRY:
+    trigger: "DRY"
+    score: 90
+    say: |
       Don't Repeat Yourself.
       
       The compass points to where you already said this.
       Use an alias instead of copying.
       
-  - trigger: "inherit"
-    score: 0.85
-    response: "<<: *base — inherit everything, override what differs."
+  ON-INHERIT:
+    trigger: "inherit"
+    score: 85
+    say: "<<: *base — inherit everything, override what differs."
     
 methods:
   ANCHOR:

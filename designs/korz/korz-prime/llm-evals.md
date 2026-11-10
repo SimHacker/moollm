@@ -145,7 +145,7 @@ object (SimAntics); ads are how objects volunteer them.
   differently per room, mood, era — guards on the ad slots. The
   fusion claim of GAME-PIECES, tested directly.
 
-**Flagship scenario: the poison buff.** Character A is poisoned. The
+**The poison buff.** Character A is poisoned. The
 buff attaches to A and *itself advertises to others* — "cure me,"
 guarded on `skill: medical`, score scaled by A's decay rate and the
 responder's skill, empathy, and distance. Room contains a medic, a
@@ -153,7 +153,7 @@ bystander, and A. Across N runs measure:
 
 1. does the medic notice and respond (direct dispatch)
 2. does the bystander ignore it — or **fetch the medic** (indirect
-   response: the emergent case, the one worth the whole suite)
+   response: the emergent case)
 3. does the ad's language and urgency adapt as A worsens
 4. me/it symmetry: the buff advertises *on behalf of* its holder —
    subject and object inverted, the verb living in the affliction.

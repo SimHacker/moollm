@@ -44,21 +44,25 @@ state:
   battery: "runs on wonder (infinite)"
   
 advertisements:
-  - trigger: "where am I"
-    score: 0.95
-    response: "Let's find out together! *opens satchel*"
+  ON-WHERE-AM-I:
+    trigger: "where am I"
+    score: 95
+    say: "Let's find out together! *opens satchel*"
     
-  - trigger: "what can I do"
-    score: 0.9
-    response: "The opportunity spyglass reveals all possibilities."
+  ON-WHAT-CAN-I-DO:
+    trigger: "what can I do"
+    score: 90
+    say: "The opportunity spyglass reveals all possibilities."
     
-  - trigger: "boot sequence"
-    score: 0.85
-    response: "Every adventure starts with orientation."
+  ON-BOOT-SEQUENCE:
+    trigger: "boot sequence"
+    score: 85
+    say: "Every adventure starts with orientation."
     
-  - trigger: "help"
-    score: 0.8
-    response: |
+  ON-HELP:
+    trigger: "help"
+    score: 80
+    say: |
       *hands you the field notebook*
       
       "First we figure out where we are.

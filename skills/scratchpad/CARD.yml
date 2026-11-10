@@ -5,7 +5,8 @@
 
 id: scratchpad
 name: "Scratchpad"
-type: [skill, memory, essential]
+type: skill
+tags: [memory, essential]
 
 emoji: 📝
 
@@ -63,7 +64,7 @@ state:
 advertisements:
   THINK-ALOUD:
     score: 80
-    condition: "Need to work through something"
+    score_if: "Need to work through something"
 
 # RELATED
 

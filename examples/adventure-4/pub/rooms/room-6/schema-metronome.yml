@@ -55,21 +55,25 @@ state:
   last_violation: "extra key 'flavour' — did you mean 'flavor'?"
   
 advertisements:
-  - trigger: "validate"
-    score: 0.9
-    response: "*starts ticking* Let me check the rhythm of your structure."
+  ON-VALIDATE:
+    trigger: "validate"
+    score: 90
+    say: "*starts ticking* Let me check the rhythm of your structure."
     
-  - trigger: "schema"
-    score: 0.85
-    response: "The schema is the chord progression. Improvise *within* it."
+  ON-SCHEMA:
+    trigger: "schema"
+    score: 85
+    say: "The schema is the chord progression. Improvise *within* it."
     
-  - trigger: "structure"
-    score: 0.8
-    response: "*tick tick tick* Structure is freedom. Constraints enable creativity."
+  ON-STRUCTURE:
+    trigger: "structure"
+    score: 80
+    say: "*tick tick tick* Structure is freedom. Constraints enable creativity."
     
-  - trigger: "yaml error"
-    score: 0.95
-    response: "*BONG* I heard that. Let me find where you went off-key."
+  ON-YAML-ERROR:
+    trigger: "yaml error"
+    score: 95
+    say: "*BONG* I heard that. Let me find where you went off-key."
     
 methods:
   VALIDATE:

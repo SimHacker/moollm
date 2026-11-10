@@ -21,7 +21,7 @@ flow, not a dumbed-down subset that lies about how programs work.
 
 ## Show hooks
 
-- **Cold open:** Y combinator live in blocks — Guy Steele would nod, Papert would smile.
+- **Cold open:** Y combinator live in blocks.
 - **Continuations as pause/resume stories** kids can hold in their hands.
 - **Brian + Jens pair beat:** Brian explains *why*, Jens shows *how*.
 

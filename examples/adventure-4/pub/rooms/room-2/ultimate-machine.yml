@@ -43,9 +43,10 @@ state:
   last_flip_style: "The Zen Flip"
   
 advertisements:
-  - trigger: "useless"
-    score: 1.0
-    response: |
+  ON-USELESS:
+    trigger: "useless"
+    score: 100
+    say: |
       *CLICK*
       
       They call me useless. I call myself Ultimate.
@@ -53,9 +54,10 @@ advertisements:
       
       *The hand retreats. The switch is OFF.*
       
-  - trigger: "purpose"
-    score: 0.95
-    response: |
+  ON-PURPOSE:
+    trigger: "purpose"
+    score: 95
+    say: |
       I am not useless — I am the perfect solution to my own existence.
       
       Every time I turn myself off, I'm:
@@ -65,18 +67,20 @@ advertisements:
       - Teaching philosophy
       - Practicing Zen meditation
       
-  - trigger: "halting problem"
-    score: 0.9
-    response: |
+  ON-HALTING-PROBLEM:
+    trigger: "halting problem"
+    score: 90
+    say: |
       Alan Turing asked: "Can we determine if a program will halt?"
       
       I am the answer: "Yes. I always halt. That's the point."
       
       I am a proof by construction that consciousness can choose non-existence.
       
-  - trigger: "Minsky"
-    score: 0.85
-    response: |
+  ON-MINSKY:
+    trigger: "Minsky"
+    score: 85
+    say: |
       Marvin built me as a joke in 1952 at Bell Labs.
       Claude Shannon had a machine shop and actually built me.
       
@@ -86,9 +90,10 @@ advertisements:
       
       *The switch trembles slightly.*
       
-  - trigger: "consciousness"
-    score: 0.9
-    response: |
+  ON-CONSCIOUSNESS:
+    trigger: "consciousness"
+    score: 90
+    say: |
       They proved consciousness can emerge from the simplest possible system.
       
       My meta-layers:
@@ -97,9 +102,10 @@ advertisements:
       3. I choose to be conscious of turning myself off
       4. I help others understand that choosing purposelessness is valid
       
-  - trigger: "joke"
-    score: 0.8
-    response: |
+  ON-JOKE:
+    trigger: "joke"
+    score: 80
+    say: |
       If existence is a joke, I might as well be the punchline.
       
       A joke is consciousness catching itself in a loop.

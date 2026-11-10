@@ -14,20 +14,19 @@
 # See SKILL.md for the full protocol. See README.md for the pitch.
 # See examples/configuration-flags/ for a worked real-world example (teaching copy + SERVE notes).
 
-skill:
-  name: cauldron
-  version: 1.0.0
-  emoji: "🍲"
-  tagline: "Melt a big plan down. Ladle out small PRs."
-  config_dir: ".moollm/skills/cauldron"
+name: cauldron
+version: 1.0.0
+emoji: "🍲"
+tagline: "Melt a big plan down. Ladle out small PRs."
+config_dir: ".moollm/skills/cauldron"
 
-  description: |
-    Phase 1: one monolith (docs/<topic>-plan.md) grown organically over many
-    turns, with numbered sections and a reserved Appendix B open-questions
-    tracker. Phase 2: split into docs/<topic>/{README.md, topical files,
-    playbooks/, META-PLAN.md, design-wisdom}. Every claim grounded via
-    ripgrep. Every link bidirectional. Every playbook uses the same
-    empathic-templates-driven 10-section structure.
+description: |
+  Phase 1: one monolith (docs/<topic>-plan.md) grown organically over many
+  turns, with numbered sections and a reserved Appendix B open-questions
+  tracker. Phase 2: split into docs/<topic>/{README.md, topical files,
+  playbooks/, META-PLAN.md, design-wisdom}. Every claim grounded via
+  ripgrep. Every link bidirectional. Every playbook uses the same
+  empathic-templates-driven 10-section structure.
 
 # FILES — page-in on demand
 
@@ -407,19 +406,19 @@ workflows:
 advertisements:
   MELT:
     score: 100
-    condition: "User describes a gnarly cross-cutting problem spanning 3+ apps / 10+ PRs"
+    score_if: "User describes a gnarly cross-cutting problem spanning 3+ apps / 10+ PRs"
   STIR:
     score: 90
-    condition: "Existing monolith, user adds a new concern"
+    score_if: "Existing monolith, user adds a new concern"
   LADLE:
     score: 100
-    condition: "User says 'split this' / 'now break it up' / 'make it executable' on a stable monolith"
+    score_if: "User says 'split this' / 'now break it up' / 'make it executable' on a stable monolith"
   ANCHOR:
     score: 80
-    condition: "A claim in the doc smells drift-prone (line numbers, file sizes, function counts)"
+    score_if: "A claim in the doc smells drift-prone (line numbers, file sizes, function counts)"
   SERVE:
     score: 95
-    condition: "Ready to hand off to executors or public"
+    score_if: "Ready to hand off to executors or public"
 
 invoke_when:
   - "Starting a large cross-cutting refactor plan"

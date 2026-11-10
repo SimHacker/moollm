@@ -5,7 +5,8 @@
 
 id: character
 name: "Character"
-type: [skill, entity, game]
+type: skill
+tags: [entity, game]
 emoji: 🧑
 tier: 1
 tagline: "Characters are BODIES. Personas are COSTUMES."
@@ -74,30 +75,41 @@ invoke_when:
   - "Track character relationships"
   - "Need multiple dispatch for interactions"
 
-# METHODS — the skill's own. What every character can do (STATUS, MOVE, TAKE, DROP, WEAR,
-# RELATE, SNIFF...) and the dispatch rule live in the prototype CHARACTER.yml.
+# METHODS — CREATE is the skill's own. The rest are what every character can do,
+# copied from the prototype CHARACTER.yml.
 
 methods:
-  CREATE: { signature: "CREATE [name] (archetype) (home)", does: "write a CHARACTER.yml stating what differs from the prototype" }
+  CREATE:         { signature: "CREATE [name] (archetype) (home)", description: "write a CHARACTER.yml stating what differs from the prototype" }
+  STATUS:         { signature: "STATUS [character]" }
+  MOVE:           { signature: "MOVE [character] TO [destination]", description: "change location; the file stays home" }
+  TAKE:           { signature: "TAKE [item]" }
+  DROP:           { signature: "DROP [item] (WHERE [location])" }
+  WEAR:           { signature: "WEAR [persona]", note: "put on identity layer" }
+  REMOVE-PERSONA: { signature: "REMOVE-PERSONA" }
+  RELATE:         { signature: "RELATE TO [other] AS [feeling]" }
+  SNIFF:          { signature: "SNIFF [target]", dispatch: true }
+  LICK:           { signature: "LICK [target]", dispatch: true }
+  GREET:          { signature: "GREET [target]", dispatch: true }
+  CUDDLE:         { signature: "CUDDLE [targets]", dispatch: true }
 
 # ADVERTISEMENTS
 
 advertisements:
   CREATE-CHARACTER:
     score: 90
-    condition: "Need a new entity that moves and acts"
+    score_if: "Need a new entity that moves and acts"
     
   MANAGE-INVENTORY:
     score: 85
-    condition: "Pick up, drop, or use items"
+    score_if: "Pick up, drop, or use items"
     
   CHANGE-PERSONA:
     score: 80
-    condition: "Wear or remove an identity layer"
+    score_if: "Wear or remove an identity layer"
     
   INTER-CHARACTER:
     score: 85
-    condition: "Interaction between characters (sniff, greet, etc.)"
+    score_if: "Interaction between characters (sniff, greet, etc.)"
 
 # CHARACTER TYPES
 

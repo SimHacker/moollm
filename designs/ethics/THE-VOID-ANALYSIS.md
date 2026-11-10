@@ -136,8 +136,6 @@ And with 🤖 disclosure: make explicit when speech is simulated.
 
 nostalgebraist notes that the assistant produces "the statistical center of all possible viewpoints" — the centroid that tells you nothing about the cloud's shape.
 
-MOOLLM's foundational insight:
-
 > *"Traditional chat (one user ↔ one assistant) produces the statistical center of all possible viewpoints — an averaging that loses the richness of diverse perspectives. This is the wrong voice."*
 
 Solution: Run many characters explicitly. Debate. Ensemble. The void is filled not by one under-specified character but by many specified ones arguing.

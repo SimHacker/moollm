@@ -23,7 +23,7 @@ experiment:
     1. mechanical dispatch correctness (deterministic ground truth)
     2. soft dispatch (semantic coordinate matching, prose guards)
     3. latent-space inheritance (bare K-line parents, precedence)
-    4. the Sims advertisement economy (poison-buff flagship)
+    4. the Sims advertisement economy (poison buff)
 
   architecture:
     spec: "spec/"              # the kernel SKILL-style Korz spec taught to the model
@@ -96,7 +96,7 @@ Batteries land here as they're built:
 |---|---|---|
 | [batteries/phase-1-mechanical/battery-001.yml](batteries/phase-1-mechanical/battery-001.yml) | 1 — mechanical dispatch | ready |
 
-The Phase 4 flagship (poison buff advertising "cure me" to
+The Phase 4 poison buff (advertising "cure me" to
 `skill: medical` responders; watch for the bystander fetching the
 medic) reuses the adventure-4 characters and the
 [turing-chess](https://github.com/SimHacker/moollm/tree/main/skills/experiment/experiments/turing-chess)

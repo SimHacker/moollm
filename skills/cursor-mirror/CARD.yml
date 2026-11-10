@@ -1,6 +1,7 @@
 id: cursor-mirror
 name: "Cursor Mirror"
-type: [skill, introspection, utility]
+type: skill
+tags: [introspection, utility]
 emoji: "🪞"
 nickname: "|🪞|"
 tier: 2
@@ -80,59 +81,59 @@ staging_methods:
 advertisements:
   CHAT-CATALOG:
     score: 100
-    condition: "Outline conversation topics, plan commits, summarize session"
+    score_if: "Outline conversation topics, plan commits, summarize session"
     
   WATCH-YOURSELF-THINK:
     score: 100
-    condition: "Meta-cognition, review reasoning, self-awareness"
+    score_if: "Meta-cognition, review reasoning, self-awareness"
     
   ANALYZE-BOOT:
     score: 100
-    condition: "Analyzing MOOLLM boot sequence or agent behavior"
+    score_if: "Analyzing MOOLLM boot sequence or agent behavior"
     
   TRACE-CONTEXT:
     score: 95
-    condition: "Understanding how Cursor assembles context"
+    score_if: "Understanding how Cursor assembles context"
     
   STATUS-CHECK:
     score: 95
-    condition: "Checking Cursor health, configuration, or limits"
+    score_if: "Checking Cursor health, configuration, or limits"
     
   NAVIGATE-HISTORY:
     score: 95
-    condition: "Navigating workspaces and composers hierarchically"
+    score_if: "Navigating workspaces and composers hierarchically"
     
   TRACE-MCP:
     score: 90
-    condition: "Tracing MCP tool calls or server usage"
+    score_if: "Tracing MCP tool calls or server usage"
     
   DOTCURSOR-EXPLORE:
     score: 90
-    condition: "Exploring ~/.cursor, AI tracking, transcripts"
+    score_if: "Exploring ~/.cursor, AI tracking, transcripts"
     
   IMAGE-ARCHAEOLOGY:
     score: 85
-    condition: "Finding cached images, screenshots, galleries"
+    score_if: "Finding cached images, screenshots, galleries"
     
   EXPORT-DOCS:
     score: 80
-    condition: "Documenting conversations, creating session logs"
+    score_if: "Documenting conversations, creating session logs"
     
   SQL-QUERY:
     score: 85
-    condition: "Querying Cursor databases directly"
+    score_if: "Querying Cursor databases directly"
     
   OPTIMIZE:
     score: 95
-    condition: "Compile user prefs + skill examples into optimized context"
+    score_if: "Compile user prefs + skill examples into optimized context"
     
   PREFS-MANAGE:
     score: 90
-    condition: "Manage local preferences, exclusions, custom examples"
+    score_if: "Manage local preferences, exclusions, custom examples"
     
   STAGE-CONTRIBUTE:
     score: 85
-    condition: "Stage local prefs for contribution, commit, PR"
+    score_if: "Stage local prefs for contribution, commit, PR"
 
 # SISTER SCRIPT
 

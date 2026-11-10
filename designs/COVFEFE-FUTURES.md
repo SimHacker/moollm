@@ -177,16 +177,16 @@ are the only participants honest about playing.
 
 ### The Kandel edition
 
-Before the second movement, a word about the English edition, which is the
-anniversary's other miracle. *Pre-Words* is Michael Kandel's, and could be
+Before the second movement, a word about the English edition.
+*Pre-Words* is Michael Kandel's, and could be
 no one else's. Kandel is the Moses of Lem translation — the man who carried
 the *Cyberiad* down from the Polish Sinai on stone slabs: who, when Trurl's
 Electronic Bard was commanded to produce "a love poem, lyrical, pastoral,
 and expressed in the language of pure mathematics... with feeling, you
 understand, and in the cybernetic spirit," answered in *English rhyme* —
 "Come, let us hasten to a higher plane, / Where dyads tread the fairy
-fields of Venn" — a poem that is not a translation of the Polish but a
-second miracle performed to the same specification; and who survived the
+fields of Venn" — a poem that is not a translation of the Polish but
+written to the same specification; and who survived the
 machine that could create anything starting with N being asked for
 Nothing — Polish *nic* also begins with n, which is grace, not luck,
 though the itemized inventory of annihilated n-things (nolars, nighzebs,
@@ -205,10 +205,9 @@ and folk-riddle — he re-voiced wholesale as Cockney rhyming slang, which
 is why the floor "sounds like a convention of Cockney mystics": the
 mysticism is Lem's, the Cockney is Kandel's, and both are correct.
 
-And the
-masterstroke is a refusal. The future words themselves he leaves
-untranslated — *grzybofon* stays *grzybofon* — with a translator's note
-that is the best sentence in the 1984 edition: *"To translate a word that
+The future words themselves he leaves
+untranslated — *grzybofon* stays *grzybofon* — with a translator's note:
+*"To translate a word that
 does not yet exist is to coin it; the translator declines to trade on the
 author's inside information."* Utterance is settlement in every language,
 and Kandel is the one participant in this whole apparatus who saw the
@@ -456,7 +455,7 @@ settle against.
 
 #### The poisoned dictionary
 
-The second channel is more elegant: the **autocorrect dictionary of the
+The second channel is the **autocorrect dictionary of the
 Leader's own phone**. You do not need him to misspell anything. Hack the
 phone, poison the dictionary, and wait: he types a real word, correctly,
 unwitting — and the machine "corrects" it, live, into the neologism you
@@ -546,7 +545,7 @@ whose vocabulary is a closed system with a paid operator.
 A society that
 wants to gamble on language, Lem concludes, will be driven by liquidity
 itself toward the mouth it can rig. We got there in under a decade. The
-children, it should be noted, remain undefeated: no exchange lists skibidi
+children remain undefeated: no exchange lists skibidi
 futures, because every eleven-year-old alive would rug the book by Tuesday.
 
 ### Closing price

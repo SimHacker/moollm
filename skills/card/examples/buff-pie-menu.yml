@@ -1,33 +1,33 @@
-card:
-  name: buff-pie-menu
-  type: [skill, buff, menu, example]
-  tier: 1
-  invoke_when: ["buff menu opened", "combat prep", "party planning"]
-  advertisement_names:
-    - BUFF-MENU           # root container picker
-    - APPLY-MIND-MIRROR
-    - APPLY-FOCUS-PILLAR
-    - APPLY-SKILL-UP
-    - APPLY-MEMORY-ANCHOR
-    - APPLY-BLADDER-RELIEF
-    - APPLY-ENERGY-SURGE
-    - APPLY-HYDRATE
-    - APPLY-HUNGER-SATIATE
-    - APPLY-CHARM-PUSH
-    - APPLY-COZY-VIBES
-    - APPLY-CALM-ROOM
-    - APPLY-PARTY-MORALE
-    - APPLY-HEISENBERG-JITTER
-    - APPLY-WILD-SURGE
-    - APPLY-COIN-FLIP
-    - APPLY-RANDOM-BOON
-  tags: [moollm, example, buff, menu, pie]
-  description: |
-    Four-slice buff pie oriented to runtime-friendly actions: mind mirror
-    (intent/focus/skill/memory), Sims-style needs (bladder/energy/hunger/hydrate),
-    social mood, and chaos jitter. Ready to compile to py/js handlers.
-    DRY + picker-friendly: one root container with nested items (title/desc/meta).
-    Leaf ads delegate with `from_state: true` to `state.buffs`.
+# card:
+name: buff-pie-menu
+type: [skill, buff, menu, example]
+tier: 1
+invoke_when: ["buff menu opened", "combat prep", "party planning"]
+advertisement_names:
+  - BUFF-MENU           # root container picker
+  - APPLY-MIND-MIRROR
+  - APPLY-FOCUS-PILLAR
+  - APPLY-SKILL-UP
+  - APPLY-MEMORY-ANCHOR
+  - APPLY-BLADDER-RELIEF
+  - APPLY-ENERGY-SURGE
+  - APPLY-HYDRATE
+  - APPLY-HUNGER-SATIATE
+  - APPLY-CHARM-PUSH
+  - APPLY-COZY-VIBES
+  - APPLY-CALM-ROOM
+  - APPLY-PARTY-MORALE
+  - APPLY-HEISENBERG-JITTER
+  - APPLY-WILD-SURGE
+  - APPLY-COIN-FLIP
+  - APPLY-RANDOM-BOON
+tags: [moollm, example, buff, menu, pie]
+description: |
+  Four-slice buff pie oriented to runtime-friendly actions: mind mirror
+  (intent/focus/skill/memory), Sims-style needs (bladder/energy/hunger/hydrate),
+  social mood, and chaos jitter. Ready to compile to py/js handlers.
+  DRY + picker-friendly: one root container with nested items (title/desc/meta).
+  Leaf ads delegate with `from_state: true` to `state.buffs`.
 
 state:
   containers:

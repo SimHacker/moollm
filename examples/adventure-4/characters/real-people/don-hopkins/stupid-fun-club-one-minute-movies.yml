@@ -11,7 +11,7 @@ type: artifact
 name: One Minute Robot Movies
 belongs_to: don-hopkins
 artifact_type: project_detail
-parent: stupid-fun-club.yml
+inherits: stupid-fun-club.yml
 
 # THE PROJECT
 
@@ -27,9 +27,9 @@ the_project:
     Hidden camera experiments with robots in public spaces.
     
     One minute format:
-    - 30 seconds: Setup and robot interaction
+    - '30 seconds: Setup and robot interaction'
     - Cliffhanger break
-    - 30 seconds: Resolution
+    - '30 seconds: Resolution'
     
     Real unsuspecting humans. Programmed robots.
     Genuine reactions captured on film.
@@ -62,14 +62,14 @@ servitude:
     - "Please rate my performance on a scale of 1 to 10."
     - "I am hoping for a 10."
     - "What do I have to do to get a 10?"
-    - "Yes! Yes! Yes!" (when given a 10)
+    - '"Yes! Yes! Yes!" (when given a 10)'
     
   customer_reactions:
     # [SKELETON — Awaiting more detail from Don]
     ratings_given:
       - "Four and a half"
       - "Three"
-      - "Ten" (one customer, pure joy)
+      - '"Ten" (one customer, pure joy)'
     notable_quotes:
       - "There's no soup in the bowl."
       - "You're still too close."

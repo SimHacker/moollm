@@ -1,6 +1,6 @@
 # Gwern: the publishing engine
 
-gwern.net is the most complete working answer to "what should a long-lived personal corpus look
+gwern.net is a working answer to "what should a long-lived personal corpus look
 like on the web," and it was built by two people over fifteen years with no funding, no cult, and no
 courses. It is the reference implementation this hub inherits from.
 

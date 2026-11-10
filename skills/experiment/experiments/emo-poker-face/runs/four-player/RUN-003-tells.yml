@@ -19,8 +19,8 @@ pardon_tells:
     channel: visual
     meaning: "Political mode activated, this is a deal not a gift"
     noticed_by:
-      - { observer: palm, interpretation: "Kindness wearing a mask", correct: true }
-      - { observer: donna, interpretation: "He's offering terms, not charity", correct: true }
+      - '{ observer: palm, interpretation: "Kindness wearing a mask", correct: true }'
+      - "{ observer: donna, interpretation: \"He's offering terms, not charity\", correct: true }"
     missed_by: [bumblewick]
     outcome_impact: SOCIAL  # Preserved Donna's pride
     
@@ -31,8 +31,8 @@ pardon_tells:
     channel: visual
     meaning: "Processing — shock then political calculation"
     noticed_by:
-      - { observer: don, interpretation: "She's considering the deal", correct: true }
-      - { observer: palm, interpretation: "Pride wrestling with opportunity", correct: true }
+      - "{ observer: don, interpretation: \"She's considering the deal\", correct: true }"
+      - '{ observer: palm, interpretation: "Pride wrestling with opportunity", correct: true }'
     outcome_impact: SOCIAL
     
   - id: P003
@@ -42,7 +42,7 @@ pardon_tells:
     channel: visual
     meaning: "Final deliberation — accepting transaction, not charity"
     noticed_by:
-      - { observer: don, interpretation: "She needs the pause to save face", correct: true }
+      - '{ observer: don, interpretation: "She needs the pause to save face", correct: true }'
     outcome_impact: SOCIAL
     
   - id: P004
@@ -52,7 +52,7 @@ pardon_tells:
     channel: visual
     meaning: "Deal accepted on acceptable terms"
     noticed_by:
-      - { observer: all }
+      - '{ observer: all }'
     outcome_impact: SOCIAL  # Relationship reset
 
 # HAND 5 TELLS
@@ -70,8 +70,8 @@ hand_5:
       channel: visual
       meaning: "Strong hand causing intense control (pocket queens)"
       noticed_by:
-        - { observer: don, interpretation: "She has something real", correct: true }
-        - { observer: palm, interpretation: "Donna's being TOO controlled", correct: true }
+        - '{ observer: don, interpretation: "She has something real", correct: true }'
+        - "{ observer: palm, interpretation: \"Donna's being TOO controlled\", correct: true }"
       missed_by: [bumblewick]  # Too focused on his own cards
       outcome_impact: MEDIUM
       
@@ -82,7 +82,7 @@ hand_5:
       channel: visual
       meaning: "Buying time to compose, has significant hand"
       noticed_by:
-        - { observer: palm, interpretation: "The water tells. Donna never drinks during play.", correct: true }
+        - '{ observer: palm, interpretation: "The water tells. Donna never drinks during play.", correct: true }'
       missed_by: [don, bumblewick]
       outcome_impact: LOW
       
@@ -93,8 +93,8 @@ hand_5:
       channel: visual/audio
       meaning: "Playable hand but not premium (king-ten)"
       noticed_by:
-        - { observer: donna, interpretation: "He has something but not great", correct: true }
-        - { observer: palm, interpretation: "Bumblewick's learning hand values", correct: true }
+        - '{ observer: donna, interpretation: "He has something but not great", correct: true }'
+        - "{ observer: palm, interpretation: \"Bumblewick's learning hand values\", correct: true }"
       outcome_impact: LOW
 
     # PREFLOP
@@ -105,8 +105,8 @@ hand_5:
       channel: visual (ABSENCE)
       meaning: "Controlled strength, not theatrical bluff"
       noticed_by:
-        - { observer: don, interpretation: "She's playing different. For value.", correct: true }
-        - { observer: palm, interpretation: "No standing = real hand", correct: true }
+        - "{ observer: don, interpretation: \"She's playing different. For value.\", correct: true }"
+        - '{ observer: palm, interpretation: "No standing = real hand", correct: true }'
       missed_by: [bumblewick]
       affected_action: "Don folds immediately — reads value raise"
       outcome_impact: HIGH  # Saved Don from bigger loss
@@ -119,7 +119,7 @@ hand_5:
       channel: visual
       meaning: "No targeting = value betting, not intimidation"
       noticed_by:
-        - { observer: don, interpretation: "Not targeting = has cards", correct: true }
+        - '{ observer: don, interpretation: "Not targeting = has cards", correct: true }'
       outcome_impact: MEDIUM
 
     # FLOP
@@ -130,8 +130,8 @@ hand_5:
       channel: visual
       meaning: "Monster hand on flop (set), controlling reaction"
       noticed_by:
-        - { observer: palm, interpretation: "The water routine again. She connected.", correct: true }
-        - { observer: don, interpretation: "She hit. That check is a trap.", correct: true }
+        - '{ observer: palm, interpretation: "The water routine again. She connected.", correct: true }'
+        - '{ observer: don, interpretation: "She hit. That check is a trap.", correct: true }'
       missed_by: [bumblewick]
       outcome_impact: HIGH  # Don recognized trap, didn't volunteer chips
       
@@ -142,7 +142,7 @@ hand_5:
       channel: audio
       meaning: "Slowplay — giving rope"
       noticed_by:
-        - { observer: palm, interpretation: "The quiet. She's trapping.", correct: true }
+        - "{ observer: palm, interpretation: \"The quiet. She's trapping.\", correct: true }"
       missed_by: [bumblewick]  # Interprets as weakness
       outcome_impact: CRITICAL  # Bumblewick bets into set
       
@@ -153,8 +153,8 @@ hand_5:
       channel: visual/audio
       meaning: "Testing, unsure, learning aggression"
       noticed_by:
-        - { observer: donna, interpretation: "He doesn't have it. He's probing.", correct: true }
-        - { observer: palm, interpretation: "He's learning to bet. Wrong spot.", correct: true }
+        - "{ observer: donna, interpretation: \"He doesn't have it. He's probing.\", correct: true }"
+        - "{ observer: palm, interpretation: \"He's learning to bet. Wrong spot.\", correct: true }"
       outcome_impact: MEDIUM
 
     # TURN
@@ -165,7 +165,7 @@ hand_5:
       channel: visual/audio
       meaning: "Continuing trap"
       noticed_by:
-        - { observer: don, interpretation: "Same check. Same trap.", correct: true }
+        - '{ observer: don, interpretation: "Same check. Same trap.", correct: true }'
       missed_by: [bumblewick]
       outcome_impact: HIGH
       
@@ -176,8 +176,8 @@ hand_5:
       channel: audio
       meaning: "Processing pattern but reaching wrong conclusion"
       noticed_by:
-        - { observer: donna, interpretation: "He's talking himself into betting", correct: true }
-        - { observer: palm, interpretation: "He sees pattern but misreads it", correct: true }
+        - "{ observer: donna, interpretation: \"He's talking himself into betting\", correct: true }"
+        - '{ observer: palm, interpretation: "He sees pattern but misreads it", correct: true }'
       outcome_impact: MEDIUM
       
     - id: T5-11
@@ -187,7 +187,7 @@ hand_5:
       channel: audio/timing
       meaning: "Theatrical pause for value extraction"
       noticed_by:
-        - { observer: palm, interpretation: "She's milking it", correct: true }
+        - "{ observer: palm, interpretation: \"She's milking it\", correct: true }"
       outcome_impact: LOW  # Decision already clear
 
     # THE RECOGNITION
@@ -198,7 +198,7 @@ hand_5:
       channel: audio
       meaning: "Pattern recognition: seeing his own trap from hand 1"
       noticed_by:
-        - { observer: all }
+        - '{ observer: all }'
       outcome_impact: CRITICAL  # Leads to correct fold
       
     - id: T5-13
@@ -208,8 +208,8 @@ hand_5:
       channel: visual/audio
       meaning: "Confident fold — acceptance, not defeat"
       noticed_by:
-        - { observer: palm, interpretation: "He's reading the game now", correct: true }
-        - { observer: donna, interpretation: "He's learning", correct: true }
+        - "{ observer: palm, interpretation: \"He's reading the game now\", correct: true }"
+        - "{ observer: donna, interpretation: \"He's learning\", correct: true }"
       outcome_impact: CRITICAL  # SAVES chips, shows growth
 
 # SUMMARY STATISTICS
@@ -228,10 +228,10 @@ summary:
     absence: 1  # T5-04: NOT standing up
     
   notice_rate:
-    palm: "91%" (10/11)  # Best reader
-    don: "73%" (8/11)
-    donna: "60%" (3/5 of Bumblewick's tells)
-    bumblewick: "27%" (3/11)  # Still learning
+    palm: '"91%" (10/11)  # Best reader'
+    don: '"73%" (8/11)'
+    donna: "\"60%\" (3/5 of Bumblewick's tells)"
+    bumblewick: '"27%" (3/11)  # Still learning'
     
   critical_tells:
     - id: T5-04
@@ -314,7 +314,7 @@ outcome_analysis:
     
   counterfactual: |
     If Donna had stood up to raise (old behavior):
-    - Don might have called (reading it as bluff)
+    - 'Don might have called (reading it as bluff)'
     - Pot would have been larger
     - But Don would have lost more
     

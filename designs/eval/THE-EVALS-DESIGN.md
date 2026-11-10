@@ -345,7 +345,3 @@ And like The Sims:
 - [EVALSELF-DESIGN.md](./EVALSELF-DESIGN.md) — Inner life
 - [SCATS-DESIGN.md](./SCATS-DESIGN.md) — Expression language
 - [EVAL-FACTIONS.md](./EVAL-FACTIONS.md) — In-world groups
-
----
-
-*"This is the flagship EVAL title."*

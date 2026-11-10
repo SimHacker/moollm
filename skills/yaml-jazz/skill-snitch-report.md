@@ -51,7 +51,7 @@ Seven principles govern the convention:
 | flexibility | Accept variations, emit consistency (Postel) |
 | human-readable | Optimize for understanding, not parsing |
 | entropy-preservation | YAML preserves generation entropy; JSON collapses it |
-| directories-as-interests | Directory listings ARE the interest index |
+| directories-as-advertisements | Directory listings ARE the advertisement index |
 | big-endian-naming | Most significant component first |
 
 Empirical backing: Sunil Kumar (Groundlight AI, 2025) found YAML for tool calling "massively improved generation entropy stability" vs JSON during GRPO training.

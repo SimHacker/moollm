@@ -200,25 +200,29 @@ buffs:
       And: +10% respect from the Juice-O-Matic
       
 advertisements:
-  - trigger: "thirsty"
-    score: 0.9
-    response: "*dispenser hums invitingly* Fresh-squeezed. Always ready."
+  ON-THIRSTY:
+    trigger: "thirsty"
+    score: 90
+    say: "*dispenser hums invitingly* Fresh-squeezed. Always ready."
     
-  - trigger: "tired"
-    score: 0.85
-    response: |
+  ON-TIRED:
+    trigger: "tired"
+    score: 85
+    say: |
       *orange glow intensifies*
       
       Vitamin C for vitamin SEE.
       Clarity starts with citrus.
       
-  - trigger: "morning"
-    score: 0.95
-    response: "Good morning. I've been waiting for you."
+  ON-MORNING:
+    trigger: "morning"
+    score: 95
+    say: "Good morning. I've been waiting for you."
     
-  - trigger: "confused"
-    score: 0.8
-    response: |
+  ON-CONFUSED:
+    trigger: "confused"
+    score: 80
+    say: |
       *juice swirls*
       
       Have a glass. Think afterwards.

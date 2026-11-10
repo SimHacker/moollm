@@ -46,8 +46,7 @@ yes-or-no question about mechanism
 ([purpose-dimension.md](../../korz-prime/examples/purpose-dimension.md)).
 
 **The Bildungsroman is the literary form whose entire subject is a yes to that question.** It takes
-four hundred pages, it goes through damage, and the closure is the ending. Which is worth noting
-precisely because the honest answer for MOOLLM today is *no* — no closure, no self-maintenance,
+four hundred pages, it goes through damage, and the closure is the ending. The honest answer for MOOLLM today is *no* — no closure, no self-maintenance,
 nothing that would be worse off if it stopped. The form tells you what a yes would have cost.
 
 ## Why this plate gets its own register

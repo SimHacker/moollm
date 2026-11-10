@@ -43,17 +43,20 @@ state:
   last_serviced: "1847"
   
 advertisements:
-  - trigger: "how does this work"
-    score: 0.9
-    response: "Take it apart. Label the pieces. Reassemble. Now you know."
+  ON-HOW-DOES-THIS-WORK:
+    trigger: "how does this work"
+    score: 90
+    say: "Take it apart. Label the pieces. Reassemble. Now you know."
     
-  - trigger: "complex systems"
-    score: 0.8
-    response: "Every complex system is simple parts in conversation."
+  ON-COMPLEX-SYSTEMS:
+    trigger: "complex systems"
+    score: 80
+    say: "Every complex system is simple parts in conversation."
     
-  - trigger: "time"
-    score: 0.5
-    response: "Time is just counting. The clock counts oscillations."
+  ON-TIME:
+    trigger: "time"
+    score: 50
+    say: "Time is just counting. The clock counts oscillations."
     
 methods:
   DISASSEMBLE:

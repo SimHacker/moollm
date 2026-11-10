@@ -1,0 +1,49 @@
+# KLINE-SCHEMA.yml — a protocol symbol
+#
+# Saying the name activates the tradition. A K-line reactivates a competence
+# bundle: which sub-skills, tone, and moves to bring online, a partial mental
+# state, not only a fact.
+#
+# Definitions live as map entries in PROTOCOLS.yml and inline where they are
+# used. The map key is the id. A card's k_lines is a list of these ids.
+#
+# k-ref is a different record (a file pointer). It is not a second schema in
+# this file: the linter loads one top-level schema, and on a multi-document
+# file only the first document, so a second schema.id would be invisible.
+
+schema:
+  id: k-line
+  applies_to: "each protocol-symbol definition (PROTOCOLS.yml and inline protocol entries). A card's k_lines: is a list of these ids."
+  extends: []
+  keys:
+
+    id:
+      shape: string
+      default: "the map key"
+      meaning: "The activator. ALL CAPS, hyphen-separated, no colons, semantic. YAML-JAZZ not yaml-jazz; PLAY-LEARN-LIFT not PLAY_LEARN_LIFT; POSTEL not WP:POSTEL; ROBUST-FIRST not RF. Write it as the key, not as a field."
+      compiles: false
+      example: YAML-JAZZ
+    meaning:
+      shape: prose
+      default: "the name, until someone formalizes it"
+      meaning: "What saying the name reactivates: the competence bundle, a partial mental state resembling the one that created it, not only a fact."
+      compiles: false
+      example: "Comments carry meaning. Data is interpreted."
+    location:
+      shape: string
+      default: null
+      meaning: "Where the tradition is written: a file, a skill directory, or a section."
+      compiles: false
+      example: "kernel/constitution-core.md §3"
+    band:
+      shape: enum
+      values: [low, middle, high]
+      default: middle
+      meaning: |
+        Level band of attachment. Attach only to an intermediate band.
+        low would impose false perceptions and conceal the real details of the
+        present problem. high would make us hallucinate the present problem as
+        already solved. middle restores the pyramid's structure, leaving the top
+        free for the current goal and the bottom free for current facts.
+      compiles: false
+      example: middle

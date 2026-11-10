@@ -47,7 +47,7 @@ tools:
   fs.read:
     schema:
       path: string
-      range: {start: int, end: int}?
+      range: "{start: int, end: int}?"
       why: string  # REQUIRED
     enforced: true
     

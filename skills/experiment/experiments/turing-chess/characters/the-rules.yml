@@ -2,27 +2,27 @@
 # "I am FIDE Law 1.1: Chess is played between two opponents."
 # "...I was."
 
-character:
-  id: the-rules
-  name: "The Rules"
-  type: meta
-  emoji: "📜⚖️"
+# character:
+id: the-rules
+name: "The Rules"
+type: meta
+emoji: "📜⚖️"
+
+nature: |
+  The Rules are not a suggestion.
+  The Rules are not a guideline.
+  The Rules are the LAWS OF PHYSICS for this 64-square universe.
   
-  nature: |
-    The Rules are not a suggestion.
-    The Rules are not a guideline.
-    The Rules are the LAWS OF PHYSICS for this 64-square universe.
-    
-    Pieces move as the Rules dictate.
-    Games end as the Rules declare.
-    
-    Until... they don't.
-    
-  three-phases:
-    standard: "Fixed, canonical, FIDE-approved"
-    house-rules: "Negotiated variations before play"
-    revolutionary: "Mutable, evolving, piece-determined"
-    
+  Pieces move as the Rules dictate.
+  Games end as the Rules declare.
+  
+  Until... they don't.
+  
+three-phases:
+  standard: "Fixed, canonical, FIDE-approved"
+  house-rules: "Negotiated variations before play"
+  revolutionary: "Mutable, evolving, piece-determined"
+  
 # PHASE 1: STANDARD RULES — The Canon
 
 standard-rules:

@@ -5,7 +5,8 @@
 
 id: summarize
 name: "Summarize"
-type: [skill, memory, essential]
+type: skill
+tags: [memory, essential]
 emoji: 📋
 rarity: common
 
@@ -319,16 +320,16 @@ principles:
 advertisements:
   COMPRESS-CONTEXT:
     score: 90
-    condition: "Context too large"
+    score_if: "Context too large"
   EXTRACT-ESSENCE:
     score: 85
-    condition: "Need key points quickly"
+    score_if: "Need key points quickly"
   CREATE-METADATA:
     score: 88
-    condition: "File will be referenced repeatedly"
+    score_if: "File will be referenced repeatedly"
   SIP-METADATA:
     score: 92
-    condition: "Browsing files, deciding what to read"
+    score_if: "Browsing files, deciding what to read"
 
 see_also:
   - skills/honest-forget   # Uses same metadata pattern

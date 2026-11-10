@@ -5,20 +5,15 @@
 #
 # "Watch yourself think — now available outside the microworld."
 
-export:
-  name: cursor-mirror
-  version: "1.0.0-alpha"
-  tagline: "Deep introspection for Cursor IDE"
-  release_date: "2026-01-23"
-  
-  source:
-    repo: "SimHacker/moollm"
-    path: "skills/cursor-mirror"
-    branch: "main"
-    
-  bundle:
-    name: "cursor-mirror-bundle"
-    format: "tar.gz"
+name: cursor-mirror
+version: "1.0.0-alpha"
+tagline: "Deep introspection for Cursor IDE"
+release_date: "2026-01-23"
+
+source:
+  repo: "SimHacker/moollm"
+  path: "skills/cursor-mirror"
+  branch: "main"
     
 # DEPENDENCY ANALYSIS — High to Low Priority
 
@@ -206,6 +201,8 @@ standalone:
 # BUNDLE CONTENTS
 
 bundle:
+  name: "cursor-mirror-bundle"
+  format: "tar.gz"
   # What gets included in the tarball
   includes:
     # Primary skill

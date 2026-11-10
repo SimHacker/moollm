@@ -186,14 +186,14 @@ keepers:
     image_prompt: "File system as dungeon map, directories as rooms, files as objects"
     goals_featured_in: [exploration_mode, room_navigation, the_journey]
     
-  room:
-    name: "The Room"
-    emoji: "🚪"
-    category: "structure"
-    flavor: "A directory with a ROOM.yml. Activation context for everything inside."
-    image_prompt: "Glowing room threshold, YAML files floating within, cozy activated space"
-    goals_featured_in: [activation_context, spatial_computing, directory_dwelling]
-    
+  # room:
+  name: "The Room"
+  emoji: "🚪"
+  category: "structure"
+  flavor: "A directory with a ROOM.yml. Activation context for everything inside."
+  image_prompt: "Glowing room threshold, YAML files floating within, cozy activated space"
+  goals_featured_in: [activation_context, spatial_computing, directory_dwelling]
+  
   mind_mirror:
     name: "Mind Mirror"
     emoji: "🧠🪞"

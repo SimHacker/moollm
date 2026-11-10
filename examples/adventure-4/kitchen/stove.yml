@@ -19,12 +19,14 @@ examine: |
 state: off
 
 advertisements:
-  - action: TURN-ON, TURN-OFF
-    score_if: "state == off/on"
-    description: "Light and extinguish the stove"
-    response: "Don't play with fire! You don't have time for cooking! There's treasure to find!"
-    
-  - action: EXAMINE
-    score_if: "always"
+  TURN-ON:
+    score_if: "state == off"
+    description: "Light the stove"
+    say: "Don't play with fire! You don't have time for cooking! There's treasure to find!"
+  TURN-OFF:
+    score_if: "state == on"
+    description: "Extinguish the stove"
+    say: "Don't play with fire! You don't have time for cooking! There's treasure to find!"
+  EXAMINE:
     description: "Inspect the stove"
-    response: "The stove is {state}."
+    say: "The stove is {state}."

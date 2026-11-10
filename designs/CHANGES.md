@@ -1,4 +1,4 @@
-# CHANGES: The Complete History of MOOLLM
+# CHANGES
 
 > *A James Burke-style journey through every commit, tweet by tweet.*
 > *Append-only. No conclusions. Just history flowing forward.*
@@ -63,8 +63,7 @@ gh pr merge --merge   # NOT --squash!
 
 ### Why No Squash?
 
-**Squash loses history.** Every commit tells a story. Every fix has context.
-Future debugging needs `git bisect`. Future archaeology needs granular commits.
+**Squash loses history.** Future debugging needs `git bisect`. Future archaeology needs granular commits.
 
 The PR batches commits *logically* without destroying them *physically*.
 
@@ -92,11 +91,9 @@ Every PRPUSH batch should document James Burke connections:
 > - Provider abstraction → future Anthropic/Google support
 > - Backpressure → WebSocket prep
 
-The PR description AND the CHANGES.md entry should tell the story.
-
 ### Tweet-Sized Summary
 
-End each batch with a one-liner that captures the essence:
+End each batch with a one-liner:
 
 > Streaming engine is live. AsyncGenerators all the way down — no callbacks,
 > no buffers, just yields. The SSE format matches Cursor's internals.

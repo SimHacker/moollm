@@ -80,46 +80,44 @@ oil_messages:
 
 # Interactions
 advertisements:
-  - action: GET
+  GET:
     score_if: "not in_inventory"
     description: "Pick up the lamp"
     oil_cost: 0.25  # action
     
-  - action: LIGHT
+  LIGHT:
     score_if: "not lit and oil > 0"
     description: "Light the lamp"
     oil_cost: 0.0   # lighting is free!
-    response: |
+    say: |
       You strike a match (from where? don't ask) and light the lamp.
       A warm glow pushes back the darkness. Grues retreat to the shadows.
       (Oil consumption begins. Move wisely!)
     
-  - action: EXTINGUISH
+  EXTINGUISH:
     score_if: "lit"
     description: "Put out the lamp (to save oil, you clever adventurer)"
     oil_cost: 0.0   # extinguishing is free!
-    response: |
+    say: |
       You extinguish the lamp. The darkness presses in immediately.
       (Oil consumption paused. But can you see where you're going?)
       If you're in the maze right now, this was a VERY BAD IDEA.
       
-  - action: CHECK OIL
-    score_if: "always"
+  CHECK-OIL:
     description: "Check how much oil remains"
     oil_cost: 0.1   # quick glance
-    response: "The lamp has {oil:.1f} units of oil remaining."
+    say: "The lamp has {oil:.1f} units of oil remaining."
     
-  - action: RUB
-    score_if: "always"
+  RUB:
     description: "Rub the lamp hopefully"
     oil_cost: 0.25  # action
-    response: "Nothing happens. The genie must be on holiday."
+    say: "Nothing happens. The genie must be on holiday."
   
-  - action: REFILL
+  REFILL:
     score_if: "at lamp vendor"
     description: "Buy oil from the ACME vendor"
     oil_cost: 0.0   # transaction is free
-    response: "See lamp-vendor.yml for prices and effects."
+    say: "See lamp-vendor.yml for prices and effects."
 
 # Tribute
 lineage: |

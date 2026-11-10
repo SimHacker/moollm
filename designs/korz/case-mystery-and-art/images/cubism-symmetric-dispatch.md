@@ -21,7 +21,7 @@ Which is Korz's central claim, in paint, roughly twenty years before Korzybski n
 eighty before Ungar formalized it. No decomposition is the dominant one. You can gather along an axis
 and get a view, and the view is real, and it is not *the* view.
 
-**The best evidence that this is the same mechanism is the complaint.** The standing objection to
+The standing objection to
 Cubism is *"it doesn't look like anything"* — which is, word for word in a different vocabulary, what
 a Smalltalk programmer says the first time they are handed a sea of slots with no class to hold on to:
 

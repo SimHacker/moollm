@@ -64,17 +64,20 @@ state:
   scrolls_produced: 12
   
 advertisements:
-  - trigger: "multiline"
-    score: 0.95
-    response: "*unrolls* Use the pipe. Preserve your formatting."
+  ON-MULTILINE:
+    trigger: "multiline"
+    score: 95
+    say: "*unrolls* Use the pipe. Preserve your formatting."
     
-  - trigger: "block"
-    score: 0.9
-    response: "Block scalars are where YAML becomes poetry."
+  ON-BLOCK:
+    trigger: "block"
+    score: 90
+    say: "Block scalars are where YAML becomes poetry."
     
-  - trigger: "long text"
-    score: 0.85
-    response: |
+  ON-LONG-TEXT:
+    trigger: "long text"
+    score: 85
+    say: |
       Ah, you need the scroll.
       
       For prose that breathes,
@@ -83,9 +86,10 @@ advertisements:
       
       The pipe character is your friend.
       
-  - trigger: "newline"
-    score: 0.8
-    response: "| preserves them. > folds them. Choose wisely."
+  ON-NEWLINE:
+    trigger: "newline"
+    score: 80
+    say: "| preserves them. > folds them. Choose wisely."
     
 methods:
   INSCRIBE:

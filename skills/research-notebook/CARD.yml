@@ -5,7 +5,8 @@
 
 id: research-notebook
 name: "Research Notebook"
-type: [skill, investigation, documentation]
+type: skill
+tags: [investigation, documentation]
 
 emoji: 📓
 
@@ -93,7 +94,7 @@ state:
 advertisements:
   RESEARCH-SOMETHING:
     score: 90
-    condition: "Need to learn about unfamiliar topic"
+    score_if: "Need to learn about unfamiliar topic"
 
 # RELATED
 

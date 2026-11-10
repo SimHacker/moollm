@@ -2,7 +2,8 @@
 
 id: emacs
 name: "Emacs (MOO)"
-type: [skill, integration, tooling, accessibility]
+type: skill
+tags: [integration, tooling, accessibility]
 emoji: 🐃
 rarity: rare
 description: |
@@ -59,9 +60,12 @@ filesystem:
   logs: .moollm/skills/emacs/logs/command-log.jsonl
 
 advertisements:
-  - "Persistent structured editing beats unique-string replace"
-  - "emacs:// URLs address buffer + structure for LLM round-trips"
-  - "Play-learn-lift: oneshots + macros + logs"
+  EDITS-STRUCTURE:
+    description: "Persistent structured editing beats unique-string replace"
+  BUFFERS-ADDRESS:
+    description: "emacs:// URLs address buffer + structure for LLM round-trips"
+  MACROS-LIFT:
+    description: "Play-learn-lift: oneshots + macros + logs"
 
 credits:
   lineage: "TECO → ITS Emacs → Gosling → GNU Emacs; NeWS/MOOWS push-code model"

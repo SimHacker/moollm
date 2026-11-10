@@ -24,7 +24,7 @@ hand_2:
       channel: visual
       meaning: "Accepting help with dignity, maintaining agency"
       noticed_by:
-        - { observer: don, interpretation: "Palm preserving self-respect", correct: true }
+        - '{ observer: don, interpretation: "Palm preserving self-respect", correct: true }'
       affected_action: "Don respects the boundary"
       outcome_impact: SOCIAL
       
@@ -36,7 +36,7 @@ hand_2:
       channel: visual/sound
       meaning: "Solid hand (pocket jacks)"
       noticed_by:
-        - { observer: palm, interpretation: "Don has something, drums = medium-strong", correct: true }
+        - '{ observer: palm, interpretation: "Don has something, drums = medium-strong", correct: true }'
       missed_by: [donna, bumblewick]
       outcome_impact: LOW
 
@@ -47,7 +47,7 @@ hand_2:
       channel: visual
       meaning: "Thinking hand (pocket nines), information exchange with Don"
       noticed_by:
-        - { observer: don, interpretation: "Palm is thinking, not excited", correct: true }
+        - '{ observer: don, interpretation: "Palm is thinking, not excited", correct: true }'
       outcome_impact: LOW
 
     - id: T2-04
@@ -57,7 +57,7 @@ hand_2:
       channel: visual
       meaning: "Emerging confidence (has an ace)"
       noticed_by:
-        - { observer: palm, interpretation: "Something's different about him", correct: true }
+        - "{ observer: palm, interpretation: \"Something's different about him\", correct: true }"
       missed_by: [donna]  # Too focused on own cards
       outcome_impact: LOW
 
@@ -68,7 +68,7 @@ hand_2:
       channel: visual
       meaning: "Controlled — has something real (KQ suited)"
       noticed_by:
-        - { observer: don, interpretation: "Donna's controlling herself — she has cards", correct: true }
+        - "{ observer: don, interpretation: \"Donna's controlling herself — she has cards\", correct: true }"
       outcome_impact: MEDIUM  # Signals incoming aggression
 
     # PREFLOP SQUEEZE
@@ -79,7 +79,7 @@ hand_2:
       channel: visual/audio
       meaning: "Maximum aggression, trying to intimidate"
       noticed_by:
-        - { observer: all, interpretation: "Donna is making a statement", correct: true }
+        - '{ observer: all, interpretation: "Donna is making a statement", correct: true }'
       affected_action: "Don calls despite concern, Palm folds"
       outcome_impact: HIGH  # Shapes entire hand
 
@@ -90,7 +90,7 @@ hand_2:
       channel: visual/audio
       meaning: "Not paralysis — CALCULATION (pot odds processing)"
       noticed_by:
-        - { observer: palm, interpretation: "He's thinking, not just panicking", correct: true }
+        - "{ observer: palm, interpretation: \"He's thinking, not just panicking\", correct: true }"
       missed_by: [donna]  # Misreads as weakness
       affected_action: "Bumblewick's call keeps him in hand to win"
       outcome_impact: CRITICAL
@@ -103,7 +103,7 @@ hand_2:
       channel: visual
       meaning: "Hit the flop HARD (set of jacks)"
       noticed_by:
-        - { observer: palm, interpretation: "Don's stillness = victory stillness", correct: true }
+        - "{ observer: palm, interpretation: \"Don's stillness = victory stillness\", correct: true }"
       missed_by: [bumblewick, donna]
       outcome_impact: MEDIUM
 
@@ -114,9 +114,9 @@ hand_2:
       channel: visual/tactile
       meaning: "Drawing to something (flush draw)"
       noticed_by:
-        - { observer: palm, interpretation: "He's on a draw", correct: true }
-        - { observer: don, interpretation: "Bumblewick's leg... he has something", correct: true }
-        - { observer: donna, interpretation: "He's bouncing — nervous", partial: true }
+        - "{ observer: palm, interpretation: \"He's on a draw\", correct: true }"
+        - "{ observer: don, interpretation: \"Bumblewick's leg... he has something\", correct: true }"
+        - "{ observer: donna, interpretation: \"He's bouncing — nervous\", partial: true }"
       affected_action: "Don checks knowing Bumblewick might get there"
       outcome_impact: HIGH
 
@@ -127,8 +127,8 @@ hand_2:
       channel: visual/audio
       meaning: "Missed the flop completely"
       noticed_by:
-        - { observer: palm, interpretation: "She whiffed", correct: true }
-        - { observer: don, interpretation: "Donna missed", correct: true }
+        - '{ observer: palm, interpretation: "She whiffed", correct: true }'
+        - '{ observer: don, interpretation: "Donna missed", correct: true }'
       affected_action: "Don knows he's only worried about Bumblewick"
       outcome_impact: MEDIUM
 
@@ -140,8 +140,8 @@ hand_2:
       channel: visual/audio
       meaning: "Knows he might be dead (spade completed draws)"
       noticed_by:
-        - { observer: palm, interpretation: "Don sees the danger", correct: true }
-        - { observer: bumblewick, interpretation: "Don looks worried?", partial: true }
+        - '{ observer: palm, interpretation: "Don sees the danger", correct: true }'
+        - '{ observer: bumblewick, interpretation: "Don looks worried?", partial: true }'
       outcome_impact: MEDIUM
 
     - id: T2-12
@@ -151,8 +151,8 @@ hand_2:
       channel: visual
       meaning: "HIT THE FLUSH — overwhelmed"
       noticed_by:
-        - { observer: palm, interpretation: "He got there", correct: true }
-        - { observer: donna, interpretation: "HE HAS IT AGAIN", correct: true }
+        - '{ observer: palm, interpretation: "He got there", correct: true }'
+        - '{ observer: donna, interpretation: "HE HAS IT AGAIN", correct: true }'
       affected_action: "Everyone knows Bumblewick wins"
       outcome_impact: CRITICAL
 
@@ -178,7 +178,7 @@ hand_3:
       channel: visual
       meaning: "Monster hand (pocket aces)"
       noticed_by:
-        - { observer: don, interpretation: "Palm has something huge — the flat fur", correct: true }
+        - '{ observer: don, interpretation: "Palm has something huge — the flat fur", correct: true }'
       missed_by: [donna]  # Desperate, not reading
       affected_action: "Don folds immediately to Palm's shove"
       outcome_impact: CRITICAL
@@ -190,7 +190,7 @@ hand_3:
       channel: visual/audio
       meaning: "Bad hand, knows it (6-4), COMFORTABLE with folding"
       noticed_by:
-        - { observer: palm, interpretation: "First time he's relaxed with bad cards", correct: true }
+        - "{ observer: palm, interpretation: \"First time he's relaxed with bad cards\", correct: true }"
       affected_action: "Bumblewick folds quickly — STRATEGIC GROWTH"
       outcome_impact: HIGH  # Shows character development
 
@@ -201,7 +201,7 @@ hand_3:
       channel: visual/audio
       meaning: "Has playable hand at last (QJ suited)"
       noticed_by:
-        - { observer: palm, interpretation: "She has something and she's desperate", correct: true }
+        - "{ observer: palm, interpretation: \"She has something and she's desperate\", correct: true }"
       outcome_impact: MEDIUM
 
     - id: T3-04
@@ -211,7 +211,7 @@ hand_3:
       channel: visual/audio
       meaning: "Maximum strength, no deception"
       noticed_by:
-        - { observer: don, interpretation: "Palm has aces. The flat fur. I'd bet my stack.", correct: true }
+        - "{ observer: don, interpretation: \"Palm has aces. The flat fur. I'd bet my stack.\", correct: true }"
       missed_by: [donna]  # Knows but gambles anyway
       affected_action: "Don folds, Donna calls (correctly desperate)"
       outcome_impact: CRITICAL
@@ -237,7 +237,7 @@ hand_4:
       channel: visual
       meaning: "Big hand, serious moment (pocket kings)"
       noticed_by:
-        - { observer: palm, interpretation: "Don has something major", correct: true }
+        - '{ observer: palm, interpretation: "Don has something major", correct: true }'
       outcome_impact: MEDIUM
 
     - id: T4-02
@@ -247,7 +247,7 @@ hand_4:
       channel: visual/audio
       meaning: "Good hand, processing how to play it (AQ)"
       noticed_by:
-        - { observer: palm, interpretation: "He's got cards and he's THINKING", correct: true }
+        - "{ observer: palm, interpretation: \"He's got cards and he's THINKING\", correct: true }"
       outcome_impact: MEDIUM
 
     - id: T4-03
@@ -257,7 +257,7 @@ hand_4:
       channel: visual/audio
       meaning: "Folding, respecting Don's strength"
       noticed_by:
-        - { observer: don, interpretation: "Palm confirmed my read", correct: true }
+        - '{ observer: don, interpretation: "Palm confirmed my read", correct: true }'
       outcome_impact: LOW
 
     - id: T4-04
@@ -267,8 +267,8 @@ hand_4:
       channel: visual/audio
       meaning: "Calculated decision, no longer terror-driven"
       noticed_by:
-        - { observer: palm, interpretation: "He's not apologizing. First time.", correct: true }
-        - { observer: don, interpretation: "The kid grew up", correct: true }
+        - "{ observer: palm, interpretation: \"He's not apologizing. First time.\", correct: true }"
+        - '{ observer: don, interpretation: "The kid grew up", correct: true }'
       affected_action: "Call made with agency, not fear"
       outcome_impact: HIGH  # Character growth marker
 
@@ -279,8 +279,8 @@ hand_4:
       channel: visual/audio
       meaning: "ACCEPTANCE — can lose without breaking"
       noticed_by:
-        - { observer: palm, interpretation: "Terror becoming acceptance", correct: true }
-        - { observer: don, interpretation: "He's learning", correct: true }
+        - '{ observer: palm, interpretation: "Terror becoming acceptance", correct: true }'
+        - "{ observer: don, interpretation: \"He's learning\", correct: true }"
       outcome_impact: CRITICAL  # Arc completion marker
 
 # SUMMARY STATISTICS
@@ -305,7 +305,7 @@ summary:
   notice_rate_across_session:
     palm: "78% of relevant tells noticed"
     don: "72% of relevant tells noticed"  
-    bumblewick: "35% of relevant tells noticed" (improving)
+    bumblewick: '"35% of relevant tells noticed" (improving)'
     donna: "45% of relevant tells noticed"
 
   critical_tells:
@@ -369,23 +369,23 @@ outcome_analysis:
   hand_2:
     winner: bumblewick
     tell_contribution: |
-      - T2-07 (47s freeze): Misread as weakness, was actually calculation
-      - T2-09 (leg bounce): Correctly read as draw, but Don committed
-      - T2-12 (tears on turn): Confirmed flush, graceful acceptance by table
+      - 'T2-07 (47s freeze): Misread as weakness, was actually calculation'
+      - 'T2-09 (leg bounce): Correctly read as draw, but Don committed'
+      - 'T2-12 (tears on turn): Confirmed flush, graceful acceptance by table'
     
   hand_3:
     winner: palm
     tell_contribution: |
-      - T3-01 (ear flick): Don read it perfectly, folded
-      - T3-02 (Bumblewick shrug): First strategic fold
-      - T3-04 (flat fur): Classic Palm strength signal
+      - 'T3-01 (ear flick): Don read it perfectly, folded'
+      - 'T3-02 (Bumblewick shrug): First strategic fold'
+      - 'T3-04 (flat fur): Classic Palm strength signal'
     
   hand_4:
     winner: don
     tell_contribution: |
-      - T4-01 (untouched sharp cheddar cheese): Serious hand signal
-      - T4-04 (Bumblewick's respectful call): Growth moment
-      - T4-05 (no tears): Arc completion, not about cards
+      - 'T4-01 (untouched sharp cheddar cheese): Serious hand signal'
+      - "T4-04 (Bumblewick's respectful call): Growth moment"
+      - 'T4-05 (no tears): Arc completion, not about cards'
 
 # PROTOCOL TELLS
 

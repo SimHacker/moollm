@@ -119,8 +119,6 @@ metrics:
     volatility: extreme
 ```
 
-**This is the killer feature.**
-
 EVALSelf doesn't say "stop judging yourself." It says:
 
 > **Let's look at the ruler you're using.**
@@ -376,8 +374,6 @@ household:
 ```
 
 ### None Have to Win
-
-This is the key insight.
 
 | Traditional Self-Help | EVALSelf |
 |-----------------------|----------|

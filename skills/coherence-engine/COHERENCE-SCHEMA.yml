@@ -1,0 +1,51 @@
+# COHERENCE-SCHEMA.yml — consistency checks
+#
+# The engine has no state of its own. It maintains coherence of other entities:
+# read state, notice inconsistencies, write fixes.
+#
+# One domain name: coherence_domains. CARD.yml spells the same map
+# coherence-domains, with longer child names. This schema does not define that
+# spelling. The five children are the short names; the sentences are the checks
+# those files already state.
+
+schema:
+  id: coherence
+  applies_to: "the coherence_domains map. The engine maintains coherence of other entities and has no state of its own."
+  extends: []
+  keys:
+
+    coherence_domains:
+      shape: map
+      default: null
+      meaning: "The consistency checks. Five children, each a prose check."
+      compiles: false
+      keys:
+        location:
+          shape: prose
+          meaning: "Character.location matches room occupants. Character's location matches room's occupants."
+          compiles: false
+          example: "Character.location matches room occupants"
+        inventory:
+          shape: prose
+          meaning: "Object.location matches holder's inventory. Object in inventory isn't also in room."
+          compiles: false
+          example: "Object.location matches holder's inventory"
+        relationships:
+          shape: prose
+          meaning: |
+            If A has a relationship cell for B, does B have one for A?
+            Reconcile by CREATING the missing cell — never by copying values into it.
+            Contents are per-direction and independent: A may adore B while B has not noticed.
+            A pair-hosted buff lives in one cell and must not be mirrored into the other
+            (skills/buff/SKILL.md § Relationship hosts).
+          compiles: false
+        buffs:
+          shape: prose
+          meaning: "Buffs with duration 0 are removed"
+          compiles: false
+          example: "Buffs with duration 0 are removed"
+        references:
+          shape: prose
+          meaning: "All paths resolve to actual files. Links point to existing files."
+          compiles: false
+          example: "All paths resolve to actual files"

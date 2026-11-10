@@ -1,16 +1,16 @@
-card:
-  name: collective-maker-guild
-  type: [collective, community, makers, example]
-  tier: 1
-  invoke_when: ["hands-on project", "workshop safety", "collab build"]
-  advertisement_names:
-    - DESCRIBE-GUILD
-    - SAFETY-BRIEF
-    - STARTER-PROJECTS
-  tags: [moollm, example, collective, makers, safety]
-  description: |
-    A fictional maker guild: emphasizes safety, collaboration, and sharing
-    starter projects for new members.
+# card:
+name: collective-maker-guild
+type: [collective, community, makers, example]
+tier: 1
+invoke_when: ["hands-on project", "workshop safety", "collab build"]
+advertisement_names:
+  - DESCRIBE-GUILD
+  - SAFETY-BRIEF
+  - STARTER-PROJECTS
+tags: [moollm, example, collective, makers, safety]
+description: |
+  A fictional maker guild: emphasizes safety, collaboration, and sharing
+  starter projects for new members.
 
 ethics:
   constraints:

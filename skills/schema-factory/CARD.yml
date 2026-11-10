@@ -4,7 +4,8 @@
 
 id: schema-factory
 name: "Schema Factory"
-type: [skill, tool, reasoning, schemas]
+type: skill
+tags: [tool, reasoning, schemas]
 emoji: 🏭
 tier: 2
 rarity: rare
@@ -55,19 +56,19 @@ invoke_when:
 advertisements:
   LINT-SCHEMA:
     score: 85
-    condition: "Have schemas that need validation"
+    score_if: "Have schemas that need validation"
     
   INGEST-EXPERIENCE:
     score: 80
-    condition: "Have experience logs to incorporate"
+    score_if: "Have experience logs to incorporate"
     
   COMPOSE-PLAN:
     score: 75
-    condition: "Need action chain toward goal"
+    score_if: "Need action chain toward goal"
     
   GENERATE-CONTEXT:
     score: 70
-    condition: "Need compact context for LLM"
+    score_if: "Need compact context for LLM"
 
 methods:
   LINT:

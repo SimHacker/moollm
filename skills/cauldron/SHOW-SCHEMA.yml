@@ -1,0 +1,19 @@
+# SHOW-SCHEMA.yml — seed file and planted directory
+#
+# No moollm show skill. The outside repo-show card is the only home of SHOW,
+# so this file sits beside skills/cauldron (the parent HARVEST delegates to)
+# rather than under skills/show. Keys are that card's inheritance.seed and
+# inheritance.plant. The phase list stays on the card.
+
+schema:
+  id: show
+  applies_to: "a show that starts as a seed file and becomes a planted directory"
+  keys:
+    seed:
+      shape: string
+      meaning: "seed file"
+      example: "repo-shows/<name>.yml"
+    plant:
+      shape: string
+      meaning: "planted directory"
+      example: "repo-shows/<name>/"

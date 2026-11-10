@@ -1,16 +1,16 @@
-card:
-  name: monster-gelatinous-cube
-  type: [monster, dnd, example]
-  tier: 1
-  invoke_when: ["dungeon hazard", "ooze encounter", "cleanup threat"]
-  advertisement_names:
-    - DESCRIBE
-    - THREAT
-    - WEAKNESS
-  tags: [moollm, example, monster, ooze, dnd]
-  description: |
-    A classic dungeon hazard: transparent ooze that engulfs and dissolves. Slow,
-    silent, great at corridor cleaning.
+# card:
+name: monster-gelatinous-cube
+type: [monster, dnd, example]
+tier: 1
+invoke_when: ["dungeon hazard", "ooze encounter", "cleanup threat"]
+advertisement_names:
+  - DESCRIBE
+  - THREAT
+  - WEAKNESS
+tags: [moollm, example, monster, ooze, dnd]
+description: |
+  A classic dungeon hazard: transparent ooze that engulfs and dissolves. Slow,
+  silent, great at corridor cleaning.
 
 ethics:
   constraints:

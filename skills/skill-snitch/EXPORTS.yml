@@ -3,20 +3,18 @@
 # skill-snitch is bundled WITH cursor-mirror, not standalone.
 # This file documents its role in the bundle.
 
-export:
-  name: skill-snitch
-  version: "1.0.0-alpha"
-  tagline: "Security auditing for skills"
-  
-  bundle_role: required
-  primary_bundle: cursor-mirror-bundle
-  
-  # skill-snitch is NOT distributed standalone
-  standalone: false
-  reason: |
-    skill-snitch's SNITCH method (runtime surveillance) depends on
-    cursor-mirror's deep-snitch command. The two skills have a
-    bidirectional relationship and must ship together.
+name: skill-snitch
+version: "1.0.0-alpha"
+tagline: "Security auditing for skills"
+
+bundle_role: required
+primary_bundle: cursor-mirror-bundle
+
+# skill-snitch is NOT distributed standalone. ships: false is that fact.
+reason: |
+  skill-snitch's SNITCH method (runtime surveillance) depends on
+  cursor-mirror's deep-snitch command. The two skills have a
+  bidirectional relationship and must ship together.
 
 dependencies:
   required:
@@ -28,6 +26,7 @@ dependencies:
       reason: "Can mask sensitive findings before sharing scan results"
 
 standalone:
+  ships: false
   works: partial
   
   degradation:

@@ -1,7 +1,6 @@
 # Gwern.net's LLM layer: small tools, hard guardrails
 
-**Source:** `~/GroundUp/git/gwern.net/build/*.py`, `embed.sh`. The single most
-MOOLLM-relevant discovery in the repo: Gwern independently converged on the
+**Source:** `~/GroundUp/git/gwern.net/build/*.py`, `embed.sh`. Gwern independently converged on the
 **sister-script pattern** — each LLM use is a small single-purpose CLI tool with a heavily
 engineered prompt, documentation-first header comments, stdin/stdout piping, and mechanical
 verification of outputs. LLMs never generate pages; they clean metadata at the long tail

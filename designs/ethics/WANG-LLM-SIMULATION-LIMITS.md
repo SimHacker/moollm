@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-A critical examination of LLM-based social simulations. While acknowledging cost/scalability advantages, the authors identify fundamental limitations in modeling human psychology, motivation, and diversity. Provides important counterbalance to optimistic findings (cf. Willer).
+A critical examination of LLM-based social simulations. While acknowledging cost/scalability advantages, the authors identify fundamental limitations in modeling human psychology, motivation, and diversity.
 
 **Key thesis:** LLMs can't access inner psychological states, lack intrinsic motivation, and reflect training data biases — making them fundamentally limited for simulating *individual* humans, even if useful for aggregate social dynamics.
 
@@ -107,7 +107,7 @@ Despite limitations, authors argue LLM simulation is still valuable:
 | **Emergent behaviors** | Limited | Can surprise researchers |
 | **Interpretability** | High | Moderate |
 
-**Key insight:** LLMs are useful for *exploration* and *hypothesis generation*, not *accurate prediction of individuals*.
+LLMs are useful for exploration and hypothesis generation, not for accurate prediction of individuals.
 
 ---
 
@@ -170,7 +170,6 @@ Real-world validation using cryptocurrency trading simulation:
 Our approach already positions framing as *setting expectations*, not claiming accuracy:
 - `TRIBUTE` frame explicitly acknowledges incompleteness
 - `EDUCATION` frame positions as illustration, not prediction
-- This paper validates that approach
 
 ### 2. Diversity Problem in Speed-of-Light
 
@@ -278,12 +277,10 @@ Paper's CryptoTrade finding suggests:
 | Dimension | Willer | Shanahan | Lazar | Wang |
 |-----------|--------|----------|-------|------|
 | **Core finding** | 85% accuracy | Roleplay all the way down | Understanding ≠ behavior | Missing inner states |
-| **Key insight** | Simulation works (aggregate) | No true voice | Need scaffolding | Can't simulate individuals |
+| **Finding** | Simulation works (aggregate) | No true voice | Need scaffolding | Can't simulate individuals |
 | **Risk identified** | Dual-use evaluation | Fabrication default | Moral sensitivity gap | Herd behavior, bias |
 | **Solution direction** | Qualitative grounding | Performance framing | LLM Modulo verifier | Hybrid human-LLM |
 
 **Combined thesis (revised):** LLMs can accurately simulate *aggregate* moral reasoning patterns (Willer) because they roleplay moral agents (Shanahan), but this understanding doesn't produce moral behavior without scaffolding (Lazar), and fundamentally cannot capture *individual* psychological depth or genuine motivation (Wang). **Use for exploration, not prediction; acknowledge limitations explicitly.**
 
 ---
-
-*This document summarizes critical research on LLM simulation limitations. Wang et al. provide important counterbalance to optimistic findings, emphasizing that aggregate pattern-matching ≠ individual psychological fidelity. Directly relevant to how MOOLLM should frame its simulation capabilities and acknowledge inherent limitations.*

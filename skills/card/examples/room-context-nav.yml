@@ -1,15 +1,15 @@
-card:
-  name: room-context-nav
-  type: [card, room-helper, example]
-  tier: 1
-  invoke_when: ["room enters", "look around", "lost"]
-  advertisement_names:
-    - LIST-EXITS
-    - GO-EXIT
-  tags: [moollm, example, navigation, room]
-  description: |
-    Uses implicit room context: cwd as room, subdirs as exits. Shows how ads
-    can rely on environment defaults but allow overrides.
+# card:
+name: room-context-nav
+type: [card, room-helper, example]
+tier: 1
+invoke_when: ["room enters", "look around", "lost"]
+advertisement_names:
+  - LIST-EXITS
+  - GO-EXIT
+tags: [moollm, example, navigation, room]
+description: |
+  Uses implicit room context: cwd as room, subdirs as exits. Shows how ads
+  can rely on environment defaults but allow overrides.
 
 advertisements:
   LIST-EXITS:

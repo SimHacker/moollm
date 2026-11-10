@@ -1,16 +1,16 @@
-card:
-  name: party-dnd-delvers
-  type: [party, dnd, example]
-  tier: 1
-  invoke_when: ["d&d setup", "need party roster", "call for help"]
-  advertisement_names:
-    - LIST-PARTY
-    - CALL-FOR-AID
-    - SHORT-REST
-  tags: [moollm, example, dnd, party]
-  description: |
-    A classic D&D delver party: fighter, rogue, wizard, cleric. Useful for quick
-    rosters, aid calls, and rest flavor.
+# card:
+name: party-dnd-delvers
+type: [party, dnd, example]
+tier: 1
+invoke_when: ["d&d setup", "need party roster", "call for help"]
+advertisement_names:
+  - LIST-PARTY
+  - CALL-FOR-AID
+  - SHORT-REST
+tags: [moollm, example, dnd, party]
+description: |
+  A classic D&D delver party: fighter, rogue, wizard, cleric. Useful for quick
+  rosters, aid calls, and rest flavor.
 
 state:
   members:

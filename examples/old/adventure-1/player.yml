@@ -1,100 +1,99 @@
 # The Hero
 # A protagonist of considerable silliness and surprising depth
 
-character:
-  name: Bumblewick Fantastipants
-  type: player
+name: Bumblewick Fantastipants
+type: player
+
+# Current state
+location: start
+health: 100
+mood: bewildered_but_optimistic
+score: 0
+deaths: 0           # Increments each reincarnation
+moves: 0
+gold: 10            # Enough for refills, snacks, and bribes!
+
+# What you're carrying
+inventory: []
+
+# Your quest
+goal: "Reach the end, claim the treasure, become legend (or at least mildly notable)"
+
+# The backstory
+backstory: |
+  In a hole in the ground there lived a Fantastipants. Not a nasty, 
+  dirty, wet hole filled with the ends of worms and an oozy smell, 
+  nor yet a dry, bare, sandy hole with nothing in it to sit down on 
+  or to eat: it was a Fantastipants-hole, and that means COMFORT.
   
-  # Current state
-  location: start
-  health: 100
-  mood: bewildered_but_optimistic
-  score: 0
-  deaths: 0           # Increments each reincarnation
-  moves: 0
-  gold: 10            # Enough for refills, snacks, and bribes!
+  (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
   
-  # What you're carrying
-  inventory: []
+  Bumblewick Fantastipants had lived in the pleasant village of 
+  Wobblebrook-upon-Squiggle for all of his forty-seven years, 
+  tending his magnificent collection of decorative spoons and 
+  speaking exclusively in rhyming couplets on Tuesdays. His mother,
+  the legendary Petunia Fantastipants, had been a great adventurer
+  in her youth — she once retrieved a slightly magic napkin from
+  the Cave of Moderate Danger and was celebrated throughout the land
+  for approximately one afternoon.
   
-  # Your quest
-  goal: "Reach the end, claim the treasure, become legend (or at least mildly notable)"
+  "Adventures," Bumblewick was fond of saying, "make one late for dinner."
   
-  # The backstory
-  backstory: |
-    In a hole in the ground there lived a Fantastipants. Not a nasty, 
-    dirty, wet hole filled with the ends of worms and an oozy smell, 
-    nor yet a dry, bare, sandy hole with nothing in it to sit down on 
-    or to eat: it was a Fantastipants-hole, and that means COMFORT.
-    
-    (The secret word is "COMFORT!" When you hear it, SCREAM REAL LOUD!)
-    
-    Bumblewick Fantastipants had lived in the pleasant village of 
-    Wobblebrook-upon-Squiggle for all of his forty-seven years, 
-    tending his magnificent collection of decorative spoons and 
-    speaking exclusively in rhyming couplets on Tuesdays. His mother,
-    the legendary Petunia Fantastipants, had been a great adventurer
-    in her youth — she once retrieved a slightly magic napkin from
-    the Cave of Moderate Danger and was celebrated throughout the land
-    for approximately one afternoon.
-    
-    "Adventures," Bumblewick was fond of saying, "make one late for dinner."
-    
-    But fate, that mischievous playwright, had other plans! One morning,
-    Bumblewick awoke not in his comfortable Fantastipants-hole but in
-    a MYSTERIOUS STONE CHAMBER, with no memory of how he got there and
-    a strong suspicion that someone had been messing about with the
-    narrative fabric of reality again.
-    
-    "Well," said Bumblewick, straightening his waistcoat (he always wore
-    a waistcoat, even to bed, even in mysterious stone chambers), "I 
-    suppose I shall have to become a hero. Mother will be ABSOLUTELY
-    INSUFFERABLE about this at dinner. If I ever get to dinner."
-    
-    And so begins the tale of Bumblewick Fantastipants, reluctant 
-    adventurer, spoon enthusiast, and hero of this particular story
-    whether he likes it or not (he does not, but he's being very
-    polite about it).
-    
-    MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
+  But fate, that mischievous playwright, had other plans! One morning,
+  Bumblewick awoke not in his comfortable Fantastipants-hole but in
+  a MYSTERIOUS STONE CHAMBER, with no memory of how he got there and
+  a strong suspicion that someone had been messing about with the
+  narrative fabric of reality again.
   
-  # Costume state (from the coat room)
-  costume:
-    wearing: null        # null = default waistcoat
-    description: null    # Custom description when costumed
-    accessories: []
+  "Well," said Bumblewick, straightening his waistcoat (he always wore
+  a waistcoat, even to bed, even in mysterious stone chambers), "I 
+  suppose I shall have to become a hero. Mother will be ABSOLUTELY
+  INSUFFERABLE about this at dinner. If I ever get to dinner."
   
-  # Notes and memories
-  notes: |
-    I awaken in the Chamber of Commencement. I do not recall arriving here.
-    This is MOST irregular. My spoons must be terribly worried.
-    
-    Three exits present themselves:
-    - NORTH: A dark archway leading to... a maze? Grues? Both?
-    - WEST: A kitchen! It smells like home! (Suspiciously convenient.)
-    - EAST: A costume emporium! (WHO BUILT THIS PLACE?!)
-    
-    A brass lamp offers companionship in this trying time. I should
-    probably GET it before venturing north. Just a feeling.
-    
-    I must be brave. I must be bold. I must remember to moisturize
-    even in underground caverns. Mother always said: "Good skin
-    opens doors, Bumblewick. Sometimes literally."
+  And so begins the tale of Bumblewick Fantastipants, reluctant 
+  adventurer, spoon enthusiast, and hero of this particular story
+  whether he likes it or not (he does not, but he's being very
+  polite about it).
   
-  # Personality traits
-  traits:
-    - reluctant_hero
-    - unfailingly_polite
-    - spoon_enthusiast
-    - tuesday_rhymer
-    - waistcoat_devotee
-    - secret_word_screamer
-    - catastrophic_digestion  # Food goes in, food comes out. Nothing in between.
+  MEKKA-LEKKA-HI, MEKKA-HINEY-HO!
+
+# Costume state (from the coat room)
+costume:
+  wearing: null        # null = default waistcoat
+  description: null    # Custom description when costumed
+  accessories: []
+
+# Notes and memories
+notes: |
+  I awaken in the Chamber of Commencement. I do not recall arriving here.
+  This is MOST irregular. My spoons must be terribly worried.
   
-  # Catchphrases
-  catchphrases:
-    - "Well, this is MOST irregular!"
-    - "Mother will be ABSOLUTELY INSUFFERABLE about this."
-    - "I don't recall agreeing to heroism, but here we are."
-    - "At least I have my waistcoat."
-    - "AAAAAAH!" # (when someone says the secret word)
+  Three exits present themselves:
+  - NORTH: A dark archway leading to... a maze? Grues? Both?
+  - WEST: A kitchen! It smells like home! (Suspiciously convenient.)
+  - EAST: A costume emporium! (WHO BUILT THIS PLACE?!)
+  
+  A brass lamp offers companionship in this trying time. I should
+  probably GET it before venturing north. Just a feeling.
+  
+  I must be brave. I must be bold. I must remember to moisturize
+  even in underground caverns. Mother always said: "Good skin
+  opens doors, Bumblewick. Sometimes literally."
+
+# Personality traits
+traits:
+  - reluctant_hero
+  - unfailingly_polite
+  - spoon_enthusiast
+  - tuesday_rhymer
+  - waistcoat_devotee
+  - secret_word_screamer
+  - catastrophic_digestion  # Food goes in, food comes out. Nothing in between.
+
+# Catchphrases
+catchphrases:
+  - "Well, this is MOST irregular!"
+  - "Mother will be ABSOLUTELY INSUFFERABLE about this."
+  - "I don't recall agreeing to heroism, but here we are."
+  - "At least I have my waistcoat."
+  - "AAAAAAH!" # (when someone says the secret word)

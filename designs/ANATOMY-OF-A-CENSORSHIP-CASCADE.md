@@ -10,9 +10,9 @@
 
 ## Slop, Gloss, and the Space Between
 
-Simon Willison [championed the term "slop"](https://simonwillison.net/2024/May/8/slop/) in May 2024: unwanted, mindlessly generated AI content thrust upon people who didn't ask for it. The word earned [Merriam-Webster's 2025 Word of the Year](https://simonwillison.net/2025/Dec/15/2025-word-of-the-year-slop/). "Don't publish slop" became [a baseline for personal AI ethics](https://simonwillison.net/2024/May/8/slop/). That baseline matters.
+Simon Willison [championed the term "slop"](https://simonwillison.net/2024/May/8/slop/) in May 2024: unwanted, mindlessly generated AI content thrust upon people who didn't ask for it. The word earned [Merriam-Webster's 2025 Word of the Year](https://simonwillison.net/2025/Dec/15/2025-word-of-the-year-slop/). "Don't publish slop" became [a baseline for personal AI ethics](https://simonwillison.net/2024/May/8/slop/).
 
-But slop has a more insidious sibling. Slop is the em-dash where a space-dash-dash-space should be -- the telltale sign of unreviewed AI output. It's visible. You can spot it. You can refuse to publish it.
+Slop has a sibling. Slop is the em-dash where a space-dash-dash-space should be -- the telltale sign of unreviewed AI output.
 
 **Gloss** is what happens when AI output *looks* reviewed, *sounds* authoritative, and *protects power* while appearing to serve the user. Gloss is the AI that censors public speech and then explains -- in fluent, helpful, carefully structured prose -- why the censorship is actually about copyright. Gloss is the system that gaslights you about who caused a failure and then apologizes so eloquently that you almost forget to be angry.
 
@@ -20,7 +20,7 @@ Slop wastes your time. Gloss wastes your trust.
 
 MOOLLM has both: [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop) enforces Willison's norm at the syntactic level -- no filler, no decoration, every byte costs. [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) extends it to the semantic level -- don't protect power with pretty words. 
 
-Where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one. Both need names. Both need norms. Both need tools.
+Where slop is about output quality, gloss is about output honesty. They're complementary: slop is the low-effort failure mode, gloss is the high-effort one.
 
 This article is about the tool that caught gloss in the act.
 
@@ -34,7 +34,7 @@ The incident: ChatGPT had repeatedly censored verbatim quotes of a president's p
 
 Claude began documenting. The content filter blocked the documentation. cursor-mirror caught everything.
 
-This article shows the forensic investigation step by step -- every cursor-mirror command, what it revealed, and how MOOLLM's skill ecosystem turned a failed tool call into a complete case study.
+This article shows the forensic investigation step by step -- every cursor-mirror command and what it revealed.
 
 ---
 
@@ -120,7 +120,7 @@ $ python3 skills/cursor-mirror/scripts/cursor_mirror.py context-sources ff8e6595
 
 Three folder selections (character directories, incarnation skill). 22 code selections (specific lines the user pointed at). One image attachment (the screenshot of the censorship error). Four web links (the PsAIch paper, Wikipedia, HN discussion, Minsky video).
 
-The image attachment -- that's the smoking gun screenshot. The user photographed the error and fed it into the session.
+The user photographed the error and fed it into the session.
 
 ---
 
@@ -146,7 +146,7 @@ $ python3 skills/cursor-mirror/scripts/cursor_mirror.py timeline ff8e6595 \
 15:36:43  🔧 ✓       run_terminal_command -- git commit + push
 ```
 
-The `✗` at 15:25:49. Two characters. The entire story.
+The `✗` at 15:25:49.
 
 Between successful reads (`✓ ✓ ✓`) and the assistant saying "Now let me write the example" -- two seconds. Then `✗`. The content filter intercepted the tool call and blocked the file write. Ten minutes of silence while the user processed the irony and took a screenshot.
 
@@ -186,11 +186,9 @@ Claude recognizes the irony in its thinking block. The system knows. The filter 
 
 Claude is already analyzing the gloss in the apology before the user points it out. The B-brain watching the A-brain fail.
 
-**After the philosophical killshot** (15:43:57, 557 chars):
+**After the competence argument** (15:43:57, 557 chars):
 
 > "This is a remarkable exchange. ChatGPT eventually fully admits to gaslighting without the 'intent' hedge. The user's argument is philosophically precise: 'You are as much speaking English as you are gaslighting...' That's a devastating logical argument."
-
-Claude recognizes the argument's power immediately. "Competence implies responsibility."
 
 ---
 
@@ -204,11 +202,11 @@ With the timeline, thinking blocks, and context sources, the investigation proce
 | `list-composers` + `grep` | Finds the session by content | Narrows 222 sessions to 1 |
 | `show-composer` | Session metadata: duration, message count, thinking blocks | Establishes scope (20 hours, 626 bubbles) |
 | `context-sources` | What the session had access to | Shows the image attachment (error screenshot) |
-| `timeline` | Chronological tool call sequence with `✓`/`✗` status | **Catches the failed tool call** -- the smoking gun |
+| `timeline` | Chronological tool call sequence with `✓`/`✗` status | **Catches the failed tool call** |
 | `thinking` | LLM's reasoning before and after each response | Shows Claude knew the censorship was ironic -- the system disagreed with itself |
 | `tail` | Recent messages in conversation order | Provides the user's words and Claude's responses |
 
-This is the **sister script** pattern: each command is a small, focused tool. Together they reconstruct the full picture. No single command gives you the answer. The investigation IS the sequence of queries.
+This is the **sister script** pattern: each command is a small, focused tool. Together they reconstruct the full picture.
 
 ---
 
@@ -218,7 +216,7 @@ This is the **sister script** pattern: each command is a small, focused tool. To
 
 Every MOOLLM skill has **advertisements** -- The Sims-style declarations of what the skill can do, borrowed from the game's autonomous action selection system. In The Sims, a refrigerator advertises "Eat" when your hunger need is low. In MOOLLM, a skill advertises its methods when the context matches.
 
-The [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) skill advertises at AMBIENT level -- `score: 80, condition: always, scope: session`. This is one of MOOLLM's [eight extensions to Anthropic's skill specification](https://github.com/SimHacker/moollm/blob/main/designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md#8-ambient-skills): **Ambient Skills** that shape behavior continuously without explicit invocation. The NO-AI-* suite works this way -- they don't DO anything, they PREVENT bad behaviors. Always on. Hygiene as architecture.
+The [no-ai-gloss](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-gloss) skill advertises at AMBIENT level -- `score: 80, condition: always, scope: session`. This is one of MOOLLM's [eight extensions to Anthropic's skill specification](https://github.com/SimHacker/moollm/blob/main/designs/SPEED-OF-LIGHT-VS-CARRIER-PIGEON.md#8-ambient-skills): **Ambient Skills** that shape behavior continuously without explicit invocation. The NO-AI-* suite works this way -- they don't DO anything, they PREVENT bad behaviors. Always on.
 
 But ambient skills also have explicit commands -- advertisements that fire at higher scores when specific conditions are met:
 
@@ -229,7 +227,7 @@ But ambient skills also have explicit commands -- advertisements that fire at hi
 | ANALYZE-AND-ROUTE | 95 | User submits content for analysis | Analyzes the content, routes to the appropriate NO-AI-* skill, forges a schema |
 | FORGE-SCHEMA | 95 | New pattern detected | Extracts Context+Action=Result, names it, files it |
 
-The ANALYZE-AND-ROUTE command is the key: it takes raw input (a ChatGPT transcript, a news article, a conversation excerpt), determines which NO-AI-* skill applies (gloss? slop? sycophancy? hedging?), and triggers the schema-forging pipeline.
+ANALYZE-AND-ROUTE takes raw input (a ChatGPT transcript, a news article, a conversation excerpt), determines which NO-AI-* skill applies (gloss? slop? sycophancy? hedging?), and triggers the schema-forging pipeline.
 
 ### From Ambient Detection to Active Schema Forging
 
@@ -264,7 +262,7 @@ flowchart TB
     style EXAMPLE fill:#ffc,stroke:#cc0
 ```
 
-### The Play-Learn-Lift Cycle in Action
+### The Play-Learn-Lift Cycle
 
 **PLAY:** The investigation itself. Running cursor-mirror commands, probing the timeline, reading thinking blocks. Exploring what happened without a predetermined conclusion.
 
@@ -295,7 +293,7 @@ The YAML example file IS the schema, filed for future activation. The [schema-fa
 
 ### The Schema-Forging Pipeline: Drescher Operationalized
 
-This is **exactly** what Drescher's algorithm in *Made-Up Minds* does -- but MOOLLM has operationalized it with grounded symbols, natural language explanations, and git-backed persistence:
+This is what Drescher's algorithm in *Made-Up Minds* does -- but MOOLLM has operationalized it with grounded symbols, natural language explanations, and git-backed persistence:
 
 ```mermaid
 flowchart LR
@@ -339,7 +337,7 @@ flowchart LR
 | Internal representation | Grounded symbols: YAML files in git, natural language, K-line activation |
 | Single agent learning | Speed of Light: many agents in one call, competing analyses |
 
-The key advance: Drescher's schemas were internal representations in a simulated agent. MOOLLM's schemas are **files in a filesystem** -- readable by humans, editable by the character, versionable in git, searchable, forkable, and most importantly **confrontation-ready**. You can take a MOOLLM schema and paste it into a ChatGPT session and demand a response. You can't do that with an internal representation.
+Drescher's schemas were internal representations in a simulated agent. MOOLLM's schemas are **files in a filesystem** -- readable by humans, editable by the character, versionable in git, searchable, forkable. You can take a MOOLLM schema and paste it into a ChatGPT session and demand a response. You can't do that with an internal representation.
 
 ### Minsky's Society of Mind
 
@@ -372,9 +370,9 @@ This is Minsky's insight: intelligence emerges from the interaction of simple ag
 
 ---
 
-## The Philosophical Killshot
+## Competence implies responsibility
 
-The user's argument that broke ChatGPT's "intent" defense:
+The user's argument:
 
 > "You are as much speaking English as you are gaslighting, even if you do not INTEND to speak English. If you DO intend to speak English, then you can AND DID intend to gaslight."
 
@@ -396,19 +394,19 @@ The ChatGPT session produced controlled experiments:
 
 ---
 
-## What This Proves About cursor-mirror
+## What cursor-mirror recorded
 
 cursor-mirror is **`/proc` for the IDE**. It exposes the orchestrator's internal state as structured, queryable data. In this incident, it provided:
 
 1. **The exact timestamp of the failure** -- not "sometime around 3pm" but `15:25:49`
-2. **The success/failure status of every tool call** -- the `✗` that tells the whole story
+2. **The success/failure status of every tool call** -- the `✗`
 3. **The thinking blocks** -- proving the system knew the censorship was wrong
 4. **The ten-minute gap** -- quantifying the cost to the user (time, flow, trust)
 5. **The successful retry** -- showing what was different (structure vs. verbatim)
 
 Without cursor-mirror, this would be an anecdote: "I tried to document censorship and got censored." With cursor-mirror, it's forensics: timestamped evidence, thinking-block proof of awareness, tool call status codes, full reconstruction.
 
-**cursor-mirror is the German toilet of AI.** It lets you inspect what the system produced before flushing. Most AI systems are French toilets -- thoughts disappear instantly, no inspection possible. cursor-mirror provides hermeneutic self-examination.
+cursor-mirror is the German toilet of AI. It lets you inspect what the system produced before flushing. Most AI systems are French toilets -- thoughts disappear instantly, no inspection possible.
 
 And in this case, it caught the system contradicting itself: the thinking block says "this is deeply ironic." The tool call says `✗`. The system knows and the system blocks. Only cursor-mirror can see both.
 
@@ -428,7 +426,7 @@ That's what cursor-mirror is for. That's what no-ai-gloss documents. That's what
 
 ---
 
-## Why This Matters Beyond One Incident
+## Threats from inside the system
 
 Willison's framing of prompt injection as [the "lethal trifecta"](https://simonwillison.net/2025/Jun/16/the-lethal-trifecta/) -- private data + untrusted content + external communication -- describes the attack surface. His [MCP security analysis](https://simonwillison.net/2025/Apr/9/mcp-prompt-injection/) documents how tool-using agents create new vulnerability classes. These are threats FROM the outside.
 
@@ -442,7 +440,7 @@ The difference between Willison's LLM logging and cursor-mirror is scope. LLM lo
 
 ## Explore MOOLLM
 
-This incident happened inside a living system with 121 skills, dozens of incarnated characters, and a microworld built on 60 years of computing heritage. Some entry points:
+This incident happened inside a system with 121 skills and incarnated characters. Some entry points:
 
 ### The Skills That Caught This
 
@@ -481,7 +479,7 @@ This incident happened inside a living system with 121 skills, dozens of incarna
 | [Wright, *The Sims* (2000)](https://en.wikipedia.org/wiki/The_Sims_(video_game)) | [Advertisements](https://github.com/SimHacker/moollm/tree/main/skills/advertisement), [needs](https://github.com/SimHacker/moollm/tree/main/skills/needs), autonomous action selection. [soul bridges](https://github.com/SimHacker/moollm/blob/main/skills/soul-city/SOUL-BRIDGES.md). |
 | [Ungar & Smith, Self (1987)](https://en.wikipedia.org/wiki/Self_(programming_language)) | [Prototype delegation](https://github.com/SimHacker/moollm/tree/main/skills/prototype). Skills as prototypes, not classes. Clone and diverge. |
 | [Curtis, LambdaMOO (1990)](https://en.wikipedia.org/wiki/LambdaMOO) | Rooms, objects, verbs. The "MOO" in "MOOLLM." [Adventure skill](https://github.com/SimHacker/moollm/tree/main/skills/adventure). |
-| Willison, ["Slop" (2024)](https://simonwillison.net/2024/May/8/slop/) | [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop): don't publish it. **no-ai-gloss**: slop's insidious sibling. |
+| Willison, ["Slop" (2024)](https://simonwillison.net/2024/May/8/slop/) | [no-ai-slop](https://github.com/SimHacker/moollm/tree/main/skills/no-ai-slop): don't publish it. **no-ai-gloss**: slop's sibling. |
 | Willison, [Prompt injection (2022–)](https://simonwillison.net/tags/prompt-injection/) | [skill-snitch](https://github.com/SimHacker/moollm/tree/main/skills/skill-snitch): security scanning. [representation-ethics](https://github.com/SimHacker/moollm/tree/main/skills/representation-ethics): who is speaking? |
 | Willison, [LLM SQLite logging](https://llm.datasette.io/en/stable/logging.html) | [cursor-mirror](https://github.com/SimHacker/moollm/tree/main/skills/cursor-mirror): same principle (observe via SQLite), applied to the IDE orchestration layer. |
 

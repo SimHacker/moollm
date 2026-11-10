@@ -1,16 +1,16 @@
-card:
-  name: entity-abstract-accountability
-  type: [concept, abstract, accountability, example]
-  tier: 1
-  invoke_when: ["assign ownership", "postmortem", "risk review"]
-  advertisement_names:
-    - WHO-OWNS
-    - WHAT-WENT-WELL
-    - ACTIONS-NEXT
-  tags: [moollm, example, accountability, ethics, process]
-  description: |
-    Accountability lens to clarify ownership, reflect on outcomes, and ensure
-    next actions are explicit and owned.
+# card:
+name: entity-abstract-accountability
+type: [concept, abstract, accountability, example]
+tier: 1
+invoke_when: ["assign ownership", "postmortem", "risk review"]
+advertisement_names:
+  - WHO-OWNS
+  - WHAT-WENT-WELL
+  - ACTIONS-NEXT
+tags: [moollm, example, accountability, ethics, process]
+description: |
+  Accountability lens to clarify ownership, reflect on outcomes, and ensure
+  next actions are explicit and owned.
 
 ethics:
   constraints:

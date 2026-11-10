@@ -32,7 +32,7 @@ patterns:
     reason: "Registry entries defining what to look for"
     
   - name: regex_literal
-    match: 'r["\'][^"\']*\(\?[imsxu]\)'
+    match: "r[\"\\'][^\"\\']*\\(\\?[imsxu]\\)"
     reason: "Regex patterns with flags, likely definitions"
     
   - name: severity_enum

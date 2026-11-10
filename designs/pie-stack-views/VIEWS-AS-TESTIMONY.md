@@ -99,7 +99,7 @@ members: files                                 # each file is an item
 order: big_endian_date                         # newest last, chronological for free
 ```
 
-The pretending is load-bearing and openly declared. A directory asserts what it is, delegation supplies the behavior, and nobody had to write a clipboard. This is the same move as an article asserting `ROOM.yml` and thereby being a place ([`PLAYABLE-CORPUS.md`](../webtop/PLAYABLE-CORPUS.md)) — declaration plus delegation instead of implementation.
+The pretending is declared. A directory asserts what it is, delegation supplies the behavior, and nobody had to write a clipboard. This is the same move as an article asserting `ROOM.yml` and thereby being a place ([`PLAYABLE-CORPUS.md`](../webtop/PLAYABLE-CORPUS.md)) — declaration plus delegation instead of implementation.
 
 Push further and the clipboard becomes a conveyor. Factorio's vocabulary is exact: belts, inserter arms, mines, and factories are visible machinery whose contents you watch pass through — you debug the economy by looking at it. A peripheral view can work the same way. Attached beside a node, it shows objects *passing through* the system: the output of a query, the stream of matches from a search, values propagating through constraints. Not necessarily the subject of the view — possibly things derived from the subject, possibly things from anywhere. The view is a window onto flow.
 

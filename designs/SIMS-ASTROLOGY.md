@@ -34,8 +34,6 @@ The create-a-sim user interface hid the corresponding astrological sign for the 
 
 Will called this phenomenon **The Simulator Effect**: players imagine more than you simulate.
 
-This is a design principle, not a bug. The human brain is vastly more powerful than any computer simulation at generating rich, coherent, emotionally meaningful narratives. The designer's job is to provide the right *cues* and *affordances* that trigger the player's imagination, not to simulate every detail.
-
 ### Implications for Design
 
 1. **Implication over simulation** - Suggest, don't compute

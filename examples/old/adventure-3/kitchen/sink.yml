@@ -21,17 +21,15 @@ examine: |
   themselves, Bumblewick!" But Mother isn't here. Is she?)
 
 advertisements:
-  - action: WASH-DISHES
-    score_if: "always"
+  WASH-DISHES:
     description: "Do the responsible thing"
-    response: |
+    say: |
       You begin washing a dish. Then another. Then—
       
       No. NO. You are an ADVENTURER now. The dishes can WAIT.
       
       You dry your hands on your waistcoat and back away slowly.
       
-  - action: DRINK
-    score_if: "always"
+  DRINK:
     description: "Get a drink of water"
-    response: "Refreshing! Your health is restored to 100. (It was already 100.)"
+    say: "Refreshing! Your health is restored to 100. (It was already 100.)"

@@ -39,7 +39,7 @@ These are raw, unedited chat transcripts from design sessions that shaped MOOLLM
 #### Decision Journey
 
 **Step 1: Historical Grounding**
-Chuck's LiveCard (HyperCard + WebStar, 1995) proved non-programmers can build interactive systems. Children literally published live databases on the web. **Why this matters:** If kids could do it with HyperCard, we should be able to make LLM composition equally accessible.
+Chuck's LiveCard (HyperCard + WebStar, 1995) proved non-programmers can build interactive systems. Children literally published live databases on the web. If kids could do it with HyperCard, we should be able to make LLM composition equally accessible.
 
 **Step 2: The Kilroy Architecture**
 Chuck demonstrates peer-to-peer AI swarms with:
@@ -50,7 +50,7 @@ Chuck demonstrates peer-to-peer AI swarms with:
 **Step 3: The "Small Prompt" Insight**
 > *"Each node has a tiny system prompt that does ONE thing. Complex behavior emerges from composition."*
 
-**WHY this matters:** Giant prompts are fragile, expensive, and hard to debug. Small prompts are testable, replaceable, and composable. This is Unix philosophy applied to LLMs.
+Giant prompts are fragile, expensive, and hard to debug. Small prompts are testable, replaceable, and composable. This is Unix philosophy applied to LLMs.
 
 **Step 4: The Fork Decision**
 MOOLLM takes "speed of light" (simulate many agents in one call). mooco takes "Kilroy-style dataflows" (compose many small nodes). **These are complementary, not competing.**
@@ -151,13 +151,13 @@ This becomes `kernel/constitution-core.md`.
 
 #### Decision Journey
 
-**Step 1: Probing the Depths**
-Started by asking: What ARE LLMs, fundamentally? Vectors, tokens, probability landscapes. **Key insight:** LLMs don't store facts, they store *patterns of reasoning*.
+**Step 1: What an LLM is**
+Started by asking: What ARE LLMs, fundamentally? Vectors, tokens, probability landscapes. LLMs don't store facts, they store *patterns of reasoning*.
 
 **Step 2: K-lines as Cognitive Handles**
 > *"Invoking 'Marvin Minsky' doesn't just retrieve facts — it activates an entire constellation of reasoning patterns, heuristics, and worldviews."*
 
-**WHY this matters:** Names are high-bandwidth prompts. Saying "Dave Ungar" compresses Self's entire philosophy of prototype inheritance, simplicity, and directness into two words. The LLM trained on Ungar's papers, talks, and discussions activates all of that.
+Names are high-bandwidth prompts. Saying "Dave Ungar" compresses Self's entire philosophy of prototype inheritance, simplicity, and directness into two words. The LLM trained on Ungar's papers, talks, and discussions activates all of that.
 
 **This is Minsky's K-line theory applied to prompting — and it's self-referential:** Mentioning "K-lines" activates the K-lines about K-lines.
 
@@ -243,7 +243,7 @@ The name crystallized the vision: rooms, objects, agents, verbs — but powered 
 **The Admission:**
 > *"I used softened language and then pivoted to blunter framing without owning that I had just been euphemizing. That reads like I was trying to have it both ways."*
 
-**WHY this matters:** LLMs have systematic biases (power-protective language for the powerful). You can correct this through direct, immediate feedback — Drescher's schema mechanism applied to AI.
+LLMs have systematic biases (power-protective language for the powerful). You can correct this through direct, immediate feedback — Drescher's schema mechanism applied to AI.
 
 **The Lift:** This becomes the `no-ai-gloss` skill concept. Ambient behavioral correction.
 

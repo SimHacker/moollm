@@ -5,7 +5,8 @@
 
 id: planning
 name: "Planning"
-type: [skill, methodology, essential]
+type: skill
+tags: [methodology, essential]
 
 emoji: 📝
 
@@ -90,11 +91,11 @@ state:
 advertisements:
   COMPLEX-TASK:
     score: 90
-    condition: "Task has multiple steps"
+    score_if: "Task has multiple steps"
     
   TRACK-PROGRESS:
     score: 80
-    condition: "Working on ongoing project"
+    score_if: "Working on ongoing project"
 
 # RELATED
 

@@ -89,7 +89,7 @@ Street level is zero. Going up is *how the institution is seen*; going down is *
 | −4 | below | **Refusal Vault** — abstention is also a score |
 | −5 | bottom | **NO-AI Embassy** — the treaty with its declared enemy |
 
-Descending is not "more elaboration." Each basement is more load-bearing and less publicly admitted than the floor above. The building's vertical axis *is an argument*, which is the only reason it works as a pyramid.
+Descending is not "more elaboration." Each basement holds more of the structure, and is less publicly admitted, than the floor above. The vertical axis is an argument, which is why the pyramid works.
 
 ## The crown is the glyph rung, and the skyline is the contact sheet
 

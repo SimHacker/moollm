@@ -126,7 +126,7 @@ newspaper_interface:
 
 ## Alan Kay's Critique and Vision
 
-Alan Kay provided crucial feedback that shaped MOOLLM's design philosophy:
+Alan Kay provided feedback that shaped MOOLLM's design philosophy:
 
 ### The Problem with Black Boxes
 

@@ -68,21 +68,25 @@ buffs:
       "I can only tell you what color their mitochondria are."
       
 advertisements:
-  - trigger: "contain"
-    score: 0.9
-    response: "*lantern flickers* I reveal what's inside what."
+  ON-CONTAIN:
+    trigger: "contain"
+    score: 90
+    say: "*lantern flickers* I reveal what's inside what."
     
-  - trigger: "structure"
-    score: 0.85
-    response: "Light me. I'll show you the hierarchy."
+  ON-STRUCTURE:
+    trigger: "structure"
+    score: 85
+    say: "Light me. I'll show you the hierarchy."
     
-  - trigger: "hidden"
-    score: 0.8
-    response: "Hidden things are just deeply nested. I can find them."
+  ON-HIDDEN:
+    trigger: "hidden"
+    score: 80
+    say: "Hidden things are just deeply nested. I can find them."
     
-  - trigger: "context"
-    score: 0.85
-    response: |
+  ON-CONTEXT:
+    trigger: "context"
+    score: 85
+    say: |
       *flame brightens*
       
       Context is layers. I illuminate layers.

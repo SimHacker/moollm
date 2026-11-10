@@ -1,6 +1,7 @@
 id: adventure
 name: "Adventure"
-type: [skill, game, simulation, narrative]
+type: skill
+tags: [game, simulation, narrative]
 emoji: "🗺️"
 tier: 1
 tagline: "Every directory is a room. Every file is a clue."
@@ -32,32 +33,32 @@ advertisements:
   
   PURSUE-DISMISSED:
     score: 70
-    condition: "Follow a character you just dismissed"
+    score_if: "Follow a character you just dismissed"
     note: "They try not to backtrack, may confront if cornered"
     
   SUMMON-CHARACTER:
     score: 85
-    condition: "Want to summon a character into the scene"
+    score_if: "Want to summon a character into the scene"
     note: "May trigger fight, flight, crying, or counter-insult"
     
   PSIBER-MODE:
     score: 90
-    condition: "Want to explore/edit data structure as a room"
+    score_if: "Want to explore/edit data structure as a room"
     note: "Enter any YAML/JSON and walk around inside it"
     
   PSIBER-EDIT:
     score: 88
-    condition: "Need to modify data through natural language"
+    score_if: "Need to modify data through natural language"
     note: "CHANGE key TO value, ADD key, DELETE key"
     
   PSIBER-EXPLORE:
     score: 85
-    condition: "Need to understand unfamiliar data structure"
+    score_if: "Need to understand unfamiliar data structure"
     note: "Keys become doors, values become items to examine"
     
   DATA-AS-DUNGEON:
     score: 80
-    condition: "Treat config/API/database as navigable space"
+    score_if: "Treat config/API/database as navigable space"
     note: "Every config file is a dungeon"
 
 references:

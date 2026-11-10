@@ -5,7 +5,8 @@
 
 id: bootstrap
 name: "Bootstrap"
-type: [skill, meta, orientation]
+type: skill
+tags: [meta, orientation]
 emoji: 🌅
 reach: files
 protocol: BOOTSTRAP
@@ -112,23 +113,23 @@ methods:
 advertisements:
   BOOTSTRAP:
     score: 100
-    condition: "Session start, need orientation"
+    score_if: "Session start, need orientation"
     
   SELF-DESCRIBE:
     score: 90
-    condition: "Identity questions, 'what am I?'"
+    score_if: "Identity questions, 'what am I?'"
     
   REFLECT:
     score: 85
-    condition: "Want to analyze past sessions"
+    score_if: "Want to analyze past sessions"
     
   CONNECTIONS-TOUR:
     score: 80
-    condition: "Want to understand MOOLLM heritage"
+    score_if: "Want to understand MOOLLM heritage"
     
   DEBUG-BOOT:
     score: 75
-    condition: "Boot seems slow or broken"
+    score_if: "Boot seems slow or broken"
 
 # PLATFORM ADAPTATION (brief — see SKILL.md)
 

@@ -59,7 +59,7 @@ prototypes:
       - "Opening this box closes it"
       - "The lock is locked inside the box"
       
-recursion-container:
+  recursion-container:
     inherits: paradox-box
     name: "Recursion Container"
     description: "A container that contains a container that contains..."
@@ -244,7 +244,7 @@ recursion-container:
     philosophical_note: |
       This paradox led to:
       - The development of axiomatic set theory
-      - Zermelo-Fraenkel set theory (ZFC)
+      - 'Zermelo-Fraenkel set theory (ZFC)'
       - Russell's own Type Theory
       - Many, many headaches
       
@@ -719,7 +719,7 @@ recursion-container:
     on_open: |
       The cat is either:
       - Very much alive and annoyed, OR
-      - Very much dead and still annoyed (ghost cat)
+      - 'Very much dead and still annoyed (ghost cat)'
       
       50/50. You won't know until you look.
       
@@ -869,7 +869,7 @@ recursion-container:
       If containment fails:
       - Do not run. It won't help.
       - Do not panic. It won't help either.
-      - Write your will. (Actually, no time.)
+      - 'Write your will. (Actually, no time.)'
       
     container: true
     capacity: 1

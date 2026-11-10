@@ -369,9 +369,7 @@ If you arrived here from Hacker News — welcome! Here's where to go next:
 | [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) | The vision: LLM as `eval()` for a microworld OS |
 | [adventure-4/](../../examples/adventure-4/) | 150+ file text adventure demonstrating every principle |
 | [skills/](../../skills/) | 79 skills — programs for the LLM to run |
-| [Session logs](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/) | 6000+ lines of proof it works |
-
-The Astrillogical Effect is just one thread in a larger tapestry connecting Minsky's K-lines, Will Wright's Simulator Effect, and the insight that **skills are programs, the LLM is eval(), and the filesystem is the world**.
+| [Session logs](../../examples/adventure-4/characters/real-people/don-hopkins/sessions/) | 6000+ lines |
 
 ---
 

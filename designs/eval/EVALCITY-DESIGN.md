@@ -2139,7 +2139,6 @@ The simulation is not consumed. It is **constructed**. The act of building IS th
 | Tile-based simulation | Metric-based simulation |
 | "SimCity in 10 minutes" | "Your evaluation philosophy in 10 minutes" |
 
-**The key insight transfers:**
 - AgentSheets: The *rules* are defined by demonstration, not code
 - EvalCity: The *metrics* are defined by play, not configuration
 

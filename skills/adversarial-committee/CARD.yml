@@ -5,7 +5,8 @@
 
 id: adversarial-committee
 name: "Adversarial Committee"
-type: [skill, decision, ensemble, debate]
+type: skill
+tags: [decision, ensemble, debate]
 
 emoji: 🗳️
 
@@ -154,19 +155,19 @@ default-roster:
 advertisements:
   COMPLEX-DECISION:
     score: 95
-    condition: "Facing decision with no obvious right answer"
+    score_if: "Facing decision with no obvious right answer"
     
   AVOID-BLIND-SPOTS:
     score: 90
-    condition: "Worried about missing important perspectives"
+    score_if: "Worried about missing important perspectives"
     
   CHALLENGE-ASSUMPTIONS:
     score: 85
-    condition: "Need to stress-test a plan or proposal"
+    score_if: "Need to stress-test a plan or proposal"
     
   GENERATE-OPTIONS:
     score: 80
-    condition: "Want to explore multiple framings of a problem"
+    score_if: "Want to explore multiple framings of a problem"
 
 # INTEGRATION
 

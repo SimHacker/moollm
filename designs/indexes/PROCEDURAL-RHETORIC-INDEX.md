@@ -125,8 +125,6 @@ The Sims has been revolutionary for LGBTQ+ representation in games:
 | Pronouns | Sims 4 (2022) | Customizable pronouns including they/them |
 | Trans representation | Sims 4 | Full gender transition support |
 
-**Why this matters for procedural rhetoric:**
-
 The Sims makes an *implicit* procedural argument that LGBTQ+ relationships
 are normal — not through cutscenes or dialogue, but through mechanics.
 You can marry who you want. You can be who you are. The rules don't

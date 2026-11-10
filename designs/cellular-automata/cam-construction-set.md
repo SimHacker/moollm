@@ -31,13 +31,9 @@ things no CAM-6 could do, and you can see exactly which wire you moved to get th
 
 **The lookup table stops being an implementation detail and becomes a component on the
 canvas** — a thing with an address bus arriving and a value leaving, which you can inspect,
-hand-edit, or fill from a rule. That single piece of exposed plumbing is the whole lesson
-the book teaches and nearly every modern CA toy hides.
+hand-edit, or fill from a rule.
 
 ## The move has a name: partial evaluation (and one more thing)
-
-Worth saying out loud, because naming it connects the hardware trick to forty years of
-compiler theory and tells us what the Construction Set's back end should do.
 
 **Partial evaluation** (Ershov; Futamura; Jones, Gomard & Sestoft) takes a program `f(s, d)`
 and a known static input `s`, and produces a specialized residual program `f_s(d)` that
@@ -67,8 +63,6 @@ That's a move with relatives everywhere once you see it:
   is an **address in the space of residual programs**.
 
 ### The Futamura projections, in CA terms
-
-This is the part that's architecturally useful rather than merely satisfying:
 
 1. **The interpreter** is a general engine that reads a rule description and evaluates it per
    cell. Correct, flexible, slow.
@@ -164,7 +158,7 @@ which is the fault class those rules are already built to survive. And in a syst
 dynamics — a sorter that re-sorts, a crystal that regrows — occasional wrong outputs get repaired by
 subsequent right ones instead of accumulating. So a fuzzy substrate is *viable* under
 robust-first design in a way it simply isn't under a reversible Margolus
-rule. That's a real result, and it's the strongest version of the argument.
+rule.
 
 **Why it isn't enough.** Robustness of that kind is protection against **noise**, and a neural net's
 errors are **bias**. MFM tolerates faults that are independent and uncorrelated; a net fails *the
@@ -203,14 +197,14 @@ Three consequences worth stating plainly:
   thing to hide for years. A control that can mask a bias will mask a bias. Expose the measurement
   separately from the knob.
 
-- **You lose the ability to tell surprise from hallucination.** This is the one that decides it. The
+- **You lose the ability to tell surprise from hallucination.** The
   machine exists to show behavior nobody predicted. If the substrate can invent, every surprising
   observation has two explanations and no way to separate them — and robustness makes this *worse*,
   because a robust system will smoothly absorb a hallucination into something that looks plausible.
 
 ### Dither converts the bias into noise, which is the fault class robustness *does* handle
 
-This is the move, and it's the textbook one: **dithering decorrelates quantization error from the
+**Dithering decorrelates quantization error from the
 signal.** It's why dither exists in audio and imaging — it turns deterministic, input-correlated
 distortion (banding, contouring, harmonic distortion) into broadband noise with the right mean.
 
@@ -242,7 +236,7 @@ Three limits, because this is a real improvement and not a fix:
 - **Different seeds are different physics.** Any single run stays exactly reproducible, which is what
   matters for diffing against the table, but the ensemble isn't one system.
 
-That last limit is secretly the best feature. Run sixteen copies with different dither seeds and
+Run sixteen copies with different dither seeds and
 **the variance across the ensemble is a direct measure of how much the net is guessing.** Where the
 copies agree, the approximation is confident; where they diverge, it doesn't know. That's an
 uncertainty field, it costs one more meter on the panel, and it's the honest answer to "can I trust
@@ -375,8 +369,7 @@ following is a wire change, not a new subsystem:
 
 ### RISCA, taken seriously
 
-The Ridiculous Instruction Set deserves more than the joke, because it's the most radical
-thing in the existing engine. Splitting the cell into **opcode field** and **operand field**
+Splitting the cell into **opcode field** and **operand field**
 means **the rule a cell obeys is stored in the cell**. Consequences worth building on:
 
 - **Programs are painted, and adjacency is the calling convention.** A patch of Life next to
@@ -393,7 +386,7 @@ means **the rule a cell obeys is stored in the cell**. Consequences worth buildi
 - **Movement instructions already exist** — the demo's copy-in-a-direction opcodes slurp Life
   across the grid. Give those a proper operand and you have transport as a primitive.
 
-And here's the bridge worth naming: **RISCA is a proto-Movable Feast Machine.** In
+**RISCA is a proto-Movable Feast Machine.** In
 Dave Ackley's MFM, each **atom** carries a **type**, and the type
 determines the code that runs on it. Don arrived at typed cells dispatching their own
 behavior independently, from the paint-program side. Dave formalized it and asked what
@@ -401,8 +394,7 @@ happens when you also stop assuming a global clock — which is the next section
 
 ## Iteration order is a plug-in
 
-This is the axis nearly every CA system hardcodes and hides, and exposing it is the biggest
-idea here after the lookup table itself.
+This is the axis nearly every CA system hardcodes and hides.
 
 **Iteration order is not a performance detail. It is part of the rule.** Life updated
 asynchronously is a different system from Life updated synchronously — not slower, *different*,
@@ -562,7 +554,7 @@ from the last:
    total energy is conserved *exactly* — so the model is closed, deterministic, and
    reversible, the heat bath lives inside the cell array, and **temperature becomes an output
    you measure**, fitted from the demon's energy histogram.
-   The lesson is worth the whole station: **whether a quantity is an input or an output is a
+   **Whether a quantity is an input or an output is a
    wiring choice, not a fact about the quantity.** It's also the cleanest possible warm-up for
    the argument that instruments belong on the front
    door — here's a panel where the same word is a
@@ -755,7 +747,7 @@ third underneath doing most of the work.
 | 3 | **The JIT you didn't write** — source becomes machine code | execution time | V8 and the shader compiler doing decades of adaptive optimization for free |
 
 Stage 2 is the [first Futamura projection](#the-futamura-projections-in-ca-terms) performed at
-runtime, which is why the ladder in this document isn't decoration. And stage 1 is what makes the
+runtime. And stage 1 is what makes the
 middle artifact exist at all — the reason a patch can be a file, the
 [map can be the save file](#that-ladder-is-a-tech-tree-and-this-is-a-factorio), and an LLM can read
 and write your machine.
@@ -826,7 +818,7 @@ Five operators worth taking more or less as they are:
 
 Two of those deserve more than a table row.
 
-**`$assume` is user-defined, and that's the deep lesson.** Ace has no built-in knowledge of Boolean
+**`$assume` is user-defined.** Ace has no built-in knowledge of Boolean
 algebra. DeMorgan's laws and the comparison negations (`!($0 < $1)` → `$0 >= $1`) are ordinary rules
 in a library, `$assume` is defined on top of them via `$let`, and `$pullout` is defined on top of
 `$assume`. So **the specializer's knowledge is data, extensible by whoever is writing the rules** —
@@ -870,7 +862,7 @@ runtime and no JIT underneath. Generating JS and WGSL text at runtime is a far e
 the browser hands you the back end Gosling had to do without. **The technique transfers; the
 plumbing got cheap.**
 
-Two more reasons this is the right move for a *teaching* system specifically:
+Two more reasons, for a *teaching* system:
 
 - **The generated source is readable, and should be shown.** Put it in a panel. You snap
   blocks together and watch the JavaScript for your machine appear, then set a breakpoint in

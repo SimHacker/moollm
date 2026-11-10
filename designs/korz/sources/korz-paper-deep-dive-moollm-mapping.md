@@ -27,7 +27,7 @@ same four letters, *not* a reversal; Korz backwards is "Zrok." Don's
 observation, unremarked in the published record — and apt: adventures
 and games are where subjective dispatch earns its keep; see
 [Don's Korz notes & Q&A](../korz-notes.md).) Two Korzybski
-resonances worth keeping: MOOLLM's rebuttal to the map/territory slogan
+resonances: MOOLLM's rebuttal to the map/territory slogan
 is that the map *can* be the territory if you make the map a directory —
 the [Cross-Platform Troll's soul realms](https://github.com/SimHacker/moollm/tree/main/examples/adventure-4/characters/fictional/troll/realms)
 are maps of Zork and Adventure that are navigable territories inside him.
@@ -212,7 +212,7 @@ surface.
 ## "Context" in COP and "context" in an LLM call
 
 Two different things wearing one word — but parallel along real
-dimensions, and the projection between them is load-bearing:
+dimensions:
 
 | Deterministic COP / Korz | LLM completion call |
 |---|---|
@@ -361,8 +361,7 @@ The paper's last sentence:
 
 That is MOOLLM's explicit aspiration too: selfish prototypes, leaning
 into the training, YAML jazz, empathic templates, K-lines — each
-well-known, each chosen because they reinforce one another harmonically
-rather than merely coexist. The biological name for novelty-by-merger is
+well-known. The biological name for novelty-by-merger is
 endosymbiosis, and MOOLLM keeps a specimen cabinet:
 [ENDOSYMBIOSIS](https://github.com/SimHacker/moollm/blob/main/designs/object-system/ENDOSYMBIOSIS.md)
 — the Cross-Platform Troll with microworlds inside, Wumpus carrying his

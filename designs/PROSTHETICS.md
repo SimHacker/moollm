@@ -98,7 +98,7 @@ arguments keep going well. Four of GitHub's mechanics are directly aimed at that
   quote the file: a check that only trusted people may apply disappears exactly when you stop
   trusting the right people.
 
-**The LARP is load-bearing, not decorative.** A character is a lower-stakes handle than a
+A character is a lower-stakes handle than a
 reputation, and people will say things in a role they will not say as themselves — which is
 the Bartle and MUD result, and why a repo that admits it is a stage gets contributions a
 professional one does not. The enabling constraint is the thing that keeps it from being
@@ -208,8 +208,6 @@ Bill O'Reilly, [1.8 million views](https://www.youtube.com/watch?v=vu2NK5REvWM) 
 teleprompter failing: *I'll write it and we'll do it live.* Then five, four, three — and the
 live read is clean.
 
-Three things in it, all of them the point:
-
 **The competence was never in question; the script was.** He could do it without the
 prompter, which is exactly the bet a repo show makes. The preparation is the repo, so you can
 improvise on air because the world is already loaded. You do not need the script if the
@@ -219,12 +217,11 @@ material is on disk.
 the whole format description. The artifact is written during the show and the show is the
 writing, which is why the center of gravity is a repository and not an mp4.
 
-**And the breakdown outperformed the polished take by a factor no producer would have
-predicted.** The failure is the content — which is the same reason the negative results, the
+The failure is the content — which is the same reason the negative results, the
 unmet asks, and the pages annotated as wrong years later are in these repos on purpose.
 
 **See also:** [GITHUB-AS-MMORPG.md](GITHUB-AS-MMORPG.md) — the mechanics this reads as
-repairs · [GIT-AS-FOUNDATION.md](GIT-AS-FOUNDATION.md) — why the record is load-bearing ·
+repairs · [GIT-AS-FOUNDATION.md](GIT-AS-FOUNDATION.md) ·
 [TELEOLOGY.md](TELEOLOGY.md) — where the setpoint question comes from ·
 [webtop/README.md](webtop/README.md) — the attention prosthetic under construction ·
 [../skills/design-sense/lenses/reasoning-is-not-science.md](../skills/design-sense/lenses/reasoning-is-not-science.md)

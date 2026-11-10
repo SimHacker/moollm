@@ -123,7 +123,7 @@ hand_10:
         action: bet
         amount: 500
         thinking: "Ace high. Continuation bet."
-        observable: "..." *bets silently*
+        observable: '"..." *bets silently*'
         
       - player: palm
         action: raise
@@ -147,7 +147,7 @@ hand_10:
     
     reactions:
       palm: "'I had to three-bet your words.' *collects*"
-      klaus: "..." *imperceptible acknowledgment*
+      klaus: '"..." *imperceptible acknowledgment*'
       donna: "THE CAT beat THE ALIEN."
       don: "Palm! You're back in it!"
       bowie: "The game balances itself."
@@ -235,7 +235,7 @@ hand_11:
         
   turn: { card: "2s" }  # Spade — Bowie picks up flush draw
   
-    action:
+  action:
       - player: don
         action: all-in
         amount: 475

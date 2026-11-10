@@ -10,7 +10,8 @@
 
 id: github
 name: "GitHub"
-type: [skill, tool, platform, service]
+type: skill
+tags: [tool, platform, service]
 emoji: 🐧
 tier: 1
 tagline: "Talk is cheap. Show me the code."
@@ -232,21 +233,21 @@ advertisements:
   # For runner/edgebox
   RUNNER-OPS:
     score: 95
-    condition: "Need to check runner health, trigger workflows, view logs"
+    score_if: "Need to check runner health, trigger workflows, view logs"
     methods: [RUNNER-STATUS, WORKFLOW-LIST, WORKFLOW-VIEW, WORKFLOW-TRIGGER]
     customers: [runner, edgebox]
     
   # For thoughtful-commitment
   GIT-ARCHAEOLOGY:
     score: 90
-    condition: "Need to understand code history, blame, evolution"
+    score_if: "Need to understand code history, blame, evolution"
     methods: [BLAME, LOG-ARCHAEOLOGY, SHOW, DIFF-TIME-TRAVEL, TOPOLOGY]
     customers: [thoughtful-commitment]
     
   # For writing commits/PRs
   CONTEXT-GATHERING:
     score: 85
-    condition: "About to write a commit message or PR description"
+    score_if: "About to write a commit message or PR description"
     methods: [CONTEXT-COMMITS, CONTEXT-PRS]
     customers: [ALL]
     note: "Match the style. Know what's already documented."
@@ -254,26 +255,26 @@ advertisements:
   # For simulation
   SIMULATION-OPS:
     score: 90
-    condition: "Creating issues, comments, managing multiverse sync"
+    score_if: "Creating issues, comments, managing multiverse sync"
     methods: [ISSUE-CREATE, ISSUE-COMMENT, HEALTH-RUNS, HEALTH-DIAGNOSE]
     customers: [simulation]
     
   # For code-review
   PR-REVIEW-OPS:
     score: 95
-    condition: "Reviewing a pull request"
+    score_if: "Reviewing a pull request"
     methods: [PR-VIEW, PR-DIFF, PR-REVIEW, PR-CHECKS]
     customers: [code-review]
     
   # Standard git
   BEFORE-COMMIT:
     score: 90
-    condition: "About to make a git commit"
+    score_if: "About to make a git commit"
     methods: [CONTEXT-COMMITS]
     
   BEFORE-PR:
     score: 95
-    condition: "About to create a pull request"
+    score_if: "About to create a pull request"
     methods: [CONTEXT-PRS, PR-CREATE]
 
 # PATRON SAINT

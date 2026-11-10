@@ -9,7 +9,7 @@ inherits:
   - skills/fictional     # A character in the adventure
   - skills/mythic        # From early gaming history (1973)
   - skills/animal        # Beast behavior, territorial
-  - skills/game          # IS a game, not just plays in one
+  - GAME                 # IS a game, not just plays in one
 ontology:
   tags: [fictional, wumpus, mythic, dangerous]
   species: wumpus         # Unique creature from Hunt the Wumpus
@@ -369,8 +369,7 @@ mind_mirror:
   confident: 7          # 20 rooms. One wumpus. The odds favor patience.
   docile: 3             # Not aggressive. Just... there. Waiting. Snoring.
   # Mental Abilities
-  logical: 6            # The dodecahedron topology is the wumpus's mind.
   practical: 6          # Smell. Wait. Eat. Repeat. Since '73.
   # Social Interaction
-  dominant: 5           # The hazards serve the wumpus. Bats, pits, the draft.
   conventional: 6       # Same game. Same rules. Same dodecahedron. Forever.
+  forceful: 5           # The hazards serve the wumpus. Bats, pits, the draft.

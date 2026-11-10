@@ -16,31 +16,29 @@ mining_context:
 
 # THE SPACE PIRATE
 
-character:
+name: "Captain Ashford"
+status: "Active Sim (green plumbob)"
+
+costume:
+  type: "Space Pirate in full regalia"
+  hat: "Tricorn with gold trim — classic pirate meets sci-fi"
+  coat: "Green/khaki with brass buttons and glowing tech panels"
+  eyepatch: "Classic pirate style (digital display implied)"
+  facial_hair: "Distinguished mustache"
+  expression: "CONFUSED — brow furrowed, uncertain"
   
-  name: "Captain Ashford"
-  status: "Active Sim (green plumbob)"
-  
-  costume:
-    type: "Space Pirate in full regalia"
-    hat: "Tricorn with gold trim — classic pirate meets sci-fi"
-    coat: "Green/khaki with brass buttons and glowing tech panels"
-    eyepatch: "Classic pirate style (digital display implied)"
-    facial_hair: "Distinguished mustache"
-    expression: "CONFUSED — brow furrowed, uncertain"
-    
-  mood:
-    current: "Confused"
-    thought_bubble:
-      visible: true
-      content: "Giant question mark (?)"
-      style: "Classic white cloud bubble"
-      
-  plumbob:
+mood:
+  current: "Confused"
+  thought_bubble:
     visible: true
-    color: "Classic Sims green"
-    position: "Floating above character"
-    state: "Active/selected Sim"
+    content: "Giant question mark (?)"
+    style: "Classic white cloud bubble"
+    
+plumbob:
+  visible: true
+  color: "Classic Sims green"
+  position: "Floating above character"
+  state: "Active/selected Sim"
 
 # THE PIE MENU
 
@@ -253,7 +251,7 @@ pie_menu_analysis:
       
     safe:
       - '"Close Book" — wisdom is knowing when to stop'
-      - '"Hide Under Mattress" — the coward's archive'
+      - "\"Hide Under Mattress\" — the coward's archive"
       
     impossible:
       - '"Burn" — no fireplace in the attic (grayed)'
@@ -278,13 +276,13 @@ mining_notes: |
   
   1. THE PIE MENU
      - Radial options on the Monster Manual
-     - "Summon Monster" as an option (!)
+     - '"Summon Monster" as an option (!)'
      - "Hide Under Mattress (brilliant)"
      - Classic white segments with black text
   
   2. THE CONFUSED SPACE PIRATE
-     - Full regalia: tricorn, coat, eyepatch
-     - Green plumbob (selected Sim)
+     - 'Full regalia: tricorn, coat, eyepatch'
+     - 'Green plumbob (selected Sim)'
      - Thought bubble with question mark
      - The Sims character proportions
   

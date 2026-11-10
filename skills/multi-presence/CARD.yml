@@ -5,7 +5,8 @@
 
 id: multi-presence
 name: "Multi-Presence"
-type: [skill, parallel, distributed]
+type: skill
+tags: [parallel, distributed]
 
 emoji: 👥
 
@@ -96,11 +97,11 @@ use-cases:
 advertisements:
   PARALLEL-WORK:
     score: 90
-    condition: "Need to do multiple things at once"
+    score_if: "Need to do multiple things at once"
     
   EXPLORE-BRANCHES:
     score: 85
-    condition: "Don't want to commit to one path"
+    score_if: "Don't want to commit to one path"
 
 # RELATED
 

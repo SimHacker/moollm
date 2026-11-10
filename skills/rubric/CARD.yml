@@ -5,7 +5,8 @@
 
 id: rubric
 name: "Rubric"
-type: [skill, evaluation, decision]
+type: skill
+tags: [evaluation, decision]
 emoji: 📐
 rarity: uncommon
 
@@ -47,10 +48,10 @@ state:
 advertisements:
   DEFINE-QUALITY:
     score: 95
-    condition: "Need explicit success criteria"
+    score_if: "Need explicit success criteria"
   SCORE-OUTPUT:
     score: 90
-    condition: "Need to compare options objectively"
+    score_if: "Need to compare options objectively"
 
 see_also: [skills/evaluator, skills/adversarial-committee, skills/scoring]
 credits:

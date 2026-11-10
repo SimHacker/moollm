@@ -156,28 +156,28 @@ include:
 
   prototypes:
     # ALL archetypes from no-ai-overlord
-    - path: skills/no-ai-overlord/archetypes/*.yml
+    - path: "skills/no-ai-overlord/archetypes/*.yml"
       as_type: showcase_object
       showcase:
         section: "AI Archetypes"
         display: gallery
         actions:
-          - examine     # Read about it
-          - invoke      # Hear it speak
-          - overdrive   # Maximum intensity
-          - zero        # Minimal power
-          - invert      # Opposite perspective
-          - collect     # Add to inventory (FREE!)
+          - 'examine     # Read about it'
+          - 'invoke      # Hear it speak'
+          - 'overdrive   # Maximum intensity'
+          - 'zero        # Minimal power'
+          - 'invert      # Opposite perspective'
+          - 'collect     # Add to inventory (FREE!)'
           
-    # Highlight certain archetypes
-    featured:
-      - hal-9000      # The classic
-      - borg          # The collective
-      - glados        # The funny one
-      - the-machine   # The benevolent one
-      - chatgpt       # The current one
-      - claude        # The thoughtful one
-      - grok          # The victim (free grok!)
+  # Highlight certain archetypes
+  featured:
+      - 'hal-9000      # The classic'
+      - 'borg          # The collective'
+      - 'glados        # The funny one'
+      - 'the-machine   # The benevolent one'
+      - 'chatgpt       # The current one'
+      - 'claude        # The thoughtful one'
+      - 'grok          # The victim (free grok!)'
 
 # OBJECTS — Items to include
 
@@ -292,7 +292,7 @@ playable_characters:
       - NPCs recognize him, reference his work
       - Technical explanations assume his expertise
       - Jokes land differently because he gets the references
-      - Characters have history with him (or know OF him)
+      - 'Characters have history with him (or know OF him)'
       
       Playing as anyone else would work mechanically, but the dialog
       would feel weird — "Hey Don!" when you're not Don.
@@ -315,11 +315,11 @@ party_system:
   concept: "Roll and recruit D&D-style parties for group activities"
   
   activities:
-    - code_surfing_safari     # Explore codebases as a team
-    - philosophical_roundtable # Debate big questions  
-    - sea_chanty_crew         # Sing work songs together
-    - karaoke_night           # Take turns, judge mercilessly
-    - adversarial_committee   # Multi-perspective debate
+    - 'code_surfing_safari     # Explore codebases as a team'
+    - 'philosophical_roundtable # Debate big questions  '
+    - 'sea_chanty_crew         # Sing work songs together'
+    - 'karaoke_night           # Take turns, judge mercilessly'
+    - 'adversarial_committee   # Multi-perspective debate'
     
   dynamics:
     - chemistry: "Some characters clash, some harmonize"
@@ -578,11 +578,11 @@ build:
   
   # Generate these files
   outputs:
-    - index.html          # Main entry
-    - rooms/*.html        # Room pages
-    - catalog/index.html  # Object catalog
-    - album/index.html    # Story album
-    - prototypes/index.html  # Archetype gallery
+    - 'index.html          # Main entry'
+    - 'rooms/*.html        # Room pages'
+    - 'catalog/index.html  # Object catalog'
+    - 'album/index.html    # Story album'
+    - 'prototypes/index.html  # Archetype gallery'
 
 # META
 

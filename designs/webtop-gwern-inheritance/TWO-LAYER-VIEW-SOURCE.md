@@ -38,7 +38,7 @@ precomputed.
 
 ## The view-source move
 
-This is the load-bearing idea, and it is not the same as the "Edit this page on GitHub" footer link
+This is not the same as the "Edit this page on GitHub" footer link
 that every docs site already has.
 
 A reader can point at a URL on the rendered human-facing site. From that page, they can also
@@ -249,11 +249,10 @@ raw's 5,000/hr-per-IP and the 30-minute block from a GitHub engineer's answer ra
 so treat it as the safe number and not a contract.`
 
 **The unauthenticated API cannot run a browsing app.** Sixty requests per hour per IP is not a
-budget, it is a wall, and hitting it is the single most likely way this architecture fails in
-practice. Which is why the manifest ships inside the pre-rendered page: **the read path must not
+budget, it is a wall. Which is why the manifest ships inside the pre-rendered page: **the read path must not
 touch `api.github.com` at all.** Pre-rendered bundle for structure, CDN for pieces, API never.
 
-**Then authentication pays for itself twice, and this is the part worth designing around.** The
+**Then authentication pays for itself twice.** The
 GitHub App is already wanted for the write path — fork, branch, commit, PR without git vocabulary.
 The same login raises that reader's API budget from 60/hr to 5,000/hr *spent from their own account*.
 So connecting GitHub is not only how a reader contributes; it is how the read path scales, because

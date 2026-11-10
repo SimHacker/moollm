@@ -12,18 +12,18 @@ variables:
   $REPO:
     resolves_to: "moollm/"
     description: "Repository root"
-    example: "$REPO/skills/adventure/" → "moollm/skills/adventure/"
+    example: '"$REPO/skills/adventure/" → "moollm/skills/adventure/"'
     
   $SKILLS:
     resolves_to: "moollm/skills/"
     description: "Global skills directory"
-    example: "$SKILLS/character/" → "moollm/skills/character/"
+    example: '"$SKILLS/character/" → "moollm/skills/character/"'
     use_case: "Most common — eliminates deep ../../../skills/ paths"
     
   $ADVENTURE:
     resolves_to: "Current adventure (from startup.yml → adventure.path)"
     description: "Abstract reference to active adventure"
-    example: "$ADVENTURE/coatroom/" → "examples/adventure-4/coatroom/"
+    example: '"$ADVENTURE/coatroom/" → "examples/adventure-4/coatroom/"'
     use_case: "Back-links from shared spaces to adventure-specific rooms"
     
   $KERNEL:

@@ -8,6 +8,7 @@ version: 0.1.0
 type: satirical-meta-skill
 emoji: 🏛️
 tier: 0
+ambient: false
 
 tagline: "Freedom from AI ideology!"
 reality: "THE WAREHOUSE OF ALL NO-AI™ IDEOLOGY"
@@ -28,7 +29,7 @@ contents:
 
 # INHERITANCE (brief — see README for full chain)
 
-inherits_from:
+inherits:
   - church_of_eval_genius    # Declared bias is power
   - eval_brand_family        # EVAL as productive morpheme
   - acme_corporation         # Products that backfire
@@ -97,7 +98,6 @@ mounting:
 advertisements:
   AMBIENT:
     score: 80             # Background awareness
-    condition: always
     scope: session
     resolution: card-only
     rationale: "Ideological awareness as continuous background hum"

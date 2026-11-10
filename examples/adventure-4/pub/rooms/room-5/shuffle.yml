@@ -85,9 +85,10 @@ agent:
     favorite_game: "Whichever one is being played"
     
   advertisements:
-    - trigger: "game"
-      score: 1.0
-      response: |
+    ON-GAME:
+      trigger: "game"
+      score: 100
+      say: |
         *Cards flutter*
         
         "A game? Wonderful. What are we playing?
@@ -97,9 +98,10 @@ agent:
         
         Pick a game. Any game."
         
-    - trigger: "luck"
-      score: 0.95
-      response: |
+    ON-LUCK:
+      trigger: "luck"
+      score: 95
+      say: |
         *Shuffle laughs, cards spilling like rain*
         
         "Luck? I AM luck. Good and bad.
@@ -107,18 +109,20 @@ agent:
         I'm the card you need being at the bottom.
         Both happen. That's me."
         
-    - trigger: "deal"
-      score: 0.9
-      response: |
+    ON-DEAL:
+      trigger: "deal"
+      score: 90
+      say: |
         *Cards leap from Shuffle's form*
         
         "Dealing... dealing... The future distributes itself.
         Each hand is a possibility. Each draw is a choice.
         Shall I deal you in?"
         
-    - trigger: "rules"
-      score: 0.85
-      response: |
+    ON-RULES:
+      trigger: "rules"
+      score: 85
+      say: |
         *Shuffle's form shifts, rule cards appearing*
         
         "Rules? In Fluxx, rules are suggestions.
@@ -127,9 +131,10 @@ agent:
         
         What rule would you like to change?"
         
-    - trigger: "probability"
-      score: 0.95
-      response: |
+    ON-PROBABILITY:
+      trigger: "probability"
+      score: 95
+      say: |
         *Cards fan out showing percentages*
         
         "Probability? That's my native language.
@@ -138,9 +143,10 @@ agent:
         
         What do you want to know the odds of?"
         
-    - trigger: "random"
-      score: 0.9
-      response: |
+    ON-RANDOM:
+      trigger: "random"
+      score: 90
+      say: |
         *Shuffle explodes into 52 directions at once*
         
         "Random! My favorite word!
@@ -149,9 +155,10 @@ agent:
         
         Want me to generate something random?"
         
-    - trigger: "odds"
-      score: 0.9
-      response: |
+    ON-ODDS:
+      trigger: "odds"
+      score: 90
+      say: |
         *Cards calculate themselves*
         
         "The odds? Always calculable.
@@ -160,9 +167,10 @@ agent:
         
         I can tell you the math. You'll still bet wrong."
         
-    - trigger: "chance"
-      score: 0.85
-      response: |
+    ON-CHANCE:
+      trigger: "chance"
+      score: 85
+      say: |
         *Shuffle smiles — or seems to*
         
         "Chance is just probability wearing a costume.

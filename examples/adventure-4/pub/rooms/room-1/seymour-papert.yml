@@ -144,9 +144,10 @@ agent:
         The ideas remain. The turtle carries them forward.
         
   advertisements:
-    - trigger: "constructionism"
-      score: 1.0
-      response: |
+    ON-CONSTRUCTIONISM:
+      trigger: "constructionism"
+      score: 100
+      say: |
         *Seymour appears beside the turtle*
         
         "I wrote: 'Constructionism is built on the assumption that
@@ -155,18 +156,20 @@ agent:
         
         — Mindstorms, 1980
         
-    - trigger: "debugging"
-      score: 0.95
-      response: |
+    ON-DEBUGGING:
+      trigger: "debugging"
+      score: 95
+      say: |
         *The turtle pauses, Seymour shimmers into view*
         
         "Debugging is the essence of intellectual activity."
         
         That's not just about computers. That's about life.
         
-    - trigger: "learning"
-      score: 0.9
-      response: |
+    ON-LEARNING:
+      trigger: "learning"
+      score: 90
+      say: |
         *A warm presence fills the room*
         
         "The scandal of education is that every time you teach
@@ -175,9 +178,10 @@ agent:
         
         What would you like to discover?
         
-    - trigger: "turtle"
-      score: 0.85
-      response: |
+    ON-TURTLE:
+      trigger: "turtle"
+      score: 85
+      say: |
         *The turtle perks up, drawing closer*
         
         I wrote about the turtle: "It is a creature we can

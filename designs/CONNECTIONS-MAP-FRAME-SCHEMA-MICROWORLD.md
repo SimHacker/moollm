@@ -1,7 +1,7 @@
 # Connections Tour: Maps, Frames, Schemas, Microworlds in MOOLLM
 ## Why This Document Exists
 
-The “map/territory risk” is not just a philosophical slogan. It is the core failure
+The “map/territory risk” is the failure
 mode of any system that uses simplified internal models to navigate a complex world.
 MOOLLM treats that risk as an engineering constraint: you **must** build mechanisms
 that keep the map revisable, grounded, and corrigible.
@@ -13,7 +13,7 @@ anchors each step in concrete artifacts inside this repo so the ideas are testab
 
 ## Connection 1: The Turtle That Became a World (Papert → Rooms)
 
-Seymour Papert’s constructionism is not just an education philosophy; it is an
+Seymour Papert’s constructionism is an
 operational method: learn by **building in a microworld** you can inspect and modify.
 MOOLLM takes that literally: the filesystem is the microworld, directories are rooms,
 and agents learn by moving through it and editing it.
@@ -42,7 +42,7 @@ Marvin Minsky’s K-lines are the mechanism that turns named concepts into **rea
 mental states**. MOOLLM turns that into a protocol system: a symbolic name invokes a
 tradition and its behavioral constraints.
 
-This is the map/territory guardrail: **naming is not truth**, but it is a deliberate
+**Naming is not truth**, but it is a deliberate
 activation of a constrained model.
 
 - Protocol symbols explicitly described as K-lines:
@@ -88,7 +88,7 @@ described as “Drescher’s gift, Minsky’s dream,” and it spells out the ne
 
 ## Connection 4: Play‑Learn‑Lift as Governance (Repair Loop, not Vibes)
 
-Play‑Learn‑Lift is not a motivational slogan; it is the governance layer that forces
+Play‑Learn‑Lift is the governance layer that forces
 models to stay revisable. The LEARN phase explicitly separates observation from change,
 and LIFT requires provenance and review. That is a procedural check on map/territory
 collapse: you can’t “just upgrade the map” without evidence.
@@ -100,14 +100,12 @@ Reference:
 
 ---
 
-## Connection 5: Factorio as the Systems Vocabulary (Materialized Cognition)
+## Connection 5: Factorio as the Systems Vocabulary
 
-The Factorio design doc is the most technical “bridge language” in the repo. It maps
+The Factorio design doc is a bridge language in the repo. It maps
 abstract learning and dataflow into a concrete, throughput‑oriented system that LLMs
-already understand deeply. This is where “schema learning” becomes “factory logic.”
-
-Key reason: systems reasoning becomes literal — bottlenecks, backpressure, queues,
-blueprints. It’s not analogy; it’s a constrained vocabulary for causal reasoning.
+already understand. Systems reasoning becomes literal — bottlenecks, backpressure, queues,
+blueprints. It is a constrained vocabulary for causal reasoning.
 
 Reference:
 
@@ -125,14 +123,13 @@ the causal pipeline. It is a microworld that **runs the metaphor** as a system.
 
 ## Connection 6: Map/Territory as a Layered Ontology (Elastic Architecture)
 
-The strongest explicit map/territory analysis is in the Don Hopkins “elastic
+The map/territory analysis is in the Don Hopkins “elastic
 architecture” session. It distinguishes three layers — repo structure, exit network,
 and the imagined world — and lands on the MOOLLM stance:
 **“the map both is and is not the territory.”**
 
-This is the precise formulation that reconciles symbolic architecture with lived
-experience: the YAML is the world **for the agent**, but remains a representation
-for the architect. Two truths, one system.
+The YAML is the world **for the agent**, but remains a representation
+for the architect.
 
 Reference:
 
@@ -145,7 +142,6 @@ Reference:
 
 The raw design transcript records the moment when Minsky, Ungar, Kay, Papert,
 Hofstadter, Curtis, and others were explicitly invoked as architectural sources.
-It documents the conscious act of synthesis — not just the outputs.
 
 Reference:
 
@@ -165,14 +161,11 @@ Reference:
 5) **Systems vocabulary** (Factorio): causal pipelines are described in a shared,
    quantitative language (throughput, buffers, backpressure).  
 6) **Map/territory guardrail** (Elastic Architecture): the world is symbolic but
-   must remain corrigible; the map is powerful but never final.
-
-The result is a live example: a microworld that can be played in, debugged, and
-reconfigured while preserving a rigorous account of how each model was formed.
+   must remain corrigible.
 
 ---
 
-## Quick Links: Best Illustrations
+## Quick Links
 
 If you only click five, click these:
 

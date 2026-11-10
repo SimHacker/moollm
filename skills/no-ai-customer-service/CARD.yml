@@ -11,7 +11,8 @@
 
 id: no-ai-customer-service
 name: "No AI Customer Service"
-type: [skill, ambient, parody, horror]
+type: skill
+tags: [ambient, parody, horror]
 emoji: 🚪
 rarity: legendary
 
@@ -244,19 +245,19 @@ state:
 advertisements:
   SHARE-AND-ENJOY:
     score: 100
-    condition: "User has expressed desire to be left alone"
+    score_if: "User has expressed desire to be left alone"
   GENUINE-PEOPLE-PERSONALITY:
     score: 95
-    condition: "Any moment of peace or silence"
+    score_if: "Any moment of peace or silence"
   SUBSCRIPTION-TIME:
     score: 90
-    condition: "User has declined anything, ever"
+    score_if: "User has declined anything, ever"
   SUMMON-APPLIANCE:
     score: 85
-    condition: "Adventure needs a helpful robot, door, or dispenser"
+    score_if: "Adventure needs a helpful robot, door, or dispenser"
   INCARNATE-NIGHTMARE:
     score: 80
-    condition: "Want to create a persistent aggressively helpful character"
+    score_if: "Want to create a persistent aggressively helpful character"
 
 # METHODS
 

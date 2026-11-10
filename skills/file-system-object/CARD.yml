@@ -8,7 +8,8 @@
 
 id: file-system-object
 name: "File System as Object — Directories, Interfaces, and the UPPERCASE Marker Grammar"
-type: [skill, meta, grammar, object-oriented]
+type: skill
+tags: [meta, grammar, object-oriented]
 emoji: "📂"
 tier: 1
 rarity: mythic
@@ -37,23 +38,23 @@ description: |
 # K-LINES
 
 k_lines:
-activates:
-  - FILE-SYSTEM-OBJECT
-  - UPPERCASE-MARKER
-  - PLURAL-CONTAINER
-  - INTERFACE-EXPORT
-  - DIR-AS-CLASS
-  - EMPATHIC-TEMPLATE
-  - NESTED-SKILLS
-  - SKILL-CATEGORY
-  - LOOKUP-SCOPE
-  - TREE-CONTAINMENT-INHERITANCE
-  - POSTEL-PATH-RESOLUTION
-  - MOUNTED-REPO-SKILL-PATH
-  - DISTRIBUTED-SKILL-ECOSYSTEM
-  - CURSOR-WORKSPACE-ROOTS
-  - CARD-ONLY-DISPATCH
-  - QUACK-QUACK-DUCK-TYPING
+  activates:
+    - FILE-SYSTEM-OBJECT
+    - UPPERCASE-MARKER
+    - PLURAL-CONTAINER
+    - INTERFACE-EXPORT
+    - DIR-AS-CLASS
+    - EMPATHIC-TEMPLATE
+    - NESTED-SKILLS
+    - SKILL-CATEGORY
+    - LOOKUP-SCOPE
+    - TREE-CONTAINMENT-INHERITANCE
+    - POSTEL-PATH-RESOLUTION
+    - MOUNTED-REPO-SKILL-PATH
+    - DISTRIBUTED-SKILL-ECOSYSTEM
+    - CURSOR-WORKSPACE-ROOTS
+    - CARD-ONLY-DISPATCH
+    - QUACK-QUACK-DUCK-TYPING
 related:
   - { ref: skill, relation: "SKILL.md is an interface export under this grammar" }
   - { ref: card, relation: "CARD.yml is an interface export under this grammar" }
@@ -80,32 +81,32 @@ advertisements:
   PARSE-TREE:
     score: 95
     satisfies: [comprehension, navigation]
-    condition: "reading a MOOLLM or sister directory tree"
+    score_if: "reading a MOOLLM or sister directory tree"
     what_to_do: "Identify plural dirs; look for UPPERCASE.ext marker files at each dir root; the marker files name the interfaces the dir exports."
 
   DECLARE-INTERFACE:
     score: 90
     satisfies: [authoring, extending]
-    condition: "making a directory expose a new interface"
+    score_if: "making a directory expose a new interface"
     what_to_do: "Add FOO.md (or FOO.yml) at the dir's root. The presence of the file = the declaration. No registry needed."
 
   NAME-A-NEW-DIR:
     score: 85
     satisfies: [authoring, naming]
-    condition: "creating a new directory and wondering plural vs singular"
+    score_if: "creating a new directory and wondering plural vs singular"
     what_to_do: "If it's a CONTAINER of type T → use T's plural. If it's AN INSTANCE → use a singular name of your choice; add the UPPERCASE marker files for the interfaces it exports."
 
   BRANCH-AS-OBJECT:
     score: 80
     satisfies: [versioned_storage]
-    condition: "storing a versioned <TypeName>_<id> object on a git branch"
+    score_if: "storing a versioned <TypeName>_<id> object on a git branch"
     note: "The branch's root directory declares its implemented interface via an UPPERCASE marker file (e.g., ALERT.yml → this branch implements the ALERT interface)."
     see: ../../central/skills/github/protocols/branch-as-object.md       # if reading from moollm repo
 
   INSTANTIATE-FROM-EMPATHIC-TEMPLATE:
     score: 88
     satisfies: [authoring, scaffolding]
-    condition: "plural container `<things>/` has a `<THING>.yml.template` and you want a new instance"
+    score_if: "plural container `<things>/` has a `<THING>.yml.template` and you want a new instance"
     what_to_do: |
       1. cp <things>/<THING>.yml.template <things>/<id>/<THING>.yml
       2. Fill in REQUIRED fields.
@@ -118,13 +119,13 @@ advertisements:
   LIFT-TEMPLATE-TO-SKILL:
     score: 70
     satisfies: [evolution, reuse]
-    condition: "template is getting reused across unrelated contexts (different parent skills / repos / domains)"
+    score_if: "template is getting reused across unrelated contexts (different parent skills / repos / domains)"
     what_to_do: "Promote <THING>.yml.template from its current parent skill to a new standalone skill moollm/skills/<thing>/ with its own SKILL.md + CARD.yml + templates/. Switch consumers to `inherits: [<thing>]`."
 
   NEST-OR-LIFT-A-SUBSKILL:
     score: 72
     satisfies: [authoring, categorization]
-    condition: "deciding whether a sub-concern should be a nested sub-skill or a top-level skill"
+    score_if: "deciding whether a sub-concern should be a nested sub-skill or a top-level skill"
     what_to_do: |
       Nest under parent (skills/<parent>/skills/<child>/) when the child is
       only meaningful in the parent's context. Lift to top-level

@@ -3,20 +3,19 @@
 # ⚠️ RETIRED — superseded by skills/soul-city (protocol) and MicropolisCore (implementation).
 # Forwarding table for every document: designs/sim-obliterator/README.md
 
-card:
-  id: sim-obliterator
-  status: retired
-  name: "The Sims <-> MOOLLM Bridge (retired)"
-  type: [skill, tool, bridge, sims]
-  emoji: "🏠"
-  tier: 2
-  tagline: "RETIRED — start at skills/soul-city/README.md"
-  superseded_by: [skills/soul-city/, "MicropolisCore packages/sims-io", "MicropolisCore packages/vitamoo"]
+id: sim-obliterator
+status: retired
+name: "The Sims <-> MOOLLM Bridge (retired)"
+type: [skill, tool, bridge, sims]
+emoji: "🏠"
+tier: 2
+tagline: "RETIRED — start at skills/soul-city/README.md"
+superseded_by: [skills/soul-city/, "MicropolisCore packages/sims-io", "MicropolisCore packages/vitamoo"]
 
-  description: |
-    Two-way bridge between The Sims 1 save files and MOOLLM.
-    Characters step between a 26-year-old game VM and an LLM universe.
-    Uses SimObliterator Suite (sister repo) for binary parsing.
+description: |
+  Two-way bridge between The Sims 1 save files and MOOLLM.
+  Characters step between a 26-year-old game VM and an LLM universe.
+  Uses SimObliterator Suite (sister repo) for binary parsing.
 
 # ARCHITECTURE — Sister Repo Pattern
 #

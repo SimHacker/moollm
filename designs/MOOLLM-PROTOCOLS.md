@@ -3,11 +3,8 @@
 *"Every protocol was once an improvisation. Protocols that swing survive."*
 — YAML Coltrane
 
-The essential protocols underlying MOOLLM, curated and intertwingled. A longer
-LLOOOOMM-era compendium lived here; the experiments that didn't earn their
-tokens are retired to history. What remains is load-bearing: each protocol
-below is implemented, ambient, or constitutional — and each one names the
-others it depends on, because in MOOLLM nothing stands alone.
+Each protocol below is implemented, ambient, or constitutional, and each one names the
+others it depends on.
 
 The stack, top to bottom:
 

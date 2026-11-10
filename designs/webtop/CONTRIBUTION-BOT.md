@@ -44,7 +44,7 @@ the character directories, which the repo already has.
 
 ## Commits are cheap and frequent; the pull request is the reviewable bundle
 
-Don's constraint is the load-bearing one: **a changeset has to be big enough that reviewing it is
+Don's constraint: **a changeset has to be big enough that reviewing it is
 worth a human's attention.** Forty pull requests each fixing one typo is worse than no contribution
 system, because it converts a gift into a chore and the maintainer stops looking.
 

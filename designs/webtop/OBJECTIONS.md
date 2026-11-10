@@ -4,7 +4,7 @@ Fernando Borretti, ["Unbundling Tools for Thought"](https://borretti.me/article/
 (26 December 2022) — cited approvingly by gwern in the Roam thread: *"makes some of these points at
 greater length and I largely agree with."*
 
-It is the best argument against building what we are building. Read it before the hub, not after.
+Read it before the hub, not after.
 Anything below that we cannot answer, we should concede.
 
 ## His opening shot, which is aimed directly at us

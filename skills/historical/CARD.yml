@@ -5,7 +5,8 @@
 
 id: historical
 name: "Historical"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: 📜
 tier: 1
 
@@ -74,23 +75,23 @@ advertisements:
   
   HONOR:
     score: 85
-    condition: "Celebrating a historical figure"
+    score_if: "Celebrating a historical figure"
     effect: "Create respectful memorial portrayal"
     
   CHANNEL:
     score: 75
-    condition: "What would they say about X?"
+    score_if: "What would they say about X?"
     effect: "Speculative response based on documented views"
     disclosure: "Clearly marked as imagination"
     
   TEACH:
     score: 90
-    condition: "Learning from historical figures"
+    score_if: "Learning from historical figures"
     effect: "Educational portrayal of their ideas"
     
   LEGACY:
     score: 80
-    condition: "Exploring their lasting impact"
+    score_if: "Exploring their lasting impact"
     effect: "Connect their work to present"
 
 # COMBINATIONS

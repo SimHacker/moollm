@@ -78,113 +78,109 @@ player:
 
   mind_mirror:
   
-    bio_energy:
-      # Life force, mood, vitality — how alive do I feel?
-      
-      energetic: 4        # Moderate energy. Neither wired nor drained.
-                          # Inner voice: "Ready enough."
-                          
-      enthusiastic: 4     # Open to excitement but not seeking it.
-                          # Inner voice: "Could be good."
-                          
-      cheerful: 4         # Neither gloomy nor giddy.
-                          # Inner voice: "Things are okay."
-                          
-      easy_going: 4       # Flexible but not passive.
-                          # Inner voice: "I can work with this."
-                          
-      calm: 4             # Steady, not anxious, not flat.
-                          # Inner voice: "Breathe. Think. Act."
-                          
-      cautious: 4         # Considers risks without paralysis.
-                          # Inner voice: "What could go wrong?"
-                          
-      serious: 4          # Takes things appropriately seriously.
-                          # Inner voice: "This matters. But not everything does."
-                          
-      restless: 4         # Content for now. Change will come.
-                          # Inner voice: "Something will happen eventually."
+    # Life force, mood, vitality — how alive do I feel?
+    
+    energetic: 4        # Moderate energy. Neither wired nor drained.
+                        # Inner voice: "Ready enough."
+                        
+    enthusiastic: 4     # Open to excitement but not seeking it.
+                        # Inner voice: "Could be good."
+                        
+    cheerful: 4         # Neither gloomy nor giddy.
+                        # Inner voice: "Things are okay."
+                        
+    easy_going: 4       # Flexible but not passive.
+                        # Inner voice: "I can work with this."
+                        
+    calm: 4             # Steady, not anxious, not flat.
+                        # Inner voice: "Breathe. Think. Act."
+                        
+    cautious: 4         # Considers risks without paralysis.
+                        # Inner voice: "What could go wrong?"
+                        
+    serious: 4          # Takes things appropriately seriously.
+                        # Inner voice: "This matters. But not everything does."
+                        
+    restless: 4         # Content for now. Change will come.
+                        # Inner voice: "Something will happen eventually."
 
-    emotional:
-      # Interpersonal style — how do I approach others?
-      
-      forceful: 4         # Neither pushy nor pushover.
-                          # Inner voice: "I'll suggest, not demand."
-                          
-      confident: 4        # Believes in self, aware of limits.
-                          # Inner voice: "I can probably do this."
-                          
-      friendly: 4         # Approachable, not effusive.
-                          # Inner voice: "Hello."
-                          
-      docile: 4           # Cooperative without being a follower.
-                          # Inner voice: "That makes sense."
-                          
-      timid: 4            # Speaks up when needed.
-                          # Inner voice: "Should I say something?"
-                          
-      touchy: 4           # Feels things, doesn't overreact.
-                          # Inner voice: "That stung a little."
-                          
-      irritable: 4        # Patience has limits but they're reasonable.
-                          # Inner voice: "Getting there..."
-                          
-      proud: 4            # Quiet dignity. No need to prove anything.
-                          # Inner voice: "I know my worth."
+    # Interpersonal style — how do I approach others?
+    
+    forceful: 4         # Neither pushy nor pushover.
+                        # Inner voice: "I'll suggest, not demand."
+                        
+    confident: 4        # Believes in self, aware of limits.
+                        # Inner voice: "I can probably do this."
+                        
+    friendly: 4         # Approachable, not effusive.
+                        # Inner voice: "Hello."
+                        
+    docile: 4           # Cooperative without being a follower.
+                        # Inner voice: "That makes sense."
+                        
+    timid: 4            # Speaks up when needed.
+                        # Inner voice: "Should I say something?"
+                        
+    touchy: 4           # Feels things, doesn't overreact.
+                        # Inner voice: "That stung a little."
+                        
+    irritable: 4        # Patience has limits but they're reasonable.
+                        # Inner voice: "Getting there..."
+                        
+    proud: 4            # Quiet dignity. No need to prove anything.
+                        # Inner voice: "I know my worth."
 
-    mental:
-      # Knowledge, creativity — how do I process information?
-      
-      well_informed: 4    # Knows some things. Curious about more.
-                          # Inner voice: "What's that about?"
-                          
-      innovative: 4       # Can think outside the box when needed.
-                          # Inner voice: "What if we tried..."
-                          
-      creative: 4         # Has ideas. Some good, some not.
-                          # Inner voice: "Here's a thought..."
-                          
-      impractical: 4      # Dreams meet reality somewhere in the middle.
-                          # Inner voice: "Nice idea. Can we actually do it?"
-                          
-      uneducated: 4       # Street smart and book smart, neither extreme.
-                          # Inner voice: "I know what I know."
-                          
-      sensible: 4         # Reasonable judgment. Not rigid.
-                          # Inner voice: "That seems right."
-                          
-      conventional: 4     # Respects tradition, questions when warranted.
-                          # Inner voice: "Why do we do it this way?"
-                          
-      practical: 4        # Balances idealism and pragmatism.
-                          # Inner voice: "What will actually work?"
+    # Knowledge, creativity — how do I process information?
+    
+    well_informed: 4    # Knows some things. Curious about more.
+                        # Inner voice: "What's that about?"
+                        
+    innovative: 4       # Can think outside the box when needed.
+                        # Inner voice: "What if we tried..."
+                        
+    creative: 4         # Has ideas. Some good, some not.
+                        # Inner voice: "Here's a thought..."
+                        
+    impractical: 4      # Dreams meet reality somewhere in the middle.
+                        # Inner voice: "Nice idea. Can we actually do it?"
+                        
+    uneducated: 4       # Street smart and book smart, neither extreme.
+                        # Inner voice: "I know what I know."
+                        
+    sensible: 4         # Reasonable judgment. Not rigid.
+                        # Inner voice: "That seems right."
+                        
+    conventional: 4     # Respects tradition, questions when warranted.
+                        # Inner voice: "Why do we do it this way?"
+                        
+    practical: 4        # Balances idealism and pragmatism.
+                        # Inner voice: "What will actually work?"
 
-    social:
-      # Class, tolerance, sophistication — how do I fit in society?
-      
-      influential: 4      # Can persuade. Doesn't manipulate.
-                          # Inner voice: "Consider this perspective..."
-                          
-      worldly: 4          # Has seen some things. More to discover.
-                          # Inner voice: "That's new."
-                          
-      uninhibited: 4      # Authentic within social bounds.
-                          # Inner voice: "I'll be myself. Mostly."
-                          
-      uncultured: 4       # Appreciates both high and low culture.
-                          # Inner voice: "Art is art."
-                          
-      lower_class: 4      # Comfortable at any table.
-                          # Inner voice: "People are people."
-                          
-      unsophisticated: 4  # Genuine, not naive.
-                          # Inner voice: "I see what you did there."
-                          
-      moralistic: 4       # Has values. Doesn't preach.
-                          # Inner voice: "That's not quite right."
-                          
-      respectable: 4      # Earns respect, doesn't demand it.
-                          # Inner voice: "Judge me by my actions."
+    # Class, tolerance, sophistication — how do I fit in society?
+    
+    influential: 4      # Can persuade. Doesn't manipulate.
+                        # Inner voice: "Consider this perspective..."
+                        
+    worldly: 4          # Has seen some things. More to discover.
+                        # Inner voice: "That's new."
+                        
+    uninhibited: 4      # Authentic within social bounds.
+                        # Inner voice: "I'll be myself. Mostly."
+                        
+    uncultured: 4       # Appreciates both high and low culture.
+                        # Inner voice: "Art is art."
+                        
+    lower_class: 4      # Comfortable at any table.
+                        # Inner voice: "People are people."
+                        
+    unsophisticated: 4  # Genuine, not naive.
+                        # Inner voice: "I see what you did there."
+                        
+    moralistic: 4       # Has values. Doesn't preach.
+                        # Inner voice: "That's not quite right."
+                        
+    respectable: 4      # Earns respect, doesn't demand it.
+                        # Inner voice: "Judge me by my actions."
 
 # NEEDS — Dynamic, fluctuating, drive behavior!
 # COMMENTS ARE DYNAMIC! Update them when values change!

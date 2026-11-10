@@ -4,7 +4,7 @@
 **MOOLE** = OLE for MOOLLM  
 **IUnmood** = The interface you query when you don't know what mood to be in ;)
 
-How MOOLLM reimagines COM/OLE IUnknown as a filesystem pattern.
+How MOOLLM uses COM/OLE IUnknown as a filesystem pattern.
 
 ---
 
@@ -76,7 +76,7 @@ MIDL let one component publish **two** interfaces to the same functionality:
 > interfaces and could bind to the more efficient underlying COM interfaces, instead of going through
 > the slower generic dynamic IDispatch interfaces.
 
-That is this repo's compilation strategy, shipped commercially in 1993 and load-bearing for a decade.
+That is this repo's compilation strategy, shipped commercially in 1993.
 
 | | OLE | MOOLLM |
 |---|---|---|
@@ -85,21 +85,19 @@ That is this repo's compilation strategy, shipped commercially in 1993 and load-
 | Who chooses | the runtime, at bind time | the reader — a human clicking, or a model |
 | Guarantee | both paths reach the same behaviour | both paths reach the same behaviour |
 
-The crucial property is not that two paths exist. It is that **the fast path is derived from the
+The property is not that two paths exist. It is that **the fast path is derived from the
 same declaration as the slow path**, so nothing has to be written twice and the two cannot drift.
 A dual interface is one MIDL declaration, and the adventure compiler is one YAML tree — from which
 falls out a browsable artifact that needs no model at runtime, which is the
 [tagsonomy compiler](webtop/hyperties/LINK-RESOLUTION.md#the-build-step-is-the-whole-trick) move
 stated in a vendor's interface-definition language thirty years early.
 
-The direction of preference is also worth copying. Visual Basic bound the *fast* path whenever it
+Visual Basic bound the *fast* path whenever it
 could and fell back to dynamic dispatch only when it could not, which is the honest default: pay for
 interpretation when you must, never as a matter of course. A corpus that requires an LLM to navigate
 has published only its `IDispatch`.
 
 ## The overshoot arc is the design budget
-
-The post's history is not decoration; it is a failure mode named three times in one arc.
 
 1. **VBX succeeded too well.** "Extremely popular and became a victim of their own success, after a
    whole industry grew up around them, and people started using them for all kinds of things they
@@ -143,8 +141,7 @@ NeWS) used exactly those low-level `begin`/`end` primitives to implement a
 *structured* object system: first single inheritance like Smalltalk, later
 multiple inheritance like Self. The lookup discipline — what gets pushed,
 in what order, when — was encapsulated inside the class system, so ordinary
-code never touched the dict stack directly. The dangerous mechanism wasn't
-the enemy; it was the load-bearing substrate.
+code never touched the dict stack directly.
 
 The same story repeats up the industry: C++ vtables are hand-corruptible
 function-pointer tables; COM's QueryInterface disciplined them into
@@ -219,7 +216,7 @@ pub/bar/
 ```
 
 The bar IS-A room AND IS-A business. Both interfaces read `inventory.yml`.
-This is like COM aggregation but simpler.
+This is like COM aggregation.
 
 ---
 
@@ -260,7 +257,6 @@ simulate class-based, prototype-based, trait-based, and other models.
 
 MOOLLM has the same philosophy:
 - **Minimal primitives**: directories, files, YAML, inheritance
-- **Maximum expressiveness**: compose any OOP pattern you want
 - **Runtime malleability**: change structure while running
 
 ---
@@ -383,14 +379,9 @@ This maps surprisingly well to MOOLLM:
 | Known unknowns | Files we know exist but haven't read | Questions Doctor NO asks |
 | Unknown unknowns | Extensions not yet written | The humility of Doctor NO |
 
-And of course: **IUnknown** is the interface you query when you
+**IUnknown** is the interface you query when you
 don't know what interfaces an object supports. The unknown-unknown
 of COM is "I don't even know what to ask for."
-
-This is allegorical for ethical AI:
-- What do we KNOW about a person we're simulating?
-- What do we know we DON'T know?
-- What don't we know we don't know?
 
 The no-ai-* skills try to make unknown unknowns into known unknowns.
 
@@ -424,15 +415,10 @@ The no-ai-* skills try to make unknown unknowns into known unknowns.
 MOOLLM's filesystem-as-object-model is:
 - **Inside-out COM** — data visible, interfaces as file patterns
 - **Self-style prototypes** — clone directories, not instantiate classes
-- **RISC OOP microcode** — minimal primitives, maximum expressiveness
+- **RISC OOP microcode** — minimal primitives
 - **Inspectable** — `ls` and `cat` beat debuggers
-- **Versionable** — git gives you object history for free
+- **Versionable** — git tracks the files
 - **Extensible** — drop files in extension points
 
 The directory IS the IUnknown. QueryInterface is checking for files.
 The unknown unknowns are the files not yet written.
-
----
-
-*COM was asking: "What CAN you do?"*
-*MOOLLM answers: "Look at my files. That's what I can do."*

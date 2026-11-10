@@ -64,20 +64,20 @@ archaeology:
         note: "Summary only"
     use_for: "Understanding what changed between versions"
 
-topology:
-  description: "Visualize the multiverse of branches"
-  commands:
-    - cmd: "git log --graph --oneline --all"
-      note: "ASCII branch visualization"
-    - cmd: "git branch -a"
-      note: "All branches"
-    - cmd: "git branch --contains <commit>"
-      note: "Which branches have this?"
-    - cmd: "git merge-base <branch1> <branch2>"
-      note: "Common ancestor"
-    - cmd: "git rev-list --count <branch>"
-      note: "Commits in branch"
-  use_for: "Planning merges, understanding project structure"
+# topology:
+description: "Visualize the multiverse of branches"
+commands:
+  - cmd: "git log --graph --oneline --all"
+    note: "ASCII branch visualization"
+  - cmd: "git branch -a"
+    note: "All branches"
+  - cmd: "git branch --contains <commit>"
+    note: "Which branches have this?"
+  - cmd: "git merge-base <branch1> <branch2>"
+    note: "Common ancestor"
+  - cmd: "git rev-list --count <branch>"
+    note: "Commits in branch"
+use_for: "Planning merges, understanding project structure"
 
 planning:
   merge_planning:

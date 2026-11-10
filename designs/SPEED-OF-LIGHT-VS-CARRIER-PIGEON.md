@@ -215,25 +215,17 @@ card:
   drama_potential: high
 ```
 
-This isn't a fixed deck. It's a **living game that writes itself** based on the social dynamics at the table.
-
 **🎬 What's Really Happening Here**
-
-Let's be precise about the ontology of Speed of Light multi-agent simulation:
 
 **The LLM is God.**
 
 It knows everything. Every character's hand. Every inner thought. Every secret plan. Every memory. Every relationship. The complete state of the universe.
 
-**And God is really, really good at pretending to be mortals.**
-
 The LLM faithfully simulates individual characters who *can't* read each other's minds. Marcus genuinely doesn't know Elena's hand — not because the information isn't in context, but because the LLM is constitutionally committed to simulating Marcus's epistemic limits. Marcus knows what Marcus would know. Marcus is blind to what Marcus would be blind to.
-
-This is **divine acting**. The omniscient pretending to be limited. And it works beautifully.
 
 **🔗 Except When Relationships Allow More**
 
-Here's where it gets nuanced. Not all characters are epistemic islands:
+Not all characters are epistemic islands:
 
 ```yaml
 relationship:
@@ -270,21 +262,17 @@ The magic is simulating **PEOPLE PLAYING** Fluxx:
 - Grudges from three turns ago influencing this turn
 - The vibe of the table shifting as the night goes on
 
-MOOLLM doesn't just simulate card games. It simulates **communities of people** engaging in shared activities — with all the multisensory, multimodal, multimedia richness that entails.
-
-This is structure and interpretation of community programs.
-
 **🃏 How Relationships Affect Different Games**
 
 | Game | Bonded Pair Effect | Why |
 |------|-------------------|-----|
 | **Bridge** | 🟢&nbsp;ADVANTAGE | Partners *should* predict each other. Bidding conventions emerge naturally from deep knowledge. |
 | **Poker** | 🔴&nbsp;DISADVANTAGE | You can't bluff someone who knows your tells. Married couples are terrible poker opponents — they read each other instantly. |
-| **Fluxx** | ✨&nbsp;FUN | Unpredictable chaos + predictable ally = beautiful drama. You know they'll help you, but the rules keep changing! |
+| **Fluxx** | ✨&nbsp;FUN | Unpredictable chaos + predictable ally. You know they'll help you, but the rules keep changing. |
 
-The LLM-as-God handles all this naturally. It doesn't need explicit rules about "Alice can read Bob's thoughts 40% of the time." It understands that a 20-year marriage means *something*, and simulates accordingly.
+It doesn't need explicit rules about "Alice can read Bob's thoughts 40% of the time." It understands that a 20-year marriage means *something*, and simulates accordingly.
 
-**This is why Speed of Light works.** The omniscient mind is simulating limited minds with varying degrees of connection. It's not a hack. It's the natural architecture.
+The omniscient mind is simulating limited minds with varying degrees of connection.
 
 **👁️ Only The Cosmic Dealer Sees All**
 
@@ -570,7 +558,7 @@ Cells communicate via simple git-backed YAML messages. Reasoning travels with th
 
 ### The ToonTalk Connection
 
-[Ken Kahn's ToonTalk](https://toontalk.com/) (1995) used trained birds as a metaphor for message passing — brilliant pedagogy that made concurrency *visible*. See also [Constructionism 2016: Ken Kahn workshop on ToonTalk](https://www.youtube.com/watch?v=lHH5RqEXlXc) (a programming language that is not textual, block-based, or procedural). That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
+[Ken Kahn's ToonTalk](https://toontalk.com/) (1995) used trained birds as a metaphor for message passing, and made concurrency *visible*. See also [Constructionism 2016: Ken Kahn workshop on ToonTalk](https://www.youtube.com/watch?v=lHH5RqEXlXc) (a programming language that is not textual, block-based, or procedural). That's the right use of the carrier pigeon metaphor: a teaching tool for understanding asynchronous communication. The problem isn't carrier pigeons as a concept. The problem is carrier pigeons as the *default architecture* when Speed of Light is available.
 
 ### Gas Town: The Carrier Pigeon Cautionary Tale
 

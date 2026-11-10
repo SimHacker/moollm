@@ -5,7 +5,8 @@
 
 id: party
 name: "Party"
-type: [skill, group, game]
+type: skill
+tags: [group, game]
 
 emoji: 👥
 
@@ -107,11 +108,11 @@ state:
 advertisements:
   MANAGE-GROUP:
     score: 85
-    condition: "Multiple characters traveling together"
+    score_if: "Multiple characters traveling together"
     
   COORDINATE-ACTIONS:
     score: 80
-    condition: "Need group to act together"
+    score_if: "Need group to act together"
 
 # RELATED
 

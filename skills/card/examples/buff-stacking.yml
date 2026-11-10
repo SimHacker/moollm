@@ -1,16 +1,16 @@
-card:
-  name: buff-stacking
-  type: [skill, buff, example]
-  tier: 1
-  invoke_when: ["combat start", "buff requested"]
-  advertisement_names:
-    - APPLY-BUFF
-    - EXPIRE-BUFF
-    - LIST-BUFFS
-  tags: [moollm, example, buff, stacking]
-  description: |
-    Lightweight buff engine: apply, stack, expire. Shows chaining and simple
-    time-based expiry expressed in natural language hints.
+# card:
+name: buff-stacking
+type: [skill, buff, example]
+tier: 1
+invoke_when: ["combat start", "buff requested"]
+advertisement_names:
+  - APPLY-BUFF
+  - EXPIRE-BUFF
+  - LIST-BUFFS
+tags: [moollm, example, buff, stacking]
+description: |
+  Lightweight buff engine: apply, stack, expire. Shows chaining and simple
+  time-based expiry expressed in natural language hints.
 
 state:
   buffs: []  # list of {name, duration, stacks, effect}

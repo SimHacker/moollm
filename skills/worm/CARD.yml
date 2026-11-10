@@ -5,7 +5,8 @@
 
 id: worm
 name: "Worm"
-type: [skill, cursor, traversal, pipeline]
+type: skill
+tags: [cursor, traversal, pipeline]
 emoji: 🪱
 tier: 1
 tagline: "Two-pointer reversible cursor for traversal and pipelines."
@@ -84,27 +85,27 @@ methods:
 advertisements:
   MOVE-WORM:
     score: 80
-    condition: "Reposition worm cursor"
+    score_if: "Reposition worm cursor"
     
   EAT:
     score: 80
-    condition: "Ingest content at head"
+    score_if: "Ingest content at head"
     
   CHOMP:
     score: 80
-    condition: "Scan for pattern then ingest"
+    score_if: "Scan for pattern then ingest"
     
   POOP:
     score: 70
-    condition: "Emit buffer at tail"
+    score_if: "Emit buffer at tail"
     
   BARF:
     score: 70
-    condition: "Emit buffer at head"
+    score_if: "Emit buffer at head"
     
   TREE-NAVIGATE:
     score: 60
-    condition: "Navigate tree structure"
+    score_if: "Navigate tree structure"
 
 # STATE
 

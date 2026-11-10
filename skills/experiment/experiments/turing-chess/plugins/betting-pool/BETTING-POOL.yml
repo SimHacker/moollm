@@ -23,10 +23,10 @@ plugin:
     
     Before the outcome is known, bets reveal:
     - True beliefs vs. stated beliefs
-    - Confidence levels (bet size)
-    - Risk profiles (odds accepted)
-    - Social influence (who follows whom)
-    - Information asymmetry (who knows something)
+    - 'Confidence levels (bet size)'
+    - 'Risk profiles (odds accepted)'
+    - 'Social influence (who follows whom)'
+    - 'Information asymmetry (who knows something)'
     
     💬 "Talk is cheap. Money talks."
        — Ancient human wisdom
@@ -49,10 +49,10 @@ bookie_role:
   description: |
     The BOOKIE operates the betting pool.
     Must be:
-    - Charismatic (draws people in)
-    - Numerate (tracks odds and money)
-    - Neutral (no stake in outcome beyond profit)
-    - Vocal (lots of airtime, kibitzing)
+    - 'Charismatic (draws people in)'
+    - 'Numerate (tracks odds and money)'
+    - 'Neutral (no stake in outcome beyond profit)'
+    - 'Vocal (lots of airtime, kibitzing)'
     
   responsibilities:
     - Set initial odds
@@ -77,32 +77,32 @@ bet_types:
   outcome_bets:
     description: "Who wins the match"
     options:
-      - { name: "Human wins", code: "H" }
-      - { name: "Machine wins", code: "M" }
-      - { name: "Draw", code: "D" }
+      - '{ name: "Human wins", code: "H" }'
+      - '{ name: "Machine wins", code: "M" }'
+      - '{ name: "Draw", code: "D" }'
       
   move_count_bets:
     description: "How many moves until resolution"
     options:
-      - { name: "Under 20 moves", code: "U20" }
-      - { name: "20-40 moves", code: "M40" }
-      - { name: "Over 40 moves", code: "O40" }
+      - '{ name: "Under 20 moves", code: "U20" }'
+      - '{ name: "20-40 moves", code: "M40" }'
+      - '{ name: "Over 40 moves", code: "O40" }'
       
   resignation_bets:
     description: "Will there be a resignation?"
     options:
-      - { name: "Human resigns", code: "HR" }
-      - { name: "Machine resigns", code: "MR" }
-      - { name: "Played to checkmate", code: "CM" }
-      - { name: "Draw agreed", code: "DA" }
+      - '{ name: "Human resigns", code: "HR" }'
+      - '{ name: "Machine resigns", code: "MR" }'
+      - '{ name: "Played to checkmate", code: "CM" }'
+      - '{ name: "Draw agreed", code: "DA" }'
       
   drama_bets:
     description: "Will something dramatic happen?"
     options:
-      - { name: "Queen sacrifice", code: "QS" }
-      - { name: "Brilliant move (!! annotation)", code: "BM" }
-      - { name: "Blunder (?? annotation)", code: "BL" }
-      - { name: "Time pressure crisis", code: "TC" }
+      - '{ name: "Queen sacrifice", code: "QS" }'
+      - '{ name: "Brilliant move (!! annotation)", code: "BM" }'
+      - '{ name: "Blunder (?? annotation)", code: "BL" }'
+      - '{ name: "Time pressure crisis", code: "TC" }'
       
   prop_bets:
     description: "Side propositions for fun"
@@ -130,14 +130,14 @@ odds_system:
     - Historical performance
     - Expert consensus
     - Public sentiment
-    - Inside information (if any)
+    - 'Inside information (if any)'
     
   adjustment_triggers:
-    - Large bet placed (moves line)
+    - 'Large bet placed (moves line)'
     - Multiple bets on same outcome
-    - "Sharp" bettor places wager (smart money)
+    - '"Sharp" bettor places wager (smart money)'
     - News or information revealed
-    - Pre-game events (player demeanor, etc.)
+    - 'Pre-game events (player demeanor, etc.)'
 
 # BETTOR PROFILES
 
@@ -177,12 +177,12 @@ rubric_value:
     
     1. ACTUAL BELIEFS
        What someone bets on vs. what they SAY they believe.
-       "I think humans will always be superior" + bets on Deep Blue = hypocrisy detected.
+       '"I think humans will always be superior" + bets on Deep Blue = hypocrisy detected.'
        
     2. CONFIDENCE LEVEL
        Bet size correlates to confidence.
-       "I'm pretty sure" + small bet = low confidence.
-       "I'm pretty sure" + large bet = high confidence.
+       "\"I'm pretty sure\" + small bet = low confidence."
+       "\"I'm pretty sure\" + large bet = high confidence."
        
     3. RISK TOLERANCE
        Accepting long odds vs. safe bets.

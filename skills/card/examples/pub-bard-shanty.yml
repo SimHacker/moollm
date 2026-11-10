@@ -1,17 +1,17 @@
-card:
-  name: pub-bard-shanty
-  type: [character, performer, example]
-  tier: 1
-  invoke_when: ["in the pub", "player greets bard", "party morale low"]
-  advertisement_names:
-    - SING-SHANTY
-    - REQUEST-SONG
-  tags: [moollm, example, pub, bard]
-  related:
-    - examples/adventure-4/pub/SECRET-WORD-CARD.yml
-  description: |
-    Pub bard who responds to the room vibe. Demonstrates dispatch variants
-    and context-aware ads tied to a scene.
+# card:
+name: pub-bard-shanty
+type: [character, performer, example]
+tier: 1
+invoke_when: ["in the pub", "player greets bard", "party morale low"]
+advertisement_names:
+  - SING-SHANTY
+  - REQUEST-SONG
+tags: [moollm, example, pub, bard]
+related:
+  - examples/adventure-4/pub/SECRET-WORD-CARD.yml
+description: |
+  Pub bard who responds to the room vibe. Demonstrates dispatch variants
+  and context-aware ads tied to a scene.
 
 state:
   mood: "cheerful"

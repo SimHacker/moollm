@@ -5,7 +5,8 @@
 
 id: copy-that
 name: "Copy That"
-type: [skill, hygiene, publishing]
+type: skill
+tags: [hygiene, publishing]
 
 emoji: 📋
 
@@ -98,22 +99,22 @@ plugin_schema:
 advertisements:
   AMBIENT:
     score: 80
-    condition: "Any content the human will copy out of the chat"
+    score_if: "Any content the human will copy out of the chat"
     scope: session
     resolution: card-only
     rationale: "Fence discipline applies to every outbound artifact, every session"
 
   DRAFTING-A-POST:
     score: 95
-    condition: "User asks for a post, comment, reply, or email"
+    score_if: "User asks for a post, comment, reply, or email"
 
   VENUE-NAMED:
     score: 92
-    condition: "Destination platform mentioned (HN, GitHub, forum, mailing list)"
+    score_if: "Destination platform mentioned (HN, GitHub, forum, mailing list)"
 
   PASTE-WENT-WRONG:
     score: 90
-    condition: "User reports garbled formatting or leaked notes after pasting"
+    score_if: "User reports garbled formatting or leaked notes after pasting"
 
 see_also:
   - skills/postel            # Emit conservative — this is emit conservative, per venue

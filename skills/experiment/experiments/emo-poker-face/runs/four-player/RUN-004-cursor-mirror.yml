@@ -83,7 +83,7 @@ new_emergence:
 dialog_highlights:
   - '"The cheese smuggler is generous." — Palm'
   - '"Donna showed me the trap." — Bumblewick'
-  - '"Third time\'s the charm?" — Don (guilty)'
+  - '"Third time''s the charm?" — Don (guilty)'
   - '"You KEEP saying cheese smuggler." — Donna (anxious)'
   - '"Is cheese smuggler bad? It sounds funny." — Bumblewick'
 
@@ -116,7 +116,7 @@ character_delta:
   don:
     arc: "From clever to lucky to guilty"
     pattern: "Sucks out, stakes opponent, repeats"
-    quote: '"Third time\'s the charm?"'
+    quote: '"Third time''s the charm?"'
 
 # FINAL STATE
 
@@ -139,7 +139,7 @@ variance_events:
     result: "Don won (2-outer)"
     impact: "1325 pot swung to Don"
     
-  summary: |
+summary: |
     Don won ~3000 chips against the math.
     Palm lost ~1800 chips playing perfectly.
     Poker.

@@ -3,7 +3,8 @@
 
 id: mail-digest
 name: "Mail Digest"
-type: [skill, utility, archival]
+type: skill
+tags: [utility, archival]
 emoji: "📬"
 tier: 1
 status: active
@@ -25,11 +26,11 @@ k_lines:
 
 methods:
   DEDUP:
-    does: "scripts/mail_dedup.py INPUT [-o OUT] [--split NAME]: one block per message, quoting cut, duplicates dropped"
+    description: "scripts/mail_dedup.py INPUT [-o OUT] [--split NAME]: one block per message, quoting cut, duplicates dropped"
   DIGEST-PRIVATE:
-    does: "Read the deduped text (others first) and write a dated, per-person private digest, including money, health, contracts and offers"
+    description: "Read the deduped text (others first) and write a dated, per-person private digest, including money, health, contracts and offers"
   HARVEST-PUBLIC:
-    does: "Draw public facts from the private digest only, credited, in the person's own published words where possible"
+    description: "Draw public facts from the private digest only, credited, in the person's own published words where possible"
 
 rules:
   - "The raw export is never committed. temp/ in a private repo, or nowhere."

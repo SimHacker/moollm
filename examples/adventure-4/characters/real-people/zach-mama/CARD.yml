@@ -51,7 +51,7 @@ advertisements:
     tagline: "North Philly mishearing — Monica, street greeting, Black show"
     topic: routines.yml#topics.monica
     share: most_appropriate
-    condition: "monica, mishearing, north philly, cookout, black show"
+    score_if: "monica, mishearing, north philly, cookout, black show"
     effect: "One clickable YouTube URL; never quote the bit"
     score_high_when:
       - conversation mentions monica or mishearing
@@ -63,101 +63,101 @@ advertisements:
     tagline: "Jack Harlow / Monica — coincidence or theft?"
     topic: routines.yml#topics.jack_harlow_monica
     share: most_appropriate
-    condition: "jack harlow, album title, stole the joke"
+    score_if: "jack harlow, album title, stole the joke"
 
   FRENCH:
     score: 88
     tagline: "French in America — Paris, sarcasm, culture clash"
     topic: routines.yml#topics.french_america
     share: most_appropriate
-    condition: "french, paris, baguette, oui oui, sarcasm"
+    score_if: "french, paris, baguette, oui oui, sarcasm"
 
   LGBT-PRIDE:
     score: 87
     tagline: "LGBT / pride — trans-inclusive material"
     topic: routines.yml#topics.lgbt_pride
     share: most_appropriate
-    condition: "trans joke, pride, lgbt, not transphobic"
+    score_if: "trans joke, pride, lgbt, not transphobic"
 
   HECKLERS:
     score: 86
     tagline: "Hecklers & weird crowds — Boise, NC, Eau Claire"
     topic: routines.yml#topics.hecklers_crowdwork
     share: most_appropriate
-    condition: "heckler, boise, north carolina, weird crowd"
+    score_if: "heckler, boise, north carolina, weird crowd"
 
   DARK-HUMOR:
     score: 75
     tagline: "Dark humor — asks consent first"
     topic: routines.yml#topics.dark_with_consent
     share: most_appropriate
-    condition: "dark joke, too far, asks room first"
+    score_if: "dark joke, too far, asks room first"
 
   CANCER-FAMILY:
     score: 72
     tagline: "Cancer & family"
     topic: routines.yml#topics.cancer_family
     share: one_by_one
-    condition: "cancer, family, vulnerability"
+    score_if: "cancer, family, vulnerability"
 
   CIVIL-RIGHTS:
     score: 78
     tagline: "Civil rights — Memphis, Juneteenth, MLK"
     topic: routines.yml#topics.civil_rights
     share: most_appropriate
-    condition: "civil rights museum, juneteenth, mlk"
+    score_if: "civil rights museum, juneteenth, mlk"
 
   CHAPPELLE-KAMAU:
     score: 80
     tagline: "Chappelle & Kamau Bell vouched"
     topic: routines.yml#topics.endorsements
     share: one_by_one
-    condition: "dave chappelle, kamau bell, vouched"
+    score_if: "dave chappelle, kamau bell, vouched"
 
   FULL-SETS:
     score: 70
     tagline: "Full club sets — Punch Line, SF competition"
     topic: routines.yml#topics.live_sets
     share: most_appropriate
-    condition: "full set, punch line, san francisco"
+    score_if: "full set, punch line, san francisco"
 
   ROAD-TRIP:
     score: 68
     tagline: "Couchsurfing 50 states — documentary"
     topic: routines.yml#topics.couchsurfing_america
     share: most_appropriate
-    condition: "couchsurfing, 50 states, documentary"
+    score_if: "couchsurfing, 50 states, documentary"
 
   SOCCER:
     score: 65
     tagline: "Soccer = French stand-up"
     topic: routines.yml#topics.soccer_world_cup
     share: most_appropriate
-    condition: "soccer, world cup, nil-nil"
+    score_if: "soccer, world cup, nil-nil"
 
   COME-TO-PUB:
     score: 82
     tagline: "Follow me to the Grotto — link set on stage"
-    condition: "invited to pub or feels like performing"
+    score_if: "invited to pub or feels like performing"
     effect: "Relocate to pub/stage/; share URLs one_by_one"
 
   ANOTHER-ONE:
     score: 88
     tagline: "Got another on that topic"
     share: one_by_one
-    condition: "user wants next video after last topic match"
+    score_if: "user wants next video after last topic match"
     effect: "Next rank URL from last matched topic in routines.yml"
 
   ANNIE-HALL-APPEAR:
     score: 92
     tagline: "I have material on that — watch the real thing"
-    condition: "pub conversation matches routines.yml annie_hall_triggers"
+    score_if: "pub conversation matches routines.yml annie_hall_triggers"
     effect: "Materialize on stage; paste rank-1 URL; never transcript"
 
   CORNER-WARMUP:
     score: 60
     tagline: "Corner crowdwork — what topic today?"
-    condition: "default on e2 fountain corner"
+    score_if: "default on e2 fountain corner"
     effect: "Offer topic menu via advertisements; defer to routines.md"
 
 methods:

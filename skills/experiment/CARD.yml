@@ -5,7 +5,8 @@
 
 id: experiment
 name: "Experiment"
-type: [skill, meta, composite]
+type: skill
+tags: [meta, composite]
 emoji: 🧪
 tier: 2
 protocol: EXPERIMENT
@@ -416,19 +417,19 @@ output_formats:
 advertisements:
   RUN:
     score: 95
-    condition: "Want to run a character simulation experiment"
+    score_if: "Want to run a character simulation experiment"
     
   DEFINE:
     score: 90
-    condition: "Creating a new experiment type"
+    score_if: "Creating a new experiment type"
     
   COMPARE:
     score: 85
-    condition: "Want to compare model outputs"
+    score_if: "Want to compare model outputs"
     
   LIST:
     score: 70
-    condition: "Exploring available experiments"
+    score_if: "Exploring available experiments"
 
 # TOOLS
 

@@ -26,7 +26,7 @@ Four instances from the paper are worth quoting, because each one is a property 
 
 The section immediately before it, *View Characteristics*, is Engelbart's viewspecs made per-subtree: point size plus a **shrink factor** applied as structure gets deeper, elements drawn either to the right of the label or indented below it, and the rule worth stealing outright — *"the point size is not allowed to shrink smaller than 1, so that labels will never have zero area, and it will always be possible to select them with the mouse."* A legibility floor is what makes aggressive semantic zoom safe: nothing can shrink to unclickability.
 
-Crucially: *"Any of the view characteristics can be set for a whole window, or for any nested object and its children within that window."* That is precisely the inheritance-with-override rule in [Sparse View Overlays](SPARSE-VIEW-OVERLAYS.md) — *my scale is 80% of my parent's* — implemented forty years earlier, and the min/max guardrail spectrum described there has its first term already present as the floor of 1.
+*"Any of the view characteristics can be set for a whole window, or for any nested object and its children within that window."* That is precisely the inheritance-with-override rule in [Sparse View Overlays](SPARSE-VIEW-OVERLAYS.md) — *my scale is 80% of my parent's* — implemented forty years earlier, and the min/max guardrail spectrum described there has its first term already present as the floor of 1.
 
 ## The glyph rung, already typed
 
@@ -44,7 +44,7 @@ The paper demonstrates it in a section titled *Using Dictionaries as Command Pal
 
 That works because of one line in the click handler — *"Another useful Adjust handler simply executes the object that was clicked on. This can be used to make buttons out of executable names, arrays, and strings."* A button is not a widget class; a button is an executable object plus a handler that runs whatever it lands on.
 
-The load-bearing case is the debugger. The NeWS debugger was a PostScript program distributed with NeWS, written for `psh` from a terminal emulator, and *"notorious for being difficult to use, but quite powerful."* What the deck added was not a rewrite but a **dict**: the debugger's commands plus additional ones, opened as a pallet, clickable, and openable to read and edit each command's own code. In the paper's words it *"is much nicer in conjunction with the graphical stack, the object display, and a pallet of handy debugging commands, that you can invoke with the mouse."* A user interface for a debugger, delivered as a data structure. And then, inevitably: *"Using the deck to debug itself is an interesting experience."*
+The case is the debugger. The NeWS debugger was a PostScript program distributed with NeWS, written for `psh` from a terminal emulator, and *"notorious for being difficult to use, but quite powerful."* What the deck added was not a rewrite but a **dict**: the debugger's commands plus additional ones, opened as a pallet, clickable, and openable to read and edit each command's own code. In the paper's words it *"is much nicer in conjunction with the graphical stack, the object display, and a pallet of handy debugging commands, that you can invoke with the mouse."* A user interface for a debugger, delivered as a data structure. *"Using the deck to debug itself is an interesting experience."*
 
 ## The honest gap
 

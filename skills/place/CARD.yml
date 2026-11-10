@@ -8,7 +8,8 @@
 
 id: place
 name: "Place"
-type: [skill, primitive, geography]
+type: skill
+tags: [primitive, geography]
 emoji: 📍
 rarity: common          # everything outdoors is one
 description: |
@@ -128,10 +129,18 @@ methods:
 
 advertisements:
   # Sims-style: a place broadcasts what it can do for whoever is passing.
-  - { action: VISIT,   to: [rider, tourist], when: "within 200 m and open" }
-  - { action: SURVEY,  to: [surveyor],       when: "review.priority is high or paired" }
-  - { action: COUCH,   to: [tour],           when: "author is building a route" }
-  - { action: EXPLAIN, to: [anyone],         when: "always — the bare guard, per Korz" }
+  VISIT:
+    to: [rider, tourist]
+    score_if: "within 200 m and open"
+  SURVEY:
+    to: [surveyor]
+    score_if: "review.priority is high or paired"
+  COUCH:
+    to: [tour]
+    score_if: "author is building a route"
+  EXPLAIN:
+    to: [anyone]
+    score_if: "always — the bare guard, per Korz"
 
 refuses:
   - "Averaging coordinates from sources that disagree"

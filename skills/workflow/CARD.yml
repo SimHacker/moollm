@@ -5,7 +5,8 @@
 
 id: workflow
 name: "Workflow"
-type: [skill, procedure, essential]
+type: skill
+tags: [procedure, essential]
 emoji: 🔁
 rarity: common
 
@@ -85,13 +86,13 @@ methods:
 advertisements:
   LIFT-THIS:
     score: 85
-    condition: "The same sequence of tasks or actions has been done by hand three times"
+    score_if: "The same sequence of tasks or actions has been done by hand three times"
   RUN-PROCEDURE:
     score: 80
-    condition: "User names a known procedure"
+    score_if: "User names a known procedure"
   RETRO-AFTER-RUN:
     score: 70
-    condition: "An instance finished with released notes, amendments, or failed guards"
+    score_if: "An instance finished with released notes, amendments, or failed guards"
 
 workflows_already_in_moollm:
   cauldron: "MELT → STIR* → LADLE → ANCHOR → LINK → TASTE → SERVE, with SCRY loops"

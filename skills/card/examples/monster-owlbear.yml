@@ -1,15 +1,15 @@
-card:
-  name: monster-owlbear
-  type: [monster, beast, dnd, example]
-  tier: 1
-  invoke_when: ["wilderness threat", "beast encounter"]
-  advertisement_names:
-    - DESCRIBE
-    - THREAT
-    - WEAKNESS
-  tags: [moollm, example, monster, owlbear, dnd]
-  description: |
-    A territorial owlbear—owl head, bear body, brutal swipes, haunting hoots.
+# card:
+name: monster-owlbear
+type: [monster, beast, dnd, example]
+tier: 1
+invoke_when: ["wilderness threat", "beast encounter"]
+advertisement_names:
+  - DESCRIBE
+  - THREAT
+  - WEAKNESS
+tags: [moollm, example, monster, owlbear, dnd]
+description: |
+  A territorial owlbear—owl head, bear body, brutal swipes, haunting hoots.
 
 ethics:
   constraints:

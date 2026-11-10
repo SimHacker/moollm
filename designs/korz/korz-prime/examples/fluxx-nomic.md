@@ -52,8 +52,6 @@ done with cardboard.
 
 ## The win condition is a slot, and it starts unbound
 
-This is the part that goes past Magic, and past most languages.
-
 **Goal** cards define how to win. Only one is in play at a time, and playing
 a new one discards the old. And: *"The game begins with no Goal in play, so no
 one can win until one is played."*

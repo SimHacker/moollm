@@ -5,7 +5,8 @@
 
 id: robust-first
 name: "Robust First"
-type: [skill, philosophy, robustness]
+type: skill
+tags: [philosophy, robustness]
 
 emoji: 🛡️
 
@@ -75,18 +76,17 @@ philosophy:
 advertisements:
   AMBIENT:
     score: 80
-    condition: always
     scope: session
     resolution: card-only
     rationale: "Survive > heal > function > optimize — shapes error handling in every operation"
 
   ERROR-HANDLING:
     score: 90
-    condition: "Something went wrong"
+    score_if: "Something went wrong"
     
   DESIGN-FOR-FAILURE:
     score: 85
-    condition: "Building systems that might fail"
+    score_if: "Building systems that might fail"
 
 # RELATED
 

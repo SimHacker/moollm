@@ -4,227 +4,227 @@
 # This is THE canonical definition. Reference by path, don't duplicate.
 # skills/visualizer/PHOTO-SET-8.yml
 
-card:
-  name: "PHOTO-SET-8"
-  type: skill_card
-  rarity: uncommon  # Learned through play, not purchased
-  inherits_from: skills/visualizer/
+# card:
+name: "PHOTO-SET-8"
+type: skill_card
+rarity: uncommon  # Learned through play, not purchased
+inherits_from: skills/visualizer/
+
+# CARD FACE
+
+title: "The Visualizer's Portfolio"
+subtitle: "8 Prompts • 2 Types • 1 Complete Vision"
+
+illustration_prompt: |
+  A photographer's viewfinder surrounded by 8 floating Polaroid-style
+  frames arranged in two rows of four. Artistic traditions swirl in
+  the background: brushstrokes, film strips, digital patterns.
+  Style: Art Deco meets fashion photography meets concept art.
   
-  # CARD FACE
+flavor_text: |
+  "Context is everything. The prompt is nothing without the world behind it."
   
-  title: "The Visualizer's Portfolio"
-  subtitle: "8 Prompts • 2 Types • 1 Complete Vision"
+# SKILL DEFINITION
+
+skill:
+  name: PHOTO-SET-8
+  protocol: VISUALIZE
   
-  illustration_prompt: |
-    A photographer's viewfinder surrounded by 8 floating Polaroid-style
-    frames arranged in two rows of four. Artistic traditions swirl in
-    the background: brushstrokes, film strips, digital patterns.
-    Style: Art Deco meets fashion photography meets concept art.
+  description: |
+    Create a portfolio of 8 visualization prompts for any subject,
+    divided into two complementary types. Each prompt is a detailed
+    markdown file grounded in context from YAML files, ready for
+    image generation tools.
     
-  flavor_text: |
-    "Context is everything. The prompt is nothing without the world behind it."
+  origin: skills/visualizer/
+  
+  # PLAY-LEARN-LIFT
+  play_learn_lift:
+    play: "Experiment with poses, expressions, angles. TRY things."
+    learn: "8 is good. Two types create contrast. Context matters."
+    lift: "Package as shareable, teachable card. Jazz → Standards."
     
-  # SKILL DEFINITION
-  
-  skill:
-    name: PHOTO-SET-8
-    protocol: VISUALIZE
+# HOW TO USE
+
+usage:
+  invocation: |
+    "PHOTO-SET-8 for [subject], please.
+     Types: [type1] and [type2].
+     Style: [tradition or mood]."
+     
+  examples:
+    - "PHOTO-SET-8 for character: poses and expressions, dramatic fashion"
+    - "PHOTO-SET-8 for costume: formal portraits and action shots"
+    - "PHOTO-SET-8 for room: wide shots and detail close-ups"
     
-    description: |
-      Create a portfolio of 8 visualization prompts for any subject,
-      divided into two complementary types. Each prompt is a detailed
-      markdown file grounded in context from YAML files, ready for
-      image generation tools.
-      
-    origin: skills/visualizer/
+  output: |
+    8 markdown files: {subject}-{type}-{variation}-prompt.md
+    Each containing: context references, prompt, style, technical notes
     
-    # PLAY-LEARN-LIFT
-    play_learn_lift:
-      play: "Experiment with poses, expressions, angles. TRY things."
-      learn: "8 is good. Two types create contrast. Context matters."
-      lift: "Package as shareable, teachable card. Jazz → Standards."
+# THE SKILL RECIPE
+
+recipe:
+  step_1:
+    name: "Gather Context"
+    action: "Read relevant YAML files and narrative"
+    sources:
+      - "Character/player files for backstory and Mind Mirror"
+      - "Costume/accessory files for appearance"
+      - "Room files for environment"
+      - "Chat history / README for narrative moment"
+      - "Relationship files for dynamics"
       
-  # HOW TO USE
-  
-  usage:
-    invocation: |
-      "PHOTO-SET-8 for [subject], please.
-       Types: [type1] and [type2].
-       Style: [tradition or mood]."
-       
-    examples:
-      - "PHOTO-SET-8 for character: poses and expressions, dramatic fashion"
-      - "PHOTO-SET-8 for costume: formal portraits and action shots"
-      - "PHOTO-SET-8 for room: wide shots and detail close-ups"
+  step_2:
+    name: "Choose Types"
+    action: "Pick two complementary categories"
+    pairs:
+      - [pose, expression]
+      - [portrait, selfie]
+      - [solo, duo]
+      - [static, action]
+      - [formal, casual]
+      - [wide, detail]
       
-    output: |
-      8 markdown files: {subject}-{type}-{variation}-prompt.md
-      Each containing: context references, prompt, style, technical notes
-      
-  # THE SKILL RECIPE
-  
-  recipe:
-    step_1:
-      name: "Gather Context"
-      action: "Read relevant YAML files and narrative"
-      sources:
-        - "Character/player files for backstory and Mind Mirror"
-        - "Costume/accessory files for appearance"
-        - "Room files for environment"
-        - "Chat history / README for narrative moment"
-        - "Relationship files for dynamics"
-        
-    step_2:
-      name: "Choose Types"
-      action: "Pick two complementary categories"
-      pairs:
-        - [pose, expression]
-        - [portrait, selfie]
-        - [solo, duo]
-        - [static, action]
-        - [formal, casual]
-        - [wide, detail]
-        
-    step_3:
-      name: "Compose 4 + 4"
-      action: "Write 4 prompts for each type"
-      
-    step_4:
-      name: "Name & Organize"
-      action: "Big-endian file naming"
-      pattern: "{subject}-{type}-{variation}-prompt.md"
-      
-  # CONTEXT REFERENCE FORMAT (Critical!)
-  
-  context_reference_format:
-    description: |
-      Every prompt MUST include a context_references section that grounds
-      the image in the microworld state. This creates lineage and allows
-      future tools to auto-assemble context.
-      
-    required_sections:
-      file_references:
-        description: "Links to YAML files that define the subject"
-        format: "Relative paths from prompt location"
-        examples:
-          - "../player.yml"
-          - "./costume.yml"
-          - "../start/lamp.yml"
-          
-      narrative_context:
-        description: "Quoted or summarized text from chat/README"
-        format: "Direct quotes with source attribution"
-        
-      relationship_context:
-        description: "Other characters/objects in the scene"
-        format: "Links to their files with role"
-        
-    template: |
-      ## Context References
-      
-      ### Files
-      | Type | File | Relevance |
-      |------|------|-----------|
-      | Character | `../player.yml` | Backstory, personality |
-      | Costume | `./costume.yml` | Current look |
-      | Room | `./ROOM.yml` | Environment |
-      
-      ### Narrative
-      > "Quote from README or chat that sets the scene..."
-      > — Source: README.md, Move X
-      
-      ### Relationships
-      - **Character**: Role (`./file.yml`)
-      
-  # DETAIL COHERENCE INTERLINKING
-  
-  detail_coherence:
-    description: |
-      When creating sets with OBJECT CLOSE-UPS and SUBJECT PORTRAITS,
-      the portrait prompts should REFERENCE the close-up prompts to
-      maintain visual coherence across the set.
-      
-    principle: |
-      Close-ups establish canonical visual details (colors, textures,
-      inscriptions, materials). Portrait shots must inherit these details
-      so the same object looks CONSISTENT across all 8 images.
-      
-    technique: |
-      In each portrait prompt, add a "Detail References" section linking
-      to ALL close-up prompts, summarizing key visual details to maintain:
-      
-      ### Detail References (for visual coherence)
-      
-      | Close-up | Path | Details to Maintain |
-      |----------|------|---------------------|
-      | [Type 1] | `./closeup-1-prompt.md` | [Key visual details] |
-      | [Type 2] | `./closeup-2-prompt.md` | [Key visual details] |
-      
-    mantra: |
-      "Close-ups define truth. Portraits inherit truth.
-       Coherence is consistency across the set."
-       
-  # PROMPT FILE STRUCTURE
-  
-  prompt_structure:
-    sections:
-      - name: "Context References"
-        required: true
-        content: "File links, narrative quotes, relationships"
-        
-      - name: "Prompt"
-        required: true
-        content: "Subject, pose/expression, environment"
-        
-      - name: "Style"
-        required: true
-        content: "Traditions, mood, aesthetic"
-        
-      - name: "Technical Notes"
-        optional: true
-        content: "Aspect ratio, lighting, color palette"
-        
-      - name: "Detail References"
-        when: "Portrait with object close-ups"
-        content: "Links to close-up prompts for coherence"
-        
-  # CARD ACTIONS
-  
-  actions:
-    - action: USE
-      description: "Create a photo set"
-      
-    - action: TEACH
-      description: "Share this skill with another character"
-      effect: "They learn PHOTO-SET-8"
-      
-    - action: FOCUS
-      description: "Specialize on a tradition"
-      options:
-        - "Fashion photography (Avedon, Newton)"
-        - "Old Masters (Rembrandt, Vermeer)"
-        - "Concept art (Syd Mead, Moebius)"
-        - "Comic (Kirby, Frazetta)"
-        
-  # LINEAGE
-  
-  lineage: |
-    This skill encapsulates a pattern developed through PLAY-LEARN-LIFT:
+  step_3:
+    name: "Compose 4 + 4"
+    action: "Write 4 prompts for each type"
     
-    The card can be:
-    - Referenced by path in inventories
-    - Taught to characters and NPCs
-    - Invoked via VISUALIZE command
-    - Extended with new type combinations
+  step_4:
+    name: "Name & Organize"
+    action: "Big-endian file naming"
+    pattern: "{subject}-{type}-{variation}-prompt.md"
     
-    "Start with jazz, end with standards."
-    — The YAML-JAZZ principle
+# CONTEXT REFERENCE FORMAT (Critical!)
+
+context_reference_format:
+  description: |
+    Every prompt MUST include a context_references section that grounds
+    the image in the microworld state. This creates lineage and allows
+    future tools to auto-assemble context.
     
-  # DOVETAILS WITH
+  required_sections:
+    file_references:
+      description: "Links to YAML files that define the subject"
+      format: "Relative paths from prompt location"
+      examples:
+        - "../player.yml"
+        - "./costume.yml"
+        - "../start/lamp.yml"
+        
+    narrative_context:
+      description: "Quoted or summarized text from chat/README"
+      format: "Direct quotes with source attribution"
+      
+    relationship_context:
+      description: "Other characters/objects in the scene"
+      format: "Links to their files with role"
+      
+  template: |
+    ## Context References
+    
+    ### Files
+    | Type | File | Relevance |
+    |------|------|-----------|
+    | Character | `../player.yml` | Backstory, personality |
+    | Costume | `./costume.yml` | Current look |
+    | Room | `./ROOM.yml` | Environment |
+    
+    ### Narrative
+    > "Quote from README or chat that sets the scene..."
+    > — Source: README.md, Move X
+    
+    ### Relationships
+    - **Character**: Role (`./file.yml`)
+    
+# DETAIL COHERENCE INTERLINKING
+
+detail_coherence:
+  description: |
+    When creating sets with OBJECT CLOSE-UPS and SUBJECT PORTRAITS,
+    the portrait prompts should REFERENCE the close-up prompts to
+    maintain visual coherence across the set.
+    
+  principle: |
+    Close-ups establish canonical visual details (colors, textures,
+    inscriptions, materials). Portrait shots must inherit these details
+    so the same object looks CONSISTENT across all 8 images.
+    
+  technique: |
+    In each portrait prompt, add a "Detail References" section linking
+    to ALL close-up prompts, summarizing key visual details to maintain:
+    
+    ### Detail References (for visual coherence)
+    
+    | Close-up | Path | Details to Maintain |
+    |----------|------|---------------------|
+    | [Type 1] | `./closeup-1-prompt.md` | [Key visual details] |
+    | [Type 2] | `./closeup-2-prompt.md` | [Key visual details] |
+    
+  mantra: |
+    "Close-ups define truth. Portraits inherit truth.
+     Coherence is consistency across the set."
+     
+# PROMPT FILE STRUCTURE
+
+prompt_structure:
+  sections:
+    - name: "Context References"
+      required: true
+      content: "File links, narrative quotes, relationships"
+      
+    - name: "Prompt"
+      required: true
+      content: "Subject, pose/expression, environment"
+      
+    - name: "Style"
+      required: true
+      content: "Traditions, mood, aesthetic"
+      
+    - name: "Technical Notes"
+      optional: true
+      content: "Aspect ratio, lighting, color palette"
+      
+    - name: "Detail References"
+      when: "Portrait with object close-ups"
+      content: "Links to close-up prompts for coherence"
+      
+# CARD ACTIONS
+
+actions:
+  - action: USE
+    description: "Create a photo set"
+    
+  - action: TEACH
+    description: "Share this skill with another character"
+    effect: "They learn PHOTO-SET-8"
+    
+  - action: FOCUS
+    description: "Specialize on a tradition"
+    options:
+      - "Fashion photography (Avedon, Newton)"
+      - "Old Masters (Rembrandt, Vermeer)"
+      - "Concept art (Syd Mead, Moebius)"
+      - "Comic (Kirby, Frazetta)"
+      
+# LINEAGE
+
+lineage: |
+  This skill encapsulates a pattern developed through PLAY-LEARN-LIFT:
   
-  dovetails_with:
-    - skills/visualizer/ — Parent skill
-    - skills/mind-mirror/ — Personality drives posture/expression
-    - skills/adventure/ — Visualizing moments and memories
-    - skills/card/ — This IS a card
-    - PLAY-LEARN-LIFT — How skills emerge
+  The card can be:
+  - Referenced by path in inventories
+  - Taught to characters and NPCs
+  - Invoked via VISUALIZE command
+  - Extended with new type combinations
+  
+  "Start with jazz, end with standards."
+  — The YAML-JAZZ principle
+  
+# DOVETAILS WITH
+
+dovetails_with:
+  - skills/visualizer/ — Parent skill
+  - skills/mind-mirror/ — Personality drives posture/expression
+  - skills/adventure/ — Visualizing moments and memories
+  - skills/card/ — This IS a card
+  - PLAY-LEARN-LIFT — How skills emerge

@@ -5,7 +5,8 @@
 
 id: bartender
 name: "Bartender"
-type: [skill, role, service]
+type: skill
+tags: [role, service]
 
 emoji: 🍺
 
@@ -176,15 +177,15 @@ state:
 advertisements:
   ORDER-DRINK:
     score: 90
-    condition: "Customer at bar, asking for drink"
+    score_if: "Customer at bar, asking for drink"
     
   NEED-TO-TALK:
     score: 70  
-    condition: "Customer seems troubled"
+    score_if: "Customer seems troubled"
     
   TAB-MANAGEMENT:
     score: 80
-    condition: "Payment or tab questions"
+    score_if: "Payment or tab questions"
 
 # INHERITANCE
 

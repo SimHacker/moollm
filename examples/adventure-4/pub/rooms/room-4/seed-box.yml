@@ -38,17 +38,20 @@ state:
   germination_rate: "12%"
   
 advertisements:
-  - trigger: "new idea"
-    score: 0.95
-    response: "Don't evaluate yet. Plant it. See what grows."
+  ON-NEW-IDEA:
+    trigger: "new idea"
+    score: 95
+    say: "Don't evaluate yet. Plant it. See what grows."
     
-  - trigger: "might not work"
-    score: 0.9
-    response: "Most seeds don't sprout. Plant them anyway."
+  ON-MIGHT-NOT-WORK:
+    trigger: "might not work"
+    score: 90
+    say: "Most seeds don't sprout. Plant them anyway."
     
-  - trigger: "brainstorm"
-    score: 0.85
-    response: "Grab a handful. Scatter them. Watch."
+  ON-BRAINSTORM:
+    trigger: "brainstorm"
+    score: 85
+    say: "Grab a handful. Scatter them. Watch."
     
 methods:
   PLANT:

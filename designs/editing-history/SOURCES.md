@@ -13,7 +13,7 @@ machine transcript of speech, that is stated, because it changes how the words m
    decode "Larry Testly".
 4. **ASR captions are the weakest tier.** Where two independent transcriptions of the same audio
    disagree on a word, that word is elided with `[...]` rather than guessed. Structure and
-   load-bearing clauses survive; the uncertain token does not get promoted to a quote.
+   the clauses that carry the claim survive; the uncertain token does not get promoted to a quote.
 5. **Non-adjacent sentences are joined with `[...]`**, never silently concatenated.
 
 ## Ted Nelson, written
@@ -144,7 +144,7 @@ https://www.youtube.com/watch?v=u5NECkdOSqs
 Auto-generated captions, retrieved with `yt-dlp --write-auto-subs`, rolling duplicates collapsed.
 **Weakest tier.** Punctuation below is added; no words are added.
 
-Clean and load-bearing, the sentence that makes two of this directory's requirements Nelson's own:
+The sentence that makes two of this directory's requirements Nelson's own:
 
 > they could at least have made it visible and made it a stack for rearrangement but oh no
 
@@ -335,7 +335,7 @@ https://www.x.org/archive/X11R7.7/doc/xorg-docs/icccm/icccm.html
 X Consortium Standard. Title page: **David Rosenthal, Sun Microsystems, Inc.**, edited by **Stuart
 W. Marks, SunSoft, Inc.** Copyright 1988, 1991, 1993, 1994 X Consortium. The Preface to Version 1.1
 credits the Cut-Buffer section to **Andrew Palay**. Quoted at length in
-[SELECTIONS-AND-CUT-BUFFERS.md](SELECTIONS-AND-CUT-BUFFERS.md); the load-bearing passages are
+[SELECTIONS-AND-CUT-BUFFERS.md](SELECTIONS-AND-CUT-BUFFERS.md); the passages are
 Chapter 1 on scope and Chapter 3 on the ring.
 
 > It was an explicit design goal of X Version 11 to specify mechanism, not policy.

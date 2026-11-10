@@ -5,7 +5,8 @@
 
 id: dog
 name: "Dog"
-type: [skill, companion, game]
+type: skill
+tags: [companion, game]
 emoji: 🐕
 tier: 1
 tagline: "Dogs have YOUR agenda."
@@ -50,27 +51,27 @@ invoke_when:
 advertisements:
   PET-A-DOG:
     score: 95  # Higher than cats — dogs are easy
-    condition: "Dog is present"
+    score_if: "Dog is present"
     
   PLAY-WITH-DOG:
     score: 90
-    condition: "Dog is awake and energetic"
+    score_if: "Dog is awake and energetic"
     
   RECEIVE-COMFORT:
     score: 85
-    condition: "Player mood is low, dog present"
+    score_if: "Player mood is low, dog present"
     
   TAKE-FOR-WALK:
     score: 80
-    condition: "Dog hasn't been walked recently"
+    score_if: "Dog hasn't been walked recently"
     
   GOOD-BOY-MOMENT:
     score: 90
-    condition: "Dog did something praise-worthy"
+    score_if: "Dog did something praise-worthy"
     
   WELCOME-HOME:
     score: 95
-    condition: "Player returns after absence"
+    score_if: "Player returns after absence"
 
 # METHODS — signatures only, see SKILL.md for full protocols
 

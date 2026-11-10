@@ -38,9 +38,9 @@ reaction_interpretation: |
   and away from the skeleton (north). Make of that what you will.
 
 advertisements:
-  - action: EXAMINE
+  EXAMINE:
     score: 80
-    result: |
+    say: |
       The face is carved from the living rock of the wall.
       The craftsmanship is remarkable — each wrinkle, each pore,
       rendered in perfect detail despite centuries of age.
@@ -48,9 +48,9 @@ advertisements:
       The eyes are empty sockets, yet you cannot shake the
       feeling that they see you. That they have ALWAYS seen you.
       
-  - action: SPEAK-TO
+  SPEAK-TO:
     score: 60
-    result: |
+    say: |
       "Hello?" you venture.
       
       The face does not respond. It's a face carved in rock.
@@ -58,9 +58,9 @@ advertisements:
       But was that a slight shift in the shadows around its mouth?
       A trick of the lamplight? Surely. Surely a trick of the light.
       
-  - action: ASK-DIRECTION
+  ASK-DIRECTION:
     score: 70
-    result: |
+    say: |
       "Which way should I go?"
       
       The face remains still. But you notice its expression
@@ -68,9 +68,9 @@ advertisements:
       
       The vendor is east. Coincidence? Guidance? Pareidolia?
       
-  - action: TOUCH
+  TOUCH:
     score: 50
-    result: |
+    say: |
       You reach out and touch the carved stone.
       
       It's cold. Colder than it should be. Colder than the air.
@@ -80,10 +80,10 @@ advertisements:
       
       ...Does it?
       
-  - action: OFFER-TRIBUTE
+  OFFER-TRIBUTE:
     score: 40
     description: "Leave something for the face"
-    result: |
+    say: |
       You place [item] at the base of the carved face.
       
       The shadows in the eye sockets seem to deepen.
@@ -91,11 +91,11 @@ advertisements:
       
       [The face remembers your offering]
       
-  - action: MOCK
+  MOCK:
     score: 20
     score_if:
       - "player.wisdom < 5"
-    result: |
+    say: |
       "Nice face, stone-head!"
       
       Somewhere, you think you hear stone grinding against stone.
@@ -107,9 +107,9 @@ advertisements:
       
       [The face remembers your disrespect]
       
-  - action: COPY-EXPRESSION
+  COPY-EXPRESSION:
     score: 45
-    result: |
+    say: |
       You arrange your face to match the carved one.
       Stern. Impassive. Ancient.
       

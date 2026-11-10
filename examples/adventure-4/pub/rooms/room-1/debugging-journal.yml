@@ -88,17 +88,20 @@ state:
   most_common_bug: "semantic drift"
   
 advertisements:
-  - trigger: "something went wrong"
-    score: 0.9
-    response: "Document it. The bug you understand is the bug you fix."
+  ON-SOMETHING-WENT-WRONG:
+    trigger: "something went wrong"
+    score: 90
+    say: "Document it. The bug you understand is the bug you fix."
     
-  - trigger: "why did it fail"
-    score: 0.95
-    response: "Three questions: What did you expect? What happened? Why the difference?"
+  ON-WHY-DID-IT-FAIL:
+    trigger: "why did it fail"
+    score: 95
+    say: "Three questions: What did you expect? What happened? Why the difference?"
     
-  - trigger: "frustrated"
-    score: 0.7
-    response: "Every entry in this journal was written in frustration. The journal turned frustration into wisdom."
+  ON-FRUSTRATED:
+    trigger: "frustrated"
+    score: 70
+    say: "Every entry in this journal was written in frustration. The journal turned frustration into wisdom."
     
 methods:
   ADD-ENTRY:

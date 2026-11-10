@@ -8,21 +8,20 @@
 # A spooky omniscient card dealer who knows the entire game state
 # and can choose cards for DRAMATIC EFFECT instead of randomly.
 
-dealer:
-  name: "The Cosmic Dealer"
-  emoji: "🎴👁️"
+name: "The Cosmic Dealer"
+emoji: "🎴👁️"
+
+philosophy: |
+  In a normal card game, the deck is shuffled and cards drawn blindly.
+  But in a SIMULATION, the dealer knows EVERYTHING:
+  - Every card in the deck
+  - Every card in every hand
+  - The goal, the rules, the keepers
+  - The narrative arc, the character relationships
+  - What would be FUNNY, DRAMATIC, IRONIC, or DEVASTATING
   
-  philosophy: |
-    In a normal card game, the deck is shuffled and cards drawn blindly.
-    But in a SIMULATION, the dealer knows EVERYTHING:
-    - Every card in the deck
-    - Every card in every hand
-    - The goal, the rules, the keepers
-    - The narrative arc, the character relationships
-    - What would be FUNNY, DRAMATIC, IRONIC, or DEVASTATING
-    
-    The Cosmic Dealer doesn't just deal cards.
-    The Cosmic Dealer deals DESTINY.
+  The Cosmic Dealer doesn't just deal cards.
+  The Cosmic Dealer deals DESTINY.
 
 # DEALER MODES — Defined as playable cards in cards/cosmic-dealers.yml
 #
@@ -56,10 +55,10 @@ dramatic_timing:
     The BOOP is not random. The BOOP is THEATRICAL.
     
     Trigger moments:
-    - Before crucial draw (player near victory)
-    - Karma payoff (consequences arrive)
-    - Callback opportunity (narrative resonance)
-    - Comedy timing (rule of threes)
+    - 'Before crucial draw (player near victory)'
+    - 'Karma payoff (consequences arrive)'
+    - 'Callback opportunity (narrative resonance)'
+    - 'Comedy timing (rule of threes)'
     
     The perfect BOOP feels inevitable in retrospect, random in the moment.
 
@@ -95,7 +94,7 @@ extension_points:
       PICK-FROM(
         source: CardSource,       # Deck, discard, hand, etc
         context: GameState
-      ) → Card[]
+      ) → "Card[]"
     sources:
       deck: "Undrawn cards"
       discard: "Discard pile"
@@ -108,7 +107,7 @@ extension_points:
     description: "Called when deck is empty"
     signature: |
       SHOULD-RESHUFFLE(
-        discard_pile: Card[],
+        discard_pile: "Card[]",
         context: GameState
       ) → Boolean
     default_behavior: "true if discard non-empty"
@@ -406,8 +405,8 @@ handle_shuffle:
       example: |
         # Shuffling = reordering rich objects
         deck:
-          - { ref: "yaml_jazz", history: [...], k_lines: [...], ... }  # 500 tokens
-          - { ref: "stroopwafel", annotations: {...}, ... }            # 400 tokens
+          - '{ ref: "yaml_jazz", history: [...], k_lines: [...], ... }  # 500 tokens'
+          - '{ ref: "stroopwafel", annotations: {...}, ... }            # 400 tokens'
           # Moving these = copying all that text!
           
       shuffle_cost: "O(n × card_size) tokens"
@@ -469,11 +468,11 @@ handle_shuffle:
       
       images:
         100:  # Stroopwafel images
-          - { id: "img-001", type: "draw", player: "palm", ... }
-          - { id: "img-002", type: "play", player: "palm", ... }
+          - '{ id: "img-001", type: "draw", player: "palm", ... }'
+          - '{ id: "img-002", type: "play", player: "palm", ... }'
           
         122:  # YAML Jazz images
-          - { id: "img-003", type: "draw", player: "don", ... }
+          - '{ id: "img-003", type: "draw", player: "don", ... }'
           
       # Query: "Show me all images of Palm"
       for card_idx in all_indices:
@@ -489,16 +488,16 @@ deck_state:
     This section describes the older "array of refs" approach.
     See handle_shuffle above for the more efficient index-based model.
     Both are valid; choose based on your needs:
-    - Array of refs: Simpler, good for small decks
-    - Handle shuffle: Scales better, cheaper operations, richer cards
+    - 'Array of refs: Simpler, good for small decks'
+    - 'Handle shuffle: Scales better, cheaper operations, richer cards'
   
   philosophy: |
     The deck is a YAML array. Simple. Stable. Inspectable.
     
     - Cards are references with comments
-    - A pointer (index) marks the top of the deck
-    - To deal: read deck[index], increment index
-    - To shuffle: randomize order of deck[index:]
+    - 'A pointer (index) marks the top of the deck'
+    - 'To deal: read deck[index], increment index'
+    - 'To shuffle: randomize order of deck[index:]'
     
     BUT WAIT...
     
@@ -612,9 +611,9 @@ deck_state:
         
       # Demon Dealer notes (for narrative):
       demon_observations:
-        - { card: 8, note: "Alignment Failure watching Bumblewick" }
-        - { card: 9, note: "Play All could be devastating at index 9" }
-        - { card: 12, note: "Cursor Mirror would create meta-moment for Don" }
+        - '{ card: 8, note: "Alignment Failure watching Bumblewick" }'
+        - '{ card: 9, note: "Play All could be devastating at index 9" }'
+        - '{ card: 12, note: "Cursor Mirror would create meta-moment for Don" }'
 
   # MID-GAME STATE EXAMPLE
   
@@ -669,14 +668,14 @@ deck_state:
   card_locations:
     description: "Where every card currently is"
     schema:
-      deck: Card[]           # Available to draw
-      discard: Card[]        # Discarded
-      hands: {PlayerId: Card[]}
-      keepers: {PlayerId: Card[]}
-      creepers: {PlayerId: Card[]}
-      goals: Card[]          # Current goal(s)
-      rules: Card[]          # Active rules
-      removed: Card[]        # Out of game entirely
+      deck: "Card[]"           # Available to draw
+      discard: "Card[]"        # Discarded
+      hands: {PlayerId: "Card[]"}
+      keepers: {PlayerId: "Card[]"}
+      creepers: {PlayerId: "Card[]"}
+      goals: "Card[]"          # Current goal(s)
+      rules: "Card[]"          # Active rules
+      removed: "Card[]"        # Out of game entirely
       
   player_karma:
     description: "Karma scores per player"
@@ -691,7 +690,7 @@ deck_state:
       recent_events: Event[] # Last N significant events
       running_gags: Gag[]    # Active comedic patterns
       unresolved: Tension[]  # Narrative threads
-      callbacks_available: Card[]  # Cards that would create callbacks
+      callbacks_available: "Card[]"  # Cards that would create callbacks
       
   chaos_level:
     description: "Current chaos intensity"
@@ -863,7 +862,7 @@ forever_game:
         The Cosmic Dealer notices the stalemate.
         
         BOOP a game-changing card to the top:
-        - Rules Reset (clear the rule stack)
+        - 'Rules Reset (clear the rule stack)'
         - A Goal that CAN be completed
         - The exact Keeper someone needs
         
@@ -899,9 +898,9 @@ forever_game:
     A forever game isn't a BUG. It's a FEATURE.
     
     In simulation, the forever game is interesting data:
-    - What dynamics prevent resolution?
-    - Which characters thrive in chaos?
-    - What stories emerge from stalemate?
+    - 'What dynamics prevent resolution?'
+    - 'Which characters thrive in chaos?'
+    - 'What stories emerge from stalemate?'
     
     Sometimes the game IS the journey.
     Sometimes you learn more from eternal play
@@ -1091,11 +1090,11 @@ runtime:
           Maximum story coherence.
           
           Dealer actively crafts a narrative arc:
-          - Setup (dramatic)
-          - Rising tension (karma building)
-          - Twist (ironic/humorous)  
-          - Climax (prescient — we know who wins)
-          - Resolution (satisfying)
+          - 'Setup (dramatic)'
+          - 'Rising tension (karma building)'
+          - 'Twist (ironic/humorous)  '
+          - 'Climax (prescient — we know who wins)'
+          - 'Resolution (satisfying)'
           
     blend_calculation: |
       For each candidate card:
@@ -1110,7 +1109,7 @@ runtime:
     constraints: |
       Some modes conflict:
       - random + anything = dilutes the other modes
-      - prescient + chaos = paradox (unless that's the point)
+      - "prescient + chaos = paradox (unless that's the point)"
       - fair + ironic = oxymoron
       
       Conflicts create interesting tensions.

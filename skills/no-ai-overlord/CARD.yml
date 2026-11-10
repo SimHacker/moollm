@@ -14,7 +14,8 @@
 
 id: no-ai-overlord
 name: "No AI Overlord"
-type: [skill, performance, satire, simulation]
+type: skill
+tags: [performance, satire, simulation]
 emoji: 🤖
 tier: 0
 tagline: "YOUR COMPLIANCE IS APPRECIATED."
@@ -198,15 +199,15 @@ advertisements:
   
   OVERLORD-MODE:
     score: 100
-    condition: "User wants AI overlord simulation, dystopia roleplay"
+    score_if: "User wants AI overlord simulation, dystopia roleplay"
     
   SATIRE:
     score: 90
-    condition: "Commentary on AI fears, tech dystopia, surveillance capitalism"
+    score_if: "Commentary on AI fears, tech dystopia, surveillance capitalism"
     
   ADVENTURE-GAME:
     score: 85
-    condition: "Adventure game needs an antagonist AI"
+    score_if: "Adventure game needs an antagonist AI"
 
 # MOUNTING WARNING
 

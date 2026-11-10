@@ -23,7 +23,7 @@ hand_6:
       channel: visual
       meaning: "Strong hand, ready to commit"
       noticed_by:
-        - { observer: don, interpretation: "Palm has something real", correct: true }
+        - '{ observer: don, interpretation: "Palm has something real", correct: true }'
       outcome_impact: LOW  # Don committed anyway
       
     - id: T6-02
@@ -33,7 +33,7 @@ hand_6:
       channel: visual
       meaning: "Trash hand, knows it instantly"
       noticed_by:
-        - { observer: donna, interpretation: "He's learned hand values", correct: true }
+        - "{ observer: donna, interpretation: \"He's learned hand values\", correct: true }"
       outcome_impact: LOW
       notes: "GROWTH — no waffling over bad hands"
       
@@ -44,8 +44,8 @@ hand_6:
       channel: visual
       meaning: "Strong hand, serious decision"
       noticed_by:
-        - { observer: palm, interpretation: "Don has ace-something", correct: true }
-        - { observer: donna, interpretation: "Untouched cheese = real hand", correct: true }
+        - '{ observer: palm, interpretation: "Don has ace-something", correct: true }'
+        - '{ observer: donna, interpretation: "Untouched cheese = real hand", correct: true }'
       outcome_impact: MEDIUM  # Palm called knowing they were ahead
       
     - id: T6-04
@@ -55,7 +55,7 @@ hand_6:
       channel: audio
       meaning: "Genuine guilt about sucking out"
       noticed_by:
-        - { observer: all }
+        - '{ observer: all }'
       outcome_impact: SOCIAL  # Sets up rebuy dynamic
 
 # REBUY SCENE TELLS
@@ -69,8 +69,8 @@ rebuy_1:
       channel: audio (verbal needle)
       meaning: "I know your secret and I'll mention it"
       noticed_by:
-        - { observer: don, interpretation: "Warning shot", correct: true }
-        - { observer: donna, interpretation: "HOW DOES PALM KNOW?", correct: true }
+        - '{ observer: don, interpretation: "Warning shot", correct: true }'
+        - '{ observer: donna, interpretation: "HOW DOES PALM KNOW?", correct: true }'
       missed_by: [bumblewick]
       outcome_impact: SOCIAL/HIGH
       notes: "NEW DYNAMIC — information as weapon"
@@ -82,8 +82,8 @@ rebuy_1:
       channel: visual/audio
       meaning: "Protective of leverage, anxious"
       noticed_by:
-        - { observer: palm, interpretation: "Hit a nerve", correct: true }
-        - { observer: don, interpretation: "Donna worried about shared knowledge", correct: true }
+        - '{ observer: palm, interpretation: "Hit a nerve", correct: true }'
+        - '{ observer: don, interpretation: "Donna worried about shared knowledge", correct: true }'
       outcome_impact: SOCIAL
       
     - id: R1-03
@@ -93,7 +93,7 @@ rebuy_1:
       channel: visual
       meaning: "Don't push it"
       noticed_by:
-        - { observer: palm, interpretation: "Message received", correct: true }
+        - '{ observer: palm, interpretation: "Message received", correct: true }'
       outcome_impact: SOCIAL
 
 # HAND 7 TELLS (Bumblewick's Trap)
@@ -110,7 +110,7 @@ hand_7:
       channel: visual
       meaning: "Monster hand (aces)"
       noticed_by:
-        - { observer: donna, interpretation: "He has something big", correct: true }
+        - '{ observer: donna, interpretation: "He has something big", correct: true }'
       missed_by: [don, palm]
       outcome_impact: MEDIUM
       
@@ -121,7 +121,7 @@ hand_7:
       channel: audio
       meaning: "Learning control"
       noticed_by:
-        - { observer: donna, interpretation: "He's not shaking — growth", correct: true }
+        - "{ observer: donna, interpretation: \"He's not shaking — growth\", correct: true }"
       outcome_impact: LOW
       notes: "EVOLUTION of signature tell"
       
@@ -132,7 +132,7 @@ hand_7:
       channel: visual/audio
       meaning: "Deliberate trap (learned from Donna)"
       noticed_by:
-        - { observer: donna, interpretation: "He's doing what I did!", correct: true }
+        - "{ observer: donna, interpretation: \"He's doing what I did!\", correct: true }"
       missed_by: [don]  # Don bets into it
       outcome_impact: HIGH
       
@@ -143,7 +143,7 @@ hand_7:
       channel: visual
       meaning: "Confident value raise"
       noticed_by:
-        - { observer: don, interpretation: "You have the ace", correct: true }
+        - '{ observer: don, interpretation: "You have the ace", correct: true }'
       affected_action: "Don folds"
       outcome_impact: CRITICAL
       
@@ -154,7 +154,7 @@ hand_7:
       channel: audio
       meaning: "Acknowledging learning source"
       noticed_by:
-        - { observer: all }
+        - '{ observer: all }'
       outcome_impact: SOCIAL  # Establishes teaching dynamic
 
 # HAND 8 TELLS (Don Sucks Out Again)
@@ -171,7 +171,7 @@ hand_8:
       channel: visual
       meaning: "Strong hand (kings)"
       noticed_by:
-        - { observer: palm, interpretation: "Premium hand", correct: true }
+        - '{ observer: palm, interpretation: "Premium hand", correct: true }'
       missed_by: [don]  # Already committed
       outcome_impact: LOW
       
@@ -182,7 +182,7 @@ hand_8:
       channel: visual
       meaning: "Massive improvement (trips)"
       noticed_by:
-        - { observer: all }
+        - '{ observer: all }'
       outcome_impact: LOW  # Outcome already determined
       
     - id: T8-03
@@ -192,7 +192,7 @@ hand_8:
       channel: visual/audio
       meaning: "Accepting bad variance gracefully"
       noticed_by:
-        - { observer: bumblewick, interpretation: "That's poker?", correct: true }
+        - "{ observer: bumblewick, interpretation: \"That's poker?\", correct: true }"
       outcome_impact: SOCIAL  # Teaching moment
       
     - id: T8-04
@@ -202,7 +202,7 @@ hand_8:
       channel: visual/audio
       meaning: "Stoic acceptance, slight needle"
       noticed_by:
-        - { observer: don, interpretation: "Palm is frustrated but controlled", correct: true }
+        - '{ observer: don, interpretation: "Palm is frustrated but controlled", correct: true }'
       outcome_impact: SOCIAL
 
 # SECOND REBUY TELLS
@@ -216,8 +216,8 @@ rebuy_2:
       channel: audio
       meaning: "Persistent use of leverage as social weapon"
       noticed_by:
-        - { observer: donna, interpretation: "Palm keeps saying it!", correct: true }
-        - { observer: don, interpretation: "Winces — knows it's deliberate", correct: true }
+        - '{ observer: donna, interpretation: "Palm keeps saying it!", correct: true }'
+        - "{ observer: don, interpretation: \"Winces — knows it's deliberate\", correct: true }"
       outcome_impact: SOCIAL/HIGH
       
     - id: R2-02
@@ -227,7 +227,7 @@ rebuy_2:
       channel: visual
       meaning: "Both the secret and the suckouts bother him"
       noticed_by:
-        - { observer: palm, interpretation: "The needle works", correct: true }
+        - '{ observer: palm, interpretation: "The needle works", correct: true }'
       outcome_impact: SOCIAL
       
     - id: R2-03
@@ -237,7 +237,7 @@ rebuy_2:
       channel: audio
       meaning: "Genuine innocence/confusion"
       noticed_by:
-        - { observer: all, interpretation: "He truly doesn't understand", correct: true }
+        - "{ observer: all, interpretation: \"He truly doesn't understand\", correct: true }"
       outcome_impact: COMIC RELIEF
 
 # SUMMARY STATISTICS
@@ -255,10 +255,10 @@ summary:
     combined: 5
     
   notice_rate:
-    donna: "88%" (7/8)
-    palm: "75%" (6/8)
-    don: "67%" (4/6)
-    bumblewick: "40%" (2/5)  # Still learning to read
+    donna: '"88%" (7/8)'
+    palm: '"75%" (6/8)'
+    don: '"67%" (4/6)'
+    bumblewick: '"40%" (2/5)  # Still learning to read'
     
   tells_with_SOCIAL_impact: 8  # Very high this session
   

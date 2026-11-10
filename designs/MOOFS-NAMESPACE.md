@@ -256,7 +256,7 @@ adds a verb. A writable `/proc` file adds none.
 /proc/index.yml            # index lag per type, and whether /q/ can be trusted right now
 ```
 
-The load-bearing one is the first. **Writing to `/proc/self/ns.yml` is how you mount**, so the whole
+**Writing to `/proc/self/ns.yml` is how you mount**, so the whole
 namespace-manipulation surface is one file that the model reads, edits, and writes back — an ordinary
 edit of an ordinary YAML file. Unmounting is deleting a list entry. This is the
 [magic dictionary](MOOFS-DESIGN.md#the-magic-dictionary-pattern) pointed at the namespace itself, and
@@ -270,7 +270,7 @@ the substrate the tools already manipulate, so no second mechanism exists to lea
 ## The mount table is the context manifest
 
 The namespace is `(repo, ref, subpath, at, mode)` tuples, which means it is **data, small, and
-serializable**. That has consequences worth naming, because they are the actual payoff:
+serializable**.
 
 - **A session's world is reproducible.** Pin every ref and the namespace replays exactly. This is
   [the cursor permalink](webtop/READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path-anchor)
@@ -302,9 +302,7 @@ answer it is a bug.
 **This is a resolver, not a kernel mount.** The namespace exists only for callers that go through
 MOOFS. A shell command, a `cat`, or any tool reaching the real disk sees the real disk and knows
 nothing about `/obj/cursor/a3f9/`. That leak is permanent short of FUSE, and the honest framing is
-that MOOFS paths are a *convention the tools honor* — which is worth saying plainly given that the
-MOOCO repo model doc has already had to delete one round of design fiction on exactly this subject,
-after a 3400-line spec described a mount layer that did not exist.
+that MOOFS paths are a *convention the tools honor*. A 3400-line MOOCO spec already described a mount layer that did not exist, and that spec was deleted.
 
 **Live mounts multiply staleness.** Twenty `@branch` mounts are twenty things that can move under you
 mid-session. Pinning fixes it and costs currency; the default should probably be pin-on-first-read,

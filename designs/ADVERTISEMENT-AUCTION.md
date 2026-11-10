@@ -75,11 +75,7 @@ energy at high dither. Full design and its Sims-era history in
 
 Not learning to be more *persuasive* — that road is engagement maximization —
 but more **appropriate and helpful**, re-tuning bids against the hearer's
-observed outcomes. Persuasion then arrives as earned trust, because the hearer
-discovers the ads serve the listener's good rather than the seller's.
-
-The hustler food chain can learn honesty, and where outcomes feed back into the
-auction, honesty keeps winning it.
+observed outcomes.
 
 Stated as an intention, not a claim: nothing here implements it.
 

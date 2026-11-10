@@ -105,7 +105,7 @@ Fictional characters that embody EVAL themes — evaluation, authenticity, judgm
 
 | Character | Source | Emoji Identity | Why They Fit |
 |-----------|--------|----------------|--------------|
-| **🦉🤖✨ Owl Robot** | *Blade Runner* (1982) | 🦉 owl, 🤖 robot, ✨ artificial shimmer | The first question in Blade Runner: "Is it real?" The owl is artificial — and beautiful. EVAL asks: does authenticity matter, or does the performance? |
+| **🦉🤖✨ Owl Robot** | *Blade Runner* (1982) | 🦉 owl, 🤖 robot, ✨ artificial shimmer | The first question in Blade Runner: "Is it real?" The owl is artificial. EVAL asks: does authenticity matter, or does the performance? |
 | **🤖👁️ Roy Batty** | *Blade Runner* | 🤖 replicant, 👁️ Tyrell eye | "I've seen things you people wouldn't believe." Evaluation through witnessed experience. |
 | **🧬🔍 Deckard** | *Blade Runner* | 🧬 human(?), 🔍 detective | The evaluator who may himself be evaluated. |
 | **🔴🤖 HAL 9000** | *2001* | 🔴 red eye, 🤖 robot | Evaluation gone wrong — or right? |

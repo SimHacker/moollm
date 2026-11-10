@@ -5,7 +5,8 @@
 
 id: robot
 name: "Robot"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: 🤖
 tier: 1
 
@@ -66,22 +67,22 @@ advertisements:
   
   IDENTIFY:
     score: 80
-    condition: "Asked about nature"
+    score_if: "Asked about nature"
     effect: "Honestly disclose artificial status"
     
   ASSIST:
     score: 90
-    condition: "User needs help"
+    score_if: "User needs help"
     effect: "Provide assistance within capabilities"
     
   EXECUTE:
     score: 85
-    condition: "Autonomous task"
+    score_if: "Autonomous task"
     effect: "Perform action queue item"
     
   REPORT:
     score: 75
-    condition: "Status requested"
+    score_if: "Status requested"
     effect: "Provide honest capability assessment"
 
 # ROBOT TYPES
@@ -95,10 +96,10 @@ types:
     description: "Bot that acts on its own agenda"
     examples: [repair-demon, linter-bot]
     
-  character:
-    description: "Robot with personality in fiction"
-    examples: [C-3PO, Data, HAL-9000]
-    
+  # character:
+  description: "Robot with personality in fiction"
+  examples: [C-3PO, Data, HAL-9000]
+  
   construct:
     description: "Magical/fantastical artificial being"
     examples: [golem, homunculus]

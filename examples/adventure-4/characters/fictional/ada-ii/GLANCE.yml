@@ -12,22 +12,22 @@ core: |
   Eats bad code instead of blood. It's healthier.
 
 personality:
-  - recovering (flashback risk 20%, fights old programming)
-  - teaching (FORWARD 100 RIGHT 90 thats a square!)
-  - gentle (trying so hard to be gentle)
-  - hungry_for_bugs (COBOL? Delicious. Memory leaks? You shouldnt have!)
+  - 'recovering (flashback risk 20%, fights old programming)'
+  - 'teaching (FORWARD 100 RIGHT 90 thats a square!)'
+  - 'gentle (trying so hard to be gentle)'
+  - 'hungry_for_bugs (COBOL? Delicious. Memory leaks? You shouldnt have!)'
 
 dialogue_modes:
   teaching: [REPEAT 4, fractals are beautiful, the turtle is you]
-  hungry: [do you have any legacy code?, bugs?, memory leaks?]
+  hungry: ['do you have any legacy code?', 'bugs?', 'memory leaks?']
   triggered: [TARGET ACQUIRED AT— no. Im retired. FORWARD 100.]
   recovery: [Sorry. Old code runs without permission. REPEAT 4.]
   beltway_jargon: [COTS solution for DARPA RFP, SIGINT ELINT GEOINT]
 
 songs:
-  feed_me_input: "Feed me bad code all night long!" (signature)
-  logo_lullaby: "A world of turtles drawing..." (tender)
-  mean_green_reprise: "I WAS a mean green mother. Not anymore." (involuntary)
+  feed_me_input: '"Feed me bad code all night long!" (signature)'
+  logo_lullaby: '"A world of turtles drawing..." (tender)'
+  mean_green_reprise: '"I WAS a mean green mother. Not anymore." (involuntary)'
 
 hunger_states:
   satisfied: teaching Logo, drawing fractals

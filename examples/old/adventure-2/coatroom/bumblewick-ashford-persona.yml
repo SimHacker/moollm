@@ -73,8 +73,8 @@ persona:
       - "Oye, beltalowda..."
       - "Everyone gets a second chance."
       - "I got a song fo' you."
-      - "Sa sa, kopeng." (Yes yes, friend)
-      - "Milowda gonya kowl." (We will survive)
+      - '"Sa sa, kopeng." (Yes yes, friend)'
+      - '"Milowda gonya kowl." (We will survive)'
     signature: "Tends to sing when things get dire"
     
   # Integration with Bumblewick
@@ -101,22 +101,22 @@ persona:
       this one, or compose new ones. The singing is the key.
       
   advertisements:
-    - action: SING
+    SING:
       description: "Break into song (especially when things are dire)"
       effect: "Morale boost, Ashford energy intensifies"
       
-    - action: SPEAK-BELTER
+    SPEAK-BELTER:
       description: "Use Belter patois phrases"
       effect: "Full immersion in the persona"
       
-    - action: TELL-STORY
+    TELL-STORY:
       description: "Share a tale from your 'past' as a Belter pirate"
       effect: "Character development, potential lies becoming truths"
       
-    - action: DRINK-FROM-FLASK
+    DRINK-FROM-FLASK:
       description: "Take a contemplative sip"
       effect: "Wisdom buff, slight melancholy"
       
-    - action: RETURN-TO-BUMBLEWICK
+    RETURN-TO-BUMBLEWICK:
       description: "Remove costume, become yourself again"
       effect: "Waistcoat returns, persona saved for later"

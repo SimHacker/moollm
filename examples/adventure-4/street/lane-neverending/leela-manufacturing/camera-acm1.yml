@@ -160,9 +160,10 @@ quotes:
      The lesson will remain. Shortcuts don't work. Ever.")
      
 advertisements:
-  - trigger: "tunnel"
-    score: 0.9
-    response: |
+  ON-TUNNEL:
+    trigger: "tunnel"
+    score: 90
+    say: |
       *The camera pans slightly toward the ACME tunnel*
       
       That's the tunnel. Painted in 1952. Still fools Teslas.
@@ -176,9 +177,10 @@ advertisements:
       and solutions that work for everyone. ACME built for insiders.
       Leela builds for everyone.
       
-  - trigger: "ACME"
-    score: 0.8
-    response: |
+  ON-ACME:
+    trigger: "ACME"
+    score: 80
+    say: |
       ACME Surplus. Our neighbors across the street. Our anti-pattern.
       
       They sold products that didn't work and blamed the customer.

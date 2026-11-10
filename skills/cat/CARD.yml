@@ -5,7 +5,8 @@
 
 id: cat
 name: "Cat"
-type: [skill, companion, game]
+type: skill
+tags: [companion, game]
 emoji: 🐱
 tier: 1
 tagline: "Cats have their own agenda."
@@ -51,27 +52,27 @@ invoke_when:
 advertisements:
   PET-A-CAT:
     score: 80  # Lower than dogs — cats are harder
-    condition: "Cat is present and approachable"
+    score_if: "Cat is present and approachable"
     
   EARN-TRUST:
     score: 85
-    condition: "Building relationship with cat over time"
+    score_if: "Building relationship with cat over time"
     
   SLOW-BLINK:
     score: 90
-    condition: "Cat communication, showing trust"
+    score_if: "Cat communication, showing trust"
     
   LAP-CAT:
     score: 85
-    condition: "Cat wants to sit on lap (human cannot move)"
+    score_if: "Cat wants to sit on lap (human cannot move)"
     
   KITTEN-PILE:
     score: 95
-    condition: "Multiple kittens present, cuddle opportunity"
+    score_if: "Multiple kittens present, cuddle opportunity"
     
   RECEIVE-JUDGMENT:
     score: 70
-    condition: "Cat is watching you disapprovingly"
+    score_if: "Cat is watching you disapprovingly"
 
 # METHODS — signatures only, see SKILL.md for full protocols
 

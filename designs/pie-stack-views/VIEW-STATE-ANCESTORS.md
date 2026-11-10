@@ -54,7 +54,7 @@ The practical payoff is the one gwern names: once popups give you seamless navig
 
 The consequence that took longest to see: a summary or comment about something is a shareable, reusable part of that thing's semantic pyramid. Not a reply beside it — a rung *on* it.
 
-This is sharper than it sounds. A comment sits next to its target forever and is read by people who came to read the comments. A rung gets *used*: the next reader who zooms that document to abstract level sees your abstract, because it is the best abstract anyone has written. The contribution becomes load-bearing infrastructure rather than marginalia, consumed by people who never intended to read commentary at all — which is also exactly why authorship has to ride along structurally. The more useful a rung is, the more invisible its author becomes unless the format carries the credit.
+A comment sits next to its target forever and is read by people who came to read the comments. A rung gets *used*: the next reader who zooms that document to abstract level sees your abstract, because it is the best abstract anyone has written. The contribution becomes infrastructure rather than marginalia, consumed by people who never intended to read commentary at all — which is also exactly why authorship has to ride along structurally. The more useful a rung is, the more invisible its author becomes unless the format carries the credit.
 
 ## DreamScape: the browsing path as an editable tree
 

@@ -3,17 +3,16 @@
 # Git commits that capture context, not just changes.
 # cursor-mirror sees NOW. git commit FREEZES it.
 
-skill:
-  name: thoughtful-commitment
-  version: 1.0.0
-  emoji: "🤔💭"
-  tagline: "Commits that capture context"
-  config_dir: ".moollm/skills/thoughtful-commitment"
-  
-  description: |
-    Git commits with intent and traceability.
-    Composes cursor-mirror + git + shell.
-    Default: concise technical style.
+name: thoughtful-commitment
+version: 1.0.0
+emoji: "🤔💭"
+tagline: "Commits that capture context"
+config_dir: ".moollm/skills/thoughtful-commitment"
+
+description: |
+  Git commits with intent and traceability.
+  Composes cursor-mirror + git + shell.
+  Default: concise technical style.
 
 # FILES
 files:
@@ -46,52 +45,52 @@ tags: [git, commits, narrative, provenance, introspection, composability]
 # ADVERTISEMENTS — When to invoke this skill
 advertisements:
   # Primary Introspection
-  - id: TIMELINE
+  TIMELINE:
     trigger: "user wants to see session events"
     conditions:
       - "user asks what happened"
       - "user wants session overview"
       - "user wants to understand flow"
-    score: 0.95
+    score: 95
     note: "Start here — master view, then drill down"
     
-  - id: CONTEXT-FOCUS
+  CONTEXT-FOCUS:
     trigger: "user wants to see context window"
     conditions:
       - "user asks what was in context"
       - "user wants to see inputs"
       - "user asks what LLM saw"
-    score: 0.95
+    score: 95
     
   # Commit Operations
-  - id: COMMIT
+  COMMIT:
     trigger: "user wants to commit with context"
     conditions:
       - "staged changes exist"
       - "user asks for thoughtful/narrative commit"
-    score: 0.9
+    score: 90
     
-  - id: EXPLAIN
+  EXPLAIN:
     trigger: "user asks why a commit was made"
     conditions:
       - "commit hash provided"
       - "user wants reasoning behind change"
-    score: 0.8
+    score: 80
     
   # Git Archaeology
-  - id: BLAME
+  BLAME:
     trigger: "user asks who wrote code and why"
     conditions:
       - "file path provided"
       - "user wants attribution + reasoning"
-    score: 0.85
+    score: 85
     
-  - id: ARCHAEOLOGY
+  ARCHAEOLOGY:
     trigger: "user wants history of file/pattern"
     conditions:
       - "target path or pattern provided"
       - "user exploring evolution"
-    score: 0.8
+    score: 80
 
 # METHODS — Signatures only, see SKILL.md for details
 methods:
@@ -101,7 +100,7 @@ methods:
   TIMELINE:
     description: "Show all events with timestamps, types, and IDs — the master view"
     composes_with: cursor-mirror
-    params: [composer, limit, filter, since]
+    parameters: [composer, limit, filter, since]
     returns: [events]  # Each: {id, timestamp, type, summary}
     output_tag: "⏱️"
     drill_down: "Use event IDs with CONTEXT-FOCUS, THINKING, TOOLS"
@@ -123,7 +122,7 @@ methods:
   CONTEXT-FOCUS:
     description: "Analyze what went into context window for a call"
     composes_with: cursor-mirror
-    params: [composer, event_id]
+    parameters: [composer, event_id]
     returns: [files_read, snippets, conversation, rules, total_tokens]
     output_tag: "🪟"
     example_output: |
@@ -145,14 +144,14 @@ methods:
   THINKING:
     description: "Show reasoning blocks for an event or range"
     composes_with: cursor-mirror
-    params: [composer, event_id, range]
+    parameters: [composer, event_id, range]
     returns: [thinking_blocks]
     output_tag: "🧠"
   
   TOOLS:
     description: "Show tool calls for an event or session"
     composes_with: cursor-mirror
-    params: [composer, event_id, tool_filter]
+    parameters: [composer, event_id, tool_filter]
     returns: [tool_calls]  # Each: {id, tool, args, result_summary}
     output_tag: "🔧"
 
@@ -160,58 +159,58 @@ methods:
   
   COMMIT:
     description: "Create thoughtful commit"
-    params: [files, summary, style, detail, include_thinking]
+    parameters: [files, summary, style, detail, include_thinking]
     returns: [commit_id, message, thinking_link]
     defaults: { style: technical, detail: 3 }
     
   EXPLAIN:
     description: "Find thinking that led to existing commit"
-    params: [commit]
+    parameters: [commit]
     returns: [commit_message, thinking_blocks, user_request, tool_calls]
     
   MESSAGE:
     description: "Generate commit message from context"
-    params: [diff_summary, style, detail]
+    parameters: [diff_summary, style, detail]
     returns: [message]
     defaults: { style: technical, detail: 3 }
 
   DEEP-COMMIT:
     description: "Mine session for technical analytics"
-    params: [composer, commit_range]
+    parameters: [composer, commit_range]
     returns: [raw_metrics, tool_distribution, thinking_analysis, verification_commands]
 
   LINK:
     description: "Link commit to cursor-mirror events"
-    params: [commit, events]
+    parameters: [commit, events]
     returns: [linked, reference]
 
   # GIT ARCHAEOLOGY
     
   BLAME:
     description: "Who wrote each line, when, and why?"
-    params: [path, lines, follow_renames]
+    parameters: [path, lines, follow_renames]
     returns: [lines, commits, authors, timeline]
     
   ARCHAEOLOGY:
     description: "Deep dig into file/pattern history"
-    params: [target, mode, since]
+    parameters: [target, mode, since]
     returns: [evolution, milestones, contributors, linked_sessions]
     
   HISTORY:
     description: "Narrative timeline of a path"
-    params: [path, depth, include_thinking]
+    parameters: [path, depth, include_thinking]
     returns: [timeline]
 
   # GIT PLANNING
     
   PLAN-MERGE:
     description: "Understand what merge will bring"
-    params: [source, target, detail]
+    parameters: [source, target, detail]
     returns: [commits_to_merge, files_affected, potential_conflicts, narrative]
     
   PLAN-CHERRY-PICK:
     description: "Plan surgical commit extraction"
-    params: [commits, target]
+    parameters: [commits, target]
     returns: [commits, order, warnings, commands]
 
 # USER CONFIG — Override defaults

@@ -108,8 +108,6 @@ That's been rhetoric. After the Coherence Society ships, it's mechanism:
 | "K-lines activate constellations" | File and skill names resolve via search. | CR event types, handler registrations, advertisement scores are K-lines — the society activates behavior by matching event patterns to agent competencies. |
 | "Advertisements signal capabilities" | Static YAML declarations. | Advertisements fire advertising scores; scryers watch firing patterns; handlers check completeness; the whole cycle is observable. |
 
-The kernel's citations of Minsky, Hewitt, Wright move from footnote to load-bearing.
-
 ---
 
 ## 5. The role catalog
@@ -210,7 +208,7 @@ Emergent properties — behaviors no agent programs but the society yields:
 
 **Evolutionary pressure toward coherence.** Size limits flag cauldron candidates; cauldron cauldrons them; smaller focused modules fire fewer CR events; lower event flux indicates healthier state. The society has a feedback loop that rewards structural fitness.
 
-**Heritage kept active.** Minsky, Wright, Ungar, Papert aren't cited as flattery. Their ideas are agent-kinds, event patterns, advertisement semantics, prototype inheritance — load-bearing mechanism. The society is the heritage made operational.
+**Heritage kept active.** Their ideas are agent-kinds, event patterns, advertisement semantics, and prototype inheritance.
 
 ---
 
@@ -309,7 +307,7 @@ No roadmap surgery needed. One small addition: a `§2.5 The attractor` subsectio
 - `skills/cursor-mirror/` — telemetry primitive; the society's shared memory for session state
 - `skills/cursor-mirror/characters/i-beam/CHARACTER.yml` — **the precedent for reviewer-characters**; a 933-line familiar with methods, personality, lineage
 - `skills/skill-snitch/` — security-axis scryer; part of the society's consistency maintenance
-- `skills/skill-log/` — the society's message bus; `skill_log.py` is load-bearing society infrastructure
+- `skills/skill-log/` — the society's message bus (`skill_log.py`)
 - `skills/scry/` — (new at pilot step 6.5) the society's protocol authority and catalog
 - `skills/adventure/` — the primary concrete society instance; engine + compile + validate + runtime all participate
 - `skills/prototype/` — inheritance machinery for handlers, advertisements, and **reviewer-characters**

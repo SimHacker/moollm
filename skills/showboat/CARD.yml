@@ -3,7 +3,8 @@
 
 id: showboat
 name: "Showboat"
-type: [skill, tool, demo]
+type: skill
+tags: [tool, demo]
 author: "Simon Willison"
 license: Apache-2.0
 
@@ -19,13 +20,13 @@ methods:
 advertisements:
   DEMO-FEATURE:
     score: 90
-    condition: "Agent has built something and needs to prove it works"
+    score_if: "Agent has built something and needs to prove it works"
   TUTORIAL-BUILDER:
     score: 80
-    condition: "Need to create a step-by-step walkthrough from real execution"
+    score_if: "Need to create a step-by-step walkthrough from real execution"
   LIVE-PROGRESS:
     score: 75
-    condition: "Want to see agent work in progress (via datasette-showboat or VS Code)"
+    score_if: "Want to see agent work in progress (via datasette-showboat or VS Code)"
 
 install: "uvx showboat --help"
 invoke: "uvx showboat <command> <file.md> [args]"
@@ -64,4 +65,4 @@ cursor_mirror_integration:
       print(f'Drift: {result.drift_detected}')
     "
 
-related_skills: [datasette, cursor-mirror, sister-script, play-learn-lift]
+related: [datasette, cursor-mirror, sister-script, play-learn-lift]

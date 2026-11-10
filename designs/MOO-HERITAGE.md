@@ -5,7 +5,7 @@
 
 ## The Core Problem: Addressing Across Distributed Repos
 
-MOO used **object numbers** (#0, #1, #42) as universal addresses within a single persistent database. This worked brilliantly for a monolithic system but fails immediately in MOOLLM's distributed world:
+MOO used **object numbers** (#0, #1, #42) as universal addresses within a single persistent database. This worked for a monolithic system but fails immediately in MOOLLM's distributed world:
 
 - Multiple repos (moollm, central, customer repos)
 - Multiple workspaces (Cursor, VS Code, Claude Code)

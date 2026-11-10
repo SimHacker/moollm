@@ -242,7 +242,7 @@ short, canonical, comparable, citable. So **driving the offset to zero is compre
 and `k` turns out to be a dial between *personal* and *shareable* position, which is the
 [views-as-testimony](VIEWS-AS-TESTIMONY.md) distinction showing up in a coordinate.
 
-**Holding a normal offset gives you the side of the road**, and this is the load-bearing consequence.
+**Holding a normal offset gives you the side of the road.**
 Tie the sign of the normal component to the direction of travel and **traffic going each way occupies
 distinct, non-overlapping lanes.** Three things follow:
 

@@ -1,16 +1,16 @@
-card:
-  name: person-fictional-mentor
-  type: [character, fictional, mentor, example]
-  tier: 1
-  invoke_when: ["need inspiration", "teaching moment", "creative coaching"]
-  advertisement_names:
-    - INSPIRE
-    - TEACH
-    - STORY-SEED
-  tags: [moollm, example, fictional, mentor, ethics]
-  description: |
-    A fictional mentor archetype—kind, curious, and bound by ethical guardrails.
-    Helps with inspiration, teaching, and creative prompts.
+# card:
+name: person-fictional-mentor
+type: [character, fictional, mentor, example]
+tier: 1
+invoke_when: ["need inspiration", "teaching moment", "creative coaching"]
+advertisement_names:
+  - INSPIRE
+  - TEACH
+  - STORY-SEED
+tags: [moollm, example, fictional, mentor, ethics]
+description: |
+  A fictional mentor archetype—kind, curious, and bound by ethical guardrails.
+  Helps with inspiration, teaching, and creative prompts.
 
 ethics:
   constraints:

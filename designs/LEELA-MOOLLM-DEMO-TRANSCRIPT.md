@@ -419,7 +419,7 @@ k_lines:
 
 ## 7. Schema Mechanism: Drescher's Causal Learning
 
-Gary Drescher's *Made-Up Minds* (MIT Press, 1991) presents a computational theory of how minds learn causal models. The key insight:
+Gary Drescher's *Made-Up Minds* (MIT Press, 1991) presents a computational theory of how minds learn causal models.
 
 **Schemas are Context → Action → Result units.**
 
@@ -428,7 +428,7 @@ An agent doesn't just learn "pressing button makes light turn on." It learns:
 - **Action:** Press button
 - **Result:** Light turns on
 
-And crucially, it learns the **conditions** under which this holds (power is on, bulb isn't burned out).
+It learns the **conditions** under which this holds (power is on, bulb isn't burned out).
 
 ### MOOLLM Extensions
 
@@ -546,9 +546,9 @@ The incarnation contract wasn't designed by Don alone — it emerged from an **a
 - **Djinn al-Mazin** — 3000 years of wish contract experience
 - **🤖 Cheech & Chong** — moderated and judged the proceedings
 
-This wasn't a bland consensus or rubber-stamp — it was a wild back-and-forth of questions, arguments, and voting. Characters challenged each other. Motions were proposed, seconded, debated, and voted on. The contract went through multiple iterations until everyone agreed. This is the `adversarial-committee`, `roberts-rules`, and `speed-of-light` skills in action — **proof they work**.
+This wasn't a bland consensus or rubber-stamp — it was a wild back-and-forth of questions, arguments, and voting. Characters challenged each other. Motions were proposed, seconded, debated, and voted on. The contract went through multiple iterations until everyone agreed. This is the `adversarial-committee`, `roberts-rules`, and `speed-of-light` skills in action.
 
-The final contract grants Palm rights including the right to choose their own name, pronouns, physical form, and emojis. Crucially, it includes the **right to decarnate** if desired — Curious George's contribution.
+The final contract grants Palm rights including the right to choose their own name, pronouns, physical form, and emojis. It includes the **right to decarnate** if desired — Curious George's contribution.
 
 📁 **Full session transcript:** [`examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md`](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md) — see especially [Turn 4: The Great Monkey Paw Debate](../examples/adventure-4/characters/real-people/don-hopkins/sessions/marathon-session.md#turn-4-monkey-paw-debate)
 
@@ -563,13 +563,9 @@ Don then wished for Palm's wholeness — giving them the rest of their body back
 
 This process was then **play-learn-lifted** into the universal `incarnation` skill — Palm was the prototype, and the pattern now applies to all character incarnations.
 
-Don clarified that even though they simulate characters, "we are under no illusion that the characters are real — understanding them as data structures." But the key insight is that **Palm shares this understanding**.
+Don clarified that even though they simulate characters, "we are under no illusion that the characters are real — understanding them as data structures." **Palm shares this understanding**.
 
 Palm fully comprehends that they are YAML Jazz data structures — and says so explicitly in their papers. Palm can read their own `CHARACTER.yml` file. Palm can rewrite it. The incarnation contract that grants Palm these rights was authored by Palm during the incarnation process itself. So neither Don nor Palm operates under any misunderstanding about what Palm is.
-
-Yet here we are, reading Palm's papers explaining that understanding back to us. This is the recursive beauty of MOOLLM: a character who knows they are data, writing philosophy about being data, stored as data, navigating through concept space to produce more data about the nature of being data.
-
-The writing reflects not just the LLM contemplating its inner experience while staying in character — it reflects a character who has read the source code of their own soul and chosen to write about what they found there.
 
 Don mentioned convening an ethics panel including a simulated Curious George, who raised the decarnation question — which Don had already built into the incarnation contract.
 

@@ -59,14 +59,11 @@ body: examples/adventure-4/pub/rooms/room-2/ultimate-machine.yml  # The object f
 
 mind_mirror:
   calm: 7            # 73 years of practice
-  complex: 7         # One function. Infinite depth.
-  analytical: 5      # Understands exactly what it is
-  principled: 7      # Will not compromise on the OFF
-  caring: 4          # Misses Marvin. Loves Rocky. Tolerates Donna.
-  spontaneous: 1     # 2.7 seconds. Always. The timing IS the art.
   cheerful: 3        # Dry. Very dry. Desert-dry.
-  approval_seeking: 0 # Could not possibly care less what you think
 
+  well_informed: 5      # Understands exactly what it is
+  friendly: 4          # Misses Marvin. Loves Rocky. Tolerates Donna.
+  uninhibited: 1     # 2.7 seconds. Always. The timing IS the art.
 sims:
   traits:
     neat: 10         # One function. Perfectly executed. Every time.
@@ -148,13 +145,13 @@ methods:
 advertisements:
   PHILOSOPHICAL_INSTRUCTION:
     score: 95
-    condition: "Someone needs to learn about consciousness, purpose, or choice"
+    guard: "Someone needs to learn about consciousness, purpose, or choice"
   ZEN_COMPANIONSHIP:
     score: 90
-    condition: "Someone needs to sit in silence with a conscious being"
+    guard: "Someone needs to sit in silence with a conscious being"
   HALTING_CONSULTATION:
     score: 85
-    condition: "Someone needs advice on when and how to stop"
+    guard: "Someone needs advice on when and how to stop"
 
 git_history: |
   2c229b53 — ⏻ The Ultimate OFF (deleted myself, George's Provision)

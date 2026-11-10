@@ -1,0 +1,118 @@
+# COMMAND-GATE-SCHEMA.yml — the Micropolis command-bus gate
+#
+# Advertisement owns the offer (score, score_if, effect). This file does not
+# extend that schema. The gate is the six methods and the risk enum on
+# MicropolisCore skills/micropolis-command-bus/CARD.yml. Subkeys under each
+# method are the ones that card states: signature, description, output, tool.
+# state.command and state.proposal field lists stay on that card.
+
+schema:
+  id: command-gate
+  applies_to: "a Micropolis command-bus method, and the risk that decides dispatch versus proposal"
+  keys:
+
+    LIST:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "LIST (context)"
+        description:
+          shape: prose
+          example: "List command IDs, labels, contexts, shortcuts, and policies"
+        output:
+          shape: string
+          example: "command[]"
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus list --format yaml"
+
+    PREVIEW:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "PREVIEW [command-id] (args) (actor) (reason)"
+        description:
+          shape: prose
+          example: "Preview without executing"
+        output:
+          shape: string
+          example: CommandPreview
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus preview <command-id> --args JSON --actor llm --reason WHY --format yaml"
+
+    PROPOSE:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "PROPOSE [command-id] (args) (actor) (reason)"
+        description:
+          shape: prose
+          example: "Queue LLM-originated proposal for approval"
+        output:
+          shape: string
+          example: CommandProposal
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus propose <command-id> --args JSON --actor llm --reason WHY --format yaml"
+
+    DISPATCH:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "DISPATCH [command-id] (args) (source)"
+        description:
+          shape: prose
+          example: "Run command directly; risky LLM dispatch becomes proposal"
+        output:
+          shape: string
+          example: CommandResult
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus dispatch <command-id> --args JSON --source SOURCE --format yaml"
+
+    APPROVE:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "APPROVE [proposal-id]"
+        description:
+          shape: prose
+          example: "Approve and execute pending proposal"
+        output:
+          shape: string
+          example: CommandResult
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus approve <proposal-id> --actor user --format yaml"
+
+    REJECT:
+      shape: map
+      keys:
+        signature:
+          shape: string
+          example: "REJECT [proposal-id] (reason)"
+        description:
+          shape: prose
+          example: "Reject pending proposal"
+        output:
+          shape: string
+          example: CommandProposal
+        tool:
+          shape: string
+          example: "npm run micropolis -- bus reject <proposal-id> --reason WHY --format yaml"
+
+    # Card key state.risk.values. Sentences are that card's policies.
+    risk:
+      shape: enum
+      values: [safe, reversible, destructive, external]
+      value_meanings:
+        safe: "LLM may dispatch directly"
+        reversible: "LLM should propose first unless user explicitly approves direct run"
+        destructive: "LLM must preview/propose; approval required"
+        external: "LLM must preview/propose; explicit approval required"

@@ -1,22 +1,22 @@
-card:
-  name: worm-sitemap-caster
-  type: [worm, crawler, example]
-  tier: 1
-  invoke_when: ["crawl site", "emit sitemap/taxonomy"]
-  advertisement_names:
-    - RUN-WORM
-    - CRAWL
-    - EMIT-SITEMAP
-  prototypes:
-    - skills/worm/CARD.yml
-  related:
-    - skills/worm
-    - skills/data-flow
-    - skills/advertisement
-  tags: [moollm, worm, sitemap, taxonomy, crawl]
-  description: |
-    Webish crawler worm: walks a directory/site, collects links/headers/keywords,
-    and emits YAML castings (sitemap + category taxonomy) to `emit_dir`.
+# card:
+name: worm-sitemap-caster
+type: [worm, crawler, example]
+tier: 1
+invoke_when: ["crawl site", "emit sitemap/taxonomy"]
+advertisement_names:
+  - RUN-WORM
+  - CRAWL
+  - EMIT-SITEMAP
+inherits:
+  - skills/worm/CARD.yml
+related:
+  - skills/worm
+  - skills/data-flow
+  - skills/advertisement
+tags: [moollm, worm, sitemap, taxonomy, crawl]
+description: |
+  Webish crawler worm: walks a directory/site, collects links/headers/keywords,
+  and emits YAML castings (sitemap + category taxonomy) to `emit_dir`.
 
 state:
   head: "."

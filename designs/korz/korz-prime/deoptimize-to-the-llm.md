@@ -57,7 +57,7 @@ Where the tiers meet, dispatch policy is a knob, not a religion:
 | **find-best-N** — score all, pick randomly among top N | The Sims' autonomy — deliberate dither, organic not digital; ties become personality | Yes: scoring table + seeded RNG (log the seed; replays must not diverge) |
 | **softmax** — temperature over judged salience | The LLM natively; temperature sampling is find-best-N's continuous generalization | Only where scoring gels into arithmetic |
 
-The dither in the middle row is load-bearing, not sloppy: scores are
+The dither in the middle row: scores are
 approximations at best and intentional lies at their cleverest (Sims
 objects hustle each other down the food chain), so argmax over lies is
 just being deterministically conned; random picks among strong

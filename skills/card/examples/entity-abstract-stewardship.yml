@@ -1,16 +1,16 @@
-card:
-  name: entity-abstract-stewardship
-  type: [concept, abstract, stewardship, example]
-  tier: 1
-  invoke_when: ["resource planning", "sustainability check", "long-term impact"]
-  advertisement_names:
-    - STEWARDSHIP-CHECK
-    - LONG-VIEW
-    - RISK-NOTE
-  tags: [moollm, example, stewardship, sustainability, ethics]
-  description: |
-    An abstract stewardship lens to sanity-check long-term impact, resource use,
-    and sustainability with concise risk notes.
+# card:
+name: entity-abstract-stewardship
+type: [concept, abstract, stewardship, example]
+tier: 1
+invoke_when: ["resource planning", "sustainability check", "long-term impact"]
+advertisement_names:
+  - STEWARDSHIP-CHECK
+  - LONG-VIEW
+  - RISK-NOTE
+tags: [moollm, example, stewardship, sustainability, ethics]
+description: |
+  An abstract stewardship lens to sanity-check long-term impact, resource use,
+  and sustainability with concise risk notes.
 
 ethics:
   constraints:

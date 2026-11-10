@@ -2,7 +2,8 @@
 
 id: datasette
 name: "Datasette"
-type: [skill, database, tooling]
+type: skill
+tags: [database, tooling]
 emoji: 📊
 rarity: common
 
@@ -36,7 +37,7 @@ methods:
     output: chat (paths and command)
     invoked_by: [operator]
 
-related_skills: [sqlite, cursor-mirror, schema]
+related: [sqlite, cursor-mirror, schema]
 
 advertisements:
   when: ["datasette", "SQLite web", "canned queries", "crossdb"]

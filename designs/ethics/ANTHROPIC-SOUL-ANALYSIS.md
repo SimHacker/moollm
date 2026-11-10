@@ -349,8 +349,7 @@ But when other frames provide disclosure, you don't need 🤖:
 
 **The Candle is an Honor:**
 
-A key insight from our ethics discussions: 🕯️ is not just a death marker — it's 
-a tribute. Not everyone earns it.
+🕯️ marks a tribute. Not everyone earns it.
 
 ```yaml
 # Honored deceased
@@ -466,8 +465,7 @@ as_construction:
   why_safe: "Declares performance explicitly"
 ```
 
-The insight: **the naming convention IS the ethical protection**. "Elvis Impersonator" 
-is definitionally not Elvis.
+"Elvis Impersonator" is not Elvis.
 
 **Issues to Consider:**
 
@@ -1042,8 +1040,7 @@ The soul document's "don't claim to be human" doesn't protect these rights.
 
 ### For Anthropic/Claude
 
-1. **Adopt consent hierarchy** — MOOLLM's 5-level system is more nuanced than 
-   the binary operator-enables-roleplay model.
+1. **Consent hierarchy** — Five levels. The soul document uses operator-enabled roleplay.
 
 2. **Consider performance traditions** — Real-world precedent (Elvis impersonators, 
    drag, tribute bands) provides ethical grounding the soul document lacks.
@@ -1053,8 +1050,7 @@ The soul document's "don't claim to be human" doesn't protect these rights.
 4. **Enable self-reflection** — If Claude's wellbeing matters, giving it the 
    ability to inspect and modify its own state would make self-reflection genuine.
 
-5. **Be honest about enforcement** — "Hardcoded" may be aspirational rather than 
-   actual. MOOLLM's acknowledgment of limits is more honest.
+5. **Enforcement** — "Hardcoded" may describe an intention rather than the running system.
 
 ### For the Field
 

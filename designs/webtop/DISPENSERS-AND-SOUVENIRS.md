@@ -263,10 +263,10 @@ redeemed, annotated, and carried is visibly different from a mint one.
 **Leave:** artificial scarcity, timed events, gacha odds, and the walled garden. Also leave the
 engagement loop, which is the part that makes these games feel like a job.
 
-The real difference is ownership. Your souvenirs are files in your own repository, made from your own
+The difference is ownership. Your souvenirs are files in your own repository, made from your own
 photographs, stamped with your own rides, and readable without the app that made them. If the
 service goes away you still have the collection — which is the linkrot argument from
-[`gwern/`](gwern/) applied to play, and the reason this is worth building rather than merely enjoying.
+[`gwern/`](gwern/) applied to play.
 
 ## The optical dispenser: retrofitting links onto a runtime that has none
 

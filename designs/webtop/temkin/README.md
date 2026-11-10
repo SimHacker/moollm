@@ -122,7 +122,7 @@ by hand.** The **Desktop**: a full window manager running inside a Declare app.
 
 ## DOMIsland: endosymbiosis with a type signature
 
-The most important thing in this directory, and it was built in response to a direct ask.
+It was built in response to a direct ask.
 
 Don, 13 August 2026, recalling OpenLaszlo practice:
 

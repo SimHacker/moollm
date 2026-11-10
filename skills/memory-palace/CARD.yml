@@ -5,7 +5,8 @@
 
 id: memory-palace
 name: "Memory Palace"
-type: [skill, memory, organization]
+type: skill
+tags: [memory, organization]
 
 emoji: 🏛️
 
@@ -84,11 +85,11 @@ state:
 advertisements:
   ORGANIZE-KNOWLEDGE:
     score: 90
-    condition: "Need to structure and remember information"
+    score_if: "Need to structure and remember information"
     
   BUILD-KNOWLEDGE-BASE:
     score: 80
-    condition: "Creating a reusable knowledge repository"
+    score_if: "Creating a reusable knowledge repository"
 
 see_also:
   - skills/room

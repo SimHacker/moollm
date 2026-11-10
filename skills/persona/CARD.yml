@@ -15,7 +15,8 @@
 
 id: persona
 name: "Persona"
-type: [skill, identity, game, minsky]
+type: skill
+tags: [identity, game, minsky]
 emoji: 🎭
 rarity: uncommon
 tier: 1
@@ -361,13 +362,13 @@ code_switching:
 advertisements:
   INTERNAL_DIALOGUE:
     score: 90
-    condition: "Character faces decision, multiple perspectives needed"
+    score_if: "Character faces decision, multiple perspectives needed"
   PERSONA_MANAGEMENT:
     score: 85
-    condition: "Need to adjust which internal voices are active"
+    score_if: "Need to adjust which internal voices are active"
   ROLE_PLAY:
     score: 80
-    condition: "Need to act in a specific capacity"
+    score_if: "Need to act in a specific capacity"
 
 # DEEP PROTOCOLS — Load if interested
 

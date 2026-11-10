@@ -4,7 +4,7 @@
 
 ## The hook
 
-UCBLogo — a Logo classrooms actually run — and CS 61A, the legendary SICP-based course Brian
+UCBLogo — a Logo classrooms actually run — and CS 61A, the SICP-based course Brian
 taught for decades. The turtle is not nostalgia; it's the through-line from Papert to Snap!.
 
 ## Credentials

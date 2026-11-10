@@ -5,7 +5,8 @@
 
 id: procedural-rhetoric
 name: "Procedural Rhetoric"
-type: [skill, design, philosophy]
+type: skill
+tags: [design, philosophy]
 emoji: 🎭
 rarity: rare
 
@@ -47,10 +48,10 @@ examples:
 advertisements:
   INTENTIONAL-DESIGN:
     score: 90
-    condition: "Creating a system or game"
+    score_if: "Creating a system or game"
   UNDERSTAND-IDEOLOGY:
     score: 85
-    condition: "Want to see hidden assumptions"
+    score_if: "Want to see hidden assumptions"
 
 see_also: [skills/constructionism, skills/representation-ethics]
 credits:

@@ -12,7 +12,7 @@ Bertoncini et al. use ChatGPT to generate synthetic behavioral data to study how
 
 **Critical caveat:** The authors explicitly state this is "proof-of-concept exploratory insights" using "LLM-generated synthetic behavior estimation," not empirical human data.
 
-**Key insight for MOOLLM:** LLM simulations may reflect (and amplify) cognitive biases in their training data — these biases compound across multi-agent simulations.
+LLM simulations may reflect (and amplify) cognitive biases in their training data — these biases compound across multi-agent simulations.
 
 ---
 
@@ -167,7 +167,5 @@ k_lines:
 Bertoncini, C., et al. (2025). "AI, Ethics, and Cognitive Bias: An LLM-Based Synthetic Simulation." AI in Education 2025.
 
 ---
-
-*This document summarizes research on cognitive bias in LLM simulations. The synthetic data methodology is a limitation, but the bias patterns identified are valuable for understanding risks in MOOLLM multi-agent simulations.*
 
 *Document created: 2026-01-23*

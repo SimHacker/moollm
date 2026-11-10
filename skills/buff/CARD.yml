@@ -16,7 +16,8 @@
 
 id: buff
 name: "Buff"
-type: [skill, effects, game]
+type: skill
+tags: [effects, game]
 
 emoji: ✨
 
@@ -290,13 +291,13 @@ standard-properties:
     
   # Room stats — these belong to the ROOM itself, which hosts its own buffs.
   # (Formerly "room-spirit stats", when a room needed a character to hold them.)
-  room:
-    production_speed: { range: "percent", default: 100, description: "Work rate in room" }
-    error_rate: { range: "percent", default: 5, description: "Mistake probability" }
-    mood_influence: { range: [-100, 100], default: 0, description: "Mood effect on occupants" }
-    comfort_bonus: { range: [-50, 50], default: 0, description: "Comfort granted to visitors" }
-    discovery_chance: { range: "percent", default: 10, description: "Finding hidden things" }
-    danger_level: { range: [0, 100], default: 0, description: "Hazard intensity" }
+  # room:
+  production_speed: { range: "percent", default: 100, description: "Work rate in room" }
+  error_rate: { range: "percent", default: 5, description: "Mistake probability" }
+  mood_influence: { range: [-100, 100], default: 0, description: "Mood effect on occupants" }
+  comfort_bonus: { range: [-50, 50], default: 0, description: "Comfort granted to visitors" }
+  discovery_chance: { range: "percent", default: 10, description: "Finding hidden things" }
+  danger_level: { range: [0, 100], default: 0, description: "Hazard intensity" }
 
 # BUFF TYPES
 
@@ -331,16 +332,16 @@ duration-types:
 advertisements:
   MODIFY-STATS:
     score: 90
-    condition: "Need to temporarily change character capabilities"
+    score_if: "Need to temporarily change character capabilities"
     
   APPLY-CURSE:
     score: 85
-    condition: "Something bad should happen to a character"
+    score_if: "Something bad should happen to a character"
     hint: "Curses are just negative buffs"
     
   GRANT-ABILITY:
     score: 80
-    condition: "Character needs temporary new capability"
+    score_if: "Character needs temporary new capability"
 
 # RELATED
 

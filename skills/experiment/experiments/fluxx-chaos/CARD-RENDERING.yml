@@ -167,21 +167,21 @@ frame_templates:
     # Dealer cards have cosmic background
     cosmic_overlay: "effects/starfield.png"
     
-  character:
-    name: "Character Frame"
-    color_scheme:
-      primary: "#BF360C"      # Deep orange
-      secondary: "#FF8A65"    # Light orange
-      accent: "#FFD700"       # Gold
-      text_bg: "#FBE9E7"      # Cream orange
-    frame_svg: "frames/character-frame.svg"
-    # Character cards have portrait-focused art box
-    art_box:
-      x: 120
-      y: 100
-      width: 510
-      height: 450
-      shape: "oval"  # Portrait oval!
+  # character:
+  name: "Character Frame"
+  color_scheme:
+    primary: "#BF360C"      # Deep orange
+    secondary: "#FF8A65"    # Light orange
+    accent: "#FFD700"       # Gold
+    text_bg: "#FBE9E7"      # Cream orange
+  frame_svg: "frames/character-frame.svg"
+  # Character cards have portrait-focused art box
+  art_box:
+    x: 120
+    y: 100
+    width: 510
+    height: 450
+    shape: "oval"  # Portrait oval!
 
 # SYMBOL LIBRARY — Reusable Icons
 

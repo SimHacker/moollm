@@ -16,7 +16,7 @@ Vanessa Freudenberg [1], Craig Latta [2], Dave Ungar [3], Dan Ingalls, and Alan 
 
 Vanessa had this exactly right. I asked her what she thought of using WASM with its new GC support for her SqueakJS [1] Smalltalk VM.
 
-Everyone keeps asking why we don't just target WebAssembly instead of JavaScript. Vanessa's answer -- backed by real systems, not thought experiments -- was: why would you throw away the best dynamic runtime ever built?
+Everyone keeps asking why we don't just target WebAssembly instead of JavaScript. Vanessa's answer: why would you throw away the best dynamic runtime ever built?
 
 To understand why, you need to know where V8 came from -- and it's not where JavaScript came from.
 
@@ -32,15 +32,15 @@ JavaScript took "prototypes" and made them *harder* than classes: `__proto__` vs
 
 The ES6 `class` syntax was basically an admission that the prototype model was too confusing for anyone to use correctly. They bolted classes back on top -- but it's just syntax sugar over the same broken constructor/prototype mess underneath. Twenty years to arrive back at what Smalltalk had in 1980, except worse.
 
-Self's simplicity was the point. JavaScript's prototype system is more complicated than classes, not less. It's prototype theater. The engines are brilliant -- Self's legacy. The language design fumbled the thing it claimed to borrow.
+Self's simplicity was the point. JavaScript's prototype system is more complicated than classes, not less. It's prototype theater. The language design fumbled the thing it claimed to borrow.
 
 Vanessa Freudenberg worked for over two decades on live, self-supporting systems [9]. She contributed to Squeak EToys, Scratch, and Lively. She was co-founder of Croquet Corp and principal engineer of the Teatime client/server architecture that makes Croquet's replicated computation work. She brought Alan Kay's vision of computing into browsers and multiplayer worlds.
 
-SqueakJS [7] was her masterpiece -- a bit-compatible Squeak/Smalltalk VM written entirely in JavaScript. Not a port, not a subset -- the real thing, running in your browser, with the image, the debugger, the inspector, live all the way down. It received the Dynamic Languages Symposium Most Notable Paper Award in 2024, ten years after publication [1].
+SqueakJS [7] is a bit-compatible Squeak/Smalltalk VM written entirely in JavaScript. Not a port, not a subset -- the real thing, running in your browser, with the image, the debugger, the inspector, live all the way down. It received the Dynamic Languages Symposium Most Notable Paper Award in 2024, ten years after publication [1].
 
-The genius of her approach was the garbage collection integration. It amazed me how she pulled a rabbit out of a hat -- representing Squeak objects as plain JavaScript objects and cooperating with the host GC instead of fighting it. Most VM implementations end up with two garbage collectors in a knife fight over the heap. She made them cooperate through a hybrid scheme that allowed Squeak object enumeration without a dedicated object table. No dueling collectors. Just leverage the machinery you've already paid for.
+It amazed me how she pulled a rabbit out of a hat -- representing Squeak objects as plain JavaScript objects and cooperating with the host GC instead of fighting it. Most VM implementations end up with two garbage collectors in a knife fight over the heap. She made them cooperate through a hybrid scheme that allowed Squeak object enumeration without a dedicated object table. No dueling collectors. Just leverage the machinery you've already paid for.
 
-But it wasn't just technical cleverness — it was philosophy. In the [December 2023 thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md), **Vanessa wrote**:
+In the [December 2023 thread](https://github.com/SimHacker/WillWrightShowForFood/blob/main/characters/vanessa-freudenberg/sources/hn-thread-2023-croquet-jasmine.md), **Vanessa wrote**:
 
 > "I just love coding and debugging in a dynamic high-level language. The only thing we could potentially gain from WASM is speed, but we would lose a lot in readability, flexibility, and to be honest, fun."
 >

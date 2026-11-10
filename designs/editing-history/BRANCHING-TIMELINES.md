@@ -25,7 +25,7 @@ demands stops being a wish list and becomes a configuration of things that alrea
 Every row but the last is boring, debugged, and installed on hundreds of millions of machines. The
 last row is the entire remaining problem, and it is a user interface problem, not a systems problem.
 
-## Why content addressing is the load-bearing part
+## Content addressing
 
 Nelson's third property -- "whatever you put there destroys the previous contents" -- is not a
 policy choice in the clipboard, it is a consequence of the storage model: one named slot, written in

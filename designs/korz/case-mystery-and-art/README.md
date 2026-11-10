@@ -214,7 +214,7 @@ would lose the useful part:
 | **Anticipation** | binds nothing new; the text becomes an **activator** for a mask you already carry | *Holy Grail* · *Rocky Horror* · any line you can quote |
 
 Only the first is what "surviving the surprise" usually means, and it is the one the Detection Club
-legislated. **The second is a different and riskier design: ship the work with a load-bearing
+legislated. **The second is a different and riskier design: ship the work with a
 coordinate deliberately unbound.** *Blade Runner* does it twice over, because it also exists as a
 family of disagreeing variants — the 1982 theatrical cut with its voiceover and its borrowed happy
 ending, the 1992 Director's Cut restoring the unicorn, the 2007 Final Cut — and Scott has said
@@ -303,7 +303,7 @@ constraint on a body, and a piece of civil engineering. →
 [about this plate](images/three-locks-polysemy.md) ·
 [prompt girders](images/three-locks-polysemy.yml)
 
-Madame Ilaria Borelli is the other thing worth noting: she builds the effects and her husband
+Madame Ilaria Borelli builds the effects and her husband
 takes the stage, and her grievance is that the credit attaches to whoever is standing in the
 light. Which is the [credit-diffusion](https://github.com/SimHacker/WillWrightShowForFood)
 problem in a corset, written by someone who spent thirty years in film production.
@@ -327,8 +327,7 @@ unlike himself, and reached for "that didn't feel like Holmes to me."
 
 Which is the prediction the frame makes and the one that could have failed: **readers detect
 which coordinate is unbound, precisely, without vocabulary for it, and experience a change of
-binding as a change of character.** Genre is not a marketing label applied after the fact. It is
-load-bearing, and audiences audit it.
+binding as a change of character.** Genre is not a marketing label applied after the fact. Audiences audit it.
 
 ## Point of view is subjective dispatch
 

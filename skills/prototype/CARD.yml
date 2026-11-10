@@ -9,7 +9,8 @@ inherits:
 
 id: prototype
 name: "Prototype"
-type: [skill, inheritance]
+type: skill
+tags: [inheritance]
 emoji: 🧬
 tier: 1  # resolve.py is the deterministic tier; the LLM follows latent parents
 
@@ -85,13 +86,13 @@ state: {}
 advertisements:
   UNDERSTAND-INHERITANCE:
     score: 90
-    condition: "Confused about how MOOLLM inheritance works"
+    score_if: "Confused about how MOOLLM inheritance works"
   DESIGN-PROTOTYPE:
     score: 80
-    condition: "Creating an object that should be like an existing one"
+    score_if: "Creating an object that should be like an existing one"
   DEBUG-DELEGATION:
     score: 70
-    condition: "A slot comes from the wrong place, or not at all"
+    score_if: "A slot comes from the wrong place, or not at all"
 
 see_also:
   - skills/prototype/examples/lookup/README.md

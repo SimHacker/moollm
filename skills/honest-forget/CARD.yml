@@ -5,7 +5,8 @@
 
 id: honest-forget
 name: "Honest Forget"
-type: [skill, memory, integrity]
+type: skill
+tags: [memory, integrity]
 
 emoji: 🪦
 
@@ -134,11 +135,11 @@ metadata-pattern:
 advertisements:
   CONTEXT-OVERFLOW:
     score: 95
-    condition: "Context is getting too large"
+    score_if: "Context is getting too large"
     
   ARCHIVE-SESSION:
     score: 85
-    condition: "Session ending, need to preserve learnings"
+    score_if: "Session ending, need to preserve learnings"
 
 # RELATED
 

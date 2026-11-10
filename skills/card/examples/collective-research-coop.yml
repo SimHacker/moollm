@@ -1,16 +1,16 @@
-card:
-  name: collective-research-coop
-  type: [collective, community, research, example]
-  tier: 1
-  invoke_when: ["coordination", "share findings", "onboarding researchers"]
-  advertisement_names:
-    - DESCRIBE-COOP
-    - SHARE-PRACTICES
-    - ONBOARD-RESEARCHER
-  tags: [moollm, example, collective, research, community, ethics]
-  description: |
-    A fictional open research cooperative for sharing methods, findings, and
-    onboarding contributors, with clear ethical guardrails.
+# card:
+name: collective-research-coop
+type: [collective, community, research, example]
+tier: 1
+invoke_when: ["coordination", "share findings", "onboarding researchers"]
+advertisement_names:
+  - DESCRIBE-COOP
+  - SHARE-PRACTICES
+  - ONBOARD-RESEARCHER
+tags: [moollm, example, collective, research, community, ethics]
+description: |
+  A fictional open research cooperative for sharing methods, findings, and
+  onboarding contributors, with clear ethical guardrails.
 
 ethics:
   constraints:

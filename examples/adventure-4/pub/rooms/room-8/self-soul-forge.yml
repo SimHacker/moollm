@@ -148,41 +148,46 @@ buffs:
       Same mechanism. Different contents.
       
 advertisements:
-  - trigger: "create a character"
-    score: 0.95
-    response: |
+  ON-CREATE-A-CHARACTER:
+    trigger: "create a character"
+    score: 95
+    say: |
       *forge glows*
       
       "Which existing character should we clone from?
       Not a class. A BEING."
       
-  - trigger: "prototype"
-    score: 1.0
-    response: |
+  ON-PROTOTYPE:
+    trigger: "prototype"
+    score: 100
+    say: |
       "Yes. Every character is a prototype.
       Every character can be cloned.
       Every clone can diverge."
       
-  - trigger: "class"
-    score: 0.7
-    response: |
+  ON-CLASS:
+    trigger: "class"
+    score: 70
+    say: |
       *forge flickers*
       
       "We don't do classes here.
       Classes are abstract. Characters are concrete.
       Show me a PERSON, not 'Person'."
       
-  - trigger: "Dave Ungar"
-    score: 1.0
-    response: |
+  ON-DAVE-UNGAR:
+    trigger: "Dave Ungar"
+    score: 100
+    say: |
       *portrait glows*
       
       "The father of Self. He showed that objects don't
       need classes. They just need each other."
       
-  - trigger: "JavaScript"
-    score: 0.8
-    response: |
+  ON-JAVASCRIPT:
+    trigger: "JavaScript"
+    score: 80
+    say: |
       "JavaScript's prototypes came from Self.
       Brendan Eich knew. Most JavaScript programmers don't.
       Now you do."

@@ -2,16 +2,15 @@
 # "This cave is two rooms wide and 10 rooms around (like a belt).
 #  You will notice there is a half twist somewhere." — Wumpus 2 instructions
 
-topology:
-  name: "Möbius Strip"
-  type: mobius_strip
-  cave: 1                                    # Yob\'s own menu number in Wumpus 2
-  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2750-2780"
-  regular: true      # every room: 3 tunnels, two-way traffic
-  description: |
-    Two rooms wide, ten rooms around, like a belt — with a half twist:
-    room 2 tunnels to 19 and room 1 to 20, crossing the strip's edges.
-    Walk far enough and you come back on the other side.
+name: "Möbius Strip"
+type: mobius_strip
+cave: 1                                    # Yob\'s own menu number in Wumpus 2
+source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2750-2780"
+regular: true      # every room: 3 tunnels, two-way traffic
+description: |
+  Two rooms wide, ten rooms around, like a belt — with a half twist:
+  room 2 tunnels to 19 and room 1 to 20, crossing the strip's edges.
+  Walk far enough and you come back on the other side.
 
 adjacency:
   1: [20, 2, 3]

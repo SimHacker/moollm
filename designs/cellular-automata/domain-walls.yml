@@ -157,7 +157,7 @@ the_contour_slice_technique:
     the_scrubber: "frob is a DC offset added to every cell, so turning the mouse wheel slides the whole field up and down THROUGH the discontinuity"
     what_you_are_doing: "sweeping a level set through the field and watching it cross a contour detector"
   what_it_actually_is: "an isoline visualiser built from a colormap discontinuity plus a DC offset — no contour algorithm, no extra pass, and it runs at full frame rate"
-  why_the_wheel_matters: "it is continuous, bidirectional and hand-driven, so you hunt for the interesting level by feel. This is the violin, and it is a Turn Table (../don-hopkins/turn-tables.md)."
+  why_the_wheel_matters: "it is continuous, bidirectional and hand-driven, so you hunt for the interesting level by feel. It is a Turn Table (../don-hopkins/turn-tables.md)."
   prior_art_neighbours: [colour_cycling, sawtooth_colormap_contouring, false_colour_isolines]
 
   the_patterns_are_not_noise:

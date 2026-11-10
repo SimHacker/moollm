@@ -118,11 +118,11 @@ distinction:
 advertisements:
   MANAGE-CHARACTERS:
     score: 90
-    condition: "Need to work with character identities"
+    score_if: "Need to work with character identities"
     
   CREATE-CHARACTER:
     score: 85
-    condition: "Starting new adventure or adding player"
+    score_if: "Starting new adventure or adding player"
 
 # RELATED
 

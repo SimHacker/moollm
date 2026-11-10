@@ -160,14 +160,14 @@ discard_pile: []
 
 # COSMIC DEALER — Starting mode
 
-dealer:
-  mode: "eros"
-  name: "The Eros Dealer"
-  emoji: "💘🎴"
-  description: "Card draws favor romantic outcomes. Love Keepers weighted higher."
-  active_effects:
-    romance_bias: 0.8
-    karma_tracking: true
+# dealer:
+mode: "eros"
+name: "The Eros Dealer"
+emoji: "💘🎴"
+description: "Card draws favor romantic outcomes. Love Keepers weighted higher."
+active_effects:
+  romance_bias: 0.8
+  karma_tracking: true
 
 # FULL DECK — All cards, pre-shuffled
 

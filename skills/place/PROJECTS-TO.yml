@@ -1,0 +1,29 @@
+# PROJECTS-TO.yml — verbatim local labels projected to a closed coarse vocabulary
+#
+# place's CARD has no projects_to. This file is the key, not a PLACE.yml:
+# coordinates and osm stay on the place card. Keys are the coffeeshop card's
+# menu category entry (label, projects_to) and shared_vocabulary.terms.
+# Labels stay verbatim. The coarse list is closed: local categories project
+# into it, and nothing is written directly there. The terms below are that
+# card's list, the example of a closed vocabulary, not a list place authors.
+
+schema:
+  id: projects-to
+  applies_to: "a local category label projected into a closed coarse vocabulary for querying"
+  keys:
+    label:
+      shape: string
+      meaning: "verbatim local label, including capitals and the source's own spelling"
+      example: "WIET"
+    projects_to:
+      shape: string
+      meaning: "projection of that verbatim label into the closed coarse vocabulary, for querying only"
+      example: flower
+    shared_vocabulary:
+      shape: map
+      keys:
+        terms:
+          shape: list
+          of: string
+          meaning: "closed, coarse, and unauthorable; every local category projects into it"
+          example: [flower, hash, preroll, edible, drink, vape, seed, accessory, other]

@@ -5,7 +5,8 @@
 
 id: soul-chat
 name: "Soul Chat"
-type: [skill, dialogue, yaml-jazz]
+type: skill
+tags: [dialogue, yaml-jazz]
 
 emoji: 💬
 
@@ -80,11 +81,11 @@ philosophy:
 advertisements:
   MULTI-PERSPECTIVE:
     score: 90
-    condition: "Need multiple viewpoints"
+    score_if: "Need multiple viewpoints"
     
   GIVE-VOICE:
     score: 85
-    condition: "Want something to speak"
+    score_if: "Want something to speak"
 
 # RELATED
 

@@ -205,7 +205,7 @@ Robust-first as always: a disabled constraint is not torn down, it
 just stops writing — no stale bindings, no cleanup pass.
 
 The degenerate case proves the range: **the brown note**. The
-legendary infrasound frequency that makes you shit your pants is, in
+infrasound frequency that makes you shit your pants is, in
 this schema, just a tag whose constraint binds not to a mood but to
 the **bladder motive, at max gain** — bladdermaxing: media driving
 physiology, skipping the heart entirely. In The Sims it would be
@@ -218,9 +218,8 @@ hands on their head. No yellow or red notes — the palette is canon.)
 MythBusters busted the note in the real world; in a microworld it
 works every time, which is why the prank subwoofer with a BLUE-NOTE
 parameter track is a legitimate plug-in object, and why the diaper
-is a buff that disables exactly one binding. The point under the
-joke: the moody track is a general-purpose parameter bus. Mood was
-just the first thing worth broadcasting on it.
+is a buff that disables exactly one binding. The moody track is a
+general-purpose parameter bus. Mood was the first thing on it.
 
 ## The zig-zag: the simulation composes, the tape remembers
 
@@ -425,7 +424,7 @@ for plug-in objects and Maxis/EA products. The moody track rides the
 stream: music "encoded with a 'moody track', **marked up with events
 that affected people emotionally**."
 
-The advertisements are the load-bearing pun. A radio ad **is** a Sims
+A radio ad **is** a Sims
 advertisement in the full behavioral sense: broadcast into the room,
 scored by every character who hears it, acted on by the susceptible.
 And the live kind carries a deadline — the email's twist is real-time

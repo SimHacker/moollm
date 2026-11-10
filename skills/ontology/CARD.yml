@@ -131,7 +131,7 @@ advertisements:
   
   TAG:
     score: 80
-    condition: "Declaring character ontology"
+    score_if: "Declaring character ontology"
     effect: "Assign ontological tags to character"
     parameters:
       character: "Who to tag"
@@ -139,7 +139,7 @@ advertisements:
       
   CHECK-ETHICS:
     score: 75
-    condition: "About to portray a character"
+    score_if: "About to portray a character"
     effect: "Compute combined ethics from all tags"
     parameters:
       character: "Character to check"
@@ -147,7 +147,7 @@ advertisements:
     
   COMPOSE:
     score: 70
-    condition: "Creating hybrid character"
+    score_if: "Creating hybrid character"
     effect: "Combine multiple ontological sources"
     parameters:
       sources: "List of ontological bases"

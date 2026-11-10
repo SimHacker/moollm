@@ -111,21 +111,21 @@ game_3_state:
 
 # 🎭 Cosmic Dealer — Chaotic Mode
 
-dealer:
-  mode: "chaotic"
-  emoji: "🌀"
-  active_since_turn: 7
+# dealer:
+mode: "chaotic"
+emoji: "🌀"
+active_since_turn: 7
+
+philosophy: |
+  Game 3 demands CHAOS. Not dramatic engineering — pure entropy.
+  The winner should feel earned through adaptation, not manipulation.
   
-  philosophy: |
-    Game 3 demands CHAOS. Not dramatic engineering — pure entropy.
-    The winner should feel earned through adaptation, not manipulation.
-    
-  mechanics:
-    - "Random player draws extra card each turn"
-    - "Goal changes more likely to succeed"
-    - "Creepers distributed randomly, not targeted"
-    
-  prediction: "This game will be unpredictable. As it should be."
+mechanics:
+  - "Random player draws extra card each turn"
+  - "Goal changes more likely to succeed"
+  - "Creepers distributed randomly, not targeted"
+  
+prediction: "This game will be unpredictable. As it should be."
 
 # 🃏 Deck Status
 

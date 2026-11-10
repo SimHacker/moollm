@@ -15,7 +15,7 @@ dependency inventory, and a run-verification are recorded here rather than in a 
 ## The published chapter is an abridgement, and the cut is the subject
 
 **Correction, 19 September 2026, from Alan, in reply to the comment that pointed him at the DOI
-below.** Quoted whole, because it invalidates the tidy version of this document's own premise:
+below.**
 
 > The problem was that the whole account about making a "conditioned reflex analogue" (as Walter
 > called it) was excised from the MIT press book because it was too long (they said). So the chapter
@@ -23,12 +23,11 @@ below.** Quoted whole, because it invalidates the tidy version of this document'
 >
 > I'll send you an email of what I originally gave them.
 
-So "it is already online in both versions" was wrong in the way that matters most. **The print
-artifact is a cut, and what was cut is CORA** — Walter's conditioned reflex analogue, the seven steps
+**The print artifact is a cut, and what was cut is CORA** — Walter's conditioned reflex analogue, the seven steps
 from chance to meaning, the mechanism this entire document is about. The chapter that has the DOI, the
 publisher and the deposit libraries is the one missing the argument.
 
-Three consequences, and the third is the one worth sitting with:
+Three consequences:
 
 1. **The active essay is the only complete public version.** It builds the conditioned reflex — three
    memories at three decay rates, and the nudibranch learns. The thing the press cut for length is
@@ -36,9 +35,7 @@ Three consequences, and the third is the one worth sitting with:
 2. **The unexcised original is unpublished and exists nowhere public.** Alan has offered to send it.
    That is not a link to collect; it is a primary source arriving, and it needs a permanent home with
    his name on it.
-3. **The durability row in the table below reverses.** This document was going to argue that the inert
-   half got the permanence while the live half sat on one abandoned host. That is still true, and it
-   is now worse: the half that got the permanence **got edited down**, and nobody reading it can tell.
+3. **The durability row in the table below reverses.** The half that got the permanence **got edited down**, and nobody reading it can tell.
    A DOI guarantees that a thing stays findable. It guarantees nothing about whether the thing is
    whole.
 
@@ -82,9 +79,7 @@ assemble and take apart:
    of decay**: Sound Memory (fast), Coincidence Memory (slower, stair-steps up on each coincidence),
    Long Term Memory (slowest, latched past a threshold of 80). Plus four small scripts.
 
-**The load-bearing observation, and it is the essay's own thesis at its smallest scale.** Kay states
-the idea as *"architecture dominates materials"* — and then the deepest mechanism in the piece is
-one part used three times, varying only in how fast it forgets. Associative learning is not in any
+Kay states the idea as *"architecture dominates materials"* — one part used three times, varying only in how fast it forgets. Associative learning is not in any
 of the three components. It is in the arrangement of their time constants. A society of mind with a
 population of three.
 
@@ -132,21 +127,19 @@ Life" (May 1950) and "A Machine That Learns" (August 1951).
 `passage is reproduced in Holland's history` ([PDF](https://cse-robotics.engr.tamu.edu/dshell/cs689/papers/holland02first.pdf))`,`
 `where it also heads the tortoise's own instruction sheet — the pun was printed in the manual.`
 
-**The precise version, because the loose version is tempting and wrong.** Walter's stated reason for
-the genus name is *appearance*: "because of its general appearance we call the genus 'Testudo,' or
+Walter's stated reason for the genus name is *appearance*: "because of its general appearance we call the genus 'Testudo,' or
 tortoise." So he did not name the machines *after* a teacher — he named them for the shell **and
 chose an epigraph about teaching**, deliberately, at the head of the paper. The teaching pun is
-authorial intent rather than etymology, which is a better fact than the overstatement and survives a
-close reader.
+authorial intent rather than etymology.
 
 **And it lands two decades before the turtle started teaching children.** The 1950 epigraph is a joke
 about a tortoise who was a schoolmaster; Papert's Logo turtle arrives in the late 1960s. Alan's
 phrase "the original turtle guy" is therefore right in a second sense he did not claim: Walter picked
 the pedagogical pun first.
 
-### The anti-stacking reading, which is Don's and belongs here
+### The anti-stacking reading
 
-Kay's stated thesis is **"architecture dominates materials,"** and the essay's deepest mechanism is
+Kay's stated thesis is **"architecture dominates materials,"** and the essay's mechanism is
 *one part instanced three times, differing only in rate of decay*. Not a class hierarchy — **a flat
 population with varied parameters.** Associative learning is in the arrangement, not in any
 component, and not in any ancestor of any component.
@@ -189,8 +182,7 @@ What the live half of the essay actually needs, as of 19 September 2026:
 
 **The single point of failure is not the code, it is the host.** Every `.gpp` and the VM are static
 files under one directory on one domain. `code.js` computes its own base from
-`location.hostname + dir`, so the whole thing is relocatable by copying the directory — which is
-the good news, and the reason a mirror is cheap.
+`location.hostname + dir`, so the whole thing is relocatable by copying the directory — the reason a mirror is cheap.
 
 `@croquet/croquet` is loaded **unpinned** from a CDN, which is the one dependency that can change
 underneath the page without anyone touching the server.
@@ -204,7 +196,7 @@ barrier, brown obstacle, and the scribble of a machine that has no map:
 
 ![The wander-and-avoid project running in 2026, showing the turtle's trace](gp-active-essay-tinkertoy/images/2026-run-wander-and-avoid.png)
 
-**See Inside** — the button the entire pedagogy rests on. Full editor: block palette by category,
+**See Inside.** Full editor: block palette by category,
 the `Robot` and `obstacle` classes, the instance list, the stage still running, and the scripts
 open for rearranging. `when I receive go: go to x0 y0, pen down, clear stamps and pen trails,
 broadcast wander, broadcast avoid`:
@@ -221,11 +213,11 @@ it:
 One gotcha for anyone repeating this — the runner reads location.hash once at load, so switching
 projects by editing the fragment alone does not reload. Navigate away and back.`
 
-## The irony, stated plainly, because it is the argument for this repo
+## The irony
 
 The essay argues that inert media are a poor container for powerful ideas and that dynamic media
 are the point of computers at all. **The inert half got a DOI, a publisher, an open-access licence
-and deposit copies. The dynamic half — the better artifact, the one with the child's hands in it —
+and deposit copies. The dynamic half — the one with the child's hands in it —
 is a directory on one host, running a language whose lab was dissolved in 2016.**
 
 GP's history is the exposure: Maloney, Mönig and Ohshima built it from 2014 at SAP's Communications
@@ -234,8 +226,7 @@ Combinator Research, which ended in 2017; Mönig had promised SAP he would stop 
 was never publicly released as a product. The essay's own bibliography cites it as
 `John Maloney, GP http://gpblocks.org`.
 
-So the live essay survives on maintenance, and maintenance is a person. That is not a criticism of
-anyone — it is the condition, and the reason
+So the live essay survives on maintenance, and maintenance is a person. It is the condition, and the reason
 [`../PROSTHETICS.md`](../PROSTHETICS.md) treats archives as prosthetics for a faculty nobody has:
 remembering where you put a thing you made.
 
@@ -253,7 +244,7 @@ and Maloney and the offer should be theirs to accept.
 
 Alan has offered to send what he originally gave MIT Press, before the CORA account was cut for
 length. **This is the one item in this document that is not a link to something that exists in
-public, and it is the most valuable.** Slot, prepared so the material does not sit in an inbox:
+public.** Slot, prepared so the material does not sit in an inbox:
 
 | | |
 |---|---|
@@ -263,7 +254,7 @@ public, and it is the most valuable.** Slot, prepared so the material does not s
 | **What not to do** | do not summarise it in place of publishing it, do not fold it into this document's prose, do not let an LLM paraphrase a primary source that exists in one copy |
 | **Permission** | sending it is not publishing it. Ask before it goes public, name the ask plainly, and keep the private copy either way |
 
-The last row is the one that matters. An email is a private act; a repo is not. The offer to receive
+An email is a private act; a repo is not. The offer to receive
 is not an offer to broadcast, and the difference has to be stated before the file lands rather than
 negotiated after.
 

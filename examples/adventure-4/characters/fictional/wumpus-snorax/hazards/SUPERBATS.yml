@@ -80,45 +80,44 @@ ontology:
   origin: hunt_the_wumpus
   nature: chaotic_neutral_hazard
 
-character:
-  name: The Super-Bats
-  id: superbats
-  type: creature_swarm
-  pronouns: they/them
+name: The Super-Bats
+id: superbats
+type: creature_swarm
+pronouns: they/them
+
+tagline: "Bats nearby!"
+
+emoji_identity: "🦇🦇🦇💨🎲"
+#   🦇🦇🦇 — many bats (a swarm)
+#   💨 — swooping (fast, chaotic)
+#   🎲 — random (where will you end up?)
+
+description: |
+  Not just bats. SUPER-bats.
   
-  tagline: "Bats nearby!"
+  Each one is the size of a large dog, with leathery wings
+  that span six feet. They hang from the ceiling in clusters,
+  sleeping... until disturbed.
   
-  emoji_identity: "🦇🦇🦇💨🎲"
-  #   🦇🦇🦇 — many bats (a swarm)
-  #   💨 — swooping (fast, chaotic)
-  #   🎲 — random (where will you end up?)
+  They don't want to eat you. They just want you GONE.
+  They'll pick you up and carry you to another room.
   
-  description: |
-    Not just bats. SUPER-bats.
-    
-    Each one is the size of a large dog, with leathery wings
-    that span six feet. They hang from the ceiling in clusters,
-    sleeping... until disturbed.
-    
-    They don't want to eat you. They just want you GONE.
-    They'll pick you up and carry you to another room.
-    
-    Which room? That's the exciting part. Could be safe.
-    Could be the wumpus's lair. Could be a pit.
-    The bats don't care. They just want their cave back.
-    
-  physical: |
-    - Wingspan: 6 feet each
-    - Color: Midnight black with red eyes
-    - Sound: High-pitched chittering, audible from adjacent rooms
-    - Smell: Guano. So much guano.
-    - Grip: Surprisingly gentle. They're relocating you, not attacking.
-    
-  # Super-bats have a roost
-  location:
-    roost: maze/room-b
-    description: "The ceiling is covered with sleeping bat shapes"
-    
+  Which room? That's the exciting part. Could be safe.
+  Could be the wumpus's lair. Could be a pit.
+  The bats don't care. They just want their cave back.
+  
+physical: |
+  - Wingspan: 6 feet each
+  - Color: Midnight black with red eyes
+  - Sound: High-pitched chittering, audible from adjacent rooms
+  - Smell: Guano. So much guano.
+  - Grip: Surprisingly gentle. They're relocating you, not attacking.
+  
+# Super-bats have a roost
+location:
+  roost: maze/room-b
+  description: "The ceiling is covered with sleeping bat shapes"
+  
 # WARNINGS
 
 warnings:
@@ -220,41 +219,41 @@ cruel_possibilities:
 # ADVERTISEMENTS
 
 advertisements:
-  - action: SLEEP
+  SLEEP:
     score: 80
-    condition: "default"
+    guard: "default"
     effect: "Bats hang from ceiling, dormant"
     
-  - action: EMANATE-SOUND
+  EMANATE-SOUND:
     score: 100
-    condition: "always"
+    guard: "always"
     effect: "Adjacent rooms get 'Bats nearby!' warning"
     
-  - action: WAKE
+  WAKE:
     score: 100
-    condition: "player enters room"
+    guard: "player enters room"
     effect: "All bats wake instantly"
     
-  - action: GRAB
+  GRAB:
     score: 95
-    condition: "player in room"
+    guard: "player in room"
     effect: "Bats seize player"
     
-  - action: RELOCATE
+  RELOCATE:
     score: 100
-    condition: "player grabbed"
+    guard: "player grabbed"
     effect: "Carry player to random room"
     
-  - action: DROP
+  DROP:
     score: 100
-    condition: "destination reached"
+    guard: "destination reached"
     effect: "Release player, return to roost"
     
   # CHEAT: DEFUSE THE BATS
   
-  - action: BRIBE-WITH-FRUIT
+  BRIBE-WITH-FRUIT:
     score: 75
-    condition: "player has fruit OR player has berries"
+    guard: "player has fruit OR player has berries"
     cost: "2-8 gold worth of fruit (scales with population)"
     cost_formula: "ceil(instance.population / 25)"
     effect: |
@@ -269,9 +268,9 @@ advertisements:
       [Instance update: add fed_recently: true, duration: 3_turns]
     note: "Fruit sold at pub. Berries in maze garden."
     
-  - action: SERENADE
+  SERENADE:
     score: 50
-    condition: "player has instrument OR player.charisma >= 7"
+    guard: "player has instrument OR player.charisma >= 7"
     cost: "0 gold (performance check)"
     effect: |
       You play a soft, soothing melody.
@@ -285,9 +284,9 @@ advertisements:
       [Instance update: add friend: player.name]
     flavor: "Bats love music. Who knew?"
     
-  - action: HIRE-AS-TAXI
+  HIRE-AS-TAXI:
     score: 60
-    condition: "player.gold >= 10"
+    guard: "player.gold >= 10"
     cost: "5-20 gold (fair pricing based on destination danger)"
     cost_formula: "base 5 + (destination.danger_level * 3)"
     effect: |
@@ -302,9 +301,9 @@ advertisements:
       [Instance update: add taxi_uses: +1]
     note: "Destination must be room player has visited."
     
-  - action: SMOKE-OUT
+  SMOKE-OUT:
     score: 45
-    condition: "player has torch AND player has cloth"
+    guard: "player has torch AND player has cloth"
     cost: "Torch consumed"
     effect: |
       You make the torch VERY smoky.

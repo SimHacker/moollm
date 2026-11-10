@@ -10,7 +10,6 @@ thing that answers yes or no, so it belongs in the palette next to `is _ > _ ?`.
 
 Companion: [karlstrom-intro-jens.md](karlstrom-intro-jens.md) (the same conference, the evening
 before) · [../../revolutionary-chess/BRINGING-IT-HOME.md](../../revolutionary-chess/BRINGING-IT-HOME.md)
-(what this talk is the existence proof for)
 
 Every quote below is timestamped to the video. Lightly edited for clarity where speech repeats
 itself; nothing is paraphrased inside quotation marks.

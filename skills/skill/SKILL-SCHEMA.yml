@@ -1,0 +1,137 @@
+# SKILL-SCHEMA.yml — the skill record
+#
+# A skill is documentation that learned to do things. The machine half of that
+# record is the keys below: SKILL.md frontmatter and the interface on CARD.yml.
+# Methods and advertisements take their entry shapes from the method and
+# advertisement schemas (of:), the way a card does. This schema does not extend
+# card, so card-face keys stay on the card schema.
+#
+# The eight extensions are constitution prose. They are named under extensions
+# and are not keys.
+
+schema:
+  id: skill
+  applies_to: "a skill directory: the SKILL.md frontmatter and the CARD.yml interface"
+  extends: []
+  extensions: |
+    The eight extensions stay prose. They are not keys:
+    1. Instantiation — Skills as prototypes that create instances
+    2. Three-Tier Persistence — Platform → Narrative → State
+    3. K-lines — Names as semantic activation vectors (Minsky)
+    4. Empathic Templates — Smart generation, not string substitution
+    5. Speed of Light — Many turns in one call
+    6. CARD.yml — Machine-readable interface with advertisements
+    7. Ethical Framing — Room-based inheritance of performance context
+    8. Ambient Skills — Always-on behavioral shaping via AMBIENT advertisements
+  keys:
+
+    name:
+      shape: string
+      required: true
+      meaning: "Skill identifier, lowercase-with-hyphens (SKILL.md frontmatter, Anthropic core). On CARD.yml the same key is the display name."
+      compiles: false
+      example: my-skill
+    description:
+      shape: prose
+      required: true
+      meaning: "When to use the skill and what it does. Frontmatter is one or two sentences; CARD.yml may be longer."
+      compiles: false
+      example: "A skill is documentation that learned to do things."
+    methods:
+      shape: map
+      of: method
+      default: null
+      meaning: "What the skill can do, keyed by name. CARD.yml stores signatures; each entry is a method."
+      compiles: false
+      example: { CREATE: { signature: "CREATE [name] (tier) (prototypes)" } }
+    advertisements:
+      shape: map
+      of: advertisement
+      default: null
+      meaning: "What the skill offers and when it wants to be chosen, keyed by name. Primary activation on the card."
+      compiles: false
+      example: { CREATE-SKILL: { score: 90, score_if: "Need to make a new reusable capability" } }
+    k_lines:
+      shape: list
+      of: string
+      default: null
+      meaning: "Names as activation vectors. A list of k-line ids, or a map. This card stores the map. Both shapes stay; neither is rewritten into the other."
+      compiles: false
+      example: [SKILL, SKILL-FORGE, PROTOTYPE, INSTANTIATION, EMPATHIC-TEMPLATE]
+      keys:
+        activates:
+          shape: list
+          of: string
+          meaning: "K-line ids saying this name brings online."
+          compiles: false
+          example: [SKILL, SKILL-FORGE, PROTOTYPE, INSTANTIATION, EMPATHIC-TEMPLATE]
+        related:
+          shape: list
+          meaning: "Other ids named beside activates, when the card stores them inside the map."
+          compiles: false
+    inherits:
+      shape: list
+      of: ref
+      default: null
+      meaning: "Parents. Instances inherit from the prototype and can override; state lives in instances, behavior in prototypes. A bare string is a list of one. A log birth-state is inherits: LOG.md#birth-state."
+      compiles: false
+      example: ["LOG.md#birth-state"]
+    related:
+      shape: list
+      of: string
+      default: null
+      meaning: "MOOLLM skill ids this skill builds on or composes with."
+      compiles: false
+      example: [room, card, character]
+    tier:
+      shape: number
+      meaning: |
+        On PROTOTYPE.yml the instantiation protocol writes
+        0=prompt, 1=file, 2=search, 3=exec, 4=external.
+        CARD.yml sets tier next to rarity and emoji and does not define those values.
+      compiles: false
+      example: 1
+    files:
+      shape: map
+      of: list
+      default: null
+      meaning: "What else to read when the skill is activated, grouped, most important first. This card groups docs, templates, protocols, see_also."
+      compiles: false
+      example:
+        docs: [SKILL.md, README.md]
+        templates: [SKILL.md.tmpl, README.md.tmpl]
+    allowed-tools:
+      shape: list
+      of: string
+      default: null
+      meaning: "Tool names the skill may use. Foreign spelling, kept. Virtual names where the skill is cross-orchestrator; otherwise runtime names such as read_file."
+      compiles: false
+      example: [read_file, write_file]
+    respects:
+      shape: list
+      of: string
+      default: null
+      meaning: "Skill ids and concept K-lines this skill respects: it follows their conventions or defers to them."
+      compiles: false
+      example: [yaml-jazz, postel, room]
+    supports:
+      shape: list
+      of: string
+      default: null
+      meaning: "Skill ids or concept K-lines this skill supports: implements or enables."
+      compiles: false
+      example: [play-learn-lift]
+    consumes:
+      shape: list
+      of: string
+      default: null
+      meaning: "Skill ids or concept K-lines this skill consumes: reads, depends on, or expects."
+      compiles: false
+      example: [bootstrap]
+    composes_with:
+      shape: list
+      of: string
+      default: null
+      meaning: "Skill ids or concept K-lines this skill composes with: combines in workflows."
+      compiles: false
+      example: [skill-snitch, bootstrap]

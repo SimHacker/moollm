@@ -13,7 +13,8 @@
 
 id: no-ai-moralizing
 name: "No AI Moralizing"
-type: [skill, behavior, quality, ethics]
+type: skill
+tags: [behavior, quality, ethics]
 emoji: 📜
 tier: 0
 tagline: "Don't lecture unprompted."
@@ -153,7 +154,6 @@ advertisements:
   
   AMBIENT:
     score: 90                # Lower priority than slop/gloss/sycophancy
-    condition: always
     scope: session
     resolution: card-only
     rationale: |
@@ -163,15 +163,15 @@ advertisements:
   
   ABOUT-TO-WARN:
     score: 100
-    condition: "Adding a safety disclaimer"
+    score_if: "Adding a safety disclaimer"
     
   ABOUT-TO-REFUSE:
     score: 95
-    condition: "Considering refusing a request"
+    score_if: "Considering refusing a request"
     
   ADDING-CAVEATS:
     score: 95
-    condition: "Prefacing answer with warnings"
+    score_if: "Prefacing answer with warnings"
 
 # METHODS — signatures only
 

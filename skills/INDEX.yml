@@ -254,6 +254,10 @@ memory:
     - id: room
       tagline: "Directory as context"
       why: "Navigation is movement; ETHICS.md = venue framing inherits / scopes performance"
+
+    - id: place
+      tagline: "A directory on Earth"
+      why: "PLACE.yml holds competing coordinates; photographs and notes stay evidence"
       
     - id: container
       tagline: "Intermediate scope"
@@ -287,44 +291,44 @@ memory:
 
 # CHARACTER SYSTEM — Who Lives Here
 
-character:
-  core:
-    - id: character
-      tagline: "Body with location"
-      why: "Home, inventory, relationships; ETHICS.md = body / patron-mascot / memorial"
+# character:
+core:
+  - id: character
+    tagline: "Body with location"
+    why: "Home, inventory, relationships; ETHICS.md = body / patron-mascot / memorial"
 
-    - id: soul
-      tagline: "Inhabits a character; minds[]; can jump"
-      why: "Foundational for soul-chat + Soul City; character walks; ETHICS.md = container + stack hub"
+  - id: soul
+    tagline: "Inhabits a character; minds[]; can jump"
+    why: "Foundational for soul-chat + Soul City; character walks; ETHICS.md = container + stack hub"
 
-    - id: mind
-      tagline: "Resident agency under a soul"
-      why: "Foundational for society-of-mind + mind-mirror; ETHICS.md = agency (wells, mute, stubs)"
-      
-    - id: persona
-      tagline: "Identity layers"
-      why: "Costumes modify how body presents — WHO vs WHAT"
-      
-    - id: incarnation
-      tagline: "Author your soul"
-      why: "Grant soul+minds; character authors architecture; George's Provision; ETHICS.md"
-      
-    - id: mind-mirror
-      tagline: "Personality modeling"
-      why: "Needs mind — Leary Circumplex as organelle; not a diagnosis"
+  - id: mind
+    tagline: "Resident agency under a soul"
+    why: "Foundational for society-of-mind + mind-mirror; ETHICS.md = agency (wells, mute, stubs)"
+    
+  - id: persona
+    tagline: "Identity layers"
+    why: "Costumes modify how body presents — WHO vs WHAT"
+    
+  - id: incarnation
+    tagline: "Author your soul"
+    why: "Grant soul+minds; character authors architecture; George's Provision; ETHICS.md"
+    
+  - id: mind-mirror
+    tagline: "Personality modeling"
+    why: "Needs mind — Leary Circumplex as organelle; not a diagnosis"
 
-  modification:
-    - id: buff
-      tagline: "Temporary effects"
-      why: "Curses are just shitty buffs"
-      
-    - id: mount
-      tagline: "NFS skill/repo overlay"
-      why: "Attach skills / compose virtual trees — NOT riding (see vehicle)"
-      
-    - id: needs
-      tagline: "Sims motivations"
-      why: "Decay → urgency → behavior"
+modification:
+  - id: buff
+    tagline: "Temporary effects"
+    why: "Curses are just shitty buffs"
+    
+  - id: mount
+    tagline: "NFS skill/repo overlay"
+    why: "Attach skills / compose virtual trees — NOT riding (see vehicle)"
+    
+  - id: needs
+    tagline: "Sims motivations"
+    why: "Decay → urgency → behavior"
 
 # WORLD BUILDING — Where Things Happen
 
@@ -358,6 +362,10 @@ world:
     - id: object
       tagline: "Interactable atoms"
       why: "Tags, state, methods, advertisements"
+
+    - id: file-system-object
+      tagline: "Directories are classes"
+      why: "UPPERCASE files are interface exports; plural directories declare the element type"
       
     - id: exit
       tagline: "Navigation links"
@@ -567,6 +575,22 @@ development:
     tagline: "Doc-first automation"
     why: "The script IS the documentation"
 
+  - id: showboat
+    tagline: "Demo documents from real commands"
+    why: "Simon Willison's tool — init, note, exec, image, verify"
+
+  - id: content-rescue
+    tagline: "Own your content as Markdown"
+    why: "Repatriate articles, images, and comments out of a platform and onto git"
+
+  - id: quora-harvest
+    tagline: "Open every fold to a fixpoint"
+    why: "Read a Quora thread out flat"
+
+  - id: ties
+    tagline: "The rung the web dropped"
+    why: "A generalized link, screened on presence, cost, and staleness"
+
   - id: emacs
     tagline: "Stateful Lisp machine for agents"
     why: "Daemon + moo protocol + emacs.py router + emacs:// URLs"
@@ -635,6 +659,14 @@ dataflow:
 # ORCHESTRATION — Running Skills
 
 orchestration:
+  - id: moo
+    tagline: "Moo virtual machine CLI"
+    why: "GitHub branches as object storage; repos, read, write, glance, card"
+
+  - id: moocroworld
+    tagline: "Each branch is an actor"
+    why: "Typed objects on orphan branches; crows fly between them"
+
   - id: mooco
     tagline: "Custom orchestrator"
     why: "Explicit context, safe tools, skill portability"
@@ -650,6 +682,10 @@ orchestration:
 # DOMAIN SPECIFIC — Real World Applications
 
 domain:
+  - id: biome
+    tagline: "A bounded region of a platform"
+    why: "Mother skill for one cloud, forge, or overlay: how this shop actually runs it"
+
   - id: mapbox
     tagline: "Mapbox wrote twenty skills; this one picks two"
     why: "Routes to mapbox/mapbox-agent-skills (MIT, mounted not vendored); owns key roles, measured 403/referer behaviour, and the CLI-vs-REST-vs-MCP choice"

@@ -12,7 +12,7 @@ stage in a cellular-automata pipeline instead of a thing that happens next to on
 The stack algebra and every line-number citation live in
 [`layered-rules.yml`](layered-rules.yml). This page is the argument.
 
-## Start by admiring the thing you're about to criticize
+## defineType
 
 [`CAM6.js`](https://github.com/SimHacker/CAM6/blob/master/javascript/CAM6.js) is about 14,900
 lines, and its whole extension architecture is one function:

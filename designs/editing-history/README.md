@@ -28,9 +28,8 @@ Two of the requirements below are **his**, not mine, in his own words at BayCHI 
 > they could at least have made it visible and made it a stack for rearrangement but oh no
 
 Visible. And a stack, meaning more than one, held for **rearrangement** rather than transport.
-That is requirements 1 through 3. He named the disease too, and the naming is the load-bearing
-part of his case: the functions are honestly called **hide** and **plug**, and calling them
-*cut* and *paste* is what let them ship.
+That is requirements 1 through 3. He named the disease too: the functions are honestly called
+**hide** and **plug**, and calling them *cut* and *paste* is what let them ship.
 
 ## What I add
 

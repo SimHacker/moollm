@@ -200,7 +200,7 @@ This evolved into MOOLLM's `.moollm/` directory: `hot.yml`, `cold.yml`, `working
 
 Dasher (the accessible text entry system) navigates through probability distributions using continuous gesture. NeLLM applied this to code: instead of discrete autocomplete suggestions, navigate continuously through the space of possible completions, seeing live execution previews of each path.
 
-This connects to MOOLLM's `adventure` skill: navigate through rooms (probability regions), see what's in each direction (advertisements), choose based on scored relevance (information-theoretic efficiency). Dasher navigation through thought space IS room-based exploration of a semantic landscape.
+This connects to MOOLLM's `adventure` skill: navigate through rooms (probability regions), see what's in each direction (advertisements), choose based on scored relevance (information-theoretic efficiency).
 
 ### Think-Talk Protocol
 
@@ -215,13 +215,13 @@ This maps to MOOLLM's `speed-of-light` (THINK — many turns in one call), `adve
 
 In NeWS, PostScript programs running on the display server could create interactive windows. In NeLLM, computation results become interactive visualizations — not static text but manipulable objects. Click a number to see its derivation. Drag a function to compose it with another.
 
-This is the future adventure UI: direct manipulation of rooms and objects, not just text commands. The iLoci vision (drag nodes, kiss to connect, zoom to explore) applied to computation results.
+Direct manipulation of rooms and objects. The iLoci vision (drag nodes, kiss to connect, zoom to explore) applied to computation results.
 
 ### Society of Minds Conference
 
 Multiple NeLLM contexts conferencing — each with their own persistent state, communicating via structured messages. Characters in different rooms, each running their own simulation, sharing observations.
 
-This is exactly the MCP vision we documented today: entities as MCP servers, advertising their tools, calling each other's methods. Speed-of-light as the localhost loopback. Carrier pigeon as the real MCP calls between processes.
+Entities as MCP servers, advertising their tools, calling each other's methods. Speed-of-light as the localhost loopback. Carrier pigeon as the real MCP calls between processes.
 
 ### Semantic Physics
 

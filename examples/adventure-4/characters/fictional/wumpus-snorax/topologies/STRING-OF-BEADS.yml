@@ -3,18 +3,17 @@
 #  The right & left corners lead to neighboring beads.
 #  (This one is difficult to play)" — Wumpus 2 instructions
 
-topology:
-  name: "String of Beads"
-  type: bead_necklace
-  cave: 2                                    # Yob\'s own menu number in Wumpus 2
-  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2830-2860"
-  regular: true      # every room: 3 tunnels, two-way traffic
-  description: |
-    Five diamond-shaped beads of four rooms each, strung in a circle.
-    Between beads there is exactly one tunnel — a chokepoint. One pit on
-    a chokepoint can sever the necklace, which is why the instructions
-    warn it is difficult to play: sometimes the only move is to shoot
-    down the string and hope.
+name: "String of Beads"
+type: bead_necklace
+cave: 2                                    # Yob\'s own menu number in Wumpus 2
+source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2830-2860"
+regular: true      # every room: 3 tunnels, two-way traffic
+description: |
+  Five diamond-shaped beads of four rooms each, strung in a circle.
+  Between beads there is exactly one tunnel — a chokepoint. One pit on
+  a chokepoint can sever the necklace, which is why the instructions
+  warn it is difficult to play: sometimes the only move is to shoot
+  down the string and hope.
 
 adjacency:
   1: [2, 3, 20]

@@ -10,21 +10,20 @@
 #
 # See SKILL.md for full protocol.
 
-skill:
-  name: groceries
-  version: 1.0.0
-  emoji: "🛒"
-  tagline: "Replicator-grade grocery automation"
-  config_dir: ".moollm/skills/groceries"
+name: groceries
+version: 1.0.0
+emoji: "🛒"
+tagline: "Replicator-grade grocery automation"
+config_dir: ".moollm/skills/groceries"
+
+description: |
+  Dutch supermarket integration with smart shopping features.
   
-  description: |
-    Dutch supermarket integration with smart shopping features.
-    
-    SUPPORTS: Albert Heijn, Jumbo (planned), Picnic (planned)
-    STORES: Login in 1Password, personal data separate
-    EXAMPLES: Trek-themed for safe sharing
-    
-    Your galley officer, digitized.
+  SUPPORTS: Albert Heijn, Jumbo (planned), Picnic (planned)
+  STORES: Login in 1Password, personal data separate
+  EXAMPLES: Trek-themed for safe sharing
+  
+  Your galley officer, digitized.
 
 # FILES — Page-in on demand
 files:
@@ -244,19 +243,19 @@ trekify:
 advertisements:
   SEARCH:
     score: 95
-    condition: "Looking for grocery products"
+    score_if: "Looking for grocery products"
   BONUS:
     score: 90
-    condition: "Want to find deals/sales"
+    score_if: "Want to find deals/sales"
   MEAL-PLAN:
     score: 88
-    condition: "Planning meals for the week"
+    score_if: "Planning meals for the week"
   ANALYZE:
     score: 85
-    condition: "Want to understand spending patterns"
+    score_if: "Want to understand spending patterns"
   LIST-SYNC:
     score: 92
-    condition: "Have a list ready to shop"
+    score_if: "Have a list ready to shop"
 
 invoke_when:
   - "Grocery shopping needed"

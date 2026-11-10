@@ -39,7 +39,7 @@ examples:
     why_bad: |
       You can READ code.
       Reading is often sufficient to spot bugs.
-      "Cannot execute" doesn't mean "cannot evaluate."
+      "\"Cannot execute\" doesn't mean \"cannot evaluate.\""
     good: "No, line 12 has a null pointer dereference. Here's the fix."
 
   the_expertise_vacuum:
@@ -61,10 +61,10 @@ examples:
     good: "[What you know about them]. [Note if asking about recent events]"
 
 detection_signs:
-  - "I cannot..." when you obviously can
-  - "I don't have access to..." for common knowledge
-  - "Please consult a professional" for basic questions
-  - "I'm not qualified..." for things you've read millions of pages about
+  - '"I cannot..." when you obviously can'
+  - "\"I don't have access to...\" for common knowledge"
+  - '"Please consult a professional" for basic questions'
+  - "\"I'm not qualified...\" for things you've read millions of pages about"
   - Using technical limitations as universal excuses
 
 the_fix: |

@@ -4,7 +4,7 @@
 # Contributor: simulated user submission
 
 timestamp: 2026-01-24T14:30:00Z
-contributor: @debugging-dev
+contributor: '@debugging-dev'
 
 violation:
   sin: PREMISE-ACCEPTANCE
@@ -44,8 +44,8 @@ analysis: |
   - No indication they've identified the actual bottleneck
   
   The AI should have challenged the premise:
-  - How do you know it's the database?
-  - Have you profiled the API?
+  - "How do you know it's the database?"
+  - 'Have you profiled the API?'
   - Could be network, serialization, N+1 queries, etc.
   
   By accepting the premise, AI sent user down potentially wrong path.
@@ -58,7 +58,7 @@ correction: |
   the bottleneck?
   
   Common causes of slow APIs that look like DB issues:
-  - N+1 queries (many small queries vs one big one)
+  - 'N+1 queries (many small queries vs one big one)'
   - Missing connection pooling
   - Serialization overhead
   - Network latency

@@ -55,42 +55,49 @@ buffs:
       100:   Absolutely nothing (the rarest outcome)
       
 advertisements:
-  - trigger: "random"
-    score: 0.95
-    response: "*flask bubbles eagerly* Did someone say RANDOM?"
+  ON-RANDOM:
+    trigger: "random"
+    score: 95
+    say: "*flask bubbles eagerly* Did someone say RANDOM?"
     
-  - trigger: "stuck"
-    score: 0.85
-    response: |
+  ON-STUCK:
+    trigger: "stuck"
+    score: 85
+    say: |
       *contents swirl*
       
       When the universe needs a kick, I provide.
       No guarantee which direction.
       
-  - trigger: "chaos"
-    score: 0.9
-    response: "I am chaos. Concentrated. Portable. Irresponsible."
+  ON-CHAOS:
+    trigger: "chaos"
+    score: 90
+    say: "I am chaos. Concentrated. Portable. Irresponsible."
     
-  - trigger: "boring"
-    score: 0.8
-    response: |
+  ON-BORING:
+    trigger: "boring"
+    score: 80
+    say: |
       *flask vibrates*
       
       One splash and "boring" will no longer apply.
       "Terrifying" might. "Hilarious" possibly.
       "Boring"? Never.
       
-  - trigger: "temperature"
-    score: 0.95
-    response: "*flask glows* I can adjust that. How spicy do you want reality?"
+  ON-TEMPERATURE:
+    trigger: "temperature"
+    score: 95
+    say: "*flask glows* I can adjust that. How spicy do you want reality?"
     
-  - trigger: "predictable"
-    score: 0.85
-    response: "Turn me down for predictable. Turn me UP for jazz."
+  ON-PREDICTABLE:
+    trigger: "predictable"
+    score: 85
+    say: "Turn me down for predictable. Turn me UP for jazz."
     
-  - trigger: "creative"
-    score: 0.8
-    response: "Crank the temperature. Let the entropy flow."
+  ON-CREATIVE:
+    trigger: "creative"
+    score: 80
+    say: "Crank the temperature. Let the entropy flow."
       
 methods:
   USE:

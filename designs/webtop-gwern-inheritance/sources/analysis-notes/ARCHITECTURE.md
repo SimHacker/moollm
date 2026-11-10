@@ -59,7 +59,7 @@ The `pandocTransform` ordering lives at `app/hakyll.hs:428-445`.
 | [STYLING-AND-DELIVERY.md](STYLING-AND-DELIVERY.md) | CSS, templates, fonts, nginx | Derived dark mode, SSI hot-patch, URL permanence |
 | [LLM-IN-THE-LOOP.md](LLM-IN-THE-LOOP.md) | The LLM tool suite | Single-purpose guarded GPT scripts (sister-script parallel) |
 
-## Most interesting parts, ranked for MOOLLM webtop relevance
+## Parts
 
 1. **The pop-frame abstraction** — one windowing API (`spawn / fill / titlebar / pin /
    tile`), two providers: `popups.js` (desktop, drag/resize/tile/minimize) and

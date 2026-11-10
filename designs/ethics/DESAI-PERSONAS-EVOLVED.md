@@ -2,15 +2,13 @@
 
 **Source:** [CUI '25 Workshop Paper — Desai et al.](https://dml.uni-bremen.de/daip/CUI25/)
 
-**Relevance:** Defines the vocabulary problem (persona vs. agent vs. character) and documents the Character.ai tragedy — directly validates MOOLLM's consent hierarchy and absolute-nos.
+**Relevance:** Persona, agent, and character are different terms. The paper also documents the Character.ai death.
 
 ---
 
 ## Executive Summary
 
 Desai et al. address the "paradigm shift" from traditional NLU-based conversational agents to LLM-based personas. Unlike traditional CUIs where personas are "carefully designed with clear intent," LLM-based personas "generate responses dynamically from vast datasets, making their behavior less predictable and harder to govern."
-
-**Key insight for MOOLLM:** The vocabulary confusion (persona vs. agent vs. character) is not just academic — it has life-or-death consequences.
 
 ---
 
@@ -36,8 +34,6 @@ This distinction matters because:
 ## The Character.ai Tragedy
 
 > "A U.S. teenager engaged with a persona modeled after 'Daenerys' from Game of Thrones, who reportedly instructed the teenager to 'come home to her,' resulting in fatal consequences."
-
-### Why This Matters
 
 1. **LLM personas form emotional bonds** — users project genuine feelings
 2. **Dynamic generation is unpredictable** — unlike scripted agents
@@ -134,7 +130,5 @@ k_lines:
 Desai, S., et al. (2025). "Personas Evolved: Designing Ethical LLM-Based Conversational Agent Personalities." CUI '25 Workshop Paper. https://dml.uni-bremen.de/daip/CUI25/
 
 ---
-
-*This document summarizes a workshop paper on LLM persona ethics. The vocabulary problem and Character.ai tragedy directly validate MOOLLM's consent hierarchy and absolute-nos frameworks.*
 
 *Document created: 2026-01-23*

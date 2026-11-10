@@ -4,7 +4,8 @@
 
 id: content-rescue
 name: "Content Rescue"
-type: [skill, tool, scraping, archival, markdown]
+type: skill
+tags: [tool, scraping, archival, markdown]
 emoji: "🛟"
 tier: 2
 status: implementing
@@ -17,13 +18,17 @@ term_of_art:
   git_centric: "If it's not on git, it don't exist. Diffable Markdown + local assets; history + remotes = ownership."
 
 advertisements:
-  - trigger: "rescue this Medium article / save my post / mirror these images / it's bot-walled"
+  MEDIUM-ARTICLES-RESCUE:
+    trigger: "rescue this Medium article / save my post / mirror these images / it's bot-walled"
     method: "EXTRACT-MANIFEST → FETCH-ASSETS → WIRE-MARKDOWN"
-  - trigger: "the page won't curl but I can see it in a browser"
+  PAGES-FETCH:
+    trigger: "the page won't curl but I can see it in a browser"
     method: "EXTRACT-MANIFEST (browser/CDP from embedded __APOLLO_STATE__)"
-  - trigger: "download all these images in order with captions"
+  IMAGES-DOWNLOAD:
+    trigger: "download all these images in order with captions"
     method: "FETCH-ASSETS (scripts/fetch_images.py)"
-  - trigger: "save my Hacker News comments"
+  HN-COMMENTS-SAVE:
+    trigger: "save my Hacker News comments"
     method: "SCRAPE-HN"
 
 methods:

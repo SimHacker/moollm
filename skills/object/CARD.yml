@@ -28,6 +28,7 @@ schema:
     - container
     - locked
     - hidden        # Hide from player (for prototypes, agents, tasks)
+    - disabled      # not simulated: prototypes, switched-off or broken things
     - contains
     - capacity
     - state         # Initial values here or in the prototype inherited

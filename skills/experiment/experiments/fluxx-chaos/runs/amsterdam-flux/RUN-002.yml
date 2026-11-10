@@ -168,18 +168,18 @@ goal_history:
     status: "active"
     note: "DEADLOCK — split between Don and Donna"
 
-dealer:
-  mode: "dynamic"
-  emoji: "🌊"
-  tension: "high"
-  near_victory: null  # Deadlock
-  karma_ledger:
-    don: 3
-    palm: 0
-    bumblewick: 0
-    donna: 2
-  boop_log:
-    - "Turn 11: Bumblewick drew both goal keepers AND second creeper — dealer non-intervention (organic chaos)"
+# dealer:
+mode: "dynamic"
+emoji: "🌊"
+tension: "high"
+near_victory: null  # Deadlock
+karma_ledger:
+  don: 3
+  palm: 0
+  bumblewick: 0
+  donna: 2
+boop_log:
+  - "Turn 11: Bumblewick drew both goal keepers AND second creeper — dealer non-intervention (organic chaos)"
 
 # Board summary:
 board_state:

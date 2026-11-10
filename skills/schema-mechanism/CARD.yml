@@ -5,7 +5,8 @@
 
 id: schema-mechanism
 name: "Schema Mechanism"
-type: [skill, theory, learning]
+type: skill
+tags: [theory, learning]
 
 emoji: 🧠
 
@@ -75,15 +76,15 @@ state:
 advertisements:
   LEARN-CAUSALITY:
     score: 95
-    condition: "Want to understand why actions succeed or fail"
+    score_if: "Want to understand why actions succeed or fail"
     
   DISCOVER-PREREQUISITES:
     score: 90
-    condition: "Schema fails unpredictably, need to find hidden conditions"
+    score_if: "Schema fails unpredictably, need to find hidden conditions"
     
   PLAN-ACTIONS:
     score: 85
-    condition: "Need to chain schemas to achieve goal"
+    score_if: "Need to chain schemas to achieve goal"
 
 see_also:
   - skills/constructionism

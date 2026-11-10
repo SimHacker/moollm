@@ -51,16 +51,16 @@ pointing_toward: "../room-j/"
 pointing_meaning: "The lamp vendor. So close. So very close."
 
 advertisements:
-  - action: EXAMINE
+  EXAMINE:
     score: 80
-    result: |
+    say: |
       The skeleton slumps against the wall, one bony arm extended
       toward the west passage. Their empty lamp lies beside them.
       A partially-eaten note is clutched in their other hand.
       
-  - action: READ-NOTE
+  READ-NOTE:
     score: 75
-    result: |
+    say: |
       You gently pry the note from skeletal fingers:
       
       "I should have brought more food to mark the rooms. 
@@ -69,26 +69,26 @@ advertisements:
       
       The writing ends mid-sentence. You can imagine the rest.
       
-  - action: TAKE-LAMP
+  TAKE-LAMP:
     score: 60
-    result: |
+    say: |
       You pick up the empty lamp. It's identical to yours, just... empty.
       A sobering reminder of what happens when the light goes out.
       
       (You could refill it at the vendor in room-j, if you wanted
       a backup lamp. Redundancy is underrated in grue territory.)
       
-  - action: TAKE-GOLD
+  TAKE-GOLD:
     score: 50
-    result: |
+    say: |
       You take the 3 gold pieces. The skeleton doesn't seem to mind.
       They won't be needing them where they're going.
       
       player.gold += 3
       
-  - action: PAY-RESPECTS
+  PAY-RESPECTS:
     score: 70
-    result: |
+    say: |
       You stand in respectful silence for a moment.
       
       "Rest well, fellow adventurer. Your sacrifice teaches us:
@@ -96,17 +96,17 @@ advertisements:
       
       The skeleton grins. Was that a nod? Probably just your imagination.
       
-  - action: GIVE
+  GIVE:
     score: 40
     description: "Leave something for the skeleton"
-    result: |
+    say: |
       You place [item] beside the skeleton as a memorial.
       The gesture feels right. Someone should remember them.
       
-  - action: PROMISE
+  PROMISE:
     score: 65
     description: "Make a promise to avenge them"
-    result: |
+    say: |
       "I will avenge you," you say solemnly to the skeleton.
       "The grue that did this will pay."
       

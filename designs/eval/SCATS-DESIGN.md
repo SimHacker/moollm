@@ -798,7 +798,6 @@ Simlish worked because:
 
 **Emoji + YAML Jazz does the same thing for text, structure, and logic.**
 
-This is the same design DNA:
 > **Communicate affect and intent, not literal sentences.**
 
 ---

@@ -142,7 +142,7 @@ handful of required, validated, executable fields (the Dublin Core), with everyt
 as overlay. The linter then enforces the core mechanically and hands the overlay to the LLM,
 which is the division of labor the pipeline already practices informally.
 
-## The core speaks gamer: borrow words that are already load-bearing
+## Borrow words already defined by play
 
 Look at that vocabulary row again. **Buff. Room. Inventory. Guard. Advertisement.** None of
 these words were invented here, and that's the design: the strict core's keywords are borrowed
@@ -164,22 +164,22 @@ a dependency network where each design node points to the next layers of the pla
 *implementing* a lower level is what unlocks the documents above it. Research completes when
 the prerequisite code lands; the reward is the pointer to what's now buildable. That's the
 semantic mipmap extended in time: the pyramid gates reading depth by relevance, the tech tree
-gates it by progress — and every gamer, human or LLM, already knows exactly how to read one.
+gates it by progress.
 
 ## Lineage: the (good) Scott Adams — convergent evolution
 
-The application space is no accident, but the lineage isn't descent — it's **convergent
+The lineage isn't descent — it's **convergent
 evolution**. The adventure compiler was already underway when Don reached out to
 **Scott Adams of Adventureland** (1978, the first commercial text adventure — the good Scott
 Adams), continuing a conversation begun on Hacker News in November 2021 and picked up on
 Facebook (documented in the [letter to Scott Adams](../email/letter-to-scott-adams.md) and the
 [PR vision doc](../pr/PR-ADVENTURE-COMPILER-VISION.md)). Out of the blue, Scott revealed he was
-building something remarkably similar: a **playable adventure made from his life's work** — the
+building a **playable adventure made from his life's work** — the
 collection of data, documents, and code he's saved and accumulated over a career — rooms and
 objects instead of (or in addition to, drawing from, and linking to) a blog, a Medium page, a
 Wikipedia entry, or (god forbid) a LinkedIn profile.
 
-Which was *exactly* the project on this end: the same explorable-archive treatment for Don's own life's work, and a parallel private project giving Will Wright's the same treatment. Two builders who started from the same 1978 algorithm arrived independently at the same destination — the personal archive as adventure: rooms of ideas, characters you can question, objects you can examine — and are now excited to collaborate and openly share ideas and code rather than argue precedence. Scott is enthusiastically working in AI himself these days, with a company he's started; an interview and a proper design discussion are on the docket.
+Which was the project on this end: the same explorable-archive treatment for Don's own life's work, and a parallel private project giving Will Wright's the same treatment. Two builders who started from the same 1978 algorithm arrived independently at the same destination — the personal archive as adventure: rooms of ideas, characters you can question, objects you can examine — and are collaborating and sharing ideas and code. Scott is working in AI himself these days, with a company he's started; an interview and a design discussion are on the docket.
 
 The shared conceptual ground from the original conversation still anchors it all: adventure games as Memory Palaces (the Method of Loci, computerized), pie menus as room navigation and command dispatchers, code as buildings and architecture. The strict core is what lets those historical life's-work archives run deterministically in anyone's browser; the overlay is what keeps them alive to the LLM and legible to the reader.
 

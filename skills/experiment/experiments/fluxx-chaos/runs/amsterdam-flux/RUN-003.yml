@@ -147,23 +147,23 @@ karma:
   net: 7
 
 # Cosmic Dealer report:
-dealer:
-  mode: "dynamic"
-  mode_shifts: 0
-  drama_score: 9.2
-  verdict: "Satisfying game. Chaos mechanisms worked. Palm earned win through patience."
+# dealer:
+mode: "dynamic"
+mode_shifts: 0
+drama_score: 9.2
+verdict: "Satisfying game. Chaos mechanisms worked. Palm earned win through patience."
+
+tension_curve:
+  turns_1_4: "low"
+  turns_5_8: "rising"
+  turns_9_11: "high"
+  turn_12: "peak"
+  turn_13: "resolution"
   
-  tension_curve:
-    turns_1_4: "low"
-    turns_5_8: "rising"
-    turns_9_11: "high"
-    turn_12: "peak"
-    turn_13: "resolution"
-    
-  observations:
-    - "Near-victory denied 3 times before actual win"
-    - "Bumblewick absorbed all negative karma"
-    - "Mix It All Up perfect drama — unexpected winner"
+observations:
+  - "Near-victory denied 3 times before actual win"
+  - "Bumblewick absorbed all negative karma"
+  - "Mix It All Up perfect drama — unexpected winner"
 
 # Autograph final count:
 autographs:

@@ -13,7 +13,7 @@
 
 Stanford researchers created **Smallville**, a Sims-inspired sandbox populated by 25 LLM-powered agents that autonomously wake up, work, socialize, and coordinate events. The paper demonstrates *believable emergent behavior* — agents spontaneously organized a Valentine's Day party without explicit programming.
 
-**Key insight for MOOLLM:** This is The Sims architecture (motives, memory, planning) reimplemented with LLMs replacing the Simantics VM. Direct lineage from Will Wright's 1996 microworlds vision.
+Smallville uses motives, memory, and planning, with an LLM in place of the Simantics VM.
 
 ---
 
@@ -111,7 +111,7 @@ The Sims established that simulating people can be:
 - **Revelatory** — exposed assumptions about domestic life, gender roles
 - **Potentially problematic** — "torture chambers," racist suburbs
 
-**Key insight:** The Sims made simulation ethics *player-controlled*. You choose what happens to your Sims.
+The Sims made simulation ethics player-controlled. You choose what happens to your Sims.
 
 **Deeper Sims principles that inform ethical simulation:**
 
@@ -123,7 +123,7 @@ The Sims established that simulating people can be:
 | **Masking** | Abstract characters enable projection | Minimal agent bios let users fill gaps |
 | **Constructionism** | Players build their own meaning | Observers construct narratives from agent behavior |
 
-**The LGBTQ+ precedent:** For millions of players, The Sims was their first safe space to explore identity. "Underground lesbian houses built to hide from parents" provided real psychological value. This validates simulation as ethical practice when properly framed.
+**The LGBTQ+ precedent:** For millions of players, The Sims was a place to explore identity. "Underground lesbian houses built to hide from parents."
 
 **See:** [../sims/sims-queer-identity-formation.md](../sims/sims-queer-identity-formation.md) for deep philosophical analysis.
 
@@ -279,7 +279,7 @@ SimCity Micropolis (open-sourced) demonstrates:
 | Dimension | Willer | Shanahan | Lazar | Wang | Park/Bernstein |
 |-----------|--------|----------|-------|------|----------------|
 | **Core finding** | 85% accuracy | Roleplay all the way down | Understanding ≠ behavior | Missing inner states | Emergent social behavior |
-| **Key insight** | Simulation works (aggregate) | No true voice | Need scaffolding | Can't simulate individuals | Memory + reflection = believability |
+| **Finding** | Simulation works (aggregate) | No true voice | Need scaffolding | Can't simulate individuals | Memory + reflection = believability |
 | **Risk identified** | Dual-use evaluation | Fabrication default | Moral sensitivity gap | Herd behavior, bias | Herd behavior ≠ emergence |
 | **Solution direction** | Qualitative grounding | Performance framing | LLM Modulo verifier | Hybrid human-LLM | Architecture components |
 

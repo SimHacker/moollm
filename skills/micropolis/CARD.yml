@@ -4,7 +4,8 @@
 
 id: micropolis
 name: "Micropolis"
-type: [skill, simulation, education, platform]
+type: skill
+tags: [simulation, education, platform]
 emoji: 🏙️
 tier: 1
 tagline: "The filesystem is the city. Git is the multiverse."
@@ -36,14 +37,15 @@ soul_city:
     building cities, and AI tutors debate each other to help students understand
     complex systems. The whole city is in git. Every branch is an alternate timeline.
 
-activates:
-  - MICROPOLIS
-  - SIMCITY
-  - CONSTRUCTIONISM
-  - MICROWORLD
-  - GIT-MULTIVERSE
-  - NURTURING-ENVIRONMENT
-  - METHOD-OF-LOCI
+k_lines:
+  activates:
+    - MICROPOLIS
+    - SIMCITY
+    - CONSTRUCTIONISM
+    - MICROWORLD
+    - GIT-MULTIVERSE
+    - NURTURING-ENVIRONMENT
+    - METHOD-OF-LOCI
 
 invoke_when:
   - "Discussing Micropolis development"

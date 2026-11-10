@@ -1,16 +1,16 @@
-card:
-  name: monster-mimic
-  type: [monster, shapeshifter, dnd, example]
-  tier: 1
-  invoke_when: ["trap encounter", "dungeon hazard", "gotcha moment"]
-  advertisement_names:
-    - DESCRIBE
-    - THREAT
-    - WEAKNESS
-  tags: [moollm, example, monster, mimic, dnd]
-  description: |
-    A mimic that masquerades as objects (chests, doors). Sticky, biting, and
-    loves ambushes.
+# card:
+name: monster-mimic
+type: [monster, shapeshifter, dnd, example]
+tier: 1
+invoke_when: ["trap encounter", "dungeon hazard", "gotcha moment"]
+advertisement_names:
+  - DESCRIBE
+  - THREAT
+  - WEAKNESS
+tags: [moollm, example, monster, mimic, dnd]
+description: |
+  A mimic that masquerades as objects (chests, doors). Sticky, biting, and
+  loves ambushes.
 
 ethics:
   constraints:

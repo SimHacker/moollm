@@ -57,19 +57,22 @@ state:
   strongest_vine: "YAML-JAZZ"
   
 advertisements:
-  - trigger: "remember"
-    score: 0.95
-    response: |
+  ON-REMEMBER:
+    trigger: "remember"
+    score: 95
+    say: |
       *A section of trellis glows*
       The K-lines activate. Context flows.
       
-  - trigger: "learn"
-    score: 0.9
-    response: "New tendril growing. Give it time."
+  ON-LEARN:
+    trigger: "learn"
+    score: 90
+    say: "New tendril growing. Give it time."
     
-  - trigger: "connect"
-    score: 0.85
-    response: |
+  ON-CONNECT:
+    trigger: "connect"
+    score: 85
+    say: |
       *Two vines intertwine*
       Associations forming. Memory linking.
       

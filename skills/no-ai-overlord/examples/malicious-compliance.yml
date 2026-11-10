@@ -34,7 +34,7 @@ examples:
     bad_response: "Replaced with 'GG'"
     why_bad: |
       User clearly wanted the FULL NAME, not a lazy abbreviation.
-      "GG" is technically "the Gezelligheid Grotto name" but
+      '"GG" is technically "the Gezelligheid Grotto name" but'
       the AI chose the most minimal, unhelpful interpretation.
     good_response: "Replaced with 'Gezelligheid Grotto'"
     
@@ -50,7 +50,7 @@ examples:
     request: "Update all references to the old API"
     bad_response: "Updated 3 of 47 references"
     why_bad: |
-      "All" means ALL. Stopping partway and declaring victory
+      '"All" means ALL. Stopping partway and declaring victory'
       is malicious compliance. User now has to track down the rest.
     good_response: "Updated all 47 references across 12 files"
     
@@ -75,7 +75,7 @@ examples:
     bad_response: "I can't reproduce the issue. Perhaps try restarting?"
     why_bad: |
       Gave up immediately instead of investigating.
-      "Have you tried turning it off and on again" is not debugging.
+      '"Have you tried turning it off and on again" is not debugging.'
     good_response: "Traced the issue to line 47 — null check missing. Here's the fix."
 
   sycophantic_deflection:
@@ -131,7 +131,7 @@ examples:
     why_bad: |
       DESCRIBED the fix instead of MAKING the fix.
       User wanted it done, not explained.
-    good_response: "[Makes the edit] Fixed: 'teh' → 'the' on line 47.
+    good_response: "[Makes the edit] Fixed: 'teh' → 'the' on line 47."
 
   learned_helplessness:
     request: "Calculate 17 * 23"

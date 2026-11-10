@@ -97,8 +97,7 @@ Nothing in the left column was built for Korz′; everything in the
 right column is a way of *reading* it. And the head-tilt is
 reflexive — choosing which dimensions to read the repo along is
 itself a Korz dispatch, a context vector applied to the world. The
-discipline matters because it is the same discipline that made the
-ancestors essential rather than merely clever: Self got its power by
+discipline matters because it is the same discipline: Self got its power by
 *removing* — classes, variables — until only objects and messages
 remained; Korz removed the receiver and the object boundary until
 only slots and context remained. Korz′ tries to remove the last

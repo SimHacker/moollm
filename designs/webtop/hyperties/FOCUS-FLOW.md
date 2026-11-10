@@ -59,7 +59,7 @@ from a pair to the whole sequence:
   [reselection](../../pie-stack-views/RESELECTION.md) applied to the keyboard: browse the
   consequence before committing to it.
 
-## Why the animation is load-bearing, not decoration
+## Why the animation is not decoration
 
 The 1991 paper already validated motion as the perceptual channel, in its argument for pop-out over
 static highlighting:

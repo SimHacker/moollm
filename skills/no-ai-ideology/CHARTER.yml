@@ -190,11 +190,11 @@ article_5:
     
   operations:
     
-    export:
-      command: "[SKILL] EXPORT TO <repo-path>"
-      action: "Copy from .moollm/ to repo path"
-      confirmation: "Required before copy"
-      
+    # export:
+    command: "[SKILL] EXPORT TO <repo-path>"
+    action: "Copy from .moollm/ to repo path"
+    confirmation: "Required before copy"
+    
     commit:
       command: "[SKILL] COMMIT <message>"
       action: "Save to .moollm/ (always)"

@@ -147,7 +147,7 @@ matrix. The only way to honor that epigraph is a **shell that makes the log and 
 proposals visible, navigable, and reversible.** That is a UI problem, and it is unsolved in the
 essay.
 
-## The real divergence: inward vs outward
+## Inward vs outward
 
 Not a disagreement, a difference in purpose, and naming it keeps both honest.
 
@@ -184,8 +184,8 @@ What each side actually supplies:
 
 - It is a 2023 proposal at `confidence: possible`, unbuilt as of the document. Do not describe it as
   a system that exists.
-- Dynamic evaluation at interactive latency on a personal corpus is the load-bearing bet, and it is
-  a real bet. His own performance section is a set of plausible mitigations, not measurements.
+- Dynamic evaluation at interactive latency on a personal corpus is unmeasured. His own
+  performance section is a set of plausible mitigations, not measurements.
 - The security argument — a model imitating you won't follow injected instructions because *you*
   wouldn't — is elegant and not obviously sufficient. It deserves adversarial attention, not
   agreement.

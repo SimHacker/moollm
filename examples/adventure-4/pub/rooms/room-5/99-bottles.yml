@@ -314,29 +314,33 @@ bac_simulation:
       note: "Small body, big heart. First to get philosophical, first to nap."
   
 advertisements:
-  - trigger: "sing"
-    score: 1.0
-    response: |
+  ON-SING:
+    trigger: "sing"
+    score: 100
+    say: |
       *Shuffle picks up the songbook*
       
       "Shall we? From the top?"
       
-  - trigger: "99"
-    score: 0.95
-    response: |
+  ON-99:
+    trigger: "99"
+    score: 95
+    say: |
       "99 rounds of simulation. 8 actors. 1 call.
       That's the speed of light principle in song form."
       
-  - trigger: "count"
-    score: 0.9
-    response: |
+  ON-COUNT:
+    trigger: "count"
+    score: 90
+    say: |
       "Counting down? Counting up?
       Either way, we do it together.
       Either way, we do it fast."
       
-  - trigger: "ensemble"
-    score: 0.85
-    response: |
+  ON-ENSEMBLE:
+    trigger: "ensemble"
+    score: 85
+    say: |
       "8 voices singing. Taking turns. No waiting.
       The context window holds all of them.
       The LLM IS the choir."

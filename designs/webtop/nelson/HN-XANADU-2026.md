@@ -117,7 +117,7 @@ Substantive; `huurtehoog` and `iFreilicht` reply that intent to solve is not sol
 - `foul` ([49563819](https://news.ycombinator.com/item?id=49563819)) quoting the
 links-as-annotation-overlay argument, which is the peripheral-views position arrived at
 structurally.
-- `kryptiskt` and `huurtehoog` give the best two-sentence critique in the thread: the world is
+- `kryptiskt` and `huurtehoog`: the world is
 too mutable, and a design with no adversarial dynamics settles nowhere. Honest, and the
 static-tier argument is the answer.
 - `nekusar` — micropayments as libertarian dystopia, hostile and not engageable productively.
@@ -125,7 +125,7 @@ static-tier argument is the answer.
 because it is the ambient condition that the portrayal standards exist for, showing up on cue in a
 thread about his work.
 - Assorted "not to be confused with" jokes: the ATS-Xanadu compiler, the Olivia Newton-John film,
-Kubla Khan. `taybin`'s "Gaze upon my blogs, and despair" is the best line on the page.
+Kubla Khan. `taybin`: "Gaze upon my blogs, and despair."
 
 
 

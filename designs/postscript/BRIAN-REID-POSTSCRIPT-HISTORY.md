@@ -1,4 +1,4 @@
-# The Definitive History of PostScript
+# The History of PostScript
 
 > **Primary Source: Brian Reid's 1985 "laser-lovers" Post**
 
@@ -6,18 +6,18 @@
 
 ## Introduction
 
-This document preserves the definitive first-person account of PostScript's origins, written by **Brian Reid** on March 2, 1985 — just 11 months after Adobe shipped its first PostScript manual.
+This document preserves the first-person account of PostScript's origins, written by **Brian Reid** on March 2, 1985 — just 11 months after Adobe shipped its first PostScript manual.
 
-### Why This Document Matters
+### Reid's position
 
-Brian Reid was uniquely positioned to write this history:
+Brian Reid:
 
 - **He was there.** As a consultant to Xerox PARC during the Interpress design, he worked directly with the principals.
 - **His thesis advisor was Bob Sproull** — one of the three architects of Interpress (with Butler Lampson and John Warnock).
 - **He saw JAM at Stanford in 1981** — the direct predecessor to both Interpress and PostScript.
-- **fa.laser-lovers was the Hacker News of 1985** — this wasn't a casual post but a definitive statement to the technical community.
+- **fa.laser-lovers was the Hacker News of 1985.**
 
-### The Lightning Strike for MOOLLM
+### Where CARD.yml comes from
 
 John Warnock described PostScript as:
 
@@ -25,9 +25,9 @@ John Warnock described PostScript as:
 
 This quote, passed from **Warnock → Owen Densmore → Don Hopkins**, directly inspired MOOLLM's `CARD.yml` naming. Skills are cards. The LLM is the linguistic motherboard.
 
-### Key Insight
+### The stance
 
-Brian Reid identifies the fundamental philosophical difference:
+Brian Reid identifies the difference:
 
 > *"Interpress takes the stance that the language system must guarantee certain useful properties, while PostScript takes the stance that the language system must provide the user with the means to achieve those properties if he wants them."*
 
@@ -234,14 +234,14 @@ decwrl!glacier!reid
 
 ### Brian Reid
 
-**Brian Reid** wrote this definitive history from a unique vantage point: he was a consultant to Xerox PARC during the Interpress design, and his thesis advisor at CMU was Bob Sproull — one of the three principal architects of Interpress.
+**Brian Reid** wrote this history: he was a consultant to Xerox PARC during the Interpress design, and his thesis advisor at CMU was Bob Sproull — one of the three principal architects of Interpress.
 
 **Notable contributions:**
 - **Scribe** (1980) — One of the first document preparation systems with semantic markup (bold, italic as concepts, not formatting). Influenced LaTeX and HTML.
 - **Usenet backbone maps** — Created the iconic ASCII maps showing UUCP network topology.
 - **Gatekeeper** — Early anonymous FTP archive at Digital/DEC Research.
 
-Brian Reid is not a direct MOOLLM inspiration, but his 1985 post is the definitive historical record of PostScript's origins and philosophy.
+Brian Reid is not a direct MOOLLM inspiration, but his 1985 post is the historical record of PostScript's origins and philosophy.
 
 ### Glenn Reid
 

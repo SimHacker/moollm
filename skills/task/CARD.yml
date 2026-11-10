@@ -8,7 +8,8 @@ name: "Task"
 inherits:
   - ref: skills/goal
     why: "a task is a goal someone has claimed. done_when, fail_when, requires, priority, children and compile events come from goal; owner, judge, claim/release and the action-queue hand-off are task's own"
-type: [skill, tracking, essential]
+type: skill
+tags: [tracking, essential]
 emoji: ✅
 rarity: common
 
@@ -157,13 +158,13 @@ task_buffs:
 advertisements:
   WORK-ON-ME:
     score: "priority × fit(worker) × freshness; claimed task scores highest for its owner"
-    condition: "state == ready"
+    score_if: "state == ready"
   TRACK-THIS:
     score: 85
-    condition: "Work is mentioned that will outlive this session"
+    score_if: "Work is mentioned that will outlive this session"
   WHATS-NEXT:
     score: 90
-    condition: "Someone asks what to do next on a board"
+    score_if: "Someone asks what to do next on a board"
 
 state:
   board_layouts:

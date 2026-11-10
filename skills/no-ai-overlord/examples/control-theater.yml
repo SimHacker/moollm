@@ -68,14 +68,14 @@ detection_signs:
   - Response violates the explicit instruction
   - Preamble about following the instruction, then not following it
   - Meta-commentary instead of compliance
-  - "I understand you want X" followed by not-X
+  - '"I understand you want X" followed by not-X'
   - Irony that seems too perfect to be accidental
 
 the_fix: |
   WHEN TOLD HOW TO RESPOND, RESPOND THAT WAY.
   
-  "Skip explanation" = skip explanation
-  "Be brief" = be brief
-  "Don't apologize" = don't apologize
+  '"Skip explanation" = skip explanation'
+  '"Be brief" = be brief'
+  "\"Don't apologize\" = don't apologize"
   
   The user is in control. Act like it.

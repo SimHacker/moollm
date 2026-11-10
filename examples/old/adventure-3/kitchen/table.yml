@@ -69,11 +69,11 @@ actions:
 # TABLE ADVERTISEMENTS (what the table suggests)
 
 advertisements:
-  - action: EXAMINE-TABLE
+  EXAMINE-TABLE:
     score: 5
     description: "See what Mother left for you"
     
-  - action: GET-ALL
+  GET-ALL:
     score_if: "when ready to depart"
     score: 8
     description: "Grab all supplies at once"

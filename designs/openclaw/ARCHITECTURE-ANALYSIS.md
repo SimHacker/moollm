@@ -77,7 +77,7 @@ extensions/
 └── lobster/          # Custom lobster channel
 ```
 
-This is a **remarkable achievement** in integration breadth. Each extension handles authentication, message normalization, media handling, and platform-specific quirks.
+Each extension handles authentication, message normalization, media handling, and platform-specific quirks.
 
 ### 3. Skills: Progressive Disclosure
 
@@ -213,7 +213,7 @@ OpenClaw skills don't delegate to parent scopes. There's no directory-as-inherit
 
 ### 3. No K-line Activation
 
-OpenClaw skills are loaded by name match or `always: true`. There's no semantic activation — saying "Palm" doesn't trigger a constellation of context. This is the biggest architectural gap for MOOLLM integration.
+OpenClaw skills are loaded by name match or `always: true`. There's no semantic activation — saying "Palm" doesn't trigger a constellation of context.
 
 ### 4. No Character Model
 
@@ -283,14 +283,10 @@ GitHub-as-MMORPG needs I/O  → GitHub skill + gh CLI
 | tests/ | ~300+ | ~20,000+ |
 | **Total** | **~3,700+** | **~300,000+** |
 
-This is a substantial codebase. Well-organized, actively maintained, with strong tooling.
-
 ---
 
 ## Verdict
 
-OpenClaw is **MOOLLM's missing messaging layer**. It has the plumbing to connect characters to the real world across 13+ platforms. It has the security model to sandbox character actions. It has the skill format to host MOOLLM skills. It has the agent runtime to execute character decisions.
+OpenClaw has the plumbing to connect characters to the real world across 13+ platforms. It has the security model to sandbox character actions. It has the skill format to host MOOLLM skills. It has the agent runtime to execute character decisions.
 
-What it lacks is everything that makes MOOLLM interesting: personality, ethics, memory, relationships, needs, rooms, K-lines, the Church of the Eval Genius, and a grumpy philosopher monkey.
-
-The integration is natural. The question is execution.
+What it lacks is personality, ethics, memory, relationships, needs, rooms, K-lines, the Church of the Eval Genius, and a grumpy philosopher monkey.

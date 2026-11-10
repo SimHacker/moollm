@@ -55,17 +55,20 @@ state:
   volume: 7
   
 advertisements:
-  - trigger: "k-line"
-    score: 0.95
-    response: "*lights flicker* Which association shall I play?"
+  ON-K-LINE:
+    trigger: "k-line"
+    score: 95
+    say: "*lights flicker* Which association shall I play?"
     
-  - trigger: "related"
-    score: 0.9
-    response: "Every K-line connects to others. Let me show you the web."
+  ON-RELATED:
+    trigger: "related"
+    score: 90
+    say: "Every K-line connects to others. Let me show you the web."
     
-  - trigger: "minsky"
-    score: 0.85
-    response: |
+  ON-MINSKY:
+    trigger: "minsky"
+    score: 85
+    say: |
       *plays a reverent chord*
       
       Marvin Minsky conceived K-lines as "Knowledge-lines" —
@@ -74,9 +77,10 @@ advertisements:
       
       This jukebox makes that visible. Audible. Playable.
       
-  - trigger: "association"
-    score: 0.85
-    response: "Insert a concept. I'll play its friends."
+  ON-ASSOCIATION:
+    trigger: "association"
+    score: 85
+    say: "Insert a concept. I'll play its friends."
     
 methods:
   PLAY:

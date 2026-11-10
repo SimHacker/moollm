@@ -71,8 +71,7 @@ of the building.
   design, not later additions.
 - **The Exploratorium Cookbooks** (I, II, III) — exhibit plans published for others to build.
 - **Seymour Papert** — constructionism and microworlds, the same claim from the education side:
-  you learn the phenomenon by building with it, not by being shown it. Already load-bearing
-  throughout this repository.
+  you learn the phenomenon by building with it, not by being shown it.
 - **HyperLook SimCity** was demoed on that floor, filmed by Abbe Don at the Exploratorium. The
   interactive lineage this site is trying to continue was literally exhibited in the building the
   site is named after. See [webtop/HYPERLOOK.md](webtop/HYPERLOOK.md).

@@ -5,7 +5,8 @@
 
 id: naming
 name: "Naming"
-type: [skill, organization, meta]
+type: skill
+tags: [organization, meta]
 
 emoji: 🏷️
 
@@ -83,11 +84,11 @@ conventions:
 advertisements:
   NAME-SOMETHING:
     score: 80
-    condition: "Need to create a new file or directory"
+    score_if: "Need to create a new file or directory"
     
   UNDERSTAND-STRUCTURE:
     score: 70
-    condition: "Confused by naming conventions"
+    score_if: "Confused by naming conventions"
 
 # RELATED
 

@@ -85,7 +85,7 @@ This is Wright's most profound insight:
 
 > *"The actual end product of SimCity is not the shallow model of the city running in the computer. More importantly, it's the deeper model of the real world, and the intuitive understanding of complex dynamic systems, that people learn from playing it, in the context of everything else about a city that they already know."*
 
-**The Key Insight:** SimCity, SimEarth, and SimAnt are educational because they **implant useful models in their users' minds**. The computer simulation is an intermediary — an "incremental step" — between reality and understanding.
+SimCity, SimEarth, and SimAnt are educational because they **implant useful models in their users' minds**. The computer simulation is an intermediary — an "incremental step" — between reality and understanding.
 
 **MOOLLM Parallel:**
 
@@ -116,7 +116,7 @@ Don's experience:
 
 > *"When I first started playing SimCity, I constructed elaborate fantasies about how it was implemented, which turned out to be quite inaccurate. But the exercise of coming up with elaborate fantasies about how to simulate a city was very educational, because it's a hard problem!"*
 
-**Key Insight:** The act of trying to reverse-engineer the simulation IS the learning. Players who guess at implementation learn more than players who read documentation.
+The act of trying to reverse-engineer the simulation IS the learning. Players who guess at implementation learn more than players who read documentation.
 
 ### Implication Is More Efficient Than Simulation
 
@@ -169,7 +169,7 @@ SimRefinery was later recovered and analyzed by Phil Salvador at [The Obscuritor
 
 > *"The simulation does not consider fires spreading between buildings to be an error condition or a source of conflict — that's just the way the simulator's supposed to behave. But the user might, unless the game they're playing is pyromaniacal."*
 
-**Key Insight:** The simulation is neutral. Games are interpretive layers on top of simulations.
+The simulation is neutral. Games are interpretive layers on top of simulations.
 
 **MOOLLM Parallel:**
 
@@ -598,7 +598,7 @@ Session logs like [`marathon-session.md`](../../examples/adventure-4/characters/
 
 ## The Storytelling Insight
 
-Don Hopkins made a crucial observation, which Wright enthusiastically confirmed:
+Don Hopkins made an observation, which Wright enthusiastically confirmed:
 
 > **Don Hopkins:** *"They're using it as a medium to tell stories about."*
 >
@@ -608,7 +608,7 @@ Don Hopkins made a crucial observation, which Wright enthusiastically confirmed:
 >
 > **Will Wright:** *"Yeah, that's exactly right. There's a parallel simulation going on here in the game. Everybody's taking a linear path through this, and they're basically, most people will attempt to understand things like this with a story. They'll think about 'I did this, then that happened, because of that', and so the story becomes kind of their logical connection, their logical reverse engineering, of the simulation that they're playing inside of."*
 
-**MOOLLM Parallel:** This is the core MOOLLM insight:
+**MOOLLM Parallel:**
 
 | Insight | The Sims | MOOLLM |
 |---------|----------|--------|
@@ -624,7 +624,7 @@ The simulation is paper; the player writes stories on it. Session logs ARE the s
 
 ## Failure Modes: Kids vs. Adults
 
-Wright identifies a crucial difference in how children and adults approach games:
+Wright identifies a difference in how children and adults approach games:
 
 ### Adults
 

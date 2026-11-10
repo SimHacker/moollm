@@ -5,7 +5,8 @@
 
 id: simulation
 name: "Simulation"
-type: [skill, game, state, central]
+type: skill
+tags: [game, state, central]
 
 emoji: 🎮
 
@@ -117,11 +118,11 @@ state:
 advertisements:
   MANAGE-GAME-STATE:
     score: 95
-    condition: "Running a simulation or game"
+    score_if: "Running a simulation or game"
     
   CONTROL-TIME:
     score: 90
-    condition: "Need to advance or pause time"
+    score_if: "Need to advance or pause time"
 
 # RELATED
 

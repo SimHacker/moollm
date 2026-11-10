@@ -182,12 +182,12 @@ cli_tool:
       description: "ASCII map visualization"
       output: "Text-based map with zone coloring"
       
-    export:
-      description: "Export data formats"
-      formats:
-        - JSON
-        - CSV
-        
+    # export:
+    description: "Export data formats"
+    formats:
+      - JSON
+      - CSV
+      
     dump:
       description: "Raw hexadecimal data dump"
       purpose: "Debugging and reverse engineering"

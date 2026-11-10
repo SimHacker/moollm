@@ -20,9 +20,7 @@ reading of COM recorded here, so the text is archived rather than summarized.
 > Can someone link to a synopsis describing what "COM" is? It's hard to search for. (e.g. microsoft
 > com visual studio)
 
-Which is why "Glad you asked!" opens the reply, and why the reply is the length it is. Note what the
-question demonstrates about its own subject — see [the naming footnote](#the-name-defeated-two-attempts-to-fix-it)
-below.
+Which is why "Glad you asked!" opens the reply, and why the reply is the length it is.
 
 Replies: `pjmlp` objected that COM is not merely historical ("I guess you haven't looked into how
 Windows 8, 8.x, 10 and UWP applications work"), calling the summary great regardless; Don clarified
@@ -114,8 +112,7 @@ At this point in history, I think it's best to skip the "component technology" m
 
 The footnote numbering has three defects, preserved above as written:
 
-- **[10] is cited but never defined.** The body attaches it to "dual interfaces," the single most
-  load-bearing reference for this repo, and the list skips from [9] to [11].
+- **[10] is cited but never defined.** The body attaches it to "dual interfaces," and the list skips from [9] to [11].
 - **[13] is cited twice for different things** — Internet Explorer for Mac and Macromedia MOA — and
   the list defines only MOA. There is no citation for IE:mac.
 - **[3] is defined but never cited.** It is a duplicate of [9], both pointing at the same Wikipedia
@@ -131,16 +128,14 @@ truncated by HN's display with a trailing ellipsis, and most are dead now regard
 
 Microsoft renamed COM to ActiveX partly "because COM was so hard to search for." Twenty years later a
 reader on Hacker News opens a thread by asking what COM is, **because it is hard to search for**, and
-gets pointed at the rename. The rename did not take, and the question is a demonstration of its own
-subject.
+gets pointed at the rename. The rename did not take, and the question is the same failure, asked again.
 
 Don hit the same wall again in September 2026, trying to find a multiplayer browser toy:
-"cursor is hard to search for since it is so overloaded." Same failure mode, and it is the argument
-for the repo's naming discipline from the retrieval side: a name that cannot be searched for cannot be
+"cursor is hard to search for since it is so overloaded." Same failure mode: a name that cannot be searched for cannot be
 found, so the thing needs a **handle you can say out loud and get back** — which is what
 [self-naming text](../../webtop/hyperties/LINK-RESOLUTION.md) buys, and what
 [GUID-NAMING](../HUMANSPLAINING.md) forbids the opposite of. Three letters, English word, ambiguous:
-unfindable. This is not an aesthetic complaint, it is a broken index.
+unfindable.
 
 ## What this repo takes from it
 
@@ -157,6 +152,6 @@ Pointers rather than a rehash, since each is developed where it belongs:
 
 The four later posts on the same subject — COM vs SOM (2019), IFC vs Bongo (2019), Firefox XPCOM
 (2020), WebAssembly components (2021) — are shorter and add the SOM contrast and the Wasm forward
-look. This one is the fullest treatment.
+look. This one is the long one.
 
 ↑ [object-system](../README.md) · [DIRECTORY-AS-IUNKNOWN.md](../../DIRECTORY-AS-IUNKNOWN.md) · [mechanism registry](../../../skills/schema/schemas/mechanisms/com-xpcom/README.md)

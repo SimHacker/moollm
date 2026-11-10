@@ -38,7 +38,7 @@ shape can be parsed.
 |---|---|
 | Riding around a roundabout | a recognizable circuit — a deliberate mark, not noise |
 | Riding it the wrong way | recognizable *and different*: a natural **undo** of the effect of riding around |
-| **Pausing** | the most important one, and the richest |
+| **Pausing** | duration and surroundings |
 | Going past, turning back, returning slowly | a request for detail about what you just passed |
 | Crossing your own recent path | an event worth analyzing on its own |
 

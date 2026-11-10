@@ -54,9 +54,9 @@ behavior: |
   This one seems to.
 
 advertisements:
-  - action: EXAMINE
+  EXAMINE:
     score: 80
-    result: |
+    say: |
       The Eye meets your gaze. You feel... seen. Deeply seen.
       Uncomfortably seen. Seen in ways you didn't know were possible.
       
@@ -64,9 +64,9 @@ advertisements:
       
       You look away first. Everyone looks away first.
       
-  - action: SPEAK-TO
+  SPEAK-TO:
     score: 60
-    result: |
+    say: |
       "Hello?" you venture.
       
       The Eye widens slightly. The mushrooms pulse faster.
@@ -74,11 +74,11 @@ advertisements:
       No response comes. But you have the distinct feeling
       that you've been... acknowledged.
       
-  - action: TOUCH
+  TOUCH:
     score: 30
     score_if:
       - "player.wisdom < 10"
-    result: |
+    say: |
       You reach toward the Eye.
       
       The mushrooms RECOIL. The Eye WIDENS. A sound emerges —
@@ -90,10 +90,10 @@ advertisements:
       For the next hour, you can see slightly better in the dark.
       Also, your dreams will be... interesting tonight.
       
-  - action: FEED
+  FEED:
     score: 50
     description: "Offer food to The Thing"
-    result: |
+    say: |
       You place [food] before The Thing.
       
       A tendril of mushroom extends, examines the offering,
@@ -104,9 +104,9 @@ advertisements:
       
       [The Thing That Watches remembers your kindness]
       
-  - action: ASK-ABOUT-GRUE
+  ASK-ABOUT-GRUE:
     score: 70
-    result: |
+    say: |
       "The grue," you say. "Why won't it come here?"
       
       The Eye looks toward the south exit — toward room-f,
@@ -115,9 +115,9 @@ advertisements:
       You understand without words: The grue fears being seen.
       And The Thing sees EVERYTHING.
       
-  - action: THANK
+  THANK:
     score: 65
-    result: |
+    say: |
       "Thank you," you say. "For keeping them away."
       
       The Eye blinks slowly. The mushrooms glow a little brighter.

@@ -5,7 +5,8 @@
 
 id: evaluator
 name: "Evaluator"
-type: [skill, assessment, adversarial]
+type: skill
+tags: [assessment, adversarial]
 
 emoji: 📋
 
@@ -105,11 +106,11 @@ adversarial-loop:
 advertisements:
   INDEPENDENT-REVIEW:
     score: 95
-    condition: "Need unbiased assessment of work product"
+    score_if: "Need unbiased assessment of work product"
     
   QUALITY-GATE:
     score: 90
-    condition: "Output needs to meet standards before proceeding"
+    score_if: "Output needs to meet standards before proceeding"
 
 # RELATED
 

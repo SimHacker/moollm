@@ -5,7 +5,8 @@
 
 id: storytelling-tools
 name: "Storytelling Tools"
-type: [skill, narrative, sharing]
+type: skill
+tags: [narrative, sharing]
 emoji: 📖
 rarity: common
 
@@ -48,10 +49,10 @@ state: {}
 advertisements:
   CAPTURE-STORY:
     score: 85
-    condition: "Want to record narrative moments"
+    score_if: "Want to record narrative moments"
   SHARE-ADVENTURE:
     score: 80
-    condition: "Ready to share what happened"
+    score_if: "Ready to share what happened"
 
 see_also: [skills/adventure, skills/session-log, skills/visualizer]
 credits:

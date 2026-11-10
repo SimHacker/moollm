@@ -424,7 +424,7 @@ microworld_state:
 # state shows 0.5, result should be 0.8. Consistent!
 ```
 
-This is the ultimate K-line activation: the LLM isn't just following rules it was told — it's reading the actual source code that enforces those rules, and simulating it at high fidelity because the code is simple enough to execute mentally.
+The LLM is reading the source code that enforces those rules, and simulating it because the code is simple enough to execute mentally.
 
 ---
 
@@ -444,12 +444,10 @@ The security model works identically across:
 | `file://` | `file:///home/user/moollm/characters/...` | ✓ |
 | Custom | `grotto://live.local/sessions/current` | ✓ |
 
-**The key insight:** URIs are just paths with a scheme prefix. The LLM already knows:
+URIs are paths with a scheme prefix. The LLM already knows:
 - Path semantics (hierarchy, traversal)
 - Permission semantics (rwx, owner/group/other)
 - URI structure (scheme://authority/path)
-
-These compose naturally.
 
 ### What We Get For Free
 
@@ -787,7 +785,7 @@ Owner has special rights to modify object
 - Debugging permission issues was nightmare
 
 **Relevance to MOOLLM:**
-- The "fertile" bit is brilliant for prototype inheritance
+- The "fertile" bit enables prototype inheritance
 - Verbs-run-as-owner maps to skills-run-as-character
 - But: Still assumes trusted runtime enforcement
 

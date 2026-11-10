@@ -9,9 +9,7 @@ Related: [`READING-CURSORS.md`](READING-CURSORS.md) · [`PLAYABLE-CORPUS.md`](PL
 ## The naming, first, because the naming is the design
 
 **Doom scrolling** is an infinite strip selected by someone else, where no position has an address
-and nothing you pass can be returned to on purpose. The gesture is not the problem. The gesture is
-the best-trained input idiom in human history, and it costs one thumb, one hand, no aim, no
-precision, no eyes-on-target. What is wrong is what the strip is made of.
+and nothing you pass can be returned to on purpose. The gesture is not the problem. It costs one thumb, one hand, no aim, no precision, no eyes-on-target. What is wrong is what the strip is made of.
 
 So keep the gesture, replace the strip: a strip of **rooms**, each one addressed, authored, linkable
 and re-findable. **Scroll** becomes **stroll** — one letter, and the difference between being fed and

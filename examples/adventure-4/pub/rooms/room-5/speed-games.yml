@@ -83,9 +83,10 @@ contents:
   - quiz_bowl: "Questions and buzzes, no waiting"
   
 advertisements:
-  - trigger: "game"
-    score: 0.9
-    response: |
+  ON-GAME:
+    trigger: "game"
+    score: 90
+    say: |
       *The cabinet creaks open*
       
       "What shall we play?
@@ -93,9 +94,10 @@ advertisements:
       Something with many players?
       Either way: one call. Maximum fun."
       
-  - trigger: "simulate"
-    score: 0.85
-    response: |
+  ON-SIMULATE:
+    trigger: "simulate"
+    score: 85
+    say: |
       "Simulation games are our specialty.
       Many turns, one context window.
       The LLM holds all the state.

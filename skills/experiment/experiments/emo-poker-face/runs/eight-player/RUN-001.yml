@@ -314,13 +314,13 @@ hand_1:
       palm: "Collects pot quietly. Glances at Don. Relief."
       bowie: |
         Ziggy collapses. Berlin Bowie returns.
-        "Well played, cat. The river giveth." Calm acceptance.
+        '"Well played, cat. The river giveth." Calm acceptance.'
         BUSTED on hand one. Reaches for wallet.
       don: "Nods at Palm. 'She had you the whole time, David.'"
       donna: "THAT is why you don't MESS with the CAT."
-      leigh: "Fascinating. The cat is dangerous." *steals an olive*
-      klaus: "..." *imperceptible nod*
-      peewee: "WOW! KITTY WON! YAY KITTY!" *claps*
+      leigh: '"Fascinating. The cat is dangerous." *steals an olive*'
+      klaus: '"..." *imperceptible nod*'
+      peewee: '"WOW! KITTY WON! YAY KITTY!" *claps*'
       bumblewick: "I folded. I folded correctly. *exhales* That's good, right?"
     
   post_hand:
@@ -550,7 +550,7 @@ hand_2:
         amount: 250  # Call the raise
         thinking: |
           Queens play. The toad has something. So do I.
-        observable: "..." *chips move, nothing else*
+        observable: '"..." *chips move, nothing else*'
         
       - player: leigh
         action: fold
@@ -591,7 +591,7 @@ hand_2:
         amount: 350
         thinking: |
           Set. Let her bet. Take her chips on the turn.
-        observable: "..." *calls silently*
+        observable: '"..." *calls silently*'
         tell_NOT_transmitted: "Klaus's stillness reveals nothing"
         
     pot_after_flop: 1775
@@ -651,13 +651,13 @@ hand_2:
     donna_busted: true
     
     reactions:
-      klaus: "..." *collects chips silently*
+      klaus: '"..." *collects chips silently*'
       don: "'Well. The alien had queens.' *reaches for wallet* 'Rebuy.'"
       donna: "'IMPOSSIBLE. The STILLNESS. It means NOTHING?!' *rebuy*"
       palm: "Klaus spoke twice. That's more than last century."
       bumblewick: "Both of them are buying back in. That's... a lot of rebuys."
       bowie: "The alien is formidable. I'll remember that."
-      leigh: *finishes the olives* "This is chaos. I love it."
+      leigh: '*finishes the olives* "This is chaos. I love it."'
       peewee: "TWO PEOPLE LOST! BUT THEY'RE STILL HERE! HA HA!"
       
   post_hand:

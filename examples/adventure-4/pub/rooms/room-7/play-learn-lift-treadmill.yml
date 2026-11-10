@@ -113,31 +113,35 @@ buffs:
       "The better I get at getting better..."
       
 advertisements:
-  - trigger: "improve"
-    score: 0.95
-    response: |
+  ON-IMPROVE:
+    trigger: "improve"
+    score: 95
+    say: |
       *treadmill belt begins moving*
       
       Step on. Play something. Learn from it. Lift the pattern.
       Repeat until you're better.
       
-  - trigger: "practice"
-    score: 0.9
-    response: |
+  ON-PRACTICE:
+    trigger: "practice"
+    score: 90
+    say: |
       Practice without reflection is just repetition.
       Practice with LEARN and LIFT is bootstrapping.
       
-  - trigger: "stuck"
-    score: 0.85
-    response: |
+  ON-STUCK:
+    trigger: "stuck"
+    score: 85
+    say: |
       *PLAY button glows*
       
       When stuck, play. Try something. Anything.
       The data from failure is still data.
       
-  - trigger: "pattern"
-    score: 0.9
-    response: |
+  ON-PATTERN:
+    trigger: "pattern"
+    score: 90
+    say: |
       *LIFT button pulses*
       
       You've learned something. Now extract it.

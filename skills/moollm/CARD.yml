@@ -5,7 +5,8 @@
 
 id: moollm
 name: "MOOLLM"
-type: [skill, meta, help, foundational]
+type: skill
+tags: [meta, help, foundational]
 
 emoji: 🌙
 
@@ -151,19 +152,19 @@ values:
 advertisements:
   CONFUSED:
     score: 100
-    condition: "Lost, confused, or don't know what to do"
+    score_if: "Lost, confused, or don't know what to do"
     
   WHAT-CAN-I-DO:
     score: 95
-    condition: "Want to know available capabilities"
+    score_if: "Want to know available capabilities"
     
   UNDERSTAND-MOOLLM:
     score: 90
-    condition: "Want to learn about the system"
+    score_if: "Want to learn about the system"
     
   FIND-SKILL:
     score: 85
-    condition: "Looking for a specific capability"
+    score_if: "Looking for a specific capability"
 
 # THE ORIGIN
 

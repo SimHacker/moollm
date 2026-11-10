@@ -2,43 +2,42 @@
 # Interface: what it does, what it needs, what it emits.
 # 🦜 The parrot is on the cover of the paper. Nobody reads past the cover.
 
-skill:
-  name: no-ai-parrot
-  k_line: NO-AI-PARROT
-  tagline: "A quote clerk, not a ghostwriter."
-  tier: 1
-  ambient: false
-  generates_prose: false
-  brand: no-ai-ideology
+name: no-ai-parrot
+k_line: NO-AI-PARROT
+tagline: "A quote clerk, not a ghostwriter."
+tier: 1
+ambient: false
+generates_prose: false
+brand: no-ai-ideology
 
-  what: |
-    Harvests and serves human text about the "just a next token predictor" genre.
-    Input is a comment, a thread, or a phrase. Output is a QUOTE SHEET: verbatim
-    passages, each with author, date and permalink, grouped by what they are good
-    for — for a human to read, pick from, copy and paste into their own post.
+what: |
+  Harvests and serves human text about the "just a next token predictor" genre.
+  Input is a comment, a thread, or a phrase. Output is a QUOTE SHEET: verbatim
+  passages, each with author, date and permalink, grouped by what they are good
+  for — for a human to read, pick from, copy and paste into their own post.
 
-  constitution: CONSTITUTION.md   # governing document; supersedes anything below
+constitution: CONSTITUTION.md   # governing document; supersedes anything below
 
-  what_it_never_does: |
-    It does not compose the post. There is no DRAFT method, no REPLY method, and
-    adding one would defeat the purpose. The human writes the connective tissue;
-    the skill supplies only material that somebody already said and can be checked
-    against a link.
+what_it_never_does: |
+  It does not compose the post. There is no DRAFT method, no REPLY method, and
+  adding one would defeat the purpose. The human writes the connective tissue;
+  the skill supplies only material that somebody already said and can be checked
+  against a link.
 
-  why_that_constraint: |
-    Two reasons, and the second is the better one.
+why_that_constraint: |
+  Two reasons, and the second is the better one.
 
-    1. Nothing you post is generated, so "this is AI slop" has nothing to land on.
-       Every quotable line resolves to a permalink with a human's name on it.
-    2. An exact quotation is stronger than any argument you could write about it.
-       A person's own sentence, reproduced accurately and linked, is the one form
-       of disagreement that cannot be answered by disputing your characterization.
+  1. Nothing you post is generated, so "this is AI slop" has nothing to land on.
+     Every quotable line resolves to a permalink with a human's name on it.
+  2. An exact quotation is stronger than any argument you could write about it.
+     A person's own sentence, reproduced accurately and linked, is the one form
+     of disagreement that cannot be answered by disputing your characterization.
 
 methods:
 
   QUOTE-SHEET:
     description: "The main method. Assemble candidate quotes for a specific occasion."
-    args:
+    parameters:
       occasion: "The comment or thread being answered (paste it in)"
       venue: "hacker-news | email | mastodon | blog — routes formatting through copy-that"
       include: "cliches | corrections | canon | all (default all)"
@@ -51,7 +50,7 @@ methods:
 
   HARVEST:
     description: "Capture an instance verbatim, while the permalink still works"
-    args:
+    parameters:
       text: "Exact text, unedited, typos preserved"
       author: "Handle or name as displayed"
       date: "ISO date"
@@ -75,7 +74,7 @@ methods:
 
   DEREFERENCE:
     description: "What the borrowed phrase's source actually says, in the source's own words"
-    args: { phrase: "the cliché" }
+    parameters: { phrase: "the cliché" }
     returns: "Citation plus the quotable passage plus the gap between what it argues and how it is used"
     note: "Returns quotations, not summaries. A summary is something you wrote; a quotation is something you found."
 
@@ -89,7 +88,7 @@ methods:
 
   HARVEST-THE-THREAD:
     description: "When a cliché appears, harvest the replies to it as well — not just the offense"
-    args: { thread: "url or pasted thread" }
+    parameters: { thread: "url or pasted thread" }
     returns: "The cliché, plus every substantive answer to it, each attributed"
     why: |
       Whoever answered it well did work that evaporates when the thread scrolls
@@ -100,7 +99,7 @@ methods:
 
   ENLIST-THE-RECORD:
     description: "Assemble a person's own prior instances and the responses those drew, dated"
-    args: { author: "handle", phrase: "the recurring cliché" }
+    parameters: { author: "handle", phrase: "the recurring cliché" }
     returns: "Chronology of verbatim instances and verbatim replies, with permalinks"
     the_point: |
       Let the record do the work. You are not accusing anyone of repeating
@@ -115,7 +114,7 @@ methods:
 
   PROMPT-THE-HUMAN:
     description: "The last act. Ask the questions that make the human articulate their own view."
-    args: { sheet: "the assembled quote sheet" }
+    parameters: { sheet: "the assembled quote sheet" }
     emits: |
       Questions only. Never a paragraph, never a candidate sentence.
       "Which of these three do you actually want to concede?"

@@ -77,7 +77,7 @@ visible files and manipulable worlds.
 
 ## The Visual Pipeline Is the Narrative Memory
 
-Adventure-4 is not just a text adventure. It is a visual story with structured
+Adventure-4 is a visual story with structured
 prompts, mined interpretations, and scrollable slideshows.
 
 The pipeline is explicit in the skills:

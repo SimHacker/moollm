@@ -20,7 +20,7 @@ structure:
       no-ai-gloss/:
         examples/:
           - 2026-01-24-my-corporate-speak-pet-peeve.yml
-        exclusions.yml
+        exclusions.yml:
         
       yaml-jazz/:
         examples/:
@@ -70,10 +70,10 @@ compilation:
     
   what_gets_compiled:
     ambient_skills:
-      - no-ai-slop     # Always — syntactic hygiene
-      - no-ai-gloss    # Always — semantic hygiene
-      - yaml-jazz      # When writing YAML
-      - postel         # Robustness
+      - 'no-ai-slop     # Always — syntactic hygiene'
+      - 'no-ai-gloss    # Always — semantic hygiene'
+      - 'yaml-jazz      # When writing YAML'
+      - 'postel         # Robustness'
     examples:
       per_skill: "Up to N most relevant (scored by recency, frequency)"
       format: "Condensed — lesson + key violation, not full schema"
@@ -146,9 +146,9 @@ rationale: |
   - No easy contribution path
   
   With compilation:
-  - LLM loads optimized .cursorrules (small, focused)
+  - 'LLM loads optimized .cursorrules (small, focused)'
   - User prefs automatically applied
-  - Clear path: local → stage → commit → PR → central
+  - 'Clear path: local → stage → commit → PR → central'
   
   The compiler turns your accumulated preferences into
   efficient, always-available context.

@@ -45,13 +45,15 @@ buffs:
       This can be demoralizing or motivating.
       
 advertisements:
-  - trigger: "likelihood"
-    score: 0.9
-    response: "*lenses shimmer* I can show you the numbers."
+  ON-LIKELIHOOD:
+    trigger: "likelihood"
+    score: 90
+    say: "*lenses shimmer* I can show you the numbers."
     
-  - trigger: "should I"
-    score: 0.85
-    response: |
+  ON-SHOULD-I:
+    trigger: "should I"
+    score: 85
+    say: |
       *goggles activate*
       
       Scanning decision tree...
@@ -59,13 +61,15 @@ advertisements:
       Probability of regret: [higher than you'd like]
       Probability of adventure: 100% (goggles always see adventure)
       
-  - trigger: "trust"
-    score: 0.8
-    response: "Let me check their truth probability... *lenses focus*"
+  ON-TRUST:
+    trigger: "trust"
+    score: 80
+    say: "Let me check their truth probability... *lenses focus*"
     
-  - trigger: "trap"
-    score: 0.9
-    response: "*red numbers flash* Trap probability detected. Want specifics?"
+  ON-TRAP:
+    trigger: "trap"
+    score: 90
+    say: "*red numbers flash* Trap probability detected. Want specifics?"
     
 methods:
   WEAR:

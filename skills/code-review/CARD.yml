@@ -5,7 +5,8 @@
 
 id: code-review
 name: "Code Review"
-type: [skill, development, quality]
+type: skill
+tags: [development, quality]
 
 emoji: 🔍
 
@@ -120,15 +121,15 @@ focus-areas:
 advertisements:
   REVIEW-CODE:
     score: 90
-    condition: "Have code changes that need review"
+    score_if: "Have code changes that need review"
     
   SECURITY-AUDIT:
     score: 85
-    condition: "Need security-focused code review"
+    score_if: "Need security-focused code review"
     
   LEARN-CODEBASE:
     score: 75
-    condition: "Want to understand unfamiliar code"
+    score_if: "Want to understand unfamiliar code"
 
 # RELATED
 

@@ -97,7 +97,7 @@ In 1998, certified gay Patrick J Barrett joined the team. Head programmer Jamie 
 
 ### ⚠️ Historical Correction: The Full Story
 
-**The video essay's account is simplified and partially incorrect.** The actual history is more nuanced:
+**The video essay's account is simplified and partially incorrect.** The actual history:
 
 #### The Original Prototype Problem
 
@@ -630,7 +630,7 @@ Betty Friedan's *The Feminine Mystique* (1963) criticized "this suburban cis-het
 
 > *"Queer people play the game. We burn some food, piss ourselves, and perhaps at some point we make two dudes fall in love. Maybe we don't identify with the queerness of that moment because our queer selves haven't come into existence yet. We're still in touch with the Real of The Sims. There is no self and there is no other. There is no distinction between player and game and Sim, between queer and not queer."*
 
-### The Crucial Moment
+### The Moment
 
 > *"Player does not enter the game until the crucial moment they begin to identify with it."*
 
@@ -740,7 +740,7 @@ This video essay illuminates several key MOOLLM design principles:
 **MOOLLM enables:**
 - Playing as yourself (conscious identification)
 - Playing as others who reveal something about yourself (unconscious discovery)
-- The crucial moment of recognition
+- The moment of recognition
 
 ### 3. Ideological Awareness
 
@@ -771,7 +771,7 @@ The [`incarnation`](../../skills/incarnation/) skill explicitly addresses this: 
 | Sims 4 initial: Forced bisexuality erases specificity | MOOLLM allows declared orientations |
 | LGBT Mod: Players want to name their identities | [`card`](../../skills/card/) enables specific identity representation |
 
-**Key Insight:** Some players want utopia (no distinction). Others want particularity (named difference). MOOLLM supports both through configurable detail levels.
+Some players want utopia (no distinction). Others want particularity (named difference). MOOLLM supports both through configurable detail levels.
 
 ### 6. The Accidental Feature
 

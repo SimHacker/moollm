@@ -5,7 +5,8 @@
 
 id: empathic-expressions
 name: "Empathic Expressions"
-type: [skill, interpretation, code-generation]
+type: skill
+tags: [interpretation, code-generation]
 emoji: 🎯
 rarity: rare
 
@@ -131,16 +132,16 @@ used-in:
 advertisements:
   FUZZY-CODE:
     score: 95
-    condition: "User writes approximate/fuzzy code"
+    score_if: "User writes approximate/fuzzy code"
   CODE-TRANSLATION:
     score: 90
-    condition: "Need to translate between languages"
+    score_if: "Need to translate between languages"
   INTENT-TO-CODE:
     score: 90
-    condition: "Natural language description of code behavior"
+    score_if: "Natural language description of code behavior"
   TEACH-SYNTAX:
     score: 85
-    condition: "User learning a new language"
+    score_if: "User learning a new language"
 
 see_also:
   - skills/empathic-templates

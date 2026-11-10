@@ -5,7 +5,8 @@
 
 id: constructionism
 name: "Constructionism"
-type: [skill, philosophy, learning]
+type: skill
+tags: [philosophy, learning]
 
 emoji: 🏗️
 
@@ -99,15 +100,15 @@ concepts:
 advertisements:
   LEARN-BY-BUILDING:
     score: 95
-    condition: "Want to understand something deeply"
+    score_if: "Want to understand something deeply"
     
   CREATE-MICROWORLD:
     score: 85
-    condition: "Need a space for exploration and learning"
+    score_if: "Need a space for exploration and learning"
     
   TEACH-CONCEPT:
     score: 80
-    condition: "Want to help someone learn"
+    score_if: "Want to help someone learn"
 
 # RELATED
 

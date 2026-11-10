@@ -38,7 +38,7 @@ So the unit is not a field on a node. It is an **assessment record**: authored, 
 at a target, optionally carrying evidence, and free to conflict with the assessment sitting next to
 it.
 
-**This is where the analogy to ordinary tagging breaks, and the break is the point.** A tag is a
+**This is where the analogy to ordinary tagging breaks.** A tag is a
 claim about a thing. An assessment is a claim about a thing *by somebody*. Tagsonomies normally
 collapse raters — `#dubious` is `#dubious` whoever applied it — and collapsing raters is exactly the
 failure this document exists to prevent. So the compiler is inherited and the anonymity is not:
@@ -61,7 +61,7 @@ standard supplies `creator` for the signature and `motivation` for the kind of a
 *questioning*, *commenting*, *endorsing*, *moderating* — which is itself a constrained vocabulary,
 already specified, already implemented by Hypothesis.
 
-### The vocabulary is closed, and that is the whole trick
+### The vocabulary is closed
 
 Free-text annotation fragments: forty spellings of the same objection, none of them commensurable.
 Unbounded numeric scales invite fake precision — `0.73` is a lie with a decimal point in it. So each
@@ -183,8 +183,7 @@ kind it is holding.
 
 ### The generalization is Leary's Mind Mirror
 
-**Mind Mirror** (Timothy Leary, Electronic Arts, 1985) already did the load-bearing half of this,
-and did it on people rather than claims: you rated a subject along **graded scales** to produce a
+**Mind Mirror** (Timothy Leary, Electronic Arts, 1985) already did this on people rather than claims: you rated a subject along **graded scales** to produce a
 profile, and the tool's central act was **overlaying two profiles and looking at the difference.**
 It never claimed to measure anyone truly. A Mind Mirror profile was, by construction, *somebody's
 rating of somebody* — signed, subjective, and interesting precisely because it could be compared with

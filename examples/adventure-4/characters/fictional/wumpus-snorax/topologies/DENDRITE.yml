@@ -4,20 +4,19 @@
 #  to themselves and b) some rooms have more than one tunnel to the same
 #  other room ie, 12 has two tunnels to 13." — Wumpus 2 instructions
 
-topology:
-  name: "Dendrite with Degeneracies"
-  type: tree_with_degeneracies
-  cave: 4                                    # Yob\'s own menu number in Wumpus 2
-  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2990-3020"
-  regular: false     # IRREGULAR BY DESIGN: self-loops and double tunnels
-  verbatim: true     # transcribed as printed; asymmetry is the point
-  description: |
-    A tree: no looping paths, lots of dead ends. Leaf rooms burn tunnel
-    slots on self-loops (enter room 17's self-tunnel and you're back in 17);
-    some pairs get double tunnels (12 has two to 13). One pit can sever a
-    whole branch — the blogger consensus is "easily the worst map, do not
-    play," which of course means somebody should. Susceptible to needing
-    blind shots to make the wumpus move.
+name: "Dendrite with Degeneracies"
+type: tree_with_degeneracies
+cave: 4                                    # Yob\'s own menu number in Wumpus 2
+source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2990-3020"
+regular: false     # IRREGULAR BY DESIGN: self-loops and double tunnels
+verbatim: true     # transcribed as printed; asymmetry is the point
+description: |
+  A tree: no looping paths, lots of dead ends. Leaf rooms burn tunnel
+  slots on self-loops (enter room 17's self-tunnel and you're back in 17);
+  some pairs get double tunnels (12 has two to 13). One pit can sever a
+  whole branch — the blogger consensus is "easily the worst map, do not
+  play," which of course means somebody should. Susceptible to needing
+  blind shots to make the wumpus move.
 
 adjacency:
   1: [1, 1, 5]       # two self-loops — a leaf pretending to have neighbors

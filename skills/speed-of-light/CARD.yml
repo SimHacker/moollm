@@ -5,7 +5,8 @@
 
 id: speed-of-light
 name: "Speed of Light"
-type: [skill, simulation, ensemble]
+type: skill
+tags: [simulation, ensemble]
 emoji: ⚡
 rarity: rare
 
@@ -94,21 +95,21 @@ carrier-pigeon-critique: |
 advertisements:
   MULTI-AGENT:
     score: 95
-    condition: "Need multiple agents to interact quickly"
+    score_if: "Need multiple agents to interact quickly"
   COMMITTEE-DECISION:
     score: 90
-    condition: "Adversarial committee needs to deliberate"
+    score_if: "Adversarial committee needs to deliberate"
   FLOOR_MANAGEMENT:
     score: 88
-    condition: "Need to coordinate who speaks when"
+    score_if: "Need to coordinate who speaks when"
     activates: FLOOR.yml
   TURN_TAKING:
     score: 85
-    condition: "Multiple entities need ordered participation"
+    score_if: "Multiple entities need ordered participation"
     activates: FLOOR.yml
   INTERRUPT_HANDLING:
     score: 92
-    condition: "Urgent concern needs to bypass normal flow"
+    score_if: "Urgent concern needs to bypass normal flow"
     activates: FLOOR.yml
 
 # DEEP PROTOCOLS

@@ -103,8 +103,7 @@ privilege.
 ## Real people: the answer is retrieval, not generation
 
 The residents above are invented, and invented residents may speak freely. **Real people may not be
-spoken for**, and an auto-FAQ makes violating that cheap, fast, and automatic — which is what makes
-this the load-bearing constraint of the whole design rather than a disclaimer at the bottom.
+spoken for**, and an auto-FAQ makes violating that cheap, fast, and automatic.
 
 The fix is to change what the model is being asked to do. It is **not** composing an answer in
 someone's voice. It is **finding which of that person's actual words answer the question**, and
@@ -296,7 +295,7 @@ straight about the odds rather than to imply an audience with him.
 
 **Applause measures recognizability, not importance.** The most-endorsed question will tend to be the
 one most people already understand, which selects against the question only three people are equipped
-to ask — usually the best one. The curator's override is the fix, and it has to be *used*, visibly,
+to ask. The curator's override is the fix, and it has to be *used*, visibly,
 or the histogram quietly becomes the editor.
 
 **A pull request is a literacy barrier** — but only if the PR is the *entry point* rather than the

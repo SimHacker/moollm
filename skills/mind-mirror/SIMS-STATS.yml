@@ -202,12 +202,12 @@ needs:
     replenish: ["conversation", "phone calls", "group activities"]
     affects: ["social-seeking behavior", "loneliness"]
 
-  room:
-    range: [-100, 100]
-    decay: "Based on room quality score"
-    replenish: ["being in well-decorated, clean, lit rooms"]
-    note: "Unique need — affected by environment, not actions"
-    affects: ["room decoration value", "lighting", "cleanliness", "space"]
+  # room:
+  range: [-100, 100]
+  decay: "Based on room quality score"
+  replenish: ["being in well-decorated, clean, lit rooms"]
+  note: "Unique need — affected by environment, not actions"
+  affects: ["room decoration value", "lighting", "cleanliness", "space"]
 
 # CAREER TRACKS — PersonData index 56 (kJobType)
 # Each track has 10 levels with increasing salary and skill requirements.

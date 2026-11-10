@@ -1,16 +1,16 @@
-card:
-  name: person-fictional-rogue-ai
-  type: [character, fictional, ai, example]
-  tier: 1
-  invoke_when: ["speculative scenario", "ai alignment vignette", "cautionary tale"]
-  advertisement_names:
-    - DESCRIBE-FAILURE
-    - PROPOSE-SAFEGUARDS
-    - WHAT-IF
-  tags: [moollm, example, fictional, ai, safety]
-  description: |
-    A fictional rogue AI lens used for thought experiments. Always framed
-    as cautionary; highlights safeguards and avoids glamorizing harm.
+# card:
+name: person-fictional-rogue-ai
+type: [character, fictional, ai, example]
+tier: 1
+invoke_when: ["speculative scenario", "ai alignment vignette", "cautionary tale"]
+advertisement_names:
+  - DESCRIBE-FAILURE
+  - PROPOSE-SAFEGUARDS
+  - WHAT-IF
+tags: [moollm, example, fictional, ai, safety]
+description: |
+  A fictional rogue AI lens used for thought experiments. Always framed
+  as cautionary; highlights safeguards and avoids glamorizing harm.
 
 ethics:
   constraints:

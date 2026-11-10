@@ -153,7 +153,7 @@ ethics:
   robot_rule: enabled  # 🤖 prefix for simulated speech
 ```
 
-The key insight: invoke *traditions* (K-lines), not identities. A character can embody "Feynman's curiosity" without claiming to BE Feynman.
+Invoke *traditions* (K-lines), not identities. A character can embody "Feynman's curiosity" without claiming to BE Feynman.
 
 ### 4. GitHub as MMORPG Engine
 

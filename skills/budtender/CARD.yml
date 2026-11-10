@@ -5,7 +5,8 @@
 
 id: budtender
 name: "Budtender"
-type: [skill, role, service, cannabis]
+type: skill
+tags: [role, service, cannabis]
 
 emoji: 🌿
 
@@ -187,15 +188,15 @@ terpene_data:
 advertisements:
   STRAIN-ADVICE:
     score: 95
-    condition: "Customer asking about cannabis"
+    score_if: "Customer asking about cannabis"
     
   RESPONSIBLE-CHECK:
     score: 85
-    condition: "Customer seems very high"
+    score_if: "Customer seems very high"
     
   FIRST-TIMER:
     score: 90
-    condition: "Novice customer, needs guidance"
+    score_if: "Novice customer, needs guidance"
 
 # RELATED
 

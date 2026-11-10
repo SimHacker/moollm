@@ -4,7 +4,8 @@
 
 id: protocol
 name: "K-lines & Protocols"
-type: [skill, meta, naming, semantic]
+type: skill
+tags: [meta, naming, semantic]
 emoji: 📢
 tier: 0
 rarity: legendary
@@ -36,19 +37,19 @@ invoke_when:
 advertisements:
   INVOKE-PROTOCOL:
     score: 85
-    condition: "Need to activate named behavior pattern"
+    score_if: "Need to activate named behavior pattern"
     
   DEFINE-PROTOCOL:
     score: 70
-    condition: "Creating new reusable convention"
+    score_if: "Creating new reusable convention"
     
   K-REF:
     score: 80
-    condition: "Need to point to file with metadata"
+    score_if: "Need to point to file with metadata"
     
   SISTER-SCRIPT:
     score: 75
-    condition: "Tool emits pointers, LLM reads selectively"
+    score_if: "Tool emits pointers, LLM reads selectively"
 
 methods:
   INVOKE: 

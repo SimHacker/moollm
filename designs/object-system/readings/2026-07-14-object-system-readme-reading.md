@@ -5,17 +5,15 @@
 **Runtime:** ~33 min · "After a fresh cup of coffee, I read and explain the object-system
 README, but I digress..."
 
-This is the corrected, proofread transcript — the human-readable cream layer. No timestamps:
-they're a distraction for the human consumer (and the LLM). The high-fidelity structured
-source of truth — timestamps, chapter index, the ASR corrections ledger, and media-event
-injection points for links, definitions, and preconfigured simulations — lives in the sibling
+This is the corrected, proofread transcript. Timestamps, chapter index, the ASR
+corrections ledger, and media-event injection points for links, definitions, and
+preconfigured simulations live in the sibling
 [2026-07-14-object-system-readme-reading.yml](2026-07-14-object-system-readme-reading.yml).
-Stay in the cream; the machinery hums underneath.
 
 The raw YouTube ASR mangled most proper nouns (Drescher → "Dresser", Densmore → "Dinsmore",
 K-lines → "kines", LambdaMOO → "lambdaoo", CLOS → "clots", greppable → "greable"); those are
 fixed throughout. One correction is the author's own, from the video comments: he said
-"shadow DOM" and meant **virtual DOM**. Digressions are kept — they're the good part.
+"shadow DOM" and meant **virtual DOM**. Digressions are kept.
 
 Link policy: same-repo references are relative paths (they survive forks, clones, and offline
 reading); cross-repo references (MicropolisCore, WillWrightShowForFood) are absolute GitHub

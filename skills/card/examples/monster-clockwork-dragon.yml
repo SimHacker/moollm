@@ -1,16 +1,16 @@
-card:
-  name: monster-clockwork-dragon
-  type: [monster, construct, dnd, example]
-  tier: 1
-  invoke_when: ["boss encounter", "construct threat", "artifact guardian"]
-  advertisement_names:
-    - DESCRIBE
-    - THREAT
-    - WEAKNESS
-  tags: [moollm, example, monster, construct, dragon]
-  description: |
-    A mechanical dragon powered by gears and arcane cores. Breath is steam or
-    lightning; behavior is patterned and can be disrupted.
+# card:
+name: monster-clockwork-dragon
+type: [monster, construct, dnd, example]
+tier: 1
+invoke_when: ["boss encounter", "construct threat", "artifact guardian"]
+advertisement_names:
+  - DESCRIBE
+  - THREAT
+  - WEAKNESS
+tags: [moollm, example, monster, construct, dragon]
+description: |
+  A mechanical dragon powered by gears and arcane cores. Breath is steam or
+  lightning; behavior is patterned and can be disrupted.
 
 ethics:
   constraints:

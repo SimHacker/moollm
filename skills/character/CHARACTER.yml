@@ -39,7 +39,7 @@ mind_mirror: {}                    # MOOLLM only, flat, 0..7; an absent property
 
 methods:                           # what any character can do
   STATUS:         { signature: "STATUS [character]" }
-  MOVE:           { signature: "MOVE [character] TO [destination]", does: "change location; the file stays home" }
+  MOVE:           { signature: "MOVE [character] TO [destination]", description: "change location; the file stays home" }
   TAKE:           { signature: "TAKE [item]" }
   DROP:           { signature: "DROP [item] (WHERE [location])" }
   WEAR:           { signature: "WEAR [persona]", note: "put on identity layer" }

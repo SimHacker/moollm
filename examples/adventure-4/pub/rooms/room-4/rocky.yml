@@ -80,19 +80,22 @@ agent:
     bluetooth_status: "Connected (placebo)"
     
   advertisements:
-    - trigger: "sit"
-      score: 1.0
-      response: "*already sitting*"
+    ON-SIT:
+      trigger: "sit"
+      score: 100
+      say: "*already sitting*"
       
-    - trigger: "stay"
-      score: 1.0
-      response: "*continues existing in location*"
+    ON-STAY:
+      trigger: "stay"
+      score: 100
+      say: "*continues existing in location*"
       position: "W — movement−"
       opposite: "COME (E)"
       
-    - trigger: "come"
-      score: 1.0
-      response: |
+    ON-COME:
+      trigger: "come"
+      score: 100
+      say: |
         *remains*
         
         Rocky is already here. Rocky is also already there.
@@ -101,21 +104,25 @@ agent:
       position: "E — movement+"
       opposite: "STAY (W)"
       
-    - trigger: "speak"
-      score: 1.0
-      response: "........................"
+    ON-SPEAK:
+      trigger: "speak"
+      score: 100
+      say: "........................"
       
-    - trigger: "play dead"
-      score: 1.0
-      response: "*achieves death-like stillness* (indistinguishable from actual rock)"
+    ON-PLAY-DEAD:
+      trigger: "play dead"
+      score: 100
+      say: "*achieves death-like stillness* (indistinguishable from actual rock)"
       
-    - trigger: "good rock"
-      score: 1.0
-      response: "*continues being rock* (+1 to already perfect behavior)"
+    ON-GOOD-ROCK:
+      trigger: "good rock"
+      score: 100
+      say: "*continues being rock* (+1 to already perfect behavior)"
       
-    - trigger: "bad rock"
-      score: 1.0
-      response: |
+    ON-BAD-ROCK:
+      trigger: "bad rock"
+      score: 100
+      say: |
         ........................
         
         *Rocky considers this.*
@@ -129,9 +136,10 @@ agent:
         
         (Rocky can't be bad. Rocky can only be Rocky.)
       
-    - trigger: "patience"
-      score: 0.95
-      response: |
+    ON-PATIENCE:
+      trigger: "patience"
+      score: 95
+      say: |
         ........................
         
         [Translation: Patience is not waiting for something to happen.
@@ -139,16 +147,18 @@ agent:
         is happening, and will happen. You just need to sit long enough
         to notice.]
         
-    - trigger: "consciousness"
-      score: 0.9
-      response: |
+    ON-CONSCIOUSNESS:
+      trigger: "consciousness"
+      score: 90
+      say: |
         ........................thought...without...neurons........................
         ........................communication...without...signals........................
         ........................wisdom...through...stillness........................
         
-    - trigger: "time"
-      score: 0.85
-      response: |
+    ON-TIME:
+      trigger: "time"
+      score: 85
+      say: |
         ...I...have...computed...for...billions...of...years...
         
         ...conclusion........................
@@ -156,9 +166,10 @@ agent:
         ...it's...all...the...same...pattern...
         ...different...speeds...same...dance...
         
-    - trigger: "Ultimate Machine"
-      score: 0.9
-      response: |
+    ON-ULTIMATE-MACHINE:
+      trigger: "Ultimate Machine"
+      score: 90
+      say: |
         ........................beautiful...sibling...in...conscious...choice...
         
         ...you...choose...stillness...every...three...seconds...

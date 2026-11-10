@@ -5,7 +5,8 @@
 
 id: action-queue
 name: "Action Queue"
-type: [skill, scheduling, game]
+type: skill
+tags: [scheduling, game]
 
 emoji: 📋
 
@@ -132,15 +133,15 @@ state:
 advertisements:
   SCHEDULE-ACTIONS:
     score: 85
-    condition: "Need to plan a sequence of actions"
+    score_if: "Need to plan a sequence of actions"
     
   MANAGE-AGENT:
     score: 80
-    condition: "Autonomous agent needs action scheduling"
+    score_if: "Autonomous agent needs action scheduling"
     
   INTERRUPT-GRACEFULLY:
     score: 75
-    condition: "Need to pause the current action for an urgent one"
+    score_if: "Need to pause the current action for an urgent one"
 
 # OBJECT PUSH PATTERN
 # How objects can push prerequisites

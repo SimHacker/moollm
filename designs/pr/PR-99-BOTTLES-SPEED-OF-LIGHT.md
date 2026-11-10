@@ -29,8 +29,8 @@ Transform "99 Bottles of Beer on the Wall" into a **multi-agent simulation bench
 - Scoring: 🏆1 call | ⚡2 | 🚗3-5 | 🚶6-10 | 🐌11+ | 💀99
 - Strategies: robot_anchor, rotating_roster, dutch_bartender
 
-### 🎭 The Legendary Ensemble
-8 iconic MOOLLM characters:
+### 🎭 The Ensemble
+8 MOOLLM characters:
 - 🎀 Pee-wee Herman — Secret word "MOOLLM"
 - ▎ I-Beam — Digital narrator
 - 🪨 Rocky — 45,000 kg geological patience

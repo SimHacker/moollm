@@ -5,7 +5,8 @@
 
 id: logistic-container
 name: "Logistic Container"
-type: [skill, storage, logistics, game]
+type: skill
+tags: [storage, logistics, game]
 
 emoji: 📦
 
@@ -239,15 +240,15 @@ advertisements:
   
   CREATE-LOGISTICS:
     score: 85
-    condition: "Need automated storage and item flow"
+    score_if: "Need automated storage and item flow"
     
   MANAGE-INVENTORY:
     score: 80
-    condition: "Complex item management, stacking, filtering"
+    score_if: "Complex item management, stacking, filtering"
     
   BUILD-FACTORY:
     score: 90
-    condition: "Automation puzzle, production chains"
+    score_if: "Automation puzzle, production chains"
 
 # RELATED
 

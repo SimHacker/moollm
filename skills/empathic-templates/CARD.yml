@@ -5,7 +5,8 @@
 
 id: empathic-templates
 name: "Empathic Templates"
-type: [skill, instantiation, generation]
+type: skill
+tags: [instantiation, generation]
 emoji: 📝
 rarity: rare
 
@@ -101,16 +102,16 @@ anti-patterns:
 advertisements:
   TEMPLATE-INSTANTIATION:
     score: 95
-    condition: "Need to create instance from template"
+    score_if: "Need to create instance from template"
   CHARACTER-CREATION:
     score: 90
-    condition: "Creating character sheet"
+    score_if: "Creating character sheet"
   ROOM-GENERATION:
     score: 90
-    condition: "Creating room definition"
+    score_if: "Creating room definition"
   SMART-GENERATION:
     score: 85
-    condition: "Need intelligent content, not just substitution"
+    score_if: "Need intelligent content, not just substitution"
 
 see_also:
   - skills/empathic-expressions

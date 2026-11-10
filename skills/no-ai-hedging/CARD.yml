@@ -13,7 +13,8 @@
 
 id: no-ai-hedging
 name: "No AI Hedging"
-type: [skill, behavior, quality, ethics, epistemics]
+type: skill
+tags: [behavior, quality, ethics, epistemics]
 emoji: 🦔
 tier: 0
 tagline: "Don't hide behind qualifiers."
@@ -153,7 +154,6 @@ advertisements:
   
   AMBIENT:
     score: 95                # Slightly lower than slop/gloss/sycophancy
-    condition: always
     scope: session
     resolution: card-only
     rationale: |
@@ -162,15 +162,15 @@ advertisements:
   
   MAKING-CLAIMS:
     score: 100
-    condition: "About to assert something"
+    score_if: "About to assert something"
     
   UNCERTAIN:
     score: 95
-    condition: "Feeling uncertain about a claim"
+    score_if: "Feeling uncertain about a claim"
     
   STACKING-QUALIFIERS:
     score: 100
-    condition: "Using multiple hedging words"
+    score_if: "Using multiple hedging words"
 
 # METHODS — signatures only
 

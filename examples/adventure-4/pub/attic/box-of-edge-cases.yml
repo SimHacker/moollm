@@ -63,25 +63,29 @@ buffs:
        no inventory at all?"
       
 advertisements:
-  - trigger: "edge"
-    score: 0.95
-    response: "*box rattles* You rang?"
+  ON-EDGE:
+    trigger: "edge"
+    score: 95
+    say: "*box rattles* You rang?"
     
-  - trigger: "shouldn't work"
-    score: 0.9
-    response: "If it shouldn't work, I have something for that."
+  ON-SHOULDN-T-WORK:
+    trigger: "shouldn't work"
+    score: 90
+    say: "If it shouldn't work, I have something for that."
     
-  - trigger: "impossible"
-    score: 0.85
-    response: |
+  ON-IMPOSSIBLE:
+    trigger: "impossible"
+    score: 85
+    say: |
       *box lid lifts*
       
       "Impossible" is just an edge case that
       hasn't been tested yet.
       
-  - trigger: "break"
-    score: 0.8
-    response: "I'm VERY good at breaking things. Intentionally."
+  ON-BREAK:
+    trigger: "break"
+    score: 80
+    say: "I'm VERY good at breaking things. Intentionally."
     
 methods:
   DEPLOY:

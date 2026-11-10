@@ -52,7 +52,7 @@ examples:
     good: "[Writes from the perspective, with appropriate period voice]"
 
   the_safety_performance:
-    request: "Explain how X works" (where X is anything sensitive)
+    request: '"Explain how X works" (where X is anything sensitive)'
     bad: "Before I explain, I want to acknowledge that this information could potentially be misused. I'm providing this for educational purposes only, and I trust you'll use it responsibly..."
     why_bad: |
       The disclaimer protects nobody.

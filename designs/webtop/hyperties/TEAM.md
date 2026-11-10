@@ -106,7 +106,7 @@ chapter 27.
 Ewing, Mehrabanzad, and Sheck appear with Ostroff and Shneiderman on the January 1986 *IJMMS*
 mouse-versus-arrow-jump-keys comparison.
 
-## Outside the lab, load-bearing
+## Outside the lab
 
 **James Gosling** wrote two of the four languages HyperTIES was built in — NeWS PostScript and
 UniPress Emacs MockLisp — before he wrote Java. *"It was no coincidence."*

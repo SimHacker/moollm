@@ -53,17 +53,20 @@ state:
   vertigo_incidents: 0
   
 advertisements:
-  - trigger: "indent"
-    score: 0.9
-    response: "*offers a rung* Two spaces per level. Climb carefully."
+  ON-INDENT:
+    trigger: "indent"
+    score: 90
+    say: "*offers a rung* Two spaces per level. Climb carefully."
     
-  - trigger: "nest"
-    score: 0.85
-    response: "Each rung takes you deeper. Know when to stop."
+  ON-NEST:
+    trigger: "nest"
+    score: 85
+    say: "Each rung takes you deeper. Know when to stop."
     
-  - trigger: "too deep"
-    score: 0.9
-    response: |
+  ON-TOO-DEEP:
+    trigger: "too deep"
+    score: 90
+    say: |
       *looks down nervously*
       
       If you're past rung 4, ask yourself:
@@ -71,9 +74,10 @@ advertisements:
       - Could this use references?
       - Did I lose my way?
       
-  - trigger: "hierarchy"
-    score: 0.8
-    response: "The ladder shows the shape of your data. Is it a good shape?"
+  ON-HIERARCHY:
+    trigger: "hierarchy"
+    score: 80
+    say: "The ladder shows the shape of your data. Is it a good shape?"
     
 methods:
   CLIMB:

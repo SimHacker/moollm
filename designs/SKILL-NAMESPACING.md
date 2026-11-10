@@ -441,7 +441,7 @@ registry:
 
 ## K-Lines as the Resolution Mechanism
 
-The key insight: **K-lines ARE the namespace.**
+**K-lines are the namespace.**
 
 ```yaml
 # Your skill activates k-lines

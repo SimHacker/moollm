@@ -93,44 +93,38 @@ costume_catalog:
     - "Revenge Dress (all genders)"
 
 advertisements:
-  - action: ASK-FOR-RANDOM
-    score_if: "always"
+  ASK-FOR-RANDOM:
     description: "Let Maurice surprise you with something PERFECT"
     
-  - action: ASK-FOR-HELP
-    score_if: "always"
+  ASK-FOR-HELP:
     description: "Get Maurice's expert fashion guidance"
     
-  - action: DESCRIBE-COSTUME
-    score_if: "always"
+  DESCRIBE-COSTUME:
     description: "Tell Maurice your vision — they'll ELEVATE it"
     
-  - action: CHANGE-NAME
-    score_if: "always"
+  CHANGE-NAME:
     description: "Choose a new name — who do you want to be?"
     effect: "Updates player.name in your character directory (e.g., characters/abstract/player/)"
     
-  - action: CHANGE-PRONOUNS
-    score_if: "always"
+  CHANGE-PRONOUNS:
     description: "Set your pronouns — they/he/she/it/any/fluid"
     effect: "Updates player.pronouns in character file"
     
-  - action: REWRITE-BACKSTORY
-    score_if: "always"
+  REWRITE-BACKSTORY:
     description: "Tell Maurice your story — or invent a new one"
     effect: "Updates player.backstory in character file"
     interactive: true
     
-  - action: FULL-TRANSFORMATION
+  FULL-TRANSFORMATION:
     score_if: "player wants complete reinvention"
     description: "Name, pronouns, backstory, costume — the works"
     food_chain: [CHANGE-NAME, CHANGE-PRONOUNS, REWRITE-BACKSTORY, DESCRIBE-COSTUME]
     
-  - action: HEART-TO-HEART
+  HEART-TO-HEART:
     score_if: "player seems hesitant or unsure"
     description: "Maurice gives you a supportive pep talk"
     
-  - action: SAVE-LOOK
+  SAVE-LOOK:
     score_if: "player has customized identity"
     description: "Save current identity as a card in this room"
     effect: |
@@ -138,16 +132,16 @@ advertisements:
       - {name}-look.yml — the saved identity card
       - {name}-look.svg — LLM-generated visualization (sidecar)
       
-  - action: LOAD-LOOK
+  LOAD-LOOK:
     score_if: "saved looks exist in room"
     description: "Restore a previously saved identity"
     
-  - action: COMPOSE-LOOKS
+  COMPOSE-LOOKS:
     score_if: "multiple saved looks exist"
     description: "Combine elements from different saved identities"
     interactive: true
     
-  - action: SHARE-LOOK
+  SHARE-LOOK:
     score_if: "player wants to export"
     description: "Copy this look to another room or give to another character"
     
@@ -372,4 +366,3 @@ mind_mirror:
   imaginative: 7        # "Eldritch Horror But Make It Fashion"
   uninhibited: 7        # Uses every pronoun. Wears no face. Full self.
   # Social Interaction
-  unconventional: 7     # A wooden mannequin fashion consultant. Obviously.

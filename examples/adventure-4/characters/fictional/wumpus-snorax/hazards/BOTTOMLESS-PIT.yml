@@ -149,22 +149,22 @@ behavior:
 # ADVERTISEMENTS
 
 advertisements:
-  - action: EMANATE-DRAFT
+  EMANATE-DRAFT:
     score: 100
-    condition: "always"
+    guard: "always"
     effect: "Adjacent rooms get 'I feel a draft!' warning"
     
-  - action: CONSUME
+  CONSUME:
     score: 100
-    condition: "player enters room"
+    guard: "player enters room"
     effect: "Player falls. Game over."
     game_over: true
     
   # CHEAT: DEFUSE THE PIT
   
-  - action: BRIDGE
+  BRIDGE:
     score: 70
-    condition: "player has planks OR player has rope"
+    guard: "player has planks OR player has rope"
     cost: "3-10 gold (scales with pit diameter)"
     effect: |
       You lay planks across the pit / secure a rope bridge.
@@ -174,9 +174,9 @@ advertisements:
       [Remove from adjacent warnings]
     note: "Planks: 5 gold at vendor."
     
-  - action: BRIBE-THE-VOID
+  BRIBE-THE-VOID:
     score: 40
-    condition: "player.gold >= 5"
+    guard: "player.gold >= 5"
     cost: "5-15 gold (just-in-time fair pricing)"
     cost_formula: "min(15, max(5, player.gold * 0.3))"
     effect: |
@@ -191,9 +191,9 @@ advertisements:
       [Instance update: add sealed_until: 10_turns]
     flavor: "The void is not greedy. It just wants acknowledgment."
     
-  - action: FEATHER-FALL
+  FEATHER-FALL:
     score: 60
-    condition: "player has feather_token"
+    guard: "player has feather_token"
     cost: "Feather token consumed (10 gold at vendor)"
     effect: |
       You drift gently across the pit.

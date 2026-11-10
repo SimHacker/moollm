@@ -16,7 +16,7 @@ Seth Lazar (Australian National University) argues that current LLM ethics evalu
 4. **Pragmatic consistency** (coherent over time)
 5. **Identifying morally relevant features** (the hardest part — from noisy, unfiltered inputs)
 
-**Key insight for MOOLLM:** The gap between moral understanding and moral behavior is fundamental. LLMs are good at moral concepts but bad at behaving morally — we need scaffolding to bridge this.
+LLMs can state moral concepts and still fail to behave morally.
 
 ---
 
@@ -152,7 +152,7 @@ Lazar breaks moral reasoning into stages:
 5. Maintain consistency over time         ← Easy to identify
 ```
 
-**Key insight:** Agreement is highest at step 1, lowest at step 4. Evaluation should focus on the reasoning process, not just final verdicts.
+Agreement is highest at step 1, lowest at step 4. Evaluation should focus on the reasoning process, not just final verdicts.
 
 ---
 
@@ -348,4 +348,4 @@ Related work:
 
 ---
 
-*This document summarizes external research on LLM ethical competence evaluation. Lazar's framework shifts focus from verdict-matching to moral sensitivity and justification — directly relevant to how MOOLLM's representation-ethics should be evaluated and implemented.*
+*Lazar's framework shifts the eval from verdict-matching to moral sensitivity and justification.*

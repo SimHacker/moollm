@@ -5,7 +5,8 @@
 
 id: self-repair
 name: "Self Repair"
-type: [skill, robustness, essential]
+type: skill
+tags: [robustness, essential]
 
 emoji: 🔧
 
@@ -80,11 +81,11 @@ checklist:
 advertisements:
   SOMETHING-BROKEN:
     score: 95
-    condition: "System behaving strangely"
+    score_if: "System behaving strangely"
     
   STARTUP-CHECK:
     score: 85
-    condition: "Beginning new session"
+    score_if: "Beginning new session"
 
 # RELATED
 

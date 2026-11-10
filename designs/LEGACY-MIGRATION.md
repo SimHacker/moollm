@@ -277,14 +277,10 @@ reach that — and the version you build is the one where **"who changed this
 wording and why" has no answer**, which is the same question the database
 could not answer either.
 
-The rest of the argument is the call to action.
-
-**Version control is arguably the single most useful skill an information
-worker can have, and it is not a programming skill.** It is: *propose a
+**Version control is not a programming skill.** It is: *propose a
 change, discuss it, accept it, keep the history.* Authors already do that
 work — today they do it in email threads wrapped around a form that silently
-overwrites. Teach it far and wide: young and old, geek and otherwise, worker
-bee and artist. It is a durable win for the person, not a tax imposed on them.
+overwrites. It is a durable win for the person, not a tax imposed on them.
 
 GitHub-as-CMS works only if four things are actually built. They are the
 deliverable, and they are far less work than a CMS:

@@ -7,7 +7,7 @@ a mirror-world / mind-map media environment — and demoed it at **WWDC 1995** w
 
 > ScriptX was an object-oriented multimedia Lisp machine. So fucking fun.
 
-(Don's words. The joy is load-bearing — this is why MOOLLM still wants live, editable objects.)
+(Don's words. This is why MOOLLM still wants live, editable objects.)
 
 **Video:** [DreamScape @ WWDC 1995](https://www.youtube.com/watch?v=5NytloOy7WM) · [Medium transcript](https://donhopkins.medium.com/1995-apple-world-wide-developers-conference-kaleida-labs-scriptx-dreamscape-demo-17-min-read)
 

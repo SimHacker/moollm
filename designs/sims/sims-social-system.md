@@ -111,7 +111,7 @@ relationships:
     romance: none  # explicitly platonic
 ```
 
-More nuanced than two numbers — bond types carry meaning.
+Bond types carry meaning.
 
 ---
 

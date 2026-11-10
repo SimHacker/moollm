@@ -61,21 +61,25 @@ buffs:
       (Be liberal in what you accept...)
       
 advertisements:
-  - trigger: "understand"
-    score: 0.9
-    response: "*gloves flex* I help you grasp meaning."
+  ON-UNDERSTAND:
+    trigger: "understand"
+    score: 90
+    say: "*gloves flex* I help you grasp meaning."
     
-  - trigger: "what does this mean"
-    score: 0.95
-    response: "Pick it up. I'll show you."
+  ON-WHAT-DOES-THIS-MEAN:
+    trigger: "what does this mean"
+    score: 95
+    say: "Pick it up. I'll show you."
     
-  - trigger: "confused"
-    score: 0.85
-    response: "Wear me. Confusion becomes clarity."
+  ON-CONFUSED:
+    trigger: "confused"
+    score: 85
+    say: "Wear me. Confusion becomes clarity."
     
-  - trigger: "parse"
-    score: 0.9
-    response: |
+  ON-PARSE:
+    trigger: "parse"
+    score: 90
+    say: |
       *leather creaks*
       
       I can parse anything. Generously.

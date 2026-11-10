@@ -123,7 +123,7 @@ evaluator. **ASK:** how far did the interpreter-altering dimensions
 get? What grounded the regress?
 
 **Can you host Self in Korz once you're hosting Korz in Self?**
-Yes, and cheaper than the reverse — the asymmetry is the insight.
+Yes, and cheaper than the reverse.
 Korz-in-Self took machinery (an interpreter). Self-in-Korz takes only
 *restraint*: guard every slot on `rcvr` alone and you're writing Self
 — the paper's own spectrum puts procedural at zero dimensions,
@@ -290,7 +290,7 @@ named parent slot looks like the proto-Korz-dimension. Full treatment:
 anyone use the basket idiom?
 
 **Korz "context" vs LLM "context" — same word, same thing?**
-Parallel, and the projection is load-bearing: bindings ↔ window
+Parallel: bindings ↔ window
 contents, decidable guards ↔ judged relevance, specificity ↔
 attention, lookup ↔ sampling. Deterministic COP is the corner case at
 `{temperature: 0, dimensions: enumerable, guards: decidable}` — which
@@ -323,8 +323,7 @@ programming discovered independently: the "object" is gathered by the
 current-buffer context, not owned by a container. It even worked in
 UniPress (Gosling) Emacs Mocklisp — no lists, no dictionaries,
 terribly lazy dynamic scoping — where buffers were the *only* object
-system available, so the ambient context was the sole load-bearing
-structure. And the detail too good to skip: since Emacs 24, elisp's
+system available. Since Emacs 24, elisp's
 lexical binding is switched on by `lexical-binding: t` — **a
 buffer-local variable**. The scoping regime itself is a context
 dimension: the temperature-as-dimension move, shipped in an editor.
@@ -355,7 +354,7 @@ constraint), so it matches first; it does its demon work, then
 re-sends with that dimension stripped or advanced, and the
 next-most-specific slot — the essential method — runs. Stacking demons
 is stacking dimensions; ordering comes from the specificity lattice,
-not a combination DSL. What this buys is the point: **features of
+not a combination DSL. **Features of
 other systems become patterns of a simpler system with fewer, more
 essential features.** CLOS ships `:before`/`:after`/`:around` as
 language features and needs the MOP — a protocol for designing *other*
@@ -364,8 +363,7 @@ pointcuts and advice as first-class machinery. In Korz the pointcut is
 a guard, the advice is a slot, and method combination is something you
 *write*, not something the language *is*. It's the same subtraction
 run one more time: Self showed classes are a pattern of prototypes;
-Korz shows objects are a pattern of guarded slots — and now CLOS's
-flagship feature is a pattern of dispatch. The paper's own future work
+Korz shows objects are a pattern of guarded slots. The paper's own future work
 gestures here from the interpreter side ("dimensions that alter the
 behavior of the interpreter… the key to method combination, e.g. an
 Ensembles dimension"); demons come at the same target from below, with

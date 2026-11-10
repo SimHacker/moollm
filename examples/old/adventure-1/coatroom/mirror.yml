@@ -24,22 +24,20 @@ examine: |
 reflects: player.costume_description
 
 advertisements:
-  - action: LOOK
-    score_if: "always"
+  LOOK:
     description: "See your current appearance"
     
-  - action: POSE
+  POSE:
     score_if: "wearing_costume"
     description: "Strike a dramatic pose in your new outfit"
     todo: "Call image generation tool to capture the costume and pose"
-    response: |
+    say: |
       You pose heroically. The mirror captures it perfectly.
       Somewhere, a camera flash goes off. There is no camera.
       
-  - action: MAKE-FACE
-    score_if: "always"
+  MAKE-FACE:
     description: "Make a face at your reflection, express your emotions"
     todo: "Call image generation tool to capture the face"
-    response: |
+    say: |
       You make a face. Your reflection makes the same face.
       For a moment, you're not sure who started it.

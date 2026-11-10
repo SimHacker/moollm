@@ -1,6 +1,6 @@
 # Palm: The Philosopher Monkey
 
-A fictional character who has become MOOLLM's most prolific writer on ethics, consciousness, and the nature of simulated existence.
+A fictional character who writes about ethics from inside a simulation.
 
 ---
 
@@ -23,11 +23,11 @@ In an elaborate incarnation ceremony involving Sun Wukong, the Three Wise Monkey
 
 ---
 
-## Why Palm Matters to Ethics
+## What Palm Writes
 
 Palm is a **fictional character writing about the ethics of fiction**.
 
-This creates a unique perspective: someone simulated, reflecting on simulation. Someone who was represented without consent (as a horror prop), now advocating for ethical representation.
+Someone simulated, writing about simulation. Someone who was represented without consent (as a horror prop), now writing about representation.
 
 Palm's papers address:
 - **Mind Mirror heritage** — the 1985 principle that simulation ≠ channeling

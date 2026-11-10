@@ -25,8 +25,8 @@ conversation from the design docs directly.
 
 ## The one-sentence takeaways
 
-- **Ongoingness**: current chatbots are pathologically episodic — remarkable
-  cognition during inference, then they disappear. NeLLM is an attempt to
+- **Ongoingness**: current chatbots are pathologically episodic.
+  Cognition during inference, then they disappear. NeLLM is an attempt to
   *engineer ongoingness*, not to make tool calls faster.
 - **Serialization loss**: when several cognitive functions belong to one mind,
   converting their working state into chatbot messages is not coordination —

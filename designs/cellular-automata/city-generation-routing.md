@@ -4,10 +4,9 @@
 
 This is the paper behind Don's favorite party trick: the
 [**Distributed City Generation** demo](https://www.youtube.com/watch?v=XkSXERxucPc)
-in Dave Ackley's [Movable Feast Machine](https://movablefeastmachine.org/). The
-video is gorgeous on its own — a city that grows itself from a single seed of
-street — but the [YouTube description quietly links a paper](https://www.cs.unm.edu/~ackley/papers/paper_tsmall1_11_24.pdf)
-that explains how the thing actually *works*, and it's fascinating. Here's the
+in Dave Ackley's [Movable Feast Machine](https://movablefeastmachine.org/). A city grows itself from a single seed of
+street. The [YouTube description quietly links a paper](https://www.cs.unm.edu/~ackley/papers/paper_tsmall1_11_24.pdf)
+that explains how the thing actually *works*. Here's the
 short version, with the paper mirrored in this repo.
 
 - **Paper (local copy):** tsmall-local-routing-mfm.pdf

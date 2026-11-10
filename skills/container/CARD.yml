@@ -4,7 +4,8 @@
 
 id: container
 name: "Container"
-type: [skill, system]
+type: skill
+tags: [system]
 emoji: "📦"
 tier: 1
 
@@ -60,10 +61,10 @@ methods:
 advertisements:
   SHARE-DEFAULTS:
     score: 80
-    condition: "Several rooms or objects in one directory should share values"
+    score_if: "Several rooms or objects in one directory should share values"
   GROUP-WITHOUT-PLACE:
     score: 60
-    condition: "A directory organizes rooms but isn't somewhere you can go"
+    score_if: "A directory organizes rooms but isn't somewhere you can go"
 
 related: [room, object, character, adventure, prototype, logistic-container]
 

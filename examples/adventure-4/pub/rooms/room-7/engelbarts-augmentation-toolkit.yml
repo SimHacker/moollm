@@ -244,33 +244,37 @@ buffs:
       With the right tools and methods: much more.
       
 advertisements:
-  - trigger: "AI replace"
-    score: 0.95
-    response: |
+  ON-AI-REPLACE:
+    trigger: "AI replace"
+    score: 95
+    say: |
       *opens the AUGMENT DON'T AUTOMATE compartment*
       
       "The goal was never replacement.
       The goal was amplification.
       Engelbart knew this in 1962."
       
-  - trigger: "automation"
-    score: 0.85
-    response: |
+  ON-AUTOMATION:
+    trigger: "automation"
+    score: 85
+    say: |
       "Automation removes the human.
       Augmentation empowers the human.
       Which future do you want?"
       
-  - trigger: "bootstrap"
-    score: 0.9
-    response: |
+  ON-BOOTSTRAP:
+    trigger: "bootstrap"
+    score: 90
+    say: |
       "Use your current capabilities
       to improve your capabilities.
       Then use THOSE to improve further.
       This is the infinite game."
       
-  - trigger: "team"
-    score: 0.8
-    response: |
+  ON-TEAM:
+    trigger: "team"
+    score: 80
+    say: |
       "Individual augmentation is limited.
       Collective IQ is the real prize.
       How do we help groups think better together?"

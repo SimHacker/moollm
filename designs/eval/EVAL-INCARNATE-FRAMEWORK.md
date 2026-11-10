@@ -1168,7 +1168,7 @@ Two incarnations of the same vision: massively multiplayer social games focused 
 
 > *"We were building tools for people to be together."* — Stewart Butterfield
 
-**Key Insight:** Two pivots to world-changing communication tools weren't accidents — they emerged from understanding social play.
+Two pivots to communication tools weren't accidents — they emerged from understanding social play.
 
 **MOOLLM inherits:** Virtual worlds are fundamentally about being together. The play generates valuable structure.
 

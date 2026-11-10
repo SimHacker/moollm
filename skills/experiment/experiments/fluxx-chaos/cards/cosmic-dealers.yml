@@ -35,123 +35,123 @@ compatibility:
     # Format: [dealer1, dealer2]: mode
     
     # BLENDABLE PAIRS -- Work together beautifully
-    [dramatic, karma]: 
+    '[dramatic, karma]': 
       mode: "blend"
       name: "Karmic Drama"
       effect: "Dramatic moments that also serve justice"
       weights: { dramatic: 0.5, karma: 0.5 }
       
-    [dramatic, comedy]:
+    '[dramatic, comedy]':
       mode: "blend" 
       name: "Dramatic Comedy"
       effect: "High stakes but make it funny"
       weights: { dramatic: 0.5, comedy: 0.5 }
       
-    [karma, ironic]:
+    '[karma, ironic]':
       mode: "blend"
       name: "Ironic Justice"
       effect: "Bad karma players get EXACTLY what they don't want"
       weights: { karma: 0.6, ironic: 0.4 }
       
-    [comedy, ironic]:
+    '[comedy, ironic]':
       mode: "blend"
       name: "Cosmic Joke"
       effect: "The universe is laughing AT you specifically"
       weights: { comedy: 0.5, ironic: 0.5 }
       
-    [dramatic, ironic]:
+    '[dramatic, ironic]':
       mode: "blend"
       name: "Tragic Irony"
       effect: "The dramatic moment comes from exactly what you feared"
       weights: { dramatic: 0.6, ironic: 0.4 }
 
     # DOMINANT PAIRS -- One takes over
-    [chaos_incarnate, ANY]:
+    '[chaos_incarnate, ANY]':
       mode: "dominant"
       winner: "chaos_incarnate"
       effect: "CHAOS CONSUMES ALL"
       
-    [prescient, ANY]:
+    '[prescient, ANY]':
       mode: "dominant"
       winner: "prescient"
       effect: "Fate is sealed. Other dealers are illusions."
       
-    [dynamic, ANY]:
+    '[dynamic, ANY]':
       mode: "layer"
       effect: "Dynamic wraps around other dealer, choosing when to invoke it"
 
     # CANCELLATION PAIRS -- Opposing forces
-    [random, dramatic]:
+    '[random, dramatic]':
       mode: "cancel"
       fallback: "random"
       effect: "Drama requires intent. Randomness has none. Random wins."
       
-    [random, karma]:
+    '[random, karma]':
       mode: "cancel"
       fallback: "random"
       effect: "Karma requires memory. Randomness forgets. Random wins."
       
-    [karma, ironic]:
+    '[karma, ironic]':
       mode: "fight"
       effect: "Justice vs. cruelty. Each draw is a battle."
       
-    [fafo, comedy]:
+    '[fafo, comedy]':
       mode: "blend"
       name: "Slapstick Justice"
       effect: "Consequences delivered hilariously"
       weights: { fafo: 0.6, comedy: 0.4 }
 
     # LAYERED PAIRS -- Sequential processing
-    [karma, dramatic]:
+    '[karma, dramatic]':
       mode: "layer"
       first: "karma"
       second: "dramatic"
       effect: "Karma filters the pool, drama chooses from what remains"
       
-    [ironic, comedy]:
+    '[ironic, comedy]':
       mode: "layer"
       first: "ironic"
       second: "comedy"
       effect: "Find the ironic options, pick the funniest"
 
     # TUTORIAL AND GENTLE PAIRS
-    [tutorial, gentle_drama]:
+    '[tutorial, gentle_drama]':
       mode: "blend"
       name: "Nurturing Mentor"
       effect: "Teaching with kindness. New players learn in a warm environment."
       weights: { tutorial: 0.6, gentle_drama: 0.4 }
       
-    [tutorial, dramatic]:
+    '[tutorial, dramatic]':
       mode: "layer"
       first: "tutorial"
       second: "dramatic"
       effect: "Curriculum chooses the lesson, drama delivers it memorably"
       
-    [tutorial, karma]:
+    '[tutorial, karma]':
       mode: "blend"
       name: "Virtue Teacher"
       effect: "New players learn that good play gets good results"
       weights: { tutorial: 0.6, karma: 0.4 }
       
-    [gentle_drama, comedy]:
+    '[gentle_drama, comedy]':
       mode: "blend"
       name: "Wholesome Comedy"
       effect: "Funny without cruelty. Everyone laughs together, not at someone."
       weights: { gentle_drama: 0.5, comedy: 0.5 }
       
-    [gentle_drama, karma]:
+    '[gentle_drama, karma]':
       mode: "blend"
       name: "Kind Justice"
       effect: "Karma is real but redemption is available"
       weights: { gentle_drama: 0.4, karma: 0.6 }
       
-    [tutorial, chaos_incarnate]:
+    '[tutorial, chaos_incarnate]':
       mode: "dominant"
       winner: "chaos_incarnate"
       effect: "CHAOS CARES NOT FOR YOUR LESSONS"
       warning: "Tutorial mode disabled. New players may cry."
       
-    [gentle_drama, fafo]:
+    '[gentle_drama, fafo]':
       mode: "cancel"
       fallback: "karma"
       effect: "Kindness vs consequences. Karma arbitrates."
@@ -646,7 +646,7 @@ dealers:
         The cards just happen to arrive in a teachable order.
         The experienced players just happen to demonstrate tactics.
         
-        "Wow, I won my first game!" (The dealer smiled.)
+        '"Wow, I won my first game!" (The dealer smiled.)'
         
     image_prompt: "Wise mentor figure, gentle guiding hand, cards arranged like curriculum"
 
@@ -666,14 +666,14 @@ dealers:
           
         filter out:
           - Cards that would crush struggling players
-          - Cruel ironies (save those for FAFO)
+          - 'Cruel ironies (save those for FAFO)'
           - Cascading disasters
           
         prefer:
           - Earned victories
           - Redemption arcs
           - Collaborative moments
-          - "Almost!" near-misses that feel fair
+          - '"Almost!" near-misses that feel fair'
           
         return kindest_dramatic_option(cards, scores)
     

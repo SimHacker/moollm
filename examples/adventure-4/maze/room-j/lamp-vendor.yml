@@ -97,7 +97,7 @@ menu:
 # HOW TO BUY
 
 advertisements:
-  - action: BUY
+  BUY:
     invoke: BUY <item> | BUY <quantity> <item>
     examples:
       - "BUY torch"
@@ -108,11 +108,11 @@ advertisements:
       Vend the item(s). Deduct gold. Add to inventory.
       No limits. Buy as many as you can afford.
       
-  - action: MENU
+  MENU:
     invoke: MENU | PRICES | LIST
     effect: "Display the complete price list."
     
-  - action: EXAMINE
+  EXAMINE:
     invoke: EXAMINE MACHINE | LOOK AT VENDOR
     effect: "Read the display and scratched messages."
     

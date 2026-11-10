@@ -127,8 +127,7 @@ JIT watched types recur; this one watches meanings recur.
 
 There's even an anagram doing real work: KORZ spells **ZORK**. Within
 Korz′ the deterministic tier is called Korz and the improvising tier
-is called Zork. Korz compiles; Zork improvises — and the adventure
-game turns out to be genuinely relevant prior art, not just a pun
+is called Zork. Korz compiles; Zork improvises — and the adventure game
 ([case-zork.md](case-zork.md): Zork's engine hardwired five dispatch
 dimensions in 1979).
 

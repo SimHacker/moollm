@@ -5,7 +5,8 @@
 
 id: yaml-jazz
 name: "YAML Jazz"
-type: [skill, meta, design]
+type: skill
+tags: [meta, design]
 emoji: 🎷
 rarity: uncommon
 
@@ -71,17 +72,16 @@ example: |
 advertisements:
   AMBIENT:
     score: 85
-    condition: always
     scope: session
     resolution: card-only
     rationale: "Comments are semantic data — shapes how every YAML file is read and written in MOOLLM"
 
   SEMANTIC-YAML:
     score: 90
-    condition: "Need YAML that LLMs understand deeply"
+    score_if: "Need YAML that LLMs understand deeply"
   DESIGN-STRUCTURE:
     score: 85
-    condition: "Creating human+machine+LLM readable format"
+    score_if: "Creating human+machine+LLM readable format"
 
 see_also:
   - skills/postel        # Core — robustness principle applies

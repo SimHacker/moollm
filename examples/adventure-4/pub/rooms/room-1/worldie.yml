@@ -230,29 +230,34 @@ familiar:
         The world continues inside, pocket-sized.
         
   advertisements:
-    - trigger: "world"
-      score: 0.95
-      response: "*Worldie glows* That's my name!"
+    ON-WORLD:
+      trigger: "world"
+      score: 95
+      say: "*Worldie glows* That's my name!"
       
-    - trigger: "simulation"
-      score: 0.9
-      response: "I can run that! Everything happens in here."
+    ON-SIMULATION:
+      trigger: "simulation"
+      score: 90
+      say: "I can run that! Everything happens in here."
       
-    - trigger: "microworld"
-      score: 1.0
-      response: |
+    ON-MICROWORLD:
+      trigger: "microworld"
+      score: 100
+      say: |
         *spins happily*
         
         Microworlds! Papert's gift to learning!
         I AM a microworld! Look inside!
         
-    - trigger: "context"
-      score: 0.85
-      response: "I'm the context. The `world` parameter. The environment."
+    ON-CONTEXT:
+      trigger: "context"
+      score: 85
+      say: "I'm the context. The `world` parameter. The environment."
       
-    - trigger: "globey"
-      score: 0.9
-      response: |
+    ON-GLOBEY:
+      trigger: "globey"
+      score: 90
+      say: |
         "Globey! My friend! They show THE world.
         I AM your world. Different jobs, same spirit."
         

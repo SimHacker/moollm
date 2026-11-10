@@ -5,7 +5,8 @@
 
 id: roberts-rules
 name: "Robert's Rules"
-type: [skill, procedure, deliberation]
+type: skill
+tags: [procedure, deliberation]
 
 emoji: 📜
 
@@ -126,11 +127,11 @@ forcing-function:
 advertisements:
   STRUCTURED-DELIBERATION:
     score: 95
-    condition: "Committee needs formal procedure"
+    score_if: "Committee needs formal procedure"
     
   PREVENT-RAILROADING:
     score: 90
-    condition: "Discussion collapsing too quickly"
+    score_if: "Discussion collapsing too quickly"
 
 # RELATED
 

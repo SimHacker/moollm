@@ -35,7 +35,7 @@ So the same text, with no edit and nothing retracted, is two genres:
 the book was built around is answered on arrival and the interest relocates to the mechanism — how it
 was done, how it was hidden, how close the detective came and when. That is Columbo's form exactly,
 reached by re-reading Christie rather than by writing something different. **The genre changed while
-the text stood still**, which is the best evidence in the essay that genre is a coordinate in the
+the text stood still**, which means genre is a coordinate in the
 reader's context rather than a property of the book.
 
 **And it gives the test for whether a work survives at all.** A work is re-readable exactly when it

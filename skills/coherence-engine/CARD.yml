@@ -5,7 +5,8 @@
 
 id: coherence-engine
 name: "Coherence Engine"
-type: [skill, meta, orchestration]
+type: skill
+tags: [meta, orchestration]
 
 emoji: 🔄
 
@@ -105,15 +106,15 @@ insight: |
 advertisements:
   MAINTAIN-CONSISTENCY:
     score: 90
-    condition: "World state may have become inconsistent"
+    score_if: "World state may have become inconsistent"
     
   MULTI-ENTITY-UPDATE:
     score: 85
-    condition: "Need to update multiple related entities"
+    score_if: "Need to update multiple related entities"
     
   UNDERSTAND-ORCHESTRATION:
     score: 75
-    condition: "Learning how MOOLLM maintains world state"
+    score_if: "Learning how MOOLLM maintains world state"
 
 # RELATED
 

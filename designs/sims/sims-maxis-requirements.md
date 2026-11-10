@@ -108,11 +108,7 @@ The [`buff`](../../skills/buff/) skill creates temporary states that players mus
 
 **The Principle:** Resources are finite. Every action has a cost. Even mistakes cost money — and there are no refunds.
 
-**Key Insight:**
-
 > *"'Cheats' to gain more money are the most popular cheats."*
-
-Money constraints are **felt deeply** by players. The desire to bypass them proves how central budgeting is to the game experience.
 
 **MOOLLM Implementation:**
 
@@ -146,7 +142,7 @@ Budgeting creates meaning. If everything is free, nothing matters. MOOLLM uses r
 2. **False superiority:** The ability to place things in various places *"fakes players into believing that their city or tower designs are 'better' than other's"*
 3. **Reward:** Aesthetics mark achievement — *"In SimTower, an aesthetic reward for reaching the 100th floor is the ability to place a cathedral. This is akin to 'winning'."*
 
-**Key Insight:** Aesthetics aren't decoration. They're **feedback loops** and **motivation systems**.
+Aesthetics aren't decoration. They're **feedback loops** and **motivation systems**.
 
 **MOOLLM Implementation:**
 
@@ -241,8 +237,6 @@ The [`empathic-expressions`](../../skills/empathic-expressions/) skill provides 
 > *"Because of the interleaving data sets in the simulators, players may not initially understand why certain actions have unexpected effects."*
 
 **The Principle:** Discovery is the game. If causality is obvious, there's nothing to learn.
-
-**Key Insight:**
 
 > *"One of the compelling reasons to play is to discover and understand various causes and effects."*
 

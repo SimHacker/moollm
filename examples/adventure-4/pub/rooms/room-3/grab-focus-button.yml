@@ -56,32 +56,36 @@ state:
   i_beam_mood_after_last_grab: null
   
 advertisements:
-  - trigger: "button"
-    score: 0.9
-    response: |
+  ON-BUTTON:
+    trigger: "button"
+    score: 90
+    say: |
       *The big red button GLOWS invitingly.*
       
       You know you want to push it.
       
-  - trigger: "grab focus"
-    score: 1.0
-    response: |
+  ON-GRAB-FOCUS:
+    trigger: "grab focus"
+    score: 100
+    say: |
       *The button seems to PULSE.*
       
       One push. That's all it takes.
       I-Beam will come. Or if he's here... you'll GRAB him.
       
-  - trigger: "push"
-    score: 0.8
-    response: |
+  ON-PUSH:
+    trigger: "push"
+    score: 80
+    say: |
       *The button is RIGHT THERE.*
       
       Big. Red. Labeled "GRAB FOCUS."
       What could possibly go wrong?
       
-  - trigger: "I-Beam"
-    score: 0.6
-    response: |
+  ON-I-BEAM:
+    trigger: "I-Beam"
+    score: 60
+    say: |
       *The button glows slightly.*
       
       Want I-Beam's attention? There's a faster way than asking...

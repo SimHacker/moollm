@@ -56,20 +56,23 @@ state:
   composted_this_season: 3
   
 advertisements:
-  - trigger: "create character"
-    score: 0.9
-    response: |
+  ON-CREATE-CHARACTER:
+    trigger: "create character"
+    score: 90
+    say: |
       The Composition Engine whirs.
       "Plant a template. Watch it grow.
       When it's ready, the Forge will call."
       
-  - trigger: "soul"
-    score: 0.85
-    response: "Souls grow here before they're forged."
+  ON-SOUL:
+    trigger: "soul"
+    score: 85
+    say: "Souls grow here before they're forged."
     
-  - trigger: "template"
-    score: 0.85
-    response: "Feed me YAML. I'll grow potential."
+  ON-TEMPLATE:
+    trigger: "template"
+    score: 85
+    say: "Feed me YAML. I'll grow potential."
     
 methods:
   PLANT:

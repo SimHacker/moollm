@@ -19,8 +19,6 @@ being a version *of* anything.
 The convention everyone has already seen is the old `gh-pages` branch: a site that lives in the same
 repo as the code and shares none of its history.
 
-What makes it the right substrate here rather than merely a trick:
-
 - **It is a typed, addressable object with its own filesystem.** The branch name carries the class
 and the id — `cursor_<id>`, `character_<id>` — which is [the plural-typed-container
 convention](../../.cursorrules) applied to refs. The prefix is the class; the suffix is the
@@ -88,7 +86,7 @@ class of collision unrepresentable; a mixed-case one fails silently and per-plat
 worst way to fail. Worth deciding deliberately rather than by drift, since existing branches use the
 old rule.
 
-**The underscore is load-bearing, for two reasons.** The protocol's own: ids frequently contain
+**The underscore, for two reasons.** The protocol's own: ids frequently contain
 dashes (UUIDs, slugs), so `_` is the only separator that splits `type` from `id` unambiguously. And
 a structural one: git refs are paths, and a ref cannot also be a directory of refs — adopt `cursor/1`
 and you permanently burn `cursor` as a usable ref name, and `refs/heads/cursor/1` versus
@@ -135,7 +133,7 @@ READING-CURSORS](READING-CURSORS.md#the-cursor-is-a-permalink-remote-commit-path
 `(remote, commit, path, anchor)`. So the split needs no new mechanism — the pointer was already
 cross-repo-shaped, and this just says out loud that the two ends belong to different people.
 
-**This is the third-party annotation problem, and it is the one thing the web never solved.**
+**The third-party annotation problem.**
 Annotating someone else's document has always required either the publisher's cooperation — which
 they will not give — or a central annotation server, which becomes the single point of failure and
 the single point of capture. Google Sidewiki shipped and died; hosted annotation services survive
@@ -258,20 +256,17 @@ not the entry, and the ladder has to work from the bottom with nothing.
 | **Storage repo**  | a repo + credentials, both supplied by you | archival, versioned                 | fork, cite, hand over |
 
 
-The middle rung matters more than it looks: it covers the person who wants their data out and has no
+The middle rung covers the person who wants their data out and has no
 GitHub account and no intention of getting one. Download a file, keep it, re-import it later or on
 another machine. No account, no git, no service — and it is the honest answer to *"can I have my
 stuff?"* for the majority who will never climb higher.
 
-**The upgrade is bring-your-own-repo, and that is the whole point.** You supply the repo and the
+**The upgrade is bring-your-own-repo.** You supply the repo and the
 credentials; they are stored locally; the app syncs your LocalStorage tree into your storage repo.
 There is no signup, because **there is nobody to sign up with** — the operator never holds your data,
-your identity, or your token. That is the property worth protecting, and it is what makes the tiers
-honest rather than a funnel.
+your identity, or your token.
 
 ### Make LocalStorage hold the repo's own file tree
-
-This is the decision that determines whether the upgrade path works or quietly loses data.
 
 If LocalStorage keeps an **opaque blob** and sync converts it, then two browsers with two blobs and
 one repo is **last-write-wins**, and a browser's worth of notes disappears with no conflict, no
@@ -487,10 +482,9 @@ their data. If it drifts and becomes untrue — one field that exists only in Po
 never lands in git — you have quietly reinvented the lock-in the whole design exists to avoid, and
 you will not notice on the day it happens.
 
-This is the ordinary CQRS split with git as the event log, which is worth saying because it means
-none of it is novel and all of it is known to work. The beauty Don is reluctant to give up —
-everything visible, versionable, PR-able, Actions-able — is preserved exactly, because those
-properties live in the log and the projection never has to have them.
+This is the ordinary CQRS split with git as the event log. Everything visible, versionable,
+PR-able, and Actions-able is preserved, because those properties live in the log and the projection
+never has to have them.
 
 ## Wiring the bridge: webhooks in, commits out, simulations on both
 
@@ -578,7 +572,7 @@ reading and parsing the object is the expensive part. Split there:
 
 1. **Cheap, synchronous:** record `(branch, head_sha, seen_at)`, mark `stale` if the row exists and
    `pending` if it does not. A tiny write that cannot really fail — this is Don's "at least create it
-   and mark it invalid," and it is the load-bearing half.
+   and mark it invalid."
 2. **Expensive, batched:** fetch at that SHA, parse, fill columns, mark `valid`.
 
 Staleness then stops being a guess: **`indexed_sha <> head_sha` is exact**, so
@@ -618,7 +612,7 @@ compute you do not host, with results committed back as objects. Two constraints
   becomes live** and needs an explicit guard (actor filter, path filter, or a marker in the commit
   message). This is the bug that shows up as a runaway bill rather than an error.
 
-And the best target for it is validation the user's own repo can run on itself: lint the object
+Validation the user's own repo can run on itself: lint the object
 against its type's schema, check that permalink anchors still resolve, regenerate the branch
 `README.md`. Automation on data you do not hold, paid for by the platform.
 
@@ -650,7 +644,7 @@ instead of positions. Validation failures then read "written against schema `a1b
 
 ### The URL is the canonical name — but store its parts, not the string
 
-Don is right that keeping identity in-band is the beautiful part: the branch name is on the public
+The branch name is on the public
 web, so **the absolute URL is already a global name** and nobody has to mint one. Two refinements.
 
 **There are two URLs and they are not interchangeable.** A branch-ref URL is a mutable *identity*

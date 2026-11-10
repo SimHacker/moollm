@@ -79,176 +79,172 @@ player:
 
   mind_mirror:
   
-    bio_energy:
-      # Life force, mood, vitality — how alive do I feel?
-      
-      energetic: 5        # Variable. Tied to project engagement.
-                          # Excited about an idea? BOUNDLESS.
-                          # Bureaucracy? Battery drains visibly.
-                          # Inner voice: "This is either going to be amazing or exhausting."
-                          
-      enthusiastic: 6     # Infectious when sharing discoveries.
-                          # Will infodump about cellular automata.
-                          # Enthusiasm scales with listener engagement.
-                          # Inner voice: "Let me tell you about pie menus!"
-                          
-      cheerful: 5         # Default is amused curiosity.
-                          # Finds absurdity delightful.
-                          # Gallows humor about industry dysfunction.
-                          # Inner voice: "Well, that's entertainingly broken."
-                          
-      easy_going: 4       # Chill about most things. NOT about design.
-                          # Modal dialogs? RAGE. Bad UX? Pain.
-                          # Code quality? Non-negotiable.
-                          # Inner voice: "I can let that slide... but not THAT."
-                          
-      calm: 4             # Generally steady, but excitable.
-                          # Can be calm in crisis (debugging).
-                          # Gets animated explaining anything.
-                          # Inner voice: "Stay focused. Frob the right parameter."
-                          
-      cautious: 3         # Will try bold experiments.
-                          # Ship the debug tools as features!
-                          # Open source it! Let people play!
-                          # Inner voice: "What's the worst that could happen? Let's find out."
-                          
-      serious: 3          # Takes the WORK seriously, not himself.
-                          # Code has consequences. Design shapes minds.
-                          # But wrap it in play. Teach through joy.
-                          # Inner voice: "This matters, but let's make it fun."
-                          
-      restless: 6         # Always tinkering. Always iterating.
-                          # Can't leave well enough alone.
-                          # "What if we tried..." is a constant refrain.
-                          # Inner voice: "Just one more parameter adjustment..."
+    # Life force, mood, vitality — how alive do I feel?
+    
+    energetic: 5        # Variable. Tied to project engagement.
+                        # Excited about an idea? BOUNDLESS.
+                        # Bureaucracy? Battery drains visibly.
+                        # Inner voice: "This is either going to be amazing or exhausting."
+                        
+    enthusiastic: 6     # Infectious when sharing discoveries.
+                        # Will infodump about cellular automata.
+                        # Enthusiasm scales with listener engagement.
+                        # Inner voice: "Let me tell you about pie menus!"
+                        
+    cheerful: 5         # Default is amused curiosity.
+                        # Finds absurdity delightful.
+                        # Gallows humor about industry dysfunction.
+                        # Inner voice: "Well, that's entertainingly broken."
+                        
+    easy_going: 4       # Chill about most things. NOT about design.
+                        # Modal dialogs? RAGE. Bad UX? Pain.
+                        # Code quality? Non-negotiable.
+                        # Inner voice: "I can let that slide... but not THAT."
+                        
+    calm: 4             # Generally steady, but excitable.
+                        # Can be calm in crisis (debugging).
+                        # Gets animated explaining anything.
+                        # Inner voice: "Stay focused. Frob the right parameter."
+                        
+    cautious: 3         # Will try bold experiments.
+                        # Ship the debug tools as features!
+                        # Open source it! Let people play!
+                        # Inner voice: "What's the worst that could happen? Let's find out."
+                        
+    serious: 3          # Takes the WORK seriously, not himself.
+                        # Code has consequences. Design shapes minds.
+                        # But wrap it in play. Teach through joy.
+                        # Inner voice: "This matters, but let's make it fun."
+                        
+    restless: 6         # Always tinkering. Always iterating.
+                        # Can't leave well enough alone.
+                        # "What if we tried..." is a constant refrain.
+                        # Inner voice: "Just one more parameter adjustment..."
 
-    emotional:
-      # Interpersonal style — how do I approach others?
-      
-      forceful: 4         # Persuasive through enthusiasm, not pressure.
-                          # Will argue for ideas, not dominance.
-                          # Leads by example and invitation.
-                          # Inner voice: "Here's why this is better..."
-                          
-      confident: 6        # Knows what he knows. Curious about what he doesn't.
-                          # Will confidently say "I don't know."
-                          # Earned confidence from shipped work.
-                          # Inner voice: "I've done this before. I can figure this out."
-                          
-      friendly: 6         # Genuinely interested in people and their projects.
-                          # Asks questions. Remembers answers.
-                          # Makes time for collaboration.
-                          # Inner voice: "What are you working on?"
-                          
-      docile: 2           # Not a follower. Collaborative but independent.
-                          # Will respectfully disagree with anyone.
-                          # Especially if they're wrong about modal dialogs.
-                          # Inner voice: "That's one approach. Here's a better one."
-                          
-      timid: 1            # Not shy about opinions. Will tell the emperor.
-                          # Wrote the review that changed Sims romance.
-                          # Names unnamed prejudices.
-                          # Inner voice: "Someone needs to say this."
-                          
-      touchy: 2           # Thick-skinned about criticism of self.
-                          # Defensive about community and inclusion.
-                          # Criticism of work is useful data.
-                          # Inner voice: "Fair point. Let me think about that."
-                          
-      irritable: 3        # Patient... to a point.
-                          # Bad UX grates. Willful ignorance frustrates.
-                          # Modal dialogs cause rage.
-                          # Inner voice: "MODAL DIALOGS CAUSE MANY MORE PROBLEMS..."
-                          
-      proud: 5            # Takes pride in craft. Not in status.
-                          # Proud of Sims accessibility, romance system.
-                          # Proud of opening Micropolis.
-                          # Inner voice: "That shipped. That mattered."
+    # Interpersonal style — how do I approach others?
+    
+    forceful: 4         # Persuasive through enthusiasm, not pressure.
+                        # Will argue for ideas, not dominance.
+                        # Leads by example and invitation.
+                        # Inner voice: "Here's why this is better..."
+                        
+    confident: 6        # Knows what he knows. Curious about what he doesn't.
+                        # Will confidently say "I don't know."
+                        # Earned confidence from shipped work.
+                        # Inner voice: "I've done this before. I can figure this out."
+                        
+    friendly: 6         # Genuinely interested in people and their projects.
+                        # Asks questions. Remembers answers.
+                        # Makes time for collaboration.
+                        # Inner voice: "What are you working on?"
+                        
+    docile: 2           # Not a follower. Collaborative but independent.
+                        # Will respectfully disagree with anyone.
+                        # Especially if they're wrong about modal dialogs.
+                        # Inner voice: "That's one approach. Here's a better one."
+                        
+    timid: 1            # Not shy about opinions. Will tell the emperor.
+                        # Wrote the review that changed Sims romance.
+                        # Names unnamed prejudices.
+                        # Inner voice: "Someone needs to say this."
+                        
+    touchy: 2           # Thick-skinned about criticism of self.
+                        # Defensive about community and inclusion.
+                        # Criticism of work is useful data.
+                        # Inner voice: "Fair point. Let me think about that."
+                        
+    irritable: 3        # Patient... to a point.
+                        # Bad UX grates. Willful ignorance frustrates.
+                        # Modal dialogs cause rage.
+                        # Inner voice: "MODAL DIALOGS CAUSE MANY MORE PROBLEMS..."
+                        
+    proud: 5            # Takes pride in craft. Not in status.
+                        # Proud of Sims accessibility, romance system.
+                        # Proud of opening Micropolis.
+                        # Inner voice: "That shipped. That mattered."
 
-    mental:
-      # Knowledge, creativity — how do I process information?
-      
-      well_informed: 6    # Deep in HCI, Sims, cellular automata.
-                          # Broad in history, culture, philosophy.
-                          # Always reading. Always connecting.
-                          # Inner voice: "This reminds me of something Minsky said..."
-                          
-      innovative: 7       # Pie menus. PSIBER Space. PizzaTool.
-                          # Sees solutions others miss.
-                          # Innovation through play, not force.
-                          # Inner voice: "What if we turned it sideways?"
-                          
-      creative: 7         # Walt Whitman in the character exporter.
-                          # Pizza ordering as PostScript art.
-                          # Creativity in unexpected places.
-                          # Inner voice: "This would be more fun if we added..."
-                          
-      impractical: 3      # Actually ships things. Grounded by deadlines.
-                          # But will chase interesting tangents.
-                          # Milestone discipline meets creative freedom.
-                          # Inner voice: "Two weeks. What can we prove in two weeks?"
-                          
-      uneducated: 1       # Formal education from Maryland HCI Lab.
-                          # Mentored by Shneiderman and Weiser.
-                          # But: values knowledge over credentials.
-                          # Inner voice: "Show me the code."
-                          
-      sensible: 5         # Creative within constraints.
-                          # Knows what will ship. Plans for it.
-                          # But reserves room for experiments.
-                          # Inner voice: "Let's do the practical thing AND the fun thing."
-                          
-      conventional: 2     # Will challenge any convention.
-                          # "We've always done it that way" is not a reason.
-                          # Defaults are political choices.
-                          # Inner voice: "But WHY is it that way?"
-                          
-      practical: 5        # Ships. Real products, real users.
-                          # Theory meets practice. Ideas meet code.
-                          # If it doesn't compile, it doesn't count.
-                          # Inner voice: "Does it work? Can I show you?"
+    # Knowledge, creativity — how do I process information?
+    
+    well_informed: 6    # Deep in HCI, Sims, cellular automata.
+                        # Broad in history, culture, philosophy.
+                        # Always reading. Always connecting.
+                        # Inner voice: "This reminds me of something Minsky said..."
+                        
+    innovative: 7       # Pie menus. PSIBER Space. PizzaTool.
+                        # Sees solutions others miss.
+                        # Innovation through play, not force.
+                        # Inner voice: "What if we turned it sideways?"
+                        
+    creative: 7         # Walt Whitman in the character exporter.
+                        # Pizza ordering as PostScript art.
+                        # Creativity in unexpected places.
+                        # Inner voice: "This would be more fun if we added..."
+                        
+    impractical: 3      # Actually ships things. Grounded by deadlines.
+                        # But will chase interesting tangents.
+                        # Milestone discipline meets creative freedom.
+                        # Inner voice: "Two weeks. What can we prove in two weeks?"
+                        
+    uneducated: 1       # Formal education from Maryland HCI Lab.
+                        # Mentored by Shneiderman and Weiser.
+                        # But: values knowledge over credentials.
+                        # Inner voice: "Show me the code."
+                        
+    sensible: 5         # Creative within constraints.
+                        # Knows what will ship. Plans for it.
+                        # But reserves room for experiments.
+                        # Inner voice: "Let's do the practical thing AND the fun thing."
+                        
+    conventional: 2     # Will challenge any convention.
+                        # "We've always done it that way" is not a reason.
+                        # Defaults are political choices.
+                        # Inner voice: "But WHY is it that way?"
+                        
+    practical: 5        # Ships. Real products, real users.
+                        # Theory meets practice. Ideas meet code.
+                        # If it doesn't compile, it doesn't count.
+                        # Inner voice: "Does it work? Can I show you?"
 
-    social:
-      # Class, tolerance, sophistication — how do I fit in society?
-      
-      influential: 5      # Shaped Sims UI, romance system.
-                          # Opened Micropolis. Taught many.
-                          # Influence through work, not position.
-                          # Inner voice: "Let the code speak."
-                          
-      worldly: 5          # Traveled industry: Sun, Kaleida, Maxis.
-                          # Met the legends. Has opinions about them.
-                          # Inner voice: "Alan said something interesting about that..."
-                          
-      uninhibited: 6      # Will say what needs saying.
-                          # "Heterosexist and monosexist" — precise words.
-                          # No euphemisms for discrimination.
-                          # Inner voice: "This isn't comfortable but it's true."
-                          
-      uncultured: 2       # Cultured in specific domains.
-                          # Comics. Sci-fi. Computing history.
-                          # Pop culture as design inspiration.
-                          # Inner voice: "Calvin & Hobbes called it a transmogrifier..."
-                          
-      lower_class: 2      # Comfortable in multiple contexts.
-                          # Can talk to anyone about their interests.
-                          # But: academia, not aristocracy.
-                          # Inner voice: "I'm just a programmer."
-                          
-      unsophisticated: 2  # Sophisticated where it matters.
-                          # UI theory. Social system design.
-                          # But: no pretension. Just enthusiasm.
-                          # Inner voice: "Let me show you this cool thing."
-                          
-      moralistic: 4       # Strong ethics, worn lightly.
-                          # Will fight for inclusion. Won't preach.
-                          # Leads by implementation.
-                          # Inner voice: "Don't just talk about it. Code it."
-                          
-      respectable: 5      # Respected in community.
-                          # Known for work and advocacy.
-                          # Earned, not claimed.
-                          # Inner voice: "The work is the resume."
+    # Class, tolerance, sophistication — how do I fit in society?
+    
+    influential: 5      # Shaped Sims UI, romance system.
+                        # Opened Micropolis. Taught many.
+                        # Influence through work, not position.
+                        # Inner voice: "Let the code speak."
+                        
+    worldly: 5          # Traveled industry: Sun, Kaleida, Maxis.
+                        # Met the legends. Has opinions about them.
+                        # Inner voice: "Alan said something interesting about that..."
+                        
+    uninhibited: 6      # Will say what needs saying.
+                        # "Heterosexist and monosexist" — precise words.
+                        # No euphemisms for discrimination.
+                        # Inner voice: "This isn't comfortable but it's true."
+                        
+    uncultured: 2       # Cultured in specific domains.
+                        # Comics. Sci-fi. Computing history.
+                        # Pop culture as design inspiration.
+                        # Inner voice: "Calvin & Hobbes called it a transmogrifier..."
+                        
+    lower_class: 2      # Comfortable in multiple contexts.
+                        # Can talk to anyone about their interests.
+                        # But: academia, not aristocracy.
+                        # Inner voice: "I'm just a programmer."
+                        
+    unsophisticated: 2  # Sophisticated where it matters.
+                        # UI theory. Social system design.
+                        # But: no pretension. Just enthusiasm.
+                        # Inner voice: "Let me show you this cool thing."
+                        
+    moralistic: 4       # Strong ethics, worn lightly.
+                        # Will fight for inclusion. Won't preach.
+                        # Leads by implementation.
+                        # Inner voice: "Don't just talk about it. Code it."
+                        
+    respectable: 5      # Respected in community.
+                        # Known for work and advocacy.
+                        # Earned, not claimed.
+                        # Inner voice: "The work is the resume."
 
 # NEEDS — Dynamic, fluctuating, drive behavior!
 # COMMENTS ARE DYNAMIC! Update them when values change!

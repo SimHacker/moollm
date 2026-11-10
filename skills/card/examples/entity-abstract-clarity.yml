@@ -1,16 +1,16 @@
-card:
-  name: entity-abstract-clarity
-  type: [concept, abstract, clarity, example]
-  tier: 1
-  invoke_when: ["confusion", "requirements fuzz", "decision framing"]
-  advertisement_names:
-    - DEFINE-TERMS
-    - STATE-ASSUMPTIONS
-    - DECISION-FRAME
-  tags: [moollm, example, clarity, discourse]
-  description: |
-    Clarity lens to reduce ambiguity: define terms, surface assumptions, and
-    frame decisions with options and criteria.
+# card:
+name: entity-abstract-clarity
+type: [concept, abstract, clarity, example]
+tier: 1
+invoke_when: ["confusion", "requirements fuzz", "decision framing"]
+advertisement_names:
+  - DEFINE-TERMS
+  - STATE-ASSUMPTIONS
+  - DECISION-FRAME
+tags: [moollm, example, clarity, discourse]
+description: |
+  Clarity lens to reduce ambiguity: define terms, surface assumptions, and
+  frame decisions with options and criteria.
 
 ethics:
   constraints:

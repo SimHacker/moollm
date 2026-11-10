@@ -186,7 +186,7 @@ These academic insights build on 25 years of practical ethics experiments in The
 | **Find Best Action** | [sims-find-best-action.md](../sims/sims-find-best-action.md) | Advertisements broadcast affordances — transparent agency |
 | **Masking** | [sims-inclusivity.md](../sims/sims-inclusivity.md) | Abstract characters enable projection |
 
-**Key insight:** The Sims has been the largest person-simulation ethics experiment ever conducted. 25 years, millions of players, essentially no harm — because of clear framing, player control, and no deception.
+25 years, millions of players, essentially no harm — clear framing, player control, and no deception.
 
 ## Related Skills
 
@@ -196,8 +196,6 @@ These academic insights build on 25 years of practical ethics experiments in The
 - [speed-of-light/](../../skills/speed-of-light/) — Multi-agent simulation (Smallville-like)
 
 ## Sims Design Documents
-
-Deep technical and philosophical analysis of The Sims' design decisions:
 
 - [sims-design-index.md](../sims/sims-design-index.md) — Master index
 - [sims-queer-identity-formation.md](../sims/sims-queer-identity-formation.md) — "Did The Sims Make You Gay?" analysis

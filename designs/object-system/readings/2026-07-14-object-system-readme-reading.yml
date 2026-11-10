@@ -34,8 +34,8 @@ timing:
     it, which yields negative offsets that look like real drift. That method was
     tried first and produced deltas from -84s to +72s, all of them fictional.
   note: >
-    The pre-trim worry was unfounded: the trim was short enough that it does not
-    move any chapter by a measurable amount. Timestamps below stand as written.
+    The trim was short enough that it does not move any chapter by a measurable
+    amount. Timestamps below stand as written.
 
 corrections:
   # ASR damage -> what was actually said. Kept here so the raw captions can be
@@ -110,7 +110,7 @@ chapters:
         target: https://bibliography.selflanguage.org/   # Self papers incl. Ungar & Smith 1987
       - inject: definition
         term: "reflective tower"
-        text: "An object system implemented in itself, all the way down (the MOP move)."
+        text: "An object system implemented in itself, all the way down."
 
   - t: "2:59"
     title: "Piaget → Minsky → Drescher → Leela AI: the grounding wall"
@@ -125,7 +125,7 @@ chapters:
     media_events:
       - inject: link
         target: https://patents.google.com/patent/US5187786A
-        why: "THE patent. Expired. Inheritable by K-line."
+        why: "Expired. Inheritable by K-line."
       - inject: gallery
         note: "HyperLook / TNT screenshots — 'I have really cool pictures.'"
 
@@ -153,7 +153,7 @@ chapters:
         target: ../../sims/sims-object-model.md
       - inject: link
         target: ../../sims/sims-find-best-action.md
-      - inject: simulation      # the dream: fire up an actual Sims-style scoring demo
+      - inject: simulation
         engine: advertisement-scoring-demo
         note: "Show a stove, a toilet, a bed; sliders for hunger/bladder/energy; watch scores reweight."
 
@@ -180,7 +180,6 @@ chapters:
         target: ../LIVE-OBJECTS-EXAMPLES.md
       - inject: simulation
         engine: micropolis-web
-        # The flagship injection: a preconfigured SimCity session.
         load_city: soul-city
         zoom_to: {x: 60, y: 42}          # placeholder coords; pick the civic center
         open_views: [population-history, land-value-map, crime-heatmap]
@@ -189,11 +188,9 @@ chapters:
           character: city-planning-advisor  # avatar + body + animation + dialog
           opening_line: "Welcome to Soul City. Floyd McKissick had a plan; let me show you the data."
         note: >
-          Long-term plan, and the reason everything is built flexibly and
-          extensibly on general principles: the video player pauses, the
-          simulation opens at these coordinates with these views, and a VitaMOO
-          animated advisor — a MOOLLM character driving avatar, body, animation,
-          and dialog — walks you through it.
+          The video player pauses, the simulation opens at these coordinates
+          with these views, and a VitaMOO animated advisor — a MOOLLM character
+          driving avatar, body, animation, and dialog — walks you through it.
 
   - t: "14:50"
     title: "Dublin Core, the adventure compiler, the good Scott Adams"
@@ -272,14 +269,14 @@ chapters:
         text: "Author said 'shadow DOM', meant 'virtual DOM' — corrected per his pinned comment."
       - inject: definition
         term: "pull vs push constraints"
-        text: "Garnet pulled (recompute on read if stale); OpenLaszlo pushed (propagate on write — cheaper in Flash). Svelte 5 ships the spirit of both."
+        text: "Garnet pulled (recompute on read if stale); OpenLaszlo pushed (propagate on write — cheaper in Flash). Svelte 5 does both: pull on read, push on write."
 
   - t: "30:32"
     title: "The linguistic motherboard: Warnock, Densmore, Gosling"
     media_events:
       - inject: definition
         term: "linguistic motherboard"
-        text: "Warnock's framing of PostScript: a language as a motherboard; graphics was just the first card. Networking was NeWS's card; LLM inference is ours."
+        text: "Warnock's framing of PostScript: a language as a motherboard; graphics was just the first card. Networking was NeWS's card; LLM inference is this repo's."
       - inject: gallery
         note: "The one-page Smalltalk-in-PostScript class system; HyperLook running on the printer."
 

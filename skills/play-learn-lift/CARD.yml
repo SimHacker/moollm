@@ -5,7 +5,8 @@
 
 id: play-learn-lift
 name: "Play Learn Lift"
-type: [skill, methodology, foundational]
+type: skill
+tags: [methodology, foundational]
 
 emoji: 🎭
 
@@ -101,15 +102,15 @@ methodology:
 advertisements:
   START-EXPLORATION:
     score: 95
-    condition: "Beginning something new"
+    score_if: "Beginning something new"
     
   CRYSTALLIZE-LEARNING:
     score: 90
-    condition: "Have experience to reflect on"
+    score_if: "Have experience to reflect on"
     
   CREATE-SKILL:
     score: 85
-    condition: "Want to share what you learned"
+    score_if: "Want to share what you learned"
 
 # RELATED
 

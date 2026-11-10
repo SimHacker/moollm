@@ -107,7 +107,7 @@ hand_6:
     
   turn: { card: "2h" }
   
-    action:
+  action:
       - player: bowie
         action: check
         thinking: "Klaus spoke. That's terrifying."
@@ -138,7 +138,7 @@ hand_6:
     winning_hand: "Set of nines over set of sixes"
     
     reactions:
-      klaus: "..." *collects*
+      klaus: '"..." *collects*'
       palm: "'Set over set. Well played.' *tail droops*"
       bowie: "I escaped that. Barely."
       leigh: "'Klaus spoke. I believed him.' *knowing smile*"
@@ -267,7 +267,7 @@ hand_8:
         
   turn: { card: "9c" }
   
-    action:
+  action:
       - player: donna
         action: check
         
@@ -294,7 +294,7 @@ hand_8:
       peewee: "'I LOST! BUT I HAD MATCHING! HA HA! REBUY!'"
       palm: "Second set over set this session."
       don: "This table is wild."
-      klaus: "..." *acknowledges math*
+      klaus: '"..." *acknowledges math*'
       
   peewee_rebuy: true  # 6th rebuy total
   

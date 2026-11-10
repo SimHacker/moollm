@@ -118,11 +118,11 @@ distinction:
 advertisements:
   CHANGE-IDENTITY:
     score: 90
-    condition: "Want to present differently"
+    score_if: "Want to present differently"
     
   CREATE-PERSONA:
     score: 85
-    condition: "Need a new role or mask"
+    score_if: "Need a new role or mask"
 
 # RELATED
 

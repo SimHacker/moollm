@@ -27,9 +27,9 @@ reaches for:
   as a live component — not rewritten, not ported, not wrapped until
   unrecognizable. It keeps its shape and its habits.
 - **Retained genome.** The organelle carries its own source code, in its
-  own original language, still readable, still executable. This is the
-  load-bearing part: because the genome is retained, the organelle can
-  still replicate (`cp -r`), still be studied, still be lifted.
+  own original language, still readable, still executable. Because the
+  genome is retained, the organelle can still replicate (`cp -r`), still
+  be studied, still be lifted.
 - **Metabolic trade.** The organelle advertises services to its host —
   Sims-style [advertisements](../GAME-PIECES.md), CARD.yml interfaces —
   and the host supplies context, activation, and a place to live.
@@ -106,7 +106,7 @@ the past, can be "more powerful than the sum of its parts." MOOLLM's bet
 is the same bet — selfish prototypes, leaning into the training, YAML
 jazz, empathic templates, K-lines — each an already-living organism,
 swallowed whole with its genome intact, chosen because they reinforce
-each other harmonically rather than merely coexist.
+each other.
 
 Related: [SELF-AND-MOOLLM](SELF-AND-MOOLLM.md) ·
 [LATENT-SPACE-INHERITANCE](LATENT-SPACE-INHERITANCE.md) ·

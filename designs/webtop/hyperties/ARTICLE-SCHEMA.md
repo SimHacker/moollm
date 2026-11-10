@@ -3,7 +3,7 @@
 **An article had a title, a synonym list, a definition, and a body.** Four parts, required by the
 markup, in 1988 — and exactly four, because three of the six directives people count are second
 spellings aliased to the same field (see below). That schema is the semantic pyramid with an
-addressing layer bolted to the front, and it is the single most important thing in this pack.
+addressing layer bolted to the front.
 
 The schema itself is settled by the storyboard source below. **Authorship of the code that
 implemented it is a separate question, and the division of labor was real.** Don wrote the page
@@ -161,7 +161,7 @@ fputs (".title\nMaster Index\n\n.synonyms\n!index\n\n.content\n\n", master_index
 A generated article, named `!index`, in the same namespace it describes. The index is in the
 encyclopedia.
 
-## Why synonyms are the load-bearing part
+## Synonyms
 
 The 1991 paper drops a phrase almost in passing, while explaining why graphical links are harder to
 author than textual ones:

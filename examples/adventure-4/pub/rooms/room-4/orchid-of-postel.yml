@@ -54,19 +54,22 @@ state:
   last_output: "clean, canonical format"
   
 advertisements:
-  - trigger: "messy input"
-    score: 0.95
-    response: "The Orchid of Postel accepts what you have."
+  ON-MESSY-INPUT:
+    trigger: "messy input"
+    score: 95
+    say: "The Orchid of Postel accepts what you have."
     
-  - trigger: "format"
-    score: 0.9
-    response: |
+  ON-FORMAT:
+    trigger: "format"
+    score: 90
+    say: |
       *The orchid sways slightly*
       Accept generously. Emit precisely.
       
-  - trigger: "tolerance"
-    score: 0.85
-    response: "Roots spread wide. Blooms are exact."
+  ON-TOLERANCE:
+    trigger: "tolerance"
+    score: 85
+    say: "Roots spread wide. Blooms are exact."
     
 methods:
   ACCEPT:

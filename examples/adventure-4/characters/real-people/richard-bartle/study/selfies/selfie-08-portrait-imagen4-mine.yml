@@ -87,14 +87,14 @@ environment:
 
 palette:
   dominant:
-    - { color: burgundy, hex: "#722F37", usage: chair, book }
-    - { color: navy blue, hex: "#1E3A5F", usage: Richard's blazer }
-    - { color: warm brown, hex: "#8B4513", usage: bookshelves }
+    - '{ color: burgundy, hex: "#722F37", usage: chair, book }'
+    - "{ color: navy blue, hex: \"#1E3A5F\", usage: Richard's blazer }"
+    - '{ color: warm brown, hex: "#8B4513", usage: bookshelves }'
     
   accent:
-    - { color: silver, hex: "#C0C0C0", usage: hair }
-    - { color: light blue, hex: "#87CEEB", usage: shirts }
-    - { color: bronze-green, hex: "#7B8B6F", usage: dragon }
+    - '{ color: silver, hex: "#C0C0C0", usage: hair }'
+    - '{ color: light blue, hex: "#87CEEB", usage: shirts }'
+    - '{ color: bronze-green, hex: "#7B8B6F", usage: dragon }'
 
 # COMPOSITION
 
@@ -103,9 +103,9 @@ composition:
   tradition: academic/institutional portraiture
   
   arrangement:
-    - seated subject (primary)
-    - standing supporter (secondary)
-    - guardian figure (tertiary)
+    - 'seated subject (primary)'
+    - 'standing supporter (secondary)'
+    - 'guardian figure (tertiary)'
     
   eye_line:
     richard: direct to viewer
@@ -132,7 +132,7 @@ historical_references:
     
   - reference: "Norman Rockwell"
     connection: warm American illustration style
-    specific: "The Connoisseur" energy
+    specific: '"The Connoisseur" energy'
     
   - reference: "Official author photos"
     connection: holding one's own book

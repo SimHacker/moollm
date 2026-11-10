@@ -4,16 +4,15 @@
 #  bottom to form a torus (doughnut). Have fun imagining this one!!"
 #  — Wumpus 2 instructions
 
-topology:
-  name: "Hex Network on a Torus"
-  type: toroidal_hex_lattice
-  cave: 3                                    # Yob\'s own menu number in Wumpus 2
-  source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2910-2940"
-  regular: true      # every room: 3 tunnels, two-way traffic
-  description: |
-    A hexagonal lattice wrapped in both directions — no edges, no corners,
-    every room equivalent. The reviewers' favorite alternate cave: as
-    interconnected as the dodecahedron, but you can circumnavigate two ways.
+name: "Hex Network on a Torus"
+type: toroidal_hex_lattice
+cave: 3                                    # Yob\'s own menu number in Wumpus 2
+source: "Wumpus 2 (Gregory Yob, Creative Computing), DATA lines 2910-2940"
+regular: true      # every room: 3 tunnels, two-way traffic
+description: |
+  A hexagonal lattice wrapped in both directions — no edges, no corners,
+  every room equivalent. The reviewers' favorite alternate cave: as
+  interconnected as the dodecahedron, but you can circumnavigate two ways.
 
 adjacency:
   1: [6, 10, 16]

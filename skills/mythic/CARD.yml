@@ -5,7 +5,8 @@
 
 id: mythic
 name: "Mythic"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: ✨
 tier: 1
 
@@ -82,22 +83,22 @@ advertisements:
   
   INVOKE:
     score: 80
-    condition: "Calling on mythic being"
+    score_if: "Calling on mythic being"
     effect: "Bring mythic presence to narrative"
     
   RETELL:
     score: 85
-    condition: "Sharing a myth or legend"
+    score_if: "Sharing a myth or legend"
     effect: "Narrate traditional story"
     
   ADAPT:
     score: 75
-    condition: "Mythic being in new context"
+    score_if: "Mythic being in new context"
     effect: "Respectful creative adaptation"
     
   CREATURE:
     score: 80
-    condition: "Mythic animal/monster"
+    score_if: "Mythic animal/monster"
     effect: "Play as legendary beast"
 
 # MYTHIC CATEGORIES

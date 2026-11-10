@@ -114,10 +114,10 @@ parameters:
   temperature: 0.8
   
   # Dealer configuration
-  dealer:
-    starting_mode: "dramatic"
-    karma_tracking: true
-    
+  # dealer:
+  starting_mode: "dramatic"
+  karma_tracking: true
+  
   # Starting state
   starting_rules:
     - "amsterdam-expansion:gezelligheid"  # Sharing culture from the start

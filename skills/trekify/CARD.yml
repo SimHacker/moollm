@@ -12,17 +12,16 @@
 #
 # See SKILL.md for full protocol.
 
-skill:
-  name: trekify
-  version: 1.0.0
-  emoji: "🖖"
-  tagline: "Privacy through technobabble"
-  config_dir: ".moollm/skills/trekify"
-  
-  description: |
-    Transform sensitive information into Star Trek technobabble.
-    Every substitution is flagged with 🖖 so readers see what was masked.
-    Composes with cursor-mirror (probing), ripgrep (scanning).
+name: trekify
+version: 1.0.0
+emoji: "🖖"
+tagline: "Privacy through technobabble"
+config_dir: ".moollm/skills/trekify"
+
+description: |
+  Transform sensitive information into Star Trek technobabble.
+  Every substitution is flagged with 🖖 so readers see what was masked.
+  Composes with cursor-mirror (probing), ripgrep (scanning).
 
 # FILES — Page-in on demand
 files:
@@ -249,16 +248,16 @@ workflows:
 advertisements:
   MASK:
     score: 100
-    condition: "Need to mask sensitive data for sharing"
+    score_if: "Need to mask sensitive data for sharing"
   PROBE:
     score: 100
-    condition: "Hunt for secrets in session history"
+    score_if: "Hunt for secrets in session history"
   LONG-RANGE-SCAN:
     score: 90
-    condition: "Security audit of workspace"
+    score_if: "Security audit of workspace"
   EXFILTRATION-SCAN:
     score: 95
-    condition: "Check if data might have leaked"
+    score_if: "Check if data might have leaked"
 
 invoke_when:
   - "Sharing session transcripts"

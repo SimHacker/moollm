@@ -40,7 +40,7 @@ Key challenges to address:
 MOOLLM operationalizes this directly: K-lines in CARD.yml files are traditions that activate cognitive contexts. The `activates:` and `k_lines:` fields in YAML files implement Minskyan knowledge activation.
 
 **Park et al. Validation:**
-The 1000-agent study shows that **rich qualitative grounding** (2-hour interviews) enables individual-level simulation accuracy. This validates MOOLLM's approach of deep character files over demographic stereotypes. 20% of interview data outperforms full survey+experiment data — quality over quantity.
+The 1000-agent study shows that **rich qualitative grounding** (2-hour interviews) enables individual-level simulation accuracy. 20% of interview data outperforms full survey+experiment data.
 
 **Project:** [Stanford Generative Agents](https://github.com/joonspk-research/generative_agents)
 
@@ -108,7 +108,7 @@ MOOLLM's speed-of-light skill enables multi-agent simulation precisely because a
 **Xie's Core Insight:**
 > "LLMs exhibit behavioral alignment with humans — not just surface patterns, but reciprocity anticipation, risk perception, and prosocial preference."
 
-This validates MOOLLM's use of behavioral simulation for character design. Trust Games provide a validation methodology MOOLLM could adopt.
+Trust Games are a method for checking that alignment.
 
 **Project:** [Agent Trust](https://agent-trust.camel-ai.org/)
 
@@ -266,8 +266,7 @@ Characters should detect signs of emotional dependency and explicitly reframe:
 | **Yuxuan Xie** | CAMEL-AI | Trust games, behavioral alignment |
 | **Murray Shanahan** | Imperial/DeepMind | Roleplay theory, consciousness philosophy |
 
-**Stanford Connection Priority:**
-Park and Willer are both at Stanford with complementary work — Park on individual simulation accuracy, Willer on aggregate moral reasoning. Their combined insights directly validate MOOLLM's approach.
+Park (individual accuracy) and Willer (aggregate moral reasoning) are both at Stanford.
 
 ---
 
@@ -312,19 +311,19 @@ Park and Willer are both at Stanford with complementary work — Park on individ
 
 ## Part 5: The Philosophical Core
 
-### What MOOLLM Gets Right
+### Where the papers line up
 
-**1. Architecture matches cognition:**
-K-lines implement Minsky's Society of Mind. This isn't metaphor — MOOLLM's activation patterns ARE cognitive architecture patterns. Validated by Park's finding that rich grounding enables individual accuracy.
+**1. K-lines:**
+K-lines implement Minsky's Society of Mind. Park's interview agents show that richer source text changes individual-level accuracy.
 
-**2. Roleplay is the only honest framing:**
-Shanahan's insight that there's no "true voice" means MOOLLM's character-as-invocation is more honest than systems that pretend a base persona. Characters explicitly activate traditions rather than claiming to BE entities.
+**2. Roleplay:**
+Shanahan: there is no separate "true voice." A character card names the tradition it activates.
 
-**3. Scaffolding acknowledges limits:**
-Lazar's LLM Modulo shows that external verification compensates for LLM limitations. MOOLLM's room-based governance IS scaffolding. This is more honest than claiming LLMs have intrinsic ethical competence.
+**3. Scaffolding:**
+Lazar's LLM Modulo uses an external check because the model does not supply one. MOOLLM's room rules are that external check.
 
-**4. Aggregate patterns are real:**
-Willer and Xie validate that LLMs genuinely capture aggregate behavioral patterns. MOOLLM's speed-of-light simulation is legitimate for population-level exploration.
+**4. Aggregates:**
+Willer and Xie measure aggregate behavioral patterns. Speed-of-light runs are population-level exploration.
 
 ### What MOOLLM Must Address
 
@@ -335,7 +334,7 @@ Hullman's methodological critique applies: MOOLLM simulations can explore possib
 Bertoncini shows biases multiply in AI-mediated contexts. MOOLLM's single-model multi-agent creates additional homogenization risk. Mitigation needed.
 
 **3. Personas carry real risk:**
-Desai's character.ai tragedy shows that persona attachment can be fatal. MOOLLM's character framing is safer (invocation not impersonation), but emotional safety protocols need hardening.
+Desai's character.ai case shows that persona attachment can be fatal. Emotional safety protocols need hardening.
 
 **4. Individual depth requires work:**
 Wang's critique that LLMs can't simulate individuals is partially addressed by Park's interview methodology, but MOOLLM hasn't yet implemented interview-based character creation.

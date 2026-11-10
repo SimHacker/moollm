@@ -1,13 +1,13 @@
 # What to inherit from Gwern.net
 
-Gwern.net is one of the best demonstrations that **static sites can behave like a research
+Gwern.net shows that **static sites can behave like a research
 environment**, not a pile of PDFs. The [design essay](https://gwern.net/design) is honest about
 trade-offs: Hakyll + Pandoc + custom JS, bandwidth on a dedicated server, complexity bought for
 reader time and attention.
 
 We are not competing on minimalism. We are **inheriting the problems Gwern solved well** and wrapping them in a different shell (classic WIMP webtop + tabs + pies + MOOLLM rooms + memory palace navigator/reader/editor).
 
-## Problems Gwern solves brilliantly
+## Problems Gwern solves
 
 ### 1. Long-form publishing that respects the reader
 

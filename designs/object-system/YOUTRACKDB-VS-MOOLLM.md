@@ -183,7 +183,7 @@ index over `ties:` / exits / K-line references is a cache, not a source of truth
 hybrid already exists: YTDB's own development needed a MOOLLM-shaped layer the moment agents
 joined the team.
 
-### 10. Inheriting from YouTrackDB — the machine-language move
+### 10. Inheriting from YouTrackDB
 
 Self's designers called it the power of simplicity because the minimal core — objects, slots,
 delegation — is an **object-oriented RISC instruction set for implementing other object
@@ -193,7 +193,7 @@ lowers to. That is how MOOLLM should relate to YouTrackDB: not compete with it, 
 selfish core, without making the core less simple. The kernel stays RISC; other object systems
 become compiled libraries.
 
-And here is the move no previous object system could make: **MOOLLM doesn't have to implement
+**MOOLLM doesn't have to implement
 what it inherits, because the LLM already knows it.** These capabilities and this knowledge
 already exist in the model. Latent-space inheritance
 ([LATENT-SPACE-INHERITANCE.md](LATENT-SPACE-INHERITANCE.md)) isn't limited to characters and

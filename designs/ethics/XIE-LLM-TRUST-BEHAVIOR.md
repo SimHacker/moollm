@@ -2,7 +2,7 @@
 
 **Source:** [NeurIPS 2024 — Xie et al.](https://agent-trust.camel-ai.org)
 
-**Relevance:** Empirical validation that GPT-4 achieves high behavioral alignment with humans on Trust Games — provides methodology for validating MOOLLM character consistency.
+**Relevance:** GPT-4 alignment with humans on Trust Games.
 
 ---
 
@@ -12,7 +12,7 @@ This paper uses Trust Games (a well-established methodology in behavioral econom
 
 **Key finding:** GPT-4 agents manifest high behavioral alignment with humans in terms of trust behavior.
 
-**Key insight for MOOLLM:** Trust Games provide a validation methodology for character simulation accuracy.
+Trust Games are a way to check whether a character's trust behavior matches human trust behavior.
 
 ---
 
@@ -184,7 +184,5 @@ k_lines:
 Xie, Y., et al. (2024). "Can Large Language Model Agents Simulate Human Trust Behavior?" NeurIPS 2024. https://agent-trust.camel-ai.org
 
 ---
-
-*This document summarizes empirical research on LLM trust behavior. The high behavioral alignment finding validates that LLM simulation can work for social dynamics, while the bias findings reinforce the need for acknowledgment protocols.*
 
 *Document created: 2026-01-23*

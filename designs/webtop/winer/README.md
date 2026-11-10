@@ -15,7 +15,7 @@ naming Winer or a UserLand product, 2014-05-11 through 2026-09-03.
 ## The canonical statement
 
 Posted first on 13 July 2019 ([`20425970`](https://news.ycombinator.com/item?id=20425970)) and
-re-posted or re-linked at least six times since — the load-bearing paragraph, once:
+re-posted or re-linked at least six times since:
 
 > The thing that's missing from "Google Docs" is a decent collaborative outliner called "Google
 > Trees", that does to "NLS" and "Frontier" what "Google Sheets" did to "VisiCalc" and "Excel". And
@@ -51,7 +51,7 @@ namespace) → **Manila** and **Radio UserLand** (programmable blogging and podc
 server, static generator, structured XML editing, RSS publication, XML-RPC client and server, OPML
 import/export).
 
-Don's summary of the crucial move, from the 2019 post:
+Don's summary, from the 2019 post:
 
 > After the success of MORE, he went on to develop a scripting language whose syntax (for both code
 > and data) was an outline. **Kind of like Lisp with open/close triangles instead of parens!**
@@ -93,8 +93,7 @@ From the Google Wave thread ([`20780928`](https://news.ycombinator.com/item?id=2
 > discussion group is to arbitrarily rearrange the tree.
 
 Threaded comments freeze structure at post time. An outliner lets a reader *restructure* the
-argument, which is why the outliner is the right substrate for accumulating conversation and the
-threaded list is not.
+argument.
 
 ### 4. Scripting and outlining belong to the shell, not to one app
 
@@ -137,20 +136,18 @@ The 2019 wish list, item by item, against what now exists:
 
 The piece that was missing in 2019 and exists now: **the thing that fills in the levels you did not
 write.** Gwern's footnote — outliners fail because they foist the hierarchy on the author; LLMs can
-generate it while the author writes only what is necessary — is what makes Google Trees buildable
-rather than merely desirable. See [`../gwern/`](../gwern/) and
+generate it while the author writes only what is necessary. See [`../gwern/`](../gwern/) and
 [`../README.md`](../README.md#the-semantic-pyramid).
 
 ## The toolbar that spoke his protocols
 
-Don shipped into this world, and the artifact is the most directly relevant precedent in the whole
-hub: an **Internet Explorer toolbar for Technorati** that spoke the **Blogger API** and **Atom**.
+Don shipped into this world: an **Internet Explorer toolbar for Technorati** that spoke the **Blogger API** and **Atom**.
 
 What it did, in Don's account: bridged blogs, so you could **post to any blog whose API it knew**,
 and look things up in **Technorati's database** from the browser chrome. Confirmed contemporaneously
 by his 2007 résumé, which lists "Technorati (IE toolbar)" among the consulting work.
 
-Three readings, each load-bearing somewhere else in this hub.
+Three readings.
 
 **It was a protocol adapter over other people's corpora, not a personal wiki.** The hub's answer to
 Borretti is that this is a *publishing shell* over corpora that already exist
@@ -168,7 +165,7 @@ the foreign engine, script it from the language you actually want to write, do n
 and exactly the **two-language rule** in [LEGACY-MIGRATION](../../LEGACY-MIGRATION.md). A browser
 inside a browser's chrome, scripted.
 
-**Technorati's product was backlinks**, which makes the third reading the sharpest. Technorati's
+**Technorati's product was backlinks.** Technorati's
 business was tracking who linked to whom across blogs. A toolbar that queries it about the page you
 are currently on is a **backlink overlay on somebody else's document** — peripheral views
 ([PERIPHERAL-VIEWS.md](../../pie-stack-views/PERIPHERAL-VIEWS.md)) attached to the live web, from

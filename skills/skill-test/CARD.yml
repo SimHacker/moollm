@@ -14,18 +14,18 @@ dependencies:
   - skill-snitch
 
 advertisements:
-  - id: RUN-ALL
+  RUN-ALL:
     description: Run test suite for all skills (or subset)
-  - id: RUN-SKILL
+  RUN-SKILL:
     description: Run tests for a single skill
     args: [skill_path]
 
 methods:
-  - name: DISCOVER
+  DISCOVER:
     description: Find all skills with test.yml or .skill-test.yml
-  - name: RUN
+  RUN:
     description: Execute tests for skill(s); pass env; collect pass/fail and drift
-    args: [skill_path_or_all]
+    parameters: [skill_path_or_all]
 
 designs: designs/README.md
 related: [skill-snitch, cursor-mirror]

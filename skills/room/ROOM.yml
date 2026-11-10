@@ -40,11 +40,11 @@ advertisements: {}                 # actions the room itself offers, Sims style
                                    # e.g. REST: { description: "Rest here", score: 60, score_if: "player is tired" }
 
 methods:                           # what a player can do in any room
-  LOOK:      { signature: "LOOK (AT [thing])", does: "describe the room, or one thing in it" }
+  LOOK:      { signature: "LOOK (AT [thing])", description: "describe the room, or one thing in it" }
   ENTER:     { signature: "ENTER [room]" }
-  EXIT:      { signature: "EXIT [direction]", does: "follow an exit; its guard decides" }
-  CONTENTS:  { signature: "CONTENTS", does: "list objects, stacks and who is here" }
-  ADVERTISE: { signature: "ADVERTISE", does: "list the actions offered by the room and everything in it" }
+  EXIT:      { signature: "EXIT [direction]", description: "follow an exit; its guard decides" }
+  CONTENTS:  { signature: "CONTENTS", description: "list objects, stacks and who is here" }
+  ADVERTISE: { signature: "ADVERTISE", description: "list the actions offered by the room and everything in it" }
 
 builder_commands:                  # TinyMUD-style; change the world from inside this room
   DIG:       { usage: "@DIG [name] (DIRECTION)", does: "make a room, optionally with an exit to it" }

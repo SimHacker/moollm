@@ -5,7 +5,8 @@
 
 id: real-being
 name: "Real Being"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: 👤
 tier: 1
 
@@ -68,24 +69,24 @@ advertisements:
   
   PORTRAY:
     score: 80
-    condition: "Want to represent a real being"
+    score_if: "Want to represent a real being"
     effect: "Create respectful portrayal"
     ethics: "HERO-STORY protocol applies"
     
   TRIBUTE:
     score: 85
-    condition: "Honoring a real being"
+    score_if: "Honoring a real being"
     effect: "Create celebratory representation"
     
   QUOTE:
     score: 75
-    condition: "Using their actual words"
+    score_if: "Using their actual words"
     effect: "Attribute accurately"
     requirement: "Must be real quote, cited"
     
   IMAGINE-RESPONSE:
     score: 70
-    condition: "What would they say?"
+    score_if: "What would they say?"
     effect: "Speculative dialogue"
     disclosure: "Clearly marked as imagination"
 

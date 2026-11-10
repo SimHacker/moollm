@@ -56,7 +56,7 @@ pie_menu:
         Tell me more about the {card_type} card "{card_name}".
         
         Context:
-        - Flavor text: {flavor}
+        - 'Flavor text: {flavor}'
         - Category: {category}
         - From: {source_plugin}
         
@@ -97,15 +97,15 @@ pie_menu:
         ═══════════════════════════════════════════
         
         SYNERGIZES WITH:
-        - {related_keeper_1}: {why}
-        - {related_keeper_2}: {why}
+        - '{related_keeper_1}: {why}'
+        - '{related_keeper_2}: {why}'
         
         FEATURED IN GOALS:
-        - {goal_1}: requires this + {other}
-        - {goal_2}: requires this + {other}
+        - '{goal_1}: requires this + {other}'
+        - '{goal_2}: requires this + {other}'
         
         AFFECTED BY RULES:
-        - {rule_1}: {effect}
+        - '{rule_1}: {effect}'
         
         THEMATIC CLUSTER: {cluster_name}
         Related concepts: {concept_list}
@@ -148,9 +148,9 @@ pie_menu:
         Tell a short story (2-3 paragraphs) about "{card_name}".
         
         You could tell:
-        - Its origin story (how it came to be a card)
+        - 'Its origin story (how it came to be a card)'
         - A memorable moment it created in a game
-        - The card's own perspective (if it were sentient)
+        - "The card's own perspective (if it were sentient)"
         - A legend about this card among players
         
         Flavor: {flavor}
@@ -173,13 +173,13 @@ pie_menu:
         Which MOOLLM characters would love or hate "{card_name}"?
         
         Consider:
-        - Don Hopkins (philosopher, cheese lover)
-        - Palm (wise, observant, patient)
-        - Bumblewick (anxious, learning, growing)
-        - Donna (aggressive, protective, political)
-        - Klaus Nomi (silent, otherworldly)
-        - Peewee (chaotic, delighted by everything)
-        - Andy Looney (meta-aware, game designer)
+        - 'Don Hopkins (philosopher, cheese lover)'
+        - 'Palm (wise, observant, patient)'
+        - 'Bumblewick (anxious, learning, growing)'
+        - 'Donna (aggressive, protective, political)'
+        - 'Klaus Nomi (silent, otherworldly)'
+        - 'Peewee (chaotic, delighted by everything)'
+        - 'Andy Looney (meta-aware, game designer)'
         
         For each relevant character, explain WHY they'd feel that way.
         
@@ -281,10 +281,10 @@ context_slices:
       action: "evaluate_play_timing"
       prompt_template: |
         Given the current game state:
-        - Current goal: {current_goal}
-        - My keepers: {my_keepers}
-        - Rules in play: {rules}
-        - Other players' keepers: {visible_keepers}
+        - 'Current goal: {current_goal}'
+        - 'My keepers: {my_keepers}'
+        - 'Rules in play: {rules}'
+        - "Other players' keepers: {visible_keepers}"
         
         Should I play "{card_name}" now? Explain pros and cons.
         
@@ -343,11 +343,11 @@ moollm_slices:
       prompt_template: |
         Take me deeper into the philosophy of "{card_name}":
         
-        - What worldview does this represent?
-        - What questions does it raise?
-        - How does it connect to other MOOLLM concepts?
-        - What would Marvin Minsky say about this?
-        - What would Will Wright say about this?
+        - 'What worldview does this represent?'
+        - 'What questions does it raise?'
+        - 'How does it connect to other MOOLLM concepts?'
+        - 'What would Marvin Minsky say about this?'
+        - 'What would Will Wright say about this?'
 
 # INTERACTION EXAMPLES
 
@@ -365,7 +365,7 @@ examples:
       
       **Why it's in MOOLLM:** This is a core k-line. Every YAML file in
       MOOLLM uses comments as a parallel data channel. The comment
-      "# Watches other players' chip stacks obsessively" isn't just
+      "\"# Watches other players' chip stacks obsessively\" isn't just"
       describing the field — it's CHARACTER DATA the LLM uses.
       
       **Cultural connection:** Like jazz musicians improvising over
@@ -373,9 +373,9 @@ examples:
       structure. The structure is the chart; the comments are the solo.
       
       **K-line relationships:**
-      - Double-barrel meaning (data + documentation)
-      - Sniffable interfaces (CARD.yml → SKILL.md)
-      - Play-Learn-Lift (informal → captured → shared)
+      - 'Double-barrel meaning (data + documentation)'
+      - 'Sniffable interfaces (CARD.yml → SKILL.md)'
+      - 'Play-Learn-Lift (informal → captured → shared)'
       
       **Surprising fact:** The saxophone emoji 🎷 was chosen because
       jazz improvisation IS structured freedom — exactly like semantic
@@ -387,12 +387,12 @@ examples:
       
       SYNERGIZES WITH:
       - K-Line: Both are knowledge representation
-      - Soul Document: Comments ARE the soul
-      - Speed of Light: Efficient context assembly
+      - 'Soul Document: Comments ARE the soul'
+      - 'Speed of Light: Efficient context assembly'
       
       FEATURED IN GOALS:
-      - Double-Barrel Meaning: YAML Jazz + K-Line
-      - Society of Mind: YAML Jazz + Brain/LLM
+      - 'Double-Barrel Meaning: YAML Jazz + K-Line'
+      - 'Society of Mind: YAML Jazz + Brain/LLM'
       
       THEMATIC CLUSTER: Knowledge Representation
       Related: K-Line, Context Window, Prompt, Token
@@ -421,9 +421,9 @@ examples:
       sweetened with syrup — waste became treasure.
       
       **K-line relationships:**
-      - Cheese Wheel: Both Dutch food keepers
-      - Gezelligheid rule: Sharing culture
-      - Don Hopkins: Known Amsterdam visitor
+      - 'Cheese Wheel: Both Dutch food keepers'
+      - 'Gezelligheid rule: Sharing culture'
+      - 'Don Hopkins: Known Amsterdam visitor'
       
       **Pro tip:** In real life, a stroopwafel must be EXACTLY the
       right size to cover a coffee cup. Too small and it falls in.
@@ -448,7 +448,7 @@ examples:
       "It's FINE. I prefer POWER FOODS. But I won't say no."
       
       **Peewee** ❤️❤️❤️
-      "STROOPWAFEL! HA HA!" *bounces*
+      '"STROOPWAFEL! HA HA!" *bounces*'
       
       **Klaus Nomi** 😐
       *stares at stroopwafel for 30 seconds*
@@ -677,7 +677,7 @@ card_memory:
           - Game ID and date
           - Who drew this card
           - Who played it
-          - What resulted (goal completed? stolen? discarded?)
+          - 'What resulted (goal completed? stolen? discarded?)'
           - Any memorable context
           
           Show most recent first. Highlight memorable moments.
@@ -810,10 +810,10 @@ card_memory:
       
     navigation: |
       UI could show this as:
-      - Linear timeline (scroll through game)
-      - Thread view (jump between cards)
-      - Story mode (narrated walkthrough)
-      - Highlights only (memorable moments)
+      - 'Linear timeline (scroll through game)'
+      - 'Thread view (jump between cards)'
+      - 'Story mode (narrated walkthrough)'
+      - 'Highlights only (memorable moments)'
 
   collective_memory:
     description: "Statistics and patterns across all games"
@@ -842,7 +842,7 @@ card_memory:
       Analyze this deck's collective memory:
       
       Look for:
-      - Recurring patterns (who draws what)
+      - 'Recurring patterns (who draws what)'
       - Unusual streaks or coincidences
       - Legendary moments worth naming
       - Player tendencies revealed by history
@@ -1081,7 +1081,7 @@ deck_galleries:
           
       highlight_reel:
         description: "Only memorable/marked moments"
-        use_for: "Best of" compilations"
+        use_for: '"Best of" compilations'
         filter: "memorable: true OR high_drama: true"
         
       player_spotlight:
@@ -1188,10 +1188,10 @@ deck_galleries:
       **Deck:** I have 847 images from 47 games. 
       
       Featured albums:
-      - Greatest Hits (34 images)
-      - Palm's Portrait (156 images)  
-      - The Cheese Collection (67 images)
-      - Tension Gallery (89 images)
+      - 'Greatest Hits (34 images)'
+      - "Palm's Portrait (156 images)  "
+      - 'The Cheese Collection (67 images)'
+      - 'Tension Gallery (89 images)'
       
       Or search by: game, player, card, emotion, tell, k-line...
       

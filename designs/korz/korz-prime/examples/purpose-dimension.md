@@ -28,7 +28,7 @@ most often — not at all, leaving each layer to guess from context it does not 
 
 ### 1. Implicit propagation is exactly what a setpoint needs
 
-The paper's load-bearing demonstration is `assertions`: `main()` binds it, **no
+The paper's demonstration is `assertions`: `main()` binds it, **no
 intermediate code mentions it**, and every send underneath sees it. A purpose has that
 shape natively. You establish *why* once, at the top —
 
@@ -38,7 +38,7 @@ main:
 ```
 
 — and a hundred frames down, a decision that has never heard of evacuations dispatches
-correctly anyway. `assertions` is a debug flag. This is the thing programs actually lack.
+correctly anyway. `assertions` is a debug flag.
 
 ### 2. It makes the cybernetics mapping literal instead of analogical
 
@@ -112,8 +112,7 @@ receiver is the only source of context
 ```
 
 No motive override, no special case, no code between the alarm and the fridge. Mood
-already proved the pattern works as a dimension; purpose is mood's sibling and the more
-load-bearing one.
+already proved the pattern works as a dimension; purpose is mood's sibling.
 
 ### Refusing to act without knowing why, for the cost of one guard
 
@@ -333,7 +332,7 @@ Spore: [`designs/pkd/perky-pat-and-palmer-eldritch.md`](../../../pkd/perky-pat-a
 The sibling case of a *decaying* binding — specificity ordering falling back to an ancestor while the
 world stays internally consistent — is [`designs/pkd/ubik.md`](../../../pkd/ubik.md).
 
-## Two consequences worth noting
+## Two consequences
 
 **The stack trace explains itself.** A conventional trace says how you got here. A
 purpose-bound context says what each level was *for*, and where the why changed — which

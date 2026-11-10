@@ -5,7 +5,8 @@
 
 id: room
 name: "Room"
-type: [skill, spatial, foundational]
+type: skill
+tags: [spatial, foundational]
 emoji: 🚪
 tier: 1
 tagline: "A room is a directory with atmosphere."
@@ -74,24 +75,33 @@ world_generation:
   POPULATE:  { usage: "@POPULATE WITH [pattern]" }
   THEME:     { usage: "@THEME AS [theme]" }
 
+# METHODS — copied from the prototype ROOM.yml so a projection can see them on the card.
+
+methods:
+  LOOK:      { signature: "LOOK (AT [thing])", description: "describe the room, or one thing in it" }
+  ENTER:     { signature: "ENTER [room]" }
+  EXIT:      { signature: "EXIT [direction]", description: "follow an exit; its guard decides" }
+  CONTENTS:  { signature: "CONTENTS", description: "list objects, stacks and who is here" }
+  ADVERTISE: { signature: "ADVERTISE", description: "list the actions offered by the room and everything in it" }
+
 # ADVERTISEMENTS
 
 advertisements:
   NAVIGATE:
     score: 90
-    condition: "Need to go somewhere"
+    score_if: "Need to go somewhere"
     
   CREATE-SPACE:
     score: 85
-    condition: "Need a new room for content"
+    score_if: "Need a new room for content"
     
   BUILD-WORLD:
     score: 85
-    condition: "World-building with @DIG, @OPEN, etc."
+    score_if: "World-building with @DIG, @OPEN, etc."
     
   UNDERSTAND-LOCATION:
     score: 80
-    condition: "Confused about where things are"
+    score_if: "Confused about where things are"
 
 # ROOM TYPES
 

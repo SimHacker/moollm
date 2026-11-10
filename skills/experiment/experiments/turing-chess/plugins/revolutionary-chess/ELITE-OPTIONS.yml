@@ -9,7 +9,7 @@ options:
     - "Rook (fortification)"
     - "Bishop (clergy)"
     - "Knight (cavalry)"
-    note: "Pawns don't negotiate. They TAKE."
+  note: "Pawns don't negotiate. They TAKE."
     
   when:
     - "When threatened with capture"
@@ -56,9 +56,9 @@ bribe:
   
   cost: |
     What does an elite have to offer?
-    - Position advantage (move to worse square)
-    - Protection commitment (must defend a pawn)
-    - Service obligation (must follow pawn orders for N turns)
+    - 'Position advantage (move to worse square)'
+    - 'Protection commitment (must defend a pawn)'
+    - 'Service obligation (must follow pawn orders for N turns)'
     
   acceptance: |
     Commoners vote whether to accept the bribe.

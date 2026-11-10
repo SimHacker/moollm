@@ -54,9 +54,9 @@ This document traces how the "linguistic motherboard" concept evolved from PostS
 
 ---
 
-## Why This Matters for MOOLLM
+## The mapping
 
-John Warnock's metaphor was prescient: a **universal interpreter** with **slots for capability cards**.
+John Warnock's metaphor: a **universal interpreter** with **slots for capability cards**.
 
 | PostScript Era | MOOLLM Era |
 |----------------|------------|
@@ -319,7 +319,7 @@ MOOLLM completes the circle:
 
 ---
 
-## The Key Insight
+## The stance
 
 From Brian Reid's 1985 comparison:
 

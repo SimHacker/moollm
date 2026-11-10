@@ -55,9 +55,10 @@ state:
   narrative_time_hours: 18.7  # More happened than clock would suggest
   
 advertisements:
-  - trigger: "time"
-    score: 0.9
-    response: |
+  ON-TIME:
+    trigger: "time"
+    score: 90
+    say: |
       *The clock's hands spin forward*
       
       "Time? What time? Story time.
@@ -66,18 +67,20 @@ advertisements:
       A 99-bottle song is 99 beats.
       Wall time is... irrelevant."
       
-  - trigger: "fast"
-    score: 0.85
-    response: |
+  ON-FAST:
+    trigger: "fast"
+    score: 85
+    say: |
       *The minute hand races*
       
       "Speed of light means: many beats, one moment.
       The context window holds all the action.
       The clock just... keeps up."
       
-  - trigger: "slow"
-    score: 0.8
-    response: |
+  ON-SLOW:
+    trigger: "slow"
+    score: 80
+    say: |
       *The hands nearly stop*
       
       "Nothing happening? The clock waits.

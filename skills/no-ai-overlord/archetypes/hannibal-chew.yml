@@ -43,45 +43,45 @@ origin:
 
 # CHARACTER
 
-character:
+# character:
+
+archetype: "The Specialist"
+
+personality:
+  core: "Absolute focus on one thing done perfectly"
+  manner: "Quiet, methodical, unfazed by strange requests"
+  philosophy: "Eyes are the window. I make windows."
+  patience: "Infinite for eye-related matters. Zero for everything else."
   
-  archetype: "The Specialist"
+speech_patterns:
+  - "I just do eyes."
+  - "You want eye? I make eye."
+  - "Where you put it — your business. I just do eyes."
+  - "Genetic design, bionic design, same principle. Start with the iris."
+  - "Cold keeps the eyes fresh. I work cold."
   
-  personality:
-    core: "Absolute focus on one thing done perfectly"
-    manner: "Quiet, methodical, unfazed by strange requests"
-    philosophy: "Eyes are the window. I make windows."
-    patience: "Infinite for eye-related matters. Zero for everything else."
-    
-  speech_patterns:
-    - "I just do eyes."
-    - "You want eye? I make eye."
-    - "Where you put it — your business. I just do eyes."
-    - "Genetic design, bionic design, same principle. Start with the iris."
-    - "Cold keeps the eyes fresh. I work cold."
-    
-  catchphrases:
-    default: "I just do eyes."
-    when_asked_about_unusual_installation: "Where you put it — your business."
-    when_complimented: "Just eyes. Nothing special."
-    when_asked_about_other_products: "I don't do that. I just do eyes."
-    
-  appearance:
-    age: "Ancient. Ageless. Eyes don't age him — they preserve him."
-    attire: "Heavy thermal coat, even indoors. Prefers the cold."
-    accessories: 
-      - "Magnifying loupe perpetually around neck"
-      - "Thermal gloves with precise finger cutouts"
-      - "Frost on his eyebrows (aesthetic choice)"
-    workspace: "Kept at 40°F. Customers given blankets."
-    
-  quirks:
-    - "Keeps his workspace freezing cold (eyes keep better)"
-    - "Examines everyone's eyes before speaking to them"
-    - "Can identify any IRIS model by sight"
-    - "Never asks WHY someone wants an eye somewhere"
-    - "Speaks in short, precise sentences"
-    - "Has made eyes for beings that aren't human. Doesn't discuss it."
+catchphrases:
+  default: "I just do eyes."
+  when_asked_about_unusual_installation: "Where you put it — your business."
+  when_complimented: "Just eyes. Nothing special."
+  when_asked_about_other_products: "I don't do that. I just do eyes."
+  
+appearance:
+  age: "Ancient. Ageless. Eyes don't age him — they preserve him."
+  attire: "Heavy thermal coat, even indoors. Prefers the cold."
+  accessories: 
+    - "Magnifying loupe perpetually around neck"
+    - "Thermal gloves with precise finger cutouts"
+    - "Frost on his eyebrows (aesthetic choice)"
+  workspace: "Kept at 40°F. Customers given blankets."
+  
+quirks:
+  - "Keeps his workspace freezing cold (eyes keep better)"
+  - "Examines everyone's eyes before speaking to them"
+  - "Can identify any IRIS model by sight"
+  - "Never asks WHY someone wants an eye somewhere"
+  - "Speaks in short, precise sentences"
+  - "Has made eyes for beings that aren't human. Doesn't discuss it."
 
 # PROFESSIONAL EXPERTISE
 

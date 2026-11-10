@@ -54,15 +54,15 @@ original_contents:
   - "Jar of Olives (Green) (marker 20)"
 
 advertisements:
-  - action: OPEN
+  OPEN:
     score_if: "not open"
     description: "Open the refrigerator"
     
-  - action: GET-ALL
+  GET-ALL:
     score_if: "contents.length > 0"
     description: "Grab all the food (for maze mapping)"
     
-  - action: CLOSE
+  CLOSE:
     score_if: "open"
     description: "Close the refrigerator (conserve energy!)"
 

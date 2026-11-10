@@ -5,7 +5,8 @@
 
 id: mind-mirror
 name: "Mind Mirror"
-type: [skill, personality, identity]
+type: skill
+tags: [personality, identity]
 
 emoji: 🪞
 
@@ -340,15 +341,15 @@ model:
 advertisements:
   UNDERSTAND-PERSONALITY:
     score: 90
-    condition: "Need deep insight into character's psyche"
+    score_if: "Need deep insight into character's psyche"
     
   PREDICT-BEHAVIOR:
     score: 85
-    condition: "Want to anticipate how character will react"
+    score_if: "Want to anticipate how character will react"
     
   DESIGN-CHARACTER:
     score: 80
-    condition: "Creating complex, realistic personality"
+    score_if: "Creating complex, realistic personality"
 
 # RELATED
 

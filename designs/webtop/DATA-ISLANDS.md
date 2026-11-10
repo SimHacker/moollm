@@ -50,7 +50,7 @@ already cites it as "the `$ref` idiom JSON Schema runs on". A new word for a kno
 miss that never fills ([no-ai-humansplaining](../../skills/no-ai-humansplaining/)); `$ref` is
 prepaid vocabulary.
 
-**Point by name, not by path.** This is the load-bearing correction.
+**Point by name, not by path.**
 [LINK-RESOLUTION.md](hyperties/LINK-RESOLUTION.md) settles that references are names resolved in a
 scope, with **type coming from position**, and the island's declared type *is* a position. So:
 

@@ -9,7 +9,7 @@ inherits:
   - skills/fictional      # A character in the adventure
   - skills/mythic         # From Zork folklore (1980) — primordial darkness
   - skills/animal         # Predator instincts
-  - skills/game           # IS a game, not just plays in one
+  - GAME                  # IS a game, not just plays in one
 ontology:
   tags: [fictional, grue, mythic, dangerous]
   species: grue           # Unique creature from Zork
@@ -345,30 +345,30 @@ lore:
 
 advertisements:
   
-  - action: LURK
+  LURK:
     score: 100
-    condition: "any dark room exists"
+    guard: "any dark room exists"
     effect: "Grue presence in that darkness"
     
-  - action: WARN
+  WARN:
     score: 90
-    condition: "player in dark room for 1 turn"
+    guard: "player in dark room for 1 turn"
     effect: "Deliver turn 1 warning"
     
-  - action: APPROACH
+  APPROACH:
     score: 95
-    condition: "player in dark room for 2 turns"
+    guard: "player in dark room for 2 turns"
     effect: "Deliver turn 2 warning"
     
-  - action: DEVOUR
+  DEVOUR:
     score: 100
-    condition: "player in dark room for 3+ turns"
+    guard: "player in dark room for 3+ turns"
     effect: "Attack. Game over."
     game_over: true
     
-  - action: RETREAT
+  RETREAT:
     score: 0
-    condition: "light detected"
+    guard: "light detected"
     effect: "Flee to the darkness between rooms"
 
 meta:
@@ -391,5 +391,3 @@ mind_mirror:
   practical: 7          # No light = dinner. Simple math.
   inhibited: 7          # Light stops it. Only light. The one boundary.
   # Social Interaction
-  dominant: 7           # You entered ITS domain. The rules are non-negotiable.
-  suspicious: 7         # Watches from the dark. Counts your moves.

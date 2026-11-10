@@ -70,7 +70,7 @@ doesn't list sixteen block patterns; it says `arrangement: uniform` under `D4`, 
 equivalence class. `billiard_ball` says `population: 1` under `C4`, which is four patterns
 collapsed to one slot.
 
-The important part is that **`E`, the trivial group, has to be available.** `sand` needs it:
+**`E`, the trivial group, has to be available.** `sand` needs it:
 gravity is a rule that *refuses* rotational symmetry. If the engine assumes symmetry, the
 anisotropic rules can't be expressed; if it assumes no symmetry, every symmetric rule pays a
 4× or 8× authoring tax. So the quotient is a parameter, which then means it can also be

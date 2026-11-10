@@ -10,17 +10,15 @@
 
 ## Introduction: What If The Interpreter Understood You?
 
-Patrick Li's essay makes a profound point: **the purpose of a language is to enable powerful libraries**. Ruby's metaprogramming enables Rails. Scheme's first-class functions enable elegant abstractions. The language shapes what libraries can exist.
+Patrick Li's essay: **the purpose of a language is to enable powerful libraries**. Ruby's metaprogramming enables Rails. Scheme's first-class functions enable abstractions. The language shapes what libraries can exist.
 
 But there's a twist Li couldn't have anticipated in 2016: **What if the interpreter itself could understand intent?**
 
 That's what LLMs offer. And that's what [MOOLLM](../README.md) explores.
 
-Instead of language features enabling library magic, **LLM understanding enables skill magic**. Instead of syntax enabling abstraction, **semantic understanding enables abstraction**. The "metaprogramming" isn't in the language — it's in the interpreter's ability to read natural language and act on it.
+The "metaprogramming" isn't in the language — it's in the interpreter's ability to read natural language and act on it.
 
-This document explores how MOOLLM extends Li's insight into the age of LLMs, addressing common frustrations (bash scripting, XML configuration, DSL proliferation) with a new paradigm: **skills as programs, the LLM as `eval()`, empathy as the interface**.
-
-If you want typed bash replacements, adversarial DSL debates, or proof that "libraries all the way down" works when the interpreter actually *understands* — read on.
+This document addresses bash scripting, XML configuration, and DSL proliferation: **skills as programs, the LLM as `eval()`, empathy as the interface**.
 
 ---
 
@@ -55,15 +53,15 @@ If you want typed bash replacements, adversarial DSL debates, or proof that "lib
 
 ## The Stanza Insight
 
-Patrick Li's essay "[Stop Designing Languages. Write Libraries Instead](https://lbstanza.org/purpose_of_a_programming_language.html)" (2016) makes a profound observation:
+Patrick Li's essay "[Stop Designing Languages. Write Libraries Instead](https://lbstanza.org/purpose_of_a_programming_language.html)" (2016):
 
 > *"The purpose of a general-purpose programming language is to enable the creation of powerful and easy-to-use libraries."*
 
-His key example: Ruby on Rails exists because Ruby's language features (metaprogramming, first-class functions, mixins, dynamic typing, runtime evaluation) enable elegant abstractions that would be impossible in Java or C.
+Ruby on Rails exists because Ruby's language features (metaprogramming, first-class functions, mixins, dynamic typing, runtime evaluation) enable abstractions that would be impossible in Java or C.
 
 > *"So, completely unbeknownst to my friend, he is actually making heavy use of all those subtle language features that he claimed he never cared about. And this is intentional!"*
 
-**The user benefits from language features without knowing they exist.** That's the mark of good design.
+**The user benefits from language features without knowing they exist.**
 
 ---
 
@@ -374,9 +372,7 @@ John Warnock, co-founder of Adobe and creator of PostScript, described PostScrip
 - **Device cards** — Printers, displays, typesetters
 - **Application cards** — Page layout, illustration, publishing
 
-The genius: **All cards speak the same language.** A font doesn't need to know about printers. A graphics operation doesn't need to know about displays. PostScript provides the common substrate where everything composes.
-
-This is why PostScript revolutionized publishing — it wasn't just a printer language, it was an *extensible linguistic platform*.
+**All cards speak the same language.** A font doesn't need to know about printers. A graphics operation doesn't need to know about displays. PostScript provides the common substrate where everything composes.
 
 ### MOOLLM as Linguistic Motherboard
 
@@ -585,7 +581,7 @@ This is [Constructionism](../skills/constructionism/) ([Seymour Papert](./MOOLLM
 
 ### What Anthropic Got Right
 
-Anthropic's skill framework is brilliant. MOOLLM gratefully inherits:
+MOOLLM inherits:
 
 | Anthropic Innovation | MOOLLM Adoption |
 |---------------------|-----------------|
@@ -595,7 +591,7 @@ Anthropic's skill framework is brilliant. MOOLLM gratefully inherits:
 | Separation of concerns | ✓ Skill directories with focused responsibilities |
 | Human-readable specifications | ✓ `README.md` for every skill |
 
-Anthropic proved that **skills are programs and the LLM is `eval()`**. This insight is foundational. See the full comparison in [MOOLLM Eval Incarnate Framework](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#incarnate-skills-vs-anthropic-skills).
+Anthropic proved that **skills are programs and the LLM is `eval()`**. See the full comparison in [MOOLLM Eval Incarnate Framework](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md#incarnate-skills-vs-anthropic-skills).
 
 ### Where MOOLLM Goes Further
 
@@ -801,8 +797,6 @@ We stand on Anthropic's shoulders. We just added the ability to *dance*.
 | Precise syntax required | Fuzzy input welcomed |
 | Validation before execution | Graceful interpretation during execution |
 
-This reflects fundamentally different philosophies about where intelligence should live.
-
 ---
 
 ## The Proof: 33 Turns of Stoner Fluxx
@@ -895,8 +889,6 @@ True for traditional languages. But MOOLLM's "ecosystem" is:
 - [Skills](../skills/) that activate and focus that knowledge
 - YAML/Markdown files that ground it in specific worlds
 
-The ecosystem is already infinite. Skills just *navigate* it.
-
 **Current skill inventory:** [`skills/INDEX.yml`](../skills/INDEX.yml) — 60+ skills covering [adventure](../skills/adventure/), [characters](../skills/character/), [rooms](../skills/room/), [cats](../skills/cat/), [dogs](../skills/dog/), [personas](../skills/persona/), [ethics](../skills/representation-ethics/), and more.
 
 ---
@@ -909,9 +901,8 @@ Patrick's thesis:
 MOOLLM's extension:
 > **"Stop designing interfaces. Write Incarnate [Skills](../skills/) instead."**
 
-Both recognize that the real power comes from what you can *build on top* of the foundation:
-- Stanza provides language features → Enables elegant libraries
-- MOOLLM provides understanding features → Enables elegant [Incarnate Skills](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
+- Stanza provides language features → Enables libraries
+- MOOLLM provides understanding features → Enables [Incarnate Skills](./MOOLLM-EVAL-INCARNATE-FRAMEWORK.md)
 
 The Java/XML critique reveals what happens when you get this wrong:
 - Configuration becomes punishment

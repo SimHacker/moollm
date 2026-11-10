@@ -2,31 +2,30 @@
 # Extracted from SKILL.md for separate reference
 # See: exit skill for PIE-MENU-TOPOLOGY protocol
 
-topology:
-  name: "Pie Menu Room Topology"
-  protocol: PIE-MENU-TOPOLOGY
-  see_also: [skills/exit/, skills/room/SKILL.md]
-  
-  description: |
-    The eight-direction compass maps to TWO types of connections:
-    - Cardinals (N/S/E/W): Major room links, spiderweb navigation
-    - Diagonals (NW/NE/SW/SE): Grid quadrant storage
+name: "Pie Menu Room Topology"
+protocol: PIE-MENU-TOPOLOGY
+see_also: [skills/exit/, skills/room/SKILL.md]
+
+description: |
+  The eight-direction compass maps to TWO types of connections:
+  - 'Cardinals (N/S/E/W): Major room links, spiderweb navigation'
+  - 'Diagonals (NW/NE/SW/SE): Grid quadrant storage'
 
 # COMPASS DIAGRAM
 
 compass:
-  diagram: |
-           N (navigate)
-           ↑
-    NW ←───●───→ NE
-   (grid)  ↑   (grid)
-           │
-    W ←────┼────→ E
-  (navigate)│  (navigate)
-           │
-    SW ←───●───→ SE
-   (grid)  ↓   (grid)
-           S (navigate)
+  diagram: |1
+            N (navigate)
+            ↑
+     NW ←───●───→ NE
+    (grid)  ↑   (grid)
+            │
+     W ←────┼────→ E
+   (navigate)│  (navigate)
+            │
+     SW ←───●───→ SE
+    (grid)  ↓   (grid)
+            S (navigate)
            
   metaphor: |
     N/S/E/W = STREETS (travel between intersections)
@@ -93,10 +92,9 @@ grid:
     description: "Grid rooms have 8-direction exits to adjacent cells"
     example:
       file: "ne/ne-2-3/ROOM.yml"
-      room:
-        name: "Storage NE-2-3"
-        grid_position: { quadrant: ne, x: 2, y: 3 }
-        exits:
+      name: "Storage NE-2-3"
+      grid_position: { quadrant: ne, x: 2, y: 3 }
+      exits:
           n: "../ne-2-4/"    # y+1
           s: "../ne-2-2/"    # y-1
           e: "../ne-3-3/"    # x+1
@@ -110,9 +108,8 @@ grid:
     description: "Corner rooms (1,1) have special exit back to main"
     example:
       file: "ne/ne-1-1/ROOM.yml"
-      room:
-        is_grid_corner: true
-        exits:
+      is_grid_corner: true
+      exits:
           sw: "../../"       # Back to main room!
           n: "../ne-1-2/"
           e: "../ne-2-1/"
@@ -158,18 +155,18 @@ rules:
 # URBAN METAPHOR
 
 urban_planning:
-  diagram: |
-           N (street north)
-           ↑
-    ┌──────┼──────┐
-    │  NW  │  NE  │  ← BUILDINGS you ENTER
-    │ 🏭   │  📦  │    (warehouses, factories)
-  W ──┼──────●──────┼── E (streets east/west)
-    │  📦  │  🚚  │    
-    │  SW  │  SE  │  ← BUILDINGS you ENTER
-    └──────┼──────┘
-           ↓
-           S (street south)
+  diagram: |2
+             N (street north)
+             ↑
+      ┌──────┼──────┐
+      │  NW  │  NE  │  ← BUILDINGS you ENTER
+      │ 🏭   │  📦  │    (warehouses, factories)
+    W ──┼──────●──────┼── E (streets east/west)
+      │  📦  │  🚚  │    
+      │  SW  │  SE  │  ← BUILDINGS you ENTER
+      └──────┼──────┘
+             ↓
+             S (street south)
            
   mapping:
     streets: "Cardinal exits (N/S/E/W) — TRAVEL along them"

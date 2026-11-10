@@ -8,7 +8,7 @@ Nearly every cellular automata engine picks one update order, welds it in, and n
 So the space has no catalog and no vocabulary, and the consequence is that the part of a CA machine
 with the most unclaimed territory in it is the part nobody thinks of as a part.
 
-It is also where scalability is decided. Ackley's argument for the Movable Feast
+Ackley's argument for the Movable Feast
 Machine is that a global clock cannot scale, which means the scheduler
 isn't one component among many — it's the component that determines whether the machine can grow.
 
@@ -80,7 +80,7 @@ accumulator** from the right edge back to the left once per row, injecting a spa
 into a quantity that is supposed to represent a *local* remainder. Serpentine never teleports.
 
 But serpentine is still only one-dimensionally local — adjacent rows are a full height apart in
-time. Take continuity seriously and you arrive at the real statement: **a scan order is a map from
+time. **A scan order is a map from
 one-dimensional time into n-dimensional space, and a space-filling curve is the answer to which map
 preserves locality best.**
 
@@ -328,7 +328,7 @@ state like the heat accumulator.
 
 So the real reason to tile a 3×3 stencil isn't correctness, it's **bandwidth**. Nine reads and one
 write per cell is arithmetically trivial and entirely memory-bound, and every cell gets fetched nine
-times across a frame. Reducing traffic to global memory is the whole game.
+times across a frame.
 
 **When conflicts *are* real, the name is coloring.** Formally, distance-*k* coloring of the conflict
 graph: two sites conflict when their read/write footprints overlap. Concretely, for read-radius 1
@@ -389,13 +389,12 @@ can correct the whole table in one sitting.)
 | quarks | slot inheritance and `defer_to` |
 | DReg | a noise-driven source stage |
 
-Now the part worth dwelling on. **ULAM hardcodes its scheduler.** MFM is *always* random-site,
+**ULAM hardcodes its scheduler.** MFM is *always* random-site,
 asynchronous, non-overlapping — and that isn't an oversight, it's the thesis. Welding in asynchrony
 with no global clock is precisely Ackley's argument for indefinite scalability and robustness.
 
 So subsuming ULAM means making MFM's scheduler **one point in a space**, which is exactly the degree
-of freedom he deliberately removed. That's worth something concrete rather than just tidy: it means
-the same element set can run under a raster scan, a Margolus partition, a Hilbert order, or a
+of freedom he deliberately removed. The same element set can run under a raster scan, a Margolus partition, a Hilbert order, or a
 population of turtles, **and be compared.** Ackley's claim that asynchrony plus non-overlap buys
 robustness becomes testable by ablation — identical elements, different schedulers, measured. That's
 not a rebuttal of the thesis; it's the instrument that could support it with numbers instead of
@@ -433,7 +432,7 @@ The enable mask is a **plane**, which means it can be painted. So: **paint where
 The brush drives the scheduler and not merely the cells — freeze a region, run another one hot,
 author the proper-time field by hand instead of waiting for walker dynamics to produce one.
 
-"For each" also hides a policy that's worth exposing, because the options are different machines:
+"For each" also hides a policy. The options are different machines:
 round-robin (each enabled particle steps once per tick), chain (run A to exhaustion, then B),
 weighted (speed *k* gets *k* steps), random draw (MFM's actual discipline), or a **priority queue**
 where each particle carries its next-event time and you pop the earliest — under which

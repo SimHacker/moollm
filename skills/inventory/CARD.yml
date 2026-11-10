@@ -5,7 +5,8 @@
 
 id: inventory
 name: "Inventory"
-type: [skill, protocol, system]
+type: skill
+tags: [protocol, system]
 emoji: 🎒
 tier: 1
 tagline: "Carry pointers or values. Set them down, they become real."
@@ -225,11 +226,11 @@ item_types:
     structure: "any YAML/JSON value"
     examples: ["hello", 42, "[a, b, c]", "{key: val}"]
     
-  object:
-    description: "Deep copy of actual item with identity"
-    weight: "item.weight or estimated"
-    structure: "full YAML object embedded with id"
-    
+  # object:
+  description: "Deep copy of actual item with identity"
+  weight: "item.weight or estimated"
+  structure: "full YAML object embedded with id"
+  
   fungible:
     description: "Stack of identical items"
     structure: "{proto: path, count: N}"
@@ -278,23 +279,23 @@ structural_editing:
 advertisements:
   PICK-UP-ITEM:
     score: 90
-    condition: "Want to take something"
+    score_if: "Want to take something"
     
   DROP-ITEM:
     score: 90
-    condition: "Want to put something down"
+    score_if: "Want to put something down"
     
   TRANSFER-ITEM:
     score: 85
-    condition: "Move items between inventories"
+    score_if: "Move items between inventories"
     
   HEAVY-TRANSPORT:
     score: 80
-    condition: "Need to move large/heavy object"
+    score_if: "Need to move large/heavy object"
     
   FUNGIBLE-MANAGEMENT:
     score: 75
-    condition: "Stack, split, or convert fungible items"
+    score_if: "Stack, split, or convert fungible items"
 
 # STATE SCHEMA
 

@@ -2,15 +2,13 @@
 
 **Source:** [Stanford Cyber Policy Center Workshop — Rob Willer, Feb 18, 2025](https://www.youtube.com/watch?v=EkSpNxPvXWU)
 
-**Relevance:** Direct empirical validation of LLM simulation accuracy — raises ethical stakes for representation-ethics.
+**Relevance:** GPT-4 effect-size prediction, including unpublished studies.
 
 ---
 
 ## Executive Summary
 
-Rob Willer (Stanford Sociology, Director of Polarization & Social Change Lab) presented research showing that GPT-4 can predict experimental effect sizes in social science studies with **85% correlation** to actual results. This works even for **unpublished studies**, suggesting LLMs genuinely simulate human behavior rather than retrieving known results.
-
-**Key implication for MOOLLM:** When simulation is this accurate, the ethical framework matters more, not less.
+Rob Willer (Stanford Sociology, Director of Polarization & Social Change Lab) presented research showing that GPT-4 can predict experimental effect sizes in social science studies with **85% correlation** to actual results. This works even for **unpublished studies**, suggesting LLMs simulate the result rather than retrieve a published one.
 
 ---
 
@@ -154,13 +152,13 @@ Stage 3: APPLY best ideas (field test, implement)
 
 ## Implications for MOOLLM Representation Ethics
 
-### 1. Accuracy Raises Stakes
+### 1. Unpublished Studies
 
-When LLMs genuinely simulate human behavior (not just retrieve), ethical frameworks matter more:
+When the correlation holds on studies the model has not seen:
 
 - **Consent hierarchy** — Simulating real people accurately requires clearer consent
-- **Framing** — Performance vs deception distinction becomes critical
-- **Recording** — Accurate simulations have higher stakes if recorded/published
+- **Framing** — Performance versus deception
+- **Recording** — What is done with the simulation if it is recorded or published
 
 ### 2. Qualitative Grounding Reduces Stereotyping
 
@@ -241,5 +239,3 @@ Related papers (mentioned in talk):
 - Allen, J. (2024) — Anti-vaccine Facebook post effects (Science)
 
 ---
-
-*This document summarizes external research relevant to MOOLLM's representation ethics framework. The findings validate that LLM simulation is increasingly accurate, which raises rather than lowers the ethical stakes of our work.*

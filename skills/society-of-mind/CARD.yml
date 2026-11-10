@@ -1,13 +1,12 @@
 # Society of Mind Skill Card
 # Intelligence emerges from the interaction of many simple agents
 
-skill:
-  id: society-of-mind
-  name: Society of Mind
-  version: 1.0.0
-  tier: core
-  entry: README.md
-  
+id: society-of-mind
+name: Society of Mind
+version: 1.0.0
+tier: core
+entry: README.md
+
 description: |
   Implements Minsky's Society of Mind theory within MOOLLM.
   Intelligence emerges from the interaction of many simple agents.
@@ -101,27 +100,27 @@ interfaces:
 # Methods
 methods:
   define_agent:
-    input: agent specification
+    parameters: agent specification
     output: agent definition
     effect: agent registered in society
     
   assemble_agency:
-    input: list of agents, coordination rules
+    parameters: list of agents, coordination rules
     output: agency definition
     effect: emergent behavior specified
     
   resolve_competition:
-    input: competing agents with strengths
+    parameters: competing agents with strengths
     output: winner, suppressed agents
     effect: behavior selected
     
   activate_k_line:
-    input: symbol
+    parameters: symbol
     output: list of activated agents
     effect: constellation fires
     
   observe_society:
-    input: active agents
+    parameters: active agents
     output: b_brain report
     effect: self-awareness enabled
 

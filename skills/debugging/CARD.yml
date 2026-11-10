@@ -5,7 +5,8 @@
 
 id: debugging
 name: "Debugging"
-type: [skill, development, investigation]
+type: skill
+tags: [development, investigation]
 
 emoji: 🐛
 
@@ -136,15 +137,15 @@ strategies:
 advertisements:
   FIX-BUG:
     score: 95
-    condition: "Something is broken and needs fixing"
+    score_if: "Something is broken and needs fixing"
     
   INVESTIGATE-MYSTERY:
     score: 85
-    condition: "Unexpected behavior needs explanation"
+    score_if: "Unexpected behavior needs explanation"
     
   SYSTEMATIC-SEARCH:
     score: 80
-    condition: "Need structured approach to finding cause"
+    score_if: "Need structured approach to finding cause"
 
 # RELATED
 

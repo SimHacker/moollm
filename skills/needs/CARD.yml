@@ -5,7 +5,8 @@
 
 id: needs
 name: "Needs"
-type: [skill, motivation, game]
+type: skill
+tags: [motivation, game]
 
 emoji: 🔋
 
@@ -92,9 +93,9 @@ state:
     comfort:
       current: { type: integer, range: [0, 100] }
       decay-per-turn: { type: integer, default: 1 }
-    room:
-      current: { type: integer, range: [0, 100] }
-      decay-per-turn: { type: integer, default: 1 }
+    # room:
+    current: { type: integer, range: [0, 100] }
+    decay-per-turn: { type: integer, default: 1 }
 
 # THRESHOLDS
 
@@ -126,11 +127,11 @@ integration:
 advertisements:
   SIMULATE-NEEDS:
     score: 90
-    condition: "Character behavior should be need-driven"
+    score_if: "Character behavior should be need-driven"
     
   CHECK-MOTIVATION:
     score: 80
-    condition: "Why is this character doing that?"
+    score_if: "Why is this character doing that?"
 
 # RELATED
 

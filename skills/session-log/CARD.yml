@@ -5,7 +5,8 @@
 
 id: session-log
 name: "Session Log"
-type: [skill, logging, essential]
+type: skill
+tags: [logging, essential]
 
 emoji: 📋
 
@@ -74,7 +75,7 @@ state:
 advertisements:
   AUDIT-TRAIL:
     score: 85
-    condition: "Need to know what happened"
+    score_if: "Need to know what happened"
 
 # RELATED
 

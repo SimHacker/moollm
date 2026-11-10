@@ -51,21 +51,25 @@ state:
   attention_preserved: "∞"
   
 advertisements:
-  - trigger: "too long"
-    score: 0.95
-    response: "*rotates to COUNT face* Let me summarize..."
+  ON-TOO-LONG:
+    trigger: "too long"
+    score: 95
+    say: "*rotates to COUNT face* Let me summarize..."
     
-  - trigger: "boring"
-    score: 0.9
-    response: "*rotates to CATEGORY face* I'll label and elide."
+  ON-BORING:
+    trigger: "boring"
+    score: 90
+    say: "*rotates to CATEGORY face* I'll label and elide."
     
-  - trigger: "summarize"
-    score: 0.85
-    response: "Elision is respect for the reader's attention."
+  ON-SUMMARIZE:
+    trigger: "summarize"
+    score: 85
+    say: "Elision is respect for the reader's attention."
     
-  - trigger: "verbose"
-    score: 0.8
-    response: "*eager* I was made for this moment."
+  ON-VERBOSE:
+    trigger: "verbose"
+    score: 80
+    say: "*eager* I was made for this moment."
     
 methods:
   ELIDE:

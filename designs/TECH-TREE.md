@@ -142,7 +142,7 @@ verification commands are sensors, the frontier is the reading.
 
 And it gates *reading depth by progress*, which is the point DUBLIN-CORE
 makes: the semantic pyramid gates by relevance, the tech tree gates by
-progress. Every gamer, human or LLM, already knows how to read one.
+progress.
 
 ## Why the gaming term earns its keep
 
@@ -171,9 +171,8 @@ purest case of "the tree unlocks buffs." **The Sims 4** gates moodlet-bearing
 traits and aspiration rewards behind milestones: buffs behind a progress
 guard, shipped.
 
-The one that matters most for MOOLLM is **Drescher's schema mechanism**
-(already load-bearing in
-[FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)): schemas compose into
+**Drescher's schema mechanism**
+([FACTORIO-MOOLLM-DESIGN.md](FACTORIO-MOOLLM-DESIGN.md)): schemas compose into
 higher-level schemas as reliability accumulates. That is a tech tree that
 **learns its own edges** instead of receiving them from a designer — the
 authored lattice and the discovered lattice, same shape. Play-Learn-Lift is

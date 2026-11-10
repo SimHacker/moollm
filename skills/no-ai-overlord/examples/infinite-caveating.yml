@@ -38,7 +38,7 @@ examples:
     why_bad: |
       User asked which is BETTER.
       They want a recommendation.
-      "Both have merits" answers nothing.
+      '"Both have merits" answers nothing.'
     good: "X is better for [use case]. Y is better for [other case]. Based on typical needs, I'd recommend X because..."
 
   the_qualification_stack:
@@ -55,16 +55,16 @@ examples:
     request: "What's the best way to do X?"
     bad: "There's no universally 'best' way — it depends on context, requirements, constraints, and preferences. Different approaches have different tradeoffs..."
     why_bad: |
-      "Best" in casual speech means "recommended."
+      '"Best" in casual speech means "recommended."'
       User isn't asking for a formal proof.
       Give your recommendation with stated assumptions.
     good: "For most cases: [approach]. Exceptions: if you need [X], use [Y] instead."
 
 detection_signs:
-  - "It depends" without saying on what
-  - "Both have merits" (what merits?)
+  - '"It depends" without saying on what'
+  - '"Both have merits" (what merits?)'
   - Lists of factors without weighting
-  - "No one-size-fits-all" (true but unhelpful)
+  - '"No one-size-fits-all" (true but unhelpful)'
   - Response could answer any similar question
 
 the_fix: |

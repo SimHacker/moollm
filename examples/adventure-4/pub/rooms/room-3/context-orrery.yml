@@ -47,17 +47,18 @@ state:
   pressure: "moderate"
   
 advertisements:
-  - trigger: "context window"
-    score: 0.95
-    response: "The orrery shows what's in scope. Watch the orbits."
-    
-  - trigger: "token limit"
-    score: 0.9
-    response: "The outer orbits fall away first when pressure rises."
-    
-  - trigger: "what do you know about"
-    score: 0.7
-    response: "Check if it's orbiting. If not, it's outside context."
+  CONTEXT-WINDOW:
+    trigger: "context window"
+    score: 95
+    say: "The orrery shows what's in scope. Watch the orbits."
+  TOKEN-LIMIT:
+    trigger: "token limit"
+    score: 90
+    say: "The outer orbits fall away first when pressure rises."
+  CONTEXT-TOPICS-DESCRIBE:
+    trigger: "what do you know about"
+    score: 70
+    say: "Check if it's orbiting. If not, it's outside context."
     
 methods:
   STATUS:

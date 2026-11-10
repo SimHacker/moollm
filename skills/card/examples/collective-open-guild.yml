@@ -1,16 +1,16 @@
-card:
-  name: collective-open-guild
-  type: [collective, community, example]
-  tier: 1
-  invoke_when: ["coordination", "shared norms", "onboarding"]
-  advertisement_names:
-    - DESCRIBE-GUILD
-    - SHARE-NORMS
-    - ONBOARD
-  tags: [moollm, example, collective, community, ethics]
-  description: |
-    A fictional open guild (community) card for describing the group, sharing
-    norms, and onboarding newcomers with ethical guardrails.
+# card:
+name: collective-open-guild
+type: [collective, community, example]
+tier: 1
+invoke_when: ["coordination", "shared norms", "onboarding"]
+advertisement_names:
+  - DESCRIBE-GUILD
+  - SHARE-NORMS
+  - ONBOARD
+tags: [moollm, example, collective, community, ethics]
+description: |
+  A fictional open guild (community) card for describing the group, sharing
+  norms, and onboarding newcomers with ethical guardrails.
 
 ethics:
   constraints:

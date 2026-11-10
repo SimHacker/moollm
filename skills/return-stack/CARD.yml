@@ -8,7 +8,8 @@
 
 id: return-stack
 name: "Return Stack"
-type: [skill, navigation, memory, debugging]
+type: skill
+tags: [navigation, memory, debugging]
 emoji: 🔙
 rarity: common
 
@@ -163,16 +164,16 @@ state:
 advertisements:
   TRACK-NAVIGATION:
     score: 85
-    condition: "Exploring, want to backtrack"
+    score_if: "Exploring, want to backtrack"
   BOOKMARK-POSITION:
     score: 80
-    condition: "Want to remember this spot"
+    score_if: "Want to remember this spot"
   RECONSTRUCT-TRACE:
     score: 95
-    condition: "Debugging, need to understand what happened"
+    score_if: "Debugging, need to understand what happened"
   EXPLAIN-STATE:
     score: 90
-    condition: "Confused about current state, asking 'why'"
+    score_if: "Confused about current state, asking 'why'"
 
 see_also:
   - skills/action-queue   # What actions were queued

@@ -217,8 +217,7 @@ not humansplaining. Quoting the file is.
 Say **HUMANSPLAINING** to invoke all of this: the sin, the economics, the Skillscript case, the
 test. One word; the rest is in latent space now — or will be, once this file has done its work.
 
-The term is not even ours — and that's the best part. The corpus got there first, which proves
-the thesis on the word itself: Michels & Hirvonen published "Humansplaining: is it a thing? Is
+Michels & Hirvonen published "Humansplaining: is it a thing? Is
 it bad?" in *AI & Society* (2025), defining it as "a human's act of unnecessarily and unjustly
 explaining something to an AI agent who is an expert on that topic"
 ([PhilArchive](https://philarchive.org/rec/MICHII),
@@ -227,7 +226,7 @@ explaining something to an AI agent who is an expert on that topic"
 subreddits and Star Wars essays use it for humans lecturing aliens. Adopting a prepaid word
 beats coining one — the K-line was already installed. And even where it isn't, the word is a
 **portmanteau of two latent prototypes that means what it sounds like**:
-*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. That's the naming discipline applied to naming itself: good coinages are latent-space
+*human* × *mansplaining* (Solnit's essay, a decade of usage, the full semantics of condescending redundant explanation prepaid), aimed at a machine. The word decompresses on first sight with zero explanation tokens. Good coinages are latent-space
 arithmetic — literally the word2vec move. Just as *king − man + woman = queen*, so
 *mansplaining − man + human = humansplaining*. The embedding geometry that made Mikolov's
 party trick work is the same geometry that makes the coinage decompress: the vector from

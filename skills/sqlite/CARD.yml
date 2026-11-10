@@ -2,7 +2,8 @@
 
 id: sqlite
 name: "SQLite"
-type: [skill, database, embedded]
+type: skill
+tags: [database, embedded]
 emoji: 💾
 rarity: common
 
@@ -42,7 +43,7 @@ methods:
     output: chat
     invoked_by: [operator]
 
-related_skills: [postgres, schema, cursor-mirror]
+related: [postgres, schema, cursor-mirror]
 
 advertisements:
   when: ["sqlite", "sqlite3", "sqlite_master", "JSON1", "WAL"]

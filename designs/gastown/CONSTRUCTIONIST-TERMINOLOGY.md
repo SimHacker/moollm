@@ -45,7 +45,7 @@ holds.
 
 ### Why workflow and not procedure
 
-Papert's "procedure" is the deeper idea, and the workflow skill credits it. But "workflow" is
+The workflow skill credits Papert's "procedure". But "workflow" is
 what the people running these things call them, and the model has read every
 `.github/workflows/*.yml` on GitHub. The step fields (`requires`, `verify`, `gate`, `fan_out`)
 look like CI because that's where the model expects them.

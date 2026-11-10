@@ -9,7 +9,7 @@
 
 ## Executive Summary
 
-Git is not merely a version control system for MOOLLM — it is the **universal substrate** upon which all persistent state, narrative provenance, and temporal navigation depend. This document explains why git is foundational, what capabilities it provides, and how it meshes with the Coherence Engine and cursor-mirror to create unprecedented introspective power.
+Git is not merely a version control system for MOOLLM — it is the **universal substrate** upon which all persistent state, narrative provenance, and temporal navigation depend.
 
 ---
 

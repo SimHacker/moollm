@@ -1,42 +1,41 @@
 # CARD.yml — design-sense
 # Interface card. Protocol details: SKILL.md. Planning: CAULDRON.md.
 
-skill:
-  id: design-sense
-  emoji: 👁️
-  tagline: "The working designer's head, always on"
-  type: ambient-socket
-  registries: [lenses, methods, masters, seeds]
+id: design-sense
+emoji: 👁️
+tagline: "The working designer's head, always on"
+type: ambient-socket
+registries: [lenses, methods, masters, seeds]
 
 advertisements:
-  - trigger: "designing or critiquing any interactive surface (menu, HUD, gesture, dialog, sim UI)"
-    action: LOAD-LENSES
+  LOAD-LENSES:
+    trigger: "designing or critiquing any interactive surface (menu, HUD, gesture, dialog, sim UI)"
     score_hint: high
-  - trigger: "planning or pacing design work over time (when to tune, when to abstract)"
-    action: LOAD-METHODS
+  LOAD-METHODS:
+    trigger: "planning or pacing design work over time (when to tune, when to abstract)"
     score_hint: high
-  - trigger: "channel a named designer's judgment"
-    action: LOAD-MASTER
+  LOAD-MASTER:
+    trigger: "channel a named designer's judgment"
     score_hint: medium
-  - trigger: "encountered a quotable design principle worth keeping"
-    action: PLANT-SEED
+  PLANT-SEED:
+    trigger: "encountered a quotable design principle worth keeping"
     score_hint: medium
 
 methods:
   LOAD-LENSES:
-    does: "Read lenses/*.md relevant to the surface at hand; hold them while working"
+    description: "Read lenses/*.md relevant to the surface at hand; hold them while working"
     note: "Lenses are constraints, not steps. They veto and redirect; they don't sequence."
     dispatch: "lenses/CARD.yml maps design contexts to lens sets"
   LOAD-METHODS:
-    does: "Read methods/*.md relevant to the phase of work"
+    description: "Read methods/*.md relevant to the phase of work"
     dispatch: "methods/CARD.yml maps phases of work to method sets"
   LOAD-MASTER:
-    does: "Read masters/<person>.md; borrow the head — votes push, vetoes block"
+    description: "Read masters/<person>.md; borrow the head — votes push, vetoes block"
     dispatch: "masters/CARD.yml maps problems to people; load several for a committee"
   PLANT-SEED:
-    does: "Append raw principle to today's seeds/ batch file under Todo, with source and attribution"
+    description: "Append raw principle to today's seeds/ batch file under Todo, with source and attribution"
   GERMINATE:
-    does: "Ground it in a corpus source, name it (kebab-case), write the registry .md,
+    description: "Ground it in a corpus source, name it (kebab-case), write the registry .md,
            move the seed line from Todo to Planted with a link to the grown file"
     gate: "A seed graduates only if a working designer would keep it loaded — not trivia"
 

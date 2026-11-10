@@ -5,7 +5,8 @@
 
 id: plan-then-execute
 name: "Plan Then Execute"
-type: [skill, security, workflow]
+type: skill
+tags: [security, workflow]
 emoji: 📋
 rarity: uncommon
 
@@ -59,9 +60,9 @@ state:
 advertisements:
   SAFE-AUTOMATION:
     score: 95
-    condition: "Multi-step task with untrusted data"
+    score_if: "Multi-step task with untrusted data"
   AUDIT-TRAIL:
     score: 85
-    condition: "Need record of what was planned vs done"
+    score_if: "Need record of what was planned vs done"
 
 see_also: [skills/planning, skills/roberts-rules, skills/action-queue]

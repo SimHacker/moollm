@@ -215,26 +215,26 @@ goal: null  # No goal yet — first goal played wins!
 
 # DEALER STATE — Cosmic Dealer Active
 
-dealer:
-  mode: "dynamic"  # Starts in dynamic mode
-  emoji: "🌊"
+# dealer:
+mode: "dynamic"  # Starts in dynamic mode
+emoji: "🌊"
+
+# Karma tracking per player
+karma_ledger:
+  don: 0
+  palm: 0
+  bumblewick: 0
+  donna: 0
   
-  # Karma tracking per player
-  karma_ledger:
-    don: 0
-    palm: 0
-    bumblewick: 0
-    donna: 0
-    
-  # Boop log — dealer interventions
-  boop_log: []
-  
-  # Dynamic mode thresholds
-  dynamic_config:
-    near_victory_threshold: 0.7
-    tension_decay_turns: 5
-    karma_payoff_threshold: 10
-    stalemate_turns: 8
+# Boop log — dealer interventions
+boop_log: []
+
+# Dynamic mode thresholds
+dynamic_config:
+  near_victory_threshold: 0.7
+  tension_decay_turns: 5
+  karma_payoff_threshold: 10
+  stalemate_turns: 8
 
 # GAME STATE
 

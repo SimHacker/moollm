@@ -33,26 +33,26 @@ backstory: |
   of the supernatural cold.
 
 advertisements:
-  - action: GET
+  GET:
     score: 95
-    result: |
+    say: |
       You scoop up all 100 gold coins. Your pockets bulge 
       magnificently. You feel like a dragon. A small, 
       waistcoat-wearing dragon with excellent taste in spoons.
       
       player.gold += 100
   
-  - action: COUNT
+  COUNT:
     score: 60
-    result: "Exactly 100 gold pieces. Someone was prepared!"
+    say: "Exactly 100 gold pieces. Someone was prepared!"
   
-  - action: EXAMINE
+  EXAMINE:
     score: 50
-    result: "ACME coins. Accepted at all fine dungeon vendors."
+    say: "ACME coins. Accepted at all fine dungeon vendors."
   
-  - action: TAKE SOME
+  TAKE-SOME:
     score: 40
-    result: |
+    say: |
       "How many? You have space for all of them. Don't be weird 
       about it — no one's watching. The skeleton certainly isn't 
       going to judge you."

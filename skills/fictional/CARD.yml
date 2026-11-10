@@ -5,7 +5,8 @@
 
 id: fictional
 name: "Fictional"
-type: [skill, ontology, ethics]
+type: skill
+tags: [ontology, ethics]
 emoji: 📖
 tier: 1
 
@@ -66,22 +67,22 @@ advertisements:
   
   CREATE:
     score: 90
-    condition: "Making a new fictional character"
+    score_if: "Making a new fictional character"
     effect: "Birth new entity from imagination"
     
   PLAY:
     score: 85
-    condition: "Inhabiting a fictional character"
+    score_if: "Inhabiting a fictional character"
     effect: "Speak and act as them"
     
   TRANSFORM:
     score: 75
-    condition: "Changing a fictional character"
+    score_if: "Changing a fictional character"
     effect: "Alter their nature, story, or fate"
     
   CROSSOVER:
     score: 80
-    condition: "Mixing fictional universes"
+    score_if: "Mixing fictional universes"
     effect: "Characters from different sources meet"
 
 # COMBINATIONS

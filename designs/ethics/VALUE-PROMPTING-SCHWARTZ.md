@@ -15,7 +15,7 @@ This paper introduces **value-prompting**, a psychologically grounded technique 
 - **Value-behavior relationships** in LLMs align significantly with human patterns
 - **Population-level psychological experiments** can be simulated with LLMs
 
-**Key insight**: Simple, psychologically grounded prompts (one paragraph per value) can systematically steer LLM behavior to exhibit human-like value patterns.
+One paragraph per value steers model behavior toward that value pattern.
 
 ---
 
@@ -347,7 +347,7 @@ Projects value correlations into 2D space. Should produce Schwartz's circular co
 
 ## The Bottom Line
 
-Value-prompting demonstrates that **psychologically grounded, compact prompts** can induce coherent value structures in LLMs with ~80% correlation to human patterns. This validates MOOLLM's approach of using K-lines and tradition activation — brief symbolic descriptions that leverage the LLM's embedded psychological knowledge.
+Value-prompting induces coherent value structures in LLMs with ~80% correlation to human patterns. The prompts are short and taken from Schwartz's value theory.
 
 For character design: Consider Schwartz's 10 values as a systematic framework for defining character motivations. Adjacent values should correlate; opposing values should conflict.
 

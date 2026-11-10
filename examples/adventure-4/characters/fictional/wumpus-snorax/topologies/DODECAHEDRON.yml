@@ -2,20 +2,19 @@
 # "20 rooms, each connecting to 3 others." The default, not a special case:
 # every other file in this directory can replace it without touching the game.
 
-topology:
-  name: "The Dodecahedron"
-  type: platonic_solid
-  cave: 0                                    # Yob's own menu number in Wumpus 2
-  default: true                              # what a session mounts if none is named
-  source: "Hunt the Wumpus (Gregory Yob, 1973), DATA lines 130-160 of ../sources/wumpus1-yob.bas"
-  regular: true      # every room: 3 tunnels, two-way traffic
-  description: |
-    Twenty caves as the vertices of a dodecahedron, each connected to exactly
-    three others. No grid, no compass directions — numbered caves and tunnels,
-    which is why the map has to be deduced rather than read.
+name: "The Dodecahedron"
+type: platonic_solid
+cave: 0                                    # Yob's own menu number in Wumpus 2
+default: true                              # what a session mounts if none is named
+source: "Hunt the Wumpus (Gregory Yob, 1973), DATA lines 130-160 of ../sources/wumpus1-yob.bas"
+regular: true      # every room: 3 tunnels, two-way traffic
+description: |
+  Twenty caves as the vertices of a dodecahedron, each connected to exactly
+  three others. No grid, no compass directions — numbered caves and tunnels,
+  which is why the map has to be deduced rather than read.
 
-    Yob picked the solid because it was his favourite and because he had once
-    made a kite shaped like one.
+  Yob picked the solid because it was his favourite and because he had once
+  made a kite shaped like one.
 
 adjacency:
   1: [2, 5, 8]

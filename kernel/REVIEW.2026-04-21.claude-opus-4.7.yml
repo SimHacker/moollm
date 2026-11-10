@@ -95,7 +95,7 @@ tensions:
     side_a: "Kernel disclaims semantics (ARCHITECTURE.md:36-40) — strict layering."
     side_b: "Magic-dictionary promise (ARCHITECTURE.md:56-71) requires orchestrator to read skill CARD.yml advertisements, which are semantic."
     my_take: "The pattern resolves: kernel doesn't interpret the advertisements; it just routes them to the LLM/orchestrator that does. But the distinction needs a diagram — right now a naive reader sees 'kernel reads CARD.yml' and assumes semantic leak."
-  - name: interest-gates-vs-advertisements
+  - name: advertisement-gates-vs-scored-advertisements
     side_a: "ADVERTISEMENT-GATES.yml defines proximity-based gating (world/room/near/touch)."
     side_b: "advertisements use score/condition/effect — different vocabulary, overlapping purpose."
     my_take: "Two related mechanisms, unclear composition rules. Does a gated advertisement combine gate AND score? I don't see the rule documented. Likely a skill/ or examples/ answers this; kernel doesn't."

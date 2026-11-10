@@ -69,7 +69,7 @@ and Self's three instructions are the target they all lower to
 - **Wyvern archetypes** — Steve Yegge's multiplayer RPG with player-wizards (begun 1996): every game object a property
   list with one parent "archetype", designed before he'd heard of Self. Written up as
   ["The Universal Design Pattern"](http://steve-yegge.blogspot.com/2008/10/universal-design-pattern.html)
-  (2008), the best popular essay on why prototypes suit open-ended, long-lived systems
+  (2008), on why prototypes suit open-ended, long-lived systems
 
 The LLM doesn't need any one language's ceremony because the underlying move is always the same.
 When context calls for a class hierarchy it produces one; when it calls for HyperCard-style
@@ -85,7 +85,7 @@ mixins with none of the MRO metaphysics: sweep the list left to right, first slo
 
 ### Named parent slots vs the parent array
 
-One real divergence from Self is worth naming. In Self, a parent is an
+One divergence from Self. In Self, a parent is an
 ordinary **named** slot marked with an asterisk (`parent*`, `traits*`):
 the name documents the parent's *role*, and dynamic inheritance means
 assigning to that specific named slot — reparent the `traits*` without
@@ -562,7 +562,7 @@ The RISC claim, in the authors' own hand:
 - *Organizing Programs Without Classes* (Ungar, Chambers, Chang, Hölzle, LaSC '91) — building
   class-like systems from the primitives; the proof of "program all other object systems out of it"
 - [Self (Ungar & Smith, HOPL III, 2007, PDF)](https://worrydream.com/refs/Ungar_2007_-_Self_(HOPL).pdf)
-  — the retrospective, the best single entry point
+  — the retrospective
 
 The compiler line: *An Efficient Implementation of SELF* (Chambers, Ungar, Lee, OOPSLA '89, maps);
 *Polymorphic Inline Caches* (Hölzle, Chambers, Ungar, ECOOP '91); *Debugging Optimized Code with

@@ -259,9 +259,9 @@ The filename IS a K-line — it should activate semantic understanding:
 | `slop.yml` | No specificity |
 | `my-contribution.yml` | About you, not the pattern |
 
-## How Directories Work as Interests
+## How Directories Work as Advertisements
 
-When an LLM lists a directory, it reads interests:
+When an LLM lists a directory, it reads advertisements:
 
 ```
 ls skills/no-ai-slop/examples/

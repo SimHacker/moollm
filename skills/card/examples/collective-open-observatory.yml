@@ -1,16 +1,16 @@
-card:
-  name: collective-open-observatory
-  type: [collective, community, science, example]
-  tier: 1
-  invoke_when: ["stargazing", "data sharing", "citizen science"]
-  advertisement_names:
-    - DESCRIBE-OBS
-    - SHARE-PROTOCOLS
-    - SCHEDULE-WATCH
-  tags: [moollm, example, collective, astronomy, citizen-science]
-  description: |
-    An open observatory collective for shared stargazing, data collection, and
-    citizen science campaigns, with clear data/ethics norms.
+# card:
+name: collective-open-observatory
+type: [collective, community, science, example]
+tier: 1
+invoke_when: ["stargazing", "data sharing", "citizen science"]
+advertisement_names:
+  - DESCRIBE-OBS
+  - SHARE-PROTOCOLS
+  - SCHEDULE-WATCH
+tags: [moollm, example, collective, astronomy, citizen-science]
+description: |
+  An open observatory collective for shared stargazing, data collection, and
+  citizen science campaigns, with clear data/ethics norms.
 
 ethics:
   constraints:

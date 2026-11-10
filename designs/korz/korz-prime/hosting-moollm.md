@@ -247,7 +247,7 @@ and the LLM covers it.
 The pattern: the Korz prototype inherited its IDE-dependence from its
 host — it was built *on the Self environment*, where everything lives
 in an image and outliners are how you see. MOOLLM made the opposite
-bet and it's load-bearing here: `cat`, `ls`, `grep`, `glob`, and
+bet: `cat`, `ls`, `grep`, `glob`, and
 `git` are the primitive IDE, the yaml-jazz comment channel carries
 what tooltips and inspectors carried, and the LLM supplies the one
 genuinely semantic service (cross-context comprehension) that Unix

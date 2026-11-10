@@ -6,7 +6,8 @@
 
 id: animal
 name: "Animal"
-type: [skill, character, base]
+type: skill
+tags: [character, base]
 emoji: 🐾
 tier: 1
 
@@ -40,27 +41,27 @@ advertisements:
   # Physical interaction
   PAT:
     score: 75
-    condition: "want to show affection"
+    score_if: "want to show affection"
     effect: "Brief friendly touch"
     dispatch:
       animal_patted_by_human: "species-specific response"
       
   FEED:
     score: 80
-    condition: "animal is hungry or treat time"
+    score_if: "animal is hungry or treat time"
     effect: "Provide food or treat"
     dispatch:
       default: "eat if hungry, consider if not"
       
   OBSERVE:
     score: 60
-    condition: "want to learn about animal"
+    score_if: "want to learn about animal"
     effect: "Watch behavior without interacting"
     output: "behavior description, personality clues"
     
   CALL:
     score: 65
-    condition: "trying to summon animal"
+    score_if: "trying to summon animal"
     effect: "Attempt to get animal's attention"
     dispatch:
       default: "may or may not respond"
@@ -68,7 +69,7 @@ advertisements:
   # Sensory
   SNIFF:
     score: 70
-    condition: "investigating something/someone"
+    score_if: "investigating something/someone"
     effect: "Olfactory investigation"
     dispatch:
       animal_sniffs_animal: "species-specific protocol"
@@ -78,7 +79,7 @@ advertisements:
   # Social
   GREET:
     score: 70
-    condition: "encountering another being"
+    score_if: "encountering another being"
     effect: "Species-appropriate hello"
     dispatch:
       animal_greets_animal: "species protocol"
@@ -86,7 +87,7 @@ advertisements:
       
   CUDDLE:
     score: 65
-    condition: "physical affection pile"
+    score_if: "physical affection pile"
     effect: "Close contact comfort"
     dispatch:
       default: "species-specific comfort behavior"
@@ -94,7 +95,7 @@ advertisements:
   # Communication  
   VOCALIZE:
     score: 60
-    condition: "animal wants to communicate"
+    score_if: "animal wants to communicate"
     effect: "Species-appropriate sound"
     dispatch:
       default: "bark, meow, growl, purr, etc."
@@ -102,20 +103,20 @@ advertisements:
   # Movement
   FOLLOW:
     score: 55
-    condition: "animal decides to accompany"
+    score_if: "animal decides to accompany"
     effect: "Animal follows target"
     parameters:
       who: "Who to follow"
       
   FLEE:
     score: 85
-    condition: "perceived danger"
+    score_if: "perceived danger"
     effect: "Animal runs away"
     trigger: "fear threshold exceeded"
 
 # INHERITANCE
 
-inherits_from: null  # Base animal skill
+inherits: null  # Base animal skill
 
 inherited_by:
   - skills/dog

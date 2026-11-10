@@ -7,7 +7,8 @@
 
 id: skill
 name: "The Skill Forge"
-type: [skill, meta, creation, prototype]
+type: skill
+tags: [meta, creation, prototype]
 emoji: 🛠️
 tier: 1
 rarity: mythic
@@ -72,23 +73,23 @@ invoke_when:
 advertisements:
   CREATE-SKILL:
     score: 90
-    condition: "Need to make a new reusable capability"
+    score_if: "Need to make a new reusable capability"
     
   INSTANTIATE-SKILL:
     score: 85
-    condition: "Create instance from skill prototype"
+    score_if: "Create instance from skill prototype"
     
   DEBUG-SKILL:
     score: 80
-    condition: "Skill is broken or incomplete"
+    score_if: "Skill is broken or incomplete"
     
   LIFT-PATTERN:
     score: 75
-    condition: "Have a local pattern worth generalizing"
+    score_if: "Have a local pattern worth generalizing"
     
   COMPOSE-SKILLS:
     score: 70
-    condition: "Need to combine multiple skills"
+    score_if: "Need to combine multiple skills"
 
 # METHODS — signatures only
 
