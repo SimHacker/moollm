@@ -124,6 +124,9 @@ no_ai_suite:
     - id: no-ai-slop
       tagline: "Syntactic hygiene"
       why: "No filler, no cliché, no wasted tokens"
+      standards: ["ISO 24495-1 plain language", "ASD-STE100 at 80%", "Wikipedia:Signs of AI writing", "Orwell's six rules"]
+      commands: "SLOP HELP · HUMANIZE · REVIEW · PLAIN · LINT"
+      organelles: [ste80-humanizer]   # Dodaios, MIT, transcluded: rewrite 80% of the way to ASD-STE100
       
     - id: no-ai-gloss
       tagline: "Semantic hygiene"

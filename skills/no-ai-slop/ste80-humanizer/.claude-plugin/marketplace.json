@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "ste80-humanizer",
+  "owner": {
+    "name": "Dodaios",
+    "url": "https://github.com/Dodaios"
+  },
+  "description": "Humanizer agent skill built on Karpathy's \"80% of the way to ASD-STE100\" method.",
+  "plugins": [
+    {
+      "name": "ste80-humanizer",
+      "source": "./",
+      "description": "Rewrite AI-sounding text so it reads like a clear, careful human wrote it, using the \"80% of the way to ASD-STE100\" method that Andrej Karpathy shared.",
+      "license": "MIT",
+      "keywords": [
+        "humanizer",
+        "ai-writing",
+        "humanize-ai-text",
+        "asd-ste100",
+        "simplified-technical-english",
+        "plain-language",
+        "writing",
+        "karpathy",
+        "agent-skills"
+      ]
+    }
+  ]
+}

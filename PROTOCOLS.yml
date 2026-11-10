@@ -273,6 +273,8 @@ SLOP:
     - "APHORISM SLOP"
   location: skills/no-ai-slop/
   routes_to: skills/no-ai-slop/examples/
+  commands: "SLOP HELP prints the vocabulary: HUMANIZE, REVIEW, PLAIN, LINT, LEDGER, VERIFY, COMPRESS, ASK, IMPORTS, SYNC (skills/no-ai-slop/CARD.yml#methods)"
+  standards: "ISO 24495-1 plain language, ASD-STE100 at 80%, Wikipedia:Signs of AI writing, Orwell's six rules (CARD.yml#imports)"
   definition: |
     SLOP = syntactic waste
     - Verbosity, filler, decoration

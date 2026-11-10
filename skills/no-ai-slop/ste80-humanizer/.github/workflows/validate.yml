@@ -1,0 +1,42 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Checker runs and flags a known bad sentence
+        run: |
+          python scripts/ste_check.py --help
+          echo "It is important to note that the token is validated by the gateway." > bad.txt
+          if python scripts/ste_check.py bad.txt; then echo "expected findings"; exit 1; fi
+          echo "The gateway examines the token." > good.txt
+          python scripts/ste_check.py good.txt
+
+      - name: Version is the same everywhere
+        run: |
+          v_skill=$(grep -E '^\s+version:' SKILL.md | head -1 | sed -E 's/.*"(.*)".*/\1/')
+          v_log=$(grep -m1 -E '^## ' CHANGELOG.md | sed 's/## //')
+          v_cc=$(python -c "import json;print(json.load(open('.claude-plugin/plugin.json'))['version'])")
+          v_cu=$(python -c "import json;print(json.load(open('.cursor-plugin/plugin.json'))['version'])")
+          echo "$v_skill $v_log $v_cc $v_cu"
+          test "$v_skill" = "$v_log" && test "$v_skill" = "$v_cc" && test "$v_skill" = "$v_cu"
+
+      - name: skills CLI finds the skill
+        run: npx --yes skills add . --list
+
+      - name: Claude Code plugin is valid
+        run: npx --yes @anthropic-ai/claude-code plugin validate .

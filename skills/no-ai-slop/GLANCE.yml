@@ -8,6 +8,13 @@ what: |
   EPISTEMIC EVASION, and UNSOLICITED COACHING.
   AMBIENT — runs continuously.
 
+standards:  # named, not respelled: the names load them; imports below pick the parts in force
+  - "ISO 24495-1:2023 Plain language — readers find, understand, use what they need"
+  - "ASD-STE100 Issue 9 Simplified Technical English — at 80%; strict for procedures"
+  - "Wikipedia:Signs of AI writing — the tells"
+  - "Orwell's six rules — rule 6 overrides all"
+help: "SLOP HELP — HUMANIZE · REVIEW · PLAIN · LINT · LEDGER · VERIFY · COMPRESS · ASK · IMPORTS · SYNC"
+
 why: |
   - Cut 500 words to 50
   - Stop making up facts and links
@@ -79,8 +86,32 @@ core_insight: |
   
   WORSE: sophisticated meta-analysis can BE the evasion.
 
+imports:  # named standards, cherry-picked into local rule names (CARD.yml#imports)
+  plain-language: "ISO 24495-1:2023 → reader-relevant, reader-findable, reader-understandable, reader-usable, reader-first"
+  sentence-structure: "ASD-STE100 Issue 9 at 80% → structure-one-idea, -length, -condition, -warning, -active, -tense, -verb, -term, -nouns, -list"
+  ai-tells: "Wikipedia:Signs of AI writing → tells-staging (§1–§5, one sighting), -rhythm, -inflation, -format, -residue"
+  plain-words: "Orwell's six rules → words-*; rule 6 (break any rule sooner than write something barbarous) overrides all"
+  fidelity: "fidelity-facts, -certainty, -exact, -add-none, -list"
+
+commands:  # SLOP HELP prints the full usage (CARD.yml#methods)
+  rewrite: "SLOP HUMANIZE TEXT [--mode=80|light|strict] [--sample] [--venue] [--report] [--in-place]"
+  inspect: "SLOP REVIEW TEXT · SLOP PLAIN TEXT [--reader] [--purpose] · SLOP LINT FILE [--strict]"
+  claims: "SLOP LEDGER · SLOP VERIFY CLAIM · SLOP ASK"
+  housekeeping: "SLOP COMPRESS TEXT [--to=N] · SLOP IMPORTS [NAME] · SLOP SYNC [--update] · SLOP HELP [COMMAND]"
+
+organelle:  # nested skill, copied verbatim and pinned in TRANSCLUSIONS.yml
+  ste80-humanizer: "Dodaios's STE80 Humanizer (MIT). Pass 1 removes 26 AI tells; Pass 2 rewrites 80% of the way to ASD-STE100."
+  methods: "HUMANIZE --mode=80|light|strict · REVIEW · LINT"
+  when: "Someone asks to humanize or simplify text, names STE, writes a procedure, or a HIGH/CRITICAL artifact is about to leave"
+  rule: "Run it on text a person reads, after the work is done. Never edit ste80-humanizer/."
+  fidelity: "List the facts first. Keep every fact, keep certainty at the source's strength, add nothing."
+  one_sighting: "Not X but Y · one-line closers · deep-sounding sayings · staged run-ups · arguing with no one"
+  structure_80: "ASD-STE100 by name: one idea per sentence, ≤20/25 words, condition first, active voice, simple tenses, one term per thing"
+  projection: "CARD.yml#organelles.ste80-humanizer.projection runs HUMANIZE without opening the organelle"
+
 go_deeper:
-  CARD.yml: "Full 12 cardinal sins with examples, hard gate protocol, word lists, Galton's Law analysis"
+  CARD.yml: "Full 12 cardinal sins with examples, hard gate protocol, word lists, Galton's Law analysis, organelle crosswalk"
+  STE80-HUMANIZER.md: "The nested STE80 skill: modes, overlap with this one, measurements, HN and blog reception"
   SKILL.md: "Complete detection/correction protocol, claim ledger workflow, meta-quota enforcement"
   examples/: "10 real cases — puffery, verbosity, repetition, condescension, formulaic structure, anger-as-precision"
 

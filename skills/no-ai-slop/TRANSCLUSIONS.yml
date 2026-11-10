@@ -1,0 +1,87 @@
+# TRANSCLUSIONS.yml — other people's skills living inside no-ai-slop
+#
+# A transclusion is a verbatim copy of another author's skill, kept whole: its own
+# license, credits, references, scripts and evals. It is an organelle, not a dependency
+# (designs/object-system/ENDOSYMBIOSIS.md): it keeps its genome, and the host wraps it
+# with CARD.yml, GLANCE.yml and SKILL.md so the orchestrator sees one skill.
+#
+# Never edit files under a transcluded path. The host layer overrides behavior; fixes
+# go upstream as pull requests. sync_transclusions.py refuses to update over local edits.
+#
+#   python3 scripts/sync_transclusions.py --check            # all, report drift
+#   python3 scripts/sync_transclusions.py --update ste80-humanizer
+#
+# --update moves the copy but not the projections. They stay marked stale until someone
+# rebuilds them from the new SKILL.md and sets projections.built_from to the new commit.
+
+transclusions:
+
+  ste80-humanizer:
+    path: ste80-humanizer/                 # relative to this skill directory
+    title: "STE80 Humanizer"
+    author: "Dodaios (Ruben Lütke)"
+    license: MIT                           # ste80-humanizer/LICENSE
+    third_party: "Pass 1 catalog adapted from blader/humanizer by Siqi Chen, MIT (ste80-humanizer/THIRD_PARTY_NOTICES.md)"
+    upstream:
+      repo: https://github.com/Dodaios/ste80-humanizer
+      ref: main                            # branch the sync follows
+      commit: 99bc468482599f5d75f595e2c1adf893ebff4d8f
+      committed: 2026-11-10T09:52:44+01:00
+      version: 4.0.0                       # SKILL.md metadata.version at that commit
+    copied: 2026-11-10
+    mode: verbatim                         # byte-identical to upstream at `commit`
+    exclude: [.git]
+
+    entry: ste80-humanizer/SKILL.md        # the organelle's own top level
+    analysis: STE80-HUMANIZER.md           # host-side reading: what it is, how we run it, reception
+    surfaced_as:                           # host methods (CARD.yml#methods) and imports that call into it
+      "HUMANIZE --mode=80": "its Humanize mode: Pass 1 in full, Pass 2 at 80%"
+      "HUMANIZE --mode=light": "its Light mode"
+      "HUMANIZE --mode=strict": "its Strict STE mode (ste80-humanizer/references/strict-mode.md)"
+      REVIEW: "its Review only mode"
+      LINT: "its scripts/ste_check.py"
+      imports.sentence-structure: "ASD-STE100 rules at its 80% settings"
+      imports.ai-tells: "its Pass 1, §1–§26"
+      imports.fidelity: "its fidelity rules"
+
+    host_overrides:                        # where no-ai-slop wins over the organelle
+      - "BLAST-RADIUS decides how hard to run it. CRITICAL and HIGH artifacts get LINT and REVIEW before they leave."
+      - "Render at the boundary. Run it on text a human will read, after the work is done, never on working notes or tool reasoning."
+      - "Author house style (copy-that/house-styles/) is the writing sample its Voice rule asks for. The sample wins over its defaults, as its own SKILL.md says."
+      - "Writing your own claims: no-ai-hedging calibrates certainty. Rewriting someone else's text: its fidelity rules win, and certainty stays at the source's strength."
+      - "Never claim STE compliance. Its own rule: write 'in STE style', never 'STE-compliant'."
+
+    projections:                           # focused summaries lifted into the host pyramid
+      # The orchestrator should rarely open the organelle. Each target below carries a
+      # summary written for that level, so routing and most rewrites run from the host.
+      # The organelle stays for edge cases, strict mode, the linter and rebuilding these.
+      built_from: 99bc468482599f5d75f595e2c1adf893ebff4d8f   # stale when != upstream.commit
+      lift: deltas only                    # name ASD-STE100 and let it load; don't restate the standard
+      keep:                                # what earns a place in the host
+        - "Modes and when to pick each"
+        - "§1 to §5, the act-on-one-sighting tells, and the §6 to §26 tells the crosswalk doesn't cover"
+        - "Pass 2 structure rules, compressed, and what 80% relaxes"
+        - "Fidelity rules and the fact list before and after"
+        - "When not to act; what carries the writer's voice"
+        - "Output format: rewrite, then changes by number"
+      leave:                               # stays only in the organelle
+        - "Long before/after examples (references/ai-tells.md, ste80-rules.md)"
+        - "Word swap tables (references/word-swaps.md)"
+        - "Strict checklist (references/strict-mode.md)"
+        - "Packaging, evals, CHANGELOG"
+      targets:
+        GLANCE.yml#organelle:
+          from: [SKILL.md#modes, SKILL.md#fidelity-rules]
+          budget: "6 lines"
+        CARD.yml#organelles.ste80-humanizer.projection:
+          from: [SKILL.md#pass-1-ai-tells, SKILL.md#pass-2-ste80-structure, SKILL.md#fidelity-rules, SKILL.md#when-not-to-act, SKILL.md#how-to-work]
+          budget: "~70 lines"
+        SKILL.md#nested-skill-ste80-humanizer:
+          from: [SKILL.md, references/ste80-rules.md#f-what-80-mode-relaxes]
+          budget: "~90 lines"
+          rule: "Carries everything the CARD projection carries (pyramid: never drop a field upward)"
+
+    inert_here:                            # upstream packaging that does nothing inside the host
+      - ".claude-plugin/, .cursor-plugin/, agents/openai.yaml: install metadata for the standalone repo"
+      - ".github/workflows/validate.yml: runs only at the upstream repo root"
+      - "assets/ste100-overview.png: the overview graphic from Karpathy's post; its README notes errors in the dictionary panel"
