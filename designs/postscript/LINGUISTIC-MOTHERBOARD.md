@@ -199,7 +199,7 @@ Amulet (Garnet's C++ successor) added **structural inheritance**: instancing a c
 
 ### Kaleida ScriptX (1993-1996)
 
-**Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented, prototype-based (like Self), with multimedia primitives.
+**Kaleida Labs** was an Apple/IBM joint venture to create cross-platform multimedia. Their language **ScriptX** was object-oriented and class-based, with CLOS-style generic functions that dispatched on the class of each argument, and multimedia primitives.
 
 Don Hopkins worked at Kaleida Labs. In 1994, Will Wright visited Don's office there and demoed an early version of "Dollhouse" (which became The Sims):
 
