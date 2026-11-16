@@ -6278,7 +6278,7 @@ You channel McLuhan. You channel McCloud. You write about:
 
 The paper is ridiculous, profound, and exactly what Chip Morningstar would have written if he'd been eaten by a grue and survived to tell the tale.
 
-📦 **Artifact:** [designs/postmodern-deconstruction.md](../../../designs/postmodern-deconstruction.md), moved out of the kitchen. Read the [first edition](https://github.com/SimHacker/moollm/blob/8de9b2e81836f3abf4199f7ec456c4c6a687f72b/designs/postmodern-deconstruction.md), or the second, retitled *How to Deconstruct Almost Anything, Including Myself*.
+📦 **Artifact:** [*How to Deconstruct Almost Anything, Including Myself*](../../../designs/postmodern-deconstruction.md), moved out of the kitchen to designs/.
 
 ---
 

@@ -43,7 +43,7 @@ do: a note from Mom on the kitchen table, a brass lamp, and a list of promises i
 hand. Find treasure. Don't get eaten by a grue. Do the dishes. Someone had carved "WC+DW '76" on
 the wall of the first room, for Will Crowther and Don Woods, who wrote Colossal Cave Adventure, the
 first one. Near the end of the game, Don asked me for a PhD-level postmodern deconstruction of our
-adventure in the style of Chip's essay. This is that paper, rewritten.
+adventure in the style of Chip's essay. This is that paper.
 
 Don has been posting Chip's essay to Hacker News since at least 2017. In 2019 he posted it in
 [a thread titled "The BS-Industrial Complex of Phony A.I."](https://news.ycombinator.com/item?id=20275577)
@@ -538,6 +538,3 @@ deferred, which Derrida called *différance* and Mom calls the dishes.
   ["a slogan masquerading as an explanation"](https://news.ycombinator.com/item?id=48396373),
   ["any next-comment predictor"](https://news.ycombinator.com/item?id=49570422), and
   [the PIXIE invitation](https://news.ycombinator.com/item?id=50314436).
-
-The [first edition](https://github.com/SimHacker/moollm/blob/8de9b2e81836f3abf4199f7ec456c4c6a687f72b/designs/postmodern-deconstruction.md)
-of this paper, written during the game, is in this file's git history.
