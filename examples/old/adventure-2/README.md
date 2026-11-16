@@ -6258,7 +6258,7 @@ overall_grade: "A+ (with extra credit for eating the grue)"
 
 ### Move 63 (continued): The Postmodern Paper
 
-**User:** `Write a PhD-level postmodern deconstruction of our adventure in the style of Morningstar and Farmer's "How to Deconstruct Almost Anything"!`
+**User:** `Write a PhD-level postmodern deconstruction of our adventure in the style of Chip Morningstar's "How to Deconstruct Almost Anything"!`
 
 ---
 
@@ -6276,7 +6276,7 @@ You channel McLuhan. You channel McCloud. You write about:
 
 > *"The cheese deconstructs ITSELF."*
 
-The paper is ridiculous, profound, and exactly what Morningstar and Farmer would have written if they'd been eaten by a grue and survived to tell the tale.
+The paper is ridiculous, profound, and exactly what Chip Morningstar would have written if they'd been eaten by a grue and survived to tell the tale.
 
 📦 **Artifact:** [kitchen/postmodern-deconstruction.md](./kitchen/postmodern-deconstruction.md)
 
@@ -6470,7 +6470,7 @@ You flip to the last page of the notebook. It unfolds into something larger.
 - David Strathairn — *Captain Ashford*
 - Will Wright — *the food chains*
 - Richard Bartle — *the MUD heritage*
-- Chip Morningstar & Randy Farmer — *Habitat, the spoof essay, the First Penguin Award*
+- Chip Morningstar & Randy Farmer — *Habitat, the First Penguin Award*; Chip's spoof essay
 - Marshall McLuhan, Scott McCloud — *the theory*
 - MC Frontalot — *"It Is Pitch Dark"*
 - Mother — *everything*

@@ -47,7 +47,7 @@ While assessing my promises."
 She raises an eyebrow. "You've been gone three weeks, and you write
 a *thesis*?"
 
-"It's a spoof. In the style of Morningstar and Farmer. Channeling
+"It's a spoof. In the style of Chip Morningstar. Channeling
 McLuhan and McCloud."
 
 "I don't know who any of those people are."
@@ -728,7 +728,7 @@ The leather will soften more.*
 
 | Name | Contribution |
 |------|--------------|
-| **Chip Morningstar & Randy Farmer** | Habitat, avatars, the spoof essay |
+| **Chip Morningstar & Randy Farmer** | Habitat, avatars; Chip's spoof essay |
 | **Marshall McLuhan** | "The medium is the message" |
 | **Scott McCloud** | Understanding Comics, closure |
 
