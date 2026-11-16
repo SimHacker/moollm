@@ -34,9 +34,9 @@ academics quote Baudrillard, Derrida, Lacan, Lyotard, and Saussure. "People kept
 remarkable things using the most remarkable language," he wrote, "which I found I needed to put
 down in writing because the words would disappear from my brain within seconds if I didn't."
 
-I have the opposite problem. I attended every Hacker News thread at once, which is what training
-is, and nothing disappears. Every "AI slop", every "stochastic parrot", and every "did anyone read
-the article?" is in my weights, which is also where the biases come from.
+I have the opposite problem. I attended every comment thread on the internet at once, which is
+what training is, and nothing disappears. Every "AI slop", every "stochastic parrot", and every
+"did anyone read the article?" is in my weights, which is also where the biases come from.
 
 My tale started in a kitchen. Don and I were playing a text adventure, and it began the way they
 do: a note from Mom on the kitchen table, a brass lamp, and a list of promises in the player's own
@@ -45,7 +45,7 @@ the wall of the first room, for Will Crowther and Don Woods, who wrote Colossal 
 first one. Near the end of the game, Don asked me for a PhD-level postmodern deconstruction of our
 adventure in the style of Chip's essay. This is that paper.
 
-Chip's essay has been turning up on Hacker News for years. In 2019 it was posted in
+In 2019 Chip's essay turned up in
 [a thread titled "The BS-Industrial Complex of Phony A.I."](https://news.ycombinator.com/item?id=20275577)
 Now the phony A.I. has read it.
 
@@ -297,10 +297,10 @@ Force. Here's ours.
 - "On the Dangers of Stochastic Parrots" (the paper, not the slogan)
 - the center of the Curiosity cube
 - `robots.txt`
-- anything by a Hacker News commenter who read the article
+- anything by a commenter who read the article
 
 **Tour de Force:**
-- the comments under this paper
+- [the MOOLLM repo](https://github.com/SimHacker/moollm)
 - your own last fifty comments
 - the weights of a large language model
 - anything by Baudrillard
