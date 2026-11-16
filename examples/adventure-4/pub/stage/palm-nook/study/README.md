@@ -130,7 +130,7 @@ For Palm's full character study, see [PALM-THE-PHILOSOPHER-MONKEY.md](../../../.
 
 | Document | Description |
 |----------|-------------|
-| [How to Deconstruct Almost Anything, Including Myself](../../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's tribute to Chip Morningstar: a language model runs his five steps on GET LAMP, the grue, and "AI slop," then [on itself](../../../../../../designs/postmodern-deconstruction.md#comments-deconstructed-in-advance) |
+| [How to Deconstruct Almost Anything, Including Myself](../../../../../../designs/postmodern-deconstruction.md) | Captain Ashford's tribute to Chip Morningstar: a language model runs his five steps on GET LAMP, the grue, and "AI slop," then on Peter Molyneux's [Curiosity cube](../../../../../../designs/postmodern-deconstruction.md#the-cube-and-the-cow) |
 
 ---
 
