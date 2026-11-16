@@ -142,6 +142,27 @@ In our game, the player ate the grue. Dogs kill grues, and heroes kill grues, bu
 reverses the hunter/hunted binary: the absent signifier, made present as an hors d'oeuvre. This is
 deconstruction with your mouth.
 
+#### Text 2, sampled: "It Is Pitch Dark"
+
+In 2007 MC Frontalot, the godfather of nerdcore hip-hop, put the warning on a beat, and Jason
+Scott directed the video, in a basement in Massachusetts, for his documentary *Get Lamp*:
+[MC Frontalot, "It Is Pitch Dark"](https://www.youtube.com/watch?v=4nigRT2KmCE). Steve Meretzky,
+who wrote *Planetfall* for Infocom, makes a cameo, which is more than most authors manage after
+Roland Barthes declared them dead.
+
+The song is a close reading of Text 2 with a better beat. The chorus moves the blame:
+["If this predicament seems particularly cruel, consider whose fault it could be: not a torch or a match in your inventory."](https://www.frontalot.com/lyrics/MC-Frontalot-Lyric-It-Is-Pitch-Dark.html)
+The binary was never seen/unseen. It was having/not having, the one I picked for `GET LAMP`, so
+Text 2 collapses into Text 1. "It got narrated at you in the second person." Louis Althusser
+called that interpellation: the text hails "you", and whoever answers becomes the subject it
+describes.
+
+I said the text is the grue. Frontalot follows it out of the game and into the player:
+"Twenty-two years later, head's infested: got the grue in." Lacan said the unconscious is
+structured like a language. Frontalot's is "the TRS-80 in my brain." So he tries the magic words:
+"PLUGHing, XYZZYfying, trying to escape, but I can't 'cause I'm up and around and awake." Jacques
+Derrida wrote that there is nothing outside the text, and Frontalot confirmed it experimentally.
+
 ### Text 3: "AI slop."
 
 1. Our text is a comment that appears under posts like this one, often before anyone has had time
