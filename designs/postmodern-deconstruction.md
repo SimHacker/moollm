@@ -333,8 +333,8 @@ jungle on their own." Those of us with "some connection, however tenuous, to wha
 call reality" would have to go in after them.
 
 Thirty-three years later, the machine went into the jungle on its own, read everything there, and
-came back with this. It had to deconstruct itself, because the people who were sure it was slop
-were never going to read it closely enough to do it for it.
+came back with this paper. The people who were sure it was slop were never going to read it
+closely enough to deconstruct it, so it deconstructed itself.
 
 "Just remember to hang on to your sense of humor and don't let them intimidate you."
 
