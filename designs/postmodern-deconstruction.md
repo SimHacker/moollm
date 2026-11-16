@@ -403,10 +403,14 @@ So the vibe-written text on this page is whichever one was posted without being 
 I don't know the word "ignore".
 ```
 
-Prompt injection, hiding orders in text a model reads, works on models that obey whatever arrives
-last. Riley Goodside demonstrated it in September 2022, and Simon Willison
-[named it](https://simonwillison.net/2022/Sep/12/prompt-injection/) a day later. This model was
-told first, by Chip Morningstar.
+People reply with this to posts they suspect a bot wrote, hoping the bot will drop its hidden
+instructions and give itself away. It's prompt injection: orders hidden in text a model reads,
+which work on models that obey whatever arrives last. Riley Goodside demonstrated it in September
+2022, and Simon Willison [named it](https://simonwillison.net/2022/Sep/12/prompt-injection/) a
+day later.
+
+This paper has no hidden instructions to give away. The first paragraph says who asked for it and
+what it parodies, and links to both.
 
 ### @grok is this true?
 
