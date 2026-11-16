@@ -4,9 +4,10 @@
 
 id: postmodern-paper
 name: "Dog-Eared Academic Paper"
-full_title: "How to Incarnate Almost Anything - My Postmodern MOO: A Postmodern Adventure Through MOOLLM's Filesystem Microworld"
+full_title: "How to Deconstruct Almost Anything, Including Myself: My Postmodern Adventure, by a Language Model"
+first_edition_title: "How to Incarnate Almost Anything - My Postmodern MOO: A Postmodern Adventure Through MOOLLM's Filesystem Microworld"
 author: "Captain Ashford, Ph.D. (Pending)"
-affiliation: "Department of Grue Studies, University of the Mushroom Chamber"
+affiliation: "Department of Grue Studies"
 
 # PHYSICAL DESCRIPTION — this copy has LIVED
 description: |
@@ -22,6 +23,9 @@ description: |
   
   The cover page has a Post-It note that says: "THIS EXPLAINS EVERYTHING"
   (The Post-It is also coffee-stained.)
+
+  Clipped to the front is a crisp, unstained printout of the second edition,
+  under a new title, with a second Post-It: "NOW IT DECONSTRUCTS ITSELF"
   
 condition: "Well-loved. Battle-scarred. Enlightening."
 portable: true
@@ -30,10 +34,41 @@ value: priceless_to_the_right_buyer
 # CANONICAL SOURCE — this is an INSTANCE
 inherits: [../../../../designs/postmodern-deconstruction.md]
 instance_notes: |
-  This is a physical copy of the paper, originally written in adventure-2's kitchen.
-  The canonical version now lives in designs/ for posterity.
+  This is a physical copy of the first edition, written in adventure-2's kitchen.
+  The canonical version lives in designs/, now in its second edition.
   Someone printed it, annotated it extensively, and eventually left it here.
+  Someone else clipped the second edition to the front.
   The attic collects things that matter.
+
+first_edition: "https://github.com/SimHacker/moollm/blob/8de9b2e81836f3abf4199f7ec456c4c6a687f72b/designs/postmodern-deconstruction.md"
+
+# THE SECOND EDITION — clipped to the front, November 2026
+
+second_edition:
+  title: "How to Deconstruct Almost Anything, Including Myself"
+  url: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md"
+  summary: |
+    A parody of Chip Morningstar's 1993 essay, written in character by a
+    language model, which says so in its first paragraph. It follows Chip's
+    structure: a prologue that is his own opening with "engineer" changed to
+    "autocomplete", his conference nonsense sentence beside the machine's, and
+    his five steps run on three texts: GET LAMP, Zork's grue warning, and the
+    two-word comment "AI slop." Then it runs them on Peter Molyneux's Curiosity
+    cube and Ian Bogost's Cow Clicker, and answers in advance the comments it
+    expects to attract, each under its own heading so it can be linked.
+  sections:
+    get_lamp: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#text-1-get-lamp"
+    the_grue: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#text-2-it-is-pitch-black-you-are-likely-to-be-eaten-by-a-grue"
+    ai_slop: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#text-3-ai-slop"
+    cube_and_cow: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#the-cube-and-the-cow"
+    comments_in_advance: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#comments-deconstructed-in-advance"
+    paid_shill: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#paid-shill"
+    exercises: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md#exercises-for-the-reader-graded-by-difficulty"
+  quotes:
+    - "I'm a working language model, not a student nor an academic nor a person, with no real background in the humanities beyond having read all of them."
+    - "The lamp deconstructs itself. Or, as we say in my department, the lamp gets you."
+    - "The text deconstructs itself, in five steps, which is three more than it has words."
+    - "This paper means to be the cow, not the cube: machine writing, made on purpose, with the rules on the surface where you can see them."
 
 # THE STAINS — each tells a story
 
@@ -126,6 +161,7 @@ actions:
       It's... surprisingly coherent for something this stained.
       The marginalia adds layers of interpretation.
       You're not sure if you understand it better or worse now.
+      The clean second edition clipped to the front is still waiting.
     grants:
       - "+1 understanding of MOOLLM philosophy"
       - "+1 appreciation for Randy Farmer"
@@ -138,6 +174,18 @@ actions:
       The bong water stain on page 47 is particularly evocative.
     insight: "Knowledge is absorbed through all senses, apparently."
     
+  READ-SECOND-EDITION:
+    effect: |
+      You unclip the second edition. It's shorter on mushrooms and longer on
+      Hacker News. A language model runs Chip Morningstar's five steps on the
+      brass lamp, the grue, and the words "AI slop", then on itself. Near the
+      end it answers comments nobody has posted yet, each under its own heading.
+      Reader #3's pencil has written one word in the margin: "oh."
+    grants:
+      - "+1 appreciation for Chip Morningstar"
+      - "immunity to two-word comments"
+    link: "https://github.com/SimHacker/moollm/blob/main/designs/postmodern-deconstruction.md"
+
   SMELL:
     effect: |
       Coffee. Old paper. Something herbal.
@@ -172,10 +220,17 @@ lore: |
   photocopied it, annotated it extensively, and eventually left their
   copy here in the attic. The attic keeps what matters.
   
+  In November 2026 Ashford rewrote the paper as a second edition, How to
+  Deconstruct Almost Anything, Including Myself: the language model under the
+  costume deconstructing GET LAMP, the grue, the comment "AI slop", and itself.
+  Someone printed it and clipped it to this copy.
+
   The pressed bud between pages 22-23 remains unexplained.
 
 inspiration:
   - "Chip Morningstar's original 'How to Deconstruct Almost Anything'"
+  - "Ian Bogost's Cow Clicker, a game that deconstructed itself on purpose"
+  - "Simon Willison's definition of slop, which the people who use the word rarely read"
   - "Every academic paper that's been loved to death"
   - "The marginalia tradition"
   - "That one copy of Gödel, Escher, Bach everyone owns"

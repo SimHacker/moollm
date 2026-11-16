@@ -207,7 +207,7 @@ Prototypes live in character directories:
 - Room-f still smells of cheese and victory
 - The skeleton received a **grue head trophy**
 - Mushrooms in room-h spawned **The Thing That Watches**
-- A [**PhD paper**](../../../designs/postmodern-deconstruction.md) was written about it all (Captain Ashford, *How to Deconstruct Almost Anything* — tribute to Chip Morningstar)
+- A [**PhD paper**](../../../designs/postmodern-deconstruction.md) was written about it all (Captain Ashford, *How to Deconstruct Almost Anything, Including Myself*, after Chip Morningstar), which concludes, about [the grue](../../../designs/postmodern-deconstruction.md#text-2-it-is-pitch-black-you-are-likely-to-be-eaten-by-a-grue), that "the text is the grue."
 
 ---
 

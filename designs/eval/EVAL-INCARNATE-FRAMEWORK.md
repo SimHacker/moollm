@@ -1202,7 +1202,7 @@ Two pivots to communication tools weren't accidents — they emerged from unders
 ## Related Documents
 
 - [MOOLLM-MANIFESTO.md](../MOOLLM-MANIFESTO.md) — Core philosophy
-- [postmodern-deconstruction.md](../postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece ("How to Incarnate Almost Anything")
+- [postmodern-deconstruction.md](../postmodern-deconstruction.md) — Captain Ashford's lit crit masterpiece ("How to Deconstruct Almost Anything, Including Myself"; the first edition was "How to Incarnate Almost Anything")
 - [sims-design-index.md](../sims/sims-design-index.md) — Master index of Sims influences
 
 ### PostScript Lineage

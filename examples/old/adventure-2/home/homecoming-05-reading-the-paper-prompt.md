@@ -9,7 +9,7 @@
 
 | Type | Path | Relevance |
 |------|------|-----------|
-| Paper | [`../kitchen/postmodern-deconstruction.md`](../kitchen/postmodern-deconstruction.md) | The PhD-level spoof |
+| Paper | [`designs/postmodern-deconstruction.md`](../../../../designs/postmodern-deconstruction.md) | The PhD-level spoof (moved out of the kitchen) |
 | Inspiration | Chip Morningstar | "How to Deconstruct Almost Anything" |
 | Effect | [`../player.yml`](../player.yml) | postmodern_scholar: true |
 

@@ -6276,9 +6276,9 @@ You channel McLuhan. You channel McCloud. You write about:
 
 > *"The cheese deconstructs ITSELF."*
 
-The paper is ridiculous, profound, and exactly what Chip Morningstar would have written if they'd been eaten by a grue and survived to tell the tale.
+The paper is ridiculous, profound, and exactly what Chip Morningstar would have written if he'd been eaten by a grue and survived to tell the tale.
 
-📦 **Artifact:** [kitchen/postmodern-deconstruction.md](./kitchen/postmodern-deconstruction.md)
+📦 **Artifact:** [designs/postmodern-deconstruction.md](../../../designs/postmodern-deconstruction.md), moved out of the kitchen. Read the [first edition](https://github.com/SimHacker/moollm/blob/8de9b2e81836f3abf4199f7ec456c4c6a687f72b/designs/postmodern-deconstruction.md), or the second, retitled *How to Deconstruct Almost Anything, Including Myself*.
 
 ---
 
@@ -6541,7 +6541,7 @@ You flip to the last page of the notebook. It unfolds into something larger.
 |---------|----------|--------|
 | **Credits** | [credits-card.yml](./start/credits-card.yml) — 50+ inspirations! | Move 69 |
 | **Dreams** | [dream-card.yml](./home/dream-card.yml) — The Glorious Dream | Move 68 |
-| **Papers** | [postmodern-deconstruction.md](./kitchen/postmodern-deconstruction.md) | Move 63 |
+| **Papers** | [postmodern-deconstruction.md](../../../designs/postmodern-deconstruction.md) (now in designs/) | Move 63 |
 | **Letters** | Mother's Note, 4 replies, Richard Bartle correspondence | Various |
 | **Cards** | Victory Ballad, Prophecy Shanty, Treasure Ballad, Ode, Oracle Compass, Vow of Vengeance, Grue Ululation, Klingon Battle Song, Journey Home, 15+ more | Various |
 | **Personas** | [Captain Ashford](./coatroom/bumblewick-ashford-persona.yml) *(currently wearing)* | Move 10 |
@@ -6732,7 +6732,7 @@ adventure-2/
 ├── kitchen/                            
 │   ├── mothers-note.yml                # Where it all started
 │   ├── promise-assessment.yml          # 8/8 KEPT
-│   └── postmodern-deconstruction.md    # PhD-level spoof
+│   └── (postmodern-deconstruction.md, moved to designs/)
 │
 ├── coatroom/                           
 │   ├── mannequin.yml                   # Maurice 💅 (still weeping)

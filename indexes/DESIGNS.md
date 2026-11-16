@@ -157,7 +157,7 @@ Steve Yegge's Gas Town is the opposite of MOOLLM on almost every axis, which mak
 - [don-hopkins-projects.md](../designs/don-hopkins-projects.md) — 40-year project history
 - [vanessa-freudenberg-philosophy.md](../designs/vanessa-freudenberg-philosophy.md) — SqueakJS, Smalltalk wisdom
 - [perverts-guide-to-programming-languages.md](../designs/perverts-guide-to-programming-languages.md) — Žižek-style language analysis
-- [postmodern-deconstruction.md](../designs/postmodern-deconstruction.md) — Postmodern lens on code
+- [postmodern-deconstruction.md](../designs/postmodern-deconstruction.md) — *How to Deconstruct Almost Anything, Including Myself*: Captain Ashford's parody of Chip Morningstar, in which a language model runs his five steps on GET LAMP, the grue, "AI slop," and itself
 - [antirez-ai-hype-analysis.md](../designs/antirez-ai-hype-analysis.md) — Redis creator on AI hype
 - [kaleida-scriptx-dreamscape.md](../designs/kaleida-scriptx-dreamscape.md) — Kaleida Labs history
 - [snap/moollm-integration.md](../designs/snap/moollm-integration.md) — Snap! (visual programming) integration

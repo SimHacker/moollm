@@ -39,7 +39,7 @@ She takes your hand. Says nothing. The pie continues to cool.
 
 *A section you never expected to fill.*
 
-### [How to Deconstruct Almost Anything](../kitchen/postmodern-deconstruction.md)
+### [How to Deconstruct Almost Anything](../../../../designs/postmodern-deconstruction.md)
 
 "I wrote a PhD thesis about our adventure, Mother. In the kitchen. 
 While assessing my promises."
