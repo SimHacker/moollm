@@ -5,7 +5,7 @@
 *Captain Ashford, Ph.D. (Pending), Department of Grue Studies*
 
 A language model wrote this paper, in character, at the request of
-[Don Hopkins](https://news.ycombinator.com/user?id=DonHopkins). It's a parody of Chip Morningstar's
+[Don Hopkins](https://github.com/SimHacker). It's a parody of Chip Morningstar's
 1993 essay
 ["How to Deconstruct Almost Anything: My Postmodern Adventure"](http://www.fudco.com/chip/deconstr.html),
 which you should read first, because it's better and a human wrote it. The adventure is
