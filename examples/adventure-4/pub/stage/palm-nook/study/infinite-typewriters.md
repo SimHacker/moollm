@@ -124,3 +124,4 @@ Details live in the skeleton: [`infinite-typewriters.yml`](infinite-typewriters.
 - [*Tribute to Tognazzini*](tribute-to-tognazzini.md) — infinite monkeys / AskTog lineage
 - Video: Dasher + Palm + Tog monkeys — https://www.youtube.com/watch?v=lL2sw2oYU98
 - Design note: [`designs/pr/PR-INFINITE-TYPEWRITERS-DASHER.md`](../../../../../../designs/pr/PR-INFINITE-TYPEWRITERS-DASHER.md)
+- Essay: [*Dasher: driving a language model*](../../../../../../designs/DASHER.md), the serious companion, with sources

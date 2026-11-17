@@ -358,6 +358,7 @@ May you navigate well.
 |-------|------|
 | **Dasher Software** | [Wikipedia](https://en.wikipedia.org/wiki/Dasher_(software)) |
 | **Dasher Project** | [Cambridge Inference Group](http://www.inference.org.uk/dasher/) |
+| **Dasher, the serious version** | [Dasher: driving a language model](https://github.com/SimHacker/moollm/blob/main/designs/DASHER.md) |
 | **MacKay's Free Book** | [Information Theory, Inference, and Learning Algorithms](http://www.inference.org.uk/mackay/itila/) |
 | **David MacKay** | [Wikipedia](https://en.wikipedia.org/wiki/David_J._C._MacKay) |
 | **Word Embeddings** | [Wikipedia](https://en.wikipedia.org/wiki/Word_embedding) |
