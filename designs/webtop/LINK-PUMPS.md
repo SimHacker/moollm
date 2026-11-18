@@ -259,8 +259,17 @@ either document is still there.
 Pumping into nowhere doesn't mean losing it. The discard goes somewhere visible: a trash can of
 clippings, which is one more directory in the clipboard.
 
-That clipboard is not the hidden, single-slot buffer Ted Nelson rightly rails against, where you
-can't see what's on it, it has no history, and every copy destroys the last. It's a directory of
+That clipboard is not the hidden, single-slot buffer Ted Nelson rightly rails against. In
+[his computer paradigm in one-liners](http://www.hyperland.com/TedCompOneLiners) it's "just like a
+regular clipboard, except (a) you can't see it, (b) it holds only one object, (c) whatever you put
+there destroys the previous contents," and calling its functions "cut" and "paste" stole the words
+for what writers did on a table, "parallel rearrangement with all things visible." In
+["Real cut and paste"](https://www.youtube.com/watch?v=6_35RDA6r3g) he tells how, as a copy boy at
+the New York Times, he filled the paste pots, then cuts up a manuscript on a cutting board to show
+what the words meant. The pumps are closer to what he asked for in
+[Xanalogical Structure](https://xanadu.com.au/ted/XUsurvey/xuDation.html), "pullacross editing":
+"the author should be able to pull screen contents from old versions into new, seeing all points of
+origin and also seeing what contents have not yet been used." This clipboard is a directory of
 files in a git repo, which [Views as Testimony](../pie-stack-views/VIEWS-AS-TESTIMONY.md#github-is-the-clipboard-bus)
 and [Branching Timelines](../editing-history/BRANCHING-TIMELINES.md) already work out:
 
