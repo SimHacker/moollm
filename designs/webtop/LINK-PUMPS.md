@@ -171,13 +171,28 @@ stripe stays behind showing where it came from, which
 reads as transclusion, with `git blame` as the weak version that ships. What stays behind here is
 that stripe made of words: a link that says what moved and why you might follow it.
 
-### Back and forth
+### Pumps and filters
 
-Every pump runs both ways. Pump a passage out, then pump some of it back in with different
-parameters. Click words to make them anchors, and the next pump keeps those and sends the rest. Go
-to the other document, select something there, and pump it in. Then select part of what came in
-and pump it back out: to where it came from, to a new document, or nowhere. Writing becomes
-refinement by iteration, the way Dasher lets you steer, back off, and steer again.
+Every pump runs both ways, and every pump has a filter: the rule for what passes through. Pump one
+way, change the filter, pump the other way, and repeat. The filter is the demon's rule for which
+molecules go through the door.
+
+Filters come from three places:
+
+- **The menu suggests them.** A filter submenu offers what the model sees in this passage: the
+  history, the examples, the definitions, everything about one person, whatever the other side
+  doesn't already say.
+- **Clicking words** on either side makes them anchors, and the filter passes what's about them.
+- **Selecting regions** on either side. A region on the side you're pumping from says "this part".
+  A region on the receiving side says "more like this", or "not this again", which is how a pump
+  deduplicates against what's already there.
+
+So the moves compose. Pump a passage out with no filter. Click two names on the far side and pump
+back with that filter, and the parts about those two come home. Change the filter to the examples
+and pump them out again. Go to the other document, select something there, and pump it in; then
+select part of what came in and pump it back out, to where it came from, to a new document, or
+nowhere. Writing becomes refinement by iteration, the way Dasher lets you steer, back off, and
+steer again.
 
 None of it is destructive, because each pump is a commit. Branching Timelines puts the property
 plainly: when a clipping is a commit, the overwrite bug is unrepresentable. Any earlier state of
