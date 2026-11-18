@@ -18,7 +18,8 @@ Part of the [webtop](README.md) hub. It builds on
 [Transclusion Frames](../pie-stack-views/TRANSCLUSION-FRAMES.md) (opposite items are inverse
 operations), the [HyperTIES article schema](hyperties/ARTICLE-SCHEMA.md) (every article carries a
 definition), and the [Nelson](nelson/README.md) notes (the bridge that popups still don't draw).
-Written with Anthropic's Claude, from Don's description.
+Written with Anthropic's Claude, from Don's description. The five-minute version is
+[Drive the autocomplete](../DRIVE-THE-AUTOCOMPLETE.md).
 
 ---
 
