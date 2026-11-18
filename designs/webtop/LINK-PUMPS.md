@@ -7,7 +7,9 @@ linking it: pull out one way to expand the text and the other way to summarize i
 destination from a tree of related content. Once the link exists, it has a pie menu of its own,
 which pulls an explanation through the link from the destination or pushes redundant text out
 through it. The writer is Maxwell's demon at the valve, deciding which meaning belongs on which
-side. What comes out is plain text with links, so readers need no model to read it.
+side. Anchors, words you pin as Spaceship lets you, steer every pump. Dasher, at every level from
+letters to paragraphs, is how you write what the pumps don't offer. What comes out is plain text
+with links, so readers need no model to read it.
 
 Part of the [webtop](README.md) hub. It builds on
 [Pumping Up Pie Menus](../pie-stack-views/PUMPING-UP-PIE-MENUS.md) (distance as appetite),
@@ -23,8 +25,10 @@ Written with Anthropic's Claude, from Don's description.
 Chuanqi Sun's [Spaceship](https://github.com/chuanqisun/spaceship) steers a language model while
 it writes: future knobs pull out of a main knob, where the direction picks what to change and the
 distance picks how much. That's the gesture of the pull-out font pie menu Don made for NeWS, where
-the direction picked the font and the distance picked the size. [Dasher](../DASHER.md) steers
-through a language model one letter at a time.
+the direction picked the font and the distance picked the size. Spaceship also lets you pin words
+as anchors that lead what it writes next. [Dasher](../DASHER.md) steers through a language model
+one letter at a time, and it's the deepest influence here: everything below is meant to feel like
+Dasher at whatever level you're working.
 
 Both steer the writing of new sentences. Most of what a writer does with a corpus is something
 else: deciding what to link, what to explain in place, what to leave to the destination, and what
@@ -38,7 +42,25 @@ selected, the way objects in [Verbs and Rubrics](VERBS-AND-RUBRICS.md) advertise
 a phrase that matches a page title or synonym offers to link to it, a long paragraph offers to
 summarize, a single word offers to define.
 
-Two submenus carry most of the weight: one for resizing the text and one for linking it.
+Two submenus carry most of the weight: one for resizing the text and one for linking it. A third
+item makes the selection an anchor.
+
+### Anchors
+
+Spaceship's anchors are what its code calls attention knobs: shaded boxes of words around a
+keyword, made from a selection or generated around keywords. Drag a box to move its keyword,
+double click to delete it. Each one goes into the prompt as a key phrase that leads what happens
+next, and Spaceship scores each anchor's relevance to the sentence under the main knob, so you can
+see which anchors are doing work.
+
+Here an anchor can come from anywhere: a selection, typed words, a name picked from the link tree,
+or a whole document or section. A link is an anchor too, since it declares what the text around it
+is about. Anchors steer every pump in this design:
+
+- Summaries keep the anchored phrases, and expansions build on them.
+- Pulling through a link favors what the destination says about the anchors.
+- The link tree ranks related content by the anchors.
+- Dasher gives anchored words more area, below.
 
 ### Expand and summarize: one gesture, two directions
 
@@ -57,6 +79,43 @@ you browse the choice before committing to it.
 
 The other directions are free for more axes. [Summary Genres](SUMMARY-GENRES.md) is the obvious
 one: the same length in a different register.
+
+### Dasher at every level
+
+Dasher works letter by letter, and that level is complete: any string can be written, including
+names and words no model would guess. The same zooming works above letters. At the word level the
+boxes are candidate words; at the phrase, sentence, and paragraph levels they're candidate
+phrases, sentences, and paragraphs, each sized by how likely the model thinks it is. You fly
+through whole sentences when the model is right, and dash down a level when it isn't: to phrases,
+to words, and finally to letters, to spell out exactly what you mean. Then you dash back up.
+
+This has been built once, at two levels. Keith Vertanen and David MacKay's
+[Speech Dasher](https://www.keithv.com/pub/sd/speechdasher.pdf) (CHI 2010) took the guesses of a
+speech recognizer and let you "quickly zoom through entire words." When the word you wanted wasn't
+there, a red escape box at each word boundary let you spell it letter by letter, and afterward
+Speech Dasher found its way back into the recognizer's guesses. Expert users wrote at 40 words per
+minute with only speech and their gaze, though the recognizer got 22 percent of the words wrong.
+
+Speech Dasher's paper also records the lesson that applies at every level: showing too many choices
+made all but the most probable ones too small to hit, so only the likely words got boxes, and
+everything else went into the escape box. Above the word level the model can't list every possible
+sentence anyway. So each level shows a few candidates, plus an escape to the level below, and
+because the bottom level is letters, nothing is ever unwritable.
+
+**Every direction is a move, and every move goes back.** Up and down in granularity, from letters
+to paragraphs. Up and down in abstraction, the expand and summarize pull-outs above. Sideways
+through the knobs that set the manner, and through the anchors that set the content. Into the text
+that's already there, by selecting it. Going back never destroys anything: text you've written is
+a path you've already flown, and backing out of it, by pointing left as in Dasher or scrubbing
+back as in Spaceship, leaves it in place as a branch you can return to.
+
+**Box size comes from all the context, not just the last few letters.** Dasher's PPM model learned
+as you wrote, which is how it adapted to you at the letter level. Here the model sees the whole
+document, the anchors, the links, and the corpus around it. Names and words you've already used
+get more area, so the character you introduced three paragraphs ago is a big box when you start to
+mention them again. Speech recognition has called that a cache language model since Roland Kuhn and
+Renato De Mori's 1990 paper. Anchored words and the names of linked destinations get more area
+too, which means the link tree and the Dasher boxes are drawn from one model of what's relevant.
 
 ### Link to: a tree of related content
 

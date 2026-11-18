@@ -401,6 +401,12 @@ These are designs and wishes, mine and MacKay's, not software.
   beer in the other hand," people who can't use a keyboard, and people writing Japanese and
   Chinese.
 - **A large language model in Dasher**, solving the two problems above.
+- **Dasher at every level.** Fly through candidate words, phrases, sentences, and paragraphs when
+  the model is right, and dash down to letters to spell what it didn't guess, then back up. Keith
+  Vertanen and MacKay's [Speech Dasher](https://www.keithv.com/pub/sd/speechdasher.pdf) did it at
+  two levels in 2010, with whole words from a speech recognizer and an escape box for spelling.
+  Box sizes should come from all the context, so names you've already used get more area. Worked
+  out in [Link pumps](webtop/LINK-PUMPS.md#dasher-at-every-level), with Spaceship's anchors.
 - **Dasher in a programming environment.** From
   [2018](https://news.ycombinator.com/item?id=17105728): "Now think of what you could do with a
   version of dasher integrated with a programmer's IDE, that knew the syntax of the programming
