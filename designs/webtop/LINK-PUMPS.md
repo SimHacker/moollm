@@ -10,7 +10,8 @@ through it. The commonest move pumps a whole passage out into its own document a
 much stays behind, from a heading and summary to a bare link, and every pump runs both ways. The
 writer is Maxwell's demon at the valve, deciding which meaning belongs on which side. Anchors, words you pin as Spaceship lets you, steer every pump. Dasher, at every level from
 letters to paragraphs, is how you write what the pumps don't offer. What comes out is plain text
-with links, so readers need no model to read it.
+with links, so readers need no model to read it. It's writing with a language model by direct
+manipulation, meeting all four of Shneiderman's points, where a chat box meets one.
 
 Part of the [webtop](README.md) hub. It builds on
 [Pumping Up Pie Menus](../pie-stack-views/PUMPING-UP-PIE-MENUS.md) (distance as appetite),
@@ -340,6 +341,35 @@ The writer gets the valve: what to link, what to explain in place, what to send 
 cut. The reader gets the signs, descriptions, and notes needed to decide whether to take an exit.
 Neither of them hands the decision to a model. These are
 [interfaces to agency, not agents instead of interfaces](../INTERFACE-TO-AGENCY.md).
+
+### Direct manipulation, all four points
+
+Ben Shneiderman named direct manipulation in
+["Direct Manipulation: A Step Beyond Programming Languages"](https://www.cs.umd.edu/~ben/papers/Shneiderman1983Direct.pdf)
+(IEEE Computer, August 1983) and drew what he called "an integrated portrait" of it in four points.
+Writing with a language model through link pumps meets every one of them. Typing requests into a
+chat box meets only the last.
+
+1. **"Continuous representation of the object of interest."** The object is the text, and it never
+   leaves the screen. Anchors are shaded where they sit, a pumped passage leaves its heading and
+   summary behind, the clipboard is a folder you can open, and Dasher shows the model's predictions
+   as boxes sized by probability before you pick one. A chat shows the conversation about the
+   document, while the document itself is somewhere else.
+2. **"Physical actions (movement and selection by mouse, joystick, touch screen, etc.) or labeled
+   button presses instead of complex syntax."** The direction you pull picks the operation and the
+   distance picks how much. Dragging a selection's edge expands or summarizes it, dragging an anchor
+   moves its keyword, and in Dasher, steering is writing. The spoken channel is the one place words
+   come back, and it's held to the same rule: it names things on the screen and resolves to commands
+   a hand could invoke, so speaking is pointing by name, not programming.
+3. **"Rapid, incremental, reversible operations whose impact on the object of interest is
+   immediately visible."** Chuanqi Sun's thesis quotes this one, and Spaceship lives by it: turn a
+   knob and the text regenerates. Here the pie shows the result while you're still pulling, every
+   pump is a commit that can run back the other way, and in Dasher you back up by steering left.
+   Put-That-There's ending is the case for it.
+4. **"Layered or spiral approach to learning that permits usage with minimal knowledge."** A
+   beginner clicks and reads the pie's labels, and the same motion made faster is the gesture an
+   expert makes without looking. The first thing to learn is select and pull. Anchors, filters,
+   framings, and the vocabulary come when they're wanted.
 
 ### The model runs at write time
 
