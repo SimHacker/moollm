@@ -6,8 +6,9 @@
 linking it: pull out one way to expand the text and the other way to summarize it, or pick a
 destination from a tree of related content. Once the link exists, it has a pie menu of its own,
 which pulls an explanation through the link from the destination or pushes redundant text out
-through it. The writer is Maxwell's demon at the valve, deciding which meaning belongs on which
-side. Anchors, words you pin as Spaceship lets you, steer every pump. Dasher, at every level from
+through it. The commonest move pumps a whole passage out into its own document and declares how
+much stays behind, from a heading and summary to a bare link, and every pump runs both ways. The
+writer is Maxwell's demon at the valve, deciding which meaning belongs on which side. Anchors, words you pin as Spaceship lets you, steer every pump. Dasher, at every level from
 letters to paragraphs, is how you write what the pumps don't offer. What comes out is plain text
 with links, so readers need no model to read it.
 
@@ -147,6 +148,61 @@ link in context without sending the reader away.
 with the destination goes out through the link. If the destination already says it, the text is
 cut here and the link carries the reader there. If the text says something the destination
 doesn't, it can be merged into the destination.
+
+### Pumping a passage out, and what stays behind
+
+The most common move is bigger than a sentence. Select a large chunk in the middle of a document
+and pump it out: into a new document of its own, or into an existing one at the right place,
+perhaps as a new section the link can point to. The gesture also declares how much stays behind:
+
+- **Only a link**, whose words explain it in context and lead to the details.
+- **A phrase, sentence, or paragraph** before or after the link that tells the reader why it's
+  there.
+- **A heading and a short summary** of what moved, so the passage is duplicated in brief and in
+  full in two places.
+
+One natural mapping: the direction you pull picks where the passage goes, and the distance picks
+how much stays behind, from a heading and summary close in to a bare link far out, which is the
+summary scale again.
+
+Nelson's version of this was a mockup in which you drag a paragraph into a new document and a
+stripe stays behind showing where it came from, which
+[Branching Timelines](../editing-history/BRANCHING-TIMELINES.md#blame-is-provenance-merge-is-transclusions-working-cousin)
+reads as transclusion, with `git blame` as the weak version that ships. What stays behind here is
+that stripe made of words: a link that says what moved and why you might follow it.
+
+### Back and forth
+
+Every pump runs both ways. Pump a passage out, then pump some of it back in with different
+parameters. Click words to make them anchors, and the next pump keeps those and sends the rest. Go
+to the other document, select something there, and pump it in. Then select part of what came in
+and pump it back out: to where it came from, to a new document, or nowhere. Writing becomes
+refinement by iteration, the way Dasher lets you steer, back off, and steer again.
+
+None of it is destructive, because each pump is a commit. Branching Timelines puts the property
+plainly: when a clipping is a commit, the overwrite bug is unrepresentable. Any earlier state of
+either document is still there.
+
+### Nowhere is a place
+
+Pumping into nowhere doesn't mean losing it. The discard goes somewhere visible: a trash can of
+clippings, which is one more directory in the clipboard.
+
+That clipboard is not the hidden, single-slot buffer Ted Nelson rightly rails against, where you
+can't see what's on it, it has no history, and every copy destroys the last. It's a directory of
+files in a git repo, which [Views as Testimony](../pie-stack-views/VIEWS-AS-TESTIMONY.md#github-is-the-clipboard-bus)
+and [Branching Timelines](../editing-history/BRANCHING-TIMELINES.md) already work out:
+
+- **Visible**, because it's a working tree you can open.
+- **Editable in place**, because a clipping is a file.
+- **Never lost**, because a new clipping can't overwrite an old one, and every change is a commit.
+- **Many items, shaped like a tree**, because directories nest. A clipboard can hold a passage, its
+  summary, and the three sentences you pulled out of it, filed together.
+- **Shareable**, because the repo can be pushed, forked, and reviewed.
+
+Clippings are references by default and copies only when you ask, the `TAKE REF` distinction from
+the [inventory skill](../../skills/inventory/). So "nowhere", "the clipboard", and "a new document"
+differ by which directory the pump writes into.
 
 ### Maxwell's demon at the valve
 
