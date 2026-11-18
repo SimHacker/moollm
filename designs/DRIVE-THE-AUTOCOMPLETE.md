@@ -48,7 +48,9 @@ used get bigger boxes, and so do your anchors.
 with its own pie menu. *Pull* brings a summary of the destination to here, sized by distance.
 *Push* sends text that the destination already covers out through the link. The commonest move is
 to pump a whole passage out into its own document and say how much stays behind: a heading and a
-summary, a sentence, or just a link.
+summary, a sentence, or just a link. So move and copy aren't two commands anymore but one dial:
+because the model rewrites both sides, each keeps a version written for its own context, and the
+anchors decide what each one attends to.
 
 **Pumps have filters, and run both ways.** Pump a passage out, click two names on the far side,
 and pump back only what's about them. Select a region on the receiving side to mean "more like

@@ -240,6 +240,16 @@ select part of what came in and pump it back out, to where it came from, to a ne
 nowhere. Writing becomes refinement by iteration, the way Dasher lets you steer, back off, and
 steer again.
 
+**Move or copy is a dial, not two commands.** Clipboards made them two commands because text
+couldn't change in transit: the bytes either stayed or went. When the model can rewrite both sides,
+it's a continuous parameter. At one end the passage is copied whole and both sides keep all of it;
+at the other it moves and only a link stays behind. In between, each side keeps a version written
+for its own context, long on one side and short on the other, which is the distance in the
+pump-out gesture above. The version that moves picks up what it relied on from its old
+surroundings, and the version that stays is rewritten to read smoothly without it. The anchors and
+the filter decide what each version attends to, so one pull can leave the history here and send
+the examples there.
+
 None of it is destructive, because each pump is a commit. Branching Timelines puts the property
 plainly: when a clipping is a commit, the overwrite bug is unrepresentable. Any earlier state of
 either document is still there.
