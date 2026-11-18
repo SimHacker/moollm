@@ -269,7 +269,8 @@ the New York Times, he filled the paste pots, then cuts up a manuscript on a cut
 what the words meant. The pumps are closer to what he asked for in
 [Xanalogical Structure](https://xanadu.com.au/ted/XUsurvey/xuDation.html), "pullacross editing":
 "the author should be able to pull screen contents from old versions into new, seeing all points of
-origin and also seeing what contents have not yet been used." This clipboard is a directory of
+origin and also seeing what contents have not yet been used." More of his words, with the videos,
+are in [Cut and paste, in Ted Nelson's words](nelson/CUT-AND-PASTE.md). This clipboard is a directory of
 files in a git repo, which [Views as Testimony](../pie-stack-views/VIEWS-AS-TESTIMONY.md#github-is-the-clipboard-bus)
 and [Branching Timelines](../editing-history/BRANCHING-TIMELINES.md) already work out:
 

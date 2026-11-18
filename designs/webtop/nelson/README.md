@@ -165,6 +165,12 @@ conversation is stated as theme and idea, never as quotation, unless and until h
 
 ↑ [webtop hub](../README.md) · [hyperties](../hyperties/) · [gwern](../gwern/) · [temkin](../temkin/)
 
+## Cut and paste
+
+[CUT-AND-PASTE.md](CUT-AND-PASTE.md) collects his case against the invisible clipboard from his
+one-liners, his videos, and his BayCHI talk, with what he asked for instead and how link pumps
+answer it.
+
 ## Live threads
 
 - [**HN-XANADU-2026.md**](HN-XANADU-2026.md) — the 2026-09-04 HN thread on gwern's *Project Xanadu: Even More Hindsight* ([49559522](https://news.ycombinator.com/item?id=49559522), 102 points, 28 comments, 23 commenters). **gwern has not appeared in it, and neither has Don.** Four comments are answerable with primary sources nobody else holds: `Rochus` independently reinvented definition previews via Ivar Jacobson's Objectory and correctly separates byte-offset transclusion from definition-level transclusion; `xnorswap` remembers trackbacks and cannot find the history, which is the Winer/Technorati lineage plus a linkrot testimonial delivered by accident; `gritzko` arrives independently at git-as-Xanadu-substrate with running code, and adds the agents-have-no-memory argument unprompted; `kmeisthax` separates the idea from the demo, which is the strongest form of the opposition.

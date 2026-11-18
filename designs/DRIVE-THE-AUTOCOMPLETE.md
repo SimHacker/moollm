@@ -71,7 +71,7 @@ goes to the model as a free instruction.
 
 Every pump is a git commit, and the instruction that caused it is the commit message. The clipboard
 isn't the invisible single-slot buffer Ted Nelson
-[rightly rails against](http://www.hyperland.com/TedCompOneLiners), which "holds only one object"
+[rightly rails against](webtop/nelson/CUT-AND-PASTE.md), which "holds only one object"
 and destroys "the previous contents." It's a folder of files in a
 repo, so it's visible, editable, branching, and shareable, and a new clipping can never overwrite an
 old one. Throwing text away moves it to a trash folder you can open.
