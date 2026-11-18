@@ -81,6 +81,45 @@ you browse the choice before committing to it.
 The other directions are free for more axes. [Summary Genres](SUMMARY-GENRES.md) is the obvious
 one: the same length in a different register.
 
+### Framings: where new text comes from
+
+Spaceship frames generation one way: the text grows at the bottom. Drag the main knob forward and
+new text appears; drag it back and the future empties. That's one framing among several, and the
+writer should be able to switch between them:
+
+- **At the end**, Spaceship's way.
+- **At the edges of a selection.** Select some text, generated or not, and drag its edges: outward
+  to expand it, inward to summarize it. It's resizing a window, and
+  [The Window Resize Pie](../pie-stack-views/WINDOW-RESIZE-PIE.md) has already separated the two
+  questions, which edge and by how much.
+- **At the cursor**, with Dasher, below.
+- **Through a link**, with the pumps.
+
+Expanding draws on what the selection is attending to: the links inside it, whose destinations it
+can pull from; the anchors; and the text outside the selection, before and after. Those are
+attention focuses, and they stay editable and live. Edit an anchor, add a link, or select a
+different passage outside, and the expansion re-forms around the change, the way Spaceship
+regenerates as you turn a knob.
+
+### Say what to do with it
+
+Sometimes no menu item fits. Select the text, then speak or type what the model should do with it,
+on a separate channel that overlays the document rather than typing into it. That's the move of
+Richard Bolt's [Put-That-There](../GLOSSARY.yml) at MIT's Architecture Machine Group in 1980:
+pointing says *which*, and the voice says *what*.
+
+It needs a vocabulary for the interface itself, so an instruction can name the widgets: "expand this
+from that link, but keep the second anchor," "push the examples out to a new page," "summarize until
+it fits under this heading," "pull back only what's about MacKay." Every anchor, link, knob, region,
+and clipboard item gets a speakable name, its label or a number shown while you're speaking, and
+pointing at one while you say "that" works too.
+
+What the vocabulary can resolve becomes the same named commands the pie menu, the keyboard, and
+dragging invoke, which is the [Tree Navigation](TREE-NAVIGATION.md) rule with a fourth way in. What
+it can't resolve goes to the model as a free instruction, with the resolved references attached.
+Either way the instruction is kept, as the message on the pump's commit, so the record says what
+was done and why.
+
 ### Dasher at every level
 
 Dasher works letter by letter, and that level is complete: any string can be written, including
