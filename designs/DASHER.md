@@ -412,11 +412,17 @@ These are designs and wishes, mine and MacKay's, not software.
   version of dasher integrated with a programmer's IDE, that knew the syntax of the programming
   language you're using, as well as the names of all the variables and functions in scope, plus how
   often they're used!"
-- **The grammar as the language model.** A
-  [design for the teletype](https://github.com/SimHacker/WillWrightShowForFood/blob/main/packages/cabinet/TELETYPE-DASHER.md)
-  of the emulated PDP-7 in the WillWrightShowForFood repo: "The teletype should offer Dasher-style
-  text entry, steered by the grammar of whatever program is running on the machine." The grammar
-  decides what's legal, and a language model only ranks within it.
+- **The grammar as the language model.** Dasher-style entry for a running program, steered by
+  that program's own grammar. The boxes offer only what the program would accept next: in Forth,
+  the words in its dictionary; in BASIC, its keywords, its line numbers labeled by their `REM`
+  comments, and its variables; in a shell, its commands and the files in the current directory.
+  Define a new word and it appears in the next column. Probabilities mix three sources: the grammar
+  (what's legal here), the session's history (what you just did), and the program's sources and
+  transcripts (what people usually type to it). A language model can rank within the grammar's
+  choices but never adds one the grammar doesn't allow. An emulator makes this easy, because it can
+  read the dictionary or symbol table out of the machine's memory while the program waits for
+  input, and the program never knows. The same grammar drives tab completion, help, and pie menus
+  of what can come next.
 - **An emoji branch.** From [2025](https://news.ycombinator.com/item?id=44195187): "You could even
   have an 'emoji' branch where you spell out the :smile: codes, constrained to just the defined
   codes so it's easier to select them (and see the growing emojis as you get near to spelling them
