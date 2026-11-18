@@ -109,7 +109,9 @@ Richard Bolt's
 ["Put-That-There"](https://www.media.mit.edu/speech/papers/1980/bolt_SIGGRAPH80_put-that-there.pdf)
 (SIGGRAPH 1980), at MIT's Architecture Machine Group, which became the Media Lab: pointing says
 *which*, and the voice says *what*. Bolt used pronouns "effectively as 'temporary variables' to
-reference items on the display," which is the job the vocabulary below does for widgets.
+reference items on the display," which is the job the vocabulary below does for widgets. Chris
+Schmandt's [original 1979 demo](https://www.youtube.com/watch?v=RyBEUyEtxQo) shows it working, and
+its ending shows why every command here has to be easy to take back.
 
 It needs a vocabulary for the interface itself, so an instruction can name the widgets: "expand this
 from that link, but keep the second anchor," "push the examples out to a new page," "summarize until
