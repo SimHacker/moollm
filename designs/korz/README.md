@@ -88,6 +88,41 @@ The prototype — interpreter, debugger, partial IDE — was built **in
 Self, on the Self VM**. That detail turns out to be prophetic; see the
 analogy below.
 
+## Korz running machines
+
+A second Korz now runs in TypeScript, in the browser, in the
+[WillWrightShowForFood cabinet](https://github.com/SimHacker/WillWrightShowForFood/tree/main/packages/cabinet):
+an emulator kit where every handler, mapping, opcode, IOT gate, trap,
+watch and accelerator is a guarded slot in one sea. It makes one
+narrowing the paper doesn't: every coordinate is a small integer, so
+ambiguity is decided at install time and the sea resolves into tables,
+then compiles into JavaScript that V8 compiles again. Each level is
+kept and tested in lockstep against the one below it.
+
+What runs on it:
+
+- **PDP-7 UNIX v0**, on an interpreter, a resolver and a compiler, with
+  a switch-statement port of SIMH as the oracle. The compiler boots it
+  at 189 million instructions a second, against 92 million for the
+  switch ([live](https://hyperties.org/cabinet/systems/pdp-7-unix/)).
+- **The Type 340**'s own instruction set as slots, and **Mitch
+  Bradley's PDP-7 Forth**, with its inner interpreter and primitives
+  run by a Forth device on the same image.
+- **An Apple ][+** on a 6502 sea, which runs Little Computer People.
+  On a tight loop, a DOS boot and Applesoft it runs 15 to 52 times as
+  fast as microM8's WebAssembly build — mostly because of how microM8
+  is built, not because of Wasm.
+
+Read [KORZ-MACHINES.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/packages/cabinet/KORZ-MACHINES.md)
+first: the results and the questions for David, Randall, Alan and Dan.
+The design is [KORZ-DISPATCH.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/packages/cabinet/KORZ-DISPATCH.md),
+the history from Self to V8 is
+[SEA-OF-SLOTS.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/packages/cabinet/SEA-OF-SLOTS.md),
+and a tour of the source is
+[SEA-OF-SLOTS-VOYAGE.md](https://github.com/SimHacker/WillWrightShowForFood/blob/main/packages/cabinet/SEA-OF-SLOTS-VOYAGE.md).
+The deterministic tier Korz′ calls Korz, below, is this kind of
+machine.
+
 ## Korz is to Korz′ as Self is to MOOLLM
 
 MOOLLM is Don's system that
@@ -143,6 +178,7 @@ it sits in [`korz-prime/`](korz-prime/). Suggested reading order:
 | [case-zork.md](case-zork.md) | Case study: Zork and Adventure as shipped five-dimensional dispatch, and the plan to rebuild them as Korz slots |
 | [case-cellular-automata.md](case-cellular-automata.md) | Case study: cellular automata as Korz at absolute zero — Margolus blocks, multiple dispatch, Minsky's Single Agent, GPU crystallization |
 | [case-mystery-and-art/](case-mystery-and-art/) | Case study running the other direction: **a genre is a dispatch configuration**. Howcatchem crystallizes who, whodunit computes who; the whydunit is the `purpose` dimension; a locked room is a type error; cosmic horror is a lookup miss; dramatic irony is differential binding; Cubism is symmetric dispatch and melodrama is the is-of-identity |
+| [repo-as-everything.md](repo-as-everything.md) | The filesystem as the universal object space: the old move, its known failure (Kell, PLOS'13, answering Ingalls), the fix patented in 1991, and why `git` makes the argument work |
 | [dry-piles.md](dry-piles.md) | **The filesystem as the guard lattice** — flat plural piles of same-typed objects, `ls` as a gather, one canonical source per fact, every duplication declared and recomputable. Why the pile is flat (a subdirectory asserts a dominant cut), the two kinds of pump and their two different seals, constraint inheritance down the tree with narrowing as a lint — and the 1840 Oxford dry pile that supplies both the name and the anti-pattern |
 | [korz-notes.md](korz-notes.md) | Don's Q&A working notes on the papers (nulls, JIT, Linda, layers, mirrors, Emacs buffer-locals…) |
 | [ask-david.md](ask-david.md) | The open questions, collected — the agenda for the conversation |
@@ -153,13 +189,14 @@ Then [`korz-prime/`](korz-prime/):
 | Doc | What it is |
 |---|---|
 | [korz-prime/README.md](korz-prime/README.md) | **The Korz′ design** — one semantics, two dispatchers; crystallize/deopt; slots as YAML; the discipline ("interpret, don't invent") |
+| [korz-prime/deoptimize-to-the-llm.md](korz-prime/deoptimize-to-the-llm.md) | Inference as tier 0 of a tiered JIT: Self's deoptimization, with the LLM as the interpreter to fall back to |
 | [korz-prime/addressing.md](korz-prime/addressing.md) | Every address is a guard vector: directories, filename prefixes and suffixes, URL fragments, archives, CSV, tensors |
 | [korz-prime/epistemics.md](korz-prime/epistemics.md) | What replaces null: names as inheritance, K-line pointers, `isKnown` as a float, latent-space paging with review |
 | [korz-prime/sparse-shadow-trees.md](korz-prime/sparse-shadow-trees.md) | One dense tree, N sparse shadows: dimension-indexed delegation, from ScriptX clocks to ethics scopes |
 | [korz-prime/hosting-moollm.md](korz-prime/hosting-moollm.md) | The integration story: hosting Korz′ on MOOLLM's filesystem reading — interfaces, cards, accretion, no IDE required |
 | [korz-prime/cauldron.md](korz-prime/cauldron.md) | Phase-1 plan for the runnable proof of concept |
 | [korz-prime/llm-evals.md](korz-prime/llm-evals.md) | The evaluation ladder — can a model *be* a dispatcher, or only an improviser? |
-| [korz-prime/examples/](korz-prime/examples/) | Worked sketches: layered rules, Fluxx/Nomic, MTG layers, Sims advertisements, Margolus blocks, mood as a dimension, grid-as-rooms, troll blending, procedural magic |
+| [korz-prime/examples/](korz-prime/examples/) | Worked sketches: layered rules, Fluxx/Nomic, MTG layers, Sims advertisements, Margolus blocks, mood as a dimension, purpose as a dimension, grid-as-rooms, a city that routes itself, troll blending, procedural magic |
 | [korz-prime/experiments/](korz-prime/experiments/) | [korz-eval](korz-prime/experiments/korz-eval/EXPERIMENT.md) — the four-phase battery with anti-Korz and gensym-parity controls — and a rule compiler that emits Margolus kernels |
 
 Sources are in [`sources/`](sources/): the
