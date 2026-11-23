@@ -54,6 +54,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `test FILE` | exit 2 unless each factual run fits its record and its `expect:` block |
 | `ablate FILE` | drop each censor; warn about the ones the record doesn't need |
 | `sweep FILE --n N` | perturb value weights ±50%: do the conclusions depend on the numbers? |
+| `predict FILE --offers A,B [--set-item K=on]` | forecast the next event under every hypothesis; commit it before it happens ([LIVE.md](LIVE.md)) |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |

@@ -162,6 +162,14 @@ moment, the apology. Applause pays for everything else he did, so the
 model can't tell whether he knows. And the one thing applause can't explain
 is the most informative line in the run.
 
+`stage-logic` also carries a hypothesis for that miss: `power-at-risk`, an
+observed item set only where the record documents a cost to his business or
+access, and `power-safe`, a latent one with no weight by default. Give it a
+weight and the apology, a retraction, and a change of sides become paid
+moves. The fictional Baron has no documented cost, so his runs don't change;
+the real record does (see [LIVE.md](LIVE.md) for the loop that tests it on
+events as they happen).
+
 ```bash
 cd examples/baron
 for f in loyal-friend fan ironist crusader convert ironic-crusader stage; do

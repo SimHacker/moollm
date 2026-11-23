@@ -43,6 +43,7 @@ Commands:
   test     FILE           exit 2 unless every factual run fits its record and expectations
   ablate   FILE           drop each censor in turn: which does the record need?
   sweep    FILE           perturb value weights N times: do conclusions depend on them?
+  predict  FILE --offers A,B [--set-item K=on]  what each run does next, over N weightings
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -792,6 +793,33 @@ def cmd_sweep(a, bus):
     return emit_out(s, a.format or "text", "\n".join(lines))
 
 
+def cmd_predict(a, bus):
+    """A forecast for an event that hasn't happened: commit the output
+    before it does, and the commit date makes it a preregistration."""
+    spec = load([a.file], a.layer, a.who, a.set)
+    t_next = max([e["t"] for e in spec.get("events", [])] + [0]) + 1
+    ev = {"t": t_next, "offers": [x.strip() for x in a.offers.split(",")],
+          "set": {k: v for k, _, v in (kv.partition("=") for kv in a.set_item)}}
+    if a.say:
+        ev["say"] = a.say
+    trial = {**spec, "events": spec.get("events", []) + [ev]}
+    rng = random.Random(a.seed)
+    values = spec["agent"].get("values", {})
+    tallies = {r["name"]: Counter() for r in runs_of(spec)}
+    for _ in range(a.n):
+        v = {k: w * rng.uniform(1 - a.spread, 1 + a.spread) for k, w in values.items()}
+        for r, m in run({**trial, "agent": {**trial["agent"], "values": v}}):
+            tallies[r["name"]][m.choices[-1][1] if m.choices and m.choices[-1][0] == t_next else None] += 1
+    out = {"event": ev, "n": a.n, "spread": a.spread,
+           "runs": {k: {str(act): round(c / a.n, 4) for act, c in t.most_common()} for k, t in tallies.items()}}
+    bus.emit("RESULT", "predict", f"t={t_next}: " + "; ".join(
+        f"{k}: {max(v, key=v.get) if v else '-'}" for k, v in out["runs"].items()), **out)
+    lines = [f"prediction for t={t_next}: offers {ev['offers']}, set {ev['set'] or '{}'}  ({a.n} weightings, ±{a.spread:.0%})"]
+    for name, dist in out["runs"].items():
+        lines.append(f"  {name}: " + ", ".join(f"{act} {share:.0%}" for act, share in dist.items()))
+    return emit_out(out, a.format or "text", "\n".join(lines))
+
+
 def cmd_bench(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     t0 = time.perf_counter()
@@ -953,6 +981,10 @@ def main(argv=None):
     s = sub.add_parser("run", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s = sub.add_parser("sweep", parents=[common]); s.add_argument("file")
     s.add_argument("--n", type=int, default=1000); s.add_argument("--seed", type=int, default=0)
+    s.add_argument("--spread", type=float, default=0.5)
+    s = sub.add_parser("predict", parents=[common]); s.add_argument("file")
+    s.add_argument("--offers", required=True); s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
+    s.add_argument("--say"); s.add_argument("--n", type=int, default=1000); s.add_argument("--seed", type=int, default=0)
     s.add_argument("--spread", type=float, default=0.5)
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")

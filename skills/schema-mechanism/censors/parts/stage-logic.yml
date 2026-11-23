@@ -9,14 +9,23 @@
 # An apology costs: applause goes OFF, and to apologize is to admit it.
 # Piling on a critic, from the stage, also brings applause: this layer
 # adds that to crowd-logic's pile-on schema, by id.
+#
+# Power at risk. `power-at-risk` is OBSERVED: an event sets it only when
+# the record shows a cost to his businesses or his access (advertisers
+# leaving, a president threatening contracts, an election lost).
+# `power-safe` is LATENT: what he gets from retracting, apologizing, or
+# changing sides. Its weight is 0 here, so nothing changes unless a run
+# hypothesizes that power pays (see characters/elon-musk on-stage.yml).
 # ============================================================================
 
-part: { id: stage-logic, kind: logic, about: "Amplify, apologize, deflect. Applause pays; an apology costs it and admits the thing." }
+part: { id: stage-logic, kind: logic, about: "Amplify, apologize, retract, deflect. Applause pays; an apology costs it. Power at risk is observed; what it pays is a hypothesis." }
 
 agent:
   items:
     applause: on                  # the crowd is cheering
     others-to-blame: off          # re-filed: someone else made it happen
+    power-at-risk: off            # observed: a documented cost to his business or access
+    power-safe: off               # latent: the cost is stopped
   values:
     applause: 2
 
@@ -24,4 +33,7 @@ schemas:
   - { id: amplify,   action: amplify,   context: [],                 result: { applause: on } }
   - { id: apologize, action: apologize, context: [accusation-heard], result: { applause: off, avoid-error: on, knows-ally-said-bigoted-things: on } }
   - { id: pile-on,   result: { applause: on } }
+  - { id: amplify-at-risk,   action: amplify,   context: [power-at-risk], result: { applause: on, power-safe: off } }
+  - { id: apologize-to-power, action: apologize, context: [accusation-heard, power-at-risk], result: { applause: off, power-safe: on } }
+  - { id: retract,   action: retract,   context: [power-at-risk], result: { power-safe: on }, note: "delete it; no apology" }
   - { id: deflect,   action: deflect,   context: [accusation-heard], result: { calm: on } }
