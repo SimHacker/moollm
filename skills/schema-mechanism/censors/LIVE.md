@@ -40,6 +40,25 @@ new event first tests the model, then becomes part of its record.
    change the record. Denials without evidence are recorded, not
    litigated ([portrayal standards](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md#public-power)).
 
+## Learning contexts from the record
+
+Hand-written schemas fit because someone wrote them to fit. `induce` does
+what Drescher's extended context does with experience: for every action the
+person was offered, it compares how often he took it with each item on and
+with it off, and a large gap proposes a schema with that item in its
+context. It learns only from items that were set and choices that were
+observed, never from the weights.
+
+```bash
+python3 $S induce on-stage.yml
+#  amplify    power-at-risk  -1.00  on 0/5  off 7/7
+#  apologize  power-at-risk  +1.00  on 3/3  off 0/4
+```
+
+On the Musk record it finds the cost hypothesis without being told. That
+doesn't prove the hypothesis; it shows the record carries it. Three cases
+is the minimum (`--min-trials`); fewer, and coincidences propose schemas.
+
 ## Jokes
 
 Memo 603 makes jokes training data for censors. A joke either makes a

@@ -55,6 +55,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `ablate FILE` | drop each censor; warn about the ones the record doesn't need |
 | `sweep FILE --n N` | perturb value weights ±50%: do the conclusions depend on the numbers? |
 | `predict FILE --offers A,B [--set-item K=on]` | forecast the next event under every hypothesis; commit it before it happens ([LIVE.md](LIVE.md)) |
+| `induce FILE [--run R]` | Drescher's extended context over the record: which items made each observed choice likelier; flags ones the model lacks |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |

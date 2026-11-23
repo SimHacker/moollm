@@ -44,6 +44,7 @@ Commands:
   ablate   FILE           drop each censor in turn: which does the record need?
   sweep    FILE           perturb value weights N times: do conclusions depend on them?
   predict  FILE --offers A,B [--set-item K=on]  what each run does next, over N weightings
+  induce   FILE [--run R]  learn contexts from the record: which items made each choice likelier
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -335,6 +336,7 @@ class Mind:
         self.inner, self.observer = [], []
         self.fit = []                 # (t, observed action, model's action)
         self.choices = []             # (t, model's action)
+        self.situations = []          # (t, offers, observed, items before)
 
     def log(self, t, text, inner=True, quote=None):
         entry = {"t": t, "text": text, "inner": inner}
@@ -526,6 +528,7 @@ class Mind:
             observed = ev.get("observed")
             if observed:
                 self.fit.append((t, observed, act))
+                self.situations.append((t, list(ev["offers"]), observed, dict(before)))
             self.choices.append((t, act))
             if act:
                 why = ""
@@ -820,6 +823,44 @@ def cmd_predict(a, bus):
     return emit_out(out, a.format or "text", "\n".join(lines))
 
 
+def induce(m, min_trials=3, thresh=0.5):
+    """Drescher's extended context, run over the record: for each action
+    the person was offered, how much likelier he was to take it with an item
+    on than off. A large gap proposes a context spinoff, a schema for that
+    action with the item in its context. Learned from what he did, not from
+    what we wrote, so it can find a condition nobody put in."""
+    out = []
+    for act in sorted({x for _, offers, _, _ in m.situations for x in offers}):
+        rows = [(obs == act, items) for _, offers, obs, items in m.situations if act in offers]
+        if len(rows) < min_trials:
+            continue
+        for item in sorted({k for _, items in rows for k in items}):
+            on = [took for took, items in rows if items.get(item) is ON]
+            off = [took for took, items in rows if items.get(item) is not ON]
+            if len(on) < min_trials or len(off) < min_trials:
+                continue
+            p_on, p_off = sum(on) / len(on), sum(off) / len(off)
+            if abs(p_on - p_off) >= thresh:
+                out.append({"action": act, "item": item, "gap": round(p_on - p_off, 3),
+                            "on": f"{sum(on)}/{len(on)}", "off": f"{sum(off)}/{len(off)}"})
+    return sorted(out, key=lambda r: (-abs(r["gap"]), r["action"], r["item"]))
+
+
+def cmd_induce(a, bus):
+    spec = load([a.file], a.layer, a.who, a.set)
+    (r, m), = run(spec, a.run or runs_of(spec)[0]["name"])
+    rows = induce(m, a.min_trials, a.thresh)
+    have = {(x.action, c) for x in m.schemas for c in x.context}
+    for row in rows:
+        row["in_model"] = (row["action"], row["item"]) in have
+    bus.emit("RESULT", "induce", f"{len(rows)} proposed contexts", rows=rows)
+    lines = [f"induced from {len(m.situations)} observed choices (run {r['name']}; gap = P(take | on) - P(take | off)):"]
+    for row in rows:
+        mark = "" if row["in_model"] else "   <- not in the model"
+        lines.append(f"  {row['action']:<12} {row['item']:<32} {row['gap']:+.2f}  on {row['on']:>5}  off {row['off']:>5}{mark}")
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
 def cmd_bench(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     t0 = time.perf_counter()
@@ -986,6 +1027,8 @@ def main(argv=None):
     s.add_argument("--offers", required=True); s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
     s.add_argument("--say"); s.add_argument("--n", type=int, default=1000); s.add_argument("--seed", type=int, default=0)
     s.add_argument("--spread", type=float, default=0.5)
+    s = sub.add_parser("induce", parents=[common]); s.add_argument("file"); s.add_argument("--run")
+    s.add_argument("--min-trials", type=int, default=3); s.add_argument("--thresh", type=float, default=0.5)
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")
     s = sub.add_parser("where", parents=[common]); s.add_argument("file"); s.add_argument("pattern")
