@@ -182,14 +182,27 @@ Henry Minsky (Marvin's son) implemented Drescher's schema mechanism in Python:
 | `Action` | Primitive or composite action |
 | `Schema` | The Context → Action → Result unit |
 | `ExtendedContext` | Statistical tracking for context discovery |
-| `ExtendedResults` | Statistical tracking for result discovery |
-| `DijkstraPlanner` | Goal-directed planning through schema graph |
+| `ExtendedResults` | Statistical tracking for result discovery: P(item turns on \| taken) vs \| not taken |
+| `LocalConsistencyTracker` | Streakiness of a schema's success; triggers synthetic items, including negative ones for reliable schemas that go locally unreliable |
+| `DijkstraPlanner`, `PlanSimulator` | Goal-directed planning through the schema graph, plans checked by simulation |
+
+The extended-context tables also yield **overriding conditions**: items that
+make an otherwise reliable schema fail. Those are Minsky's anecdotal
+censors, learned statistically. A comparison with the censor simulator, and
+what it borrowed from this code, is in
+[`designs/CENSORS-ON-SCHEMAS.md`](../../designs/CENSORS-ON-SCHEMAS.md#4-henry-minskys-code).
 
 ---
 
 ## Why LLMs Complete Drescher's Vision
 
-Drescher's original implementation faced fundamental limitations that LLMs transcend:
+Not by replacing the Python. Counting is what the Python is for, and it
+does it thousands of times a second, the same way every time. What it
+can't do is mean anything. The split that works is two tiers: deterministic
+code for the statistics, the LLM for grounding, naming and explanation,
+talking through files and events rather than embedded calls (see
+[`designs/CENSORS-ON-SCHEMAS.md` §7](../../designs/CENSORS-ON-SCHEMAS.md#7-two-tiers-python-for-arithmetic-the-llm-for-meaning)).
+What the LLM adds:
 
 ### 1. The Symbol Grounding Problem
 
@@ -358,8 +371,12 @@ Minsky's Memo 603 censors, run on this mechanism: precursor censors that
 veto an action before it's thought, suppressors that re-file a forbidden
 state, marginal attribution that mints new censors from pain, and jokes that
 expose them. Two traces, inner and observer; the gap is the cognitive
-unconscious. Can fit a real record and ablate each censor.
-[`censors/`](censors/README.md) · [`scripts/censor_sim.py`](scripts/censor_sim.py)
+unconscious. A CLI that never calls an LLM: it fits a record, ablates each
+censor, sweeps the weights, and emits requests with patches for whoever has
+the context to answer. Personality modules inherit shared logic, so two
+minds can agree on every schema and still differ in priorities.
+[`censors/`](censors/README.md) · [`scripts/censor_sim.py`](scripts/censor_sim.py) ·
+[the article](../../designs/CENSORS-ON-SCHEMAS.md)
 
 ---
 

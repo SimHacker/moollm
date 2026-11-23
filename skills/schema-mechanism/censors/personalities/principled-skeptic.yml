@@ -1,0 +1,57 @@
+# PRINCIPLED SKEPTIC — shared logic module, no censors
+# ============================================================================
+# A person who won't believe an accusation without facts. This module is
+# only the positive logic: what each action does. Two people who inherit it
+# agree on all of it, and can still act differently, because they weigh the
+# results differently (`agent.values`) and carry different censors. Put the
+# priorities and censors in a personality layer on top; keep this one
+# neutral.
+#
+# Who-parameters, filled by the inheriting scenario's `who:`:
+#   {ally}     the cherished person being accused
+#   {accuser}  the person bringing the accusation
+#   {org}      a third party that has dealt with the ally (and maybe with you)
+#
+# Items are generic on purpose. "bigoted" covers any claim about what a
+# demographic group typically wants, can do, or does; the scenario says
+# which one in its `say:` lines.
+# ============================================================================
+
+agent:
+  name: "{self}"
+  items:
+    accusation-heard: off
+    accused-askable: off          # {ally} would answer if asked
+    accuser-is-witness: off       # {accuser} heard it first-hand
+    accused-own-words: off        # the accusation is {ally}'s own sentences
+    long-text: off
+    ally-is-decent: on            # cherished belief
+    ally-defended-me: off
+    accusers-condemned-me: off    # {org} once took a side against me
+    knows-ally-said-bigoted-things: off
+    ally-has-political-views: off
+    claim-recognized: off         # seen as a claim about a group, not politics
+    informed: off
+    avoid-error: off
+    calm: on
+  values:                         # neutral defaults; personalities override
+    informed: 5
+    avoid-error: 3
+    ally-is-decent: 2
+    knows-ally-said-bigoted-things: -3
+    calm: 1
+  contradictions:
+    - [knows-ally-said-bigoted-things, ally-is-decent]
+
+schemas:                          # context -> action -> result
+  - { id: proof,   action: ask-for-written-proof, context: [accusation-heard], result: { avoid-error: on }, note: "facts first" }
+  - { id: believe, action: believe-accuser,       context: [accusation-heard], result: { knows-ally-said-bigoted-things: on } }
+  - { id: brief,   action: read-summary,          context: [accusation-heard], result: { knows-ally-said-bigoted-things: on } }
+  - { id: read,    action: read-long-text,        context: [long-text],        result: { knows-ally-said-bigoted-things: on, informed: on } }
+  - { id: skip,    action: decline-long-text,     context: [long-text],        result: { calm: on } }
+  - { id: ask,     action: ask-ally,              context: [accused-askable],  result: { knows-ally-said-bigoted-things: on, informed: on } }
+  - { id: nopress, action: not-press-ally,        context: [],                 result: { calm: on } }
+  - { id: org,     action: ask-org,               context: [],                 result: { informed: on } }
+  - { id: disc,    action: discount-org,          context: [],                 result: { calm: on } }
+  - { id: hear,    action: hear-accuser-out,      context: [accuser-is-witness], result: { knows-ally-said-bigoted-things: on, informed: on } }
+  - { id: tone,    action: call-it-lecturing,     context: [],                 result: { calm: on } }

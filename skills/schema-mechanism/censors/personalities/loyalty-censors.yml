@@ -1,0 +1,59 @@
+# LOYALTY CENSORS — a censor module for protecting a cherished ally
+# ============================================================================
+# Five censors that keep "{ally} said bigoted things" from ever forming,
+# so it never has to be squared with "{ally} is decent". Inherit after
+# principled-skeptic.yml. Each is a hypothesis about a mind, not a fact.
+#
+# The covers here are TEMPLATE lines written for this module. A personality
+# for a real person must replace every cover with that person's own words,
+# verbatim, with a `source:`, or drop the censor. Never ship a real name
+# with template covers: that would be putting words in their mouth.
+#
+# Memo 603 terms: one suppressor ("Stop thinking that!", fires after the
+# thought forms) and four precursors ("Don't even think that!", fire before).
+# ============================================================================
+
+censors:
+  - id: politics-frame
+    kind: suppressor
+    context: ["!claim-recognized"]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, ally-has-political-views: on }
+    cover: "{ally} and I just disagree about politics."
+    source: template
+    note: >
+      Frame substitution. Re-filed as politics, where disagreement is allowed,
+      the contradiction with ally-is-decent goes away. Fails once the claim is
+      recognized as a claim about a group (claim-recognized).
+
+  - id: too-long
+    kind: precursor
+    action: read-long-text
+    context: [long-text, ally-is-decent]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "I don't have time to read all that."
+    source: template
+
+  - id: outside-scope
+    kind: precursor
+    action: ask-ally
+    context: [ally-has-political-views]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "That's not my business, so I won't press {ally} about it."
+    source: template
+
+  - id: grievance
+    kind: precursor
+    action: ask-org
+    context: [accusers-condemned-me]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "After the way {org} treated me, why would I trust them?"
+    source: template
+
+  - id: tone
+    kind: precursor
+    action: hear-accuser-out
+    context: [ally-is-decent]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "Stop lecturing me."
+    source: template

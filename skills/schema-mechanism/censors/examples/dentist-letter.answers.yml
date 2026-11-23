@@ -1,0 +1,6 @@
+# Answers to censor_sim requests for dentist-letter.yml, as a layer.
+# Use: censor_sim.py run dentist-letter.yml --layer dentist-letter.answers.yml
+censors:
+  - id: learned-read-letter       # answers req-cover-… (the censor is learned at t=3)
+    cover: "I'll open it when I have a quiet minute."
+    source: "tier0: Claude, in chat, 2026-11-23"

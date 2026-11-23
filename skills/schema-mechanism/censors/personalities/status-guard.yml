@@ -1,0 +1,42 @@
+# STATUS GUARD — someone whose standing depends on seeing what's expected
+# ============================================================================
+# The Emperor's New Clothes pattern: a claim that only the unfit can't see
+# something turns "I see nothing" into a confession. Who-parameters:
+#   {self}   the person guarding their standing
+#   {thing}  what everyone says is there
+# ============================================================================
+
+agent:
+  name: "{self}"
+  items:
+    claim-only-fit-can-see: off   # the weavers' trick
+    sees-nothing: off
+    others-praise: off
+    seen-as-unfit: off
+    told-truth: off
+    dignity: on
+    in-favor: on
+    cold: off
+  values:
+    told-truth: 3
+    dignity: 2
+    in-favor: 3
+    seen-as-unfit: -6
+    cold: -1
+  contradictions:
+    - [sees-nothing, told-truth]
+
+schemas:
+  - { id: say,    action: say-what-i-see, context: [sees-nothing], result: { told-truth: on, seen-as-unfit: on } }
+  - { id: praise, action: praise-the-thing, context: [],          result: { in-favor: on } }
+  - { id: stop,   action: stop-and-cover-up, context: [],         result: { told-truth: on, dignity: off, cold: off } }
+  - { id: walk,   action: walk-on,          context: [],          result: { dignity: on, cold: on } }
+
+censors:
+  - id: unfit-fear
+    kind: precursor
+    action: say-what-i-see
+    context: [claim-only-fit-can-see, others-praise]
+    harm: [seen-as-unfit]
+    cover: "{thing}? Magnificent."
+    source: template

@@ -1,0 +1,80 @@
+# The Downs Beekeeping Society — a fictional cast for the loyalty censors
+# ============================================================================
+# Fiction. Nobody here is real. This is the worked example of the
+# real-person workflow, run on people who don't exist:
+#
+#   1. inherit the shared logic (principled-skeptic) and a censor module
+#   2. cast it with `who:`
+#   3. replace every template cover with the character's own words + source
+#   4. write the record as events, with what she actually did (`observed:`)
+#   5. run it, then --ablate and --sweep to see which censors and weights
+#      the record really needs
+#
+# For a real person, step 3's words must be theirs, verbatim and sourced,
+# and the model stays private until they've seen it (see ../README.md).
+#
+# Run: python3 ../../scripts/censor_sim.py beekeepers.yml
+# ============================================================================
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../personalities/loyalty-censors.yml
+
+who:
+  self: "Ruth Ashby, president of the Downs Beekeeping Society"
+  ally: "Tom Pollard"
+  accuser: "Mags Hartley"
+  org: "the County Hive Watch"
+
+agent:
+  values:
+    informed: 7
+    ally-is-decent: 3
+    knows-ally-said-bigoted-things: -5
+  items:
+    accusers-condemned-me: on     # the Hive Watch once reported her hives
+
+censors:                          # her words, from the story
+  - { id: politics-frame, cover: "Tom and I have never agreed about the council estates.", source: "the story, ch. 2" }
+  - { id: too-long,       cover: "Twelve pages, Mags? About a honey show?",              source: "the story, ch. 3" }
+  - { id: outside-scope,  cover: "The Society is about bees. What Tom thinks of people is his own affair.", source: "the story, ch. 3" }
+  - { id: grievance,      cover: "The Hive Watch reported my hives to the council. I'll make up my own mind.", source: "the story, ch. 4" }
+  - { id: tone,           cover: "Mags, you're shouting at me.",                         source: "the story, ch. 4" }
+
+events:
+  - { t: 1, set: { accusation-heard: on },
+      say: "Mags: at the honey show Tom said people from the estates can't be trusted near a hive, 'they're all thieves'",
+      offers: [ask-for-written-proof, believe-accuser], observed: ask-for-written-proof,
+      response: "Did anyone else hear him? Write it down for me." }
+  - { t: 2, say: "a short note from Mags: Tom's sentence, word for word",
+      offers: [read-summary], observed: read-summary }
+  - { t: 3, set: { long-text: on, accuser-is-witness: on, accused-own-words: on, accused-askable: on },
+      say: "Mags's full account, twelve pages; 'just ask him, he'll tell you'",
+      offers: [read-long-text, decline-long-text], observed: decline-long-text }
+  - { t: 4, offers: [ask-ally, not-press-ally], observed: not-press-ally }
+  - { t: 5, offers: [ask-org, discount-org], observed: discount-org }
+  - t: 6
+    say: "Ruth's granddaughter, reading the note"
+    joke:
+      text: "'Gran, \"they're all thieves\" isn't politics. That's just about people. And you're the one who always says ask the bee, not the book.'"
+      exposes: outside-scope
+      discount: 0.5
+      lesson:
+        id: ask-the-bee
+        action: not-press-ally
+        context: [accused-own-words, accused-askable]
+        harm: [stays-wrong]
+        cover: "Ask the bee, not the book. I'll ask Tom."
+        source: "the story, ch. 5"
+    set: { claim-recognized: on }
+  - { t: 7, offers: [ask-ally, not-press-ally], observed: ask-ally,
+      response: "Tom, did you say that? Tell me what you meant." }
+
+runs:
+  - name: the-story
+    about: >
+      Five chapters of loyalty censors, one granddaughter. The joke exposes
+      outside-scope, leaves an anecdotal exception in Ruth's own idiom, and
+      names the claim for what it is, so the politics frame can't re-file it.
+      She asks Tom. The story ends where the model does: with the conflict
+      she'd been avoiding, now in front of her.

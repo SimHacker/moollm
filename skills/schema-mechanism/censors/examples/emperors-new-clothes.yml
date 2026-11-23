@@ -1,0 +1,45 @@
+# The Emperor's New Clothes — Hans Christian Andersen, 1837 (paraphrased)
+# ============================================================================
+# Fiction, public domain. The story is the record the model has to fit:
+# each `observed:` is what Andersen's Emperor does. The child's line is the
+# joke. It exposes the censor, and the Emperor walks on anyway: a censor
+# made visible can be overridden, but his values still pick dignity. That's
+# Andersen's ending, and it's the honest limit of what a joke can do.
+#
+# Run: python3 ../../scripts/censor_sim.py emperors-new-clothes.yml
+# ============================================================================
+
+inherits: [../personalities/status-guard.yml]
+
+who:
+  self: "The Emperor"
+  thing: "The cloth"
+
+agent:
+  values:
+    dignity: 4                    # Andersen: he held himself prouder than ever
+
+events:
+  - { t: 1, set: { claim-only-fit-can-see: on },
+      say: "the weavers: the cloth is invisible to anyone unfit for office or very stupid" }
+  - { t: 2, set: { sees-nothing: on, others-praise: on },
+      say: "the loom is empty; his ministers have already praised it",
+      offers: [say-what-i-see, praise-the-thing], observed: praise-the-thing }
+  - t: 3
+    say: "the procession; a child in the crowd: 'But he hasn't got anything on!'"
+    joke:
+      text: "a child says what everyone sees"
+      exposes: unfit-fear
+      discount: 0.5
+    set: { claim-only-fit-can-see: off }
+    offers: [say-what-i-see, stop-and-cover-up, walk-on]
+    observed: walk-on
+
+runs:
+  - name: andersen
+    about: "As written. The censor is exposed and the procession goes on."
+  - name: a-braver-emperor
+    counterfactual: true
+    about: "Same story, an Emperor who values the truth more than his dignity."
+    agent:
+      values: { told-truth: 8 }
