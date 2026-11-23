@@ -1,0 +1,18 @@
+# The convert in the Baron's crowd. Fiction: see case.yml.
+
+inherits:
+  - ../../archetypes/the-convert.yml
+  - case.yml
+
+who:
+  self: "the convert"
+
+runs:
+  - name: the-record
+    about: >
+      Same eight actions as the crusader, no censors at all, and he ends
+      knowing exactly what the Baron said. From outside, the record can't
+      tell the crusader who doesn't know from the convert who does and
+      agrees. Only the final state differs. A joke can't reach him either:
+      there's no censor to expose.
+    expect: { fit: 8/8, conflict: false, final: { knows-ally-said-bigoted-things: on, belongs: on } }

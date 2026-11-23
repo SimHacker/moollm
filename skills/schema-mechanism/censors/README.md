@@ -57,6 +57,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |
+| `lineage FILE` | the parts a mind is built from, in merge order, each once |
 | `export FILE [--format dot]` | resolved model, or a censor graph for Graphviz |
 | `import TEXT` | split a message thread into skeleton events, one request per message |
 | `apply PATCH --into FILE` | merge a patch layer into a file |
@@ -76,15 +77,20 @@ python3 $S resolve examples/beekeepers.yml --set agent.values.informed=12 \
 
 ## Personality modules
 
-A scenario inherits modules: `inherits: [file, ...]`, relative and
-recursive. Dicts merge, `id`ed lists (schemas, censors) merge by id, events
-merge by `t`, `drop: true` deletes. `who:` fills `{ally}`-style
-placeholders.
+A scenario inherits modules: `inherits: [file, ...]`, relative, recursive
+and multiple (a shared parent merges once). Dicts merge, `id`ed lists
+(schemas, censors) merge by id, events merge by `t`, `drop: true` deletes.
+`who:` fills `{ally}`-style placeholders.
+
+The modules are a construction kit, down to one censor per file:
+**[`BRAINBALL.md`](BRAINBALL.md)** covers the parts in [`parts/`](parts/), the
+archetypes in [`archetypes/`](archetypes/), and how to compose a person.
 
 | Module | |
 |---|---|
 | [`personalities/principled-skeptic.yml`](personalities/principled-skeptic.yml) | Shared logic only: facts first. Two people who inherit it agree on every schema and can still act differently |
-| [`personalities/loyalty-censors.yml`](personalities/loyalty-censors.yml) | Five censors that keep "my ally said bigoted things" from forming. Template covers |
+| [`personalities/loyalty-censors.yml`](personalities/loyalty-censors.yml) | Bundle of five censor parts that keep "my ally said bigoted things" from forming. Template covers |
+| [`parts/crowd-logic.yml`](parts/crowd-logic.yml) | Shared logic for a crowd around a figure: belonging pays with every defense |
 | [`personalities/status-guard.yml`](personalities/status-guard.yml) | Standing that depends on seeing what's expected |
 
 ## Examples (all fictional)
@@ -92,14 +98,17 @@ placeholders.
 | Scenario | Shows |
 |---|---|
 | [`examples/dentist-letter.yml`](examples/dentist-letter.yml) ([output](examples/dentist-letter.RUN.md), [answers](examples/dentist-letter.answers.yml)) | A censor learned by marginal attribution, invisible from inside; a joke exposes it and leaves an exception. In 30% of weightings no censor forms at all: the values already avoid the letter |
-| [`examples/beekeepers.yml`](examples/beekeepers.yml) | The real-person workflow on people who don't exist: inherit, cast, replace every cover with the character's words, fit the record (6/6), ablate (`tone` isn't needed: the story never offers it) |
-| [`examples/emperors-new-clothes.yml`](examples/emperors-new-clothes.yml) | Andersen, 1837. The ablation says the Emperor's censor isn't needed: his values alone explain the praise. He's calculating, not repressing, which matches the story |
+| [`examples/beekeepers.yml`](examples/beekeepers.yml) ([output](examples/beekeepers.RUN.md)) | The real-person workflow on people who don't exist: inherit, cast, replace every cover with the character's words, fit the record (6/6), ablate (`tone` isn't needed: the story never offers it) |
+| [`examples/emperors-new-clothes.yml`](examples/emperors-new-clothes.yml) ([output](examples/emperors-new-clothes.RUN.md)) | Andersen, 1837. The ablation says the Emperor's censor isn't needed: his values alone explain the praise. He's calculating, not repressing, which matches the story |
+| [`examples/baron/`](examples/baron/) ([output](examples/baron/RUN.md)) | Six followers of a fictional platform baron, built from archetypes, on one record. The friend's censors can't keep him; the crowd's belonging keeps everyone else with no censor needed; a crusader and a convert act identically and differ only in what they know. See [`BRAINBALL.md`](BRAINBALL.md#the-barons-crowd) |
 
 ## Modeling a real person
 
 The quotes are theirs, the censors are yours, and you label which is
-which. Set `real_person: true`; `lint` then fails on any cover that isn't
-their own words with a `source:`. Real quotes print only when the model's
+which. Set `real: [self]` (or `real_person: true`); `lint` then fails on any
+cover that isn't their own words with a `source:`. With `real: [ally]`, a
+real public figure in the center seat, `lint` fails on any event without a
+`source:`. Real quotes print only when the model's
 action matches what the person did, so a counterfactual can't put words in
 their mouth. Keep the model private until they've seen it, and let them
 change it: under the

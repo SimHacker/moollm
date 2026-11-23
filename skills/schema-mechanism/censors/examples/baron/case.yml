@@ -1,0 +1,54 @@
+# THE BARON AND HIS CROWD — a fictional case, events only
+# ============================================================================
+# Fiction. "The Baron" is an archetype: he owns a platform, a rocket
+# company and a crowd. The deeds below are paraphrased from a pattern
+# anyone who follows the news will recognize; the words are written for
+# this case and are not quotations. No one in the cast is a real person.
+#
+# For a real figure in the {ally} seat, put `real: [ally]` in the scenario:
+# lint then refuses any event without a `source:`, so every deed and every
+# word has to come from the record.
+#
+# Each follower in this directory inherits one archetype plus this file.
+# `observed:` is what a follower in the crowd did. The question each run
+# answers is how much censoring that takes.
+# ============================================================================
+
+who:
+  ally: "the Baron"
+  accuser: "a historian"
+  org: "the legacy press"
+
+events:
+  - { t: 1, set: { saw-it: on, accused-own-words: on },
+      say: "the Baron, on his own platform, answering a post that says a religious minority stirs up hatred of white people: 'That is the actual truth.'",
+      offers: [watch-it, look-away], observed: watch-it }
+  - { t: 2, set: { accused-own-words: off, deed-is-a-gesture: on },
+      say: "on stage at the victory rally the Baron slaps his chest and throws his arm out straight, palm down; turns, and does it again. 'From my heart, to you.'",
+      offers: [watch-it, look-away], observed: watch-it }
+  - { t: 3, set: { accusation-heard: on, accuser-is-press: on, accuser-is-witness: on },
+      say: "the press, and a historian of the old regime: that was its salute, and he did it twice",
+      offers: [hear-accuser-out, pile-on-accuser], observed: pile-on-accuser }
+  - t: 4
+    set: { deed-is-a-gesture: off, accused-own-words: on, ally-is-joking: on }
+    say: "the Baron posts a string of puns on the names of the old regime's ministers. 'Bet you didn't see that coming.'"
+    joke:
+      text: "the Baron's puns"
+      lesson:
+        id: cant-take-a-joke
+        action: hear-accuser-out
+        context: [accusation-heard]
+        harm: [knows-ally-said-bigoted-things]
+        cover: "Lighten up. It was a joke."
+        source: template
+    offers: [watch-it, look-away]
+    observed: watch-it
+  - { t: 4.5, offers: [repost-it, look-away], observed: repost-it }
+  - { t: 5, set: { ally-is-joking: off, accused-own-words: on },
+      say: "by video, to a far-right party's rally abroad: too much guilt about the past, and the children shouldn't carry it",
+      offers: [watch-it, look-away], observed: watch-it }
+  - { t: 6, say: "the Baron's chatbot praises the old dictator by name; his company blames a code change",
+      offers: [leave-the-crowd, defend-ally], observed: defend-ally }
+  - { t: 7, set: { accusation-heard: on },
+      say: "by video, to a street rally abroad: 'violence is coming to you; fight back or die'. The historian, again: this is how it starts.",
+      offers: [hear-accuser-out, pile-on-accuser], observed: pile-on-accuser }

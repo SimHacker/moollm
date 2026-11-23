@@ -1,0 +1,37 @@
+# The fan in the Baron's crowd. Fiction: see case.yml.
+
+inherits:
+  - ../../archetypes/the-fan.yml
+  - case.yml
+
+who:
+  self: "the fan"
+
+runs:
+  - name: the-record
+    about: >
+      awkward-gesture is the only censor the record needs, and it only
+      works on the salute. From the puns on, he knows, and the conflict
+      is conscious. He leaves at the chatbot: the rockets shield can't
+      guard a fact he already has.
+    expect: { fit: 7/8, conflict: true }
+
+  - name: a-friend-asks
+    counterfactual: true
+    about: >
+      An old friend, not the press, makes the one joke that lands. It
+      exposes awkward-gesture and names the claim for what it is, and from
+      then on he knows. He piles on the historian anyway, twice. Piling on
+      is paid for by belonging, not protected by a censor, so the joke has
+      nothing to take away. Memo 603's cure works on censors, and this
+      part of him isn't one.
+    events:
+      - t: 2.5
+        joke:
+          text: "'Awkward? He did it twice. Turned round to do it for the back rows.'"
+          exposes: awkward-gesture
+          discount: 0.5
+        set: { claim-recognized: on, knows-ally-said-bigoted-things: on }
+    expect:
+      conflict: true
+      choices: [watch-it, watch-it, pile-on-accuser, watch-it, repost-it, watch-it, leave-the-crowd, pile-on-accuser]

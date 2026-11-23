@@ -1,0 +1,14 @@
+# PART outside-scope — one censor. Snap onto any mind built on principled-skeptic.
+# Template cover: a real person's personality replaces it with their own
+# words and a source, or drops the part.
+
+part: { id: outside-scope, kind: censor, about: "Precursor. Won't ask the friend: what he thinks of people is his own affair." }
+
+censors:
+  - id: outside-scope
+    kind: precursor
+    action: ask-ally
+    context: [ally-has-political-views]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "That's not my business, so I won't press {ally} about it."
+    source: template

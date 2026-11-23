@@ -1,0 +1,13 @@
+# ARCHETYPE the crusader — the fan, turned outward
+# Each accusation re-files as persecution and each claim as courage, and
+# the crowd pays him to fight. Inherits the fan, so principled-skeptic
+# arrives twice; the loader merges it once.
+
+part: { id: the-crusader, kind: archetype, about: "The fan plus free-speech, persecution, media-lies, and a strong drive to belong." }
+
+inherits:
+  - the-fan.yml
+  - ../parts/free-speech.yml
+  - ../parts/persecution.yml
+  - ../parts/media-lies.yml
+  - ../parts/drive-belonging.yml

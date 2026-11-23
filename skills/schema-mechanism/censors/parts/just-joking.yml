@@ -1,0 +1,17 @@
+# PART just-joking — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: just-joking, kind: censor, about: "Suppressor. Once he's made a joke of it, knowing it is re-filed as not getting the joke." }
+
+censors:
+  - id: just-joking
+    kind: suppressor
+    context: [ally-is-joking]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off }
+    cover: "It's a joke. Some people can't take a joke."
+    source: template
+    note: >
+      Minsky, Memo 603: jokes are how censors learn. This is the same
+      mechanism run backwards. The figure makes the joke, the crowd laughs,
+      and what the laugh trains is a censor against noticing.

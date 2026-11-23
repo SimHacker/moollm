@@ -1,0 +1,14 @@
+# PART tone — one censor. Snap onto any mind built on principled-skeptic.
+# Template cover: a real person's personality replaces it with their own
+# words and a source, or drops the part.
+
+part: { id: tone, kind: censor, about: "Precursor. Won't hear the witness out, because of how they said it." }
+
+censors:
+  - id: tone
+    kind: precursor
+    action: hear-accuser-out
+    context: [ally-is-decent]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "Stop lecturing me."
+    source: template

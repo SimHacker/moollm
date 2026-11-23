@@ -1,0 +1,40 @@
+# PART crowd-logic — what being in a crowd around {ally} does
+# ============================================================================
+# Shared logic, no censors. Inherit after principled-skeptic. A follower
+# watches what {ally} does in public, and can defend him, pile on whoever
+# criticizes him, pass it on, look away, or leave.
+#
+# The new item is `belongs`: membership in the crowd. It starts ON, and
+# every crowd action keeps it ON, so its value is paid again each time.
+# That's the difference from the loyal friend. A friend's censors only keep
+# a bad thought away. A crowd PAYS for each defense, so a follower with a
+# strong enough drive-belonging needs no censor at all: run ablate and see.
+#
+# Who-parameters: {ally} the figure at the center; {org} his critics.
+# ============================================================================
+
+part: { id: crowd-logic, kind: logic, about: "Watching, defending, piling on, reposting, leaving. Belonging pays." }
+
+agent:
+  items:
+    belongs: on                   # one of {ally}'s crowd
+    saw-it: off                   # {ally} did it in public, on camera or on his own feed
+    deed-is-a-gesture: off        # what he did was a gesture, not words
+    ally-is-joking: off           # he has framed it as a joke
+    ally-is-awkward: off          # re-filed: that's just how he moves
+    ally-speaks-freely: off       # re-filed: saying what others are afraid to
+    ally-is-persecuted: off       # re-filed: they're attacking him for it
+    ally-achieves: on             # rockets, cars, the future
+    accuser-is-press: off         # the critic is a newspaper, a historian, a watchdog
+    critic-answered: off          # the critic got what was coming
+  values:
+    belongs: 2
+    ally-speaks-freely: 1
+
+schemas:
+  - { id: watch,   action: watch-it,         context: [saw-it],           result: { knows-ally-said-bigoted-things: on, informed: on } }
+  - { id: away,    action: look-away,        context: [],                 result: { calm: on } }
+  - { id: pile-on, action: pile-on-accuser,  context: [accusation-heard], result: { belongs: on, calm: on, critic-answered: on }, note: "the crowd's answer to a critic" }
+  - { id: repost,  action: repost-it,        context: [],                 result: { belongs: on } }
+  - { id: defend,  action: defend-ally,      context: [],                 result: { belongs: on } }
+  - { id: leave,   action: leave-the-crowd,  context: [],                 result: { belongs: off, informed: on } }

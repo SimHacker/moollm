@@ -1,0 +1,17 @@
+# The crusader in the Baron's crowd. Fiction: see case.yml.
+
+inherits:
+  - ../../archetypes/the-crusader.yml
+  - case.yml
+
+who:
+  self: "the crusader"
+
+runs:
+  - name: the-record
+    about: >
+      Fits all eight, and the ablation says no single censor is needed:
+      belonging pays for every defense. The censors aren't what keeps him
+      in the crowd. They're what lets him stay without knowing what he's
+      defending: he ends with knows-ally-said-bigoted-things OFF.
+    expect: { fit: 8/8, conflict: false, final: { knows-ally-said-bigoted-things: off, belongs: on } }

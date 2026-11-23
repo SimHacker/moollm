@@ -1,0 +1,13 @@
+# PART media-lies — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: media-lies, kind: censor, about: "Precursor. Won't hear the press out, on any subject he's in." }
+
+censors:
+  - id: media-lies
+    kind: precursor
+    action: hear-accuser-out
+    context: [accuser-is-press]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "The legacy media lies about everything {ally} does."
+    source: template

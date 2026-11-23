@@ -1,0 +1,13 @@
+# PART achievement-shield — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: achievement-shield, kind: censor, about: "Precursor. Won't leave, because of what he's building." }
+
+censors:
+  - id: achievement-shield
+    kind: precursor
+    action: leave-the-crowd
+    context: [ally-achieves]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "{ally} is getting us to Mars. Nobody's perfect."
+    source: template

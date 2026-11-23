@@ -1,0 +1,17 @@
+# A composite: the ironist and the crusader in one head. Fiction.
+# Both inherit the fan, which inherits principled-skeptic: a diamond.
+# `censor_sim.py lineage ironic-crusader.yml` shows each part merged once.
+# This is how to build a person from archetypes: list them, then add the
+# few things that are only theirs.
+
+inherits:
+  - ../../archetypes/the-ironist.yml
+  - ../../archetypes/the-crusader.yml
+  - case.yml
+
+who:
+  self: "the ironic crusader"
+
+runs:
+  - name: the-record
+    expect: { fit: 8/8, conflict: false }

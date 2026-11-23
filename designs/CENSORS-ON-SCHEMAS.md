@@ -307,6 +307,17 @@ numbers and which censors each one carries. That's a fairer description of
 most disagreements than "one of us is illogical", and it points at exactly
 what to talk about.
 
+The modules go all the way down to one censor per file, which makes them a
+construction kit: the [**Brainball Construction Kit**](../skills/schema-mechanism/censors/BRAINBALL.md),
+sibling to Faceball. Parts are logic, single censors, and drives; archetypes
+are named compositions of parts; a person is a list of archetypes plus their
+own words. Its worked example is a fictional platform baron and six
+followers on one record. It shows something a single mind can't. A friend's
+censors only keep a fact out, while a crowd pays for every defense, so a
+follower with enough drive to belong needs no censor at all. And a crusader
+who doesn't know what he's defending acts exactly like a convert who knows
+and agrees.
+
 ## 9. Modeling a real person, fairly
 
 This is Pretend Intelligence, a term [Richard Stallman uses for
@@ -314,8 +325,10 @@ LLMs](PRETEND-INTELLIGENCE.md): it can produce something that looks like
 understanding, without the understanding. A model of someone's censors is
 exactly that, and it should say so. The rules the tool enforces:
 
-1. **Their words, your hypotheses, labeled.** `real_person: true` makes
-   `lint` fail on any cover that isn't their own sentence with a source.
+1. **Their words, your hypotheses, labeled.** `real: [self]` makes `lint`
+   fail on any cover that isn't their own sentence with a source; `real:
+   [ally]` makes it fail on any event about a real public figure that has
+   no source.
 2. **No words in their mouth.** Real quotes print only next to actions the
    person actually took. Counterfactuals show the model's choices, not
    invented speech.
@@ -357,7 +370,10 @@ last word on what they did.
    Write the events with their words, hypothesize the fewest censors that
    fit, ablate and sweep. Then stop: send it to them before you show
    anyone else.
-7. **Your own.** Model a decision you regret. Which censor would you need,
+7. **The Baron's crowd.** Find the smallest change to the record that
+   tells the crusader from the convert by behavior alone. What would you
+   have to offer them that one takes and the other refuses?
+8. **Your own.** Model a decision you regret. Which censor would you need,
    and what is the anecdotal exception that would have fixed it without
    giving up the principle?
 

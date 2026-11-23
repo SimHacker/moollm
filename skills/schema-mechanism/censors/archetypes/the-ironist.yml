@@ -1,0 +1,7 @@
+# ARCHETYPE the ironist — the fan, plus the joke as a place to put things
+
+part: { id: the-ironist, kind: archetype, about: "The fan, who also files anything he's joked about under jokes." }
+
+inherits:
+  - the-fan.yml
+  - ../parts/just-joking.yml

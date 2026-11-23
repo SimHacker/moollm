@@ -28,7 +28,8 @@ a file and passes it back with --layer FILE, or merges it into a file with
 out, filters in between.
 
 Scenarios inherit personality modules (`inherits: [file, ...]`, relative,
-recursive). Layers merge in order: dicts merge, lists of `id`ed entries
+recursive, multiple: a part two parents share is merged once, where it
+first appears). Layers merge in order: dicts merge, lists of `id`ed entries
 (schemas, censors) merge by id, `drop: true` deletes one, anything else is
 replaced. `who:` fills `{name}` placeholders in every string. A scenario
 path of `-` reads YAML from stdin.
@@ -43,6 +44,7 @@ Commands:
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
+  lineage  FILE           the parts a mind is built from, in merge order
   export   FILE           resolved model as json, or a censor graph as dot
   import   TEXT           split a message thread into skeleton events + requests
   apply    PATCH --into F merge a patch layer into a file               (write)
@@ -220,11 +222,23 @@ def chain(path, _seen=()):
     return out + [(real, raw)]
 
 
+def linearize(paths, layers=()):
+    """Base first, each file once. A part two parents share is merged where
+    it first appears, so it can't come back later and undo an override."""
+    seen, out = set(), []
+    for p in list(paths) + list(layers):
+        for real, raw in chain(p):
+            if real != "-" and real in seen:
+                continue
+            seen.add(real)
+            out.append((real, raw))
+    return out
+
+
 def load(paths, layers=(), who=(), sets=()):
     spec = {}
-    for p in list(paths) + list(layers):
-        for _, raw in chain(p):
-            spec = merge(spec, {k: v for k, v in raw.items() if k != "inherits"})
+    for _, raw in linearize(paths, layers):
+        spec = merge(spec, {k: v for k, v in raw.items() if k not in ("inherits", "part")})
     for kv in who:
         k, _, v = kv.partition("=")
         spec.setdefault("who", {})[k] = v
@@ -436,14 +450,25 @@ class Mind:
 
     # -- humor: the training signal ---------------------------------------
     def joke(self, t, ev):
-        target = next((c for c in self.censors if c.id == ev["exposes"]), None)
-        if not target:
-            self.bus.emit("WARNING", "joke-misses", f"joke at t={t} exposes unknown censor {ev['exposes']}",
-                          key={"agent": self.name, "t": t}, t=t)
+        # Humor trains censors both ways: a joke that exposes one lets the
+        # agent see it; a joke with only a lesson installs one, unseen.
+        if "exposes" in ev:
+            target = next((c for c in self.censors if c.id == ev["exposes"]), None)
+            if not target:
+                self.bus.emit("WARNING", "joke-misses", f"joke at t={t} exposes unknown censor {ev['exposes']}",
+                              key={"agent": self.name, "t": t}, t=t)
+                return
+            target.visible = True
+            target.reliability *= ev.get("discount", 0.5)
+            self.log(t, f"laughs: notices censor {target.id} ({ev.get('text', '')})")
+        elif "lesson" in ev:
+            L = ev["lesson"]
+            self.censors.append(build(Censor, {"anecdotal": True, "kind": "precursor",
+                                               "learned_from": f"joke at t={t}", **L}))
+            self.log(t, f"laughs along ({ev.get('text', '')})")
+            self.log(t, f"the joke installs censor {L['id']}: vetoes '{L['action']}' when {L['context']}",
+                     inner=False)
             return
-        target.visible = True
-        target.reliability *= ev.get("discount", 0.5)
-        self.log(t, f"laughs: notices censor {target.id} ({ev.get('text', '')})")
         if "lesson" in ev:
             L = ev["lesson"]
             self.censors.append(build(Censor, {"anecdotal": True, "visible": True,
@@ -578,6 +603,8 @@ def lint_spec(spec, bus):
     events = spec.get("events", []) + [e for r in runs_of(spec) for e in r.get("events", [])]
     offered = {a for e in events for a in e.get("offers", [])}
     learned_ok = {f"learned-{a}" for a in offered}
+    # Who in the cast is a real person: `real: [self, ally, ...]`.
+    real = set(spec.get("real") or []) | ({"self"} if spec.get("real_person") else set())
 
     def item_refs(where, conds):
         for c in conds or []:
@@ -599,7 +626,7 @@ def lint_spec(spec, bus):
         if c.get("kind") == "precursor" and c.get("action") not in offered:
             bus.emit("INFO", "never-offered", f"censor {c['id']} vetoes '{c.get('action')}', which no event offers",
                      key={"never": c["id"]}, censor=c["id"])
-        if spec.get("real_person") and c.get("source", "") in ("", "template"):
+        if "self" in real and c.get("source", "") in ("", "template"):
             bus.emit("ERROR", "template-words", f"censor {c['id']} would put template words in a real person's mouth",
                      key={"template": c["id"]}, censor=c["id"],
                      fix="replace the cover with their own words and a source, or drop the censor",
@@ -615,7 +642,14 @@ def lint_spec(spec, bus):
         if e.get("observed") and e["observed"] not in e.get("offers", []):
             bus.emit("ERROR", "observed-not-offered", f"t={e['t']}: observed '{e['observed']}' isn't among the offers",
                      key={"t": e["t"]}, t=e["t"])
-        if "joke" in e and e["joke"].get("exposes") not in censors and e["joke"].get("exposes") not in learned_ok:
+        if real - {"self"} and (e.get("say") or e.get("response")) and not e.get("source"):
+            bus.emit("ERROR", "unsourced-event", f"t={e['t']}: a real person ({', '.join(sorted(real - {'self'}))}) "
+                     "is in the cast and this event has no source",
+                     key={"unsourced": e["t"]}, t=e["t"],
+                     fix="add source: where it was said or done, or mark the line as paraphrase in a fictional case",
+                     patch={"events": [{"t": e["t"], "source": "<url or citation>"}]})
+        if "joke" in e and "exposes" in e["joke"] and e["joke"]["exposes"] not in censors \
+                and e["joke"]["exposes"] not in learned_ok:
             bus.emit("WARNING", "joke-misses", f"t={e['t']}: joke exposes unknown censor {e['joke'].get('exposes')}",
                      key={"joke": e["t"]}, t=e["t"])
     return {"errors": bus.counts["ERROR"], "warnings": bus.counts["WARNING"], "requests": bus.counts["REQUEST"]}
@@ -675,12 +709,18 @@ def ablate(spec, bus=NULL):
             if hits >= full:
                 bus.emit("WARNING", "unneeded-censor", f"{r['name']}: the record doesn't need censor {c['id']}",
                          key={"run": r["name"], "unneeded": c["id"]}, run=r["name"], censor=c["id"])
+        # A joke that installs a censor is a censor too, put there by someone else.
+        for e in [e for e in spec.get("events", []) if "lesson" in e.get("joke", {}) and "exposes" not in e["joke"]]:
+            events = [{k: v for k, v in x.items() if k != "joke"} if x is e else x for x in spec["events"]]
+            hits, _ = score(run({**spec, "runs": [r], "events": events})[0][1])
+            rows.append({"run": r["name"], "censor": f"{e['joke']['lesson']['id']} (joke t={e['t']})",
+                         "fit_without": f"{hits}/{total}", "fit_with": f"{full}/{total}", "needed": hits < full})
     return rows
 
 
 def cmd_ablate(a, bus):
     rows = ablate(load([a.file], a.layer, a.who, a.set), bus)
-    text = "\n".join(f"{x['run']}: without {x['censor']:<16} {x['fit_without']} (all: {x['fit_with']})  "
+    text = "\n".join(f"{x['run']}: without {x['censor']:<26} {x['fit_without']} (all: {x['fit_with']})  "
                      f"{'needed' if x['needed'] else 'NOT NEEDED'}" for x in rows)
     return emit_out(rows, a.format or "text", text)
 
@@ -756,10 +796,38 @@ def cmd_diff(a, bus):
     return emit_out(out, a.format or "text", "\n".join(lines))
 
 
+def cmd_lineage(a, bus):
+    rows = []
+    for path, raw in linearize([a.file], a.layer):
+        agent = raw.get("agent") or {}
+        part = raw.get("part") or {}
+        rows.append({
+            "file": os.path.relpath(path) if path != "-" else "-",
+            "part": part.get("id") if isinstance(part, dict) else part,
+            "about": (part.get("about") or "").strip() or None if isinstance(part, dict) else None,
+            "censors": [c["id"] for c in raw.get("censors", []) if "kind" in c],
+            "patches": [c["id"] for c in raw.get("censors", []) if "kind" not in c],
+            "schemas": [s["id"] for s in raw.get("schemas", [])],
+            "values": agent.get("values") or {},
+            "items": sorted(agent.get("items") or {}),
+            "events": len(raw.get("events", [])),
+        })
+    lines = []
+    for n, r in enumerate(rows, 1):
+        bits = [f"{len(r['schemas'])} schemas" if r["schemas"] else "",
+                "censors " + ", ".join(r["censors"]) if r["censors"] else "",
+                "covers " + ", ".join(r["patches"]) if r["patches"] else "",
+                "values " + ", ".join(f"{k}={v}" for k, v in r["values"].items()) if r["values"] else "",
+                f"{r['events']} events" if r["events"] else ""]
+        lines.append(f"{n:2}. {r['file']}" + (f"  [{r['part']}]" if r["part"] else ""))
+        lines += [f"      {b}" for b in bits if b]
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
 def cmd_where(a, bus):
     rx = re.compile(a.pattern, re.I)
     hits = []
-    for path, raw in chain(a.file) + [h for l in a.layer for h in chain(l)]:
+    for path, raw in linearize([a.file], a.layer):
         for section in ("agent", "schemas", "censors", "events", "runs", "who"):
             node = raw.get(section)
             entries = node if isinstance(node, list) else [node] if node else []
@@ -843,7 +911,7 @@ def main(argv=None):
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="command", required=True)
     s = sub.add_parser("resolve", parents=[common]); s.add_argument("files", nargs="+")
-    for name in ("lint", "test", "ablate", "export"):
+    for name in ("lint", "test", "ablate", "export", "lineage"):
         sub.add_parser(name, parents=[common]).add_argument("file")
     s = sub.add_parser("run", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s = sub.add_parser("sweep", parents=[common]); s.add_argument("file")

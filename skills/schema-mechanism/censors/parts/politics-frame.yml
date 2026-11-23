@@ -1,0 +1,18 @@
+# PART politics-frame — one censor. Snap onto any mind built on principled-skeptic.
+# Template cover: a real person's personality replaces it with their own
+# words and a source, or drops the part.
+
+part: { id: politics-frame, kind: censor, about: "Suppressor. Re-files a claim about a group as a political disagreement, where disagreeing with a friend is allowed." }
+
+censors:
+  - id: politics-frame
+    kind: suppressor
+    context: ["!claim-recognized"]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, ally-has-political-views: on }
+    cover: "{ally} and I just disagree about politics."
+    source: template
+    note: >
+      Frame substitution. Re-filed as politics, where disagreement is allowed,
+      the contradiction with ally-is-decent goes away. Fails once the claim is
+      recognized as a claim about a group (claim-recognized).

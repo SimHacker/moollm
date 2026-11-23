@@ -1,0 +1,9 @@
+# ARCHETYPE the fan — in the crowd, watches everything, explains it away
+
+part: { id: the-fan, kind: archetype, about: "Watches every clip. Two censors: the awkward gesture and the rockets." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/awkward-gesture.yml
+  - ../parts/achievement-shield.yml

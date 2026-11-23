@@ -1,0 +1,7 @@
+# PART drive-agreement — a priority that removes the contradiction
+
+part: { id: drive-agreement, kind: drive, about: "He agrees with it, and wants the critics answered. Nothing to reconcile, so nothing to repress." }
+
+agent:
+  values: { knows-ally-said-bigoted-things: 1, critic-answered: 3 }
+  contradictions: []              # replaces the list: "bigoted" and "decent" no longer clash for him

@@ -1,0 +1,17 @@
+# PART persecution — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: persecution, kind: censor, about: "Suppressor. The criticism, not the deed, becomes the thing to know." }
+
+censors:
+  - id: persecution
+    kind: suppressor
+    context: [accusation-heard]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, ally-is-persecuted: on }
+    cover: "They're smearing {ally} because he threatens them."
+    source: template
+    note: >
+      Every accusation becomes evidence for the persecution story, so the
+      more people object, the more loyal the follower gets. Nothing an
+      accuser says can falsify it, because saying it is the evidence.

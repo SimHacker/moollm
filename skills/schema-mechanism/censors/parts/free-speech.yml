@@ -1,0 +1,17 @@
+# PART free-speech — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: free-speech, kind: censor, about: "Suppressor. The claim about a group is re-filed as courage, which the crowd values." }
+
+censors:
+  - id: free-speech
+    kind: suppressor
+    context: [accused-own-words, "!claim-recognized"]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, ally-speaks-freely: on }
+    cover: "{ally} is just saying what everyone else is afraid to say."
+    source: template
+    note: >
+      Worse than politics-frame. Politics files the claim somewhere neutral.
+      This files it somewhere good: ally-speaks-freely has a positive value,
+      so each bigoted sentence makes {ally} look braver.

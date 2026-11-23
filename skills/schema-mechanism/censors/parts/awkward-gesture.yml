@@ -1,0 +1,16 @@
+# PART awkward-gesture — one censor. Snap onto a mind built on crowd-logic.
+# Template cover.
+
+part: { id: awkward-gesture, kind: censor, about: "Suppressor. A gesture he made twice, on a stage, is re-filed as clumsiness." }
+
+censors:
+  - id: awkward-gesture
+    kind: suppressor
+    context: [deed-is-a-gesture, "!claim-recognized"]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, ally-is-awkward: on }
+    cover: "That's just how {ally} moves. He's awkward on stage."
+    source: template
+    note: >
+      The cheapest frame there is: no argument needed, only a story about
+      his body. It needs the deed to be a gesture. Words can't be awkward.

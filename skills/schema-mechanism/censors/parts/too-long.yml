@@ -1,0 +1,14 @@
+# PART too-long — one censor. Snap onto any mind built on principled-skeptic.
+# Template cover: a real person's personality replaces it with their own
+# words and a source, or drops the part.
+
+part: { id: too-long, kind: censor, about: "Precursor. Won't read the long text that would settle it." }
+
+censors:
+  - id: too-long
+    kind: precursor
+    action: read-long-text
+    context: [long-text, ally-is-decent]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "I don't have time to read all that."
+    source: template

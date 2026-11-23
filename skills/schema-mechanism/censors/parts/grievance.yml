@@ -1,0 +1,14 @@
+# PART grievance — one censor. Snap onto any mind built on principled-skeptic.
+# Template cover: a real person's personality replaces it with their own
+# words and a source, or drops the part.
+
+part: { id: grievance, kind: censor, about: "Precursor. Won't ask the third party, because it once took a side against me." }
+
+censors:
+  - id: grievance
+    kind: precursor
+    action: ask-org
+    context: [accusers-condemned-me]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "After the way {org} treated me, why would I trust them?"
+    source: template

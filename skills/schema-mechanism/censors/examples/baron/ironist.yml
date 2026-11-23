@@ -1,0 +1,17 @@
+# The ironist in the Baron's crowd. Fiction: see case.yml.
+
+inherits:
+  - ../../archetypes/the-ironist.yml
+  - case.yml
+
+who:
+  self: "the ironist"
+
+runs:
+  - name: the-record
+    about: >
+      The fan plus just-joking. The puns get re-filed as a joke he's in on,
+      but the next speech isn't a joke, so it lands anyway. Same record as
+      the fan: the ablation says just-joking is not needed for anything he
+      did, only for what he tells himself.
+    expect: { fit: 7/8 }

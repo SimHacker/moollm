@@ -1,0 +1,9 @@
+# ARCHETYPE the loyal friend — shared logic plus five loyalty censors
+# Works hard not to know. Every censor is needed, because his principles
+# would otherwise make him ask, read and listen.
+
+part: { id: the-loyal-friend, kind: archetype, about: "Facts-first logic, five censors that keep one fact out." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../personalities/loyalty-censors.yml
