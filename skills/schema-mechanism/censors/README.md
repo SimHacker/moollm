@@ -84,7 +84,7 @@ and multiple (a shared parent merges once). Dicts merge, `id`ed lists
 
 The modules are a construction kit, down to one censor per file:
 **[`BRAINBALL.md`](BRAINBALL.md)** covers the parts in [`parts/`](parts/), the
-archetypes in [`archetypes/`](archetypes/), and how to compose a person.
+archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to compose a person.
 
 | Module | |
 |---|---|

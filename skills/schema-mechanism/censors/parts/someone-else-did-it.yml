@@ -1,0 +1,13 @@
+# PART someone-else-did-it — one censor. Snap onto a mind built on stage-logic.
+# Template cover.
+
+part: { id: someone-else-did-it, kind: censor, about: "Suppressor. What went wrong is re-filed as someone else's doing." }
+
+censors:
+  - id: someone-else-did-it
+    kind: suppressor
+    context: [accusation-heard]
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, others-to-blame: on }
+    cover: "They tricked it into saying that."
+    source: template

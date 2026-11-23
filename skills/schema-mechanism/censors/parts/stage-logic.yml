@@ -1,0 +1,27 @@
+# PART stage-logic — what a figure at the center of a crowd can do
+# ============================================================================
+# Shared logic, no censors. Inherit after principled-skeptic and
+# crowd-logic. The figure can amplify (post, endorse, speak), apologize,
+# deflect, or use the crowd's own moves. In this seat {ally} is the figure
+# himself, so knows-ally-said-bigoted-things reads "knows he said or did a
+# bigoted thing".
+#
+# An apology costs: applause goes OFF, and to apologize is to admit it.
+# Piling on a critic, from the stage, also brings applause: this layer
+# adds that to crowd-logic's pile-on schema, by id.
+# ============================================================================
+
+part: { id: stage-logic, kind: logic, about: "Amplify, apologize, deflect. Applause pays; an apology costs it and admits the thing." }
+
+agent:
+  items:
+    applause: on                  # the crowd is cheering
+    others-to-blame: off          # re-filed: someone else made it happen
+  values:
+    applause: 2
+
+schemas:
+  - { id: amplify,   action: amplify,   context: [],                 result: { applause: on } }
+  - { id: apologize, action: apologize, context: [accusation-heard], result: { applause: off, avoid-error: on, knows-ally-said-bigoted-things: on } }
+  - { id: pile-on,   result: { applause: on } }
+  - { id: deflect,   action: deflect,   context: [accusation-heard], result: { calm: on } }

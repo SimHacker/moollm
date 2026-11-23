@@ -29,7 +29,9 @@ out, filters in between.
 
 Scenarios inherit personality modules (`inherits: [file, ...]`, relative,
 recursive, multiple: a part two parents share is merged once, where it
-first appears). Layers merge in order: dicts merge, lists of `id`ed entries
+first appears). `imports: [{from: FILE, take: [id, values.KEY]}]` takes
+single traits from an archetype without the rest of it. Layers merge in
+order: dicts merge, lists of `id`ed entries
 (schemas, censors) merge by id, `drop: true` deletes one, anything else is
 replaced. `who:` fills `{name}` placeholders in every string. A scenario
 path of `-` reads YAML from stdin.
@@ -235,10 +237,42 @@ def linearize(paths, layers=()):
     return out
 
 
-def load(paths, layers=(), who=(), sets=()):
+def merged(paths, layers=()):
     spec = {}
-    for _, raw in linearize(paths, layers):
-        spec = merge(spec, {k: v for k, v in raw.items() if k not in ("inherits", "part")})
+    for real, raw in linearize(paths, layers):
+        spec = merge(spec, imported(real, raw))
+        spec = merge(spec, {k: v for k, v in raw.items() if k not in ("inherits", "imports", "part")})
+    return spec
+
+
+def imported(real, raw):
+    """`imports: [{from: FILE, take: [id, values.KEY, ...]}]`: one trait out
+    of an archetype, without the rest of it. No `take` means all of FILE."""
+    out = {}
+    here = os.getcwd() if real == "-" else os.path.dirname(real)
+    for imp in raw.get("imports") or []:
+        src = merged([os.path.join(here, imp["from"])])
+        if imp.get("take") is None:
+            out = merge(out, src)
+            continue
+        pick = {}
+        for name in imp["take"]:
+            if name.startswith("values."):
+                key = name[len("values."):]
+                if key not in src.get("agent", {}).get("values", {}):
+                    raise ValueError(f"import: {imp['from']} has no value {key}")
+                pick = merge(pick, {"agent": {"values": {key: src["agent"]["values"][key]}}})
+                continue
+            hits = {sec: [x for x in src.get(sec, []) if x.get("id") == name] for sec in ("censors", "schemas")}
+            if not any(hits.values()):
+                raise ValueError(f"import: {imp['from']} has no censor or schema {name}")
+            pick = merge(pick, {sec: xs for sec, xs in hits.items() if xs})
+        out = merge(out, pick)
+    return out
+
+
+def load(paths, layers=(), who=(), sets=()):
+    spec = merged(paths, layers)
     for kv in who:
         k, _, v = kv.partition("=")
         spec.setdefault("who", {})[k] = v
@@ -811,10 +845,13 @@ def cmd_lineage(a, bus):
             "values": agent.get("values") or {},
             "items": sorted(agent.get("items") or {}),
             "events": len(raw.get("events", [])),
+            "imports": [f"{', '.join(i['take']) if i.get('take') else '*'} from {i['from']}"
+                        for i in raw.get("imports") or []],
         })
     lines = []
     for n, r in enumerate(rows, 1):
-        bits = [f"{len(r['schemas'])} schemas" if r["schemas"] else "",
+        bits = [f"import {i}" for i in r["imports"]] + [
+                f"{len(r['schemas'])} schemas" if r["schemas"] else "",
                 "censors " + ", ".join(r["censors"]) if r["censors"] else "",
                 "covers " + ", ".join(r["patches"]) if r["patches"] else "",
                 "values " + ", ".join(f"{k}={v}" for k, v in r["values"].items()) if r["values"] else "",

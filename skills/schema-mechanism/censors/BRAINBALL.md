@@ -35,6 +35,17 @@ it. A part two parents share, such as `principled-skeptic` under both the
 ironist and the crusader, is merged once, where it first appears, so it can't
 come back later and undo an override.
 
+To take one trait without the rest of an archetype, import it:
+
+```yaml
+imports:
+  - { from: the-crusader.yml, take: [persecution] }   # from the-crusader import persecution
+  - { from: the-fan.yml,      take: [awkward-gesture] }
+  - { from: ../parts/someone-else-did-it.yml }        # no take: the whole file
+```
+
+`take` names censor or schema ids, or `values.KEY` for a single weight.
+
 ### The parts
 
 | Part | Kind | |
@@ -53,6 +64,9 @@ come back later and undo an override.
 | [`achievement-shield`](parts/achievement-shield.yml) | precursor | won't leave, because of the rockets |
 | [`drive-belonging`](parts/drive-belonging.yml) | drive | the crowd matters more than being informed |
 | [`drive-agreement`](parts/drive-agreement.yml) | drive | he agrees, and wants critics answered; the contradiction is gone |
+| [`stage-logic`](parts/stage-logic.yml) | logic | the figure's own moves: amplify, apologize, deflect. An apology costs applause and admits the thing |
+| [`someone-else-did-it`](parts/someone-else-did-it.yml) | suppressor | what went wrong is re-filed as someone else's doing |
+| [`drive-applause`](parts/drive-applause.yml) | drive | the crowd's cheering matters more than being right |
 
 ### The archetypes
 
@@ -63,6 +77,7 @@ come back later and undo an override.
 | [the ironist](archetypes/the-ironist.yml) | the fan + just-joking |
 | [the crusader](archetypes/the-crusader.yml) | the fan + free-speech + persecution + media-lies + drive-belonging |
 | [the convert](archetypes/the-convert.yml) | principled-skeptic + crowd-logic + drive-agreement + drive-belonging |
+| [the Baron](archetypes/the-baron.yml) | stage-logic + drive-applause, and four traits **imported** from his followers: persecution, awkward-gesture, just-joking, someone-else-did-it |
 
 A person is rarely one archetype.
 [`the ironic crusader`](examples/baron/ironic-crusader.yml) is two, and the
@@ -136,9 +151,20 @@ from then on. He piles on the historian anyway. Piling on is paid for, not
 censored, so the joke has nothing to take away. Exposing a censor only works
 on a censor.
 
+**On stage, applause explains everything but the apology.**
+[`stage.yml`](examples/baron/stage.yml) puts the Baron in his own seat, on the
+same record, plus one more moment: two weeks after the endorsement, at a
+business conference, he says it was the most foolish thing he's posted and
+he's sorry. Two hypotheses run side by side: `doesnt-know` (his imported
+traits re-file each deed) and `knows-and-agrees` (nothing to re-file). Both
+fit 8 of 9, the ablation needs none of his censors, and both miss the same
+moment, the apology. Applause pays for everything else he did, so the
+model can't tell whether he knows. And the one thing applause can't explain
+is the most informative line in the run.
+
 ```bash
 cd examples/baron
-for f in loyal-friend fan ironist crusader convert ironic-crusader; do
+for f in loyal-friend fan ironist crusader convert ironic-crusader stage; do
   python3 ../../../scripts/censor_sim.py test $f.yml --quiet
 done
 python3 ../../../scripts/censor_sim.py sweep crusader.yml --n 5000   # ~10,000 simulations/s
@@ -149,17 +175,21 @@ python3 ../../../scripts/censor_sim.py sweep crusader.yml --n 5000   # ~10,000 s
 The kit makes it easy to build a mind that resembles someone. That's the
 reason for the rules:
 
-- **Archetypes are public, people are private.** Compose a real person in a
-  private repo, from public parts plus their own words. Keep it there until
-  they've seen it and can change it ([portrayal standards](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md)).
+- **Archetypes are public; private people stay private.** Compose a private
+  person in a private repo, from public parts plus their own words. Keep it
+  there until they've seen it and can change it ([portrayal standards](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md)).
 - **Say who in the cast is real.** `real: [self]` (or the older
   `real_person: true`) makes `lint` fail on any cover that isn't their own
   words with a `source:`. `real: [ally]` puts a real public figure in the
   center seat; `lint` then fails on any event without a `source:`, so every
   deed and every word comes from the record.
-- **A real figure in the ally seat gets events, not a mind.** The Baron's case
-  models his followers. It records what he did in public and attributes no
-  censors to him.
+- **Public power is modeled in public.** Someone who holds office or runs a
+  mass platform can be modeled in his own seat, from the record: his words
+  verbatim as covers (`real: [self, ally]`), both readings where the record
+  can't choose, and his disputes logged beside the record
+  ([portrayal standards, public power](https://github.com/SimHacker/WillWrightShowForFood/blob/main/schemas/portrayal-standards.md#public-power)).
+  The worked example is the [Elon Musk character](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/elon-musk),
+  built from the Baron. His followers are archetypes, never individuals.
 - **Ablate before you believe a part.** A part the record doesn't need is a
   guess about someone's inner life with no evidence behind it. `ablate` says
   which ones those are; say so when you present the model.

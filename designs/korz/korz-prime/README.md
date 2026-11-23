@@ -21,6 +21,30 @@ dispatch must be decidable. Alternative naming scheme, via the
 anagram: the deterministic tier is **Korz**, the LLM tier is **Zork**.
 Korz compiles; Zork improvises.
 
+More on the name (Don Hopkins, 2026-11-23):
+
+- **Prime means minus, here.** In mathematics ′ marks a derivative or a
+  variant. In E-Prime it marks a restriction: English minus the verb
+  "to be". The name takes the E-Prime sense: Korz minus an assumption, not
+  Korz version 2.
+- **The semantics match, not just the suffix.** E-Prime bans the "is of
+  identity": not "the gesture is a salute" but "the gesture looked like a
+  salute to these people". Korz bans it for objects: a slot has no value,
+  only a value at some coordinates in some context. That is subjective
+  programming, from Smith and Ungar's Us, carried into many dimensions.
+- **The lineage runs through Korzybski.** Bourland built E-Prime on
+  Alfred Korzybski's general semantics ("the map is not the territory"),
+  and "Korz" is the first four letters of Korzybski. Whether that was
+  intended is a question for David.
+- **Spell out "Prime".** Bourland's own spelling is E-Prime; E′ is the
+  abbreviation. The ′ character is hard to type and to see; GitHub drops
+  it from heading anchors, so "Korz′" and "Korz" get the same anchor; and
+  an ASCII `'` collides with the possessive in "Korz's". Spelled out, every
+  case style derives mechanically: KorzPrime, korz-prime, korz_prime,
+  korzPrime, KORZ_PRIME. `\bKorz\b` no longer matches it, and plain "Korz"
+  still finds both. All of them read big-endian: Korz first, then the
+  qualifier.
+
 ## Interpret, don't invent
 
 The method throughout this document, stated once so every section

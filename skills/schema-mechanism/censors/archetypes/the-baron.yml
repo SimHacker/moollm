@@ -1,0 +1,21 @@
+# ARCHETYPE the Baron — the figure at the center of the crowd
+# ============================================================================
+# Built by importing single traits from the follower archetypes: the same
+# censors, now aimed at himself. `lineage` shows where each came from.
+# Logic and drives are inherited; the traits are imported, so nothing else
+# of the fan or the crusader comes along.
+# ============================================================================
+
+part: { id: the-baron, kind: archetype, about: "Stage logic and applause, plus four traits taken from his own followers." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/drive-applause.yml
+
+imports:
+  - { from: the-crusader.yml, take: [persecution] }
+  - { from: the-fan.yml,      take: [awkward-gesture] }
+  - { from: the-ironist.yml,  take: [just-joking] }
+  - { from: ../parts/someone-else-did-it.yml }

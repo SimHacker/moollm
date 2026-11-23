@@ -1,0 +1,66 @@
+# THE BARON ON STAGE — the same case, from the center seat. Fiction.
+# ============================================================================
+# Same t as case.yml, so one layer of sources can cover both. Here the
+# agent is the Baron and the offers are his. `response:` is what he says,
+# written for this fiction; a real figure's layer replaces each one with
+# his words and a source (`real: [self]`).
+#
+# Two runs, two hypotheses the record has to choose between:
+#   doesnt-know      his traits re-file each deed (the crusader's shape)
+#   knows-and-agrees no contradiction to manage (the convert's shape)
+# ============================================================================
+
+inherits:
+  - ../../archetypes/the-baron.yml
+
+who:
+  self: "the Baron"
+  ally: "the Baron"
+  accuser: "a historian"
+  org: "the legacy press"
+
+events:
+  - { t: 1, say: "a post on his platform: a religious minority stirs up hatred of white people",
+      offers: [amplify, look-away], observed: amplify, response: "That is the actual truth." }
+  - { t: 1.5, set: { accusation-heard: on },
+      say: "two weeks later, at a business conference, asked about the reply",
+      offers: [apologize, amplify], observed: apologize,
+      response: "The most foolish thing I've posted. I'm sorry. (And to the advertisers who left: go to hell.)" }
+  - { t: 1.6, set: { accusation-heard: off } }
+  - { t: 2, set: { saw-it: on, deed-is-a-gesture: on },
+      say: "on stage at the victory rally, the arm out straight, palm down, twice",
+      response: "From my heart, to you." }
+  - { t: 3, set: { accusation-heard: on, accuser-is-press: on, accuser-is-witness: on },
+      say: "the press, and a historian: that was the old regime's salute",
+      offers: [hear-accuser-out, apologize, pile-on-accuser], observed: pile-on-accuser,
+      response: "Everyone's a villain to these people. Get better tricks." }
+  - { t: 3.5, say: "a watchdog group: an awkward gesture in a moment of enthusiasm" }
+  - { t: 4, set: { ally-is-joking: on, deed-is-a-gesture: off },
+      offers: [amplify, apologize], observed: amplify,
+      response: "a string of puns on the old regime's ministers" }
+  - { t: 4.5, offers: [hear-accuser-out, pile-on-accuser], observed: pile-on-accuser,
+      response: "Incredible how hard the press tried to cancel me for a hand on my heart." }
+  - { t: 4.6, say: "the watchdog group, now: the genocide is not a joke",
+      offers: [apologize, look-away], observed: look-away }
+  - { t: 5, set: { ally-is-joking: off },
+      offers: [amplify, look-away], observed: amplify,
+      response: "to a far-right party abroad: too much guilt about the past" }
+  - { t: 6, say: "his chatbot praises the old dictator by name",
+      offers: [apologize, deflect], observed: deflect,
+      response: "Users tricked it. Too eager to please." }
+  - { t: 7, offers: [amplify, look-away], observed: amplify,
+      response: "to a street rally abroad: fight back or die" }
+
+runs:
+  - name: doesnt-know
+    about: >
+      Applause explains every action but one: the apology at t=1.5. Nothing
+      in this model pays for an apology, so it misses it. That miss is the
+      most informative line in the run: whatever moved him there isn't
+      applause, and isn't in the model.
+    expect: { fit: 8/9 }
+  - name: knows-and-agrees
+    agent:
+      values: { knows-ally-said-bigoted-things: 1, critic-answered: 3 }
+      contradictions: []
+    expect: { fit: 8/9 }
