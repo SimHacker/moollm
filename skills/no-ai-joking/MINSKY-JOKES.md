@@ -241,6 +241,9 @@ alter a general mechanism to correct a particular bug") and Drescher (pure
 accretion of local schemas; the mechanism never rewrites itself) agree that
 intelligence is case law, not a clean general algorithm.
 
+Runnable: [`schema-mechanism/censors/`](../schema-mechanism/censors/README.md)
+(`censor_sim.py`), with a worked example where a joke retrains a censor.
+
 Derived live in the [−200% duck transcript](examples/2026-07-30-difference-between-a-duck-transcript.md).
 Soul-model integration: [Minds all the way down](../soul-city/SOUL-MODEL.md#minds-all-the-way-down--minsky-to-drescher).
 Drescher in the lab's oral tradition: [the toaster koan](examples/hacker-koans-drescher-toaster.yml).

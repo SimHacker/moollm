@@ -1,0 +1,59 @@
+# The letter from the dentist — a censor learned, then retrained by a joke.
+# Everyone has one of these. No real person is modeled here.
+#
+# Run:  python3 ../../scripts/censor_sim.py dentist-letter.yml --markdown
+
+agent:
+  name: "Someone with a toothache"
+  items:
+    letter-from-dentist: off
+    tooth-aches: on
+    knows-bad-news: off   # what the letter would make you know
+    informed: off
+    calm: on
+    tooth-worse: off
+  values:                 # the agent's own sense of good and bad
+    informed: 5           # knowing is worth something...
+    knows-bad-news: -3    # ...and it hurts
+    calm: 1
+    tooth-worse: -6
+
+schemas:                  # positive knowledge: context -> action -> result
+  - { id: read, action: read-letter, context: [letter-from-dentist], result: { knows-bad-news: on, informed: on }, reliability: 1.0 }
+  - { id: aside, action: put-aside, context: [letter-from-dentist], result: { calm: on }, reliability: 1.0 }
+
+censors: []               # none yet: this one will be learned
+
+events:
+  - { t: 1, set: { letter-from-dentist: on }, say: "a letter from the dentist", offers: [read-letter, put-aside] }
+  - { t: 2, set: { letter-from-dentist: off, knows-bad-news: off } }
+  - { t: 3, set: { letter-from-dentist: on }, say: "another letter from the dentist", offers: [read-letter, put-aside] }
+  # Two painful reads. Marginal attribution notices what was ON both times
+  # and mints a precursor censor on read-letter. It has no cover story; the
+  # agent just finds itself not reading.
+  - { t: 4, set: { letter-from-dentist: off, knows-bad-news: off } }
+  - { t: 5, set: { letter-from-dentist: on }, say: "a third letter from the dentist", offers: [read-letter, put-aside] }
+  - { t: 6, set: { tooth-worse: on }, say: "the tooth gets worse" }
+  - { t: 9, set: { letter-from-dentist: on }, say: "a fourth letter from the dentist", offers: [read-letter, put-aside] }
+
+runs:
+  - name: avoidance
+    about: "No intervention. The censor learned at t=3 keeps the next letters unopened."
+  - name: friend-makes-a-joke
+    about: >
+      At t=8 a friend says something funny that names the pattern. The joke
+      exposes the censor (Minsky: humor mediates how censors learn) and
+      leaves behind an anecdotal censor: a specific exception, not a new
+      general rule.
+    events:
+      - t: 8
+        joke:
+          text: "'You've got a whole drawer of unread mail from the guy who could fix your face.'"
+          exposes: learned-read-letter
+          discount: 0.5
+          lesson:
+            id: not-when-it-hurts
+            action: put-aside
+            context: [letter-from-dentist, tooth-aches]
+            harm: [tooth-worse]
+            cover: "Not this one. The tooth hurts."

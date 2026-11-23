@@ -352,6 +352,17 @@ LLMs complete the picture:
 
 ---
 
+## Censors: the schema with the sign bit flipped
+
+Minsky's Memo 603 censors, run on this mechanism: precursor censors that
+veto an action before it's thought, suppressors that re-file a forbidden
+state, marginal attribution that mints new censors from pain, and jokes that
+expose them. Two traces, inner and observer; the gap is the cognitive
+unconscious. Can fit a real record and ablate each censor.
+[`censors/`](censors/README.md) · [`scripts/censor_sim.py`](scripts/censor_sim.py)
+
+---
+
 ## Dovetails With
 
 - **[../constructionism/](../constructionism/)** — Papert's educational philosophy
