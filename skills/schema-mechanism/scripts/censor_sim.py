@@ -51,6 +51,14 @@ Commands:
   propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
   plan     FILE --goal G   Drescher's planner: the plan the agent can think of vs the one an observer sees
   duet     FILE [--n N]   two minds on one stage: each one's move is an event for the other
+  learn    FILE [--run R]  Drescher's learner over the record: propose result and context spinoffs, keep what fits
+  try      FILE --layer L  the gate: does the layer (from learn, a person or an LLM) make any run fit worse?
+
+Learning is a loop across both tiers. In a run, `agent.learn_schemas: true`
+makes the mind spin off schemas from what follows its own actions, starting
+from bare ones. Over a record, `learn` proposes, gates on fit, and asks the
+other tier what each kept schema means; the answers come back as layers,
+`try` gates them, and the next `learn` starts from there.
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -351,6 +359,11 @@ class Mind:
         self.fit = []                 # (t, observed action, model's action)
         self.choices = []             # (t, model's action)
         self.situations = []          # (t, offers, observed, items before)
+        # Drescher's positive learning: what follows each action, until the next choice.
+        self.learn_schemas = bool(a.get("learn_schemas"))
+        self.replay = False           # learn from the observed action, not the model's
+        self.pending = None           # (action, items before it, items just after it, changes since)
+        self.outcomes = {}            # action -> [(items before, {item: value that followed})]
 
     def log(self, t, text, inner=True, quote=None):
         entry = {"t": t, "text": text, "inner": inner}
@@ -369,7 +382,8 @@ class Mind:
         fits = [s for s in self.schemas
                 if s.action == action and all(holds(items, c) for c in s.context)]
         best = max(fits, key=lambda s: (len(s.context), s.reliability), default=None)
-        if not best and not any(s.action == action for s in self.schemas):
+        # A learning mind starts with bare schemas: no schema yet is how it begins.
+        if not best and not self.learn_schemas and not any(s.action == action for s in self.schemas):
             self.request_schema(action, items)
         return best
 
@@ -555,6 +569,86 @@ class Mind:
         self.bus.emit("INFO", "minted", f"learned censor {cid}", key={"agent": self.name, "minted": cid},
                       censor=cid, context=ctx, t=t)
 
+    # -- learning schemas: Drescher's result and context spinoffs ----------
+    def watch(self, sets):
+        """Items the world sets after an action, before the next choice."""
+        if not self.pending:
+            return
+        _, before, _, changed = self.pending
+        # A result is a change from before the action, not from what the mind
+        # predicted; the first change is the evidence, and a later reset
+        # doesn't undo that it followed.
+        for k, v in sets.items():
+            v = parse_value(v)
+            if k not in changed and v is not before.get(k):
+                changed[k] = v
+
+    def close_window(self, t):
+        if not self.pending:
+            return
+        act, before, _, changed = self.pending
+        self.pending = None
+        self.outcomes.setdefault(act, []).append((before, dict(changed)))
+        self.spin_off(t, act)
+
+    def spin_off(self, t, act):
+        """Marginal attribution for results: an item that follows this action
+        at least half the time, and more often by CONTRAST than it follows the
+        others, is a result (Drescher's result spinoff). Then an item whose
+        state before the action separates the trials where the results came
+        from the ones where they didn't joins the context (context spinoff)."""
+        trials = self.outcomes[act]
+        if len(trials) < self.learn_threshold:
+            return
+        others = [tr for a, ts in self.outcomes.items() if a != act for tr in ts]
+
+        def rate(ts, k, v):
+            return sum(ch.get(k) is v for _, ch in ts) / len(ts) if ts else 0.0
+        found = {}
+        for k, v in sorted({(k, v) for _, ch in trials for k, v in ch.items()}, key=str):
+            r = rate(trials, k, v)
+            if r * len(trials) >= self.learn_threshold and r >= 0.5 and r - rate(others, k, v) >= CONTRAST:
+                found[k] = v
+        if not found:
+            return
+        ctx = []
+        for i in sorted({i for b, _ in trials for i in b} - set(found)):
+            on = [tr for tr in trials if tr[0].get(i) is ON]
+            off = [tr for tr in trials if tr[0].get(i) is OFF]
+            if not on or not off:
+                continue
+            d = sum(rate(on, k, v) - rate(off, k, v) for k, v in found.items()) / len(found)
+            if d >= CONTRAST:
+                ctx.append(i)
+            elif d <= -CONTRAST:
+                ctx.append("!" + i)
+        sub = [tr for tr in trials if all(holds(tr[0], c) for c in ctx)]
+        rel = round(sum(rate(sub, k, v) for k, v in found.items()) / len(found), 3)
+        result = {k: "on" if v else "off" for k, v in found.items()}
+        if ctx:
+            general = next((x for x in self.schemas if x.id == f"learned-{act}"), None)
+            if general:
+                general.reliability = round(sum(rate(trials, k, v) for k, v in found.items()) / len(found), 3)
+        s = next((x for x in self.schemas if x.action == act and sorted(x.context) == ctx), None)
+        if s and not s.id.startswith("learned-"):
+            new = {k: v for k, v in result.items() if k not in s.result}
+            if new:
+                s.result = {**s.result, **new}
+                self.log(t, f"result spinoff extends {s.id}: {new}", inner=False)
+            return
+        if s:
+            if (s.result, s.reliability) != (result, rel):
+                s.result, s.reliability = result, rel
+                self.log(t, f"spinoff revises {s.id}: {result} at {rel}", inner=False)
+            return
+        sid = f"learned-{act}" + ("-when-" + "-".join(c.replace("!", "not-") for c in ctx) if ctx else "")
+        self.schemas.append(Schema(id=sid, action=act, context=ctx, result=result, reliability=rel,
+                                   source=f"learned: {len(sub)} trials of '{act}'"))
+        self.log(t, f"marginal attribution spins off schema {sid}: {act} → {result}"
+                    + (f" when {ctx}" if ctx else "") + f", reliability {rel}", inner=False)
+        self.bus.emit("INFO", "spinoff", f"learned schema {sid}", key={"agent": self.name, "spinoff": sid, "r": result},
+                      schema=sid, action=act, context=ctx, result=result, reliability=rel, t=t)
+
     # -- humor: the training signal ---------------------------------------
     def joke(self, t, ev):
         # Humor trains censors both ways: a joke that exposes one lets the
@@ -591,6 +685,10 @@ class Mind:
         t = ev["t"]
         for k, v in ev.get("set", {}).items():
             self.items[k] = parse_value(v)
+        if self.learn_schemas:
+            self.watch(ev.get("set", {}))
+            if "offers" in ev:
+                self.close_window(t)
         if ev.get("say"):
             self.log(t, f"hears: {ev['say']}", quote=ev.get("quote"))
         if "joke" in ev:
@@ -614,6 +712,11 @@ class Mind:
                 self.apply(act)
                 self.suppress(t)
                 self.attribute(t, act, before)
+            # In replay the world's answers in the record followed what the
+            # person did, so that's the action they're evidence about.
+            took = observed if (self.replay and observed) else act
+            if self.learn_schemas and took:
+                self.pending = (took, before, dict(self.items), {})
 
 
 # == running =================================================================
@@ -1281,6 +1384,115 @@ def cmd_plan(a, bus):
     return emit_out(out, a.format or "text", "\n".join(lines))
 
 
+# == learning from a record: propose, gate, ask ===============================
+def run_fit(spec, r):
+    return score(run({**spec, "runs": [r]})[0][1])[0]
+
+
+def replayed(spec, r):
+    """Run r with schema learning on, learning from what the person did."""
+    merged = run_spec(spec, r)
+    merged = {**merged, "agent": {**merged["agent"], "learn_schemas": True}}
+    m = Mind(merged)
+    m.replay = True
+    for ev in sorted(spec.get("events", []) + r.get("events", []), key=lambda e: e["t"]):
+        m.step(ev, quotes=False)
+    return m
+
+
+def learn(spec, run_name=None, rounds=4):
+    """Drescher's learner over a record, as a loop with a gate. Each round
+    replays the record with result and context spinoffs on, proposes every
+    schema it learned, and keeps a proposal only if the model with it fits
+    the record better. Kept ones feed the next round. Stops when a round
+    keeps nothing. The words for what a kept schema means are asked for."""
+    r = runs_of(spec, run_name)[0]
+    cur, rows, kept = spec, [], []
+    for rnd in range(1, rounds + 1):
+        have = {s["id"]: s for s in cur.get("schemas", [])}
+        m = replayed(cur, r)
+        props = []
+        for s in m.schemas:
+            if s.id.startswith("learned-"):
+                p = {"id": s.id, "action": s.action, "context": s.context, "result": s.result,
+                     "reliability": s.reliability, "source": s.source}
+                if have.get(s.id) and {k: have[s.id].get(k) for k in ("context", "result")} == \
+                        {"context": s.context, "result": s.result}:
+                    continue
+            elif s.id in have and s.result != have[s.id].get("result"):
+                p = {"id": s.id, "result": {k: v for k, v in s.result.items() if k not in have[s.id].get("result", {})}}
+            else:
+                continue
+            props.append(p)
+        base = run_fit(cur, r)
+        scored = sorted(((run_fit(merge(cur, {"schemas": [p]}), r) - base, p) for p in props),
+                        key=lambda x: (-x[0], x[1]["id"]))
+        took = 0
+        for d, p in scored:
+            now = run_fit(cur, r)
+            after = run_fit(merge(cur, {"schemas": [p]}), r)
+            verdict = "kept" if after > now else "worse" if after < now else "no gain"
+            rows.append({"round": rnd, "id": p["id"], "action": p.get("action"), "context": p.get("context"),
+                         "result": p["result"], "reliability": p.get("reliability"),
+                         "fit": f"{now} → {after}", "verdict": verdict})
+            if verdict == "kept":
+                cur = merge(cur, {"schemas": [p]})
+                kept.append(p)
+                took += 1
+        if not took:
+            break
+    return r, rows, kept, cur
+
+
+def cmd_learn(a, bus):
+    spec = load([a.file], a.layer, a.who, a.set)
+    r, rows, kept, cur = learn(spec, a.run, a.rounds)
+    total = len([e for e in spec.get("events", []) + r.get("events", []) if e.get("observed")])
+    start, end = run_fit(spec, r), run_fit(cur, r)
+    for p in kept:
+        bus.emit("REQUEST", "schema-meaning", f"learned schema {p['id']} fits the record; say what it means",
+                 key={"learned": p["id"], "result": p["result"]}, schema=p["id"],
+                 ask="one line saying in words what this schema claims, and a source if one supports it; "
+                     "or drop it if it's an artifact of how the record was written",
+                 patch={"schemas": [{"id": p["id"], "note": "<what it claims>", "source": "tier0: <who answered>"}]})
+    bus.emit("RESULT", "learn", f"{r['name']}: fit {start}/{total} → {end}/{total}, {len(kept)} schemas kept",
+             run=r["name"], before=start, after=end, total=total, kept=[p["id"] for p in kept])
+    if a.patch:
+        return emit_out({"schemas": [{**p, "learned_from": f"learn over {os.path.basename(a.file)}, run {r['name']}"}
+                                     for p in kept]}, a.format or "yaml")
+    lines = [f"learned from the record (run {r['name']}): fit {start}/{total} → {end}/{total}"]
+    for x in rows:
+        what = f"{x['action'] or ''} → {x['result']}" + (f" when {x['context']}" if x.get("context") else "")
+        lines.append(f"  round {x['round']}  {x['verdict']:<8} {x['id']:<36} {what}  (fit {x['fit']})")
+    if not rows:
+        lines.append("  nothing to propose: no item follows any action more than it follows the others")
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
+def cmd_try(a, bus):
+    """The gate for a proposal from outside: the same scenario with and
+    without the --layer files. Keep the layer only if no run fits worse."""
+    base, cand = load([a.file], [], a.who, a.set), load([a.file], a.layer, a.who, a.set)
+    rows = []
+    for r in runs_of(cand, a.run):
+        if r.get("counterfactual"):
+            continue
+        rb = next((x for x in runs_of(base) if x["name"] == r["name"]), None)
+        before = run_fit(base, rb) if rb else None
+        after, total = score(run({**cand, "runs": [r]})[0][1])
+        rows.append({"run": r["name"], "before": before, "after": after, "total": total})
+    lint = {"before": lint_spec(base, Bus())["errors"], "after": lint_spec(cand, Bus())["errors"]}
+    worse = [x for x in rows if x["before"] is not None and x["after"] < x["before"]]
+    better = [x for x in rows if x["before"] is not None and x["after"] > x["before"]]
+    verdict = "reject" if worse or lint["after"] > lint["before"] else "keep" if better else "no gain"
+    a._exit = 2 if verdict == "reject" else 0
+    bus.emit("RESULT", "try", verdict, verdict=verdict, runs=rows, lint=lint)
+    lines = [f"{x['run']}: {x['before']}/{x['total']} → {x['after']}/{x['total']}" for x in rows]
+    lines.append(f"lint errors: {lint['before']} → {lint['after']}")
+    lines.append(f"verdict: {verdict}")
+    return emit_out({"verdict": verdict, "runs": rows, "lint": lint}, a.format or "text", "\n".join(lines))
+
+
 # == duets: two minds, one world ==============================================
 def duet_seats(spec, here):
     """Each seat's mind, resolved once: its file, one of its runs, and any
@@ -1602,6 +1814,10 @@ def main(argv=None):
                                            help="plan from the run's starting items, or where the record leaves it")
     s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
     s.add_argument("--max-steps", type=int, default=8)
+    s = sub.add_parser("learn", parents=[common]); s.add_argument("file"); s.add_argument("--run")
+    s.add_argument("--rounds", type=int, default=4)
+    s.add_argument("--patch", action="store_true", help="emit the kept schemas as one layer")
+    s = sub.add_parser("try", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s = sub.add_parser("duet", parents=[common]); s.add_argument("file")
     s.add_argument("--n", type=int, default=1, help="more than 1: draw each seat's weights n times and tally outcomes")
     s.add_argument("--seed", type=int, default=0); s.add_argument("--spread", type=float, default=0.5)

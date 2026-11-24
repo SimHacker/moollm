@@ -1,0 +1,50 @@
+# The toddler and the snack — Drescher's learner, from bare schemas. Fiction.
+# ============================================================================
+# Nobody here is real. Drescher's agent starts knowing only that it can
+# act; it learns what its actions do by watching what follows them. This
+# toddler has two actions and no schemas at all: it doesn't know that
+# crying gets it scolded or that asking gets it a snack.
+#
+# It cries twice and is scolded twice. Marginal attribution notices that
+# being scolded follows crying, and not asking, and spins off a schema:
+# cry → scolded. Now crying looks bad, so it asks, and a snack follows,
+# twice, and it learns ask → snack. Then the parent goes out, it asks
+# twice more, and nothing comes: a context spinoff narrows the schema to
+# ask → snack *when the parent is home*.
+#
+# The record is what the child did. The `learning` run fits all of it.
+# The `knows-nothing` run is the same mind with learning off: no schemas,
+# every choice a tie, and it cries every time. `learn` runs the same
+# mechanism over the record from outside and proposes the schemas, kept
+# only if they make the fit better.
+#
+#   S=../../scripts/censor_sim.py
+#   python3 $S run   learning-toddler.yml --run learning
+#   python3 $S learn learning-toddler.yml --run knows-nothing
+# ============================================================================
+
+agent:
+  name: "the toddler"
+  items: { scolded: off, snack: off, parent-home: on }
+  values: { snack: 5, scolded: -2 }
+
+events:
+  - { t: 1, offers: [cry, ask], observed: cry }
+  - { t: 1.5, set: { scolded: on }, say: "'Stop that.'" }
+  - { t: 2, set: { scolded: off }, offers: [cry, ask], observed: cry }
+  - { t: 2.5, set: { scolded: on }, say: "'I said stop.'" }
+  - { t: 3, set: { scolded: off }, offers: [cry, ask], observed: ask }
+  - { t: 3.5, set: { snack: on }, say: "A cracker." }
+  - { t: 4, set: { snack: off }, offers: [cry, ask], observed: ask }
+  - { t: 4.5, set: { snack: on }, say: "Another cracker." }
+  - { t: 5, set: { snack: off, parent-home: off }, say: "The parent goes out; a sitter who doesn't know where the crackers are.",
+      offers: [cry, ask], observed: ask }
+  - { t: 6, offers: [cry, ask], observed: ask }
+  - { t: 7, offers: [cry, ask], observed: ask }
+
+runs:
+  - name: learning
+    agent: { learn_schemas: true }
+    expect: { fit: 7/7 }
+  - name: knows-nothing
+    expect: { fit: 2/7 }

@@ -20,7 +20,17 @@ the mind through the same events and reports whether it does the same
 things, which of its parts the record needs, and how much the answer
 depends on weights somebody guessed.
 
-It is about 1,500 lines of Python 3 with one dependency (PyYAML). It never
+The mind learns the way Drescher's does: it can start from bare schemas,
+knowing only which actions it has, and spin off what each action does from
+what follows it (section 6). The same mechanism runs over a record from
+outside, as `learn`. The engine is built to run in a loop with a language
+model in a tool like Cursor. The engine proposes schemas from the evidence
+and keeps only the ones that improve the fit. The model says what a kept
+schema means, adds the outcome events a record is missing, and proposes
+schemas of its own. `try` keeps or rejects each of those by the same test.
+Each round starts from the last one's layers (section 10).
+
+It is about 1,850 lines of Python 3 with one dependency (PyYAML). It never
 calls a language model, never touches the network, and gives the same
 output for the same input and seed on any machine. It runs about 20,000
 simulations a second on a laptop, which is what makes the statistics in
@@ -48,7 +58,10 @@ pretending. The engine uses the term twice, and keeps the two apart:
 | Idea | Source | In the engine |
 |---|---|---|
 | Schema: context, action, result, reliability | Drescher, *Made-Up Minds* (MIT, 1991), after Piaget | `Schema`; `schema_for` picks the most specific matching schema |
-| Marginal attribution: which items make a result likelier | Drescher | `discriminating`, `attribute`; offline, `induce` |
+| Bare schemas: an agent starts knowing only its actions | Drescher | `agent.learn_schemas: true`; no schema is a starting state, not a request |
+| Result spinoff: an item that follows an action more than it follows the others | Drescher | `Mind.spin_off`, during a run; `learn`, over a record |
+| Context spinoff: an item before the action that makes the result likelier | Drescher | `Mind.spin_off`; for censors, `discriminating` |
+| Marginal attribution over pain | Drescher's mechanism, applied to Minsky's censors | `attribute`, `discriminating`; offline, `induce` |
 | Overriding conditions: items that make a reliable action fail | Drescher | `induce` labels them `overriding`, and writes them as censors |
 | Synthetic items: states you can't see but must posit | Drescher | `propose` |
 | Composite actions and planning over schemas | Drescher | `Mind.plan`, the `plan` command |
@@ -266,6 +279,51 @@ The mind never sees this happen. The observer trace says *marginal
 attribution mints censor learned-read-letter*; the inner trace says nothing
 until the censor fires, and then only the cover.
 
+### Learning what actions do: result and context spinoffs
+
+With `agent.learn_schemas: true` the mind can start with no positive
+schemas at all. An action with no schema is worth nothing yet, and taking
+it is how the mind finds out. After each action the mind opens a window.
+Every item the world changes before the next choice (an event's `set`)
+is recorded as having followed that action, compared with the state
+before it. The first change counts, and a later reset doesn't erase it.
+The window closes when the next choice comes.
+
+Once an action has `learn_threshold` trials (2), marginal attribution
+looks at each item that followed it. If the item followed the action at
+least that many times, in at least half the trials, and in a share at
+least 0.5 higher than after the other actions, it is a **result spinoff**.
+The mind mints `learned-<action>` with those results, at the observed
+rate as its reliability. Then a **context spinoff**: an item whose state
+before the action separates the trials where the results came from the
+trials where they didn't, by at least 0.5, joins the context. The mind
+mints `learned-<action>-when-<item>` with the reliability of that subset,
+and the general schema's reliability is revised to the overall rate. A
+hand-written schema with the same context is extended with the new
+results, never overwritten. Each spinoff appears in the observer trace,
+not the inner one: the mind uses what it learned without watching itself
+learn it.
+
+The worked example is
+[`learning-toddler.yml`](../skills/schema-mechanism/censors/examples/learning-toddler.yml):
+a toddler with two actions and no schemas cries twice, is scolded twice,
+spins off *cry → scolded*, then asks, gets a snack twice, and spins off
+*ask → snack*. When the parent goes out and asking stops working, the
+context spinoff narrows it to *ask → snack when the parent is home*. The
+learning mind fits all 7 choices; the same mind with learning off fits 2.
+
+**Over a record, `learn`** replays the record with spinoffs on, learning
+from what the person did (the world's answers in a record followed the
+real action, not the model's). It proposes every schema it learned, and
+gates each one: kept only if the model with it fits the record better.
+Kept schemas feed the next round, until a round keeps nothing. Each kept
+schema raises a request for the other tier to say what it means, or to
+drop it as an artifact of how the record was written. On the toddler,
+`learn` takes the knows-nothing mind from 2/7 to 5/7 with one schema,
+*ask → snack*. The two remaining misses are the cries before the child
+had learned anything, and only a mind that learns during the run fits
+those. The record of a learner is fit by a learner.
+
 ## 7. The two traces
 
 Every log line goes to the observer trace. It also goes to the inner trace
@@ -432,9 +490,42 @@ person, another program, or a language model in a chat fills it in, and
 it comes back as `--layer FILE` or is merged into a file with `apply`.
 Requests are made for a schema nobody wrote (what does this action do?), a
 cover for a censor that fired without one, a latent item `propose` found,
-and a plan with no schema to reach it. The loop lives outside the tool, so
-it composes: files in, files out, filters in between. Exit 3 under
-`--strict` means requests are still open.
+and a plan with no schema to reach it, and for the meaning of each schema
+`learn` kept. The loop lives outside the tool, so it composes: files in,
+files out, filters in between. Exit 3 under `--strict` means requests are
+still open.
+
+### The loop
+
+In a tool like Cursor, the language model runs the commands and answers
+the requests; the engine does the counting and the gating. One round:
+
+1. `learn FILE --patch > learned.yml` proposes schemas from the record,
+   keeping only those that improve the fit, and asks what each means.
+2. The model answers in a layer: a `note` for each kept schema, or a
+   `drop: true` for an artifact. It may also propose things the counts
+   can't: outcome events the record is missing (with sources, for a real
+   person), a schema for an action nobody described, or a latent item to
+   explain a schema that works only sometimes. All of it is marked
+   `tier0`, which means `[PI]`.
+3. `try FILE --layer answers.yml` is the gate. It rejects a layer that
+   makes any run fit worse or adds a lint error, and reports whether it
+   helped. The record decides, not the model.
+4. Kept layers are merged with `apply` or passed as `--layer` to the next
+   round, and `ablate`, `sweep` and `propose` run on the result.
+
+The rounds stop when `learn` keeps nothing and the requests are closed.
+This is Drescher's learner with a division of labor. Counting, attribution
+and the fit test are deterministic and repeatable. Naming, and noticing
+what a record left out, go to the tier that can produce words, and every
+word it produces has to pass the same test as a count.
+
+On the public-figure records `learn` currently finds nothing worth keeping.
+Those records describe the situation before each choice and reset it
+after, but rarely record what followed (applause, criticism, a deal). The
+resets look like results and the gate rejects them. Adding sourced outcome
+events is the model's part of the loop, and it is what would let those
+minds learn what their moves do.
 
 A cover whose `source` starts with `tier0` was generated, and prints with
 `[PI]`.
@@ -460,12 +551,13 @@ intent and an invitation to correct.
 
 ## 12. How the engine is tested
 
-- `scripts/test_censor_sim.py`: 28 unit tests of merging, conditions,
-  value modes, learning, planning, run overrides, lint, duets, and the
+- `scripts/test_censor_sim.py`: 32 unit tests of merging, conditions,
+  value modes, censor and schema learning, `learn`'s gate, planning, run
+  overrides, lint, duets, and the
   dentist example end to end, including the JSON event stream.
 - `suite PATH...` lints and tests every scenario, with its answer layer if
   it has one. Across the public kit, WillWrightShowForFood and Don's
-  private characters it runs 36 scenarios, two of them duets, all
+  private characters it runs 37 scenarios, two of them duets, all
   passing, with no lint errors.
 - `scripts/regen_runs.py` regenerates the committed `RUN.md` outputs, with
   timings stripped; `--check` exits 1 if any is stale.
@@ -485,17 +577,25 @@ were corrected where they were published.
 | Scoring by change, tried as the default | 17 of 30 scenarios broke: without decay, repeating an action pays nothing | Kept as `score: change`, opt-in |
 | Losses as pain, tried as the default | Changed a fit in a public-figure model | Kept as `losses_hurt: true`, opt-in |
 
-New in the same round: `plan`, `duet`, the unit tests, `regen_runs.py`, and the
+New in the same round: schema learning (`learn_schemas`, `learn`, `try`), `plan`, `duet`, the unit tests, `regen_runs.py`, and the
 dentist's `book-appointment` schema so planning has somewhere to go.
 
 ## 14. Limits
 
 - **It doesn't understand anything.** Items are names. Meaning lives in the
   names, the comments, and the reader.
-- **Positive schemas are written by hand.** Drescher's mechanism learns
-  them from experience. This engine learns censors, and finds contexts,
-  overriding conditions and latent items in a record, but someone writes
-  what actions do.
+- **It learns only from what a record records.** A result can be learned
+  only if an event sets the item between one choice and the next. Most
+  real records describe situations, not outcomes, so the loop's other tier
+  has to add sourced outcome events before there is anything to learn.
+- **Learning during a run on a record can misattribute.** If the model
+  chooses differently from the person, the world's next events answered
+  the person's action, not the model's. `learn` replays the observed
+  actions for that reason; in a duet the world answers the model, so the
+  problem doesn't arise.
+- **Unreliable schemas don't yet propose synthetic items.** Drescher posits
+  a hidden state when a schema works only sometimes. `propose` does that
+  for choices; for schemas it is a request to the other tier.
 - **Weights are guesses.** `sweep` measures how much the conclusions depend
   on them; it doesn't make them right.
 - **Ties go to the first offered action.** Two actions with equal value are
@@ -517,7 +617,8 @@ dentist's `book-appointment` schema so planning has somewhere to go.
 
 - Duets with more than two seats, and minds that choose when to move.
 - `propose` for more than one switch per action.
-- Learned positive schemas from a record, Drescher's way, as proposals.
+- Synthetic items for unreliable learned schemas, proposed by the engine.
+- Outcome events for the public-figure records, so `learn` has results to find.
 - Multi-step `argue`: a sequence of arguments, not one.
 - Longer public-figure records, and words grounded in what was actually
   said rather than in item names.

@@ -61,6 +61,8 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `drift FILE [--half-life N]` | Fit over time: hits weighted toward recent choices, where each run's unbroken hits begin, and a `#.#` strip of hits and misses |
 | `propose FILE [--run R]` | Drescher's synthetic items over the record: a choice that switched once with nothing observed to explain it; proposes a latent item and asks what it was (`--patch` for the layer) |
 | `plan FILE --goal G [--run R] [--at start\|end] [--set-item K=V]` | Drescher's planner (Dijkstra over schemas, cost 1 − log reliability) with Minsky's censors in the search: the plan the agent can think of, the plan an observer sees, and the censor that hid each missing step |
+| `learn FILE [--run R] [--rounds N] [--patch]` | Drescher's learner over the record: replays what the person did with result and context spinoffs on, proposes each learned schema, keeps it only if the fit improves, and asks the other tier what each kept one means. `--patch` writes the kept ones as a layer |
+| `try FILE --layer L [--run R]` | The gate for any proposal, from `learn`, a person or a language model: rejects a layer that makes a run fit worse or adds a lint error |
 | `duet FILE [--n N] [--test]` | Two minds on one stage. Each turn is one seat's choice or the world changing; `effects` make one mind's move the other's news, and `when` skips turns the world never reached. With `--n`, each seat's weights are drawn independently and the outcomes tallied. `suite` runs duets too |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
@@ -74,6 +76,8 @@ Scoring options on `agent:`: `score: earned` (default; a result pays every
 time, as if the motive had decayed back) or `score: change` (only what the
 action changes, as The Sims' Find Best Action scores the delta), and
 `losses_hurt: true` to count losing a valued item as pain when learning.
+`learn_schemas: true` lets a mind start from bare schemas and spin off what
+its actions do from what follows them, as Drescher's agent does.
 
 Tests: `python3 ../scripts/test_censor_sim.py` checks the engine's own rules;
 `suite` checks the models against their records; `python3
@@ -116,6 +120,7 @@ archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to 
 
 | Scenario | Shows |
 |---|---|
+| [`examples/learning-toddler.yml`](examples/learning-toddler.yml) | Drescher's learner from bare schemas: cries, is scolded, learns *cry → scolded*; asks, gets a snack, learns *ask → snack*, then *when the parent is home*. The learning mind fits 7/7, the same mind without learning 2/7; `learn` from outside reaches 5/7, because only a learner fits a learner's early mistakes |
 | [`examples/dentist-letter.yml`](examples/dentist-letter.yml) ([output](examples/dentist-letter.RUN.md), [answers](examples/dentist-letter.answers.yml)) | A censor learned by marginal attribution, invisible from inside; a joke exposes it and leaves an exception. In 30% of weightings no censor forms at all: the values already avoid the letter |
 | [`examples/beekeepers.yml`](examples/beekeepers.yml) ([output](examples/beekeepers.RUN.md)) | The real-person workflow on people who don't exist: inherit, cast, replace every cover with the character's words, fit the record (6/6), ablate (`tone` isn't needed: the story never offers it) |
 | [`examples/beekeepers-second-round.yml`](examples/beekeepers-second-round.yml) | The principled ally's second round: the witness discounted ("never said that to me"), the friend's story kept (confidential), and a loyalty debt that makes the scope censor unnecessary. Two accounts, both 8/8 |

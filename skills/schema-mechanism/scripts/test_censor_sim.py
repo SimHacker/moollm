@@ -198,6 +198,33 @@ class Examples(unittest.TestCase):
         self.assertIn("plan", kinds)
 
 
+class SchemaLearning(unittest.TestCase):
+    def setUp(self):
+        self.spec = cs.load([os.path.join(EXAMPLES, "learning-toddler.yml")])
+
+    def test_learns_from_bare_schemas_in_the_run(self):
+        (_, m), = cs.run(self.spec, "learning")
+        self.assertEqual(cs.score(m), (7, 7))
+        learned = {s.id: s for s in m.schemas}
+        self.assertEqual(learned["learned-cry"].result, {"scolded": "on"})
+        self.assertEqual(learned["learned-ask"].result, {"snack": "on"})
+        self.assertEqual(learned["learned-ask-when-parent-home"].context, ["parent-home"])
+
+    def test_without_learning_every_choice_ties(self):
+        (_, m), = cs.run(self.spec, "knows-nothing")
+        self.assertEqual(cs.score(m), (2, 7))
+
+    def test_a_reset_is_not_a_result(self):
+        (_, m), = cs.run(self.spec, "learning")
+        self.assertFalse(any(v == "off" for s in m.schemas for v in s.result.values()))
+
+    def test_learn_keeps_only_what_fits(self):
+        r, rows, kept, cur = cs.learn(self.spec, "knows-nothing")
+        self.assertEqual([p["id"] for p in kept], ["learned-ask"])
+        self.assertEqual(cs.run_fit(cur, r), 5)
+        self.assertTrue(all(x["verdict"] != "kept" for x in rows if x["id"] != "learned-ask"))
+
+
 class Duet(unittest.TestCase):
     def setUp(self):
         self.path = os.path.join(EXAMPLES, "name-on-the-clinic.duet.yml")

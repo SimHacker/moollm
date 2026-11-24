@@ -11,13 +11,15 @@ a tutorial with worked examples is
 
 ## In one paragraph
 
-`censor_sim.py` is a small program, about 1,500 lines of Python, that runs
+`censor_sim.py` is a small program, about 1,850 lines of Python, that runs
 a made-up mind. The mind is a list of named facts that are on, off or
 unknown, a table saying how much it likes or dislikes each one, and a list
 of rules of the form *in this situation, doing this tends to cause that*.
 At each step it does whatever its rules say will turn out best, unless a
-*censor* forbids the step. Censors are learned from bad outcomes, and the
-mind doesn't see them: it only sees the excuse it tells itself. You give
+*censor* forbids the step. The rules can be learned, as in Drescher's
+mechanism, from what tends to follow each action. Censors are learned from
+bad outcomes, and the mind doesn't see them: it only sees the excuse it
+tells itself. You give
 the program a record of what a real or fictional agent actually did, and it
 tells you whether the made-up mind reproduces that record, which of its
 parts the record actually needs, and how much the answer depends on numbers
@@ -125,6 +127,16 @@ this program, and isn't public; this program is a small, separate, public
 re-telling of the same idea, aimed at reading people's choices instead of
 watching a factory floor.
 
+## The loop
+
+The program is built to run in a loop with a language model, for example
+inside an editor like Cursor. The program proposes rules from the record
+and keeps only the ones that make the made-up mind reproduce the record
+better. The model answers the program's questions: what a kept rule
+means, what the record left out, what rule might explain a choice. Every
+answer comes back as a file, and the program's fit test keeps or rejects
+it. The model supplies words and the program does the counting.
+
 ## How it works, in five steps
 
 The fictional example everyone recognizes: a letter from the dentist.
@@ -188,9 +200,13 @@ The fictional example everyone recognizes: a letter from the dentist.
   it. When two accounts fit the same record, the program says so, and
   says what evidence would separate them. It never reports intent the
   record doesn't show.
-- **It doesn't learn the way Drescher's full mechanism does.** It learns
-  censors from bad outcomes, and finds hidden states and overriding
-  conditions in a record, but its positive schemas are written by hand.
+- **It learns only what its records contain.** Like Drescher's agent, a
+  mind can start knowing only its actions and learn what they do from what
+  follows them, and `learn` does the same over a record, keeping only what
+  improves the fit. But it can learn only from outcomes someone recorded.
+  Most records of real people say what the situation was, not what
+  followed. Adding those outcomes, with sources, is the language model's
+  part of the loop, and the engine's fit test decides whether they stay.
 - **It doesn't call out.** No network, no model, no telemetry. Same input
   and seed, same output, on any machine.
 - **It doesn't put words in anyone's mouth.** For a real person, the lint
