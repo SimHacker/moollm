@@ -201,3 +201,56 @@ reason for the rules:
 - **Ablate before you believe a part.** A part the record doesn't need is a
   guess about someone's inner life with no evidence behind it. `ablate` says
   which ones those are; say so when you present the model.
+
+## Public figures: traits as parts
+
+Six more figures are built the same way, and their traits are parts anyone
+can reuse. [`power-logic`](parts/power-logic.yml) is the shared logic for
+anyone with power over others: believe the friend or heed the warning;
+flatter, escalate, concede, or concede for a deal; blame the other side;
+deny; confess part or all; seek a return. It has no weights and no censors.
+What makes each figure different is which drives and censors snap on.
+
+| Trait | Kind | What it does | Used by |
+|---|---|---|---|
+| [`drive-the-deal`](parts/drive-the-deal.yml) | drive | what the friend owes, and the deal, outweigh what the friend did | the dealmaker |
+| [`drive-face`](parts/drive-face.yml) | drive | standing first; a concession costs it | the restorer, the helmsman, the dynast |
+| [`drive-the-company`](parts/drive-the-company.yml) | drive | keeping the position matters more than the whole truth | the founder |
+| [`friend-of-the-strongman`](parts/friend-of-the-strongman.yml) | suppressor | the friend's denial outweighs the evidence | the dealmaker |
+| [`i-havent-heard-that`](parts/i-havent-heard-that.yml) | precursor | a warning about a friend doesn't arrive | the dealmaker |
+| [`investigation-pending`](parts/investigation-pending.yml) | precursor | the inquiry will answer it | the dealmaker, the founder |
+| [`the-other-side-chooses`](parts/the-other-side-chooses.yml) | suppressor | my side's escalation becomes the other side's choice | the restorer, the dynast |
+| [`defensive-war`](parts/defensive-war.yml) | suppressor | an attack becomes protecting people | the restorer |
+| [`harmony-script`](parts/harmony-script.yml) | suppressor | a dispute becomes stability being managed | the helmsman |
+| [`the-smaller-sin`](parts/the-smaller-sin.yml) | precursor | confess the private failing, not the public question | the founder |
+| [`civilization-frame`](parts/civilization-frame.yml) | suppressor | excluding a group becomes defending a civilization | the ideologue |
+| [`smear-the-watchdog`](parts/smear-the-watchdog.yml) | precursor | won't hear out the group that documents it | the ideologue |
+
+The archetypes are [`the-dealmaker`](archetypes/the-dealmaker.yml),
+[`the-restorer`](archetypes/the-restorer.yml),
+[`the-helmsman`](archetypes/the-helmsman.yml),
+[`the-dynast`](archetypes/the-dynast.yml) (imports one trait from the
+restorer), [`the-founder`](archetypes/the-founder.yml) (imports one from the
+dealmaker), and [`the-ideologue`](archetypes/the-ideologue.yml) (the convert,
+on stage). The archetypes are abstract. Each real figure is one in
+WillWrightShowForFood, with his own sourced words replacing the template
+covers:
+
+| Figure | Archetype | Fit | In random weightings |
+|---|---|---|---|
+| [Donald Trump](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-trump) | the-dealmaker | 7/8; 8/8 with power-pays | 100% |
+| [Vladimir Putin](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/vladimir-putin) | the-restorer | 4/4 | 94% |
+| [Xi Jinping](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/xi-jinping) | the-helmsman | 4/4 | 86% |
+| [Kim Jong Un](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/kim-jong-un) | the-dynast | 5/5 | 70% |
+| [Jensen Huang](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jensen-huang) | the-founder | 5/5 | 97% |
+| [Stephen Miller](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/stephen-miller) | the-ideologue | 5/5 | 100% |
+
+Two findings carry across figures. Trump's one miss is the day after
+Helsinki, when he said he'd meant "wouldn't". The `power-pays` weight found
+for Musk explains it unchanged: a retraction after a documented cost. And
+ablation needs none of the censors anywhere; the drives alone pick every
+move. The censors are each man's own account of the moment, in his own
+words, not the cause of what he did. These records are short: four to
+eight choices each. They're enough to check the traits against the record,
+not to prove them. `predict` and the [live-events loop](LIVE.md) are how
+they get tested.

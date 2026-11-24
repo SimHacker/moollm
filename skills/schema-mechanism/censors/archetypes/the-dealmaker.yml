@@ -1,0 +1,20 @@
+# ARCHETYPE the dealmaker — the friend's word against his own officials'
+# ============================================================================
+# Applause and the deal pay. A friend accused is a friend who'll owe him;
+# a warning about the friend doesn't arrive, or waits for an inquiry. Takes
+# stage-logic's retract, so a documented cost can move him the way it
+# moved the Baron.
+# ============================================================================
+
+part: { id: the-dealmaker, kind: archetype, about: "Applause and the deal; the friend's denial over the warning." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/power-logic.yml
+  - ../parts/drive-applause.yml
+  - ../parts/drive-the-deal.yml
+  - ../parts/friend-of-the-strongman.yml
+  - ../parts/i-havent-heard-that.yml
+  - ../parts/investigation-pending.yml

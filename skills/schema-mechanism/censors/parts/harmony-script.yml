@@ -1,0 +1,13 @@
+# PART harmony-script — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: harmony-script, kind: censor, about: "Suppressor. A dispute is re-filed as stability being managed." }
+
+censors:
+  - id: harmony-script
+    kind: suppressor
+    context: [accusation-heard]
+    state: [my-side-escalates]
+    refile: { my-side-escalates: off, calm: on }
+    cover: "Differences should be managed, and escalation prevented."
+    source: template

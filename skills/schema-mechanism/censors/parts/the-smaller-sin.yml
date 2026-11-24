@@ -1,0 +1,13 @@
+# PART the-smaller-sin — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: the-smaller-sin, kind: censor, about: "Precursor. Confess the private failing; the public question stays unconfessed." }
+
+censors:
+  - id: the-smaller-sin
+    kind: precursor
+    action: confess-all
+    context: [accusation-heard]
+    harm: [power-safe]
+    cover: "My failing was a private one."
+    source: template

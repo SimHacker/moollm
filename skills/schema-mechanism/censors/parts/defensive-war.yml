@@ -1,0 +1,13 @@
+# PART defensive-war — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: defensive-war, kind: censor, about: "Suppressor. An attack is re-filed as protecting people." }
+
+censors:
+  - id: defensive-war
+    kind: suppressor
+    context: []
+    state: [my-side-escalates]
+    refile: { my-side-escalates: off, calm: on }
+    cover: "We are protecting our people."
+    source: template

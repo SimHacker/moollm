@@ -1,0 +1,15 @@
+# ARCHETYPE the founder — the company is the self
+# Takes investigation-pending from the dealmaker: the inquiry will answer.
+
+part: { id: the-founder, kind: archetype, about: "Keep the position; confess the private failing, refer the public one to an inquiry." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/power-logic.yml
+  - ../parts/drive-the-company.yml
+  - ../parts/the-smaller-sin.yml
+
+imports:
+  - { from: the-dealmaker.yml, take: [investigation-pending] }

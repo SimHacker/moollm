@@ -1,0 +1,13 @@
+# PART i-havent-heard-that — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: i-havent-heard-that, kind: censor, about: "Precursor. Won't take in a warning about a friend; the warning didn't arrive." }
+
+censors:
+  - id: i-havent-heard-that
+    kind: precursor
+    action: heed-intel
+    context: [friend-accused, intel-warning]
+    harm: [knows-friend-did-harm]
+    cover: "Nobody told me that."
+    source: template

@@ -1,0 +1,17 @@
+# ARCHETYPE the dynast — the deterrent is the inheritance
+# Takes one trait from the restorer: the same cover, a different war.
+
+part: { id: the-dynast, kind: archetype, about: "Face first; flatter the one counterpart who matters; the other side decides." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/power-logic.yml
+  - ../parts/drive-face.yml
+
+imports:
+  - { from: the-restorer.yml, take: [the-other-side-chooses] }
+
+agent:
+  values: { deal: 5 }             # relief from sanctions, the one deal that matters

@@ -1,0 +1,49 @@
+# PART power-logic — what a head of state, a CEO, or a top aide can do
+# ============================================================================
+# Shared logic, no censors, no weights. Inherit after principled-skeptic,
+# crowd-logic and stage-logic. Built for public figures with power over
+# others, from their records (characters in WillWrightShowForFood under
+# portrayal-standards#public-power), but nothing here is about any one of
+# them: the drives and censors that make each one different are separate
+# parts.
+#
+# Observed items, set by an event only with a source:
+#   friend-accused   someone he calls a friend is accused of something
+#   intel-warning    his own officials, advisers, or board warned him
+#   deal-on-table    a negotiation he wants is open
+# Latent items, never set by events; what an action buys:
+#   knows-friend-did-harm, friend-owes, leverage, deal
+#   face             standing; on until something costs it
+# ============================================================================
+
+part: { id: power-logic, kind: logic, about: "Believe the friend or the warning; flatter, escalate, concede, blame the other side, deny, confess part or all." }
+
+agent:
+  items:
+    friend-accused: off
+    intel-warning: off
+    deal-on-table: off
+    knows-friend-did-harm: off
+    friend-owes: off
+    leverage: off
+    deal: off
+    face: on
+    my-side-escalates: off
+    other-side-to-blame: off
+    accuser-is-watchdog: off      # observed: the accuser is a group that documents extremism
+
+schemas:
+  - { id: believe-friend,  action: believe-friend,   context: [friend-accused], result: { friend-owes: on } }
+  - { id: heed-intel,      action: heed-intel,       context: [intel-warning],  result: { knows-friend-did-harm: on, informed: on } }
+  - { id: praise-friend,   action: praise-friend,    context: [],               result: { friend-owes: on } }
+  - { id: flatter,         action: flatter,          context: [],               result: { leverage: on }, note: "praise the counterpart; it buys a hearing" }
+  - { id: escalate,        action: escalate,         context: [],               result: { face: on, leverage: on, my-side-escalates: on } }
+  - { id: concede,         action: concede,          context: [],               result: { face: off, leverage: off } }
+  - { id: concede-for-deal, action: concede,         context: [deal-on-table],  result: { face: off, deal: on } }
+  - { id: blame-other-side, action: blame-other-side, context: [accusation-heard], result: { calm: on, face: on } }
+  - { id: deny,            action: deny,             context: [accusation-heard], result: { calm: on } }
+  - { id: confess-part,    action: confess-part,     context: [accusation-heard], result: { avoid-error: on, power-safe: on }, note: "admit the smaller thing; keep the position" }
+  - { id: confess-all,     action: confess-all,      context: [accusation-heard], result: { avoid-error: on, power-safe: off, face: off }, note: "he already knows; confessing tells others" }
+  - { id: flatter-for-deal, action: flatter,         context: [deal-on-table],  result: { leverage: on, deal: on } }
+  - { id: seek-return,     action: seek-return,      context: [],               result: { power-safe: on } }
+  - { id: stay-away,       action: stay-away,        context: [],               result: { calm: on } }

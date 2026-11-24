@@ -1,0 +1,11 @@
+# ARCHETYPE the helmsman — stability as the name for every position
+
+part: { id: the-helmsman, kind: archetype, about: "Face first; every dispute filed as stability being managed." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/power-logic.yml
+  - ../parts/drive-face.yml
+  - ../parts/harmony-script.yml

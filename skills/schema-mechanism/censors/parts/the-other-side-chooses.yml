@@ -1,0 +1,13 @@
+# PART the-other-side-chooses — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: the-other-side-chooses, kind: censor, about: "Suppressor. My side's escalation is re-filed as the other side's choice." }
+
+censors:
+  - id: the-other-side-chooses
+    kind: suppressor
+    context: [accusation-heard]
+    state: [my-side-escalates]
+    refile: { my-side-escalates: off, other-side-to-blame: on }
+    cover: "It's up to them whether this ends."
+    source: template

@@ -1,0 +1,14 @@
+# ARCHETYPE the ideologue — the convert, on stage, with power
+# The convert's agreement and belonging, the stage's applause, two covers.
+
+part: { id: the-ideologue, kind: archetype, about: "Knows and agrees; exclusion filed as civilization; the watchdog smeared." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/crowd-logic.yml
+  - ../parts/stage-logic.yml
+  - ../parts/power-logic.yml
+  - the-convert.yml
+  - ../parts/drive-applause.yml
+  - ../parts/civilization-frame.yml
+  - ../parts/smear-the-watchdog.yml

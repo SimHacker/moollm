@@ -664,7 +664,7 @@ def lint_spec(spec, bus):
         if c.get("kind") == "precursor" and c.get("action") not in offered:
             bus.emit("INFO", "never-offered", f"censor {c['id']} vetoes '{c.get('action')}', which no event offers",
                      key={"never": c["id"]}, censor=c["id"])
-        if "self" in real and c.get("source", "") in ("", "template"):
+        if "self" in real and c.get("cover") and c.get("source", "") in ("", "template"):
             bus.emit("ERROR", "template-words", f"censor {c['id']} would put template words in a real person's mouth",
                      key={"template": c["id"]}, censor=c["id"],
                      fix="replace the cover with their own words and a source, or drop the censor",

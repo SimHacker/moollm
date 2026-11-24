@@ -1,0 +1,13 @@
+# PART smear-the-watchdog — one censor. Snap onto crowd-logic.
+# Template cover.
+
+part: { id: smear-the-watchdog, kind: censor, about: "Precursor. Won't hear out the group that documents it; the group is the story." }
+
+censors:
+  - id: smear-the-watchdog
+    kind: precursor
+    action: hear-accuser-out
+    context: [accuser-is-watchdog]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "They're a smear outfit."
+    source: template

@@ -1,0 +1,13 @@
+# PART friend-of-the-strongman — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: friend-of-the-strongman, kind: censor, about: "Suppressor. The friend's denial outweighs the evidence against him." }
+
+censors:
+  - id: friend-of-the-strongman
+    kind: suppressor
+    context: [friend-accused]
+    state: [knows-friend-did-harm]
+    refile: { knows-friend-did-harm: off, friend-owes: on }
+    cover: "He denied it, very strongly."
+    source: template

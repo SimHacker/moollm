@@ -1,0 +1,13 @@
+# PART civilization-frame — one censor. Snap onto stage-logic.
+# Template cover.
+
+part: { id: civilization-frame, kind: censor, about: "Suppressor. Excluding a group is re-filed as defending a civilization." }
+
+censors:
+  - id: civilization-frame
+    kind: suppressor
+    context: []
+    state: [knows-ally-said-bigoted-things]
+    refile: { knows-ally-said-bigoted-things: off, calm: on }
+    cover: "A civilization has the right to preserve itself."
+    source: template

@@ -1,0 +1,13 @@
+# PART investigation-pending — one censor. Snap onto power-logic.
+# Template cover.
+
+part: { id: investigation-pending, kind: censor, about: "Precursor. Won't take in the question while an inquiry is open; the inquiry will answer it." }
+
+censors:
+  - id: investigation-pending
+    kind: precursor
+    action: heed-intel
+    context: [intel-warning]
+    harm: [knows-friend-did-harm]
+    cover: "We'll find out."
+    source: template
