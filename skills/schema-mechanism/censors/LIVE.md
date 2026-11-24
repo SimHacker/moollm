@@ -73,6 +73,39 @@ The hand-written `power-pays` hypothesis fits the same 16. They differ only
 when he has a third move, going quiet, so `predict` with that offer is the
 test to commit.
 
+## Latent items: what the record doesn't show
+
+`induce` can only find items someone recorded. When a choice changes and
+nothing recorded changed with it, Drescher's answer is a synthetic item:
+if a schema works for a while and then stops, and stays stopped, some
+state nobody observes switched in between. `propose` looks for exactly
+that. For each action, it finds the one point in time that best splits
+the record into "took it" and "didn't", and proposes a latent item there
+when that split fits better than any item we observe. Items the choice
+itself sets don't count as explanations, since they're its results.
+
+```bash
+python3 $S propose examples/quiet-secretary.yml
+#  defend-ally  stops between t=4 and t=5: fits 8/8, best observed 4/8 (no item), 1 flip(s)
+```
+
+It raises a `latent` request asking what happened in that window. Its
+patch adds the item, an event at the midpoint that turns it on, and a
+precursor censor gated on it, with `say:`, `cover:` and `source:` blank.
+The answer names the item for what it was and cites it, or says nothing is
+known, and then the latent item stays a labeled hypothesis. In the
+fictional example, the secretary stops defending the treasurer after she
+sees a bank statement she never mentions
+([answers](examples/quiet-secretary.answers.yml)), and the fit goes from
+4/8 to 8/8.
+
+One flip is the local consistency Drescher asks of a synthetic item. A
+choice that flips back and forth isn't one hidden switch, so `propose`
+reports the number of flips, and `--min-run` (default 2) sets how many
+choices each side needs. None of the public-figure records trigger it yet:
+each of their changes lines up with an item already recorded, which is
+what a short, well-sourced record should look like.
+
 ## Jokes
 
 Memo 603 makes jokes training data for censors. A joke either makes a

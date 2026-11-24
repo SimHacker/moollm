@@ -45,6 +45,7 @@ Commands:
   sweep    FILE           perturb value weights N times: do conclusions depend on them?
   predict  FILE --offers A,B [--set-item K=on]  what each run does next, over N weightings
   induce   FILE [--run R]  learn contexts from the record: which items made each choice likelier
+  propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -874,6 +875,86 @@ def cmd_induce(a, bus):
     return emit_out(rows, a.format or "text", "\n".join(lines))
 
 
+def propose(m, min_run=2):
+    """Drescher's synthetic items, over the record. When no item we observe
+    explains an action, but his choices about it are locally consistent
+    (taken, taken, taken, then refused from some point on), something we
+    don't see changed state there. Propose it as a latent item, oriented so
+    that ON stops the action, and ask what it was."""
+    out = []
+    for act in sorted({x for _, offers, _, _ in m.situations for x in offers}):
+        rows = sorted((t, obs == act, items) for t, offers, obs, items in m.situations if act in offers)
+        took = [x for _, x, _ in rows]
+        n = len(took)
+        if n < 2 * min_run or all(took) or not any(took):
+            continue
+        best_seen = max(took.count(True), took.count(False))
+        seen_by = None
+        # An item the choice itself sets is its result, not its cause.
+        offered = {x for _, offers, _, _ in m.situations if act in offers for x in offers}
+        results = {k for s in m.schemas if s.action in offered for k in s.result}
+        for item in sorted({k for _, _, items in rows for k in items} - results):
+            hits = sum(x == (items.get(item) is ON) for _, x, items in rows)
+            hits = max(hits, n - hits)
+            if hits > best_seen:
+                best_seen, seen_by = hits, item
+        best = None
+        for k in range(min_run, n - min_run + 1):
+            a, b = took[:k], took[k:]
+            fa, fb = a.count(True) >= len(a) / 2, b.count(True) >= len(b) / 2
+            if fa == fb:
+                continue
+            hits = (a.count(fa)) + (b.count(fb))
+            if not best or hits > best[0]:
+                best = (hits, k, fa)
+        if not best or best[0] <= best_seen:
+            continue
+        hits, k, before_takes = best
+        t_last, t_first = rows[k - 1][0], rows[k][0]
+        out.append({"action": act, "latent": f"latent-{act}-{'from' if before_takes else 'until'}-t{t_first if before_takes else t_last}",
+                    "on_from": t_first if before_takes else None, "off_from": None if before_takes else t_first,
+                    "between": [t_last, t_first], "fits": f"{hits}/{n}",
+                    "best_observed": f"{best_seen}/{n}" + (f" ({seen_by})" if seen_by else " (no item)"),
+                    "flips": sum(x != y for x, y in zip(took, took[1:]))})
+    # In a two-way choice, one action stopping is the other starting: one
+    # latent item per window, put on the action that stopped.
+    stops = {tuple(r["between"]) for r in out if r["on_from"] is not None}
+    return [r for r in out if r["on_from"] is not None or tuple(r["between"]) not in stops]
+
+
+def cmd_propose(a, bus):
+    spec = load([a.file], a.layer, a.who, a.set)
+    (r, m), = run(spec, a.run or runs_of(spec)[0]["name"])
+    rows = propose(m, a.min_run)
+    patch = {"agent": {"items": {}}, "events": [], "censors": []}
+    for row in rows:
+        lo, hi = row["between"]
+        t_switch = round(lo + (hi - lo) / 2, 3)
+        first_on = row["on_from"] is not None
+        patch["agent"]["items"][row["latent"]] = "off" if first_on else "on"
+        patch["events"].append({"t": t_switch, "set": {row["latent"]: "on" if first_on else "off"},
+                                "say": f"<what changed between t={lo} and t={hi}>", "source": ""})
+        patch["censors"].append({
+            "id": f"learned-no-{row['action']}-when-{row['latent']}", "kind": "precursor",
+            "context": [row["latent"]], "action": row["action"], "harm": [],
+            "learned_from": f"propose over {a.file}, run {r['name']}: a switch between t={lo} and "
+                            f"t={hi} fits {row['fits']}; the best observed item, {row['best_observed']}",
+            "cover": "", "source": ""})
+        bus.emit("REQUEST", "latent", f"'{row['action']}' changed between t={lo} and t={hi}, and nothing observed explains it",
+                 key={"agent": m.name, "latent": row["latent"]}, **row,
+                 ask="what happened in that window that would make the change; name it, cite it, or say nothing is known",
+                 patch={"agent": {"items": {row["latent"]: patch["agent"]["items"][row["latent"]]}},
+                        "events": [patch["events"][-1]], "censors": [patch["censors"][-1]]})
+    bus.emit("RESULT", "propose", f"{len(rows)} latent items proposed", rows=rows)
+    if a.patch:
+        return emit_out(patch, a.format or "yaml")
+    lines = [f"proposed from {len(m.situations)} observed choices (run {r['name']}):"]
+    lines += [f"  {row['action']:<16} {'stops' if row['on_from'] is not None else 'starts'} between t={row['between'][0]} and "
+              f"t={row['between'][1]}: fits {row['fits']}, best observed {row['best_observed']}, {row['flips']} flip(s)"
+              for row in rows] or ["  nothing: every action is constant, or explained by an item we observe"]
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
 def cmd_bench(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     t0 = time.perf_counter()
@@ -1043,6 +1124,9 @@ def main(argv=None):
     s = sub.add_parser("induce", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--min-trials", type=int, default=3); s.add_argument("--thresh", type=float, default=0.5)
     s.add_argument("--patch", action="store_true", help="emit learned censors for the overriding conditions the model lacks")
+    s = sub.add_parser("propose", parents=[common]); s.add_argument("file"); s.add_argument("--run")
+    s.add_argument("--min-run", type=int, default=2, help="fewest choices on each side of a switch")
+    s.add_argument("--patch", action="store_true", help="emit the latent items, their switch events and censors as one layer")
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")
     s = sub.add_parser("where", parents=[common]); s.add_argument("file"); s.add_argument("pattern")

@@ -56,6 +56,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `sweep FILE --n N` | perturb value weights ±50%: do the conclusions depend on the numbers? |
 | `predict FILE --offers A,B [--set-item K=on]` | forecast the next event under every hypothesis; commit it before it happens ([LIVE.md](LIVE.md)) |
 | `induce FILE [--run R]` | Drescher's extended context over the record: which items made each observed choice likelier; flags ones the model lacks |
+| `propose FILE [--run R]` | Drescher's synthetic items over the record: a choice that switched once with nothing observed to explain it; proposes a latent item and asks what it was (`--patch` for the layer) |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |
@@ -101,6 +102,7 @@ archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to 
 |---|---|
 | [`examples/dentist-letter.yml`](examples/dentist-letter.yml) ([output](examples/dentist-letter.RUN.md), [answers](examples/dentist-letter.answers.yml)) | A censor learned by marginal attribution, invisible from inside; a joke exposes it and leaves an exception. In 30% of weightings no censor forms at all: the values already avoid the letter |
 | [`examples/beekeepers.yml`](examples/beekeepers.yml) ([output](examples/beekeepers.RUN.md)) | The real-person workflow on people who don't exist: inherit, cast, replace every cover with the character's words, fit the record (6/6), ablate (`tone` isn't needed: the story never offers it) |
+| [`examples/quiet-secretary.yml`](examples/quiet-secretary.yml) ([answers](examples/quiet-secretary.answers.yml)) | A record with something missing. Four defenses, then four silences, and nothing observed changes: the model fits 4/8, `induce` finds nothing, `propose` finds the switch and asks what it was. Answered, it fits 8/8 |
 | [`examples/emperors-new-clothes.yml`](examples/emperors-new-clothes.yml) ([output](examples/emperors-new-clothes.RUN.md)) | Andersen, 1837. The ablation says the Emperor's censor isn't needed: his values alone explain the praise. He's calculating, not repressing, which matches the story |
 | [`examples/baron/`](examples/baron/) ([output](examples/baron/RUN.md)) | Six followers of a fictional platform baron, built from archetypes, on one record. The friend's censors can't keep him; the crowd's belonging keeps everyone else with no censor needed; a crusader and a convert act identically and differ only in what they know. See [`BRAINBALL.md`](BRAINBALL.md#the-barons-crowd) |
 
