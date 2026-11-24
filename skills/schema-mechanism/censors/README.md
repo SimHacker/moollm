@@ -61,6 +61,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `drift FILE [--half-life N]` | Fit over time: hits weighted toward recent choices, where each run's unbroken hits begin, and a `#.#` strip of hits and misses |
 | `propose FILE [--run R]` | Drescher's synthetic items over the record: a choice that switched once with nothing observed to explain it; proposes a latent item and asks what it was (`--patch` for the layer) |
 | `plan FILE --goal G [--run R] [--at start\|end] [--set-item K=V]` | Drescher's planner (Dijkstra over schemas, cost 1 − log reliability) with Minsky's censors in the search: the plan the agent can think of, the plan an observer sees, and the censor that hid each missing step |
+| `duet FILE [--n N] [--test]` | Two minds on one stage. Each turn is one seat's choice or the world changing; `effects` make one mind's move the other's news, and `when` skips turns the world never reached. With `--n`, each seat's weights are drawn independently and the outcomes tallied. `suite` runs duets too |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |
@@ -123,6 +124,8 @@ archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to 
 | [`examples/quiet-secretary.yml`](examples/quiet-secretary.yml) ([answers](examples/quiet-secretary.answers.yml)) | A record with something missing. Four defenses, then four silences, and nothing observed changes: the model fits 4/8, `induce` finds nothing, `propose` finds the switch and asks what it was. Answered, it fits 8/8 |
 | [`examples/emperors-new-clothes.yml`](examples/emperors-new-clothes.yml) ([output](examples/emperors-new-clothes.RUN.md)) | Andersen, 1837. The ablation says the Emperor's censor isn't needed: his values alone explain the praise. He's calculating, not repressing, which matches the story |
 | [`examples/name-on-the-clinic.yml`](examples/name-on-the-clinic.yml) | A reformer offers the mayor she mocked his name on a free clinic. The offer fits the goal reading and the stunt reading; what she does after he bites splits them (4/4 against 2/4). The censor is needed only in the mind that despises him |
+| [`examples/mayor-thorne.yml`](examples/mayor-thorne.yml) | The other seat: the mayor offered the credit. His spokesman attacked the offer and he shared it himself; the vain and indifferent readings each fit one of those (2/3) |
+| [`examples/name-on-the-clinic.duet.yml`](examples/name-on-the-clinic.duet.yml) | Both seats at once. The clinic gets signed only if she means it and he wants his name on it; a taunting reformer stalls after he bites, an indifferent mayor attacks and nothing follows. 78% of 2,000 joint weightings end signed |
 | [`examples/baron/`](examples/baron/) ([output](examples/baron/RUN.md)) | Six followers of a fictional platform baron, built from archetypes, on one record. The friend's censors can't keep him; the crowd's belonging keeps everyone else with no censor needed; a crusader and a convert act identically and differ only in what they know. See [`BRAINBALL.md`](BRAINBALL.md#the-barons-crowd) |
 
 ## Modeling a real person

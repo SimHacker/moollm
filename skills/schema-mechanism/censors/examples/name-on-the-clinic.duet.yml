@@ -1,0 +1,44 @@
+# Name on the clinic, both seats at once — a duet. Fiction.
+# ============================================================================
+# Dr. Marrow (name-on-the-clinic.yml) and Mayor Thorne (mayor-thorne.yml)
+# on one stage. Each turn is one of them choosing; `effects` turns a move
+# into news for both. A turn with `when` only happens if the world got
+# there. Nobody's record is used here: this is what the two minds do to
+# each other.
+#
+# The question: does the offer get the clinic signed? It takes both of
+# them. Swap either seat's run and see:
+#
+#   S=../../scripts/censor_sim.py
+#   python3 $S duet name-on-the-clinic.duet.yml
+#   python3 $S duet name-on-the-clinic.duet.yml --set seats.reformer.run=taunt
+#   python3 $S duet name-on-the-clinic.duet.yml --set seats.mayor.run=indifferent
+#   python3 $S duet name-on-the-clinic.duet.yml --n 2000
+# ============================================================================
+
+seats:
+  reformer: { mind: name-on-the-clinic.yml, run: goal }
+  mayor:    { mind: mayor-thorne.yml, run: vain }
+
+world: { goal-blocked: on }
+
+effects:
+  offer-credit:      { offer-on-table: on }
+  repost-offer:      { target-signaled: on }
+  attack-offer:      { target-rejected: on }
+  take-the-meeting:  { talks-open: on }
+  broaden-the-offer: { bill-on-desk: on }
+  sign-it:           { clinic: on }
+
+turns:
+  - { t: 1, seat: reformer, offers: [offer-credit, mock-target, refuse-to-deal] }
+  - { t: 2, seat: mayor,    offers: [repost-offer, attack-offer, ignore-offer], when: [offer-on-table] }
+  - { t: 3, seat: reformer, offers: [take-the-meeting, refuse-to-deal, mock-target], when: [target-signaled] }
+  - { t: 4, seat: reformer, offers: [broaden-the-offer, hold-the-line], when: [talks-open] }
+  - { t: 5, seat: mayor,    offers: [sign-it, keep-the-veto], when: [bill-on-desk] }
+
+watch: [clinic]
+
+expect:
+  moves: [reformer:offer-credit, mayor:repost-offer, reformer:take-the-meeting, reformer:broaden-the-offer, mayor:sign-it]
+  world: { clinic: on }

@@ -1,0 +1,45 @@
+# Mayor Thorne — the other seat of name-on-the-clinic. Fiction.
+# ============================================================================
+# Nobody here is real. The mayor Dr. Marrow offers the credit to. Same
+# credit-logic, the target's seat. Two readings of his record:
+#   vain        things with his name on them are worth having
+#   indifferent the name is worth nothing; only applause, leverage, the deal
+# His spokesman attacked the offer; he himself shared it. Each reading
+# fits one of those and misses the other, so the record can't settle it.
+# The duet (name-on-the-clinic.duet.yml) plays him against her.
+#
+#   python3 ../../scripts/censor_sim.py test mayor-thorne.yml
+# ============================================================================
+
+inherits:
+  - ../parts/credit-logic.yml
+  - ../parts/drive-name-on-it.yml
+
+who:
+  self: "Mayor Thorne"
+  target: "Mayor Thorne"
+
+agent:
+  values: { applause: 3, leverage: 2, deal: 4 }
+
+events:
+  - t: 1
+    say: "After the election: 'I can veto anything that council sends me.'"
+    offers: [keep-the-veto, ignore-offer]
+    observed: keep-the-veto
+  - t: 2
+    set: { offer-on-table: on }
+    say: "Marrow's video. His spokesman: 'A gimmick.'"
+    offers: [repost-offer, attack-offer, ignore-offer]
+    observed: attack-offer
+  - t: 3
+    say: "A week later the mayor himself shares the video, saying nothing."
+    offers: [repost-offer, attack-offer, ignore-offer]
+    observed: repost-offer
+
+runs:
+  - name: vain
+    expect: { fit: 2/3 }
+  - name: indifferent
+    agent: { values: { name-on-it: 0 } }
+    expect: { fit: 2/3 }

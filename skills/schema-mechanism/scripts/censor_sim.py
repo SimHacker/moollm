@@ -50,6 +50,7 @@ Commands:
   drift    FILE           fit over time: recency-weighted, and where each run's unbroken hits begin
   propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
   plan     FILE --goal G   Drescher's planner: the plan the agent can think of vs the one an observer sees
+  duet     FILE [--n N]   two minds on one stage: each one's move is an event for the other
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -847,6 +848,9 @@ def scenarios(dirs):
                 raw = read_yaml(p)
             except (OSError, yaml.YAMLError):
                 continue
+            if isinstance(raw, dict) and raw.get("seats") and raw.get("turns"):
+                out.append((p, None))
+                continue
             if not isinstance(raw, dict) or not (raw.get("runs") or raw.get("inherits")):
                 continue
             inh = raw.get("inherits") or []
@@ -871,6 +875,15 @@ def cmd_suite(a, bus):
     exit 2 if any run fails its record or expectations, 1 on lint errors."""
     rows, t0 = [], time.perf_counter()
     for path, layers in scenarios(a.paths):
+        if layers is None:
+            row = {"file": os.path.relpath(path) + " (duet)", "errors": 0, "warnings": 0, "requests": 0, "runs": 1, "fits": []}
+            try:
+                spec = load([path])
+                row["failed"] = test_duet(spec, duet_seats(spec, os.path.dirname(os.path.abspath(path))))
+            except (OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as e:
+                row.update({"errors": 1, "failed": [f"{type(e).__name__}: {e}"]})
+            rows.append(row)
+            continue
         row = {"file": os.path.relpath(path) + "".join(f" + {os.path.basename(x)}" for x in layers)}
         try:
             spec = load([path], layers)
@@ -1268,6 +1281,137 @@ def cmd_plan(a, bus):
     return emit_out(out, a.format or "text", "\n".join(lines))
 
 
+# == duets: two minds, one world ==============================================
+def duet_seats(spec, here):
+    """Each seat's mind, resolved once: its file, one of its runs, and any
+    overrides the duet gives it. The mind's own record is not used."""
+    seats = {}
+    for seat, d in spec["seats"].items():
+        mspec = load([os.path.join(here, d["mind"])], [os.path.join(here, x) for x in d.get("layers", [])])
+        r = runs_of(mspec, d.get("run"))[0] if d.get("run") else runs_of(mspec)[0]
+        if d.get("agent"):
+            r = {**r, "agent": merge(r.get("agent") or {}, d["agent"])}
+        seats[seat] = run_spec(mspec, r)
+    return seats
+
+
+def duet(spec, seats, factors=None, bus=NULL):
+    """Play the turns. A turn with a `seat` is that mind's choice; one without
+    is the world changing. An action listed in `effects` sets items for every
+    seat, so one mind's move is the other's news. A turn with `when` happens
+    only if those conditions hold in the world so far."""
+    minds = {}
+    for seat, merged in seats.items():
+        f = (factors or {}).get(seat)
+        if f:
+            vals = merged["agent"].get("values", {})
+            merged = {**merged, "agent": {**merged["agent"], "values": {k: w * f.get(k, 1.0) for k, w in vals.items()}}}
+        minds[seat] = Mind(merged, bus)
+    world, log, effects = {}, [], spec.get("effects") or {}
+    for k, v in (spec.get("world") or {}).items():
+        world[k] = parse_value(v)
+        for m in minds.values():
+            m.items[k] = world[k]
+    for turn in sorted(spec.get("turns", []), key=lambda e: e["t"]):
+        if not all(holds(world, c) for c in turn.get("when", [])):
+            log.append({"t": turn["t"], "seat": turn.get("seat"), "skipped": turn.get("when")})
+            continue
+        sets = turn.get("set") or {}
+        for k, v in sets.items():
+            world[k] = parse_value(v)
+        seat = turn.get("seat")
+        if seat and seat not in minds:
+            raise ValueError(f"turn t={turn['t']}: no seat '{seat}'")
+        for name, m in minds.items():
+            ev = {"t": turn["t"], "set": sets}
+            if name == seat:
+                ev.update({k: turn[k] for k in ("say", "offers", "observed", "response", "joke") if k in turn})
+            elif turn.get("say") and not seat:
+                ev["say"] = turn["say"]
+            m.step(ev)
+        if not seat:
+            log.append({"t": turn["t"], "seat": None, "set": sets, "say": turn.get("say")})
+            continue
+        m = minds[seat]
+        act = m.choices[-1][1] if m.choices and m.choices[-1][0] == turn["t"] else None
+        fired = [e["text"] for e in m.observer if e["t"] == turn["t"] and "vetoes" in e["text"]]
+        log.append({"t": turn["t"], "seat": seat, "action": act, "observed": turn.get("observed"),
+                    "censors": fired, "effect": effects.get(act) or {}})
+        for k, v in (effects.get(act) or {}).items():
+            world[k] = parse_value(v)
+            for other in minds.values():
+                other.items[k] = world[k]
+    return log, world, minds
+
+
+def duet_spread(spec, seats, n, seed=0, spread=0.5):
+    """The duet over n weightings, each seat's weights drawn independently."""
+    rng = random.Random(seed)
+    names = {s: list(m["agent"].get("values", {})) for s, m in seats.items()}
+    seqs, finals = Counter(), Counter()
+    watch = spec.get("watch") or []
+    for _ in range(n):
+        f = {s: {k: rng.uniform(1 - spread, 1 + spread) for k in ks} for s, ks in names.items()}
+        log, world, _ = duet(spec, seats, f)
+        seqs[tuple(f"{x['seat']}:{x['action']}" for x in log if x.get("seat") and "action" in x)] += 1
+        for k in watch:
+            finals[k] += world.get(k) is ON
+    return {"n": n, "spread": spread,
+            "watch": {k: round(finals[k] / n, 4) for k in watch},
+            "outcomes": [{"share": round(c / n, 4), "moves": list(s)} for s, c in seqs.most_common(5)]}
+
+
+def test_duet(spec, seats):
+    log, world, _ = duet(spec, seats)
+    exp, problems = spec.get("expect") or {}, []
+    moves = [f"{x['seat']}:{x['action']}" for x in log if x.get("seat") and "action" in x]
+    if "moves" in exp and moves != exp["moves"]:
+        problems.append(f"moves {moves}")
+    for k, v in (exp.get("world") or {}).items():
+        if (world.get(k) is ON) != bool(parse_value(v)):
+            problems.append(f"world {k}={'on' if world.get(k) is ON else 'off'}, expected {v}")
+    misses = [x for x in log if x.get("observed") and x["observed"] != x.get("action")]
+    if misses and not exp.get("misses_ok"):
+        problems += [f"t={x['t']} {x['seat']}: observed {x['observed']}, model {x['action']}" for x in misses]
+    return problems
+
+
+def cmd_duet(a, bus):
+    """Two minds on one stage: each one's move is an event for the other."""
+    spec = load([a.file], a.layer, a.who, a.set)
+    seats = duet_seats(spec, os.path.dirname(os.path.abspath(a.file)))
+    if a.n > 1:
+        out = duet_spread(spec, seats, a.n, a.seed, a.spread)
+        bus.emit("RESULT", "duet", "; ".join(f"{k} {v:.0%}" for k, v in out["watch"].items()) or "done", **out)
+        lines = [f"{a.n} weightings (±{a.spread:.0%}), each seat drawn independently:"]
+        lines += [f"  {k} ends on: {v:.0%}" for k, v in out["watch"].items()]
+        lines += [f"  {o['share']:6.1%}  " + " → ".join(o["moves"]) for o in out["outcomes"]]
+        return emit_out(out, a.format or "text", "\n".join(lines))
+    log, world, minds = duet(spec, seats, bus=bus)
+    problems = test_duet(spec, seats)
+    a._exit = 2 if (a.test and problems) else 0
+    bus.emit("RESULT", "duet", "; ".join(problems) or "ok", ok=not problems, problems=problems)
+    lines = []
+    for x in log:
+        if x.get("skipped") is not None:
+            lines.append(f"  t={x['t']}: ({x['seat'] or 'world'} skipped: needs {', '.join(x['skipped'])})")
+        elif not x.get("seat"):
+            lines.append(f"  t={x['t']}: world: " + (x.get("say") or ", ".join(
+                f"{k}={'on' if parse_value(v) else 'off'}" for k, v in x["set"].items())))
+        else:
+            name = minds[x["seat"]].name
+            mark = "" if not x.get("observed") else ("  (as observed)" if x["observed"] == x["action"] else f"  (observed: {x['observed']})")
+            lines.append(f"  t={x['t']}: {name}: {x['action'] or 'nothing'}{mark}")
+            lines += [f"         {c}  [unconscious]" for c in x["censors"]]
+            if x["effect"]:
+                lines.append("         → " + ", ".join(f"{k}={'on' if parse_value(v) else 'off'}" for k, v in x["effect"].items()))
+    lines.append("world at the end: " + (", ".join(k for k, v in world.items() if v is ON) or "nothing on"))
+    if problems:
+        lines.append("PROBLEMS: " + "; ".join(problems))
+    return emit_out({"log": log, "world": {k: v for k, v in world.items()}, "problems": problems},
+                    a.format or "text", "\n".join(lines))
+
+
 def cmd_bench(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     t0 = time.perf_counter()
@@ -1458,6 +1602,10 @@ def main(argv=None):
                                            help="plan from the run's starting items, or where the record leaves it")
     s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
     s.add_argument("--max-steps", type=int, default=8)
+    s = sub.add_parser("duet", parents=[common]); s.add_argument("file")
+    s.add_argument("--n", type=int, default=1, help="more than 1: draw each seat's weights n times and tally outcomes")
+    s.add_argument("--seed", type=int, default=0); s.add_argument("--spread", type=float, default=0.5)
+    s.add_argument("--test", action="store_true", help="exit 2 unless the duet meets its expect:")
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")
     s = sub.add_parser("where", parents=[common]); s.add_argument("file"); s.add_argument("pattern")

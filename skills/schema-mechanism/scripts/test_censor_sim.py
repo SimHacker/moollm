@@ -198,5 +198,30 @@ class Examples(unittest.TestCase):
         self.assertIn("plan", kinds)
 
 
+class Duet(unittest.TestCase):
+    def setUp(self):
+        self.path = os.path.join(EXAMPLES, "name-on-the-clinic.duet.yml")
+        self.spec = cs.load([self.path])
+
+    def seats(self, **runs):
+        spec = cs.merge(self.spec, {"seats": {s: {"run": r} for s, r in runs.items()}})
+        return spec, cs.duet_seats(spec, EXAMPLES)
+
+    def test_both_seats_cooperate(self):
+        spec, seats = self.seats()
+        self.assertEqual(cs.test_duet(spec, seats), [])
+
+    def test_one_move_is_the_others_news(self):
+        spec, seats = self.seats(mayor="indifferent")
+        log, world, _ = cs.duet(spec, seats)
+        self.assertEqual([x.get("action") for x in log if "action" in x], ["offer-credit", "attack-offer"])
+        self.assertTrue(all("skipped" in x for x in log[2:]))
+        self.assertIsNot(world.get("clinic"), cs.ON)
+
+    def test_spread_is_deterministic(self):
+        spec, seats = self.seats()
+        self.assertEqual(cs.duet_spread(spec, seats, 50, seed=3), cs.duet_spread(spec, seats, 50, seed=3))
+
+
 if __name__ == "__main__":
     unittest.main()

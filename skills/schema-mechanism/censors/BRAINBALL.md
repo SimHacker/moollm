@@ -282,6 +282,14 @@ The target's seat is in WillWrightShowForFood, on
 [Trump's TrumpCare record](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-trump#what-the-model-says):
 his spokeswoman's answer fits the reading where the name is worth nothing,
 his own repost the reading where it's worth something.
+
+[`name-on-the-clinic.duet.yml`](examples/name-on-the-clinic.duet.yml) puts
+both seats on one stage with the `duet` command, the mayor being
+[`mayor-thorne.yml`](examples/mayor-thorne.yml). Her move is his news and
+his is hers. The clinic is signed only when both are what the offer
+assumes: she means it, and he wants his name on it. A taunting reformer
+mocks him the moment he bites; an indifferent mayor attacks the offer, and
+none of the later turns happen.
 | [Stephen Miller](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/stephen-miller) | the-ideologue | 5/5 | 100% |
 
 Two findings carry across figures. Trump's one miss is the day after
