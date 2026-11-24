@@ -260,7 +260,7 @@ Also: [TODO-ascii-art-linter.md](TODO-ascii-art-linter.md) — the acknowledged 
 
 This skill covers EVERYTHING that makes AI annoying — not just writing style.
 
-## The 12 Cardinal Sins
+## The 15 Cardinal Sins
 
 | Sin | What It Is | The Fix |
 |-----|------------|---------|
@@ -276,6 +276,9 @@ This skill covers EVERYTHING that makes AI annoying — not just writing style.
 | **Summarizing Not Thinking** | "To summarize..." without evaluation | What's YOUR verdict? |
 | **Epistemic Evasion** | Meta-analysis instead of answering | CONFIRM / DISPUTE / ASK first |
 | **Unsolicited Coaching** | Strategic advice nobody asked for | Only advise if asked |
+| **Scar Tissue** | Writing the history of your own corrections into the artifact | Fix it and stop |
+| **Provenance Defense** | Disclaiming credit nobody was claiming | Define terms by what they do |
+| **Mannered Prose** | Writing that performs being well written: punchline fragments, aphorisms, colon reveals, staccato drama | Plain declarative sentences, everywhere |
 
 ## Hard Gates (2026-01-31 Addition)
 
