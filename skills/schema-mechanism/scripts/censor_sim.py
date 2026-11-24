@@ -45,6 +45,8 @@ Commands:
   sweep    FILE           perturb value weights N times: do conclusions depend on them?
   predict  FILE --offers A,B [--set-item K=on]  what each run does next, over N weightings
   induce   FILE [--run R]  learn contexts from the record: which items made each choice likelier
+  argue    FILE --offers A,B --goal A --args ARGS  which arguments move each hypothesis toward A
+  drift    FILE           fit over time: recency-weighted, and where each run's unbroken hits begin
   propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
@@ -797,6 +799,59 @@ def cmd_sweep(a, bus):
     return emit_out(s, a.format or "text", "\n".join(lines))
 
 
+def forecast(spec, new_events, n, seed=0, spread=0.5):
+    """Each run's choice at the last new event, as shares over n weightings.
+    The same seed gives every caller the same weightings, so two forecasts
+    differ only in their events."""
+    t_next = max(e["t"] for e in new_events)
+    trial = {**spec, "events": spec.get("events", []) + list(new_events)}
+    rng = random.Random(seed)
+    values = spec["agent"].get("values", {})
+    tallies = {r["name"]: Counter() for r in runs_of(spec)}
+    for _ in range(n):
+        v = {k: w * rng.uniform(1 - spread, 1 + spread) for k, w in values.items()}
+        for r, m in run({**trial, "agent": {**trial["agent"], "values": v}}):
+            tallies[r["name"]][m.choices[-1][1] if m.choices and m.choices[-1][0] == t_next else None] += 1
+    return {k: {str(act): round(c / n, 4) for act, c in t.most_common()} for k, t in tallies.items()}
+
+
+def cmd_argue(a, bus):
+    """Plan validation by simulation: before suggesting an argument, run it.
+    Each argument is an event (say, set, joke) just before the next choice.
+    Where the hypotheses disagree about an argument, trying it tests them."""
+    spec = load([a.file], a.layer, a.who, a.set)
+    t_next = max([e["t"] for e in spec.get("events", [])] + [0]) + 1
+    ev = {"t": t_next, "offers": [x.strip() for x in a.offers.split(",")]}
+    if a.goal not in ev["offers"]:
+        raise ValueError(f"goal '{a.goal}' is not one of the offers {ev['offers']}")
+    args = read_yaml(a.args)
+    args = args.get("arguments", args) if isinstance(args, dict) else args
+    # The situation the argument lands in, before the argument.
+    start = [{"t": t_next - 0.75, "set": {k: v for k, _, v in (kv.partition("=") for kv in a.set_item)}}]
+    base = forecast(spec, start + [ev], a.n, a.seed, a.spread)
+    rows = [{"id": "(none)", "about": "no argument", "p": {k: v.get(a.goal, 0.0) for k, v in base.items()}}]
+    for x in args:
+        pre = {**{k: v for k, v in x.items() if k in ("say", "set", "joke", "quote")}, "t": t_next - 0.5}
+        p = forecast(spec, start + [pre, ev], a.n, a.seed, a.spread)
+        rows.append({"id": x["id"], "about": x.get("about", ""), "source": x.get("source"),
+                     "p": {k: v.get(a.goal, 0.0) for k, v in p.items()}})
+    for row in rows:
+        row["lift"] = {k: round(v - rows[0]["p"][k], 4) for k, v in row["p"].items()}
+        row["split"] = round(max(row["p"].values()) - min(row["p"].values()), 4)
+    bus.emit("RESULT", "argue", f"t={t_next}, goal {a.goal}: " + "; ".join(
+        f"{r['id']} " + "/".join(f"{v:.0%}" for v in r["p"].values()) for r in rows),
+        goal=a.goal, offers=ev["offers"], n=a.n, spread=a.spread, rows=rows)
+    names = list(base)
+    w = max(len(r["id"]) for r in rows)
+    cw = max([len(k) for k in names] + [6])
+    lines = [f"P({a.goal}) at t={t_next}, offers {ev['offers']}, under each hypothesis ({a.n} weightings, ±{a.spread:.0%}):",
+             f"  {'argument':<{w}}  " + "  ".join(f"{k:>{cw}}" for k in names) + "   split"]
+    for r in rows:
+        lines.append(f"  {r['id']:<{w}}  " + "  ".join(f"{r['p'][k]:>{cw}.0%}" for k in names)
+                     + f"   {r['split']:.0%}" + ("   <- tests the hypotheses" if r["split"] >= 0.5 else ""))
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
 def cmd_predict(a, bus):
     """A forecast for an event that hasn't happened: commit the output
     before it does, and the commit date makes it a preregistration."""
@@ -806,16 +861,8 @@ def cmd_predict(a, bus):
           "set": {k: v for k, _, v in (kv.partition("=") for kv in a.set_item)}}
     if a.say:
         ev["say"] = a.say
-    trial = {**spec, "events": spec.get("events", []) + [ev]}
-    rng = random.Random(a.seed)
-    values = spec["agent"].get("values", {})
-    tallies = {r["name"]: Counter() for r in runs_of(spec)}
-    for _ in range(a.n):
-        v = {k: w * rng.uniform(1 - a.spread, 1 + a.spread) for k, w in values.items()}
-        for r, m in run({**trial, "agent": {**trial["agent"], "values": v}}):
-            tallies[r["name"]][m.choices[-1][1] if m.choices and m.choices[-1][0] == t_next else None] += 1
     out = {"event": ev, "n": a.n, "spread": a.spread,
-           "runs": {k: {str(act): round(c / a.n, 4) for act, c in t.most_common()} for k, t in tallies.items()}}
+           "runs": forecast(spec, [ev], a.n, a.seed, a.spread)}
     bus.emit("RESULT", "predict", f"t={t_next}: " + "; ".join(
         f"{k}: {max(v, key=v.get) if v else '-'}" for k, v in out["runs"].items()), **out)
     lines = [f"prediction for t={t_next}: offers {ev['offers']}, set {ev['set'] or '{}'}  ({a.n} weightings, ±{a.spread:.0%})"]
@@ -872,6 +919,41 @@ def cmd_induce(a, bus):
     for row in rows:
         mark = "" if row["in_model"] else "   <- not in the model"
         lines.append(f"  {row['action']:<12} {row['item']:<28} {row['kind']:<10} {row['gap']:+.2f}  on {row['on']:>5}  off {row['off']:>5}{mark}")
+    return emit_out(rows, a.format or "text", "\n".join(lines))
+
+
+def drift(m, half_life=4.0):
+    """How a hypothesis fits over time, not just in total. People change:
+    one that fit his first ten choices and missed his last three is worse
+    than its total says. Recent choices weigh more, halving every
+    `half_life` choices back; `holds_since` is where the unbroken run of
+    hits at the end starts."""
+    hits = [o == a for _, o, a in m.fit]
+    n = len(hits)
+    w = [0.5 ** ((n - 1 - i) / half_life) for i in range(n)]
+    tail = next((i for i in range(n, 0, -1) if not hits[i - 1]), 0)
+    return {"hits": sum(hits), "total": n,
+            "recent": round(sum(x * h for x, h in zip(w, hits)) / sum(w), 3) if n else None,
+            "holds_since": m.fit[tail][0] if tail < n else None,
+            "strip": "".join("#" if h else "." for h in hits),
+            "misses": [t for (t, _, _), h in zip(m.fit, hits) if not h]}
+
+
+def cmd_drift(a, bus):
+    spec = load([a.file], a.layer, a.who, a.set)
+    rows = []
+    for r, m in run(spec):
+        if r.get("counterfactual") or not m.fit:
+            continue
+        rows.append({"run": r["name"], **drift(m, a.half_life)})
+    rows.sort(key=lambda x: (-x["recent"], -x["hits"]))
+    bus.emit("RESULT", "drift", "; ".join(f"{x['run']}: recent {x['recent']:.2f}" for x in rows), rows=rows)
+    w = max([len(x["run"]) for x in rows] + [3])
+    lines = [f"fit over time (recent: hits weighted by recency, half-life {a.half_life:g} choices; # hit, . miss, oldest first):",
+             f"  {'run':<{w}}  {'fit':>6}  recent  holds since  record"]
+    lines += [f"  {x['run']:<{w}}  {str(x['hits']) + '/' + str(x['total']):>6}  {x['recent']:.2f}    "
+              f"{('t=' + str(x['holds_since'])) if x['holds_since'] is not None else '-':<11}  {x['strip']}"
+              for x in rows]
     return emit_out(rows, a.format or "text", "\n".join(lines))
 
 
@@ -1124,6 +1206,14 @@ def main(argv=None):
     s = sub.add_parser("induce", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--min-trials", type=int, default=3); s.add_argument("--thresh", type=float, default=0.5)
     s.add_argument("--patch", action="store_true", help="emit learned censors for the overriding conditions the model lacks")
+    s = sub.add_parser("argue", parents=[common]); s.add_argument("file")
+    s.add_argument("--offers", required=True); s.add_argument("--goal", required=True)
+    s.add_argument("--args", required=True, help="YAML list of arguments: {id, about, say, set, joke, source}")
+    s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off", help="the situation before any argument")
+    s.add_argument("--n", type=int, default=300); s.add_argument("--seed", type=int, default=0)
+    s.add_argument("--spread", type=float, default=0.5)
+    s = sub.add_parser("drift", parents=[common]); s.add_argument("file")
+    s.add_argument("--half-life", type=float, default=4.0, help="choices back at which a hit counts half")
     s = sub.add_parser("propose", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--min-run", type=int, default=2, help="fewest choices on each side of a switch")
     s.add_argument("--patch", action="store_true", help="emit the latent items, their switch events and censors as one layer")

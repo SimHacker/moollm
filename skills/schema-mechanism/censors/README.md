@@ -56,6 +56,8 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `sweep FILE --n N` | perturb value weights ±50%: do the conclusions depend on the numbers? |
 | `predict FILE --offers A,B [--set-item K=on]` | forecast the next event under every hypothesis; commit it before it happens ([LIVE.md](LIVE.md)) |
 | `induce FILE [--run R]` | Drescher's extended context over the record: which items made each observed choice likelier; flags ones the model lacks |
+| `argue FILE --offers A,B --goal A --args ARGS [--set-item K=V]` | Plan validation by simulation: each argument (an event of `say`/`set`/`joke`) before the next choice, P(goal) under every run, and which arguments the runs disagree about |
+| `drift FILE [--half-life N]` | Fit over time: hits weighted toward recent choices, where each run's unbroken hits begin, and a `#.#` strip of hits and misses |
 | `propose FILE [--run R]` | Drescher's synthetic items over the record: a choice that switched once with nothing observed to explain it; proposes a latent item and asks what it was (`--patch` for the layer) |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |

@@ -73,6 +73,47 @@ The hand-written `power-pays` hypothesis fits the same 16. They differ only
 when he has a third move, going quiet, so `predict` with that offer is the
 test to commit.
 
+## Fit over time
+
+A total hides change. A hypothesis that fit his first ten choices and
+missed his last three is worse than 10/13 says, because people change and
+the next choice is closer to the last ones. `drift` weights each hit by
+recency (halving every `--half-life` choices back, default 4), shows where
+each run's unbroken hits at the end begin, and prints a strip:
+
+```bash
+python3 $S drift on-stage.yml
+#  power-pays         16/16  1.00    t=1    ################
+#  doesnt-know        11/16  0.54    -      #.#######..###..
+```
+
+Rank hypotheses by `recent`, not by the total, when forecasting.
+
+## Arguments, simulated first
+
+Drescher's mechanism checks a plan by running it in the model before
+acting. `argue` does that for arguments. Each argument is a kind of case,
+written as an event (`say`, `set`, a `joke`), and is dropped in just
+before the next choice, from a starting situation set with `--set-item`.
+For every run it reports how often he takes the goal action, with the same
+weightings for every argument, so the rows differ only in the argument.
+An argument the runs disagree about is a test of them; one that moves no
+run is, in the model, a waste of breath.
+
+```bash
+python3 $S argue on-stage.yml --args ../../arguments.yml \
+  --offers apologize,amplify --goal apologize \
+  --set-item accusation-heard=off --set-item power-at-risk=off
+#  argument         doesnt-know  knows-and-agrees  power-pays  learned-censor
+#  moral-case            0%           1%              0%            0%
+#  documented-cost       0%           0%             71%          100%
+```
+
+On the Musk record no argument on the merits moves any run; only a
+documented cost does. The arguments are hypothetical kinds, never messages
+to send to a real person, and the result is about the model: it says which
+situation the record makes him respond to, not what would persuade him.
+
 ## Latent items: what the record doesn't show
 
 `induce` can only find items someone recorded. When a choice changes and
