@@ -111,25 +111,32 @@ stayed. Full output: [`examples/baron/RUN.md`](examples/baron/RUN.md).
 
 | Follower | Fits the record | Censors it needs | Fits in 1,000 weightings |
 |---|---|---|---|
-| the loyal friend | 7/8: leaves at the chatbot, back at the next rally | politics-frame | 13% |
-| the fan | 7/8: leaves at the chatbot | awkward-gesture | 12% |
-| the ironist | 7/8 | awkward-gesture | 12% |
+| the loyal friend | 7/8: leaves at the chatbot, back at the next rally | none | 13% |
+| the fan | 7/8: leaves at the chatbot | none | 12% |
+| the ironist | 7/8 | none | 12% |
 | the crusader | 8/8 | **none** | 71% |
 | the convert | 8/8 | **none, and has none** | 80% |
 | the ironic crusader | 8/8 | none | 71% |
 
+An earlier version of this table said the loyal friend needed
+`politics-frame` and the fan and ironist needed `awkward-gesture`. That was
+a bug: the engine charged a conflict that was already standing as fresh
+pain on every later move, so dropping a suppressor flooded the follower with
+pain it hadn't earned. With the fix (2026-11-24) no follower needs a censor.
+
 Three things fall out.
 
-**A friend's censors keep a fact out; a crowd pays.** The loyal friend from
-the [beekeepers](examples/beekeepers.yml) needs one
-censor to get through the first five moments, and none of them can keep him
-at the chatbot. Then he's back at the next rally, piling on the historian:
-leaving didn't take his censors with it. Censors only veto; they can't make staying worth anything. The crowd
-can: in [`crowd-logic`](parts/crowd-logic.yml) every defense, pile-on and
-repost pays the value of `belongs` again. Give a mind `drive-belonging` and
-the ablation says no censor is needed at all. This is why the crowd is worse
-than the friend: the friend has to work at not knowing, and the crowd is paid
-not to care.
+**A friend's censors keep a fact out; a crowd pays.** In the
+[beekeepers](examples/beekeepers.yml), alone with the fact, the loyal friend
+needs four censors to get through, and ablation confirms each one. Put the
+same archetype in the Baron's crowd and he needs none: he leaves at the
+chatbot, and he's back at the next rally piling on the historian. Censors
+only veto; they can't make staying worth anything. The crowd can: in
+[`crowd-logic`](parts/crowd-logic.yml) every defense, pile-on and repost
+pays the value of `belongs` again, so a follower who knows keeps doing what
+a follower who doesn't would do. This is why the crowd is worse than the
+friend: the friend has to work at not knowing, and the crowd is paid not to
+care.
 
 **The record can't tell a crusader from a convert.** Both do the same eight
 things. `diff` says they share all 17 schemas and differ in two weights; one

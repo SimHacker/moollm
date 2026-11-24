@@ -12,6 +12,7 @@ agent:
     informed: off
     calm: on
     tooth-worse: off
+    appointment: off      # only the letter says when
   values:                 # the agent's own sense of good and bad
     informed: 5           # knowing is worth something...
     knows-bad-news: -3    # ...and it hurts
@@ -21,17 +22,21 @@ agent:
 schemas:                  # positive knowledge: context -> action -> result
   - { id: read, action: read-letter, context: [letter-from-dentist], result: { knows-bad-news: on, informed: on }, reliability: 1.0 }
   - { id: aside, action: put-aside, context: [letter-from-dentist], result: { calm: on }, reliability: 1.0 }
+  # Never offered in the record; it's here for `plan`. The way to a fixed
+  # tooth goes through the letter, which is the step the censor hides:
+  #   censor_sim.py plan dentist-letter.yml --run avoidance --goal appointment
+  - { id: book, action: book-appointment, context: [informed], result: { appointment: on }, reliability: 0.9 }
 
 censors: []               # none yet: this one will be learned
 
 events:
   - { t: 1, set: { letter-from-dentist: on }, say: "a letter from the dentist", offers: [read-letter, put-aside] }
-  - { t: 2, set: { letter-from-dentist: off, knows-bad-news: off } }
+  - { t: 2, set: { letter-from-dentist: off, knows-bad-news: off, informed: off } }
   - { t: 3, set: { letter-from-dentist: on }, say: "another letter from the dentist", offers: [read-letter, put-aside] }
   # Two painful reads. Marginal attribution notices what was ON both times
   # and mints a precursor censor on read-letter. It has no cover story; the
   # agent just finds itself not reading.
-  - { t: 4, set: { letter-from-dentist: off, knows-bad-news: off } }
+  - { t: 4, set: { letter-from-dentist: off, knows-bad-news: off, informed: off } }
   - { t: 5, set: { letter-from-dentist: on }, say: "a third letter from the dentist", offers: [read-letter, put-aside] }
   - { t: 6, set: { tooth-worse: on }, say: "the tooth gets worse" }
   - { t: 9, set: { letter-from-dentist: on }, say: "a fourth letter from the dentist", offers: [read-letter, put-aside] }

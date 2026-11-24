@@ -60,6 +60,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `argue FILE --offers A,B --goal A --args ARGS [--set-item K=V]` | Plan validation by simulation: each argument (an event of `say`/`set`/`joke`) before the next choice, P(goal) under every run, and which arguments the runs disagree about |
 | `drift FILE [--half-life N]` | Fit over time: hits weighted toward recent choices, where each run's unbroken hits begin, and a `#.#` strip of hits and misses |
 | `propose FILE [--run R]` | Drescher's synthetic items over the record: a choice that switched once with nothing observed to explain it; proposes a latent item and asks what it was (`--patch` for the layer) |
+| `plan FILE --goal G [--run R] [--at start\|end] [--set-item K=V]` | Drescher's planner (Dijkstra over schemas, cost 1 − log reliability) with Minsky's censors in the search: the plan the agent can think of, the plan an observer sees, and the censor that hid each missing step |
 | `bench FILE --n N` | simulations per second |
 | `diff A B` | shared logic, different priorities, which censors each mind has |
 | `where FILE PATTERN` | which layer defines what matches |
@@ -67,6 +68,15 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `export FILE [--format dot]` | resolved model, or a censor graph for Graphviz |
 | `import TEXT` | split a message thread into skeleton events, one request per message |
 | `apply PATCH --into FILE` | merge a patch layer into a file |
+
+Scoring options on `agent:`: `score: earned` (default; a result pays every
+time, as if the motive had decayed back) or `score: change` (only what the
+action changes, as The Sims' Find Best Action scores the delta), and
+`losses_hurt: true` to count losing a valued item as pain when learning.
+
+Tests: `python3 ../scripts/test_censor_sim.py` checks the engine's own rules;
+`suite` checks the models against their records; `python3
+../scripts/regen_runs.py --check` fails if a generated `RUN.md` is stale.
 
 Every command takes `--layer FILE` (repeatable), `--who k=v`, `--set
 path=value` (lists by id: `censors.too-long.cover=...`), and `-` for stdin.

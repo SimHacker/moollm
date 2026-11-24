@@ -174,6 +174,8 @@ happened and labeled hypothetical where it didn't.
 applause alone fits 11 of his 16 choices. The five misses are regrets and
 retractions, and each followed a documented cost (advertisers in 2023,
 Trump's threat to $18 billion in contracts in 2025, a lost midterm in
-2026). One latent weight, `power-safe`, fits all 16 in 72% of weightings.
+2026). One latent weight, `power-safe`, fits all 16 in 67% of weightings
+(perturbing `power-safe` itself; before 2026-11-24 the sweep left a run's own
+weights fixed and said 72%).
 Its forecast for the next cost event, committed in `predictions.yml`, is a
 regret or retraction; the other hypotheses say he doubles down.

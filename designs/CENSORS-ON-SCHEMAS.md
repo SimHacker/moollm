@@ -139,7 +139,7 @@ see what the simulator simplifies.
 | Overriding conditions | learned statistically from the context tables | authored, or installed in one shot by a joke |
 | Synthetic items | minted from local consistency, named after the host schema; also *negative* synthetic items for reliable schemas that go locally unreliable | not yet |
 | Redundant attribution | suppressed once a spun-off child explains it | not needed at this scale |
-| Planning | Dijkstra over the schema graph, plans checked by simulation, composite actions per goal item | none; the agent picks the best open action each turn |
+| Planning | Dijkstra over the schema graph, plans checked by simulation, composite actions per goal item | `plan`: Dijkstra over states, cost 1 − log reliability, run twice, with censors pruning and without; each turn the agent still just picks the best open action |
 | Value | primary and refractory activation values per schema | one value table per agent |
 | Scale | GPU-batched extended results, schema pruning | 15,000–35,000 whole simulations per second on a laptop |
 | Language | core learner predates LLMs; a newer teacher layer grounds words to the schema graph, with a learned associator or an LLM | the engine never calls an LLM (section 7) |

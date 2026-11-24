@@ -17,10 +17,12 @@ description: |
   models of the world. Schemas are Context → Action → Result units
   that agents discover through experience.
   
-  Extended by MOOLLM with LLM semantic understanding:
-  - Symbol grounding (items mean something)
-  - Causal reasoning (why patterns hold)
-  - Natural explanation (communicate discoveries)
+  Run by MOOLLM in two tiers: deterministic Python counts, plans and
+  tests; an LLM (Pretend Intelligence, RMS's term) only drafts labels,
+  each one marked [PI] and checked against the record:
+  - Requests, not calls (the engine asks for what it can't compute)
+  - Labels for hidden items and undescribed actions
+  - Tests that throw away any draft the record doesn't need
   
 lineage: "Piaget → Minsky → Drescher → MOOLLM"
 

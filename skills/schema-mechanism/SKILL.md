@@ -194,158 +194,43 @@ what it borrowed from this code, is in
 
 ---
 
-## Why LLMs Complete Drescher's Vision
+## What an LLM adds, and what it doesn't
 
-Not by replacing the Python. Counting is what the Python is for, and it
-does it thousands of times a second, the same way every time. What it
-can't do is mean anything. The split that works is two tiers: deterministic
-code for the statistics, the LLM for grounding, naming and explanation,
-talking through files and events rather than embedded calls (see
-[`designs/CENSORS-ON-SCHEMAS.md` §7](../../designs/CENSORS-ON-SCHEMAS.md#7-two-tiers-python-for-arithmetic-the-llm-for-meaning)).
-What the LLM adds:
+Richard Stallman calls these systems **Pretend Intelligence**: they generate
+text without understanding what it means, and don't notice when it's wrong
+([his term, and the argument](../../designs/PRETEND-INTELLIGENCE.md)). This
+skill takes that as a design constraint, not an insult.
 
-### 1. The Symbol Grounding Problem
+So the work is split in two, and the split is enforced in code
+([`designs/CENSORS-ON-SCHEMAS.md` §7](../../designs/CENSORS-ON-SCHEMAS.md#7-two-tiers-python-for-arithmetic-the-llm-for-meaning)):
 
-```python
-# Python: Items are opaque tokens
-item_37 = Item("postgres-running")  # What does this MEAN?
+- **The deterministic tier counts.** Items, schemas, marginal attribution,
+  planning, sweeps and tests are plain Python. It never calls an LLM, gives
+  the same answer every time, and runs tens of thousands of simulations a
+  second.
+- **The language tier drafts.** Where a step needs words, the engine emits
+  a `REQUEST` with the exact YAML patch that would answer it: what does this
+  action do, what does this agent tell itself, what should this hidden item
+  be called. A person or an LLM fills it in. Every generated line is marked
+  `[PI]` and carries a `source: tier0: ...` saying who wrote it.
+- **The record decides.** An LLM's draft is a hypothesis. `test` replays
+  what actually happened and fails if the model doesn't reproduce it;
+  `ablate` removes each part and reports the ones nothing needed; `sweep`
+  shows whether a conclusion survives other weights. A draft that doesn't
+  survive those is thrown away, however fluent it sounds.
 
-# The system can correlate item_37 with success,
-# but has NO IDEA what "postgres" or "running" mean.
-```
+What that buys, concretely:
 
-```yaml
-# YAML Jazz + LLM: Semantics are grounded
-postgres-running:
-  # The database engine that stores our task queue
-  # Must be healthy before pyvision can claim tasks
-  # Check with: docker exec edgebox-postgres pg_isready
-```
+| Step | Without words | With a drafted label |
+|---|---|---|
+| A hidden item Drescher's mechanism mints | named after where it was found: `latent-read-from-t5` | a name a person can check against the record: "the second letter said the X-ray was bad" |
+| An action nobody described | the engine stops and asks | a candidate schema, which `test` then accepts or rejects |
+| A censor's cover story | the engine stops and asks | a sentence, marked `[PI]`; for a real person, their own words with a source, or nothing |
+| A thread of email | split into messages by rule | each message turned into an event, every quote verbatim |
 
-The LLM *understands* that postgres is a database, that "running" means the process is alive. It can **reason about** items, not just correlate them.
-
-### 2. Natural Language Context
-
-```prolog
-% Prolog: Formal but opaque
-schema(start_pyvision, [postgres_running], [pyvision_running]).
-% Why? What's the relationship? Silent.
-```
-
-```yaml
-# YAML Jazz: Self-documenting causality
-schema:
-  action: start-pyvision
-  context:
-    - postgres-running
-    # pyvision needs postgres to claim tasks from the queue
-    # without it, the worker has nothing to process
-  result:
-    - pyvision-running
-```
-
-The LLM reads comments and *understands the causal mechanism*.
-
-### 3. Empathic Pattern Recognition
-
-```python
-# Python: Counting correlations
-extended_context[item_id].success_when_on += 1
-# After 50 trials: item_37 correlates with success
-# But WHY? The system cannot say.
-```
-
-```
-LLM: "I notice start-pyvision fails when postgres isn't running.
-     This makes sense -- pyvision queries the task table on startup.
-     The dependency is architectural, not coincidental."
-```
-
-The LLM doesn't just find correlations -- it **understands mechanisms**.
-
-### 4. Creative Spin-offs
-
-```python
-# Python: Mechanical spinoff
-if correlation > threshold:
-    new_schema = Schema(
-        action=parent.action,
-        context=parent.context + [correlated_item],
-        result=parent.result
-    )
-```
-
-```
-LLM: "Based on the postgres dependency, I should also check:
-     - Is there enough disk space for the database?
-     - Are the connection limits configured properly?
-     - Should we add a health check before starting?"
-```
-
-The LLM **generalizes** from specific observations to related concerns.
-
-### 5. The Explanation Gap
-
-```lisp
-;; Lisp: Can derive, cannot explain
-(derive-plan goal: pyvision-running)
-;; Returns: ((start-postgres) (start-pyvision))
-;; But try asking it WHY this plan works...
-```
-
-```yaml
-# MOOLLM: Plans with explanations
-plan:
-  - action: start-postgres
-    rationale: "pyvision needs the task queue"
-  - action: start-pyvision
-    rationale: "now it can claim tasks"
-```
-
-### 6. Handling Novelty
-
-```python
-# Python: Item not in vocabulary
-item = world.get_item("kubernetes-pod-restarting")
-# KeyError! Never seen this item.
-```
-
-```
-LLM: "I haven't seen this exact item before, but I understand:
-     - 'kubernetes pod' is a containerized service
-     - 'restarting' suggests crash loops
-     - This is similar to 'pyvision crashing'
-     - Let me check the container logs..."
-```
-
----
-
-## The Comparison
-
-| Aspect | Deterministic (Lisp/Prolog/Python) | LLM + YAML Jazz |
-|--------|-----------------------------------|-----------------|
-| Items | Opaque tokens | Grounded meanings |
-| Patterns | Statistical correlation | Semantic understanding |
-| Spin-offs | Mechanical refinement | Creative generalization |
-| Explanations | None | Natural language |
-| Novelty | Vocabulary-limited | Open-ended |
-| Context | Formal predicates | Natural language + comments |
-| Debugging | Trace execution | Ask "why did this fail?" |
-
----
-
-## Drescher's Dream, Realized
-
-Drescher was trying to build a system that learns causal models of the world. His mechanism was brilliant but limited by the symbolic substrate. The schema mechanism discovers *that* patterns exist, but cannot understand *why*.
-
-LLMs complete the picture:
-- **Semantic grounding**: Items mean something
-- **Causal reasoning**: Understanding *why* patterns hold
-- **Natural explanation**: Communicating discoveries
-- **Creative generalization**: Going beyond observed patterns
-- **Graceful degradation**: Handling novel situations
-
-**MOOLLM unifies Drescher's rigorous structure with LLM's semantic understanding. The YAML provides the skeleton; the LLM provides the soul.**
+None of this makes the program understand anything. It makes the parts
+that need words explicit, labeled, and testable, and keeps the arithmetic
+out of the LLM's hands, where it would be slow and wrong.
 
 ---
 
@@ -401,4 +286,4 @@ minds can agree on every schema and still differ in priorities.
 
 > *"If you can observe patterns, you can discover causality."*
 > *"If you track correlations, you can spin off knowledge."*
-> *"The YAML provides the skeleton; the LLM provides the soul."*
+> *"If you can't check it against the record, it's a guess, so label it."*

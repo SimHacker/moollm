@@ -49,6 +49,7 @@ Commands:
   argue    FILE --offers A,B --goal A --args ARGS  which arguments move each hypothesis toward A
   drift    FILE           fit over time: recency-weighted, and where each run's unbroken hits begin
   propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
+  plan     FILE --goal G   Drescher's planner: the plan the agent can think of vs the one an observer sees
   bench    FILE           time N unperturbed runs                      (benchmark)
   diff     A B            compare two resolved minds: shared logic, different priorities
   where    FILE PATTERN   which layer defines what matches PATTERN     (search)
@@ -66,7 +67,9 @@ Exit codes: 0 ok, 1 errors, 2 test failure, 3 unanswered requests (--strict).
 
 import argparse
 import hashlib
+import heapq
 import json
+import math
 import os
 import random
 import re
@@ -333,6 +336,8 @@ class Mind:
         self.name = a["name"]
         self.items = {k: parse_value(v) for k, v in a.get("items", {}).items()}
         self.values = a.get("values", {})
+        self.score_change = a.get("score", "earned") == "change"
+        self.losses_hurt = bool(a.get("losses_hurt"))
         self.contradictions = [tuple(p) for p in a.get("contradictions", [])]
         self.schemas = [build(Schema, s) for s in spec.get("schemas", [])]
         # A censor entry with no `kind` is a patch waiting for a learned censor.
@@ -380,16 +385,25 @@ class Mind:
         s = self.schema_for(action)
         if not s:
             return 0.0
-        v = sum(self.values.get(k, 0) * (1 if val else -1) for k, val in s.result.items())
+        # Default: every result is earned again each time, as if the motive
+        # had decayed back between choices. `score: change` scores only what
+        # the action changes, as The Sims' Find Best Action scores the delta.
+        v = 0.0
+        for k, val in s.result.items():
+            new = parse_value(val)
+            if new is None or (self.score_change and self.items.get(k) is new):
+                continue
+            v += self.values.get(k, 0) * (1 if new else -1)
         return v * s.reliability
 
-    def vetoed(self, action):
+    def vetoed(self, action, items=None):
         # A censor the agent can see, and no longer trusts, can be overridden.
         # A censor whose harms have all already happened has nothing to guard.
+        items = items if items is not None else self.items
         hits = [c for c in self.censors
-                if c.kind == "precursor" and c.action == action and c.matches(self.items)
+                if c.kind == "precursor" and c.action == action and c.matches(items)
                 and not (c.visible and c.reliability < OVERRIDE)
-                and not (c.harm and all(self.items.get(h) is ON for h in c.harm))]
+                and not (c.harm and all(items.get(h) is ON for h in c.harm))]
         # Anecdotal censors outrank the general ones they patch.
         hits.sort(key=lambda c: (not c.anecdotal, -c.reliability))
         return hits
@@ -427,7 +441,47 @@ class Mind:
     def apply(self, action):
         s = self.schema_for(action)
         for k, v in (s.result.items() if s else []):
-            self.items[k] = parse_value(v) if not isinstance(v, bool) else v
+            self.items[k] = parse_value(v)
+
+    # -- planning: Drescher's composite actions ----------------------------
+    def plan(self, goal, censored=True, max_steps=8):
+        """Cheapest chain of schemas from the current items to every goal
+        condition, by Dijkstra over states. A step costs 1 plus -log of the
+        schema's reliability, so a long sure plan can beat a short gamble.
+        censored=True is the plan the agent can think of: a step a precursor
+        censor vetoes, in the state where it would be taken, is never
+        considered. censored=False is the plan the observer can see."""
+        actions = sorted({s.action for s in self.schemas})
+        start = dict(self.items)
+        key = lambda items: tuple(sorted((k, v) for k, v in items.items() if v is not None))
+        frontier, best, n = [(0.0, 0, start, [])], {key(start): 0.0}, 0
+        pruned = {}
+        while frontier:
+            cost, _, items, path = heapq.heappop(frontier)
+            if all(holds(items, g) for g in goal):
+                return {"steps": path, "cost": round(cost, 3), "pruned": sorted(pruned.items())}
+            if len(path) >= max_steps or cost > best.get(key(items), math.inf):
+                continue
+            for act in actions:
+                s = self.schema_for(act, items)
+                if not s:
+                    continue
+                if censored:
+                    hits = self.vetoed(act, items)
+                    if hits:
+                        pruned.setdefault(act, hits[0].id)
+                        continue
+                nxt = dict(items)
+                for k, v in s.result.items():
+                    nxt[k] = parse_value(v)
+                if key(nxt) == key(items):
+                    continue
+                c = cost + 1 - math.log(max(s.reliability, 1e-6))
+                if c < best.get(key(nxt), math.inf):
+                    best[key(nxt)] = c
+                    n += 1
+                    heapq.heappush(frontier, (c, n, nxt, path + [act]))
+        return {"steps": None, "cost": None, "pruned": sorted(pruned.items())}
 
     # -- suppressors: after the fact ---------------------------------------
     def conflicts(self):
@@ -470,7 +524,14 @@ class Mind:
     def attribute(self, t, action, before):
         pain = [k for k, v in self.items.items()
                 if v is ON and self.values.get(k, 0) < 0 and before.get(k) is not ON]
-        pain += [f"{a}+{b}" for a, b in self.conflicts()]
+        # With `losses_hurt`, losing something valued is pain too. Off by
+        # default: most modules name a loss as its own bad item instead.
+        if self.losses_hurt:
+            pain += [f"lost {k}" for k, v in self.items.items()
+                     if v is OFF and self.values.get(k, 0) > 0 and before.get(k) is ON]
+        # Only a conflict this action created; one already standing isn't its fault.
+        pain += [f"{a}+{b}" for a, b in self.conflicts()
+                 if not (before.get(a) is ON and before.get(b) is ON)]
         self.trials.setdefault(action, []).append((before, bool(pain)))
         if not pain:
             return
@@ -478,13 +539,13 @@ class Mind:
         if hurt < self.learn_threshold:
             return
         ctx = self.discriminating(action)
-        learned = next((c for c in self.censors if c.action == action and c.learned_from), None)
+        cid = f"learned-{action}"
+        learned = next((c for c in self.censors if c.id == cid), None)
         if learned:
             if ctx != learned.context:
                 learned.context = ctx
                 self.log(t, f"context spin-off refines {learned.id}: {ctx}", inner=False)
             return
-        cid = f"learned-{action}"
         c = build(Censor, {"id": cid, "kind": "precursor", "context": ctx, "action": action,
                            "harm": pain, "learned_from": f"{hurt} painful '{action}'s",
                            **self.patches.get(cid, {})})
@@ -500,12 +561,15 @@ class Mind:
         if "exposes" in ev:
             target = next((c for c in self.censors if c.id == ev["exposes"]), None)
             if not target:
+                # A miss exposes nothing, but its lesson (if any) still lands.
                 self.bus.emit("WARNING", "joke-misses", f"joke at t={t} exposes unknown censor {ev['exposes']}",
                               key={"agent": self.name, "t": t}, t=t)
-                return
-            target.visible = True
-            target.reliability *= ev.get("discount", 0.5)
-            self.log(t, f"laughs: notices censor {target.id} ({ev.get('text', '')})")
+                if "lesson" not in ev:
+                    return
+            else:
+                target.visible = True
+                target.reliability *= ev.get("discount", 0.5)
+                self.log(t, f"laughs: notices censor {target.id} ({ev.get('text', '')})")
         elif "lesson" in ev:
             L = ev["lesson"]
             self.censors.append(build(Censor, {"anecdotal": True, "kind": "precursor",
@@ -557,16 +621,28 @@ def runs_of(spec, name=None):
     return [r for r in rs if not name or r["name"] == name]
 
 
-def run(spec, run_name=None, bus=NULL):
+def run_spec(spec, r):
+    """The spec one run sees: its censors, schemas and agent overrides applied."""
+    merged = dict(spec)
+    for key in ("censors", "schemas"):
+        extra = r.get("add_" + key)
+        if extra:
+            merged[key] = merge(spec.get(key, []), extra)
+    if r.get("agent"):
+        merged["agent"] = merge(spec["agent"], r["agent"])
+    return merged
+
+
+def run(spec, run_name=None, bus=NULL, factors=None):
+    """factors: weight -> multiplier, applied after each run's own overrides,
+    so a perturbation reaches the weights a run sets as well as the shared ones."""
     out = []
     for r in runs_of(spec, run_name):
-        merged = dict(spec)
-        for key in ("censors", "schemas"):
-            extra = r.get("add_" + key)
-            if extra:
-                merged[key] = merge(spec.get(key, []), extra)
-        if r.get("agent"):
-            merged["agent"] = merge(spec["agent"], r["agent"])
+        merged = run_spec(spec, r)
+        if factors:
+            vals = merged["agent"].get("values", {})
+            merged["agent"] = {**merged["agent"],
+                               "values": {k: w * factors.get(k, 1.0) for k, w in vals.items()}}
         m = Mind(merged, bus)
         for ev in sorted(spec.get("events", []) + r.get("events", []), key=lambda e: e["t"]):
             m.step(ev, quotes=r.get("quotes", True))
@@ -643,9 +719,17 @@ def cmd_resolve(a, bus):
 
 def lint_spec(spec, bus):
     agent = spec.get("agent", {})
-    items = set(agent.get("items", {}))
-    actions = {s["action"] for s in spec.get("schemas", [])}
-    censors = {c["id"]: c for c in spec.get("censors", [])}
+    rs = runs_of(spec)
+    items = set(agent.get("items", {})) | {k for r in rs for k in (r.get("agent") or {}).get("items", {})}
+    actions = {s["action"] for s in spec.get("schemas", [])} | {
+        s["action"] for r in rs for s in r.get("add_schemas", []) if "action" in s}
+    # Each run's own censors are checked like the shared ones.
+    all_censors = list(spec.get("censors", [])) + [
+        c for r in rs for c in r.get("add_censors", []) if not c.get("drop")]
+    censors = {c["id"]: c for c in all_censors}
+    if agent.get("score", "earned") not in ("earned", "change"):
+        bus.emit("ERROR", "bad-score", f"agent.score is '{agent.get('score')}'; use earned or change",
+                 key={"score": agent.get("score")})
     events = spec.get("events", []) + [e for r in runs_of(spec) for e in r.get("events", [])]
     offered = {a for e in events for a in e.get("offers", [])}
     learned_ok = {f"learned-{a}" for a in offered}
@@ -662,9 +746,9 @@ def lint_spec(spec, bus):
     for s in spec.get("schemas", []):
         item_refs(f"schema {s['id']} context", s.get("context"))
         item_refs(f"schema {s['id']} result", list(s.get("result", {})))
-    for c in spec.get("censors", []):
+    for c in all_censors:
         if "kind" not in c:
-            if c["id"] not in learned_ok:
+            if c["id"] not in learned_ok and not any("kind" in x for x in all_censors if x["id"] == c["id"]):
                 bus.emit("WARNING", "orphan-patch", f"patch for censor {c['id']}, which no layer defines or the run can learn",
                          key={"orphan": c["id"]}, censor=c["id"])
             continue
@@ -823,19 +907,24 @@ def ablate(spec, bus=NULL):
     rows = []
     for r in [r for r in runs_of(spec) if not r.get("counterfactual")]:
         full, total = score(run({**spec, "runs": [r]})[0][1])
-        dropped = {x["id"] for x in r.get("add_censors", []) if x.get("drop")}
-        for c in [c for c in spec.get("censors", []) if "kind" in c and c["id"] not in dropped]:
-            trimmed = {**spec, "runs": [r], "censors": [x for x in spec["censors"] if x["id"] != c["id"]]}
-            hits, _ = score(run(trimmed)[0][1])
+        # The censors this run actually has: shared ones it keeps, plus its own.
+        for c in [c for c in run_spec(spec, r).get("censors", []) if "kind" in c]:
+            without = {**r, "add_censors": list(r.get("add_censors", [])) + [{"id": c["id"], "drop": True}]}
+            hits, _ = score(run({**spec, "runs": [without]})[0][1])
             rows.append({"run": r["name"], "censor": c["id"], "fit_without": f"{hits}/{total}",
                          "fit_with": f"{full}/{total}", "needed": hits < full})
             if hits >= full:
                 bus.emit("WARNING", "unneeded-censor", f"{r['name']}: the record doesn't need censor {c['id']}",
                          key={"run": r["name"], "unneeded": c["id"]}, run=r["name"], censor=c["id"])
         # A joke that installs a censor is a censor too, put there by someone else.
-        for e in [e for e in spec.get("events", []) if "lesson" in e.get("joke", {}) and "exposes" not in e["joke"]]:
-            events = [{k: v for k, v in x.items() if k != "joke"} if x is e else x for x in spec["events"]]
-            hits, _ = score(run({**spec, "runs": [r], "events": events})[0][1])
+        lessons = lambda evs: [e for e in evs if "lesson" in e.get("joke", {}) and "exposes" not in e["joke"]]
+        unjoke = lambda evs, e: [{k: v for k, v in x.items() if k != "joke"} if x is e else x for x in evs]
+        for e in lessons(spec.get("events", [])) + lessons(r.get("events", [])):
+            if e in spec.get("events", []):
+                trial = {**spec, "runs": [r], "events": unjoke(spec["events"], e)}
+            else:
+                trial = {**spec, "runs": [{**r, "events": unjoke(r["events"], e)}]}
+            hits, _ = score(run(trial)[0][1])
             rows.append({"run": r["name"], "censor": f"{e['joke']['lesson']['id']} (joke t={e['t']})",
                          "fit_without": f"{hits}/{total}", "fit_with": f"{full}/{total}", "needed": hits < full})
     return rows
@@ -848,16 +937,28 @@ def cmd_ablate(a, bus):
     return emit_out(rows, a.format or "text", text)
 
 
+def weight_names(spec):
+    """Every value weight any run can see: the shared ones first, in file
+    order, then the ones only a run sets, sorted. The order fixes which
+    random draw each weight gets, so a seed means the same thing everywhere."""
+    shared = list(spec["agent"].get("values", {}))
+    extra = sorted({k for r in runs_of(spec) for k in (r.get("agent") or {}).get("values", {})} - set(shared))
+    return shared + extra
+
+
+def draws(spec, n, seed, spread):
+    rng, names = random.Random(seed), weight_names(spec)
+    for _ in range(n):
+        yield {k: rng.uniform(1 - spread, 1 + spread) for k in names}
+
+
 def sweep(spec, n, seed=0, spread=0.5):
-    rng = random.Random(seed)
-    values = spec["agent"].get("values", {})
     names = [r["name"] for r in runs_of(spec)]
     tallies = {k: Counter() for k in names}
     fits = {k: Counter() for k in names}
     start = time.perf_counter()
-    for _ in range(n):
-        v = {k: w * rng.uniform(1 - spread, 1 + spread) for k, w in values.items()}
-        for r, m in run({**spec, "agent": {**spec["agent"], "values": v}}):
+    for f in draws(spec, n, seed, spread):
+        for r, m in run(spec, factors=f):
             tallies[r["name"]][tuple(a for _, a in m.choices)] += 1
             if m.fit and not r.get("counterfactual"):
                 fits[r["name"]]["%d/%d" % score(m)] += 1
@@ -887,12 +988,9 @@ def forecast(spec, new_events, n, seed=0, spread=0.5):
     differ only in their events."""
     t_next = max(e["t"] for e in new_events)
     trial = {**spec, "events": spec.get("events", []) + list(new_events)}
-    rng = random.Random(seed)
-    values = spec["agent"].get("values", {})
     tallies = {r["name"]: Counter() for r in runs_of(spec)}
-    for _ in range(n):
-        v = {k: w * rng.uniform(1 - spread, 1 + spread) for k, w in values.items()}
-        for r, m in run({**trial, "agent": {**trial["agent"], "values": v}}):
+    for f in draws(spec, n, seed, spread):
+        for r, m in run(trial, factors=f):
             tallies[r["name"]][m.choices[-1][1] if m.choices and m.choices[-1][0] == t_next else None] += 1
     return {k: {str(act): round(c / n, 4) for act, c in t.most_common()} for k, t in tallies.items()}
 
@@ -1119,6 +1217,57 @@ def cmd_propose(a, bus):
     return emit_out(rows, a.format or "text", "\n".join(lines))
 
 
+def walk(m, steps):
+    """Replay a plan from the current items: which censor, if any, vetoes
+    each step in the state where it would be taken."""
+    items, out = dict(m.items), []
+    for act in steps:
+        hits = m.vetoed(act, items)
+        out.append({"action": act, "vetoed_by": hits[0].id if hits else None})
+        s = m.schema_for(act, items)
+        for k, v in (s.result.items() if s else []):
+            items[k] = parse_value(v)
+    return out
+
+
+def cmd_plan(a, bus):
+    """Drescher's planner with Minsky's censors in the search. Two plans:
+    the one the agent can think of, and the one an observer can see. Where
+    they differ, the censor that pruned the path is named."""
+    spec = load([a.file], a.layer, a.who, a.set)
+    goal = [g.strip() for g in a.goal.split(",") if g.strip()]
+    r = runs_of(spec, a.run)[0] if a.run else runs_of(spec)[0]
+    if a.at == "start":
+        m = Mind(run_spec(spec, r), bus)
+    else:
+        (_, m), = run(spec, r["name"], bus)
+    for k, _, v in (kv.partition("=") for kv in a.set_item):
+        m.items[k] = parse_value(v)
+    inner = m.plan(goal, censored=True, max_steps=a.max_steps)
+    outer = m.plan(goal, censored=False, max_steps=a.max_steps)
+    hidden = [x for x in walk(m, outer["steps"] or []) if x["vetoed_by"]]
+    out = {"run": r["name"], "at": a.at, "goal": goal, "items_on": m.on_items(),
+           "agent_plan": inner["steps"], "agent_cost": inner["cost"],
+           "observer_plan": outer["steps"], "observer_cost": outer["cost"],
+           "hidden_by": hidden, "pruned": [{"action": x, "censor": c} for x, c in inner["pruned"]]}
+    if outer["steps"] is None:
+        bus.emit("REQUEST", "schema", f"no chain of schemas reaches {goal}",
+                 key={"agent": m.name, "plan": goal}, goal=goal, items_on=m.on_items(),
+                 ask="which action would bring this about, from what context?",
+                 patch={"schemas": [{"id": "<action>", "action": "<action>", "context": [],
+                                     "result": {g.lstrip("!"): "off" if g.startswith("!") else "on" for g in goal},
+                                     "source": "tier0: <who answered>"}]})
+    bus.emit("RESULT", "plan", f"{goal}: agent {inner['steps']}, observer {outer['steps']}", **out)
+    show = lambda steps: " → ".join(steps) if steps else ("(already true)" if steps == [] else "none found")
+    lines = [f"plan for {', '.join(goal)} (run {r['name']}, at {a.at}; on: {', '.join(m.on_items()) or 'nothing'}):",
+             f"  agent sees:    {show(inner['steps'])}" + (f"   cost {inner['cost']}" if inner["steps"] else ""),
+             f"  observer sees: {show(outer['steps'])}" + (f"   cost {outer['cost']}" if outer["steps"] else "")]
+    lines += [f"  hidden: '{x['action']}' is vetoed by censor {x['vetoed_by']}" for x in hidden]
+    if inner["steps"] != outer["steps"] and not hidden and outer["steps"]:
+        lines.append("  the plans differ in cost only")
+    return emit_out(out, a.format or "text", "\n".join(lines))
+
+
 def cmd_bench(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     t0 = time.perf_counter()
@@ -1303,6 +1452,12 @@ def main(argv=None):
     s = sub.add_parser("propose", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--min-run", type=int, default=2, help="fewest choices on each side of a switch")
     s.add_argument("--patch", action="store_true", help="emit the latent items, their switch events and censors as one layer")
+    s = sub.add_parser("plan", parents=[common]); s.add_argument("file")
+    s.add_argument("--goal", required=True, help="items to make true, comma-separated; !x for x off")
+    s.add_argument("--run"); s.add_argument("--at", choices=["start", "end"], default="end",
+                                           help="plan from the run's starting items, or where the record leaves it")
+    s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
+    s.add_argument("--max-steps", type=int, default=8)
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")
     s = sub.add_parser("where", parents=[common]); s.add_argument("file"); s.add_argument("pattern")

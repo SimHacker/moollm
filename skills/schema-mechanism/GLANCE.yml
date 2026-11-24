@@ -31,9 +31,9 @@ state: |
   extended_results: Statistical tables
 
 moollm_extensions:
-  symbol_grounding: "Items mean something"
-  causal_reasoning: "Why patterns hold"
-  natural_explanation: "Communicate discoveries"
+  two_tiers: "Python counts, plans and tests; an LLM drafts labels, marked [PI]"
+  requests_not_calls: "The engine emits the patch it needs and never calls an LLM"
+  the_record_decides: "test, ablate, sweep keep every draft honest"
 
 lineage: "Piaget → Minsky → Drescher → MOOLLM"
 
