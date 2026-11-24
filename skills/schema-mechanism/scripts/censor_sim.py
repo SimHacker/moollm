@@ -841,7 +841,11 @@ def induce(m, min_trials=3, thresh=0.5):
                 continue
             p_on, p_off = sum(on) / len(on), sum(off) / len(off)
             if abs(p_on - p_off) >= thresh:
+                # Positive: a context spinoff. Negative: Drescher's overriding
+                # condition, an item that stops an action he otherwise takes,
+                # which is what a Minsky censor looks like from outside.
                 out.append({"action": act, "item": item, "gap": round(p_on - p_off, 3),
+                            "kind": "context" if p_on > p_off else "overriding",
                             "on": f"{sum(on)}/{len(on)}", "off": f"{sum(off)}/{len(off)}"})
     return sorted(out, key=lambda r: (-abs(r["gap"]), r["action"], r["item"]))
 
@@ -850,14 +854,23 @@ def cmd_induce(a, bus):
     spec = load([a.file], a.layer, a.who, a.set)
     (r, m), = run(spec, a.run or runs_of(spec)[0]["name"])
     rows = induce(m, a.min_trials, a.thresh)
-    have = {(x.action, c) for x in m.schemas for c in x.context}
+    have = {"context": {(x.action, c) for x in m.schemas for c in x.context},
+            "overriding": {(c.action, x) for c in m.censors if c.kind == "precursor" for x in c.context}}
     for row in rows:
-        row["in_model"] = (row["action"], row["item"]) in have
+        row["in_model"] = (row["action"], row["item"]) in have[row["kind"]]
     bus.emit("RESULT", "induce", f"{len(rows)} proposed contexts", rows=rows)
+    if a.patch:
+        patch = {"censors": [{
+            "id": f"learned-no-{row['action']}-when-{row['item']}", "kind": "precursor",
+            "context": [row["item"]], "action": row["action"], "harm": [],
+            "learned_from": f"induce over {a.file}, run {r['name']}: took it {row['on']} with "
+                            f"{row['item']} on, {row['off']} off",
+            "cover": "", "source": ""} for row in rows if row["kind"] == "overriding" and not row["in_model"]]}
+        return emit_out(patch, a.format or "yaml")
     lines = [f"induced from {len(m.situations)} observed choices (run {r['name']}; gap = P(take | on) - P(take | off)):"]
     for row in rows:
         mark = "" if row["in_model"] else "   <- not in the model"
-        lines.append(f"  {row['action']:<12} {row['item']:<32} {row['gap']:+.2f}  on {row['on']:>5}  off {row['off']:>5}{mark}")
+        lines.append(f"  {row['action']:<12} {row['item']:<28} {row['kind']:<10} {row['gap']:+.2f}  on {row['on']:>5}  off {row['off']:>5}{mark}")
     return emit_out(rows, a.format or "text", "\n".join(lines))
 
 
@@ -1029,6 +1042,7 @@ def main(argv=None):
     s.add_argument("--spread", type=float, default=0.5)
     s = sub.add_parser("induce", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--min-trials", type=int, default=3); s.add_argument("--thresh", type=float, default=0.5)
+    s.add_argument("--patch", action="store_true", help="emit learned censors for the overriding conditions the model lacks")
     s = sub.add_parser("bench", parents=[common]); s.add_argument("file"); s.add_argument("--n", type=int, default=1000)
     s = sub.add_parser("diff", parents=[common]); s.add_argument("a"); s.add_argument("b")
     s = sub.add_parser("where", parents=[common]); s.add_argument("file"); s.add_argument("pattern")

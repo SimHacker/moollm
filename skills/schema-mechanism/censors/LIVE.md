@@ -59,6 +59,20 @@ On the Musk record it finds the cost hypothesis without being told. That
 doesn't prove the hypothesis; it shows the record carries it. Three cases
 is the minimum (`--min-trials`); fewer, and coincidences propose schemas.
 
+A positive gap is a context: the item makes the action likelier. A negative
+gap on an action he otherwise takes is Drescher's overriding condition, an
+item that stops a schema that usually works, and that is what a Minsky
+censor looks like from outside. `induce --patch` writes each overriding
+condition the model lacks as a precursor censor with `learned_from:`
+filled in and `cover:` left blank. The cover has to be the person's own
+words, with a source, or nothing.
+
+On the Musk record the learned censor ("don't amplify when a cost is
+documented") fits all 16 choices in every weighting, with no new value.
+The hand-written `power-pays` hypothesis fits the same 16. They differ only
+when he has a third move, going quiet, so `predict` with that offer is the
+test to commit.
+
 ## Jokes
 
 Memo 603 makes jokes training data for censors. A joke either makes a
