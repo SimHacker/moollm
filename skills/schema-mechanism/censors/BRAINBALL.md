@@ -250,6 +250,38 @@ covers:
 | [Xi Jinping](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/xi-jinping) | the-helmsman | 4/4 | 86% |
 | [Kim Jong Un](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/kim-jong-un) | the-dynast | 5/5 | 70% |
 | [Jensen Huang](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/jensen-huang) | the-founder | 5/5 | 97% |
+
+### Credit for the goal
+
+[`credit-logic`](parts/credit-logic.yml) is shared logic for both seats of
+one move: a goal only an opponent can sign, and an offer to put his name on
+it. The one who wants the goal can mock him, refuse to deal, offer him the
+credit, take the meeting when he bites, widen the terms or hold the line. The
+one offered the credit can share the offer, attack it, ignore it, sign it,
+or keep the veto. The offer is written as two things at once, an offer and a
+stunt that plays to the base, so which one a mind is doing is a weight:
+
+| Trait | Kind | What it does | Used by |
+|---|---|---|---|
+| [`drive-goal-over-credit`](parts/drive-goal-over-credit.yml) | drive | the goal matters; whose name is on it doesn't | the credit giver |
+| [`drive-the-taunt`](parts/drive-the-taunt.yml) | drive | the stunt is the point; dealing with him soils you | (the other reading) |
+| [`drive-name-on-it`](parts/drive-name-on-it.yml) | drive | things with my name on them are worth having | the target's seat |
+| [`play-the-ball`](parts/play-the-ball.yml) | precursor, anecdotal | when he signals interest, don't refuse because it's him | the credit giver |
+
+[`the-credit-giver`](archetypes/the-credit-giver.yml) is the logic, the
+goal drive and the censor. The fictional
+[`name-on-the-clinic`](examples/name-on-the-clinic.yml) shows the pattern:
+the offer fits the goal and the stunt readings alike, and what she does
+after he bites splits them, 4/4 against 2/4. The censor is needed only in
+a third run, where she wants the clinic and can't stand him. Without it she
+refuses the meeting. With it she takes it, still despising him. That's
+Minsky's anecdotal censor: a principle (keep your hands clean) patched by
+the one case where it defeats the goal.
+
+The target's seat is in WillWrightShowForFood, on
+[Trump's TrumpCare record](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/donald-trump#what-the-model-says):
+his spokeswoman's answer fits the reading where the name is worth nothing,
+his own repost the reading where it's worth something.
 | [Stephen Miller](https://github.com/SimHacker/WillWrightShowForFood/tree/main/characters/stephen-miller) | the-ideologue | 5/5 | 100% |
 
 Two findings carry across figures. Trump's one miss is the day after

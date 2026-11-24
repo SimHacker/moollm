@@ -1,0 +1,16 @@
+# ARCHETYPE the credit giver — the goal, with someone else's name on it
+# ============================================================================
+# Wants a goal only an opponent can sign. Mocks him on the trail, then
+# offers him the credit, then takes the meeting when he bites, and widens
+# the terms so it's easier to say yes. One anecdotal censor: when he signals,
+# don't refuse because it's him. Swap drive-goal-over-credit for
+# drive-the-taunt and you get the other reading of the same offer, a stunt;
+# the two agree on the offer and disagree on everything after it.
+# ============================================================================
+
+part: { id: the-credit-giver, kind: archetype, about: "Goal over credit: offer the opponent his name on it, take the meeting, widen the terms." }
+
+inherits:
+  - ../parts/credit-logic.yml
+  - ../parts/drive-goal-over-credit.yml
+  - ../parts/play-the-ball.yml

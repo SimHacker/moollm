@@ -1,0 +1,69 @@
+# PART credit-logic — offering an opponent the credit for your goal
+# ============================================================================
+# Shared logic, no censors, both seats. A goal needs {target}'s signature.
+# The one who wants it can mock {target}, refuse to deal, or offer {target}
+# the credit: put {target}'s name on it. {target} can take the offer up in
+# public, attack it, ignore it, sign it, or keep the veto.
+#
+# Who-parameters:
+#   {self}    whoever's mind this is
+#   {target}  the one whose signature the goal needs
+#
+# Observed items, set by an event only with a source:
+#   goal-blocked      the goal can't pass without {target}
+#   campaigning       an election is on
+#   offer-on-table    {target} has been offered the credit, in public
+#   target-signaled   {target} showed interest in public
+#   target-rejected   {target}'s side rejected it in public
+#   bill-on-desk      there is something for {target} to sign
+# Latent items, never set by events; what an action buys:
+#   goal-advanced, talks-open, terms-broadened, credit-given-away,
+#   clean-hands, base-applause, name-on-it, leverage, deal, goal-stalled
+#
+# The offer is two things at once, and the logic says so: it advances the
+# goal, and it's a stunt that plays to the base. Which one a mind is doing
+# is a weight, not a schema, so two drives can share this file and differ.
+# ============================================================================
+
+part: { id: credit-logic, kind: logic, about: "Give an opponent the credit for your goal, or don't; take the credit, or keep the veto." }
+
+agent:
+  name: "{self}"
+  items:
+    goal-blocked: off
+    campaigning: off
+    offer-on-table: off
+    target-signaled: off
+    target-rejected: off
+    bill-on-desk: off
+    goal-advanced: off
+    talks-open: off
+    terms-broadened: off
+    credit-given-away: off
+    clean-hands: off
+    base-applause: off
+    applause: off
+    name-on-it: off
+    leverage: off
+    deal: off
+    goal-stalled: off
+    calm: on
+
+schemas:
+  # The one who wants the goal
+  - { id: mock-target,       action: mock-target,       context: [],                result: { base-applause: on } }
+  - { id: mock-on-the-trail, action: mock-target,       context: [campaigning],     result: { base-applause: on, goal-advanced: on },
+      note: "in a campaign, winning the seat is how the goal advances" }
+  - { id: refuse-to-deal,    action: refuse-to-deal,    context: [],                result: { clean-hands: on, goal-stalled: on } }
+  - { id: offer-credit,      action: offer-credit,      context: [goal-blocked],    result: { offer-on-table: on, credit-given-away: on, base-applause: on },
+      note: "the gold card: an offer and a stunt at once" }
+  - { id: take-the-meeting,  action: take-the-meeting,  context: [target-signaled], result: { talks-open: on, goal-advanced: on, clean-hands: off } }
+  - { id: broaden-the-offer, action: broaden-the-offer, context: [talks-open],      result: { terms-broadened: on, goal-advanced: on } }
+  - { id: hold-the-line,     action: hold-the-line,     context: [],                result: { clean-hands: on } }
+  # The one being offered the credit
+  - { id: repost-offer,      action: repost-offer,      context: [offer-on-table],  result: { name-on-it: on, leverage: on },
+      note: "share it without saying yes: the name, and the option" }
+  - { id: attack-offer,      action: attack-offer,      context: [offer-on-table],  result: { applause: on } }
+  - { id: ignore-offer,      action: ignore-offer,      context: [],                result: { calm: on } }
+  - { id: sign-it,           action: sign-it,           context: [bill-on-desk],    result: { name-on-it: on, deal: on, leverage: off } }
+  - { id: keep-the-veto,     action: keep-the-veto,     context: [],                result: { leverage: on, applause: on } }

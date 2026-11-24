@@ -1,0 +1,8 @@
+# PART drive-the-taunt — a priority, no logic, no censors
+# The other reading of the same offer: it's a stunt. The base cheering
+# matters more than the goal, and dealing with {target} costs face.
+
+part: { id: drive-the-taunt, kind: drive, about: "The stunt is the point: the base's applause over the goal; dealing with the target soils you." }
+
+agent:
+  values: { base-applause: 5, goal-advanced: 1, clean-hands: 3, talks-open: -1, terms-broadened: -2, credit-given-away: -1 }

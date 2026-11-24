@@ -1,0 +1,20 @@
+# PART play-the-ball — one anecdotal censor. Snap onto credit-logic.
+# Template cover.
+
+part: { id: play-the-ball, kind: censor, about: "Anecdotal precursor. When the opponent signals interest, don't refuse to deal because of who he is." }
+
+censors:
+  - id: play-the-ball
+    kind: precursor
+    anecdotal: true
+    action: refuse-to-deal
+    context: [target-signaled]
+    harm: [goal-stalled]
+    cover: "Play the ball, not the man."
+    source: template
+    note: >
+      Minsky's anecdotal censor patching a positive principle. Keeping your
+      hands clean of a man you despise is a principle; this is the one case
+      where it misfires, because he's the one who can sign it. The patch
+      doesn't make you like him. It only removes "because it's him" from
+      the reasons to say no.

@@ -108,6 +108,8 @@ archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to 
 | [`personalities/loyalty-censors.yml`](personalities/loyalty-censors.yml) | Bundle of five censor parts that keep "my ally said bigoted things" from forming. Template covers |
 | [`parts/crowd-logic.yml`](parts/crowd-logic.yml) | Shared logic for a crowd around a figure: belonging pays with every defense |
 | [`personalities/status-guard.yml`](personalities/status-guard.yml) | Standing that depends on seeing what's expected |
+| [`parts/credit-logic.yml`](parts/credit-logic.yml) | Shared logic, both seats, for a goal only an opponent can sign: offer him the credit or don't; take it, or keep the veto |
+| [`archetypes/the-credit-giver.yml`](archetypes/the-credit-giver.yml) | Goal over credit, plus one anecdotal censor, `play-the-ball`: when he signals, don't refuse because it's him. Swap in `drive-the-taunt` for the stunt reading; `drive-name-on-it` is the target's side |
 
 ## Examples (all fictional)
 
@@ -120,6 +122,7 @@ archetypes in [`archetypes/`](archetypes/), single-trait `imports:`, and how to 
 | [`examples/unrepentant-beekeeper.yml`](examples/unrepentant-beekeeper.yml) | The accused's side: out of context, the context never named. Repressing (six censors, all needed) and face-first (none) both fit 7/7; a joke exposing the out-of-context move separates them |
 | [`examples/quiet-secretary.yml`](examples/quiet-secretary.yml) ([answers](examples/quiet-secretary.answers.yml)) | A record with something missing. Four defenses, then four silences, and nothing observed changes: the model fits 4/8, `induce` finds nothing, `propose` finds the switch and asks what it was. Answered, it fits 8/8 |
 | [`examples/emperors-new-clothes.yml`](examples/emperors-new-clothes.yml) ([output](examples/emperors-new-clothes.RUN.md)) | Andersen, 1837. The ablation says the Emperor's censor isn't needed: his values alone explain the praise. He's calculating, not repressing, which matches the story |
+| [`examples/name-on-the-clinic.yml`](examples/name-on-the-clinic.yml) | A reformer offers the mayor she mocked his name on a free clinic. The offer fits the goal reading and the stunt reading; what she does after he bites splits them (4/4 against 2/4). The censor is needed only in the mind that despises him |
 | [`examples/baron/`](examples/baron/) ([output](examples/baron/RUN.md)) | Six followers of a fictional platform baron, built from archetypes, on one record. The friend's censors can't keep him; the crowd's belonging keeps everyone else with no censor needed; a crusader and a convert act identically and differ only in what they know. See [`BRAINBALL.md`](BRAINBALL.md#the-barons-crowd) |
 
 ## Modeling a real person

@@ -1,0 +1,66 @@
+# Name on the clinic — a fictional record: offering the opponent the credit
+# ============================================================================
+# Fiction. Nobody here is real. The worked example for the-credit-giver.
+#
+# Dr. Ines Marrow wants a free clinic in Downs. Only Mayor Thorne can sign
+# it, and she spent the campaign mocking him. After the election she offers
+# him the credit: call it the Thorne Clinic, put his face on the cards.
+# When he shows interest she takes the meeting, and widens the plan so it's
+# easier for him to say yes.
+#
+# Three readings of the same four moves:
+#   goal       she wants the clinic and doesn't care whose name is on it
+#   taunt      the offer was a stunt for her base
+#   despises   she wants the clinic and can't stand him; needs the censor
+# The offer fits all three. What she did after he bit splits them.
+#
+# Run:
+#   python3 ../../scripts/censor_sim.py test   name-on-the-clinic.yml
+#   python3 ../../scripts/censor_sim.py ablate name-on-the-clinic.yml --run despises
+# ============================================================================
+
+inherits:
+  - ../archetypes/the-credit-giver.yml
+
+who:
+  self: "Dr. Ines Marrow, clinic campaigner"
+  target: "Mayor Thorne"
+
+agent:
+  values: { offer-on-table: 3 }
+
+events:
+  - t: 1
+    set: { campaigning: on }
+    say: "The campaign. Asked about {target}, she can mock him or say she won't work with him."
+    offers: [mock-target, refuse-to-deal]
+    observed: mock-target
+  - t: 1.1
+    set: { campaigning: off, goal-blocked: on }
+  - t: 2
+    say: "After the election, a video: 'Make it the Thorne Clinic. Put your face on the cards.'"
+    offers: [offer-credit, mock-target, refuse-to-deal]
+    observed: offer-credit
+  - t: 3
+    set: { target-signaled: on }
+    say: "{target} shares the video, saying nothing. She can take a meeting, refuse, or mock him for it."
+    offers: [take-the-meeting, refuse-to-deal, mock-target]
+    observed: take-the-meeting
+  - t: 4
+    say: "Asked if the clinic would still be free for everyone, she says the private doctors can stay."
+    offers: [broaden-the-offer, hold-the-line]
+    observed: broaden-the-offer
+
+runs:
+  - name: goal
+    expect: { fit: 4/4 }
+  - name: taunt
+    about: "The stunt reading: same logic, drive-the-taunt's weights."
+    agent:
+      values: { base-applause: 5, goal-advanced: 1, clean-hands: 3, talks-open: -1, terms-broadened: -2, credit-given-away: -1, offer-on-table: 1, goal-stalled: 0 }
+    expect: { fit: 2/4 }
+  - name: despises
+    about: "Wants the clinic and can't stand him. Without play-the-ball she refuses the meeting."
+    agent:
+      values: { clean-hands: 6 }
+    expect: { fit: 4/4 }
