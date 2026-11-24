@@ -361,6 +361,7 @@ Each command answers one question. All read the same files.
 | `run` | What did the mind do, think, and hide, step by step? |
 | `ablate` | Which censors (and lesson jokes) does the record actually need? |
 | `sweep` | Do the conclusions survive moving every guessed weight up to ±50%? |
+| `bounds` | Which weightings make every observed choice, and what range does that leave each weight? |
 | `predict` | What does each hypothesis do at an event that hasn't happened? |
 | `argue` | Which argument, said first, moves each hypothesis toward a goal? |
 | `induce` | Which observed items made each recorded choice likelier or less likely? |
@@ -387,6 +388,50 @@ means the same draws everywhere. For the dentist, about 30% of weightings
 never form the censor at all: those minds value calm over knowing and never
 open the first letter. A censor forms only in a mind that would otherwise
 go where it hurts.
+
+**`bounds`** turns the question around. `sweep` asks how far the guessed
+weights can move before the conclusions change; `bounds` asks which weights
+the record allows at all. It replays the record taking what the person
+did, and at every choice writes down what that choice implies: the action
+taken scored at least as well as each alternative that wasn't vetoed, and
+strictly better when a tie would have gone to the alternative. With the
+censors held where the replay left them, predicted value is a sum of
+weight × sign × reliability over each schema's results, so every choice is
+a linear inequality in the weights. The weightings that make the whole
+record are a polytope, and a linear program gives each weight's minimum
+and maximum over it.
+
+Scale is free (doubling every weight changes no choice), so one weight is
+held at its current value as the anchor, by default the largest, and the
+rest are boxed in ±10. Each weight is then reported as *must be positive*,
+*must be negative*, *bounded*, or *the record doesn't constrain it*. Also
+reported: whether the current weights make every choice, the weighting
+deepest inside the polytope (the center of the largest ball that fits,
+with its radius), and the choices no weighting can fit. Choices are added
+in time order; one that can't join the ones before it is named, with the
+earlier choice it contradicts. The solver is a small two-phase simplex in
+the script itself; the unit tests check it against scipy.
+
+What it says about the examples:
+
+- Toddler: given that a snack is worth 5, the record needs only that being
+  scolded counts against crying. Any negative value fits.
+- The vain mayor: applause must be worth at least 2.5, half of his name on
+  the clinic. The deal is unconstrained: no choice in the record depends on
+  it. His third choice contradicts his second under every weighting.
+- The beekeepers: no weight is constrained. Their record is decided by
+  structure (which schemas exist, which censors form), not by weights.
+- The quiet secretary: her silences at t=5 to 8 contradict her defenses at
+  t=1 to 4 under every weighting of the declared values. Something changed
+  that the values can't see, which is the hidden state the example's answer
+  layer supplies.
+- When the polytope is flat, some choices hold only at an exact tie won by
+  offer order: the person switched with nothing the model sees changing in
+  between. `bounds` names those choices rather than reporting a weighting
+  that depends on the order of `offers`.
+
+`--free-all` also solves for result items that have no declared value;
+`--anchor` and `--box` set the scale.
 
 **`predict`** adds one event at the next `t`, with the offered moves and
 any items set, and reports each run's choice over N weightings. Committing
@@ -551,9 +596,10 @@ intent and an invitation to correct.
 
 ## 12. How the engine is tested
 
-- `scripts/test_censor_sim.py`: 32 unit tests of merging, conditions,
+- `scripts/test_censor_sim.py`: 37 unit tests of merging, conditions,
   value modes, censor and schema learning, `learn`'s gate, planning, run
-  overrides, lint, duets, and the
+  overrides, lint, duets, the simplex (against scipy on 200 random
+  problems when scipy is installed), `bounds` on three examples, and the
   dentist example end to end, including the JSON event stream.
 - `suite PATH...` lints and tests every scenario, with its answer layer if
   it has one. Across the public kit, WillWrightShowForFood and Don's
@@ -577,7 +623,7 @@ were corrected where they were published.
 | Scoring by change, tried as the default | 17 of 30 scenarios broke: without decay, repeating an action pays nothing | Kept as `score: change`, opt-in |
 | Losses as pain, tried as the default | Changed a fit in a public-figure model | Kept as `losses_hurt: true`, opt-in |
 
-New in the same round: schema learning (`learn_schemas`, `learn`, `try`), `plan`, `duet`, the unit tests, `regen_runs.py`, and the
+New in the same round: schema learning (`learn_schemas`, `learn`, `try`), `plan`, `duet`, `bounds`, the unit tests, `regen_runs.py`, and the
 dentist's `book-appointment` schema so planning has somewhere to go.
 
 ## 14. Limits
@@ -597,7 +643,12 @@ dentist's `book-appointment` schema so planning has somewhere to go.
   a hidden state when a schema works only sometimes. `propose` does that
   for choices; for schemas it is a request to the other tier.
 - **Weights are guesses.** `sweep` measures how much the conclusions depend
-  on them; it doesn't make them right.
+  on them; `bounds` says what range the record leaves each one. Neither
+  makes them right.
+- **`bounds` holds the censors fixed.** Which censors form depends on the
+  weights (pain is a loss of value), so the polytope is exact only for
+  weightings that form the same censors as the current one. A weighting
+  far from the current one should be checked with `test --set`.
 - **Ties go to the first offered action.** Two actions with equal value are
   decided by the order of `offers`. Records should list the moves in a
   neutral order, and close calls should be read through `sweep`, where ties

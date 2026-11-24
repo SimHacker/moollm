@@ -54,6 +54,7 @@ it back with `--layer`, or merge it into a file with `apply`.
 | `test FILE` | exit 2 unless each factual run fits its record and its `expect:` block |
 | `ablate FILE` | drop each censor; warn about the ones the record doesn't need |
 | `sweep FILE --n N` | perturb value weights ±50%: do the conclusions depend on the numbers? |
+| `bounds FILE [--run R]` | fit the weights by linear programming: the range each weight can take with every observed choice still made, which weights the record pins and which it leaves free, and which choices no weighting fits |
 | `predict FILE --offers A,B [--set-item K=on]` | forecast the next event under every hypothesis; commit it before it happens ([LIVE.md](LIVE.md)) |
 | `induce FILE [--run R]` | Drescher's extended context over the record: which items made each observed choice likelier; flags ones the model lacks |
 | `suite PATH... [--ablate]` | Lint and test every scenario under the paths (each with its `.answers.yml`), one line each; `--ablate` lists the censors each run doesn't need. Exit 2 on any failure |

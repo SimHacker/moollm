@@ -51,6 +51,7 @@ Commands:
   propose  FILE [--run R]  latent items: a choice that switched once, with nothing observed to explain it
   plan     FILE --goal G   Drescher's planner: the plan the agent can think of vs the one an observer sees
   duet     FILE [--n N]   two minds on one stage: each one's move is an event for the other
+  bounds   FILE [--run R]  fit the weights: the range each can take with every observed choice still made
   learn    FILE [--run R]  Drescher's learner over the record: propose result and context spinoffs, keep what fits
   try      FILE --layer L  the gate: does the layer (from learn, a person or an LLM) make any run fit worse?
 
@@ -362,6 +363,8 @@ class Mind:
         # Drescher's positive learning: what follows each action, until the next choice.
         self.learn_schemas = bool(a.get("learn_schemas"))
         self.replay = False           # learn from the observed action, not the model's
+        self.follow = False           # take the observed action, recording what the choice implies
+        self.constraints = []         # (t, observed, [(alternative, coefs, tie goes to it?)], vetoed by)
         self.pending = None           # (action, items before it, items just after it, changes since)
         self.outcomes = {}            # action -> [(items before, {item: value that followed})]
 
@@ -410,6 +413,17 @@ class Mind:
                 continue
             v += self.values.get(k, 0) * (1 if new else -1)
         return v * s.reliability
+
+    def value_coefs(self, action):
+        """predicted_value as a linear form in the weights: {item: coefficient}."""
+        s = self.schema_for(action)
+        out = {}
+        for k, val in (s.result.items() if s else []):
+            new = parse_value(val)
+            if new is None or (self.score_change and self.items.get(k) is new):
+                continue
+            out[k] = out.get(k, 0.0) + (1.0 if new else -1.0) * s.reliability
+        return out
 
     def vetoed(self, action, items=None):
         # A censor the agent can see, and no longer trusts, can be overridden.
@@ -695,8 +709,16 @@ class Mind:
             self.joke(t, ev["joke"])
         if "offers" in ev:
             before = dict(self.items)
-            act, covers = self.decide(t, ev["offers"])
             observed = ev.get("observed")
+            if self.follow and observed:
+                offers = list(ev["offers"])
+                veto = self.vetoed(observed)
+                alts = [(x, self.value_coefs(x), offers.index(x) < offers.index(observed))
+                        for x in offers if x != observed and not self.vetoed(x)]
+                self.constraints.append((t, observed, self.value_coefs(observed), alts, veto[0].id if veto else None))
+            act, covers = self.decide(t, ev["offers"])
+            if self.follow and observed:
+                act, covers = observed, []
             if observed:
                 self.fit.append((t, observed, act))
                 self.situations.append((t, list(ev["offers"]), observed, dict(before)))
@@ -1493,6 +1515,214 @@ def cmd_try(a, bus):
     return emit_out({"verdict": verdict, "runs": rows, "lint": lint}, a.format or "text", "\n".join(lines))
 
 
+# == fitting weights: each observed choice is a linear inequality =============
+def simplex_max(c, A, b, eps=1e-9):
+    """max c·x subject to A x <= b, x >= 0, by two-phase simplex with Bland's
+    rule. Returns (value, x), or None if infeasible. Small and dense on
+    purpose: a record gives tens of constraints, not thousands, and the
+    engine needs nothing beyond Python and PyYAML."""
+    m, n = len(A), len(c)
+    art = [i for i in range(m) if b[i] < -eps]
+    width = n + m + len(art)
+    T, basis = [], []
+    for i in range(m):
+        sign = -1.0 if i in art else 1.0
+        row = [sign * A[i][j] for j in range(n)] + [0.0] * (m + len(art)) + [sign * b[i]]
+        row[n + i] = sign
+        if i in art:
+            row[n + m + art.index(i)] = 1.0
+            basis.append(n + m + art.index(i))
+        else:
+            basis.append(n + i)
+        T.append(row)
+
+    def solve(cost, allowed):
+        obj = cost + [0.0]
+        for i, bv in enumerate(basis):
+            if obj[bv]:
+                f = obj[bv]
+                obj = [o - f * x for o, x in zip(obj, T[i])]
+        while True:
+            j = next((j for j in range(allowed) if obj[j] > eps), None)
+            if j is None:
+                return obj
+            rows = [(T[i][-1] / T[i][j], basis[i], i) for i in range(m) if T[i][j] > eps]
+            if not rows:
+                raise ValueError("unbounded LP")
+            _, _, r = min(rows)
+            p = T[r][j]
+            T[r] = [x / p for x in T[r]]
+            for i in range(m):
+                if i != r and T[i][j]:
+                    f = T[i][j]
+                    T[i] = [x - f * y for x, y in zip(T[i], T[r])]
+            f = obj[j]
+            obj = [o - f * y for o, y in zip(obj, T[r])]
+            basis[r] = j
+
+    if art:
+        solve([0.0] * (n + m) + [-1.0] * len(art), width)
+        if sum(T[i][-1] for i, bv in enumerate(basis) if bv >= n + m) > 1e-7:
+            return None
+        for i, bv in enumerate(basis):
+            if bv >= n + m:
+                j = next((j for j in range(n + m) if abs(T[i][j]) > eps), None)
+                if j is not None:
+                    p = T[i][j]
+                    T[i] = [x / p for x in T[i]]
+                    for k in range(m):
+                        if k != i and T[k][j]:
+                            f = T[k][j]
+                            T[k] = [x - f * y for x, y in zip(T[k], T[i])]
+                    basis[i] = j
+    solve(list(c) + [0.0] * (m + len(art)), n + m)
+    x = [0.0] * n
+    for i, bv in enumerate(basis):
+        if bv < n:
+            x[bv] = T[i][-1]
+    return sum(ci * xi for ci, xi in zip(c, x)), x
+
+
+def bounds(spec, run_name=None, box=10.0, margin=0.01, anchor=None, free_all=False, strict=False):
+    """Replay the record taking what the person did, and turn every choice
+    into inequalities on the value weights: what they took scored at least
+    as well as each alternative they had (strictly, when a tie would have
+    gone to the alternative). With the censors fixed as the replay learned
+    them, predicted value is linear in the weights, so the weightings that
+    fit the whole record are a polytope. Report each weight's range over
+    it, and the weighting deepest inside it."""
+    if "agent" not in spec:
+        raise ValueError("no agent: bounds needs a mind file with values and a record")
+    r = runs_of(spec, run_name)[0]
+    merged = run_spec(spec, r)
+    m = Mind(merged)
+    m.follow = True
+    for ev in sorted(spec.get("events", []) + r.get("events", []), key=lambda e: e["t"]):
+        m.step(ev, quotes=False)
+    values = dict(merged["agent"].get("values", {}))
+    names = list(values)
+    if free_all:
+        names += sorted({k for _, _, co, alts, _ in m.constraints for c in [co] + [x[1] for x in alts] for k in c} - set(names))
+    if anchor is None and values:
+        anchor = max(values, key=lambda k: (abs(values[k]), k))
+    fixed = {k: values.get(k, 0.0) for k in set(values) | {k for _, _, co, alts, _ in m.constraints
+                                                          for c in [co] + [x[1] for x in alts] for k in c}}
+    var = [k for k in names if k != anchor]
+    groups, vetoed, unfit_fixed = [], [], []
+    for t, obs, co, alts, veto in m.constraints:
+        if veto:
+            vetoed.append({"t": t, "observed": obs, "censor": veto})
+            continue
+        rows, never = [], []
+        for alt, ca, tie_to_alt in alts:
+            d = {k: co.get(k, 0.0) - ca.get(k, 0.0) for k in set(co) | set(ca)}
+            const = sum(dv * fixed.get(k, 0.0) for k, dv in d.items() if k not in var)
+            # d·w + const >= need, as  -d·w <= const - need, in y = w + box >= 0
+            need = margin if (tie_to_alt or strict) else 0.0
+            a = [-d.get(k, 0.0) for k in var]
+            if not any(abs(x) > 1e-12 for x in a):
+                if const < need - 1e-12:
+                    never.append(alt)
+                continue
+            rows.append((a, const - need + sum(x * box for x in a), alt))
+        if never:
+            unfit_fixed.append({"t": t, "observed": obs, "against": never, "alone": False, "conflicts_with": []})
+        else:
+            groups.append((t, obs, rows))
+    cap = [([1.0 if j == i else 0.0 for j in range(len(var))], 2 * box) for i in range(len(var))]
+
+    def system(gs):
+        return [a for _, _, rs in gs for a, _, _ in rs] + [a for a, _ in cap], \
+               [b for _, _, rs in gs for _, b, _ in rs] + [b for _, b in cap]
+    kept, unfit = [], list(unfit_fixed)
+    for g in groups:
+        A, b = system(kept + [g])
+        if simplex_max([0.0] * len(var), A, b) is None:
+            alone = simplex_max([0.0] * len(var), *system([g])) is not None
+            clash = [k[0] for k in kept if simplex_max([0.0] * len(var), *system([k, g])) is None] if alone else []
+            unfit.append({"t": g[0], "observed": g[1], "against": [alt for _, _, alt in g[2]],
+                          "alone": alone, "conflicts_with": clash})
+        else:
+            kept.append(g)
+    A, b = system(kept)
+    y_now = [values.get(k, 0.0) + box for k in var]
+    now_misses = [g[0] for g in groups
+                  if any(sum(x * y for x, y in zip(a, y_now)) > bb + 1e-9 for a, bb, _ in g[2])]
+    now_misses = sorted(now_misses + [u["t"] for u in unfit_fixed])
+    rows = []
+    for i, k in enumerate(var):
+        hi = simplex_max([1.0 if j == i else 0.0 for j in range(len(var))], A, b)
+        lo = simplex_max([-1.0 if j == i else 0.0 for j in range(len(var))], A, b)
+        lo_v, hi_v = (-lo[0] - box) if lo else None, (hi[0] - box) if hi else None
+        if lo_v is None:
+            verdict = "-"
+        elif lo_v > 1e-6:
+            verdict = "must be positive"
+        elif hi_v < -1e-6:
+            verdict = "must be negative"
+        elif lo_v <= -box + 1e-6 and hi_v >= box - 1e-6:
+            verdict = "the record doesn't constrain it"
+        else:
+            verdict = "bounded"
+        rows.append({"weight": k, "now": values.get(k, 0.0), "min": round(lo_v, 3) if lo_v is not None else None,
+                     "max": round(hi_v, 3) if hi_v is not None else None, "verdict": verdict,
+                     "now_inside": lo_v is not None and lo_v - 1e-6 <= values.get(k, 0.0) <= hi_v + 1e-6})
+    # The weighting deepest inside: the center of the largest ball that fits
+    # in the polytope and the box (Chebyshev center); "radius" is how far
+    # every weight can move from it before some choice flips.
+    deep = None
+    if var:
+        cons = [(a, bb) for a, bb in zip(A, b)] + [([-1.0 if j == i else 0.0 for j in range(len(var))], 0.0)
+                                                for i in range(len(var))]
+        A2 = [a + [sum(x * x for x in a) ** 0.5] for a, _ in cons]
+        sol = simplex_max([0.0] * len(var) + [1.0], A2, [bb for _, bb in cons])
+        if sol:
+            deep = {k: round(sol[1][i] - box, 3) for i, k in enumerate(var)}
+            deep["(radius)"] = round(sol[1][-1], 3)
+    # A flat region means some choices hold only at an exact tie, won by
+    # offer order. Name them: the choices that fail once ties never count.
+    knife = []
+    if not strict and kept and deep and deep["(radius)"] < 1e-6:
+        unfit_t = {u["t"] for u in unfit}
+        knife = [u["t"] for u in bounds(spec, run_name, box, margin, anchor, free_all, strict=True)["unfit"]
+                 if u["t"] not in unfit_t]
+    return {"run": r["name"], "anchor": {anchor: values.get(anchor)} if anchor else None, "box": box,
+            "choices": len(m.constraints), "fit_by_weights": len(kept), "knife_edge": knife,
+            "now_misses": now_misses,
+            "unfit": sorted(unfit, key=lambda u: u["t"]), "vetoed": vetoed,
+            "weights": rows, "deepest": deep}
+
+
+def cmd_bounds(a, bus):
+    spec = load([a.file], a.layer, a.who, a.set)
+    out = bounds(spec, a.run, a.box, a.margin, a.anchor, a.free_all)
+    bus.emit("RESULT", "bounds", f"{out['run']}: {out['fit_by_weights']}/{out['choices'] - len(out['vetoed'])} choices "
+             f"fit by some weighting; {len(out['vetoed'])} decided by censors", **out)
+    lines = [f"weights consistent with the record (run {out['run']}; anchor {out['anchor']}, every other weight in ±{out['box']:g}):",
+             f"  {out['fit_by_weights']} of {out['choices'] - len(out['vetoed'])} weighed choices can be fit together"
+             + (f"; {len(out['vetoed'])} more are made by censors, which no weighting changes" if out["vetoed"] else ""),
+             "  the current weights " + (f"miss the choices at t={', t='.join(map(str, out['now_misses']))}"
+                                         if out["now_misses"] else "make every weighed choice")]
+    for u in out["unfit"]:
+        why = ("no weighting makes it the best option, even alone" if not u["alone"]
+               else f"contradicts the choice at t={', t='.join(map(str, u['conflicts_with']))}" if u["conflicts_with"]
+               else "contradicts several earlier choices taken together")
+        lines.append(f"  t={u['t']}: '{u['observed']}' over {', '.join(u['against'])}: {why}")
+    w = max([len(x["weight"]) for x in out["weights"]] + [6])
+    lines.append(f"  {'weight':<{w}}  {'now':>6}  {'min':>8}  {'max':>8}  verdict")
+    for x in out["weights"]:
+        rng = (f"{x['min']:>8.2f}  {x['max']:>8.2f}" if x["min"] is not None else f"{'-':>8}  {'-':>8}")
+        lines.append(f"  {x['weight']:<{w}}  {x['now']:>6g}  {rng}  {x['verdict']}" + ("" if x["now_inside"] else "   <- now is outside"))
+    if not out["choices"]:
+        lines.append("  this run has no observed choices, so nothing is constrained")
+    elif out["knife_edge"]:
+        lines.append(f"  no room: the choices at t={', t='.join(map(str, out['knife_edge']))} hold only at an exact tie, "
+                     "won by offer order; the person switched with no change the model sees in between")
+    elif out["deepest"]:
+        lines.append("  deepest-inside weighting: " + ", ".join(f"{k}={v:g}" for k, v in out["deepest"].items()))
+    return emit_out(out, a.format or "text", "\n".join(lines))
+
+
 # == duets: two minds, one world ==============================================
 def duet_seats(spec, here):
     """Each seat's mind, resolved once: its file, one of its runs, and any
@@ -1814,6 +2044,11 @@ def main(argv=None):
                                            help="plan from the run's starting items, or where the record leaves it")
     s.add_argument("--set-item", action="append", default=[], metavar="ITEM=on|off")
     s.add_argument("--max-steps", type=int, default=8)
+    s = sub.add_parser("bounds", parents=[common]); s.add_argument("file"); s.add_argument("--run")
+    s.add_argument("--box", type=float, default=10.0, help="every free weight lies in ±box")
+    s.add_argument("--margin", type=float, default=0.01, help="how much better a choice must score to beat a tie")
+    s.add_argument("--anchor", help="the weight held at its current value to fix the scale (default: the largest)")
+    s.add_argument("--free-all", action="store_true", help="also solve for items with no declared value")
     s = sub.add_parser("learn", parents=[common]); s.add_argument("file"); s.add_argument("--run")
     s.add_argument("--rounds", type=int, default=4)
     s.add_argument("--patch", action="store_true", help="emit the kept schemas as one layer")

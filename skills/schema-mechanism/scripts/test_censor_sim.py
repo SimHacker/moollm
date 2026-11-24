@@ -250,5 +250,50 @@ class Duet(unittest.TestCase):
         self.assertEqual(cs.duet_spread(spec, seats, 50, seed=3), cs.duet_spread(spec, seats, 50, seed=3))
 
 
+class Bounds(unittest.TestCase):
+    def test_simplex_small(self):
+        # max x + y, x + 2y <= 4, 3x + y <= 6  ->  x = 1.6, y = 1.2
+        val, x = cs.simplex_max([1, 1], [[1, 2], [3, 1]], [4, 6])
+        self.assertAlmostEqual(val, 2.8)
+        self.assertAlmostEqual(x[0], 1.6)
+        self.assertIsNone(cs.simplex_max([1], [[1], [-1]], [1, -2]))   # x <= 1 and x >= 2
+
+    def test_simplex_matches_scipy(self):
+        try:
+            from scipy.optimize import linprog
+        except ImportError:
+            self.skipTest("scipy not installed")
+        import random
+        rng = random.Random(7)
+        for _ in range(200):
+            n, m = rng.randint(1, 5), rng.randint(1, 8)
+            A = [[rng.uniform(-3, 3) for _ in range(n)] for _ in range(m)] + [[1.0 if j == i else 0.0 for j in range(n)] for i in range(n)]
+            b = [rng.uniform(-2, 5) for _ in range(m)] + [10.0] * n
+            c = [rng.uniform(-2, 2) for _ in range(n)]
+            ours = cs.simplex_max(c, A, b)
+            ref = linprog([-x for x in c], A_ub=A, b_ub=b, bounds=[(0, None)] * n, method="highs")
+            self.assertEqual(ours is None, ref.status == 2)
+            if ours:
+                self.assertAlmostEqual(ours[0], -ref.fun, places=6)
+
+    def test_toddler_only_needs_scolding_to_hurt(self):
+        out = cs.bounds(cs.load([os.path.join(EXAMPLES, "learning-toddler.yml")]), "learning")
+        (w,) = out["weights"]
+        self.assertEqual((w["weight"], w["verdict"]), ("scolded", "must be negative"))
+        self.assertEqual(out["now_misses"], [])
+
+    def test_mayor_applause_floor_and_conflict(self):
+        out = cs.bounds(cs.load([os.path.join(EXAMPLES, "mayor-thorne.yml")]), "vain")
+        w = {x["weight"]: x for x in out["weights"]}
+        self.assertAlmostEqual(w["applause"]["min"], 2.5, places=2)
+        self.assertEqual(w["deal"]["verdict"], "the record doesn't constrain it")
+        self.assertEqual([(u["t"], u["conflicts_with"]) for u in out["unfit"]], [(3, [2])])
+
+    def test_hidden_state_shows_as_contradiction(self):
+        out = cs.bounds(cs.load([os.path.join(EXAMPLES, "quiet-secretary.yml")]), "as-seen")
+        self.assertEqual([u["t"] for u in out["unfit"]], [5, 6, 7, 8])
+        self.assertEqual(out["unfit"][0]["conflicts_with"], [1, 2, 3, 4])
+
+
 if __name__ == "__main__":
     unittest.main()

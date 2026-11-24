@@ -189,7 +189,12 @@ The fictional example everyone recognizes: a letter from the dentist.
    weightings never form the censor at all, because those agents value
    calm more than knowing and never read the first letter. That's a
    finding, not noise: a censor forms only in a mind that would otherwise
-   go where it hurts.
+   go where it hurts. `bounds` works the other way: each recorded choice
+   says the action taken was worth at least as much as the others, which
+   is a linear inequality in the weights, so a linear program finds the
+   range of each weight that keeps every choice. It reports which weights
+   the record pins, which it leaves free, and which choices no weighting
+   can explain, which is where a censor or a hidden state has to come in.
 
 ## What it doesn't do
 
@@ -233,6 +238,7 @@ python3 $S run dentist-letter.yml --layer dentist-letter.answers.yml
 python3 $S plan dentist-letter.yml --run avoidance --goal appointment
 python3 $S ablate emperors-new-clothes.yml     # the Emperor needs no censor at all
 python3 $S sweep dentist-letter.yml --n 2000
+python3 $S bounds mayor-thorne.yml             # applause must be worth half his name on it
 python3 ../../scripts/test_censor_sim.py       # the engine's own tests
 ```
 
