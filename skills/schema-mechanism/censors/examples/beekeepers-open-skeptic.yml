@@ -1,0 +1,36 @@
+# The open skeptic in Ruth's seat — a counterfactual
+# ============================================================================
+# Fiction. The same second-round record, a different mind: the same facts-
+# first logic, none of Ruth's censors, and the open skeptic's four anecdotal
+# patches. Counterfactual, so no fit; the expectation is the choices.
+#
+# Run:
+#   python3 ../../scripts/censor_sim.py test beekeepers-open-skeptic.yml
+#   python3 ../../scripts/censor_sim.py diff beekeepers-second-round.yml beekeepers-open-skeptic.yml
+# ============================================================================
+
+inherits:
+  - ../archetypes/the-open-skeptic.yml
+  - beekeepers-second-round.record.yml
+
+who:
+  self: "an open skeptic, in Ruth's seat"
+
+agent:
+  values: { informed: 7, ally-is-decent: 3, knows-ally-said-bigoted-things: -5 }
+  items: { accusers-condemned-me: on, debt-repaid: off }
+
+runs:
+  - name: in-ruths-seat
+    counterfactual: true
+    quotes: false
+    about: >
+      Proof first, like Ruth. Then the patches take over where her censors
+      did: ask Tom, ask the Hive Watch anyway, check Tom's story, believe
+      Mags, in every weighting. Reading the long text and hearing Mags out
+      are left to the values: with Ruth's weights she does both about two
+      times in three. It ends where Ruth's story was avoiding: both
+      conflicts conscious, Tom said it and Tom misled her.
+    expect:
+      conflict: true
+      choices: [ask-for-written-proof, read-summary, read-long-text, ask-ally, ask-org, hear-accuser-out, verify-ally-story, believe-witness]

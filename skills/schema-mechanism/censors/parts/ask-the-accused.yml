@@ -1,0 +1,18 @@
+# PART ask-the-accused — one anecdotal censor. Snap onto principled-skeptic.
+# Template cover.
+
+part: { id: ask-the-accused, kind: censor, about: "Anecdotal precursor. When the accusation is the friend's own words and he can be asked, don't decline to ask him." }
+
+censors:
+  - id: ask-the-accused
+    kind: precursor
+    anecdotal: true
+    action: not-press-ally
+    context: [accused-own-words, accused-askable]
+    harm: [stays-wrong]
+    cover: "Go ask him what he said, and what the context was."
+    source: template
+    note: >
+      Minsky's anecdotal censor: a positive principle (facts first) patched
+      by a negative exception learned from a case. Facts first, applied to
+      a friend, has to mean asking the friend, or it becomes a reason not to.

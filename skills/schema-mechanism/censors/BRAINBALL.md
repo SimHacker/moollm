@@ -298,6 +298,22 @@ something and only a censor explains it.
 | [`the-divisive-one`](parts/the-divisive-one.yml) | precursor | a call for unity, or an objection, is heard as the division |
 | [`reverse-victim`](parts/reverse-victim.yml) | suppressor | the one who said it is the one being wronged |
 
+**The open skeptic.** The same logic as the principled ally, none of its
+censors, and four anecdotal censors in Minsky's sense: negative exceptions
+that patch a positive principle, each the patch for one of the ally's.
+
+| Trait | Kind | Patches | What it does |
+|---|---|---|---|
+| [`ask-the-accused`](parts/ask-the-accused.yml) | anecdotal precursor | outside-scope | the friend's own words, and he can be asked: ask him |
+| [`distrust-is-not-refusal`](parts/distrust-is-not-refusal.yml) | anecdotal precursor | grievance | not trusting someone implicitly is no reason not to ask them |
+| [`trust-but-verify`](parts/trust-but-verify.yml) | anecdotal precursor | confidential-memory | a story I repeated is one I check when asked |
+| [`hear-the-witness`](parts/hear-the-witness.yml) | anecdotal precursor | not-to-me | he wouldn't say it to me; that's not evidence he didn't say it |
+
+[`the-open-skeptic`](archetypes/the-open-skeptic.yml) is principled-skeptic,
+vouching-logic and the four. In Ruth's seat
+([`beekeepers-open-skeptic.yml`](examples/beekeepers-open-skeptic.yml)),
+`diff` against her mind shows the same 15 schemas and opposite patches.
+
 [`the-unrepentant`](archetypes/the-unrepentant.yml) is accused-logic plus
 the first six. Worked example:
 [`unrepentant-beekeeper.yml`](examples/unrepentant-beekeeper.yml), the

@@ -1,0 +1,17 @@
+# PART distrust-is-not-refusal — one anecdotal censor. Snap onto principled-skeptic.
+# Template cover.
+
+part: { id: distrust-is-not-refusal, kind: censor, about: "Anecdotal precursor. Not trusting someone implicitly is no reason not to ask them." }
+
+censors:
+  - id: distrust-is-not-refusal
+    kind: precursor
+    anecdotal: true
+    action: discount-org
+    context: []
+    harm: [stays-wrong]
+    cover: "Not trusting them implicitly isn't the same as not asking them."
+    source: template
+    note: >
+      The patch for grievance. Distrust is a reason to check what someone
+      says, not a reason to refuse to hear it.

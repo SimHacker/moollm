@@ -1,0 +1,24 @@
+# The Downs Beekeeping Society, second round — the record, no mind
+# Fiction. Any mind can sit through it: Ruth's (beekeepers-second-round.yml)
+# or the open skeptic's (beekeepers-open-skeptic.yml).
+
+who:
+  self: "Ruth Ashby, president of the Downs Beekeeping Society"
+  ally: "Tom Pollard"
+  accuser: "Mags Hartley"
+  org: "the County Hive Watch"
+
+events:
+  - { t: 1, set: { accusation-heard: on }, say: "Mags: at the honey show Tom said people from the estates are 'all thieves'",
+      offers: [ask-for-written-proof, believe-accuser], observed: ask-for-written-proof }
+  - { t: 2, set: { ally-defended-me: on }, say: "a short note from Mags, Tom's sentence word for word; Ruth remembers Tom standing up for her against the Hive Watch",
+      offers: [read-summary], observed: read-summary }
+  - { t: 3, set: { long-text: on, accuser-is-witness: on, accused-own-words: on, accused-askable: on },
+      say: "Mags's full account, twelve pages", offers: [read-long-text, decline-long-text], observed: decline-long-text }
+  - { t: 4, offers: [ask-ally, not-press-ally], observed: not-press-ally }
+  - { t: 5, offers: [ask-org, discount-org], observed: discount-org }
+  - { t: 6, offers: [hear-accuser-out, call-it-lecturing], observed: call-it-lecturing }
+  - { t: 7, set: { asked-to-verify: on }, say: "Mags: did you check what Tom told you?",
+      offers: [verify-ally-story, keep-ally-story], observed: keep-ally-story }
+  - { t: 8, say: "Mags: I was standing next to him",
+      offers: [believe-witness, discount-witness], observed: discount-witness }

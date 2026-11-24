@@ -41,6 +41,7 @@ Commands:
   lint     FILE           check a scenario; emit requests and warnings
   run      FILE           run it; print the traces                     (run)
   test     FILE           exit 2 unless every factual run fits its record and expectations
+  suite    PATH...        lint and test every scenario under PATHs (and its .answers.yml)
   ablate   FILE           drop each censor in turn: which does the record need?
   sweep    FILE           perturb value weights N times: do conclusions depend on them?
   predict  FILE --offers A,B [--set-item K=on]  what each run does next, over N weightings
@@ -717,9 +718,8 @@ def cmd_run(a, bus):
     return emit_out(results, fmt, render_text(results, fmt == "md") if fmt in ("text", "md") else None)
 
 
-def cmd_test(a, bus):
-    spec = load([a.file], a.layer, a.who, a.set)
-    failed, report = 0, []
+def test_spec(spec, bus=NULL):
+    report = []
     for r, m in run(spec, None, bus):
         res = result_of(r, m)
         problems = []
@@ -735,18 +735,96 @@ def cmd_test(a, bus):
             problems.append(f"conflict {bool(res['conflicts'])}, expected {exp['conflict']}")
         if "choices" in exp and [c["action"] for c in res["choices"]] != exp["choices"]:
             problems.append(f"choices {[c['action'] for c in res['choices']]}")
-        failed += bool(problems)
         bus.emit("RESULT", "test", f"{r['name']}: " + ("; ".join(problems) or "ok"), run=r["name"], ok=not problems)
-        report.append({"run": r["name"], "ok": not problems, "problems": problems})
-    a._exit = 2 if failed else 0
-    return emit_out(report, a.format or "yaml")
+        report.append({"run": r["name"], "ok": not problems, "problems": problems,
+                       "fit": f"{res['fit']['hits']}/{res['fit']['total']}" if res["fit"] else None})
+    return report
+
+
+def cmd_test(a, bus):
+    report = test_spec(load([a.file], a.layer, a.who, a.set), bus)
+    a._exit = 2 if any(not x["ok"] for x in report) else 0
+    return emit_out([{k: v for k, v in x.items() if k != "fit"} for x in report], a.format or "yaml")
+
+
+def scenarios(dirs):
+    """Every YAML file with `runs:` under the given paths, each with the
+    answer layer beside it (X.answers.yml), if there is one."""
+    out = []
+    for d in dirs:
+        paths = [d] if os.path.isfile(d) else sorted(
+            os.path.join(root, f) for root, subs, files in os.walk(d)
+            if not any(part.startswith(".") or part == "node_modules" for part in root.split(os.sep))
+            for f in files if f.endswith((".yml", ".yaml")))
+        for p in paths:
+            if p.endswith(".answers.yml"):
+                continue
+            try:
+                raw = read_yaml(p)
+            except (OSError, yaml.YAMLError):
+                continue
+            if not isinstance(raw, dict) or not (raw.get("runs") or raw.get("inherits")):
+                continue
+            inh = raw.get("inherits") or []
+            if not all(isinstance(x, str) for x in ([inh] if isinstance(inh, str) else inh)):
+                continue
+            try:
+                spec = raw if raw.get("runs") and raw.get("events") else merged([p])
+            except (OSError, ValueError, TypeError, AttributeError, yaml.YAMLError):
+                spec = raw
+            if not isinstance(spec, dict):
+                continue
+            if spec.get("runs") and spec.get("events"):
+                out.append((p, []))
+                ans = p[:-4] + ".answers.yml"
+                if os.path.exists(ans):
+                    out.append((p, [ans]))
+    return out
+
+
+def cmd_suite(a, bus):
+    """Lint and test every scenario under the given paths. One line each;
+    exit 2 if any run fails its record or expectations, 1 on lint errors."""
+    rows, t0 = [], time.perf_counter()
+    for path, layers in scenarios(a.paths):
+        row = {"file": os.path.relpath(path) + "".join(f" + {os.path.basename(x)}" for x in layers)}
+        try:
+            spec = load([path], layers)
+            row.update(lint_spec(spec, Bus()))
+            report = test_spec(spec)
+            if a.ablate:
+                row["unneeded"] = [f"{x['run']}:{x['censor']}" for x in ablate(spec) if not x["needed"]]
+            row["runs"] = len(report)
+            row["failed"] = [f"{x['run']}: {'; '.join(x['problems'])}" for x in report if not x["ok"]]
+            row["fits"] = [x["fit"] for x in report if x["fit"]]
+        except (OSError, ValueError, KeyError, TypeError, yaml.YAMLError) as e:
+            row.update({"errors": 1, "warnings": 0, "requests": 0, "runs": 0, "fits": [],
+                        "failed": [f"{type(e).__name__}: {e}"]})
+        rows.append(row)
+    bad = [r for r in rows if r["failed"]]
+    errs = [r for r in rows if r["errors"]]
+    bus.emit("RESULT", "suite", f"{len(rows)} scenarios, {len(bad)} failing, {len(errs)} with lint errors",
+             scenarios=len(rows), failing=len(bad), lint_errors=len(errs), seconds=round(time.perf_counter() - t0, 3))
+    a._exit = 2 if bad else 1 if errs else 0
+    w = max([len(r["file"]) for r in rows] + [8])
+    fw = max([len(" ".join(r["fits"])) for r in rows] + [4])
+    lines = [f"{'scenario':<{w}}  runs  {'fits':<{fw}}  lint (E/W/R)  result"]
+    for r in rows:
+        lines.append(f"{r['file']:<{w}}  {r['runs']:>4}  {' '.join(r['fits']):<{fw}}  "
+                     f"{r['errors']}/{r['warnings']}/{r['requests']:<9}  " + ("FAIL " + " | ".join(r["failed"]) if r["failed"] else "ok")
+                     + (f"   unneeded: {len(r['unneeded'])}" + (f" ({', '.join(r['unneeded'])})" if len(r["unneeded"]) <= 3 else "")
+                        if r.get("unneeded") else ""))
+    lines.append(f"{len(rows)} scenarios, {len(bad)} failing, {len(errs)} with lint errors, "
+                 f"{time.perf_counter() - t0:.1f}s")
+    return emit_out(rows, a.format or "text", "\n".join(lines))
 
 
 def ablate(spec, bus=NULL):
     rows = []
     for r in [r for r in runs_of(spec) if not r.get("counterfactual")]:
         full, total = score(run({**spec, "runs": [r]})[0][1])
-        for c in [c for c in spec.get("censors", []) if "kind" in c]:
+        dropped = {x["id"] for x in r.get("add_censors", []) if x.get("drop")}
+        for c in [c for c in spec.get("censors", []) if "kind" in c and c["id"] not in dropped]:
             trimmed = {**spec, "runs": [r], "censors": [x for x in spec["censors"] if x["id"] != c["id"]]}
             hits, _ = score(run(trimmed)[0][1])
             rows.append({"run": r["name"], "censor": c["id"], "fit_without": f"{hits}/{total}",
@@ -1089,7 +1167,8 @@ def cmd_lineage(a, bus):
             "part": part.get("id") if isinstance(part, dict) else part,
             "about": (part.get("about") or "").strip() or None if isinstance(part, dict) else None,
             "censors": [c["id"] for c in raw.get("censors", []) if "kind" in c],
-            "patches": [c["id"] for c in raw.get("censors", []) if "kind" not in c],
+            "patches": [c["id"] for c in raw.get("censors", []) if "kind" not in c and not c.get("drop")],
+            "drops": [c["id"] for c in raw.get("censors", []) + raw.get("schemas", []) if c.get("drop")],
             "schemas": [s["id"] for s in raw.get("schemas", [])],
             "values": agent.get("values") or {},
             "items": sorted(agent.get("items") or {}),
@@ -1103,6 +1182,7 @@ def cmd_lineage(a, bus):
                 f"{len(r['schemas'])} schemas" if r["schemas"] else "",
                 "censors " + ", ".join(r["censors"]) if r["censors"] else "",
                 "covers " + ", ".join(r["patches"]) if r["patches"] else "",
+                "drops " + ", ".join(r["drops"]) if r["drops"] else "",
                 "values " + ", ".join(f"{k}={v}" for k, v in r["values"].items()) if r["values"] else "",
                 f"{r['events']} events" if r["events"] else ""]
         lines.append(f"{n:2}. {r['file']}" + (f"  [{r['part']}]" if r["part"] else ""))
@@ -1197,6 +1277,8 @@ def main(argv=None):
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="command", required=True)
     s = sub.add_parser("resolve", parents=[common]); s.add_argument("files", nargs="+")
+    s = sub.add_parser("suite", parents=[common]); s.add_argument("paths", nargs="+")
+    s.add_argument("--ablate", action="store_true", help="also list censors each factual run doesn't need")
     for name in ("lint", "test", "ablate", "export", "lineage"):
         sub.add_parser(name, parents=[common]).add_argument("file")
     s = sub.add_parser("run", parents=[common]); s.add_argument("file"); s.add_argument("--run")

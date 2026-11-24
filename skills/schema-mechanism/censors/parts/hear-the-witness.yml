@@ -1,0 +1,15 @@
+# PART hear-the-witness — one anecdotal censor. Snap onto vouching-logic.
+# Template cover.
+
+part: { id: hear-the-witness, kind: censor, about: "Anecdotal precursor. Not having heard it myself is no reason to discount someone who did." }
+
+censors:
+  - id: hear-the-witness
+    kind: precursor
+    anecdotal: true
+    action: discount-witness
+    context: [accuser-is-witness]
+    harm: [stays-wrong]
+    cover: "He wouldn't say it to me. That's not evidence he didn't say it."
+    source: template
+    note: "The patch for not-to-me."

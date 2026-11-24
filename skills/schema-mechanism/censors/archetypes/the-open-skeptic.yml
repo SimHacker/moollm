@@ -1,0 +1,17 @@
+# ARCHETYPE the open skeptic — facts first, including about the friend
+# The same logic as the principled ally, and none of its censors. Four
+# anecdotal censors instead, each the patch for one of the ally's: ask the
+# friend (outside-scope), ask the third party anyway (grievance), check the
+# friend's story (confidential-memory), hear the witness (not-to-me).
+# `diff` against the-principled-ally shows the same schemas and opposite
+# patches.
+
+part: { id: the-open-skeptic, kind: archetype, about: "Facts-first logic with four anecdotal patches: ask the friend, ask the third party, check the story, hear the witness." }
+
+inherits:
+  - ../personalities/principled-skeptic.yml
+  - ../parts/vouching-logic.yml
+  - ../parts/ask-the-accused.yml
+  - ../parts/distrust-is-not-refusal.yml
+  - ../parts/trust-but-verify.yml
+  - ../parts/hear-the-witness.yml

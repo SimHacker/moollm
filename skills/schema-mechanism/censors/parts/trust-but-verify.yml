@@ -1,0 +1,15 @@
+# PART trust-but-verify — one anecdotal censor. Snap onto vouching-logic.
+# Template cover.
+
+part: { id: trust-but-verify, kind: censor, about: "Anecdotal precursor. A friend's story I've repeated is one I check when asked." }
+
+censors:
+  - id: trust-but-verify
+    kind: precursor
+    anecdotal: true
+    action: keep-ally-story
+    context: [asked-to-verify]
+    harm: [stays-wrong]
+    cover: "If I repeated it, I should be able to check it."
+    source: template
+    note: "The patch for confidential-memory."
