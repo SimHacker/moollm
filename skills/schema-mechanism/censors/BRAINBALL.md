@@ -254,3 +254,56 @@ words, not the cause of what he did. These records are short: four to
 eight choices each. They're enough to check the traits against the record,
 not to prove them. `predict` and the [live-events loop](LIVE.md) are how
 they get tested.
+
+## The accused and the friend: traits from private records
+
+Two more sets of traits were drawn from private records of real people,
+which stay private. The traits are generic, with template covers, and
+belong to anyone. Each comes with a fictional worked example, so the parts
+are tested in public without the people.
+
+**The friend's second round.** [`vouching-logic`](parts/vouching-logic.yml)
+adds two choices to principled-skeptic: believe the witness or discount
+them, and check the friend's story or keep it.
+
+| Trait | Kind | What it does |
+|---|---|---|
+| [`not-to-me`](parts/not-to-me.yml) | precursor | discounts the witness: "he never said that to me." Not having heard it passes for having no facts |
+| [`confidential-memory`](parts/confidential-memory.yml) | precursor | won't check the friend's story: it was confidential, and memory is vague, though it was good enough to repeat |
+| [`loyalty-debt`](parts/loyalty-debt.yml) | drive | he stood by me, so not pressing him repays it |
+
+[`the-principled-ally`](archetypes/the-principled-ally.yml) is the loyal
+friend plus all three. Worked example:
+[`beekeepers-second-round.yml`](examples/beekeepers-second-round.yml).
+Fitting the record turned up something general. A loyalty debt and the
+`outside-scope` censor are rival accounts of the same choice, not pressing
+the friend. With the debt, the censor isn't needed; without it, it is.
+Both fit, and the person usually says both.
+
+**The accused.** [`accused-logic`](parts/accused-logic.yml) is the other
+side of principled-skeptic: the person who said it, asked about it.
+Confirm, deny, retract, apologize, name the context, or refuse; hear the
+critic out, or answer the critic's state of mind instead; repair the
+friendship, or close it. Its default weights are someone who would rather
+know, values the friendship, and won't lie, so every evasion costs
+something and only a censor explains it.
+
+| Trait | Kind | What it does |
+|---|---|---|
+| [`missing-context`](parts/missing-context.yml) | precursor | "out of context," and the context is never named; naming it is the one move the defense can't survive |
+| [`fellow-martyr`](parts/fellow-martyr.yml) | precursor | won't confirm: the critic is doing to him what was done to a famous victim |
+| [`pathologize-the-critic`](parts/pathologize-the-critic.yml) | precursor | no apology to someone who must be unwell to object |
+| [`only-you`](parts/only-you.yml) | precursor | won't hear the critic: nobody else thinks so |
+| [`the-great-run`](parts/the-great-run.yml) | precursor | the friendship goes into the past tense instead of being repaired |
+| [`the-divisive-one`](parts/the-divisive-one.yml) | precursor | a call for unity, or an objection, is heard as the division |
+| [`reverse-victim`](parts/reverse-victim.yml) | suppressor | the one who said it is the one being wronged |
+
+[`the-unrepentant`](archetypes/the-unrepentant.yml) is accused-logic plus
+the first six. Worked example:
+[`unrepentant-beekeeper.yml`](examples/unrepentant-beekeeper.yml), the
+accused from the beekeepers story. Two hypotheses fit every choice: the
+archetype, with all six censors needed, and a face-first mind with no
+censors at all. The record can't separate them. A joke that exposes the
+out-of-context move can: the repressing mind then names the context, and
+the face-first one doesn't change, because there's nothing to expose.
+`argue` finds that split before anyone tells the joke.

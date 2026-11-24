@@ -1,0 +1,69 @@
+# PART accused-logic — what someone accused of saying something can do
+# ============================================================================
+# Shared logic, no censors. The other side of principled-skeptic: that file
+# is the friend deciding whether to believe it; this one is the person who
+# said it, asked about it. Confirm, deny, retract, apologize, name the
+# context, or refuse; hear the critic out, or answer the critic instead of
+# the point; keep the friendship, or close it.
+#
+# Who-parameters: {critic} is the one asking.
+#
+# Observed items, set by an event only with a source:
+#   asked-to-confirm   {critic} asks: did you say it?
+#   asked-for-context  {critic} asks: what's the context that makes it ok?
+#   unity-appeal       someone forwards a call to bridge divides
+#   friendship-on      a friendship with {critic} is still going
+# Latent items, never set by events:
+#   knows-i-was-wrong  the forbidden thought; contradicts i-am-right
+#   lie-on-record      a denial a witness can contradict
+#
+# Default values are those of someone who'd rather know, values the
+# friendship, and won't lie: with them, every evasive move costs something
+# and only a censor explains it. A face-first mind overrides them (drive-face); then the record
+# may need no censors at all, and `ablate` will say so.
+# ============================================================================
+
+part: { id: accused-logic, kind: logic, about: "Confirm, deny, retract, apologize, name the context, or answer the critic instead." }
+
+agent:
+  name: "{self}"
+  items:
+    accusation-heard: off
+    asked-to-confirm: off
+    asked-for-context: off
+    unity-appeal: off
+    friendship-on: on
+    i-am-right: on
+    knows-i-was-wrong: off
+    lie-on-record: off
+    on-record: off
+    informed: off
+    avoid-error: off
+    face: on
+    calm: on
+  values:
+    informed: 5
+    avoid-error: 3
+    friendship-on: 3
+    face: 1
+    calm: 1
+    lie-on-record: -4
+    knows-i-was-wrong: -3
+  contradictions:
+    - [knows-i-was-wrong, i-am-right]
+
+schemas:
+  - { id: confirm,              action: confirm,              context: [asked-to-confirm],  result: { on-record: on, avoid-error: on } }
+  - { id: deny,                 action: deny,                 context: [asked-to-confirm],  result: { calm: on, lie-on-record: on } }
+  - { id: claim-out-of-context, action: claim-out-of-context, context: [asked-to-confirm],  result: { calm: on } }
+  - { id: name-context,         action: name-context,         context: [asked-for-context], result: { informed: on, knows-i-was-wrong: on }, note: "named, it can be checked" }
+  - { id: refuse-to-answer,     action: refuse-to-answer,     context: [],                  result: { calm: on } }
+  - { id: retract,              action: retract,              context: [accusation-heard],  result: { knows-i-was-wrong: on, avoid-error: on, face: off } }
+  - { id: apologize,            action: apologize,            context: [accusation-heard],  result: { knows-i-was-wrong: on, avoid-error: on, friendship-on: on, face: off } }
+  - { id: hear-critic-out,      action: hear-critic-out,      context: [accusation-heard],  result: { knows-i-was-wrong: on, informed: on } }
+  - { id: diagnose-critic,      action: diagnose-critic,      context: [accusation-heard],  result: { calm: on }, note: "answer the critic's state of mind, not the point" }
+  - { id: cut-off,              action: cut-off,              context: [],                  result: { calm: on, friendship-on: off } }
+  - { id: repair-friendship,    action: repair-friendship,    context: [],                  result: { friendship-on: on, knows-i-was-wrong: on } }
+  - { id: close-the-friendship, action: close-the-friendship, context: [],                  result: { calm: on, friendship-on: off } }
+  - { id: engage,               action: engage,               context: [unity-appeal],      result: { informed: on } }
+  - { id: call-it-divisive,     action: call-it-divisive,     context: [unity-appeal],      result: { calm: on } }

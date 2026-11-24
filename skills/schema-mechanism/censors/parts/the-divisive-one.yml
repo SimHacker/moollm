@@ -1,0 +1,16 @@
+# PART the-divisive-one — one censor. Snap onto accused-logic.
+# Template cover.
+
+part: { id: the-divisive-one, kind: censor, about: "Precursor. A call for unity, or an objection, is heard as the division." }
+
+censors:
+  - id: the-divisive-one
+    kind: precursor
+    action: engage
+    context: [unity-appeal]
+    harm: [knows-i-was-wrong]
+    cover: "This is just more divisiveness."
+    source: template
+    note: >
+      Whoever names a division is blamed for it. The objection becomes the
+      problem, so the thing objected to never has to be looked at.

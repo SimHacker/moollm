@@ -32,8 +32,8 @@ recursive, multiple: a part two parents share is merged once, where it
 first appears). `imports: [{from: FILE, take: [id, values.KEY]}]` takes
 single traits from an archetype without the rest of it. Layers merge in
 order: dicts merge, lists of `id`ed entries
-(schemas, censors) merge by id, `drop: true` deletes one, anything else is
-replaced. `who:` fills `{name}` placeholders in every string. A scenario
+(schemas, censors) merge by id, `drop: true` deletes one, lists of pairs
+(contradictions) accumulate, anything else is replaced. `who:` fills `{name}` placeholders in every string. A scenario
 path of `-` reads YAML from stdin.
 
 Commands:
@@ -181,6 +181,10 @@ def merge(base, over):
         for k, v in over.items():
             out[k] = merge(base[k], v) if k in base else v
         return out
+    # Lists of pairs (contradictions) accumulate: each part adds its own.
+    if (isinstance(base, list) and isinstance(over, list) and base and over
+            and all(isinstance(x, list) for x in base + over)):
+        return base + [x for x in over if x not in base]
     key = keyed(base, over)
     if key:
         out = {x[key]: x for x in base}

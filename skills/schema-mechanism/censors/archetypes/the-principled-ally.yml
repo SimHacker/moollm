@@ -1,0 +1,14 @@
+# ARCHETYPE the principled ally — facts first, except about the friend
+# Builds on the loyal friend: the same facts-first logic and five loyalty
+# censors, plus the second round. He discounts the witness because he
+# never heard it himself, keeps the friend's story because it was
+# confidential, and owes the friend for standing by him.
+
+part: { id: the-principled-ally, kind: archetype, about: "Facts-first logic and loyalty censors; the witness discounted, the friend's story unchecked, a debt repaid." }
+
+inherits:
+  - the-loyal-friend.yml
+  - ../parts/vouching-logic.yml
+  - ../parts/not-to-me.yml
+  - ../parts/confidential-memory.yml
+  - ../parts/loyalty-debt.yml

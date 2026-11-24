@@ -1,0 +1,29 @@
+# PART vouching-logic — believing a witness, checking a friend's story
+# ============================================================================
+# Shared logic, no censors. Snap onto principled-skeptic. Two choices the
+# friend of an accused person faces after the first round: whether to
+# believe someone who heard it first-hand, and whether to check the story
+# the accused told him.
+#
+# Observed items, set by an event only with a source:
+#   asked-to-verify    someone asks: did you check what {ally} told you?
+# Latent items:
+#   knows-ally-misled-me   contradicts ally-is-decent
+# ============================================================================
+
+part: { id: vouching-logic, kind: logic, about: "Believe the witness or discount them; check the friend's story or keep it." }
+
+agent:
+  items:
+    asked-to-verify: off
+    knows-ally-misled-me: off
+  values:
+    knows-ally-misled-me: -2
+  contradictions:
+    - [knows-ally-misled-me, ally-is-decent]
+
+schemas:
+  - { id: believe-witness,   action: believe-witness,   context: [accuser-is-witness], result: { knows-ally-said-bigoted-things: on, informed: on } }
+  - { id: discount-witness,  action: discount-witness,  context: [],                   result: { calm: on } }
+  - { id: verify-ally-story, action: verify-ally-story, context: [asked-to-verify],    result: { knows-ally-misled-me: on, informed: on } }
+  - { id: keep-ally-story,   action: keep-ally-story,   context: [],                   result: { calm: on } }

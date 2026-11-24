@@ -1,0 +1,11 @@
+# PART loyalty-debt — a priority and one schema, no censors
+
+part: { id: loyalty-debt, kind: drive, about: "He stood by me, so I don't press him." }
+
+agent:
+  values: { debt-repaid: 2 }
+  items: { debt-repaid: off }
+
+schemas:
+  - { id: not-press-indebted, action: not-press-ally, context: [ally-defended-me],
+      result: { calm: on, debt-repaid: on }, note: "not pressing is how the debt gets paid" }

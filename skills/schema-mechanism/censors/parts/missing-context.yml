@@ -1,0 +1,18 @@
+# PART missing-context — one censor. Snap onto accused-logic.
+# Template cover.
+
+part: { id: missing-context, kind: censor, about: "Precursor. The words were taken out of context; the context is never named." }
+
+censors:
+  - id: missing-context
+    kind: precursor
+    action: name-context
+    context: [asked-for-context]
+    harm: [knows-i-was-wrong]
+    cover: "You took my words out of context."
+    source: template
+    note: >
+      Out of context is a claim that can be settled by naming the context.
+      This censor fires at exactly that step. The claim stays available as
+      a defense for as long as the context stays unnamed, so naming it is
+      the one move the defense can't survive.

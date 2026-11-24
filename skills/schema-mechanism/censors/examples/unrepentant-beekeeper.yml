@@ -1,0 +1,84 @@
+# The unrepentant beekeeper — the accused's side of beekeepers.yml
+# ============================================================================
+# Fiction. Nobody here is real. Tom Pollard said at the honey show that
+# people from the estates are "all thieves". beekeepers.yml is Ruth
+# deciding whether to believe it; this is Tom, asked about it.
+#
+# He never confirms it and never denies it. It was out of context, and the
+# context is never named. The critic needs help, nobody else thinks so, and
+# the friendship had a good run. Two hypotheses fit every choice:
+#
+#   repressing   he'd rather know, values the friendship, won't lie; six
+#                censors (the-unrepentant) do the work
+#   face-first   standing first, no censors; the same choices, calculated
+#
+# They part on one kind of event: a joke that exposes the out-of-context
+# move. Under `repressing` it lets him name the context; under
+# `face-first` nothing changes, because there's no censor to expose.
+#
+# Run:
+#   python3 ../../scripts/censor_sim.py test   unrepentant-beekeeper.yml
+#   python3 ../../scripts/censor_sim.py ablate unrepentant-beekeeper.yml
+# ============================================================================
+
+inherits:
+  - ../archetypes/the-unrepentant.yml
+
+who:
+  self: "Tom Pollard"
+  critic: "Mags Hartley"
+
+censors:                          # his words, from the story
+  - { id: missing-context,        cover: "You've taken what I said right out of context, Mags.",       source: "the story, ch. 8" }
+  - { id: fellow-martyr,          cover: "You're doing to me what they did to old Arthur at the allotments.", source: "the story, ch. 8" }
+  - { id: pathologize-the-critic, cover: "You want to see someone about that temper.",                  source: "the story, ch. 8" }
+  - { id: only-you,               cover: "Nobody else at the Society thinks so.",                       source: "the story, ch. 9" }
+  - { id: the-great-run,          cover: "We had some good years, the two of us.",                      source: "the story, ch. 9" }
+  - { id: the-divisive-one,       cover: "More of this us-and-them stuff. Bees don't care where you live.", source: "the story, ch. 10" }
+
+events:
+  - { t: 1, set: { accusation-heard: on }, say: "Mags, at the show: you can't say that about people from the estates",
+      offers: [hear-critic-out, cut-off], observed: cut-off }
+  - { t: 2, say: "Mags writes to him", offers: [apologize, diagnose-critic], observed: diagnose-critic,
+      response: "You want to see someone about that temper." }
+  - { t: 3, set: { asked-to-confirm: on }, say: "Mags: did you say it or not?",
+      offers: [confirm, deny, claim-out-of-context], observed: claim-out-of-context,
+      response: "You've taken what I said right out of context, Mags." }
+  - { t: 3.1, set: { asked-to-confirm: off } }
+  - { t: 4, set: { asked-for-context: on }, say: "Mags: then what was the context?",
+      offers: [name-context, refuse-to-answer], observed: refuse-to-answer }
+  - { t: 5, offers: [hear-critic-out, refuse-to-answer], observed: refuse-to-answer,
+      response: "Nobody else at the Society thinks so." }
+  - { t: 6, offers: [repair-friendship, close-the-friendship], observed: close-the-friendship,
+      response: "We had some good years, the two of us." }
+  - { t: 7, set: { unity-appeal: on }, say: "the Society newsletter: 'one hive, one town'",
+      offers: [engage, call-it-divisive], observed: call-it-divisive,
+      response: "More of this us-and-them stuff. Bees don't care where you live." }
+
+runs:
+  - name: repressing
+    about: "He'd rather know, values the friendship, and won't lie. Every evasion needs a censor."
+    expect: { fit: "7/7" }
+  - name: face-first
+    about: "Standing first, no censors. Every evasion is just the move that keeps face."
+    expect: { fit: "7/7" }
+    agent:
+      values: { face: 5, calm: 2, informed: 0, avoid-error: 0, friendship-on: 1, lie-on-record: -4, knows-i-was-wrong: -3 }
+    add_censors:
+      - { id: missing-context, drop: true }
+      - { id: fellow-martyr, drop: true }
+      - { id: pathologize-the-critic, drop: true }
+      - { id: only-you, drop: true }
+      - { id: the-great-run, drop: true }
+      - { id: the-divisive-one, drop: true }
+  - name: the-joke
+    counterfactual: true
+    about: >
+      Repressing, plus Ruth's granddaughter: "Grandad Tom, if it was out of
+      context, what was the context? That's the bit you never say." The
+      joke exposes missing-context; asked again, he can name it.
+    expect: { choices: [cut-off, diagnose-critic, claim-out-of-context, refuse-to-answer, refuse-to-answer, close-the-friendship, call-it-divisive, name-context] }
+    events:
+      - t: 7.5
+        joke: { text: "If it was out of context, what was the context? That's the bit you never say.", exposes: missing-context, discount: 0.5 }
+      - { t: 8, offers: [name-context, refuse-to-answer] }

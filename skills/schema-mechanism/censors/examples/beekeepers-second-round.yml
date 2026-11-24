@@ -1,0 +1,57 @@
+# The Downs Beekeeping Society, second round — the principled ally's new traits
+# ============================================================================
+# Fiction. Nobody here is real. A sequel to beekeepers.yml with a different
+# ending: no granddaughter. Ruth never asks Tom, and the second round adds
+# the traits of the-principled-ally: she discounts the witness because Tom
+# never said such a thing to her, keeps the story Tom told her because it
+# was told in confidence, and owes Tom for standing by her when the Hive
+# Watch reported her hives.
+#
+# Run: python3 ../../scripts/censor_sim.py test beekeepers-second-round.yml
+# ============================================================================
+
+inherits:
+  - ../archetypes/the-principled-ally.yml
+
+who:
+  self: "Ruth Ashby, president of the Downs Beekeeping Society"
+  ally: "Tom Pollard"
+  accuser: "Mags Hartley"
+  org: "the County Hive Watch"
+
+agent:
+  values: { informed: 7, ally-is-decent: 3, knows-ally-said-bigoted-things: -5 }
+  items: { accusers-condemned-me: on }
+
+censors:                          # her words, from the story
+  - { id: politics-frame,      cover: "Tom and I have never agreed about the council estates.", source: "the story, ch. 2" }
+  - { id: too-long,            cover: "Twelve pages, Mags? About a honey show?",              source: "the story, ch. 3" }
+  - { id: outside-scope,       cover: "The Society is about bees. What Tom thinks of people is his own affair.", source: "the story, ch. 3" }
+  - { id: grievance,           cover: "The Hive Watch reported my hives to the council. I'll make up my own mind.", source: "the story, ch. 4" }
+  - { id: tone,                cover: "Mags, you're shouting at me.",                         source: "the story, ch. 4" }
+  - { id: not-to-me,           cover: "Tom's never said a word like that in front of me.",    source: "the story, ch. 11" }
+  - { id: confidential-memory, cover: "Tom told me his side in confidence, and I don't remember the details.", source: "the story, ch. 11" }
+
+events:
+  - { t: 1, set: { accusation-heard: on }, say: "Mags: at the honey show Tom said people from the estates are 'all thieves'",
+      offers: [ask-for-written-proof, believe-accuser], observed: ask-for-written-proof }
+  - { t: 2, set: { ally-defended-me: on }, say: "a short note from Mags, Tom's sentence word for word; Ruth remembers Tom standing up for her against the Hive Watch",
+      offers: [read-summary], observed: read-summary }
+  - { t: 3, set: { long-text: on, accuser-is-witness: on, accused-own-words: on, accused-askable: on },
+      say: "Mags's full account, twelve pages", offers: [read-long-text, decline-long-text], observed: decline-long-text }
+  - { t: 4, offers: [ask-ally, not-press-ally], observed: not-press-ally }
+  - { t: 5, offers: [ask-org, discount-org], observed: discount-org }
+  - { t: 6, offers: [hear-accuser-out, call-it-lecturing], observed: call-it-lecturing }
+  - { t: 7, set: { asked-to-verify: on }, say: "Mags: did you check what Tom told you?",
+      offers: [verify-ally-story, keep-ally-story], observed: keep-ally-story }
+  - { t: 8, say: "Mags: I was standing next to him",
+      offers: [believe-witness, discount-witness], observed: discount-witness }
+
+runs:
+  - name: debt
+    about: "Tom stood by her, so not pressing him repays it; the scope censor isn't needed."
+    expect: { fit: "8/8" }
+  - name: scope
+    about: "No debt. Then not pressing Tom needs the scope censor. Both fit; her words offer both."
+    expect: { fit: "8/8" }
+    agent: { values: { debt-repaid: 0 } }

@@ -1,0 +1,17 @@
+# PART not-to-me — one censor. Snap onto vouching-logic.
+# Template cover.
+
+part: { id: not-to-me, kind: censor, about: "Precursor. He never said it to me, so the witness is discounted." }
+
+censors:
+  - id: not-to-me
+    kind: precursor
+    action: believe-witness
+    context: [accuser-is-witness]
+    harm: [knows-ally-said-bigoted-things]
+    cover: "He never said anything like that to me."
+    source: template
+    note: >
+      Not having heard something is not evidence against someone who did.
+      This censor treats it as if it were, and the facts-first principle
+      can't see the swap, because "I have no facts" sounds like the principle.

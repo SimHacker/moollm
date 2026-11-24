@@ -1,0 +1,17 @@
+# PART pathologize-the-critic — one censor. Snap onto accused-logic.
+# Template cover.
+
+part: { id: pathologize-the-critic, kind: censor, about: "Precursor. No apology to someone who must be unwell to object." }
+
+censors:
+  - id: pathologize-the-critic
+    kind: precursor
+    action: apologize
+    context: [accusation-heard]
+    harm: [knows-i-was-wrong]
+    cover: "You should get some help."
+    source: template
+    note: >
+      If objecting is a symptom, the objection needs treatment, not an
+      answer, and the more strongly the critic objects, the sicker he looks.
+      Like persecution, it can't be falsified by anything the critic says.

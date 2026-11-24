@@ -1,0 +1,16 @@
+# PART reverse-victim — one censor. Snap onto accused-logic.
+# Template cover.
+
+part: { id: reverse-victim, kind: censor, about: "Suppressor. The one who said it is the one being wronged." }
+
+censors:
+  - id: reverse-victim
+    kind: suppressor
+    context: [accusation-heard]
+    state: [knows-i-was-wrong]
+    refile: { knows-i-was-wrong: off, i-am-wronged: on }
+    cover: "I'm the one being discriminated against."
+    source: template
+    note: >
+      Fires after the thought forms, so it shows up after a concession, not
+      before one: he heard it, and re-filed it as an attack on himself.

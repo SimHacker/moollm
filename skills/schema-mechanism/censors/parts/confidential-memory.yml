@@ -1,0 +1,17 @@
+# PART confidential-memory — one censor. Snap onto vouching-logic.
+# Template cover.
+
+part: { id: confidential-memory, kind: censor, about: "Precursor. The friend's story can't be checked: it was confidential, and memory is vague." }
+
+censors:
+  - id: confidential-memory
+    kind: precursor
+    action: verify-ally-story
+    context: [asked-to-verify]
+    harm: [knows-ally-misled-me]
+    cover: "That's all I remember, and it was confidential."
+    source: template
+    note: >
+      The story was good enough to repeat, and too vague and too private to
+      check. Both can be true; the censor is the asymmetry, when only the
+      checking is ruled out.
