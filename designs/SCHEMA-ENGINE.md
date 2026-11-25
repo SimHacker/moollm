@@ -666,9 +666,11 @@ dentist's `book-appointment` schema so planning has somewhere to go.
 
 ## 15. Next
 
+What remains of Drescher's design, why, and the build order are in
+[SCHEMA-ENGINE-PLAN.md](SCHEMA-ENGINE-PLAN.md). Other items:
+
 - Duets with more than two seats, and minds that choose when to move.
 - `propose` for more than one switch per action.
-- Synthetic items for unreliable learned schemas, proposed by the engine.
 - Outcome events for the public-figure records, so `learn` has results to find.
 - Multi-step `argue`: a sequence of arguments, not one.
 - Longer public-figure records, and words grounded in what was actually
